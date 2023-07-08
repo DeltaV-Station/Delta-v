@@ -622,3 +622,14 @@
     sprite: Clothing/Head/Hats/hetman_hat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/hetman_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretContractor
+  name: contractor's beret
+  description: A black beret with a contractor's company emblem. For contractors that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_contractor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_contractor.rsi

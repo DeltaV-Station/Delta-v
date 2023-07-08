@@ -1036,3 +1036,20 @@
     sprite: Clothing/Uniforms/Jumpsuit/cossack.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/cossack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitContractor
+  name: contractor uniform
+  description: A padded suit usually worn by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/contractor.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/contractor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8

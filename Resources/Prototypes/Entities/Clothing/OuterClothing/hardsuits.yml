@@ -792,3 +792,91 @@
     damageCoefficient: 0.7
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
+
+#Mercenary
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitContractorLight
+  name: light contractor hardsuit
+  description: A lightly armored variant of the civilian EVA suit worn by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/lightcontractor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/lightcontractor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitContractorLight
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitContractor
+  name: contractor hardsuit
+  description: A heavily armored and agile advanced hardsuit often worn by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/contractor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/contractor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.4
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitContractor
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitContractorHeavy
+  name: heavy contractor hardsuit
+  description: A heavily armored, expensive suit supplemented with a powered exoskeleton worn most often by veteran contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/heavycontractor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/heavycontractor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85 #extremely slow
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.2
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitContractorHeavy

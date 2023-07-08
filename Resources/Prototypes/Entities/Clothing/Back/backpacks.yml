@@ -228,3 +228,12 @@
     popup: false
   - type: OfHolding
 
+#Mercenary
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackMercenary
+  name: contractor backpack
+  description: A spacious backpack with lots of pockets, worn by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/contractor.rsi

@@ -102,3 +102,28 @@
       walkModifier: 1
       sprintModifier: 1
       enabled: false
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesBootsMagContractor
+  name: olive magboots
+  description: Advanced magnetic boots that have a heavy magnetic pull, worn by independent contractors.
+  components:
+    - type: Sprite
+      sprite: Clothing/Shoes/Boots/magboots-contractor.rsi
+      state: icon
+    - type: Clothing
+      sprite: Clothing/Shoes/Boots/magboots-contractor.rsi
+    - type: Magboots
+      toggleAction:
+        icon: { sprite: Clothing/Shoes/Boots/magboots-contractor.rsi, state: icon }
+        iconOn: Clothing/Shoes/Boots/magboots-contractor.rsi/icon-on.png
+        name: action-name-magboot-toggle
+        description: action-decription-magboot-toggle
+        itemIconStyle: NoItem
+        event: !type:ToggleActionEvent
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+      enabled: false
+

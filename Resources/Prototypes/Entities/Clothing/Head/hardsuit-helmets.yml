@@ -568,3 +568,79 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+
+#Mercenary
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitContractorLight
+  noSpawn: true
+  name: light contractor hardsuit helmet
+  description: A lightweight, armored helmet used by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/lightcontractor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/lightcontractor.rsi
+  - type: PointLight
+    color: orange
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.8
+        Heat: 0.9
+        Radiation: 0.8
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitContractor
+  noSpawn: true
+  name: contractor hardsuit helmet
+  description: An armored helmet used by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/contractor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/contractor.rsi
+  - type: PointLight
+    color: orange
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.5
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitContractorHeavy
+  noSpawn: true
+  name: heavy contractor hardsuit helmet
+  description: A heavily armored helmet used by independent contractors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/heavycontractor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/heavycontractor.rsi
+  - type: PointLight
+    color: orange
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.2
+        Heat: 0.8
+        Radiation: 0.5
