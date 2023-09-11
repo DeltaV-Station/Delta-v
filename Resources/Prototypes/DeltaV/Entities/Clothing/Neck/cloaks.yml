@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakMystagogue
+  name: mystagogue's cloak
+  description: A comfy white and purple cloak, perfect for those sleepless nights when you're haunted by the yet unsolved mysteries of the universe.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/mystacloak.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Neck/Cloaks/mystacloak.rsi    
