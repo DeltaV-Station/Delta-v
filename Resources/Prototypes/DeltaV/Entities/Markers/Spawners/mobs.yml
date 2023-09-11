@@ -1,0 +1,12 @@
+- type: entity
+  name: Arctic Fox Siobhan Spawner
+  id: SpawnMobArcticFoxSiobhan
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobArcticFoxSiobhan
