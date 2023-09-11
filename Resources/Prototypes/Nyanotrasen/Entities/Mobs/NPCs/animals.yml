@@ -1,4 +1,4 @@
-- type: entity
+ type: entity
   name: mothroach
   parent: SimpleMobBase
   id: MobMothroach
@@ -14,6 +14,7 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Chitter
+    speechVerb: SmallMob
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Nyanotrasen/Mobs/Animals/mothroach.rsi
@@ -28,15 +29,12 @@
     equippedPrefix: 0
     slots:
     - HEAD
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: mothroach
-      Critical:
-        Base: mothroach_dead
-      Dead:
-        Base: mothroach_dead
+  - type: NpcFactionMember
+    factions:
+      - Mouse
+  - type: HTN
+    rootTask:
+      task: MouseCompound
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -44,43 +42,37 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 10
+        density: 150
         mask:
         - SmallMobMask
         layer:
         - SmallMobLayer
   - type: MobState
+  - type: Deathgasp
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
   - type: MobThresholds
     thresholds:
       0: Alive
       25: Critical
       50: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
+    baseWalkSpeed : 5
     baseSprintSpeed : 5
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Moff # moff
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 0.5
-    damageRecovery:
-      types:
-        Asphyxiation: -0.5
-  # TODO: Remove CombatMode when Prototype Composition is added
-  - type: CombatMode
-    combatToggleAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-combat
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatRat
-      amount: 2
-    - id: HideMothroach # Gotta make the plushies
-      amount: 1
-      prob: 0.5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_sleep #replace whenever they can actually rest/sleep
+      Dead:
+        Base: mothroach_dead
+  - type: Food
+  - type: Hunger
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -89,25 +81,46 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Bloodstream
-    bloodMaxVolume: 70
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 2
+    - id: HideMothroach # Gotta make the plushies
+      amount: 1
+      prob: 0.5
   - type: ReplacementAccent
     accent: mothroach
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
   - type: Vocal
     sounds:
       Male: Mothroach
       Female: Mothroach
       Unsexed: Mothroach
     wilhelmProbability: 0.001
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moth
+  - type: CombatMode
+    combatToggleAction: ActionCombatModeToggleOff
+  - type: Bloodstream
+    bloodMaxVolume: 70
+  - type: CanEscapeInventory
   - type: MobPrice
     price: 60
-  - type: Tag
-    tags:
-    - Trash
-    - CannotSuicide
-  - type: CanEscapeInventory
-  - type: HTN
-    rootTask: IdleEvadeCompound # Make eat food/clothes when a thing
-  - type: NpcFactionMember
-    factions:
-    - RatPassive
+  - type: Puller
+    needsHands: true
