@@ -1,0 +1,32 @@
+- type: entity
+  name: viper
+  parent: BaseWeaponPistol
+  id: WeaponPistolViperWood
+  description: A small, low-power pistol with pleasant lacquered wooden grips. Uses .35 auto ammo.
+  suffix: Wood
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/viperwood.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot

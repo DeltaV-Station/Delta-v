@@ -1,0 +1,30 @@
+﻿- type: entity
+  name: china lake
+  parent: BaseWeaponLauncher
+  suffix: Robot, energy based
+  id: WeaponLauncherChinaLakeBorg
+  description: PLOOP! Contains a built in replicator to slowly make more ammo.
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+      layers:
+        - state: icon
+          map: ["enum.GunVisualLayers.Base"]
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    - type: Gun
+      fireRate: 1
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    - type: Battery
+      maxCharge: 600
+      startingCharge: 300
+    - type: ProjectileBatteryAmmoProvider
+      proto: GrenadeFrag
+      fireCost: 300
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 2

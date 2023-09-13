@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: BulletLightRifleReplicated
+  name: replicated bullet (.20 rifle)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 5
+          Blunt: 7
