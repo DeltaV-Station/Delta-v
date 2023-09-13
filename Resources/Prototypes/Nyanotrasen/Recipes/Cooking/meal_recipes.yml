@@ -68,7 +68,7 @@
   result: FoodMothTomatoSauce
   time: 5
   reagents:
-#    OilCorn: 5
+    Cornoil: 5
     TableSalt: 5
   solids:
     FoodTomato: 1
@@ -329,7 +329,7 @@
   solids:
     FoodRiceBoiled: 1
     FoodMealFriedegg: 2
-    FoodMeatCutletCooked: 1 #Bacon
+    FoodMeatCutlet: 1 #FoodMeatBacon when it's actually findable
 
 - type: microwaveMealRecipe
   id: RecipeMothCornmealPorridge
@@ -338,9 +338,9 @@
   time: 10
   reagents:
     Water: 10
+    CornMeal: 10
   solids:
     FoodBowlBig: 1
-    FoodCorn: 1 #CornMeal
 
 - type: microwaveMealRecipe
   id: RecipeMothCheesyPorridge
@@ -481,8 +481,8 @@
   name: cotton pizza recipe
   result: FoodMothPizzaCotton
   time: 30
-#  reagents:
-#    OilCorn: 5
+  reagents:
+    Cornoil: 5
   solids:
     FoodDough: 1
     FoodMozzarella: 1
