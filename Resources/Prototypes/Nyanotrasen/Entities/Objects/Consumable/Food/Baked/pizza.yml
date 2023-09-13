@@ -211,6 +211,17 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: cotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 5
 
 - type: entity
   name: slice of cotton pizza
@@ -226,4 +237,15 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: cotton-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4.4
+        - ReagentId: Vitamin
+          Quantity: 0.8
+        - ReagentId: Fiber
+          Quantity: 0.8
 # Tastes like crust, cotton, cheese
