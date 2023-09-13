@@ -1,0 +1,23 @@
+- type: entity
+  name: snubbed .45
+  parent: BaseWeaponRevolver
+  id: WeaponRevolverSnub
+  description: An old and reliable revolver, modified to be more easily concealed. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Revolvers/webleysnubnose.rsi
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Revolvers/webleysnubnose.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    minAngle: 5
+    maxAngle: 30
+    angleIncrease: 25
+    angleDecay: 5
+    fireRate: 2.5
+    availableModes:
+    - SemiAuto
+  - type: RevolverAmmoProvider
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
