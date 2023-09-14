@@ -20,6 +20,5 @@ public sealed partial class FelinidComponent : Component
     [DataField("hairballAction")]
     public EntityUid? HairballAction = null;
     public EntityUid? EatActionTarget = null;
-
     public EntityUid? EatAction = null;
 }

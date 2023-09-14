@@ -33,9 +33,9 @@
       types:
         Blunt: 1
         Slash: 5
-  #- type: DiseaseCarrier
-  #  naturalImmunities:
-  #  - OwOnavirus
+#  - type: DiseaseCarrier
+#    naturalImmunities:
+#    - OwOnavirus
   - type: Thieving
     stealthy: true
     stripTimeReduction: 1
@@ -63,5 +63,8 @@
   id: MobFelinidDummy
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Felinid
 
 #Nya~~
