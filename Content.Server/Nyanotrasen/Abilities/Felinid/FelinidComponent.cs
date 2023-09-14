@@ -1,22 +1,25 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Prototypes;
-using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Actions;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Abilities.Felinid
+namespace Content.Server.Abilities.Felinid;
+
+[RegisterComponent]
+public sealed partial class FelinidComponent : Component
 {
-    [RegisterComponent]
-    public sealed class FelinidComponent : Component
-    {
-        /// <summary>
-        /// The hairball prototype to use.
-        /// </summary>
-        [DataField("hairballPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string HairballPrototype = "Hairball";
+    /// <summary>
+    /// The hairball prototype to use.
+    /// </summary>
+    [DataField("hairballPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string HairballPrototype = "Hairball";
 
-        [DataField("hairballAction")]
-        public InstantAction? HairballAction;
+    //[DataField("hairballAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    //public string HairballAction = "ActionHairball";
 
-        public EntityUid? PotentialTarget = null;
-    }
+    [DataField("hairballAction")]
+    public EntityUid? HairballAction = null;
+    public EntityUid? EatActionTarget = null;
+
+    public EntityUid? EatAction = null;
 }
