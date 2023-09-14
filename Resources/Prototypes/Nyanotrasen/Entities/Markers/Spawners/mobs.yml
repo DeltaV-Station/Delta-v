@@ -1,0 +1,14 @@
+- type: entity
+  name: Mothroach Spawner
+  id: SpawnMobMothroach
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Nyanotrasen/Mobs/Animals/mothroach.rsi
+        state: mothroach
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobMothroach
