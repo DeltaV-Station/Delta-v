@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackMafiaFilled
+  suffix: Filled, Mafia
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+        amount: 1
+      - id: ClothingOuterArmorBasic
+        amount: 1
+      - id: WeaponSubMachineGunTypewriter
+        amount: 1
+      - id: WeaponPistolViperWood
+        amount: 1
+      - id: MagazinePistol
+        amount: 1
+      - id: BaseBallBat
+        amount: 1
