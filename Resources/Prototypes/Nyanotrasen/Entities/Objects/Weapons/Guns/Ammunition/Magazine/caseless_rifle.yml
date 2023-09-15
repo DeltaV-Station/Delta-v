@@ -50,25 +50,6 @@
     zeroVisible: false
 
 - type: entity
-  id: MagazineUniversalCaselessRifleHighVelocity
-  name: "Universal magazine (.25 caseless high-velocity)"
-  parent: BaseMagazineUniversalCaselessRifle
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeCaselessRifleHighVelocity
-    capacity: 12
-  - type: Sprite
-    layers:
-    - state: high_velocity
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 12
-    zeroVisible: false
-
-- type: entity
   id: MagazineUniversalCaselessRiflePractice
   name: "Universal magazine (.25 caseless practice)"
   parent: BaseMagazineUniversalCaselessRifle
