@@ -1,24 +1,24 @@
-#- type: entity
-#  id: CrateArmoryGrand
-#  parent: CrateWeaponSecure
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: WeaponSniperGrand
-#        amount: 2
-#      - id: BoxSpeedLoaderLightRifle
-#        amount: 1
+- type: entity
+  id: CrateArmoryGrand
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSniperGrand
+        amount: 2
+      - id: BoxSpeedLoaderLightRifle
+        amount: 1
 
-#- type: entity
-#  id: CrateArmoryUniversal
-#  parent: CrateWeaponSecure
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: WeaponPistolUniversal
-#        amount: 2
-#      - id: MagazineUniversalCaselessRifle
-#        amount: 4
+- type: entity
+  id: CrateArmoryUniversal
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolUniversal
+        amount: 2
+      - id: MagazineUniversalCaselessRifle
+        amount: 4
 
 - type: entity
   id: CrateArmoryAdjutant
