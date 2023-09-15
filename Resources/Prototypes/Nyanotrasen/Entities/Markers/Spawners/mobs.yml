@@ -12,3 +12,17 @@
   - type: ConditionalSpawner
     prototypes:
       - MobMothroach
+
+- type: entity
+  name: Ferret Spawner
+  id: SpawnMobFerret
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobFerret
+      - MobFerretWhite

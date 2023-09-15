@@ -105,10 +105,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 1
+        - ReagentId: Fiber
+          Quantity: 4
 #Tastes like muffin, dust and lint

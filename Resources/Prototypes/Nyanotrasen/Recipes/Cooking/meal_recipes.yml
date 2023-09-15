@@ -50,52 +50,6 @@
     FoodOnionRedSlice: 1
     FoodTomato: 1
 
-- type: microwaveMealRecipe
-  id: RecipeMothTomatoSauceOlive
-  name: tomato sauce recipe
-  result: FoodMothTomatoSauce
-  time: 5
-  reagents:
-    OilOlive: 5
-    TableSalt: 5
-  solids:
-    FoodTomato: 1
-    #Herbs: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothTomatoSauceCorn
-  name: tomato sauce recipe
-  result: FoodMothTomatoSauce
-  time: 5
-  reagents:
-#    OilCorn: 5
-    TableSalt: 5
-  solids:
-    FoodTomato: 1
-    #Herbs: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothPesto
-  name: pesto recipe
-  result: FoodMothPesto
-  time: 5
-  reagents:
-    OilOlive: 5
-    TableSalt: 5
-  solids:
-    FoodGarlic: 1
-    #Herbs: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothBechamel
-  name: bechamel recipe
-  result: FoodMothBechamel
-  time: 5
-  reagents:
-    Milk: 5
-    Flour: 5
-    Butter: 5
-
 # Entrees
 
 - type: microwaveMealRecipe
@@ -173,11 +127,12 @@
   name: green lasagne recipe
   result: FoodMothGreenLasagne
   time: 20
+  reagents:
+    Bechamel: 10
+    Pesto: 5
   solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
-    FoodMothBechamel: 1
-    FoodMothPesto: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBakedCorn
@@ -329,7 +284,7 @@
   solids:
     FoodRiceBoiled: 1
     FoodMealFriedegg: 2
-    FoodMeatCutletCooked: 1 #Bacon
+    FoodMeatCutlet: 1 #FoodMeatBacon when it's actually findable
 
 - type: microwaveMealRecipe
   id: RecipeMothCornmealPorridge
@@ -338,9 +293,9 @@
   time: 10
   reagents:
     Water: 10
+    Cornmeal: 10
   solids:
     FoodBowlBig: 1
-    FoodCorn: 1 #CornMeal
 
 - type: microwaveMealRecipe
   id: RecipeMothCheesyPorridge
@@ -470,19 +425,20 @@
   name: pesto pizza recipe
   result: FoodMothPizzaPesto
   time: 30
+  reagents:
+    Pesto: 10
   solids:
     FoodDough: 1
     FoodTomato: 2
     FoodMozzarella: 2
-    FoodMothPesto: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothCottonPizza
   name: cotton pizza recipe
   result: FoodMothPizzaCotton
   time: 30
-#  reagents:
-#    OilCorn: 5
+  reagents:
+    Cornoil: 5
   solids:
     FoodDough: 1
     FoodMozzarella: 1
