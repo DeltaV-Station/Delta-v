@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseWeaponBattery
+  id: Decloner
+  name: decloner
+  description: A weapon that damages the target's genome, making it very hard to heal from
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    layers:
+      - state: icon
+  - type: Item
+    size: 12
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+  - type: ProjectileBatteryAmmoProvider
+    proto: BoltDecloner
+    fireCost: 100
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600

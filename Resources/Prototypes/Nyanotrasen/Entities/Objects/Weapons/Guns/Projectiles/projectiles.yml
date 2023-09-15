@@ -1,0 +1,16 @@
+- type: entity
+  name: decloner bolt
+  id: BoltDecloner
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Projectiles/plasma.rsi
+    color: skyblue
+    state: bullet
+  - type: Physics
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Cellular: 15
