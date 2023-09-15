@@ -1,4 +1,4 @@
-job-name-gladiator = gladiator
-job-name-guard = prison guard
-job-name-martialartist =  martial artist
-job-name-prisoner = prisoner
+job-name-gladiator = Gladiator
+job-name-guard = Prison Guard
+job-name-martialartist =  Martial Artist
+job-name-prisoner = Prisoner
