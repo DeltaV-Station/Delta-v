@@ -1,0 +1,56 @@
+- type: entity
+  parent: WallSolid #basically non-Reinforced Wall (shuttle variant)
+  id: WallShuttleInterior
+  name: shuttle wall
+  suffix: Interior
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
+  - type: Construction
+    graph: Girder
+    node: shuttleInteriorWall
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: Reflect
+    reflectProb: 1
+
+- type: entity
+  parent: BaseWall
+  id: WallPaper
+  name: paper wall
+  description: Helps to contain the repeated screams of martial artists.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Walls/paper.rsi
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Walls/paper.rsi
+  - type: Construction
+    graph: Girder
+    node: paperWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300 # #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    destroySound:
+      path: /Audio/Effects/metalbreak.ogg
+  - type: IconSmooth
+    key: walls
+    base: paperwall

@@ -29,7 +29,7 @@
     key: walls
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: MetallicStructure #Nyano
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -45,7 +45,7 @@
         density: 1000
   - type: Occluder
   - type: Airtight
-  - type: StaticPrice
+  - type: StaticPrice #was DynamicPrice
     price: 75
   - type: RadiationBlocker
     resistance: 2
@@ -500,22 +500,30 @@
   - type: Construction
     graph: Girder
     node: reinforcedWall
+  - type: Damageable #Nyano component addition
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1200 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 1000 #excess damage (nuke?). avoid computational cost of spawning entities. #was 1200
       behaviors:
+      - !type:PlaySoundBehavior #Nyano
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500 #was 600
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    destroySound: #Nyano
+      path: /Audio/Effects/metalbreak.ogg
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -531,7 +539,7 @@
           3: { state: reinf_construct-3, visible: true}
           4: { state: reinf_construct-4, visible: true}
           5: { state: reinf_construct-5, visible: true}
-  - type: StaticPrice
+  - type: StaticPrice #DynamicPrice
     price: 150
   - type: RadiationBlocker
     resistance: 5
@@ -566,7 +574,7 @@
   - type: IconSmooth
     key: walls
     base: riveted
-  - type: StaticPrice
+  - type: StaticPrice #DynamicPrice
     price: 150
 
 - type: entity
@@ -669,7 +677,7 @@
     state: state0
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: StrongMetallic #Nyano
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -710,11 +718,19 @@
           path: /Audio/Effects/metalbreak.ogg
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    - trigger: #this trigger is a Nyano addition
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     destroySound:
       path: /Audio/Effects/metalbreak.ogg
 
 - type: entity
-  parent: BaseWall
+  parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
   id: WallShuttle
   name: shuttle wall
   components:
@@ -726,27 +742,31 @@
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/metalbreak.ogg
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    destroySound:
-      path: /Audio/Effects/metalbreak.ogg
+    state: full
+#  - type: Destructible
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 1000
+#      behaviors:
+#        - !type:DoActsBehavior
+#          acts: [ "Destruction" ]
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 500
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          path: /Audio/Effects/metalbreak.ogg
+#      - !type:DoActsBehavior
+#        acts: ["Destruction"]
+#    destroySound:
+#      path: /Audio/Effects/metalbreak.ogg
   - type: Reflect
     reflectProb: 1
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
   - type: IconSmooth
     key: walls
     base: state
@@ -1044,7 +1064,7 @@
 
 - type: entity
   id: WallForce
-  name: Force Wall
+  name: Force wall
   components:
     - type: TimedDespawn
       lifetime: 20
@@ -1070,3 +1090,5 @@
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
       state: forcewall
+#    - type: Dispellable
+    - type: Clickable #Nyano
