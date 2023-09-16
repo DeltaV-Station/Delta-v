@@ -4,12 +4,12 @@
   description: job-description-gladiator
   playTimeTracker: JobPrisoner
   startingGear: GladiatorGear
-  alwaysUseSpawner: true
+#  alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconGladiator"
   supervisors: job-supervisors-security
   setPreference: true
-  whitelistRequired: true
+#  whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600
