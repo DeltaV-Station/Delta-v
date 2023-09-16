@@ -3,7 +3,7 @@
   id: BaseVendingMachineRestockDeltaV
   name: vending machine restock box
   description: A box for restocking vending machines with corporate goodies.
-  noSpawn: true
+  abstract: true
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Specific/Service/vending_machine_restock.rsi
