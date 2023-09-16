@@ -54,3 +54,42 @@
   - type: IconSmooth
     key: walls
     base: paperwall
+
+# TODO: construction graph, material, better sounds
+- type: entity
+  parent: BaseWall
+  id: WallDrywall
+  name: drywall
+  description: It looks sturdy enough.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Walls/drywall.rsi
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Walls/drywall.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/woodhit.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: drywall
+  - type: Tag
+    tags:
+      - Wall
+      - RCDDeconstructWhitelist
