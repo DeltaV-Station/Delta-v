@@ -8,7 +8,7 @@
   canBeAntag: false
   icon: "JobIconGladiator"
   supervisors: job-supervisors-security
-  setPreference: false
+  setPreference: true
   whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
