@@ -1,0 +1,19 @@
+﻿#- type: listing
+#  id: UplinkCyborgBeaconSyndicate
+#  name: uplink-borg-beacon-name
+#  description: uplink-borg-beacon-desc
+#  productEntity: CyborgBeaconSyndicate
+#  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+#  cost:
+#    Telecrystal: 65
+#  categories:
+#    - UplinkUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#          - SurplusBundle
