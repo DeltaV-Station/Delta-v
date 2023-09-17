@@ -1,0 +1,12 @@
+- type: entity
+  id: SpawnPointMailCarrier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: MailCarrier
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanomailcarrier

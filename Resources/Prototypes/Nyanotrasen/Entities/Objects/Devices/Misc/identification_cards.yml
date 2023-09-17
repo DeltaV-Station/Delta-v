@@ -1,0 +1,12 @@
+- type: entity
+  parent: IDCardStandard
+  id: MailCarrierIDCard
+  name: courier ID card # DeltaV Mail Carrier to Courier replacement
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: nyanomailcarrier
+  - type: PresetIdCard
+    job: MailCarrier

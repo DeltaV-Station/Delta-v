@@ -1,0 +1,27 @@
+- type: entity
+  parent: BasePDA
+  id: MailCarrierPDA
+  name: courier PDA # DeltaV Mail Carrier to Courier replacement
+  description: Smells like unopened letters.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: MailCarrierIDCard
+    state: pda-mailcarrier
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#050c4d"
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-mailcarrier
