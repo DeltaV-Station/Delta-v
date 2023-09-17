@@ -227,7 +227,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCargo
   noSpawn: true
-  name: cargo winter coat hood
+  name: logistics winter coat hood # DeltaV Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
@@ -382,7 +382,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterQM
   noSpawn: true
-  name: quartermaster's coat hood
+  name: head of logistics' coat hood # DeltaV Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi

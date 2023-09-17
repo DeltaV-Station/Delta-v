@@ -29,7 +29,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyCargo
-  name: cargo encryption key
+  name: logistics encryption key # DeltaV Logistics Department replacing Cargo
   description: An encryption key used by supply employees.
   components:
   - type: EncryptionKey

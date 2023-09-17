@@ -30,7 +30,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomCargoCorpse
-  suffix: Dead, Cargo
+  suffix: Dead, Logistics # DeltaV Logistics Department replacing Cargo
   components:
   - type: Loadout
     prototypes:

@@ -36,12 +36,12 @@
   - type: SpawnPoint
     spawn_type: LateJoin
 
-# Cargo
+# Logistics
 
 - type: entity
   id: SpawnPointQuartermaster
   parent: SpawnPointJobBase
-  name: quartermaster
+  name: head of logistics # DeltaV Logistics Department replacing Cargo
   components:
   - type: SpawnPoint
     job_id: Quartermaster
@@ -54,7 +54,7 @@
 - type: entity
   id: SpawnPointCargoTechnician
   parent: SpawnPointJobBase
-  name: cargotechnician
+  name: logisticstechnician # DeltaV Logistics Department replacing Cargo
   components:
   - type: SpawnPoint
     job_id: CargoTechnician

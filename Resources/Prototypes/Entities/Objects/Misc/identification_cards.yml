@@ -188,7 +188,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: cargo ID card
+  name: logistics ID card # DeltaV Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
 - type: entity
   parent: IDCardStandard
   id: QuartermasterIDCard
-  name: quartermaster ID card
+  name: head of logistics ID card # DeltaV Logistics Department replacing Cargo
   components:
     - type: Sprite
       layers:
