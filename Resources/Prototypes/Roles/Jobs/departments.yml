@@ -51,7 +51,7 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
-#  - SeniorEngineer # DeltaV disable Senior Roles
+  - SeniorEngineer
   - StationEngineer
   - TechnicalAssistant
 
@@ -66,7 +66,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-#  - SeniorPhysician # DeltaV disable Senior Roles
+  - SeniorPhysician
 
 - type: department
   id: Security
@@ -76,7 +76,7 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-#  - SeniorOfficer # DeltaV disable Senior Roles
+  - SeniorOfficer
   - Detective
   - Warden
 
@@ -86,7 +86,7 @@
   color: "#D381C9"
   roles:
   - ResearchDirector
-#  - SeniorResearcher # DeltaV disable Senior Roles
+  - SeniorResearcher
   - Scientist
   - ResearchAssistant
 
