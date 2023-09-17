@@ -3,6 +3,7 @@
   name: job-name-senior-researcher
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
+  setPreference: false # DeltaV disable Senior Roles
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
