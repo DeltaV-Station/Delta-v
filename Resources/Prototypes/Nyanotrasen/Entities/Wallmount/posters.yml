@@ -138,6 +138,16 @@
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/CerebralError.rsi
     state: poster_ChknDnnr
 
+- type: entity
+  parent: PosterBase
+  id: PosterLegitShoukou
+  name: "Shōkō poster"
+  description: "Funny symbols that can be read as Shōkō or Xiaogang, depending on who you ask."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
+    state: shoukouposter
+
 # Station Maps
 - type: entity
   parent: PosterBase
@@ -178,13 +188,3 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
     state: northwaymap
-
-- type: entity
-  parent: PosterBase
-  id: PosterLegitShoukou
-  name: "Shōkō poster"
-  description: "Funny symbols that can be read as Shōkō or Xiaogang, depending on who you ask."
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
-    state: shoukouposter
