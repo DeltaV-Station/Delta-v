@@ -32,7 +32,7 @@
 - type: entity
   parent: Windoor
   id: WindoorCargoLocked
-  suffix: Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -114,7 +114,7 @@
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureCargoLocked
-  suffix: Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]

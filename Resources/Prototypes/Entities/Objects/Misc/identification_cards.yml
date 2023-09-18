@@ -188,7 +188,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: logistics ID card # DeltaV Logistics Department replacing Cargo
+  name: logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
 - type: entity
   parent: IDCardStandard
   id: QuartermasterIDCard
-  name: head of logistics ID card # DeltaV Logistics Department replacing Cargo
+  name: head of logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
     - type: Sprite
       layers:
@@ -562,7 +562,7 @@
     - JobIconSeniorOfficer
     - JobIconSeniorEngineer
     - JobIconSeniorResearcher
-    - JobIconMailCarrier # Nyanotrasen MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
+    - JobIconMailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true

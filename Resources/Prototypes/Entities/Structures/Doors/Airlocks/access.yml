@@ -74,7 +74,7 @@
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCargoLocked
-  suffix: External, Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: External, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -146,7 +146,7 @@
 - type: entity
   parent: AirlockCargo
   id: AirlockCargoLocked
-  suffix: Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -260,7 +260,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockQuartermasterLocked
-  suffix: Head of Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Head of Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -349,7 +349,7 @@
 - type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCargoLocked
-  suffix: External, Glass, Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: External, Glass, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -429,7 +429,7 @@
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
-  suffix: Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -533,7 +533,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockQuartermasterGlassLocked
-  suffix: Head of Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Head of Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -622,7 +622,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintCargoLocked
-  suffix: Logistics, Locked # DeltaV Logistics Department replacing Cargo
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]

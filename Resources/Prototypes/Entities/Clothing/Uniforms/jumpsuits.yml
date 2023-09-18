@@ -75,7 +75,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargo
   name: cargo tech jumpsuit
-  description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV Logistics Department replacing Cargo
+  description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
@@ -445,7 +445,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQM
-  name: head of logistics' jumpsuit # DeltaV Logistics Department replacing Cargo
+  name: head of logistics' jumpsuit # DeltaV - Logistics Department replacing Cargo
   description: 'What can brown do for you?'
   components:
   - type: Sprite
@@ -456,7 +456,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: head of logistics' turtleneck # DeltaV Logistics Department replacing Cargo
+  name: head of logistics' turtleneck # DeltaV - Logistics Department replacing Cargo
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
