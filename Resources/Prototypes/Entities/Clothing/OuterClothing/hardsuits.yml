@@ -805,30 +805,30 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterEVASuitBase # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
   id: ClothingOuterHardsuitClown
-  name: clown hardsuit
-  description: A custom made clown hardsuit.
+  name: clown EVA suit # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
+  description: A custom made clown softsuit. # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Caustic: 0.8
+  # - type: PressureProtection # DeltaV - Clown Hardsuit inherits from the normal eva suit, entirely cosmetic.
+  #   highPressureMultiplier: 0.5
+  #   lowPressureMultiplier: 1000
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.9
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.9
+  #       Slash: 0.9
+  #       Piercing: 0.9
+  #       Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.6
+    sprintModifier: 0.6
   - type: Construction
     graph: ClownHardsuit
     node: clownHardsuit
