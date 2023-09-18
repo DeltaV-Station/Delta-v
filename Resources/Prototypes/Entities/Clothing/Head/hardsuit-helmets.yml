@@ -664,6 +664,7 @@
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/clown.rsi
   - type: Clothing
+    equippedPrefix: off # Fix lack of helmet while not using the flashlight feature.
     sprite: Clothing/Head/Hardsuits/clown.rsi
-#    equipSound: /Audio/Mecha/mechmove03.ogg
-#    unequipSound: /Audio/Effects/Emotes/parp1.ogg # DeltaV - This doesn't need to make a fart noise.
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg # DeltaV - This doesn't need to make a fart noise.
