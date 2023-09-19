@@ -1,15 +1,18 @@
 - type: job
-  id: Boxer
-  name: job-name-boxer
-  description: job-description-boxer
+  id: MartialArtist
+  name: job-name-martialartist
+  description: job-description-martialartist
   playTimeTracker: JobBoxer
-  startingGear: BoxerGear
-  icon: "JobIconBoxer"
+  startingGear: MartialArtistGear
+  icon: "JobIconMartialArtist"
   supervisors: job-supervisors-hop
+  setPreference: true
+#  whitelistRequired: true
   access:
   - Service
+  extendedAccess:
   - Maintenance
-  special: # Nyanotrasen - BoxerComponent, see Content.Server/Nyanotrasen/Abilities/Boxer/Boxer/BoxerComponent.cs
+  special:
   - !type:AddComponentSpecial
     components:
     - type: Boxer
@@ -20,15 +23,14 @@
           Piercing: 1.5
 
 - type: startingGear
-  id: BoxerGear
+  id: MartialArtistGear
   equipment:
-    jumpsuit: UniformShortsRed
+    jumpsuit: ClothingUniformMartialGi
+    belt: ClothingBeltMartialBlack
     back: ClothingBackpackFilled
-    id: BoxerPDA
+    id: MartialArtistPDA
     ears: ClothingHeadsetService
+    shoes: ClothingShoesGeta
     gloves: ClothingHandsGlovesBoxingRed
-    shoes: ClothingShoesColorRed
-    belt: ClothingBeltChampion
-  innerclothingskirt: UniformShortsRedWithTop
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
