@@ -10,9 +10,13 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Belt/mailbag.rsi
     quickEquip: false
-    slots: [belt]
+    slots:
+        - belt
+  - type: Item
+    size: 121
   - type: Storage
     capacity: 120
+    quickInsert: true
 #    whitelist:
 #      components:
 #        - Mail # Awaiting actual Mail stuff
