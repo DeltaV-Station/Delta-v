@@ -1,7 +1,46 @@
 - type: entity
+  id: SpawnPointGladiator
+  parent: SpawnPointJobBase
+  name: gladiator
+  components:
+  - type: SpawnPoint
+    job_id: Gladiator
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanogladiator
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanoprisoner
+
+- type: entity
+  id: SpawnPointPrisonGuard
+  parent: SpawnPointJobBase
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanoprisonguard
+      
+- type: entity
   id: SpawnPointMailCarrier
   parent: SpawnPointJobBase
-  name: courier
+  name: courier # Delta V - Mail Carrier to Courier replacement
   components:
   - type: SpawnPoint
     job_id: MailCarrier
@@ -10,3 +49,16 @@
     layers:
       - state: green
       - state: nyanomailcarrier
+
+- type: entity
+  id: SpawnPointMartialArtist
+  parent: SpawnPointJobBase
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanomartialartist
