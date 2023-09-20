@@ -37,9 +37,10 @@
       path: /Audio/Animals/fox_squeak.ogg
 
 - type: entity
-  parent: BaseItem
+  parent: BaseFigurine
   id: ToyZero
   name: toy zero
   description: whirrrrrrrrr taktaktaktaktak BOOM whirrrrrrr
   - type: sprite
     sprite: DeltaV/Objects/Fun/Toys/zerotoy.rsi
+    state: icon
