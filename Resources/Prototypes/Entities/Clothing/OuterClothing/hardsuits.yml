@@ -833,4 +833,8 @@
     graph: ClownHardsuit
     node: clownHardsuit
   - type: ToggleableClothing
+    slot: head
     clothingPrototype: ClothingHeadHelmetHardsuitClown
+  - type: ContainerContainer # DeltaV - Allows the EVA suit to have built in 'hardsuit' helmet
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
