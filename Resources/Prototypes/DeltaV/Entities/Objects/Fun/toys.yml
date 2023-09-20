@@ -35,3 +35,11 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Animals/fox_squeak.ogg
+
+- type: entity
+  parent: BaseItem
+  id: ToyZero
+  name: toy zero
+  description: whirrrrrrrrr taktaktaktaktak BOOM whirrrrrrr
+  - type: sprite
+    sprite: DeltaV/Objects/Fun/Toys/zerotoy.rsi
