@@ -31,12 +31,13 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomCargoCorpse
-  suffix: Dead, Cargo
+  suffix: Dead, Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Loadout
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
+    - MailCarrierGear # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
 
 - type: entity
   parent: SalvageHumanCorpse
