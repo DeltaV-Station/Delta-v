@@ -27,7 +27,7 @@
   flavor: oily
   color: yellow
   recognizable: true
-  meltingPoint: -11.0
+  meltingPoint: -11.0 # Start of Nyano code
   boilingPoint: 232.2
   recognizable: true
   metabolisms:
@@ -35,7 +35,7 @@
       effects:
       - !type:AdjustReagent
         reagent: Nutriment
-        amount: 0.75
+        amount: 0.75 # End of Nyano code
 
 - type: reagent
   id: Frostoil

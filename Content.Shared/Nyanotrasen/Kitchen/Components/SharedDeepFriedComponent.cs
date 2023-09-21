@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Kitchen.Components
 {
     [NetworkedComponent]
-    public abstract class SharedDeepFriedComponent : Component
+    public abstract partial class SharedDeepFriedComponent : Component
     {
         /// <summary>
         /// How deep-fried is this item?
