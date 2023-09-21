@@ -54,7 +54,7 @@
 - type: entity
   id: SpawnPointCargoTechnician
   parent: SpawnPointJobBase
-  name: logisticstechnician # DeltaV - Logistics Department replacing Cargo
+  name: cargotechnician
   components:
   - type: SpawnPoint
     job_id: CargoTechnician
