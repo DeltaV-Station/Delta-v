@@ -27,6 +27,15 @@
   flavor: oily
   color: yellow
   recognizable: true
+  meltingPoint: -11.0
+  boilingPoint: 232.2
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.75
 
 - type: reagent
   id: Frostoil
