@@ -300,7 +300,7 @@
       - EncryptionKey
 
 - type: entity
-  name: cargo encryption key box
+  name: logistics encryption key box # DeltaV - Logistics Department replacing Cargo
   parent: BoxEncryptionKeyPassenger
   id: BoxEncryptionKeyCargo
   components:
