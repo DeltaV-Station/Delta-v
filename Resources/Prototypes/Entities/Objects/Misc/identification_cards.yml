@@ -188,7 +188,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: cargo ID card
+  name: logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
 - type: entity
   parent: IDCardStandard
   id: QuartermasterIDCard
-  name: quartermaster ID card
+  name: head of logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
     - type: Sprite
       layers:
@@ -563,6 +563,7 @@
     - JobIconSeniorEngineer
     - JobIconSeniorResearcher
     - JobIconPrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+    - JobIconMailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
     - JobIconMartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
     - JobIconGladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
   - type: ActivatableUI
