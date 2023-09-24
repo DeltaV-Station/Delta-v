@@ -232,6 +232,7 @@ namespace Content.Server.Body.Systems
         }
 
         // Begin Nyanotrasen Code: CPR System
+
         private void OnDoAfter(EntityUid uid, RespiratorComponent component, CPRDoAfterEvent args)
         {
             component.CPRPlayingStream?.Stop();
