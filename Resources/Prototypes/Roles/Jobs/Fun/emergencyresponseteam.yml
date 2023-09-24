@@ -148,6 +148,10 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  special: # Nyanotrasen - Medical Training for CPR, see Content.Server/Body/Systems/RespiratorSystem.cs
+  - !type:AddComponentSpecial
+    components:
+    - type: MedicalTraining
 
 - type: startingGear
   id: ERTMedicalGear
