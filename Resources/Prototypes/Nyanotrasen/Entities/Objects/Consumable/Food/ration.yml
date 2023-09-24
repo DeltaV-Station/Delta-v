@@ -72,6 +72,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 15
+  - type: Tag
+    tags:
+    - ClothMade # DeltaV - A dirty fix to allow Moths to eat it.
 
 - type: entity
   name: soy sustenance bar
