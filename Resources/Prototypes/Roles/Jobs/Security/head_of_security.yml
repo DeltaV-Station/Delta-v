@@ -6,17 +6,17 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 36000 # DeltaV - 10 hours time requirement
-#    - !type:RoleTimeRequirement # DeltaV - No SecurityOfficer time requirement
+      time: 36000 # DeltaV - 10 hours
+#    - !type:RoleTimeRequirement # DeltaV - No Security Officer time requirement
 #      role: JobSecurityOfficer
 #      time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # DeltaV - 10 hours time requirement
-    - !type:DepartmentTimeRequirement # DeltaV - Command time requirement
+      time: 36000 # DeltaV - 10 hours
+    - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
       department: Command
       time: 36000 #10hrs
-    - !type:RoleTimeRequirement # DeltaV - Lawyer time requirement
+    - !type:RoleTimeRequirement # DeltaV - Lawyer role time requirement
       role: JobLawyer
       time: 14400 #4hrs
     - !type:OverallPlaytimeRequirement
