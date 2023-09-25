@@ -6,15 +6,21 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 10800 #3 hrs
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 36000 # DeltaV - 10 hours time requirement
+#    - !type:RoleTimeRequirement # DeltaV - No SecurityOfficer time requirement
+#      role: JobSecurityOfficer
+#      time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 108000 # 30 hrs
+      time: 36000 # DeltaV - 10 hours time requirement
+    - !type:DepartmentTimeRequirement # DeltaV - Command time requirement
+      department: Command
+      time: 36000 #10hrs
+    - !type:RoleTimeRequirement # DeltaV - Lawyer time requirement
+      role: JobLawyer
+      time: 14400 #4hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 144000 #40 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
