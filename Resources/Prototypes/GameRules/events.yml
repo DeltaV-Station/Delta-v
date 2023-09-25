@@ -304,20 +304,20 @@
     - id: MobGiantSpiderAngry
       prob: 0.05
 
-- type: entity
-  id: SpiderClownSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    minimumPlayers: 15
-    weight: 1
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobClownSpider
-      prob: 0.05
+# - type: entity # DeltaV - Prevent normal spawning of MobClownSpider
+#   id: SpiderClownSpawn
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     earliestStart: 20
+#     minimumPlayers: 15
+#     weight: 1
+#     duration: 60
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobClownSpider
+#       prob: 0.05
 
 - type: entity
   id: ZombieOutbreak
