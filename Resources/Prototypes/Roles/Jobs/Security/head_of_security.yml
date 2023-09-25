@@ -15,12 +15,12 @@
       time: 36000 # DeltaV - 10 hours
     - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
       department: Command
-      time: 36000 #10hrs
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement # DeltaV - Lawyer role time requirement
       role: JobLawyer
-      time: 14400 #4hrs
+      time: 14400 # 4 hours
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
+      time: 54000 # DeltaV - 15 hours
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

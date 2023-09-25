@@ -10,6 +10,9 @@
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
       time: 10800 #3 hrs
+    - !type:RoleTimeRequirement # DeltaV - Courrier role time requirement
+      role: JobMailCarrier
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 36000 #10 hours

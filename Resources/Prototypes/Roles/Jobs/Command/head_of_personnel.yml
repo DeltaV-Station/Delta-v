@@ -6,16 +6,24 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 # 10 hours
+      time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 # 10 hours
+      time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 36000 # 10 hours
+      time: 18000 # DeltaV - 5 hours
+    - !type:DepartmentTimeRequirement # DeltaV - Epistemics dept time requirement
+      department: Epistemics
+      time: 18000 # 5 hours
+#    - !type:DepartmentTimeRequirement
+#      department: Command
+#      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
+      department: Civilian
+      time: 10800 # 3 hours
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 72000 # 20 hours
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
