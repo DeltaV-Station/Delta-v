@@ -4,9 +4,9 @@
   description: job-description-chef
   playTimeTracker: JobChef
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 1800
+#    - !type:DepartmentTimeRequirement # DeltaV - No Civilian dept time requirement
+#      department: Civilian
+#      time: 1800
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop

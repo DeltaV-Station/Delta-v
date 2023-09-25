@@ -4,8 +4,8 @@
   description: job-description-lawyer
   playTimeTracker: JobLawyer
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+#    - !type:OverallPlaytimeRequirement # DeltaV - No playtime requirement
+#      time: 36000 # 10 hrs
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
