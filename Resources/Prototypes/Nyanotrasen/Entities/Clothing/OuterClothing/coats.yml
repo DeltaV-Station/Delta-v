@@ -17,3 +17,18 @@
         Heat: 0.8
   - type: TemperatureProtection
     coefficient: 0.3
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRndMysta
+  name: mystagogue lab coat
+  description: Similar to the standard model but with more purple and gold.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mysta.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mysta.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
