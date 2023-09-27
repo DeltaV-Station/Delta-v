@@ -13,7 +13,11 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      multiplier: 3
+      
 - type: startingGear
   id: ChaplainGear
   equipment:

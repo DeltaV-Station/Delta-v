@@ -47,6 +47,11 @@
   - Cargo
   - Atmospherics
   - Medical
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      flatBonus: 0.025
 
 - type: startingGear
   id: HoPGear
