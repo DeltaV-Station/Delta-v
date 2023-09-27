@@ -74,8 +74,8 @@ public sealed partial class FelinidSystem : EntitySystem
         if (component.HairballAction != null)
             return;
 
-        component.HairballAction = Spawn("ActionHairball");
-        _actionsSystem.AddAction(uid, component.HairballAction.Value, uid);
+        //component.HairballAction = Spawn("ActionHairball");
+        _actionsSystem.AddAction(uid, ref component.HairballAction, component.HairballActionId);
     }
 
     private void OnEquipped(EntityUid uid, FelinidComponent component, DidEquipHandEvent args)
@@ -85,8 +85,8 @@ public sealed partial class FelinidSystem : EntitySystem
 
         component.EatActionTarget = args.Equipped;
 
-        component.EatAction = Spawn("ActionEatMouse");
-        _actionsSystem.AddAction(uid, ref component.EatAction, null);
+        //component.EatAction = Spawn("ActionEatMouse");
+        _actionsSystem.AddAction(uid, ref component.EatAction, component.EatActionId);
     }
 
     private void OnUnequipped(EntityUid uid, FelinidComponent component, DidUnequipHandEvent args)

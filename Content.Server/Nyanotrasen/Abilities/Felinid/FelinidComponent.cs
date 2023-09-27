@@ -17,10 +17,20 @@ public sealed partial class FelinidComponent : Component
     //[DataField("hairballAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     //public string HairballAction = "ActionHairball";
 
+    [DataField("hairballActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? HairballActionId = "ActionHairball";
+
     [DataField("hairballAction")]
-    public EntityUid? HairballAction = null;
+    public EntityUid? HairballAction;
 
+    [DataField("eatActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? EatActionId = "ActionEatMouse";
+
+    [DataField("eatAction")]
+    public EntityUid? EatAction;
+
+    [DataField("eatActionTarget")]
     public EntityUid? EatActionTarget = null;
-
-    public EntityUid? EatAction = null;
 }
