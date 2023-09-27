@@ -74,7 +74,7 @@ namespace Content.Client.MassMedia.Ui
             var stringName = _menu.NameInput.Text;
             var name = (stringName.Length <= 25 ? stringName.Trim() : $"{stringName.Trim().Substring(0, 25)}...");
             article.Name = name;
-            article.Content = stringContent;
+            article.Content = stringContent.Substring(0, Math.Min(stringContent.Length, 32768));
             article.ShareTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             _menu.ContentInput.TextRope = new Rope.Leaf(string.Empty);
