@@ -89,4 +89,6 @@ public enum LogType
     ItemConfigure = 84,
     DeviceLinking = 85,
     Tile = 86,
+    BagOfHolding = 420,
+    Psionics = 421,
 }

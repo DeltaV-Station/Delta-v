@@ -13,6 +13,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.Singularity.EntitySystems;
 
@@ -38,6 +39,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
 
         SubscribeLocalEvent<MapGridComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<GhostComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
+        SubscribeLocalEvent<TelegnosticProjectionComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume); ///Nyanotrasen code.
         SubscribeLocalEvent<StationDataComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<EventHorizonComponent, MapInitEvent>(OnHorizonMapInit);
         SubscribeLocalEvent<EventHorizonComponent, EntityUnpausedEvent>(OnHorizonUnpaused);
