@@ -7,6 +7,95 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: FloorOcclusion
+  - type: LagCompensation
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPieReaction
+  - type: Flashable
+  - type: Polymorphable
+  - type: Identity
+  - type: Hands
+  - type: MovementSpeedModifier
+  - type: MovedByPressure
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.35 #per second, scales with pressure and other constants.
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  # Organs
+  - type: InjectableSolution
+    solution: chemicals
+  - type: IdExaminable
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -1
+  - type: Stamina
+  - type: StatusIcon
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - Drunk
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - Muted
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - StaminaModifier
+      - PsionicsDisabled
+      - PsionicallyInsulated
+  - type: Blindable
+  # Other
+  - type: Inventory
+  - type: InventorySlots
+  - type: Clickable
+  - type: InteractionOutline
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
