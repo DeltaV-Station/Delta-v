@@ -26,11 +26,11 @@ namespace Content.Shared.Humanoid
 
             switch (speciesProto.Naming)
             {
-                //Start of Nyano code for Oni naming
-            case SpeciesNaming.XnoY:
-                    return Loc.GetString("namepreset-x-no-y",
+                // Start of Nyano code for Oni naming
+                case SpeciesNaming.LastNoFirst:
+                    return Loc.GetString("namepreset-lastnofirst",
                         ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));
-                //End of Nyano code for Oni naming
+                // End of Nyano code for Oni naming
                 case SpeciesNaming.TheFirstofLast:
                     return Loc.GetString("namepreset-thefirstoflast",
                         ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto)));

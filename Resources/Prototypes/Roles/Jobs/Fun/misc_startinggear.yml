@@ -135,8 +135,8 @@
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: BaseUplinkRadio40TC
     belt: ClothingBeltMilitaryWebbing
- #inhand:
-   #right hand: NukeOpsDeclarationOfWar Declaring War is inherently LRP so it has been removed in DeltaV
+#  inhand: # DeltaV - Prevent commander spawning with the declaration of war
+#    right hand: NukeOpsDeclarationOfWar
   innerclothingskirt: ClothingUniformJumpskirtOperative
   satchel: ClothingBackpackDuffelSyndicateOperative
   duffelbag: ClothingBackpackDuffelSyndicateOperative
@@ -283,6 +283,15 @@
     ears: ClothingHeadsetService
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: BartenderIDCard
+
+# Passenger but without the ID, bag, or headset
+
+- type: startingGear
+  id: LimitedPassengerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorGrey
 
 # DeathMatch Gear
 
