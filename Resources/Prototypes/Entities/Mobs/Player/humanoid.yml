@@ -355,6 +355,9 @@
   id: NukeOp
   components:
     - type: NukeOperative
+    - type: PsionicBonusChance
+      multiplier: 7
+      warn: false
 
 - type: entity
   id: RandomHumanoidSpawnerCluwne
