@@ -300,6 +300,13 @@
     - sprite: Mobs/Customization/human_hair.rsi
       state: classicfloorlength_bedhead
 - type: marking
+  id: HumanHairClassicGentle #Delta V, classic hairstyle that was replaced
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: classicgentle
+- type: marking
   id: HumanHairClassicModern
   bodyPart: Hair
   markingCategory: Hair
