@@ -21,13 +21,13 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRndMysta
-  name: mystagogue lab coat
-  description: Similar to the standard model but with more purple and gold.
+  name: mystagogue lab coat # Delta V - Mystagogue new coat
+  description: Similar to the standard model but with more purple and gold. # Delta V - Mystagogue new coat
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/Coats/mysta.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mystacoat.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/Coats/mysta.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Coats/mystacoat.rsi
   - type: Armor
     modifiers:
       coefficients:
