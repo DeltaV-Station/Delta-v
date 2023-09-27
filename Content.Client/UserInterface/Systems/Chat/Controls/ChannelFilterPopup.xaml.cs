@@ -16,6 +16,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Whisper,
         ChatChannel.Emotes,
         ChatChannel.Radio,
+        ChatChannel.Telepathic, //Nyanotrasen code.
         ChatChannel.LOOC,
         ChatChannel.OOC,
         ChatChannel.Dead,

@@ -51,6 +51,11 @@
         /// </summary>
         Admin = ChatChannel.AdminChat,
 
+        /// <summary>
+        ///     Nyanotrasen code. Telepathic channel for all psionic entities. 
+        /// </summary>
+        Telepathic = ChatChannel.Telepathic,
+
         Console = ChatChannel.Unspecified
     }
 }

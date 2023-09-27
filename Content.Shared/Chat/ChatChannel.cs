@@ -87,7 +87,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual,
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic, //Telepathic is Nyanotrasen code. 
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }
