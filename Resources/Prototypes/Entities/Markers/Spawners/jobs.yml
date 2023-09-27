@@ -423,7 +423,7 @@
 - type: entity
   id: SpawnPointResearchDirector
   parent: SpawnPointJobBase
-  name: researchdirector
+  name: mystagogue # DeltaV - Epistemics Department replacing Science
   components:
   - type: SpawnPoint
     job_id: ResearchDirector

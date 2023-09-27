@@ -105,7 +105,7 @@
 - type: entity
   parent: CrateGenericSteel
   id: CrateScience
-  name: science crate
+  name: epistemics crate # DeltaV - Epistemics Department replacing Science
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/science.rsi
@@ -226,7 +226,7 @@
 - type: entity
   parent: CrateBaseSecure
   id: CrateScienceSecure
-  name: secure science crate
+  name: secure epistemics crate # DeltaV - Epistemics Department replacing Science
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/scicrate_secure.rsi

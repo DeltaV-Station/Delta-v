@@ -1,5 +1,5 @@
 ent-CrateEmergencyExplosive = Bomb suit crate
-    .desc = Science gone bonkers? Beeping behind the airlock? Buy now and be the hero the station des... I mean needs! (time not included)
+    .desc = Epistemics gone bonkers? Beeping behind the airlock? Buy now and be the hero the station des... I mean needs! (time not included)
 
 ent-CrateEmergencyFire = Firefighting crate
     .desc = Only you can prevent station fires. Partner up with two firefighter suits, gas masks, flashlights, large oxygen tanks, extinguishers, and hardhats!
