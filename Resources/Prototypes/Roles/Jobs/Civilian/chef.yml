@@ -17,6 +17,10 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  special: # Start of Nyano Deep fryer
+  - !type:AddComponentSpecial
+    components:
+    - type: ProfessionalChef # End of Nyano Deep fryer
 
 - type: startingGear
   id: ChefGear
