@@ -5,7 +5,7 @@ using Content.Shared.Hands;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item.PseudoItem;
-using Content.Server.Storage.Components;
+using Content.Shared.Storage;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.DoAfter;
 using Robust.Shared.Containers;
@@ -35,7 +35,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         if (component.Active)
             return;
 
-        if (!TryComp<ServerStorageComponent>(args.Target, out var targetStorage))
+        if (!TryComp<StorageComponent>(args.Target, out var targetStorage))
             return;
 
         if (component.Size > targetStorage.StorageCapacityMax - targetStorage.StorageUsed)
@@ -67,7 +67,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         if (args.Hands == null)
             return;
 
-        if (!TryComp<ServerStorageComponent>(args.Hands.ActiveHandEntity, out var targetStorage))
+        if (!TryComp<StorageComponent>(args.Hands.ActiveHandEntity, out var targetStorage))
             return;
 
         AlternativeVerb verb = new()
@@ -113,7 +113,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         args.Handled = TryInsert(args.Args.Used.Value, uid, component);
     }
 
-    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component, ServerStorageComponent? storage = null)
+    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component, StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
             return false;
