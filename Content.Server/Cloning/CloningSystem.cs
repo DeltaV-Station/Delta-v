@@ -35,6 +35,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Psionics;
 
 namespace Content.Server.Cloning
 {
@@ -240,6 +241,9 @@ namespace Content.Server.Cloning
 
             var mob = Spawn(speciesPrototype.Prototype, Transform(uid).MapPosition);
             _humanoidSystem.CloneAppearance(bodyToClone, mob);
+
+            ///Nyano code. 
+            EnsureComp<PotentialPsionicComponent>(mob);
 
             var ev = new CloningEvent(bodyToClone, mob);
             RaiseLocalEvent(bodyToClone, ref ev);

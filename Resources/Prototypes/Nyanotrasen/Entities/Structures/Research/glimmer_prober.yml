@@ -4,11 +4,11 @@
   name: glimmer prober
   description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
   components:
-#  - type: Psionic
-#  - type: GlimmerSource
-#  - type: Construction #Files are in place, but are commented out
-#    graph: GlimmerDevices
-#    node: glimmerProber
+  - type: Psionic
+  - type: GlimmerSource
+  - type: Construction #Files are in place, but are commented out
+    graph: GlimmerDevices
+    node: glimmerProber
   - type: ResearchPointSource
     pointspersecond: 20
     active: true
@@ -90,12 +90,12 @@
   name: glimmer drain
   description: Uses electricity to try and sort out the noösphere, reducing its level of entropy.
   components:
-#  - type: Psionic
-#  - type: GlimmerSource
-#    addToGlimmer: false
-#  - type: Construction #Files are in place, but commented out
-#    graph: GlimmerDevices
-#    node: glimmerDrain
+  - type: Psionic
+  - type: GlimmerSource
+    addToGlimmer: false
+  - type: Construction #Files are in place, but commented out
+    graph: GlimmerDevices
+    node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     noRot: true
@@ -150,8 +150,8 @@
     - type: Rotatable
     - type: Pullable
 #    - type: Construction #Files are in place, but commented out
-#      graph: GlimmerDevices
-#      node: frame
+      graph: GlimmerDevices
+      node: frame
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
