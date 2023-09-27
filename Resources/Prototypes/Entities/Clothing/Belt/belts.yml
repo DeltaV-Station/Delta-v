@@ -404,6 +404,9 @@
           tags:
           - CaptainSabre
   - type: Appearance
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 # Belts without visualizers
 
@@ -424,6 +427,9 @@
     whitelist:
       tags:
         - ShellShotgun
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltBase
@@ -452,6 +458,9 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     capacity: 20
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -472,6 +481,9 @@
         - Gun
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -483,6 +495,9 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -494,6 +509,9 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -516,6 +534,9 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -531,6 +552,9 @@
     size: 70
   - type: Storage
     capacity: 70
+  - type: Tag # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltBase
@@ -541,6 +565,7 @@
   - type: Tag
     tags:
     - MimeBelt
+    - BeltSlotNotBelt # Nyanotrasen - CPR see, Content.Server/Body/Systems/RespiratorSystem.cs
   - type: Sprite
     sprite: Clothing/Belt/suspenders.rsi
     state: icon
