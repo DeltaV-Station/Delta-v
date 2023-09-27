@@ -4,14 +4,14 @@
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 54000 #15 hrs
-      inverted: true # stop playing intern if you're good at engineering!
+    # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
+    #   department: Engineering
+    #   time: 54000 #15 hrs
+    #   inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Maintenance
   - Engineering

@@ -22,7 +22,7 @@
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Cargo
   - Salvage

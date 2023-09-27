@@ -4,8 +4,8 @@
   description: job-description-lawyer
   playTimeTracker: JobLawyer
   requirements:
-#    - !type:OverallPlaytimeRequirement # DeltaV - No playtime requirement
-#      time: 36000 # 10 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
     - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
       department: Security
       time: 14400 # 4 hours
