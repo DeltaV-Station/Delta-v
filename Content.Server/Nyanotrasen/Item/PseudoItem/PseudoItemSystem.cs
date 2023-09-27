@@ -124,7 +124,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         var item = EnsureComp<ItemComponent>(toInsert);
         _itemSystem.SetSize(toInsert, component.Size, item);
 
-        if (!_storageSystem.Insert(storageUid, toInsert, storage))
+        if (!_storageSystem.Insert(storageUid, toInsert, out _, null, storage))
         {
             component.Active = false;
             RemComp<ItemComponent>(toInsert);
@@ -142,7 +142,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
             return;
 
         var ev = new PseudoItemInsertDoAfterEvent();
-        var args = new DoAfterArgs(inserter, 5f, ev, toInsert, target: toInsert, used: storageEntity)
+        var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, target: toInsert, used: storageEntity)
         {
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
