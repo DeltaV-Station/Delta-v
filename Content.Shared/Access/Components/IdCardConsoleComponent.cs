@@ -65,6 +65,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Kitchen",
         "Maintenance",
         "Medical",
+        "Paramedic", // DeltaV - Add Paramedic access
         "Quartermaster",
         "Research",
         "ResearchDirector",
