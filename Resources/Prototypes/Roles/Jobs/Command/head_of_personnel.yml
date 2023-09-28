@@ -29,7 +29,7 @@
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Command
   - HeadOfPersonnel
