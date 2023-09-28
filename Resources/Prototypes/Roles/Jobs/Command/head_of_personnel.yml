@@ -3,6 +3,7 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
