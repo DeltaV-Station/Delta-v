@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: [BaseMobHuman, BaseMob]
+  parent: BaseMobHuman
   id: MobHuman
   components:
   - type: PotentialPsionic
@@ -69,19 +69,18 @@
   parent: MobHuman
   id: MobHumanSpaceNinja
   components:
-    - type: Loadout
-      prototypes: [SpaceNinjaGear]
-    - type: NpcFactionMember
-      factions:
-      - Syndicate
-    - type: SpaceNinja
-    - type: AutoImplant
-      implants:
-      - MicroBombImplant
-    - type: RandomMetadata
-      nameSegments:
-      - names_ninja_title
-      - names_ninja
-    - type: PsionicBonusChance
-      multiplier: 7
-      warn: false
+  - type: Loadout
+    prototypes: [SpaceNinjaGear]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: SpaceNinja
+  - type: GenericAntag
+    rule: Ninja
+  - type: AutoImplant
+    implants:
+    - MicroBombImplant
+  - type: RandomMetadata
+    nameSegments:
+    - names_ninja_title
+    - names_ninja
