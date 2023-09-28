@@ -1,5 +1,5 @@
 namespace Content.Server.Kitchen.Components
 {
     [RegisterComponent]
-    public sealed class ProfessionalChefComponent : Component {}
+    public sealed partial class ProfessionalChefComponent : Component {}
 }

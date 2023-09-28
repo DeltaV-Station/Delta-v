@@ -17,8 +17,8 @@ namespace Content.Server.Kitchen.Components
 {
     [RegisterComponent]
     [Access(typeof(DeepFryerSystem))]
-    [ComponentReference(typeof(SharedDeepFryerComponent))]
-    public sealed class DeepFryerComponent : SharedDeepFryerComponent
+ // [ComponentReference(typeof(SharedDeepFryerComponent))] Aparently.... not needed?
+    public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     {
         // There are three levels to how the deep fryer treats entities.
         //
@@ -88,21 +88,21 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("goodReagents")]
-        public List<Solution.ReagentQuantity> GoodReagents { get; set; } = new();
+        public List<ReagentQuantity> GoodReagents { get; set; } = new(); // Deleted Solution=<Solution.ReagentQuantity> to <ReagentQuantity>
 
         /// <summary>
         /// What reagents are added to terrible deep-fried food?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("badReagents")]
-        public List<Solution.ReagentQuantity> BadReagents { get; set; } = new();
+        public List<ReagentQuantity> BadReagents { get; set; } = new(); // Deleted Solution=<Solution.ReagentQuantity> to <ReagentQuantity>
 
         /// <summary>
         /// What reagents replace every 1 unit of oil spent on frying?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("wasteReagents")]
-        public List<Solution.ReagentQuantity> WasteReagents { get; set; } = new();
+        public List<ReagentQuantity> WasteReagents { get; set; } = new(); // Deleted Solution=<Solution.ReagentQuantity> to <ReagentQuantity>
 
         /// <summary>
         /// What flavors go well with deep frying?
@@ -147,7 +147,7 @@ namespace Content.Server.Kitchen.Components
         [DataField("storage")]
         public string StorageName { get; set; } = "vat_entities";
 
-        public IContainer Storage { get; set; } = default!;
+        public BaseContainer Storage { get; set; } = default!; // Changed from IContainer to BaseContainer
 
         /// <summary>
         /// How much solution should be imparted based on an item's size?
@@ -224,13 +224,13 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("soundInsertItem")]
-        public SoundSpecifier SoundInsertItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_add_item.ogg");
+        public SoundSpecifier SoundInsertItem = new SoundPathSpecifier("/Audio/Nyanotrasen/Machines/deepfryer_basket_add_item.ogg");
 
         /// <summary>
         /// What sound is played when an item is removed?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("soundRemoveItem")]
-        public SoundSpecifier SoundRemoveItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_remove_item.ogg");
+        public SoundSpecifier SoundRemoveItem = new SoundPathSpecifier("/Audio/Nyanotrasen/Machines/deepfryer_basket_remove_item.ogg");
     }
 }

@@ -465,7 +465,7 @@
   components:
   - type: Sprite
     state: butter
-     - type: SolutionContainerManager
+     - type: SolutionContainerManager # Start of Nyano Deep Fryer
     solutions:
       food:
         maxVol: 15
@@ -473,7 +473,7 @@
         - ReagentId: Butter
           Quantity: 15
   - type: Extractable
-    grindableSolutionName: food
+    grindableSolutionName: food # End of Nyano Deep Fryer
     
 - type: entity
   name: stick of cannabis butter

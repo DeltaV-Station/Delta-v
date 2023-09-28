@@ -3,8 +3,8 @@ using Content.Shared.Kitchen.Components;
 namespace Content.Server.Kitchen.Components
 {
     [RegisterComponent]
-    [ComponentReference(typeof(SharedDeepFriedComponent))]
-    public sealed class DeepFriedComponent : SharedDeepFriedComponent
+//  [ComponentReference(typeof(SharedDeepFriedComponent))] Aparently is not needed????
+    public sealed partial class DeepFriedComponent : SharedDeepFriedComponent
     {
         /// <summary>
         /// What is the item's base price multiplied by?
