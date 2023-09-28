@@ -3,12 +3,13 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 36000 #10 hrs
+      time: 43200 # DeltaV - 12 hours
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 72000 # DeltaV - 20 hours
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
