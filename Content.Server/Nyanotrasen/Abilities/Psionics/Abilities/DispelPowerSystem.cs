@@ -45,15 +45,14 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<RevenantComponent, DispelledEvent>(OnRevenantDispelled);
         }
 
-        // 9/25/2023 by JJ. I have no idea what I'm doing. I've tried refactoring this the best I can. will test ASAP.
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.DispelActionEntity, component.DispelActionId );
+            _actions.AddAction(uid, ref component.DispelActionEntity, component.DispelActionId );
             _actions.TryGetActionData( component.DispelActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.DispelActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.DispelActionEntity;*/
+                psionic.PsionicAbility = component.DispelActionEntity;
         }
 
         private void OnShutdown(EntityUid uid, DispelPowerComponent component, ComponentShutdown args)

@@ -31,13 +31,13 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MetapsionicPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.MetapsionicActionEntity, component.MetapsionicActionId );
+            _actions.AddAction(uid, ref component.MetapsionicActionEntity, component.MetapsionicActionId );
             _actions.TryGetActionData( component.MetapsionicActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MetapsionicActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.MetapsionicActionEntity; 
-                */
+                
         }
 
         private void OnShutdown(EntityUid uid, MetapsionicPowerComponent component, ComponentShutdown args)

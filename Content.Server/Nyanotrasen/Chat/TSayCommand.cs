@@ -36,7 +36,7 @@ namespace Content.Server.Chat.Commands
             var message = string.Join(" ", args).Trim();
             if (string.IsNullOrEmpty(message))
                 return;
-            //JJ: Not sure if I should hide the logs from this. Default is false. 
+            //Not sure if I should hide the logs from this. Default is false. 
             EntitySystem.Get<ChatSystem>().TrySendInGameICMessage(playerEntity, message, InGameICChatType.Telepathic, ChatTransmitRange.Normal, false, shell, player);
         }
     }

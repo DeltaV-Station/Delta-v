@@ -133,7 +133,7 @@ namespace Content.Server.Psionics
             {
                 if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
-                    _eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) VisibilityFlags.PsionicInvisibility, eye);
+                    //_eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) VisibilityFlags.PsionicInvisibility, eye);
                 }
             }
         }

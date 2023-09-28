@@ -39,12 +39,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicInvisibilityPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.PsionicInvisibilityActionEntity, component.PsionicInvisibilityActionId );
+            _actions.AddAction(uid, ref component.PsionicInvisibilityActionEntity, component.PsionicInvisibilityActionId );
             _actions.TryGetActionData( component.PsionicInvisibilityActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.PsionicInvisibilityActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;*/
+                psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;
         }
 
         private void OnShutdown(EntityUid uid, PsionicInvisibilityPowerComponent component, ComponentShutdown args)

@@ -30,12 +30,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PyrokinesisPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.PyrokinesisActionEntity, component.PyrokinesisActionId );
+            _actions.AddAction(uid, ref component.PyrokinesisActionEntity, component.PyrokinesisActionId );
             _actions.TryGetActionData( component.PyrokinesisActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.PyrokinesisActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.PyrokinesisActionEntity;*/
+                psionic.PsionicAbility = component.PyrokinesisActionEntity;
         }
 
         private void OnShutdown(EntityUid uid, PyrokinesisPowerComponent component, ComponentShutdown args)

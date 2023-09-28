@@ -43,12 +43,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MindSwapPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.MindSwapActionEntity, component.MindSwapActionId );
+            _actions.AddAction(uid, ref component.MindSwapActionEntity, component.MindSwapActionId );
             _actions.TryGetActionData( component.MindSwapActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MindSwapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MindSwapActionEntity;*/
+                psionic.PsionicAbility = component.MindSwapActionEntity;
         }
 
         private void OnShutdown(EntityUid uid, MindSwapPowerComponent component, ComponentShutdown args)
@@ -129,7 +129,7 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
                 return;
 
-            //JJ Comment - No idea where the viaCommand went. It's on the internal OnGhostAttempt, but not this layer. Maybe unnecessary. 
+            //No idea where the viaCommand went. It's on the internal OnGhostAttempt, but not this layer. Maybe unnecessary. 
             /*if (!args.viaCommand)
                 return;*/
 
@@ -174,10 +174,10 @@ namespace Content.Server.Abilities.Psionics
 
             if (end)
             {
-                var performerMindPowerComp = EntityManager.GetComponent<MindSwapPowerComponent>(performer);
-                var targetMindPowerComp = EntityManager.GetComponent<MindSwapPowerComponent>(target);
-                _actions.RemoveAction(performer, performerMindPowerComp.MindSwapActionEntity);
-                _actions.RemoveAction(target, targetMindPowerComp.MindSwapActionEntity);
+                var performerMindPowerComp = EntityManager.GetComponent<MindSwappedComponent>(performer);
+                var targetMindPowerComp = EntityManager.GetComponent<MindSwappedComponent>(target);
+                _actions.RemoveAction(performer, performerMindPowerComp.MindSwapReturnActionEntity);
+                _actions.RemoveAction(target, targetMindPowerComp.MindSwapReturnActionEntity);
 
                 RemComp<MindSwappedComponent>(performer);
                 RemComp<MindSwappedComponent>(target);

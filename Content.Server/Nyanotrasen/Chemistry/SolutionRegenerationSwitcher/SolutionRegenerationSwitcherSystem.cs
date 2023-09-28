@@ -74,7 +74,6 @@ namespace Content.Server.Chemistry.EntitySystems
             //Only reagents with spritePath property can change appearance of transformable containers!
             if (!string.IsNullOrWhiteSpace(primaryId?.Prototype))
             {
-                //JJ Comment - Can't get this to realize I've checked if it's Null already.
                 if (!_prototypeManager.TryIndex(primaryId.Value.Prototype, out proto))
                 {
                     _sawmill.Error($"Can't get get reagent prototype {primaryId} for {ToPrettyString(uid)}");

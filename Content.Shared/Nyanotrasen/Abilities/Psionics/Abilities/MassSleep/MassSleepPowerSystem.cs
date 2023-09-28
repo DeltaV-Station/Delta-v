@@ -29,12 +29,12 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MassSleepPowerComponent component, ComponentInit args)
         {
-            /*_actions.AddAction(uid, ref component.MassSleepActionEntity, component.MassSleepActionId );
+            _actions.AddAction(uid, ref component.MassSleepActionEntity, component.MassSleepActionId );
             _actions.TryGetActionData( component.MassSleepActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MassSleepActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MassSleepActionEntity;*/
+                psionic.PsionicAbility = component.MassSleepActionEntity;
         }
 
         private void OnShutdown(EntityUid uid, MassSleepPowerComponent component, ComponentShutdown args)

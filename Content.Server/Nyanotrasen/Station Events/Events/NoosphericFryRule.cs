@@ -82,7 +82,6 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
                 if (TryComp<FlammableComponent>(pair.wearer, out var flammableComponent))
                 {
                     flammableComponent.FireStacks += 1;
-                    //JJ Comment - Need a target for the igniter. Not sure this is right. 
                     _flammableSystem.Ignite(pair.wearer, pair.wearer, flammableComponent);
                 }
             } else if (_glimmerSystem.Glimmer > 750)
@@ -91,7 +90,6 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
                 if (TryComp<FlammableComponent>(pair.wearer, out var flammableComponent))
                 {
                     flammableComponent.FireStacks += 2;
-                    //JJ Comment - Need a target for the igniter. Not sure this is right. 
                     _flammableSystem.Ignite(pair.wearer, pair.wearer, flammableComponent);
                 }
             }

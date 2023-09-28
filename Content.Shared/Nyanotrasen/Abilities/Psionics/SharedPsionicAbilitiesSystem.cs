@@ -108,8 +108,8 @@ namespace Content.Shared.Abilities.Psionics
     [NetSerializable]
     public sealed class PsionicsChangedEvent : EntityEventArgs
     {
-        public readonly EntityUid Euid;
-        public PsionicsChangedEvent(EntityUid euid)
+        public readonly NetEntity Euid;
+        public PsionicsChangedEvent(NetEntity euid)
         {
             Euid = euid;
         }
