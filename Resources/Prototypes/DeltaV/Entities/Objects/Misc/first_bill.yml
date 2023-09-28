@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: SpaceCashFirstBill
+  name: head of logistics' first bill
+  description: The first bill earned by the Head of Logistics for selling something. A small chip is embedded in it.
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Misc/first_bill.rsi
+      state: icon
+    - type: Tag
+      tags:
+        - HighRiskItem

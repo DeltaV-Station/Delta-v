@@ -1,0 +1,10 @@
+- type: entity # Head of Logistics steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: FirstBillStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    prototype: SpaceCashFirstBill
+    # owner: job-name-qm
