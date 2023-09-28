@@ -22,7 +22,7 @@ using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
-using Content.Server.NPC.Components;
+using Content.Shared.NPC; // Changed from Content.Server.NPC.Components; to Content.Shared.NPC;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Paper;
@@ -159,7 +159,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     {
                         foreach (var reagent in component.Solution.Contents.ToArray())
                         {
-                            _prototypeManager.TryIndex<ReagentPrototype>(reagent.ReagentId, out var proto);
+                            _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.Prototype, out var proto);  // Changed to Reagent.Prototype from ReagentId
 
                             foreach (var effect in component.UnsafeOilVolumeEffects)
                             {
@@ -212,7 +212,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 if (component.WasteToAdd > FixedPoint2.Zero)
                 {
                     foreach (var reagent in component.WasteReagents)
-                        component.Solution.AddReagent(reagent.ReagentId, reagent.Quantity * component.WasteToAdd);
+                        component.Solution.AddReagent(reagent.Reagent.Prototype, reagent.Quantity * component.WasteToAdd);  // Changed to Reagent.Prototype from ReagentId
 
                     component.WasteToAdd = FixedPoint2.Zero;
 
@@ -290,7 +290,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
                 // Ensure it's Food here, so it passes the whitelist.
                 var mobFoodComponent = EnsureComp<FoodComponent>(mob);
-                var mobFoodSolution = _solutionContainerSystem.EnsureSolution(mob, mobFoodComponent.SolutionName, out bool alreadyHadFood);
+                var mobFoodSolution = _solutionContainerSystem.EnsureSolution(mob, mobFoodComponent.Solution, out bool alreadyHadFood); // Changed from SolutionName to Solution
 
                 // This line here is mainly for mice, because they have a food
                 // component that mirrors how much blood they have, which is
@@ -371,15 +371,15 @@ namespace Content.Server.Kitchen.EntitySystems
                 if (goodFlavors.Count > 0)
                     foreach (var reagent in component.GoodReagents)
                     {
-                        extraSolution.AddReagent(reagent.ReagentId, reagent.Quantity * goodFlavors.Count);
+                        extraSolution.AddReagent(reagent.Reagent.Prototype, reagent.Quantity * goodFlavors.Count);  // Changed to Reagent.Prototype from ReagentId
 
                         // Mask the taste of "medicine."
-                        flavorProfileComponent.IgnoreReagents.Add(reagent.ReagentId);
+                        flavorProfileComponent.IgnoreReagents.Add(reagent.Reagent.Prototype);  // Changed to Reagent.Prototype from ReagentId
                     }
 
                 if (badFlavors.Count > 0)
                     foreach (var reagent in component.BadReagents)
-                        extraSolution.AddReagent(reagent.ReagentId, reagent.Quantity * badFlavors.Count);
+                        extraSolution.AddReagent(reagent.Reagent.Prototype, reagent.Quantity * badFlavors.Count);  // Changed to Reagent.Prototype from ReagentId
             }
             else
             {
@@ -388,7 +388,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Make sure there's enough room for the fryer solution.
-            var foodContainer = _solutionContainerSystem.EnsureSolution(item, foodComponent.SolutionName);
+            var foodContainer = _solutionContainerSystem.EnsureSolution(item, foodComponent.Solution);  // Changed SolutionName to Solution
 
             // The solution quantity is used to give the fried food an extra
             // buffer too, to support injectables or condiments.
@@ -406,7 +406,7 @@ namespace Content.Server.Kitchen.EntitySystems
             var oilVolume = FixedPoint2.Zero;
 
             foreach (var reagent in component.Solution)
-                if (component.FryingOils.Contains(reagent.ReagentId))
+                if (component.FryingOils.Contains(reagent.Reagent.Prototype)) // Changed to Reagent.Prototype from ReagentId
                     oilVolume += reagent.Quantity;
 
             return oilVolume;
@@ -421,7 +421,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             foreach (var reagent in component.WasteReagents)
             {
-                wasteVolume += component.Solution.GetReagentQuantity(reagent.ReagentId);
+                wasteVolume += component.Solution.GetReagentQuantity(reagent.Reagent);  // Changed ReagentId to Reagent
             }
 
             return wasteVolume;
@@ -666,7 +666,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             // Chefs never miss this. :)
-            float missChance = HasComp<ProfessionalChefComponent>(args.User) ? 0f : ThrowMissChance;
+            float missChance = HasComp<ProfessionalChefComponent>(args.Target) ? 0f : ThrowMissChance; //somethin somethin, user. guh..... what if i delete it? Ye, didnt work Changed (args.User) to args.Target 
 
             if (!CanInsertItem(uid, component, args.Thrown) ||
                 _random.Prob(missChance) ||
@@ -676,9 +676,9 @@ namespace Content.Server.Kitchen.EntitySystems
                     Loc.GetString("deep-fryer-thrown-missed"),
                     uid);
 
-                if (args.User != null)
+                if (args.Target != null) // Changed user to Target, maybe that will fix it, idk. (i guess it did?)
                     _adminLogManager.Add(LogType.Action, LogImpact.Low,
-                        $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");
+                        $"threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");// Testin this one. Removed {ToPrettyString(args.User.Value)} before threw 
 
                 return;
             }
@@ -692,9 +692,9 @@ namespace Content.Server.Kitchen.EntitySystems
                     Loc.GetString("deep-fryer-thrown-hit-oil"),
                     uid);
 
-            if (args.User != null)
+            if (args.Target != null) // uh, yes, changed from user to.... Target? eeeE?
                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
-                    $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it landed inside.");
+                    $"threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it landed inside."); // Testin this one. Removed {ToPrettyString(args.User.Value)}  before threw 
 
             AfterInsert(uid, component, args.Thrown);
 
@@ -724,7 +724,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             // Keep this consistent with the checks in TryInsertItem.
             return (HasComp<ItemComponent>(item) &&
-                !HasComp<SharedStorageComponent>(item) &&
+                !HasComp<StorageComponent>(item) && // Changed to StorageComponent from SharedStorageComponent
                 component.Storage.ContainedEntities.Count < component.StorageMaxEntities);
         }
 
@@ -739,7 +739,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return false;
             }
 
-            if (HasComp<SharedStorageComponent>(item))
+            if (HasComp<StorageComponent>(item)) // Changed to StorageComponent from SharedStorageComponent
             {
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-storage-no-fit",
@@ -910,7 +910,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             var ev = new ClearSlagDoAfterEvent(heldSolution, transferAmount);
 
-            var doAfterArgs = new DoAfterArgs(user.Value, delay, ev, uid, used: heldItem)
+            var doAfterArgs = new DoAfterArgs(EntityManager, user.Value, delay, ev, uid, used: heldItem) // Added EntityManager
             {
                 BreakOnDamage = true,
                 BreakOnTargetMove = true,
@@ -950,8 +950,8 @@ namespace Content.Server.Kitchen.EntitySystems
             var removingSolution = new Solution();
             foreach (var reagent in component.WasteReagents)
             {
-                var removed = component.Solution.RemoveReagent(reagent.ReagentId, args.Amount / reagentCount);
-                removingSolution.AddReagent(reagent.ReagentId, removed);
+                var removed = component.Solution.RemoveReagent(reagent.Reagent.Prototype, args.Amount / reagentCount); // Changed to Reagent.Prototype from ReagentId
+                removingSolution.AddReagent(reagent.Reagent.Prototype, removed);  // Changed to Reagent.Prototype from ReagentId
             }
 
             _solutionContainerSystem.UpdateChemicals(uid, component.Solution);
