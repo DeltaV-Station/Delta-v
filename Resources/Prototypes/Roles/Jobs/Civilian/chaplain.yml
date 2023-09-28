@@ -5,9 +5,10 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-rd
   access:
   - Chapel
+  - Research # DeltaV - Move Chaplain into Epistemics
   - Maintenance
   special:
   - !type:AddComponentSpecial
@@ -21,7 +22,7 @@
     back: ClothingBackpackChaplainFilled
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
   innerclothingskirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelChaplainFilled
   duffelbag: ClothingBackpackDuffelChaplainFilled

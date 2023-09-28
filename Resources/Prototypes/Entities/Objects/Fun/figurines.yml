@@ -202,8 +202,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineResearchDirector
-  name: research director figure
-  description: A figurine depicting the glorious head of the Science department.
+  name: mystagogue figure # DeltaV - Epistemics Department replacing Science
+  description: A figurine depicting the glorious head of the Epistemics department. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     state: rd

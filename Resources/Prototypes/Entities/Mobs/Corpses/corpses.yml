@@ -13,7 +13,7 @@
       - MusicianGear
       - BotanistGear
       - ChefGear
-      - ChaplainGear
+      # - ChaplainGear # DeltaV - Move Chaplain into Epistemics
       - PassengerGear
       - MartialArtistGear # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
 
@@ -54,12 +54,13 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomScienceCorpse
-  suffix: Dead, Science
+  suffix: Dead, Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Loadout
     prototypes:
     - ResearchAssistantGear
     - ScientistGear
+    - ChaplainGear # DeltaV - Move Chaplain into Epistemics
 
 - type: entity
   parent: SalvageHumanCorpse

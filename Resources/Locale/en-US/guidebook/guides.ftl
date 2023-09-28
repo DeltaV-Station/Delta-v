@@ -33,7 +33,7 @@ guide-entry-medicine = Medicine
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-guide-entry-science = Science
+guide-entry-science = Epistemics
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
 guide-entry-ape = A.P.E.
@@ -44,6 +44,8 @@ guide-entry-machine-upgrading = Machine Upgrading
 guide-entry-robotics = Robotics
 guide-entry-security = Security
 guide-entry-dna = DNA
+guide-entry-defusal = Large Bomb Defusal
+
 guide-entry-antagonists = Antagonists
 guide-entry-nuclear-operatives = Nuclear Operatives
 guide-entry-traitors = Traitors

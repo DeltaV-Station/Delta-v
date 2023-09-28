@@ -15,7 +15,7 @@
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
-    CorgiMeatStealObjective: 1
+    # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
@@ -24,7 +24,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomObjective: 1
+    KillRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
