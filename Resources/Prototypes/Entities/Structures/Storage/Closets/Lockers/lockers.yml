@@ -223,8 +223,7 @@
     stateDoorOpen: paramed_open
     stateDoorClosed: paramed_door
   - type: AccessReader
-  # DeltaV - Change Medical access to Paramedic
-    access: [ [ "Paramedic" ] ]
+    access: [ [ "Paramedic" ] ] # DeltaV - Change Medical access to Paramedic
 
 
 # Chemical
