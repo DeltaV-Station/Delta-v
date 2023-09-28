@@ -3,6 +3,7 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
@@ -10,6 +11,9 @@
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
       time: 10800 #3 hrs
+    - !type:RoleTimeRequirement # DeltaV - Courrier role time requirement
+      role: JobMailCarrier
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 36000 #10 hours
@@ -19,7 +23,7 @@
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Cargo
   - Salvage
