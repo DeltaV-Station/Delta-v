@@ -21,6 +21,10 @@
   - Command
   - Maintenance
   - ResearchDirector
+  special: # Nyanotrasen - Mystagogue can use the Bible
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser #Lets them heal with bibles
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -28,7 +32,8 @@
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
     shoes: ClothingShoesColorBrown
-    outerClothing: ClothingOuterCoatRnd
+    head: ClothingHeadHoodMystic # DeltaV - Mystagogue new hat
+    outerClothing: ClothingOuterCoatRndMysta # DeltaV - Mystagogue new coat
     id: RnDPDA
     ears: ClothingHeadsetRD
   innerclothingskirt: ClothingUniformJumpskirtResearchDirector
