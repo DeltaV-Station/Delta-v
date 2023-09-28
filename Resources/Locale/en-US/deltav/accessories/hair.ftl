@@ -1,2 +1,5 @@
 marking-HumanHairShortBedhead = Short Bedhead
-mariking-HumanHairClassicGentle = Classic Gentle
+marking-HumanHairClassicGentle = Classic Gentle
+marking-HumanHairClassicNoFade = Classic Fade (None)
+marking-HumanHairClassicLowFade = Classic Fade (Low)
+marking-HumanHairClassicMedFade = Classic Fade (Medium)
