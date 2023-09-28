@@ -20,7 +20,7 @@ SERVER_FILES = [
 ]
 
 VERSION = os.environ['GITHUB_SHA']
-FORK_ID = "deltav"
+FORK_ID = "delta-v"
 BUILD_URL = f"https://builds.delta-v.org/{{FORK_ID}}/builds/{{FORK_VERSION}}/{FILE}"
 MANIFEST_URL = f"https://cdn.delta-v.org/version/{{FORK_VERSION}}/manifest"
 MANIFEST_DOWNLOAD_URL = f"https://cdn.delta-v.org/version/{{FORK_VERSION}}/download"
