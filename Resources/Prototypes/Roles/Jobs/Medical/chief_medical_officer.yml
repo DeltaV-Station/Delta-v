@@ -16,7 +16,7 @@
       department: Medical
       time: 36000 #10 hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 144000 #40 hrs
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -25,6 +25,7 @@
   canBeAntag: false
   access:
   - Medical
+  - Paramedic
   - Command
   - Maintenance
   - Chemistry
