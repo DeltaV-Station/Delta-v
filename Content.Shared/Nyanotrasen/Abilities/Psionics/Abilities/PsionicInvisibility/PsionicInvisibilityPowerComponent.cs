@@ -1,13 +1,16 @@
-using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Abilities.Psionics
 {
     [RegisterComponent]
     public sealed partial class PsionicInvisibilityPowerComponent : Component
     {
-        public InstantActionComponent? PsionicInvisibilityPowerAction = null;
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string PsionicInvisibilityActionPrototype = "ActionMakePsionicallyInvisible";
+        [DataField("psionicInvisibilityActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string? PsionicInvisibilityActionId = "ActionPsionicInvisibility";
+
+        [DataField("psionicInvisibilityActionEntity")]
+        public EntityUid? PsionicInvisibilityActionEntity;
     }
 }

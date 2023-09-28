@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -10,6 +11,11 @@ namespace Content.Shared.Abilities.Psionics
         public float Range = 5f;
 
         public InstantActionComponent? MetapsionicPowerAction = null;
-        public const string MetapsionicActionPrototype = "ActionMetapsionic";
+        [DataField("metapsionicActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string? MetapsionicActionId = "ActionTelegnosis";
+
+        [DataField("metapsionicActionEntity")]
+        public EntityUid? MetapsionicActionEntity;
     }
 }

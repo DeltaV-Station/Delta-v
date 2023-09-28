@@ -48,24 +48,17 @@ namespace Content.Server.Abilities.Psionics
         // 9/25/2023 by JJ. I have no idea what I'm doing. I've tried refactoring this the best I can. will test ASAP.
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-
-            var action = Spawn(DispelPowerComponent.DispelActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.DispelPowerAction = new EntityTargetActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.DispelActionEntity, component.DispelActionId );
+            _actions.TryGetActionData( component.DispelActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.DispelActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.DispelPowerAction;
+                psionic.PsionicAbility = component.DispelActionEntity;*/
         }
 
         private void OnShutdown(EntityUid uid, DispelPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, DispelPowerComponent.DispelActionPrototype, null);
+            _actions.RemoveAction(uid, component.DispelActionEntity);
         }
 
         private void OnPowerUsed(DispelPowerActionEvent args)

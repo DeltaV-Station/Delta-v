@@ -41,6 +41,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly RevenantSystem _revenantSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -90,16 +91,15 @@ namespace Content.Server.Psionics.Glimmer
             if (component.ModulatesPointLight)
                 if (TryComp(uid, out SharedPointLightComponent? pointLight))
                 {
-                    pointLight.Enabled = isEnabled ? currentGlimmerTier != GlimmerTier.Minimal : false;
-
+                    _pointLightSystem.SetEnabled(uid, isEnabled ? currentGlimmerTier != GlimmerTier.Minimal : false, pointLight);
                     // The light energy and radius are kept updated even when off
                     // to prevent the need to store additional state.
                     //
                     // Note that this doesn't handle edge cases where the
                     // PointLightComponent is removed while the
                     // GlimmerReactiveComponent is still present.
-                    pointLight.Energy += glimmerTierDelta * component.GlimmerToLightEnergyFactor;
-                    pointLight.Radius += glimmerTierDelta * component.GlimmerToLightRadiusFactor;
+                    _pointLightSystem.SetEnergy(uid, pointLight.Energy + glimmerTierDelta * component.GlimmerToLightEnergyFactor, pointLight);
+                    _pointLightSystem.SetRadius(uid, pointLight.Radius + glimmerTierDelta * component.GlimmerToLightRadiusFactor, pointLight);
                 }
 
         }

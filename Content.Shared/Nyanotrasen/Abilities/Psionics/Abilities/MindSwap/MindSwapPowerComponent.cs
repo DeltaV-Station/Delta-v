@@ -1,18 +1,16 @@
-using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Abilities.Psionics
 {
     [RegisterComponent]
     public sealed partial class MindSwapPowerComponent : Component
     {
-        public EntityTargetActionComponent? MindSwapPowerAction = null;
+        [DataField("mindSwapActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string? MindSwapActionId = "ActionMindSwap";
 
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string MindSwapActionPrototype = "ActionMindSwap";
-        public InstantActionComponent? MindSwapReturnPowerAction = null;
-
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string MindSwapReturnActionPrototype = "ActionMindSwapReturn";
+        [DataField("mindSwapActionEntity")]
+        public EntityUid? MindSwapActionEntity;
     }
 }

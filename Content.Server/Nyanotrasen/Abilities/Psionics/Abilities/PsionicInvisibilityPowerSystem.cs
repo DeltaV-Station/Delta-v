@@ -39,23 +39,17 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicInvisibilityPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(PsionicInvisibilityPowerComponent.PsionicInvisibilityActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.PsionicInvisibilityPowerAction = new InstantActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.PsionicInvisibilityActionEntity, component.PsionicInvisibilityActionId );
+            _actions.TryGetActionData( component.PsionicInvisibilityActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.PsionicInvisibilityActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.PsionicInvisibilityPowerAction;;
+                psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;*/
         }
 
         private void OnShutdown(EntityUid uid, PsionicInvisibilityPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, PsionicInvisibilityPowerComponent.PsionicInvisibilityActionPrototype, null);
+            _actions.RemoveAction(uid, component.PsionicInvisibilityActionEntity);
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicInvisibilityPowerComponent component, PsionicInvisibilityPowerActionEvent args)
@@ -64,13 +58,11 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             ToggleInvisibility(args.Performer);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
             var action = Spawn(PsionicInvisibilityUsedComponent.PsionicInvisibilityUsedActionPrototype);
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
+            _actions.AddAction(uid, action, action);
+            _actions.TryGetActionData( action, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(action);
 
             _psionics.LogPowerUsed(uid, "psionic invisibility");
             args.Handled = true;
@@ -104,8 +96,8 @@ namespace Content.Server.Abilities.Psionics
             RemComp<PacifiedComponent>(uid);
             RemComp<StealthComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
-            
-            _actions.RemoveAction(uid, PsionicInvisibilityUsedComponent.PsionicInvisibilityUsedActionPrototype, null);
+            //Pretty sure this DOESN'T work as intended. 
+            _actions.RemoveAction(uid, component.PsionicInvisibilityUsedActionEntity);
 
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
             DirtyEntity(uid);

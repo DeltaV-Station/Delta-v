@@ -28,8 +28,8 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
     {
         if (args is not GlimmerMonitorSyncMessageEvent)
             return;
-
-        UpdateUiState(uid, args.LoaderUid, component);
+        ;
+        UpdateUiState(uid, EntityManager.GetEntity( args.LoaderUid ), component);
     }
 
     public void UpdateUiState(EntityUid uid, EntityUid loaderUid, GlimmerMonitorCartridgeComponent? component)

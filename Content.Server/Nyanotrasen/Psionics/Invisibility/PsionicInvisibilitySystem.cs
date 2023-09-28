@@ -1,7 +1,7 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Vehicle.Components;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Visible;
+using Content.Shared.Eye;
 using Content.Server.NPC.Systems;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
@@ -13,6 +13,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
         [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
+        [Dependency] private readonly SharedEyeSystem _eye = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -126,13 +127,13 @@ namespace Content.Server.Psionics
             {
                 if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
-                    eye.VisibilityMask |= (uint) VisibilityFlags.PsionicInvisibility;
+                    _eye.SetVisibilityMask(uid, eye.VisibilityMask | (int) VisibilityFlags.PsionicInvisibility, eye);
                 }
             } else
             {
                 if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
-                    eye.VisibilityMask &= ~(uint) VisibilityFlags.PsionicInvisibility;
+                    _eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) VisibilityFlags.PsionicInvisibility, eye);
                 }
             }
         }

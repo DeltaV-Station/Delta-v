@@ -30,20 +30,17 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, TelegnosisPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(TelegnosisPowerComponent.TelegnosisActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.TelegnosisPowerAction = new InstantActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
+            /*_actions.AddAction(uid, ref component.TelegnosisActionEntity, component.TelegnosisActionId );
+            _actions.TryGetActionData( component.TelegnosisActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.TelegnosisActionEntity);
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+                psionic.PsionicAbility = component.TelegnosisActionEntity;*/
         }
 
         private void OnShutdown(EntityUid uid, TelegnosisPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, TelegnosisPowerComponent.TelegnosisActionPrototype, null);
+            _actions.RemoveAction(uid, component.TelegnosisActionEntity);
         }
 
         private void OnPowerUsed(EntityUid uid, TelegnosisPowerComponent component, TelegnosisPowerActionEvent args)

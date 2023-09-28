@@ -1,4 +1,26 @@
 - type: entity
+  id: ActionEatMouse
+  name: action-name-eat-mouse
+  description: action-description-eat-mouse
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Icons/verbiconfangs.png
+    event: !type:EatMouseActionEvent
+
+- type: entity
+  id: ActionHairball
+  name: action-name-hairball
+  description: action-description-hairball
+  noSpawn: true
+  components:
+  - type: InstantAction
+    charges: 1
+    icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
+    useDelay: 30
+    event: !type:HairballActionEvent
+    
+- type: entity
   id: ActionDispel
   name: action-name-dispel
   description: action-description-dispel
@@ -106,7 +128,7 @@
     event: !type:TelegnosisPowerActionEvent
 
 - type: entity
-  id: ActionMakePsionicallyInvisible
+  id: ActionPsionicInvisibility
   name: action-name-psionic-invisibility
   description: action-description-psionic-invisibility
   components:
@@ -116,7 +138,7 @@
     event: !type:PsionicInvisibilityPowerActionEvent
 
 - type: entity
-  id: ActionRemovePsionicInvisibility
+  id: ActionPsionicInvisibilityUsed
   description: action-description-psionic-invisibility-off
   components:
   - type: InstantAction

@@ -31,24 +31,18 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MetapsionicPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-
-            var action = Spawn(MetapsionicPowerComponent.MetapsionicActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.MetapsionicPowerAction = new InstantActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.MetapsionicActionEntity, component.MetapsionicActionId );
+            _actions.TryGetActionData( component.MetapsionicActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.MetapsionicActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MetapsionicPowerAction;
+                psionic.PsionicAbility = component.MetapsionicActionEntity; 
+                */
         }
 
         private void OnShutdown(EntityUid uid, MetapsionicPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, MetapsionicPowerComponent.MetapsionicActionPrototype, null);
+            _actions.RemoveAction(uid, component.MetapsionicActionEntity);
         }
 
         private void OnPowerUsed(EntityUid uid, MetapsionicPowerComponent component, MetapsionicPowerActionEvent args)

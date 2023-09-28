@@ -6,9 +6,9 @@
   components:
   - type: Psionic
   - type: GlimmerSource
-  - type: Construction #Files are in place, but are commented out
-    graph: GlimmerDevices
-    node: glimmerProber
+  #- type: Construction #Files are in place, but are commented out
+    #graph: GlimmerDevices
+    #node: glimmerProber
   - type: ResearchPointSource
     pointspersecond: 20
     active: true
@@ -93,9 +93,9 @@
   - type: Psionic
   - type: GlimmerSource
     addToGlimmer: false
-  - type: Construction #Files are in place, but commented out
-    graph: GlimmerDevices
-    node: glimmerDrain
+  #- type: Construction #Files are in place, but commented out
+    #graph: GlimmerDevices
+    #node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     noRot: true
@@ -150,8 +150,8 @@
     - type: Rotatable
     - type: Pullable
 #    - type: Construction #Files are in place, but commented out
-      graph: GlimmerDevices
-      node: frame
+      #graph: GlimmerDevices
+      #node: frame
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic

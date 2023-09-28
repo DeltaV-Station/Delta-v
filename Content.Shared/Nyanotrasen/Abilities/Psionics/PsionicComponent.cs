@@ -6,7 +6,7 @@ namespace Content.Shared.Abilities.Psionics
     [RegisterComponent, NetworkedComponent]
     public sealed partial class PsionicComponent : Component
     {
-        public BaseActionComponent? PsionicAbility = null;
+        public EntityUid? PsionicAbility = null;
 
         /// <summary>
         ///     Ifrits, revenants, etc are explicitly magical beings that shouldn't get mindbreakered.

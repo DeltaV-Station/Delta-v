@@ -43,23 +43,17 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MindSwapPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(MindSwapPowerComponent.MindSwapActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.MindSwapPowerAction = new EntityTargetActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.MindSwapActionEntity, component.MindSwapActionId );
+            _actions.TryGetActionData( component.MindSwapActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.MindSwapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MindSwapPowerAction;
+                psionic.PsionicAbility = component.MindSwapActionEntity;*/
         }
 
         private void OnShutdown(EntityUid uid, MindSwapPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, MindSwapPowerComponent.MindSwapActionPrototype, null);
+            _actions.RemoveAction(uid, component.MindSwapActionEntity);
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)
@@ -143,13 +137,14 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
-        //JJ Comment - this is broken. Just straight-up broken. The I've tried assigning both the Mind's OwnedEntity and the EntityUid being provided to the function. 
-        //Neither registers on the character. Moving on before I lose my sanity.
         private void OnSwapInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(MindSwapPowerComponent.MindSwapReturnActionPrototype);
-            _actions.AddAction(uid, action, null);
+            _actions.AddAction(uid, ref component.MindSwapReturnActionEntity, component.MindSwapReturnActionId );
+            _actions.TryGetActionData( component.MindSwapReturnActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.MindSwapReturnActionEntity);
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+                psionic.PsionicAbility = component.MindSwapReturnActionEntity;
         }
 
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
@@ -179,8 +174,10 @@ namespace Content.Server.Abilities.Psionics
 
             if (end)
             {
-                _actions.RemoveAction(performer, MindSwapPowerComponent.MindSwapReturnActionPrototype, null);
-                _actions.RemoveAction(target, MindSwapPowerComponent.MindSwapReturnActionPrototype, null);
+                var performerMindPowerComp = EntityManager.GetComponent<MindSwapPowerComponent>(performer);
+                var targetMindPowerComp = EntityManager.GetComponent<MindSwapPowerComponent>(target);
+                _actions.RemoveAction(performer, performerMindPowerComp.MindSwapActionEntity);
+                _actions.RemoveAction(target, targetMindPowerComp.MindSwapActionEntity);
 
                 RemComp<MindSwappedComponent>(performer);
                 RemComp<MindSwappedComponent>(target);
@@ -198,7 +195,8 @@ namespace Content.Server.Abilities.Psionics
         {
 
             _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, uid, Shared.Popups.PopupType.LargeCaution);
-            _actions.RemoveAction(uid, MindSwapPowerComponent.MindSwapReturnActionPrototype, null);
+            var perfComp = EnsureComp<MindSwappedComponent>(uid);
+            _actions.RemoveAction(uid, perfComp.MindSwapReturnActionEntity, null);
 
             if (HasComp<TelegnosticProjectionComponent>(uid))
             {

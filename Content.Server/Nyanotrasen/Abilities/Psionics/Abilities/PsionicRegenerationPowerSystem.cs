@@ -50,24 +50,18 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(PsionicRegenerationPowerComponent.PsionicRegenerationActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.PsionicRegenerationPowerAction = new InstantActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.PsionicRegenerationActionEntity, component.PsionicRegenerationActionId );
+            _actions.TryGetActionData( component.PsionicRegenerationActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.PsionicRegenerationPowerAction;
+                psionic.PsionicAbility = component.PsionicRegenerationActionEntity; */
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationPowerActionEvent args)
         {
             var ev = new PsionicRegenerationDoAfterEvent(_gameTiming.CurTime);
-            var doAfterArgs = new DoAfterArgs(uid, component.UseDelay, ev, uid);
+            var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid);
 
             _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
 
@@ -87,7 +81,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, PsionicRegenerationPowerComponent.PsionicRegenerationActionPrototype, null);
+            _actions.RemoveAction(uid, component.PsionicRegenerationActionEntity);
         }
 
         private void OnDispelled(EntityUid uid, PsionicRegenerationPowerComponent component, DispelledEvent args)

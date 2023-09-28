@@ -33,23 +33,17 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, NoosphericZapPowerComponent component, ComponentInit args)
         {
-            //Don't know how to deal with TryIndex.
-            var action = Spawn(NoosphericZapPowerComponent.NoosphericZapActionPrototype);
-            if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity)
-            {
-                return;
-            }
-            component.NoosphericZapPowerAction = new EntityTargetActionComponent();
-            _actions.AddAction(mind.OwnedEntity.Value, action, null);
-
+            /*_actions.AddAction(uid, ref component.NoosphericZapActionEntity, component.NoosphericZapActionId );
+            _actions.TryGetActionData( component.NoosphericZapActionEntity, out var actionData );
+            if (actionData is { UseDelay: not null })
+                _actions.StartUseDelay(component.NoosphericZapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.NoosphericZapPowerAction;
+                psionic.PsionicAbility = component.NoosphericZapActionEntity; */
         }
 
         private void OnShutdown(EntityUid uid, NoosphericZapPowerComponent component, ComponentShutdown args)
         {
-            _actions.RemoveAction(uid, NoosphericZapPowerComponent.NoosphericZapActionPrototype, null);
+            _actions.RemoveAction(uid, component.NoosphericZapActionEntity);
         }
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)

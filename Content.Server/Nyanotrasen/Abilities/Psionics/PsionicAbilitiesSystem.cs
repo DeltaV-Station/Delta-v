@@ -126,8 +126,13 @@ namespace Content.Server.Abilities.Psionics
                 if (EntityManager.TryGetComponent(uid, comp.GetType(), out var psionicPower))
                     RemComp(uid, psionicPower);
             }
-            if (psionic.PsionicAbility != null)
-                _actionsSystem.RemoveAction(uid, psionic.PsionicAbility.Owner);
+            if (psionic.PsionicAbility != null){
+                _actionsSystem.TryGetActionData( psionic.PsionicAbility, out var psiAbility );
+                if (psiAbility != null){
+                    var owner = psiAbility.Owner;
+                    _actionsSystem.RemoveAction(uid, psiAbility.Owner);
+                }
+            }
 
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
 
