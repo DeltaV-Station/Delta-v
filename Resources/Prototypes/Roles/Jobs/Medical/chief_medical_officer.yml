@@ -25,11 +25,12 @@
   canBeAntag: false
   access:
   - Medical
-  - Paramedic
   - Command
   - Maintenance
   - Chemistry
   - ChiefMedicalOfficer
+  # DeltaV - Add Paramedic access
+  - Paramedic
 
 - type: startingGear
   id: CMOGear

@@ -14,9 +14,10 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Paramedic
   - Maintenance
   - External
+  # DeltaV - Add Paramedic access
+  - Paramedic
   extendedAccess:
   - Chemistry
 
