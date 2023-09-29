@@ -318,18 +318,17 @@
     - id: UniformSchoolgirlRed
       orGroup: Color
 
-#- type: entity
-#  noSpawn: true
-#  parent: BaseMail
-#  id: MailCosplayWizard
-#  suffix: cosplay-wizard
-#  components:
-#  - type: Mail
-#    contents:
-#    - id: ClothingOuterWizardFake
-#    - id: ClothingHeadHatWizardFake
-#    - id: ClothingShoesWizardFake
-# We dont have these?
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailCosplayWizard
+  suffix: cosplay-wizard
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWizardFake
+    - id: ClothingHeadHatWizardFake
+    - id: ClothingShoesWizardFake
 
 - type: entity
   noSpawn: true
