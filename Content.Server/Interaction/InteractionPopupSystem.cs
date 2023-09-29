@@ -25,7 +25,9 @@ public sealed class InteractionPopupSystem : EntitySystem
         SubscribeLocalEvent<InteractionPopupComponent, InteractHandEvent>(OnInteractHand);
     }
 
-    private void OnInteractHand(EntityUid uid, InteractionPopupComponent component, InteractHandEvent args)
+    // Begin Nyanotrasen Code: CPR System, override normal hand interactions
+
+    /*private void OnInteractHand(EntityUid uid, InteractionPopupComponent component, InteractHandEvent args)
     {
         if (args.Handled || args.User == args.Target)
             return;
@@ -87,5 +89,82 @@ public sealed class InteractionPopupSystem : EntitySystem
         }
 
         component.LastInteractTime = curTime;
+    }*/
+
+    private void OnInteractHand(EntityUid uid, InteractionPopupComponent component, InteractHandEvent args)
+    {
+        if (HasComp<MobStateComponent>(uid))
+            return;
+
+        if (args.Handled || args.User == args.Target)
+            return;
+
+        //Handling does nothing and this thing annoyingly plays way too often.
+        if (HasComp<SleepingComponent>(uid))
+            return;
+
+        args.Handled = true;
+
+        TryHug(uid, component, args.User);
     }
+
+    public void TryHug(EntityUid uid, InteractionPopupComponent component, EntityUid user)
+    {
+        if (uid == user)
+            return;
+
+        var curTime = _gameTiming.CurTime;
+
+        if (curTime < component.LastInteractTime + component.InteractDelay)
+            return;
+
+        string msg = ""; // Stores the text to be shown in the popup message
+        string? sfx = null; // Stores the filepath of the sound to be played
+
+        if (_random.Prob(component.SuccessChance))
+        {
+            if (component.InteractSuccessString != null)
+                msg = Loc.GetString(component.InteractSuccessString, ("target", Identity.Entity(uid, EntityManager))); // Success message (localized).
+
+            if (component.InteractSuccessSound != null)
+                sfx = component.InteractSuccessSound.GetSound();
+        }
+        else
+        {
+            if (component.InteractFailureString != null)
+                msg = Loc.GetString(component.InteractFailureString, ("target", Identity.Entity(uid, EntityManager))); // Failure message (localized).
+
+            if (component.InteractFailureSound != null)
+                sfx = component.InteractFailureSound.GetSound();
+
+            if (component.HostileOnFail && HasComp<NPCComponent>(uid))
+            {
+                var targeted = EnsureComp<NPCCombatTargetComponent>(uid);
+                targeted.EngagingEnemies.Add(user);
+            }
+
+        }
+
+        if (component.MessagePerceivedByOthers != null)
+        {
+            string msgOthers = Loc.GetString(component.MessagePerceivedByOthers,
+                ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager)));
+            _popupSystem.PopupEntity(msg, uid, user);
+            _popupSystem.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
+        }
+        else
+            _popupSystem.PopupEntity(msg, uid, user); //play only for the initiating entity.
+
+        if (sfx is not null) //not all cases will have sound.
+        {
+            if (component.SoundPerceivedByOthers)
+                SoundSystem.Play(sfx, Filter.Pvs(uid), uid); //play for everyone in range
+            else
+                SoundSystem.Play(sfx, Filter.Entities(user, uid), uid); //play only for the initiating entity and its target.
+        }
+
+        component.LastInteractTime = curTime;
+    }
+
+    // End Nyanotrasen Code: CPR System, override normal hand interactions
 }
