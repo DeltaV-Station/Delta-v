@@ -20,6 +20,7 @@ using Content.Server.Item;
 using Content.Server.Mail.Components;
 using Content.Server.Mind;
 using Content.Server.Nutrition.Components;
+using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
@@ -56,6 +57,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
@@ -350,8 +352,8 @@ namespace Content.Server.Mail
 
             // It can be spilled easily and has something to spill.
             if (HasComp<SpillableComponent>(uid)
-                && TryComp(uid, out DrinkComponent? drinkComponent)
-                && drinkComponent.Opened
+                && TryComp<OpenableComponent>(uid, out var openable)
+                && !_openable.IsClosed(uid, null, openable)
                 && _solutionContainerSystem.PercentFull(uid) > 0)
                 return true;
 
