@@ -28,4 +28,12 @@
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-      
+
+- type: entity
+  name: Kammerer
+  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
+  id: WeaponShotgunKammererNonLethal
+  parent: ["BaseWeaponShotgunNonLethal", "WeaponShotgunKammerer"]
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 4
