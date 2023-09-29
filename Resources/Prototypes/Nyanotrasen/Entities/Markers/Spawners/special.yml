@@ -3,11 +3,11 @@
   id: SpawnMobGolemCult
   parent: MarkerBase
   components:
-  # - type: Sprite # When Golem
+  # - type: Sprite # Todo
   #   layers:
   #     - state: green
   #     - sprite:  Nyanotrasen/Mobs/Species/Golem/cult.rsi
   #       state: full
-  - type: ConditionalSpawner
-    prototypes:
-      - MobGolemCult
+  # - type: ConditionalSpawner
+  #   prototypes:
+  #     - MobGolemCult
