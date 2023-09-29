@@ -2,7 +2,6 @@ using Robust.Client.GameObjects;
 using Content.Shared.Mail;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using FastAccessors;
 using Robust.Client.State;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
