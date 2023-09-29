@@ -1,0 +1,19 @@
+- type: entity
+  name: Board Game Spawner
+  id: BoardGameSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Fun/Tabletop/chessboard.rsi
+          state: chessboard
+    - type: RandomSpawner
+      prototypes:
+        - BackgammonBoard
+        - CheckerBoard
+        - ChessBoard
+        - ParchisBoard
+        - ShogiBoard
+      chance: 1
+      offset: 0.0

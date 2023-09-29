@@ -1,0 +1,25 @@
+- type: entity
+  name: Mining Rock Spawner
+  id: RandomRockSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Walls/rock.rsi
+        state: rock
+  - type: RandomSpawner
+    prototypes:
+      - AsteroidRock
+    chance: .90
+    rarePrototypes:
+      - AsteroidRockMining
+      - Barricade
+      - AsteroidRock
+      - WallRockGold
+      - WallRockPlasma
+      - WallRockQuartz
+      - WallRockSilver
+      - WallRockTin
+      - WallRockUranium
+    rareChance: 0.15
