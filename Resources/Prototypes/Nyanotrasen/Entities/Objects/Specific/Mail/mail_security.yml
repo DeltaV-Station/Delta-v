@@ -33,15 +33,16 @@
     - id: Handcuffs
       maxAmount: 2
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailSecuritySpaceLaw
-  suffix: spacelaw
-  components:
-  - type: Mail
-    contents:
-    - id: HyperlinkBookSpaceLaw
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMail
+#  id: MailSecuritySpaceLaw
+#  suffix: spacelaw
+#  components:
+#  - type: Mail
+#    contents:
+#    - id: HyperlinkBookSpaceLaw
+# Will we ever readd hyperlinks books? Who knows!
 
 - type: entity
   noSpawn: true

@@ -65,16 +65,17 @@
     contents:
     - id: SheetPlasma1
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailMedicalSpaceacillin
-  suffix: spaceacillin
-  components:
-  - type: Mail
-    contents:
-    - id: SyringeSpaceacillin
-      maxAmount: 3
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMail
+#  id: MailMedicalSpaceacillin
+#  suffix: spaceacillin
+#  components:
+#  - type: Mail
+#    contents:
+#    - id: SyringeSpaceacillin
+#      maxAmount: 3
+# Awaiting diseases
 
 - type: entity
   noSpawn: true
