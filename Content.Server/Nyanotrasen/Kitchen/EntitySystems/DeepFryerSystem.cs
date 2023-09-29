@@ -229,7 +229,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 GetOilLevel(uid, component),
                 GetOilPurity(uid, component),
                 component.FryingOilThreshold,
-                component.Storage.ContainedEntities.ToArray());
+                GetNetEntityArray(component.Storage.ContainedEntities.ToArray()));
 
             if (!_uiSystem.TrySetUiState(uid, DeepFryerUiKey.Key, state))
                 _sawmill.Warning($"{ToPrettyString(uid)} was unable to set UI state.");
@@ -794,14 +794,16 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnRemoveItem(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveItemMessage args)
         {
-            if (!component.Storage.Remove(args.Item))
+            var item = GetEntity(args.Item);
+
+            if (!component.Storage.Remove(item))
                 return;
 
             var user = args.Session.AttachedEntity;
 
             if (user != null)
             {
-                _handsSystem.TryPickupAnyHand(user.Value, args.Item);
+                _handsSystem.TryPickupAnyHand(user.Value, item);
 
                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
                     $"{ToPrettyString(user.Value)} took {ToPrettyString(args.Item)} out of {ToPrettyString(uid)}.");
