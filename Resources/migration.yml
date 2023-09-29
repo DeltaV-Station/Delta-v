@@ -87,3 +87,24 @@ GeneratorPlasma: PortableGeneratorPacman
 GeneratorUranium: PortableGeneratorSuperPacman
 GeneratorPlasmaMachineCircuitboard: PortableGeneratorPacmanMachineCircuitboard
 GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitboard
+
+## Delta V changes follow ##
+
+# 2023-09-29 (Rebase related migrations)
+PosterContrabandSMSyndie: PosterContrabandSafetyMothSyndie
+PosterLegitSMPoisoning: PosterLegitSafetyMothPoisoning
+PosterLegitSMBoH: PosterLegitSafetyMothBoH
+PosterLegitSMHardhats: PosterLegitSafetyMothHardhat
+PosterLegitSMFires: PosterLegitSafetyMothFires
+PosterLegitSMPiping: PosterLegitSafetyMothPiping
+PosterLegitSMMeth: PosterLegitSafetyMothMeth
+PosterLegitSMEpi: PosterLegitSafetyMothEpi
+PosterLegitSMPills: PosterLegitSafetyMothPills
+PosterLegitSMAnomalies: PosterLegitSafetyMothDelam
+PosterLegitSMGlimmer: PosterLegitSafetyMothGlimmer
+EngineeringTechFab: Autolathe
+EngineeringTechFabCircuitboard: AutolatheMachineCircuitboard
+ScienceTechFab: Protolathe
+ScienceTechFabCircuitboard: ProtolatheMachineCircuitboard
+ServiceTechFab: Autolathe
+ServiceTechFabCircuitboard: AutolatheMachineCircuitboard

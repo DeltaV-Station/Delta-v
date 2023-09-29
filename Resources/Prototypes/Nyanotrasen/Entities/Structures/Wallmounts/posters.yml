@@ -188,3 +188,67 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
     state: northwaymap
+
+# SAFETY MOTH
+# Actual original art credit to AspEv
+# Some posters are in the upstream posters.yml
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSafetyMothSyndie
+  name: Syndie Moth - Nuclear Operation
+  description: Syndie Moth™ tells the viewer to keep the nuclear authentication disk unsecured. "Peace was never an option!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_0
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothPoisoning
+  name: Safety Moth - Poisoning
+  description: Safety Moth™ tells the viewer not to poison the station donuts.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_1
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothBoH
+  name: Safety Moth - Bag of Holding
+  description: Safety Moth™ informs the viewer of the dangers of Bags of Holding. "Remember! Bags of Holding may be pretty, but they're also pretty dangerous! Never put one inside another!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_2
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothFires
+  name: Safety Moth - Fires
+  description: Safety Moth™ promotes safe handling of plasma and to keep firefighting equipment within hand reach.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_4
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothPills
+  name: Safety Moth - Pill Bottles
+  description: Safety Moth™ informs the viewer that leaving pills unsupervised on tables could lead to unforeseen consequences. "Hungry critters love to eat everything! Keep your pills safe in crates and pill bottles!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_9
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothGlimmer
+  name: Safety Moth - Glimmer Safety Precautions
+  description: Safety Moth™ tells the viewer to wear insulative equipments and hide in lockers when the glimmer gets within critical levels. Evacuating might be a better strategy.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_11
