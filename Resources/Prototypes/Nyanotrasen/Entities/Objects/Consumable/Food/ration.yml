@@ -22,8 +22,8 @@
   - type: Item
     size: 3
   - type: SpaceGarbage
-#  - type: DynamicPrice
-#    price: 0
+  - type: StaticPrice #DynamicPrice
+    price: 0
   - type: SpawnItemsOnUse
     items:
       - id: FoodPSBTrash
