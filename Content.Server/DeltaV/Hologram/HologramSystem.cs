@@ -20,7 +20,7 @@ public sealed class HologramSystem : SharedHologramSystem
 
     private void OnExamine(EntityUid uid, HologramComponent component, ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("hologram-comp-on-examine"));
+        args.PushMarkup(Loc.GetString("hologram-on-examine"));
     }
 
     private void OnDisarmAttempt(EntityUid uid, HologramComponent component, DisarmAttemptEvent args)
