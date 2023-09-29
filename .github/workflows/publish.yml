@@ -60,7 +60,7 @@ jobs:
         username: ${{ secrets.PUBLISH_USER }}
         key: ${{ secrets.PUBLISH_KEY }}
         port: ${{ secrets.PUBLISH_PORT }}
-        script: /home/${{ secrets.PUBLISH_USER }}/publish/rebasepush.psi ${{ github.sha }}
+        script: /home/${{ secrets.PUBLISH_USER }}/publish/rebasepush.ps1 ${{ github.sha }}
 
     - name: Publish changelog (Discord)
       run: Tools/actions_changelogs_since_last_run.py

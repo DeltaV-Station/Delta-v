@@ -126,7 +126,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyMedicalScience
-  name: med-sci encryption key
+  name: med-epi encryption key # DeltaV - Epistemics Department replacing Science
   description: An encryption key used by someone who hasn't decided which side to take.
   components:
   - type: EncryptionKey
@@ -142,7 +142,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyScience
-  name: science encryption key
+  name: epistemics encryption key # DeltaV - Epistemics Department replacing Science
   description: An encryption key used by scientists. Maybe it is plasmaproof?
   components:
   - type: EncryptionKey
