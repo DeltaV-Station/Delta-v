@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Roboisseur.Roboisseur
 {
     [RegisterComponent]
-    public sealed class RoboisseurComponent : Component
+    public sealed partial class RoboisseurComponent : Component
     {
         [ViewVariables]
         [DataField("accumulator")]
