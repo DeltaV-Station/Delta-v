@@ -337,7 +337,7 @@
     sprite: Clothing/Head/Hats/plaguedoctor.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
   id: ClothingHeadHatRedwizard
   name: red wizard hat
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
@@ -346,6 +346,9 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
@@ -437,7 +440,7 @@
     accent: RussianAccent
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
@@ -446,6 +449,9 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
@@ -481,7 +487,7 @@
     sprite: Clothing/Head/Hats/wizard_fake.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
   id: ClothingHeadHatWizard
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
