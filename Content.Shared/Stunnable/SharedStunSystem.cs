@@ -20,6 +20,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Timing; // Nyanotrasen Code - CPR system
 
 namespace Content.Shared.Stunnable;
 
@@ -31,6 +32,7 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Nyanotrasen Code - CPR system
 
     /// <summary>
     /// Friction modifier for knocked down players.

@@ -1,6 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Shared.Damage;
-using Robust.Shared.Audio; // Nyanotrasen - CPR system
+using Robust.Shared.Audio; // Nyanotrasen Code - CPR system
 
 namespace Content.Server.Body.Components
 {
