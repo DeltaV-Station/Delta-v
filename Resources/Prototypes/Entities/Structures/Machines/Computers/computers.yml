@@ -713,7 +713,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Cargo"]]
+    access: [["Orders"]] # DeltaV - see Resources/Prototypes/DeltaV/Access/cargo.yml
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

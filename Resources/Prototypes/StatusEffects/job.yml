@@ -113,8 +113,8 @@
   parent: JobIcon
   id: JobIconChaplain
   icon:
-    sprite: Interface/Misc/job_icons.rsi
-    state: Chaplain
+    sprite: DeltaV/Interface/Misc/job_icons.rsi # DeltaV - Move Chaplain into Epistemics
+    state: Chaplain # DeltaV - Move Chaplain into Epistemics
 
 - type: statusIcon
   parent: JobIcon

@@ -186,7 +186,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockScienceLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -194,7 +194,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockMedicalScienceLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -461,7 +461,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockScienceGlassLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -469,7 +469,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockMedicalScienceGlassLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -734,7 +734,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -742,7 +742,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDMedLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
