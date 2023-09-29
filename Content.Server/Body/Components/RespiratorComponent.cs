@@ -71,7 +71,7 @@ namespace Content.Server.Body.Components
         public int BreatheInCritCounter = 0;
 
         [DataField("CPRSound")]
-        public SoundSpecifier CPRSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/CPR.ogg");
+        public SoundSpecifier CPRSound { get; set; } = new SoundPathSpecifier("/Audio/Nyanotrasen/Effects/CPR.ogg");
 
         public IPlayingAudioStream? CPRPlayingStream;
 

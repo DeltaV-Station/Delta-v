@@ -39,7 +39,7 @@ namespace Content.Server.Bed.Sleep
             SubscribeLocalEvent<MobStateComponent, WakeActionEvent>(OnWakeAction);
             SubscribeLocalEvent<SleepingComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<SleepingComponent, GetVerbsEvent<AlternativeVerb>>(AddWakeVerb);
-            SubscribeLocalEvent<SleepingComponent, InteractHandEvent>(OnInteractHand);
+            // SubscribeLocalEvent<SleepingComponent, InteractHandEvent>(OnInteractHand); // Nyanotrasen - CPR System
             SubscribeLocalEvent<SleepingComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<SleepingComponent, SlipAttemptEvent>(OnSlip);
             SubscribeLocalEvent<ForcedSleepingComponent, ComponentInit>(OnInit);
@@ -142,7 +142,10 @@ namespace Content.Server.Bed.Sleep
         /// <summary>
         /// When you click on a sleeping person with an empty hand, try to wake them.
         /// </summary>
-        private void OnInteractHand(EntityUid uid, SleepingComponent component, InteractHandEvent args)
+
+        // Begin Nyanotrasen Code: CPR System, override normal hand interactions
+
+        /*private void OnInteractHand(EntityUid uid, SleepingComponent component, InteractHandEvent args)
         {
             args.Handled = true;
 
@@ -150,7 +153,17 @@ namespace Content.Server.Bed.Sleep
                 return;
 
             TryWaking(args.Target, user: args.User);
+        }*/
+
+        public void WakeWithHands(EntityUid uid, SleepingComponent component, EntityUid user)
+        {
+            if (!TryWakeCooldown(uid))
+                return;
+
+            TryWaking(uid, user: user);
         }
+
+        // End Nyanotrasen Code: CPR System, override normal hand interactions
 
         private void OnExamined(EntityUid uid, SleepingComponent component, ExaminedEvent args)
         {
