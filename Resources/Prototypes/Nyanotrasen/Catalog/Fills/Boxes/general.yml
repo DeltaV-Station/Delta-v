@@ -66,5 +66,6 @@
           amount: 1
     - type: Sprite
       layers:
-        - state: box
-        - state: holywater
+        - state: box_science
+        - sprite: Nyanotrasen/Objects/Storage/boxes.rsi
+          state: holywater
