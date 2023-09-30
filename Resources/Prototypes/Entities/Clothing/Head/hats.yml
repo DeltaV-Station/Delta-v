@@ -337,7 +337,7 @@
     sprite: Clothing/Head/Hats/plaguedoctor.rsi
 
 - type: entity
-  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
+  parent: ClothingHeadBase
   id: ClothingHeadHatRedwizard
   name: red wizard hat
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
@@ -346,6 +346,11 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -437,7 +442,7 @@
     accent: RussianAccent
 
 - type: entity
-  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
+  parent: ClothingHeadBase
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
@@ -446,6 +451,11 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -481,7 +491,7 @@
     sprite: Clothing/Head/Hats/wizard_fake.rsi
 
 - type: entity
-  parent: ClothingHeadEVAHelmetBase # DeltaV - Make real wizard clothes space proof
+  parent: ClothingHeadBase
   id: ClothingHeadHatWizard
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
@@ -495,6 +505,11 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
