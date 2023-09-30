@@ -263,10 +263,10 @@
   name: chaplain ID card
   components:
     - type: Sprite
-      sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
       layers:
         - state: default
-        - state: idchaplain
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
+          state: idchaplain
     - type: PresetIdCard
       job: Chaplain
 
