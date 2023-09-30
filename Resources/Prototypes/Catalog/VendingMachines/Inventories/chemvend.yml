@@ -2,6 +2,7 @@
   id: ChemVendInventory
   startingInventory:
     Jug: 4
+## Delta V - begin change of 2 -> 4, see rebase PR #53
     JugAluminium: 4
     JugCarbon: 4
     JugChlorine: 4
@@ -22,8 +23,9 @@
     JugSodium: 4
     JugSugar: 4
     JugSulfur: 4
+## Delta V - end change of 2 -> 4
   emaggedInventory:
-    ToxinChemistryBottle: 6
+    ToxinChemistryBottle: 6 # Delta V - changed from 1 -> 6
     # DeltaV - Added other chems from emagging chem dispenser
     EpinephrineChemistryBottle: 6
     NapalmChemistryBottle: 6
