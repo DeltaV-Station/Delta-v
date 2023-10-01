@@ -53,7 +53,7 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(UpdateCanMove);
 
         // helping people up if they're knocked down
-        //SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand); // Nyanotrasen - CPR System
+        //SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand); // Nyanotrasen Code - CPR system
         SubscribeLocalEvent<SlowedDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<KnockedDownComponent, TileFrictionEvent>(OnKnockedTileFriction);
@@ -219,9 +219,7 @@ public abstract class SharedStunSystem : EntitySystem
         return false;
     }
 
-    // Begin Nyanotrasen Code: CPR System, override normal hand interactions
-
-    /*private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
+    private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
         if (args.Handled || knocked.HelpTimer > 0f)
             return;
@@ -238,23 +236,7 @@ public abstract class SharedStunSystem : EntitySystem
         Dirty(knocked);
 
         args.Handled = true;
-    }*/
-
-    public void TryHelpUp(EntityUid uid, KnockedDownComponent knocked, EntityUid user)
-    {
-        if (knocked.NextHelp != null && _timing.CurTime < knocked.NextHelp)
-            return;
-
-        // Set it to half the help interval so helping is actually useful...
-        knocked.NextHelp = _timing.CurTime + TimeSpan.FromSeconds(knocked.HelpInterval/2f);
-
-        _statusEffectSystem.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
-        _statusEffectSystem.TryRemoveTime(uid, "Stun", TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPvs(knocked.StunAttemptSound, uid);
-        Dirty(knocked);
     }
-
-    // End Nyanotrasen Code: CPR System, override normal hand interactions
 
     private void OnKnockedTileFriction(EntityUid uid, KnockedDownComponent component, ref TileFrictionEvent args)
     {

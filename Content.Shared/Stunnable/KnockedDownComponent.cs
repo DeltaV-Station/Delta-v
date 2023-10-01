@@ -14,6 +14,5 @@ public sealed partial class KnockedDownComponent : Component
     public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 
     [ViewVariables, AutoNetworkedField]
-    // public float HelpTimer = 0f; // Nyanotrasen Code - CPR System: Replace HelpTimer
-    public TimeSpan? NextHelp; // Nyanotrasen Code - CPR System
+    public float HelpTimer = 0f;
 }
