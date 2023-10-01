@@ -17,10 +17,9 @@
       - right arm
       - left leg
       - right leg
-      - tail
       organs:
         heart: OrganHumanHeart
-        lungs: OrganBirdLungs
+        lungs: OrganHumanLungs
         stomach: OrganHumanStomach
         liver:  OrganHumanLiver
         kidneys: OrganHumanKidneys
@@ -48,5 +47,4 @@
       part: RightFootHarpy
     left foot:
       part: LeftFootHarpy
-    tail:
-      part: TailHarpy
+
