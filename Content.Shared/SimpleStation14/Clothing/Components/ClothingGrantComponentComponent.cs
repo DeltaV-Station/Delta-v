@@ -7,7 +7,7 @@ namespace Content.Shared.SimpleStation14.Clothing
     {
         [DataField("component", required: true)]
         [AlwaysPushInheritance]
-        public ComponentRegistry Components { get; } = new();
+        public ComponentRegistry Components { get; private set; } = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool IsActive = false;
