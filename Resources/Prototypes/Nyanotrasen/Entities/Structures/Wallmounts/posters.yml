@@ -1,3 +1,35 @@
+# Contraband
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSaucerNumberOne
+  name: "Saucer #1!"
+  description: "Out of every station in the NyanoTrasen jurisdiction, Saucer was rated #1 out of 5! Congratulations!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Vordenburg.rsi
+    state: poster_saucer1
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandBreadLies
+  name: "Bread Lies"
+  description: "You have been lied to. There is no \"Big Bread.\" It is not real. Please stop looking for it."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Huvy.rsi
+    state: BreadLies
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandAyaya
+  name: "Ayaya"
+  description: "Ayayayaya."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/misc.rsi
+    state: poster_ayaya
+
+# Legit
 - type: entity
   parent: PosterBase
   id: PosterLegitDejaVu
@@ -20,16 +52,6 @@
 
 - type: entity
   parent: PosterBase
-  id: PosterContrabandSaucerNumberOne
-  name: "Saucer #1!"
-  description: "Out of every station in the NyanoTrasen jurisdiction, Saucer was rated #1 out of 5! Congratulations!"
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Vordenburg.rsi
-    state: poster_saucer1
-
-- type: entity
-  parent: PosterBase
   id: PosterLegitBarDrinks
   name: "Bar Poster"
   description: "The Bartender is always there to hear your woes and get you plastered all at the same time. Go have a visit!"
@@ -47,16 +69,6 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/Huvy.rsi
     state: BotanyFood
-
-- type: entity
-  parent: PosterBase
-  id: PosterContrabandBreadLies
-  name: "Bread Lies"
-  description: "You have been lied to. There is no \"Big Bread.\" It is not real. Please stop looking for it."
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Huvy.rsi
-    state: BreadLies
 
 - type: entity
   parent: PosterBase
@@ -147,6 +159,16 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
     state: shoukouposter
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCornzza
+  name: "Corncob Crust!"
+  description: "NEW Cornzza! Corn pizza, with a corncob crust that'll make you say 'why does this exist?'."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/rosysyntax.rsi
+    state: poster_corncobpizza
 
 # Station Maps
 - type: entity
