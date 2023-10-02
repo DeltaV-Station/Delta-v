@@ -59,3 +59,15 @@
   components:
   - type: HumanoidAppearance
     species: Harpy
+
+- type: entity
+  id: ActionHarpyPlayMidi
+  name: Play MIDI
+  description: Imitate whatever sounds you want
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: DeltaV/Interface/Actions/harpy_sing.png
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key

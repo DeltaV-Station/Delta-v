@@ -9,7 +9,7 @@ namespace Content.Shared.DeltaV.Harpy
     {
         [DataField("midiActionId", serverOnly: true,
             customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? MidiActionId = "ActionPAIPlayMidi";
+        public string? MidiActionId = "ActionHarpyPlayMidi";
 
         [DataField("midiAction", serverOnly: true)] // server only, as it uses a server-BUI event !type
         public EntityUid? MidiAction;
