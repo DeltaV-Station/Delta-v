@@ -1,0 +1,10 @@
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: MantisKnifeStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ForensicMantis
+  - type: StealCondition
+    prototype: AntiPsychicKnife
+    owner: job-name-mantis

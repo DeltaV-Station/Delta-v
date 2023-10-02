@@ -1,0 +1,13 @@
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelMantisFilled
+  components:
+    - type: StorageFill
+      contents:
+      - id: BoxSurvival
+      - id: BoxForensicPad
+      - id: HandLabeler
+      - id: PillMindbreakerToxin
+      - id: BoxFolderGrey
+      - id: RubberStampMantis
