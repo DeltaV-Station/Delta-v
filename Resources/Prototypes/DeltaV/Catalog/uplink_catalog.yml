@@ -1,4 +1,4 @@
-﻿#- type: listing
+#- type: listing
 #  id: UplinkCyborgBeaconSyndicate
 #  name: uplink-borg-beacon-name
 #  description: uplink-borg-beacon-desc
@@ -17,3 +17,20 @@
 #      blacklist:
 #        components:
 #          - SurplusBundle
+- type: listing
+  id: UplinkBionicSyrinx
+  name: uplink-bionic-syrinx-name
+  description: uplink-bionic-syrinx-desc
+  productEntity: BionicSyrinx
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Harpy
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

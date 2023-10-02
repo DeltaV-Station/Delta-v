@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BionicSyrinxImplant
+  name: bionic syrinx implant
+  description: This implant expands a harpy's innate mimickry abilities.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionChangeVoiceMask
