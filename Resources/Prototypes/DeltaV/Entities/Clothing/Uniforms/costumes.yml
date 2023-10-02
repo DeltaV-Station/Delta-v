@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCostumeVelvetSkirt
+  name: velvet skirt
+  description: A velvet and pink skirt with a kanji on it, makes you want to sleep.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/velvetskirt.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/velvetskirt.rsi
