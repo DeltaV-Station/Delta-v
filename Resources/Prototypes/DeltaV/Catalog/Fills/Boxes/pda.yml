@@ -1,5 +1,5 @@
 - type: entity
-  name: Security PDA box
+  name: security PDA box
   parent: BoxPDA
   id: BoxPDASecurity
   description: A box of spare PDA microcomputers for the security department.
@@ -14,7 +14,7 @@
       - id: SeniorOfficerPDA
 
 - type: entity
-  name: Prisoner PDA box
+  name: prisoner PDA box
   parent: BoxPDA
   id: BoxPDAPrisoner
   description: A box of spare PDA microcomputers for the warden to use for prisoners.
@@ -25,7 +25,7 @@
         amount: 6
 
 - type: entity
-  name: Medical PDA box
+  name: medical PDA box
   parent: BoxPDA
   id: BoxPDAMedical
   description: A box of spare PDA microcomputers for the medical department.
@@ -40,7 +40,7 @@
       - id: SeniorPhysicianPDA
 
 - type: entity
-  name: Epistemics PDA box
+  name: epistemics PDA box
   parent: BoxPDA
   id: BoxPDAScience
   description: A box of spare PDA microcomputers for the epistemics department.
@@ -54,7 +54,7 @@
       - id: SeniorResearcherPDA
 
 - type: entity
-  name: Engineering PDA box
+  name: engineering PDA box
   parent: BoxPDA
   id: BoxPDAEngineering
   description: A box of spare PDA microcomputers for the engineering department.
@@ -68,7 +68,7 @@
       - id: SeniorEngineerPDA
 
 - type: entity
-  name: Logistics PDA box
+  name: logistics PDA box
   parent: BoxPDA
   id: BoxPDACargo
   description: A box of spare PDA microcomputers for the logistics department.
