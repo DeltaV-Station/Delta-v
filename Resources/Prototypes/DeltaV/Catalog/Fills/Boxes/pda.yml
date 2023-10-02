@@ -1,0 +1,83 @@
+- type: entity
+  name: Security PDA box
+  parent: BoxPDA
+  id: BoxPDASecurity
+  description: A box of spare PDA microcomputers for the security department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SecurityPDA
+        amount: 2
+      - id: SecurityCadetPDA
+      - id: DetectivePDA
+      - id: WardenPDA
+      - id: SeniorOfficerPDA
+
+- type: entity
+  name: Prisoner PDA box
+  parent: BoxPDA
+  id: BoxPDAPrisoner
+  description: A box of spare PDA microcomputers for the warden to use for prisoners.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PrisonerPDA
+        amount: 6
+
+- type: entity
+  name: Medical PDA box
+  parent: BoxPDA
+  id: BoxPDAMedical
+  description: A box of spare PDA microcomputers for the medical department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicalPDA
+        amount: 2
+      - id: MedicalInternPDA
+      - id: ChemistryPDA
+      - id: ParamedicPDA
+      - id: SeniorPhysicianPDA
+
+- type: entity
+  name: Epistemics PDA box
+  parent: BoxPDA
+  id: BoxPDAScience
+  description: A box of spare PDA microcomputers for the epistemics department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SciencePDA
+        amount: 3
+      - id: ResearchAssistantPDA
+      - id: ChaplainPDA
+      - id: SeniorResearcherPDA
+
+- type: entity
+  name: Engineering PDA box
+  parent: BoxPDA
+  id: BoxPDAEngineering
+  description: A box of spare PDA microcomputers for the engineering department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EngineerPDA
+        amount: 3
+      - id: TechnicalAssistantPDA
+      - id: AtmosPDA
+      - id: SeniorEngineerPDA
+
+- type: entity
+  name: Logistics PDA box
+  parent: BoxPDA
+  id: BoxPDACargo
+  description: A box of spare PDA microcomputers for the logistics department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CargoPDA
+        amount: 2
+      - id: SalvagePDA
+        amount: 2
+      - id: MailCarrierPDA
+        amount: 2
