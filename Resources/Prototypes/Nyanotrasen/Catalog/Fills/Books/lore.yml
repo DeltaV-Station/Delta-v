@@ -1,0 +1,33 @@
+- type: entity
+  name: epistemics book
+  parent: BookRandom # placeholder
+  id: BookSalvageEpistemics
+  noSpawn: true
+  description: 'A metallic hardcover book. ' # trailing space due to paper
+
+- type: entity
+  name: epistemics book
+  parent: BookSalvageEpistemics
+  id: BookSalvageEpistemicsRandom
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - BookSalvageEpistemics1
+    offset: 0.1
+
+- type: entity
+  parent: BookSalvageEpistemics
+  id: BookSalvageEpistemics1
+  suffix: 1
+  components:
+  - type: Paper
+    content: |
+      THE EFFECTS OF HIGH GLIMMER LEVELS
+
+      On a shift I served on one of our backwater stations, we had an eccentric mystagogue as our only command member.
+      Their magnum opus experiment was to... raise the glimmer as far as they could, up until our grammateus couldn't tell how much there was.
+      Thankfully, nobody was harmed. But as the glimmer gloomed, I'd started feeling its metallic smell, started feeling the pain of being in outer space.
+      And then, I saw the universe as a whole. I'd seen every movement, every thought, star, galaxy, in a dim blue marble in front of me.
+      When our mystagogue finally stopped, and failed to break the veil... the station felt off. Cramped, fragile with the eight of us.
+      Maybe they weren't crazy. I know now the universe is MASSIVELY smaller than it seems.
+      [color=green]-Z7[/color]
