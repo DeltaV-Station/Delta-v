@@ -6,5 +6,4 @@ book-text-epistemics1 = THE EFFECTS OF HIGH GLIMMER LEVELS
       And then, I saw the universe as a whole. I'd seen every movement, every thought, star, galaxy, in a dim blue marble in front of me.
       When our mystagogue finally stopped, and failed to break the veil... the station felt off. Cramped, fragile with the eight of us.
       Maybe they weren't crazy. I know now the universe is MASSIVELY smaller than it seems.
-
-      [color=green]-Z7[/color]
+      -Z7
