@@ -603,17 +603,18 @@
       prob: 0.5
       orGroup: Plushie
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailRestraints
-  suffix: restraints
-  components:
-  - type: Mail
-    contents:
-    - id: Handcuffs
-    - id: ClothingMaskMuzzle
-    - id: ClothingEyesBlindfold
+# Delta V - Yeah no.
+# - type: entity
+#   noSpawn: true
+#   parent: BaseMail
+#   id: MailRestraints
+#   suffix: restraints
+#   components:
+#   - type: Mail
+#     contents:
+#     - id: Handcuffs
+#     - id: ClothingMaskMuzzle
+#     - id: ClothingEyesBlindfold
 
 - type: entity
   noSpawn: true
