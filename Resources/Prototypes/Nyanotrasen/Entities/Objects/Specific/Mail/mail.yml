@@ -282,16 +282,16 @@
       - id: UniformMaid
       - id: SprayBottleSpaceCleaner
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailCosplayNurse
-  suffix: cosplay-nurse
-  components:
-  - type: Mail
-    contents:
-      - id: ClothingUniformJumpskirtNurse
-      - id: Syringe
+# - type: entity
+#   noSpawn: true
+#   parent: BaseMail
+#   id: MailCosplayNurse
+#   suffix: cosplay-nurse
+#   components:
+#   - type: Mail
+#     contents:
+#       - id: ClothingUniformJumpskirtNurse
+#       - id: Syringe
 
 - type: entity
   noSpawn: true
