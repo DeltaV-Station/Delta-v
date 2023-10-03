@@ -135,6 +135,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgePistol
+       - CartridgeSpecial # DeltaV - .38 Special revolver
        - CartridgeMagnum
        - ShellShotgun
        - ShellShotgunFlare
@@ -147,6 +148,7 @@
        - MagazineBoxLightRifle
     emagDynamicRecipes:
       - CartridgePistolRubber
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
@@ -367,6 +369,19 @@
       - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
+    # Begin Nyano additions
+      - ReverseEngineeringMachineCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - DoorElectronics
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - SalvageMagnetMachineCircuitboard
+      - StationMapElectronics
+#      - MetempsychoticMachineCircuitboard
+#      - DeepFryerMachineCircuitBoard
+    # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -479,6 +494,12 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+  # Begin Nyano additions
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
+  # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -530,20 +551,25 @@
       - MagazineRifle
       - MagazineLightRifle
       - MagazineBoxPistol
+      - MagazineBoxSpecial # DeltaV - .38 Special revolver
       - MagazineBoxMagnum
       - MagazineBoxRifle
       - MagazineBoxLightRifle
       - SpeedLoaderMagnum
+      - SpeedLoaderSpecial # DeltaV - .38 Special revolver
       - TargetHuman
       - TargetSyndicate
       - TargetClown
     dynamicRecipes:
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
+      - EncryptionKeySyndie # Nyano
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
+      - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
       - MagazineBoxMagnumRubber
       - MagazineBoxRifleRubber
       - MagazineBoxLightRifleRubber
@@ -556,6 +582,8 @@
       - MagazineBoxMagnumIncendiary
       - MagazineBoxLightRifleIncendiary
       - MagazineBoxRifleIncendiary
+      - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
+      - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
       - Signaller
       - SignalTrigger
       - VoiceTrigger
@@ -679,6 +707,8 @@
       - Hemostat
       - BluespaceBeaker
       - SyringeBluespace
+      - ClothingEyesHudMedical # Nyano
+      - ChemicalPayload # Nyano
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -840,6 +870,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
+        - BluespaceCrystal #Nyanotrasen Code
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

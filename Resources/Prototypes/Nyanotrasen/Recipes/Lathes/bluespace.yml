@@ -6,18 +6,17 @@
   result: CoreSilver
   completetime: 10
   materials:
-    # Bluespace: 500 # When implemented
+    Bluespace: 500
     Silver: 1000
     Plastic: 1000
 
-
-# - type: latheRecipe
-#   id: BluespaceCrystal
-#   icon:
-#     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#     state: bluespace
-#   result: MaterialBluespace1
-#   applyMaterialDiscount: false
-#   completetime: 4
-#   materials:
-#     Bluespace: 100
+- type: latheRecipe
+  id: BluespaceCrystal
+  icon:
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+  result: MaterialBluespace1
+  applyMaterialDiscount: false
+  completetime: 4
+  materials:
+    Bluespace: 100

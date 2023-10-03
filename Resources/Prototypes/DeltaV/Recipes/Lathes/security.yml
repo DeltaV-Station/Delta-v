@@ -1,0 +1,54 @@
+- type: latheRecipe
+  id: SpeedLoaderSpecial
+  result: SpeedLoaderSpecial
+  completetime: 5
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: CartridgeSpecial
+  result: CartridgeSpecial
+  completetime: 2
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  id: CartridgeSpecialRubber
+  result: CartridgeSpecialRubber
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+
+- type: latheRecipe
+  id: CartridgeSpecialHoly
+  result: CartridgeSpecialHoly
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+    Silver: 5
+
+- type: latheRecipe
+  id: CartridgeSpecialMindbreaker
+  result: CartridgeSpecialMindbreaker
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+    # Bluespace: 5
+
+- type: latheRecipe
+  id: MagazineBoxSpecial
+  result: MagazineBoxSpecial
+  completetime: 5
+  materials:
+    Steel: 1000
+
+- type: latheRecipe
+  id: MagazineBoxSpecialRubber
+  result: MagazineBoxSpecialRubber
+  completetime: 5
+  materials:
+    Steel: 350
+    Plastic: 300
