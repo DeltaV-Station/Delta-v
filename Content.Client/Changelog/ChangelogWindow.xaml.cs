@@ -48,13 +48,13 @@ namespace Content.Client.Changelog
                 .GroupBy(e => e.Time.ToLocalTime().Date)
                 .OrderByDescending(c => c.Key);
 
-            var hasRead = _changelog.MaxId <= _changelog.LastReadId;
+            var hasRead = _changelog.MaxTime <= _changelog.LastReadTime; // Modified, see EOF
             foreach (var dayEntries in byDay)
             {
                 var day = dayEntries.Key;
 
                 var groupedEntries = dayEntries
-                    .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId))
+                    .GroupBy(c => (c.Author, Read: c.Time <= _changelog.LastReadTime)) // Modified, see EOF
                     .OrderBy(c => c.Key.Read)
                     .ThenBy(c => c.Key.Author);
 
@@ -203,3 +203,6 @@ namespace Content.Client.Changelog
         }
     }
 }
+
+// This file was extensively modified to allow for datetime based changelogs instead of relying on IDs.
+// This is because our IDs are much lower then Wizdens, and if we use their entries, the server will not properly show new changes
