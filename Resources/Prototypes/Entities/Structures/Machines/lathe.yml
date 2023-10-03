@@ -203,6 +203,7 @@
       - MiningDrill
       - AnomalyScanner
       - AnomalyLocator
+      - AnomalyLocatorWide
       - RCD
       - RCDAmmo
       - HandheldCrewMonitor
@@ -568,6 +569,8 @@
       - WeaponLaserCannon
       - WeaponXrayCannon
       - WeaponTaser
+      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      - ClothingHeadCage # Nyanotrasen - Insulative headgear
   - type: MaterialStorage
     whitelist:
       tags:
@@ -738,6 +741,10 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
+      - ClothingUniformMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
+      - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime
