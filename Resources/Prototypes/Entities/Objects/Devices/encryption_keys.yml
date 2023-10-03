@@ -213,6 +213,10 @@
     layers:
     - state: crypt_red
     - state: synd_label
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    recipes:
+      - EncryptionKeySyndie
 
 - type: entity
   parent: EncryptionKey
