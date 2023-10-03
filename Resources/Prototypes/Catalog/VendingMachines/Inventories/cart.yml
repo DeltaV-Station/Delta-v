@@ -3,14 +3,32 @@
   startingInventory:
     PassengerPDA: 5
     ClearPDA: 5
+# Begin Delta-V additions
+    ServiceWorkerPDA: 2
+    ChefPDA: 2
+    BotanistPDA: 2
+    BartenderPDA: 2
+    JanitorPDA: 2
+    LibrarianPDA: 1
+    LawyerPDA: 1
+    ReporterPDA: 1
+    ZookeeperPDA: 1
+    BoxerPDA: 1
+    ClownPDA: 1
+    MimePDA: 1
+    MusicianPDA: 1
+# End Delta-V additions
     PassengerIDCard: 5
     ClothingHeadsetGrey: 5
+    ClothingHeadsetService: 5 # Delta-V
     RubberStampApproved: 1
     RubberStampDenied: 1
     Paper: 10
-    EncryptionKeyCargo: 2
-    EncryptionKeyEngineering: 2
-    EncryptionKeyMedical: 2
-    EncryptionKeyScience: 2
-    EncryptionKeySecurity: 1
+# Begin Delta-V subtractions
+  #  EncryptionKeyCargo: 2
+  #  EncryptionKeyEngineering: 2
+  #  EncryptionKeyMedical: 2
+  #  EncryptionKeyScience: 2
+  #  EncryptionKeySecurity: 1
+# End Delta-V subtractions
     EncryptionKeyService: 3
