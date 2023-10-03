@@ -1,0 +1,71 @@
+# - type: latheRecipe
+#   id: QSI
+#   icon:
+#     sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+#     state: icon
+#   result: QSI
+#   completetime: 5
+#   materials:
+#     Bluespace: 25
+#     Glass: 250
+#     Plastic: 250
+
+- type: latheRecipe
+  id: CoreSilver
+  icon:
+    sprite: Objects/Misc/guardian_info.rsi
+    state: icon
+  result: CoreSilver
+  completetime: 10
+  materials:
+    # Bluespace: 500 # When implemented
+    Silver: 1000
+    Plastic: 1000
+
+# - type: latheRecipe
+#   id: HandTeleporter
+#   icon:
+#     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+#     state: icon
+#   result: HandTeleporter
+#   completetime: 8
+#   materials:
+#     Bluespace: 600
+#     Steel: 200
+#     Plastic: 200
+#     Gold: 200
+
+# - type: latheRecipe # Deprecated by Wizden's recipe.
+#   id: BluespaceBeaker
+#   icon:
+#     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
+#     state: beakerbluespace
+#   result: BluespaceBeaker
+#   completetime: 5
+#   materials:
+#     Bluespace: 100
+#     Glass: 500
+#     Plastic: 500
+
+# - type: latheRecipe
+#   id: TrashBagHolding
+#   icon:
+#     sprite: Objects/Specific/Janitorial/trashbag.rsi
+#     state: blue-icon-0
+#   result: TrashBagHolding
+#   completetime: 4
+#   materials:
+#     Bluespace: 200
+#     Durathread: 750
+#     Plastic: 200
+
+# - type: latheRecipe
+#   id: BluespaceCrystal
+#   icon:
+#     sprite: Nyanotrasen/Objects/Materials/materials.rsi
+#     state: bluespace
+#   result: MaterialBluespace1
+#   applyMaterialDiscount: false
+#   completetime: 4
+#   materials:
+#     Bluespace: 100

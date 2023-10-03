@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: CoreSilver
+  name: silver alloy core
+  description: Syntetic alloy made of silver and other materials.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/guardian_info.rsi
+    state: guardian_info
+  - type: Tag
+    tags:
+      - CoreSilver
