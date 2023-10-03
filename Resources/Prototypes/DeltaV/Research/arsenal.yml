@@ -1,0 +1,15 @@
+# Tier 2
+
+- type: technology
+  id: ExoticAmmunition
+  name: research-technology-exotic-ammunition
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: beanbag
+  discipline: Arsenal
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
+  - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
+  # - ShellSoulbreaker # Nyanotrasen - Soulbreaker shotgun ammo
