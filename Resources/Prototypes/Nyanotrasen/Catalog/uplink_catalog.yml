@@ -1,0 +1,13 @@
+- type: listing
+  id: UplinkRickenbacker
+  name: uplink-rickenbacker4001-name
+  description: uplink-rickenbacker4001-desc
+  productEntity: Rickenbacker4001Instrument
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Musician
