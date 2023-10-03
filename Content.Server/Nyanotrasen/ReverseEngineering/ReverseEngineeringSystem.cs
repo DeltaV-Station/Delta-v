@@ -262,7 +262,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         component.LastResult = result;
 
-        int bonus = 100;
+        int bonus = 0;
 
         switch (result)
         {
