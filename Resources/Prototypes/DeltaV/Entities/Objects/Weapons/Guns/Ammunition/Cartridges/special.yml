@@ -1,0 +1,70 @@
+- type: entity
+  id: BaseCartridgeSpecial
+  name: cartridge (.38 special)
+  parent: BaseCartridge
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeSpecial
+  - type: CartridgeAmmo
+    proto: BulletSpecial
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: CartridgeSpecial
+  name: cartridge (.38 special)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecial
+
+- type: entity
+  id: CartridgeSpecialPractice
+  name: cartridge (.38 special practice)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialPractice
+
+- type: entity
+  id: CartridgeSpecialRubber
+  name: cartridge (.38 special rubber)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialRubber
+
+- type: entity
+  id: CartridgeSpecialHoly
+  name: cartridge (.38 special holy)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialHoly
+
+- type: entity
+  id: CartridgeSpecialMindbreaker
+  name: cartridge (.38 special mindbreaker)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialMindbreaker
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
+  - type: SolutionTransfer
+    maxTransferAmount: 10

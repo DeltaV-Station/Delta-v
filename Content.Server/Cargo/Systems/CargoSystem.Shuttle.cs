@@ -329,9 +329,16 @@ public sealed partial class CargoSystem
             return;
         }
 
-        SellPallets(gridUid, null, out var price);
-        var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
-        _stack.Spawn((int) price, stackPrototype, uid.ToCoordinates());
+        // Delta-V change, on sale, add cash to the stations bank account instead of throwing it on the floor
+        var stationUid = _station.GetOwningStation(uid);
+
+        if (TryComp<StationBankAccountComponent>(stationUid, out var bank))
+        {
+            SellPallets(gridUid, null, out var amount);
+            bank.Balance += (int) amount;
+        }
+        // End of Delta-V change
+
         UpdatePalletConsoleInterface(uid);
     }
 
