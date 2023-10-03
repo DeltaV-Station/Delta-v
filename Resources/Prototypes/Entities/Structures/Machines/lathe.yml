@@ -135,6 +135,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgePistol
+       - CartridgeSpecial # DeltaV - .38 Special revolver
        - CartridgeMagnum
        - ShellShotgun
        - ShellShotgunFlare
@@ -147,6 +148,7 @@
        - MagazineBoxLightRifle
     emagDynamicRecipes:
       - CartridgePistolRubber
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
@@ -529,20 +531,24 @@
       - MagazineRifle
       - MagazineLightRifle
       - MagazineBoxPistol
+      - MagazineBoxSpecial # DeltaV - .38 Special revolver
       - MagazineBoxMagnum
       - MagazineBoxRifle
       - MagazineBoxLightRifle
       - SpeedLoaderMagnum
+      - SpeedLoaderSpecial # DeltaV - .38 Special revolver
       - TargetHuman
       - TargetSyndicate
       - TargetClown
     dynamicRecipes:
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
+      - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
       - MagazineBoxMagnumRubber
       - MagazineBoxRifleRubber
       - MagazineBoxLightRifleRubber
@@ -555,6 +561,8 @@
       - MagazineBoxMagnumIncendiary
       - MagazineBoxLightRifleIncendiary
       - MagazineBoxRifleIncendiary
+      - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
+      - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
       - Signaller
       - SignalTrigger
       - VoiceTrigger
