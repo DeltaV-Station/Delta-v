@@ -161,7 +161,7 @@
 
 # Is this wizard wearing a fanny pack???
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
   id: ClothingOuterWizardViolet
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
@@ -172,7 +172,7 @@
     sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
   id: ClothingOuterWizard
   name: wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
@@ -183,7 +183,7 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
   id: ClothingOuterWizardRed
   name: red wizard robes
   description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.

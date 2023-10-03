@@ -42,3 +42,52 @@
       collection: HarpyRevs
     Click:
       collection: HarpyClicks
+
+- type: emoteSounds
+  id: MaleVulpakin
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Growl:
+      collection: VulpakinGrowls
+    Snarl:
+      collection: VulpakinSnarls
+    Bark:
+      collection: VulpakinBarks
+    Whine:
+      collection: VulpakinWhines
+
+- type: emoteSounds
+  id: FemaleVulpakin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Growl:
+      collection: VulpakinGrowls
+    Snarl:
+      collection: VulpakinSnarls
+    Bark:
+      collection: VulpakinBarks
+    Whine:
+      collection: VulpakinWhines
