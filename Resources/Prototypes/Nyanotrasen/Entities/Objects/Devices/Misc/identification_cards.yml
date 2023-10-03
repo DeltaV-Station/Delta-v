@@ -63,3 +63,16 @@
       state: nyanomartialartist
   - type: PresetIdCard
     job: MartialArtist
+
+- type: entity
+  parent: IDCardStandard
+  id: ForensicMantisIDCard
+  name: psionic mantis ID card # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi
+          state: nyanomantis
+    - type: PresetIdCard
+      job: ForensicMantis
