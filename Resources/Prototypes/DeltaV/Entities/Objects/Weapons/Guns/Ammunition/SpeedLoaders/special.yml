@@ -27,7 +27,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -35,6 +35,66 @@
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderSpecialMindbreaker
+  name: "speed loader (.38 special mindbreaker)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialMindbreaker
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: high-velocity-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: high-velocity
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderSpecialPractice
+  name: "speed loader (.38 special practice)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialPractice
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: practice-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: practice
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderSpecialRubber
+  name: "speed loader (.38 special rubber)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialRubber
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: rubber-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: rubber
     steps: 7
     zeroVisible: false
   - type: Appearance
