@@ -57,6 +57,13 @@
     - type: Appearance
     - type: StaticPrice
       price: 100
+#    - type: DynamicPrice
+#      price: 100
+    - type: ReverseEngineering # Nyano
+      generic: true
+      difficulty: 3
+      recipes:
+        - JetpackBlue
 
 - type: entity
   id: ActionToggleJetpack
@@ -195,6 +202,10 @@
       outputPressure: 42.6
       air:
         volume: 1.5
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - JetpackMini
 
 # Filled mini
 - type: entity

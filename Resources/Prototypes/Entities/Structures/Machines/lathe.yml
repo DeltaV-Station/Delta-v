@@ -368,6 +368,19 @@
       - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
+    # Begin Nyano additions
+      - ReverseEngineeringMachineCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - DoorElectronics
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - SalvageMagnetMachineCircuitboard
+      - StationMapElectronics
+#      - MetempsychoticMachineCircuitboard
+#      - DeepFryerMachineCircuitBoard
+    # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -480,6 +493,12 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+  # Begin Nyano additions
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
+  # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -546,6 +565,7 @@
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
+      - EncryptionKeySyndie # Nyano
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
       - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
@@ -686,6 +706,8 @@
       - Hemostat
       - BluespaceBeaker
       - SyringeBluespace
+      - ClothingEyesHudMedical # Nyano
+      - ChemicalPayload # Nyano
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -847,6 +869,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
+        - BluespaceCrystal #Nyanotrasen Code
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

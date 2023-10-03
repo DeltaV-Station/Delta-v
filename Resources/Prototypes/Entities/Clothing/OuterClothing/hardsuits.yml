@@ -59,6 +59,11 @@
     sprintModifier: 0.7
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitJuggernautReverseEngineered
 
 #Engineering Hardsuit
 - type: entity
@@ -451,6 +456,11 @@
     sprintModifier: 0.9
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieReverseEngineered
 
 # Syndicate Medic Hardsuit
 - type: entity
