@@ -568,12 +568,15 @@
       - WeaponLaserCannon
       - WeaponXrayCannon
       - WeaponTaser
+      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      - ClothingHeadCage # Nyanotrasen - Insulative headgear
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+        # - Bluespace # Nyanotrasen - Recipes involving psionics need this
 
 - type: entity
   id: AmmoTechFab
