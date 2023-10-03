@@ -365,6 +365,17 @@
       - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
+      - ReverseEngineeringMachineCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - DoorElectronics
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - SalvageMagnetMachineCircuitboard
+      - StationMapElectronics
+#      - MetempsychoticMachineCircuitboard
+#      - DeepFryerMachineCircuitBoard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -477,6 +488,10 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
   - type: MaterialStorage
     whitelist:
       tags:
@@ -540,6 +555,7 @@
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
+      - EncryptionKeySyndie
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
       - MagazineBoxMagnumRubber
@@ -675,6 +691,8 @@
       - Hemostat
       - BluespaceBeaker
       - SyringeBluespace
+      - ClothingEyesHudMedical
+      - ChemicalPayload
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -832,6 +850,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
+        - BluespaceCrystal #Nyanotrasen Code
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

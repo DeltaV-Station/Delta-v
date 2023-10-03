@@ -12,6 +12,10 @@
     - type: NodeScanner
     - type: UseDelay
       delay: 3
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - NodeScanner
     - type: GuideHelp
       guides:
       - ArtifactReports

@@ -27,6 +27,10 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - HandheldCrewMonitor
   - type: StaticPrice
     price: 500
 
