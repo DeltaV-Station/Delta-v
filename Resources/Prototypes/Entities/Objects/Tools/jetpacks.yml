@@ -59,7 +59,7 @@
       price: 100
 #    - type: DynamicPrice
 #      price: 100
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       generic: true
       difficulty: 3
       recipes:
@@ -202,7 +202,7 @@
       outputPressure: 42.6
       air:
         volume: 1.5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - JetpackMini

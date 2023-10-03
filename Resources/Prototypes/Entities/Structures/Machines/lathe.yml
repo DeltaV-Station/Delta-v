@@ -365,6 +365,7 @@
       - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
+    # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - DoorElectronics
@@ -376,6 +377,7 @@
       - StationMapElectronics
 #      - MetempsychoticMachineCircuitboard
 #      - DeepFryerMachineCircuitBoard
+    # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -488,10 +490,12 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+  # Begin Nyano additions
     - ClothingOuterHardsuitJuggernautReverseEngineered
     - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
+  # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -555,7 +559,7 @@
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
-      - EncryptionKeySyndie
+      - EncryptionKeySyndie # Nyano
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
       - MagazineBoxMagnumRubber
@@ -691,8 +695,8 @@
       - Hemostat
       - BluespaceBeaker
       - SyringeBluespace
-      - ClothingEyesHudMedical
-      - ChemicalPayload
+      - ClothingEyesHudMedical # Nyano
+      - ChemicalPayload # Nyano
   - type: Machine
     board: MedicalTechFabCircuitboard
 

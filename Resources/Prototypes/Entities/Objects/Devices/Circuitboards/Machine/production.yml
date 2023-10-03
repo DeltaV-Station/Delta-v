@@ -98,7 +98,7 @@
         Amount: 2
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 3
     recipes:
       - CircuitImprinterMachineCircuitboard
@@ -117,7 +117,7 @@
       Manipulator: 3
     materialRequirements:
       Glass: 5
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 3
     recipes:
       - ExosuitFabricatorMachineCircuitboard
@@ -149,7 +149,7 @@
     requirements:
       MatterBin: 1
       Manipulator: 2
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - UniformPrinterMachineCircuitboard
@@ -173,7 +173,7 @@
           Amount: 1
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - VaccinatorMachineCircuitboard
@@ -199,7 +199,7 @@
         Amount: 1
         DefaultPrototype: DiseaseSwab
         ExamineName: Swab
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - DiagnoserMachineCircuitboard
@@ -219,7 +219,7 @@
         Capacitor: 1
       materialRequirements:
         Glass: 5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - ArtifactAnalyzerMachineCircuitboard
@@ -240,7 +240,7 @@
       materialRequirements:
         Steel: 5
         Cable: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
       - TraversalDistorterMachineCircuitboard
@@ -260,7 +260,7 @@
       materialRequirements:
         Cable: 1
         PlasmaGlass: 10
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - AnomalyVesselCircuitboard
@@ -280,7 +280,7 @@
       materialRequirements:
         Cable: 1
         Glass: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - APECircuitboard
@@ -304,7 +304,7 @@
     deconstructionTarget: null
     graph: ThermomachineBoard
     node: freezer
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -345,7 +345,7 @@
     materialRequirements:
       Cable: 5
       Glass: 2
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
 
@@ -365,7 +365,7 @@
       materialRequirements:
         Glass: 1
         Cable: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 4
       recipes:
         - CloningPodMachineCircuitboard
@@ -385,7 +385,7 @@
       materialRequirements:
         Glass: 5
         Cable: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 3
       recipes:
         - MedicalScannerMachineCircuitboard
@@ -415,7 +415,7 @@
       materialRequirements:
         Glass: 5
         Cable: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 3
       recipes:
         - CryoPodMachineCircuitboard
@@ -440,7 +440,7 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - ChemMasterMachineCircuitboard
@@ -465,7 +465,7 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - ChemDispenserMachineCircuitboard
@@ -488,7 +488,7 @@
           ExamineName: Knife
       materialRequirements:
         Steel: 5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - BiomassReclaimerMachineCircuitboard
@@ -512,7 +512,7 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - HydroponicsTrayMachineCircuitboard
@@ -534,7 +534,7 @@
         # replacing the console screen
         Glass: 1
         Cable: 2
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SeedExtractorMachineCircuitboard
@@ -552,7 +552,7 @@
       prototype: SMESBasicEmpty
       requirements:
         Capacitor: 5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - SMESMachineCircuitboard
 
@@ -635,7 +635,7 @@
       materialRequirements:
         CableMV: 5
         CableHV: 5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - SubstationMachineCircuitboard
     - type: PhysicalComposition
@@ -678,7 +678,7 @@
           Amount: 1
           DefaultPrototype: SaxophoneInstrument
           ExamineName: Woodwind Instrument
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 3
       recipes:
         - DawInstrumentMachineCircuitboard
@@ -696,7 +696,7 @@
         Capacitor: 1
       materialRequirements:
         CableHV: 5
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - GeneratorPlasmaMachineCircuitboard
@@ -749,7 +749,7 @@
         Glass: 200
       chemicalComposition:
         Silicon: 20
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - PortableGeneratorSuperPacmanMachineCircuitboard
@@ -789,7 +789,7 @@
           Amount: 1
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - ReagentGrinderMachineCircuitboard
@@ -806,7 +806,7 @@
         Capacitor: 2
       materialRequirements:
         Glass: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - HotplateMachineCircuitboard
@@ -833,7 +833,7 @@
           Amount: 2
           DefaultPrototype: CryostasisBeaker
           ExamineName: Cryostasis Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 3
       recipes:
         - StasisBedMachineCircuitboard
@@ -867,7 +867,7 @@
         Manipulator: 3
       materialRequirements:
         Glass: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - OreProcessorMachineCircuitboard
 
@@ -896,7 +896,7 @@
       materialRequirements:
         Glass: 2
         Cable: 2
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - MicrowaveMachineCircuitboard
 
@@ -931,7 +931,7 @@
       materialRequirements:
         CableHV: 5
         Glass: 2
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - EmitterCircuitboard
@@ -946,7 +946,7 @@
       prototype: SurveillanceCameraRouterConstructed
       materialRequirements:
         Cable: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SurveillanceCameraRouterCircuitboard
@@ -962,7 +962,7 @@
       materialRequirements:
         Cable: 2
         Glass: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SurveillanceCameraWirelessRouterCircuitboard
@@ -978,7 +978,7 @@
       materialRequirements:
         Glass: 2
         Cable: 2
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SurveillanceWirelessCameraMovableCircuitboard
@@ -994,7 +994,7 @@
       materialRequirements:
         Cable: 2
         Glass: 1
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SurveillanceWirelessCameraAnchoredCircuitboard
@@ -1013,7 +1013,7 @@
     materialRequirements:
       Steel: 10
       Plasma: 5
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - GasRecyclerMachineCircuitboard
@@ -1035,7 +1035,7 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - BoozeDispenserMachineCircuitboard
 
@@ -1071,7 +1071,7 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - SodaDispenserMachineCircuitboard
 
@@ -1086,7 +1086,7 @@
       materialRequirements:
         Steel: 1
         Cable: 2
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - TelecomServerCircuitboard
 
@@ -1104,7 +1104,7 @@
       Steel: 5
       CableHV: 5
       Cable: 2
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     recipes:
       - SalvageMagnetMachineCircuitboard
 

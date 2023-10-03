@@ -38,7 +38,7 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerPowerMonitoring
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       recipes:
         - PowerComputerCircuitboard
 
@@ -202,7 +202,7 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerAnalysisConsole
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - AnalysisComputerCircuitboard
@@ -217,7 +217,7 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: ComputerTechnologyDiskTerminal
-  - type: ReverseEngineering
+  - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
       - TechDiskComputerCircuitboard
@@ -230,7 +230,7 @@
   components:
     - type: ComputerBoard
       prototype: ComputerCrewMonitoring
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - CrewMonitoringComputerCircuitboard
@@ -301,7 +301,7 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerSolarControl
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
         - SolarControlComputerCircuitboard
@@ -363,7 +363,7 @@
       state: cpu_medical
     - type: ComputerBoard
       prototype: ComputerCloningConsole
-    - type: ReverseEngineering
+    - type: ReverseEngineering # Nyano
       difficulty: 3
       recipes:
         - CloningConsoleComputerCircuitboard
