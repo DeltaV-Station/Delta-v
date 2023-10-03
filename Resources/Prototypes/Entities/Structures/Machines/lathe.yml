@@ -135,6 +135,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgePistol
+       - CartridgeSpecial # DeltaV - .38 Special revolver
        - CartridgeMagnum
        - ShellShotgun
        - ShellShotgunFlare
@@ -147,6 +148,7 @@
        - MagazineBoxLightRifle
     emagDynamicRecipes:
       - CartridgePistolRubber
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
@@ -203,6 +205,7 @@
       - MiningDrill
       - AnomalyScanner
       - AnomalyLocator
+      - AnomalyLocatorWide
       - RCD
       - RCDAmmo
       - HandheldCrewMonitor
@@ -528,20 +531,24 @@
       - MagazineRifle
       - MagazineLightRifle
       - MagazineBoxPistol
+      - MagazineBoxSpecial # DeltaV - .38 Special revolver
       - MagazineBoxMagnum
       - MagazineBoxRifle
       - MagazineBoxLightRifle
       - SpeedLoaderMagnum
+      - SpeedLoaderSpecial # DeltaV - .38 Special revolver
       - TargetHuman
       - TargetSyndicate
       - TargetClown
     dynamicRecipes:
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
       - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
+      - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
       - MagazineBoxMagnumRubber
       - MagazineBoxRifleRubber
       - MagazineBoxLightRifleRubber
@@ -554,6 +561,8 @@
       - MagazineBoxMagnumIncendiary
       - MagazineBoxLightRifleIncendiary
       - MagazineBoxRifleIncendiary
+      - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
+      - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
       - Signaller
       - SignalTrigger
       - VoiceTrigger
@@ -568,6 +577,8 @@
       - WeaponLaserCannon
       - WeaponXrayCannon
       - WeaponTaser
+      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      - ClothingHeadCage # Nyanotrasen - Insulative headgear
   - type: MaterialStorage
     whitelist:
       tags:
@@ -738,6 +749,10 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
+      - ClothingUniformMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
+      - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime

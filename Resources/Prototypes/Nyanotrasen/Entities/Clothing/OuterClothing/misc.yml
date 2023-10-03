@@ -61,3 +61,15 @@
     sprite: Nyanotrasen/Clothing/Misc/black_jacket.rsi
   - type: TemperatureProtection
     coefficient: 0.2
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterWizardFake
+  name: wizard robes
+  suffix: fake
+  description: A set of blue robes.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/wizard.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Misc/wizard.rsi
