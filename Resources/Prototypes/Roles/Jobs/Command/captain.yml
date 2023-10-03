@@ -6,16 +6,21 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 54000 # 15 hours
+      time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours
+      time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 18000 # DeltaV - 5 hours
+    - !type:DepartmentTimeRequirement # DeltaV - Epistemics dept time requirement
+      department: Science
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 108000 # DeltaV - 30 hours
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 108000 # 30 hours
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

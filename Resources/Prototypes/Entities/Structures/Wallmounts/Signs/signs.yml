@@ -172,11 +172,12 @@
 - type: entity
   parent: BaseSignDirectional
   id: SignDirectionalSci
-  name: science sign
-  description: A direction sign, pointing out which way the Science department is.
+  name: epistemics sign # DeltaV - Epistemics Department replacing Science
+  description: A direction sign, pointing out which way the Epistemics department is. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    state: direction_sci
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # DeltaV - Epistemics Department replacing Science
+    state: direction_epi # DeltaV - Epistemics Department replacing Science
 
 - type: entity
   parent: BaseSignDirectional
@@ -448,7 +449,9 @@
   description: A sign indicating the escape pods.
   components:
   - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Give pods sign directional sprites
     state: pods
+    snapCardinals: false
 
 - type: entity
   parent: BaseSign
@@ -673,7 +676,9 @@
   description: A sign warning that the area ahead is nothing but cold, empty space.
   components:
   - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Give space sign directional sprites
     state: space
+    snapCardinals: false
 
 - type: entity
   parent: BaseSign
@@ -1273,3 +1278,21 @@
   components:
   - type: Sprite
     state: zero
+
+- type: entity
+  parent: BaseSign
+  id: SignSurvival
+  name: survival sign
+  description: A sign. "Survival" is written on it.
+  components:
+  - type: Sprite
+    state: survival
+
+- type: entity
+  parent: BaseSign
+  id: SignNTMine
+  name: mine sign
+  description: A sign. "Mine" is written on it.
+  components:
+  - type: Sprite
+    state: ntmining

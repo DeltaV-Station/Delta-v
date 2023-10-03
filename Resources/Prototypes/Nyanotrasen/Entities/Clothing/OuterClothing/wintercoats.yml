@@ -36,7 +36,7 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatMail
-  name: mail carrier's winter coat
+  name: courier's winter coat # Delta V - Mail Carrier to Courier replacement
   description: It'll keep away the cold but not the dogs.
   components:
     - type: Sprite
@@ -47,7 +47,7 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatMantis
-  name: forensic mantis' winter coat
+  name: psionic mantis' winter coat # DeltaV - Rename Forensic Mantis to Psionic Mantis
   description: Solve cold cases in style.
   components:
     - type: Sprite

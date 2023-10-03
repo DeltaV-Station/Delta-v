@@ -4,14 +4,14 @@
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 54000 #15 hrs
-      inverted: true # stop playing intern if you're good at science!
+    # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
+    #   department: Science
+    #   time: 54000 #15 hrs
+    #   inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Research
   - Maintenance
