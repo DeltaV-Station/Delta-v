@@ -57,8 +57,8 @@
   - type: Familiar
   - type: Dispellable
   - type: Damageable
-    damageContainer: CorporealSpirit
-    damageModifierSet: CorporealSpirit
+#    damageContainer: CorporealSpirit
+#    damageModifierSet: CorporealSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -114,10 +114,10 @@
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
         Blunt: -10
-    welderOnSounds:
-      collection: WelderIfritHandOn
-    welderOffSounds:
-      collection: WelderIfritHandOff
+#    welderOnSounds:
+#      collection: WelderIfritHandOn
+#    welderOffSounds:
+#      collection: WelderIfritHandOff
   - type: Tool
     useSound:
       collection: WelderIfritHand
