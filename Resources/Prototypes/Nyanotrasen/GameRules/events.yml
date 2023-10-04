@@ -13,17 +13,17 @@
     - type: NoosphericStormRule
 
 # Rat king, paradox anomaly, fugitive, oneiro, etc.
-- type: entity
-  id: MidRoundAntag
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: StationEvent
-      weight: 7
-      reoccurrenceDelay: 5
-      minimumPlayers: 15
-      earliestStart: 25
-    - type: MidRoundAntagRule
+#- type: entity
+#  id: MidRoundAntag
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#    - type: StationEvent
+#      weight: 7
+#      reoccurrenceDelay: 5
+#      minimumPlayers: 15
+#      earliestStart: 25
+#    - type: MidRoundAntagRule
 
 # Base glimmer event
 - type: entity
@@ -89,16 +89,16 @@
       glimmerBurnUpper: 110
     - type: MassMindSwapRule
 
-- type: entity
-  id: GlimmerWispSpawn
-  parent: BaseGlimmerEvent
-  noSpawn: true
-  components:
-    - type: GlimmerEvent
-      minimumGlimmer: 300
-      maximumGlimmer: 1000
-      report: glimmer-event-report-signatures
-    - type: GlimmerWispRule
+#- type: entity
+#  id: GlimmerWispSpawn
+#  parent: BaseGlimmerEvent
+#  noSpawn: true
+#  components:
+#    - type: GlimmerEvent
+#      minimumGlimmer: 300
+#      maximumGlimmer: 1000
+#      report: glimmer-event-report-signatures
+#    - type: GlimmerWispRule
 
 - type: entity
   id: FreeProber
