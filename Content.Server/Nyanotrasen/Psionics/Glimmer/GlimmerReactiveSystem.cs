@@ -88,8 +88,8 @@ namespace Content.Server.Psionics.Glimmer
                     _sharedAmbientSoundSystem.SetSound(uid, spec, ambientSoundComponent);
             }
 
-            if (component.ModulatesPointLight)
-                if (TryComp(uid, out SharedPointLightComponent? pointLight))
+            if (component.ModulatesPointLight) //SharedPointLightComponent is now being fetched via TryGetLight.
+                if (_pointLightSystem.TryGetLight(uid, out var pointLight))
                 {
                     _pointLightSystem.SetEnabled(uid, isEnabled ? currentGlimmerTier != GlimmerTier.Minimal : false, pointLight);
                     // The light energy and radius are kept updated even when off
@@ -113,9 +113,6 @@ namespace Content.Server.Psionics.Glimmer
         {
             if (component.RequiresApcPower && !HasComp<ApcPowerReceiverComponent>(uid))
                 Logger.Warning($"{ToPrettyString(uid)} had RequiresApcPower set to true but no ApcPowerReceiverComponent was found on init.");
-
-            if (component.ModulatesPointLight && !HasComp<SharedPointLightComponent>(uid))
-                Logger.Warning($"{ToPrettyString(uid)} had ModulatesPointLight set to true but no PointLightComponent was found on init.");
 
             UpdateEntityState(uid, component, LastGlimmerTier, (int) LastGlimmerTier);
         }
