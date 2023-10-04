@@ -118,12 +118,12 @@
 #      collection: WelderIfritHandOn
 #    welderOffSounds:
 #      collection: WelderIfritHandOff
-  - type: Tool
-    useSound:
-      collection: WelderIfritHand
-  - type: MeleeWeapon
-    soundHit:
-      collection: WelderIfritHand
+#  - type: Tool
+#    useSound:
+#      collection: WelderIfritHand
+#  - type: MeleeWeapon
+#    soundHit:
+#      collection: WelderIfritHand
 # TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
