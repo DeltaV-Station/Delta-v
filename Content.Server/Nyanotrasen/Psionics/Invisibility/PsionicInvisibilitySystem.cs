@@ -109,7 +109,7 @@ namespace Content.Server.Psionics
             if (HasComp<PotentialPsionicComponent>(uid) || HasComp<VehicleComponent>(uid))
                 return;
 
-            SetCanSeePsionicInvisiblity(uid, true);
+            //SetCanSeePsionicInvisiblity(uid, true); //JJ Comment - Not allowed to modifies .yml on spawn any longer. See UninitializedSaveTest.
         }
         private void OnEntInserted(EntityUid uid, PsionicallyInvisibleComponent component, EntInsertedIntoContainerMessage args)
         {
