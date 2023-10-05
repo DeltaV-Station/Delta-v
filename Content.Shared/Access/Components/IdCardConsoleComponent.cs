@@ -74,6 +74,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Service",
         "Theatre",
         "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+        "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
     };
 
     [Serializable, NetSerializable]
