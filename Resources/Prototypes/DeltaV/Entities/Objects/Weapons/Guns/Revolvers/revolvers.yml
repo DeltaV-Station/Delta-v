@@ -23,10 +23,10 @@
     ammoSlots: [ null, null, null, null, null, null ]
 
 - type: entity
-  name: K-38 Masterpiece
+  name: k-38 masterpiece
   parent: BaseWeaponRevolver
   id: WeaponRevolverK38Master
-  description: A classic, if not outdated, law enforcement firearm. Uses .38 Special rounds.
+  description: A classic, if not outdated, law enforcement firearm. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/k38master.rsi
@@ -48,10 +48,10 @@
     ammoSlots: [ null, null, null, null, null, null ]
 
 - type: entity
-  name: Fitz Special
+  name: fitz special
   parent: BaseWeaponRevolver
   id: WeaponRevolverFitz
-  description: A compact and concealable self defence snub revolver. Uses .38 Special rounds.
+  description: A compact and concealable self defence snub revolver. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/fitz.rsi
@@ -73,10 +73,10 @@
     ammoSlots: [ null, null, null, null, null, null ]
 
 - type: entity
-  name: Lucky 37
+  name: lucky 37
   parent: BaseWeaponRevolver
   id: WeaponRevolverLucky
-  description: Luck always beats skill, ya weasel. Uses .38 Special rounds.
+  description: Luck always beats skill, ya weasel. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/lucky.rsi
@@ -100,10 +100,10 @@
     price: 750
 
 - type: entity
-  name: Faith
+  name: faith
   parent: BaseWeaponRevolver
   id: WeaponRevolverFaith
-  description: Delivers blessings in bullet form. Uses .38 Special rounds.
+  description: Delivers blessings in bullet form. Uses .38 special ammo.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/faith.rsi

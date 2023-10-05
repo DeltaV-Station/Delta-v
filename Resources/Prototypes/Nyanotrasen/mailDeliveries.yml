@@ -45,6 +45,7 @@
     MailVagueThreat: 0.4
     # This is mainly for Glacier.
     MailWinterCoat: 1.5
+    MailBooksAll: 0.5 # DeltaV - All the other books not in MailBooks, see Resources/Prototypes/DeltaV/Entities/Objects/Specific/Mail/mail.yml
 
   # Department and job-specific mail can have slightly higher weights,
   # since they'll be merged with the everyone pool.
@@ -70,7 +71,7 @@
       #MailSecuritySpaceLaw: 1
     Science: # DeltaV - Epistemics Department replacing Science but keeping their IDs
       MailBooks: 1
-      # MailEpistemologyBluespace: 1
+      MailEpistemologyBluespace: 1
       MailEpistemologyIngotGold: 2
       MailEpistemologyResearchDisk: 1
       MailEpistemologyTinfoilHat: 1
