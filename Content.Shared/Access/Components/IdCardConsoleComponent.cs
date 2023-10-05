@@ -73,6 +73,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Service",
         "Theatre",
         "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+        "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
     };
 
     [Serializable, NetSerializable]
