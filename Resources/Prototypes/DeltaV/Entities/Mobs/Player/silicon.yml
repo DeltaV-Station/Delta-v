@@ -3,6 +3,14 @@
   parent: BorgChassisMedical
   suffix: Battery, Tools
   components:
+  - type: FabricateCandy
+  - type: SiliconLawProvider
+    laws:
+    - NTMedical1
+    - NTMedical2
+    - NTMedical3
+    - NTMedical4
+    - NTMedical5
   - type: ContainerFill
     containers:
       borg_brain:

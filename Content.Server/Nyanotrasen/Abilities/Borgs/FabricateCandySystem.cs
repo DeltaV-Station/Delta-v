@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Borgs;
 
@@ -34,6 +35,3 @@ public sealed partial class FabricateCandySystem : EntitySystem
         args.Handled = true;
     }
 }
-
-public sealed class FabricateLollipopActionEvent : InstantActionEvent {}
-public sealed class FabricateGumballActionEvent : InstantActionEvent {}
