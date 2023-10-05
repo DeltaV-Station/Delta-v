@@ -2,11 +2,11 @@
   id: BorgMedical
   name: job-name-borgmedical
   description: job-description-borgmedical
-  playTimeTracker: JobBorgMedical
+  playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 216000 #60 hrs
   canBeAntag: false
-  icon: JobIconBorgMedical
+  icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgMedical
