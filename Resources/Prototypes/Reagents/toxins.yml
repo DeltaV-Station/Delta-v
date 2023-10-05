@@ -324,7 +324,7 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic #Nyanotrasen code.
+      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u. 
         conditions:
         - !type:ReagentThreshold
           reagent: MindbreakerToxin

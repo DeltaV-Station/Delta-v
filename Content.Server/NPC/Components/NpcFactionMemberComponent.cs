@@ -26,12 +26,12 @@ namespace Content.Server.NPC.Components
         [ViewVariables]
         public readonly HashSet<string> HostileFactions = new();
 
-        // Begin Nyano-code: support for specific entities to be friendly.
+        // Nyano - Summary - Begin modified code block: support for specific entities to be friendly.
         /// <summary>
         /// Permanently friendly specific entities. Our summoner, etc.
         /// Would like to separate. Could I do that by extending this method, maybe?
         /// </summary>
         public HashSet<EntityUid> ExceptionalFriendlies = new();
-        // End Nyano-code.
+        // Nyano - End modified code block.
     }
 }

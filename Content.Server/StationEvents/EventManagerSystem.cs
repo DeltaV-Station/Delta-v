@@ -17,7 +17,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyanotrasen code.
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
 
     private ISawmill _sawmill = default!;
 
@@ -206,7 +206,7 @@ public sealed class EventManagerSystem : EntitySystem
             return false;
         }
 
-        // Begin Nyano-code: check for glimmer events.
+        // Nyano - Summary: - Begin modified code block: check for glimmer events.
         // This could not be cleanly done anywhere else.
         if (_configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
             prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
@@ -215,7 +215,7 @@ public sealed class EventManagerSystem : EntitySystem
         {
             return false;
         }
-        // End Nyano-code.
+        // Nyano - End modified code block.
 
         return true;
     }

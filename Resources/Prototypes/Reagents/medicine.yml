@@ -11,16 +11,16 @@
       metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
-        key: PsionicallyInsulated #Nyanotrasen code.
-        component: PsionicInsulation #Nyanotrasen code.
+        key: PsionicallyInsulated #Nyano - Summary: makes the user psionically insulated from effects.
+        component: PsionicInsulation #Nyano - Summary: see above.
         type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
         type: Add
       - !type:GenericStatusEffect
-        key: PsionicsDisabled #Nyanotrasen code.
-        component: PsionicsDisabled #Nyanotrasen code.
+        key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
+        component: PsionicsDisabled #Nyano - Summary: see above. 
         type: Add
 
 - type: reagent

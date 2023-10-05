@@ -22,7 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Psionics.Glimmer; //Nyanotrasen code. 
+using Content.Shared.Psionics.Glimmer; //Nyano - Summary:. 
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -42,7 +42,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyanotrasen code. 
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -363,13 +363,13 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
         _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
 
-        // Begin Nyano-code: tie artifacts to glimmer.
+        // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
         if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
             analyzer != null)
         {
             _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
         }
-        // End Nyano-code.
+        // Nyano - End modified code block.
 
         _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
 
@@ -434,11 +434,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
 
-        // Begin Nyano-code: tie artifacts to glimmer.
+        // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
         var extractRating = args.PartRatings[component.MachinePartExtractRatio];
 
         component.ExtractRatio = (400 + (int) (extractRating * component.PartRatingExtractRatioMultiplier));
-        // End Nyano-code.
+        // Nyano - End modified code block.
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)

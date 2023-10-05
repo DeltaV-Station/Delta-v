@@ -35,7 +35,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Psionics; //Nyanotrasen code. 
+using Content.Server.Psionics; //Nyano - Summary: allows the potential psionic ability to be written to the character.
 
 namespace Content.Server.Cloning
 {
@@ -242,7 +242,7 @@ namespace Content.Server.Cloning
             var mob = Spawn(speciesPrototype.Prototype, Transform(uid).MapPosition);
             _humanoidSystem.CloneAppearance(bodyToClone, mob);
 
-            ///Nyanotrasen code. 
+            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob. 
             EnsureComp<PotentialPsionicComponent>(mob);
 
             var ev = new CloningEvent(bodyToClone, mob);

@@ -44,7 +44,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         SubscribeLocalEvent<AnomalyComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AnomalyComponent, StartCollideEvent>(OnStartCollide);
 
-        InitializePsionics(); //Nyanotrasen code. 
+        InitializePsionics(); //Nyano - Summary: stats up psionic related behavior.
         InitializeGenerator();
         InitializeScanner();
         InitializeVessel();

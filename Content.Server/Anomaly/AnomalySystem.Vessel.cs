@@ -92,13 +92,13 @@ public sealed partial class AnomalySystem
         if (!TryComp<AnomalyComponent>(anomaly, out var anomalyComponent) || anomalyComponent.ConnectedVessel != null)
             return;
 
-        // Begin Nyano-code: tie anomaly harvesting to glimmer rate.
+        // Nyano - Summary - Begin modified code block: tie anomaly harvesting to glimmer rate.
         if (this.IsPowered(uid, EntityManager) &&
             TryComp<GlimmerSourceComponent>(anomaly, out var glimmerSource))
         {
             glimmerSource.Active = true;
         }
-        // End Nyano-code.
+        // Nyano - End modified code block.
 
         component.Anomaly = scanner.ScannedAnomaly;
         anomalyComponent.ConnectedVessel = uid;

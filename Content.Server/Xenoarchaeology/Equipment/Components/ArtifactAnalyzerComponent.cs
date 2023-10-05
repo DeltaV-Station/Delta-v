@@ -26,7 +26,7 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float AnalysisDurationMulitplier = 1;
 
-    // Begin Nyano-code: tie artifacts to glimmer.
+    // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
     /// <summary>
     /// Ratio of research points to glimmer.
     /// Each is 150 and added to this, so
@@ -44,7 +44,7 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// How many points per glimmer are added to the sacrifice ratio per tier.
     /// </summary>
     public int PartRatingExtractRatioMultiplier = 150;
-    // End Nyano-code.
+    // Nyano - End modified code block.
 
     /// <summary>
     /// The machine part that modifies analysis duration.
