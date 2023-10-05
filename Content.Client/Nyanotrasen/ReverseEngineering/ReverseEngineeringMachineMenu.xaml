@@ -1,0 +1,77 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      Title="{Loc 'reverse-engineering-machine-menu-title'}"
+                      MinSize="620 280"
+                      SetSize="620 280">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Margin="10 10 10 10" MinWidth="150" Orientation="Vertical" VerticalExpand="True" SizeFlagsStretchRatio="1">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                <Button Name="ScanButton"
+                        Text="{Loc 'reverse-engineering-machine-scan-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-scan-tooltip-info'}">
+                </Button>
+                <Button Name="SafetyButton"
+                        Text="{Loc 'reverse-engineering-machine-safety-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-safety-tooltip-info'}"
+                        ToggleMode="True">
+                </Button>
+                <Button Name="AutoScanButton"
+                        Text="{Loc 'reverse-engineering-machine-autoscan-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-autoscan-tooltip-info'}"
+                        ToggleMode="True">
+                </Button>
+                <Button Name="StopButton"
+                        Text="{Loc 'reverse-engineering-machine-stop-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-stop-tooltip-info'}">
+                </Button>
+                <Button Name="EjectButton"
+                        Text="{Loc 'reverse-engineering-machine-eject-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-eject-tooltip-info'}">
+                </Button>
+                <BoxContainer MinHeight="5"></BoxContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical">
+                <Label Name="ProgressLabel"></Label>
+                <ProgressBar
+                    Name="ProgressBar"
+                    MinValue="0"
+                    MaxValue="1"
+                    SetHeight="20">
+                </ProgressBar>
+                <Label Name="TotalProgressLabel"></Label>
+                <ProgressBar
+                    Name="TotalProgressBar"
+                    MinValue="0"
+                    MaxValue="1"
+                    SetHeight="20">
+                </ProgressBar>
+            </BoxContainer>
+        </BoxContainer>
+        <customControls:VSeparator StyleClasses="LowDivider"/>
+        <PanelContainer Margin="10 10 10 10" HorizontalExpand="True" SizeFlagsStretchRatio="3">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Margin="10 10 10 10" Orientation="Horizontal">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                    <BoxContainer VerticalExpand="True">
+                        <RichTextLabel Name="Information"> </RichTextLabel>
+                    </BoxContainer>
+                </BoxContainer>
+                <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
+                    <SpriteView
+                        Name="ItemDisplay"
+                        OverrideDirection="South"
+                        VerticalExpand="False"
+                        SetSize="64 64"
+                        MaxSize="64 64"
+                        Scale="2 2">
+                    </SpriteView>
+                </BoxContainer>
+                <BoxContainer VerticalExpand="True"></BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

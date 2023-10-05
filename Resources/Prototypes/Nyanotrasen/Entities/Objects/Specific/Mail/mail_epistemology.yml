@@ -1,13 +1,12 @@
-#- type: entity
-#  noSpawn: true
-#  parent: BaseMail
-#  id: MailEpistemologyBluespace
-#  suffix: bluespace
-#  components:
-#  - type: Mail
-#    contents:
-#    - id: MaterialBluespace1
-# Awaiting bluespace to be implemented
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailEpistemologyBluespace
+  suffix: bluespace
+  components:
+  - type: Mail
+    contents:
+    - id: MaterialBluespace1
 
 - type: entity
   noSpawn: true
