@@ -89,6 +89,6 @@ public enum LogType
     ItemConfigure = 84,
     DeviceLinking = 85,
     Tile = 86,
-    BagOfHolding = 420,
-    Psionics = 421,
+    BagOfHolding = 420, //Nyanotrasen code.
+    Psionics = 421, //Nyanotrasen code.
 }

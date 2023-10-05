@@ -11,16 +11,16 @@
       metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
-        key: PsionicallyInsulated
-        component: PsionicInsulation
+        key: PsionicallyInsulated #Nyanotrasen code.
+        component: PsionicInsulation #Nyanotrasen code.
         type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
         type: Add
       - !type:GenericStatusEffect
-        key: PsionicsDisabled
-        component: PsionicsDisabled
+        key: PsionicsDisabled #Nyanotrasen code.
+        component: PsionicsDisabled #Nyanotrasen code.
         type: Add
 
 - type: reagent

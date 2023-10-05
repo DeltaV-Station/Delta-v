@@ -67,6 +67,7 @@ namespace Content.Client.Chat.Managers
                     _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
                     break;
 
+                //Nyanotrasen code. 
                 case ChatSelectChannel.Telepathic:
                     _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;

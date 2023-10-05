@@ -4,7 +4,7 @@
   parent: BaseMobHuman
   id: MobHuman
   components:
-  - type: PotentialPsionic
+  - type: PotentialPsionic #Nyanotrasen code.
 
 #Syndie
 - type: entity
@@ -36,7 +36,7 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
-    - type: PsionicBonusChance
+    - type: PsionicBonusChance #Nyanotrasen code.
       multiplier: 7
       warn: false
 
@@ -58,7 +58,7 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
-    - type: PsionicBonusChance
+    - type: PsionicBonusChance #Nyanotrasen code.
       multiplier: 7
       warn: false
 

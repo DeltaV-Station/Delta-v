@@ -28,10 +28,10 @@
   - type: NpcFactionMember
     factions:
     - PetsNT
-    - PsionicInterloper
+    - PsionicInterloper #Nyanotrasen code.
   - type: Alerts
   - type: Familiar
-  - type: Psionic
+  - type: Psionic #Nyanotrasen code.
     removable: false
 
 - type: entity
@@ -61,7 +61,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-    - PsionicInterloper
+    - PsionicInterloper #Nyanotrasen code.
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-corrupted-corgi
@@ -86,7 +86,7 @@
     showExamineInfo: true
   - type: Familiar
   - type: Dispellable
-  - type: Psionic
+  - type: Psionic #Nyanotrasen code.
     removable: false
   - type: Vocal
     sounds:

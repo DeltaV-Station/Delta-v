@@ -1,4 +1,4 @@
-using Content.Server.Abilities.Psionics;
+using Content.Server.Abilities.Psionics; //Nyanotrasen code.
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Robust.Shared.Random;
@@ -15,6 +15,7 @@ public sealed partial class AnomalySystem
         SubscribeLocalEvent<AnomalyComponent, DispelledEvent>(OnDispelled);
     }
 
+    //Nyanotrasen code.
     private void OnDispelled(EntityUid uid, AnomalyComponent component, DispelledEvent args)
     {
         _dispel.DealDispelDamage(uid);

@@ -324,7 +324,7 @@
         damage:
           groups:
             Toxin: 2
-      - !type:ChemRemovePsionic
+      - !type:ChemRemovePsionic #Nyanotrasen code.
         conditions:
         - !type:ReagentThreshold
           reagent: MindbreakerToxin

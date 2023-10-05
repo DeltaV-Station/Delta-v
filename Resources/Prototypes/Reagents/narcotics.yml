@@ -249,7 +249,7 @@
         type: Add
         time: 5
         refresh: false
-      - !type:ChemRerollPsionic
+      - !type:ChemRerollPsionic #Nyanotrasen code.
         conditions:
         - !type:ReagentThreshold
           reagent: SpaceDrugs

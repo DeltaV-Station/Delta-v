@@ -17,7 +17,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyanotrasen code.
 
     private ISawmill _sawmill = default!;
 

@@ -13,7 +13,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared.Abilities.Psionics;
+using Content.Shared.Abilities.Psionics; //Nyanotrasen code. 
 
 namespace Content.Server.Singularity.EntitySystems;
 
