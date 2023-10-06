@@ -28,7 +28,9 @@
       required: false
     Legs:
       points: 2
-      required: true
+      required: false
     Arms:
-      points: 2
-      required: true
+      points: 1
+      required: false
+      defaultMarkings: [ HarpyWingDefault ]
+

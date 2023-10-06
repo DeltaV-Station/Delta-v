@@ -1,0 +1,11 @@
+# All the Harpy customization
+
+# Ears Markings
+- type: marking
+  id: HarpyWingDefault
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings_default.rsi
+      state: harpy
