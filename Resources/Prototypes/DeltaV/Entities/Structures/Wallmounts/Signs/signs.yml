@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseSign
+  id: SignLaw
+  name: lawyer sign
+  description: A sign indicating a Lawyer's office.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: law
+
+- type: entity
+  parent: BaseSign
+  id: SignCourt
+  name: court sign
+  description: A sign indicating the court.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: court
