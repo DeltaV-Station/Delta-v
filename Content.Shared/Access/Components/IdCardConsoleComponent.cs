@@ -65,6 +65,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Kitchen",
         "Maintenance",
         "Medical",
+        "Paramedic", // DeltaV - Add Paramedic access
         "Quartermaster",
         "Research",
         "ResearchDirector",
@@ -73,6 +74,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Service",
         "Theatre",
         "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+        "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
+        "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
     };
 
     [Serializable, NetSerializable]
