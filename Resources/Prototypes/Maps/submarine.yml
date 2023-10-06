@@ -1,0 +1,23 @@
+- type: gameMap
+  id: Submarine
+  mapName: 'Submarine'
+  mapPath: /Maps/submarine.yml
+  minPlayers: 35
+  stations:
+    Submarine:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Submarine {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            #service
+            Captain: [ 1, 1 ]
+
