@@ -1,0 +1,26 @@
+#GhostTakeover
+- type: entity
+  parent: MobPurpleSnake
+  id: MobPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
+
+- type: entity
+  parent: MobSmallPurpleSnake
+  id: MobSmallPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
