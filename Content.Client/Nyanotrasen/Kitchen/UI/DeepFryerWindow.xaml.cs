@@ -12,6 +12,7 @@ namespace Content.Client.Kitchen.UI
     public sealed partial class DeepFryerWindow : DefaultWindow
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly IClientEntityManager EntMan = default!;
 
         private static readonly Color WarningColor = Color.FromHsv(new Vector4(0.0f, 1.0f, 0.8f, 1.0f));
 
@@ -45,16 +46,19 @@ namespace Content.Client.Kitchen.UI
 
             foreach (var entity in state.ContainedEntities)
             {
-                if (_entityManager.Deleted(entity))
+
+                EntityUid serverEnt = default;
+
+                if (EntMan.Deleted(serverEnt))
                     continue;
 
                 // Duplicated from MicrowaveBoundUserInterface.cs: keep an eye on that file for when it changes.
                 Texture? texture;
-                if (_entityManager.TryGetComponent(entity, out IconComponent? iconComponent))
+                if (EntMan.TryGetComponent<IconComponent>(serverEnt, out var iconComponent))
                 {
-                    texture = _entityManager.System<SpriteSystem>().GetIcon(iconComponent);
+                    texture = EntMan.System<SpriteSystem>().GetIcon(iconComponent);
                 }
-                else if (_entityManager.TryGetComponent(entity, out SpriteComponent? spriteComponent))
+                else if (EntMan.TryGetComponent<SpriteComponent>(serverEnt, out var spriteComponent))
                 {
                     texture = spriteComponent.Icon?.Default;
                 }
@@ -63,7 +67,7 @@ namespace Content.Client.Kitchen.UI
                     continue;
                 }
 
-                 ItemList.AddItem(_entityManager.GetComponent<MetaDataComponent>(entity).EntityName, texture);
+                 ItemList.AddItem(EntMan.GetComponent<MetaDataComponent>(serverEnt).EntityName, texture);
             }
         }
     }
