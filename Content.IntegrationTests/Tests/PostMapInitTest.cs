@@ -63,6 +63,7 @@ namespace Content.IntegrationTests.Tests
             "Marathon",
             "Kettle",
             "MeteorArena"
+            "Edge" //DeltaV
         };
 
         /// <summary>
