@@ -8,7 +8,6 @@
   - type: FlavorProfile
     flavors:
       - meaty
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/meat.rsi
   - type: Extractable
@@ -520,6 +519,7 @@
   - type: Tag
     tags:
     - Raw
+    - Meat
   - type: Sprite
     state: rouny
   - type: SolutionContainerManager
@@ -611,12 +611,11 @@
 # Cooked
 
 - type: entity
-  parent: BaseItem
+  parent: FoodBase
   id: MaterialSmileExtract
   name: smile extract
   description: It's a real panacea. But at what cost?
   components:
-  - type: Food
   - type: Extractable
     grindableSolutionName: food
   - type: FlavorProfile
@@ -637,8 +636,6 @@
           Quantity: 10
         - ReagentId: Iron
           Quantity: 10
-  - type: Item
-    size: 5
   - type: StaticPrice
     price: 3000 #It has so much Omnizin in it
   - type: Tag
@@ -683,7 +680,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: bacon-cooked
@@ -713,7 +709,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: product-cooked
@@ -742,7 +737,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -771,7 +765,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -829,7 +822,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -861,7 +853,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: crab-cooked
@@ -887,7 +878,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: goliath-cooked
@@ -916,6 +906,7 @@
   - type: Tag
     tags:
     - Cooked
+    - Meat
   - type: Sprite
     layers:
     - state: rouny-cooked
@@ -941,7 +932,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: lizard-cooked
@@ -970,7 +960,6 @@
     tags:
     - Cooked
     - Meat
-  - type: Food
   - type: Sprite
     layers:
     - state: spiderleg-cooked
