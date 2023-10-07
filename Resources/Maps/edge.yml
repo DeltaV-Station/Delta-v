@@ -77328,11 +77328,6 @@ entities:
       type: Transform
 - proto: LockerFreezer
   entities:
-  - uid: 709
-    components:
-    - pos: -6.5,15.5
-      parent: 2
-      type: Transform
   - uid: 2337
     components:
     - name: standing freezer
@@ -86718,6 +86713,13 @@ entities:
   - uid: 4289
     components:
     - pos: -13.422459,-7.552577
+      parent: 2
+      type: Transform
+- proto: Roboisseur
+  entities:
+  - uid: 709
+    components:
+    - pos: -6.5,15.5
       parent: 2
       type: Transform
 - proto: RollerBed
