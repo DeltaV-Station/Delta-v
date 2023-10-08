@@ -19,6 +19,10 @@
   - type: GuideHelp
     guides:
     - ScannersAndVessels
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - AnomalyScanner
 
 - type: entity
   id: AnomalyLocatorUnpowered
