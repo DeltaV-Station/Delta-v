@@ -2,7 +2,7 @@
   name: mk 32 "Universal"
   parent: BaseWeaponPistol
   id: WeaponPistolUniversal
-  description: An expensive and robust pistol with decent offensive capabilities. Uses .25 caseless ammo.
+  description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Pistols/universal.rsi
@@ -16,25 +16,25 @@
   - type: Gun
     fireRate: 3
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/universal.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineUniversalCaselessRifle
+        startingItem: MagazineUniversalMagnum
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineUniversalCaselessRifle
+            - MagazineUniversalMagnum
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
+        startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+            - CartridgeMagnum
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

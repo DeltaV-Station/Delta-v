@@ -145,9 +145,10 @@
     secret: true
     litDamageBonus:
         types:
-            Slash: 7.5
-            Heat: 7.5
-            Blunt: -1
+            Slash: 17
+            Heat: 17
+            Structural: 8.5
+            Blunt: -6
     litDisarmMalus: 0.6
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
@@ -158,6 +159,13 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
+  - type: MeleeWeapon
+    attackRate: 0.75
+    soundHit:
+      path: /Audio/Weapons/eblade1.ogg
+    damage:
+      types:
+        Blunt: 6
   - type: Item
     size: 5
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
