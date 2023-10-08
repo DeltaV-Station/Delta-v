@@ -29929,9 +29929,6 @@ entities:
       pos: -7.5,9.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
   - uid: 4641
     components:
     - rot: 1.5707963267948966 rad
@@ -36008,9 +36005,6 @@ entities:
       type: Transform
     - color: '#FF1212FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 5554
     components:
     - pos: 4.5,-22.5
@@ -36830,9 +36824,6 @@ entities:
       type: Transform
     - color: '#FF1212FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 5663
     components:
     - pos: 2.5,8.5
@@ -58064,12 +58055,8 @@ entities:
     - pos: -2.5,15.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
   - uid: 8885
-    components:
-    - pos: 1.5,17.5
+    compone   - pos: 1.5,17.5
       parent: 2
       type: Transform
   - uid: 8886
@@ -59592,9 +59579,6 @@ entities:
     - pos: 2.5,21.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
 - proto: VendingMachineChefDrobe
   entities:
   - uid: 9137
