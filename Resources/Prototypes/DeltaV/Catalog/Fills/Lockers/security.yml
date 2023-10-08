@@ -1,26 +1,26 @@
-#- type: entity
-#  parent: GunSafe
-#  id: GunSafePistolUniversal
-#  name: mk32 safe
-#  components:
-#  - type: StorageFill
-#    contents:
-#    - id: WeaponPistolUniversal
-#      amount: 2
-#    - id: MagazineUniversalCaselessRifle
-#      amount: 4
+- type: entity
+  parent: GunSafe
+  id: GunSafePistolUniversal
+  name: mk32 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolUniversal
+      amount: 2
+    - id: MagazineUniversalMagnum
+      amount: 4
 
-#- type: entity
-#  parent: GunSafe
-#  id: GunSafeSniperGrand
-#  name: mark 1 rifle safe
-#  components:
-#  - type: StorageFill
-#    contents:
-#    - id: WeaponSniperGrand
-#      amount: 2
-#    - id: SpeedLoaderLightRifle
-#      amount: 4
+- type: entity
+  parent: GunSafe
+  id: GunSafeSniperGrand
+  name: mark 1 rifle safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperGrand
+      amount: 2
+    - id: SpeedLoaderLightRifle
+      amount: 4
 
 - type: entity
   parent: GunSafe
