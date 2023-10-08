@@ -5,26 +5,20 @@
   playTimeTracker: JobHeadOfPersonnel
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 18000 # DeltaV - 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # DeltaV - 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # DeltaV - 5 hours
-    - !type:DepartmentTimeRequirement # DeltaV - Epistemics dept time requirement
-      department: Science
-      time: 18000 # 5 hours
-#    - !type:DepartmentTimeRequirement
-#      department: Command
-#      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobChef
+      time: 14400 # DeltaV - 4 hours
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 14400 # DeltaV - 4 hours
+    - !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 14400 # DeltaV - 4 hours
     - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
       department: Civilian
-      time: 10800 # 3 hours
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 72000 # 20 hours
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 90000 # 25 hours
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
