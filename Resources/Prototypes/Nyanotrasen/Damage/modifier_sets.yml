@@ -29,3 +29,22 @@
   id: CancerMouse
   coefficients:
     Radiation: -0.25
+
+- type: damageModifierSet
+  id: Spirit
+  coefficients:
+    Cold: 0.0
+    Shock: 0.2
+    Heat: 3.0
+    Holy: 5.0
+
+- type: damageModifierSet
+  id: CorporealSpirit
+  coefficients:
+    Cold: 0.0
+    Shock: 0.5
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 1.5
+    Holy: 3.0
