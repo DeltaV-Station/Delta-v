@@ -10,26 +10,6 @@
 
 - type: entity
   parent: BaseSign
-  id: SignLaw
-  name: lawyer sign
-  description: A sign indicating a Lawyer's office.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi
-    state: law
-
-- type: entity
-  parent: BaseSign
-  id: SignCourt
-  name: court sign
-  description: A sign indicating the court.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi
-    state: court
-
-- type: entity
-  parent: BaseSign
   id: SignLastIdiot
   name: Zero Days Since Last Idiot
   description: Must be an Engineering joke.
