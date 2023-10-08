@@ -16,6 +16,9 @@
     - /Audio/Voice/Human/femalescream_3.ogg
     - /Audio/Voice/Human/femalescream_4.ogg
     - /Audio/Voice/Human/femalescream_5.ogg
+    - /Audio/Voice/Moth/moth_scream.ogg
+    - /Audio/Voice/Skeleton/skeleton_scream.ogg
+    - /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: soundCollection
   id: HarpyLaugh
@@ -28,6 +31,7 @@
     - /Audio/Voice/Diona/diona_rustle3.ogg
     - /Audio/Animals/lizard_happy.ogg
     - /Audio/Animals/ferret_happy.ogg
+    - /Audio/Voice/Moth/moth_laugh.ogg
 
 - type: soundCollection
   id: HarpyHisses
@@ -40,6 +44,15 @@
     - /Audio/Items/hypospray.ogg
     - /Audio/Items/ratchet.ogg
     - /Audio/Items/welder.ogg
+    - /Audio/Machines/airlock_close.ogg
+    - /Audio/Machines/airlock_ext_close.ogg
+    - /Audio/Machines/airlock_ext_open.ogg
+    - /Audio/Machines/airlock_open.ogg
+    - /Audio/Machines/disposalflush.ogg
+    - /Audio/Machines/printer.ogg
+    - /Audio/Machines/windoor_open.ogg
+    - /Audio/Effects/spray.ogg
+    - /Audio/Effects/spray2.ogg
 
 - type: soundCollection
   id: HarpySigh
@@ -84,6 +97,7 @@
   id: HarpyPurrs
   files:
     - /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+    - /Audio/Mecha/sound_mecha_hydraulic.ogg
 
 - type: soundCollection
   id: HarpyBooms
@@ -95,6 +109,8 @@
   files:
     - /Audio/Items/desk_bell_ring.ogg
     - /Audio/Items/ring.ogg
+    - /Audio/Machines/ding.ogg
+    - /Audio/Machines/warning_buzzer.ogg
 
 - type: soundCollection
   id: HarpyHonks
@@ -114,6 +130,12 @@
     - /Audio/Effects/Arcade/player_attack.ogg
     - /Audio/Effects/Arcade/player_charge.ogg
     - /Audio/Effects/Arcade/player_heal.ogg
+    - /Audio/Magic/blink.ogg
+    - /Audio/Magic/staff_animation.ogg
+    - /Audio/Magic/staff_change.ogg
+    - /Audio/Magic/staff_chaos.ogg
+    - /Audio/Magic/staff_door.ogg
+    - /Audio/Magic/staff_healing.ogg
 
 - type: soundCollection
   id: HarpyBangs
@@ -124,6 +146,13 @@
     - /Audio/Weapons/Guns/Gunshots/pistol.ogg
     - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
     - /Audio/Items/snap.ogg
+    - /Audio/Machines/airlock_creaking.ogg
+    - /Audio/Machines/blastdoor.ogg
+    - /Audio/Machines/machine_vend.ogg
+    - /Audio/Magic/disintegrate.ogg
+    - /Audio/Magic/fireball.ogg
+    - /Audio/Magic/forcewall.ogg
+    - /Audio/Magic/knock.ogg
 
 - type: soundCollection
   id: HarpyBeeps
@@ -153,11 +182,24 @@
     - /Audio/Effects/RingtoneNotes/gsharp.ogg
     - /Audio/Effects/Arcade/gameover.ogg
     - /Audio/Effects/Arcade/win.ogg
+    - /Audio/Machines/airlock_deny.ogg
+    - /Audio/Machines/alarm.ogg
+    - /Audio/Machines/beep.ogg
+    - /Audio/Machines/boltsdown.ogg
+    - /Audio/Machines/boltsup.ogg
+    - /Audio/Machines/custom_deny.ogg
+    - /Audio/Machines/high_tech_confirm.ogg
+    - /Audio/Machines/microwave_done_beep.ogg
+    - /Audio/Machines/scan_finish.ogg
+    - /Audio/Machines/vending_jingle.ogg
 
 - type: soundCollection
   id: HarpyRevs
   files:
-    - /Audio/Weapons/chainsawwield.ogg  
+    - /Audio/Weapons/chainsawwield.ogg
+    - /Audio/Machines/blender.ogg
+    - /Audio/Machines/juicer.ogg
+    - /Audio/Machines/reclaimer_startup.ogg
 
 - type: soundCollection
   id: HarpyClicks
@@ -169,3 +211,21 @@
     - /Audio/Items/pistol_magin.ogg
     - /Audio/Items/pistol_magout.ogg
     - /Audio/Items/rped.ogg
+    - /Audio/Machines/door_lock_off.ogg
+    - /Audio/Machines/door_lock_on.ogg
+    - /Audio/Machines/id_swipe.ogg
+    - /Audio/Machines/machine_switch.ogg
+    - /Audio/Machines/screwdriveropen.ogg
+
+- type: soundCollection
+  id: HarpyChitter
+    - /Audio/Voice/Moth/moth_chitter.ogg
+    - /Audio/Machines/circuitprinter.ogg
+    - /Audio/Machines/diagnoser_printing.ogg
+    - /Audio/Machines/uniformprinter.ogg
+    - /Audio/Machines/vaccinator_running.ogg
+
+- type: soundCollection
+  id: HarpySqueak
+    - /Audio/Voice/Moth/moth_squeak.ogg
+    - /Audio/Animals/mouse_squeak.ogg
