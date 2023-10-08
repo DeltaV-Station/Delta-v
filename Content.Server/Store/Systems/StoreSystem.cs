@@ -203,3 +203,14 @@ public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
         Store = store;
     }
 }
+
+
+/// <summary>
+/// Nyano/DeltaV Code. For penguin bombs and what not. 
+/// Raised on an item when it is purchased.
+/// An item may need to set it upself up for its purchaser.
+/// For example, to make sure it isn't hostile to them or
+/// to make sure it fits their apperance.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ItemPurchasedEvent(EntityUid Purchaser);
