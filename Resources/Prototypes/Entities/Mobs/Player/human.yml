@@ -3,6 +3,8 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
+  components:
+  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
 
 #Syndie
 - type: entity
@@ -34,6 +36,9 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
+      multiplier: 7
+      warn: false
 
 - type: entity
   noSpawn: true
@@ -53,6 +58,9 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
+      multiplier: 7
+      warn: false
 
 # Space Ninja
 - type: entity
