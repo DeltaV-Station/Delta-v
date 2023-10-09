@@ -80,9 +80,14 @@ namespace Content.Shared.Chat
         Unspecified = 1 << 13,
 
         /// <summary>
+        ///     Nyano - Summary:: Telepathic channel for all psionic entities.
+        /// </summary>
+        Telepathic = 1 << 14,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual,
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat.. 
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

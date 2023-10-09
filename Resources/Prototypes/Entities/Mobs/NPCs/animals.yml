@@ -1955,6 +1955,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+    - PsionicInterloper #Nyano - Summary: makes a psionic interloper.
   - type: InteractionPopup
     successChance: 0 # Override the automatic success that would normally be inherited from MobCorgi.
     interactSuccessString: petting-success-corrupted-corgi # Normally impossible but added an easter egg just in case.

@@ -9,9 +9,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: VisionCorrection
-#  - type: ClothingGrantPsionicPower
-#    power: TelegnosisPower
-#  - type: Psionic
+  - type: ClothingGrantPsionicPower
+    power: TelegnosisPower
+  - type: Psionic
 
 - type: entity
   id: BedsheetInvisibilityCloak
@@ -23,9 +23,9 @@
     state: sheetblack
   - type: Clothing
     sprite: Clothing/Neck/Bedsheets/black.rsi
-#  - type: ClothingGrantPsionicPower
-#    power: PsionicInvisibilityPower
-#  - type: Psionic
+  - type: ClothingGrantPsionicPower
+    power: PsionicInvisibilityPower
+  - type: Psionic
 
 - type: entity
   parent: ClothingHandsBase
@@ -43,9 +43,9 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-brown
   - type: FingerprintMask
-#  - type: ClothingGrantPsionicPower
-#    power: DispelPower
-#  - type: Psionic
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: Psionic
 
 - type: entity
   parent: ClothingHandsBase
@@ -61,6 +61,6 @@
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
   - type: FingerprintMask
-#  - type: ClothingGrantPsionicPower
-#    power: NoosphericZapPower
-#  - type: Psionic
+  - type: ClothingGrantPsionicPower
+    power: NoosphericZapPower
+  - type: Psionic

@@ -10,6 +10,8 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
+  - type: AccessReader
+    access: [["Mantis"]]
   - type: Destructible
     thresholds:
     - trigger:
