@@ -6,8 +6,9 @@ namespace Content.Server.NPC.Systems;
 
 /// <summary>
 ///     Outlines faction relationships with each other.
+///     part of psionics rework was making this a partial class. Should've already been handled upstream, based on the linter. 
 /// </summary>
-public sealed class NpcFactionSystem : EntitySystem
+public sealed partial class NpcFactionSystem : EntitySystem
 {
     [Dependency] private readonly FactionExceptionSystem _factionException = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;

@@ -28,8 +28,11 @@
   - type: NpcFactionMember
     factions:
     - PetsNT
+    - PsionicInterloper #Nyano - Summary: makes a part of the psionic faction.
   - type: Alerts
   - type: Familiar
+  - type: Psionic #Nyano - Summary: Makes psionic on creation.
+    removable: false
 
 - type: entity
   name: Cerberus
@@ -58,6 +61,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
+    - PsionicInterloper #Nyano - Summary: makes part of the psionoic faction.
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-corrupted-corgi
@@ -81,6 +85,9 @@
   - type: MindContainer
     showExamineInfo: true
   - type: Familiar
+  - type: Dispellable
+  - type: Psionic #Nyano - Summary: makes psionic on creation.
+    removable: false
   - type: Vocal
     sounds:
       Male: Cerberus

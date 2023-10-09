@@ -2,25 +2,31 @@
   id: ChemVendInventory
   startingInventory:
     Jug: 4
+## Delta V - begin jug adjustments, see rebase PR #53
     JugAluminium: 2
-    JugCarbon: 2
-    JugChlorine: 2
+    JugCarbon: 8
+    JugChlorine: 3
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 2
-    JugHydrogen: 2
+    JugHydrogen: 4
     JugIodine: 2
-    JugIron: 2
+    JugIron: 4
     JugLithium: 2
     JugMercury: 2
-    JugNitrogen: 2
-    JugOxygen: 2
-    JugPhosphorus: 2
-    JugPotassium: 2
-    JugRadium: 2
-    JugSilicon: 2
-    JugSodium: 2
-    JugSugar: 2
+    JugNitrogen: 5
+    JugOxygen: 6
+    JugPhosphorus: 5
+    JugPotassium: 5
+    JugRadium: 4
+    JugSilicon: 5
+    JugSodium: 4
+    JugSugar: 5
     JugSulfur: 2
+## Delta V - end change of jug adjustments
   emaggedInventory:
-    ToxinChemistryBottle: 1
+    ToxinChemistryBottle: 6 # Delta V - changed from 1 -> 6
+    # DeltaV - Added other chems from emagging chem dispenser
+    EpinephrineChemistryBottle: 6
+    NapalmChemistryBottle: 6
+    UltravasculineChemistryBottle: 6

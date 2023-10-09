@@ -120,3 +120,15 @@
       - !type:Emote
         emote: Laugh
         probability: 0.25
+
+- type: reagent
+  id: Kvass
+  name: reagent-name-kvass
+  parent: BaseDrink
+  desc: reagent-desc-kvass
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: bread
+  color: "#381600"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/kvass.rsi
+    state: icon
