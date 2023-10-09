@@ -1,0 +1,15 @@
+- type: entity
+  parent: Windoor
+  id: WindoorMailLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMailLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]

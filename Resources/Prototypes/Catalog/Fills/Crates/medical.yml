@@ -51,11 +51,24 @@
       - id: UniformScrubsColorGreen
       - id: UniformScrubsColorPurple
       - id: UniformScrubsColorBlue
+#DeltaV adds cyan through white scrubs
+      - id: UniformScrubsColorCyan
+      - id: UniformScrubsColorBlack
+      - id: UniformScrubsColorPink
+      - id: UniformScrubsColorRainbow
+      - id: UniformScrubsColorWhite
       - id: ClothingHeadHatSurgcapBlue
       - id: ClothingHeadHatSurgcapPurple
       - id: ClothingHeadHatSurgcapGreen
+#DeltaV adds cyan through white surgcaps
+      - id: ClothingHeadHatSurgcapCyan
+      - id: ClothingHeadHatSurgcapBlack
+      - id: ClothingHeadHatSurgcapPink
+      - id: ClothingHeadHatSurgcapRainbow
+      - id: ClothingHeadHatSurgcapWhite
       - id: ClothingMaskSterile
-        amount: 3
+#DeltaV nerfs amount from 3 to 1(more items)
+        amount: 1
 
 - type: entity
   id: CrateEmergencyBurnKit
