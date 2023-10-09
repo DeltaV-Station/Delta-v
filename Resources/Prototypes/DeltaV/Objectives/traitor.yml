@@ -8,3 +8,14 @@
   - type: StealCondition
     prototype: SpaceCashLuckyBill
     # owner: job-name-qm
+
+- type: entity # Head of Personnel steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HoPBookIanDossierStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    prototype: BookIanDossier
+    # owner: job-name-hop
