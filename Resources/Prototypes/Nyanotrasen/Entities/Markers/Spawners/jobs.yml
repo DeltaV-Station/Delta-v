@@ -36,7 +36,7 @@
     layers:
       - state: green
       - state: nyanoprisonguard
-      
+
 - type: entity
   id: SpawnPointMailCarrier
   parent: SpawnPointJobBase
@@ -62,3 +62,16 @@
     layers:
       - state: green
       - state: nyanomartialartist
+
+- type: entity
+  id: SpawnPointForensicMantis
+  parent: SpawnPointJobBase
+  name: psionic mantis # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  components:
+  - type: SpawnPoint
+    job_id: ForensicMantis
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanomantis

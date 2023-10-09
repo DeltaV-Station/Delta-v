@@ -48,6 +48,10 @@
     sprite: Clothing/Uniforms/Jumpsuit/punpun.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/punpun.rsi
+  - type: SuitSensor
+    controlsLocked: false
+    randomMode: false
+    mode: SensorCords
 
 - type: entity
   parent: ClothingUniformBase
@@ -467,8 +471,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: mystagogue's turtleneck # DeltaV - Epistemics Department replacing Science
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Mystagogue. Its fabric provides minor protection from biological contaminants. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
@@ -936,7 +940,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitNinja
   name: ninja jumpsuit
-  description: A nano-enhanced jumpsuit designed for maximum comfort and tacticality.
+  description: Comfortable ninja suit, for convenience when relaxing and when you need to practice.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ninja.rsi
@@ -1242,7 +1246,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorResearcher
   name: senior researcher jumpsuit
-  description: A sign of skill and prestige within the science department.
+  description: A sign of skill and prestige within the epistemics department. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi

@@ -19,12 +19,12 @@
 - type: startingGear
   id: MedicalInternGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorWhite
+    jumpsuit: UniformScrubsColorBlue # DeltaV - Intern starts with blue scrubs
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
     id: MedicalInternPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  innerclothingskirt: ClothingUniformJumpskirtColorWhite
+ # innerclothingskirt: ClothingUniformJumpskirtColorWhite #Delta V
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

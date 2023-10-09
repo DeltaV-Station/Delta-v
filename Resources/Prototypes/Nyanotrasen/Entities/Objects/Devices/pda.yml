@@ -32,7 +32,7 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-security
-    
+
 - type: entity
   parent: BasePDA
   id: MailCarrierPDA
@@ -62,10 +62,47 @@
     state: pda-mailcarrier
 
 - type: entity
-  parent: BoxerPDA
+  parent: BasePDA
   id: MartialArtistPDA
   name: martial artist PDA
+  description: Smells like straw.
   components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: MartialArtistIDCard
-    state: pda-boxer
+    state: pda-martialartist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#232323"
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-martialartist
+
+- type: entity
+  parent: BasePDA
+  id: ForensicMantisPDA
+  name: psionic mantis PDA # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  description: Smells like illegal substances.
+  components:
+  - type: Pda
+    id: ForensicMantisIDCard
+    state: pda-science
+  - type: Icon
+    state: pda-science
+  # - type: CartridgeLoader
+  #   preinstalled:
+  #     - CrewManifestCartridge
+  #     - NotekeeperCartridge
+  #     - NewsReadCartridge
+  #     - GlimmerMonitorCartridge # Uncomment this entire thing if we re-implement the glimmer monitor.

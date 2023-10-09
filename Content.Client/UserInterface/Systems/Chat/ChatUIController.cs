@@ -16,6 +16,7 @@ using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Damage.ForceSay;
 using Content.Shared.Examine;
 using Content.Shared.Input;
 using Content.Shared.Radio;
@@ -30,9 +31,11 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.Nyanotrasen.Chat; //Nyano - Summary: chat namespace.
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -54,6 +57,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
+    [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
 
     private ISawmill _sawmill = default!;
 
@@ -68,7 +72,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
-        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead}
+        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -81,7 +86,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
-        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix}
+        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
     };
 
     /// <summary>
@@ -161,9 +167,11 @@ public sealed class ChatUIController : UIController
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
         _admin.AdminStatusUpdated += UpdateChannelPermissions;
+        _manager.PermissionsUpdated += UpdateChannelPermissions; //Nyano - Summary: the event for when permissions are updated for psionics.
         _player.LocalPlayerChanged += OnLocalPlayerChanged;
         _state.OnStateChanged += StateChanged;
         _net.RegisterNetMessage<MsgChatMessage>(OnChatMessage);
+        SubscribeNetworkEvent<DamageForceSayEvent>(OnDamageForceSay);
 
         _speechBubbleRoot = new LayoutContainer();
 
@@ -521,7 +529,16 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
+
+        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user. 
+        if (_psionic != null && _psionic.IsPsionic)
+        {
+            FilterableChannels |= ChatChannel.Telepathic;
+            CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+        // /Nyano - End modified code block
 
         SelectableChannels = CanSendChannels;
 
@@ -772,6 +789,37 @@ public sealed class ChatUIController : UIController
         }
 
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
+    }
+
+    private void OnDamageForceSay(DamageForceSayEvent ev, EntitySessionEventArgs _)
+    {
+        if (UIManager.ActiveScreen?.GetWidget<ChatBox>() is not { } chatBox)
+            return;
+
+        // Don't send on OOC/LOOC obviously!
+        if (chatBox.SelectedChannel is not
+            (ChatSelectChannel.Local or
+            ChatSelectChannel.Radio or
+            ChatSelectChannel.Whisper))
+            return;
+
+        if (_player.LocalPlayer?.ControlledEntity is not { } ent
+            || !EntityManager.TryGetComponent<DamageForceSayComponent>(ent, out var forceSay))
+            return;
+
+        var msg = chatBox.ChatInput.Input.Text.TrimEnd();
+
+        if (string.IsNullOrWhiteSpace(msg))
+            return;
+
+        var modifiedText = ev.Suffix != null
+            ? Loc.GetString(forceSay.ForceSayMessageWrap,
+                ("message", msg), ("suffix", ev.Suffix))
+            : Loc.GetString(forceSay.ForceSayMessageWrapNoSuffix,
+                ("message", msg));
+
+        chatBox.ChatInput.Input.SetText(modifiedText);
+        chatBox.ChatInput.Input.ForceSubmitText();
     }
 
     private void OnChatMessage(MsgChatMessage message)

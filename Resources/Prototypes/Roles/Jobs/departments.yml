@@ -17,7 +17,7 @@
   - Borg
   - Botanist
   - Boxer
-  - Chaplain
+  # - Chaplain # DeltaV - Move Chaplain into Epistemics
   - Chef
   - Clown
   - HeadOfPersonnel
@@ -71,6 +71,7 @@
   - Psychologist
   - Paramedic
   - SeniorPhysician
+  - BorgMedical # DeltaV - Medical Cyborg, see Resources/Prototypes/DeltaV/Roles/Jobs/Science/borg.yml
 
 - type: department
   id: Security
@@ -94,6 +95,8 @@
   - SeniorResearcher
   - Scientist
   - ResearchAssistant
+  - Chaplain # DeltaV - Move Chaplain into Epistemics
+  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
 
 - type: department
   id: Specific

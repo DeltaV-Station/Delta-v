@@ -27,6 +27,10 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - HandheldCrewMonitor
   - type: StaticPrice
     price: 500
 

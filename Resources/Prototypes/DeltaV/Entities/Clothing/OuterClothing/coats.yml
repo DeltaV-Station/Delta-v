@@ -90,3 +90,23 @@
       coefficients:
         Slash: 0.9
         Heat: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatCybersunWindbreaker
+  name: cybersun windbreaker
+  description: A paramedics windbreaker, sporting the official heraldry of Cybersuns meditech division. Its made of sturdy ballistic fiber.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cybersunwindbreaker.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cybersunwindbreaker.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.75

@@ -21,6 +21,8 @@
       - id: RubberStampQm
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
+      - id: SpaceCashLuckyBill # DeltaV - HoL steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
+      - id: BoxPDACargo # Delta-V
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -119,6 +121,7 @@
       - id: ClothingBackpackIan
         prob: 0.5
       - id: AccessConfigurator
+      - id: BookIanDossier # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/ian_dossier.yml
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -147,6 +150,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
+      - id: BoxPDAEngineering # Delta-V
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -169,6 +173,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
+      - id: BoxPDAEngineering # Delta-V
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -193,6 +198,7 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: BoxPDAMedical # Delta-V
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -216,6 +222,7 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: BoxPDAMedical # Delta-V
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -238,6 +245,7 @@
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
+      - id: BoxPDAScience # Delta-V
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -259,6 +267,7 @@
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
+      - id: BoxPDAScience # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -292,6 +301,7 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
+      - id: BoxPDASecurity # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -322,3 +332,4 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
+      - id: BoxPDASecurity # Delta-V

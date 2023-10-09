@@ -135,6 +135,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgePistol
+       - CartridgeSpecial # DeltaV - .38 Special revolver
        - CartridgeMagnum
        - ShellShotgun
        - ShellShotgunFlare
@@ -147,6 +148,7 @@
        - MagazineBoxLightRifle
     emagDynamicRecipes:
       - CartridgePistolRubber
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
       - CartridgeRifleRubber
@@ -203,6 +205,7 @@
       - MiningDrill
       - AnomalyScanner
       - AnomalyLocator
+      - AnomalyLocatorWide
       - RCD
       - RCDAmmo
       - HandheldCrewMonitor
@@ -323,6 +326,7 @@
       - ReagentGrinderMachineCircuitboard
       - HotplateMachineCircuitboard
       - MicrowaveMachineCircuitboard
+      - ElectricGrillMachineCircuitboard
       - FatExtractorMachineCircuitboard
       - SheetifierMachineCircuitboard
       - UniformPrinterMachineCircuitboard
@@ -365,6 +369,19 @@
       - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
+    # Begin Nyano additions
+      - ReverseEngineeringMachineCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - DoorElectronics
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - SalvageMagnetMachineCircuitboard
+      - StationMapElectronics
+#      - MetempsychoticMachineCircuitboard
+#      - DeepFryerMachineCircuitBoard
+    # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -458,6 +475,7 @@
     - BorgModuleDiagnosis
     - BorgModuleTreatment
     - BorgModuleDefibrillator
+    - BorgModuleAdvancedTreatment
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -477,6 +495,12 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+  # Begin Nyano additions
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
+  # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -528,46 +552,62 @@
       - MagazineRifle
       - MagazineLightRifle
       - MagazineBoxPistol
+      - MagazineBoxSpecial # DeltaV - .38 Special revolver
       - MagazineBoxMagnum
       - MagazineBoxRifle
       - MagazineBoxLightRifle
       - SpeedLoaderMagnum
+      - SpeedLoaderSpecial # DeltaV - .38 Special revolver
       - TargetHuman
       - TargetSyndicate
       - TargetClown
     dynamicRecipes:
-      - CartridgePistolRubber
-      - CartridgeMagnumRubber
-      - ShellShotgunBeanbag
-      - CartridgeRifleRubber
-      - CartridgeLightRifleRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxMagnumRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxLightRifleRubber
-      - ShellShotgunIncendiary
-      - CartridgePistolIncendiary
-      - CartridgeMagnumIncendiary
+      - CartridgeSpecialRubber # DeltaV - .38 Special revolver
+      - EncryptionKeySyndie # Nyano
+      - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
       - CartridgeLightRifleIncendiary
+      - CartridgeMagnumIncendiary
+      - CartridgePistolIncendiary
       - CartridgeRifleIncendiary
-      - MagazineBoxPistolIncendiary
-      - MagazineBoxMagnumIncendiary
+      - CartridgeLightRifleRubber
+      - CartridgeMagnumRubber
+      - CartridgePistolRubber
+      - CartridgeRifleRubber
+      - ExplosivePayload
+      - FlashPayload
+      - HoloprojectorSecurity
       - MagazineBoxLightRifleIncendiary
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxPistolIncendiary
       - MagazineBoxRifleIncendiary
+      - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
+      - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
+      - MagazineBoxLightRiflePractice
+      - MagazineBoxMagnumPractice
+      - MagazineBoxPistolPractice
+      - MagazineBoxRiflePractice
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - ShellShotgunBeanbag
+      - ShellShotgunIncendiary
+      - ShellShotgunPractice
       - Signaller
       - SignalTrigger
-      - VoiceTrigger
+      - TelescopicShield
       - TimerTrigger
       - Truncheon
-      - TelescopicShield
-      - HoloprojectorSecurity
-      - FlashPayload
-      - ExplosivePayload
-      - WeaponLaserCarbine
+      - VoiceTrigger
       - WeaponAdvancedLaser
+      - WeaponDisablerPractice
       - WeaponLaserCannon
-      - WeaponXrayCannon
+      - WeaponLaserCarbine
+      - WeaponLaserCarbinePractice
       - WeaponTaser
+      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      - ClothingHeadCage # Nyanotrasen - Insulative headgear
+      - WeaponXrayCannon
   - type: MaterialStorage
     whitelist:
       tags:
@@ -675,6 +715,9 @@
       - Hemostat
       - BluespaceBeaker
       - SyringeBluespace
+      - ClothingEyesHudMedical # Nyano
+      - ChemicalPayload # Nyano
+      - Jug
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -708,6 +751,7 @@
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
+      - ClothingUniformJumpsuitSalvageExplorer # DeltaV - Salvage better looking uniform, see Resources/Prototypes/DeltaV/Entities/Clothing/Uniform/jumpsuits.yml
       - ClothingUniformJumpsuitChiefEngineer
       - ClothingUniformJumpskirtChiefEngineer
       - ClothingUniformJumpsuitChiefEngineerTurtle
@@ -738,6 +782,10 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
+      - ClothingUniformMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
+      - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime
@@ -774,6 +822,7 @@
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
       - ClothingNeckMantleRD
+      - ClothingNeckMantleQM
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -832,6 +881,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
+        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here. 
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

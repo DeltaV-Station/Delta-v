@@ -6,9 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000 # DeltaV - 5 hours
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 18000 # 5 hours
+      time: 14400 # DeltaV - 4 hours
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -19,6 +17,9 @@
   - Maintenance
   - Service
   - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: SecurityOfficerGear

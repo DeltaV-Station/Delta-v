@@ -223,7 +223,7 @@
     stateDoorOpen: paramed_open
     stateDoorClosed: paramed_door
   - type: AccessReader
-    access: [ [ "Medical" ] ]
+    access: [ [ "Paramedic" ] ] # DeltaV - Change Medical access to Paramedic
 
 
 # Chemical
@@ -258,7 +258,7 @@
 - type: entity
   id: LockerResearchDirector
   parent: LockerBase
-  name: research director's locker
+  name: mystagogue's locker # DeltaV - Epistemics Department replacing Science
   components:
   - type: Appearance
   - type: EntityStorageVisuals

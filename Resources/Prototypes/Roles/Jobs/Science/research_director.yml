@@ -7,7 +7,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 43200 # DeltaV - 12 hours
+      time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
       time: 72000 # DeltaV - 20 hours
   weight: 10
@@ -21,6 +21,16 @@
   - Command
   - Maintenance
   - ResearchDirector
+  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  special: # Nyanotrasen - Mystagogue can use the Bible
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser #Lets them heal with bibles
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -28,7 +38,8 @@
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
     shoes: ClothingShoesColorBrown
-    outerClothing: ClothingOuterCoatRnd
+    head: ClothingHeadHoodMystic # DeltaV - Mystagogue new hat
+    outerClothing: ClothingOuterCoatRndMysta # DeltaV - Mystagogue new coat
     id: RnDPDA
     ears: ClothingHeadsetRD
   innerclothingskirt: ClothingUniformJumpskirtResearchDirector
