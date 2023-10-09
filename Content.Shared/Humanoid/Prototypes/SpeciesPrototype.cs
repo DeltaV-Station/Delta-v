@@ -126,8 +126,8 @@ public enum SpeciesNaming : byte
 {
     FirstLast,
     FirstDashFirst,
-    //Start of Nyano code for Oni naming
+    //Start of Nyano - Summary: for Oni naming
     LastNoFirst,
-    //End of Nyano code for Oni naming
+    //End of Nyano - Summary: for Oni naming
     TheFirstofLast,
 }
