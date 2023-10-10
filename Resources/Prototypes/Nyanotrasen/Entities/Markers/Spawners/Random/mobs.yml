@@ -1,7 +1,8 @@
 - type: entity
-  name: Carp Spawner
+  name: NPC Carp Spawner
   id: CarpSpawnerMundane
   parent: MarkerBase
+  suffix: No Ghost Takeover
   components:
     - type: Sprite
       layers:
@@ -16,9 +17,10 @@
         - MobCarpMagic
 
 - type: entity
-  name: Snake Spawner
+  name: NPC Snake Spawner
   id: SnakeSpawnerMundane
   parent: MarkerBase
+  suffix: No Ghost Takeover
   components:
     - type: Sprite
       layers:
