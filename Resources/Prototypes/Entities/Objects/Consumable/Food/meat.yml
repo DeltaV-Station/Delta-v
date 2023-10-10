@@ -8,6 +8,7 @@
   - type: FlavorProfile
     flavors:
       - meaty
+  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/meat.rsi
   - type: Extractable
@@ -42,7 +43,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Perishable
     # raw meat rots in 5 minutes, get it into the freezer fast
     rotAfter: 300
@@ -88,9 +88,6 @@
     graph: MeatSteak
     node: start
     defaultTarget: meat steak
-  - type: Tag
-    tags:
-    - Meat
 
 - type: entity
   name: raw human meat
@@ -123,7 +120,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: fish
   - type: SolutionContainerManager
@@ -148,7 +144,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: bacon
   - type: SolutionContainerManager
@@ -183,7 +178,6 @@
     graph: BearSteak
     node: start
     defaultTarget: filet migrawr
-    
 
 - type: entity
   name: raw penguin meat
@@ -268,7 +262,6 @@
     tags:
     - Raw
     - HighRiskItem
-    - Meat
   - type: Sprite
     state: corgi
   - type: SolutionContainerManager
@@ -334,7 +327,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     layers:
     - state: dragon
@@ -411,7 +403,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: rotten
   - type: SolutionContainerManager
@@ -491,7 +482,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: xeno
   - type: SolutionContainerManager
@@ -519,7 +509,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: rouny
   - type: SolutionContainerManager
@@ -554,7 +543,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: salami
   - type: SliceableFood
@@ -573,7 +561,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: clown
   - type: SliceableFood
@@ -588,7 +575,6 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: meatball
 
@@ -604,18 +590,18 @@
   - type: Tag
     tags:
     - Raw
-    - Meat
   - type: Sprite
     state: slime
 
 # Cooked
 
 - type: entity
-  parent: FoodBase
+  parent: BaseItem
   id: MaterialSmileExtract
   name: smile extract
   description: It's a real panacea. But at what cost?
   components:
+  - type: Food
   - type: Extractable
     grindableSolutionName: food
   - type: FlavorProfile
@@ -636,11 +622,10 @@
           Quantity: 10
         - ReagentId: Iron
           Quantity: 10
+  - type: Item
+    size: 5
   - type: StaticPrice
     price: 3000 #It has so much Omnizin in it
-  - type: Tag
-    tags:
-    - Meat
 
 - type: entity
   name: steak
@@ -651,7 +636,6 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
   - type: Sprite
     layers:
     - state: plain-cooked
@@ -679,7 +663,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: bacon-cooked
@@ -708,7 +692,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: product-cooked
@@ -736,7 +720,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -764,7 +748,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -792,7 +776,6 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
   - type: Sprite
     layers:
     - state: chicken-fried
@@ -821,7 +804,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: bird-cooked
@@ -852,7 +835,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: crab-cooked
@@ -877,7 +860,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: goliath-cooked
@@ -906,7 +889,6 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
   - type: Sprite
     layers:
     - state: rouny-cooked
@@ -931,7 +913,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: lizard-cooked
@@ -959,7 +941,7 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
+  - type: Food
   - type: Sprite
     layers:
     - state: spiderleg-cooked
@@ -981,7 +963,6 @@
   - type: Tag
     tags:
     - Cooked
-    - Meat
   - type: Sprite
     state: meatball-cooked
   - type: SolutionContainerManager
@@ -1007,7 +988,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet
   - type: SolutionContainerManager
@@ -1029,7 +1009,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     layers:
     - state: cutlet
@@ -1054,7 +1033,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet
     color: white
@@ -1077,7 +1055,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet
     color: white
@@ -1100,7 +1077,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet
     color: white
@@ -1123,7 +1099,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     layers:
     - state: cutlet
@@ -1149,7 +1124,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: spidercutlet
   - type: SolutionContainerManager
@@ -1175,7 +1149,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: xenocutlet
   - type: SolutionContainerManager
@@ -1194,7 +1167,6 @@
   - type: Tag
     tags:
     - Cutlet
-    - Meat
   - type: Sprite
     state: salami-slice
     color: red
@@ -1209,7 +1181,6 @@
     tags:
     - Raw
     - Cutlet
-    - Meat
   - type: Sprite
     state: salami-slice
   - type: SolutionContainerManager
@@ -1233,7 +1204,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet-cooked
   - type: SolutionContainerManager
@@ -1255,7 +1225,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     layers:
     - state: cutlet-cooked
@@ -1280,7 +1249,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet-cooked
     color: white
@@ -1303,7 +1271,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet-cooked
     color: white
@@ -1326,7 +1293,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: cutlet-cooked
     color: white
@@ -1349,7 +1315,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     layers:
     - state: cutlet-cooked
@@ -1373,7 +1338,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: spidercutlet-cooked
   - type: SolutionContainerManager
@@ -1395,7 +1359,6 @@
     tags:
     - Cooked
     - Cutlet
-    - Meat
   - type: Sprite
     state: xenocutlet-cooked
   - type: SolutionContainerManager

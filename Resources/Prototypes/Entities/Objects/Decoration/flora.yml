@@ -5,7 +5,6 @@
   components:
   - type: Clickable
   - type: Sprite
-    noRot: true
     sprite: Objects/Decoration/Flora/flora_rockssolid.rsi
   - type: Physics
     bodyType: Static
@@ -42,7 +41,6 @@
   - type: SpriteFade
   - type: Clickable
   - type: Sprite
-    noRot: true
     sprite: Objects/Decoration/Flora/flora_trees.rsi
     drawdepth: Overdoors
     offset: 0,0.9

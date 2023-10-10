@@ -219,10 +219,7 @@
       reagents:
       - ReagentId: JuiceBanana
         Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
-    
+
 - type: entity
   name: mimana
   parent: FoodProduceBase
@@ -446,7 +443,6 @@
   - type: Tag
     tags:
     - Lemon
-    - Fruit
 
 - type: entity
   name: lime
@@ -469,7 +465,6 @@
   - type: Tag
     tags:
     - Lime
-    - Fruit
 
 - type: entity
   name: orange
@@ -489,9 +484,6 @@
       reagents:
       - ReagentId: JuiceOrange
         Quantity: 10
-  - type: Tag
-    tags:
-    - Meat
 
 - type: entity
   name: pineapple
@@ -525,9 +517,6 @@
   - type: SliceableFood
     count: 5
     slice: FoodPineappleSlice
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: potato
@@ -607,9 +596,6 @@
         solution: food
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: blue tomato
@@ -651,9 +637,6 @@
         solution: food
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: blood tomato
@@ -693,9 +676,6 @@
         solution: food
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - Fruit # Fuck you they're a fruit
 
 - type: entity
   name: eggplant
@@ -719,9 +699,6 @@
     sprite: Objects/Specific/Hydroponics/eggplant.rsi
   - type: Produce
     seedId: eggplant
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: apple
@@ -750,9 +727,6 @@
       reagents:
       - ReagentId: JuiceApple
         Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: cocoa pod
@@ -783,9 +757,6 @@
       - id: FoodCocoaBeans
     sound:
       path: /Audio/Effects/packetrip.ogg
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: ear of corn
@@ -952,9 +923,6 @@
       reagents:
       - ReagentId: JuicePineapple
         Quantity: 2
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: onion slice
@@ -1233,7 +1201,6 @@
   - type: Tag
     tags:
     - Galaxythistle
-    - Fruit # Probably? 
 
 - type: entity
   name: fly amanita
@@ -1285,9 +1252,6 @@
     seedId: gatfruit
   - type: Food
     trash: WeaponRevolverPython
-  - type: Tag
-    tags:
-    - Fruit # It's in the name
 
 - type: entity
   name: rice bushel
@@ -1412,9 +1376,6 @@
     butcheringType: Knife
     spawned:
     - id: ClothingHeadHatWatermelon
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: watermelon slice
@@ -1445,9 +1406,6 @@
       reagents:
       - ReagentId: JuiceWatermelon
         Quantity: 4
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: grapes
@@ -1504,9 +1462,6 @@
       reagents:
       - ReagentId: JuiceBerry
         Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
 
 - type: entity
   name: bungo fruit
@@ -1545,7 +1500,6 @@
     tags:
     - Recyclable
     - Trash
-    - Fruit
   - type: SolutionContainerManager
     solutions:
       food:

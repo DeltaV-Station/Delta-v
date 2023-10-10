@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseStructureDynamic
+  parent: BaseStructure
   id: BaseHardBomb
   description: Just keep talking and nobody will explode.
   name: hardbomb
@@ -16,7 +16,6 @@
       LayoutId: Defusable
       alwaysRandomize: true
     - type: Defusable
-    - type: Rotatable
     - type: Explosive
       explosionType: Default
       totalIntensity: 20.0
@@ -32,6 +31,11 @@
       beepSound: /Audio/Machines/timer.ogg
     - type: Anchorable
       delay: 5
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: Transform
+      noRot: true
     - type: Fixtures
       fixtures:
         fix1:
@@ -48,6 +52,7 @@
       openOnActivation: true
       guides:
         - Defusal
+    - type: CollideOnAnchor
 
 - type: entity
   parent: BaseHardBomb

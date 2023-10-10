@@ -99,13 +99,11 @@ namespace Content.Server.Light.EntitySystems
         private void OnMapInit(EntityUid uid, HandheldLightComponent component, MapInitEvent args)
         {
             _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
-            _actions.AddAction(uid, ref component.SelfToggleActionEntity, component.ToggleAction);
         }
 
         private void OnShutdown(EntityUid uid, HandheldLightComponent component, ComponentShutdown args)
         {
             _actions.RemoveAction(uid, component.ToggleActionEntity);
-            _actions.RemoveAction(uid, component.SelfToggleActionEntity);
         }
 
         private byte? GetLevel(EntityUid uid, HandheldLightComponent component)

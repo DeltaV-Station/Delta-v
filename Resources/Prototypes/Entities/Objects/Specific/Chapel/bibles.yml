@@ -42,11 +42,6 @@
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
-  - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
-    damage:
-      types:
-        Blunt: 3
-        Holy: 10
   - type: Tag
     tags:
     - Book

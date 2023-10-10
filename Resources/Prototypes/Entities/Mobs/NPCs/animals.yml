@@ -111,14 +111,6 @@
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
-  - type: NPCRetaliation
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
   - type: Puller
     needsHands: true
   - type: Item # DeltaV - Allow grabbing and storing bees in inventory
@@ -578,8 +570,6 @@
     states:
       Alive:
         Base: goat
-      Critical:
-        Base: dead
       Dead:
         Base: dead
   - type: SolutionContainerManager
@@ -612,12 +602,9 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: NPCRetaliation
-    attackMemoryLength: 5
-  - type: FactionException
   - type: HTN
     rootTask:
-      task: RuminantHostileCompound
+      task: RuminantCompound
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -694,8 +681,6 @@
     states:
       Alive:
         Base: crawling
-      Critical:
-        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -704,20 +689,6 @@
       amount: 4
   - type: Bloodstream
     bloodMaxVolume: 300
-    # if you fuck with the gorilla he will harambe you
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 20
-    animation: WeaponArcFist
-  - type: NPCRetaliation
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
   - type: Puller
 
 - type: entity
@@ -799,15 +770,6 @@
     soundHit:
       collection: BoxingHit
     animation: WeaponArcFist
-  - type: NPCRetaliation
-    attackMemoryLength: 10
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
 
 - type: entity
   name: boxing kangaroo
@@ -816,6 +778,9 @@
   components:
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -902,15 +867,9 @@
   - type: MonkeyAccent
   - type: Puller
   - type: CanHostGuardian
-  - type: NPCRetaliation
-    attackMemoryLength: 10
-  - type: FactionException
   - type: NpcFactionMember
     factions:
-      - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
+    - Passive
   - type: GhostRole
     prob: 0.05
     makeSentient: true
@@ -927,7 +886,6 @@
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
   - type: IdExaminable
-  - type: AlwaysRevolutionaryConvertible
 
 - type: entity
   name: guidebook monkey
@@ -1032,7 +990,6 @@
     - Trash
     - VimPilot
     - Mouse
-    - Meat
   - type: Respirator
     damage:
       types:
@@ -1644,19 +1601,7 @@
     damage:
       types:
         Piercing: 6
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 30
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Toxin
-        Quantity: 1
-  - type: MeleeChemicalInjector
-    transferAmount: 0.75
-    solution: melee
+        Poison: 6
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -1733,6 +1678,7 @@
       damage:
         types:
           Piercing: 8
+          Poison: 6
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepClownFast
@@ -2020,7 +1966,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
   - type: Damageable
-    damageContainer: CorporealSpirit # Nyanotrasen - Corporeal Spirit allows Holy water to do damage
+    damageContainer: Biological
     damageModifierSet: Infernal
   - type: Temperature
     heatDamageThreshold: 4000 #They come from hell, so..
@@ -2395,7 +2341,6 @@
     - VimPilot
     - Trash
     - Hamster
-    - Meat
   - type: Respirator
     damage:
       types:

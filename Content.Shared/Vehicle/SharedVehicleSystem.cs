@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;
@@ -34,6 +35,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandVirtualItemSystem _virtualItemSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -324,7 +326,11 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     {
         if (component.Rider == null)
             return;
-        args.Entities.Add(component.Rider.Value);
+        var rider = component.Rider.Value;
+
+        args.Entities.Add(rider);
+        _access.FindAccessItemsInventory(rider, out var items);
+        args.Entities.UnionWith(items);
     }
 
     /// <summary>

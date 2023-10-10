@@ -65,7 +65,8 @@ namespace Content.Shared.Mind
         ///     The component currently owned by this mind.
         ///     Can be null.
         /// </summary>
-        [ViewVariables] public MindContainerComponent? OwnedComponent;
+        [ViewVariables]
+        public MindContainerComponent? OwnedComponent { get; internal set; }
 
         /// <summary>
         ///     The entity currently owned by this mind.

@@ -14,12 +14,9 @@
   - type: Sprite
     noRot: true
     drawdepth: Ghosts
-    sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+    sprite: Mobs/Ghosts/revenant.rsi
     layers:
     - state: active
-  - type: Reactive # Nyanotrasen - Holy Water affects Revenants
-    groups:
-      Acidic: [Touch]
   - type: Clickable
   - type: StatusEffects
     allowed:
@@ -38,9 +35,8 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
-  - type: Damageable # Nyanotrasen - Corporeal Spirit allows Holy water to do damage
-    damageContainer: CorporealSpirit
-    damageModifierSet: CorporealSpirit
+  - type: Damageable
+    damageContainer: Biological
   - type: Examiner
   - type: NoSlip
   - type: Actions

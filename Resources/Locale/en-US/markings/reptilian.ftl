@@ -84,6 +84,3 @@ marking-LizardHornsMyrsore = Lizard Horns (Myrsore)
 
 marking-LizardHornsBighorn-horns_bighorn = Lizard Horns (Bighorn)
 marking-LizardHornsBighorn = Lizard Horns (Bighorn)
-
-marking-LizardHornsKoboldEars-horns_kobold_ears = Lizard Ears (Kobold)
-marking-LizardHornsKoboldEars = Lizard Ears (Kobold)

@@ -3,7 +3,7 @@
   name: job-name-gladiator
   description: job-description-gladiator
   playTimeTracker: JobGladiator
-  startingGear: NyanoGladiatorGear
+  startingGear: GladiatorGear
 #  alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconGladiator"
@@ -24,9 +24,9 @@
           Piercing: 1.5
 
 - type: startingGear
-  id: NyanoGladiatorGear
+  id: GladiatorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitGladiator
+    jumpsuit: UniformShortsRed
     outerClothing: ClothingOuterArmorGladiator
     id: GladiatorPDA
     ears: ClothingHeadsetGrey

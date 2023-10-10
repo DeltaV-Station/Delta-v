@@ -80,7 +80,7 @@
   description: So soft it almost makes you want to take a nap...
   components:
     - type: Sprite
-      sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+      sprite: Mobs/Ghosts/revenant.rsi
       state: icon
       noRot: true
     - type: Construction
@@ -600,9 +600,6 @@
   - type: Item
     sprite: Objects/Fun/toys.rsi
     heldPrefix: capgun
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Gun
     selectedMode: SemiAuto
     availableModes:

@@ -13,9 +13,12 @@
   - type: Transform
     anchored: true
   - type: Smoke
-  - type: ActiveEdgeSpreader
+  - type: NodeContainer
+    nodes:
+      smoke:
+        !type:SpreaderNode
+        nodeGroupID: Spreader
   - type: EdgeSpreader
-    id: Smoke
   - type: SolutionContainerManager
     solutions:
       solutionArea:
@@ -61,9 +64,12 @@
         layer:
         - SlipLayer
   - type: Smoke
-  - type: ActiveEdgeSpreader
+  - type: NodeContainer
+    nodes:
+      smoke:
+        !type:SpreaderNode
+        nodeGroupID: Spreader
   - type: EdgeSpreader
-    id: Smoke
   - type: SolutionContainerManager
     solutions:
       solutionArea:
