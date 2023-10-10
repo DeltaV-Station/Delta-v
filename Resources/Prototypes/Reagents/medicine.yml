@@ -8,15 +8,20 @@
   color: "#081a80"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
+      - !type:GenericStatusEffect
+        key: PsionicallyInsulated #Nyano - Summary: makes the user psionically insulated from effects.
+        component: PsionicInsulation #Nyano - Summary: see above.
+        type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
-    Alcohol:
-      effects:
-      - !type:Drunk
-        slurSpeech: false
-        boozePower: 20
+        type: Add
+      - !type:GenericStatusEffect
+        key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
+        component: PsionicsDisabled #Nyano - Summary: see above. 
+        type: Add
 
 - type: reagent
   id: Dylovene

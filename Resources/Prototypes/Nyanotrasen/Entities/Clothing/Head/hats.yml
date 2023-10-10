@@ -66,14 +66,14 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
-#  - type: TinfoilHat
+  - type: TinfoilHat
   - type: Armor
     modifiers:
       coefficients:
         Radiation: 0.95
-#  - type: Construction
-#    graph: TinfoilHat
-#    node: tinfoilhat
+  - type: Construction
+    graph: TinfoilHat
+    node: tinfoilhat
 #  - type: GuideHelp
 #    guides:
 #    - Psionics
@@ -99,7 +99,7 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
-#  - type: HeadCage
+  - type: HeadCage
 
 - type: entity
   parent: ClothingHeadTinfoil
