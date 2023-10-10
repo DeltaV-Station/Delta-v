@@ -65,7 +65,8 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
         prob: 0.4
-      - id: ClothingOuterArmorBasic
+      - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
+      - id: ClothingOuterArmorDuraVest
       - id: ClothingBeltSecurityFilled
       - id: Flash
         prob: 0.5
