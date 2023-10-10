@@ -326,6 +326,7 @@
       - ReagentGrinderMachineCircuitboard
       - HotplateMachineCircuitboard
       - MicrowaveMachineCircuitboard
+      - ElectricGrillMachineCircuitboard
       - FatExtractorMachineCircuitboard
       - SheetifierMachineCircuitboard
       - UniformPrinterMachineCircuitboard
@@ -474,6 +475,7 @@
     - BorgModuleDiagnosis
     - BorgModuleTreatment
     - BorgModuleDefibrillator
+    - BorgModuleAdvancedTreatment
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -561,44 +563,51 @@
       - TargetClown
     dynamicRecipes:
       - CartridgeSpecialRubber # DeltaV - .38 Special revolver
-      - CartridgePistolRubber
-      - CartridgeMagnumRubber
-      - ShellShotgunBeanbag
-      - CartridgeRifleRubber
       - EncryptionKeySyndie # Nyano
-      - CartridgeLightRifleRubber
-      - MagazineBoxPistolRubber
       - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
-      - MagazineBoxMagnumRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxLightRifleRubber
-      - ShellShotgunIncendiary
-      - CartridgePistolIncendiary
-      - CartridgeMagnumIncendiary
       - CartridgeLightRifleIncendiary
+      - CartridgeMagnumIncendiary
+      - CartridgePistolIncendiary
       - CartridgeRifleIncendiary
-      - MagazineBoxPistolIncendiary
-      - MagazineBoxMagnumIncendiary
+      - CartridgeLightRifleRubber
+      - CartridgeMagnumRubber
+      - CartridgePistolRubber
+      - CartridgeRifleRubber
+      - ExplosivePayload
+      - FlashPayload
+      - HoloprojectorSecurity
       - MagazineBoxLightRifleIncendiary
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxPistolIncendiary
       - MagazineBoxRifleIncendiary
       - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
       - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
+      - MagazineBoxLightRiflePractice
+      - MagazineBoxMagnumPractice
+      - MagazineBoxPistolPractice
+      - MagazineBoxRiflePractice
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - ShellShotgunBeanbag
+      - ShellShotgunIncendiary
+      - ShellShotgunPractice
       - Signaller
       - SignalTrigger
-      - VoiceTrigger
+      - TelescopicShield
       - TimerTrigger
       - Truncheon
-      - TelescopicShield
-      - HoloprojectorSecurity
-      - FlashPayload
-      - ExplosivePayload
-      - WeaponLaserCarbine
+      - VoiceTrigger
       - WeaponAdvancedLaser
+      - WeaponDisablerPractice
       - WeaponLaserCannon
-      - WeaponXrayCannon
+      - WeaponLaserCarbine
+      - WeaponLaserCarbinePractice
       - WeaponTaser
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
+      - WeaponXrayCannon
   - type: MaterialStorage
     whitelist:
       tags:
@@ -708,6 +717,7 @@
       - SyringeBluespace
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
+      - Jug
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -741,7 +751,6 @@
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
-      - ClothingUniformJumpsuitSalvageExplorer # DeltaV - Salvage better looking uniform, see Resources/Prototypes/DeltaV/Entities/Clothing/Uniform/jumpsuits.yml
       - ClothingUniformJumpsuitChiefEngineer
       - ClothingUniformJumpskirtChiefEngineer
       - ClothingUniformJumpsuitChiefEngineerTurtle
@@ -812,6 +821,7 @@
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
       - ClothingNeckMantleRD
+      - ClothingNeckMantleQM
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -870,7 +880,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
-        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here. 
+        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

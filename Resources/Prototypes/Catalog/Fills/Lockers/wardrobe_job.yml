@@ -160,7 +160,8 @@
        - id: ClothingShoesBootsJack
        - id: ClothingEyesGlassesSecurity
        - id: ClothingHeadHelmetBasic
-       - id: ClothingOuterArmorBasic
+       - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
+       - id: ClothingOuterArmorDuraVest
        - id: ClothingUniformJumpskirtSec
 
  - type: entity
@@ -189,7 +190,7 @@
        - id: ClothingBackpack
        - id: ClothingShoesBootsSalvage
          amount: 2
-       - id: ClothingUniformJumpsuitSalvageExplorer # DeltaV - Salvage better looking uniform, see Resources/Prototypes/DeltaV/Entities/Clothing/Uniform/jumpsuits.yml
+       - id: ClothingUniformJumpsuitSalvageSpecialist
          amount: 2
 
  - type: entity

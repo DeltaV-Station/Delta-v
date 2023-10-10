@@ -81,6 +81,13 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
+  - type: Armor # DeltaV - adds resists to coat, same as security winter coat. Still better than nothing, but nowhere as good as a carapace
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -392,6 +399,13 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
+  - type: Armor # DeltaV - adds resists to coat
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85 # DeltaV - not as resistant as pre-rebase, but still better than nothing
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
