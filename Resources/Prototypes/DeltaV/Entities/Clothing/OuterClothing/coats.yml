@@ -65,12 +65,12 @@
     sprite: DeltaV/Clothing/OuterClothing/Coats/greatcoat.rsi
   - type: TemperatureProtection
     coefficient: 0.1
-  - type: Armor
+  - type: Armor # MAKE SURE THE STATS ALIGN WITH SEC WINTER COAT!!!
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.6
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
         Heat: 0.75
 
 - type: entity
