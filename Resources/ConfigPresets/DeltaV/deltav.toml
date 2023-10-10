@@ -1,0 +1,36 @@
+[game]
+desc             = "Featuring loads of unique content and psionics."
+lobbyenabled     = true
+
+[infolinks]
+discord    = "https://discord.gg/deltav"
+github     = "https://github.com/DeltaV-Station/Delta-v"
+website    = "https://www.delta-v.org/"
+wiki       = "https://wiki.delta-v.org/view/Main_Page"
+patreon    = "https://www.patreon.com/Delta_v"
+bug_report = "https://github.com/DeltaV-Station/Delta-v/issues/new/choose"
+forum      = "https://forum.delta-v.org/"
+
+[net]
+max_connections = 1024
+tickrate = 30
+
+[vote]
+restart_required_ratio = 0.7
+
+[netres]
+limit    = 10.0
+
+[admin]
+see_own_notes   = true
+deadmin_on_join = true
+
+[events]
+ramping_average_end_time = 180.0
+ramping_average_chaos    = 4.5
+
+[atmos]
+monstermos_rip_tiles = false
+
+[server]
+id = "deltav"
