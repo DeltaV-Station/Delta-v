@@ -9,3 +9,12 @@
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings_default.rsi
       state: harpy
+
+- type: marking
+  id: HarpyTailSwallow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: harpy_tail_swallow  
