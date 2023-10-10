@@ -81,12 +81,12 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
-  - type: Armor # DeltaV - adds resists to coat, same as security winter coat. Still better than nothing, but nowhere as good as a carapace
+  - type: Armor # DeltaV - adds resists to coat, same as HoS coat. Still better than nothing, but nowhere as good as a carapace
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
         Heat: 0.75
 
 - type: entity
@@ -235,6 +235,13 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: Armor # DeltaV - adds resists to coat. As good as Cap's, but I don't know why you'd wear this over a trench coat
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
