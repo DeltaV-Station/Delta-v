@@ -8,3 +8,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopmesskit.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopmesskit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtCourier
+  name: courier's jumpskirt
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/courier.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/courier.rsi

@@ -135,3 +135,25 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_white.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/surgcap_white.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCourier
+  name: courier's cap
+  description: Special delivery.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCourierFlipped
+  name: courier's cap flipped
+  description: Special delivery.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi

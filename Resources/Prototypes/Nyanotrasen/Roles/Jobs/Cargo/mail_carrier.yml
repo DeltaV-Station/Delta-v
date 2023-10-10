@@ -14,13 +14,13 @@
 - type: startingGear
   id: MailCarrierGear
   equipment:
-    head: ClothingHeadMailCarrier
-    jumpsuit: ClothingUniformMailCarrier
+    head: ClothingHeadCourier # DeltaV - New courier look
+    jumpsuit: ClothingUniformCourier # DeltaV - New courier look
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
     id: MailCarrierPDA
     ears: ClothingHeadsetCargo
     belt: MailBag
-  innerclothingskirt: ClothingUniformSkirtMailCarrier
+  innerclothingskirt: ClothingUniformSkirtCourier # DeltaV - New courier look
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

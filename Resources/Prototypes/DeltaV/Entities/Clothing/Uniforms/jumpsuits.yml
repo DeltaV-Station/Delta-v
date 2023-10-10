@@ -184,3 +184,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/jeans_brown.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/jeans_brown.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCourier
+  name: courier's uniform
+  description:
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/courier.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/courier.rsi
