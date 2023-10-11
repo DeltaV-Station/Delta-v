@@ -2,7 +2,7 @@
   id: MailCarrier
   name: job-name-mail-carrier
   description: job-description-mail-carrier
-  startingGear: MailCarrierGear
+  startingGear: CourierGear
   playTimeTracker: JobMailCarrier
   icon: "JobIconMailCarrier"
   supervisors: job-supervisors-qm
@@ -14,13 +14,13 @@
 - type: startingGear
   id: MailCarrierGear
   equipment:
-    head: ClothingHeadCourier # DeltaV - New courier look
-    jumpsuit: ClothingUniformCourier # DeltaV - New courier look
+    head: ClothingHeadMailCarrier
+    jumpsuit: ClothingUniformMailCarrier
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
-    id: MailCarrierPDA
+    # id: MailCarrierPDA # DeltaV - Remove the PDA specifically to use it on corpses.
     ears: ClothingHeadsetCargo
-    belt: CourierBag # DeltaV - New courier look
-  innerclothingskirt: ClothingUniformSkirtCourier # DeltaV - New courier look
+    belt: MailBag
+  innerclothingskirt: ClothingUniformSkirtMailCarrier
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
