@@ -19,7 +19,7 @@
     icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
     useDelay: 30
     event: !type:HairballActionEvent
-    
+
 - type: entity
   id: ActionDispel
   name: action-name-dispel
@@ -39,6 +39,7 @@
   id: ActionMassSleep
   name: action-name-mass-sleep
   description: action-description-mass-sleep
+  noSpawn: true
   components:
   - type: WorldTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/mass_sleep.png
@@ -77,6 +78,7 @@
   id: ActionNoosphericZap
   name: action-name-noospheric-zap
   description: action-description-noospheric-zap
+  noSpawn: true
   components:
   - type: EntityTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
@@ -101,6 +103,7 @@
   id: ActionMetapsionic
   name: action-name-metapsionic
   description: action-description-metapsionic
+  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/metapsionic.png
@@ -111,6 +114,7 @@
   id: ActionPsionicRegeneration
   name: action-name-psionic-regeneration
   description: action-description-psionic-regeneration
+  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_regeneration.png
@@ -121,6 +125,7 @@
   id: ActionTelegnosis
   name: action-name-telegnosis
   description: action-description-telegnosis
+  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
@@ -131,6 +136,7 @@
   id: ActionPsionicInvisibility
   name: action-name-psionic-invisibility
   description: action-description-psionic-invisibility
+  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility.png
@@ -139,7 +145,9 @@
 
 - type: entity
   id: ActionPsionicInvisibilityUsed
+  name: action-name-psionic-invisibility-off
   description: action-description-psionic-invisibility-off
+  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility_off.png
