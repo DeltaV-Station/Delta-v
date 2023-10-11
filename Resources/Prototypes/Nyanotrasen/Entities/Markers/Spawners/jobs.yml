@@ -6,10 +6,10 @@
   - type: SpawnPoint
     job_id: Gladiator
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanogladiator
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanogladiator
 
 - type: entity
   id: SpawnPointPrisoner
@@ -19,10 +19,9 @@
   - type: SpawnPoint
     job_id: Prisoner
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanoprisoner
+      - state: prisoner
 
 - type: entity
   id: SpawnPointPrisonGuard
@@ -32,10 +31,10 @@
   - type: SpawnPoint
     job_id: PrisonGuard
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanoprisonguard
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanoprisonguard
 
 - type: entity
   id: SpawnPointMailCarrier
@@ -45,10 +44,10 @@
   - type: SpawnPoint
     job_id: MailCarrier
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanomailcarrier
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanomailcarrier
 
 - type: entity
   id: SpawnPointMartialArtist
@@ -58,10 +57,10 @@
   - type: SpawnPoint
     job_id: MartialArtist
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanomartialartist
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanomartialartist
 
 - type: entity
   id: SpawnPointForensicMantis
@@ -71,7 +70,7 @@
   - type: SpawnPoint
     job_id: ForensicMantis
   - type: Sprite
-    sprite: DeltaV/Markers/jobs.rsi
     layers:
       - state: green
-      - state: nyanomantis
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanomantis
