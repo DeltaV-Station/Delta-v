@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetHoP
+  name: hop headset
+  description: A headset used by the head of personnel.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyService
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
