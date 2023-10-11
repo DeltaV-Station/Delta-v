@@ -4,10 +4,14 @@
   id: Wakizashi
   description: A short, multi-purpose sword of plasteel construction.
   components:
-  - type: Sharp
   - type: Tag
     tags:
     - Katana
+  - type: Sharp
+  - type: Utensil
+    types:
+      - Knife
+  - type: ItemCooldown
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
     state: icon
@@ -15,17 +19,15 @@
     attackRate: 2
     damage:
       types:
-        Slash: 8
-#  - type: MeleeBloodletter
-#    bloodReduction:
-#      types:
-#        Slash: 8.0
+        Slash: 12
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: 10
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
-  - type: DisarmMalus
   - type: Tool
     qualities:
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: DisarmMalus

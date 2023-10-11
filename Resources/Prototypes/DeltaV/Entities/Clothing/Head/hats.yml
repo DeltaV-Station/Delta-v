@@ -157,3 +157,14 @@
     sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatDirCap
+  name: director's cap
+  description: A green cap with a director's rank emblem, belonging to a high-ranking member of Central Command. Whoever it is, they mean business.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
