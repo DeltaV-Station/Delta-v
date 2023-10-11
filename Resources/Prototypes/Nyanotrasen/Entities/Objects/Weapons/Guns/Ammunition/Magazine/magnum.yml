@@ -49,26 +49,6 @@
     steps: 12
     zeroVisible: false
 
-## hv is kill apparently
-#- type: entity
-#  id: MagazineUniversalMagnumHighVelocity
-#  name: "Universal magazine (.45 magnum high-velocity)"
-#  parent: BaseMagazineUniversalMagnum
-#  components:
-#  - type: BallisticAmmoProvider
-#    proto: CartridgeMagnumHighVelocity
-#    capacity: 12
-#  - type: Sprite
-#    layers:
-#    - state: high_velocity
-#      map: ["enum.GunVisualLayers.Base"]
-#    - state: mag-1
-#      map: ["enum.GunVisualLayers.Mag"]
-#  - type: MagazineVisuals
-#    magState: mag
-#    steps: 12
-#    zeroVisible: false
-
 - type: entity
   id: MagazineUniversalMagnumPractice
   name: "Universal magazine (.45 magnum practice)"
