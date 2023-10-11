@@ -11306,6 +11306,11 @@ entities:
     - pos: -1.2286556,10.361396
       parent: 2
       type: Transform
+  - uid: 17201
+    components:
+    - pos: 19.77802,-11.275881
+      parent: 2
+      type: Transform
 - proto: BoxMaintenanceLightbulb
   entities:
   - uid: 3569
@@ -76920,11 +76925,6 @@ entities:
     - pos: -22.5,-73.5
       parent: 2
       type: Transform
-  - uid: 4189
-    components:
-    - pos: 28.5,-8.5
-      parent: 2
-      type: Transform
   - uid: 4771
     components:
     - pos: 6.5,6.5
@@ -76933,6 +76933,11 @@ entities:
   - uid: 17045
     components:
     - pos: -9.5,14.5
+      parent: 2
+      type: Transform
+  - uid: 17202
+    components:
+    - pos: 30.5,-12.5
       parent: 2
       type: Transform
 - proto: KitchenReagentGrinder
@@ -79762,6 +79767,12 @@ entities:
       pos: -49.5,9.5
       parent: 2
       type: Transform
+  - uid: 1230
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 21.5,-15.5
+      parent: 2
+      type: Transform
   - uid: 1354
     components:
     - rot: -1.5707963267948966 rad
@@ -80533,12 +80544,6 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: 1.5,19.5
-      parent: 2
-      type: Transform
-  - uid: 9297
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 19.5,-12.5
       parent: 2
       type: Transform
   - uid: 9298
@@ -81537,6 +81542,11 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: -1.5,-28.5
+      parent: 2
+      type: Transform
+  - uid: 17200
+    components:
+    - pos: 21.5,-11.5
       parent: 2
       type: Transform
 - proto: PoweredLightColoredBlack
@@ -88177,6 +88187,19 @@ entities:
       pos: -26.48825,4.720544
       parent: 2
       type: Transform
+- proto: SignDirectionalLogistics
+  entities:
+  - uid: 4189
+    components:
+    - pos: 3.5016003,0.28885967
+      parent: 2
+      type: Transform
+  - uid: 9297
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -15.50161,2.7161162
+      parent: 2
+      type: Transform
 - proto: SignDirectionalMed
   entities:
   - uid: 1228
@@ -88237,20 +88260,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 39.5,2.5
-      parent: 2
-      type: Transform
-- proto: SignDirectionalSupply
-  entities:
-  - uid: 1230
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 3.4960685,0.2944335
-      parent: 2
-      type: Transform
-  - uid: 15709
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -15.486302,2.7232978
       parent: 2
       type: Transform
 - proto: SignDirectionalWash
@@ -89610,6 +89619,13 @@ entities:
     - pos: 9.5,0.5
       parent: 2
       type: Transform
+- proto: SpawnMobMonkeyPunpun
+  entities:
+  - uid: 17199
+    components:
+    - pos: -4.5,-5.5
+      parent: 2
+      type: Transform
 - proto: SpawnMobPossumMorty
   entities:
   - uid: 2270
@@ -89617,18 +89633,18 @@ entities:
     - pos: 26.5,20.5
       parent: 2
       type: Transform
-- proto: SpawnMobRaccoonMorticia
-  entities:
-  - uid: 15909
-    components:
-    - pos: 7.5,-7.5
-      parent: 2
-      type: Transform
 - proto: SpawnMobShiva
   entities:
   - uid: 568
     components:
     - pos: -30.5,-15.5
+      parent: 2
+      type: Transform
+- proto: SpawnMobSlothPaperwork
+  entities:
+  - uid: 15709
+    components:
+    - pos: 7.5,-7.5
       parent: 2
       type: Transform
 - proto: SpawnPointAssistant
@@ -106053,26 +106069,15 @@ entities:
       type: Transform
     - location: epistemics
       type: WarpPoint
-  - uid: 16248
-    components:
-    - pos: -14.5,13.5
-      parent: 2
-      type: Transform
-    - location: kitchen/hydro
-      type: WarpPoint
+    - color: '#D381C9FF'
+      text: epistemics
+      type: NavMapBeacon
   - uid: 16249
     components:
     - pos: 0.5,-40.5
       parent: 2
       type: Transform
     - location: atmospherics
-      type: WarpPoint
-  - uid: 16250
-    components:
-    - pos: 0.5,1.5
-      parent: 2
-      type: Transform
-    - location: center park
       type: WarpPoint
   - uid: 16251
     components:
@@ -106081,13 +106086,6 @@ entities:
       type: Transform
     - location: ame room
       type: WarpPoint
-  - uid: 16252
-    components:
-    - pos: 9.5,-14.5
-      parent: 2
-      type: Transform
-    - location: cargo
-      type: WarpPoint
   - uid: 16254
     components:
     - pos: 33.5,-20.5
@@ -106095,20 +106093,9 @@ entities:
       type: Transform
     - location: arrivals
       type: WarpPoint
-  - uid: 16255
-    components:
-    - pos: -30.5,-9.5
-      parent: 2
-      type: Transform
-    - location: security
-      type: WarpPoint
-  - uid: 16256
-    components:
-    - pos: -23.5,41.5
-      parent: 2
-      type: Transform
-    - location: courtroom
-      type: WarpPoint
+    - color: '#FFFFFFFF'
+      text: arrivals
+      type: NavMapBeacon
   - uid: 16257
     components:
     - pos: -10.5,36.5
@@ -106116,6 +106103,9 @@ entities:
       type: Transform
     - location: command
       type: WarpPoint
+    - color: '#334E6DFF'
+      text: bridge
+      type: NavMapBeacon
   - uid: 16258
     components:
     - pos: -47.5,16.5
@@ -106123,38 +106113,20 @@ entities:
       type: Transform
     - location: primary evac
       type: WarpPoint
-  - uid: 16259
-    components:
-    - pos: -32.5,15.5
-      parent: 2
-      type: Transform
-    - location: dorms
-      type: WarpPoint
+    - color: '#FFFFFFFF'
+      text: primary evac
+      type: NavMapBeacon
   - uid: 16260
     components:
     - pos: -42.5,67.5
       parent: 2
       type: Transform
-  - uid: 16261
-    components:
-    - pos: 17.5,16.5
-      parent: 2
-      type: Transform
-    - location: medbay
-      type: WarpPoint
   - uid: 16262
     components:
     - pos: 62.5,11.5
       parent: 2
       type: Transform
     - location: east solar panel
-      type: WarpPoint
-  - uid: 16263
-    components:
-    - pos: 0.5,19.5
-      parent: 2
-      type: Transform
-    - location: vault
       type: WarpPoint
   - uid: 16270
     components:
@@ -106163,11 +106135,6 @@ entities:
       type: Transform
     - location: dojo
       type: WarpPoint
-  - uid: 16273
-    components:
-    - pos: -8.5,-6.5
-      parent: 2
-      type: Transform
   - uid: 16274
     components:
     - pos: -21.5,-23.5
@@ -106182,6 +106149,103 @@ entities:
       type: Transform
     - location: ai upload
       type: WarpPoint
+    - color: '#0066FFFF'
+      text: ai upload
+      type: NavMapBeacon
+- proto: WarpPointBombing
+  entities:
+  - uid: 15909
+    components:
+    - pos: -14.5,13.5
+      parent: 2
+      type: Transform
+    - location: kitchen/hydro
+      type: WarpPoint
+  - uid: 16248
+    components:
+    - pos: 0.5,1.5
+      parent: 2
+      type: Transform
+    - location: center park
+      type: WarpPoint
+  - uid: 16250
+    components:
+    - pos: 10.5,-15.5
+      parent: 2
+      type: Transform
+    - location: logistics
+      type: WarpPoint
+    - color: '#A46106FF'
+      text: logistics
+      type: NavMapBeacon
+  - uid: 16252
+    components:
+    - pos: -30.5,-9.5
+      parent: 2
+      type: Transform
+    - location: security
+      type: WarpPoint
+    - color: '#FF0000FF'
+      text: security
+      type: NavMapBeacon
+  - uid: 16255
+    components:
+    - pos: -23.5,41.5
+      parent: 2
+      type: Transform
+    - location: courtroom
+      type: WarpPoint
+  - uid: 16256
+    components:
+    - pos: -32.5,15.5
+      parent: 2
+      type: Transform
+    - location: dormitories
+      type: WarpPoint
+  - uid: 16259
+    components:
+    - pos: 17.5,16.5
+      parent: 2
+      type: Transform
+    - location: medical
+      type: WarpPoint
+    - color: '#52B4E9FF'
+      text: medical
+      type: NavMapBeacon
+  - uid: 16261
+    components:
+    - pos: 0.5,19.5
+      parent: 2
+      type: Transform
+    - location: vault
+      type: WarpPoint
+  - uid: 16263
+    components:
+    - pos: -8.5,-6.5
+      parent: 2
+      type: Transform
+    - location: bar
+      type: WarpPoint
+    - color: '#791500FF'
+      text: bar
+      type: NavMapBeacon
+  - uid: 16273
+    components:
+    - pos: -55.5,-8.5
+      parent: 2
+      type: Transform
+    - location: extended confinement
+      type: WarpPoint
+  - uid: 17198
+    components:
+    - pos: -7.5,-22.5
+      parent: 2
+      type: Transform
+    - location: engineering
+      type: WarpPoint
+    - color: '#FFFF00FF'
+      text: engineering
+      type: NavMapBeacon
 - proto: WashingMachineFilledClothes
   entities:
   - uid: 16132
