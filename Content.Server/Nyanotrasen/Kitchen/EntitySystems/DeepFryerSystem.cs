@@ -166,14 +166,14 @@ namespace Content.Server.Kitchen.EntitySystems
 
                             foreach (var effect in component.UnsafeOilVolumeEffects)
                             {
-                                effect.Effect(new ReagentEffectArgs(uid,
+                                /*effect.Effect(new ReagentEffectArgs(uid,
                                         null,
                                         component.Solution,
                                         proto!,
                                         reagent.Quantity,
                                         EntityManager,
                                         null,
-                                        1f));
+                                        1f));*/
                             }
                         }
 
@@ -615,6 +615,25 @@ namespace Content.Server.Kitchen.EntitySystems
 
             if (!solutionExisted)
                 _sawmill.Warning($"{ToPrettyString(uid)} did not have a {component.SolutionName} solution container. It has been created.");
+            foreach (var reagent in component.Solution.Contents.ToArray())
+            {
+                //JJ Comment - not sure this works. Need to check if Reagent.ToString is correct. 
+                _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.ToString(), out var proto);
+                var effectsArgs = new ReagentEffectArgs(uid,
+                        null,
+                        component.Solution,
+                        proto!,
+                        reagent.Quantity,
+                        EntityManager,
+                        null,
+                        1f);
+                foreach (var effect in component.UnsafeOilVolumeEffects)
+                {
+                    if (!effect.ShouldApply(effectsArgs, _random))
+                        continue;
+                    effect.Effect(effectsArgs);
+                }
+            }
         }
 
         /// <summary>

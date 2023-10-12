@@ -228,13 +228,13 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("soundInsertItem")]
-        public SoundSpecifier SoundInsertItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_add_item.ogg");
+        public SoundSpecifier SoundInsertItem = new SoundPathSpecifier("/Audio/Nyanotrasen/Machines/deepfryer_basket_add_item.ogg");
 
         /// <summary>
         /// What sound is played when an item is removed?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("soundRemoveItem")]
-        public SoundSpecifier SoundRemoveItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_remove_item.ogg");
+        public SoundSpecifier SoundRemoveItem = new SoundPathSpecifier("/Audio/Nyanotrasen/Machines/deepfryer_basket_remove_item.ogg");
     }
 }
