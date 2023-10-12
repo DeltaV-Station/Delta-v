@@ -41,6 +41,7 @@
     - type: Sprite
       sprite: Mobs/Species/Skeleton/parts.rsi
       state: "skull_icon"
+      scale: 0.5, 0.5 # DeltaV - Scale down sprite because it looks too big
     - type: Icon
       sprite: Mobs/Species/Skeleton/parts.rsi
       state: "skull_icon"

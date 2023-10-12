@@ -4,6 +4,8 @@
    name: sophic grammateus
    description: Latest reports on the Noösphere!
    components:
+   - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
+   - type: Psionic
    - type: Sprite
      noRot: true
      drawdepth: Mobs
@@ -31,8 +33,6 @@
 #   - type: TypingIndicator
 #   - type: NPCConversation
 #     tree: SophiaTree
-#   - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
-#   - type: Psionic
 #   - type: Grammar
 #     attributes:
 #       gender: female
