@@ -38,7 +38,7 @@
     tags:
     - Katana
   - type: Sprite
-    sprite: Objects/Weapons/Melee/katana.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
     state: icon
   - type: MeleeWeapon
     damage:
@@ -48,7 +48,7 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: 15
-    sprite: Objects/Weapons/Melee/katana.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
   - type: DisarmMalus
 
 - type: entity
