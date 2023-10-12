@@ -4,11 +4,11 @@
   name: glimmer prober
   description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
   components:
-#  - type: Psionic
-#  - type: GlimmerSource
-#  - type: Construction #Files are in place, but are commented out
-#    graph: GlimmerDevices
-#    node: glimmerProber
+  - type: Psionic
+  - type: GlimmerSource
+  #- type: Construction #Files are in place, but are commented out
+    #graph: GlimmerDevices
+    #node: glimmerProber
   - type: ResearchPointSource
     pointspersecond: 20
     active: true
@@ -18,44 +18,44 @@
     layers:
     - state: base
     - state: prober
-  #  - state: powered
-  #    shader: unshaded
-  #    map: ["enum.PowerDeviceVisualLayers.Powered"]
-  #  - state: prober_glimmer_fx_1
-  #    shader: unshaded
-  #    visible: false
-  #    map: ["enum.GlimmerReactiveVisualLayers.GlimmerEffect"]
-  # - type: GenericVisualizer
-  #   visuals:
-  #     enum.GlimmerReactiveVisuals.GlimmerTier:
-  #       enum.GlimmerReactiveVisualLayers.GlimmerEffect:
-  #         Minimal:
-  #           visible: false
-  #         Low:
-  #           state: prober_glimmer_fx_1
-  #           visible: true
-  #         Moderate:
-  #           state: prober_glimmer_fx_2
-  #           visible: true
-  #         High:
-  #           state: prober_glimmer_fx_3
-  #           visible: true
-  #         Dangerous:
-  #           state: prober_glimmer_fx_4
-  #           visible: true
-  #         Critical:
-  #           state: prober_glimmer_fx_5
-  #           visible: true
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: prober_glimmer_fx_1
+      shader: unshaded
+      visible: false
+      map: ["enum.GlimmerReactiveVisualLayers.GlimmerEffect"]
+  - type: GenericVisualizer
+    visuals:
+      enum.GlimmerReactiveVisuals.GlimmerTier:
+        enum.GlimmerReactiveVisualLayers.GlimmerEffect:
+          Minimal:
+            visible: false
+          Low:
+            state: prober_glimmer_fx_1
+            visible: true
+          Moderate:
+            state: prober_glimmer_fx_2
+            visible: true
+          High:
+            state: prober_glimmer_fx_3
+            visible: true
+          Dangerous:
+            state: prober_glimmer_fx_4
+            visible: true
+          Critical:
+            state: prober_glimmer_fx_5
+            visible: true
   - type: PointLight
     enabled: false
     radius: 1.5
     energy: 1.6
     color: "#9b77e2"
-#  - type: GlimmerReactive
-#    requiresApcPower: true
-#    modulatesPointLight: true
-#    glimmerToLightEnergyFactor: 2.0
-#    glimmerToLightRadiusFactor: 1.3
+  - type: GlimmerReactive
+    requiresApcPower: true
+    modulatesPointLight: true
+    glimmerToLightEnergyFactor: 2.0
+    glimmerToLightRadiusFactor: 1.3
   - type: PowerSwitch
   - type: Damageable
     damageContainer: Inorganic
@@ -90,12 +90,12 @@
   name: glimmer drain
   description: Uses electricity to try and sort out the noösphere, reducing its level of entropy.
   components:
-#  - type: Psionic
-#  - type: GlimmerSource
-#    addToGlimmer: false
-#  - type: Construction #Files are in place, but commented out
-#    graph: GlimmerDevices
-#    node: glimmerDrain
+  - type: Psionic
+  - type: GlimmerSource
+    addToGlimmer: false
+  #- type: Construction #Files are in place, but commented out
+    #graph: GlimmerDevices
+    #node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     noRot: true
@@ -117,9 +117,9 @@
 #  - type: GuideHelp
 #    guides:
 #    - Psionics
-#  - type: NpcFactionMember
-#    factions:
-#    - PsionicInterloper # :^)
+  - type: NpcFactionMember
+    factions:
+    - PsionicInterloper # :^)
 
 - type: entity
   id: GlimmerDeviceFrame
@@ -150,8 +150,8 @@
     - type: Rotatable
     - type: Pullable
 #    - type: Construction #Files are in place, but commented out
-#      graph: GlimmerDevices
-#      node: frame
+      #graph: GlimmerDevices
+      #node: frame
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
