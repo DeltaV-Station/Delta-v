@@ -17,20 +17,3 @@
 #      blacklist:
 #        components:
 #          - SurplusBundle
-- type: listing
-  id: UplinkBionicSyrinx
-  name: uplink-bionic-syrinx-name
-  description: uplink-bionic-syrinx-desc
-  productEntity: BionicSyrinxImplanter
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Harpy
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
