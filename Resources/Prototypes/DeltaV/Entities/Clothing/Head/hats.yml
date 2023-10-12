@@ -138,6 +138,28 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadCourier
+  name: courier's cap
+  description: Special delivery.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCourierFlipped
+  name: courier's cap flipped
+  description: Special delivery.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft_flipped.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatDirCap
   name: director's cap
   description: A green cap with a director's rank emblem, belonging to a high-ranking member of Central Command. Whoever it is, they mean business.

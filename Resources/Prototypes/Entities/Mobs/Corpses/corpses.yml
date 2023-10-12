@@ -37,7 +37,8 @@
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
-    - MailCarrierGear # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
+    - MailCarrierGear # Nyanotrasen - Old Mail Carrier gear, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail_carrier.yml
+    - CourierGear # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
 
 - type: entity
   parent: SalvageHumanCorpse
