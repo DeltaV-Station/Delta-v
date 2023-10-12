@@ -496,39 +496,3 @@
     Egg: 6
   solids:
     MaterialCloth1: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothTomatoSauceCorn
-  name: tomato sauce recipe
-  result: FoodMothTomatoSauce
-  time: 5
-  reagents:
-    Cornoil: 5
-    TableSalt: 5
-  solids:
-    FoodTomato: 1
-    #Herbs: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothPesto
-  name: pesto recipe
-  result: FoodMothPesto
-  time: 5
-  reagents:
-    OilOlive: 5
-    TableSalt: 5
-  solids:
-    FoodGarlic: 1
-    #Herbs: 1
-
-- type: microwaveMealRecipe
-  id: RecipeMothTomatoSauceOlive
-  name: tomato sauce recipe
-  result: FoodMothTomatoSauce
-  time: 5
-  reagents:
-    OilOlive: 5
-    TableSalt: 5
-  solids:
-    FoodTomato: 1
-    #Herbs: 1
