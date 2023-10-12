@@ -123,7 +123,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecFormal
   name: security formal suit
-  description: A suit for special occasions.
+  description: A ceremonial piece of Station Security kit, for special occasions of any kind.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformal.rsi
@@ -184,3 +184,27 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/jeans_brown.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/jeans_brown.rsi
+
+# Warden alt uniforms
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWardenBlue
+  name: blue warden's jumpsuit
+  description: A cool blue shirt with ice-white markings and warden's epaulettes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_blue.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWardenGrey
+  name: grey warden's jumpsuit
+  description: Charcoal pants, a grey shirt, and white warden's markings and epaulettes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_grey.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_grey.rsi
