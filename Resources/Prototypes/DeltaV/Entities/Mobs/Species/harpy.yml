@@ -8,7 +8,7 @@
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false
-    program: 62
+    program: 52
   - type: UserInterface
     interfaces:
     - key: enum.InstrumentUiKey.Key
@@ -151,7 +151,7 @@
 - type: entity
   id: ActionHarpyPlayMidi
   name: Play MIDI
-  description: Imitate whatever sounds you want
+  description: Sing your heart out!
   noSpawn: true
   components:
   - type: InstantAction
