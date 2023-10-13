@@ -63,3 +63,14 @@
     sprite: Clothing/Neck/mantles/rdmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/rdmantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleQM
+  name: head of logistics' mantle # DeltaV - Logistics Department replacing Cargo
+  description: For the master of goods and materials to rule over the department, a befitting mantle to show off superiority!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/mantles/qmmantle.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/mantles/qmmantle.rsi

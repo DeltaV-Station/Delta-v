@@ -9,7 +9,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 10800 #3 hrs
+      time: 14400 #DeltaV 4 hrs
 #    - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
 #      role: JobMedicalDoctor
 #      time: 21600 #6 hrs
@@ -30,6 +30,17 @@
   - Maintenance
   - Chemistry
   - ChiefMedicalOfficer
+  - Paramedic # DeltaV - Add Paramedic access
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
 
 - type: startingGear
   id: CMOGear

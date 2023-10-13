@@ -138,6 +138,8 @@
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
+    - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
+    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers. 
   - type: Reflect
     enabled: false
     reflectProb: 0
@@ -200,6 +202,7 @@
   - type: Puller
   - type: Speech
     speechSounds: Alto
+  - type: DamageForceSay
   - type: Vocal
     sounds:
       Male: MaleHuman
@@ -236,6 +239,15 @@
     damage:
       types:
         Blunt: 0.55 #per second, scales with pressure and other constants.
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      types:
+        Heat: -0.07
+      groups:
+        Brute: -0.07
   # Organs
   - type: StatusEffects
     allowed:
@@ -275,7 +287,6 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
-  - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:

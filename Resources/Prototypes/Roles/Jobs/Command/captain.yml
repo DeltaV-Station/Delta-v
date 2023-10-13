@@ -5,6 +5,9 @@
   playTimeTracker: JobCaptain
   requirements:
     - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 18000 # DeltaV - 5 hours
+    - !type:DepartmentTimeRequirement
       department: Engineering
       time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
@@ -30,6 +33,16 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
 
 - type: startingGear
   id: CaptainGear

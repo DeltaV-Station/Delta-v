@@ -155,6 +155,7 @@
       Steel: 100
   - type: StaticPrice
     price: 22
+  - type: Prying
 
 - type: entity
   parent: Crowbar
@@ -314,6 +315,12 @@
     materialComposition:
       Steel: 300
       Plastic: 100
+#  - type: DynamicPrice
+#    price: 100
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - PowerDrill
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
@@ -404,6 +411,12 @@
       Plastic: 100
   - type: StaticPrice
     price: 60
+#  - type: DynamicPrice
+#    price: 60
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - RCDAmmo
 
 - type: entity
   name: omnitool
@@ -421,6 +434,8 @@
     tags:
     - Multitool
   - type: TilePrying
+  - type: Prying
+    enabled: false
   - type: Tool
     qualities:
       - Screwing
@@ -496,3 +511,27 @@
       Wood: 50
   - type: StaticPrice
     price: 25
+
+- type: entity
+  parent: BaseItem
+  id: RollingPin
+  name: rolling pin
+  description: A tool used to shape and flatten dough.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/rolling_pin.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/rolling_pin.rsi
+    size: 10
+  - type: ItemCooldown
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 7
+  - type: Tool
+    qualities:
+    - Rolling
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 100
