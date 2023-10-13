@@ -164,7 +164,7 @@
         prob: 0.5
 
 - type: entity
-  id: LockerParamedicFilled
+  id: LockerParamedicFilled #Delta V - Paramedic locker without suit
   suffix: Filled
   parent: LockerParamedic
   components:
@@ -182,7 +182,7 @@
         prob: 0.3
 
 - type: entity
-  id: LockerParamedicFilledHardsuit
+  id: LockerParamedicFilledHardsuit #Delta V - Paramedic locker with suit
   suffix: Filled, Hardsuit
   parent: LockerParamedic
   components:
