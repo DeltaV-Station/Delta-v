@@ -3,6 +3,17 @@ ghost-role-component-default-rules = You don't remember any of your previous lif
                                      You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                      You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+# Delta V soft antag rule
+deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation. 
+                                                You are allowed to coexist with the crew.
+                                                The crew is allowed to kill you without warning.
+
+# Delta V salvage antag rule
+deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob. 
+                                                    You are allowed to attack salvagers without provocation. 
+                                                    You are allowed to attack the salvage shuttle. 
+                                                    You are NOT allowed to locate the station and attack it.
+
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
