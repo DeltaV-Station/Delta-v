@@ -162,7 +162,7 @@
   components:
   - type: Sprite
     state: right
-    
+
 - type: entity
   name: sofa
   id: BenchSofaCorner
@@ -179,8 +179,6 @@
     state: corner
   - type: Clickable
   - type: InteractionOutline
-  - type: Physics
-    bodyType: Dynamic
   - type: Pullable
   - type: Damageable
     damageContainer: Inorganic
@@ -238,8 +236,6 @@
     state: corner
   - type: Clickable
   - type: InteractionOutline
-  - type: Physics
-    bodyType: Dynamic
   - type: Pullable
   - type: Damageable
     damageContainer: Inorganic
