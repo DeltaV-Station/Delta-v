@@ -243,6 +243,24 @@
       - id: ClothingOuterHardsuitSpatio
       - id: ClothingMaskGasExplorer
 
+# DeltaV - Adding Paramedic Suit Storage Unit
+#Paramedic hardsuit
+- type: entity
+  id: SuitStorageParamedic
+  parent: SuitStorageBase
+  suffix: Paramedic
+  components:
+  - type: StorageFill
+    contents:
+        - id: NitrogenTankFilled
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitVoidParamed
+        - id: ClothingHeadHelmetVoidParamed
+        - id: ClothingMaskBreathMedical
+  - type: AccessReader
+    access: [ [ "Paramedic" ] ]
+  # DeltaV - End Changes
+
 #Blood-red hardsuit
 - type: entity
   id: SuitStorageSyndie
