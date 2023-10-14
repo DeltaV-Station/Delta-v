@@ -16,7 +16,7 @@
     access: [["Theatre"]]
 
 - type: entity
-  parent: Airlock
+  parent: AirlockScience # DeltaV - Chapel is in Epistemics
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -166,6 +166,14 @@
   components:
   - type: AccessReader
     access: [["Medical"]]
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockParamedicLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
 
 - type: entity
   parent: AirlockVirology
@@ -403,7 +411,7 @@
     access: [["Hydroponics"]]
 
 - type: entity
-  parent: AirlockGlass
+  parent: AirlockScienceGlass  # DeltaV - Chapel is in Epistemics
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -449,6 +457,14 @@
   components:
   - type: AccessReader
     access: [["Medical"]]
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockParamedicGlassLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
 
 - type: entity
   parent: AirlockVirologyGlass

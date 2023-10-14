@@ -1,0 +1,47 @@
+# All the Harpy customization
+
+# Ears Markings
+- type: marking
+  id: HarpyWingDefault
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings_default.rsi
+      state: harpy
+
+- type: marking
+  id: HarpyTailSwallow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: harpy_tail_swallow
+
+- type: marking
+  id: HarpyEarsDefault
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_ears.rsi
+      state: harpy_ears_default
+
+- type: marking
+  id: HarpyTailPhoenix
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: phoenix_tail
+
+- type: marking
+  id: HarpyTailRooster
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: rooster_tail 

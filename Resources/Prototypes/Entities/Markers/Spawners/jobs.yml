@@ -73,7 +73,8 @@
   - type: Sprite
     layers:
       - state: green
-      - state: miner
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Salvage specialist look change
+        state: salvagespecialist
 
 # Civilian
 
@@ -430,7 +431,8 @@
   - type: Sprite
     layers:
       - state: green
-      - state: rd
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: mystagogue
 
 - type: entity
   id: SpawnPointSeniorResearcher
@@ -454,7 +456,8 @@
   - type: Sprite
     layers:
       - state: green
-      - state: scientist
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: scientist
 
 # Security
 

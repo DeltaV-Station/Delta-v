@@ -139,18 +139,18 @@
   name: energy cutlass
   parent: EnergySword
   id: EnergyCutlass
-  description: An exotic energy weapon.
+  description: An exotic energy weapon, brutal blade crackling with crudely harnessed plasma. #DeltaV - nicer description.
   components:
   - type: EnergySword
     secret: true
     litDamageBonus:
-        types:
-            Slash: 7.5
-            Heat: 7.5
-            Blunt: -1
+        types: # DeltaV - modified e-cutlass to be superior to e-sword
+            Heat: 17
+            Structural: 8.5
+            Blunt: -6
     litDisarmMalus: 0.6
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_cutlass.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
       - state: e_cutlass
       - state: e_cutlass_blade
@@ -158,9 +158,16 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
+  - type: MeleeWeapon # DeltaV - reduced attack rate of e-cutlass; slower, more brutal swings
+    attackRate: 0.75
+    soundHit:
+      path: /Audio/Weapons/eblade1.ogg
+    damage:
+      types:
+        Blunt: 6
   - type: Item
     size: 5
-    sprite: Objects/Weapons/Melee/e_cutlass.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
 
 - type: entity
   name: Double Bladed Energy Sword

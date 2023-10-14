@@ -4,16 +4,16 @@
   noSpawn: true
   name: mystagogue's hardsuit helmet
   description: Lightweight hardsuit helmet that has a galaxy-first psionic passthrough system.
-#  components:
-#  - type: Psionic
-#  - type: TinfoilHat
-#    passthrough: true
-#    destroyOnFry: false
-#  - type: ClothingGrantPsionicPower
-#    power: MetapsionicPower
-#  - type: GuideHelp
-#    guides:
-#    - Psionics
+  components:
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: MetapsionicPower
+  #- type: GuideHelp
+    #guides:
+    #- Psionics
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitSyndie

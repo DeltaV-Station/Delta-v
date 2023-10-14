@@ -66,12 +66,12 @@ MagazinePistolSubMachineGunHighVelocity: MagazinePistolSubMachineGun
 MagazineRifleHighVelocity: MagazineRifle
 SpeedLoaderMagnumHighVelocity: SpeedLoaderMagnum
 SpeedLoaderPistolHighVelocity: SpeedLoaderPistol
-
+#
 # 2023-08-07
 #If the name is anything to go off of, these are presumably just CEV-Eris versions of the snow rock (which we already have.)
 #They are practically never used in this way however, so they're migrated to the basic rock type.
-MountainRock: AsteroidRock
-MountainRockMining: AsteroidRockMining
+#MountainRock: AsteroidRock #DeltaV
+#MountainRockMining: AsteroidRockMining #DeltaV
 
 # 2023-08-08
 WindowTintedDirectional: WindowFrostedDirectional
@@ -108,3 +108,40 @@ ScienceTechFab: Protolathe
 ScienceTechFabCircuitboard: ProtolatheMachineCircuitboard
 ServiceTechFab: Autolathe
 ServiceTechFabCircuitboard: AutolatheMachineCircuitboard
+
+# 2023-10-05 (Rebase related migrations)
+FoodMothTomatoSauce: null
+LockerEpistemicsFilled: LockerScienceFilled
+LockerMystagogueFilled: LockerResearchDirectorFilled
+HyperlinkBookAlerts: BookRandom
+HyperlinkBookAtmos: BookAtmosDistro
+HyperlinkBookBartending: BookBartendersManual
+HyperlinkBookBotany: BookLeafLoversSecret
+HyperlinkBookChemistry: BookChemicalCompendium
+HyperlinkBookCooking: BookChefGaming
+HyperlinkBookGlimmer: BookScientistsGuidebook
+HyperlinkBookHacking: BookEngineersHandbook
+HyperlinkBookMedical: BookMedicalReferenceBook
+HyperlinkBookPower: BookEngineersHandbook
+HyperlinkBookProcedure: BookRandom
+HyperlinkBookShuttle: BookRandom
+HyperlinkBookSpaceLaw: BookSecurity
+HyperlinkBookSupernanny: BookHowToSurvive
+SpawnPointCataloguer: SpawnPointLibrarian
+SpawnPointCyborg: SpawnPointBorg
+SpawnPointMedicalCyborg: SpawnPointBorgMedical
+SpawnPointEpistemologist: SpawnPointScientist
+SpawnPointMystagogue: SpawnPointResearchDirector
+SpawnPointSalvageTechnician: SpawnPointSalvageSpecialist
+SpawnPointValet: SpawnPointServiceWorker
+VendingMachineEpiDrobe: VendingMachineSciDrobe
+PlushieMoffRandom: PlushieMothRandom
+PlushieMoffbar: PlushieMothBartender
+PlushieMoffsician: PlushieMothMusician
+PlushieMoff: PlushieMoth
+ArachneWeb: SpiderWeb
+PowerCellBluespace: PowerCellHigh
+CrateMedicalDefib: CrateMedical
+LeftLegSpider: null
+RightLegSpider: null
+WeaponShotgunEnforcerNonLethal: WeaponShotgunEnforcerRubber
