@@ -1,10 +1,11 @@
-ent-CrateMedicalDefib = Defibrillator crate
-
 ent-CrateMedicalSupplies = Medical supplies crate
     .desc = Basic medical supplies.
 
 ent-CrateChemistrySupplies = Chemistry supplies crate
     .desc = Basic chemistry supplies.
+
+ent-CrateMindShieldImplants = MindShield implant crate
+    .desc = Crate filled with 3 MindShield implants.
 
 ent-CrateMedicalSurgery = Surgical supplies crate
     .desc = Surgical instruments.
