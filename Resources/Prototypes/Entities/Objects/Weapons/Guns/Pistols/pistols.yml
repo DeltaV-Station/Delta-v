@@ -67,12 +67,11 @@
   name: viper
   parent: BaseWeaponPistol
   id: WeaponPistolViper
-  description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
+  description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo. # DeltaV - change description to reflect forced semi
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-    availableModes:
-    - FullAuto
+    availableModes: # DeltaV - force semi for balance
     - SemiAuto
   - type: ItemSlots
     slots:

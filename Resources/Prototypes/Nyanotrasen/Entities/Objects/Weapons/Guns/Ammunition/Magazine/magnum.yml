@@ -1,22 +1,22 @@
 - type: entity
-  id: BaseMagazineUniversalCaselessRifle
-  name: "Universal magazine (.25 caseless)"
-  parent: BaseMagazineCaselessRifle
+  id: BaseMagazineUniversalMagnum
+  name: "Universal magazine (.45 magnum)"
+  parent: BaseMagazinePistol
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineUniversalCaselessRifle
+      - MagazineUniversalMagnum
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeCaselessRifle
-    proto: CartridgeCaselessRifle
+        - CartridgeMagnum
+    proto: CartridgeMagnum
     capacity: 12
   - type: Item
     size: 5
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_universal_mag.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/universal_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -31,12 +31,12 @@
 # Magazines for the Universal Pistol
 
 - type: entity
-  id: MagazineUniversalCaselessRifle
-  name: "Universal magazine (.25 caseless)"
-  parent: BaseMagazineUniversalCaselessRifle
+  id: MagazineUniversalMagnum
+  name: "Universal magazine (.45 magnum)"
+  parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeCaselessRifle
+    proto: CartridgeMagnum
     capacity: 12
   - type: Sprite
     layers:
@@ -50,12 +50,12 @@
     zeroVisible: false
 
 - type: entity
-  id: MagazineUniversalCaselessRiflePractice
-  name: "Universal magazine (.25 caseless practice)"
-  parent: BaseMagazineUniversalCaselessRifle
+  id: MagazineUniversalMagnumPractice
+  name: "Universal magazine (.45 magnum practice)"
+  parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeCaselessRiflePractice
+    proto: CartridgeMagnumPractice
     capacity: 12
   - type: Sprite
     layers:
@@ -69,12 +69,12 @@
     zeroVisible: false
 
 - type: entity
-  id: MagazineUniversalCaselessRifleRubber
-  name: "Universal magazine (.25 caseless rubber)"
-  parent: BaseMagazineUniversalCaselessRifle
+  id: MagazineUniversalMagnumRubber
+  name: "Universal magazine (.45 magnum rubber)"
+  parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeCaselessRifleRubber
+    proto: CartridgeMagnumRubber
     capacity: 12
   - type: Sprite
     layers:
