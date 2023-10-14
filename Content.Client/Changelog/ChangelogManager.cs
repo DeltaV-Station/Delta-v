@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
@@ -26,8 +25,8 @@ namespace Content.Client.Changelog
         [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         public bool NewChangelogEntries { get; private set; }
-        public DateTime LastReadTime { get; private set; } // Modified, see EOF
-        public DateTime MaxTime { get; private set; } // Modified, see EOF
+        public int LastReadId { get; private set; }
+        public int MaxId { get; private set; }
 
         public event Action? NewChangelogEntriesChanged;
 
@@ -36,7 +35,7 @@ namespace Content.Client.Changelog
         ///     stores the new ID to disk and clears <see cref="NewChangelogEntries"/>.
         /// </summary>
         /// <remarks>
-        ///     <see cref="LastReadTime"/> is NOT cleared
+        ///     <see cref="LastReadId"/> is NOT cleared
         ///     since that's used in the changelog menu to show the "since you last read" bar.
         /// </remarks>
         public void SaveNewReadId()
@@ -44,9 +43,9 @@ namespace Content.Client.Changelog
             NewChangelogEntries = false;
             NewChangelogEntriesChanged?.Invoke();
 
-            using var sw = _resource.UserData.OpenWriteText(new ($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}_datetime")); // Modified, see EOF
+            using var sw = _resource.UserData.OpenWriteText(new ($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}"));
 
-            sw.Write(MaxTime.ToString("O")); // Modified, see EOF
+            sw.Write(MaxId.ToString());
         }
 
         public async void Initialize()
@@ -59,46 +58,24 @@ namespace Content.Client.Changelog
                 return;
             }
 
-            MaxTime = changelog.Max(c => c.Time); // Modified, see EOF
+            MaxId = changelog.Max(c => c.Id);
 
-            // Begin modified codeblock, see EOF
-            var path = new ResPath($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}_datetime");
-            if(_resource.UserData.TryReadAllText(path, out var lastReadTimeText))
+            var path = new ResPath($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}");
+            if(_resource.UserData.TryReadAllText(path, out var lastReadIdText))
             {
-                if (Regex.IsMatch(lastReadTimeText,
-                        @"^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$"))
-                {
-                    LastReadTime = DateTime.ParseExact(lastReadTimeText, "O", CultureInfo.InvariantCulture);
-                }
+                LastReadId = int.Parse(lastReadIdText);
             }
 
-            NewChangelogEntries = LastReadTime < MaxTime;
-            // End modified codeblock
+            NewChangelogEntries = LastReadId < MaxId;
 
             NewChangelogEntriesChanged?.Invoke();
         }
 
-        // Begin modified codeblock, see EOF
-        public async Task<List<ChangelogEntry>> LoadChangelog()
-        {
-            var paths = _resource.ContentFindFiles("/Changelog/")
-                .Where(filePath => filePath.Extension == "yml")
-                .ToArray();
-
-            var result = new List<ChangelogEntry>();
-            foreach (var path in paths)
-            {
-                var changelog = await LoadChangelogFile(path);
-                result = result.Union(changelog).ToList();
-            }
-            return result.OrderBy(x => x.Time).ToList();
-        }
-
-        private Task<List<ChangelogEntry>> LoadChangelogFile(ResPath path) // end modified codeblock
+        public Task<List<ChangelogEntry>> LoadChangelog()
         {
             return Task.Run(() =>
             {
-                var yamlData = _resource.ContentFileReadYaml(path); // Modified, see EOF
+                var yamlData = _resource.ContentFileReadYaml(new ("/Changelog/Changelog.yml"));
 
                 if (yamlData.Documents.Count == 0)
                     return new List<ChangelogEntry>();
@@ -149,7 +126,3 @@ namespace Content.Client.Changelog
         }
     }
 }
-
-
-// This file was extensively modified to allow for datetime based changelogs instead of relying on IDs.
-// This is because our IDs are much lower then Wizdens, and if we use their entries, the server will not properly show new changes
