@@ -3,6 +3,17 @@ ghost-role-component-default-rules = You don't remember any of your previous lif
                                      You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                      You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+# Delta V soft antag rule
+deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation. 
+                                                You are allowed to coexist with the crew.
+                                                The crew is allowed to kill you without warning.
+
+# Delta V salvage antag rule
+deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob. 
+                                                    You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
+                                                    You are allowed to attack the salvage shuttle. 
+                                                    You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
+
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
@@ -29,7 +40,9 @@ ghost-role-information-punpun-description = An honorable member of the monkey so
 
 ghost-role-information-xeno-name = Xeno
 ghost-role-information-xeno-description = You are a xeno, co-operate with your hive to kill all crewmembers!
-ghost-role-information-xeno-rules = You are an antagonist, smack, slash, and wack!
+ghost-role-information-xeno-rules = You are a xeno.
+                                    Your objective is to cooperate with your fellow xenos and kill all the crew.
+                                    Strike fast, make them fear the shadows.
 
 ghost-role-information-revenant-name = Revenant
 ghost-role-information-revenant-description = You are a Revenant. Use your powers to harvest souls and unleash chaos upon the crew. Unlock new abilities with the essence you harvest.
