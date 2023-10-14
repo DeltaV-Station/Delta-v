@@ -7,3 +7,16 @@
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
     FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipePumpkinPie
+  name: pumpkin pie
+  result: FoodPiePumpkin
+  time: 15
+  reagents:
+    Sugar: 5
+    Milk: 5
+    Egg: 12
+  solids:
+    #FoodPumpkin: 1 # bruh
+    FoodPlateTin: 1
