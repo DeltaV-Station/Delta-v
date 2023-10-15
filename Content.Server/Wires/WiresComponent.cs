@@ -47,8 +47,8 @@ public sealed partial class WiresComponent : Component
     ///     If this should follow the layout saved the first time the layout dictated by the
     ///     layout ID is generated, or if a new wire order should be generated every time.
     /// </summary>
-    [DataField]
-    public bool AlwaysRandomize { get; private set; }
+    [DataField("alwaysRandomize")]
+    public bool AlwaysRandomize { get; private set; } = true; // Nyanotrasen - Always randomize wires
 
     /// <summary>
     ///     Per wire status, keyed by an object.
