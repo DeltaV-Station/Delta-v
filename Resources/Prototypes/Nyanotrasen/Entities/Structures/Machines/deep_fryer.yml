@@ -105,12 +105,12 @@
       - Cornoil
       - OilGhee
       - OilOlive
-    unsafeOilVolumeEffects:
-    - !type:AreaReactionEffect
-      duration: 10
-      prototypeId: Smoke
-      sound:
-        path: /Audio/Effects/smoke.ogg
+    #unsafeOilVolumeEffects: #Can't pass UninitializedSaveTest. Modifies itself on spawn. Very weird. 
+    #- !type:AreaReactionEffect
+    #  duration: 10
+    #  prototypeId: Smoke
+    #  sound:
+    #    path: /Audio/Effects/smoke.ogg
   - type: SolutionContainerManager
     solutions:
       vat_oil:

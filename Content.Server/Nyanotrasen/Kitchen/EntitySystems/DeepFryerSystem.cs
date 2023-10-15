@@ -159,22 +159,23 @@ namespace Content.Server.Kitchen.EntitySystems
 
                     if (oilVolume > FixedPoint2.Zero)
                     {
+                        //JJ Comment - this code block makes the Linter fail, and doesn't seem to be necessary with the changes I made.
                         foreach (var reagent in component.Solution.Contents.ToArray())
-                        {
-                            //JJ Comment - not sure this works. Need to check if Reagent.ToString is correct. 
+                        {  
                             _prototypeManager.TryIndex<ReagentPrototype>(reagent.Reagent.ToString(), out var proto);
 
                             foreach (var effect in component.UnsafeOilVolumeEffects)
                             {
-                                /*effect.Effect(new ReagentEffectArgs(uid,
+                                effect.Effect(new ReagentEffectArgs(uid,
                                         null,
                                         component.Solution,
                                         proto!,
                                         reagent.Quantity,
                                         EntityManager,
                                         null,
-                                        1f));*/
+                                        1f));
                             }
+                            
                         }
 
                         component.Solution.RemoveAllSolution();

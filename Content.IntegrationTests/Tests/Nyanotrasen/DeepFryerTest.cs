@@ -7,17 +7,11 @@ using Robust.Shared.Reflection;
 namespace Content.IntegrationTests.Tests.DeepFryer
 {
     [TestFixture]
+    [TestOf(typeof(DeepFriedComponent))]
+    [TestOf(typeof(DeepFryerSystem))]
     [TestOf(typeof(DeepFryerComponent))]
     public sealed class DeepFryerTest
     {
-        [Reflect(false)]
-        private sealed class DeepFryerTestSystem : EntitySystem
-        {
-            public override void Initialize()
-            {
-                base.Initialize();
-            }
-        }
 
         [TestPrototypes]
         private const string Prototypes = @"
@@ -54,6 +48,10 @@ namespace Content.IntegrationTests.Tests.DeepFryer
             var entityManager = server.ResolveDependency<IEntityManager>();
             var xformSystem = entityManager.System<SharedTransformSystem>();
             var deepFryerSystem = entityManager.System<DeepFryerSystem>();
+            await server.WaitAssertion(() =>
+            {
+                Assert.That(deepFryerSystem, Is.Not.Null);
+            });
             await pair.CleanReturnAsync();
         }
     }
