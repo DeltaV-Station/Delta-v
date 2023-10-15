@@ -27,7 +27,7 @@ function load_contribs([string] $repo)
 }
 
 $engineJson = load_contribs("space-wizards/RobustToolbox")
-$contentJson = load_contribs("space-wizards/space-station-14")
+$contentJson = load_contribs("DeltaV-Station/Delta-v-rebase")
 
 ($engineJson).login + ($contentJson).login `
     | select -unique `
