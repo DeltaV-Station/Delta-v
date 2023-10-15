@@ -11,7 +11,7 @@ marking-HarpyWing3Tone-harpy3tone2 = Middle Third
 marking-HarpyWing3tone-harpy3tone3 = Bottom Third
 
 marking-HarpyWingSpeckled = Speckled Wings
-marking-HarpyWingSpeckled-harpyspeckled1 = Main Colors
+marking-HarpyWingSpeckled-harpyspeckled1 = Main
 marking-HarpyWingSpeckled-harpyspeckled2 = Speckles
 
 marking-HarpyWingUndertone = Wings with Undertone
@@ -19,7 +19,7 @@ marking-HarpyWingUndertone-harpyundertone1 = Front
 marking-HarpyWingUndertone-harpyundertone2 = Back
 
 marking-HarpyWingTips = Wings with Feather Tips
-marking-HarpyWingTips-harpywingtip1 = Main Colors
+marking-HarpyWingTips-harpywingtip1 = Main
 marking-HarpyWingTips-harpywingtip2 = Feathertips
 
 marking-HarpyEarsDefault = Feather Tufts
