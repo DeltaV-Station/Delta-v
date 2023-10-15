@@ -161,11 +161,11 @@
 - type: entity
   id: ActionHarpyPlayMidi
   name: Play MIDI
-  description: Sing your heart out!
+  description: Sing your heart out! Right click yourself to set an instrument.
   noSpawn: true
   components:
   - type: InstantAction
-    checkCanInteract: false
+    checkCanInteract: true
     icon: DeltaV/Interface/Actions/harpy_sing.png
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
