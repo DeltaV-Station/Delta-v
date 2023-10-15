@@ -37,7 +37,15 @@ public abstract class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
     }
+    //Nyano - Code Block Summary: Allows for us to set if a mind can be examined or not. Used for Metem cloning. 
+    public void SetExamineInfo(EntityUid uid, bool canExamine, MindContainerComponent? mind = null)
+    {
+        if (!Resolve(uid, ref mind, false))
+            return;
 
+        mind.ShowExamineInfo = canExamine;
+    }
+    //Nyano - End Code Block.
     public override void Shutdown()
     {
         base.Shutdown();

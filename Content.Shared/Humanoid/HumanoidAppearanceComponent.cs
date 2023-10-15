@@ -5,6 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Preferences; //Nyano - Summary: For paradox anomaly tracking. 
 
 namespace Content.Shared.Humanoid;
 
@@ -82,6 +83,14 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;
+
+    // Begin Nyano-code: allow paradox anomalies to be cloned.
+    /// <summary>
+    ///     The last profile loaded onto this entity.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public HumanoidCharacterProfile? LastProfileLoaded;
+    // End Nyano-code.
 }
 
 [DataDefinition]

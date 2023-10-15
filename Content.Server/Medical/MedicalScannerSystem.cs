@@ -255,11 +255,13 @@ namespace Content.Server.Medical
             var ratingFail = args.PartRatings[component.MachinePartCloningFailChance];
 
             component.CloningFailChanceMultiplier = MathF.Pow(component.PartRatingFailMultiplier, ratingFail - 1);
+            //component.MetemKarmaBonus = 0.25f * ratingFail; //Nyano - Summary: Better parts should improve the metem's chances of recreating a humanoid. 
         }
 
         private void OnUpgradeExamine(EntityUid uid, MedicalScannerComponent component, UpgradeExamineEvent args)
         {
             args.AddPercentageUpgrade("medical-scanner-upgrade-cloning", component.CloningFailChanceMultiplier);
+            //args.AddPercentageUpgrade("medical-scanner-upgrade-metem", component.MetemKarmaBonus + 0.75f); //Nyano - Summary: Better parts should improve the metem's chances of recreating a humanoid. 
         }
     }
 }

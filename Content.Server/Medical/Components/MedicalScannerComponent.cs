@@ -21,5 +21,7 @@ namespace Content.Server.Medical.Components
 
         [DataField("partRatingCloningFailChanceMultiplier")]
         public float PartRatingFailMultiplier = 0.75f;
+
+        public float MetemKarmaBonus = 0.25f; //Nyano - Summary: Tracks a bonus to respawn as a humanoid for Metempsychotic cloning. 
     }
 }

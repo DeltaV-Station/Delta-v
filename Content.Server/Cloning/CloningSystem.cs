@@ -36,6 +36,14 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Psionics; //Nyano - Summary: allows the potential psionic ability to be written to the character.
+using Content.Shared.Preferences; //Nyano - Begin Code Block Summary:  allows player information to be used for metem cloning. 
+using Content.Shared.Tag; 
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
+using Content.Server.Speech.Components;
+using Content.Server.StationEvents.Components;
+using Content.Server.Ghost.Roles.Components;
+using Robust.Shared.GameObjects.Components.Localization; //Nyano - End Code Block. 
 
 namespace Content.Server.Cloning
 {
@@ -63,6 +71,8 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //Nyano - Summary: metem system.
+        [Dependency] private readonly TagSystem _tag = default!; //Nyano - Summary: allows metem door bump opening sound. 
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -155,7 +165,7 @@ namespace Content.Server.Cloning
             args.PushMarkup(Loc.GetString("cloning-pod-biomass", ("number", _material.GetMaterialAmount(uid, component.RequiredMaterial))));
         }
 
-        public bool TryCloning(EntityUid uid, EntityUid bodyToClone, MindComponent mind, CloningPodComponent? clonePod, float failChanceModifier = 1)
+        public bool TryCloning(EntityUid uid, EntityUid bodyToClone, MindComponent mind, CloningPodComponent? clonePod, float failChanceModifier = 1, float karmaBonus = 0.25f)
         {
             if (!Resolve(uid, ref clonePod))
                 return false;
@@ -239,17 +249,14 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = Spawn(speciesPrototype.Prototype, Transform(uid).MapPosition);
+            // Nyano - Summary: allow paradox anomalies to be cloned.
+            var pref = humanoid.LastProfileLoaded;
+            if (pref == null)
+                return false;
+            // End Nyano-code.
+
+            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); // Nyano - Summary: Change the latter part of this code to one we control for Metempsychosis. 
             _humanoidSystem.CloneAppearance(bodyToClone, mob);
-
-            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob. 
-            EnsureComp<PotentialPsionicComponent>(mob);
-
-            var ev = new CloningEvent(bodyToClone, mob);
-            RaiseLocalEvent(bodyToClone, ref ev);
-
-            if (!ev.NameHandled)
-                _metaSystem.SetEntityName(mob, MetaData(bodyToClone).EntityName);
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
@@ -274,6 +281,89 @@ namespace Content.Server.Cloning
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Handles fetching the mob and any appearance stuff...
+        /// Nyano - Summary: This entire function is from Nyano code. It supplants the existing cloning capabilities to allow for Metempshychosis. 
+        /// </summary>
+        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidAppearanceComponent humanoid, EntityUid bodyToClone, float karmaBonus)
+        {
+            List<Sex> sexes = new();
+            bool switchingSpecies = false;
+            bool applyKarma = false;
+            var name = pref.Name;
+            var toSpawn = speciesPrototype.Prototype;
+            TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
+
+            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
+            {
+                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, karmaBonus, speciesPrototype, out var newSpecies, oldKarma?.Score, metem);
+                applyKarma = true;
+
+                if (newSpecies != null)
+                {
+                    sexes = newSpecies.Sexes;
+
+                    if (speciesPrototype.ID != newSpecies.ID)
+                    {
+                        switchingSpecies = true;
+                    }
+
+                    speciesPrototype = newSpecies;
+                }
+            }
+
+            var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
+            if (TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
+            {
+                if (switchingSpecies || HasComp<MetempsychosisKarmaComponent>(bodyToClone))
+                {
+                    pref = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+                    if (sexes.Contains(humanoid.Sex))
+                        pref = pref.WithSex(humanoid.Sex);
+
+                    pref = pref.WithGender(humanoid.Gender);
+                    pref = pref.WithAge(humanoid.Age);
+
+                }
+                _humanoidSystem.LoadProfile(mob, pref);
+            }
+
+            if (applyKarma)
+            {
+                var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
+                karma.Score++;
+                if (oldKarma != null)
+                    karma.Score += oldKarma.Score;
+            }
+
+            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob. 
+            EnsureComp<PotentialPsionicComponent>(mob);
+
+            var ev = new CloningEvent(bodyToClone, mob);
+            RaiseLocalEvent(bodyToClone, ref ev);
+
+            if (!ev.NameHandled)
+                _metaSystem.SetEntityName(mob, MetaData(bodyToClone).EntityName);
+
+            var mind = EnsureComp<MindContainerComponent>(mob);
+            _mindSystem.SetExamineInfo(mob, true, mind);
+
+            var grammar = EnsureComp<GrammarComponent>(mob);
+            grammar.ProperNoun = true;
+            grammar.Gender = humanoid.Gender;
+            Dirty(grammar);
+            EnsureComp<SpeechComponent>(mob);
+            EnsureComp<EmotingComponent>(mob);
+            RemComp<ReplacementAccentComponent>(mob);
+            RemComp<MonkeyAccentComponent>(mob);
+            RemComp<SentienceTargetComponent>(mob);
+            RemComp<GhostTakeoverAvailableComponent>(mob);
+
+            _tag.AddTag(mob, "DoorBumpOpener");
+
+            return mob;
         }
 
         public void UpdateStatus(EntityUid podUid, CloningPodStatus status, CloningPodComponent cloningPod)
