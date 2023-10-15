@@ -19,6 +19,7 @@ using static Content.Shared.Examine.ExamineSystemShared;
 using Robust.Shared.Timing;
 using Content.Server.Mind;
 using Content.Shared.Actions.Events;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -55,7 +56,7 @@ namespace Content.Server.Abilities.Psionics
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.PsionicRegenerationActionEntity; 
+                psionic.PsionicAbility = component.PsionicRegenerationActionEntity;
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationPowerActionEvent args)
