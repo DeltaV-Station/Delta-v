@@ -22,7 +22,7 @@
     components:
     - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
       multiplier: 3
-      
+
 - type: startingGear
   id: ChaplainGear
   equipment:
@@ -31,6 +31,6 @@
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
-  innerclothingskirt: ClothingUniformJumpskirtChaplain
+  innerClothingSkirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelChaplainFilled
   duffelbag: ClothingBackpackDuffelChaplainFilled
