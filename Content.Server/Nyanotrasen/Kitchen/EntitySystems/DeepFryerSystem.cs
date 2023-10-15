@@ -14,7 +14,7 @@ using Content.Server.Atmos.Miasma;
 using Content.Server.Audio;
 using Content.Server.Body.Components;
 using Content.Server.Cargo.Systems;
-using Content.Server.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
@@ -61,6 +61,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Tools.Components;
 using FastAccessors;
 using Content.Shared.NPC;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
