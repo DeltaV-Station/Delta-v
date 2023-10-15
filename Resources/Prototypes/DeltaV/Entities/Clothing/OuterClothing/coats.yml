@@ -110,3 +110,16 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatHoPFormal
+  name: head of personnel's formal jacket
+  description: A showy and over-the-top jacket with gold buttons and red trim. More tacky than classy.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/repcoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/repcoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1

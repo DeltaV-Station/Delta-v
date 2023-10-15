@@ -31,8 +31,8 @@
         acts: ["Destruction"]
   - type: WiresPanel
   - type: Wires
-    BoardName: wires-board-name-autolathe
-    LayoutId: Autolathe
+    boardName: wires-board-name-autolathe
+    layoutId: Autolathe
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -189,8 +189,8 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: Wires
-    BoardName: wires-board-name-protolathe
-    LayoutId: Protolathe
+    boardName: wires-board-name-protolathe
+    layoutId: Protolathe
   - type: MaterialStorage
     whitelist:
       tags:
@@ -245,6 +245,7 @@
       - Signaller
       - SignalTrigger
       - VoiceTrigger
+      - Igniter
       - PowerCellMedium
       - PowerCellHigh
       - WeaponPistolCHIMP
@@ -776,6 +777,10 @@
       - ClothingUniformJumpskirtHoP
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
+      - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
       - ClothingUniformJumpsuitHydroponics
@@ -785,8 +790,8 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
-      - ClothingUniformMailCarrier # DeltaV - Courier Uniform
-      - ClothingUniformSkirtMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformCourier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtCourier # DeltaV - Courier Uniform
       - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformJumpsuitMedicalDoctor
@@ -808,10 +813,18 @@
       - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+      - ClothingUniformJumpsuitSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
+      - ClothingUniformJumpsuitWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
       - ClothingOuterWinterCap
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
@@ -826,6 +839,7 @@
       - ClothingNeckMantleHOS
       - ClothingNeckMantleRD
       - ClothingNeckMantleQM
+      - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
