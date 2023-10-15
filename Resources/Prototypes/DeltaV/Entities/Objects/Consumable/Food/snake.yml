@@ -1,0 +1,26 @@
+- type: entity
+  name: Centcomm jello
+  parent: FoodBakedBase
+  id: CentcommJello
+  description: Now 30 percent more air for 120 percent of the price
+  components:
+    - type: FlavorProfile
+      flavors:
+        - overpriced
+        - Jello
+    - type: Sprite
+      state: jello
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 1
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 1
+          - ReagentId: Vodka
+            Quantity: 1
+          - ReagentId: Vitamin
+            Quantity: 1
+   - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/centcommjello.rsi
+    state: Jello
