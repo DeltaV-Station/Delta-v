@@ -212,6 +212,12 @@ namespace Content.Shared.CCVar
             GameRoleTimers = CVarDef.Create("game.role_timers", true, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
+        ///     Nyanotrasen - Require whitelist for certain jobs
+        /// </summary>
+        public static readonly CVarDef<bool>
+            GameWhitelistJobs = CVarDef.Create("game.whitelist_jobs", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
         ///     Whether a random position offset will be applied to the station on roundstart.
         /// </summary>
         public static readonly CVarDef<bool> StationOffset =

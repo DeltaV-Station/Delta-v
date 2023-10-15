@@ -20,6 +20,7 @@
   icon: "JobIconHeadOfSecurity"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
+  whitelistRequired: true # DeltaV - Whitelist required
   canBeAntag: false
   access:
   - HeadOfSecurity
@@ -41,7 +42,7 @@
     components:
     - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
       flatBonus: 0.025
-      
+
 - type: startingGear
   id: HoSGear
   equipment:

@@ -14,7 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Players.PlayTimeTracking;
 
-public sealed class JobRequirementsManager
+public sealed partial class JobRequirementsManager
 {
     [Dependency] private readonly IBaseClient _client = default!;
     [Dependency] private readonly IClientNetManager _net = default!;
@@ -37,6 +37,7 @@ public sealed class JobRequirementsManager
         // Yeah the client manager handles role bans and playtime but the server ones are separate DEAL.
         _net.RegisterNetMessage<MsgRoleBans>(RxRoleBans);
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
+        _net.RegisterNetMessage<MsgWhitelist>(RxWhitelist);
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
@@ -90,24 +91,34 @@ public sealed class JobRequirementsManager
             return false;
         }
 
-        if (job.Requirements == null ||
-            !_cfg.GetCVar(CCVars.GameRoleTimers))
-        {
-            return true;
-        }
-
         var player = _playerManager.LocalPlayer?.Session;
         if (player == null)
             return true;
 
-        return CheckRoleTime(job.Requirements, out reason);
+        var roleCheck = CheckRoleTime(job.Requirements, out var roleReason);
+        var whitelistCheck = CheckWhitelist(job, out var whitelistReason);
+
+        if (!roleCheck || !whitelistCheck)
+        {
+            reason = new FormattedMessage();
+            if (!roleCheck && roleReason != null)
+                reason.AddMessage(roleReason);
+            if (!whitelistCheck && whitelistReason != null)
+            {
+                if (!reason.IsEmpty)
+                    reason.PushNewline();
+                reason.AddMessage(whitelistReason);
+            }
+        }
+
+        return reason == null;
     }
 
     public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
 
-        if (requirements == null)
+        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
         var reasons = new List<string>();

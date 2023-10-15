@@ -158,8 +158,16 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public bool IsAllowed(IPlayerSession player, string role)
     {
-        if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
-            job.Requirements == null ||
+        if (!_prototypes.TryIndex<JobPrototype>(role, out var job)) // Nyanotrasen - separate job requirements check
+            return true;
+
+        // Nyanotrasen - Require whitelist for certain roles
+        if (_cfg.GetCVar(CCVars.GameWhitelistJobs) &&
+            job.WhitelistRequired &&
+            !player.ContentData()!.Whitelisted)
+            return false;
+
+        if (job.Requirements == null || // Nyanotrasen - separate job requirements check so whitelist check gets ran
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
