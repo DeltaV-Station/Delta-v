@@ -19,7 +19,7 @@ GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-CHANGELOG_FILE = "Resources/Changelog/DeltaVChangelog.yml"
+CHANGELOG_FILE = "Resources/Changelog/Changelog.yml"
 
 TYPES_TO_EMOJI = {
     "Fix":    "🐛",

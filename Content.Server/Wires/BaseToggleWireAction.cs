@@ -29,7 +29,9 @@ public abstract partial class BaseToggleWireAction : BaseWireAction
 
     public override bool Cut(EntityUid user, Wire wire)
     {
-        base.Cut(user, wire);
+        if (!base.Cut(user, wire)) // Nyanotrasen - Tactical hacking
+            return false;
+
         ToggleValue(wire.Owner, false);
 
         if (TimeoutKey != null)
@@ -42,7 +44,9 @@ public abstract partial class BaseToggleWireAction : BaseWireAction
 
     public override bool Mend(EntityUid user, Wire wire)
     {
-        base.Mend(user, wire);
+        if (!base.Mend(user, wire)) // Nyanotrasen - Tactical hacking
+            return false;
+
         ToggleValue(wire.Owner, true);
 
         return true;

@@ -1,0 +1,57 @@
+- type: parallax
+  id: AngleStation
+  layers:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+      slowness: 0.95
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.94
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Nyanotrasen/Parallaxes/Angle.png"
+      slowness: 0.93
+      scale: 1,1
+
+- type: parallax
+  id: LighthouseStation
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Nyanotrasen/Parallaxes/Lighthouse.png"
+      slowness: 0.94
+      scale: 1,1
+      scrolling: "-0.006, -0.004"
+
+- type: parallax
+  id: PebbleStation
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Nyanotrasen/Parallaxes/Pebble.png"
+      slowness: 0.98
+      scale: 0.5,0.5
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+      slowness: 0.97
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.96
+
+- type: parallax
+  id: TortugaStation
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Nyanotrasen/Parallaxes/Tortuga.png"
+      slowness: 0.94
+      scale: 0.5,0.5
+      scrolling: "-0.004,  0.002"
