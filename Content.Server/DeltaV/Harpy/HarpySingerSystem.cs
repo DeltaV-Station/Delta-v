@@ -9,6 +9,8 @@ namespace Content.Server.DeltaV.Harpy
     {
         [Dependency] private readonly InstrumentSystem _instrument = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
+
+
         public override void Initialize()
         {
             base.Initialize();
