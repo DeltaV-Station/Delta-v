@@ -32,7 +32,7 @@ We are currently accepting translations of the game on our main repository. If y
 2. Run `RUN_THIS.py` to init submodules and download the engine.
 3. Compile the solution.
 
-[More detailed instructions on building the project.](https://docs.spacestation14.io/getting-started/dev-setup)
+[More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
 
 ## License
 

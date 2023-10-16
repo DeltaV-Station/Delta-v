@@ -21,14 +21,14 @@ public abstract partial class ComponentWireAction<TComponent> : BaseWireAction w
 
     public override bool Cut(EntityUid user, Wire wire)
     {
-        base.Cut(user, wire);
-        return EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Cut(user, wire, component);
+        return base.Cut(user, wire) &&
+            EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Cut(user, wire, component); // Nyanotrasen - Tactical hacking
     }
 
     public override bool Mend(EntityUid user, Wire wire)
     {
-        base.Mend(user, wire);
-        return EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Mend(user, wire, component);
+        return base.Mend(user, wire) &&
+            EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Mend(user, wire, component); // Nyanotrasen - Tactical hacking
     }
 
     public override void Pulse(EntityUid user, Wire wire)
