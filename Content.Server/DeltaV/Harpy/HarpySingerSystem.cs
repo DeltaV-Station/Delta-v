@@ -17,9 +17,10 @@ namespace Content.Server.DeltaV.Harpy
 
             SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(HarpyStopSinging);
         }
+
+
         //Immediately closes the Midi UI window if a Singer is incapacitated
         private void HarpyStopSinging(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
-
         {
             if (HasComp<ActiveInstrumentComponent>(uid) && TryComp<ActorComponent>(uid, out var actor) && _mobState.IsIncapacitated(uid))
             {
