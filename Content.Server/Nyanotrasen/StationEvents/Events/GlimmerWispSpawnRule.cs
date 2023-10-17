@@ -22,7 +22,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
 
         var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
         var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
+        // var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
         var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
@@ -46,12 +46,12 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
                 continue;
             }
 
-            if (hiddenSpawnLocations.Count != 0)
-            {
-                EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
-                i++;
-                continue;
-            }
+            //if (hiddenSpawnLocations.Count != 0)
+            //{
+            //    EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
+            //    i++;
+            //    continue;
+            //}
             return;
         }
     }
