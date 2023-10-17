@@ -38,18 +38,6 @@
       - state: green
       - state: prisoner
 
-- type: entity
-  id: SpawnPointLocationMidRoundAntag
-  name: possible spawn location
-  suffix: MidRoundAntag
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: prisoner
-  # - type: MidRoundAntagSpawnLocation # When MidRoundAntag?
 
 # - type: entity
 #   id: SpawnPointGhostVampSpider
