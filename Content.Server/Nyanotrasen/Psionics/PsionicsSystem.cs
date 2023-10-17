@@ -51,8 +51,6 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
-            SubscribeLocalEvent<PotentialPsionicComponent, MobStateChangedEvent>(OnDeathGasp);
-
             SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicComponent, ComponentRemove>(OnRemove);
         }
@@ -86,29 +84,6 @@ namespace Content.Server.Psionics
                 if (component.Punish && HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
                     _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
-        }
-
-        private void OnDeathGasp(EntityUid uid, PotentialPsionicComponent component, MobStateChangedEvent args)
-        {
-            if (args.NewMobState != MobState.Dead)
-                return;
-
-            string message;
-
-            switch (_glimmerSystem.GetGlimmerTier())
-            {
-                case GlimmerTier.Critical:
-                    message = Loc.GetString("death-gasp-high", ("ent", Identity.Entity(uid, EntityManager)));
-                    break;
-                case GlimmerTier.Dangerous:
-                    message = Loc.GetString("death-gasp-medium", ("ent",Identity.Entity(uid, EntityManager)));
-                    break;
-                default:
-                    message = Loc.GetString("death-gasp-normal", ("ent", Identity.Entity(uid, EntityManager)));
-                    break;
-            }
-            //Was force, changed to ignoreActionBlocker.
-            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, ignoreActionBlocker:true);
         }
 
         private void OnInit(EntityUid uid, PsionicComponent component, ComponentInit args)
