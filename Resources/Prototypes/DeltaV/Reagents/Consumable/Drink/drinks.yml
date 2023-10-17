@@ -1,8 +1,8 @@
 - type: reagent
-  id: Dulleavene
-  name: reagent-name-dulleavene
+  id: HealthViolation
+  name: reagent-name-healthviolation
   parent: BaseDrink
-  desc: reagent-desc-dulleavene
+  desc: reagent-desc-healthviolation
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: dulleavene
   color: "#ff7f00"
@@ -147,3 +147,26 @@
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/kvass.rsi
     state: icon
+
+- type: reagent
+  id: Mothamphetamine
+  name: reagent-name-mothamphetamine
+  parent: BaseDrink
+  desc: reagent-desc-mothamphetamine
+  physicalDesc: reagent-physical-desc-fuzzy
+  flavor: cotton
+  color: "#2fa1ef"
+  metamorphicSprite:
+    sprite: DeltaV/Objects/Consumable/Drinks/mothamphetamine.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+    Poison:
+      effects:
+      - !type:Jitter
