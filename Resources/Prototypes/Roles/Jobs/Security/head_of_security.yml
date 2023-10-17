@@ -15,12 +15,12 @@
       time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
       time: 90000 # DeltaV - 25 hours
+    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  whitelistRequired: true # DeltaV - Whitelist required
   canBeAntag: false
   access:
   - HeadOfSecurity
