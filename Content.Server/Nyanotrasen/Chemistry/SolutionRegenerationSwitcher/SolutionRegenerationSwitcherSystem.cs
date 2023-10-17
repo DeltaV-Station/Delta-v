@@ -1,6 +1,7 @@
 using Robust.Shared.Prototypes;
 using Content.Server.Chemistry.Components;
 using Content.Server.Popups;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Verbs;
 
