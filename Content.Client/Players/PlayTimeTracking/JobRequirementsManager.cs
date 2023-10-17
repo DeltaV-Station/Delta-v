@@ -91,40 +91,30 @@ public sealed partial class JobRequirementsManager
             return false;
         }
 
+        if (job.Requirements == null ||
+            !_cfg.GetCVar(CCVars.GameRoleTimers))
+        {
+            return true;
+        }
+
         var player = _playerManager.LocalPlayer?.Session;
         if (player == null)
             return true;
 
-        var roleCheck = CheckRoleTime(job.Requirements, out var roleReason);
-        var whitelistCheck = CheckWhitelist(job, out var whitelistReason);
-
-        if (!roleCheck || !whitelistCheck)
-        {
-            reason = new FormattedMessage();
-            if (!roleCheck && roleReason != null)
-                reason.AddMessage(roleReason);
-            if (!whitelistCheck && whitelistReason != null)
-            {
-                if (!reason.IsEmpty)
-                    reason.PushNewline();
-                reason.AddMessage(whitelistReason);
-            }
-        }
-
-        return reason == null;
+        return CheckRoleTime(job.Requirements, out reason);
     }
 
     public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
 
-        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
+        if (requirements == null)
             return true;
 
         var reasons = new List<string>();
         foreach (var requirement in requirements)
         {
-            if (JobRequirements.TryRequirementMet(requirement, _roles, out var jobReason, _entManager, _prototypes))
+            if (JobRequirements.TryRequirementMet(requirement, _roles, out var jobReason, _entManager, _prototypes, _whitelisted))
                 continue;
 
             reasons.Add(jobReason.ToMarkup());

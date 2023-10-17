@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Afk;
 using Content.Server.Afk.Events;
+using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.CCVar;
@@ -158,22 +159,16 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public bool IsAllowed(IPlayerSession player, string role)
     {
-        if (!_prototypes.TryIndex<JobPrototype>(role, out var job)) // Nyanotrasen - separate job requirements check
-            return true;
-
-        // Nyanotrasen - Require whitelist for certain roles
-        if (_cfg.GetCVar(CCVars.GameWhitelistJobs) &&
-            job.WhitelistRequired &&
-            !player.ContentData()!.Whitelisted)
-            return false;
-
-        if (job.Requirements == null || // Nyanotrasen - separate job requirements check so whitelist check gets ran
+        if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
+            job.Requirements == null ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
         var playTimes = _tracking.GetTrackerTimes(player);
 
-        return JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes);
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
+
+        return JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, isWhitelisted);
     }
 
     public HashSet<string> GetDisallowedJobs(IPlayerSession player)
@@ -183,6 +178,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             return roles;
 
         var playTimes = _tracking.GetTrackerTimes(player);
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
 
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
@@ -190,7 +186,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             {
                 foreach (var requirement in job.Requirements)
                 {
-                    if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, EntityManager, _prototypes))
+                    if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, EntityManager, _prototypes, isWhitelisted))
                         continue;
 
                     goto NoRole;
@@ -217,6 +213,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes ??= new Dictionary<string, TimeSpan>();
         }
 
+        var isWhitelisted = player.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
+
         for (var i = 0; i < jobs.Count; i++)
         {
             var job = jobs[i];
@@ -228,7 +226,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
             foreach (var requirement in jobber.Requirements)
             {
-                if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, EntityManager, _prototypes))
+                if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, EntityManager, _prototypes, isWhitelisted))
                     continue;
 
                 jobs.RemoveSwap(i);

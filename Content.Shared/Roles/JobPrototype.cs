@@ -47,12 +47,6 @@ namespace Content.Shared.Roles
         [DataField("joinNotifyCrew")]
         public bool JoinNotifyCrew { get; private set; } = false;
 
-        /// <summary>
-        ///     Nyanotrasen - If true, require whitelist for the job.
-        /// </summary>
-        [DataField("whitelistRequired")]
-        public bool WhitelistRequired = false;
-
         [DataField("requireAdminNotify")]
         public bool RequireAdminNotify { get; private set; } = false;
 
