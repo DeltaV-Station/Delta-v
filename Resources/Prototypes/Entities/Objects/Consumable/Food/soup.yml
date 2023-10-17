@@ -566,6 +566,31 @@
         - ReagentId: Amatoxin
           Quantity: 6
 
+- type: entity
+  name: scrambled eggs
+  parent: FoodBowlBase
+  id: FoodMealScrambledEggs
+  description: Some cooked eggs with salt. Yummy!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - egg
+      - salty
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: scrambled-eggs
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: TableSalt
+          Quantity: 1
+# Tastes like eggs, butter and salt
+
 # Soup
 
 - type: entity
