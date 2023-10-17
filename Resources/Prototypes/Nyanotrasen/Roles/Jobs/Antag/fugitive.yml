@@ -1,0 +1,30 @@
+- type: job
+  id: Fugitive
+  name: job-name-fugitive
+  description: job-description-fugitive
+  playTimeTracker: JobFugitive
+  startingGear: FugitiveStartingGear
+  setPreference: false
+  icon: "JobIconPrisoner"
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 3600 #DeltaV 1 hour
+
+- type: antag
+  id: Fugitive
+  name: roles-antag-fugitive-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-fugitive-objective
+
+- type: startingGear
+  id: FugitiveStartingGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    gloves: ClothingHandsGlovesColorYellow
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerClothingSkirt: ClothingUniformJumpsuitPrisoner
+  inhand:
+    - ToolboxElectricalFilled

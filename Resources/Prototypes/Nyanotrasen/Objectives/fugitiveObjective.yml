@@ -1,0 +1,12 @@
+- type: entity
+  id: EscapeShuttleObjectiveFugitive
+  name: Escape, fugitive, to Centcomm alive and unrestrained.
+  description: You need to escape the station, one way or another. 
+  components:
+  - type: Objective
+    difficulty: 69 #'Make this number absurdly high' - 10/17/2023
+    issuer: self
+    icon:
+      sprite: Markers/jobs.rsi
+      state: prisoner
+  - type: EscapeShuttleCondition

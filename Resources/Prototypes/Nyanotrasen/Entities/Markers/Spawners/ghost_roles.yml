@@ -24,8 +24,8 @@
   parent: MarkerBase
   noSpawn: true
   components:
-  # - type: GhostRoleMobSpawner
-  #   prototype: MobHumanFugitive # Todo
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanFugitive 
   - type: GhostRole
     name: Fugitive
     description: You're an escaped prisoner. Make it out alive.
@@ -49,7 +49,7 @@
     layers:
       - state: green
       - state: prisoner
-  # - type: MidRoundAntagSpawnLocation # When MidRoundAntag?
+  - type: MidRoundAntagSpawnLocation
 
 # - type: entity
 #   id: SpawnPointGhostVampSpider

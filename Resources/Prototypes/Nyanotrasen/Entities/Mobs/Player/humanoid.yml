@@ -1,0 +1,11 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanFugitive
+  name: Fugitive
+  noSpawn: true
+  components:
+    - type: Loadout
+      prototypes: [FugitiveStartingGear]
+    - type: Fugitive
+    - type: FugitiveCountdown
+    - type: RandomHumanoidAppearance

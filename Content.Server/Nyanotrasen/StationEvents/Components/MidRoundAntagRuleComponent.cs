@@ -8,9 +8,9 @@ public sealed partial class MidRoundAntagRuleComponent : Component
     [DataField("antags")]
     public IReadOnlyList<string> MidRoundAntags = new[]
     {
-        "SpawnPointGhostRatKing",
-        "SpawnPointGhostVampSpider",
-        "SpawnPointGhostFugitive",
-        "MobEvilTwinSpawn"
+        //"SpawnPointGhostRatKing",
+        //"SpawnPointGhostVampSpider",
+        "SpawnPointGhostFugitive"
+        //"MobEvilTwinSpawn"
     };
 }
