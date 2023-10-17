@@ -1286,18 +1286,6 @@
     FoodSnackChocolateBar: 2
     FoodEgg: 3
 
-- type: microwaveMealRecipe
-  id: RecipeScrambledEggs
-  name: scrambled eggs recipe
-  result: FoodMealScrambledEggs
-  time: 5
-  reagents:
-    TableSalt: 5
-  solids:
-    FoodBowlBig: 1
-    FoodEgg: 3
-    FoodButter: 1
-
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket
