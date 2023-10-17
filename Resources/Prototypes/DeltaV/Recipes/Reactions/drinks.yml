@@ -1,5 +1,5 @@
 - type: reaction
-  id: Dulleavene
+  id: HealthViolation
   reactants:
     GargleBlaster:
       amount: 10
@@ -10,7 +10,7 @@
     Vermouth:
       amount: 1
   products:
-    Dulleavene: 20
+    HealthViolation: 20
 
 - type: reaction
   id: Gunmetal
@@ -76,3 +76,15 @@
       amount: 1
   products:
     ArsonistsBrew: 5
+
+- type: reaction
+  id: Mothamphetamine
+  reactants:
+    FourteenLoko:
+      amount: 1
+    EnergyDrink:
+      amount: 1
+    BlueCuracao:
+      amount: 1
+  products:
+    Mothamphetamine: 3  
