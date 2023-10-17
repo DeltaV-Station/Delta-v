@@ -256,7 +256,7 @@ namespace Content.Server.Cloning
             // End Nyano-code.
 
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); // Nyano - Summary: Change the latter part of this code to one we control for Metempsychosis. 
-            _humanoidSystem.CloneAppearance(bodyToClone, mob);
+            //_humanoidSystem.CloneAppearance(bodyToClone, mob); //Nyano - Summary: handled inside of FetchAndSpawnMob. 
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -37,6 +38,8 @@ public abstract class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
     }
+
+    [PublicAPI]
     //Nyano - Code Block Summary: Allows for us to set if a mind can be examined or not. Used for Metem cloning. 
     public void SetExamineInfo(EntityUid uid, bool canExamine, MindContainerComponent? mind = null)
     {

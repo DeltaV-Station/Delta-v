@@ -327,6 +327,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         humanoid.Age = profile.Age;
+        humanoid.LastProfileLoaded = profile; // Nyano - Summary: save the last profile for paradox anomalies.
 
         Dirty(humanoid);
     }
