@@ -131,27 +131,21 @@ public static class SkinColor
     ///     DeltaV - Convert a color to the 'tinted hues' skin tone type, and blend it into skinColor
     /// </summary>
     /// <param name="color">Color to convert</param>
+    /// <param name="skinColor">The skin color to blend with</param>
+    /// <param name="blendFactor">Blending factor (0.0 to 1.0)</param>
     /// <returns>Tinted hue color</returns>
-    public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.2f)
+    public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.5f)
     {
-        var colorHsv = Color.ToHsv(color);
-        var skinHsv = Color.ToHsv(skinColor);
 
-        colorHsv = new Vector4(
-            skinHsv.X + (colorHsv.X - skinHsv.X) * blendFactor,
-            skinHsv.Y + (colorHsv.Y - skinHsv.Y) * blendFactor,
-            skinHsv.Z + (colorHsv.Z - skinHsv.Z) * blendFactor,
-            skinHsv.W
-        );
+        blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
 
-        colorHsv = new Vector4(
-            Math.Clamp(colorHsv.X, 0f, 360f),
-            Math.Clamp(colorHsv.Y, 0f, 1f),
-            Math.Clamp(colorHsv.Z, 0f, 1f),
-            colorHsv.W
-        );
+        // Interpolate, why no lerp :(
+        float r = skinColor.R * (1 - blendFactor) + color.R * blendFactor;
+        float g = skinColor.G * (1 - blendFactor) + color.G * blendFactor;
+        float b = skinColor.B * (1 - blendFactor) + color.B * blendFactor;
+        float a = color.A;
 
-        return Color.FromHsv(colorHsv);
+        return new Color(r, g, b, a);
     }
 
     /// <summary>
@@ -171,7 +165,7 @@ public static class SkinColor
         {
             HumanoidSkinColor.HumanToned => VerifyHumanSkinTone(color),
             HumanoidSkinColor.TintedHues => VerifyTintedHues(color),
-            HumanoidSkinColor.TintedHuesSkin => VerifyTintedHues(color), // DeltaV - Tone blending
+            HumanoidSkinColor.TintedHuesSkin => true, // DeltaV - Tone blending
             HumanoidSkinColor.Hues => true,
             _ => false,
         };
