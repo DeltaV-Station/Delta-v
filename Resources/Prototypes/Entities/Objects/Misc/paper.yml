@@ -464,7 +464,7 @@
         whitelist:
           tags:
             - Write
-        insertOnInteract: false 
+        insertOnInteract: false
   - type: Item
     sprite: Objects/Misc/clipboard.rsi
     size: 10
@@ -661,7 +661,7 @@
     state: stamp-mime
 
 - type: entity
-  name: head of logistics' rubber stamp # DeltaV - Logistics Department replacing Cargo
+  name: logistics officer's rubber stamp # DeltaV - Logistics Department replacing Cargo
   parent: RubberStampBase
   id: RubberStampQm
   suffix: DO NOT MAP
