@@ -172,6 +172,8 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupTomatoBlood",
             "FoodMothSaladBase",
             "FoodPieXeno",
+            "FoodPiePumpkin",
+            "FoodPiePumpkinSlice",
             "FoodDonkpocketTeriyakiWarm",
             "FoodMothBakedCheese",
             "FoodMothTomatoSauce",
