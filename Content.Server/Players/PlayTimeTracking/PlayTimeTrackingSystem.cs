@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Afk;
 using Content.Server.Afk.Events;
-using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.CCVar;
