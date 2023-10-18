@@ -136,7 +136,6 @@ public static class SkinColor
     /// <returns>Tinted hue color</returns>
     public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.5f)
     {
-
         blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
 
         var r = MathHelper.Lerp(skinColor.R, color.R, blendFactor);
