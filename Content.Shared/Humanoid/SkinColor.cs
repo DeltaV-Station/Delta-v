@@ -139,11 +139,10 @@ public static class SkinColor
 
         blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
 
-        // Interpolate, why no lerp :(
-        float r = skinColor.R * (1 - blendFactor) + color.R * blendFactor;
-        float g = skinColor.G * (1 - blendFactor) + color.G * blendFactor;
-        float b = skinColor.B * (1 - blendFactor) + color.B * blendFactor;
-        float a = color.A;
+        var r = MathHelper.Lerp(skinColor.R, color.R, blendFactor);
+        var g = MathHelper.Lerp(skinColor.G, color.G, blendFactor);
+        var b = MathHelper.Lerp(skinColor.B, color.B, blendFactor);
+        var a = color.A;
 
         return new Color(r, g, b, a);
     }
