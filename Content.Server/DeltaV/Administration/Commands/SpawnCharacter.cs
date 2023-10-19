@@ -106,6 +106,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
             return CompletionResult.Empty;
         }
+
         return CompletionResult.Empty;
     }
 
@@ -117,7 +118,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
         characters = prefs.Characters
             .Where(kv => kv.Value is HumanoidCharacterProfile)
-            .Select(kv => (HumanoidCharacterProfile)kv.Value)
+            .Select(kv => (HumanoidCharacterProfile) kv.Value)
             .ToArray();
 
         return true;
