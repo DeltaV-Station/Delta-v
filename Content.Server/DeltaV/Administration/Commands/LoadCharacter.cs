@@ -30,8 +30,7 @@ public sealed class LoadCharacter : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var player = shell.Player as IPlayerSession;
-        if (player == null)
+        if (shell.Player is not IPlayerSession player)
         {
             shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
             return;
@@ -129,27 +128,29 @@ public sealed class LoadCharacter : IConsoleCommand
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
-            return CompletionResult.FromHint(Loc.GetString("shell-argument-uid"));
-        if (args.Length == 2)
+        switch (args.Length)
         {
-            var player = shell.Player as IPlayerSession;
-            if (player == null)
+            case 1:
+                return CompletionResult.FromHint(Loc.GetString("shell-argument-uid"));
+            case 2:
+            {
+                var player = shell.Player as IPlayerSession;
+                if (player == null)
+                    return CompletionResult.Empty;
+
+                var data = player.ContentData();
+                var mind = data?.Mind;
+
+                if (mind == null || data == null)
+                    return CompletionResult.Empty;
+
+                return FetchCharacters(data.UserId, out var characters)
+                    ? CompletionResult.FromOptions(characters.Select(c => c.Name))
+                    : CompletionResult.Empty;
+            }
+            default:
                 return CompletionResult.Empty;
-
-            var data = player.ContentData();
-            var mind = data?.Mind;
-
-            if (mind == null || data == null)
-                return CompletionResult.Empty;
-
-            if (FetchCharacters(data.UserId, out var characters))
-                return CompletionResult.FromOptions(characters.Select(c => c.Name));
-
-            return CompletionResult.Empty;
         }
-
-        return CompletionResult.Empty;
     }
 
     private bool FetchCharacters(NetUserId player, out HumanoidCharacterProfile[] characters)

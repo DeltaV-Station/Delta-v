@@ -26,8 +26,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var player = shell.Player as IPlayerSession;
-        if (player == null)
+        if (shell.Player is not IPlayerSession player)
         {
             shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
             return;
@@ -37,7 +36,7 @@ public sealed class SpawnCharacter : IConsoleCommand
 
         var data = player.ContentData();
 
-        if (data == null || data.UserId == null)
+        if (data?.UserId == null)
         {
             shell.WriteError(Loc.GetString("shell-entity-is-not-mob"));
             return;
@@ -101,10 +100,9 @@ public sealed class SpawnCharacter : IConsoleCommand
             if (mind == null || data == null)
                 return CompletionResult.Empty;
 
-            if (FetchCharacters(data.UserId, out var characters))
-                return CompletionResult.FromOptions(characters.Select(c => c.Name));
-
-            return CompletionResult.Empty;
+            return FetchCharacters(data.UserId, out var characters)
+                ? CompletionResult.FromOptions(characters.Select(c => c.Name))
+                : CompletionResult.Empty;
         }
 
         return CompletionResult.Empty;
