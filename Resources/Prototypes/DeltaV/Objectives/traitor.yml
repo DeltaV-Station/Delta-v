@@ -1,7 +1,7 @@
-- type: entity # Head of Logistics steal objective.
+- type: entity # Logistics Officer steal objective.
   noSpawn: true
   parent: BaseTraitorStealObjective
-  id: HoLLuckyBillStealObjective
+  id: LOLuckyBillStealObjective
   components:
   - type: NotJobRequirement
     job: Quartermaster

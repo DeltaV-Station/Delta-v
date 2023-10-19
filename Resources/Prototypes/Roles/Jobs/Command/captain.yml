@@ -24,6 +24,7 @@
       time: 108000 # DeltaV - 30 hours
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 108000 # 30 hours
+    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

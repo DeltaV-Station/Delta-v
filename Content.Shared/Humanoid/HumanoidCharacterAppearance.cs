@@ -104,6 +104,8 @@ namespace Content.Shared.Humanoid
                 HumanoidSkinColor.HumanToned => Humanoid.SkinColor.HumanSkinTone(speciesPrototype.DefaultHumanSkinTone),
                 HumanoidSkinColor.Hues => speciesPrototype.DefaultSkinTone,
                 HumanoidSkinColor.TintedHues => Humanoid.SkinColor.TintedHues(speciesPrototype.DefaultSkinTone),
+                // DeltaV - Blended tint for moths
+                HumanoidSkinColor.TintedHuesSkin => Humanoid.SkinColor.TintedHuesSkin(speciesPrototype.DefaultSkinTone, speciesPrototype.DefaultSkinTone),
                 _ => Humanoid.SkinColor.ValidHumanSkinTone
             };
 
@@ -153,6 +155,7 @@ namespace Content.Shared.Humanoid
             var newEyeColor = random.Pick(RealisticEyeColors);
 
             var skinType = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species).SkinColoration;
+            var skinTone = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species).DefaultSkinTone; // DeltaV, required for tone blending
 
             var newSkinColor = Humanoid.SkinColor.ValidHumanSkinTone;
             switch (skinType)
@@ -168,11 +171,22 @@ namespace Content.Shared.Humanoid
                     var bbyte = random.NextByte();
                     newSkinColor = new Color(rbyte, gbyte, bbyte);
                     break;
+                case HumanoidSkinColor.TintedHuesSkin: // DeltaV, tone blending
+                    rbyte = random.NextByte();
+                    gbyte = random.NextByte();
+                    bbyte = random.NextByte();
+                    newSkinColor = new Color(rbyte, gbyte, bbyte);
+                    break;
             }
 
             if (skinType == HumanoidSkinColor.TintedHues)
             {
                 newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);
+            }
+
+            if (skinType == HumanoidSkinColor.TintedHuesSkin) // DeltaV, tone blending
+            {
+                newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(skinTone, newSkinColor);
             }
 
             return new HumanoidCharacterAppearance(newHairStyle, newHairColor, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new ());
