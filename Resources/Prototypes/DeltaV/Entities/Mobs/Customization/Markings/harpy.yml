@@ -6,6 +6,14 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy
@@ -15,6 +23,14 @@
   bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_ears.rsi
       state: harpy_ears_default
@@ -24,6 +40,14 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
       state: phoenix_tail
