@@ -265,6 +265,7 @@
     state: overpriced_pen
   - type: ItemCooldown
   - type: MeleeWeapon
+    wideAnimationRotation: -45
     damage:
       types:
         Piercing: 15
@@ -488,6 +489,7 @@
           tags:
           - Write
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     damage:
       types:
         Blunt: 6
