@@ -34,7 +34,6 @@ public sealed partial class OracleComponent : Component
     };
 
     [DataField("demandMessages")]
-    [ViewVariables(VVAccess.ReadWrite)]
     public IReadOnlyList<string> DemandMessages = new[]
     {
         "oracle-demand-1",
@@ -52,7 +51,6 @@ public sealed partial class OracleComponent : Component
     };
 
     [DataField("rejectMessages")]
-    [ViewVariables(VVAccess.ReadWrite)]
     public IReadOnlyList<string> RejectMessages = new[]
     {
         "ἄγνοια",
@@ -63,7 +61,7 @@ public sealed partial class OracleComponent : Component
     };
 
     [DataField("blacklistedPrototypes")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public IReadOnlyList<string> BlacklistedPrototypes = new[]
     {
         "Drone",
