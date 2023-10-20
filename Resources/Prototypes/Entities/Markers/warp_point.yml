@@ -40,10 +40,10 @@
 - type: entity
   id: WarpPointBeaconCargo
   parent: WarpPointBeacon
-  name: warp point (cargo)
+  name: warp point (logistics) # DeltaV - Logistics Department replacing Cargo
   components:
   - type: NavMapBeacon
-    text: cargo
+    text: logistics # DeltaV - Logistics Department replacing Cargo
     color: "#A46106"
 
 - type: entity

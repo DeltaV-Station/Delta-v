@@ -1,4 +1,4 @@
-department-Cargo = Logistics
+department-Cargo = Cargo
 department-Civilian = Civilian
 department-Command = Command
 department-Engineering = Engineering
