@@ -79,6 +79,12 @@
   name: ghost role spawn point
   suffix: loneops
   parent: MarkerBase
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 172800 # DeltaV - 48 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+    department: Security
+    time: 36000 # DeltaV - 10 hours
   components:
   - type: GhostRole
     name: ghost-role-information-loneop-name
