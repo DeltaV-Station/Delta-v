@@ -4,5 +4,5 @@ department-Command = Command
 department-Engineering = Engineering
 department-Medical = Medical
 department-Security = Security
-department-Science = Epistemics
+department-Science = Science
 department-Specific = Station specific

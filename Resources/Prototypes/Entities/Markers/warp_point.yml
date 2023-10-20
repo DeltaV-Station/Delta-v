@@ -85,10 +85,10 @@
 - type: entity
   id: WarpPointBeaconScience
   parent: WarpPointBeacon
-  name: warp point (science)
+  name: warp point (epistemics) # DeltaV - Epistemics Department replacing Science
   components:
   - type: NavMapBeacon
-    text: science
+    text: epistemics # DeltaV - Epistemics Department replacing Science
     color: "#D381C9"
 
 - type: entity
