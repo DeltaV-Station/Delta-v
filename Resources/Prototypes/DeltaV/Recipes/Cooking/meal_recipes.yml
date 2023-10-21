@@ -7,3 +7,28 @@
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
     FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipeScrambledEggs
+  name: scrambled eggs recipe
+  result: FoodMealScrambledEggs
+  time: 5
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodBowlBig: 1
+    FoodEgg: 3
+    FoodButter: 1
+ 
+# - type: microwaveMealRecipe # Add when we have actual pumpkins
+#   id: RecipePumpkinPie
+#   name: pumpkin pie
+#   result: FoodPiePumpkin
+#   time: 15
+#   reagents:
+#     Sugar: 5
+#     Milk: 5
+#     Egg: 12
+#   solids:
+#     FoodPumpkin: 1
+#     FoodPlateTin: 1

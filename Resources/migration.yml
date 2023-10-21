@@ -129,7 +129,7 @@ HyperlinkBookSpaceLaw: BookSecurity
 HyperlinkBookSupernanny: BookHowToSurvive
 SpawnPointCataloguer: SpawnPointLibrarian
 SpawnPointCyborg: SpawnPointBorg
-SpawnPointMedicalCyborg: SpawnPointBorgMedical
+SpawnPointMedicalCyborg: null
 SpawnPointEpistemologist: SpawnPointScientist
 SpawnPointMystagogue: SpawnPointResearchDirector
 SpawnPointSalvageTechnician: SpawnPointSalvageSpecialist
@@ -145,3 +145,6 @@ CrateMedicalDefib: CrateMedical
 LeftLegSpider: null
 RightLegSpider: null
 WeaponShotgunEnforcerNonLethal: WeaponShotgunEnforcerRubber
+
+# 2023-10-06 (Merge related migrations)
+FoodMealTaco: FoodMealSoftTaco
