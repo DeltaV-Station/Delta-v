@@ -129,7 +129,7 @@ HyperlinkBookSpaceLaw: BookSecurity
 HyperlinkBookSupernanny: BookHowToSurvive
 SpawnPointCataloguer: SpawnPointLibrarian
 SpawnPointCyborg: SpawnPointBorg
-SpawnPointMedicalCyborg: SpawnPointBorgMedical
+SpawnPointMedicalCyborg: null
 SpawnPointEpistemologist: SpawnPointScientist
 SpawnPointMystagogue: SpawnPointResearchDirector
 SpawnPointSalvageTechnician: SpawnPointSalvageSpecialist
@@ -149,6 +149,9 @@ FloorPlanetAsphalt: FloorAsphalt
 FoodTinBeansOpen: FoodTinBeans
 FoodBreadMoldy: FoodBreadMoldySlice
 FoodMeatPatty: FoodMeatMeatball
+
+# 2023-10-06 (Merge related migrations)
+FoodMealTaco: FoodMealSoftTaco
 
 #Delta V temporary changes. Remove When items are added.
 
