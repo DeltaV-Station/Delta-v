@@ -6,7 +6,7 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Science
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
       time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
       time: 72000 # DeltaV - 20 hours
