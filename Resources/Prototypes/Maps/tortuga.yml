@@ -1,0 +1,57 @@
+- type: gameMap
+  id: Tortuga
+  mapName: 'Tortuga'
+  mapPath: /Maps/tortuga.yml
+  minPlayers: 50
+  stations:
+    Tortuga:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Tortuga Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/NTES_SealG.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Passenger: [ -1, -1 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 3, 4 ]
+            Clown: [ 1, 1 ]
+            Robot: [ 2, 3 ]
+            ForensicMantis: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
+            Mime: [ 1, 2 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 6, 8 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 7, 9 ]
+            MedicalRobot: [ 1, 2 ]
+            Paramedic: [ 1, 2 ]
+            Mystagogue: [ 1, 1 ]
+            Epistemologist: [ 5, 6 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 6, 9 ]
+            SecurityCadet: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Cataloguer: [ 0, 1 ]
+            Lawyer: [ 2, 2 ]
+            Quartermaster: [ 2, 4 ]
+            SalvageTechnician: [ 3, 4 ]
+            Musician: [ 2, 3 ]
+            AtmosphericTechnician: [ 2, 3 ]
+            MailCarrier: [ 2, 2 ]
+            Reporter: [ 0, 2 ]
+            Valet: [ 0, 6 ]
+            Psychologist: [ 0, 1 ]
+            Prisoner: [ 1, 2 ]
+            PrisonGuard: [ 1, 1 ]
