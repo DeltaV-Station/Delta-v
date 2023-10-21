@@ -563,20 +563,15 @@ namespace Content.Server.Mail
 
             if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
                 && TryComp<AccessComponent>(idCard.Owner, out var access)
-                && idCard.FullName != null
-                && idCard.JobTitle != null)
+                && idCard.Comp.FullName != null
+                && idCard.Comp.JobTitle != null)
             {
-                HashSet<String> accessTags = access.Tags;
+                var accessTags = access.Tags;
 
-                var mayReceivePriorityMail = true;
+                var mayReceivePriorityMail = !(_mindSystem.GetMind(receiver.Owner) == null);
 
-                if (_mindSystem.GetMind(receiver.Owner) == null)
-                {
-                    mayReceivePriorityMail = false;
-                }
-
-                recipient = new MailRecipient(idCard.FullName,
-                    idCard.JobTitle,
+                recipient = new MailRecipient(idCard.Comp.FullName,
+                    idCard.Comp.JobTitle,
                     accessTags,
                     mayReceivePriorityMail);
 

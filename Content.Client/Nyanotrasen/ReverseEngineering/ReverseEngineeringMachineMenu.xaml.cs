@@ -50,10 +50,7 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
         }
         ItemDisplay.Visible = true;
 
-        if (!_ent.TryGetComponent<SpriteComponent>(uid, out var sprite))
-            return;
-
-        ItemDisplay.Sprite = sprite;
+        ItemDisplay.SetEntity(uid);
     }
 
     public void UpdateInformationDisplay(ReverseEngineeringMachineScanUpdateState state)
