@@ -4,3 +4,6 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-space-ninja-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+    time: 259200 # DeltaV - 72 hours
