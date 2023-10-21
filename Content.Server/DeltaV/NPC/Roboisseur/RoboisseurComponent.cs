@@ -23,6 +23,14 @@ namespace Content.Server.Roboisseur.Roboisseur
         [DataField("barkTime")]
         public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
+        /// <summary>
+        ///     Antispam.
+        /// </summary>
+        public TimeSpan StateTime = default!;
+
+        [DataField("stateCD")]
+        public TimeSpan StateCD = TimeSpan.FromSeconds(5);
+
         [ViewVariables(VVAccess.ReadWrite)]
         public EntityPrototype DesiredPrototype = default!;
 
