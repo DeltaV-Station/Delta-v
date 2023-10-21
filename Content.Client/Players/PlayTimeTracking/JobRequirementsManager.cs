@@ -14,7 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Players.PlayTimeTracking;
 
-public sealed class JobRequirementsManager
+public sealed partial class JobRequirementsManager
 {
     [Dependency] private readonly IBaseClient _client = default!;
     [Dependency] private readonly IClientNetManager _net = default!;
@@ -37,6 +37,7 @@ public sealed class JobRequirementsManager
         // Yeah the client manager handles role bans and playtime but the server ones are separate DEAL.
         _net.RegisterNetMessage<MsgRoleBans>(RxRoleBans);
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
+        _net.RegisterNetMessage<MsgWhitelist>(RxWhitelist);
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
@@ -113,7 +114,7 @@ public sealed class JobRequirementsManager
         var reasons = new List<string>();
         foreach (var requirement in requirements)
         {
-            if (JobRequirements.TryRequirementMet(requirement, _roles, out var jobReason, _entManager, _prototypes))
+            if (JobRequirements.TryRequirementMet(requirement, _roles, out var jobReason, _entManager, _prototypes, _whitelisted))
                 continue;
 
             reasons.Add(jobReason.ToMarkup());

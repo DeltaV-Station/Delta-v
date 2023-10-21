@@ -50,8 +50,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoft
-  name: head of logistics' cap # DeltaV - Logistics Department replacing Cargo
-  description: "It's a baseball hat painted in the Head of Logistics' colors."
+  name: logistics officer's cap # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in the Logistics Officer's colors."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft.rsi
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoftFlipped
-  name: head of logistics' cap flipped # DeltaV - Logistics Department replacing Cargo
-  description: "It's a baseball hat painted in the Head of Logistics' colors. Flipped."
+  name: logistics officer's cap flipped # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in the Logistics Officer's colors. Flipped."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
