@@ -5,7 +5,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Contests;
-using Content.Server.Climbing;
+using Content.Shared.Climbing; // Shared instead of Server
 using Content.Shared.Mobs;
 using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
@@ -14,6 +14,7 @@ using Content.Shared.Hands;
 using Content.Shared.Stunnable;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Content.Shared.Climbing.Events; // Added this.
 using Content.Shared.Carrying;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;

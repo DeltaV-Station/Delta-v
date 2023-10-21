@@ -2,6 +2,7 @@ using Content.Server.Contests;
 using Robust.Shared.Containers;
 using Content.Server.Popups;
 using Content.Shared.Storage;
+using Content.Server.Carrying; // Carrying system from Nyanotrasen.
 using Content.Shared.Inventory;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.ActionBlocker;
@@ -21,6 +22,7 @@ public sealed class EscapeInventorySystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly CarryingSystem _carryingSystem = default!; // Carrying system from Nyanotrasen.
 
     /// <summary>
     /// You can't escape the hands of an entity this many times more massive than you.
@@ -92,6 +94,13 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         if (args.Handled || args.Cancelled)
             return;
+        
+        if (TryComp<BeingCarriedComponent>(uid, out var carried)) // Start of carrying system of nyanotrasen.
+        {
+            _carryingSystem.DropCarried(carried.Carrier, uid);
+            return;
+        } // End of carrying system of nyanotrasen.
+
 
         _containerSystem.AttachParentToContainerOrGrid(Transform(uid));
         args.Handled = true;

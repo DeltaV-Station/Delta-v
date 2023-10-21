@@ -5,7 +5,7 @@ namespace Content.Shared.Carrying
 {
     [RegisterComponent, NetworkedComponent, Access(typeof(CarryingSlowdownSystem))]
 
-    public sealed class CarryingSlowdownComponent : Component
+    public sealed partial class CarryingSlowdownComponent : Component
     {
         [DataField("walkModifier", required: true)] [ViewVariables(VVAccess.ReadWrite)]
         public float WalkModifier = 1.0f;
