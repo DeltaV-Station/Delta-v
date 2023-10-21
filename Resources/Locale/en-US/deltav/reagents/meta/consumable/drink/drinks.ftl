@@ -16,7 +16,7 @@ reagent-desc-daiquiri = A sweet mix of deadrum and lime, a favourite of writers 
 reagent-name-arsonistsbrew = arsonist's brew
 reagent-desc-arsonistsbrew = Take a sip and laugh, while you watch your world burn.
 
-reagent-name-healthviolation = health violation
+reagent-name-healthviolation = health code violation
 reagent-desc-healthviolation = Allegedly it's a cocktail. The warning cone motif seems apt.
 
 reagent-name-mothamphetamine = mothamphetamine
