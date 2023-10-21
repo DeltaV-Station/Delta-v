@@ -36,7 +36,7 @@
       - id: PinpointerNuclear
       - id: CaptainIDCard
       - id: ClothingHeadHatCaptain
-      - id: ClothingNeckCloakCap
+      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
       - id: ClothingHandsGlovesCaptain
       - id: ClothingOuterHardsuitCap
       - id: ClothingMaskGasCaptain
@@ -58,6 +58,8 @@
       - id: JetpackCaptainFilled
       - id: MedalCase
       - id: ClothingHeadHatCapcap
+      - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerCaptainFilled
@@ -72,7 +74,7 @@
       - id: CaptainIDCard
       - id: ClothingHeadHatCaptain
       - id: ClothingNeckCloakCap
-      - id: ClothingHandsGlovesCaptain
+      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
@@ -91,6 +93,8 @@
       - id: JetpackCaptainFilled
       - id: MedalCase
       - id: ClothingHeadHatCapcap
+      - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -124,6 +128,12 @@
         prob: 0.5
       - id: AccessConfigurator
       - id: BookIanDossier # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/ian_dossier.yml
+      - id: ClothingHandsGlovesInspection # DeltaV - Add inspection gloves for HoP.
+      - id: ClothingUniformJumpsuitHoPMess # DeltaV - Add mess kit for HoP.
+      - id: ClothingUniformJumpskirtHoPMess # DeltaV - Add mess kit for HoP.
+      - id: ClothingUniformJumpsuitBoatswain # DeltaV - Add turtleneck for HoP.
+      - id: ClothingShoesBootsLaceup # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -201,6 +211,7 @@
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
       - id: BoxPDAMedical # Delta-V
+      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -225,6 +236,7 @@
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
       - id: BoxPDAMedical # Delta-V
+      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -236,7 +248,7 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingNeckCloakRd
+      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Velta variant
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
       - id: HandTeleporter
@@ -259,7 +271,7 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingNeckCloakRd
+      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Velta variant
       - id: ClothingHeadsetMedicalScience
       - id: HandTeleporter
       - id: DoorRemoteResearch
