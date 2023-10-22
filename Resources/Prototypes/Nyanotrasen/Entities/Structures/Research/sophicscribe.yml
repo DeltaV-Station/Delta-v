@@ -1,221 +1,39 @@
- - type: entity
-   parent: BaseStructure
-   id: SophicScribe
-   name: sophic grammateus
-   description: Latest reports on the Noösphere!
-   components:
-   - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
-   - type: Psionic
-   - type: Sprite
-     noRot: true
-     drawdepth: Mobs
-     offset: "0.0,0.5"
-     sprite: DeltaV/Structures/Decoration/statues.rsi
-     layers:
-       - state: sophie
-       - map: ["enum.SolutionContainerLayers.Fill"]
-#   - type: SophicScribe
-#   - type: Speech
-#     speechSounds: Snake
-#   - type: IntrinsicRadioReceiver
-#     channels:
-#     - Common
-#     - Science
-#   - type: IntrinsicRadioTransmitter
-#     channels:
-#     - Common
-#     - Science
-#   - type: ActiveRadio
-#     channels:
-#     - Common
-#     - Science
-#   - type: ActiveListener
-#   - type: TypingIndicator
-#   - type: NPCConversation
-#     tree: SophiaTree
-#   - type: Grammar
-#     attributes:
-#       gender: female
-#       proper: true
-#   - type: SpriteFade
-#   - type: GuideHelp
-#     guides:
-#     - Psionics
-#   - type: Tag
-#     tags: []
-
-# - type: npcConversationTree
-#   id: SophiaTree
-#   dialogue:
-#   - prompts: [glimmer, reading]
-#     responses:
-#       - is: !type:NPCConversationGetGlimmerEvent
-#           text: sophia-response-glimmer
-
-#   - prompts: [purpose, job, occupation, profession]
-#     weight: 0.5
-#     responses:
-#       - text: sophia-response-job
-
-#   - prompts: [help, topics]
-#     weight: 0.5
-#     hidden: true
-#     responses:
-#       - is: !type:NPCConversationHelpEvent
-#           text: sophia-response-help
-
-#   - prompts: [nature, statue, snake, being]
-#     weight: 0.3
-#     responses:
-#       - text: sophia-response-nature
-
-#   - prompts: [epistemics, epi]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-epi
-
-#   - prompts: [mantis]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-mantis
-
-#   - prompts: [mystagogue, mysta]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-mystagogue
-
-#   - prompts: [psionics, psychic]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-psionics
-
-#   - prompts: [noösphere, noosphere]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-noosphere
-
-#   - prompts: [metempsychosis, metempsychoses, reincarnation, death, dying, afterlife]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-metempsychosis
-
-#   - prompts: [calendar]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-calendar
-
-#   - prompts: [morphotypes, morphotype, species]
-#     weight: 0.2
-#     responses:
-#       - text: sophia-response-morphotype
-
-#   - prompts: [gods, god]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-god
-
-#   - prompts: [truth, "true", "false", falsity, falsehood]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-truth
-
-#   - prompts: [human, humans, humanoid, unmutated]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-human
-
-#   - prompts: [felinid, felinids, felid, felids, catperson, catpeople]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-felinid
-
-#   - prompts: [oni, onis]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-oni
-
-#   - prompts: [arachne, arachnid, arachnids, spiderperson, spiderpeople]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-arachne
-
-#   - prompts: [moth, moths, moff, moths]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-moth
-
-#   - prompts: [lamiae, lamia, lamias]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-lamiae
-
-#   - prompts: [grue, grues, batperson, batpeople]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-grue
-
-#   - prompts: [cynocephalus, cynocephali, cyno, cynos]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-cyno
-
-#   - prompts: [crisis, causality]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-crisis
-
-#   - prompts: [oracle]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-oracle
-
-#   - prompts: [abraxas]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-abraxas
-
-#   - prompts: [hi, hello, hey, greetings, salutations]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-hello-1
-#       - text: sophia-response-hello-2
-
-#   - prompts: [bye, goodbye, done, farewell, later, seeya]
-#     weight: 0.1
-#     hidden: true
-#     responses:
-#       - text: sophia-response-bye-1
-#         event: !type:NPCConversationByeEvent
-#       - text: sophia-response-bye-2
-#         event: !type:NPCConversationByeEvent
-#       - text: sophia-response-bye-3
-#         event: !type:NPCConversationByeEvent
-
-#   attention:
-#     - text: sophia-response-attention-1
-#     - text: sophia-response-attention-2
-#     - text: sophia-response-attention-3
-
-#   idle:
-#     - text: sophia-idle-phrase-1
-#     - text: sophia-idle-phrase-2
-#     - text: sophia-idle-phrase-3
-
-#   unknown:
-#     - text: sophia-response-sorry-1
-#     - text: sophia-response-sorry-2
-#     - text: sophia-response-sorry-3
+- type: entity
+  parent: BaseStructure
+  id: SophicScribe
+  name: sophie
+  description: Latest reports on the Noösphere!
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: DeltaV/Structures/Decoration/statues.rsi
+    layers:
+      - state: sophie
+      - map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SophicScribe
+  - type: Speech
+    speechSounds: Tenor
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Science
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Science
+  - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
+  - type: Psionic
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: SpriteFade
+  #- type: GuideHelp # For whenever someones readds this
+  #  guides:
+  #  - Psionics
