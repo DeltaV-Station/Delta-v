@@ -3542,6 +3542,9 @@ entities:
             2489: 3,-8
             2490: 2,-8
             2494: 8,-8
+            2630: 5,-1
+            2631: 7,-1
+            2632: 9,-1
         - node:
             color: '#DE3A3A96'
             id: HalfTileOverlayGreyscale180
@@ -3875,6 +3878,7 @@ entities:
             2455: 7,-12
             2458: 8,-11
             2462: 12,-11
+            2634: 15,-1
         - node:
             color: '#334E6DC8'
             id: QuarterTileOverlayGreyscale270
@@ -3913,6 +3917,7 @@ entities:
             id: QuarterTileOverlayGreyscale270
           decals:
             2463: 14,-11
+            2633: 10,-1
         - node:
             color: '#D381C996'
             id: QuarterTileOverlayGreyscale270
@@ -7476,6 +7481,9 @@ entities:
     - pos: -41.5,-15.5
       parent: 2
       type: Transform
+    - links:
+      - 1290
+      type: DeviceLinkSink
   - uid: 10939
     components:
     - pos: -44.5,-9.5
@@ -7506,6 +7514,9 @@ entities:
     - pos: -35.5,-16.5
       parent: 2
       type: Transform
+    - links:
+      - 1292
+      type: DeviceLinkSink
   - uid: 10946
     components:
     - pos: -44.5,-8.5
@@ -7516,11 +7527,17 @@ entities:
     - pos: -39.5,-16.5
       parent: 2
       type: Transform
+    - links:
+      - 1281
+      type: DeviceLinkSink
   - uid: 10949
     components:
     - pos: -41.5,-12.5
       parent: 2
       type: Transform
+    - links:
+      - 1278
+      type: DeviceLinkSink
   - uid: 14216
     components:
     - pos: -22.5,22.5
@@ -11392,21 +11409,53 @@ entities:
     - pos: -40.5,-10.5
       parent: 2
       type: Transform
+    - label: CEL-1
+      type: SignalTimer
+    - linkedPorts:
+        10949:
+        - Start: Close
+        - Timer: AutoClose
+        - Timer: Open
+      type: DeviceLinkSource
   - uid: 1281
     components:
     - pos: -38.5,-16.5
       parent: 2
       type: Transform
+    - label: CEL-3
+      type: SignalTimer
+    - linkedPorts:
+        10947:
+        - Start: Close
+        - Timer: AutoClose
+        - Timer: Open
+      type: DeviceLinkSource
   - uid: 1290
     components:
     - pos: -41.5,-13.5
       parent: 2
       type: Transform
+    - label: CEL-2
+      type: SignalTimer
+    - linkedPorts:
+        10938:
+        - Start: Close
+        - Timer: AutoClose
+        - Timer: Open
+      type: DeviceLinkSource
   - uid: 1292
     components:
     - pos: -36.5,-16.5
       parent: 2
       type: Transform
+    - label: CEL-4
+      type: SignalTimer
+    - linkedPorts:
+        10944:
+        - Start: Close
+        - Timer: AutoClose
+        - Timer: Open
+      type: DeviceLinkSource
   - uid: 3064
     components:
     - rot: 3.141592653589793 rad
