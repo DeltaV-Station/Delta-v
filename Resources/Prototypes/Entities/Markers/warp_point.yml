@@ -46,10 +46,10 @@
 - type: entity
   id: WarpPointBeaconCargo
   parent: WarpPointBeacon
-  name: warp point (cargo)
+  name: warp point (logistics) # DeltaV - Logistics Department replacing Cargo
   components:
   - type: NavMapBeacon
-    text: cargo
+    text: logistics # DeltaV - Logistics Department replacing Cargo
     color: "#A46106"
   - type: WarpPoint
     location: cargo
@@ -101,10 +101,10 @@
 - type: entity
   id: WarpPointBeaconScience
   parent: WarpPointBeacon
-  name: warp point (science)
+  name: warp point (epistemics) # DeltaV - Epistemics Department replacing Science
   components:
   - type: NavMapBeacon
-    text: science
+    text: epistemics # DeltaV - Epistemics Department replacing Science
     color: "#D381C9"
   - type: WarpPoint
     location: science

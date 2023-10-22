@@ -1,10 +1,10 @@
 ﻿using System.Numerics;
-using Robust.Client.UserInterface;
+using Content.Client.Resources;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
-using Content.Client.Resources;
+using Robust.Client.UserInterface;
 
-namespace Content.Client.Nyanotrasen.UserInterface.CustomControls;
+namespace Content.Client.Nyanotrasen.UserInterface;
 
 public sealed class GlimmerGraph : Control
 {
