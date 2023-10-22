@@ -6,7 +6,7 @@
   antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Free hardsuit and weapons
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Cargo
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
       time: 21600 #DeltaV 6 hrs
   #  - !type:OverallPlaytimeRequirement #DeltaV
   #    time: 36000 #10 hrs
