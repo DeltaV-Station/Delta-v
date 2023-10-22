@@ -100,9 +100,9 @@
     state: pda-science
   - type: Icon
     state: pda-science
-  # - type: CartridgeLoader
-  #   preinstalled:
-  #     - CrewManifestCartridge
-  #     - NotekeeperCartridge
-  #     - NewsReadCartridge
-  #     - GlimmerMonitorCartridge # Uncomment this entire thing if we re-implement the glimmer monitor.
+  - type: CartridgeLoader
+    preinstalled:
+     - CrewManifestCartridge
+     - NotekeeperCartridge
+     - NewsReadCartridge
+     - GlimmerMonitorCartridge
