@@ -184,7 +184,7 @@ namespace Content.Server.Carrying
             args.Cancelled = true;
         }
 
-        private void OnStartClimb(EntityUid uid, BeingCarriedComponent component, StartClimbEvent args)
+        private void OnStartClimb(EntityUid uid, BeingCarriedComponent component, ref StartClimbEvent args)
         {
             DropCarried(component.Carrier, uid);
         }
@@ -227,7 +227,7 @@ namespace Content.Server.Carrying
             component.CancelToken = new CancellationTokenSource();
 
             var ev = new CarryDoAfterEvent();
-            var args = new DoAfterArgs(carrier, length, ev, carried, target: carried)
+            var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
@@ -300,8 +300,8 @@ namespace Content.Server.Carrying
             if (HasComp<BeingCarriedComponent>(carrier) || HasComp<BeingCarriedComponent>(carried))
                 return false;
 
-            if (_respirator.IsReceivingCPR(carried))
-                return false;
+        //  if (_respirator.IsReceivingCPR(carried))
+            //  return false; 
 
             if (!TryComp<HandsComponent>(carrier, out var hands))
                 return false;
