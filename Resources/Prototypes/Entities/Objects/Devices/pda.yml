@@ -584,6 +584,12 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -599,6 +605,12 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
