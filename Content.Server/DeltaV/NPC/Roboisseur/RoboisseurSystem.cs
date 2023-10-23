@@ -7,6 +7,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Kitchen;
 using Robust.Server.GameObjects;
 using Content.Server.Materials;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Roboisseur.Roboisseur
 {
@@ -17,7 +18,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly AppearanceSystem _appearance = default!;
-
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
         {
@@ -87,6 +88,11 @@ namespace Content.Server.Roboisseur.Roboisseur
         {
             if (!TryComp<ActorComponent>(args.User, out var actor))
                 return;
+
+            if (_timing.CurTime < component.StateTime) // Literally stolen from the sophie code
+                return;
+
+            component.StateTime = _timing.CurTime + component.StateCD;
 
             string message = Loc.GetString(_random.Pick(component.DemandMessages), ("item", component.DesiredPrototype.Name));
             if (CheckTier(component.DesiredPrototype.ID, component) > 1)

@@ -6,7 +6,7 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Science
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
       time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
       time: 72000 # DeltaV - 20 hours
@@ -22,6 +22,7 @@
   - Maintenance
   - ResearchDirector
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Chapel # DeltaV - Chaplain is in Epistemics
   special: # Nyanotrasen - Mystagogue can use the Bible
   - !type:AddComponentSpecial
     components:
@@ -38,7 +39,7 @@
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
     shoes: ClothingShoesColorBrown
-    head: ClothingHeadHoodMystic # DeltaV - Mystagogue new hat
+    head: ClothingHeadHoodMysta # DeltaV - Mystagogue new hat
     outerClothing: ClothingOuterCoatRndMysta # DeltaV - Mystagogue new coat
     id: RnDPDA
     ears: ClothingHeadsetRD
