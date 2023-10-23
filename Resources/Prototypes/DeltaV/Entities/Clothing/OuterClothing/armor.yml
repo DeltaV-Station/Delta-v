@@ -18,7 +18,7 @@
         Heat: 0.80
   - type: ClothingSpeedModifier
     walkModifier: 0.90
-    sprintModifier: 0.80
+    sprintModifier: 0.90
   - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
     damageCoefficient: 0.70
 
@@ -61,8 +61,8 @@
         Piercing: 0.70
         Heat: 0.70
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.70
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ExplosionResistance # Almost as good as a plate carrier! Still not going to save you from most bombs though.
     damageCoefficient: 0.80
   - type: GroupExamine
