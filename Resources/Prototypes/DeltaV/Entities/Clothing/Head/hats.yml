@@ -168,3 +168,14 @@
     sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretLogi
+  name: logistics beret
+  description: For the intellectual and studious accountant. Definitely not a revolutionary symbol.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi

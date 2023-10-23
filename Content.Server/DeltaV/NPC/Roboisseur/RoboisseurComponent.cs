@@ -23,6 +23,14 @@ namespace Content.Server.Roboisseur.Roboisseur
         [DataField("barkTime")]
         public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
+        /// <summary>
+        ///     Antispam.
+        /// </summary>
+        public TimeSpan StateTime = default!;
+
+        [DataField("stateCD")]
+        public TimeSpan StateCD = TimeSpan.FromSeconds(5);
+
         [ViewVariables(VVAccess.ReadWrite)]
         public EntityPrototype DesiredPrototype = default!;
 
@@ -89,16 +97,16 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupChiliClown",
             "FoodBurgerSuper",
             "FoodNoodlesCopy",
-            "FoodMothMallow",
+            // "FoodMothMallow",
             "FoodPizzaCorncob",
-            "FoodPizzDonkpocket",
+            "FoodPizzaDonkpocket",
             "FoodSoupMonkey",
             "FoodMothSeedSoup",
             "FoodTartGrape",
             "FoodMealCubancarp",
             "FoodMealSashimi",
             "FoodBurgerCarp",
-            "FoodMealTaco",
+            "FoodMealSoftTaco",
             "FoodMothMacBalls",
             "FoodSoupNettle",
             "FoodBurgerDuck",
@@ -143,7 +151,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         [DataField("blacklistedProtos")]
         public IReadOnlyList<String> BlacklistedProtos = new[]
         {
-            "FoodMothPesto",
+            // "FoodMothPesto",
             "FoodBurgerSpell",
             "FoodBreadBanana",
             "FoodMothSqueakingFry",
@@ -156,7 +164,6 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupTomato",
             "FoodDonkpocketGondolaWarm",
             "FoodDonkpocketBerryWarm",
-            "LockboxDecloner",
             "FoodBreadButteredToast",
             "FoodMothCottonSoup",
             "LeavesTobaccoDried",
@@ -176,7 +183,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodPiePumpkinSlice",
             "FoodDonkpocketTeriyakiWarm",
             "FoodMothBakedCheese",
-            "FoodMothTomatoSauce",
+            // "FoodMothTomatoSauce",
             "FoodMothPizzaCotton",
             "AloeCream",
             "FoodSnackPopcorn",
@@ -184,7 +191,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMothToastedSeeds",
             "FoodMothCornmealPorridge",
             "FoodMothBakedCorn",
-            "FoodBreadMoldySlice",
+            // "FoodBreadMoldySlice",
             "FoodRiceBoiled",
             "FoodMothEyeballSoup",
             "FoodMeatRatKebab",
@@ -198,7 +205,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodOatmeal",
             "FoodBreadJellySlice",
             "FoodMothCottonSalad",
-            "FoodBreadMoldy",
+            // "FoodBreadMoldy",
             "FoodDonkpocketSpicyWarm",
             "FoodCannabisButter",
             "FoodNoodles",

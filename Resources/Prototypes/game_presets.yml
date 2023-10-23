@@ -36,8 +36,8 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: true
-  maxPlayers: 5
+  showInVote: false # DeltaV - No
+  maxPlayers: 1
   rules:
     - Sandbox
 
@@ -59,8 +59,8 @@
     - dm
   name: death-match-title
   description: death-match-description
-  maxPlayers: 15
-  showInVote: true
+  #maxPlayers: 15
+  showInVote: false # DeltaV - No.
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
