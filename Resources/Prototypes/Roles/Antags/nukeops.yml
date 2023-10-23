@@ -10,6 +10,7 @@
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 36000 # DeltaV - 10 hours
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
 
 - type: antag
   id: NukeopsMedic
