@@ -375,17 +375,17 @@
     sounds:
       collection: Paracusia
 
-- type: entity
-  id: ImmovableRodSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-immovable-rod-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    duration: 1
-    earliestStart: 45
-    minimumPlayers: 20
-  - type: ImmovableRodRule
+#- type: entity # DeltaV - Why does this exist??
+#  id: ImmovableRodSpawn
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-immovable-rod-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    weight: 5
+#    duration: 1
+#    earliestStart: 45
+#    minimumPlayers: 20
+#  - type: ImmovableRodRule
