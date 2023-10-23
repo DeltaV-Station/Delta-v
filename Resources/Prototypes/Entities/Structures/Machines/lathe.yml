@@ -114,6 +114,10 @@
       - FoodPlateSmallPlastic
       - SprayBottle
       - PowerCellSmall
+      - VehicleWheelchairFolded
+      - RollerBedSpawnFolded
+      - CheapRollerBedSpawnFolded
+      - EmergencyRollerBedSpawnFolded
       - MicroManipulatorStockPart
       - MatterBinStockPart
       - CapacitorStockPart
@@ -258,16 +262,17 @@
       - SyringeBluespace
       - WeaponCrusher
       - WeaponCrusherDagger
-      - WeaponForceGun
+      #- WeaponForceGun
       - WeaponProtoKineticAccelerator
-      - WeaponTetherGun
-      - WeaponGrapplingGun
+      #- WeaponTetherGun
+      #- WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
       - ClothingEyesGlassesChemical
+      - CoreSilver # Nyanotrasen - Silver Golem core
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload
@@ -381,7 +386,7 @@
       - SalvageMagnetMachineCircuitboard
       - StationMapElectronics
 #      - MetempsychoticMachineCircuitboard
-#      - DeepFryerMachineCircuitBoard
+      - DeepFryerMachineCircuitboard
     # End Nyano additions
   - type: MaterialStorage
     whitelist:
@@ -413,7 +418,7 @@
     staticRecipes:
     - MMI
     - PositronicBrain
-    - Flash
+    - SciFlash
     - BorgModuleCable
     - BorgModuleFireExtinguisher
     - BorgModuleGPS
@@ -462,7 +467,7 @@
     - BorgModuleCleaning
     - BorgModuleTrashCollection
     - BorgModuleMining
-    - BorgModuleGrapplingGun
+    #- BorgModuleGrapplingGun
     - BorgModuleGasAnalyzer
     - BorgModuleAdvancedTool
     - BorgModuleRCD
@@ -698,6 +703,10 @@
       - PillCanister
       - BodyBag
       - ChemistryEmptyBottle01
+      - VehicleWheelchairFolded
+      - RollerBedSpawnFolded
+      - CheapRollerBedSpawnFolded
+      - EmergencyRollerBedSpawnFolded
       - Medkit
       - MedkitBurn
       - MedkitToxin

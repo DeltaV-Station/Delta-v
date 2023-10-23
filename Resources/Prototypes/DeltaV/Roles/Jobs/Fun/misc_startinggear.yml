@@ -1,0 +1,53 @@
+
+#Misc outfit startingGear definitions.
+
+# Laika sec glasses
+
+- type: startingGear
+  id: MobSecDogLaikaGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+#Oldstation Roles
+
+- type: startingGear
+  id: OldstationMedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    neck: ClothingNeckStethoscope
+    shoes: ClothingShoesColorWhite
+    id: MedicalIDCard
+    pocket1: Brutepack
+    pocket2: GlowstickBase
+    belt: ClothingBeltMedical
+  
+  
+- type: startingGear
+  id: OldstationGuard
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    shoes: ClothingShoesBootsJack
+    id: SecurityIDCard
+    pocket1: Flash
+    pocket2: GlowstickBase
+  
+- type: startingGear
+  id: OldstationEngi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    shoes: ClothingShoesBootsWork
+    id: EngineeringIDCard
+    mask: ClothingMaskBreath
+    gloves: ClothingHandsGlovesColorYellowBudget
+    pocket1: EmergencyOxygenTankFilled
+    pocket2: GlowstickBase
+    belt: ClothingBeltUtility
+  
+- type: startingGear
+  id: OldstationScientist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientist
+    shoes: ClothingShoesColorWhite
+    id: ResearchIDCard
+    pocket1: Pen
+    pocket2: GlowstickBase

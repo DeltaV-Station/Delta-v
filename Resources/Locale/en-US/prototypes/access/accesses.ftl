@@ -20,7 +20,7 @@ id-card-access-level-medical = Medical
 id-card-access-level-chemistry = Chemistry
 id-card-access-level-paramedic = Paramedic
 
-id-card-access-level-quartermaster = Head of Logistics
+id-card-access-level-quartermaster = Logistics Officer
 id-card-access-level-cargo = Logistics
 id-card-access-level-salvage = Salvage
 

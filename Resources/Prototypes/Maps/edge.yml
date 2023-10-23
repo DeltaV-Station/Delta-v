@@ -2,7 +2,7 @@
   id: Edge
   mapName: 'Edge'
   mapPath: /Maps/edge.yml
-  minPlayers: 15
+  minPlayers: 10
   maxPlayers: 80
   stations:
     Edge:
@@ -44,7 +44,6 @@
             Psychologist: [ 1, 1 ]
             MedicalDoctor: [ 3, 5 ]
             MedicalIntern: [ 2, 4 ]
-            BorgMedical: [ 1, 2 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]

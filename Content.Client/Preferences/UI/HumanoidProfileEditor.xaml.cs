@@ -642,6 +642,8 @@ namespace Content.Client.Preferences.UI
 
             var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
 
+            var skinColor = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).DefaultSkinTone;
+
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
@@ -671,6 +673,7 @@ namespace Content.Client.Preferences.UI
                     break;
                 }
                 case HumanoidSkinColor.TintedHues:
+                case HumanoidSkinColor.TintedHuesSkin: // DeltaV - Tone blending
                 {
                     if (!_rgbSkinColorContainer.Visible)
                     {
@@ -678,7 +681,12 @@ namespace Content.Client.Preferences.UI
                         _rgbSkinColorContainer.Visible = true;
                     }
 
-                    var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
+                    var color = skin switch // DeltaV - Tone blending
+                    {
+                        HumanoidSkinColor.TintedHues => SkinColor.TintedHues(_rgbSkinColorSelector.Color),
+                        HumanoidSkinColor.TintedHuesSkin => SkinColor.TintedHuesSkin(_rgbSkinColorSelector.Color, skinColor),
+                        _ => Color.White
+                    };
 
                     CMarkings.CurrentSkinColor = color;
                     Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));

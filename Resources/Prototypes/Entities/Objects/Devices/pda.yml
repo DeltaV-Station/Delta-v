@@ -319,7 +319,7 @@
     state: pda-chaplain
 
 - type: entity
-  name: head of logistics PDA # DeltaV - Logistics Department replacing Cargo
+  name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that directs logistics. # DeltaV - Logistics Department replacing Cargo
@@ -584,6 +584,12 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -599,6 +605,12 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
