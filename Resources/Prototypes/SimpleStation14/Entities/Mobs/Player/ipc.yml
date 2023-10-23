@@ -19,9 +19,6 @@
       0: Alive
       140: Critical
       180: Dead
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
   - type: TypingIndicator
     proto: robot
   - type: Destructible
@@ -65,15 +62,35 @@
   - type: EncryptionKeyHolder
     keySlots: 3
     examineWhileLocked: false
-    keysExtractionMethod: Cutting
+    keysExtractionMethod: Prying
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
   - type: Wires
     BoardName: "IPC"
     LayoutId: IPC
-  - type: CharacterInformation
-  - type: SSDIndicator
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: Stamina
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+
 
 - type: entity
   save: false

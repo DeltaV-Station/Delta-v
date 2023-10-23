@@ -6,7 +6,7 @@
   sprites: MobIPCSprites
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
-  skinColoration: TintedHues
+  skinColoration: Hues
   minAge: 1
   maxAge: 240
   oldAge: 50
@@ -28,17 +28,6 @@
   id: MobIPCSprites
   sprites:
     Head: MobIPCHead
-2 weeks ago
-
-Allow admins to force markings onto IPCs (#212)
-    Snout: MobHumanoidAnyMarking
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Wings: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-3 months ago
-
-[Species] InterPersonal Conflict (#97)
     Hair: MobHumanoidMarkingMatchSkin
     FacialHair: MobIPCScreen
     Chest: MobIPCTorso
@@ -53,7 +42,20 @@ Allow admins to force markings onto IPCs (#212)
 
 - type: markingPoints
   id: MobIPCMarkingLimits
+  onlyWhitelisted: true
   points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Head:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
     Chest:
       points: 0
       required: false
