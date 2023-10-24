@@ -8,7 +8,7 @@
   - type: HumanoidAppearance
     species: Vulpkanin
   - type: Hunger
-  - type: Carriable # Carrying system from nyanotrasen.  
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Thirst
   - type: Icon
     sprite: DeltaV/Mobs/Species/Vulpkanin/parts.rsi
@@ -18,6 +18,7 @@
     requiredLegs: 2
   - type: Speech
     speechSounds: Vulpkanin
+    speechVerb: Vulpkanin
   - type: Sprite
     netsync: false
     noRot: true
