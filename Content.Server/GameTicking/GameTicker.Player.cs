@@ -55,9 +55,10 @@ namespace Content.Server.GameTicking
                         data.Mind = mindId;
                         data.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Whitelist
                         session.Data.ContentDataUncast = data;
-
-                        _playTimeManager.SendWhitelistCached(session); // Nyanotrasen - Send whitelist status
                     }
+
+                    session.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Ensure whitelist is correct
+                    _playTimeManager.SendWhitelistCached(session); // Nyanotrasen - Send whitelist status
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
