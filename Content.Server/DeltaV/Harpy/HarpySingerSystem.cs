@@ -22,11 +22,11 @@ namespace Content.Server.DeltaV.Harpy
         {
             base.Initialize();
 
-            SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnSingerMobStateChangedEvent);
+            SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnSingerInstrumentMobStateChangedEvent);
+            SubscribeLocalEvent<HarpySingerComponent, MobStateChangedEvent>(OnHarpySingerMobStateChangedEvent);
             SubscribeLocalEvent<GotEquippedEvent>(OnEquip);
             SubscribeLocalEvent<GotUnequippedEvent>(OnUnequip);
             SubscribeLocalEvent<HarpySingerComponent, SingerMuzzledEvent>(OnSingerMuzzledEvent);
-            SubscribeLocalEvent<HarpySingerComponent, SingerIncapacitatedEvent>(OnSingerIncapacitatedEvent);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
@@ -69,19 +69,19 @@ namespace Content.Server.DeltaV.Harpy
             Dirty(uid, component);
         }
 
-        private void OnSingerIncapacitatedEvent(EntityUid uid, HarpySingerComponent component, SingerIncapacitatedEvent args)
+
+        private void OnSingerInstrumentMobStateChangedEvent(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
         {
-            component.Incapacitated = args.Incapacitated;
-            Dirty(uid, component);
+            if (HasComp<ActiveInstrumentComponent>(uid) &&
+                TryComp<ActorComponent>(uid, out var actor) &&
+                _mobState.IsIncapacitated(uid))
+                _instrument.ToggleInstrumentUi(uid, actor.PlayerSession);
         }
 
-        private void OnSingerMobStateChangedEvent(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
+        private void OnHarpySingerMobStateChangedEvent(EntityUid uid, HarpySingerComponent component, MobStateChangedEvent args)
         {
-            var incapacitated = _mobState.IsIncapacitated(uid);
-            RaiseLocalEvent(uid, new SingerIncapacitatedEvent { Incapacitated = incapacitated });
-
-            if (incapacitated && HasComp<ActiveInstrumentComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
-                _instrument.ToggleInstrumentUi(uid, actor.PlayerSession);
+            component.Incapacitated = _mobState.IsIncapacitated(uid);
+            Dirty(uid, component);
         }
 
         private void OnInstrumentOpen(EntityUid uid, HarpySingerComponent component, OpenUiActionEvent args)
@@ -103,9 +103,4 @@ namespace Content.Server.DeltaV.Harpy
 public sealed partial class SingerMuzzledEvent : InstantActionEvent
 {
     public bool Muzzled;
-}
-
-public sealed partial class SingerIncapacitatedEvent : InstantActionEvent
-{
-    public bool Incapacitated;
 }
