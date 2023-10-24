@@ -77,7 +77,7 @@
       - map: [ "mask" ]
       - map: [ "head" ]
   - type: PotentialPsionic
-  
+
   - type: HumanoidAppearance
     species: Harpy
   - type: Fixtures
@@ -172,7 +172,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    checkCanInteract: true
+    checkCanInteract: false
     icon: DeltaV/Interface/Actions/harpy_sing.png
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key

@@ -13,5 +13,9 @@ namespace Content.Shared.DeltaV.Harpy
 
         [DataField("midiAction", serverOnly: true)] // server only, as it uses a server-BUI event !type
         public EntityUid? MidiAction;
+
+        public bool Muzzled = false;
+
+        public bool Incapacitated = false;
     }
 }
