@@ -74,7 +74,6 @@
     bloodReagent: FluorosulfuricAcid
   - type: MeleeWeapon
     altDisarm: false
-    hidden: true
     angle: 0
     soundHit:
      collection: AlienClaw
@@ -104,7 +103,7 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
-  - type: GhostTakeoverAvailable
+  # - type: GhostTakeoverAvailable # Delta V - Moves ghost role from parent to child
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -121,14 +120,15 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
-  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
+  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic.
     chance: -2
   - type: Psionic #Nyano - Summary: makes psionic by default.
+    removable: false
 
 - type: entity
   name: Praetorian
   parent: MobXeno
-  id: MobXenoPraetorian
+  id: MobXenoPraetorianNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -161,7 +161,7 @@
 - type: entity
   name: Drone
   parent: MobXeno
-  id: MobXenoDrone
+  id: MobXenoDroneNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -198,7 +198,7 @@
 - type: entity
   name: Queen
   parent: MobXeno
-  id: MobXenoQueen
+  id: MobXenoQueenNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -216,7 +216,6 @@
       150: 0.7
   - type: MovementSpeedModifier
   - type: MeleeWeapon
-    hidden: true
     damage:
      groups:
        Brute: 12
@@ -238,7 +237,7 @@
 - type: entity
   name: Ravager
   parent: MobXeno
-  id: MobXenoRavager
+  id: MobXenoRavagerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -254,7 +253,6 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: MeleeWeapon
-    hidden: true
     damage:
      groups:
        Brute: 10
@@ -276,7 +274,7 @@
 - type: entity
   name: Runner
   parent: MobXeno
-  id: MobXenoRunner
+  id: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -288,7 +286,6 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
-    hidden: true
     damage:
      groups:
        Brute: 5
@@ -306,8 +303,8 @@
 
 - type: entity
   name: Rouny
-  parent: MobXenoRunner
-  id: MobXenoRouny
+  parent: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoRounyNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -322,7 +319,7 @@
 - type: entity
   name: Spitter
   parent: MobXeno
-  id: MobXenoSpitter
+  id: MobXenoSpitterNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -399,7 +396,6 @@
     factions:
     - Xeno
   - type: MeleeWeapon
-    hidden: true
     angle: 0
     animation: WeaponArcBite
     damage:

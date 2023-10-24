@@ -31,8 +31,8 @@
         acts: ["Destruction"]
   - type: WiresPanel
   - type: Wires
-    BoardName: wires-board-name-autolathe
-    LayoutId: Autolathe
+    boardName: wires-board-name-autolathe
+    layoutId: Autolathe
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -114,6 +114,10 @@
       - FoodPlateSmallPlastic
       - SprayBottle
       - PowerCellSmall
+      - VehicleWheelchairFolded
+      - RollerBedSpawnFolded
+      - CheapRollerBedSpawnFolded
+      - EmergencyRollerBedSpawnFolded
       - MicroManipulatorStockPart
       - MatterBinStockPart
       - CapacitorStockPart
@@ -189,8 +193,8 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: Wires
-    BoardName: wires-board-name-protolathe
-    LayoutId: Protolathe
+    boardName: wires-board-name-protolathe
+    layoutId: Protolathe
   - type: MaterialStorage
     whitelist:
       tags:
@@ -245,6 +249,7 @@
       - Signaller
       - SignalTrigger
       - VoiceTrigger
+      - Igniter
       - PowerCellMedium
       - PowerCellHigh
       - WeaponPistolCHIMP
@@ -257,16 +262,17 @@
       - SyringeBluespace
       - WeaponCrusher
       - WeaponCrusherDagger
-      - WeaponForceGun
+      #- WeaponForceGun
       - WeaponProtoKineticAccelerator
-      - WeaponTetherGun
-      - WeaponGrapplingGun
+      #- WeaponTetherGun
+      #- WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
       - ClothingEyesGlassesChemical
+      - CoreSilver # Nyanotrasen - Silver Golem core
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload
@@ -380,7 +386,7 @@
       - SalvageMagnetMachineCircuitboard
       - StationMapElectronics
 #      - MetempsychoticMachineCircuitboard
-#      - DeepFryerMachineCircuitBoard
+      - DeepFryerMachineCircuitboard
     # End Nyano additions
   - type: MaterialStorage
     whitelist:
@@ -412,7 +418,7 @@
     staticRecipes:
     - MMI
     - PositronicBrain
-    - Flash
+    - SciFlash
     - BorgModuleCable
     - BorgModuleFireExtinguisher
     - BorgModuleGPS
@@ -461,7 +467,7 @@
     - BorgModuleCleaning
     - BorgModuleTrashCollection
     - BorgModuleMining
-    - BorgModuleGrapplingGun
+    #- BorgModuleGrapplingGun
     - BorgModuleGasAnalyzer
     - BorgModuleAdvancedTool
     - BorgModuleRCD
@@ -558,6 +564,8 @@
       - MagazineBoxLightRifle
       - SpeedLoaderMagnum
       - SpeedLoaderSpecial # DeltaV - .38 Special revolver
+      - ClothingOuterArmorPlateCarrier # DeltaV - plate carrier body armour
+      - ClothingOuterArmorDuraVest # DeltaV - stabproof vest body armour
       - TargetHuman
       - TargetSyndicate
       - TargetClown
@@ -582,6 +590,7 @@
       - MagazineBoxRifleIncendiary
       - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
       - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
+      - ShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - MagazineBoxLightRiflePractice
       - MagazineBoxMagnumPractice
       - MagazineBoxPistolPractice
@@ -607,6 +616,7 @@
       - WeaponTaser
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
+      - ShockCollar # Nyanotrasen - Shock Collar
       - WeaponXrayCannon
   - type: MaterialStorage
     whitelist:
@@ -693,6 +703,10 @@
       - PillCanister
       - BodyBag
       - ChemistryEmptyBottle01
+      - VehicleWheelchairFolded
+      - RollerBedSpawnFolded
+      - CheapRollerBedSpawnFolded
+      - EmergencyRollerBedSpawnFolded
       - Medkit
       - MedkitBurn
       - MedkitToxin
@@ -751,7 +765,6 @@
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
-      - ClothingUniformJumpsuitSalvageExplorer # DeltaV - Salvage better looking uniform, see Resources/Prototypes/DeltaV/Entities/Clothing/Uniform/jumpsuits.yml
       - ClothingUniformJumpsuitChiefEngineer
       - ClothingUniformJumpskirtChiefEngineer
       - ClothingUniformJumpsuitChiefEngineerTurtle
@@ -773,6 +786,10 @@
       - ClothingUniformJumpskirtHoP
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
+      - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
       - ClothingUniformJumpsuitHydroponics
@@ -782,8 +799,8 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
-      - ClothingUniformMailCarrier # DeltaV - Courier Uniform
-      - ClothingUniformSkirtMailCarrier # DeltaV - Courier Uniform
+      - ClothingUniformCourier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtCourier # DeltaV - Courier Uniform
       - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformJumpsuitMedicalDoctor
@@ -805,10 +822,18 @@
       - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+      - ClothingUniformJumpsuitSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
+      - ClothingUniformJumpsuitWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
       - ClothingOuterWinterCap
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
@@ -823,6 +848,7 @@
       - ClothingNeckMantleHOS
       - ClothingNeckMantleRD
       - ClothingNeckMantleQM
+      - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -881,7 +907,7 @@
       runningState: building
       canEjectStoredMaterials: false
       staticRecipes:
-        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here. 
+        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30

@@ -23,6 +23,9 @@
   - type: Access
     tags:
     - Chapel
+  - type: Damageable # Nyanotrasen - Corporeal Spirit allows Holy water to do damage
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: MindContainer
     showExamineInfo: true
   - type: NpcFactionMember
@@ -49,7 +52,6 @@
     rules: ghost-role-information-cerberus-rules
   - type: GhostTakeoverAvailable
   - type: MeleeWeapon
-    hidden: true
     angle: 0
     animation: WeaponArcBite
     damage:

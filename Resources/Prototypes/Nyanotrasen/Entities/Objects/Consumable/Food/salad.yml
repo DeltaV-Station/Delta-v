@@ -17,12 +17,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 10
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
         - ReagentId: Protein
           Quantity: 3
+  - type: Tag
+    tags:
+    - Fruit
 #Tastes like mozzarella, tomato and balsamic
 
 - type: entity
@@ -42,7 +45,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
@@ -69,7 +72,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -77,6 +80,9 @@
           Quantity: 7
         - ReagentId: Fiber
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade
 #Tastes like cheese, salad and cotton
 
 - type: entity
@@ -96,7 +102,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 12

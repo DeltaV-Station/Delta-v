@@ -5,7 +5,7 @@
   playTimeTracker: JobCaptain
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Cargo
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
       time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -17,13 +17,14 @@
       department: Security
       time: 18000 # DeltaV - 5 hours
     - !type:DepartmentTimeRequirement # DeltaV - Epistemics dept time requirement
-      department: Science
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
       time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Command
       time: 108000 # DeltaV - 30 hours
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 108000 # 30 hours
+    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -56,6 +57,6 @@
     outerClothing: ClothingOuterArmorCaptainCarapace
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
-  innerclothingskirt: ClothingUniformJumpskirtCaptain
+  innerClothingSkirt: ClothingUniformJumpskirtCaptain
   satchel: ClothingBackpackSatchelCaptainFilled
   duffelbag: ClothingBackpackDuffelCaptainFilled

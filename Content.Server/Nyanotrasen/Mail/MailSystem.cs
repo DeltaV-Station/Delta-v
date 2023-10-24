@@ -27,6 +27,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Spawners.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Destructible;
@@ -40,6 +41,7 @@ using Content.Shared.Maps;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared.StatusIcon;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Timer = Robust.Shared.Timing.Timer;
@@ -66,6 +68,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
         private ISawmill _sawmill = default!;
 
@@ -423,21 +426,6 @@ namespace Content.Server.Mail
             return false;
         }
 
-        public bool TryMatchJobTitleToIcon(string jobTitle, [NotNullWhen(true)] out string? jobIcon)
-        {
-            foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
-            {
-                if (job.LocalizedName == jobTitle)
-                {
-                    jobIcon = job.Icon;
-                    return true;
-                }
-            }
-
-            jobIcon = null;
-            return false;
-        }
-
         /// <summary>
         /// Handle all the gritty details particular to a new mail entity.
         /// </summary>
@@ -494,11 +482,10 @@ namespace Content.Server.Mail
                     mailComp.priorityCancelToken.Token);
             }
 
-            if (TryMatchJobTitleToIcon(recipient.Job, out string? icon))
-                _appearanceSystem.SetData(uid, MailVisuals.JobIcon, icon);
+            _appearanceSystem.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
-            MetaData(uid).EntityName = Loc.GetString("mail-item-name-addressed",
-                ("recipient", recipient.Name));
+            _metaDataSystem.SetEntityName(uid, Loc.GetString("mail-item-name-addressed",
+                ("recipient", recipient.Name)));
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             accessReader.AccessLists.Add(recipient.AccessTags);
@@ -562,20 +549,16 @@ namespace Content.Server.Mail
 
             if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
                 && TryComp<AccessComponent>(idCard.Owner, out var access)
-                && idCard.FullName != null
-                && idCard.JobTitle != null)
+                && idCard.Comp.FullName != null
+                && idCard.Comp.JobTitle != null)
             {
-                HashSet<String> accessTags = access.Tags;
+                var accessTags = access.Tags;
 
-                var mayReceivePriorityMail = true;
+                var mayReceivePriorityMail = !(_mindSystem.GetMind(receiver.Owner) == null);
 
-                if (_mindSystem.GetMind(receiver.Owner) == null)
-                {
-                    mayReceivePriorityMail = false;
-                }
-
-                recipient = new MailRecipient(idCard.FullName,
-                    idCard.JobTitle,
+                recipient = new MailRecipient(idCard.Comp.FullName,
+                    idCard.Comp.JobTitle,
+                    idCard.Comp.JobIcon,
                     accessTags,
                     mayReceivePriorityMail);
 
@@ -729,13 +712,15 @@ namespace Content.Server.Mail
     {
         public string Name;
         public string Job;
+        public string JobIcon;
         public HashSet<String> AccessTags;
         public bool MayReceivePriorityMail;
 
-        public MailRecipient(string name, string job, HashSet<String> accessTags, bool mayReceivePriorityMail)
+        public MailRecipient(string name, string job, string jobIcon, HashSet<String> accessTags, bool mayReceivePriorityMail)
         {
             Name = name;
             Job = job;
+            JobIcon = jobIcon;
             AccessTags = accessTags;
             MayReceivePriorityMail = mayReceivePriorityMail;
         }

@@ -168,6 +168,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockMedical
+  id: AirlockParamedicLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
+
+- type: entity
   parent: AirlockVirology
   id: AirlockVirologyLocked
   suffix: Virology, Locked
@@ -207,7 +215,7 @@
   - type: AccessReader
     access: [["Command"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockCommand
@@ -260,7 +268,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockQuartermasterLocked
-  suffix: Head of Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -273,7 +281,7 @@
   - type: AccessReader
     access: [["Security"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -283,7 +291,7 @@
   - type: AccessReader
     access: [["Detective"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -293,7 +301,7 @@
   - type: AccessReader
     access: [["Brig"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -303,7 +311,7 @@
   - type: AccessReader
     access: [["Armory"]]
   - type: Wires
-    LayoutId: AirlockArmory
+    layoutId: AirlockArmory
 
 - type: entity
   parent: AirlockSecurity
@@ -451,6 +459,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockParamedicGlassLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
+
+- type: entity
   parent: AirlockVirologyGlass
   id: AirlockVirologyGlassLocked
   suffix: Virology, Locked
@@ -533,7 +549,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockQuartermasterGlassLocked
-  suffix: Head of Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]

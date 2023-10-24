@@ -63,6 +63,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: EyeProtection
+  - type: Tag
+    tags:
+    - SecDogWearable # DeltaV - let Laika wear meson goggles
 
 - type: entity
   parent: ClothingEyesBase
@@ -80,6 +83,22 @@
     - HamsterWearable
     - WhitelistChameleon
     - GlassesNearsight # SimpleStation14 NearsightedTrait
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesJamjar
+  name: jamjar glasses
+  description: Also known as Virginity Protectors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: VisionCorrection
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -111,6 +130,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear sunglasses
 
 - type: entity
   parent: ClothingEyesBase
@@ -129,6 +149,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
     guides:
     - Security

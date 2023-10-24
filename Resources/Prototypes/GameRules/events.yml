@@ -204,17 +204,17 @@
     maxDuration: 120
   - type: PowerGridCheckRule
 
-- type: entity
-  id: RandomSentience
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    weight: 10
-    duration: 1
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-  - type: RandomSentienceRule
+# - type: entity # DeltaV - Removes the random sentience.
+#   id: RandomSentience
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     weight: 10
+#     duration: 1
+#     startAudio:
+#       path: /Audio/Announcements/attention.ogg
+#   - type: RandomSentienceRule
 
 - type: entity
   parent: BaseGameRule
@@ -375,17 +375,17 @@
     sounds:
       collection: Paracusia
 
-- type: entity
-  id: ImmovableRodSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-immovable-rod-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    duration: 1
-    earliestStart: 45
-    minimumPlayers: 20
-  - type: ImmovableRodRule
+#- type: entity # DeltaV - Why does this exist??
+#  id: ImmovableRodSpawn
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-immovable-rod-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    weight: 5
+#    duration: 1
+#    earliestStart: 45
+#    minimumPlayers: 20
+#  - type: ImmovableRodRule
