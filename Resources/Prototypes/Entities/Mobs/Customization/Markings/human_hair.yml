@@ -300,27 +300,6 @@
     - sprite: Mobs/Customization/human_hair.rsi
       state: classicfloorlength_bedhead
 - type: marking
-  id: HumanHairClassicGentle #Delta V, classic hairstyle that was replaced
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicgentle
-- type: marking
-  id: HumanHairClassicLowFade #Delta V, classic hairstyle that was replaced
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classiclowfade
-- type: marking
-  id: HumanHairClassicMedFade #Delta V, classic hairstyle that was replaced
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicmedfade
-- type: marking
   id: HumanHairClassicModern
   bodyPart: Hair
   markingCategory: Hair
@@ -334,13 +313,6 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: classicmulder
-- type: marking
-  id: HumanHairClassicNoFade #Delta V, classic hairstyle that was replaced
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicnofade
 - type: marking
   id: HumanHairClassicWisp
   bodyPart: Hair
