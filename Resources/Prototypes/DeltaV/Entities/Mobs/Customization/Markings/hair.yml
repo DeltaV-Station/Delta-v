@@ -5,3 +5,19 @@
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
       state: short_bedhead
+
+- type: marking
+  id: HumanHairBobClassic
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/hair.rsi
+      state: bobclassic
+
+- type: marking
+  id: HumanHairMessyClassic
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/hair.rsi
+      state: messyclassic
