@@ -349,8 +349,7 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: GasTileOverlay
-    - nextShake: 0
-      shakeTimes: 10
+    - shakeTimes: 10
       type: GravityShake
 - proto: AirlockCommandGlassLocked
   entities:
@@ -5897,6 +5896,38 @@ entities:
       type: Transform
     - color: '#FF1212FF'
       type: AtmosPipeColor
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 11
+    components:
+    - pos: -4.5,-11.5
+      parent: 60
+      type: Transform
+  - uid: 289
+    components:
+    - pos: -5.5,-11.5
+      parent: 60
+      type: Transform
+  - uid: 290
+    components:
+    - pos: -6.5,-11.5
+      parent: 60
+      type: Transform
+  - uid: 294
+    components:
+    - pos: 5.5,-11.5
+      parent: 60
+      type: Transform
+  - uid: 295
+    components:
+    - pos: 4.5,-11.5
+      parent: 60
+      type: Transform
+  - uid: 296
+    components:
+    - pos: 3.5,-11.5
+      parent: 60
+      type: Transform
 - proto: GravityGeneratorMini
   entities:
   - uid: 626
@@ -6381,38 +6412,6 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 0.5,-7.5
-      parent: 60
-      type: Transform
-- proto: PortableGeneratorSuperPacman
-  entities:
-  - uid: 11
-    components:
-    - pos: -6.5,-11.5
-      parent: 60
-      type: Transform
-  - uid: 289
-    components:
-    - pos: -5.5,-11.5
-      parent: 60
-      type: Transform
-  - uid: 290
-    components:
-    - pos: -4.5,-11.5
-      parent: 60
-      type: Transform
-  - uid: 294
-    components:
-    - pos: 3.5,-11.5
-      parent: 60
-      type: Transform
-  - uid: 295
-    components:
-    - pos: 4.5,-11.5
-      parent: 60
-      type: Transform
-  - uid: 296
-    components:
-    - pos: 5.5,-11.5
       parent: 60
       type: Transform
 - proto: PottedPlantRandom
