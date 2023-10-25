@@ -694,7 +694,7 @@
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: ClothingOuterHardsuitSyndie
   id: ClothingOuterHardsuitERTLeader
   name: ERT leader's hardsuit
   description: A protective hardsuit worn by members of an emergency response team.
@@ -718,10 +718,18 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: Armor
+    modifiers:
+      coeffecients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.75
+        Heat: 0.5
+        Radiation: 0.2 #DeltaV ERT Overhaul Stats
 
 #ERT Medic Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieElite
+  parent: ClothingOuterHardsuitSyndie
   id: ClothingOuterHardsuitERTMedical
   name: ERT medic's hardsuit
   components:
