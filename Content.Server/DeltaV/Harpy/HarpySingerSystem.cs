@@ -2,7 +2,10 @@ using Content.Server.Instruments;
 using Content.Server.Speech.Components;
 using Content.Server.UserInterface;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Damage;
+using Content.Shared.Damage.ForceSay;
 using Content.Shared.DeltaV.Harpy;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
@@ -12,6 +15,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.UserInterface;
 using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Harpy
 {
@@ -21,6 +25,7 @@ namespace Content.Server.DeltaV.Harpy
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+        [Dependency] private readonly IPrototypeManager _prototype = default!;
 
         public override void Initialize()
         {
@@ -33,6 +38,7 @@ namespace Content.Server.DeltaV.Harpy
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
+            SubscribeLocalEvent<InstrumentComponent, DamageChangedEvent>(OnDamageChanged);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
@@ -81,6 +87,35 @@ namespace Content.Server.DeltaV.Harpy
         private void OnStatusEffect(EntityUid uid, InstrumentComponent component, StatusEffectAddedEvent args)
         {
             if (args.Key == "Muted")
+                CloseMidiUi(uid);
+        }
+
+        /// <summary>
+        /// Almost a copy of Content.Server.Damage.ForceSay.DamageForceSaySystem.OnDamageChanged.
+        /// Done so because DamageForceSaySystem doesn't output an event, and my understanding is
+        /// that we don't want to change upstream code more than necessary to avoid merge conflicts
+        /// and maintenance overhead. It still reuses the values from DamageForceSayComponent, so
+        /// any tweaks to that will keep ForceSay consistent with singing interruptions.
+        /// </summary>
+        private void OnDamageChanged(EntityUid uid, InstrumentComponent instrumentComponent, DamageChangedEvent args)
+        {
+            if (!TryComp<DamageForceSayComponent>(uid, out var component) ||
+                args.DamageDelta == null ||
+                !args.DamageIncreased ||
+                args.DamageDelta.GetTotal() < component.DamageThreshold ||
+                component.ValidDamageGroups == null)
+                return;
+
+            var totalApplicableDamage = FixedPoint2.Zero;
+            foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
+            {
+                if (!component.ValidDamageGroups.Contains(group))
+                    continue;
+
+                totalApplicableDamage += value;
+            }
+
+            if (totalApplicableDamage >= component.DamageThreshold)
                 CloseMidiUi(uid);
         }
 
