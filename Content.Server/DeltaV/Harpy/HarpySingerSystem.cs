@@ -1,17 +1,17 @@
 using Content.Server.Instruments;
 using Content.Server.Speech.Components;
 using Content.Server.UserInterface;
+using Content.Shared.ActionBlocker;
 using Content.Shared.DeltaV.Harpy;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.UserInterface;
-using Robust.Server.GameObjects;
-using Content.Shared.Zombies;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
-using Content.Shared.ActionBlocker;
+using Content.Shared.UserInterface;
+using Content.Shared.Zombies;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.DeltaV.Harpy
 {
@@ -32,6 +32,7 @@ namespace Content.Server.DeltaV.Harpy
             SubscribeLocalEvent<InstrumentComponent, KnockedDownEvent>(OnKnockedDown);
             SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
+            SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
@@ -74,6 +75,12 @@ namespace Content.Server.DeltaV.Harpy
         private void OnSleep(EntityUid uid, InstrumentComponent component, ref SleepStateChangedEvent args)
         {
             if (args.FellAsleep)
+                CloseMidiUi(uid);
+        }
+
+        private void OnStatusEffect(EntityUid uid, InstrumentComponent component, StatusEffectAddedEvent args)
+        {
+            if (args.Key == "Muted")
                 CloseMidiUi(uid);
         }
 
