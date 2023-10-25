@@ -434,6 +434,8 @@
     layers:
     - state: default
     - state: idbrigmedic
+  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+    job: Brigmedic
 
 - type: entity
   parent: IDCardStandard
