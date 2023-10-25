@@ -10,15 +10,17 @@ using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Content.Shared.Zombies;
+using Content.Shared.Stunnable;
+using Content.Shared.ActionBlocker;
 
 namespace Content.Server.DeltaV.Harpy
 {
     public sealed class HarpySingerSystem : EntitySystem
     {
         [Dependency] private readonly InstrumentSystem _instrument = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly ActionBlockerSystem _blocker = default!;
 
         public override void Initialize()
         {
@@ -27,6 +29,9 @@ namespace Content.Server.DeltaV.Harpy
             SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
             SubscribeLocalEvent<GotEquippedEvent>(OnEquip);
             SubscribeLocalEvent<EntityZombifiedEvent>(OnZombified);
+            SubscribeLocalEvent<InstrumentComponent, KnockedDownEvent>(OnKnockedDown);
+            SubscribeLocalEvent<InstrumentComponent, StunnedEvent>(OnStunned);
+            SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
@@ -47,13 +52,29 @@ namespace Content.Server.DeltaV.Harpy
 
         private void OnMobStateChangedEvent(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
         {
-            if (_mobState.IsIncapacitated(uid))
+            if (args.NewMobState is MobState.Critical or MobState.Dead)
                 CloseMidiUi(args.Target);
         }
 
         private void OnZombified(ref EntityZombifiedEvent args)
         {
             CloseMidiUi(args.Target);
+        }
+
+        private void OnKnockedDown(EntityUid uid, InstrumentComponent component, ref KnockedDownEvent args)
+        {
+            CloseMidiUi(uid);
+        }
+
+        private void OnStunned(EntityUid uid, InstrumentComponent component, ref StunnedEvent args)
+        {
+            CloseMidiUi(uid);
+        }
+
+        private void OnSleep(EntityUid uid, InstrumentComponent component, ref SleepStateChangedEvent args)
+        {
+            if (args.FellAsleep)
+                CloseMidiUi(uid);
         }
 
         /// <summary>
@@ -73,24 +94,23 @@ namespace Content.Server.DeltaV.Harpy
         /// </summary>
         private void OnInstrumentOpen(EntityUid uid, HarpySingerComponent component, OpenUiActionEvent args)
         {
+            // CanSpeak covers all reasons you can't talk, including being incapacitated
+            // (crit/dead), asleep, or for any reason mute inclding glimmer or a mime's vow.
+            var cantSpeak = !_blocker.CanSpeak(uid);
+            var zombified = TryComp<ZombieComponent>(uid, out var _);
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&
                 accent.ReplacementPrototype == "mumble";
 
-            var incapacitated = _mobState.IsIncapacitated(uid);
-
-            var zombified = TryComp<ZombieComponent>(uid, out var _);
-
             // Set this event as handled when the singer should be incapable of singing in order
             // to stop the ActivatableUISystem event from opening the MIDI UI.
-            args.Handled = incapacitated || muzzled || zombified;
+            args.Handled = cantSpeak || muzzled || zombified;
 
-            // Explain why the user can not sing. One message is enough, and
-            // being incapacitated takes presedence.
-            if (incapacitated)
-                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-incapacitated"), uid, uid, PopupType.Medium);
-            else if (zombified)
+            // Explain why the user can not sing. One message is enough.
+            if (zombified)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-zombified"), uid, uid, PopupType.Medium);
+            else if (cantSpeak)
+                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-no-speak"), uid, uid, PopupType.Medium);
             else if (muzzled)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-muzzled"), uid, uid, PopupType.Medium);
         }
