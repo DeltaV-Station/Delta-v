@@ -1,0 +1,55 @@
+- type: gameMap
+  id: Shoukou
+  mapName: 'Shōkō'
+  mapPath: /Maps/shoukou.yml
+  minPlayers: 0
+  maxPlayers: 65
+  stations:
+    Shoukou:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Shōkō "Little Port" {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Passenger: [ -1, -1 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 1, 2 ]
+            MartialArtist: [ 2, 3 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            Robot: [ 2, 2 ]
+            ForensicMantis: [ 1, 1 ]
+            Janitor: [ 1, 2 ]
+            Mime: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 2, 5 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MailCarrier: [ 1, 2 ]
+            MedicalDoctor: [ 3, 5 ]
+            MedicalRobot: [ 1, 2 ]
+            Mystagogue: [ 1, 1 ]
+            Epistemologist: [ 2, 4 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 2, 5 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityCadet: [ 0, 1 ]
+            Lawyer: [ 1, 1 ]
+            Quartermaster: [ 2, 3 ]
+            SalvageTechnician: [ 2, 4 ]
+            Musician: [ 1, 1]
+            AtmosphericTechnician: [ 1, 2 ]
+            Valet: [ 0, 2 ]
+            Paramedic: [ 1, 2 ]
+            Reporter: [ 0, 1 ]
+            Prisoner: [ 2, 3 ]
