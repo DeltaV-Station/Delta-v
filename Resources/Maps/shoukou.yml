@@ -28605,31 +28605,31 @@ entities:
     - pos: 1.5,-20.5
       parent: 34
       type: Transform
-- proto: CrateNPCPibble
-  entities:
-  - uid: 2583
-    components:
-    - pos: -0.5,-20.5
-      parent: 34
-      type: Transform
-    - air:
-        volume: 800
-        immutable: False
-        temperature: 293.1499
-        moles:
-        - 14.962439
-        - 56.28727
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      type: EntityStorage
+#- proto: CrateNPCPibble
+#  entities:
+#  - uid: 2583
+#    components:
+#    - pos: -0.5,-20.5
+#      parent: 34
+#      type: Transform
+#    - air:
+#        volume: 800
+#        immutable: False
+#        temperature: 293.1499
+#        moles:
+#        - 14.962439
+#        - 56.28727
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#        - 0
+#      type: EntityStorage
 - proto: CratePrivateSecure
   entities:
   - uid: 5062

@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Pebble", //DeltaV
             "Edge", //DeltaV
             "Tortuga" //DeltaV
+            "Shoukou" //DeltaV
         };
 
         /// <summary>
