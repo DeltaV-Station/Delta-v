@@ -195,7 +195,7 @@ uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
 
 uplink-duffel-surgery-name = Surgical Duffel Bag
-uplink-duffel-surgery-desc = A large duffel bag containing a full surgical kit, plus a Cybersun Paramedic outfit
+uplink-duffel-surgery-desc = A large duffel bag containing a full surgical kit, plus a Cybersun Paramedic outfit.
 
 uplink-power-sink-name = Power Sink
 uplink-power-sink-desc = Drains immense amounts of electricity from the grid. Use wrench to connect it to wires.
