@@ -32,15 +32,21 @@ public sealed class NearsightedSystem : EntitySystem
 
     private void OnEquip(GotEquippedEvent args)
     {
+        // Note: it would be cleaner to check if the glasses are being equipped
+        // to the eyes rather than the pockets using `args.SlotFlags.HasFlag(SlotFlags.EYES)`,
+        // but this field is not present on GotUnequippedEvent. This method is
+        // used for both equip and unequip to make it consistent between checks.
         if (TryComp<NearsightedComponent>(args.Equipee, out var nearsighted) &&
-            EnsureComp<TagComponent>(args.Equipment).Tags.Contains("GlassesNearsight"))
+            EnsureComp<TagComponent>(args.Equipment).Tags.Contains("GlassesNearsight") &&
+            args.Slot == "eyes")
             UpdateShader(nearsighted, true);
     }
 
     private void OnUnEquip(GotUnequippedEvent args)
     {
         if (TryComp<NearsightedComponent>(args.Equipee, out var nearsighted) &&
-            EnsureComp<TagComponent>(args.Equipment).Tags.Contains("GlassesNearsight"))
+            EnsureComp<TagComponent>(args.Equipment).Tags.Contains("GlassesNearsight") &&
+            args.Slot == "eyes")
             UpdateShader(nearsighted, false);
     }
 
