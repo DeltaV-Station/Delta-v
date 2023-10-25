@@ -9,6 +9,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
+using Content.Shared.Zombies;
 
 namespace Content.Server.DeltaV.Harpy
 {
@@ -23,39 +24,45 @@ namespace Content.Server.DeltaV.Harpy
         {
             base.Initialize();
 
-            SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnSingerInstrumentMobStateChangedEvent);
+            SubscribeLocalEvent<InstrumentComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
             SubscribeLocalEvent<GotEquippedEvent>(OnEquip);
+            SubscribeLocalEvent<EntityZombifiedEvent>(OnZombified);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
             SubscribeLocalEvent<HarpySingerComponent, OpenUiActionEvent>(OnInstrumentOpen, before: new[] { typeof(ActivatableUISystem) });
         }
 
-        /// <summary>
-        /// Close the MIDI UI when a muzzle is equipped.
-        /// </summary>
         private void OnEquip(GotEquippedEvent args)
         {
             // Check if an item that makes the singer mumble is equipped to their face
             // (not their pockets!). As of writing, this should just be the muzzle.
-            if (HasComp<ActiveInstrumentComponent>(args.Equipee) &&
-                TryComp<ActorComponent>(args.Equipee, out var actor) &&
-                TryComp<AddAccentClothingComponent>(args.Equipment, out var accent) &&
+            if (TryComp<AddAccentClothingComponent>(args.Equipment, out var accent) &&
                 accent.ReplacementPrototype == "mumble" &&
                 args.Slot == "mask")
             {
-                _instrument.ToggleInstrumentUi(args.Equipee, actor.PlayerSession);
+                CloseMidiUi(args.Equipee);
             }
         }
 
+        private void OnMobStateChangedEvent(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
+        {
+            if (_mobState.IsIncapacitated(uid))
+                CloseMidiUi(args.Target);
+        }
+
+        private void OnZombified(ref EntityZombifiedEvent args)
+        {
+            CloseMidiUi(args.Target);
+        }
+
         /// <summary>
-        /// Close the MIDI UI when incapacitated.
+        /// Closes the MIDI UI if it is open.
         /// </summary>
-        private void OnSingerInstrumentMobStateChangedEvent(EntityUid uid, InstrumentComponent component, MobStateChangedEvent args)
+        private void CloseMidiUi(EntityUid uid)
         {
             if (HasComp<ActiveInstrumentComponent>(uid) &&
-                TryComp<ActorComponent>(uid, out var actor) &&
-                _mobState.IsIncapacitated(uid))
+                TryComp<ActorComponent>(uid, out var actor))
             {
                 _instrument.ToggleInstrumentUi(uid, actor.PlayerSession);
             }
@@ -72,16 +79,20 @@ namespace Content.Server.DeltaV.Harpy
 
             var incapacitated = _mobState.IsIncapacitated(uid);
 
+            var zombified = TryComp<ZombieComponent>(uid, out var _);
+
             // Set this event as handled when the singer should be incapable of singing in order
             // to stop the ActivatableUISystem event from opening the MIDI UI.
-            args.Handled = incapacitated || muzzled;
+            args.Handled = incapacitated || muzzled || zombified;
 
             // Explain why the user can not sing. One message is enough, and
             // being incapacitated takes presedence.
             if (incapacitated)
-                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-incapacitated"), uid, uid);
+                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-incapacitated"), uid, uid, PopupType.Medium);
+            else if (zombified)
+                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-zombified"), uid, uid, PopupType.Medium);
             else if (muzzled)
-                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-muzzled"), uid, uid);
+                _popupSystem.PopupEntity(Loc.GetString("no-sing-while-muzzled"), uid, uid, PopupType.Medium);
         }
     }
 }
