@@ -24,21 +24,20 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-## see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml
-#- type: startingGear
-#  id: BrigmedicGear
-#  equipment:
-#    jumpsuit: ClothingUniformJumpsuitBrigmedic
-#    outerClothing: ClothingOuterCoatAMG
-#    back: ClothingBackpackBrigmedicFilled
-#    shoes: ClothingShoesColorRed
-#    gloves: ClothingHandsGlovesNitrile
-#    eyes: ClothingEyesHudMedical
-#    head: ClothingHeadHatBeretBrigmedic
-#    id: BrigmedicPDA
-#    ears: ClothingHeadsetBrigmedic
-#    mask: ClothingMaskBreathMedicalSecurity
-#    belt: ClothingBeltMedicalFilled
-#  innerclothingskirt: ClothingUniformJumpskirtBrigmedic
-#  satchel: ClothingBackpackSatchelBrigmedicFilled
-#  duffelbag: ClothingBackpackDuffelBrigmedicFilled
+- type: startingGear
+  id: BrigmedicGearDeltaV # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    outerClothing: ClothingOuterArmorPlateCarrier
+    back: ClothingBackpackBrigmedicFilled
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesHudMedical
+    head: ClothingHeadHatBeretSecurity
+    id: BrigmedicPDA
+    ears: ClothingHeadsetBrigmedic
+    mask: ClothingMaskGasSecurity
+    belt: ClothingBeltMedicalFilled
+  innerclothingskirt: ClothingUniformJumpskirtBrigmedic
+  satchel: ClothingBackpackSatchelBrigmedicFilled
+  duffelbag: ClothingBackpackDuffelBrigmedicFilled
