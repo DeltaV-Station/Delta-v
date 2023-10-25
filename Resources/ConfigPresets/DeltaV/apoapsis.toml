@@ -1,2 +1,21 @@
 [game]
 hostname         = "[EN][MRP] Delta-v (Ψ) | Apoapsis"
+soft_max_players = 100
+
+[server]
+rules_file   = "Rules.txt"
+rules_header = "ui-rules-header"
+
+[whitelist]
+enabled     = true
+reason      = "whitelist-not-whitelisted"
+min_players = 90
+
+[shuttle]
+emergency_early_launch_allowed = true
+
+[hub]
+tags = "lang:en-US,region:am_n_e,rp:med"
+
+[atmos]
+monstermos_rip_tiles = false
