@@ -1,0 +1,24 @@
+- type: entity
+  id: OrganFelinidStomach #meow meow meow mew
+  parent: OrganAnimalStomach
+  noSpawn: true
+  components:
+  - type: Stomach
+  - type: Metabolizer
+    removeEmpty: true
+    groups:
+      - id: Food
+        rateModifier: 1.5
+      - id: Drink
+        rateModifier: 1.5
+      - id: Alcohol
+        rateModifier: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 40
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
