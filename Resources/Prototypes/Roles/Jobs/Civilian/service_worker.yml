@@ -9,7 +9,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Service
   - Maintenance

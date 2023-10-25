@@ -74,7 +74,7 @@ SpeedLoaderPistolHighVelocity: SpeedLoaderPistol
 #MountainRockMining: AsteroidRockMining #DeltaV
 
 # 2023-08-08
-WindowTintedDirectional: WindowFrostedDirectional
+#WindowTintedDirectional: WindowFrostedDirectional # DeltaV
 
 # 2023-08-10
 SyringeSpaceacillin: null
@@ -148,3 +148,20 @@ WeaponShotgunEnforcerNonLethal: WeaponShotgunEnforcerRubber
 
 # 2023-10-06 (Merge related migrations)
 FoodMealTaco: FoodMealSoftTaco
+FoodTinBeansOpen: FoodTinBeans
+FoodBreadMoldy: FoodBreadMoldySlice
+FoodMeatPatty: FoodMeatMeatball
+ClothingHeadHoodMystic: ClothingHeadHoodMysta
+
+#Delta V temporary changes. Remove When items are added.
+
+MetempsychoticMachine: CloningPod
+MetempsychoticMachineCircuitboard: CloningPodMachineCircuitboard
+ComputerShipyard: ComputerBroken
+ShipyardComputerCircuitboard: null
+SpawnMobGolemCult: null
+ShogiBoard: CheckerBoard
+
+#Delta V Optional: Remove "#" for specific maps.
+#AsteroidRock: AsteroidAltRock
+#AsteroidRockMining: AsteroidAltRockMining

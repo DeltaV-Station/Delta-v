@@ -39,6 +39,9 @@
   - type: Appearance
   - type: Eye
     drawFov: false
+    visMask:
+      - Normal
+      - TelegnosticProjection
   - type: Input
     context: "ghost"
   - type: Examiner
