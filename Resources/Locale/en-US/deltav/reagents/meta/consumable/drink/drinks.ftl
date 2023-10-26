@@ -20,4 +20,4 @@ reagent-name-healthviolation = health code violation
 reagent-desc-healthviolation = Allegedly it's a cocktail. The warning cone motif seems apt.
 
 reagent-name-mothamphetamine = mothamphetamine
-regagent-desk-mothamphetamine = A strangely... fuzzy drink. It has a chaotic aura.
+reagent-desc-mothamphetamine = A strangely... fuzzy drink. It has a chaotic aura.

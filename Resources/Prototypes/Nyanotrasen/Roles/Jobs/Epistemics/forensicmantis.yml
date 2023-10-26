@@ -19,11 +19,11 @@
   - Research
   - Maintenance
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
-  # special:
-  # - !type:AddComponentSpecial
-  #   components:
-  #   - type: Psionic
-  #   - type: MetapsionicPower
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Psionic
+    - type: MetapsionicPower
 
 - type: startingGear
   id: ForensicMantisGear

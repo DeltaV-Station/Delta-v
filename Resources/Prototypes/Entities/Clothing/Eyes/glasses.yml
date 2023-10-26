@@ -63,6 +63,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: EyeProtection
+  - type: Tag
+    tags:
+    - SecDogWearable # DeltaV - let Laika wear meson goggles
 
 - type: entity
   parent: ClothingEyesBase
@@ -127,6 +130,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear sunglasses
 
 - type: entity
   parent: ClothingEyesBase
@@ -145,6 +149,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
     guides:
     - Security

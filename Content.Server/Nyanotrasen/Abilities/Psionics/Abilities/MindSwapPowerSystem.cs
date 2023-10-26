@@ -26,6 +26,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
         public override void Initialize()
         {
@@ -129,7 +130,7 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
                 return;
 
-            //No idea where the viaCommand went. It's on the internal OnGhostAttempt, but not this layer. Maybe unnecessary. 
+            //No idea where the viaCommand went. It's on the internal OnGhostAttempt, but not this layer. Maybe unnecessary.
             /*if (!args.viaCommand)
                 return;*/
 
@@ -164,7 +165,11 @@ namespace Content.Server.Abilities.Psionics
             if(!_mindSystem.TryGetMind(target, out var targetMindId, out targetMind)){
                 targetMind = null;
             };
-
+            //This is a terrible way to 'unattach' minds. I wanted to use UnVisit but in TransferTo's code they say
+            //To unnatch the minds, do it like this. 
+            //Have to unnattach the minds before we reattach them via transfer. Still feels weird, but seems to work well.
+            _mindSystem.TransferTo(performerMindId, null);
+            _mindSystem.TransferTo(targetMindId, null);
             // Do the transfer.
             if (performerMind != null)
                 _mindSystem.TransferTo(performerMindId, target, ghostCheckOverride: true, false, performerMind);
@@ -204,8 +209,8 @@ namespace Content.Server.Abilities.Psionics
                 RemComp<StealthComponent>(uid);
                 EnsureComp<SpeechComponent>(uid);
                 EnsureComp<DispellableComponent>(uid);
-                MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
-                MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
+                _metaDataSystem.SetEntityName(uid, Loc.GetString("telegnostic-trapped-entity-name"));
+                _metaDataSystem.SetEntityDescription(uid, Loc.GetString("telegnostic-trapped-entity-desc"));
             }
         }
     }
