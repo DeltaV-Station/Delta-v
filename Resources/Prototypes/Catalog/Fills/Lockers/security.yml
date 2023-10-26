@@ -94,7 +94,7 @@
 
 - type: entity
   id: LockerBrigmedicFilled
-  suffix: Brigmedic, Filled
+  suffix: Corpsman, Filled # DeltaV - rename brigmedic to corpsman
   parent: LockerBrigmedic
   components:
   - type: StorageFill
@@ -105,12 +105,12 @@
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
       - id: BoxSterileMask
-      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
-      - id: ClothingUniformJumpskirtOfLife
-        prob: 0.1
+##      - id: ClothingUniformJumpskirtOfLife # DeltaV - nah
+##        prob: 0.1
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6
@@ -124,8 +124,8 @@
         prob: 0.3
       - id: MedkitBurnFilled
         prob: 0.7
-      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.15
+##      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse # DeltaV - why
+##        prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled

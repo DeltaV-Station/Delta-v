@@ -27,16 +27,17 @@
 - type: startingGear
   id: BrigmedicGearDeltaV # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecBlue
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
     outerClothing: ClothingOuterArmorPlateCarrier
     back: ClothingBackpackBrigmedicDeltaVFilled
-    shoes: ClothingShoesBootsJack
+    shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesNitrile
     eyes: ClothingEyesHudMedical
-    head: ClothingHeadHatBeretSecurity
+    head: ClothingHeadHatBeretCorpsman
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
-    belt: ClothingBeltMedicalFilled
-  innerClothingSkirt: ClothingUniformJumpskirtSecBlue
+    belt: ClothingBeltCorpsmanWebbingFilled
+    pocket1: WeaponPistolMk58Nonlethal
+  innerClothingSkirt: ClothingUniformJumpskirtBrigmedic
   satchel: ClothingBackpackSatchelBrigmedicDeltaVFilled
   duffelbag: ClothingBackpackDuffelBrigmedicDeltaVFilled
