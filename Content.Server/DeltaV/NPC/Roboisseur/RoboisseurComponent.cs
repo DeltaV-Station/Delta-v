@@ -183,7 +183,6 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodPiePumpkinSlice",
             "FoodDonkpocketTeriyakiWarm",
             "FoodMothBakedCheese",
-            // "FoodMothTomatoSauce",
             "FoodMothPizzaCotton",
             "AloeCream",
             "FoodSnackPopcorn",

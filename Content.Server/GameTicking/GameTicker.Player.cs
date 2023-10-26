@@ -1,6 +1,5 @@
 using Content.Server.Database;
 using Content.Server.Players;
-using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Players;
@@ -18,7 +17,6 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly PlayTimeTrackingManager _playTimeManager = default!;
 
         private void InitializePlayer()
         {
@@ -55,8 +53,6 @@ namespace Content.Server.GameTicking
                         data.Mind = mindId;
                         data.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Whitelist
                         session.Data.ContentDataUncast = data;
-
-                        _playTimeManager.SendWhitelistCached(session); // Nyanotrasen - Send whitelist status
                     }
 
                     // Make the player actually join the game.
