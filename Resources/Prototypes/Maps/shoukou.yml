@@ -14,13 +14,14 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
           availableJobs:
           #Service
             Passenger: [ -1, -1 ]
+            ServiceWorker: [ 1, 2]
             Reporter: [ 0, 1 ]
             Lawyer: [ 1, 1 ]
             Bartender: [ 1, 2 ]
