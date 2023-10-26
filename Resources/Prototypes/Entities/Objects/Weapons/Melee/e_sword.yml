@@ -209,9 +209,9 @@
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
   - type: Reflect
     enabled: true
-    reflectProb: 1
+    reflectProb: .80 #DeltaV: 80% Energy Reflection but no ballistics.
     spread: 75
     reflects:   
-      - Energy        #DeltaV: 100% Energy Reflection but no ballistics. 
+      - Energy #DeltaV: 80% Energy Reflection but no ballistics. 
   - type: UseDelay
     delay: 1
