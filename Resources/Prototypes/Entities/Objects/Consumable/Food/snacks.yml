@@ -167,7 +167,10 @@
   - type: Sprite
     state: energybar-open
   - type: Item
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   name: sweetie's pistachios
   parent: FoodSnackBase
@@ -186,6 +189,7 @@
   - type: Tag
     tags:
     - Fruit # Seed of a fruit, you can yell at me
+    - FoodSnack
 
 - type: entity
   name: popcorn
@@ -222,7 +226,8 @@
   - type: Tag
     tags:
     - Fruit
-
+    - FoodSnack
+    
 - type: entity
   name: bob's semki sunflower seeds
   parent: FoodSnackBase
@@ -270,7 +275,10 @@
   - type: Item
   - type: Food
     trash: FoodPacketSyndiTrash
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   name: chow mein
   parent: FoodSnackBase
@@ -349,7 +357,10 @@
     size: 1
   - type: Food
     trash: FoodCookieFortune
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   id: FoodSnackNutribrick
   parent: BaseItem

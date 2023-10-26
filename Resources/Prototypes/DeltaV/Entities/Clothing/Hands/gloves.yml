@@ -41,3 +41,19 @@
     damage:
       types:
         Blunt: 9.5
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsLobsterClaws
+  name: lobster claws
+  description: Snip, snip, snip.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Hands/Gloves/lobster_claws.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Hands/Gloves/lobster_claws.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Fiber
+    fiberMaterial: fibers-cloth
+    fiberColor: fibers-red

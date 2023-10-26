@@ -22,7 +22,10 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     state: lollipop
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   parent: FoodBase
   id: FoodGumball
@@ -45,3 +48,7 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     state: gumball
+  - type: Tag
+    tags:
+      - FoodSnack
+      

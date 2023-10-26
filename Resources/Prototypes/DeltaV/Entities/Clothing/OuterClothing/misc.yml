@@ -1,0 +1,49 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterGorillaSuit
+  name: gorilla suit
+  description: A thick gorilla costume, its muscles are made of thick padded foam.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Misc/gorillasuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Misc/gorillasuit.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterXenoSuit
+  name: xeno costume
+  description: A costume made from spray-painted foam pads taped onto a black spandex suit that resembles a Xeno.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Misc/xenosuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Misc/xenosuit.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterLobsterSuit
+  name: lobster suit
+  description: A smelly lobster suit. Woop woop woop woop!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Misc/lobstersuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Misc/lobstersuit.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterVestAmongGrande
+  name: among grande
+  description: Sospechoso...
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatAmongGrande
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Misc/amonggrande.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Misc/amonggrande.rsi
+  - type: TemperatureProtection
+    coefficient: 0.5    
+  - type: TypingIndicatorClothing
+    proto: lawyer

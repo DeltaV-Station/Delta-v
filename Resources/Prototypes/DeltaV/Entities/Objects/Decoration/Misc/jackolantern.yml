@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseItem
+  id: JackoLantern
+  name: jack-o'-lantern
+  description: A carved pumpkin that resembles a smile with a light inside of it, very spooky.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Misc/jackolantern.rsi
+    state: icon
+  - type: PointLight
+    radius: 1.3
+    energy: 4.4
+    color: "#EBAB34"

@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHatAmongGrande
+  noSpawn: true
+  name: among grande hood
+  description: Sospechoso...
+  components:
+  - type: Sprite
+    sprite:  DeltaV/Clothing/Head/Hoods/amonggrande.rsi
+  - type: Clothing
+    sprite:  DeltaV/Clothing/Head/Hoods/amonggrande.rsi  

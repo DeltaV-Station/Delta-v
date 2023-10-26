@@ -179,3 +179,14 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatScarecrow
+  name: scarecrow hat
+  description: An old straw-hat a scarecrow would don.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/scarecrowhat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/scarecrowhat.rsi

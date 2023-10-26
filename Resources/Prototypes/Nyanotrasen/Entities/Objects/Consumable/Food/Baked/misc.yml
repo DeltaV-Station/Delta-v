@@ -52,7 +52,10 @@
         - ReagentId: Sugar
           Quantity: 10
 #Tastes like vanilla and clouds.
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   name: mothmallow slice
   parent: FoodBakedBase
@@ -77,7 +80,10 @@
         - ReagentId: Sugar
           Quantity: 2
 #Tastes like vanilla and clouds.
-
+  - type: Tag
+    tags:
+      - FoodSnack
+      
 - type: entity
   name: moffin
   parent: FoodBakedBase
@@ -116,4 +122,5 @@
   - type: Tag
     tags:
       - ClothMade
+      - FoodSnack
 #Tastes like muffin, dust and lint
