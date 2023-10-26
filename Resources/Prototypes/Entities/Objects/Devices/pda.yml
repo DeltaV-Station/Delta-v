@@ -870,8 +870,8 @@
 - type: entity
   parent: BasePDA
   id: BrigmedicPDA
-  name: brigmedic PDA
-  description: I wonder whose pulse is on the screen? I hope he doesnt stop... PDA has a built-in health analyzer.
+  name: corpsman PDA # DeltaV - rename brigmedic to corpsman
+  description: Displayed on this PDA is an electrocardiogram, featuring a steady pulse. Hope it doesn't stop... # DeltaV - make the description make some semblance of sense
   components:
   - type: Pda
     id: BrigmedicIDCard

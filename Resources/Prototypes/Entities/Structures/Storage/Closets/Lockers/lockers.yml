@@ -313,7 +313,7 @@
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic locker
+  name: corpsman locker # DeltaV - rename brigmedic to corpsman
   components:
   - type: Appearance
   - type: EntityStorageVisuals
