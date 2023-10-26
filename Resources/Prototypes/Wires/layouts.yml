@@ -4,6 +4,7 @@
   - !type:PowerWireAction
   - !type:PowerWireAction
     pulseTimeout: 15
+  - !type:AccessWireAction # Nyanotrasen
   - !type:DoorBoltWireAction
   - !type:DoorBoltLightWireAction
   - !type:DoorTimingWireAction
@@ -26,11 +27,12 @@
   wires:
   - !type:PowerWireAction
     pulseTimeout: 10
+  - !type:AccessWireAction # Nyanotrasen
   - !type:DoorBoltWireAction
   - !type:DoorBoltLightWireAction
   - !type:DoorTimingWireAction
   - !type:DoorSafetyWireAction
-  dummyWires: 5
+  dummyWires: 4 # Nyanotrasen, lowered by one to account for the access wire
 
 - type: wireLayout
   id: Vending
