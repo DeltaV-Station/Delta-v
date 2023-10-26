@@ -138,7 +138,7 @@ namespace Content.Server.DeltaV.Harpy
         {
             // CanSpeak covers all reasons you can't talk, including being incapacitated
             // (crit/dead), asleep, or for any reason mute inclding glimmer or a mime's vow.
-            var cantSpeak = !_blocker.CanSpeak(uid);
+            var canNotSpeak = !_blocker.CanSpeak(uid);
             var zombified = TryComp<ZombieComponent>(uid, out var _);
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&
@@ -146,12 +146,12 @@ namespace Content.Server.DeltaV.Harpy
 
             // Set this event as handled when the singer should be incapable of singing in order
             // to stop the ActivatableUISystem event from opening the MIDI UI.
-            args.Handled = cantSpeak || muzzled || zombified;
+            args.Handled = canNotSpeak || muzzled || zombified;
 
             // Explain why the user can not sing. One message is enough.
             if (zombified)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-zombified"), uid, uid, PopupType.Medium);
-            else if (cantSpeak)
+            else if (canNotSpeak)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-no-speak"), uid, uid, PopupType.Medium);
             else if (muzzled)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-muzzled"), uid, uid, PopupType.Medium);
