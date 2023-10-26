@@ -30,7 +30,7 @@
       types:
         Blunt: 4.5
   - type: Item
-    size: Small
+    size: 5
     sprite: Objects/Weapons/Melee/e_sword.rsi
   - type: UseDelay
     delay: 1.0
@@ -95,7 +95,7 @@
       types:
         Blunt: 1
   - type: Item
-    size: Tiny
+    size: 2
     sprite: Objects/Weapons/Melee/e_dagger.rsi
   - type: UseDelay
     delay: 1.0
@@ -168,7 +168,7 @@
       types:
         Blunt: 6
   - type: Item
-    size: Small
+    size: 5
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
 
 - type: entity
@@ -205,7 +205,7 @@
         shader: unshaded
         map: [ "blade" ]
   - type: Item
-    size: Small
+    size: 10
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
   - type: Reflect
     enabled: true

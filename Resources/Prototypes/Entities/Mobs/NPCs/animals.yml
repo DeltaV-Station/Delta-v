@@ -969,7 +969,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mouse-0
   - type: Item
-    size: Tiny
+    size: 5
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mouse.rsi
@@ -1435,7 +1435,7 @@
       groups:
         Brute: 5
   - type: Item
-    size: Normal
+    size: 80
   - type: OnUseTimerTrigger
     delay: 10
     beepSound:
@@ -2342,7 +2342,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: hamster-0
   - type: Item
-    size: Tiny
+    size: 5
   - type: Physics
   - type: Fixtures
     fixtures:
