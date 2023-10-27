@@ -1,32 +1,3 @@
-- type: entity #ERT gear
-  id: ClothingBeltJanitorAdvanced
-  parent: ClothingBeltJanitor
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-      - id: Soap #Make a soap group and pick between when i'm not lazy
-      - id: SprayBottleSpaceCleaner
-      - id: WetFloorSign
-      - id: Holoprojector
-      - id: FlashlightLantern
- 
- 
-- type: entity #ERT Gear
-  id: ClothingBeltMilitaryWebbingMedAdvanced
-  parent: ClothingBeltMilitaryWebbingMed
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-    - id: MedicatedSuture
-      amount: 3
-    - id: RegenerativeMesh
-      amount: 1
-    - id: Bloodpack
-      amount: 1
-    - id: CombatMedipen
-
 - type: entity
   id: ClothingBeltKatanaSheathFilled
   parent: ClothingBeltKatanaSheath
@@ -37,3 +8,15 @@
       - id: Wakizashi
       - id: Katana
 
+- type: entity
+  id: ClothingBeltCorpsmanWebbingFilled
+  parent: ClothingBeltCorpsmanWebbing
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: SyringeEphedrine
+      - id: EmergencyMedipen
