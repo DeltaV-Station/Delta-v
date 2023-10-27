@@ -10,3 +10,16 @@
   - type: ConditionalSpawner
     prototypes:
       - MobArcticFoxSiobhan
+
+- type: entity
+  name: Sec Dog Laika Spawner
+  id: SpawnMobSecDogLaika
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobSecDogLaika

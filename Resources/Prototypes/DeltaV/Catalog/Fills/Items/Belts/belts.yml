@@ -7,3 +7,16 @@
     contents:
       - id: Wakizashi
       - id: Katana
+
+- type: entity
+  id: ClothingBeltCorpsmanWebbingFilled
+  parent: ClothingBeltCorpsmanWebbing
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: SyringeEphedrine
+      - id: EmergencyMedipen
