@@ -63,11 +63,11 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackBrigmedic
-  name: brigmedic backpack
+  name: corpsman backpack # DeltaV - rename brig medic to corpsman
   description: It's a very sterile backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/brigmedic.rsi
+    sprite: DeltaV/Clothing/Back/Backpacks/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingBackpack

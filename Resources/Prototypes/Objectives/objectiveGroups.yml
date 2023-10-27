@@ -36,7 +36,7 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    DieObjective: 0.05
+    # DieObjective: 0.05 # DeltaV - Disable the lrp objective aka murderbone justification
     HijackShuttleObjective: 0.02
 
 - type: weightedRandom
