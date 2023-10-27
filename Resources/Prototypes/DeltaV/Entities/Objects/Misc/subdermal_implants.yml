@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BionicSyrinxImplant
+  name: bionic syrinx implant
+  description: This implant lets a person adjust their voice to whoever they can think of.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionChangeVoiceMask
+    - type: VoiceMasker
