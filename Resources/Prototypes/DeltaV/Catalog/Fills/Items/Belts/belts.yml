@@ -1,15 +1,4 @@
-- type: entity
-  id: ClothingBeltKatanaSheathFilled
-  parent: ClothingBeltKatanaSheath
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-      - id: Wakizashi
-      - id: Katana
-
-
-- type: entity
+- type: entity #ERT gear
   id: ClothingBeltJanitorAdvanced
   parent: ClothingBeltJanitor
   suffix: Filled
@@ -23,7 +12,7 @@
       - id: FlashlightLantern
  
  
-- type: entity
+- type: entity #ERT Gear
   id: ClothingBeltMilitaryWebbingMedAdvanced
   parent: ClothingBeltMilitaryWebbingMed
   suffix: Filled
@@ -37,3 +26,14 @@
     - id: Bloodpack
       amount: 1
     - id: CombatMedipen
+
+- type: entity
+  id: ClothingBeltKatanaSheathFilled
+  parent: ClothingBeltKatanaSheath
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Wakizashi
+      - id: Katana
+
