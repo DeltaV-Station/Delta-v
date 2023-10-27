@@ -288,7 +288,7 @@ entities:
             id: BoxGreyscale
           decals:
             751: 34.024876,-6.9936233
-            753: 34.0405,-7.9779983
+            752: 34.0405,-7.9779983
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerNe
@@ -463,9 +463,9 @@ entities:
             color: '#FF0000FF'
             id: BrickTileSteelLineE
           decals:
-            754: -49,-17
-            755: -49,-18
-            756: -49,-19
+            753: -49,-17
+            754: -49,-18
+            755: -49,-19
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineE
@@ -32403,6 +32403,16 @@ entities:
     - pos: 4.4804573,-34.454243
       parent: 34
       type: Transform
+- proto: EncryptionKeyCargo
+  entities:
+  - uid: 12061
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 12060
+      type: Transform
+    - canCollide: False
+      type: Physics
 - proto: EncryptionKeyCommand
   entities:
   - uid: 12099
@@ -32460,16 +32470,6 @@ entities:
     - flags: InContainer
       type: MetaData
     - parent: 12052
-      type: Transform
-    - canCollide: False
-      type: Physics
-- proto: EncryptionKeyScience
-  entities:
-  - uid: 12061
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 12060
       type: Transform
     - canCollide: False
       type: Physics
