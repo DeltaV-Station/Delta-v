@@ -540,8 +540,10 @@
 - type: entity
   id: SpawnPointBrigmedic
   parent: SpawnPointJobBase
-  name: brigmedic
+  name: corpsman # DeltaV - rename brigmedic to corpsman
   components:
+  - type: SpawnPoint #Delta V
+    job_id: Brigmedic
   - type: Sprite
     layers:
       - state: green

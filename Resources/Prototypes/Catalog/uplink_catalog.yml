@@ -92,7 +92,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    Telecrystal: 20 #(Originally 16)
+    Telecrystal: 16 # DeltaV - Originally 20 but no one bought it due to it's high cost.
   categories:
   - UplinkWeapons
   conditions:
@@ -1270,7 +1270,7 @@
   description: uplink-cat-ears-desc
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 26
+    Telecrystal: 4 # Nyanotrasen - Make Cat Ears 4TC instead of 26TC
   categories:
   - UplinkPointless
 

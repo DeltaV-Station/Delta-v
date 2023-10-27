@@ -179,3 +179,14 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCorpsman
+  name: corpsman beret
+  description: For style-conscious combat lifesavers and medical specialists alike.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi

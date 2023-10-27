@@ -112,11 +112,11 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelBrigmedic
-  name: brigmedic satchel
+  name: corpsman satchel # DeltaV - rename brigmedic to corpsman
   description: A sterile satchel for medical related needs.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/brigmedic.rsi
+    sprite: DeltaV/Clothing/Back/Satchels/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingBackpackSatchel

@@ -165,7 +165,11 @@ namespace Content.Server.Abilities.Psionics
             if(!_mindSystem.TryGetMind(target, out var targetMindId, out targetMind)){
                 targetMind = null;
             };
-
+            //This is a terrible way to 'unattach' minds. I wanted to use UnVisit but in TransferTo's code they say
+            //To unnatch the minds, do it like this. 
+            //Have to unnattach the minds before we reattach them via transfer. Still feels weird, but seems to work well.
+            _mindSystem.TransferTo(performerMindId, null);
+            _mindSystem.TransferTo(targetMindId, null);
             // Do the transfer.
             if (performerMind != null)
                 _mindSystem.TransferTo(performerMindId, target, ghostCheckOverride: true, false, performerMind);
