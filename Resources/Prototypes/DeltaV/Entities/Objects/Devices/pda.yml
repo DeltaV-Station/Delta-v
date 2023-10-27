@@ -4,7 +4,7 @@
   name: corpsman PDA
   description: Red and Sterile. Has a built-in health analyzer.
   components:
-  - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
+  - type: Sprite
     sprite: DeltaV/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
@@ -23,7 +23,7 @@
     borderColor: "#A32D26"
     accentVColor: "#447987"
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV - Give Chaplain PDA Epistemics colors
+    sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-corpsman
   - type: HealthAnalyzer
     scanDelay: 1
