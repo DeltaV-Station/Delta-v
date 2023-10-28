@@ -10,7 +10,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 # 4 hrs
-  startingGear: BrigmedicGearDeltaV
+  startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
@@ -25,7 +25,7 @@
     implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: BrigmedicGearDeltaV # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
+  id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
     outerClothing: ClothingOuterArmorPlateCarrier
@@ -34,7 +34,7 @@
     gloves: ClothingHandsGlovesNitrile
     eyes: ClothingEyesHudMedical
     head: ClothingHeadHatBeretCorpsman
-    id: BrigmedicPDA
+    id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltCorpsmanWebbingFilled
     pocket1: WeaponPistolMk58Nonlethal
