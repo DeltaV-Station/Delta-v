@@ -4,7 +4,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 12 # DeltaV - was 10
     startDelay: 30
     duration: 35
   - type: AnomalySpawnRule
@@ -55,16 +55,16 @@
 #     duration: 1
 #   - type: BureaucraticErrorRule
 
-- type: entity
-  parent: BaseGameRule
-  id: ClosetSkeleton
-  noSpawn: true
-  components:
-  - type: StationEvent
-    weight: 10
-    duration: 1
-  - type: RandomEntityStorageSpawnRule
-    prototype: MobSkeletonCloset
+#- type: entity
+#  parent: BaseGameRule # DeltaV - this shit is busted most of the time
+#  id: ClosetSkeleton
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    weight: 10
+#    duration: 1
+#  - type: RandomEntityStorageSpawnRule
+#    prototype: MobSkeletonCloset
 
 - type: entity
   parent: BaseGameRule
@@ -72,7 +72,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5
+    weight: 1 # DeltaV - was 5
     duration: 1
     earliestStart: 45
     reoccurrenceDelay: 60
@@ -86,7 +86,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 5 # DeltaV - was 10
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
@@ -337,7 +337,7 @@
   components:
   - type: StationEvent
     earliestStart: 50
-    weight: 5
+    weight: 2.5 # DeltaV - was 5
     duration: 1
   - type: ZombieRule
     minStartDelay: 0 #let them know immediately
