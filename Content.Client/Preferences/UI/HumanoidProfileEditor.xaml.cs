@@ -581,6 +581,7 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(selector);
                     _jobPriorities.Add(selector);
+                    EnsureJobRequirementsValid(); // DeltaV
 
                     selector.PriorityChanged += priority =>
                     {
@@ -605,6 +606,28 @@ namespace Content.Client.Preferences.UI
 
                 }
             }
+        }
+
+        /// <summary>
+        /// DeltaV - Make sure that no invalid job priorities get through.
+        /// </summary>
+        private void EnsureJobRequirementsValid()
+        {
+            var changed = false;
+            foreach (var selector in _jobPriorities)
+            {
+                if (_requirements.IsAllowed(selector.Proto, out var _) || selector.Priority == JobPriority.Never)
+                    continue;
+
+                selector.Priority = JobPriority.Never;
+                Profile = Profile?.WithJobPriority(selector.Proto.ID, JobPriority.Never);
+                changed = true;
+            }
+            if (!changed)
+                return;
+
+            _needUpdatePreview = true;
+            Save();
         }
 
         private void OnFlavorTextChange(string content)
@@ -729,6 +752,7 @@ namespace Content.Client.Preferences.UI
             CharacterSlot = _preferencesManager.Preferences.SelectedCharacterIndex;
 
             UpdateControls();
+            EnsureJobRequirementsValid(); // DeltaV
             _needUpdatePreview = true;
         }
 
