@@ -153,12 +153,12 @@
   name: courier's cap flipped
   description: Special delivery.
   components:
-  - type: Clothing
-    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
-    equippedPrefix: flipped
   - type: Sprite
     sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
     state: flipped-icon
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
+    equippedPrefix: flipped
 
 - type: entity
   parent: ClothingHeadBase
