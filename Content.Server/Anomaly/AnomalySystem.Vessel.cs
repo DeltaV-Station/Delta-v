@@ -6,6 +6,7 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Research.Components;
+using Content.Server.Psionics.Glimmer;
 
 namespace Content.Server.Anomaly;
 
@@ -91,6 +92,14 @@ public sealed partial class AnomalySystem
         if (!TryComp<AnomalyComponent>(anomaly, out var anomalyComponent) || anomalyComponent.ConnectedVessel != null)
             return;
 
+        // Nyano - Summary - Begin modified code block: tie anomaly harvesting to glimmer rate.
+        if (this.IsPowered(uid, EntityManager) &&
+            TryComp<GlimmerSourceComponent>(anomaly, out var glimmerSource))
+        {
+            glimmerSource.Active = true;
+        }
+        // Nyano - End modified code block.
+
         component.Anomaly = scanner.ScannedAnomaly;
         anomalyComponent.ConnectedVessel = uid;
         UpdateVesselAppearance(uid,  component);
@@ -156,7 +165,7 @@ public sealed partial class AnomalySystem
             return;
 
         Appearance.SetData(uid, AnomalyVesselVisuals.HasAnomaly, on, appearanceComponent);
-        if (TryComp<SharedPointLightComponent>(uid, out var pointLightComponent))
+        if (_pointLight.TryGetLight(uid, out var pointLightComponent))
             _pointLight.SetEnabled(uid, on, pointLightComponent);
 
         // arbitrary value for the generic visualizer to use.

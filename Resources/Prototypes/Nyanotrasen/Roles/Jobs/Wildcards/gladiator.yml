@@ -2,8 +2,8 @@
   id: Gladiator
   name: job-name-gladiator
   description: job-description-gladiator
-  playTimeTracker: JobPrisoner
-  startingGear: GladiatorGear
+  playTimeTracker: JobGladiator
+  startingGear: NyanoGladiatorGear
 #  alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconGladiator"
@@ -24,11 +24,11 @@
           Piercing: 1.5
 
 - type: startingGear
-  id: GladiatorGear
+  id: NyanoGladiatorGear
   equipment:
-    jumpsuit: UniformShortsRed
+    jumpsuit: ClothingUniformJumpsuitGladiator
     outerClothing: ClothingOuterArmorGladiator
     id: GladiatorPDA
     ears: ClothingHeadsetGrey
-  innerclothingskirt: UniformShortsRedWithTop
+  innerClothingSkirt: UniformShortsRedWithTop
   #any other possessions, spawn in cell

@@ -9,13 +9,13 @@ using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
-using Content.Client.Lobby.UI;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Damage.ForceSay;
 using Content.Shared.Examine;
 using Content.Shared.Input;
 using Content.Shared.Radio;
@@ -33,6 +33,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.Nyanotrasen.Chat; //Nyano - Summary: chat namespace.
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
@@ -41,7 +42,6 @@ public sealed class ChatUIController : UIController
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _manager = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IClientNetManager _net = default!;
@@ -55,6 +55,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
+    [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
 
     private ISawmill _sawmill = default!;
 
@@ -69,7 +70,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
-        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead}
+        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -82,7 +84,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
-        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix}
+        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
     };
 
     /// <summary>
@@ -134,7 +137,8 @@ public sealed class ChatUIController : UIController
     /// </summary>
     private readonly Dictionary<ChatChannel, int> _unreadMessages = new();
 
-    public readonly List<(GameTick, ChatMessage)> History = new();
+    // TODO add a cap for this for non-replays
+    public readonly List<(GameTick Tick, ChatMessage Msg)> History = new();
 
     // Maintains which channels a client should be able to filter (for showing in the chatbox)
     // and select (for attempting to send on).
@@ -162,9 +166,12 @@ public sealed class ChatUIController : UIController
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
         _admin.AdminStatusUpdated += UpdateChannelPermissions;
+        _manager.PermissionsUpdated += UpdateChannelPermissions; //Nyano - Summary: the event for when permissions are updated for psionics.
         _player.LocalPlayerChanged += OnLocalPlayerChanged;
         _state.OnStateChanged += StateChanged;
         _net.RegisterNetMessage<MsgChatMessage>(OnChatMessage);
+        _net.RegisterNetMessage<MsgDeleteChatMessagesBy>(OnDeleteChatMessagesBy);
+        SubscribeNetworkEvent<DamageForceSayEvent>(OnDamageForceSay);
 
         _speechBubbleRoot = new LayoutContainer();
 
@@ -390,7 +397,9 @@ public sealed class ChatUIController : UIController
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
     {
-        if (!_entities.EntityExists(msg.SenderEntity))
+        var ent = EntityManager.GetEntity(msg.SenderEntity);
+
+        if (!EntityManager.EntityExists(ent))
         {
             _sawmill.Debug("Got local chat message with invalid sender entity: {0}", msg.SenderEntity);
             return;
@@ -401,14 +410,14 @@ public sealed class ChatUIController : UIController
 
         foreach (var message in messages)
         {
-            EnqueueSpeechBubble(msg.SenderEntity, message, speechType);
+            EnqueueSpeechBubble(ent, message, speechType);
         }
     }
 
     private void CreateSpeechBubble(EntityUid entity, SpeechBubbleData speechData)
     {
         var bubble =
-            SpeechBubble.CreateSpeechBubble(speechData.Type, speechData.Message, entity, _eye, _manager, _entities);
+            SpeechBubble.CreateSpeechBubble(speechData.Type, speechData.Message, entity, _eye, _manager, EntityManager);
 
         bubble.OnDied += SpeechBubbleDied;
 
@@ -445,7 +454,7 @@ public sealed class ChatUIController : UIController
     private void EnqueueSpeechBubble(EntityUid entity, string contents, SpeechBubble.SpeechType speechType)
     {
         // Don't enqueue speech bubbles for other maps. TODO: Support multiple viewports/maps?
-        if (_entities.GetComponent<TransformComponent>(entity).MapID != _eye.CurrentMap)
+        if (EntityManager.GetComponent<TransformComponent>(entity).MapID != _eye.CurrentMap)
             return;
 
         if (!_queuedSpeechBubbles.TryGetValue(entity, out var queueData))
@@ -520,7 +529,16 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
+
+        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user. 
+        if (_psionic != null && _psionic.IsPsionic)
+        {
+            FilterableChannels |= ChatChannel.Telepathic;
+            CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+        // /Nyano - End modified code block
 
         SelectableChannels = CanSendChannels;
 
@@ -562,7 +580,7 @@ public sealed class ChatUIController : UIController
 
         foreach (var (entity, queueData) in _queuedSpeechBubbles.ShallowClone())
         {
-            if (!_entities.EntityExists(entity))
+            if (!EntityManager.EntityExists(entity))
             {
                 _queuedSpeechBubbles.Remove(entity);
                 continue;
@@ -593,14 +611,14 @@ public sealed class ChatUIController : UIController
         var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
             => uid == data.compOwner || uid == data.attachedEntity;
         var playerPos = player != null
-            ? _entities.GetComponent<TransformComponent>(player.Value).MapPosition
+            ? EntityManager.GetComponent<TransformComponent>(player.Value).MapPosition
             : MapCoordinates.Nullspace;
 
         var occluded = player != null && _examine.IsOccluded(player.Value);
 
         foreach (var (ent, bubs) in _activeSpeechBubbles)
         {
-            if (_entities.Deleted(ent))
+            if (EntityManager.Deleted(ent))
             {
                 SetBubbles(bubs, false);
                 continue;
@@ -612,7 +630,7 @@ public sealed class ChatUIController : UIController
                 continue;
             }
 
-            var otherPos = _entities.GetComponent<TransformComponent>(ent).MapPosition;
+            var otherPos = EntityManager.GetComponent<TransformComponent>(ent).MapPosition;
 
             if (occluded && !ExamineSystemShared.InRangeUnOccluded(
                     playerPos,
@@ -699,7 +717,7 @@ public sealed class ChatUIController : UIController
 
     public void UpdateSelectedChannel(ChatBox box)
     {
-        var (prefixChannel, _, radioChannel) = SplitInputContents(box.ChatInput.Input.Text);
+        var (prefixChannel, _, radioChannel) = SplitInputContents(box.ChatInput.Input.Text.ToLower());
 
         if (prefixChannel == ChatSelectChannel.None)
             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(box.SelectedChannel, null);
@@ -773,6 +791,37 @@ public sealed class ChatUIController : UIController
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
     }
 
+    private void OnDamageForceSay(DamageForceSayEvent ev, EntitySessionEventArgs _)
+    {
+        if (UIManager.ActiveScreen?.GetWidget<ChatBox>() is not { } chatBox)
+            return;
+
+        // Don't send on OOC/LOOC obviously!
+        if (chatBox.SelectedChannel is not
+            (ChatSelectChannel.Local or
+            ChatSelectChannel.Radio or
+            ChatSelectChannel.Whisper))
+            return;
+
+        if (_player.LocalPlayer?.ControlledEntity is not { } ent
+            || !EntityManager.TryGetComponent<DamageForceSayComponent>(ent, out var forceSay))
+            return;
+
+        var msg = chatBox.ChatInput.Input.Text.TrimEnd();
+
+        if (string.IsNullOrWhiteSpace(msg))
+            return;
+
+        var modifiedText = ev.Suffix != null
+            ? Loc.GetString(forceSay.ForceSayMessageWrap,
+                ("message", msg), ("suffix", ev.Suffix))
+            : Loc.GetString(forceSay.ForceSayMessageWrapNoSuffix,
+                ("message", msg));
+
+        chatBox.ChatInput.Input.SetText(modifiedText);
+        chatBox.ChatInput.Input.ForceSubmitText();
+    }
+
     private void OnChatMessage(MsgChatMessage message)
     {
         var msg = message.Message;
@@ -830,6 +879,16 @@ public sealed class ChatUIController : UIController
                 AddSpeechBubble(msg, SpeechBubble.SpeechType.Emote);
                 break;
         }
+    }
+
+    public void OnDeleteChatMessagesBy(MsgDeleteChatMessagesBy msg)
+    {
+        // This will delete messages from an entity even if different players were the author.
+        // Usages of the erase admin verb should be rare enough that this does not matter.
+        // Otherwise the client would need to know that one entity has multiple author players,
+        // or the server would need to track when and which entities a player sent messages as.
+        History.RemoveAll(h => h.Msg.SenderKey == msg.Key || msg.Entities.Contains(h.Msg.SenderEntity));
+        Repopulate();
     }
 
     public void RegisterChat(ChatBox chat)

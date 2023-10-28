@@ -1,0 +1,57 @@
+- type: entity
+  id: BulletSpecial
+  name: bullet (.38 special)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+- type: entity
+  id: BulletSpecialPractice
+  name: bullet (.38 special practice)
+  parent: BaseBulletPractice
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: BulletSpecialRubber
+  name: bullet (.38 special rubber)
+  parent: BaseBulletRubber
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+  - type: StaminaDamageOnCollide
+    damage: 35 # 3 hits to stun cuz revolver
+
+- type: entity
+  id: BulletSpecialHoly
+  name: bullet (.38 special holy)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+        Holy: 5
+
+- type: entity
+  id: BulletSpecialMindbreaker
+  name: bullet (.38 special mindbreaker)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3

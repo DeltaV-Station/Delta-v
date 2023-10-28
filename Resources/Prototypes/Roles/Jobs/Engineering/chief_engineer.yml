@@ -6,15 +6,15 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 21600 #6 hrs
+      time: 36000 # DeltaV - 10 hours
+#    - !type:RoleTimeRequirement # DeltaV - No Station Engineer time requirement
+#      role: JobStationEngineer
+#      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 #10 hrs
-    - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs      
+      time: 90000 # DeltaV - 25 hours
+#    - !type:OverallPlaytimeRequirement
+#      time: 72000 # DeltaV - 20 hours
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -28,6 +28,16 @@
   - External
   - ChiefEngineer
   - Atmospherics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -40,6 +50,6 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
-  innerclothingskirt: ClothingUniformJumpskirtChiefEngineer
+  innerClothingSkirt: ClothingUniformJumpskirtChiefEngineer
   satchel: ClothingBackpackSatchelChiefEngineerFilled
   duffelbag: ClothingBackpackDuffelChiefEngineerFilled

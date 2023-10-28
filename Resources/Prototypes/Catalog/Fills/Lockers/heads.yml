@@ -6,6 +6,7 @@
   - type: StorageFill
     contents:
       - id: ClothingNeckCloakQm
+      - id: BoxFolderQmClipboard
       - id: ClothingHeadsetCargo
       - id: ClothingUniformJumpsuitQMTurtleneck
       - id: ClothingUniformJumpskirtQMTurtleneck
@@ -21,6 +22,8 @@
       - id: RubberStampQm
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
+      - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
+      - id: BoxPDACargo # Delta-V
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -34,7 +37,7 @@
       - id: PinpointerNuclear
       - id: CaptainIDCard
       - id: ClothingHeadHatCaptain
-      - id: ClothingNeckCloakCap
+      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
       - id: ClothingHandsGlovesCaptain
       - id: ClothingOuterHardsuitCap
       - id: ClothingMaskGasCaptain
@@ -55,6 +58,9 @@
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ClothingHeadHatCapcap
+      - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerCaptainFilled
@@ -69,7 +75,7 @@
       - id: CaptainIDCard
       - id: ClothingHeadHatCaptain
       - id: ClothingNeckCloakCap
-      - id: ClothingHandsGlovesCaptain
+      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
@@ -88,6 +94,8 @@
       - id: JetpackCaptainFilled
       - id: MedalCase
       - id: ClothingHeadHatCapcap
+      - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -99,13 +107,15 @@
       - id: ClothingNeckCloakHop
       - id: ClothingHeadHatHopcap
       - id: HoPIDCard
-      - id: ClothingHeadsetCommand
+      - id: ClothingHeadsetAltService # DeltaV - HoP is now a service role, replaces their all channels headset.
       - id: BoxPDA
       - id: BoxID
       - id: BoxHeadset
       - id: IDComputerCircuitboard
       - id: WeaponDisabler
       - id: ClothingOuterWinterHoP
+      - id: ClothingOuterArmorDuraVest # DeltaV - replaced HoP's armoured coat with a standard stabproof, pending HoPcoat resprite
+      - id: ClothingOuterCoatHoPFormal # DeltaV - formal jacket
       - id: CigarGoldCase
         prob: 0.25
         # Fuck the HoP they don't deserve fucking cigars.
@@ -118,6 +128,13 @@
       - id: ClothingBackpackIan
         prob: 0.5
       - id: AccessConfigurator
+      - id: BookIanDossier # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/ian_dossier.yml
+      - id: ClothingHandsGlovesInspection # DeltaV - Add inspection gloves for HoP.
+      - id: ClothingUniformJumpsuitHoPMess # DeltaV - Add mess kit for HoP.
+      - id: ClothingUniformJumpskirtHoPMess # DeltaV - Add mess kit for HoP.
+      - id: ClothingUniformJumpsuitBoatswain # DeltaV - Add turtleneck for HoP.
+      - id: ClothingShoesBootsLaceup # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -146,6 +163,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
+      - id: BoxPDAEngineering # Delta-V
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -168,6 +186,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
+      - id: BoxPDAEngineering # Delta-V
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -192,6 +211,8 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: BoxPDAMedical # Delta-V
+      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -215,6 +236,8 @@
       - id: RubberStampCMO
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
+      - id: BoxPDAMedical # Delta-V
+      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -226,7 +249,7 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingNeckCloakRd
+      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Velta variant
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
       - id: HandTeleporter
@@ -237,6 +260,7 @@
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
+      - id: BoxPDAScience # Delta-V
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -248,7 +272,7 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingNeckCloakRd
+      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Velta variant
       - id: ClothingHeadsetMedicalScience
       - id: HandTeleporter
       - id: DoorRemoteResearch
@@ -258,6 +282,7 @@
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
+      - id: BoxPDAScience # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -291,6 +316,7 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
+      - id: BoxPDASecurity # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -321,3 +347,4 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
+      - id: BoxPDASecurity # Delta-V

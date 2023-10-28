@@ -5,6 +5,8 @@ Delta-V is a fork of [Space Station 14](https://github.com/space-wizards/space-s
 
 Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), a homegrown engine written in C#.
 
+### Delta-V is a continuation of the [Nyanotrasen](https://www.nyanotrasen.moe/) fork. Any work done in a non-base namespace may contain incorrect attributes due to rewrites and recommitting.
+
 ## Links
 
 #### DeltaV
@@ -30,7 +32,7 @@ We are currently accepting translations of the game on our main repository. If y
 2. Run `RUN_THIS.py` to init submodules and download the engine.
 3. Compile the solution.
 
-[More detailed instructions on building the project.](https://docs.spacestation14.io/getting-started/dev-setup)
+[More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
 
 ## License
 

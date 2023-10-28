@@ -1,7 +1,7 @@
 - type: entity
   parent: DrinkGlassBase
-  id: DrinkDulleaveneGlass
-  name: dulleavene glass
+  id: DrinkHealthViolationGlass
+  name: health code violation
   description: Allegedly it's a cocktail. The warning cone motif seems apt.
   components:
   - type: SolutionContainerManager
@@ -9,7 +9,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: Dulleavene
+        - ReagentId: HealthViolation
           Quantity: 30
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Drinks/dulleavene.rsi
@@ -93,3 +93,35 @@
           Quantity: 30
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Drinks/arsonist.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkKvassGlass
+  name: kvass glass
+  description: A cool refreshing drink with a taste of socialism.
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Kvass
+              Quantity: 30
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/kvass.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkMothamphetamineGlass
+  name: mothamphetamine
+  description: A strangely... Fuzzy drink. It has a chaotic aura.
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Mothamphetamine
+              Quantity: 30
+    - type: Sprite
+      sprite: DeltaV/Objects/Consumable/Drinks/mothamphetamine.rsi

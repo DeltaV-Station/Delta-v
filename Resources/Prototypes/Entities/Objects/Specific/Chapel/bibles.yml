@@ -42,6 +42,11 @@
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
+  - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
+    damage:
+      types:
+        Blunt: 3
+        Holy: 10
   - type: Tag
     tags:
     - Book
@@ -82,8 +87,8 @@
 
 - type: entity
   id: ActionBibleSummon
-  name: bible-summon-verb
-  description: bible-summon-verb-desc
+  name: Summon familiar
+  description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
   noSpawn: true
   components:
   - type: InstantAction

@@ -13,54 +13,41 @@
         - state: shellslug
 
 - type: entity
-  name: box of .25 caseless Universal magazines
-  parent: BoxCardboard
-  id: BoxMagazineUniversalCaselessRifle
-  description: A box full of .25 caseless magazines.
+  name: box of .45 magnum Universal magazines
+  parent: BoxMagazine
+  id: BoxMagazineUniversalMagnum
+  description: A box full of .45 magnum magazines.
   components:
   - type: StorageFill
     contents:
-      - id: MagazineUniversalCaselessRifle
-        amount: 6
-
-## hv is kill
-## no
-#- type: entity
-#  name: box of .25 caseless Universal (high-velocity) magazines
-#  parent: BoxCardboard
-#  id: BoxMagazineUniversalCaselessRifleHighVelocity
-#  description: A box full of .25 caseless high-velocity magazines.
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: MagazineUniversalCaselessRifleHighVelocity
-#        amount: 6
-
-- type: entity
-  name: box of .25 caseless Universal (practice) magazines
-  parent: BoxCardboard
-  id: BoxMagazineUniversalCaselessRiflePractice
-  description: A box full of .25 caseless practice magazines.
-  components:
-  - type: StorageFill
-    contents:
-      - id: MagazineUniversalCaselessRiflePractice
+      - id: MagazineUniversalMagnum
         amount: 6
 
 - type: entity
-  name: box of .25 caseless Universal (rubber) magazines
-  parent: BoxCardboard
-  id: BoxMagazineUniversalCaselessRifleRubber
-  description: A box full of .25 caseless rubber magazines.
+  name: box of .45 magnum Universal (practice) magazines
+  parent: BoxMagazine
+  id: BoxMagazineUniversalMagnumPractice
+  description: A box full of .45 magnum practice magazines.
   components:
   - type: StorageFill
     contents:
-      - id: MagazineUniversalCaselessRifleRubber
+      - id: MagazineUniversalMagnumPractice
+        amount: 6
+
+- type: entity
+  name: box of .45 magnum Universal (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazineUniversalMagnumRubber
+  description: A box full of .45 magnum rubber magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineUniversalMagnumRubber
         amount: 6
 
 - type: entity
   name: box of .30 rifle speed loaders
-  parent: BoxCardboard
+  parent: BoxMagazine
   id: BoxSpeedLoaderLightRifle
   description: A box full of .30 rifle speed loaders.
   components:

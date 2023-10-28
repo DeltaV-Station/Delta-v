@@ -1,11 +1,12 @@
 - type: department
-  id: Cargo
+  id: Logistics # DeltaV - Logistics Department replacing Cargo
   description: department-Cargo-description
   color: "#A46106"
   roles:
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
 
 - type: department
   id: Civilian
@@ -16,7 +17,7 @@
   - Borg
   - Botanist
   - Boxer
-  - Chaplain
+  # - Chaplain # DeltaV - Move Chaplain into Epistemics
   - Chef
   - Clown
   - HeadOfPersonnel
@@ -83,9 +84,10 @@
   - Detective
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
 
 - type: department
-  id: Science
+  id: Epistemics # DeltaV - Epistemics Department replacing Science
   description: department-Science-description
   color: "#D381C9"
   roles:
@@ -93,6 +95,8 @@
   - SeniorResearcher
   - Scientist
   - ResearchAssistant
+  - Chaplain # DeltaV - Move Chaplain into Epistemics
+  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
 
 - type: department
   id: Specific

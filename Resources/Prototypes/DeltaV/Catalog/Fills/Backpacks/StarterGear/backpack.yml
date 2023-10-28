@@ -13,7 +13,19 @@
         amount: 1
       - id: WeaponPistolViperWood
         amount: 1
-      - id: MagazinePistol
-        amount: 1
-#      - id: BaseBallBat THIS BAT IS TOO DAMN BIG!
+#      - id: MagazinePistol # Ammo is too expensive nowadays (it causes test fails)
 #        amount: 1
+#      - id: BaseBallBat # THIS BAT IS TOO DAMN BIG!
+#        amount: 1
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackMedical
+  id: ClothingBackpackParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBag_Folded
+      - id: Portafib

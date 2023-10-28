@@ -3,6 +3,7 @@
   name: job-name-senior-engineer
   description: job-description-senior-engineer
   playTimeTracker: JobSeniorEngineer
+  setPreference: false # DeltaV - Disable Senior Roles round start selection
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
@@ -33,6 +34,6 @@
     eyes: ClothingEyesGlassesMeson
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
-  innerclothingskirt: ClothingUniformJumpskirtSeniorEngineer
+  innerClothingSkirt: ClothingUniformJumpskirtSeniorEngineer
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

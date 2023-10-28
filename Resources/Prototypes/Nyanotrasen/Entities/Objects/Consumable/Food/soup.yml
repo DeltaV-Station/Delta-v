@@ -16,7 +16,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -26,6 +26,9 @@
           Quantity: 3
         - ReagentId: Fiber
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade
 #Tastes like cotton and broth
 
 - type: entity
@@ -45,7 +48,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -55,6 +58,9 @@
           Quantity: 1
         - ReagentId: Milk
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: seed soup
@@ -73,7 +79,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 15
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -81,6 +87,9 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: moth eyeball soup
@@ -123,7 +132,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
@@ -133,6 +142,9 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 2
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like beans, cabbage and spicy sauce
 
 - type: entity
@@ -152,7 +164,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -160,6 +172,9 @@
           Quantity: 10
         - ReagentId: Water
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -178,7 +193,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 15
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -188,6 +203,9 @@
           Quantity: 4
         - ReagentId: CapsaicinOil
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -207,12 +225,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 30
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 22
         - ReagentId: Protein
           Quantity: 8
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: cornmeal porridge
@@ -229,12 +250,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 11
+        maxVol: 11
         reagents:
         - ReagentId: Nutriment
           Quantity: 9
         - ReagentId: Vitamin
           Quantity: 2
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal.
 
 - type: entity
@@ -253,7 +277,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 20
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
@@ -261,6 +285,9 @@
           Quantity: 4
         - ReagentId: Protein
           Quantity: 4
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal, cheese, more cheese, lots of cheese.
 
 - type: entity
@@ -281,7 +308,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 30
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -289,6 +316,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 12
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal, cheese, eggplant and tomato sauce
 
 - type: entity
@@ -310,7 +340,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 15
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -320,3 +350,6 @@
           Quantity: 3
         - ReagentId: JuiceTomato
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food

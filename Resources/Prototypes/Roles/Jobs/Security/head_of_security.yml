@@ -6,15 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 10800 #3 hrs
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 36000 #10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 108000 # 30 hrs
+      time: 14400 #DeltaV 4 hrs
+  #  - !type:RoleTimeRequirement # DeltaV - No Security Officer time requirement - REIMPLEMENT WHEN MORE PEOPLE HAVE IT
+  #    role: JobDetective
+  #    time: 14400 #DeltaV 4 hrs
+    - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
+      department: Command
+      time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 90000 # DeltaV - 25 hours
+    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -31,6 +32,16 @@
   - Service
   - External
   - Detective
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
 
 - type: startingGear
   id: HoSGear
@@ -46,6 +57,6 @@
     ears: ClothingHeadsetAltSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58Nonlethal
-  innerclothingskirt: ClothingUniformJumpskirtHoS
+  innerClothingSkirt: ClothingUniformJumpskirtHoS
   satchel: ClothingBackpackSatchelHOSFilled
   duffelbag: ClothingBackpackDuffelHOSFilled

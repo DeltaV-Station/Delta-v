@@ -3,10 +3,13 @@
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 7200 # DeltaV - 2 hours
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Service
   - Maintenance
@@ -23,6 +26,6 @@
     shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA
     ears: ClothingHeadsetService
-  innerclothingskirt: ClothingUniformJumpskirtBartender
+  innerClothingSkirt: ClothingUniformJumpskirtBartender
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

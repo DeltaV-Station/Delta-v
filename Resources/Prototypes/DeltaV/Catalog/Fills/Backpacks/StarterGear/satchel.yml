@@ -1,0 +1,11 @@
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBag_Folded
+      - id: Portafib

@@ -1,14 +1,17 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: [BaseMobHuman, BaseMob]
+  parent: BaseMobHuman
   id: MobHuman
+  components:
+  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
 
 #Syndie
 - type: entity
   parent: MobHuman
   id: MobHumanSyndicateAgent
   name: Syndicate Agent
+  suffix: Human
   components:
     - type: Loadout
       prototypes: [SyndicateOperativeGearExtremelyBasic]
@@ -34,6 +37,9 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
+      multiplier: 7
+      warn: false
 
 - type: entity
   noSpawn: true
@@ -53,6 +59,9 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
+    - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic.
+      multiplier: 7
+      warn: false
 
 # Space Ninja
 - type: entity
@@ -61,12 +70,16 @@
   parent: MobHuman
   id: MobHumanSpaceNinja
   components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
   - type: Loadout
     prototypes: [SpaceNinjaGear]
   - type: NpcFactionMember
     factions:
     - Syndicate
   - type: SpaceNinja
+  - type: GenericAntag
+    rule: Ninja
   - type: AutoImplant
     implants:
     - MicroBombImplant

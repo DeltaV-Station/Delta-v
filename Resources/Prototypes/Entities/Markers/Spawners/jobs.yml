@@ -36,12 +36,12 @@
   - type: SpawnPoint
     spawn_type: LateJoin
 
-# Cargo
+# Logistics
 
 - type: entity
   id: SpawnPointQuartermaster
   parent: SpawnPointJobBase
-  name: quartermaster
+  name: logistics officer # DeltaV - Logistics Department replacing Cargo
   components:
   - type: SpawnPoint
     job_id: Quartermaster
@@ -73,7 +73,8 @@
   - type: Sprite
     layers:
       - state: green
-      - state: miner
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Salvage specialist look change
+        state: salvagespecialist
 
 # Civilian
 
@@ -96,6 +97,10 @@
   components:
   - type: SpawnPoint
     job_id: TechnicalAssistant
+  - type: Sprite
+    layers:
+      - state: green
+      - state: technicalassistant
 
 - type: entity
   id: SpawnPointMedicalIntern
@@ -104,6 +109,10 @@
   components:
   - type: SpawnPoint
     job_id: MedicalIntern
+  - type: Sprite
+    layers:
+      - state: green
+      - state: medicalintern
 
 - type: entity
   id: SpawnPointSecurityCadet
@@ -124,6 +133,10 @@
   components:
   - type: SpawnPoint
     job_id: ResearchAssistant
+  - type: Sprite
+    layers:
+      - state: green
+      - state: researchassistant
 
 - type: entity
   id: SpawnPointServiceWorker
@@ -132,6 +145,10 @@
   components:
   - type: SpawnPoint
     job_id: ServiceWorker
+  - type: Sprite
+    layers:
+      - state: green
+      - state: serviceworker
 
 - type: entity
   id: SpawnPointBartender
@@ -246,24 +263,24 @@
   parent: SpawnPointJobBase
   name: musician
   components:
-    - type: SpawnPoint
-      job_id: Musician
-    - type: Sprite
-      layers:
-        - state: green
-        - state: musician
+  - type: SpawnPoint
+    job_id: Musician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: musician
 
 - type: entity
   id: SpawnPointBoxer
   parent: SpawnPointJobBase
   name: boxer
   components:
-    - type: SpawnPoint
-      job_id: Boxer
-    - type: Sprite
-      layers:
-        - state: green
-        - state: boxer
+  - type: SpawnPoint
+    job_id: Boxer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: boxer
 
 - type: entity
   id: SpawnPointBorg
@@ -349,12 +366,12 @@
   parent: SpawnPointJobBase
   name: atmospherics
   components:
-    - type: SpawnPoint
-      job_id: AtmosphericTechnician
-    - type: Sprite
-      layers:
-        - state: green
-        - state: atmospherics
+  - type: SpawnPoint
+    job_id: AtmosphericTechnician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: atmospherics
 
 # Medical
 
@@ -423,14 +440,15 @@
 - type: entity
   id: SpawnPointResearchDirector
   parent: SpawnPointJobBase
-  name: researchdirector
+  name: mystagogue # DeltaV - Epistemics Department replacing Science
   components:
   - type: SpawnPoint
     job_id: ResearchDirector
   - type: Sprite
     layers:
       - state: green
-      - state: rd
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: mystagogue
 
 - type: entity
   id: SpawnPointSeniorResearcher
@@ -454,7 +472,8 @@
   - type: Sprite
     layers:
       - state: green
-      - state: scientist
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: scientist
 
 # Security
 
@@ -521,8 +540,10 @@
 - type: entity
   id: SpawnPointBrigmedic
   parent: SpawnPointJobBase
-  name: brigmedic
+  name: corpsman # DeltaV - rename brigmedic to corpsman
   components:
+  - type: SpawnPoint #Delta V
+    job_id: Brigmedic
   - type: Sprite
     layers:
       - state: green

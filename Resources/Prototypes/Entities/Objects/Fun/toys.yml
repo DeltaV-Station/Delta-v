@@ -80,7 +80,7 @@
   description: So soft it almost makes you want to take a nap...
   components:
     - type: Sprite
-      sprite: Mobs/Ghosts/revenant.rsi
+      sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
       state: icon
       noRot: true
     - type: Construction
@@ -122,6 +122,7 @@
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/mousesqueek.ogg
 
@@ -185,6 +186,7 @@
     sound:
       path: /Audio/Items/Toys/weh.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/weh.ogg
 
@@ -206,6 +208,7 @@
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/muffled_weh.ogg
 
@@ -231,6 +234,7 @@
       sound:
         path: /Audio/Items/Toys/toy_rustle.ogg
     - type: MeleeWeapon
+      wideAnimationRotation: 180
       soundHit:
         path: /Audio/Items/Toys/toy_rustle.ogg
     - type: SolutionContainerManager
@@ -281,6 +285,9 @@
     state: blue
   - type: Item
     heldPrefix: blue
+  - type: Tag
+    tags:
+      - PlushieSharkBlue
 
 - type: entity
   parent: PlushieSharkBlue
@@ -293,6 +300,9 @@
     state: pink
   - type: Item
     heldPrefix: pink
+  - type: Tag
+    tags:
+      - PlushieSharkPink
 
 - type: entity
   parent: PlushieSharkBlue
@@ -305,6 +315,9 @@
     state: grey
   - type: Item
     heldPrefix: grey
+  - type: Tag
+    tags:
+      - PlushieSharkGrey
 
 - type: entity
   parent: BasePlushie
@@ -344,8 +357,11 @@
     sound:
       path: /Audio/Effects/bite.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: -90
     soundHit:
       path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite # Rrrr!
 
 - type: entity
   parent: BasePlushie
@@ -368,6 +384,7 @@
     sound:
       path: /Audio/Items/Toys/rattle.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
 
@@ -383,6 +400,7 @@
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: -90
     soundHit:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: Clothing
@@ -425,6 +443,7 @@
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Voice/Vox/shriek1.ogg
 
@@ -455,6 +474,7 @@
     sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
 
@@ -591,6 +611,9 @@
   - type: Item
     sprite: Objects/Fun/toys.rsi
     heldPrefix: capgun
+  - type: Tag
+    tags:
+    - Sidearm
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -1015,9 +1038,8 @@
   name: crazy glue
   description:  A bottle of crazy glue manufactured by Honk! Co.
   components:
-  - type: Drink
-    isOpen: false
-    openSounds:
+  - type: Openable
+    sound:
       collection: packetOpenSounds
   - type: Sprite
     sprite: Objects/Fun/glue.rsi
@@ -1045,16 +1067,16 @@
     state: plushie_moth
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg # DeltaV - Give back the mothplushie the squeak
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_scream.ogg # DeltaV - Make the mothplushie scream on landing
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg # DeltaV - Give back the mothplushie the squeak
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg # DeltaV - Give back the mothplushie the squeak
   - type: Construction # DeltaV - Mothroach hide craft, see Prototypes/Nyanotrasen/Recipes/Crafting/Graphs/fun/mothplushie.yml
     graph: MothPlushie
     node: plush

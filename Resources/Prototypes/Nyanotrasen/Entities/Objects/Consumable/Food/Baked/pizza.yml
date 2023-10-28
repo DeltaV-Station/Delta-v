@@ -21,6 +21,9 @@
           Quantity: 36
         - ReagentId: Nausium
           Quantity: 33
+  - type: Tag
+    tags:
+    - Pizza
 
 - type: entity
   name: slice of corncob crust pizza
@@ -43,6 +46,9 @@
           Quantity: 6
         - ReagentId: Nausium
           Quantity: 5.5
+  - type: Tag
+    tags:
+    - Pizza
 
 - type: entity
   name: firecracker pizza
@@ -74,6 +80,10 @@
           Quantity: 1
         - ReagentId: BbqSauce
           Quantity: 4
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade # Mothic Food
 
 - type: entity
   name: slice of firecracker pizza
@@ -103,6 +113,10 @@
           Quantity: 0.1
         - ReagentId: BbqSauce
           Quantity: 0.5
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade # Mothic Food
 # Tastes like crust, chili, corn, cheese
 
 - type: entity
@@ -121,6 +135,10 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: fivecheese
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade # Mothic Food
 
 - type: entity
   name: slice of quattro formaggi pizza
@@ -136,6 +154,10 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: fivecheese-slice
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade # Mothic Food
 # Tastes like crust, cheese, more cheese, excessive amount of cheese
 
 - type: entity
@@ -166,6 +188,10 @@
           Quantity: 5
         - ReagentId: Allicin
           Quantity: 2
+  - type: Tag
+    tags:
+    - Pizza
+    - Fruit
 
 - type: entity
   name: slice of pesto pizza
@@ -193,6 +219,10 @@
           Quantity: 0.8
         - ReagentId: Allicin
           Quantity: 0.25
+  - type: Tag
+    tags:
+    - Pizza
+    - Fruit
 # Tastes like crust, pesto, cheese
 
 - type: entity
@@ -222,6 +252,10 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 5
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade
 
 - type: entity
   name: slice of cotton pizza
@@ -248,4 +282,8 @@
           Quantity: 0.8
         - ReagentId: Fiber
           Quantity: 0.8
+  - type: Tag
+    tags:
+    - Pizza
+    - ClothMade
 # Tastes like crust, cotton, cheese

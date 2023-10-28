@@ -54,7 +54,7 @@ public delegate void CalcPlayTimeTrackersCallback(IPlayerSession player, HashSet
 /// Operations like refreshing and sending play time info to clients are deferred until the next frame (note: not tick).
 /// </para>
 /// </remarks>
-public sealed class PlayTimeTrackingManager
+public sealed partial class PlayTimeTrackingManager
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
@@ -85,6 +85,7 @@ public sealed class PlayTimeTrackingManager
         _sawmill = Logger.GetSawmill("play_time");
 
         _net.RegisterNetMessage<MsgPlayTime>();
+        _net.RegisterNetMessage<MsgWhitelist>(); // Nyanotrasen - Whitelist status
 
         _cfg.OnValueChanged(CCVars.PlayTimeSaveInterval, f => _saveInterval = TimeSpan.FromSeconds(f), true);
     }
@@ -131,6 +132,12 @@ public sealed class PlayTimeTrackingManager
             {
                 SendPlayTimes(player);
                 data.NeedSendTimers = false;
+            }
+
+            if (data.NeedRefreshWhitelist) // Nyanotrasen - Whitelist status
+            {
+                SendWhitelistCached(player);
+                data.NeedRefreshWhitelist = false;
             }
 
             data.IsDirty = false;
@@ -312,10 +319,13 @@ public sealed class PlayTimeTrackingManager
             data.TrackerTimes.Add(timer.Tracker, timer.TimeSpent);
         }
 
+        session.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Whitelist
+
         data.Initialized = true;
 
         QueueRefreshTrackers(session);
         QueueSendTimers(session);
+        QueueSendWhitelist(session); // Nyanotrasen - Whitelist status
     }
 
     public void ClientDisconnected(IPlayerSession session)
@@ -421,6 +431,7 @@ public sealed class PlayTimeTrackingManager
         public bool IsDirty;
         public bool NeedRefreshTackers;
         public bool NeedSendTimers;
+        public bool NeedRefreshWhitelist; // Nyanotrasen - Whitelist status
 
         // Active tracking info
         public readonly HashSet<string> ActiveTrackers = new();

@@ -360,8 +360,7 @@ namespace Content.Server.GameTicking
                 else if (mind.CurrentEntity != null && TryName(mind.CurrentEntity.Value, out var icName))
                     playerIcName = icName;
 
-                var entity = mind.OriginalOwnedEntity;
-                if (Exists(entity))
+                if (TryGetEntity(mind.OriginalOwnedEntity, out var entity))
                     _pvsOverride.AddGlobalOverride(entity.Value, recursive: true);
 
                 var roles = _roles.MindGetAllRoles(mindId);
@@ -373,7 +372,7 @@ namespace Content.Server.GameTicking
                     PlayerOOCName = contentPlayerData?.Name ?? "(IMPOSSIBLE: REGISTERED MIND WITH NO OWNER)",
                     // Character name takes precedence over current entity name
                     PlayerICName = playerIcName,
-                    PlayerEntityUid = entity,
+                    PlayerNetEntity = GetNetEntity(entity),
                     Role = antag
                         ? roles.First(role => role.Antagonist).Name
                         : roles.FirstOrDefault().Name ?? Loc.GetString("game-ticker-unknown-role"),

@@ -1,11 +1,14 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Players;
+using Content.Server.Nyanotrasen.Chat;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -15,7 +18,6 @@ using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Radio;
 using Robust.Server.GameObjects;
@@ -33,6 +35,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Chat.Systems;
 
+// TODO refactor whatever active warzone this class and chatmanager have become
 /// <summary>
 ///     ChatSystem is responsible for in-simulation chat handling, such as whispering, speaking, emoting, etc.
 ///     ChatSystem depends on ChatManager to actually send the messages.
@@ -53,6 +56,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
+
+    //Nyano - Summary: pulls in the nyano chat system for psionics.
+    [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -191,6 +198,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!CanSendInGame(message, shell, player))
             return;
 
+        if (player != null)
+            _chatManager.SenderEntities.GetOrNew(player).Add(GetNetEntity(source));
+
         if (desiredType == InGameICChatType.Speak && message.StartsWith(LocalPrefix))
         {
             // prevent radios and remove prefix.
@@ -237,6 +247,10 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
+                break;
+            //Nyano - Summary: case adds the telepathic chat sending ability.
+            case InGameICChatType.Telepathic:
+                _nyanoChatSystem.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
                 break;
         }
     }
@@ -484,7 +498,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownMessage, source, false, session.ConnectedClient);
         }
 
-        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, source, MessageRangeHideChatForReplay(range)));
+        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
         var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage);
         RaiseLocalEvent(source, ev, true);
@@ -559,6 +573,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entityName", name),
             ("message", FormattedMessage.EscapeText(message)));
 
+        _chatManager.SenderEntities.GetOrNew(player).Add(GetNetEntity(source));
+
         SendInVoiceRange(ChatChannel.LOOC, message, wrappedMessage, source, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"LOOC from {player:Player}: {message}");
     }
@@ -585,8 +601,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}");
         }
 
-        _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList());
+        _chatManager.SenderEntities.GetOrNew(player).Add(GetNetEntity(source));
 
+        _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList());
     }
     #endregion
 
@@ -651,7 +668,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.ConnectedClient);
         }
 
-        _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, source, MessageRangeHideChatForReplay(range)));
+        _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
     }
 
     /// <summary>
@@ -684,6 +701,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = message.Trim();
+        newMessage = SanitizeMessageReplaceWords(newMessage);
+        
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
         if (capitalizeTheWordI)
@@ -731,6 +750,20 @@ public sealed partial class ChatSystem : SharedChatSystem
         return message;
     }
 
+    [ValidatePrototypeId<ReplacementAccentPrototype>]
+    public const string ChatSanitize_Accent = "chatsanitize";
+
+    public string SanitizeMessageReplaceWords(string message)
+    {
+        if (string.IsNullOrEmpty(message)) return message;
+
+        var msg = message;
+
+        msg = _wordreplacement.ApplyReplacements(msg, ChatSanitize_Accent);
+
+        return msg;
+    }
+
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
@@ -739,7 +772,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // TODO proper speech occlusion
 
         var recipients = new Dictionary<ICommonSession, ICChatRecipientData>();
-        var ghosts = GetEntityQuery<GhostComponent>();
+        var ghostHearing = GetEntityQuery<GhostHearingComponent>();
         var xforms = GetEntityQuery<TransformComponent>();
 
         var transformSource = xforms.GetComponent(source);
@@ -756,9 +789,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (transformEntity.MapID != sourceMapId)
                 continue;
 
-            var observer = ghosts.HasComponent(playerEntity);
+            var observer = ghostHearing.HasComponent(playerEntity);
 
-            // even if they are an observer, in some situations we still need the range
+            // even if they are a ghost hearer, in some situations we still need the range
             if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceGetRange)
             {
                 recipients.Add(player, new ICChatRecipientData(distance, observer));
@@ -867,7 +900,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    Telepathic //Nyano - Summary: adds telepathic as a type of message users can receive.
 }
 
 /// <summary>
@@ -893,4 +927,3 @@ public enum ChatTransmitRange : byte
     /// Ghosts can't hear or see it at all. Regular players can if in-range.
     NoGhosts
 }
-

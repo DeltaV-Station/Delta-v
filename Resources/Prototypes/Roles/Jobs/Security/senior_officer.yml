@@ -3,6 +3,7 @@
   name: job-name-senior-officer
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
+  setPreference: false # DeltaV - Disable Senior Roles round start selection
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
@@ -26,6 +27,9 @@
   - Maintenance
   - Service
   - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: SeniorOfficerGear
@@ -35,11 +39,11 @@
     shoes: ClothingShoesBootsCombatFilled
     eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadHatBeret
-    outerClothing: ClothingOuterArmorBasic
+    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58Nonlethal
-  innerclothingskirt: ClothingUniformJumpskirtSeniorOfficer
+  innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled

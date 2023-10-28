@@ -2,6 +2,9 @@ namespace Content.Shared.Humanoid;
 
 public static class SkinColor
 {
+    public const float MaxTintedHuesSaturation = 0.1f;
+    public const float MinTintedHuesLightness = 0.85f;
+
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
     /// <summary>
@@ -9,9 +12,9 @@ public static class SkinColor
     /// </summary>
     /// <param name="color">The color to validate</param>
     /// <returns>Validated tinted hue skin tone</returns>
-    public static Color ValidTintedHuesSkinTone(Color color)
+    public static Color ValidTintedHuesSkinTone(Color color, Color? skinTone = null)
     {
-        return TintedHues(color);
+        return skinTone != null ? TintedHuesSkin(color, skinTone.Value) : TintedHues(color);
     }
 
     /// <summary>
@@ -117,10 +120,30 @@ public static class SkinColor
     /// <returns>Tinted hue color</returns>
     public static Color TintedHues(Color color)
     {
-        var newColor = Color.ToHsv(color);
-        newColor.Y *= 0.1f;
+        var newColor = Color.ToHsl(color);
+        newColor.Y *= MaxTintedHuesSaturation;
+        newColor.Z = MathHelper.Lerp(MinTintedHuesLightness, 1f, newColor.Z);
 
         return Color.FromHsv(newColor);
+    }
+
+    /// <summary>
+    ///     DeltaV - Convert a color to the 'tinted hues' skin tone type, and blend it into skinColor
+    /// </summary>
+    /// <param name="color">Color to convert</param>
+    /// <param name="skinColor">The skin color to blend with</param>
+    /// <param name="blendFactor">Blending factor (0.0 to 1.0)</param>
+    /// <returns>Tinted hue color</returns>
+    public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.5f)
+    {
+        blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
+
+        var r = MathHelper.Lerp(skinColor.R, color.R, blendFactor);
+        var g = MathHelper.Lerp(skinColor.G, color.G, blendFactor);
+        var b = MathHelper.Lerp(skinColor.B, color.B, blendFactor);
+        var a = color.A;
+
+        return new Color(r, g, b, a);
     }
 
     /// <summary>
@@ -131,7 +154,7 @@ public static class SkinColor
     public static bool VerifyTintedHues(Color color)
     {
         // tinted hues just ensures saturation is always .1, or 10% saturation at all times
-        return Color.ToHsv(color).Y != .1f;
+        return Color.ToHsl(color).Y <= MaxTintedHuesSaturation && Color.ToHsl(color).Z >= MinTintedHuesLightness;
     }
 
     public static bool VerifySkinColor(HumanoidSkinColor type, Color color)
@@ -140,6 +163,7 @@ public static class SkinColor
         {
             HumanoidSkinColor.HumanToned => VerifyHumanSkinTone(color),
             HumanoidSkinColor.TintedHues => VerifyTintedHues(color),
+            HumanoidSkinColor.TintedHuesSkin => true, // DeltaV - Tone blending
             HumanoidSkinColor.Hues => true,
             _ => false,
         };
@@ -151,6 +175,7 @@ public static class SkinColor
         {
             HumanoidSkinColor.HumanToned => ValidHumanSkinTone,
             HumanoidSkinColor.TintedHues => ValidTintedHuesSkinTone(color),
+            HumanoidSkinColor.TintedHuesSkin => ValidTintedHuesSkinTone(color), // DeltaV - Tone blending
             _ => color
         };
     }
@@ -161,4 +186,5 @@ public enum HumanoidSkinColor : byte
     HumanToned,
     Hues,
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
+    TintedHuesSkin, // DeltaV - Default TintedHues assumes the texture will have the proper skin color, but moths dont
 }

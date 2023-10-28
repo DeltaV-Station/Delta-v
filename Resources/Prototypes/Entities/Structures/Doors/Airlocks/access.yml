@@ -16,7 +16,7 @@
     access: [["Theatre"]]
 
 - type: entity
-  parent: Airlock
+  parent: AirlockScience # DeltaV - Chapel is in Epistemics
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -74,7 +74,7 @@
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCargoLocked
-  suffix: External, Cargo, Locked
+  suffix: External, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -146,7 +146,7 @@
 - type: entity
   parent: AirlockCargo
   id: AirlockCargoLocked
-  suffix: Cargo, Locked
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -168,6 +168,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockMedical
+  id: AirlockParamedicLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
+
+- type: entity
   parent: AirlockVirology
   id: AirlockVirologyLocked
   suffix: Virology, Locked
@@ -186,7 +194,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockScienceLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -194,7 +202,7 @@
 - type: entity
   parent: AirlockScience
   id: AirlockMedicalScienceLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -207,7 +215,7 @@
   - type: AccessReader
     access: [["Command"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockCommand
@@ -260,7 +268,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockQuartermasterLocked
-  suffix: Quartermaster, Locked
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -273,7 +281,7 @@
   - type: AccessReader
     access: [["Security"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -283,7 +291,7 @@
   - type: AccessReader
     access: [["Detective"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -293,7 +301,7 @@
   - type: AccessReader
     access: [["Brig"]]
   - type: Wires
-    LayoutId: AirlockSecurity
+    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -303,7 +311,7 @@
   - type: AccessReader
     access: [["Armory"]]
   - type: Wires
-    LayoutId: AirlockArmory
+    layoutId: AirlockArmory
 
 - type: entity
   parent: AirlockSecurity
@@ -349,7 +357,7 @@
 - type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCargoLocked
-  suffix: External, Glass, Cargo, Locked
+  suffix: External, Glass, Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -403,7 +411,7 @@
     access: [["Hydroponics"]]
 
 - type: entity
-  parent: AirlockGlass
+  parent: AirlockScienceGlass  # DeltaV - Chapel is in Epistemics
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -429,7 +437,7 @@
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
-  suffix: Cargo, Locked
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -451,6 +459,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockParamedicGlassLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
+
+- type: entity
   parent: AirlockVirologyGlass
   id: AirlockVirologyGlassLocked
   suffix: Virology, Locked
@@ -461,7 +477,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockScienceGlassLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -469,7 +485,7 @@
 - type: entity
   parent: AirlockScienceGlass
   id: AirlockMedicalScienceGlassLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
@@ -533,7 +549,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockQuartermasterGlassLocked
-  suffix: Quartermaster, Locked
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -622,7 +638,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintCargoLocked
-  suffix: Cargo, Locked
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -734,7 +750,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDLocked
-  suffix: Science, Locked
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"]]
@@ -742,7 +758,7 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintRnDMedLocked
-  suffix: Medical/Science, Locked
+  suffix: Medical/Epistemics, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]

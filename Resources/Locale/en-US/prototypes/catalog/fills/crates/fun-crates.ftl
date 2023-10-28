@@ -26,7 +26,7 @@ ent-CrateFunBoardGames = Board game crate
     .desc = Game nights have been proven to either decrease boredom or increase murderous rage depending on the game.
 
 ent-CrateFunATV = ATV crate
-    .desc = An Absolutely Taxable Vehicle to help cargo with hauling.
+    .desc = An Absolutely Taxable Vehicle to help logistics with hauling.
 
 ent-CrateFunSadTromboneImplants = Sad Trombone Implants
     .desc = Death's never been so fun before! Implant these to make dying a bit more happy.
@@ -51,3 +51,6 @@ ent-CrateFunBikeHornImplants = Bike Horn Implants
 
 ent-CrateFunMysteryFigurines = Mystery Figure Crate
     .desc = A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
+
+ent-CrateFunDartsSet = Dartboard Box Set
+    .desc = A box with everything you need for a fun game of darts.

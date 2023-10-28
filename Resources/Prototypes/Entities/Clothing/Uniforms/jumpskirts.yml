@@ -24,7 +24,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCargo
   name: cargo tech jumpskirt
-  description: A sturdy jumpskirt, issued to members of the Cargo department.
+  description: A sturdy jumpskirt, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
@@ -167,12 +167,12 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoS
   name: head of security's jumpskirt
-  description: It's bright red and rather crisp, much like security's victims tend to be. Its sturdy fabric provides minor protection from slash and pierce damage.
+  description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -254,13 +254,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBrigmedic
-  name: brigmedic jumpskirt
+  name: corpsman jumpskirt # DeltaV - renamed brigmedic to corpsman
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/brigmedic.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/brigmedic.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -278,13 +278,14 @@
     mode: SensorCords
   - type: Tag
     tags:
+    - ClothMade
     - WhitelistChameleon
     - PrisonUniform
 
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQM
-  name: quartermaster's jumpskirt
+  name: logistics officer's jumpskirt # DeltaV - Logistics Department replacing Cargo
   description: 'What can brown do for you?'
   components:
   - type: Sprite
@@ -295,7 +296,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQMTurtleneck
-  name: quartermasters's turtleneck
+  name: logistics officer's turtleneck # DeltaV - Logistics Department replacing Cargo
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
@@ -306,8 +307,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: mystagogue's turtleneck # DeltaV - Epistemics Department replacing Science
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Mystagogue. Its fabric provides minor protection from biological contaminants. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/rnd.rsi
@@ -340,23 +341,23 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
-  description: A jumpskirt made of strong material, providing robust protection.
+  description: A charcoal skirt and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/security.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/security.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtWarden
-  name: warden's uniform
-  description: A formal security suit for officers complete with Nanotrasen belt buckle.
+  name: warden's jumpskirt # DeltaV - renamed to mirror other security uniforms
+  description: Red shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/warden.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/warden.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden.rsi # DeltaV - resprite
 
 # COLORS
 
@@ -535,6 +536,28 @@
     sprite: Clothing/Uniforms/Jumpskirt/Color/maroon.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/Color/maroon.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtLibrarian
+  name: librarian jumpskirt
+  description: A cosy green jumper fit for a curator of books.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCurator
+  name: sensible skirt
+  description: It's sensible. Too sensible...
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -742,7 +765,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeniorResearcher
   name: senior researcher jumpskirt
-  description: A sign of skill and prestige within the science department.
+  description: A sign of skill and prestige within the epistemics department. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/senior_researcher.rsi
@@ -775,12 +798,12 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSecGrey
   name: grey security jumpskirt
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -812,3 +835,93 @@
   - type: Construction
     graph: WebObjects
     node: jumpskirt
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCasualBlue
+  name: casual blue jumpskirt
+  description: A loose worn blue shirt with a grey skirt, perfect for someone looking to relax.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    layers:
+    - state: icon-jumpskirt
+    - state: icon-shirt
+      color: "#134fc1"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-jumpskirt
+      - state: inhand-left-shirt
+        color: "#134fc1"
+      right:
+      - state: inhand-right-jumpskirt
+      - state: inhand-right-shirt
+        color: "#134fc1"
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING-jumpskirt
+      - state: equipped-INNERCLOTHING-shirt
+        color: "#134fc1"
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCasualPurple
+  name: casual purple jumpskirt
+  description: A loose worn purple shirt with a grey skirt, perfect for someone looking to relax.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    layers:
+    - state: icon-jumpskirt
+    - state: icon-shirt
+      color: "#9c0dff"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-jumpskirt
+      - state: inhand-left-shirt
+        color: "#9c0dff"
+      right:
+      - state: inhand-right-jumpskirt
+      - state: inhand-right-shirt
+        color: "#9c0dff"
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING-jumpskirt
+      - state: equipped-INNERCLOTHING-shirt
+        color: "#9c0dff"
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCasualRed
+  name: casual red jumpskirt
+  description: A loose worn red shirt with a grey skirt, perfect for someone looking to relax.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    layers:
+    - state: icon-jumpskirt
+    - state: icon-shirt
+      color: "#b30000"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-jumpskirt
+      - state: inhand-left-shirt
+        color: "#b30000"
+      right:
+      - state: inhand-right-jumpskirt
+      - state: inhand-right-shirt
+        color: "#b30000"
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING-jumpskirt
+      - state: equipped-INNERCLOTHING-shirt
+        color: "#b30000"

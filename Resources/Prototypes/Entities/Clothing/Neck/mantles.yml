@@ -19,7 +19,7 @@
     sprite: Clothing/Neck/mantles/cemantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/cemantle.rsi
-    
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantleCMO
@@ -30,7 +30,7 @@
     sprite: Clothing/Neck/mantles/cmomantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/cmomantle.rsi
-    
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantleHOP
@@ -41,7 +41,7 @@
     sprite: Clothing/Neck/mantles/hopmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/hopmantle.rsi
-    
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantleHOS
@@ -52,14 +52,25 @@
     sprite: Clothing/Neck/mantles/hosmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/hosmantle.rsi
-    
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantleRD
-  name: research director's mantle
-  description: For when long days in the office consist of explosives, poisonous gas, murder robots, and a fresh pizza from cargo; this mantle will keep you comfy.
+  name: mystagogue's mantle # DeltaV - Epistemics Department replacing Science
+  description: For when long days in the office consist of explosives, poisonous gas, murder robots, and a fresh pizza from logistics; this mantle will keep you comfy. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/rdmantle.rsi
   - type: Clothing
-    sprite: Clothing/Neck/mantles/rdmantle.rsi    
+    sprite: Clothing/Neck/mantles/rdmantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleQM
+  name: logistics officer's mantle # DeltaV - Logistics Department replacing Cargo
+  description: For the master of goods and materials to rule over the department, a befitting mantle to show off superiority!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/mantles/qmmantle.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/mantles/qmmantle.rsi

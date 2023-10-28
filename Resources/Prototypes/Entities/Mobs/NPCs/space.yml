@@ -46,7 +46,6 @@
     heatDamageThreshold: 500
     coldDamageThreshold: 0
   - type: MeleeWeapon
-    hidden: true
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
@@ -125,6 +124,7 @@
     prob: 0.25
     name: ghost-role-information-salvage-bear-name
     description: ghost-role-information-salvage-bear-description
+    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions
 
 - type: entity
@@ -143,7 +143,6 @@
       state: glow
       shader: unshaded
   - type: MeleeWeapon
-    hidden: true
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
@@ -183,9 +182,6 @@
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
-    radius: 1.2
-    energy: 2
-    color: "#4faffb"
   - type: GhostRole
     prob: 0.25
     name: ghost-role-information-space-kangaroo-name
@@ -200,6 +196,7 @@
     prob: 0.25
     name: ghost-role-information-salvage-kangaroo-name
     description: ghost-role-information-salvage-kangaroo-description
+    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions
 
 - type: entity
@@ -252,7 +249,6 @@
         layer:
         - MobLayer
   - type: MeleeWeapon
-    hidden: true
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 0
@@ -298,4 +294,5 @@
     prob: 0.30
     name: ghost-role-information-salvage-spider-name
     description: ghost-role-information-salvage-spider-description
+    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions

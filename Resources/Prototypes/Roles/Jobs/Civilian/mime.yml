@@ -5,7 +5,7 @@
   playTimeTracker: JobMime
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 #4 hrs
+      time: 7200 # DeltaV - 2 hours
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -15,6 +15,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: Psionic # Nyano - Summary: Makes the mime psionic. 
     - type: MimePowers
 
 - type: startingGear
@@ -31,14 +32,14 @@
     mask: ClothingMaskMime
     id: MimePDA
     ears: ClothingHeadsetService
-  innerclothingskirt: ClothingUniformJumpskirtMime
+  innerClothingSkirt: ClothingUniformJumpskirtMime
   satchel: ClothingBackpackSatchelMimeFilled
   duffelbag: ClothingBackpackDuffelMimeFilled
 
 - type: entity
   id: ActionMimeInvisibleWall
-  name: mime-invisible-wall
-  description: mime-invisible-wall-desc
+  name: Create Invisible Wall
+  description: Create an invisible wall in front of you, if placeable there.
   noSpawn: true
   components:
   - type: InstantAction

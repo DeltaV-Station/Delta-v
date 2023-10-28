@@ -72,11 +72,11 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelBrigmedic
-  name: brigmedic duffel bag
+  name: corpsman duffel bag # DeltaV - rename brigmedic to corpsman
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/brigmedic.rsi
+    sprite: DeltaV/Clothing/Back/Duffels/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -121,7 +121,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelScience
-  name: science duffel bag
+  name: epistemics duffel bag # DeltaV - Epistemics Department replacing Science
   description: A large duffel bag for holding extra science related goods.
   components:
   - type: Sprite
@@ -139,8 +139,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
-  name: cargo duffel bag
-  description: A large duffel bag for stealing cargo's precious loot.
+  name: logistics duffel bag # DeltaV - Logistics Department replacing Cargo
+  description: A large duffel bag for stealing logistics's precious loot. # DeltaV - Logistics Department replacing Cargo
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/cargo.rsi

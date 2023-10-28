@@ -188,7 +188,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: cargo ID card
+  name: logistics ID card # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
 - type: entity
   parent: IDCardStandard
   id: QuartermasterIDCard
-  name: quartermaster ID card
+  name: logistics officer ID card # DeltaV - Logistics Department replacing Cargo
   components:
     - type: Sprite
       layers:
@@ -265,7 +265,8 @@
     - type: Sprite
       layers:
         - state: default
-        - state: idchaplain
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
+          state: idchaplain
     - type: PresetIdCard
       job: Chaplain
 
@@ -292,6 +293,19 @@
     - state: idbartender
   - type: PresetIdCard
     job: Bartender
+
+- type: entity
+  parent: IDCardStandard
+  id: PunPunIDCard
+  name: pun pun ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idbartender
+    - type: PresetIdCard
+      job: Bartender
+      name: Pun Pun
 
 - type: entity
   parent: IDCardStandard
@@ -386,7 +400,7 @@
 - type: entity
   parent: IDCardStandard
   id: RDIDCard
-  name: research director ID card
+  name: mystagogue ID card # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     layers:
@@ -414,12 +428,14 @@
 - type: entity
   parent: IDCardStandard
   id: BrigmedicIDCard
-  name: brigmedic ID card
+  name: corpsman ID card # DeltaV - rename brigmedic to corpsman
   components:
   - type: Sprite
     layers:
     - state: default
     - state: idbrigmedic
+  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+    job: Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -563,8 +579,10 @@
     - JobIconSeniorEngineer
     - JobIconSeniorResearcher
     - JobIconPrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+    - JobIconMailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
     - JobIconMartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
     - JobIconGladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
+    - JobIconForensicMantis  # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true

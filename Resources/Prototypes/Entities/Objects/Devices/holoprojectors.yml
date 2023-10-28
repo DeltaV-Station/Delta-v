@@ -42,6 +42,9 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
+  - type: ReverseEngineering # Nyano
+    recipes:
+      - HolofanProjector
 
 
 - type: entity
@@ -61,3 +64,13 @@
         - HolofanProjector
     - type: StaticPrice
       price: 80
+
+- type: entity
+  parent: HoloprojectorSecurity
+  id: HoloprojectorSecurityEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

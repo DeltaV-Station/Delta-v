@@ -3,41 +3,54 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 21600 #6 hrs
+  #  - !type:RoleTimeRequirement #DeltaV
+  #    role: JobCargoTechnician
+  #    time: 21600 #6 hrs
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
       time: 10800 #3 hrs
+    - !type:RoleTimeRequirement # DeltaV - Courier role time requirement
+      role: JobMailCarrier
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 36000 #10 hours
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      time: 43200 #DeltaV 12 hours
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 144000 #40 hrs
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Cargo
   - Salvage
+  - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Quartermaster
   - Maintenance
   - External
   - Command
+  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
 
 - type: startingGear
   id: QuartermasterGear
   equipment:
-    head: ClothingHeadHatQMsoft
+    head: ClothingHeadHatBeretLogi
     jumpsuit: ClothingUniformJumpsuitQM
     back: ClothingBackpackQuartermasterFilled
     shoes: ClothingShoesColorBrown
     id: QuartermasterPDA
     ears: ClothingHeadsetQM
+    belt: BoxFolderClipboard
     pocket1: AppraisalTool
-  innerclothingskirt: ClothingUniformJumpskirtQM
+  innerClothingSkirt: ClothingUniformJumpskirtQM
   satchel: ClothingBackpackSatchelQuartermasterFilled
   duffelbag: ClothingBackpackDuffelQuartermasterFilled

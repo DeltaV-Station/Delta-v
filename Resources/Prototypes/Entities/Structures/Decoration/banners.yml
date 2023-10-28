@@ -40,8 +40,8 @@
 - type: entity
   id: BannerCargo
   parent: BannerBase
-  name: cargo banner
-  description: A banner displaying the colors of the cargo department. Not. Cargonia.
+  name: logistics banner
+  description: A banner displaying the colors of the logistics department. Not. Cargonia. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -90,8 +90,8 @@
 - type: entity
   id: BannerScience
   parent: BannerBase
-  name: science banner
-  description: A banner displaying the colors of the science department. Where stupidity is proven greater than the universe.
+  name: epistemics banner # DeltaV - Epistemics Department replacing Science
+  description: A banner displaying the colors of the epistemics department. Where stupidity is proven greater than the universe. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi

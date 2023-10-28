@@ -23,6 +23,7 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
+      - id: BoxPDAPrisoner # Delta-V
 
 - type: entity
   id: LockerWardenFilled
@@ -48,6 +49,7 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
+      - id: BoxPDAPrisoner # Delta-V
 
 - type: entity
   id: LockerSecurityFilled
@@ -60,8 +62,25 @@
         prob: 0.8
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
+      - id: ClothingUniformJumpsuitSecBlue # DeltaV - consistency with other sec uniforms
+        prob: 0.3
+      - id: ClothingUniformJumpsuitSec # DeltaV - consistency with other sec uniforms
+        prob: 0.3
+      - id: ClothingUniformJumpskirtSecGrey # DeltaV - consistency with other sec uniforms
+        prob: 0.3
+      - id: ClothingUniformJumpskirtSecBlue # DeltaV - consistency with other sec uniforms
+        prob: 0.3
+      - id: ClothingUniformJumpskirtSec # DeltaV - consistency with other sec uniforms
+        prob: 0.3
       - id: ClothingHeadHelmetBasic
-      - id: ClothingOuterArmorBasic
+      - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+        prob: 0.4
+      - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
+      - id: ClothingOuterArmorDuraVest
+      - id: ClothingOuterStasecSweater # DeltaV - in case the officers get cold :3
+        prob: 0.75
+      - id: ClothingUniformJumpsuitSecFormal # DeltaV - emergency parade time, Central's coming to visit
+        prob: 0.25
       - id: ClothingBeltSecurityFilled
       - id: Flash
         prob: 0.5
@@ -75,7 +94,7 @@
 
 - type: entity
   id: LockerBrigmedicFilled
-  suffix: Brigmedic, Filled
+  suffix: Corpsman, Filled # DeltaV - rename brigmedic to corpsman
   parent: LockerBrigmedic
   components:
   - type: StorageFill
@@ -86,12 +105,12 @@
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
       - id: BoxSterileMask
-      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
-      - id: ClothingUniformJumpskirtOfLife
-        prob: 0.1
+##      - id: ClothingUniformJumpskirtOfLife # DeltaV - nah
+##        prob: 0.1
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6
@@ -105,8 +124,8 @@
         prob: 0.3
       - id: MedkitBurnFilled
         prob: 0.7
-      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.15
+##      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse # DeltaV - why
+##        prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled
@@ -136,7 +155,13 @@
     contents:
       - id: ClothingHeadHelmetBombSuit
       - id: ClothingOuterSuitBomb
-      - id: ClothingMaskGas
+      # NT is cheap, what can you do...
+      - id: Wirecutter
+        prob: 0.9
+      - id: Screwdriver
+        prob: 0.9
+      - id: Multitool
+        prob: 0.5
 
 - type: entity
   parent: GunSafe

@@ -3,12 +3,13 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Science
-      time: 36000 #10 hrs
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs            
+      time: 72000 # DeltaV - 20 hours
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -20,6 +21,19 @@
   - Command
   - Maintenance
   - ResearchDirector
+  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Chapel # DeltaV - Chaplain is in Epistemics
+  special: # Nyanotrasen - Mystagogue can use the Bible
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser # Nyano - Lets them heal with bibles
+    - type: Psionic # Nyano - They start with telepathic chat
+    - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -27,9 +41,11 @@
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
     shoes: ClothingShoesColorBrown
-    outerClothing: ClothingOuterCoatRnd
+    head: ClothingHeadHoodMysta # DeltaV - Mystagogue new hat
+    outerClothing: ClothingOuterCoatRndMysta # DeltaV - Mystagogue new coat
     id: RnDPDA
     ears: ClothingHeadsetRD
-  innerclothingskirt: ClothingUniformJumpskirtResearchDirector
+    belt: BibleMystagogue # Nyanotrasen - Mystagogue book for their Ifrit
+  innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled

@@ -32,7 +32,7 @@ reagent-name-lexorin = lexorin
 reagent-desc-lexorin = A fast-acting chemical used to asphyxiate people rapidly. Dexalin, dexalin plus and epinephrine will filter it out, however.
 
 reagent-name-mindbreaker-toxin = mindbreaker toxin
-reagent-desc-mindbreaker-toxin = A potent hallucinogenic compound that is formerly known as LSD.
+reagent-desc-mindbreaker-toxin = A potent, brain damaging poison that can remove psionics.
 
 reagent-name-histamine = histamine
 reagent-desc-histamine = A chemical caused by allergenics reacting with antibodies. Lethal at large quantities.
@@ -63,3 +63,6 @@ reagent-desc-honk = A toxin found in bananium. Causes severe honking and interna
 
 reagent-name-lead = lead
 reagent-desc-lead = A slow-acting but incredibly lethal toxin found in steel, albiet in trace amounts. Tasteless.
+
+reagent-name-bungotoxin = bungotoxin
+reagent-desc-bungotoxin = A moderately slow-acting poison found within the pit of the bungo fruit.

@@ -2,7 +2,7 @@
   id: PrisonGuard
   name: job-name-guard
   description: job-description-guard
-  playTimeTracker: JobSecurityOfficer
+  playTimeTracker: JobPrisonGuard
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
@@ -29,6 +29,6 @@
     id: PrisonGuardPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-  innerclothingskirt: ClothingUniformJumpsuitPrisonGuard
+  innerClothingSkirt: ClothingUniformJumpsuitPrisonGuard
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled

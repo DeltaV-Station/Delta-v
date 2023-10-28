@@ -20,6 +20,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.  
     public const char DefaultChannelKey = 'h';
 
     [ValidatePrototypeId<RadioChannelPrototype>]
@@ -133,6 +134,7 @@ public abstract class SharedChatSystem : EntitySystem
         }
 
         var channelKey = input[1];
+        channelKey = char.ToLower(channelKey);
         output = SanitizeMessageCapital(input[2..].TrimStart());
 
         if (channelKey == DefaultChannelKey)

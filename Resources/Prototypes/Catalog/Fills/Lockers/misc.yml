@@ -148,30 +148,30 @@
         - id: ClothingBackpackDuffelSyndicate
           prob: 0.005
           orGroup: syndiemaintloot
-        - id: CyberPen
-          prob: 0.005
-          orGroup: syndiemaintloot
-        - id: CigPackSyndicate
-          prob: 0.005
-          orGroup: syndiemaintloot
+        #- id: CyberPen # DeltaV - Nuh uh
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
+        #- id: CigPackSyndicate
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
         - id: ClothingBackpackDuffelSyndicatePyjamaBundle
           prob: 0.005
           orGroup: syndiemaintloot
-        - id: ClothingBeltMilitaryWebbing
-          prob: 0.005
-          orGroup: syndiemaintloot
-        - id: ClothingShoesBootsCombatFilled
-          prob: 0.005
-          orGroup: syndiemaintloot
-        - id: ToolboxSyndicateFilled
-          prob: 0.005
-          orGroup: syndiemaintloot
-        - id: BalloonSyn
-          prob: 0.005
-          orGroup: syndiemaintloot
-        - id: WeaponSniperMosin
-          prob: 0.0010
-          orGroup: syndiemaintloot
+        #- id: ClothingBeltMilitaryWebbing
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
+        #- id: ClothingShoesBootsCombatFilled
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
+        #- id: ToolboxSyndicateFilled
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
+        #- id: BalloonSyn
+        #  prob: 0.005
+        #  orGroup: syndiemaintloot
+        #- id: WeaponSniperMosin
+        #  prob: 0.0010
+        #  orGroup: syndiemaintloot
 
 - type: entity
   id: ClosetWallMaintenanceFilledRandom
@@ -204,6 +204,8 @@
           prob: 0.2
         - id: ClothingHandsGlovesColorYellow
           prob: 0.05
+        - id: ClothingBeltQuiver
+          prob: 0.02
         - id: ClothingBeltUtility
           prob: 0.10
         - id: ClothingHeadHatCone

@@ -38,7 +38,7 @@
       - MobRandomEngineerCorpse
 
 - type: entity
-  name: Random Cargo Corpse Spawner
+  name: Random Logistics Corpse Spawner # DeltaV - Logistics Department replacing Cargo
   id: RandomCargoCorpseSpawner
   parent: SalvageHumanCorpseSpawner
   components:
@@ -64,7 +64,7 @@
       - MobRandomMedicCorpse
 
 - type: entity
-  name: Random Science Corpse Spawner
+  name: Random Epistemics Corpse Spawner # DeltaV - Epistemics Department replacing Science
   id: RandomScienceCorpseSpawner
   parent: SalvageHumanCorpseSpawner
   components:

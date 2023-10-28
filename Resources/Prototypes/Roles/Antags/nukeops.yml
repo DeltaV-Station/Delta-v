@@ -4,6 +4,12 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # DeltaV - 30 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+    department: Security
+    time: 36000 # DeltaV - 10 hours
 
 - type: antag
   id: NukeopsMedic
@@ -11,6 +17,12 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # DeltaV - 30 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
+    department: Medical
+    time: 36000 # DeltaV - 10 hours
 
 - type: antag
   id: NukeopsCommander
@@ -18,3 +30,13 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 216000 # DeltaV - 60 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+    department: Security
+    time: 36000 # DeltaV - 10 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    time: 36000 # DeltaV - 10 hours
+  - !type:WhitelistRequirement # DeltaV - Whitelist requirement

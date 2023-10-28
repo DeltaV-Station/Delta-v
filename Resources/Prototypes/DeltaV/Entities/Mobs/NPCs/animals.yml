@@ -48,6 +48,7 @@
     successChance: 0.5
     interactSuccessString: petting-success-soft-floofy
     interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Temperature
@@ -60,6 +61,116 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
+  - type: MobPrice
+    price: 400
   - type: Tag
     tags:
+    - VimPilot
+
+- type: entity
+  name: security dog
+  parent: SimpleMobBase
+  id: MobSecDog
+  description: Funnily enough, this pig is actually a dog.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: "sentient security dog"
+    description: "Help out the security team by biting the baddies and barking at everything that moves."
+  - type: GhostTakeoverAvailable
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 5.0
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: DeltaV/Mobs/Pets/secdog.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: secdog
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Physics
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Vulpkanin
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 120 # BIG DOG :3
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds: # BIG DOG. STRONG DOG
+      0: Alive
+      100: Critical
+      300: Dead
+  - type: StaminaDamageOnHit
+    damage: 22
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 10
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      40: 0.70
+      80: 0.30
+  - type: Appearance
+  - type: Inventory
+    speciesId: secdog
+    templateId: secdog
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: secdog
+      Critical:
+        Base: secdog_crit
+      Dead:
+        Base: secdog_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: ReplacementAccent
+    accent: dog
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark2.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Bloodstream
+    bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
+  - type: Puller
+  - type: MobPrice
+    price: 400
+  - type: Tag
+    tags:
+    - DoorBumpOpener
     - VimPilot

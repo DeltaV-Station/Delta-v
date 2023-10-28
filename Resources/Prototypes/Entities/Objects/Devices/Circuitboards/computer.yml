@@ -38,6 +38,9 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerPowerMonitoring
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - PowerComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -199,6 +202,10 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerAnalysisConsole
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - AnalysisComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -210,6 +217,10 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: ComputerTechnologyDiskTerminal
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - TechDiskComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -219,6 +230,10 @@
   components:
     - type: ComputerBoard
       prototype: ComputerCrewMonitoring
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - CrewMonitoringComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -286,6 +301,10 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerSolarControl
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SolarControlComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -344,6 +363,10 @@
       state: cpu_medical
     - type: ComputerBoard
       prototype: ComputerCloningConsole
+    - type: ReverseEngineering # Nyano
+      difficulty: 3
+      recipes:
+        - CloningConsoleComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard

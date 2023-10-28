@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCargosoft
-  name: cargo cap
-  description: "It's a baseball hat painted in Cargo colours."
+  name: logistics cap # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in Logistics colours." # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/cargosoft.rsi
@@ -32,14 +32,15 @@
     sprite: Clothing/Head/Soft/cargosoft.rsi
   - type: Tag
     tags:
+    - ClothMade
     - HamsterWearable
     - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCargosoftFlipped
-  name: cargo cap flipped
-  description: "It's a baseball hat painted in Cargo colours. Flipped."
+  name: logistics cap flipped # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in Logistics colours. Flipped." # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/cargosoft_flipped.rsi
@@ -49,8 +50,8 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoft
-  name: quartermaster's cap
-  description: "It's a baseball hat painted in the Quartermaster's colors."
+  name: logistics officer's cap # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in the Logistics Officer's colors."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft.rsi
@@ -60,14 +61,14 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatQMsoftFlipped
-  name: quartermaster's cap flipped
-  description: "It's a baseball hat painted in the Quartermaster's colors. Flipped."
+  name: logistics officer's cap flipped # DeltaV - Logistics Department replacing Cargo
+  description: "It's a baseball hat painted in the Logistics Officer's colors. Flipped."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/qmsoft_flipped.rsi
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatCorpsoft
@@ -190,6 +191,7 @@
     sprite: Clothing/Head/Soft/purplesoft.rsi
   - type: Tag
     tags:
+    - ClothMade
     - HamsterWearable
     - WhitelistChameleon
 
@@ -291,7 +293,7 @@
     sprite: Clothing/Head/Soft/bizarresoft_flipped.rsi
   - type: Clothing
     sprite: Clothing/Head/Soft/bizarresoft_flipped.rsi
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatParamedicsoft
@@ -304,6 +306,7 @@
     sprite: Clothing/Head/Soft/paramedicsoft.rsi
   - type: Tag
     tags:
+    - ClothMade
     - HamsterWearable
     - WhitelistChameleon
 

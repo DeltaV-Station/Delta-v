@@ -143,7 +143,7 @@
   - type: Icon
     state: pda-internmed
   - type: HealthAnalyzer
-    scanDelay: 1.4
+    scanDelay: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: GuideHelp
@@ -296,19 +296,33 @@
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
+  - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: ChaplainIDCard
     state: pda-chaplain
   - type: PdaBorderColor
     borderColor: "#333333"
+    accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV - Give Chaplain PDA Epistemics colors
     state: pda-chaplain
 
 - type: entity
-  name: quartermaster PDA
+  name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
   parent: BasePDA
   id: QuartermasterPDA
-  description: PDA for the guy that orders the guns.
+  description: PDA for the guy that directs logistics. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Pda
     id: QuartermasterIDCard
@@ -322,8 +336,8 @@
 - type: entity
   parent: BasePDA
   id: CargoPDA
-  name: cargo PDA
-  description: PDA for the guys that order the pizzas.
+  name: logistics PDA # DeltaV - Logistics Department replacing Cargo
+  description: PDA for the guys that order the pizzas. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Pda
     id: CargoIDCard
@@ -510,7 +524,7 @@
   - type: Icon
     state: pda-medical
   - type: HealthAnalyzer
-    scanDelay: 1.2
+    scanDelay: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: GuideHelp
@@ -532,7 +546,7 @@
   - type: Icon
     state: pda-paramedic
   - type: HealthAnalyzer
-    scanDelay: 0.5
+    scanDelay: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
 
@@ -558,7 +572,7 @@
 - type: entity
   parent: BasePDA
   id: RnDPDA
-  name: research director PDA
+  name: mystagogue PDA # DeltaV - Epistemics Department replacing Science
   description: It appears surprisingly ordinary.
   components:
   - type: Pda
@@ -570,11 +584,17 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
   id: SciencePDA
-  name: science PDA
+  name: epistemics PDA # DeltaV - Epistemics Department replacing Science
   description: It's covered with an unknown gooey substance.
   components:
   - type: Pda
@@ -585,6 +605,12 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA

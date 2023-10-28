@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McPlants
-  parent: [BaseMobDiona, BaseMob]
+  parent: BaseMobDiona
   id: MobDiona
   components:
     - type: Respirator
@@ -11,3 +11,4 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
+    - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 

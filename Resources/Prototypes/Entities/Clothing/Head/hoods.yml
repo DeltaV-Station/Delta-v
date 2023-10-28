@@ -19,7 +19,7 @@
   id: ClothingHeadHatHoodBioCmo
   name: bio hood
   suffix: CMO
-  description: An advanced hood for chief medical officer that protects the head and face from biological contaminants.
+  description: An advanced hood for chief medical officers that protects the head and face from biological contaminants.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Bio/cmo.rsi
@@ -42,7 +42,7 @@
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioScientist
   name: bio hood
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: Sprite
@@ -77,7 +77,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodChaplainHood
-  name: chaplain hood
+  noSpawn: true
+  name: chaplain's hood
   description: Maximum piety in this star system.
   components:
   - type: Sprite
@@ -227,7 +228,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCargo
   noSpawn: true
-  name: cargo winter coat hood
+  name: logistics winter coat hood # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
@@ -382,7 +383,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterQM
   noSpawn: true
-  name: quartermaster's coat hood
+  name: logistics officer's coat hood # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
@@ -393,7 +394,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterRD
   noSpawn: true
-  name: research director's coat hood
+  name: mystagogue's coat hood # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi

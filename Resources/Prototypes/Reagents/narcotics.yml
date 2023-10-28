@@ -249,6 +249,11 @@
         type: Add
         time: 5
         refresh: false
+      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic. 
+        conditions:
+        - !type:ReagentThreshold
+          reagent: SpaceDrugs
+          min: 15
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
