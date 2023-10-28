@@ -1,145 +1,145 @@
-marking-MothAntennasPlain-plain = Plain Antennas
-marking-MothAntennasPlain = Plain Antennas
+marking-MothAntennasClassicPlain-plain = Plain Antennas
+marking-MothAntennasClassicPlain = Plain Antennas
 
-marking-MothAntennasReddish-reddish = Reddish Antennas
-marking-MothAntennasReddish = Reddish Antennas
+marking-MothAntennasClassicReddish-reddish = Reddish Antennas
+marking-MothAntennasClassicReddish = Reddish Antennas
 
-marking-MothAntennasRoyal-royal = Royal Antennas
-marking-MothAntennasRoyal = Royal Antennas
+marking-MothAntennasClassicRoyal-royal = Royal Antennas
+marking-MothAntennasClassicRoyal = Royal Antennas
 
-marking-MothAntennasGothic-gothic = Gothic Antennas
-marking-MothAntennasGothic = Gothic Antennas
+marking-MothAntennasClassicGothic-gothic = Gothic Antennas
+marking-MothAntennasClassicGothic = Gothic Antennas
 
-marking-MothAntennasLovers-lovers = Lovers Antennas
-marking-MothAntennasLovers = Lovers Antennas
+marking-MothAntennasClassicLovers-lovers = Lovers Antennas
+marking-MothAntennasClassicLovers = Lovers Antennas
 
-marking-MothAntennasWhitefly-whitefly = Whitefly Antennas
-marking-MothAntennasWhitefly = Whitefly Antennas
+marking-MothAntennasClassicWhitefly-whitefly = Whitefly Antennas
+marking-MothAntennasClassicWhitefly = Whitefly Antennas
 
-marking-MothAntennasFirewatch-firewatch = Firewatch Antennas
-marking-MothAntennasFirewatch = Firewatch Antennas
+marking-MothAntennasClassicFirewatch-firewatch = Firewatch Antennas
+marking-MothAntennasClassicFirewatch = Firewatch Antennas
 
-marking-MothAntennasDeathshead-deathshead = Deathshead Antennas
-marking-MothAntennasDeathshead = Deathshead Antennas
+marking-MothAntennasClassicDeathshead-deathshead = Deathshead Antennas
+marking-MothAntennasClassicDeathshead = Deathshead Antennas
 
-marking-MothAntennasPoison-poison = Poison Antennas
-marking-MothAntennasPoison = Poison Antennas
+marking-MothAntennasClassicPoison-poison = Poison Antennas
+marking-MothAntennasClassicPoison = Poison Antennas
 
-marking-MothAntennasMoonfly-moonfly = Moon Fly Antennas
-marking-MothAntennasMoonfly = Moon Fly Antennas
+marking-MothAntennasClassicMoonfly-moonfly = Moon Fly Antennas
+marking-MothAntennasClassicMoonfly = Moon Fly Antennas
 
-marking-MothAntennasSnow-snow = Snow Antennas
-marking-MothAntennasSnow = Snow Antennas
+marking-MothAntennasClassicSnow-snow = Snow Antennas
+marking-MothAntennasClassicSnow = Snow Antennas
 
-marking-MothAntennasOakworm-oakworm = Oak Worm Antennas
-marking-MothAntennasOakworm = Oak Worm Antennas
+marking-MothAntennasClassicOakworm-oakworm = Oak Worm Antennas
+marking-MothAntennasClassicOakworm = Oak Worm Antennas
 
-marking-MothAntennasWitchking-witchking = Witch King Antennas
-marking-MothAntennasWitchking = Witch King Antennas
+marking-MothAntennasClassicWitchking-witchking = Witch King Antennas
+marking-MothAntennasClassicWitchking = Witch King Antennas
 
-marking-MothAntennasJungle-jungle = Jungle Antennas
-marking-MothAntennasJungle = Jungle Antennas
+marking-MothAntennasClassicJungle-jungle = Jungle Antennas
+marking-MothAntennasClassicJungle = Jungle Antennas
 
-marking-MothAntennasRegal-regal = Regal Antennas
-marking-MothAntennasRegal = Regal Antennas
+marking-MothAntennasClassicRegal-regal = Regal Antennas
+marking-MothAntennasClassicRegal = Regal Antennas
 
-marking-MothAntennasRosy-rosy = Rosy Antennas
-marking-MothAntennasRosy = Rosy Antennas
+marking-MothAntennasClassicRosy-rosy = Rosy Antennas
+marking-MothAntennasClassicRosy = Rosy Antennas
 
-marking-MothAntennasFeathery-feathery = Feathery Antennas
-marking-MothAntennasFeathery = Feathery Antennas
+marking-MothAntennasClassicFeathery-feathery = Feathery Antennas
+marking-MothAntennasClassicFeathery = Feathery Antennas
 
-marking-MothAntennasBrown-brown = Brown Antennas
-marking-MothAntennasBrown = Brown Antennas
+marking-MothAntennasClassicBrown-brown = Brown Antennas
+marking-MothAntennasClassicBrown = Brown Antennas
 
-marking-MothAntennasPlasmafire-plasmafire = Plasmafire Antennas
-marking-MothAntennasPlasmafire = Plasmafire Antennas
+marking-MothAntennasClassicPlasmafire-plasmafire = Plasmafire Antennas
+marking-MothAntennasClassicPlasmafire = Plasmafire Antennas
 
-marking-MothAntennasMoffra-moffra = Moffra Antennas
-marking-MothAntennasMoffra = Moffra Antennas
+marking-MothAntennasClassicMoffra-moffra = Moffra Antennas
+marking-MothAntennasClassicMoffra = Moffra Antennas
 
-marking-MothAntennasAspen-aspen = Aspen Antennas
-marking-MothAntennasAspen = Aspen Antennas
+marking-MothAntennasClassicAspen-aspen = Aspen Antennas
+marking-MothAntennasClassicAspen = Aspen Antennas
 
-marking-MothAntennasMint-mint = Mint Antennas
-marking-MothAntennasMint = Mint Antennas
+marking-MothAntennasClassicMint-mint = Mint Antennas
+marking-MothAntennasClassicMint = Mint Antennas
 
 
 
-marking-MothWingsPlain-plain = Plain Wings
-marking-MothWingsPlain = Plain Wings
+marking-MothWingsClassicPlain-plain = Plain Wings
+marking-MothWingsClassicPlain = Plain Wings
 
-marking-MothWingsAtlas-atlas = Atlas Wings
-marking-MothWingsAtlas = Atlas Wings
+marking-MothWingsClassicAtlas-atlas = Atlas Wings
+marking-MothWingsClassicAtlas = Atlas Wings
 
-marking-MothWingsLuna-luna = Luna Wings
-marking-MothWingsLuna = Luna Wings
+marking-MothWingsClassicLuna-luna = Luna Wings
+marking-MothWingsClassicLuna = Luna Wings
 
-marking-MothWingsMonarch-monarch = Monarch Wings
-marking-MothWingsMonarch = Monarch Wings
+marking-MothWingsClassicMonarch-monarch = Monarch Wings
+marking-MothWingsClassicMonarch = Monarch Wings
 
-marking-MothWingsReddish-reddish = Reddish Wings
-marking-MothWingsReddish = Reddish Wings
+marking-MothWingsClassicReddish-reddish = Reddish Wings
+marking-MothWingsClassicReddish = Reddish Wings
 
-marking-MothWingsRoyal-royal = Royal Wings
-marking-MothWingsRoyal = Royal Wings
+marking-MothWingsClassicRoyal-royal = Royal Wings
+marking-MothWingsClassicRoyal = Royal Wings
 
-marking-MothWingsGothic-gothic = Gothic Wings
-marking-MothWingsGothic = Gothic Wings
+marking-MothWingsClassicGothic-gothic = Gothic Wings
+marking-MothWingsClassicGothic = Gothic Wings
 
-marking-MothWingsLovers-lovers = Lovers Wings
-marking-MothWingsLovers = Lovers Wings
+marking-MothWingsClassicLovers-lovers = Lovers Wings
+marking-MothWingsClassicLovers = Lovers Wings
 
-marking-MothWingsWhitefly-whitefly = Whitefly Wings
-marking-MothWingsWhitefly = Whitefly Wings
+marking-MothWingsClassicWhitefly-whitefly = Whitefly Wings
+marking-MothWingsClassicWhitefly = Whitefly Wings
 
-marking-MothWingsFirewatch-firewatch = Firewatch Wings
-marking-MothWingsFirewatch = Firewatch Wings
+marking-MothWingsClassicFirewatch-firewatch = Firewatch Wings
+marking-MothWingsClassicFirewatch = Firewatch Wings
 
-marking-MothWingsDeathshead-deathshead = Deathshead Wings
-marking-MothWingsDeathshead = Deathshead Wings
+marking-MothWingsClassicDeathshead-deathshead = Deathshead Wings
+marking-MothWingsClassicDeathshead = Deathshead Wings
 
-marking-MothWingsPoison-poison = Poison Wings
-marking-MothWingsPoison = Poison Wings
+marking-MothWingsClassicPoison-poison = Poison Wings
+marking-MothWingsClassicPoison = Poison Wings
 
-marking-MothWingsRagged-ragged = Ragged Wings
-marking-MothWingsRagged = Ragged Wings
+marking-MothWingsClassicRagged-ragged = Ragged Wings
+marking-MothWingsClassicRagged = Ragged Wings
 
-marking-MothWingsMoonfly-moonfly = Moon Fly Wings
-marking-MothWingsMoonfly = Moon Fly Wings
+marking-MothWingsClassicMoonfly-moonfly = Moon Fly Wings
+marking-MothWingsClassicMoonfly = Moon Fly Wings
 
-marking-MothWingsSnow-snow = Snow Wings
-marking-MothWingsSnow = Snow Wings
+marking-MothWingsClassicSnow-snow = Snow Wings
+marking-MothWingsClassicSnow = Snow Wings
 
-marking-MothWingsOakworm-oakworm = Oak Worm Wings
-marking-MothWingsOakworm = Oak Worm Wings
+marking-MothWingsClassicOakworm-oakworm = Oak Worm Wings
+marking-MothWingsClassicOakworm = Oak Worm Wings
 
-marking-MothWingsWitchking-witchking = Witch King Wings
-marking-MothWingsWitchking = Witch King Wings
+marking-MothWingsClassicWitchking-witchking = Witch King Wings
+marking-MothWingsClassicWitchking = Witch King Wings
 
-marking-MothWingsJungle-jungle = Jungle Wings
-marking-MothWingsJungle = Jungle Wings
+marking-MothWingsClassicJungle-jungle = Jungle Wings
+marking-MothWingsClassicJungle = Jungle Wings
 
-marking-MothWingsRosy-rosy = Rosy Wings
-marking-MothWingsRosy = Rosy Wings
+marking-MothWingsClassicRosy-rosy = Rosy Wings
+marking-MothWingsClassicRosy = Rosy Wings
 
-marking-MothWingsFeathery-feathery = Feahtery Wings
-marking-MothWingsFeathery = Feahtery Wings
+marking-MothWingsClassicFeathery-feathery = Feahtery Wings
+marking-MothWingsClassicFeathery = Feahtery Wings
 
-marking-MothWingsBrown-brown = Brown Wings
-marking-MothWingsBrown = Brown Wings
+marking-MothWingsClassicBrown-brown = Brown Wings
+marking-MothWingsClassicBrown = Brown Wings
 
-marking-MothWingsPlasmafire-plasmafire = Plasmafire Wings
-marking-MothWingsPlasmafire = Plasmafire Wings
+marking-MothWingsClassicPlasmafire-plasmafire = Plasmafire Wings
+marking-MothWingsClassicPlasmafire = Plasmafire Wings
 
-marking-MothWingsMoffra-moffra = Moffra Wings
-marking-MothWingsMoffra = Moffra Wings
+marking-MothWingsClassicMoffra-moffra = Moffra Wings
+marking-MothWingsClassicMoffra = Moffra Wings
 
-marking-MothWingsAspen-aspen = Aspen Wings
-marking-MothWingsAspen = Aspen Wings
+marking-MothWingsClassicAspen-aspen = Aspen Wings
+marking-MothWingsClassicAspen = Aspen Wings
 
-marking-MothWingsMint-mint = Mint Wings
-marking-MothWingsMint = Mint Wings
+marking-MothWingsClassicMint-mint = Mint Wings
+marking-MothWingsClassicMint = Mint Wings
 
 
 
