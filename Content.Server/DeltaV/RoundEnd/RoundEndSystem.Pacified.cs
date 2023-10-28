@@ -56,12 +56,7 @@ public sealed class PacifiedRoundEnd : EntitySystem
         var uplinkQuery = EntityQueryEnumerator<StoreComponent>();
         while (uplinkQuery.MoveNext(out var uid, out var store))
         {
-            var allCurrency = store.Balance;
-            foreach (var money in allCurrency)
-            {
-                _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> { { money.Key, -money.Value } }, uid,
-                    store);
-            }
+            store.Listings.Clear();
         }
     }
 }
