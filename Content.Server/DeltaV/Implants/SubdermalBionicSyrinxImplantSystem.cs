@@ -9,6 +9,7 @@ using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Tag;
 using Content.Shared.VoiceMask;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -22,9 +23,13 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string HarpySpeciesId = "Harpy";
+    [ValidatePrototypeId<TagPrototype>]
+    public const string BionicSyrinxImplant = "BionicSyrinxImplant";
+
 
     public override void Initialize()
     {
@@ -40,27 +45,22 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
 
     private void OnInsert(EntityUid uid, VoiceMaskerComponent component, ImplantImplantedEvent args)
     {
-        if (!args.Implanted.HasValue)
+        if (!args.Implanted.HasValue ||
+            !_tag.HasTag(args.Implant, BionicSyrinxImplant) ||
+            !TryComp<HumanoidAppearanceComponent>(args.Implanted, out var appearance))
             return;
 
-        ApplyVoiceMask(args.Implanted.Value);
-    }
-
-    private void ApplyVoiceMask(EntityUid uid)
-    {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var appearance))
-            return;
-
-        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(uid);
-        voicemask.VoiceName = MetaData(uid).EntityName;
-
+        // Break the implant like the mindshields do when injected into a non-harpy.
         if (_prototypeManager.Index(appearance.Species)?.ID != HarpySpeciesId)
         {
-            voicemask.Enabled = false;
-            _popupSystem.PopupEntity(Loc.GetString("syrinx-popup-implant-failure"), uid, uid, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("syrinx-popup-implant-failure"), args.Implanted.Value, args.Implanted.Value, PopupType.MediumCaution);
+            QueueDel(args.Implant);
+            return;
         }
 
-        Dirty(uid, voicemask);
+        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Implanted.Value);
+        voicemask.VoiceName = MetaData(args.Implanted.Value).EntityName;
+        Dirty(args.Implanted.Value, voicemask);
     }
 
     private void OnRemove(EntityUid uid, VoiceMaskerComponent component, EntGotRemovedFromContainerMessage args)
@@ -68,7 +68,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         if (!TryComp<SubdermalImplantComponent>(uid, out var implanted) || implanted.ImplantedEntity == null)
             return;
 
-        RemComp<SyrinxVoiceMaskComponent>((EntityUid) implanted.ImplantedEntity);
+        RemComp<SyrinxVoiceMaskComponent>(implanted.ImplantedEntity.Value);
     }
 
     /// <summary>
@@ -82,10 +82,15 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
             return;
         }
 
+        // Don't allow non-harpies to change name. Shouldn't normally happen since the implant
+        // breaks when you try to inject it, though I know some artifacts and admin smites can
+        // change player species so it's not unthinkable. Also disable the component so they're not
+        // "stuck" with the changed name. It's not perfect but it's a super rare edge case so weh.
         if (TryComp<HumanoidAppearanceComponent>(uid, out var appearance) &&
             _prototypeManager.Index(appearance.Species)?.ID != HarpySpeciesId)
         {
             _popupSystem.PopupEntity(Loc.GetString("syrinx-popup-name-failure"), uid, uid, PopupType.MediumCaution);
+            component.Enabled = false;
             return;
         }
 
