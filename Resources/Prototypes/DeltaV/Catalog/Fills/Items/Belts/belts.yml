@@ -20,3 +20,17 @@
       - id: Bloodpack
       - id: SyringeEphedrine
       - id: EmergencyMedipen
+
+- type: entity #ERT gear
+  id: ClothingBeltJanitorAdvanced
+  parent: ClothingBeltJanitor
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Soap #Make a soap group and pick between when i'm not lazy
+      - id: SprayBottleSpaceCleaner
+      - id: WetFloorSign
+      - id: Holoprojector
+      - id: FlashlightLantern
+     
