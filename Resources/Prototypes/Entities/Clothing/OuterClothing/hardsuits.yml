@@ -829,36 +829,32 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitEVA # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitClown
-  name: clown EVA suit # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
-  description: A custom made clown softsuit. # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
+  name: clown hardsuit
+  description: A custom made clown hardsuit.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
-  # - type: PressureProtection # DeltaV - Clown Hardsuit inherits from the normal eva suit, entirely cosmetic.
-  #   highPressureMultiplier: 0.5
-  #   lowPressureMultiplier: 1000
-  # - type: ExplosionResistance
-  #   damageCoefficient: 0.9
-  # - type: Armor
-  #   modifiers:
-  #     coefficients:
-  #       Blunt: 0.9
-  #       Slash: 0.9
-  #       Piercing: 0.9
-  #       Caustic: 0.8
-  # - type: ClothingSpeedModifier
-  #   walkModifier: 0.9
-  #   sprintModifier: 0.9
-  - type: Construction
-    graph: ClownHardsuit
-    node: clownHardsuit
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  # - type: Construction # DeltaV - Prevent clowns from making the hardsuit
+  #   graph: ClownHardsuit
+  #   node: clownHardsuit
   - type: ToggleableClothing
-    slot: head
     clothingPrototype: ClothingHeadHelmetHardsuitClown
-  - type: ContainerContainer # DeltaV - Allows the EVA suit to have built in 'hardsuit' helmet
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
