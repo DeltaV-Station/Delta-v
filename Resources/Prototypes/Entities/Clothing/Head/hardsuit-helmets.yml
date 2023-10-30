@@ -681,16 +681,15 @@
 #MISC. HARDSUITS
 #Clown Hardsuit
 - type: entity
-  parent: ClothingHeadEVAHelmetBase # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
+  parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitClown
   noSpawn: true
-  name: clown EVA helmet # DeltaV - Clown Hardsuit crafting recipe uses an EVA suit to craft.
-  description: A clown EVA helmet.
+  name: clown hardsuit helmet
+  description: A clown hardsuit helmet.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/clown.rsi
   - type: Clothing
-    equippedPrefix: off # Fix lack of helmet while not using the flashlight feature.
     sprite: Clothing/Head/Hardsuits/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg # DeltaV - This doesn't need to make a fart noise.
+    unequipSound: /Audio/Effects/Emotes/parp1.ogg
