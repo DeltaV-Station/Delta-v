@@ -154,8 +154,8 @@
   name: Vector
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunVector
-  suffix: Deprecated use Drozd
-  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
+# suffix: Deprecated use Drozd
+  description: An excellent fully automatic Heavy SMG. Uses .35 auto ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/vector.rsi
@@ -167,30 +167,32 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/vector.rsi
   - type: Gun
-    fireRate: 6
+    fireRate: 20 #DeltaV Gotta be different from drozd This is 1200 rounds per minute
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
     availableModes:
     - FullAuto
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineMagnumSubMachineGun
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineMagnumSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeMagnum
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeMagnum
+    - SemiAuto   #DeltaV SemiAuto for the high firerate
+    - Burst      #DeltaV SemiAuto for the high firerate
+  - type: ItemSlots         #.35 Auto in DeltaV
+     slots:
+       gun_magazine:
+         name: Magazine
+         startingItem: MagazinePistolSubMachineGun
+         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+         priority: 2
+         whitelist:
+           tags:
+             - MagazinePistolSubMachineGun
+       gun_chamber:
+         name: Chamber
+         startingItem: CartridgePistol
+         priority: 1
+         whitelist:
+           tags:
+             - CartridgePistol
   - type: MagazineVisuals
     magState: mag
     steps: 1
