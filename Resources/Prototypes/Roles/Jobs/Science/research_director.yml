@@ -26,7 +26,9 @@
   special: # Nyanotrasen - Mystagogue can use the Bible
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser #Lets them heal with bibles
+    - type: BibleUser # Nyano - Lets them heal with bibles
+    - type: Psionic # Nyano - They start with telepathic chat
+    - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
