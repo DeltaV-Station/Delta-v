@@ -2916,6 +2916,7 @@ Entries:
   time: '2023-10-31T03:40:12.0000000+00:00'
 - author: EmoGarbage404
   changes:
+  - {message: DELTAV - Revert storage update, changelog entries only present to prevent conflicts., type: Remove}
   - {message: 'Storage containers can now block large items from being inserted into
       them, regardless of the space available.', type: Add}
   - {message: Belts now function on a slot based storage system rather than a volume
