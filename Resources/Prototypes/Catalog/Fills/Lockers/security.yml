@@ -20,7 +20,7 @@
       - id: ClothingOuterWinterWarden
       - id: RubberStampWarden
       - id: DoorRemoteArmory
-      - id: ClothingOuterHardsuitWarden
+      - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
       - id: BoxPDAPrisoner # Delta-V
@@ -103,10 +103,10 @@
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
-      - id: ClothingOuterHardsuitBrigmedic
+      - id: ClothingOuterHardsuitCombat # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit.
       - id: BoxSterileMask
-      - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret
-      - id: ClothingOuterCoatAMG
+      - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret.
+##      - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
 ##      - id: ClothingUniformJumpskirtOfLife # DeltaV - nah
