@@ -176,23 +176,23 @@
     - SemiAuto   #DeltaV SemiAuto for the high firerate
     - Burst      #DeltaV SemiAuto for the high firerate
   - type: ItemSlots         #.35 Auto in DeltaV
-     slots:
-       gun_magazine:
-         name: Magazine
-         startingItem: MagazinePistolSubMachineGun
-         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-         priority: 2
-         whitelist:
-           tags:
-             - MagazinePistolSubMachineGun
-       gun_chamber:
-         name: Chamber
-         startingItem: CartridgePistol
-         priority: 1
-         whitelist:
-           tags:
-             - CartridgePistol
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
   - type: MagazineVisuals
     magState: mag
     steps: 1
