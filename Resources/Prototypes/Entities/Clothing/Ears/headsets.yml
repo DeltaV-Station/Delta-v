@@ -242,7 +242,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetBrigmedic
-  name: brigmedic headset
+  name: corpsman headset # DeltaV - rename brigmedic to corpsman
   description: A headset that helps to hear the death cries.
   components:
   - type: ContainerFill
@@ -252,9 +252,9 @@
       - EncryptionKeySecurity
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/brigmedic.rsi
+    sprite: DeltaV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/brigmedic.rsi
+    sprite: DeltaV/Clothing/Ears/Headsets/securitymedical.rsi # DeltaV - Change the sprite to fit the others
 
 - type: entity
   parent: ClothingHeadset

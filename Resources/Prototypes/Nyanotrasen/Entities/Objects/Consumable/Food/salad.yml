@@ -53,6 +53,9 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cheese, salad and bread
 
 - type: entity
@@ -80,6 +83,9 @@
           Quantity: 7
         - ReagentId: Fiber
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cheese, salad and cotton
 
 - type: entity
@@ -107,4 +113,7 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 6
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like onion, tomato, corn, chili and cilantro
