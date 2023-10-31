@@ -42,7 +42,7 @@ public sealed class ContentPlayerData
     /// </summary>
     [ViewVariables]
     public bool Whitelisted { get; set; }
-    
+
     public ContentPlayerData(NetUserId userId, string name)
     {
         UserId = userId;
