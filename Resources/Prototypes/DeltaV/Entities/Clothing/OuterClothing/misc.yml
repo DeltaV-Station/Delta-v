@@ -33,7 +33,7 @@
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
-  id: ClothingOuterCoatAmongGrande
+  id: ClothingOuterAmongGrandeSuit
   name: among grande
   description: Sospechoso...
   components:
@@ -42,7 +42,7 @@
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/Misc/amonggrande.rsi
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatAmongGrande
+    clothingPrototype: ClothingHeadHatHoodAmongGrande
   - type: TypingIndicatorClothing
     proto: lawyer
   - type: TemperatureProtection
