@@ -19,7 +19,7 @@
       time: 72000 # 20 hours
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 90000 # 25 hours
-  weight: 10
+  weight: 10 # Delta V
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true
