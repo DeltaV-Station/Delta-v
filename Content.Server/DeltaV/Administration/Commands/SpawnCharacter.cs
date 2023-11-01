@@ -6,12 +6,10 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
-using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 
 namespace Content.Server.DeltaV.Administration.Commands;
 
@@ -28,13 +26,13 @@ public sealed class SpawnCharacter : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (shell.Player is not ICommonSession player)
+        if (shell.Player is not IPlayerSession player)
         {
             shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
             return;
         }
 
-        var mindSystem = _entityManager.System<SharedMindSystem>();
+        var mindSystem = _entitySys.GetEntitySystem<SharedMindSystem>();
 
         var data = player.ContentData();
 
@@ -92,7 +90,7 @@ public sealed class SpawnCharacter : IConsoleCommand
     {
         if (args.Length == 1)
         {
-            var player = shell.Player as ICommonSession;
+            var player = shell.Player as IPlayerSession;
             if (player == null)
                 return CompletionResult.Empty;
 

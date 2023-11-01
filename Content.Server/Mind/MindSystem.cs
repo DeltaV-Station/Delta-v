@@ -11,9 +11,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -73,45 +71,51 @@ public sealed class MindSystem : SharedMindSystem
         }
 
         TransferTo(mindId, null, createGhost: false, mind: mind);
-        DebugTools.AssertNull(mind.OwnedEntity);
 
-        if (!component.GhostOnShutdown || mind.Session == null || _gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+        // Let's not create ghosts if not in the middle of the round.
+        if (_gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
             return;
 
-        var xform = Transform(uid);
-        var gridId = xform.GridUid;
-        var spawnPosition = Transform(uid).Coordinates;
-
-        // Use a regular timer here because the entity has probably been deleted.
-        Timer.Spawn(0, () =>
+        // I just love convoluted entity shutdown logic that results in more entities being spawned.
+        if (component.GhostOnShutdown && mind.Session != null)
         {
-            // Make extra sure the round didn't end between spawning the timer and it being executed.
-            if (_gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
-                return;
+            var xform = Transform(uid);
+            var gridId = xform.GridUid;
+            var spawnPosition = Transform(uid).Coordinates;
 
-            // Async this so that we don't throw if the grid we're on is being deleted.
-            if (!HasComp<MapGridComponent>(gridId))
-                spawnPosition = _gameTicker.GetObserverSpawnPoint();
-
-            // TODO refactor observer spawning.
-            // please.
-            if (!spawnPosition.IsValid(EntityManager))
+            // Use a regular timer here because the entity has probably been deleted.
+            Timer.Spawn(0, () =>
             {
-                // This should be an error, if it didn't cause tests to start erroring when they delete a player.
-                Log.Warning($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, and no applicable spawn location is available.");
-                TransferTo(mindId, null, createGhost: false, mind: mind);
-                return;
-            }
+                // Make extra sure the round didn't end between spawning the timer and it being executed.
+                if (_gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+                    return;
 
-            var ghost = Spawn(GameTicker.ObserverPrototypeName, spawnPosition);
-            var ghostComponent = Comp<GhostComponent>(ghost);
-            _ghosts.SetCanReturnToBody(ghostComponent, false);
+                // Async this so that we don't throw if the grid we're on is being deleted.
+                if (!_maps.GridExists(gridId))
+                    spawnPosition = _gameTicker.GetObserverSpawnPoint();
 
-            // Log these to make sure they're not causing the GameTicker round restart bugs...
-            Log.Debug($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, spawned \"{ToPrettyString(ghost)}\".");
-            _metaData.SetEntityName(ghost, mind.CharacterName ?? string.Empty);
-            TransferTo(mindId, ghost, mind: mind);
-        });
+                // TODO refactor observer spawning.
+                // please.
+                if (!spawnPosition.IsValid(EntityManager))
+                {
+                    // This should be an error, if it didn't cause tests to start erroring when they delete a player.
+                    Log.Warning($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, and no applicable spawn location is available.");
+                    TransferTo(mindId, null, createGhost: false, mind: mind);
+                    return;
+                }
+
+                var ghost = Spawn("MobObserver", spawnPosition);
+                var ghostComponent = Comp<GhostComponent>(ghost);
+                _ghosts.SetCanReturnToBody(ghostComponent, false);
+
+                // Log these to make sure they're not causing the GameTicker round restart bugs...
+                Log.Debug($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, spawned \"{ToPrettyString(ghost)}\".");
+
+                var val = mind.CharacterName ?? string.Empty;
+                _metaData.SetEntityName(ghost, val);
+                TransferTo(mindId, ghost, mind: mind);
+            });
+        }
     }
 
     public override bool TryGetMind(NetUserId user, [NotNullWhen(true)] out EntityUid? mindId, [NotNullWhen(true)] out MindComponent? mind)
@@ -126,18 +130,18 @@ public sealed class MindSystem : SharedMindSystem
         return false;
     }
 
-    public bool TryGetSession(EntityUid? mindId, [NotNullWhen(true)] out ICommonSession? session)
+    public bool TryGetSession(EntityUid? mindId, [NotNullWhen(true)] out IPlayerSession? session)
     {
         session = null;
-        return TryComp(mindId, out MindComponent? mind) && (session = mind.Session) != null;
+        return TryComp(mindId, out MindComponent? mind) && (session = (IPlayerSession?) mind.Session) != null;
     }
 
-    public ICommonSession? GetSession(MindComponent mind)
+    public IPlayerSession? GetSession(MindComponent mind)
     {
-        return mind.Session;
+        return (IPlayerSession?) mind.Session;
     }
 
-    public bool TryGetSession(MindComponent mind, [NotNullWhen(true)] out ICommonSession? session)
+    public bool TryGetSession(MindComponent mind, [NotNullWhen(true)] out IPlayerSession? session)
     {
         return (session = GetSession(mind)) != null;
     }
@@ -175,9 +179,7 @@ public sealed class MindSystem : SharedMindSystem
             return;
         }
 
-        if (GetSession(mind) is { } session)
-            _actor.Attach(entity, session);
-
+        GetSession(mind)?.AttachToEntity(entity);
         mind.VisitingEntity = entity;
 
         // EnsureComp instead of AddComp to deal with deferred deletions.
@@ -202,8 +204,7 @@ public sealed class MindSystem : SharedMindSystem
             return;
 
         var owned = mind.OwnedEntity;
-        if (GetSession(mind) is { } session)
-            _actor.Attach(owned, session);
+        GetSession(mind)?.AttachToEntity(owned);
 
         if (owned.HasValue)
         {
@@ -293,7 +294,6 @@ public sealed class MindSystem : SharedMindSystem
         if (session != null && !alreadyAttached && mind.VisitingEntity == null)
         {
             _actor.Attach(entity, session, true);
-            DebugTools.Assert(session.AttachedEntity == entity, $"Failed to attach entity.");
             Log.Info($"Session {session.Name} transferred to entity {entity}.");
         }
 
