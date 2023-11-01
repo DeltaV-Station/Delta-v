@@ -5,6 +5,7 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Console;
 using Robust.Server.GameObjects;
 using Content.Shared.Actions;
+using Robust.Shared.Player;
 
 namespace Content.Server.Psionics;
 
