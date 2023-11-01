@@ -8,6 +8,7 @@ using Content.Shared.Item.PseudoItem;
 using Content.Shared.Storage;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.DoAfter;
+using Content.Shared.Tag;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Item.PseudoItem;
@@ -16,6 +17,11 @@ public sealed partial class PseudoItemSystem : EntitySystem
     /*[Dependency] private readonly StorageSystem _storageSystem = default!;
     [Dependency] private readonly ItemSystem _itemSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string PreventTag = "PreventLabel";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -122,6 +128,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
             return false;
 
         var item = EnsureComp<ItemComponent>(toInsert);
+        _tagSystem.TryAddTag(toInsert, PreventTag);
         _itemSystem.SetSize(toInsert, component.Size, item);
 
         if (!_storageSystem.Insert(storageUid, toInsert, out _, null, storage))
@@ -129,12 +136,11 @@ public sealed partial class PseudoItemSystem : EntitySystem
             component.Active = false;
             RemComp<ItemComponent>(toInsert);
             return false;
-        } else
-        {
-            component.Active = true;
-            Transform(storageUid).AttachToGridOrMap();
-            return true;
         }
+
+        component.Active = true;
+        Transform(storageUid).AttachToGridOrMap();
+        return true;
     }
     private void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity, PseudoItemComponent? pseudoItem = null)
     {
