@@ -24,10 +24,11 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
+using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
@@ -426,7 +427,7 @@ namespace Content.Server.Administration.Systems
             }
         }
 
-        public void OpenEditSolutionsEui(ICommonSession session, EntityUid uid)
+        public void OpenEditSolutionsEui(IPlayerSession session, EntityUid uid)
         {
             if (session.AttachedEntity == null)
                 return;

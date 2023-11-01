@@ -61,11 +61,35 @@ public sealed class SolutionSpikableSystem : EntitySystem
             return;
         }
 
-        if (!_solutionSystem.ForceAddSolution(target, targetSolution, sourceSolution))
-            return;
+        if (_solutionSystem.TryMixAndOverflow(target,
+                targetSolution,
+                sourceSolution,
+                targetSolution.MaxVolume,
+                out var overflow))
+        {
+            if (overflow.Volume > 0)
+            {
+                RaiseLocalEvent(target, new SolutionSpikeOverflowEvent(overflow));
+            }
 
-        _popupSystem.PopupEntity(Loc.GetString(spikableSource.Popup, ("spiked-entity", target), ("spike-entity", source)), user, user);
-        sourceSolution.RemoveAllSolution();
-        _triggerSystem.Trigger(source, user);
+            _popupSystem.PopupEntity(Loc.GetString(spikableSource.Popup, ("spiked-entity", target), ("spike-entity", source)), user, user);
+
+            sourceSolution.RemoveAllSolution();
+
+            _triggerSystem.Trigger(source, user);
+        }
+    }
+}
+
+public sealed class SolutionSpikeOverflowEvent : HandledEntityEventArgs
+{
+    /// <summary>
+    ///     The solution that's been overflowed from the spike.
+    /// </summary>
+    public Solution Overflow { get; }
+
+    public SolutionSpikeOverflowEvent(Solution overflow)
+    {
+        Overflow = overflow;
     }
 }

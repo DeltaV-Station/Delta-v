@@ -5,7 +5,6 @@ using Content.Server.Chat.Managers;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 
 namespace Content.Server.Psionics.Dreams
 {

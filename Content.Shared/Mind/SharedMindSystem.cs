@@ -13,7 +13,7 @@ using Content.Shared.Objectives.Systems;
 using Content.Shared.Players;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
+using Robust.Shared.Players;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Mind;
@@ -147,16 +147,15 @@ public abstract class SharedMindSystem : EntitySystem
             return;
 
         var dead = _mobState.IsDead(uid);
-        var hasUserId = CompOrNull<MindComponent>(mindContainer.Mind)?.UserId;
         var hasSession = CompOrNull<MindComponent>(mindContainer.Mind)?.Session;
 
-        if (dead && hasUserId == null)
+        if (dead && !mindContainer.HasMind)
             args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-dead-and-irrecoverable", ("ent", uid))}[/color]");
         else if (dead && hasSession == null)
             args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-dead-and-ssd", ("ent", uid))}[/color]");
         else if (dead)
             args.PushMarkup($"[color=red]{Loc.GetString("comp-mind-examined-dead", ("ent", uid))}[/color]");
-        else if (hasUserId == null)
+        else if (!mindContainer.HasMind)
             args.PushMarkup($"[color=mediumpurple]{Loc.GetString("comp-mind-examined-catatonic", ("ent", uid))}[/color]");
         else if (hasSession == null)
             args.PushMarkup($"[color=yellow]{Loc.GetString("comp-mind-examined-ssd", ("ent", uid))}[/color]");
@@ -410,11 +409,11 @@ public abstract class SharedMindSystem : EntitySystem
     }
 
     public bool TryGetMind(
-        ContentPlayerData contentPlayer,
+        PlayerData player,
         out EntityUid mindId,
         [NotNullWhen(true)] out MindComponent? mind)
     {
-        mindId = contentPlayer.Mind ?? default;
+        mindId = player.Mind ?? default;
         return TryComp(mindId, out mind);
     }
 

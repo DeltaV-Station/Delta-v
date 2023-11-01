@@ -6,7 +6,6 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
-using Robust.Shared.Player;
 
 namespace Content.Server.Construction.Commands
 {
@@ -24,7 +23,7 @@ namespace Content.Server.Construction.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var player = shell.Player as ICommonSession;
+            var player = shell.Player as IPlayerSession;
             var entityManager = IoCManager.Resolve<IEntityManager>();
             EntityUid? gridId;
 

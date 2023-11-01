@@ -7,8 +7,10 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Verbs;
+using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
-using Robust.Shared.Player;
+using Content.Server.GameTicking.Rules.Components;
+using System.Linq;
 
 namespace Content.Server.Administration.Systems;
 

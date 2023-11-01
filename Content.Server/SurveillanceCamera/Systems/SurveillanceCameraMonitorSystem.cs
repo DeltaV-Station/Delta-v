@@ -5,7 +5,6 @@ using Content.Server.Power.Components;
 using Content.Server.UserInterface;
 using Content.Shared.SurveillanceCamera;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 
 namespace Content.Server.SurveillanceCamera;
 

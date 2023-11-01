@@ -7,7 +7,6 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Kitchen;
 using Robust.Server.GameObjects;
 using Content.Server.Materials;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Roboisseur.Roboisseur

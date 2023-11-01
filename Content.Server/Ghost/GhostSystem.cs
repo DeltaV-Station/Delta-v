@@ -20,7 +20,6 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ghost

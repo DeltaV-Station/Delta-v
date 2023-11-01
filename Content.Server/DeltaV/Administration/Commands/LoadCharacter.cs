@@ -7,12 +7,10 @@ using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 // This literally only exists because haha felinid oni
@@ -32,7 +30,7 @@ public sealed class LoadCharacter : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (shell.Player is not ICommonSession player)
+        if (shell.Player is not IPlayerSession player)
         {
             shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
             return;
@@ -120,9 +118,9 @@ public sealed class LoadCharacter : IConsoleCommand
 
         var coordinates = player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
-            : EntitySystem.Get<GameTicker>().GetObserverSpawnPoint();
+            : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
 
-        EntitySystem.Get<StationSpawningSystem>()
+        _entityManager.System<StationSpawningSystem>()
             .SpawnPlayerMob(coordinates, profile: character, entity: target, job: null, station: null);
 
         shell.WriteLine(Loc.GetString("loadcharacter-command-complete"));
@@ -136,7 +134,8 @@ public sealed class LoadCharacter : IConsoleCommand
                 return CompletionResult.FromHint(Loc.GetString("shell-argument-uid"));
             case 2:
             {
-                if (shell.Player is not ICommonSession player)
+                var player = shell.Player as IPlayerSession;
+                if (player == null)
                     return CompletionResult.Empty;
 
                 var data = player.ContentData();
