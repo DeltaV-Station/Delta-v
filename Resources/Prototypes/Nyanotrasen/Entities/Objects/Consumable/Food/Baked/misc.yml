@@ -23,6 +23,9 @@
           Quantity: 1
         - ReagentId: Sugar
           Quantity: 12
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cheesecake and honey
 
 - type: entity
@@ -51,11 +54,11 @@
           Quantity: 10
         - ReagentId: Sugar
           Quantity: 10
-#Tastes like vanilla and clouds.
   - type: Tag
     tags:
+      - ClothMade # Mothic Food
       - FoodSnack
-      
+#Tastes like vanilla and clouds.
 - type: entity
   name: mothmallow slice
   parent: FoodBakedBase
@@ -82,6 +85,7 @@
 #Tastes like vanilla and clouds.
   - type: Tag
     tags:
+      - ClothMade # Mothic Food
       - FoodSnack
       
 - type: entity
@@ -121,6 +125,7 @@
           Quantity: 4
   - type: Tag
     tags:
-      - ClothMade
+    tags:
+      - ClothMade # Mothic Food
       - FoodSnack
 #Tastes like muffin, dust and lint
