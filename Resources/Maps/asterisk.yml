@@ -57137,6 +57137,39 @@ entities:
     - pos: 27.5,-9.5
       parent: 2
       type: Transform
+- proto: StationMap
+  entities:
+  - uid: 10775
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -5.5,10.5
+      parent: 2
+      type: Transform
+  - uid: 10776
+    components:
+    - pos: 1.5,-9.5
+      parent: 2
+      type: Transform
+  - uid: 10777
+    components:
+    - pos: -10.5,-29.5
+      parent: 2
+      type: Transform
+  - uid: 10778
+    components:
+    - pos: -35.5,-13.5
+      parent: 2
+      type: Transform
+  - uid: 10779
+    components:
+    - pos: -49.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 10780
+    components:
+    - pos: 31.5,-3.5
+      parent: 2
+      type: Transform
 - proto: StationMapBroken
   entities:
   - uid: 3763
