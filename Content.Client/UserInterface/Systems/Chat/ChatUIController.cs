@@ -167,8 +167,7 @@ public sealed class ChatUIController : UIController
         _sawmill.Level = LogLevel.Info;
         _admin.AdminStatusUpdated += UpdateChannelPermissions;
         _manager.PermissionsUpdated += UpdateChannelPermissions; //Nyano - Summary: the event for when permissions are updated for psionics.
-        _player.LocalPlayerAttached += OnAttachedChanged;
-        _player.LocalPlayerDetached += OnAttachedChanged;
+        _player.LocalPlayerChanged += OnLocalPlayerChanged;
         _state.OnStateChanged += StateChanged;
         _net.RegisterNetMessage<MsgChatMessage>(OnChatMessage);
         _net.RegisterNetMessage<MsgDeleteChatMessagesBy>(OnDeleteChatMessagesBy);
@@ -176,7 +175,7 @@ public sealed class ChatUIController : UIController
 
         _speechBubbleRoot = new LayoutContainer();
 
-        UpdateChannelPermissions();
+        OnLocalPlayerChanged(new LocalPlayerChangedEventArgs(null, _player.LocalPlayer));
 
         _input.SetInputCommand(ContentKeyFunctions.FocusChat,
             InputCmdHandler.FromDelegate(_ => FocusChat()));
@@ -369,7 +368,29 @@ public sealed class ChatUIController : UIController
         _speechBubbleRoot.SetPositionLast();
     }
 
-    private void OnAttachedChanged(EntityUid uid)
+    private void OnLocalPlayerChanged(LocalPlayerChangedEventArgs obj)
+    {
+        if (obj.OldPlayer != null)
+        {
+            obj.OldPlayer.EntityAttached -= OnLocalPlayerEntityAttached;
+            obj.OldPlayer.EntityDetached -= OnLocalPlayerEntityDetached;
+        }
+
+        if (obj.NewPlayer != null)
+        {
+            obj.NewPlayer.EntityAttached += OnLocalPlayerEntityAttached;
+            obj.NewPlayer.EntityDetached += OnLocalPlayerEntityDetached;
+        }
+
+        UpdateChannelPermissions();
+    }
+
+    private void OnLocalPlayerEntityAttached(EntityAttachedEventArgs obj)
+    {
+        UpdateChannelPermissions();
+    }
+
+    private void OnLocalPlayerEntityDetached(EntityDetachedEventArgs obj)
     {
         UpdateChannelPermissions();
     }
@@ -511,7 +532,7 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
 
-        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user.
+        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user. 
         if (_psionic != null && _psionic.IsPsionic)
         {
             FilterableChannels |= ChatChannel.Telepathic;

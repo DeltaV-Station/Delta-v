@@ -334,7 +334,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var eligibleQuery = EntityQueryEnumerator<StationEventEligibleComponent, NpcFactionMemberComponent>();
         while (eligibleQuery.MoveNext(out var eligibleUid, out var eligibleComp, out var member))
         {
-            if (!_npcFaction.IsFactionHostile(component.Faction, eligibleUid, member))
+            if (!_npcFaction.IsFactionFriendly(component.Faction, eligibleUid, member))
                 continue;
 
             eligible.Add((eligibleUid, eligibleComp, member));
@@ -349,7 +349,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var query = EntityQueryEnumerator<NukeOperativeComponent, ActorComponent>();
         while (query.MoveNext(out _, out var nukeops, out var actor))
         {
-            NotifyNukie(actor.PlayerSession, nukeops, component);
+            _chatManager.DispatchServerMessage(actor.PlayerSession, Loc.GetString("nukeops-welcome", ("station", component.TargetStation.Value)));
+            _audio.PlayGlobal(nukeops.GreetSoundNotification, actor.PlayerSession);
             filter.AddPlayer(actor.PlayerSession);
         }
     }
@@ -601,11 +602,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             var maxOperatives = nukeops.MaxOps;
 
             // Dear lord what is happening HERE.
-            var everyone = new List<ICommonSession>(ev.PlayerPool);
-            var prefList = new List<ICommonSession>();
-            var medPrefList = new List<ICommonSession>();
-            var cmdrPrefList = new List<ICommonSession>();
-            var operatives = new List<ICommonSession>();
+            var everyone = new List<IPlayerSession>(ev.PlayerPool);
+            var prefList = new List<IPlayerSession>();
+            var medPrefList = new List<IPlayerSession>();
+            var cmdrPrefList = new List<IPlayerSession>();
+            var operatives = new List<IPlayerSession>();
 
             // The LINQ expression ReSharper keeps suggesting is completely unintelligible so I'm disabling it
             // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -636,7 +637,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             for (var i = 0; i < numNukies; i++)
             {
                 // TODO: Please fix this if you touch it.
-                ICommonSession nukeOp;
+                IPlayerSession nukeOp;
                 // Only one commander, so we do it at the start
                 if (i == 0)
                 {
@@ -792,7 +793,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
             if (nukeops.TargetStation != null && !string.IsNullOrEmpty(Name(nukeops.TargetStation.Value)))
             {
-                NotifyNukie(playerSession, component, nukeops);
+                _chatManager.DispatchServerMessage(playerSession, Loc.GetString("nukeops-welcome", ("station", nukeops.TargetStation.Value)));
+
+                 // Notificate player about new role assignment
+                 _audio.PlayGlobal(component.GreetSoundNotification, playerSession);
             }
         }
     }
@@ -904,7 +908,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         _npcFaction.AddFaction(mob, "Syndicate");
     }
 
-    private void SpawnOperatives(int spawnCount, List<ICommonSession> sessions, bool addSpawnPoints, NukeopsRuleComponent component)
+    private void SpawnOperatives(int spawnCount, List<IPlayerSession> sessions, bool addSpawnPoints, NukeopsRuleComponent component)
     {
         if (component.NukieOutpost == null)
             return;
@@ -983,23 +987,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var playersPerOperative = component.PlayersPerOperative;
         var maxOperatives = component.MaxOps;
 
-        var playerPool = _playerManager.Sessions.ToList();
+        var playerPool = _playerManager.ServerSessions.ToList();
         var numNukies = MathHelper.Clamp(playerPool.Count / playersPerOperative, 1, maxOperatives);
 
-        var operatives = new List<ICommonSession>();
+        var operatives = new List<IPlayerSession>();
         SpawnOperatives(numNukies, operatives, true, component);
-    }
-
-    /// <summary>
-    /// Display a greeting message and play a sound for a nukie
-    /// </summary>
-    private void NotifyNukie(ICommonSession session, NukeOperativeComponent nukeop, NukeopsRuleComponent nukeopsRule)
-    {
-        if (nukeopsRule.TargetStation is not { } station)
-            return;
-
-        _chatManager.DispatchServerMessage(session, Loc.GetString("nukeops-welcome", ("station", station)));
-        _audio.PlayGlobal(nukeop.GreetSoundNotification, session);
     }
 
     //For admins forcing someone to nukeOps.

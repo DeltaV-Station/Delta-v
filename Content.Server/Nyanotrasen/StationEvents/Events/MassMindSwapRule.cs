@@ -7,7 +7,6 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;
 

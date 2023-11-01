@@ -9,7 +9,6 @@ using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using static Content.Shared.Access.Components.AccessOverriderComponent;
 
 namespace Content.Server.Access.Systems;

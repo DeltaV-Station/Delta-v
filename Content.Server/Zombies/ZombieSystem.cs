@@ -8,7 +8,6 @@ using Content.Server.Emoting.Systems;
 using Content.Server.Inventory;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;

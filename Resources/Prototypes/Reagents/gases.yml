@@ -261,9 +261,6 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -272,9 +269,6 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
         emote: Scream
         showInChat: true
         probability: 0.01

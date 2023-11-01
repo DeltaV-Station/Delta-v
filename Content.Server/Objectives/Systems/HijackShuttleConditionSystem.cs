@@ -23,17 +23,17 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HijackShuttleConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+        SubscribeLocalEvent<HijackShuttleComponent, ObjectiveGetProgressEvent>(OnGetProgress);
     }
 
-    private void OnGetProgress(EntityUid uid, HijackShuttleConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnGetProgress(EntityUid uid, HijackShuttleComponent comp, ref ObjectiveGetProgressEvent args)
     {
         args.Progress = GetProgress(args.MindId, args.Mind);
     }
 
     private float GetProgress(EntityUid mindId, MindComponent mind)
     {
-        // Not escaping alive if you're deleted/dead
+        // not escaping alive if you're deleted/dead
         if (mind.OwnedEntity == null || _mind.IsCharacterDeadIc(mind))
             return 0f;
 
