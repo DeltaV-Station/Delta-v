@@ -3719,20 +3719,12 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 9858
-      - 9859
-      - 8363
-      - 7568
-      - 9855
-      - 9856
-      - 9861
-      - 8357
-      - 7565
+      - 1371
       type: DeviceNetwork
     - devices:
       - 9858
       - 9859
-      - 8363
+      - 1371
       - 7568
       - 9855
       - 9856
@@ -6729,11 +6721,6 @@ entities:
   - uid: 518
     components:
     - pos: -4.5,9.5
-      parent: 2
-      type: Transform
-  - uid: 655
-    components:
-    - pos: 14.5,-10.5
       parent: 2
       type: Transform
   - uid: 798
@@ -15369,6 +15356,11 @@ entities:
   - uid: 9488
     components:
     - pos: -53.5,-8.5
+      parent: 2
+      type: Transform
+  - uid: 9571
+    components:
+    - pos: 42.5,5.5
       parent: 2
       type: Transform
   - uid: 9599
@@ -25500,7 +25492,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1701
     components:
@@ -25544,7 +25536,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1717
     components:
@@ -25552,7 +25544,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1718
     components:
@@ -25561,7 +25553,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1719
     components:
@@ -25569,7 +25561,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1720
     components:
@@ -25577,7 +25569,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1721
     components:
@@ -25585,7 +25577,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1722
     components:
@@ -25593,7 +25585,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1723
     components:
@@ -25601,7 +25593,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1724
     components:
@@ -25609,7 +25601,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1725
     components:
@@ -25617,7 +25609,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1726
     components:
@@ -25626,7 +25618,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1727
     components:
@@ -25635,7 +25627,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1728
     components:
@@ -25644,7 +25636,7 @@ entities:
       parent: 2
       type: Transform
     - links:
-      - 1844
+      - 9570
       type: DeviceLinkSink
   - uid: 1802
     components:
@@ -29272,16 +29264,29 @@ entities:
     - pos: -1.5,7.5
       parent: 2
       type: Transform
+    - name: Logistics
+      type: FaxMachine
   - uid: 2374
     components:
     - pos: 48.5,-3.5
       parent: 2
       type: Transform
+    - name: Bridge
+      type: FaxMachine
   - uid: 9533
     components:
     - pos: 12.5,0.5
       parent: 2
       type: Transform
+    - name: Office, HoP
+      type: FaxMachine
+  - uid: 9572
+    components:
+    - pos: -20.5,3.5
+      parent: 2
+      type: Transform
+    - name: Security
+      type: FaxMachine
 - proto: FaxMachineCaptain
   entities:
   - uid: 4642
@@ -29383,6 +29388,112 @@ entities:
     - pos: 11.5,0.5
       parent: 2
       type: Transform
+- proto: FireAlarm
+  entities:
+  - uid: 9574
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -5.5,-9.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 1371
+      - 9466
+      - 9467
+      - 9468
+      - 9773
+      - 9774
+      - 9863
+      - 9876
+      - 9875
+      type: DeviceNetwork
+    - devices:
+      - 1371
+      - 9466
+      - 9467
+      - 9468
+      - 9773
+      - 9774
+      - 9863
+      - 9876
+      - 9875
+      type: DeviceList
+  - uid: 9575
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 5.5,-6.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 9774
+      - 9773
+      - 9778
+      - 9777
+      - 9776
+      - 9775
+      - 9772
+      - 9771
+      - 9770
+      - 9769
+      - 1234
+      type: DeviceNetwork
+    - devices:
+      - 9774
+      - 9773
+      - 9778
+      - 9777
+      - 9776
+      - 9775
+      - 9772
+      - 9771
+      - 9770
+      - 9769
+      - 1234
+      type: DeviceList
+  - uid: 9576
+    components:
+    - pos: 5.5,3.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 3714
+      - 8985
+      - 8987
+      - 9767
+      - 9766
+      - 1234
+      type: DeviceNetwork
+    - devices:
+      - 3714
+      - 8985
+      - 8987
+      - 9767
+      - 9766
+      - 1234
+      type: DeviceList
+  - uid: 9577
+    components:
+    - pos: -0.5,3.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 9767
+      - 9766
+      - 9858
+      - 9859
+      - 9861
+      - 9862
+      - 9863
+      type: DeviceNetwork
+    - devices:
+      - 9767
+      - 9766
+      - 9858
+      - 9859
+      - 9861
+      - 9862
+      - 9863
+      type: DeviceList
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 9329
@@ -29437,6 +29548,7 @@ entities:
       - 3401
       - 9768
       - 9779
+      - 9576
       type: DeviceNetwork
   - uid: 8985
     components:
@@ -29447,6 +29559,7 @@ entities:
       - 3401
       - 9768
       - 9779
+      - 9576
       type: DeviceNetwork
   - uid: 8987
     components:
@@ -29457,6 +29570,7 @@ entities:
       - 3401
       - 9768
       - 9779
+      - 9576
       type: DeviceNetwork
   - uid: 9337
     components:
@@ -29476,6 +29590,7 @@ entities:
     - ShutdownSubscribers:
       - 9877
       - 9884
+      - 9574
       type: DeviceNetwork
   - uid: 9467
     components:
@@ -29485,6 +29600,7 @@ entities:
     - ShutdownSubscribers:
       - 9877
       - 9884
+      - 9574
       type: DeviceNetwork
   - uid: 9468
     components:
@@ -29494,6 +29610,7 @@ entities:
     - ShutdownSubscribers:
       - 9877
       - 9884
+      - 9574
       type: DeviceNetwork
   - uid: 9708
     components:
@@ -29765,6 +29882,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 9779
+      - 9575
       type: DeviceNetwork
   - uid: 9776
     components:
@@ -29774,6 +29892,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 9779
+      - 9575
       type: DeviceNetwork
   - uid: 9777
     components:
@@ -29783,6 +29902,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 9779
+      - 9575
       type: DeviceNetwork
   - uid: 9778
     components:
@@ -29792,6 +29912,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 9779
+      - 9575
       type: DeviceNetwork
   - uid: 9780
     components:
@@ -29965,6 +30086,8 @@ entities:
     - ShutdownSubscribers:
       - 9768
       - 9779
+      - 9575
+      - 9576
       type: DeviceNetwork
   - uid: 3791
     components:
@@ -29980,6 +30103,8 @@ entities:
       - 9768
       - 9779
       - 9864
+      - 9576
+      - 9577
       type: DeviceNetwork
   - uid: 9767
     components:
@@ -29990,6 +30115,8 @@ entities:
       - 9768
       - 9779
       - 9864
+      - 9576
+      - 9577
       type: DeviceNetwork
   - uid: 9769
     components:
@@ -29998,6 +30125,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 10119
+      - 9575
       type: DeviceNetwork
   - uid: 9770
     components:
@@ -30006,17 +30134,24 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 10119
+      - 9575
       type: DeviceNetwork
   - uid: 9771
     components:
     - pos: 7.5,-13.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 9575
+      type: DeviceNetwork
   - uid: 9772
     components:
     - pos: 3.5,-13.5
       parent: 2
       type: Transform
+    - ShutdownSubscribers:
+      - 9575
+      type: DeviceNetwork
   - uid: 9773
     components:
     - pos: -5.5,-11.5
@@ -30025,6 +30160,8 @@ entities:
     - ShutdownSubscribers:
       - 9779
       - 9877
+      - 9574
+      - 9575
       type: DeviceNetwork
   - uid: 9774
     components:
@@ -30034,6 +30171,8 @@ entities:
     - ShutdownSubscribers:
       - 9779
       - 9877
+      - 9574
+      - 9575
       type: DeviceNetwork
   - uid: 9782
     components:
@@ -30322,7 +30461,6 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 9854
       - 9715
       type: DeviceNetwork
   - uid: 9856
@@ -30330,9 +30468,6 @@ entities:
     - pos: 0.5,15.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 9854
-      type: DeviceNetwork
   - uid: 9858
     components:
     - rot: -1.5707963267948966 rad
@@ -30340,7 +30475,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 9854
+      - 9577
       type: DeviceNetwork
   - uid: 9859
     components:
@@ -30349,7 +30484,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 9854
+      - 9577
       type: DeviceNetwork
   - uid: 9861
     components:
@@ -30357,7 +30492,7 @@ entities:
       parent: 2
       type: Transform
     - ShutdownSubscribers:
-      - 9854
+      - 9577
       - 9714
       type: DeviceNetwork
   - uid: 9862
@@ -30368,6 +30503,7 @@ entities:
     - ShutdownSubscribers:
       - 9864
       - 9714
+      - 9577
       type: DeviceNetwork
   - uid: 9863
     components:
@@ -30377,6 +30513,8 @@ entities:
     - ShutdownSubscribers:
       - 9864
       - 9877
+      - 9574
+      - 9577
       type: DeviceNetwork
   - uid: 9866
     components:
@@ -30422,6 +30560,7 @@ entities:
     - ShutdownSubscribers:
       - 9877
       - 9915
+      - 9574
       type: DeviceNetwork
   - uid: 9876
     components:
@@ -30431,6 +30570,7 @@ entities:
     - ShutdownSubscribers:
       - 9877
       - 9915
+      - 9574
       type: DeviceNetwork
   - uid: 9880
     components:
@@ -31503,6 +31643,14 @@ entities:
   - uid: 3715
     components:
     - pos: 46.5,-8.5
+      parent: 2
+      type: Transform
+    - color: '#0088FFFF'
+      type: AtmosPipeColor
+  - uid: 4024
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 1.5,9.5
       parent: 2
       type: Transform
     - color: '#0088FFFF'
@@ -44268,6 +44416,17 @@ entities:
       type: GasValve
 - proto: GasVentPump
   entities:
+  - uid: 1371
+    components:
+    - pos: 1.5,10.5
+      parent: 2
+      type: Transform
+    - ShutdownSubscribers:
+      - 9854
+      - 9574
+      type: DeviceNetwork
+    - color: '#0088FFFF'
+      type: AtmosPipeColor
   - uid: 3723
     components:
     - rot: 1.5707963267948966 rad
@@ -44899,20 +45058,6 @@ entities:
     - pos: 1.5,6.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 9854
-      type: DeviceNetwork
-    - color: '#0088FFFF'
-      type: AtmosPipeColor
-  - uid: 8363
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 1.5,9.5
-      parent: 2
-      type: Transform
-    - ShutdownSubscribers:
-      - 9854
-      type: DeviceNetwork
     - color: '#0088FFFF'
       type: AtmosPipeColor
   - uid: 8365
@@ -45879,9 +46024,6 @@ entities:
       pos: 3.5,6.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 9854
-      type: DeviceNetwork
     - color: '#FF8800FF'
       type: AtmosPipeColor
   - uid: 7566
@@ -45899,9 +46041,6 @@ entities:
     - pos: 0.5,12.5
       parent: 2
       type: Transform
-    - ShutdownSubscribers:
-      - 9854
-      type: DeviceNetwork
     - color: '#FF8800FF'
       type: AtmosPipeColor
   - uid: 7587
@@ -49720,6 +49859,13 @@ entities:
       pos: -39.78963,2.2336497
       parent: 2
       type: Transform
+- proto: MaterialBiomass
+  entities:
+  - uid: 9568
+    components:
+    - pos: 27.669483,-25.602472
+      parent: 2
+      type: Transform
 - proto: MaterialCloth
   entities:
   - uid: 4666
@@ -49739,6 +49885,13 @@ entities:
   - uid: 4667
     components:
     - pos: 44.742798,-4.6113973
+      parent: 2
+      type: Transform
+- proto: MaterialReclaimer
+  entities:
+  - uid: 8977
+    components:
+    - pos: -11.5,0.5
       parent: 2
       type: Transform
 - proto: MedicalBed
@@ -49986,6 +50139,11 @@ entities:
   - uid: 3338
     components:
     - pos: -47.653408,7.6024804
+      parent: 2
+      type: Transform
+  - uid: 9567
+    components:
+    - pos: 27.346567,-25.498234
       parent: 2
       type: Transform
 - proto: MusicBoxInstrument
@@ -52374,6 +52532,11 @@ entities:
     - pos: 44.5,-4.5
       parent: 2
       type: Transform
+  - uid: 655
+    components:
+    - pos: 14.5,-10.5
+      parent: 2
+      type: Transform
   - uid: 657
     components:
     - pos: 13.5,-10.5
@@ -52610,9 +52773,9 @@ entities:
       type: Transform
 - proto: RadioHandheld
   entities:
-  - uid: 8977
+  - uid: 9569
     components:
-    - pos: -12.269199,-19.444931
+    - pos: -13.115881,-19.548454
       parent: 2
       type: Transform
 - proto: RagItem
@@ -54772,14 +54935,14 @@ entities:
       type: Transform
 - proto: Screwdriver
   entities:
-  - uid: 1385
-    components:
-    - pos: -11.988724,0.79265285
-      parent: 2
-      type: Transform
   - uid: 3336
     components:
     - pos: -47.609417,7.24538
+      parent: 2
+      type: Transform
+  - uid: 8363
+    components:
+    - pos: -12.5785,0.4221762
       parent: 2
       type: Transform
 - proto: SecBreachingHammer
@@ -54847,6 +55010,11 @@ entities:
   - uid: 3037
     components:
     - pos: 52.587715,8.59385
+      parent: 2
+      type: Transform
+  - uid: 9573
+    components:
+    - pos: 14.5,-10.5
       parent: 2
       type: Transform
 - proto: SheetPlasma
@@ -54983,12 +55151,18 @@ entities:
       pos: -9.5,8.5
       parent: 2
       type: Transform
+    - links:
+      - 1385
+      type: DeviceLinkSink
   - uid: 4174
     components:
     - rot: 1.5707963267948966 rad
       pos: -9.5,7.5
       parent: 2
       type: Transform
+    - links:
+      - 1385
+      type: DeviceLinkSink
 - proto: ShuttersNormalOpen
   entities:
   - uid: 1885
@@ -54996,11 +55170,17 @@ entities:
     - pos: 9.5,12.5
       parent: 2
       type: Transform
+    - links:
+      - 1887
+      type: DeviceLinkSink
   - uid: 1886
     components:
     - pos: 8.5,12.5
       parent: 2
       type: Transform
+    - links:
+      - 1887
+      type: DeviceLinkSink
   - uid: 1900
     components:
     - pos: -38.5,-3.5
@@ -55192,61 +55372,25 @@ entities:
         - On: Close
         - Off: Open
       type: DeviceLinkSource
+  - uid: 1385
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -11.5,6.5
+      parent: 2
+      type: Transform
+    - linkedPorts:
+        4174:
+        - On: Open
+        - Off: Close
+        4173:
+        - On: Open
+        - Off: Close
+      type: DeviceLinkSource
   - uid: 1775
     components:
     - pos: -40.5,0.5
       parent: 2
       type: Transform
-  - uid: 1844
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 2.5,20.5
-      parent: 2
-      type: Transform
-    - linkedPorts:
-        1700:
-        - On: Forward
-        - Off: Off
-        1716:
-        - On: Forward
-        - Off: Off
-        1717:
-        - On: Forward
-        - Off: Off
-        1718:
-        - On: Forward
-        - Off: Off
-        1719:
-        - Off: Off
-        - On: Forward
-        1720:
-        - On: Forward
-        - Off: Off
-        1721:
-        - On: Forward
-        - Off: Off
-        1722:
-        - On: Forward
-        - Off: Off
-        1723:
-        - On: Forward
-        - Off: Off
-        1724:
-        - On: Forward
-        - Off: Off
-        1725:
-        - On: Forward
-        - Off: Off
-        1726:
-        - On: Forward
-        - Off: Off
-        1727:
-        - On: Forward
-        - Off: Off
-        1728:
-        - On: Forward
-        - Off: Off
-      type: DeviceLinkSource
   - uid: 1855
     components:
     - pos: 15.5,31.5
@@ -55312,6 +55456,14 @@ entities:
       pos: 11.5,16.5
       parent: 2
       type: Transform
+    - linkedPorts:
+        1885:
+        - On: Close
+        - Off: Open
+        1886:
+        - On: Close
+        - Off: Open
+      type: DeviceLinkSource
   - uid: 2087
     components:
     - pos: 30.5,17.5
@@ -55382,6 +55534,56 @@ entities:
         - On: Forward
         - Off: Off
         1828:
+        - On: Forward
+        - Off: Off
+      type: DeviceLinkSource
+  - uid: 9570
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 1.5,25.5
+      parent: 2
+      type: Transform
+    - linkedPorts:
+        1700:
+        - On: Forward
+        - Off: Off
+        1716:
+        - On: Forward
+        - Off: Off
+        1717:
+        - On: Forward
+        - Off: Off
+        1718:
+        - On: Forward
+        - Off: Off
+        1719:
+        - On: Forward
+        - Off: Off
+        1720:
+        - On: Forward
+        - Off: Off
+        1721:
+        - On: Forward
+        - Off: Off
+        1722:
+        - On: Forward
+        - Off: Off
+        1723:
+        - On: Forward
+        - Off: Off
+        1724:
+        - On: Forward
+        - Off: Off
+        1725:
+        - On: Forward
+        - Off: Off
+        1726:
+        - On: Forward
+        - Off: Off
+        1727:
+        - On: Forward
+        - Off: Off
+        1728:
         - On: Forward
         - Off: Off
       type: DeviceLinkSource
@@ -55772,6 +55974,13 @@ entities:
   - uid: 4171
     components:
     - pos: -9.5,9.5
+      parent: 2
+      type: Transform
+- proto: SignJanitor
+  entities:
+  - uid: 1844
+    components:
+    - pos: -11.5,-3.5
       parent: 2
       type: Transform
 - proto: SignLawyer
@@ -57013,13 +57222,6 @@ entities:
   - uid: 10049
     components:
     - pos: -33.5,8.5
-      parent: 2
-      type: Transform
-- proto: SpawnVendingMachineRestockFoodDrink
-  entities:
-  - uid: 4024
-    components:
-    - pos: -11.5,0.5
       parent: 2
       type: Transform
 - proto: SprayBottleSpaceCleaner
@@ -58856,11 +59058,6 @@ entities:
   - uid: 1370
     components:
     - pos: -12.5,0.5
-      parent: 2
-      type: Transform
-  - uid: 1371
-    components:
-    - pos: -11.5,0.5
       parent: 2
       type: Transform
   - uid: 2435
