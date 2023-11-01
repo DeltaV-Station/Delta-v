@@ -15,6 +15,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.UserInterface;
 using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Harpy

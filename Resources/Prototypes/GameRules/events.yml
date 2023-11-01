@@ -4,7 +4,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 12 # DeltaV - was 10
     startDelay: 30
     duration: 35
   - type: AnomalySpawnRule
@@ -55,16 +55,16 @@
 #     duration: 1
 #   - type: BureaucraticErrorRule
 
-- type: entity
-  parent: BaseGameRule
-  id: ClosetSkeleton
-  noSpawn: true
-  components:
-  - type: StationEvent
-    weight: 10
-    duration: 1
-  - type: RandomEntityStorageSpawnRule
-    prototype: MobSkeletonCloset
+#- type: entity
+#  parent: BaseGameRule # DeltaV - this shit is busted most of the time
+#  id: ClosetSkeleton
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    weight: 10
+#    duration: 1
+#  - type: RandomEntityStorageSpawnRule
+#    prototype: MobSkeletonCloset
 
 - type: entity
   parent: BaseGameRule
@@ -72,7 +72,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5
+    weight: 1 # DeltaV - was 5
     duration: 1
     earliestStart: 45
     reoccurrenceDelay: 60
@@ -86,7 +86,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 5 # DeltaV - was 10
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
@@ -124,7 +124,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
     minimumPlayers: 5
@@ -253,7 +253,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/ventclog.ogg # DeltaV - custom announcer
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -337,7 +337,7 @@
   components:
   - type: StationEvent
     earliestStart: 50
-    weight: 5
+    weight: 2.5 # DeltaV - was 5
     duration: 1
   - type: ZombieRule
     minStartDelay: 0 #let them know immediately
@@ -389,3 +389,18 @@
 #    earliestStart: 45
 #    minimumPlayers: 20
 #  - type: ImmovableRodRule
+
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: IonStorm
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 20
+    reoccurrenceDelay: 60
+    startAnnouncement: station-event-ion-storm-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg # ion_storm.ogg does not use our announcer
+    duration: 1
+  - type: IonStormRule
