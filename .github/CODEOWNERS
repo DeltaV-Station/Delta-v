@@ -1,16 +1,16 @@
 # Last match in file takes precedence.
 
-/Content.*/DeltaV/ @DebugOk
-/Content.*/Nyanotrasen/ @DebugOk
+/Content.*/ @DebugOk
 /Content.*/SimpleStation14/ @DEATHB4DEFEAT
 
-/Resources/*/DeltaV/ @DebugOk
-/Resources/*/Nyanotrasen/ @DebugOk
+/Resources/ @DebugOk @Colin-Tel
+/Resources/ConfigPresets/ @DebugOk
+/Resources/*.yml @DebugOk
 /Resources/*/SimpleStation14/ @DEATHB4DEFEAT
-/Resources/Textures/ @leonardo-dabepis
-/Resources/DeltaV/Textures/ @leonardo-dabepis
-/Resources/Nyanotrasen/Textures/ @leonardo-dabepis
-/Resources/Maps/ @IamVelcroboy
-/Resources/Prototypes/Maps/ @IamVelcroboy
+# /Resources/Textures/ @leonardo-dabepis # No write access
+# /Resources/DeltaV/Textures/ @leonardo-dabepis
+# /Resources/Nyanotrasen/Textures/ @leonardo-dabepis
+# /Resources/Maps/ @IamVelcroboy
+# /Resources/Prototypes/Maps/ @IamVelcroboy
 
 /Tools/ @DebugOk
