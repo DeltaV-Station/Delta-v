@@ -7672,11 +7672,6 @@ entities:
     - pos: -32.315258,-1.5955724
       parent: 2
       type: Transform
-  - uid: 2859
-    components:
-    - pos: -37.673477,4.4801793
-      parent: 2
-      type: Transform
 - proto: BoxFolderYellow
   entities:
   - uid: 4169
@@ -28780,9 +28775,9 @@ entities:
       type: Transform
 - proto: DrinkMugOne
   entities:
-  - uid: 2864
+  - uid: 2634
     components:
-    - pos: -37.446636,4.817264
+    - pos: -37.213333,4.7909184
       parent: 2
       type: Transform
     - solutions:
@@ -28794,10 +28789,7 @@ entities:
           reagents:
           - data: null
             ReagentId: Coffee
-            Quantity: 19
-          - data: null
-            ReagentId: Sugar
-            Quantity: 1
+            Quantity: 20
       type: SolutionContainerManager
 - proto: DrinkMugRed
   entities:
@@ -50401,6 +50393,11 @@ entities:
     - pos: -1.7686434,-26.431587
       parent: 2
       type: Transform
+  - uid: 2862
+    components:
+    - pos: -20.594444,2.8397748
+      parent: 2
+      type: Transform
   - uid: 9543
     components:
     - desc: Another one, huh...
@@ -50411,6 +50408,11 @@ entities:
       type: Transform
     - content: Asterisk station is made with love for Space Station 14 and the Delta-V community. Everything is made possible with the help of the friends I've made and the people I spend my days with on stations much like this one.
       type: Paper
+  - uid: 10808
+    components:
+    - pos: -20.41736,2.6729925
+      parent: 2
+      type: Transform
 - proto: PaperBin10
   entities:
   - uid: 1659
@@ -50453,16 +50455,6 @@ entities:
   - uid: 1848
     components:
     - pos: 8.412746,22.708002
-      parent: 2
-      type: Transform
-  - uid: 2861
-    components:
-    - pos: -37.267227,4.501028
-      parent: 2
-      type: Transform
-  - uid: 2862
-    components:
-    - pos: -37.288063,4.355093
       parent: 2
       type: Transform
   - uid: 3833
@@ -50647,6 +50639,11 @@ entities:
     - pos: -44.390415,-13.516289
       parent: 2
       type: Transform
+  - uid: 10811
+    components:
+    - pos: -3.5293686,-2.3354518
+      parent: 2
+      type: Transform
 - proto: PortableGeneratorJrPacman
   entities:
   - uid: 10194
@@ -50726,6 +50723,13 @@ entities:
   - uid: 613
     components:
     - pos: -2.5,-20.5
+      parent: 2
+      type: Transform
+- proto: PosterLegitJustAWeekAway
+  entities:
+  - uid: 10809
+    components:
+    - pos: -2.5,-6.5
       parent: 2
       type: Transform
 - proto: PosterLegitPeriodicTable
@@ -53310,11 +53314,6 @@ entities:
     - pos: -22.5,11.5
       parent: 2
       type: Transform
-  - uid: 10335
-    components:
-    - pos: -15.5,12.5
-      parent: 2
-      type: Transform
   - uid: 10336
     components:
     - pos: -26.5,8.5
@@ -53378,6 +53377,11 @@ entities:
   - uid: 10356
     components:
     - pos: 35.5,19.5
+      parent: 2
+      type: Transform
+  - uid: 10801
+    components:
+    - pos: -16.5,12.5
       parent: 2
       type: Transform
 - proto: RandomSnacks
@@ -53686,6 +53690,11 @@ entities:
   - uid: 9022
     components:
     - pos: 32.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 10810
+    components:
+    - pos: 6.5,7.5
       parent: 2
       type: Transform
 - proto: RandomVendingSnacks
@@ -55272,6 +55281,11 @@ entities:
   - uid: 2565
     components:
     - pos: -22.5,-26.5
+      parent: 2
+      type: Transform
+  - uid: 2859
+    components:
+    - pos: -42.481293,11.638343
       parent: 2
       type: Transform
   - uid: 2950
@@ -57384,6 +57398,18 @@ entities:
     - pos: -33.5,8.5
       parent: 2
       type: Transform
+- proto: SpeedLoaderSpecial
+  entities:
+  - uid: 2666
+    components:
+    - pos: -37.787407,4.6658316
+      parent: 2
+      type: Transform
+  - uid: 2861
+    components:
+    - pos: -37.787407,4.6658316
+      parent: 2
+      type: Transform
 - proto: SprayBottleSpaceCleaner
   entities:
   - uid: 1381
@@ -57636,6 +57662,18 @@ entities:
     - pos: -24.5,-12.5
       parent: 2
       type: Transform
+- proto: Stunbaton
+  entities:
+  - uid: 10805
+    components:
+    - pos: -28.50663,10.559534
+      parent: 2
+      type: Transform
+  - uid: 10806
+    components:
+    - pos: -28.13163,10.524787
+      parent: 2
+      type: Transform
 - proto: SubstationBasic
   entities:
   - uid: 1075
@@ -57781,14 +57819,24 @@ entities:
       type: Transform
 - proto: SuitStorageSec
   entities:
-  - uid: 2634
+  - uid: 10800
     components:
-    - pos: -28.5,10.5
+    - pos: -17.5,11.5
       parent: 2
       type: Transform
-  - uid: 2666
+  - uid: 10802
     components:
-    - pos: -27.5,10.5
+    - pos: -17.5,13.5
+      parent: 2
+      type: Transform
+  - uid: 10803
+    components:
+    - pos: -17.5,10.5
+      parent: 2
+      type: Transform
+  - uid: 10807
+    components:
+    - pos: -17.5,14.5
       parent: 2
       type: Transform
 - proto: SurveillanceCameraCommand
@@ -59050,6 +59098,11 @@ entities:
     - pos: -21.5,19.5
       parent: 2
       type: Transform
+  - uid: 2864
+    components:
+    - pos: -27.5,10.5
+      parent: 2
+      type: Transform
   - uid: 3124
     components:
     - pos: -20.5,3.5
@@ -59073,6 +59126,11 @@ entities:
   - uid: 6989
     components:
     - pos: -45.5,21.5
+      parent: 2
+      type: Transform
+  - uid: 10335
+    components:
+    - pos: -28.5,10.5
       parent: 2
       type: Transform
   - uid: 10763
@@ -67770,6 +67828,11 @@ entities:
     - pos: -45.5,12.5
       parent: 2
       type: Transform
+  - uid: 10804
+    components:
+    - pos: -27.5,10.5
+      parent: 2
+      type: Transform
 - proto: WeaponDisabler
   entities:
   - uid: 3939
@@ -67806,6 +67869,13 @@ entities:
   - uid: 3348
     components:
     - pos: -49.455643,11.741809
+      parent: 2
+      type: Transform
+- proto: WeaponRevolverK38Master
+  entities:
+  - uid: 10799
+    components:
+    - pos: -37.48648,4.3924932
       parent: 2
       type: Transform
 - proto: WeaponShotgunKammererNonLethal
