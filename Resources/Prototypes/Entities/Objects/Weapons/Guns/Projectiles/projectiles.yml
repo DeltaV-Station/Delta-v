@@ -793,9 +793,9 @@
     - type: GrapplingProjectile
 
 # DeltaV projectiles
-# For whatever magical reason I cannot put those in the DeltaV folders without having errors.
+# For whatever magical reasons, I cannot put those in the DeltaV folders without having errors.
 
-# Duplicate just to change the name. The code of firemode look at the prototype name and I'd rather not change code
+# Duplicate just to change the name. The firemode change code looks at the prototype name and I'd rather not touch the code just to add a name parameter
 - type: entity
   name: disable
   id: BulletMultiphaseDisabler
@@ -843,7 +843,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 20
+        Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
     soundHit:
       collection: MeatLaserImpact
     soundForce: true
