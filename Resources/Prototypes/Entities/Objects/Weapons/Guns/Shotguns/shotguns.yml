@@ -158,6 +158,9 @@
   id: WeaponShotgunKammerer
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   components:
+  - type: Tag # DeltaV - For Shotgun Cabinet
+    tags:
+    - WeaponShotgunKammerer
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
