@@ -1,0 +1,45 @@
+- type: entity
+  name: x-01 multiphase energy gun
+  parent: BaseWeaponBatterySmall
+  id: WeaponMultiphaseEnergyGun
+  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-kill # Todo: have the mode and magazine change according to firemode
+    - state: mag-kill-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMultiphaseDisabler
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletMultiphaseDisabler # 20 shots of disabler
+      fireCost: 100
+    - proto: BulletMultiphaseLaser # 10 shots of lethal
+      fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StaticPrice
+    price: 750

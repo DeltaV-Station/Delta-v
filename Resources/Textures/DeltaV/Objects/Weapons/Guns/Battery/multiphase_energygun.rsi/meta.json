@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from tg station at commit https://github.com/tgstation/tgstation/commit/8b7f8ba6a3327c7381967c550f185dffafd11a57",
+  "size": {
+    "x": 32,
+    "y": 32
+	},
+	"states": [
+		{
+			"name": "icon"
+		},
+		{
+			"name": "base"
+		},
+		{
+			"name": "base-transparent"
+		},
+        {
+			"name": "mode-disable"
+		},
+        {
+			"name": "mode-kill"
+		},
+		{
+			"name": "mag-unshaded-0",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+		},
+		{
+			"name": "mag-unshaded-1"
+		},
+		{
+			"name": "mag-unshaded-2"
+		},
+		{
+			"name": "mag-unshaded-3"
+		},
+		{
+			"name": "mag-unshaded-4"
+		},
+		{
+			"name": "mag-disable-unshaded-0",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+		},
+		{
+			"name": "mag-disable-unshaded-1"
+		},
+		{
+			"name": "mag-disable-unshaded-2"
+		},
+		{
+			"name": "mag-disable-unshaded-3"
+		},
+		{
+			"name": "mag-disable-unshaded-4"
+		},
+		{
+			"name": "mag-kill-unshaded-0",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+		},
+		{
+			"name": "mag-kill-unshaded-1"
+		},
+		{
+			"name": "mag-kill-unshaded-2"
+		},
+		{
+			"name": "mag-kill-unshaded-3"
+		},
+		{
+			"name": "mag-kill-unshaded-4"
+		},
+		{
+			"name": "inhand-left-disable-0",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable-0",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-disable-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-disable-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-disable-3",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable-3",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-disable-4",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable-4",
+			"directions": 4
+		},
+        {
+			"name": "inhand-left-kill-0",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill-0",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-kill-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill-1",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-kill-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill-2",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-kill-3",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill-3",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-kill-4",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill-4",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-disable",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-disable",
+			"directions": 4
+		},
+		{
+			"name": "inhand-left-kill",
+			"directions": 4
+		},
+		{
+			"name": "inhand-right-kill",
+			"directions": 4
+		},
+		{
+			"name": "equipped-BELT",
+			"directions": 4
+		}
+	]
+}

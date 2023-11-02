@@ -791,3 +791,59 @@
             - Impassable
             - HighImpassable
     - type: GrapplingProjectile
+
+# DeltaV projectiles
+# For whatever magical reason I cannot put those in the DeltaV folders without having errors.
+
+# Duplicate just to change the name. The code of firemode look at the prototype name and I'd rather not change code
+- type: entity
+  name: disable
+  id: BulletMultiphaseDisabler
+  parent: BulletDisabler
+  noSpawn: true
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+
+# Because Hitscan lasers aren't fun to shoot in my opinion, we give the HoS pistol a special lethal laser that moves
+- type: entity
+  name: lethal
+  id: BulletMultiphaseLaser
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: red
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 20
+    soundHit:
+      collection: MeatLaserImpact
+    soundForce: true

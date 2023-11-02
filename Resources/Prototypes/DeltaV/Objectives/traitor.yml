@@ -19,3 +19,17 @@
   - type: StealCondition
     prototype: BookIanDossier
     # owner: job-name-hop
+
+- type: entity # Head of Security steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HoSGunStealObjective
+  components:
+  - type: Objective
+    # hos will mostly be using that gun to stop you from stealing it
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    prototype: WeaponMultiphaseEnergyGun
+    owner: job-name-hos
