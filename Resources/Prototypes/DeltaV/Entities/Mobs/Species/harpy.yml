@@ -21,8 +21,14 @@
       "Sax": {66: 0}
   - type: UserInterface
     interfaces:
-    - key: enum.InstrumentUiKey.Key
-      type: InstrumentBoundUserInterface
+      - key: enum.InstrumentUiKey.Key
+        type: InstrumentBoundUserInterface
+      - key: enum.VoiceMaskUIKey.Key
+        type: VoiceMaskBoundUserInterface
+      - key: enum.HumanoidMarkingModifierKey.Key
+        type: HumanoidMarkingModifierBoundUserInterface
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -70,7 +76,7 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-  
+
   - type: HumanoidAppearance
     species: Harpy
   - type: Fixtures
@@ -165,7 +171,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    checkCanInteract: true
+    checkCanInteract: false
     icon: DeltaV/Interface/Actions/harpy_sing.png
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key

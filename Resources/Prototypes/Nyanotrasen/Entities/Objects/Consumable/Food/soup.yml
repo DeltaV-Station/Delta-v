@@ -26,6 +26,9 @@
           Quantity: 3
         - ReagentId: Fiber
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade
 #Tastes like cotton and broth
 
 - type: entity
@@ -55,6 +58,9 @@
           Quantity: 1
         - ReagentId: Milk
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: seed soup
@@ -81,6 +87,9 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: moth eyeball soup
@@ -133,6 +142,9 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 2
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like beans, cabbage and spicy sauce
 
 - type: entity
@@ -160,6 +172,9 @@
           Quantity: 10
         - ReagentId: Water
           Quantity: 5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -188,6 +203,9 @@
           Quantity: 4
         - ReagentId: CapsaicinOil
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -213,6 +231,9 @@
           Quantity: 22
         - ReagentId: Protein
           Quantity: 8
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: cornmeal porridge
@@ -235,6 +256,9 @@
           Quantity: 9
         - ReagentId: Vitamin
           Quantity: 2
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal.
 
 - type: entity
@@ -261,6 +285,9 @@
           Quantity: 4
         - ReagentId: Protein
           Quantity: 4
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal, cheese, more cheese, lots of cheese.
 
 - type: entity
@@ -289,6 +316,9 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 12
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cornmeal, cheese, eggplant and tomato sauce
 
 - type: entity
@@ -320,3 +350,6 @@
           Quantity: 3
         - ReagentId: JuiceTomato
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food

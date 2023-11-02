@@ -7,9 +7,9 @@
     - !type:RoleTimeRequirement
       role: JobWarden
       time: 14400 #DeltaV 4 hrs
-    - !type:RoleTimeRequirement # DeltaV - No Security Officer time requirement
-      role: JobDetective
-      time: 14400 #DeltaV 4 hrs
+  #  - !type:RoleTimeRequirement # DeltaV - No Security Officer time requirement - REIMPLEMENT WHEN MORE PEOPLE HAVE IT
+  #    role: JobDetective
+  #    time: 14400 #DeltaV 4 hrs
     - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
       department: Command
       time: 36000 # 10 hours

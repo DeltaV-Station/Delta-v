@@ -14,6 +14,7 @@ namespace Content.Server.StationEvents.Events;
 internal sealed class GlimmerRandomSentienceRule : StationEventSystem<GlimmerRandomSentienceRuleComponent>
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
     protected override void Started(EntityUid uid, GlimmerRandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -43,7 +44,7 @@ internal sealed class GlimmerRandomSentienceRule : StationEventSystem<GlimmerRan
                 break;
 
             EntityManager.RemoveComponent<SentienceTargetComponent>(target);
-            MetaData(target).EntityName = Loc.GetString("glimmer-event-awakened-prefix", ("entity", target));
+            _metaDataSystem.SetEntityName(target, Loc.GetString("glimmer-event-awakened-prefix", ("entity", target)));
             var comp = EntityManager.EnsureComponent<GhostRoleComponent>(target);
             comp.RoleName = EntityManager.GetComponent<MetaDataComponent>(target).EntityName;
             comp.RoleDescription = Loc.GetString("station-event-random-sentience-role-description", ("name", comp.RoleName));

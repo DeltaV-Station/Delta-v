@@ -21,6 +21,9 @@
           Quantity: 3
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: cheese curds
@@ -41,6 +44,9 @@
         reagents:
         - ReagentId: Protein
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 # Mozzarella
 - type: entity
@@ -64,6 +70,9 @@
           Quantity: 3
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: herby cheese
@@ -89,6 +98,9 @@
           Quantity: 2
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cheese, herbs
 
 - type: entity
@@ -116,36 +128,6 @@
           Quantity: 2
         - ReagentId: Allicin
           Quantity: 0.5
-
-# base for our special sauces
-- type: entity
-  parent: BaseItem
-  id: BaseFoodMothSauce
-  name: sauce bowl
-  abstract: true
-  description: A small bowl for condiment. Not reusable.
-  components:
-  - type: Drink
-    solution: food
-    refillable: false
-    isOpen: true
-  - type: DrawableSolution
-    solution: food
-  - type: InjectableSolution
-    solution: food
-  - type: DrainableSolution
-    solution: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-  - type: SolutionTransfer
-    maxTransferAmount: 15
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
-    state: condimentbowl
-  - type: Icon
-    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
-    state: condimentbowl
-  - type: TrashOnEmpty
-    solution: food
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
