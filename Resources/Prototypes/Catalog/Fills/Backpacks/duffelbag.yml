@@ -302,18 +302,18 @@
   name: operative medic duffelbag
   description: A large duffel bag for holding extra medical supplies.
   components:
-    - type: StorageFill
-      contents:
-        - id: BoxSurvivalSyndicate
-        - id: SawAdvanced
-        - id: Cautery
-        - id: CombatKnife
-        - id: WeaponPistolViper
-        - id: PinpointerNuclear
-        - id: HandheldHealthAnalyzer
-        - id: CombatMedipen
-        - id: MicroBombImplanter
-        - id: SyndiHypo
+  - type: StorageFill
+    contents:
+      - id: SyndiHypo
+      - id: BoxSurvivalSyndicate
+      - id: SawAdvanced
+      - id: Cautery
+      - id: CombatKnife
+      - id: WeaponPistolViper
+      - id: PinpointerNuclear
+      - id: HandheldHealthAnalyzer
+      - id: CombatMedipen
+      - id: MicroBombImplanter
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
