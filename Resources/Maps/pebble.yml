@@ -13705,9 +13705,9 @@ entities:
       type: Transform
 - proto: BoxBeanbag
   entities:
-  - uid: 1363
+  - uid: 4236
     components:
-    - pos: 24.515007,-17.67339
+    - pos: 22.39613,-17.226284
       parent: 2
       type: Transform
 - proto: BoxBodyBag
@@ -13828,9 +13828,9 @@ entities:
       type: Transform
 - proto: BoxLethalshot
   entities:
-  - uid: 1383
+  - uid: 4298
     components:
-    - pos: 24.50459,-17.402369
+    - pos: 22.67738,-17.570034
       parent: 2
       type: Transform
 - proto: BoxMouthSwab
@@ -28423,19 +28423,19 @@ entities:
       type: Transform
 - proto: ClothingEyesHudSecurity
   entities:
+  - uid: 1363
+    components:
+    - pos: 23.70889,-17.523159
+      parent: 2
+      type: Transform
+  - uid: 1383
+    components:
+    - pos: 23.33389,-17.445034
+      parent: 2
+      type: Transform
   - uid: 4235
     components:
     - pos: 13.071597,-17.533405
-      parent: 2
-      type: Transform
-  - uid: 4236
-    components:
-    - pos: 23.64327,-17.583406
-      parent: 2
-      type: Transform
-  - uid: 4237
-    components:
-    - pos: 22.64327,-17.56256
       parent: 2
       type: Transform
   - uid: 4238
@@ -28727,6 +28727,13 @@ entities:
     - pos: -2.6285028,36.755806
       parent: 2
       type: Transform
+- proto: ClothingNeckMantleQM
+  entities:
+  - uid: 10865
+    components:
+    - pos: 18.569431,-5.025442
+      parent: 2
+      type: Transform
 - proto: ClothingNeckScarfStripedBlue
   entities:
   - uid: 4283
@@ -28815,14 +28822,14 @@ entities:
       type: Transform
 - proto: ClothingOuterHardsuitSecurity
   entities:
-  - uid: 4297
+  - uid: 4237
     components:
-    - pos: 22.5,-17.5
+    - pos: 23.286755,-17.382534
       parent: 2
       type: Transform
-  - uid: 4298
+  - uid: 4297
     components:
-    - pos: 23.5,-17.5
+    - pos: 23.70863,-17.538784
       parent: 2
       type: Transform
 - proto: ClothingOuterWinterCap
@@ -29830,6 +29837,13 @@ entities:
   - uid: 4430
     components:
     - pos: 2.5,-17.5
+      parent: 2
+      type: Transform
+- proto: CrateSecurityRiot
+  entities:
+  - uid: 7919
+    components:
+    - pos: 24.5,-17.5
       parent: 2
       type: Transform
 - proto: Crematorium
@@ -33868,6 +33882,12 @@ entities:
   - uid: 5042
     components:
     - pos: 30.5,30.5
+      parent: 2
+      type: Transform
+  - uid: 10860
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 2.5,-25.5
       parent: 2
       type: Transform
 - proto: Firelock
@@ -50286,11 +50306,22 @@ entities:
     - pos: 7.5,-5.5
       parent: 2
       type: Transform
+  - uid: 10864
+    components:
+    - pos: -6.3351974,-17.618593
+      parent: 2
+      type: Transform
 - proto: MaterialDurathread
   entities:
   - uid: 7467
     components:
     - pos: 7.5,-5.5
+      parent: 2
+      type: Transform
+  - uid: 10863
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -6.7171144,-17.235079
       parent: 2
       type: Transform
 - proto: MedicalBed
@@ -53408,11 +53439,6 @@ entities:
     - pos: 24.5,-15.5
       parent: 2
       type: Transform
-  - uid: 7919
-    components:
-    - pos: 24.5,-17.5
-      parent: 2
-      type: Transform
   - uid: 7920
     components:
     - pos: -6.5,-14.5
@@ -53469,6 +53495,12 @@ entities:
   - uid: 10637
     components:
     - pos: -0.5,22.5
+      parent: 2
+      type: Transform
+  - uid: 10862
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -6.5,-17.5
       parent: 2
       type: Transform
 - proto: Railing
@@ -60739,6 +60771,12 @@ entities:
   - uid: 9160
     components:
     - pos: 9.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 10861
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -5.5,-17.5
       parent: 2
       type: Transform
 - proto: Vaccinator
