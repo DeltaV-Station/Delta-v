@@ -29,4 +29,19 @@
       prob: 0.005
     - id: MobXenoQueen
       prob: 0.005
-    
+
+- type: entity
+  id: MothroachSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    id: VentCritters
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobMothroach
+      prob: 0.05
