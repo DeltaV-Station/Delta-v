@@ -7,6 +7,9 @@
   components:
     - type: SubdermalImplant
       implantAction: ActionChangeVoiceMask
+      whitelist:
+        components:
+        - HarpySinger
     - type: VoiceMasker
     - type: Tag
       tags:
