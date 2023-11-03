@@ -175,3 +175,14 @@
     icon: DeltaV/Interface/Actions/harpy_sing.png
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
+
+- type: entity
+  id: ActionSyrinxChangeVoiceMask
+  name: Set name
+  description: Change the name others hear to something else.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: DeltaV/Interface/Actions/harpy_syrinx.png
+    itemIconStyle: BigAction
+    event: !type:VoiceMaskSetNameEvent
