@@ -2,7 +2,7 @@
   name: x-01 multiphase energy gun
   parent: BaseWeaponBatterySmall
   id: WeaponMultiphaseEnergyGun
-  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: This is an expensive, modern recreation of an antique laser gun. This gun has two unique firemodes, but lacks the ability to recharge over time.
   components:
   - type: EnergyGun # Special component just for it so it can change sprite on the firemode used
     disableMode:
