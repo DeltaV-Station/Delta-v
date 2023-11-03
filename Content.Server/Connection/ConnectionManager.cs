@@ -4,6 +4,8 @@ using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVars;
+using Content.Server.DeltaV.ProxyDetection;
 using Content.Shared.GameTicking;
 using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
@@ -29,6 +31,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
+        [Dependency] private readonly ProxyDetectionManager _detectionManager = default!;
 
         public void Initialize()
         {
@@ -166,6 +169,15 @@ namespace Content.Server.Connection
                     if (min > 0 || max < int.MaxValue)
                         msg += "\n" + Loc.GetString("whitelist-playercount-invalid", ("min", min), ("max", max));
                     return (ConnectionDenyReason.Whitelist, msg, null);
+                }
+            }
+
+            if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
+            {
+                var detectResult = await _detectionManager.ShouldDeny(e);
+                if (detectResult.Item1)
+                {
+                    return (ConnectionDenyReason.Proxy, detectResult.Item2 ?? "Your address was found in blacklists.", null);
                 }
             }
 
