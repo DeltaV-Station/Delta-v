@@ -13,14 +13,11 @@
 		{
 			"name": "base"
 		},
-		{
-			"name": "base-transparent"
+        {
+			"name": "mode_disable"
 		},
         {
-			"name": "mode-disable"
-		},
-        {
-			"name": "mode-kill"
+			"name": "mode_lethal"
 		},
 		{
 			"name": "mag-unshaded-0",
@@ -44,149 +41,19 @@
 			"name": "mag-unshaded-4"
 		},
 		{
-			"name": "mag-disable-unshaded-0",
-            "delays": [
-                [
-                    0.3,
-                    0.3
-                ]
-            ]
-		},
-		{
-			"name": "mag-disable-unshaded-1"
-		},
-		{
-			"name": "mag-disable-unshaded-2"
-		},
-		{
-			"name": "mag-disable-unshaded-3"
-		},
-		{
-			"name": "mag-disable-unshaded-4"
-		},
-		{
-			"name": "mag-kill-unshaded-0",
-            "delays": [
-                [
-                    0.3,
-                    0.3
-                ]
-            ]
-		},
-		{
-			"name": "mag-kill-unshaded-1"
-		},
-		{
-			"name": "mag-kill-unshaded-2"
-		},
-		{
-			"name": "mag-kill-unshaded-3"
-		},
-		{
-			"name": "mag-kill-unshaded-4"
-		},
-		{
-			"name": "inhand-left-disable-0",
+			"name": "disable-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "inhand-right-disable-0",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-disable-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-disable-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-disable-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-disable-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-disable-3",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-disable-3",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-disable-4",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-disable-4",
+			"name": "disable-inhand-right",
 			"directions": 4
 		},
         {
-			"name": "inhand-left-kill-0",
+			"name": "lethal-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "inhand-right-kill-0",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-kill-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-kill-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-kill-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-kill-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-kill-3",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-kill-3",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-kill-4",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-kill-4",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-disable",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-disable",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-kill",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-kill",
+			"name": "lethal-inhand-right",
 			"directions": 4
 		},
 		{

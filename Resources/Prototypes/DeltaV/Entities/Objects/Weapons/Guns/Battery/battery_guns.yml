@@ -4,15 +4,32 @@
   id: WeaponMultiphaseEnergyGun
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
+  - type: EnergyGun # Special component just for it so it can change sprite on the firemode used
+    disableMode:
+      proto: BulletDisabler # 20 shots of disabler
+      fireCost: 100
+    lethalMode:
+      proto: BulletMultiphaseLaser # 10 shots of lethal
+      fireCost: 200
+  - type: Item
+    heldPrefix: disable
+    size: 10
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-kill # Todo: have the mode and magazine change according to firemode
-    - state: mag-kill-unshaded-4
+    - state: mode_disable
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: mode_lethal}
+          False: {state: mode_disable}
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
@@ -24,14 +41,8 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletMultiphaseDisabler
+    proto: BulletDisabler
     fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletMultiphaseDisabler # 20 shots of disabler
-      fireCost: 100
-    - proto: BulletMultiphaseLaser # 10 shots of lethal
-      fireCost: 200
   - type: MagazineVisuals
     magState: mag
     steps: 5

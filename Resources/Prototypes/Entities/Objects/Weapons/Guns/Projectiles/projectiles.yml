@@ -795,17 +795,6 @@
 # DeltaV projectiles
 # For whatever magical reasons, I cannot put those in the DeltaV folders without having errors.
 
-# Duplicate just to change the name. The firemode change code looks at the prototype name and I'd rather not touch the code just to add a name parameter
-- type: entity
-  name: disable
-  id: BulletMultiphaseDisabler
-  parent: BulletDisabler
-  noSpawn: true
-  components:
-  - type: Reflective
-    reflective:
-    - Energy
-
 # Because Hitscan lasers aren't fun to shoot in my opinion, we give the HoS pistol a special lethal laser that moves
 - type: entity
   name: lethal
