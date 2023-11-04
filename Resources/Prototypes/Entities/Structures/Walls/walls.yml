@@ -382,6 +382,8 @@
   - type: IconSmooth
     key: walls
     base: plasma
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: BaseWall
@@ -909,6 +911,8 @@
   - type: IconSmooth
     key: walls
     base: uranium
+  - type: RadiationBlocker
+    resistance: 6
 
 - type: entity
   parent: BaseWall
