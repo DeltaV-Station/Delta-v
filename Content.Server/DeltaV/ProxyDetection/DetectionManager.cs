@@ -82,7 +82,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         var result = $"Your address was found in the following blacklists: {blockLists}";
 
         var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
-        _banManager.CreateServerBan(null, null, null, (addr, hid), null, null, NoteSeverity.High, result,
+        _banManager.CreateServerBan(e.UserId, e.UserName, null, (addr, hid), null, null, NoteSeverity.High, result,
             ServerBanExemptFlags.Datacenter);
     }
 
