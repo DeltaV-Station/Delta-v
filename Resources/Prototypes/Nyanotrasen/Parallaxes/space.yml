@@ -36,16 +36,18 @@
       slowness: 0.98
       scale: 0.5,0.5
     - texture:
-        !type:GeneratedParallaxTextureSource
-        id: "hq_wizard_stars_dim"
-        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+        !type:ImageParallaxTextureSource
+        path: "/Textures/DeltaV/Parallaxes/Asteroids.png"
       slowness: 0.97
+      scale: 1.2,1.2
+      scrolling: "0.018, 0.01"
     - texture:
-        !type:GeneratedParallaxTextureSource
-        id: "hq_wizard_stars"
-        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
-      slowness: 0.96
-
+        !type:ImageParallaxTextureSource
+        path: "/Textures/DeltaV/Parallaxes/Asteroids.png"
+      slowness: 0.90
+      scale: 0.95,0.95
+      scrolling: "-0.0075, -0.009"
+      
 - type: parallax
   id: TortugaStation
   layers:
