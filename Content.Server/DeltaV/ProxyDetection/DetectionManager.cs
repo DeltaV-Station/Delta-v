@@ -31,7 +31,6 @@ public sealed class ProxyDetectionManager : IPostInjectInit
     public async Task<(bool, string)> ShouldDeny(NetConnectingArgs e)
     {
         var addr = e.IP.Address;
-        addr = IPAddress.Parse("51.158.202.231");
 
         if (IPAddress.IsLoopback(addr))
             return (false, "");
@@ -72,16 +71,37 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         if (!isListed.GetBoolean() && !_shouldProbe)
             return (false, "");
 
+        string result;
+
         if (!isListed.GetBoolean() && _shouldProbe)
         {
-            // TODO
-            return (false, "");
+            var probeResponse = await _neutrinoApiClient.IpProbe(probeParameters);
+            if (!probeResponse.IsOk())
+            {
+                _sawmill.Error("API Error: {0}, Error Code: {1}, HTTP Status Code: {2}",
+                    probeResponse.ErrorMessage,
+                    probeResponse.ErrorCode.ToString(),
+                    probeResponse.HttpStatusCode.ToString()); // you should handle this gracefully!
+                _sawmill.Error($"{probeResponse.ErrorCause}");
+                return (false, "");
+            }
+
+            var probeData = probeResponse.Data;
+            probeData.TryGetProperty("is-proxy", out var isProxy);
+            probeData.TryGetProperty("is-hosting", out var isHosting);
+            probeData.TryGetProperty("is-vpn", out var isVpn);
+            if (!isProxy.GetBoolean() && !isHosting.GetBoolean() && !isVpn.GetBoolean())
+                return (false, "");
+
+            result = "Suspicious connection.";
         }
+        else
+        {
+            var blockListsArray = blockList.EnumerateArray().Select(item => item.GetString()).ToList();
+            var blockLists = string.Join(", ", blockListsArray);
 
-        var blockListsArray = blockList.EnumerateArray().Select(item => item.GetString()).ToList();
-        var blockLists = string.Join(", ", blockListsArray);
-
-        var result = $"Your address was found in the following blacklists: {blockLists}";
+            result = $"Your address was found in the following blacklists: {blockLists}";
+        }
 
         var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
         _banManager.CreateServerBan(e.UserId, e.UserName, null, (addr, hid), null, null, NoteSeverity.High, result,
