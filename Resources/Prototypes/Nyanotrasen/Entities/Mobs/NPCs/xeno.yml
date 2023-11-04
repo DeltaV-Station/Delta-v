@@ -35,6 +35,13 @@
   parent: MobXeno
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -43,6 +50,13 @@
   id: MobXenoPraetorian
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -51,6 +65,13 @@
   id: MobXenoDrone
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -59,6 +80,13 @@
   id: MobXenoQueen
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -67,6 +95,13 @@
   id: MobXenoRavager
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -75,17 +110,28 @@
   id: MobXenoRunner
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable
 
 - type: entity
   name: Rouny
-  parent: MobXenoRunner
+  parent: MobXenoRounyNPC
   id: MobXenoRouny
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: Mobs/Aliens/Xenos/rouny.rsi
-    offset: 0,0.6
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
 
 - type: entity
   name: Spitter
@@ -93,4 +139,11 @@
   id: MobXenoSpitter
   suffix: Player
   components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
   - type: GhostTakeoverAvailable

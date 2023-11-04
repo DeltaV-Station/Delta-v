@@ -14,7 +14,7 @@
         - MobCarp
         - MobCarpMagic
         - MobCarpHolo
-        - MobCarpMagic
+        - MobCarpRainbow
 
 - type: entity
   name: NPC Snake Spawner
@@ -88,12 +88,13 @@
   name: Xeno Spawner
   id: XenoAISpawner
   parent: MarkerBase
+  suffix: No Ghost Takeover
   components:
     - type: Sprite
       layers:
         - state: red
         - sprite: Mobs/Aliens/Xenos/burrower.rsi
-          state: crit
+          state: walking
         - state: ai
     - type: RandomSpawner
       prototypes:
@@ -106,4 +107,88 @@
         - MobXenoSpitterNPC
       rarePrototypes:
         - MobXenoQueenNPC
+      rareChance: 0.10
+
+- type: entity
+  name: Argocyte Spawner
+  id: ArgocyteAISpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+          state: crawler
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - MobArgocyteSkitter
+        - MobArgocyteSwiper
+        - MobArgocyteMolder
+        - MobArgocytePouncer
+        - MobArgocyteGlider
+        - MobArgocyteHarvester
+        - MobArgocyteCrawler
+        - MobArgocyteFounder
+      rarePrototypes:
+        - MobArgocyteLeviathing
+      rareChance: 0.10
+
+- type: entity
+  name: Watcher Spawner
+  id: WatcherAISpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/Lavaland/watcher.rsi
+          state: unshaded
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - MobWatcherLavaland
+        - MobWatcherIcewing
+        - MobWatcherMagmawing
+      rarePrototypes:
+        - MobWatcherPride
+      rareChance: 0.10
+
+- type: entity
+  name: Space Creature Spawner
+  id: SpaceCreatureAISpawner
+  parent: MarkerBase
+  suffix: No Ghost Takeover
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Animals/spacespider.rsi
+          state: spacespider
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - MobBearSpaceNPC
+        - MobKangarooSpaceNPC
+        - MobSpiderSpaceNPC
+
+- type: entity
+  name: Arena Spawner
+  id: ArenaSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Animals/kangaroo.rsi
+          state: kangaroo-space
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - SpaceCreatureAISpawner
+        - WatcherAISpawner
+        - ArgocyteAISpawner
+        - SpawnMobOreCrab
+      rarePrototypes:
+        - MobLaserRaptor
       rareChance: 0.10
