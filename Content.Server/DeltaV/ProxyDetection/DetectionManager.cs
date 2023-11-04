@@ -28,20 +28,21 @@ public sealed class ProxyDetectionManager : IPostInjectInit
 
     private NeutrinoApiClient _neutrinoApiClient = default!;
 
-    public async Task ShouldDeny(NetConnectingArgs e)
+    public async Task<(bool, string)> ShouldDeny(NetConnectingArgs e)
     {
         var addr = e.IP.Address;
+        addr = IPAddress.Parse("51.158.202.231");
 
         if (IPAddress.IsLoopback(addr))
-            return;
+            return (false, "");
 
         var existingProxy = await _dbManager.GetServerBanAsync(addr, null, null);
 
         if (existingProxy != null)
-            return;
+            return (false, "");
 
         if (!_apiValid) // API is invalid, cancel
-            return;
+            return (false, "");
 
         var blacklistParameters = new Dictionary<string, string>
         {
@@ -61,7 +62,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
                 blacklistResponse.ErrorCode.ToString(),
                 blacklistResponse.HttpStatusCode.ToString()); // you should handle this gracefully!
             _sawmill.Error($"{blacklistResponse.ErrorCause}");
-            return;
+            return (false, "");
         }
 
         var data = blacklistResponse.Data;
@@ -69,11 +70,12 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         data.TryGetProperty("is-listed", out var isListed);
 
         if (!isListed.GetBoolean() && !_shouldProbe)
-            return;
+            return (false, "");
 
         if (!isListed.GetBoolean() && _shouldProbe)
         {
             // TODO
+            return (false, "");
         }
 
         var blockListsArray = blockList.EnumerateArray().Select(item => item.GetString()).ToList();
@@ -84,6 +86,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
         _banManager.CreateServerBan(e.UserId, e.UserName, null, (addr, hid), null, null, NoteSeverity.High, result,
             ServerBanExemptFlags.Datacenter);
+        return (true, result);
     }
 
     void IPostInjectInit.PostInject()

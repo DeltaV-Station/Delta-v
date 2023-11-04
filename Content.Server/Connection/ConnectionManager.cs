@@ -149,7 +149,9 @@ namespace Content.Server.Connection
 
             if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
             {
-                await _detectionManager.ShouldDeny(e); // This is ran before the ban check because it'll insert a ban
+                var result = await _detectionManager.ShouldDeny(e); // This is ran before the ban check because it'll insert a ban
+                if (result.Item1)
+                    return (ConnectionDenyReason.Ban, result.Item2, null);
             }
 
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, includeUnbanned: false);
