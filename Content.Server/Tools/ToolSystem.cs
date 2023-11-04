@@ -28,6 +28,7 @@ namespace Content.Server.Tools
             base.Initialize();
 
             InitializeLatticeCutting();
+            InitializeEarthDigging(); // Delta V
             InitializeWelders();
         }
 
