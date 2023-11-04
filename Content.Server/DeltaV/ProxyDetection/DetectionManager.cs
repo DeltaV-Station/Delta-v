@@ -1,8 +1,11 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading.Tasks;
+using Content.Server.Administration.Managers;
 using Content.Server.Database;
 using Content.Server.DeltaV.ProxyDetection.NeutrinoApi;
+using Content.Shared.Database;
 using Content.Shared.DeltaV.CCVars;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -16,6 +19,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly IBanManager _banManager = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -24,20 +28,20 @@ public sealed class ProxyDetectionManager : IPostInjectInit
 
     private NeutrinoApiClient _neutrinoApiClient = default!;
 
-    public async Task<(bool, string?)> ShouldDeny(NetConnectingArgs e)
+    public async Task ShouldDeny(NetConnectingArgs e)
     {
         var addr = e.IP.Address;
 
         if (IPAddress.IsLoopback(addr))
-            return (false, null);
+            return;
 
-        var existingProxy = await _dbManager.CheckProxyCache(addr);
+        var existingProxy = await _dbManager.GetServerBanAsync(addr, null, null);
 
-        if (existingProxy.Item1)
-            return (true, $"Your address was found in the following blacklists: {existingProxy.Item2}");
+        if (existingProxy != null)
+            return;
 
         if (!_apiValid) // API is invalid, cancel
-            return (false, null);
+            return;
 
         var blacklistParameters = new Dictionary<string, string>
         {
@@ -57,7 +61,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
                 blacklistResponse.ErrorCode.ToString(),
                 blacklistResponse.HttpStatusCode.ToString()); // you should handle this gracefully!
             _sawmill.Error($"{blacklistResponse.ErrorCause}");
-            return (false, null);
+            return;
         }
 
         var data = blacklistResponse.Data;
@@ -65,7 +69,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         data.TryGetProperty("is-listed", out var isListed);
 
         if (!isListed.GetBoolean() && !_shouldProbe)
-            return (false, null);
+            return;
 
         if (!isListed.GetBoolean() && _shouldProbe)
         {
@@ -76,8 +80,10 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         var blockLists = string.Join(", ", blockListsArray);
 
         var result = $"Your address was found in the following blacklists: {blockLists}";
-        await _dbManager.AddProxyCache(addr, true, blockLists, DateTime.Now);
-        return (true, result);
+
+        var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
+        _banManager.CreateServerBan(null, null, null, (addr, hid), null, null, NoteSeverity.High, result,
+            ServerBanExemptFlags.Datacenter);
     }
 
     void IPostInjectInit.PostInject()

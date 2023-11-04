@@ -147,6 +147,11 @@ namespace Content.Server.Connection
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
 
+            if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
+            {
+                await _detectionManager.ShouldDeny(e); // This is ran before the ban check because it'll insert a ban
+            }
+
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, includeUnbanned: false);
             if (bans.Count > 0)
             {
@@ -169,15 +174,6 @@ namespace Content.Server.Connection
                     if (min > 0 || max < int.MaxValue)
                         msg += "\n" + Loc.GetString("whitelist-playercount-invalid", ("min", min), ("max", max));
                     return (ConnectionDenyReason.Whitelist, msg, null);
-                }
-            }
-
-            if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
-            {
-                var detectResult = await _detectionManager.ShouldDeny(e);
-                if (detectResult.Item1)
-                {
-                    return (ConnectionDenyReason.Proxy, detectResult.Item2 ?? "Your address was found in blacklists.", null);
                 }
             }
 
