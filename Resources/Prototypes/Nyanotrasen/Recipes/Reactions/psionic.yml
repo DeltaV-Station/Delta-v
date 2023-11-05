@@ -1,4 +1,4 @@
-#- type: reaction
+# - type: reaction
 #  id: LotophagoiOil
 #  reactants:
 #    SpaceDrugs:
@@ -11,25 +11,25 @@
 #  products:
 #    LotophagoiOil: 1
 
-#- type: reaction
-#  id: CreateNormalityCrystal
-#  impact: Low
-#  quantized: true
-#  minTemp: 400
-#  reactants:
-#    Ash:
-#      amount: 10
-#    Water:
-#      amount: 10
-#    Blood:
-#      amount: 10
-#    Ectoplasm:
-#      amount: 10
-#    Plasma:
-#      amount: 10
-#      catalyst: true
-#  effects:
-#    - !type:CreateEntityReactionEffect
-#      entity: CrystalNormality
-#    - !type:ChangeGlimmerReactionEffect
-#      count: -10
+- type: reaction
+ id: CreateNormalityCrystal
+ impact: Low
+ quantized: true
+ minTemp: 400
+ reactants:
+   Ash:
+     amount: 10
+   Water:
+     amount: 10
+   Blood:
+     amount: 10
+   Ectoplasm:
+     amount: 10
+   Plasma:
+     amount: 10
+     catalyst: true
+ effects:
+   - !type:CreateEntityReactionEffect
+     entity: CrystalNormality
+   - !type:ChangeGlimmerReactionEffect
+     count: -10
