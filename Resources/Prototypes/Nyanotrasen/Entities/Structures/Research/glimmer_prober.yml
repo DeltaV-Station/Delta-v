@@ -61,9 +61,9 @@
     damageContainer: Inorganic
     damageModifierSet: ShockAbsorber
   - type: CargoSellBlacklist
-#  - type: GuideHelp
-#    guides:
-#    - Psionics
+  - type: GuideHelp
+    guides:
+    - Psionics
   - type: AmbientSound
     range: 6
     volume: -6
@@ -114,9 +114,9 @@
           False: {visible: false}
   - type: PowerSwitch
   - type: CargoSellBlacklist
-#  - type: GuideHelp
-#    guides:
-#    - Psionics
+  - type: GuideHelp
+    guides:
+    - Psionics
   - type: NpcFactionMember
     factions:
     - PsionicInterloper # :^)
