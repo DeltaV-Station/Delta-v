@@ -9,6 +9,7 @@ using Content.Shared.Physics;
 using Content.Shared.Tools.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Tools;
 
@@ -98,8 +99,8 @@ public sealed partial class ToolSystem
         component.CancelToken = token;
 
         var success = UseTool(
-            tool: shovel,
-            user: user,
+             shovel,
+             user,
             // FIXME
             target: EntityUid.FirstUid,
             doAfterDelay: component.Delay,
@@ -136,6 +137,7 @@ public sealed partial class ToolSystem
         return true;
     }
 
+    [Serializable, NetSerializable]
     private sealed partial class EarthDiggingCompleteEvent : DoAfterEvent
     {
         public EntityCoordinates Coordinates { get; set; }
