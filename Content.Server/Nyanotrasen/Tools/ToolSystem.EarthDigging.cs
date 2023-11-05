@@ -1,14 +1,23 @@
 using System.Threading;
+using Content.Server.Interaction;
 using Robust.Shared.Map;
 using Content.Server.Tools.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Content.Shared.Tools.Components;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Tools;
 
 public sealed partial class ToolSystem
 {
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly MapSystem _mapSystem = default!;
+
     private void InitializeEarthDigging()
     {
         SubscribeLocalEvent<EarthDiggingComponent, AfterInteractEvent>(OnEarthDiggingAfterInteract);
@@ -33,13 +42,13 @@ public sealed partial class ToolSystem
         if (gridUid == null)
             return;
 
-        var grid = _mapManager.GetGrid(gridUid.Value);
-        var tile = grid.GetTileRef(args.Coordinates);
+        var grid = Comp<MapGridComponent>(gridUid.Value);
+        var tile = _mapSystem.GetTileRef(gridUid.Value, grid, args.Coordinates);
 
         if (_tileDefinitionManager[tile.Tile.TypeId] is not ContentTileDefinition tileDef
             || !tileDef.CanShovel
-            || tileDef.BaseTurfs.Count == 0
-            || tile.IsBlockedTurf(true))
+          //  || tileDef.BaseTurfs.Count == 0
+            || _turf.IsTileBlocked(tile, CollisionGroup.MobMask))
         {
             return;
         }
@@ -63,7 +72,7 @@ public sealed partial class ToolSystem
             return true;
 
         ToolComponent? tool = null;
-        if (component.ToolComponentNeeded && !TryComp<ToolComponent?>(component.Owner, out tool))
+        if (component.ToolComponentNeeded && !TryComp(shovel, out tool))
             return false;
 
         if (!_mapManager.TryGetGrid(clickLocation.GetGridUid(EntityManager), out var mapGrid))
@@ -78,8 +87,8 @@ public sealed partial class ToolSystem
 
         if (_tileDefinitionManager[tile.Tile.TypeId] is not ContentTileDefinition tileDef
             || !tileDef.CanShovel
-            || tileDef.BaseTurfs.Count == 0
-            || _tileDefinitionManager[tileDef.BaseTurfs[^1]] is not ContentTileDefinition newDef
+            || tileDef.BaseTurf.Length == 0
+            // || _tileDefinitionManager[tileDef.BaseTurfs[^1]] is not ContentTileDefinition newDef
             || tile.IsBlockedTurf(true))
         {
             return false;
@@ -88,24 +97,38 @@ public sealed partial class ToolSystem
         var token = new CancellationTokenSource();
         component.CancelToken = token;
 
-        bool success = UseTool(
-            component.Owner,
-            user,
-            null,
-            0f,
-            component.Delay,
-            new [] {component.QualityNeeded},
-            new EarthDiggingCompleteEvent
+        var success = UseTool(
+            tool: shovel,
+            user: user,
+            // FIXME
+            target: EntityUid.FirstUid,
+            doAfterDelay: component.Delay,
+            toolQualitiesNeeded: new []{component.QualityNeeded},
+            doAfterEv: new EarthDiggingCompleteEvent
             {
                 Coordinates = clickLocation,
                 Shovel = shovel,
             },
-            new EarthDiggingCancelledEvent()
-            {
-                Shovel = shovel,
-            },
-            toolComponent: tool,
-            cancelToken: token.Token);
+            toolComponent: tool
+        );
+
+        // bool success = UseTool(
+        //     component.Owner,
+        //     user,
+        //     null,
+        //     0f,
+        //     component.Delay,
+        //     new [] {component.QualityNeeded},
+        //     new EarthDiggingCompleteEvent
+        //     {
+        //         Coordinates = clickLocation,
+        //         Shovel = shovel,
+        //     },
+        //     new EarthDiggingCancelledEvent()
+        //     {
+        //         Shovel = shovel,
+        //     },
+        //     toolComponent: tool);
 
         if (!success)
             component.CancelToken = null;
@@ -113,10 +136,14 @@ public sealed partial class ToolSystem
         return true;
     }
 
-    private sealed class EarthDiggingCompleteEvent : EntityEventArgs
+    private sealed partial class EarthDiggingCompleteEvent : DoAfterEvent
     {
         public EntityCoordinates Coordinates { get; set; }
         public EntityUid Shovel;
+        public override DoAfterEvent Clone()
+        {
+            return this;
+        }
     }
 
     private sealed class EarthDiggingCancelledEvent : EntityEventArgs

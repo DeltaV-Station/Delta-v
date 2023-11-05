@@ -5,7 +5,7 @@ using Content.Shared.Tools;
 namespace Content.Server.Tools.Components;
 
 [RegisterComponent]
-public sealed class EarthDiggingComponent : Component
+public sealed partial class EarthDiggingComponent : Component
 {
     [ViewVariables]
     [DataField("toolComponentNeeded")]
