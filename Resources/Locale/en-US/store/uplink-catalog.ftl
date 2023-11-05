@@ -347,3 +347,6 @@ uplink-syndicate-pai-desc = A Syndicate variant of the pAI with access to the Sy
 
 uplink-bribe-name = Lobbying Bundle
 uplink-bribe-desc = A heartfelt gift that can help you sway someone's opinion. Real or counterfeit? Yes.
+
+uplink-reinforcement-radio-nukie-mouse-name = Mouse-Op Reinforcement Teleporter
+uplink-reinforcement-radio-nukie-mouse-desc = Calls in a specially trained mouse operator to assist you.

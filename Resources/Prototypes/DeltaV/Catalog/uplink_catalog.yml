@@ -1,3 +1,14 @@
+- type: listing
+  id: Mouse Op Reinforcement
+  name: uplink-reinforcement-radio-nukie-mouse-name
+  description: uplink-reinforcement-radio-nukie-mouse-desc
+  productEntity: ReinforcementRadioSyndicateNukieMouse
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkUtility
+
 #- type: listing
 #  id: UplinkCyborgBeaconSyndicate
 #  name: uplink-borg-beacon-name

@@ -1,0 +1,17 @@
+- type: entity
+  parent: ReinforcementRadioSyndicate
+  id: ReinforcementRadioSyndicateNukieMouse
+  name: mouse operator reinforcement radio
+  description: Calls in a specially trained mouse operator to assist you.
+  components:
+  - type: GhostRole
+    name: Nuclear Mouse Operator Reinforcement
+    description: Someone needs reinforcements. You, a trained mouse, will help them.
+    rules: Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
+  - type: GhostRoleMobSpawner
+    prototype: MobNukieMouse
+  - type: EmitSoundOnUse
+    sound: /Audio/Effects/Emotes/parp1.ogg
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 300
