@@ -5,9 +5,9 @@
   abstract: true
   components:
   - type: Hunger
-    starvationDamage:
-      types:
-        Bloodloss: 0.5
+    # starvationDamage: # DeltaV - Disable starvation damage
+    #   types:
+    #     Bloodloss: 0.5
   - type: Thirst
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
