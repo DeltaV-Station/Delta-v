@@ -1,8 +1,8 @@
-using System.Threading;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+﻿using System.Threading;
 using Content.Shared.Tools;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Tools.Components;
+namespace Content.Shared.Nyanotrasen.Digging;
 
 [RegisterComponent]
 public sealed partial class EarthDiggingComponent : Component
@@ -19,8 +19,4 @@ public sealed partial class EarthDiggingComponent : Component
     [DataField("delay")]
     public float Delay = 2f;
 
-    /// <summary>
-    /// Used for do_afters.
-    /// </summary>
-    public CancellationTokenSource? CancelToken = null;
 }
