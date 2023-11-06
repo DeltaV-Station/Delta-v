@@ -155,3 +155,10 @@
   - type: AutoTraitor
     giveUplink: false
     giveObjectives: false
+  - type: InteractionPopup
+    successChance: 0.6
+    interactSuccessString: petting-success-nukie-mouse
+    interactFailureString: petting-failure-nukie-mouse
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/mouse_squeak.ogg
