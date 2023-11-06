@@ -17,11 +17,13 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
-        type: Add
       - !type:GenericStatusEffect
         key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
-        component: PsionicsDisabled #Nyano - Summary: see above. 
+        component: PsionicsDisabled #Nyano - Summary: see above.
         type: Add
+      - !type:Drunk
+        slurSpeech: false
+        boozePower: 20
 
 - type: reagent
   id: Dylovene
@@ -62,8 +64,6 @@
         - !type:ReagentThreshold
           min: 20
         probability: 0.02
-    Alcohol:
-      effects:
       - !type:Drunk
         conditions:
         - !type:ReagentThreshold
@@ -167,8 +167,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-    Alcohol:
-      effects:
       - !type:Drunk
 
 - type: reagent
