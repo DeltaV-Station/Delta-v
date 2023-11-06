@@ -12,7 +12,7 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: bobclassic
+      state: classic_bob
 
 - type: marking
   id: HumanHairMessyClassic
@@ -20,7 +20,7 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: messyclassic
+      state: classic_messy
 
 - type: marking
   id: HumanHairClassicNoFade
@@ -28,7 +28,7 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classicnofade
+      state: classic_nofade
 
 - type: marking
   id: HumanHairClassicGentle
@@ -36,7 +36,7 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classicgentle
+      state: classic_gentle
 
 - type: marking
   id: HumanHairClassicLowFade
@@ -44,7 +44,7 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classiclowfade
+      state: classic_lowfade
 
 - type: marking
   id: HumanHairClassicMedFade
@@ -52,4 +52,20 @@
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classicmedfade
+      state: classic_medfade
+
+- type: marking
+  id: HumanHairClassicOmbre
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/hair.rsi
+      state: classic_ombre
+
+- type: marking
+  id: HumanHairClassicCrewcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/hair.rsi
+      state: classic_crewcut
