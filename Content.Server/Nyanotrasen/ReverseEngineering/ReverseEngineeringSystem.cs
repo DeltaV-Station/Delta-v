@@ -107,7 +107,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
     private void OnExamineParts(EntityUid uid, ReverseEngineeringMachineComponent component, UpgradeExamineEvent args)
     {
-        args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus + 1); // DeltaV: Change the '-' to a '+' so it actually increase the analysis power
+        args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus - 1);
         args.AddNumberUpgrade("reverse-engineering-machine-aversion-upgrade", component.DangerAversionScore - 1);
     }
 
