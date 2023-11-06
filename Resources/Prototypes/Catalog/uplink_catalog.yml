@@ -1444,15 +1444,15 @@
   categories:
   - UplinkPointless
 
-- type: listing
-  id: UplinkCarpSuitBundle
-  name: uplink-carp-suit-bundle-name
-  description: uplink-carp-suit-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateCarpSuit
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkPointless
+# - type: listing # DeltaV - Disable carp suit being buyable
+#   id: UplinkCarpSuitBundle
+#   name: uplink-carp-suit-bundle-name
+#   description: uplink-carp-suit-bundle-desc
+#   productEntity: ClothingBackpackDuffelSyndicateCarpSuit
+#   cost:
+#     Telecrystal: 4
+#   categories:
+#   - UplinkPointless
 
 - type: listing
   id: UplinkOperativeSuit
