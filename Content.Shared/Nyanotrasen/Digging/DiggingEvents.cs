@@ -6,10 +6,16 @@ namespace Content.Shared.Nyanotrasen.Digging;
 
 
 [Serializable, NetSerializable]
-public sealed partial class EarthDiggingCompleteEvent : DoAfterEvent
+public sealed partial class EarthDiggingDoAfterEvent : DoAfterEvent
 {
     public NetCoordinates Coordinates { get; set; }
-    public NetEntity Shovel;
+
+    private EarthDiggingDoAfterEvent(){}
+
+    public EarthDiggingDoAfterEvent(NetCoordinates coordinates)
+    {
+        Coordinates = coordinates;
+    }
     public override DoAfterEvent Clone()
     {
         return this;

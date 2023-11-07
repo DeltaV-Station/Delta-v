@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Content.Shared.Interaction;
+﻿using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Nyanotrasen.Digging;
 using Content.Shared.Physics;
@@ -12,32 +11,27 @@ namespace Content.Shared.Digging;
 
 public sealed class SharedDiggingSystem : EntitySystem
 {
-    [Dependency] private  readonly TileSystem _tiles = default!;
-    [Dependency] private  readonly SharedMapSystem _maps = default!;
-    [Dependency] private  readonly SharedToolSystem _tools = default!;
-    [Dependency] private  readonly TurfSystem _turfs = default!;
-    [Dependency] private  readonly IMapManager _mapManager = default!;
-    [Dependency] private  readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private  readonly SharedInteractionSystem _interactionSystem = default!;
-    // [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-
+    [Dependency] private readonly TileSystem _tiles = default!;
+    [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private readonly SharedToolSystem _tools = default!;
+    [Dependency] private readonly TurfSystem _turfs = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<EarthDiggingComponent, AfterInteractEvent>(OnDiggingAfterInteract);
-        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCompleteEvent>(OnEarthDigComplete);
+        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingDoAfterEvent>(OnEarthDigComplete);
     }
 
 
-
-    private void OnEarthDigComplete(EntityUid shovel, EarthDiggingComponent comp, EarthDiggingCompleteEvent args)
+    private void OnEarthDigComplete(EntityUid shovel, EarthDiggingComponent comp, EarthDiggingDoAfterEvent args)
     {
         var coordinates = GetCoordinates(args.Coordinates);
-        if (!TryComp<EarthDiggingComponent>(shovel, out var component))
+        if (!TryComp<EarthDiggingComponent>(shovel, out var _))
             return;
-
 
         var gridUid = coordinates.GetGridUid(EntityManager);
         if (gridUid == null)
@@ -48,7 +42,7 @@ public sealed class SharedDiggingSystem : EntitySystem
 
         if (_tileDefManager[tile.Tile.TypeId] is not ContentTileDefinition tileDef
             || !tileDef.CanShovel
-            //  || tileDef.BaseTurfs.Count == 0
+            || string.IsNullOrEmpty(tileDef.BaseTurf)
             || _turfs.IsTileBlocked(tile, CollisionGroup.MobMask))
         {
             return;
@@ -63,53 +57,49 @@ public sealed class SharedDiggingSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target != null)
             return;
 
-        if (TryDig(args.User, uid, component, args.ClickLocation))
+        if (TryDig(args.User, uid, args.ClickLocation, component))
             args.Handled = true;
     }
 
-    private bool TryDig(EntityUid user, EntityUid shovel, EarthDiggingComponent component,
-        EntityCoordinates clickLocation)
+    private bool TryDig(EntityUid user, EntityUid shovel,
+        EntityCoordinates clickLocation, EarthDiggingComponent? component = null)
     {
         ToolComponent? tool = null;
-        if (component.ToolComponentNeeded && !TryComp(shovel, out tool))
+        if (!Resolve(shovel, ref component, ref tool))
             return false;
 
-        if (!_mapManager.TryGetGrid(clickLocation.GetGridUid(EntityManager), out var mapGrid))
+        if (component.ToolComponentNeeded)
             return false;
 
-        var tile = mapGrid.GetTileRef(clickLocation);
+        var mapUid = clickLocation.GetGridUid(EntityManager);
+        if (mapUid == null || !TryComp(mapUid, out MapGridComponent? mapGrid))
+            return false;
 
-        var coordinates = mapGrid.GridTileToLocal(tile.GridIndices);
+        var tile = _maps.GetTileRef(mapUid.Value, mapGrid, clickLocation);
+
+        var coordinates = _maps.GridTileToLocal(mapUid.Value, mapGrid, tile.GridIndices);
 
         if (!_interactionSystem.InRangeUnobstructed(user, coordinates, popup: false))
             return false;
 
         if (_tileDefManager[tile.Tile.TypeId] is not ContentTileDefinition tileDef
             || !tileDef.CanShovel
-            || tileDef.BaseTurf.Length == 0
-            // || _tileDefinitionManager[tileDef.BaseTurfs[^1]] is not ContentTileDefinition newDef
-            || tile.IsBlockedTurf(true))
+            || string.IsNullOrEmpty(tileDef.BaseTurf)
+            || _tileDefManager[tileDef.BaseTurf] is not ContentTileDefinition
+            || _turfs.IsTileBlocked(tile, CollisionGroup.MobMask))
         {
             return false;
         }
 
+        var ev = new EarthDiggingDoAfterEvent(GetNetCoordinates(clickLocation));
         return _tools.UseTool(
             shovel,
             user,
-            // FIXME
             target: shovel,
             doAfterDelay: component.Delay,
             toolQualitiesNeeded: new[] { component.QualityNeeded },
-            doAfterEv: new EarthDiggingCompleteEvent
-            {
-                Coordinates = GetNetCoordinates(clickLocation),
-                Shovel = GetNetEntity(shovel)
-            },
+            doAfterEv: ev,
             toolComponent: tool
         );
     }
-
 }
-
-
-
