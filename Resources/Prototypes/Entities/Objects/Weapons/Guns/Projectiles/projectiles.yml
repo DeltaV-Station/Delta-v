@@ -798,7 +798,7 @@
 # Because Hitscan lasers aren't fun to shoot in my opinion, we give the HoS pistol a special lethal laser that moves
 - type: entity
   name: energy bolt
-  id: BulletMultiphaseLaser
+  id: BulletEnergyGunLaser
   parent: BaseBullet
   noSpawn: true
   components:

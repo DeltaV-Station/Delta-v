@@ -5,34 +5,27 @@ using Content.Server.DeltaV.Weapons.Ranged.Systems;
 namespace Content.Server.DeltaV.Weapons.Ranged.Components;
 
 /// <summary>
-/// Allows for energy gun to switch between lethal and disable. This also changes sprites accordingly.
+/// Allows for energy gun to switch between three modes. This also changes the sprite accordingly.
 /// </summary>
-/// <remarks>Yes this is a mashup of the StunbatonSystem and BatteryWeaponFireModesSystem</remarks>
+/// <remarks>This is BatteryWeaponFireModesSystem with additional changes to allow for different sprites.</remarks>
 [RegisterComponent]
 [Access(typeof(EnergyGunSystem))]
 [AutoGenerateComponentState]
 public sealed partial class EnergyGunComponent : Component
 {
     /// <summary>
-    /// Determines if the energy gun is on lethal or disable
+    /// A list of the different firing modes the energy gun can switch between
     /// </summary>
-    [DataField("activated"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("fireModes", required: true)]
     [AutoNetworkedField]
-    public bool Activated = false;
+    public List<EnergyWeaponFireMode> FireModes = new();
 
     /// <summary>
-    /// The disable firemode for the gun
+    /// The currently selected firing mode
     /// </summary>
-    [DataField("disableMode", required: true)]
+    [DataField("currentFireMode")]
     [AutoNetworkedField]
-    public EnergyWeaponFireMode DisableMode = new();
-
-    /// <summary>
-    /// The lethal firemode for the gun
-    /// </summary>
-    [DataField("lethalMode", required: true)]
-    [AutoNetworkedField]
-    public EnergyWeaponFireMode LethalMode = new();
+    public EnergyWeaponFireMode? CurrentFireMode = default!;
 }
 
 [DataDefinition]
@@ -49,4 +42,16 @@ public sealed partial class EnergyWeaponFireMode
     /// </summary>
     [DataField("fireCost")]
     public float FireCost = 100;
+
+    /// <summary>
+    /// The name of the selected firemode
+    /// </summary>
+    [DataField("name")]
+    public string Name = string.Empty;
+
+    /// <summary>
+    /// What RsiState we use for that firemode if it needs to change.
+    /// </summary>
+    [DataField("state")]
+    public string State = string.Empty;
 }

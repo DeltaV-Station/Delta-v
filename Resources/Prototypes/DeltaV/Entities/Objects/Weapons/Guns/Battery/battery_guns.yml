@@ -1,35 +1,73 @@
 - type: entity
+  name: energy gun
+  parent: BaseWeaponBattery
+  id: WeaponEnergyGun
+  description: "A basic hybrid energy gun with two settings: disable and kill."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: kill
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-stun } # Unused
+
+- type: entity
   name: x-01 multiphase energy gun
   parent: BaseWeaponBatterySmall
-  id: WeaponMultiphaseEnergyGun
-  description: This is an expensive, modern recreation of an antique laser gun. This gun has two unique firemodes, but lacks the ability to recharge over time.
+  id: WeaponEnergyGunMultiphase
+  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
-  - type: EnergyGun # Special component just for it so it can change sprite on the firemode used
-    disableMode:
-      proto: BulletDisabler # 20 shots of disabler
-      fireCost: 100
-    lethalMode:
-      proto: BulletMultiphaseLaser # 10 shots of lethal
-      fireCost: 200
-  - type: Item
-    heldPrefix: disable
-    size: 10
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode_disable
-      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: GenericVisualizer
-    visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
-          True: {state: mode_lethal}
-          False: {state: mode_disable}
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
@@ -43,11 +81,32 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: lethal
+      state: lethal
+    # - proto: BulletEnergyGunIon
+    #   fireCost: 500
+    #   name: ion
+    #   state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
   - type: Tag
     tags:
     - HighRiskItem
