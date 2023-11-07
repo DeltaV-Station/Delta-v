@@ -1,4 +1,5 @@
 using Content.Server.Speech.Components;
+using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems
 {
@@ -8,11 +9,10 @@ namespace Content.Server.Speech.EntitySystems
 
         public override void Initialize()
         {
-            AddReplacementSet(SpecialWords, "you", "yew");
-            AddReplacementSet(SpecialWords, "yea", "yahuh");
             AddReplacementSet(SpecialWords, "yeah", "yahuh");
-            AddReplacementSet(SpecialWords, "no", "nyo");
+            AddReplacementSet(SpecialWords, "yea", "yahuh");
             AddReplacementSet(SpecialWords, "now", "nyow");
+            AddReplacementSet(SpecialWords, "no", "nyo");
             AddReplacementSet(SpecialWords, "church", "choowch");
             AddReplacementSet(SpecialWords, "hop", "hoppy");
             AddReplacementSet(SpecialWords, "cap", "cappy");
@@ -20,8 +20,8 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "the", "da");
             AddReplacementSet(SpecialWords, "this", "dis");
             AddReplacementSet(SpecialWords, "that", "dat");
-            AddReplacementSet(SpecialWords, "ow", "owies");
             AddReplacementSet(SpecialWords, "oww", "owwies");
+            AddReplacementSet(SpecialWords, "ow", "owies");
             AddReplacementSet(SpecialWords, "ouch", "Owchies");
             AddReplacementSet(SpecialWords, "dead", "ded");
             AddReplacementSet(SpecialWords, "nuke", "nook");
@@ -54,6 +54,19 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "god", "gawd");
             AddReplacementSet(SpecialWords, "cat", "kitty");
             AddReplacementSet(SpecialWords, "special", "speshul");
+            AddReplacementSet(SpecialWords, "you", "yew");
+            AddReplacementSet(SpecialWords, "super", "soopa");
+            AddReplacementSet(SpecialWords, "supermatter", "soopamattew");
+            AddReplacementSet(SpecialWords, "bartender", "bawtenda");
+            AddReplacementSet(SpecialWords, "captain", "cappytan");
+            AddReplacementSet(SpecialWords, "known", "knyown");
+            AddReplacementSet(SpecialWords, "there", "dewe");
+            AddReplacementSet(SpecialWords, "little", "widdle");
+            AddReplacementSet(SpecialWords, "bite", "nom");
+            AddReplacementSet(SpecialWords, "bye", "bai");
+            AddReplacementSet(SpecialWords, "hell", "hecc");
+            AddReplacementSet(SpecialWords, "hi", "hai");
+            AddReplacementSet(SpecialWords, "love", "wuv");
 
             SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
         }
@@ -62,7 +75,7 @@ namespace Content.Server.Speech.EntitySystems
         {
             foreach (var (word, repl) in SpecialWords)
             {
-                message = message.Replace(word, repl);
+                message = Regex.Replace(message, $"\\b{word}\\b", repl);
             }
 
             return message.Replace("r", "w").Replace("R", "W")
