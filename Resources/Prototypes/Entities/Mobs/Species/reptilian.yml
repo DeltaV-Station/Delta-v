@@ -8,10 +8,10 @@
   - type: HumanoidAppearance
     species: Reptilian
   - type: Hunger
-    starvationDamage:
-      types:
-        Cold: 0.5
-        Bloodloss: 0.5
+    # starvationDamage: # DeltaV - Disable starvation damage
+    #   types:
+    #     Cold: 0.5
+    #     Bloodloss: 0.5
   - type: Puller
     needsHands: false
   - type: Thirst
