@@ -69,6 +69,7 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "hi", "hai");
             AddReplacementSet(SpecialWords, "love", "wuv");
             AddReplacementSet(SpecialWords, "good", "gewd");
+            AddReplacementSet(SpecialWords, "with", "wiv");
 
             //special case that is more likely to have a different capitalisation
             SpecialWords.Add("HoP", "HoPpy");
