@@ -26,8 +26,7 @@
   id: HoSGunStealObjective
   components:
   - type: Objective
-    # hos will mostly be using that gun to stop you from stealing it
-    difficulty: 3
+    difficulty: 3 # HoS will mostly be using the gun to stop you from stealing it
   - type: NotJobRequirement
     job: HeadOfSecurity
   - type: StealCondition

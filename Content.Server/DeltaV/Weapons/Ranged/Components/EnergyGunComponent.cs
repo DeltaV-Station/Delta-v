@@ -5,9 +5,9 @@ using Content.Server.DeltaV.Weapons.Ranged.Systems;
 namespace Content.Server.DeltaV.Weapons.Ranged.Components;
 
 /// <summary>
-/// DeltaV Addition: Allows for energy gun to switch between lethal and disable. This also changes sprites accordingly.
-/// Yes this is a mashup of the StunbatonSystem and BatteryWeaponFireModesSystem
+/// Allows for energy gun to switch between lethal and disable. This also changes sprites accordingly.
 /// </summary>
+/// <remarks>Yes this is a mashup of the StunbatonSystem and BatteryWeaponFireModesSystem</remarks>
 [RegisterComponent]
 [Access(typeof(EnergyGunSystem))]
 [AutoGenerateComponentState]
