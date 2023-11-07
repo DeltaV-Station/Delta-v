@@ -51,7 +51,7 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// Max Head Revs allowed during selection.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int MaxHeadRevs = 1; // DeltaV - only 1 headrev
+    public int MaxHeadRevs = 3;
 
     /// <summary>
     /// The amount of Head Revs that will spawn per this amount of players.
