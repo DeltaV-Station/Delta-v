@@ -4,56 +4,56 @@ namespace Content.Server.Speech.EntitySystems
 {
     public sealed class OwOAccentSystem : EntitySystem
     {
-        private static IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>();
+        private static Dictionary<string, string> SpecialWords = new Dictionary<string, string>();
 
         public override void Initialize()
         {
-            SpecialWords = new Dictionary<string, string>(new KeyValuePair<string, string>[]
-            {
-                ReplacementSet("you", "yew"),
-                ReplacementSet("yea", "yahuh"),
-                ReplacementSet("yeah", "yahuh"),
-                ReplacementSet("no", "nyo"),
-                ReplacementSet("now", "nyow"),
-                ReplacementSet("church", "choowch"),
-                ReplacementSet("hop", "hoppy"),
-                ReplacementSet("cap", "cappy"),
-                ReplacementSet("what", "wot"),
-                ReplacementSet("the", "da"),
-                ReplacementSet("this", "dis"),
-                ReplacementSet("that", "dat"),
-                ReplacementSet("ow", "owies"),
-                ReplacementSet("oww", "owwies"),
-                ReplacementSet("ouch", "Owchies"),
-                ReplacementSet("dead", "ded"),
-                ReplacementSet("nuke", "nook"),
-                ReplacementSet("nukie", "nookie"),
-                ReplacementSet("sleep", "sleepy"),
-                ReplacementSet("sec", "seccy"),
-                ReplacementSet("secoff", "seccy"),
-                ReplacementSet("fluff", "floof"),
-                ReplacementSet("fluffy", "floofy"),
-                ReplacementSet("mouse", "mowsie"),
-                ReplacementSet("attention", "attenshun"),
-                ReplacementSet("safe", "safes"),
-                ReplacementSet("boss", "baws"),
-                ReplacementSet("oh", "owh"),
-                ReplacementSet("professional", "pwoffesshunal"),
-                ReplacementSet("profession", "pwoffesshun"),
-                ReplacementSet("confession", "confesshun"),
-                ReplacementSet("food", "fewd"),
-                ReplacementSet("move", "mewve"),
-                ReplacementSet("moving", "mewving"),
-                ReplacementSet("dog", "doggie"),
-                ReplacementSet("however", "howeva"),
-                ReplacementSet("hamster", "hammy"),
-                ReplacementSet("hampster", "hammy"),
-                ReplacementSet("antag", "baddie"),
-                ReplacementSet("murder", "muwda"),
-                ReplacementSet("rules", "roolz"),
-                ReplacementSet("thanks", "thankies"),
-                ReplacementSet("now", "nao"),
-            });
+            AddReplacementSet(SpecialWords, "you", "yew");
+            AddReplacementSet(SpecialWords, "yea", "yahuh");
+            AddReplacementSet(SpecialWords, "yeah", "yahuh");
+            AddReplacementSet(SpecialWords, "no", "nyo");
+            AddReplacementSet(SpecialWords, "now", "nyow");
+            AddReplacementSet(SpecialWords, "church", "choowch");
+            AddReplacementSet(SpecialWords, "hop", "hoppy");
+            AddReplacementSet(SpecialWords, "cap", "cappy");
+            AddReplacementSet(SpecialWords, "what", "wot");
+            AddReplacementSet(SpecialWords, "the", "da");
+            AddReplacementSet(SpecialWords, "this", "dis");
+            AddReplacementSet(SpecialWords, "that", "dat");
+            AddReplacementSet(SpecialWords, "ow", "owies");
+            AddReplacementSet(SpecialWords, "oww", "owwies");
+            AddReplacementSet(SpecialWords, "ouch", "Owchies");
+            AddReplacementSet(SpecialWords, "dead", "ded");
+            AddReplacementSet(SpecialWords, "nuke", "nook");
+            AddReplacementSet(SpecialWords, "nukie", "nookie");
+            AddReplacementSet(SpecialWords, "sleep", "sweepy");
+            AddReplacementSet(SpecialWords, "sec", "seccy");
+            AddReplacementSet(SpecialWords, "secoff", "seccy");
+            AddReplacementSet(SpecialWords, "fluff", "fwoof");
+            AddReplacementSet(SpecialWords, "fluffy", "fwoofy");
+            AddReplacementSet(SpecialWords, "mouse", "mowsie");
+            AddReplacementSet(SpecialWords, "attention", "attenshun");
+            AddReplacementSet(SpecialWords, "safe", "safes");
+            AddReplacementSet(SpecialWords, "boss", "baws");
+            AddReplacementSet(SpecialWords, "oh", "owh");
+            AddReplacementSet(SpecialWords, "professional", "pwoffesshunaw");
+            AddReplacementSet(SpecialWords, "profession", "pwoffesshun");
+            AddReplacementSet(SpecialWords, "confession", "confesshun");
+            AddReplacementSet(SpecialWords, "food", "fewd");
+            AddReplacementSet(SpecialWords, "move", "mewve");
+            AddReplacementSet(SpecialWords, "moving", "mewving");
+            AddReplacementSet(SpecialWords, "dog", "doggie");
+            AddReplacementSet(SpecialWords, "however", "howeva");
+            AddReplacementSet(SpecialWords, "hamster", "hammy");
+            AddReplacementSet(SpecialWords, "hampster", "hammy");
+            AddReplacementSet(SpecialWords, "antag", "baddie");
+            AddReplacementSet(SpecialWords, "murder", "muwda");
+            AddReplacementSet(SpecialWords, "rules", "woolez");
+            AddReplacementSet(SpecialWords, "thanks", "thankies");
+            AddReplacementSet(SpecialWords, "station", "stashun");
+            AddReplacementSet(SpecialWords, "god", "gawd");
+            AddReplacementSet(SpecialWords, "cat", "kitty");
+            AddReplacementSet(SpecialWords, "special", "speshul");
 
             SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
         }
@@ -73,25 +73,11 @@ namespace Content.Server.Speech.EntitySystems
         {
             args.Message = Accentuate(args.Message);
         }
-
-        private static KeyValuePair<string, string> ReplacementSet(string original, string replacement)
+        private static void AddReplacementSet(Dictionary<string, string> dictionary, string original, string replacement)
         {
-            if (IsAllUpper(original))
-                replacement = replacement.ToUpper();
-            if (char.IsUpper(original[0]))
-                replacement = FirstCharToUpper(replacement);
-
-            return new KeyValuePair<string, string>(original, replacement);
-        }
-
-        private static bool IsAllUpper(string input)
-        {
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (char.IsLetter(input[i]) && !char.IsUpper(input[i]))
-                    return false;
-            }
-            return true;
+            dictionary.Add(original, replacement);
+            dictionary.Add(original.ToUpper(), replacement.ToUpper());
+            dictionary.Add(FirstCharToUpper(original), FirstCharToUpper(replacement));
         }
 
         private static string FirstCharToUpper(string input)
