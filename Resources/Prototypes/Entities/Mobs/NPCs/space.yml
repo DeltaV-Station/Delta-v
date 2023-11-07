@@ -64,13 +64,13 @@
     radius: 1.2
     energy: 2
     color: "#4faffb"
-  - type: GhostTakeoverAvailable
+  #- type: GhostTakeoverAvailable # Delta V: Moves ghost takeover to child
   - type: Speech
     speechVerb: LargeMob
 
 - type: entity
   name: space bear
-  id: MobBearSpace
+  id: MobBearSpaceNPC # Delta V : remove ghosttakeover comps
   parent: MobSpaceBasic
   description: It looks friendly. Why don't you give it a hug?
   components:
@@ -110,10 +110,7 @@
     interactFailureString: petting-failure-bear
     interactSuccessSound:
       path: /Audio/Animals/sloth_squeak.ogg
-  - type: GhostRole
-    prob: 0.25
-    name: ghost-role-information-space-bear-name
-    description: ghost-role-information-space-bear-description
+  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
 
 - type: entity
   id: MobBearSpaceSalvage
@@ -129,7 +126,7 @@
 
 - type: entity
   name: space kangaroo
-  id: MobKangarooSpace
+  id: MobKangarooSpaceNPC # Delta V : remove ghosttakeover comps
   parent: MobSpaceBasic
   description: It looks friendly. Why don't you give it a hug?
   components:
@@ -182,10 +179,7 @@
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
-  - type: GhostRole
-    prob: 0.25
-    name: ghost-role-information-space-kangaroo-name
-    description: ghost-role-information-space-kangaroo-description
+  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -201,7 +195,7 @@
 
 - type: entity
   name: space spider
-  id: MobSpiderSpace
+  id: MobSpiderSpaceNPC # Delta V : remove ghosttakeover comps
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
@@ -278,10 +272,7 @@
     color: "#4faffb"
   - type: NoSlip
   - type: IgnoreSpiderWeb
-  - type: GhostRole
-    prob: 0.30
-    name: ghost-role-information-space-spider-name
-    description: ghost-role-information-space-spider-description
+  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
   - type: Speech
     speechVerb: Arachnid
 
