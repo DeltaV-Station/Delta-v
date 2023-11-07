@@ -151,7 +151,6 @@ namespace Content.Server.Roboisseur.Roboisseur
         [DataField("blacklistedProtos")]
         public IReadOnlyList<String> BlacklistedProtos = new[]
         {
-            // "FoodMothPesto",
             "FoodBurgerSpell",
             "FoodBreadBanana",
             "FoodMothSqueakingFry",
