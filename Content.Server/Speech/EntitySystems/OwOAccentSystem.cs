@@ -51,6 +51,7 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "rules", "woolez");
             AddReplacementSet(SpecialWords, "thanks", "thankies");
             AddReplacementSet(SpecialWords, "station", "stashun");
+            AddReplacementSet(SpecialWords, "stationary", "stashunawy");
             AddReplacementSet(SpecialWords, "god", "gawd");
             AddReplacementSet(SpecialWords, "cat", "kitty");
             AddReplacementSet(SpecialWords, "special", "speshul");
@@ -67,6 +68,10 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "hell", "hecc");
             AddReplacementSet(SpecialWords, "hi", "hai");
             AddReplacementSet(SpecialWords, "love", "wuv");
+            AddReplacementSet(SpecialWords, "good", "gewd");
+
+            //special case that is more likely to have a different capitalisation
+            SpecialWords.Add("HoP", "HoPpy");
 
             SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
         }
@@ -79,7 +84,9 @@ namespace Content.Server.Speech.EntitySystems
             }
 
             return message.Replace("r", "w").Replace("R", "W")
-                .Replace("l", "w").Replace("L", "W");
+                .Replace("l", "w").Replace("L", "W")
+                .Replace("ck", "cc").Replace("Ck", "Cc")
+                .Replace("cK", "cC").Replace("CK", "CC");
         }
 
         private void OnAccent(EntityUid uid, OwOAccentComponent component, AccentGetEvent args)
