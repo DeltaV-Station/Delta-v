@@ -56,8 +56,8 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "cat", "kitty");
             AddReplacementSet(SpecialWords, "special", "speshul");
             AddReplacementSet(SpecialWords, "you", "yew");
-            AddReplacementSet(SpecialWords, "super", "soopa");
-            AddReplacementSet(SpecialWords, "supermatter", "soopamattew");
+            AddReplacementSet(SpecialWords, "super", "supa");
+            AddReplacementSet(SpecialWords, "supermatter", "supamattew");
             AddReplacementSet(SpecialWords, "bartender", "bawtenda");
             AddReplacementSet(SpecialWords, "captain", "cappytan");
             AddReplacementSet(SpecialWords, "known", "knyown");
@@ -70,6 +70,17 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "love", "wuv");
             AddReplacementSet(SpecialWords, "good", "gewd");
             AddReplacementSet(SpecialWords, "with", "wiv");
+            AddReplacementSet(SpecialWords, "box", "bawx");
+            AddReplacementSet(SpecialWords, "shuttle", "shuddle");
+            AddReplacementSet(SpecialWords, "instead", "steads");
+            AddReplacementSet(SpecialWords, "got", "gots");
+            AddReplacementSet(SpecialWords, "need", "needs");
+            AddReplacementSet(SpecialWords, "doctor", "docta");
+            AddReplacementSet(SpecialWords, "say", "says");
+            AddReplacementSet(SpecialWords, "ok", "okie dokies");
+            AddReplacementSet(SpecialWords, "same", "sames");
+            AddReplacementSet(SpecialWords, "see", "sees");
+            AddReplacementSet(SpecialWords, "after", "afta");
 
             //special case that is more likely to have a different capitalisation
             SpecialWords.Add("HoP", "HoPpy");
