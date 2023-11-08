@@ -581,6 +581,14 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
+  - type: GhostRole # DeltaV
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-Shiva-name
+    description: ghost-role-information-Shiva-description
+    rules: ghost-role-information-Shiva-rules
+  - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
     interactSuccessString: petting-success-tarantula

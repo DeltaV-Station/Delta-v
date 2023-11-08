@@ -4,14 +4,14 @@ ghost-role-component-default-rules = You don't remember any of your previous lif
                                      You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
 # Delta V soft antag rule
-deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation. 
+deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation.
                                                 You are allowed to coexist with the crew.
                                                 The crew is allowed to kill you without warning.
 
 # Delta V salvage antag rule
-deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob. 
+deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
-                                                    You are allowed to attack the salvage shuttle. 
+                                                    You are allowed to attack the salvage shuttle.
                                                     You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
 
 ghost-role-information-mouse-name = Mouse
@@ -196,9 +196,13 @@ ghost-role-information-Death-Squad-name = Death Squad Operative
 ghost-role-information-Death-Squad-description = One of Nanotrasen's top internal affairs agents. Await orders from CentComm or an official.
 
 ghost-role-information-Cak-name = Cak
-ghost-role-information-Cak-description = You are the chef's favorite child. You're a living cake cat.  
+ghost-role-information-Cak-description = You are the chef's favorite child. You're a living cake cat.
 ghost-role-information-Cak-rules = You are a living edible sweet cat. Your task is to find your place in this world where everything wants to eat you.
 
 ghost-role-information-BreadDog-name = BreadDog
 ghost-role-information-BreadDog-description = You are the chef's favorite child. You're a living bread dog.
 ghost-role-information-BreadDog-rules = You're an edible dog made of bread. Your task is to find your place in this world where everything wants to eat you.
+
+ghost-role-information-Shiva-name = Shiva
+ghost-role-information-Shiva-description = Shiva, the stations first defender. Help the Head of Security in their work
+ghost-role-information-Shiva-rules = Protect security staff and the crew from danger. Stay with Security staff or around the Security department, try to disable criminals and not kill them if the situation allows for it.
