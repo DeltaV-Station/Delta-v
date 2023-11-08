@@ -58316,6 +58316,11 @@ entities:
     - pos: 68.5,16.5
       parent: 6747
       type: Transform
+  - uid: 27065
+    components:
+    - pos: 70.5,18.5
+      parent: 6747
+      type: Transform
 - proto: CrateEngineeringCableBulk
   entities:
   - uid: 17501
@@ -70284,6 +70289,106 @@ entities:
     - pos: -49.542934,-7.462412
       parent: 6747
       type: Transform
+- proto: EncryptionKeyBinary
+  entities:
+  - uid: 27057
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 6181
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyCargo
+  entities:
+  - uid: 27063
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 8466
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyCommand
+  entities:
+  - uid: 27055
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 6155
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyCommon
+  entities:
+  - uid: 27060
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 8368
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyEngineering
+  entities:
+  - uid: 27058
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 6738
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyMedical
+  entities:
+  - uid: 27062
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 8463
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyRobo
+  entities:
+  - uid: 27056
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 6181
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyScience
+  entities:
+  - uid: 27061
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 8388
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeySecurity
+  entities:
+  - uid: 27064
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 11958
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: EncryptionKeyService
+  entities:
+  - uid: 27059
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 8368
+      type: Transform
+    - canCollide: False
+      type: Physics
 - proto: ExosuitFabricator
   entities:
   - uid: 27043
@@ -153955,41 +154060,163 @@ entities:
     - pos: 59.5,9.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27055
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 6181
     components:
     - pos: 62.5,7.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27056
+          - 27057
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 6738
     components:
     - pos: 61.5,9.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27058
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 8368
     components:
     - pos: 61.5,7.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27059
+          - 27060
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 8388
     components:
     - pos: 59.5,7.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27061
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 8463
     components:
     - pos: 62.5,9.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27062
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 8466
     components:
     - pos: 60.5,7.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27063
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
   - uid: 11958
     components:
     - pos: 60.5,9.5
       parent: 6747
       type: Transform
+    - containers:
+        key_slots: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 27064
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+      type: ContainerContainer
 - proto: TelecomServerCircuitboard
   entities:
   - uid: 17713
