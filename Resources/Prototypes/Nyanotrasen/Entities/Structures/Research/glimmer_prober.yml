@@ -13,7 +13,7 @@
     pointspersecond: 20
     active: true
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
     noRot: true
     layers:
     - state: base
@@ -97,14 +97,14 @@
     #graph: GlimmerDevices
     #node: glimmerDrain
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
     noRot: true
     layers:
     - state: base
     - state: drain
-#    - state: powered
-#      shader: unshaded
-#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -164,7 +164,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: Sprite
-      sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+      sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
       noRot: true
       layers:
       - state: base
