@@ -75086,9 +75086,9 @@ entities:
       type: Transform
 - proto: FoodDonkpocketDink
   entities:
-  - uid: 10492
+  - uid: 4034
     components:
-    - pos: -0.45717716,-40.036194
+    - pos: -0.4918747,-41.099037
       parent: 6747
       type: Transform
 - proto: FoodDonutPlain
@@ -149345,14 +149345,14 @@ entities:
   entities:
   - uid: 10493
     components:
-    - pos: -0.5,-48.5
+    - pos: -0.5,-47.5
       parent: 6747
       type: Transform
 - proto: StatueVenusRed
   entities:
-  - uid: 4034
+  - uid: 10492
     components:
-    - pos: -0.5,-40.5
+    - pos: -0.5,-41.5
       parent: 6747
       type: Transform
 - proto: SteelBench
@@ -155210,6 +155210,13 @@ entities:
     - pos: -9.5,-24.5
       parent: 6747
       type: Transform
+- proto: VendingMachineCourierDrobe
+  entities:
+  - uid: 914
+    components:
+    - pos: 35.5,13.5
+      parent: 6747
+      type: Transform
 - proto: VendingMachineDinnerware
   entities:
   - uid: 2713
@@ -155283,13 +155290,6 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -11.5,-61.5
-      parent: 6747
-      type: Transform
-- proto: VendingMachineMailDrobe
-  entities:
-  - uid: 914
-    components:
-    - pos: 35.5,13.5
       parent: 6747
       type: Transform
 - proto: VendingMachineMedical
