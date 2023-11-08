@@ -84,6 +84,12 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "same", "sames");
             AddReplacementSet(SpecialWords, "see", "sees");
             AddReplacementSet(SpecialWords, "after", "afta");
+            AddReplacementSet(SpecialWords, "better", "bedda");
+            AddReplacementSet(SpecialWords, "wow", "wowie");
+            AddReplacementSet(SpecialWords, "woah", "wowie");
+            AddReplacementSet(SpecialWords, "bump", "boomp");
+            AddReplacementSet(SpecialWords, "zombie", "zoombie");
+            AddReplacementSet(SpecialWords, "nanotrasen", "nyanotwasen");
 
             //special case that is more likely to have a different capitalisation not already included in the above list
             //These entries are added to the dictionary as-is, for special capitalization cases only.
@@ -105,7 +111,9 @@ namespace Content.Server.Speech.EntitySystems
             return message.Replace("r", "w").Replace("R", "W")
                 .Replace("l", "w").Replace("L", "W")
                 .Replace("ck", "cc").Replace("Ck", "Cc")
-                .Replace("cK", "cC").Replace("CK", "CC");
+                .Replace("cK", "cC").Replace("CK", "CC")
+                .Replace("tt", "dd").Replace("Tt", "Dd")
+                .Replace("tT", "dD").Replace("TT", "DD");
         }
 
         private void OnAccent(EntityUid uid, OwOAccentComponent component, AccentGetEvent args)
