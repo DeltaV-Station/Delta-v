@@ -107,9 +107,12 @@ namespace Content.Server.Speech.EntitySystems
         }
         private static void AddReplacementSet(Dictionary<string, string> dictionary, string original, string replacement)
         {
-            dictionary.Add(original, replacement);
-            dictionary.Add(original.ToUpper(), replacement.ToUpper());
-            dictionary.Add(FirstCharToUpper(original), FirstCharToUpper(replacement));
+            if (!dictionary.ContainsKey(original))
+            {
+                dictionary.Add(original, replacement);
+                dictionary.Add(original.ToUpper(), replacement.ToUpper());
+                dictionary.Add(FirstCharToUpper(original), FirstCharToUpper(replacement));
+            }
         }
 
         private static string FirstCharToUpper(string input)
