@@ -17,7 +17,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     public string DiskPrototype = "TechnologyDisk";
 
     [DataField("machinePartScanBonus", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartScanBonus = "Capacitor";
+    public string MachinePartScanBonus = "MatterBin"; // DeltaV Code: Change part checked for bonus to MatterBin as it is what is used in the crafting recipe
 
     /// <summary>
     /// Added to the 3d6, scales off of scanner.
