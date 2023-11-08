@@ -123,7 +123,7 @@
   - type: ConditionalSpawner
     prototypes:
       - MobCatFloppa
-      
+
 - type: entity
   name: Bingus Spawner
   id: SpawnMobCatBingus
@@ -738,7 +738,7 @@
 
 - type: entity
   name: luminous object spawner
-  id: SpawnMobLuminousОbject
+  id: SpawnMobLuminousObject
   parent: MarkerBase
   components:
   - type: Sprite
@@ -748,7 +748,7 @@
       sprite: Mobs/Elemental/living_light/luminous_object.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobLuminousОbject
+    - MobLuminousObject
 
 - type: entity
   name: luminous entity spawner
