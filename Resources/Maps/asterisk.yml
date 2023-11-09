@@ -3114,9 +3114,9 @@ entities:
           8,7:
             4: 1
           3,8:
-            4: 26215
+            4: 61167
           3,9:
-            4: 1126
+            4: 3310
           -1,8:
             4: 26214
           -1,9:
@@ -7732,6 +7732,13 @@ entities:
   - uid: 2576
     components:
     - pos: -2.4693463,-19.37615
+      parent: 2
+      type: Transform
+- proto: BookEngineersHandbook
+  entities:
+  - uid: 807
+    components:
+    - pos: 42.23865,9.989966
       parent: 2
       type: Transform
 - proto: BookRandom
@@ -15784,6 +15791,31 @@ entities:
   - uid: 11018
     components:
     - pos: -9.5,-36.5
+      parent: 2
+      type: Transform
+  - uid: 11024
+    components:
+    - pos: -34.5,-15.5
+      parent: 2
+      type: Transform
+  - uid: 11025
+    components:
+    - pos: -37.5,-18.5
+      parent: 2
+      type: Transform
+  - uid: 11026
+    components:
+    - pos: -37.5,-17.5
+      parent: 2
+      type: Transform
+  - uid: 11027
+    components:
+    - pos: -37.5,-19.5
+      parent: 2
+      type: Transform
+  - uid: 11028
+    components:
+    - pos: -43.5,-19.5
       parent: 2
       type: Transform
 - proto: CableApcStack
@@ -25232,21 +25264,28 @@ entities:
     - pos: 42.576614,10.440177
       parent: 2
       type: Transform
+- proto: ClothingHandsGlovesColorYellow
+  entities:
+  - uid: 11033
+    components:
+    - pos: 19.5585,23.583061
+      parent: 2
+      type: Transform
 - proto: ClothingHeadHatCone
   entities:
-  - uid: 807
+  - uid: 11030
     components:
-    - pos: 26.222437,3.4074683
+    - pos: 20.226675,6.7371135
       parent: 2
       type: Transform
-  - uid: 808
+  - uid: 11031
     components:
-    - pos: 26.675562,3.3918338
+    - pos: 20.664175,6.7371135
       parent: 2
       type: Transform
-  - uid: 816
+  - uid: 11032
     components:
-    - pos: 26.456812,3.6889148
+    - pos: 20.455841,6.4452434
       parent: 2
       type: Transform
 - proto: ClothingHeadHatPirate
@@ -25347,6 +25386,11 @@ entities:
       type: Transform
 - proto: ClothingShoesBootsMag
   entities:
+  - uid: 816
+    components:
+    - pos: 44.67987,8.359897
+      parent: 2
+      type: Transform
   - uid: 2264
     components:
     - pos: -13.628283,-29.590473
@@ -28984,6 +29028,11 @@ entities:
     - pos: 33.5,-13.5
       parent: 2
       type: Transform
+  - uid: 2707
+    components:
+    - pos: -21.5,19.5
+      parent: 2
+      type: Transform
   - uid: 2938
     components:
     - pos: -39.5,15.5
@@ -29305,14 +29354,26 @@ entities:
     - pos: 35.48717,-14.183555
       parent: 2
       type: Transform
-  - uid: 9616
+  - uid: 11036
     components:
-    - pos: -21.663212,19.839113
+    - pos: -21.346165,7.9814734
       parent: 2
       type: Transform
-  - uid: 10798
+  - uid: 11037
     components:
-    - pos: -21.527796,19.693178
+    - pos: -21.179499,7.929354
+      parent: 2
+      type: Transform
+- proto: DrinkWaterCup
+  entities:
+  - uid: 10230
+    components:
+    - pos: -21.747364,7.658333
+      parent: 2
+      type: Transform
+  - uid: 11035
+    components:
+    - pos: -21.580698,7.4915504
       parent: 2
       type: Transform
 - proto: Dropper
@@ -31671,16 +31732,6 @@ entities:
   - uid: 9526
     components:
     - pos: 21.73281,-31.327389
-      parent: 2
-      type: Transform
-  - uid: 10229
-    components:
-    - pos: 18.342808,9.529277
-      parent: 2
-      type: Transform
-  - uid: 10230
-    components:
-    - pos: 18.717808,9.6856365
       parent: 2
       type: Transform
   - uid: 10978
@@ -50085,6 +50136,11 @@ entities:
     - pos: -14.597033,-29.527931
       parent: 2
       type: Transform
+  - uid: 10798
+    components:
+    - pos: 44.450703,8.703886
+      parent: 2
+      type: Transform
 - proto: KalimbaInstrument
   entities:
   - uid: 850
@@ -50122,6 +50178,11 @@ entities:
   - uid: 2900
     components:
     - pos: -39.5,16.5
+      parent: 2
+      type: Transform
+  - uid: 2911
+    components:
+    - pos: -21.5,18.5
       parent: 2
       type: Transform
 - proto: KitchenReagentGrinder
@@ -50841,6 +50902,13 @@ entities:
     - pos: -11.5,0.5
       parent: 2
       type: Transform
+- proto: MedalCase
+  entities:
+  - uid: 10228
+    components:
+    - pos: 1.3134761,-4.921255
+      parent: 2
+      type: Transform
 - proto: MedicalBed
   entities:
   - uid: 1122
@@ -51382,6 +51450,13 @@ entities:
     - pos: 26.5,14.5
       parent: 2
       type: Transform
+- proto: PlasmaTankFilled
+  entities:
+  - uid: 808
+    components:
+    - pos: -20.238703,-8.822453
+      parent: 2
+      type: Transform
 - proto: PlasticFlapsAirtightClear
   entities:
   - uid: 306
@@ -51723,11 +51798,6 @@ entities:
       type: Transform
 - proto: PottedPlantRandomPlastic
   entities:
-  - uid: 2707
-    components:
-    - pos: -21.5,18.5
-      parent: 2
-      type: Transform
   - uid: 3253
     components:
     - pos: 33.5,11.5
@@ -51768,6 +51838,16 @@ entities:
     - pos: 19.5,-7.5
       parent: 2
       type: Transform
+  - uid: 11039
+    components:
+    - pos: -34.5,5.5
+      parent: 2
+      type: Transform
+  - uid: 11041
+    components:
+    - pos: -23.5,17.5
+      parent: 2
+      type: Transform
 - proto: PottedPlantRD
   entities:
   - uid: 3469
@@ -51787,11 +51867,6 @@ entities:
     - pos: 27.5,-13.5
       parent: 2
       type: Transform
-  - uid: 2911
-    components:
-    - pos: -21.5,7.5
-      parent: 2
-      type: Transform
   - uid: 9529
     components:
     - pos: 17.5,1.5
@@ -51805,6 +51880,11 @@ entities:
   - uid: 10981
     components:
     - pos: -18.5,-31.5
+      parent: 2
+      type: Transform
+  - uid: 11034
+    components:
+    - pos: -32.5,7.5
       parent: 2
       type: Transform
 - proto: Poweredlight
@@ -53771,9 +53851,9 @@ entities:
     - pos: 33.5,9.5
       parent: 2
       type: Transform
-  - uid: 10228
+  - uid: 10898
     components:
-    - pos: 18.5,9.5
+    - pos: 44.5,8.5
       parent: 2
       type: Transform
 - proto: RadioHandheld
@@ -58469,6 +58549,13 @@ entities:
     - pos: -33.5,8.5
       parent: 2
       type: Transform
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 11038
+    components:
+    - pos: -34.5,6.5
+      parent: 2
+      type: Transform
 - proto: SpeedLoaderSpecial
   entities:
   - uid: 2666
@@ -60195,6 +60282,11 @@ entities:
     - pos: -45.5,21.5
       parent: 2
       type: Transform
+  - uid: 10229
+    components:
+    - pos: -21.5,18.5
+      parent: 2
+      type: Transform
   - uid: 10335
     components:
     - pos: -28.5,10.5
@@ -61434,6 +61526,13 @@ entities:
     - pos: 15.660138,-20.218388
       parent: 2
       type: Transform
+- proto: VehicleKeySecway
+  entities:
+  - uid: 11040
+    components:
+    - pos: -21.572384,7.7102075
+      parent: 2
+      type: Transform
 - proto: VendingBarDrobe
   entities:
   - uid: 548
@@ -61762,9 +61861,9 @@ entities:
       type: Transform
 - proto: VendingMachineTankDispenserEngineering
   entities:
-  - uid: 10898
+  - uid: 9616
     components:
-    - pos: 44.5,8.5
+    - pos: 17.5,8.5
       parent: 2
       type: Transform
 - proto: VendingMachineTankDispenserEVA
@@ -61808,6 +61907,11 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: 10.5,-8.5
+      parent: 2
+      type: Transform
+  - uid: 11029
+    components:
+    - pos: 26.5,3.5
       parent: 2
       type: Transform
 - proto: WallmountTelevision
