@@ -90,6 +90,13 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "bump", "boomp");
             AddReplacementSet(SpecialWords, "zombie", "zoombie");
             AddReplacementSet(SpecialWords, "nanotrasen", "nyanotwasen");
+            AddReplacementSet(SpecialWords, "bomb", "bomba");
+            AddReplacementSet(SpecialWords, "lookout", "wookouts");
+            AddReplacementSet(SpecialWords, "out", "outs");
+            AddReplacementSet(SpecialWords, "nice", "nyice");
+            AddReplacementSet(SpecialWords, "music", "moosic");
+            AddReplacementSet(SpecialWords, "help", "helps");
+            AddReplacementSet(SpecialWords, "bird", "bwerd");
 
             //special case that is more likely to have a different capitalisation not already included in the above list
             //These entries are added to the dictionary as-is, for special capitalization cases only.
