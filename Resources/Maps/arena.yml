@@ -14984,11 +14984,6 @@ entities:
     - pos: 28.5,21.5
       parent: 6747
       type: Transform
-  - uid: 7668
-    components:
-    - pos: 47.5,5.5
-      parent: 6747
-      type: Transform
 - proto: AirlockMaintChemLocked
   entities:
   - uid: 3515
@@ -15020,6 +15015,11 @@ entities:
   - uid: 7613
     components:
     - pos: 56.5,20.5
+      parent: 6747
+      type: Transform
+  - uid: 7668
+    components:
+    - pos: 47.5,5.5
       parent: 6747
       type: Transform
   - uid: 12623
@@ -67762,6 +67762,24 @@ entities:
       pos: 46.5,12.5
       parent: 6747
       type: Transform
+  - uid: 27066
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 59.5,25.5
+      parent: 6747
+      type: Transform
+  - uid: 27067
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 60.5,25.5
+      parent: 6747
+      type: Transform
+  - uid: 27068
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 61.5,25.5
+      parent: 6747
+      type: Transform
 - proto: DisposalRouterFlipped
   entities:
   - uid: 23521
@@ -70539,14 +70557,14 @@ entities:
     - pos: 46.5,11.5
       parent: 6747
       type: Transform
-    - name: Cargo
+    - name: Engineering
       type: FaxMachine
   - uid: 23472
     components:
     - pos: 9.5,28.5
       parent: 6747
       type: Transform
-    - name: Salvage
+    - name: Logistics
       type: FaxMachine
 - proto: FaxMachineCaptain
   entities:
@@ -122847,7 +122865,7 @@ entities:
       type: Transform
   - uid: 3534
     components:
-    - pos: -21.5,11.5
+    - pos: -9.5,6.5
       parent: 6747
       type: Transform
 - proto: Mousetrap
@@ -171208,11 +171226,6 @@ entities:
     - pos: 38.5,25.5
       parent: 6747
       type: Transform
-  - uid: 22047
-    components:
-    - pos: 54.5,15.5
-      parent: 6747
-      type: Transform
 - proto: WeldingFuelTankFull
   entities:
   - uid: 5073
@@ -171258,6 +171271,11 @@ entities:
   - uid: 12027
     components:
     - pos: 70.5,21.5
+      parent: 6747
+      type: Transform
+  - uid: 22047
+    components:
+    - pos: 54.5,15.5
       parent: 6747
       type: Transform
 - proto: WetFloorSign
