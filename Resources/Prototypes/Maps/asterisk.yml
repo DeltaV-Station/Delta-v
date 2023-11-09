@@ -3,7 +3,7 @@
   mapName: 'Asterisk'
   mapPath: /Maps/asterisk.yml
   minPlayers: 0
-  maxPlayers: 50
+  maxPlayers: 55
   stations:
     Asterisk:
       stationProto: StandardNanotrasenStation
@@ -33,6 +33,7 @@
             Mime: [ 1, 1 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ] #back by popular demand
             StationEngineer: [ 3, 3 ]
             TechnicalAssistant: [ 2, 4 ]
           #medical
