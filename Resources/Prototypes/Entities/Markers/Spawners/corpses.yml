@@ -80,6 +80,7 @@
   name: Random Security Corpse Spawner
   id: RandomSecurityCorpseSpawner
   parent: SalvageHumanCorpseSpawner
+  noSpawn: true # DeltaV - Prevent security corpses from being mapped in
   components:
   - type: Sprite
     layers:
@@ -87,7 +88,7 @@
       - state: green
   - type: ConditionalSpawner
     prototypes:
-      - MobRandomSecurityCorpse
+      - MobRandomServiceCorpse # DeltaV - Prevent Security corpses from spawning and instead spawn Service corpses
 
 - type: entity
   name: Random Command Corpse Spawner
