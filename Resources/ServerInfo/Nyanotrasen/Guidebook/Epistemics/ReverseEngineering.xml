@@ -1,0 +1,36 @@
+<Document>
+# Reverse Engineering
+
+<GuideEntityEmbed Entity="ReverseEngineeringMachine"/>
+
+The reverse engineering machine allows salvage to bootstrap their way into unlocking powerful lathe recipes that are otherwise unacquirable.
+
+<GuideEntityEmbed Entity="AdvancedMatterBinStockPart"/>
+<GuideEntityEmbed Entity="NanoManipulatorStockPart"/>
+
+The machine's power is very limited without upgrades to its matter bin and manipulator.
+The matter bin increases its analysis power and the manipulator decreases the chance of destruction with safety turned off.
+
+## Operation
+
+The machine will only accept items it can reverse engineer. Currently this is most circuit boards and machine parts, but it accepts quite a variety of objects.
+
+It does not accept firearms and never will.
+
+To use the machine, insert an item and use the buttons on the left.
+
+- [color=#a4885c]Analyze:[/color]
+This starts a new reverse engineering attempt.
+
+- [color=#a4885c]Safety:[/color]
+With safety off, you have more analysis power, but there is a chance to destroy the item.
+
+- [color=#a4885c]AutoProbe:[/color]
+This will automatically start a new attempt when the last one ends.
+
+- [color=#a4885c]Stop:[/color]
+Stops the current attempt.
+
+- [color=#a4885c]Item:[/color]
+Ejects the item.
+</Document>

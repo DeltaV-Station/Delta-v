@@ -46,6 +46,7 @@
     useDelay: 60
     checkCanAccess: false
     range: 8
+    itemIconStyle: BigAction
     event: !type:MassSleepPowerActionEvent
 
 - type: entity
@@ -84,6 +85,7 @@
     icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
     useDelay: 100
     range: 5
+    itemIconStyle: BigAction
     event: !type:NoosphericZapPowerActionEvent
 
 - type: entity
@@ -97,6 +99,7 @@
     useDelay: 50
     range: 6
     checkCanAccess: false
+    itemIconStyle: BigAction
     event: !type:PyrokinesisPowerActionEvent
 
 - type: entity
