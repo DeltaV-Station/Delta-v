@@ -81,6 +81,7 @@
   noSpawn: true
   components:
   - type: RevolutionaryRule
+    maxHeadRevs: 1 # DeltaV
 
 - type: entity
   id: Sandbox
