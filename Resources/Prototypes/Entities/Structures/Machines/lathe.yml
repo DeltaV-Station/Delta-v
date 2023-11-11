@@ -430,6 +430,9 @@
     - BorgModuleTool
     - BorgModuleAppraisal
     - BorgModuleConstruction
+    - BorgModuleService
+    - BorgModuleTreatment
+    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -468,7 +471,7 @@
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
-    - BorgModuleCleaning
+    - BorgModuleAdvancedCleaning
     - BorgModuleTrashCollection
     - BorgModuleMining
     #- BorgModuleGrapplingGun
@@ -480,10 +483,8 @@
     - BorgModuleGardening
     - BorgModuleHarvesting
     - BorgModuleMusique
-    - BorgModuleService
     - BorgModuleClowning
     - BorgModuleDiagnosis
-    - BorgModuleTreatment
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
