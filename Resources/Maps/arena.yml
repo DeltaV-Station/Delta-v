@@ -60011,18 +60011,6 @@ entities:
     - pos: -1.5,0.5
       parent: 6747
       type: Transform
-  - uid: 15692
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -9.5,0.5
-      parent: 6747
-      type: Transform
-  - uid: 15693
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: -9.5,-0.5
-      parent: 6747
-      type: Transform
   - uid: 15694
     components:
     - rot: 1.5707963267948966 rad
@@ -60198,6 +60186,12 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 45.5,12.5
+      parent: 6747
+      type: Transform
+  - uid: 27072
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -18.5,0.5
       parent: 6747
       type: Transform
 - proto: DisposalJunction
@@ -60511,6 +60505,12 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: 26.5,17.5
+      parent: 6747
+      type: Transform
+  - uid: 3135
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -17.5,0.5
       parent: 6747
       type: Transform
   - uid: 3175
@@ -66027,6 +66027,12 @@ entities:
     - pos: -11.5,-26.5
       parent: 6747
       type: Transform
+  - uid: 15671
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -16.5,0.5
+      parent: 6747
+      type: Transform
   - uid: 15673
     components:
     - rot: -1.5707963267948966 rad
@@ -66082,6 +66088,18 @@ entities:
       pos: 15.5,-8.5
       parent: 6747
       type: Transform
+  - uid: 15692
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -15.5,0.5
+      parent: 6747
+      type: Transform
+  - uid: 15693
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -14.5,0.5
+      parent: 6747
+      type: Transform
   - uid: 15695
     components:
     - rot: 1.5707963267948966 rad
@@ -66120,6 +66138,12 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: -7.5,-12.5
+      parent: 6747
+      type: Transform
+  - uid: 16380
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -13.5,0.5
       parent: 6747
       type: Transform
   - uid: 19067
@@ -66299,25 +66323,19 @@ entities:
   - uid: 20231
     components:
     - rot: 1.5707963267948966 rad
-      pos: -10.5,-0.5
+      pos: -12.5,0.5
       parent: 6747
       type: Transform
   - uid: 20232
     components:
     - rot: 1.5707963267948966 rad
-      pos: -11.5,-0.5
+      pos: -11.5,0.5
       parent: 6747
       type: Transform
   - uid: 20233
     components:
     - rot: 1.5707963267948966 rad
-      pos: -12.5,-0.5
-      parent: 6747
-      type: Transform
-  - uid: 20234
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -13.5,-0.5
+      pos: -10.5,0.5
       parent: 6747
       type: Transform
   - uid: 20300
@@ -67780,6 +67798,12 @@ entities:
       pos: 61.5,25.5
       parent: 6747
       type: Transform
+  - uid: 27073
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -9.5,0.5
+      parent: 6747
+      type: Transform
 - proto: DisposalRouterFlipped
   entities:
   - uid: 23521
@@ -68337,12 +68361,6 @@ entities:
       pos: -16.5,-27.5
       parent: 6747
       type: Transform
-  - uid: 15671
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -14.5,-0.5
-      parent: 6747
-      type: Transform
   - uid: 15679
     components:
     - rot: 3.141592653589793 rad
@@ -68426,6 +68444,11 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 65.5,11.5
+      parent: 6747
+      type: Transform
+  - uid: 27071
+    components:
+    - pos: -18.5,1.5
       parent: 6747
       type: Transform
 - proto: DisposalUnit
@@ -120078,11 +120101,6 @@ entities:
       type: Transform
 - proto: MailingUnit
   entities:
-  - uid: 3135
-    components:
-    - pos: -14.5,-0.5
-      parent: 6747
-      type: Transform
   - uid: 3846
     components:
     - pos: 15.5,-7.5
@@ -120136,6 +120154,11 @@ entities:
   - uid: 20241
     components:
     - pos: -18.5,-21.5
+      parent: 6747
+      type: Transform
+  - uid: 27070
+    components:
+    - pos: -18.5,1.5
       parent: 6747
       type: Transform
 - proto: MailingUnitElectronics
@@ -128844,6 +128867,13 @@ entities:
     - pos: -9.5,-21.5
       parent: 6747
       type: Transform
+- proto: PosterLegitReportCrimes
+  entities:
+  - uid: 27069
+    components:
+    - pos: -18.5,2.5
+      parent: 6747
+      type: Transform
 - proto: PosterLegitSafetyMothFires
   entities:
   - uid: 25372
@@ -129963,12 +129993,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: -18.5,-2.5
-      parent: 6747
-      type: Transform
-  - uid: 16380
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -17.5,1.5
       parent: 6747
       type: Transform
   - uid: 16381
@@ -131223,6 +131247,11 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 9.5,31.5
+      parent: 6747
+      type: Transform
+  - uid: 20234
+    components:
+    - pos: -16.5,2.5
       parent: 6747
       type: Transform
   - uid: 20728
