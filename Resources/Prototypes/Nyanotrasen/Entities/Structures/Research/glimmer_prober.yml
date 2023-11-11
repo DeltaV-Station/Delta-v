@@ -6,9 +6,9 @@
   components:
   - type: Psionic
   - type: GlimmerSource
-  #- type: Construction #Files are in place, but are commented out
-    #graph: GlimmerDevices
-    #node: glimmerProber
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerProber
   - type: ResearchPointSource
     pointspersecond: 20
     active: true
@@ -59,30 +59,30 @@
   - type: PowerSwitch
   - type: Damageable
     damageContainer: Inorganic
-#    damageModifierSet: ShockAbsorber
+    damageModifierSet: ShockAbsorber
   - type: CargoSellBlacklist
-#  - type: GuideHelp
-#    guides:
-#    - Psionics
+  - type: GuideHelp
+    guides:
+    - Psionics
   - type: AmbientSound
     range: 6
     volume: -6
     sound: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
   - type: AmbientOnPowered
-  # - type: GlimmerSound
-  #   glimmerTier:
-  #     Minimal:
-  #       path: /Audio/Ambience/Objects/prober_hum_low.ogg
-  #     Low:
-  #       path: /Audio/Ambience/Objects/prober_hum_low.ogg
-  #     Moderate:
-  #       path: /Audio/Ambience/Objects/prober_hum_moderate.ogg
-  #     High:
-  #       path: /Audio/Ambience/Objects/prober_hum_high.ogg
-  #     Dangerous:
-  #       path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
-  #     Critical:
-  #       path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
+  - type: GlimmerSound
+    glimmerTier:
+      Minimal:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
+      Low:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
+      Moderate:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_moderate.ogg
+      High:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_high.ogg
+      Dangerous:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_dangerous.ogg
+      Critical:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_dangerous.ogg
 
 - type: entity
   parent: BaseMachinePowered
@@ -93,9 +93,9 @@
   - type: Psionic
   - type: GlimmerSource
     addToGlimmer: false
-  #- type: Construction #Files are in place, but commented out
-    #graph: GlimmerDevices
-    #node: glimmerDrain
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerDrain
   - type: Sprite
     sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
     noRot: true
@@ -114,9 +114,9 @@
           False: {visible: false}
   - type: PowerSwitch
   - type: CargoSellBlacklist
-#  - type: GuideHelp
-#    guides:
-#    - Psionics
+  - type: GuideHelp
+    guides:
+    - Psionics
   - type: NpcFactionMember
     factions:
     - PsionicInterloper # :^)
@@ -149,9 +149,9 @@
     - type: Anchorable
     - type: Rotatable
     - type: Pullable
-#    - type: Construction #Files are in place, but commented out
-      #graph: GlimmerDevices
-      #node: frame
+    - type: Construction #Files are in place, but commented out
+      graph: GlimmerDevices
+      node: frame
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
