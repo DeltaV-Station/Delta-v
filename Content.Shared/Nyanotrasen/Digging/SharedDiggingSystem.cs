@@ -57,18 +57,15 @@ public sealed class SharedDiggingSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target != null)
             return;
 
-        if (TryDig(args.User, uid, args.ClickLocation, component))
+        if (TryDig(args.User, uid, component, args.ClickLocation))
             args.Handled = true;
     }
 
-    private bool TryDig(EntityUid user, EntityUid shovel,
-        EntityCoordinates clickLocation, EarthDiggingComponent? component = null)
+    private bool TryDig(EntityUid user, EntityUid shovel, EarthDiggingComponent component,
+        EntityCoordinates clickLocation)
     {
         ToolComponent? tool = null;
-        if (!Resolve(shovel, ref component, ref tool))
-            return false;
-
-        if (component.ToolComponentNeeded)
+        if (component.ToolComponentNeeded && !TryComp(shovel, out  tool))
             return false;
 
         var mapUid = clickLocation.GetGridUid(EntityManager);
