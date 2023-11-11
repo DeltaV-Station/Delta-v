@@ -131,6 +131,7 @@
         reagents:
         - ReagentId: GroundBee
           Quantity: 5
+  - type: ZombieImmune
 
 - type: entity
   name: bee
@@ -157,6 +158,7 @@
     - SimpleHostile
   - type: Bloodstream
     bloodMaxVolume: 0.1
+  - type: ZombieImmune
 
 
 - type: entity
