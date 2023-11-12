@@ -439,7 +439,7 @@
       - state: box
       - state: candle
   - type: Storage
-    maxTotalWeight: 30
+    capacity: 30
   - type: StorageFill
     contents:
       - id: Candle
@@ -465,7 +465,7 @@
       - state: box
       - state: candle
   - type: Storage
-    maxTotalWeight: 30
+    capacity: 25
   - type: StorageFill
     contents:
       - id: CandleSmall

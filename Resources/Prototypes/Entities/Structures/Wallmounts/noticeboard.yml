@@ -38,8 +38,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Storage
-    maxSlots: 10
-    maxItemSize: Small
+    capacity: 10
     whitelist:
       tags:
         - Folder
