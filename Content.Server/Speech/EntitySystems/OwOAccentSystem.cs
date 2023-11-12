@@ -10,6 +10,67 @@ namespace Content.Server.Speech.EntitySystems
 
         public override void Initialize()
         {
+            AddAllReplacements()
+
+            SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
+        }
+
+        public string Accentuate(string message)
+        {
+            // First replace any matched words by those registered in SpecialWords
+            foreach (var (word, repl) in SpecialWords)
+            {
+                //Matches any whole words (so no spaces or punctuation) and replaces it if found
+                message = Regex.Replace(message, $"\\b{word}\\b", repl);
+            }
+
+            // Replaces any occurrences of L's, R's, or CK's with a W, capitalized or not capitalized.
+            return message.Replace("r", "w").Replace("R", "W")
+                .Replace("l", "w").Replace("L", "W")
+                .Replace("ck", "cc").Replace("Ck", "Cc")
+                .Replace("cK", "cC").Replace("CK", "CC")
+                .Replace("tt", "dd").Replace("Tt", "Dd")
+                .Replace("tT", "dD").Replace("TT", "DD");
+        }
+
+        private void OnAccent(EntityUid uid, OwOAccentComponent component, AccentGetEvent args)
+        {
+            args.Message = Accentuate(args.Message);
+        }
+
+        private static void AddReplacementSet(Dictionary<string, string> dictionary, string original, string replacement)
+        {
+            // Check if a key doesn't already exist. If it does not, add the new entry uncapitalized, First letter capitalized and ALL CAPS.
+            if (!dictionary.ContainsKey(original.ToLower()))
+            {
+                dictionary.Add(original.ToLower(), replacement.ToLower());
+                dictionary.Add(original.ToUpper(), replacement.ToUpper());
+                dictionary.Add(FirstCharToUpper(original.ToLower()), FirstCharToUpper(replacement.ToLower()));
+            }
+        }
+
+        private static void AddSpecialReplacementCase(Dictionary<string, string> dictionary, string original, string replacement)
+        {
+            // Check if a key doesn't already exist. If it does not, add the new entry directly as input in the method
+            if (!dictionary.ContainsKey(original))
+            {
+                dictionary.Add(original, replacement);
+            }
+        }
+
+        private static string FirstCharToUpper(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+
+            // Capitalize the char at index [0], and then append the remainder of the original string.
+            return $"{char.ToUpper(input[0])}{input[1..]}";
+        }
+
+        private void AddAllReplacements()
+        {
             // Register words to be replaced to the SpecialWords dictionary
             // This automatically includes Capitalized and FULLCAPS variants.
             AddReplacementSet(SpecialWords, "yeah", "yahuh");
@@ -109,62 +170,6 @@ namespace Content.Server.Speech.EntitySystems
             //special case that is more likely to have a different capitalisation not already included in the above list
             //These entries are added to the dictionary as-is, for special capitalization cases only.
             AddSpecialReplacementCase(SpecialWords, "HoP", "HoPpy");
-
-            SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
-        }
-
-        public string Accentuate(string message)
-        {
-            // First replace any matched words by those registered in SpecialWords
-            foreach (var (word, repl) in SpecialWords)
-            {
-                //Matches any whole words (so no spaces or punctuation) and replaces it if found
-                message = Regex.Replace(message, $"\\b{word}\\b", repl);
-            }
-
-            // Replaces any occurrences of L's, R's, or CK's with a W, capitalized or not capitalized.
-            return message.Replace("r", "w").Replace("R", "W")
-                .Replace("l", "w").Replace("L", "W")
-                .Replace("ck", "cc").Replace("Ck", "Cc")
-                .Replace("cK", "cC").Replace("CK", "CC")
-                .Replace("tt", "dd").Replace("Tt", "Dd")
-                .Replace("tT", "dD").Replace("TT", "DD");
-        }
-
-        private void OnAccent(EntityUid uid, OwOAccentComponent component, AccentGetEvent args)
-        {
-            args.Message = Accentuate(args.Message);
-        }
-
-        private static void AddReplacementSet(Dictionary<string, string> dictionary, string original, string replacement)
-        {
-            // Check if a key doesn't already exist. If it does not, add the new entry uncapitalized, First letter capitalized and ALL CAPS.
-            if (!dictionary.ContainsKey(original.ToLower()))
-            {
-                dictionary.Add(original.ToLower(), replacement.ToLower());
-                dictionary.Add(original.ToUpper(), replacement.ToUpper());
-                dictionary.Add(FirstCharToUpper(original.ToLower()), FirstCharToUpper(replacement.ToLower()));
-            }
-        }
-
-        private static void AddSpecialReplacementCase(Dictionary<string, string> dictionary, string original, string replacement)
-        {
-            // Check if a key doesn't already exist. If it does not, add the new entry directly as input in the method
-            if (!dictionary.ContainsKey(original))
-            {
-                dictionary.Add(original, replacement);
-            }
-        }
-
-        private static string FirstCharToUpper(string input)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                return string.Empty;
-            }
-
-            // Capitalize the char at index [0], and then append the remainder of the original string.
-            return $"{char.ToUpper(input[0])}{input[1..]}";
         }
     }
 }
