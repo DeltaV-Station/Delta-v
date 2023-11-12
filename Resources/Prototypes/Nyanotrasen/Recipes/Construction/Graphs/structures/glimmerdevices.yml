@@ -1,73 +1,70 @@
-##I'm commenting all of this out because it's bascially all stuff we don't have yet.
-##Remove these two top lines when you uncomment them.
-# - type: constructionGraph
-#   id: GlimmerDevices
-#   start: start
-#   graph:
-#     - node: start
-#       edges:
-#         - to: frame
-#           completed:
-#             - !type:SetAnchor
-#               value: false
-#           steps:
-#             - material: Plasteel
-#               amount: 5
-#               doAfter: 8
-#             - material: Cable
-#               amount: 5
+- type: constructionGraph
+  id: GlimmerDevices
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: frame
+          completed:
+            - !type:SetAnchor
+              value: false
+          steps:
+            - material: Plasteel
+              amount: 5
+            - material: Cable
+              amount: 5
+              doAfter: 8
+    - node: frame
+      entity: GlimmerDeviceFrame
+      edges:
+        - to: glimmerProber
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Bluespace
+              amount: 5
+              doAfter: 10
+            - tool: Welding
+              doAfter: 5
+        - to: glimmerDrain
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tag: NormalityCrystal # DeltaV - Temporarily makes Drain only need 1 Crystal until Golemnization is implemented otherwise it's just imposible to craft
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            # - tag: NormalityCrystal
+            #   icon:
+            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
+            #     state: bluespace
+            #   name: a normality crystal
+            #   doAfter: 1
+            # - tag: NormalityCrystal
+            #   icon:
+            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
+            #     state: bluespace
+            #   name: a normality crystal
+            #   doAfter: 1
+            # - tag: NormalityCrystal
+            #   icon:
+            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
+            #     state: bluespace
+            #   name: a normality crystal
+            #   doAfter: 1
+            # - tag: NormalityCrystal
+            #   icon:
+            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
+            #     state: bluespace
+            #   name: a normality crystal
+            #   doAfter: 1
+            - tool: Welding
+              doAfter: 5
 
-#     - node: frame
-#       entity: GlimmerDeviceFrame
-#       edges:
-#         - to: glimmerProber
-#           conditions:
-#             - !type:EntityAnchored {}
-#           steps:
-#             - material: Bluespace
-#               amount: 5
-#               doAfter: 10
-#             - tool: Welding
-#               doAfter: 5
-#         - to: glimmerDrain
-#           conditions:
-#             - !type:EntityAnchored {}
-#           steps:
-#             - tag: NormalityCrystal
-#               icon:
-#                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#                 state: bluespace
-#               name: a normality crystal
-#               doAfter: 1
-#             - tag: NormalityCrystal
-#               icon:
-#                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#                 state: bluespace
-#               name: a normality crystal
-#               doAfter: 1
-#             - tag: NormalityCrystal
-#               icon:
-#                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#                 state: bluespace
-#               name: a normality crystal
-#               doAfter: 1
-#             - tag: NormalityCrystal
-#               icon:
-#                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#                 state: bluespace
-#               name: a normality crystal
-#               doAfter: 1
-#             - tag: NormalityCrystal
-#               icon:
-#                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
-#                 state: bluespace
-#               name: a normality crystal
-#               doAfter: 1
-#             - tool: Welding
-#               doAfter: 5
+    - node: glimmerProber
+      entity: GlimmerProber
 
-#     - node: glimmerProber
-#       entity: GlimmerProber
-
-#     - node: glimmerDrain
-#       entity: GlimmerDrain
+    - node: glimmerDrain
+      entity: GlimmerDrain
