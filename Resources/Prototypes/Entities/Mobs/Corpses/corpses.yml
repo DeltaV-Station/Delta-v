@@ -68,6 +68,7 @@
   parent: SalvageHumanCorpse
   id: MobRandomSecurityCorpse
   suffix: Dead, Security
+  noSpawn: true # DeltaV - Prevent security corpses from being mapped in
   components:
   - type: Loadout
     prototypes:
@@ -75,8 +76,6 @@
     - SecurityOfficerGear
     - DetectiveGear
     - WardenGear
-    - PrisonGuardGear # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
-    - CorpsmanGear # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
 
 - type: entity
   parent: SalvageHumanCorpse

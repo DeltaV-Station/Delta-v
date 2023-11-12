@@ -24,6 +24,7 @@
       - id: BoxEncryptionKeyCargo
       - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
       - id: BoxPDACargo # Delta-V
+      - id: QuartermasterIDCard # Delta-V
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -166,6 +167,7 @@
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
+      - id: CEIDCard # Delta-V
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -189,6 +191,7 @@
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
+      - id: CEIDCard # Delta-V
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -215,6 +218,7 @@
       - id: BoxEncryptionKeyMedical
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
+      - id: CMOIDCard # Delta-V
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -240,6 +244,7 @@
       - id: BoxEncryptionKeyMedical
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
+      - id: CMOIDCard # Delta-V
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -263,6 +268,7 @@
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
+      - id: RDIDCard # Delta-V
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -285,6 +291,7 @@
       - id: ClothingHeadsetAltScience
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
+      - id: RDIDCard # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -319,6 +326,7 @@
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
       - id: BoxPDASecurity # Delta-V
+      - id: HoSIDCard # Delta-V
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -350,3 +358,4 @@
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
       - id: BoxPDASecurity # Delta-V
+      - id: HoSIDCard # Delta-V
