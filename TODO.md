@@ -5,3 +5,5 @@
 - [ ] https://github.com/space-wizards/space-station-14/commit/d07ea20f74bedc584cef22f1bad1a9f50b80baf1 - Probably not required
 
 - [ ] Proper announcement attributions
+
+- [ ] Move Shiva localization into /DeltaV/
