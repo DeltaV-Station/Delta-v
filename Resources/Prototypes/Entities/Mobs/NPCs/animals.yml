@@ -2279,6 +2279,8 @@
     states:
       Alive:
         Base: puppy
+      Critical:
+        Base: puppy_dead
       Dead:
         Base: puppy_dead
   - type: Grammar
