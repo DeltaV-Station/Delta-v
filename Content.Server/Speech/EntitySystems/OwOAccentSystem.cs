@@ -10,7 +10,7 @@ namespace Content.Server.Speech.EntitySystems
 
         public override void Initialize()
         {
-            AddAllReplacements()
+            AddAllReplacements();
 
             SubscribeLocalEvent<OwOAccentComponent, AccentGetEvent>(OnAccent);
         }
