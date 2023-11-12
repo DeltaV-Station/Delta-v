@@ -97,6 +97,14 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "music", "moosic");
             AddReplacementSet(SpecialWords, "help", "helps");
             AddReplacementSet(SpecialWords, "bird", "bwerd");
+            AddReplacementSet(SpecialWords, "just", "joost");
+            AddReplacementSet(SpecialWords, "so", "sos");
+            AddReplacementSet(SpecialWords, "sabotaging", "sabootazing");
+            AddReplacementSet(SpecialWords, "sabotage", "sabootaze");
+            AddReplacementSet(SpecialWords, "me", "mes");
+            AddReplacementSet(SpecialWords, "person", "persoon");
+            AddReplacementSet(SpecialWords, "up", "ups");
+            AddReplacementSet(SpecialWords, "cool", "kewl");
 
             //special case that is more likely to have a different capitalisation not already included in the above list
             //These entries are added to the dictionary as-is, for special capitalization cases only.
