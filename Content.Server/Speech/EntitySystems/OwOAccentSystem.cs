@@ -6,7 +6,7 @@ namespace Content.Server.Speech.EntitySystems
     public sealed class OwOAccentSystem : EntitySystem
     {
         // Dictionary to hold words to be replaced.
-        private static Dictionary<string, string> SpecialWords = new Dictionary<string, string>();
+        private static Dictionary<string, string> SpecialWords = new ();
 
         public override void Initialize()
         {
