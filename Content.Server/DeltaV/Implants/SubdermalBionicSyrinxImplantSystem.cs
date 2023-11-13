@@ -63,7 +63,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         if (message.Name.Length > HumanoidCharacterProfile.MaxNameLength || message.Name.Length <= 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, uid, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Session, PopupType.SmallCaution);
             return;
         }
 
@@ -73,7 +73,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         else
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"Voice of {ToPrettyString(uid):mask} set: {component.VoiceName}");
 
-        _popupSystem.PopupCursor(Loc.GetString("voice-mask-popup-success"), message.Session);
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Session);
         TrySetLastKnownName(uid, message.Name);
         UpdateUI(uid, component);
     }
