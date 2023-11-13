@@ -52,10 +52,7 @@ namespace Content.Server.Speech.EntitySystems
         private static void AddSpecialReplacementCase(Dictionary<string, string> dictionary, string original, string replacement)
         {
             // Check if a key doesn't already exist. If it does not, add the new entry directly as input in the method
-            if (!dictionary.ContainsKey(original))
-            {
-                dictionary.Add(original, replacement);
-            }
+            dictionary.TryAdd(original, replacement);
         }
 
         private static string FirstCharToUpper(string input)
