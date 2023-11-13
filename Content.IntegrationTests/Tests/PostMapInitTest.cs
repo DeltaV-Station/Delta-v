@@ -67,7 +67,8 @@ namespace Content.IntegrationTests.Tests
             "Shoukou", //DeltaV
             "Tortuga", //DeltaV
             "Arena", //DeltaV
-            "Asterisk" //DeltaV
+            "Asterisk", //DeltaV
+            "TheHive" //DeltaV
         };
 
         /// <summary>
