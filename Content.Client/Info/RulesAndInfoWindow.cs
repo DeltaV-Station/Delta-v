@@ -9,7 +9,7 @@ using Robust.Shared.ContentPack;
 
 namespace Content.Client.Info
 {
-    public sealed class RulesAndInfoWindow : DefaultWindow
+    public sealed partial class RulesAndInfoWindow : DefaultWindow // DeltaV - Converted to partial to inject custom tabs
     {
         [Dependency] private readonly IResourceCache _resourceManager = default!;
         [Dependency] private readonly RulesManager _rules = default!;
@@ -24,15 +24,19 @@ namespace Content.Client.Info
 
             var rulesList = new Info();
             var tutorialList = new Info();
+            var sopList = new TabContainer(); // DeltaV - Standard Operating Procedures
 
             rootContainer.AddChild(rulesList);
             rootContainer.AddChild(tutorialList);
+            rootContainer.AddChild(sopList); // DeltaV - Standard Operating Procedures
 
             TabContainer.SetTabTitle(rulesList, Loc.GetString("ui-info-tab-rules"));
             TabContainer.SetTabTitle(tutorialList, Loc.GetString("ui-info-tab-tutorial"));
+            TabContainer.SetTabTitle(sopList, Loc.GetString("ui-info-tab-sop")); // DeltaV - Standard Operating Procedures
 
             AddSection(rulesList, _rules.RulesSection());
             PopulateTutorial(tutorialList);
+            PopulateSop(sopList); // DeltaV - Standard Operating Procedures
 
             Contents.AddChild(rootContainer);
 
