@@ -8814,7 +8814,8 @@ entities:
           9,-6:
             0: 65535
           9,-5:
-            0: 65535
+            0: 65407
+            1: 128
           10,-8:
             0: 65535
           10,-7:
@@ -9198,7 +9199,8 @@ entities:
           7,-8:
             0: 65535
           9,-4:
-            0: 65535
+            0: 32767
+            1: 32768
           9,-3:
             0: 65535
           9,-2:
@@ -9276,7 +9278,8 @@ entities:
           -9,0:
             0: 65535
           -9,1:
-            0: 65535
+            0: 40959
+            2: 24576
           -9,2:
             0: 65535
           -8,-16:
@@ -10076,9 +10079,9 @@ entities:
           9,9:
             0: 65535
           9,10:
-            1: 273
+            3: 273
             0: 64170
-            2: 1092
+            4: 1092
           9,11:
             0: 29439
           10,8:
@@ -10086,9 +10089,9 @@ entities:
           10,9:
             0: 65535
           10,10:
-            3: 273
+            5: 273
             0: 64170
-            4: 1092
+            6: 1092
           10,11:
             0: 29439
           11,8:
@@ -10096,7 +10099,7 @@ entities:
           11,9:
             0: 65535
           11,10:
-            4: 1365
+            6: 1365
             0: 64170
           11,11:
             0: 65279
@@ -10155,7 +10158,7 @@ entities:
           12,9:
             0: 16383
           12,10:
-            4: 273
+            6: 273
             0: 47650
           12,11:
             0: 40891
@@ -11074,6 +11077,36 @@ entities:
           - 0
           - 0
         - volume: 2500
+          temperature: 293.14996
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14993
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
@@ -11136,7 +11169,9 @@ entities:
         chunkSize: 4
       type: GridAtmosphere
     - type: OccluderTree
-    - type: Shuttle
+    - angularDamping: 10000
+      linearDamping: 10000
+      type: Shuttle
     - type: GridPathfinding
     - type: RadiationGridResistance
     - id: Arena
@@ -18283,6 +18318,8 @@ entities:
     - pos: -32.323196,18.847113
       parent: 6747
       type: Transform
+    - enabled: False
+      type: CollisionWake
     - sleepingAllowed: False
       type: Physics
   - uid: 11328
@@ -49168,6 +49205,15 @@ entities:
     - pos: -36.5,-9.5
       parent: 6747
       type: Transform
+- proto: CartridgeMagnum
+  entities:
+  - uid: 27078
+    components:
+    - name: lucky bullet (.45 magnum)
+      type: MetaData
+    - pos: -19.596416,5.7852926
+      parent: 6747
+      type: Transform
 - proto: CartridgeMinigun
   entities:
   - uid: 2427
@@ -54968,16 +55014,6 @@ entities:
   - uid: 2152
     components:
     - pos: 19.5,-32.5
-      parent: 6747
-      type: Transform
-  - uid: 7178
-    components:
-    - pos: 39.5,-18.5
-      parent: 6747
-      type: Transform
-  - uid: 7190
-    components:
-    - pos: 39.5,-12.5
       parent: 6747
       type: Transform
   - uid: 7210
@@ -69116,6 +69152,8 @@ entities:
     - pos: -32.122654,18.65956
       parent: 6747
       type: Transform
+    - enabled: False
+      type: CollisionWake
     - sleepingAllowed: False
       type: Physics
   - uid: 9500
@@ -117862,11 +117900,29 @@ entities:
       type: ContainerContainer
 - proto: GunSafeSubMachineGunDrozd
   entities:
-  - uid: 763
+  - uid: 3654
     components:
-    - pos: -33.5,7.5
+    - pos: -34.5,7.5
       parent: 6747
       type: Transform
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.14957
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
     - containers:
         entity_storage: !type:Container
           showEnts: False
@@ -117874,27 +117930,45 @@ entities:
           ents:
           - 3656
           - 6844
-          - 7472
-          - 7475
+          - 7178
+          - 7190
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
       type: ContainerContainer
-  - uid: 3654
+  - uid: 7472
     components:
-    - pos: -34.5,7.5
+    - pos: -33.5,7.5
       parent: 6747
       type: Transform
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.14957
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
     - containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
+          - 7475
           - 7478
           - 7479
           - 7480
-          - 7493
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -119534,6 +119608,13 @@ entities:
     - pos: 22.5,-36.5
       parent: 6747
       type: Transform
+- proto: LockerClown
+  entities:
+  - uid: 2646
+    components:
+    - pos: 39.5,-12.5
+      parent: 6747
+      type: Transform
 - proto: LockerDetectiveFilled
   entities:
   - uid: 15707
@@ -119733,6 +119814,13 @@ entities:
   - uid: 3699
     components:
     - pos: 16.5,-32.5
+      parent: 6747
+      type: Transform
+- proto: LockerMime
+  entities:
+  - uid: 763
+    components:
+    - pos: 39.5,-18.5
       parent: 6747
       type: Transform
 - proto: LockerParamedicFilledHardsuit
@@ -119950,65 +120038,25 @@ entities:
     - pos: -62.5,-82.5
       parent: 6747
       type: Transform
-- proto: MagazineMagnumSubMachineGun
+- proto: MagazinePistolSubMachineGun
   entities:
+  - uid: 7493
+    components:
+    - pos: -24.49141,-7.4966574
+      parent: 6747
+      type: Transform
   - uid: 25327
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -24.486568,-7.497088
+    - pos: -24.387245,-7.3715696
       parent: 6747
       type: Transform
-  - uid: 25332
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: -24.496986,-7.309458
-      parent: 6747
-      type: Transform
-- proto: MagazineMagnumSubMachineGunPractice
-  entities:
-  - uid: 7472
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 763
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 7475
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 763
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 7478
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 3654
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 7480
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 3654
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: MagazineMagnumSubMachineGunRubber
+- proto: MagazinePistolSubMachineGunPractice
   entities:
   - uid: 3656
     components:
     - flags: InContainer
       type: MetaData
-    - parent: 763
+    - parent: 3654
       type: Transform
     - canCollide: False
       type: Physics
@@ -120017,7 +120065,54 @@ entities:
     components:
     - flags: InContainer
       type: MetaData
-    - parent: 763
+    - parent: 3654
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 7475
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 7472
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 7480
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 7472
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+- proto: MagazinePistolSubMachineGunRubber
+  entities:
+  - uid: 7178
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 3654
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 7190
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 3654
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 7478
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 7472
       type: Transform
     - canCollide: False
       type: Physics
@@ -120026,16 +120121,7 @@ entities:
     components:
     - flags: InContainer
       type: MetaData
-    - parent: 3654
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 7493
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 3654
+    - parent: 7472
       type: Transform
     - canCollide: False
       type: Physics
@@ -123093,6 +123179,20 @@ entities:
   - uid: 3743
     components:
     - pos: 10.502254,-34.43969
+      parent: 6747
+      type: Transform
+- proto: NoticeBoard
+  entities:
+  - uid: 25332
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -9.5,-21.5
+      parent: 6747
+      type: Transform
+  - uid: 27074
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 38.5,-30.5
       parent: 6747
       type: Transform
 - proto: NuclearBomb
@@ -128862,9 +128962,10 @@ entities:
       type: Transform
 - proto: PosterLegitPieSlice
   entities:
-  - uid: 2646
+  - uid: 27075
     components:
-    - pos: -9.5,-21.5
+    - rot: -1.5707963267948966 rad
+      pos: -4.5,-22.5
       parent: 6747
       type: Transform
 - proto: PosterLegitReportCrimes
@@ -149288,6 +149389,22 @@ entities:
   - uid: 1325
     components:
     - pos: 5.5,-4.5
+      parent: 6747
+      type: Transform
+- proto: SpawnVehicleWheelchair
+  entities:
+  - uid: 27076
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 27.5,-27.5
+      parent: 6747
+      type: Transform
+- proto: SpawnVehicleWheelchairFolded
+  entities:
+  - uid: 27077
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 11.5,-29.5
       parent: 6747
       type: Transform
 - proto: SpawnVendingMachineRestockFoodDrink
