@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.DeltaV.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -16,6 +17,9 @@ namespace Content.Client.Info
 
         public RulesAndInfoWindow()
         {
+            MinWidth = 750; // DeltaV - Override width to increase base size
+            MinWidth = 100; // DeltaV - Restore width to allow resizing
+
             IoCManager.InjectDependencies(this);
 
             Title = Loc.GetString("ui-info-title");
@@ -24,7 +28,7 @@ namespace Content.Client.Info
 
             var rulesList = new Info();
             var tutorialList = new Info();
-            var sopList = new TabContainer(); // DeltaV - Standard Operating Procedures
+            var sopList = new TabbedRules(); // DeltaV - Standard Operating Procedures
 
             rootContainer.AddChild(rulesList);
             rootContainer.AddChild(tutorialList);

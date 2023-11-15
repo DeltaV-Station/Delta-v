@@ -1,26 +1,22 @@
-﻿using Robust.Client.UserInterface.Controls;
+﻿using System.Linq;
+using Content.Client.DeltaV.TabbedRules;
+using Content.Client.DeltaV.UserInterface.Controls;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Info
 {
     public sealed partial class RulesAndInfoWindow
     {
-        private void PopulateSop(TabContainer sopList)
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+        private void PopulateSop(TabbedRules sopList)
         {
-            var sopIntro = new Info();
-            var sopAuthority = new Info();
-            var sopMutiny = new Info();
+            var entries = _prototypeManager.EnumeratePrototypes<TabbedEntryPrototype>()
+                .Where(x => x.Container == "SOP")
+                .ToDictionary(x => x.ID, x => (TabbedEntry) x);
 
-            sopList.AddChild(sopIntro);
-            sopList.AddChild(sopAuthority);
-            sopList.AddChild(sopMutiny);
-
-            TabContainer.SetTabTitle(sopIntro, Loc.GetString("ui-info-tab-intro"));
-            TabContainer.SetTabTitle(sopAuthority, Loc.GetString("ui-info-tab-authority"));
-            TabContainer.SetTabTitle(sopMutiny, Loc.GetString("ui-info-tab-Mutiny"));
-
-            AddSection(sopIntro, Loc.GetString("ui-info-header-intro"), "DeltaV/SOP/Intro.txt");
-            AddSection(sopAuthority, Loc.GetString("ui-info-header-authority"), "DeltaV/SOP/Authority.txt", true);
-            AddSection(sopMutiny, Loc.GetString("ui-info-header-Mutiny"), "DeltaV/SOP/Mutiny.txt", true);
+            sopList.UpdateEntries(entries);
+            //sopList.Tree.MaxWidth = 200;
         }
     }
 }

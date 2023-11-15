@@ -1,0 +1,192 @@
+﻿- type: tabbedEntry
+  id: Intro
+  container: SOP
+  name: guide-entry-sop-intro
+  text: "/ServerInfo/DeltaV/SOP/Intro.xml"
+  children:
+  - Authority
+  - Mutiny
+  - Succession
+  - HighSecurity
+  - MedicalEvaluation
+  - ControlledSubstances
+  - Dispensations
+  - RightToRefuse
+  - Quarantine
+  - Armaments
+  - Charges
+  - Trial
+  - Defence
+  - Sentencing
+  - PrisonerTreatment
+  - Parole
+  - Jurisdiction
+  - SyntheticsSophonts
+  - ForeignVessels
+
+- type: tabbedEntry
+  id: Authority
+  container: SOP
+  name: guide-entry-sop-authority
+  order: 1
+  text: "/ServerInfo/DeltaV/SOP/Authority.xml"
+
+- type: tabbedEntry
+  id: Mutiny
+  container: SOP
+  name: guide-entry-sop-mutiny
+  order: 2
+  text: "/ServerInfo/DeltaV/SOP/Mutiny.xml"
+
+- type: tabbedEntry
+  id: Succession
+  container: SOP
+  name: guide-entry-sop-succession
+  order: 3
+  text: "/ServerInfo/DeltaV/SOP/Succession.xml"
+
+- type: tabbedEntry
+  id: HighSecurity
+  container: SOP
+  name: guide-entry-sop-highsecurity
+  order: 4
+  text: "/ServerInfo/DeltaV/SOP/HighSecurity.xml"
+
+- type: tabbedEntry
+  id: MedicalEvaluation
+  container: SOP
+  name: guide-entry-sop-medicalevaluation
+  order: 5
+  text: "/ServerInfo/DeltaV/SOP/MedicalEvaluation.xml"
+
+- type: tabbedEntry
+  id: ControlledSubstances
+  container: SOP
+  name: guide-entry-sop-controlledsubstances
+  order: 6
+  text: "/ServerInfo/DeltaV/SOP/ControlledSubstances.xml"
+
+- type: tabbedEntry
+  id: Dispensations
+  container: SOP
+  name: guide-entry-sop-dispensations
+  order: 7
+  text: "/ServerInfo/DeltaV/SOP/Dispensations.xml"
+  children:
+    - DispensationsLogistics
+    - DispensationsResearch
+    - DispensationsMedical
+    - DispensationsEngineering
+
+- type: tabbedEntry
+  id: RightToRefuse
+  container: SOP
+  name: guide-entry-sop-righttorefuse
+  order: 8
+  text: "/ServerInfo/DeltaV/SOP/RightToRefuse.xml"
+
+- type: tabbedEntry
+  id: Quarantine
+  container: SOP
+  name: guide-entry-sop-quarantine
+  order: 9
+  text: "/ServerInfo/DeltaV/SOP/Quarantine.xml"
+
+- type: tabbedEntry
+  id: Armaments
+  container: SOP
+  name: guide-entry-sop-armaments
+  order: 10
+  text: "/ServerInfo/DeltaV/SOP/Armaments.xml"
+
+- type: tabbedEntry
+  id: Charges
+  container: SOP
+  name: guide-entry-sop-charges
+  order: 11
+  text: "/ServerInfo/DeltaV/SOP/Charges.xml"
+
+- type: tabbedEntry
+  id: Trial
+  container: SOP
+  name: guide-entry-sop-trial
+  order: 12
+  text: "/ServerInfo/DeltaV/SOP/Trial.xml"
+
+- type: tabbedEntry
+  id: Defence
+  container: SOP
+  name: guide-entry-sop-defence
+  order: 12
+  text: "/ServerInfo/DeltaV/SOP/Defence.xml"
+
+- type: tabbedEntry
+  id: Sentencing
+  container: SOP
+  name: guide-entry-sop-sentencing
+  order: 13
+  text: "/ServerInfo/DeltaV/SOP/Sentencing.xml"
+
+- type: tabbedEntry
+  id: PrisonerTreatment
+  container: SOP
+  name: guide-entry-sop-prisonertreatment
+  order: 14
+  text: "/ServerInfo/DeltaV/SOP/PrisonerTreatment.xml"
+
+- type: tabbedEntry
+  id: Parole
+  container: SOP
+  name: guide-entry-sop-parole
+  order: 15
+  text: "/ServerInfo/DeltaV/SOP/Parole.xml"
+
+- type: tabbedEntry
+  id: Jurisdiction
+  container: SOP
+  name: guide-entry-sop-jurisdiction
+  order: 16
+  text: "/ServerInfo/DeltaV/SOP/Jurisdiction.xml"
+
+- type: tabbedEntry
+  id: SyntheticsSophonts
+  container: SOP
+  name: guide-entry-sop-synthetics
+  order: 17
+  text: "/ServerInfo/DeltaV/SOP/SyntheticsSophonts.xml"
+
+- type: tabbedEntry
+  id: ForeignVessels
+  container: SOP
+  name: guide-entry-sop-foreignvessels
+  order: 18
+  text: "/ServerInfo/DeltaV/SOP/ForeignVessels.xml"
+
+# Departmental Despensations
+- type: tabbedEntry
+  id: DispensationsLogistics
+  container: SOP
+  name: guide-entry-cargo
+  order: 1
+  text: "/ServerInfo/DeltaV/SOP/Dispensations/Logistics.xml"
+
+- type: tabbedEntry
+  id: DispensationsResearch
+  container: SOP
+  name: guide-entry-science
+  order: 2
+  text: "/ServerInfo/DeltaV/SOP/Dispensations/Research.xml"
+
+- type: tabbedEntry
+  id: DispensationsMedical
+  container: SOP
+  name: guide-entry-medical
+  order: 3
+  text: "/ServerInfo/DeltaV/SOP/Dispensations/Medical.xml"
+
+- type: tabbedEntry
+  id: DispensationsEngineering
+  container: SOP
+  name: guide-entry-engineering
+  order: 4
+  text: "/ServerInfo/DeltaV/SOP/Dispensations/Engineering.xml"
