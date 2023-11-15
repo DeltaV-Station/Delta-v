@@ -3,6 +3,7 @@ using Content.Client.Guidebook.Richtext;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Client.DeltaV.TabbedRules;
 
 namespace Content.IntegrationTests.Tests.Guidebook;
 
@@ -22,12 +23,18 @@ public sealed class GuideEntryPrototypeTests
         var resMan = client.ResolveDependency<IResourceManager>();
         var parser = client.ResolveDependency<DocumentParsingManager>();
         var prototypes = protoMan.EnumeratePrototypes<GuideEntryPrototype>().ToList();
+        var prototypesTabbed = protoMan.EnumeratePrototypes<TabbedEntryPrototype>().ToList();
 
         await client.WaitAssertion(() =>
         {
             Assert.Multiple(() =>
             {
                 foreach (var proto in prototypes)
+                {
+                    var text = resMan.ContentFileReadText(proto.Text).ReadToEnd();
+                    Assert.That(parser.TryAddMarkup(new Document(), text), $"Failed to parse guidebook: {proto.Id}");
+                }
+                foreach (var proto in prototypesTabbed)
                 {
                     var text = resMan.ContentFileReadText(proto.Text).ReadToEnd();
                     Assert.That(parser.TryAddMarkup(new Document(), text), $"Failed to parse guidebook: {proto.Id}");
