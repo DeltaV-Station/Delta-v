@@ -1,0 +1,68 @@
+- type: gameMap
+  id: Shoukou
+  mapName: 'Shōkō'
+  mapPath: /Maps/shoukou.yml
+  minPlayers: 0
+  maxPlayers: 65
+  stations:
+    Shoukou:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Shōkō "Little Port" {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+          #Service
+            Passenger: [ -1, -1 ]
+            ServiceWorker: [ 1, 2]
+            Reporter: [ 0, 1 ]
+            Lawyer: [ 1, 1 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 1, 2 ]
+            MartialArtist: [ 2, 3 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 2 ]
+            Musician: [ 1, 1]
+            Mime: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+          #Engineering
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 2, 5 ]
+            TechnicalAssistant: [ 2, 3 ]
+            AtmosphericTechnician: [ 1, 2 ]
+          #Medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Paramedic: [ 1, 2 ]
+            MedicalDoctor: [ 3, 5 ]
+            Chemist: [ 1, 2 ]
+            MedicalIntern: [ 2, 4 ]
+          #Security
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 2, 4 ]
+            Detective: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityCadet: [ 1, 3 ]
+            Brigmedic: [ 1, 1 ]
+            #Prisoner: [ 2, 3 ] doesnt work yet aparently
+          #Science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 2, 4 ]
+            ResearchAssistant: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            Borg: [ 2, 2 ]
+          #Logistics
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 4 ]
+            MailCarrier: [ 1, 2 ]
+            CargoTechnician: [ 2, 3 ]
+           
