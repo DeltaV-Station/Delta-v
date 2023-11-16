@@ -43,6 +43,7 @@ flavor-base-piquant = piquant
 flavor-base-sharp = sharp
 flavor-base-syrupy = syrupy
 flavor-base-spaceshroom = mysterious
+flavor-base-clean = clean
 
 # lmao
 flavor-base-terrible = terrible
@@ -98,6 +99,7 @@ flavor-complex-tomato = like tomatoes
 flavor-complex-corn = like corn
 flavor-complex-banana = like bananas
 flavor-complex-apple = like apples
+flavor-complex-cotton = like cottons
 flavor-complex-bungo = like bungo
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
@@ -213,3 +215,4 @@ flavor-complex-carpet = like a handful of fur
 flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz
 flavor-complex-bottledlightning = like lightning in a bottle
+flavor-complex-punishment = like punishment
