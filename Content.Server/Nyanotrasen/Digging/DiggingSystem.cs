@@ -7,9 +7,9 @@ using Content.Shared.Tools.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared.Digging;
+namespace Content.Server.Digging;
 
-public sealed class SharedDiggingSystem : EntitySystem
+public sealed class DiggingSystem : EntitySystem
 {
     [Dependency] private readonly TileSystem _tiles = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
