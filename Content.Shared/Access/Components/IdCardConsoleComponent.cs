@@ -63,6 +63,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Hydroponics",
         "Janitor",
         "Kitchen",
+        "Lawyer",
         "Maintenance",
         "Medical",
         "Paramedic", // DeltaV - Add Paramedic access
