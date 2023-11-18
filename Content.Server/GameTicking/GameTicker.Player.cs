@@ -1,6 +1,4 @@
 using Content.Server.Database;
-using Content.Server.Players;
-using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Players;
@@ -8,6 +6,7 @@ using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -18,7 +17,6 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly PlayTimeTrackingManager _playTimeManager = default!;
 
         private void InitializePlayer()
         {
@@ -51,18 +49,15 @@ namespace Content.Server.GameTicking
                     // Always make sure the client has player data.
                     if (session.Data.ContentDataUncast == null)
                     {
-                        var data = new PlayerData(session.UserId, args.Session.Name);
+                        var data = new ContentPlayerData(session.UserId, args.Session.Name);
                         data.Mind = mindId;
                         data.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Whitelist
                         session.Data.ContentDataUncast = data;
                     }
 
-                    session.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId); // Nyanotrasen - Ensure whitelist is correct
-                    _playTimeManager.SendWhitelistCached(session); // Nyanotrasen - Send whitelist status
-
                     // Make the player actually join the game.
                     // timer time must be > tick length
-                    Timer.Spawn(0, args.Session.JoinGame);
+                    Timer.Spawn(0, () => _playerManager.JoinGame(args.Session));
 
                     var record = await _dbManager.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
@@ -106,9 +101,16 @@ namespace Content.Server.GameTicking
                     }
                     else
                     {
-                        // Simply re-attach to existing entity.
-                        session.AttachToEntity(mind.CurrentEntity);
-                        PlayerJoinGame(session);
+                        if (_playerManager.SetAttachedEntity(session, mind.CurrentEntity))
+                        {
+                            PlayerJoinGame(session);
+                        }
+                        else
+                        {
+                            Log.Error(
+                                $"Failed to attach player {session} with mind {ToPrettyString(mindId)} to its current entity {ToPrettyString(mind.CurrentEntity)}");
+                            SpawnObserverWaitDb();
+                        }
                     }
 
                     break;
@@ -151,12 +153,12 @@ namespace Content.Server.GameTicking
             }
         }
 
-        private HumanoidCharacterProfile GetPlayerProfile(IPlayerSession p)
+        private HumanoidCharacterProfile GetPlayerProfile(ICommonSession p)
         {
             return (HumanoidCharacterProfile) _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
         }
 
-        public void PlayerJoinGame(IPlayerSession session, bool silent = false)
+        public void PlayerJoinGame(ICommonSession session, bool silent = false)
         {
             if (!silent)
                 _chatManager.DispatchServerMessage(session, Loc.GetString("game-ticker-player-join-game-message"));
@@ -167,7 +169,7 @@ namespace Content.Server.GameTicking
             RaiseNetworkEvent(new TickerJoinGameEvent(), session.ConnectedClient);
         }
 
-        private void PlayerJoinLobby(IPlayerSession session)
+        private void PlayerJoinLobby(ICommonSession session)
         {
             _playerGameStatuses[session.UserId] = LobbyEnabled ? PlayerGameStatus.NotReadyToPlay : PlayerGameStatus.ReadyToPlay;
             _db.AddRoundPlayers(RoundId, session.UserId);
@@ -187,9 +189,9 @@ namespace Content.Server.GameTicking
 
     public sealed class PlayerJoinedLobbyEvent : EntityEventArgs
     {
-        public readonly IPlayerSession PlayerSession;
+        public readonly ICommonSession PlayerSession;
 
-        public PlayerJoinedLobbyEvent(IPlayerSession playerSession)
+        public PlayerJoinedLobbyEvent(ICommonSession playerSession)
         {
             PlayerSession = playerSession;
         }

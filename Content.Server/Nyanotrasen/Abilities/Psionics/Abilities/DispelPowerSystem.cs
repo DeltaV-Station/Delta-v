@@ -97,7 +97,7 @@ namespace Content.Server.Abilities.Psionics
         private void OnGuardianDispelled(EntityUid uid, GuardianComponent guardian, DispelledEvent args)
         {
             if (TryComp<GuardianHostComponent>(guardian.Host, out var host))
-                _guardianSystem.ToggleGuardian(guardian.Host, host);
+                _guardianSystem.ToggleGuardian(guardian.Host.Value, host);
 
             DealDispelDamage(uid);
             args.Handled = true;

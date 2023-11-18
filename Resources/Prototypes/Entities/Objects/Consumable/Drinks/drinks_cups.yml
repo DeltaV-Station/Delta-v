@@ -203,7 +203,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: icon-
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink
 
 - type: entity
@@ -221,7 +221,7 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/cafe_latte.rsi
   - type: Appearance
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink
 
 - type: entity
@@ -246,7 +246,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: icon-
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink
 
 - type: entity
@@ -271,27 +271,27 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: icon-
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink
 
 - type: entity
   parent: DrinkBaseCup
   id: DrinkLean
-  name: Grape Juice
-  description: Damn, no fun allowed.
+  name: Lean # Delta V : Re-adds Lean
+  description: Often paired with doja sweet, drinking this concoction is the staple of a trill O.G. # Delta V : Re-adds Lean
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: Water
+        - ReagentId: Lean # Delta V : Re-adds Lean
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lean.rsi
     state: icon
   - type: Item
     sprite: Objects/Consumable/Drinks/lean.rsi
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink
 
 - type: entity
@@ -317,5 +317,5 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: icon-
-  - type: TrashOnEmpty
+  - type: TrashOnSolutionEmpty
     solution: drink

@@ -306,13 +306,13 @@
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
-  - type: Armor
+  - type: Armor # DeltaV - tweak for Velta armour
     modifiers:
       coefficients:
-        Blunt: 0.8
+        Blunt: 0.85
         Slash: 0.85
-        Piercing: 0.65
-        Heat: 0.85
+        Piercing: 0.85
+        Heat: 0.75
         Caustic: 0.75
 
 - type: entity
@@ -344,3 +344,14 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSpaceAsshole
+  name: the coat of space asshole
+  description: And there he was...
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
