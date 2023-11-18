@@ -14,10 +14,10 @@
   access:
   - Service
   - Maintenance
-  - Bar
-  - Kitchen
   extendedAccess:
   - Hydroponics
+  - Bar # DeltaV - moved to extended access
+  - Kitchen # DeltaV - moved to extended access
 
 - type: startingGear
   id: ServiceWorkerGear
