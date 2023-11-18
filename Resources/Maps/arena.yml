@@ -15428,6 +15428,16 @@ entities:
       type: Transform
 - proto: AirlockSecurity
   entities:
+  - uid: 532
+    components:
+    - pos: -30.5,-34.5
+      parent: 6747
+      type: Transform
+  - uid: 648
+    components:
+    - pos: -31.5,-34.5
+      parent: 6747
+      type: Transform
   - uid: 25526
     components:
     - pos: -3.5,-6.5
@@ -15571,16 +15581,6 @@ entities:
     - pos: -9.5,-40.5
       parent: 6747
       type: Transform
-  - uid: 532
-    components:
-    - pos: -31.5,-34.5
-      parent: 6747
-      type: Transform
-  - uid: 648
-    components:
-    - pos: -30.5,-34.5
-      parent: 6747
-      type: Transform
   - uid: 760
     components:
     - pos: -27.5,-12.5
@@ -15650,6 +15650,11 @@ entities:
     - pos: 43.5,-17.5
       parent: 6747
       type: Transform
+  - uid: 8628
+    components:
+    - pos: -25.5,-24.5
+      parent: 6747
+      type: Transform
 - proto: AirlockTheatreLocked
   entities:
   - uid: 5379
@@ -15665,11 +15670,6 @@ entities:
   - uid: 5384
     components:
     - pos: 36.5,-19.5
-      parent: 6747
-      type: Transform
-  - uid: 11454
-    components:
-    - pos: -25.5,-24.5
       parent: 6747
       type: Transform
 - proto: AirlockVirologyGlassLocked
@@ -111624,13 +111624,6 @@ entities:
       pos: -44.357418,-3.802743
       parent: 6747
       type: Transform
-- proto: GeneratorBasic
-  entities:
-  - uid: 8628
-    components:
-    - pos: -11.5,17.5
-      parent: 6747
-      type: Transform
 - proto: GeneratorBasic15kW
   entities:
   - uid: 6045
@@ -118818,6 +118811,35 @@ entities:
   - uid: 16166
     components:
     - pos: -44.487347,-39.534794
+      parent: 6747
+      type: Transform
+- proto: IntercomSecurity
+  entities:
+  - uid: 27079
+    components:
+    - pos: -29.5,-34.5
+      parent: 6747
+      type: Transform
+  - uid: 27080
+    components:
+    - pos: 4.5,1.5
+      parent: 6747
+      type: Transform
+  - uid: 27081
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -14.5,3.5
+      parent: 6747
+      type: Transform
+  - uid: 27082
+    components:
+    - pos: -26.5,0.5
+      parent: 6747
+      type: Transform
+  - uid: 27083
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -41.5,-2.5
       parent: 6747
       type: Transform
 - proto: JanitorialTrolley
@@ -128543,6 +128565,11 @@ entities:
   - uid: 8850
     components:
     - pos: 15.5,-74.5
+      parent: 6747
+      type: Transform
+  - uid: 11454
+    components:
+    - pos: -11.5,17.5
       parent: 6747
       type: Transform
   - uid: 19049
