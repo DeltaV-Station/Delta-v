@@ -56864,6 +56864,20 @@ entities:
     - pos: -25.5,-13.5
       parent: 34
       type: Transform
+- proto: OreBox
+  entities:
+  - uid: 11347
+    components:
+    - pos: -32.5,-56.5
+      parent: 34
+      type: Transform
+- proto: OreProcessor
+  entities:
+  - uid: 11508
+    components:
+    - pos: -18.5,-40.5
+      parent: 34
+      type: Transform
 - proto: OrganArachnidStomach
   entities:
   - uid: 12379
