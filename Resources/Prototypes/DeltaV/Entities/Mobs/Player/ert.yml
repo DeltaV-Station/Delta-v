@@ -1,0 +1,413 @@
+## ERT Leader
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderAmber
+  name: Amber ERT leader
+  suffix: Amber
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertleader
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - names_last
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderAmber
+
+- type: randomHumanoidSettings
+  id: ERTLeaderAmber
+  randomizeName: false
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTLeaderGearAmber]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitaryLeader
+      - names_last
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderRed
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: Red ERT leader
+  suffix: Red
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertleadereva
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderRed
+
+- type: randomHumanoidSettings
+  id: ERTLeaderRed
+  parent: ERTLeaderAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTLeaderGearRed]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderGamma
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: Gamma ERT leader
+  suffix: Gamma
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertleadereva
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderGamma
+
+- type: randomHumanoidSettings
+  id: ERTLeaderGamma
+  parent: ERTLeaderAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTLeaderGearGamma]
+
+## ERT Janitor
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorAmber
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: ERT janitor Amber
+  suffix: Amber
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertjanitor
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorAmber
+
+- type: randomHumanoidSettings
+  id: ERTJanitorAmber
+  parent: ERTLeaderAmber
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: Loadout
+      prototypes: [ERTJanitorGearAmber]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorRed
+  parent: RandomHumanoidSpawnerERTJanitorAmber
+  name: ERT janitor Red
+  suffix: Red
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertjanitoreva
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorRed
+
+- type: randomHumanoidSettings
+  id: ERTJanitorRed
+  parent: ERTJanitorAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTJanitorGearRed]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorGamma
+  parent: RandomHumanoidSpawnerERTJanitorAmber
+  name: ERT janitor Gamma
+  suffix: Gamma
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertjanitoreva
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorGamma
+
+- type: randomHumanoidSettings
+  id: ERTJanitorGamma
+  parent: ERTJanitorAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTJanitorGearGamma]
+
+## ERT Engineer
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerAmber
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: ERT engineer Amber
+  suffix: Amber
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertengineer
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerAmber
+
+- type: randomHumanoidSettings
+  id: ERTEngineerAmber
+  parent: ERTLeaderAmber
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: Loadout
+      prototypes: [ERTEngineerGearAmber]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerRed
+  parent: RandomHumanoidSpawnerERTEngineerAmber
+  name: ERT engineer Red
+  suffix: Red
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertengineereva
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerRed
+
+- type: randomHumanoidSettings
+  id: ERTEngineerRed
+  parent: ERTEngineerAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTEngineerGearRed]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerGamma
+  parent: RandomHumanoidSpawnerERTEngineerAmber
+  name: ERT engineer Gamma
+  suffix: Gamma
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertengineereva
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerGamma
+
+- type: randomHumanoidSettings
+  id: ERTEngineerGamma
+  parent: ERTEngineerAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTEngineerGearGamma]
+
+## ERT Security
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityAmber
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: ERT security Amber
+  suffix: Amber
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertsecurity
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityAmber
+
+- type: randomHumanoidSettings
+  id: ERTSecurityAmber
+  parent: ERTLeaderAmber
+  components:
+    - type: MindShield
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: Loadout
+      prototypes: [ERTSecurityGearAmber]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityRed
+  parent: RandomHumanoidSpawnerERTSecurityAmber
+  name: ERT security Red
+  suffix: Red
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertsecurityeva
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityRed
+
+- type: randomHumanoidSettings
+  id: ERTSecurityRed
+  parent: ERTSecurityAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTSecurityGearRed]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityGamma
+  parent: RandomHumanoidSpawnerERTSecurityAmber
+  name: ERT security Gamma
+  suffix: Gamma
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertsecurityeva
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityGamma
+
+- type: randomHumanoidSettings
+  id: ERTSecurityGamma
+  parent: ERTSecurityAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTSecurityGearGamma]
+
+## ERT Medic
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalAmber
+  parent: RandomHumanoidSpawnerERTLeaderAmber
+  name: ERT medic Amber
+  suffix: Amber
+  components:
+    - type: MindShield
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertmedical
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalAmber
+
+- type: randomHumanoidSettings
+  id: ERTMedicalAmber
+  parent: ERTLeaderAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - names_last
+    - type: Loadout
+      prototypes: [ERTMedicalGearAmber]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalRed
+  parent: RandomHumanoidSpawnerERTMedicalAmber
+  name: ERT medic Red
+  suffix: Red
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertmedicaleva
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalRed
+
+- type: randomHumanoidSettings
+  id: ERTMedicalRed
+  parent: ERTMedicalAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTMedicalGearRed]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalGamma
+  parent: RandomHumanoidSpawnerERTMedicalAmber
+  name: ERT medic Gamma
+  suffix: Gamma
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Markers/jobs.rsi
+      state: ertmedicaleva
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalGamma
+
+- type: randomHumanoidSettings
+  id: ERTMedicalGamma
+  parent: ERTMedicalAmber
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ERTMedicalGearGamma]
