@@ -43,7 +43,6 @@
       contents:
         - id: BoxSurvival
         - id: WeaponEnergyGun
-        - id: WeaponDisabler
         - id: Stunbaton
         - id: Handcuffs
         - id: PinpointerNuclear
@@ -67,7 +66,6 @@
         - id: WeaponLaserCarbine
         - id: FlashlightSeclite
         - id: BoxFlashbang
-        - id: MedicatedSuture
         - id: BoxHandcuff
         - id: CrowbarRed
 
@@ -79,7 +77,7 @@
     - type: StorageFill
       contents:
         - id: BoxSurvivalMedical
-        - id: WeaponDisabler
+#        - id: WeaponEnergyGunMini
         - id: Hypospray
         - id: MedkitFilled
         - id: MedkitAdvancedFilled
@@ -95,10 +93,9 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: BoxSurvivalEngineering
         - id: trayScanner
-        - id: WeaponDisabler
-        - id: MedicatedSuture
+#        - id: WeaponEnergyGunMini
         - id: SheetSteel
         - id: SheetGlass
         - id: FlashlightLantern
@@ -134,11 +131,10 @@
    - type: StorageFill
      contents: 
        - id: Stunbaton
-       - id: WeaponPulsePistol
+#       - id: WeaponEnergyGunPistol
        - id: Handcuffs
        - id: PinpointerNuclear
        - id: DoorRemoteAll
-       - id: MedicatedSuture
        - id: BoxSurvival
        - id: CrowbarRed
        - id: MindShieldImplanter
@@ -147,6 +143,7 @@
        - id: MindShieldImplanter
        - id: MindShieldImplanter
        - id: MindShieldImplanter
+       - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -156,13 +153,14 @@
     - type: StorageFill
       contents:
         - id: WeaponDisabler
-        - id: WeaponAutomaticLaserCarbine
+#        - id: WeaponAutomaticLaserCarbine
         - id: Flash
         - id: CombatKnife
         - id: BoxHandcuff
         - id: BoxSurvivalSecurity
         - id: MedicatedSuture
         - id: FlashlightSeclite
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -172,8 +170,7 @@
     - type: StorageFill
       contents:
         - id: Stunbaton
-        - id: WeaponMakeshiftLaser
-        - id: WeaponDisabler
+        - id: WeaponEnergyGun
         - id: Hypospray
         - id: Portafib
         - id: PowerCellAntiqueProto
@@ -182,6 +179,7 @@
         - id: CombatMedipen
         - id: CrowbarRed
         - id: BoxSurvivalMedical
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -197,12 +195,12 @@
         - id: RCDAmmo
         - id: RCDAmmo
         - id: RCDAmmo
-        - id: WeaponMakeshiftLaser
-        - id: WeaponDisabler
+        - id: WeaponEnergyGun
         - id: CableHVStack
         - id: CableMVStack
         - id: MedicatedSuture
         - id: FlashlightLantern
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -212,18 +210,18 @@
     - type: StorageFill
       contents:
         - id: Stunbaton
-        - id: WeaponMakeshiftLaser
+#        - id: WeaponEnergyGunMini
         - id: HydroponicsToolScythe
         - id: AdvMopItem
         - id: LightReplacer
         - id: BoxLightMixed
         - id: BoxSurvival
-        - id: WeaponDisabler
         - id: CrowbarRed
         - id: SoapOmega
         - id: CombatKnife
         - id: MedicatedSuture
         - id: FlashlightLantern
+        - id: MicroBombImplanter
 
 # End of Red
 # Gamma ERT
@@ -236,14 +234,13 @@
     - type: StorageFill
       contents:
         - id: Stunbaton
-        - id: WeaponPulsePistol
+ #       - id: WeaponEnergyGunPistol
         - id: Flash
         - id: Handcuffs
         - id: PinpointerNuclear
         - id: DoorRemoteAll
         - id: BoxSurvival
         - id: CrowbarRed
-        - id: MedicatedSuture
         - id: WeaponDisabler
         - id: MindShieldImplanter
         - id: MindShieldImplanter
@@ -251,6 +248,7 @@
         - id: MindShieldImplanter
         - id: MindShieldImplanter
         - id: MindShieldImplanter
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -262,13 +260,12 @@
         - id: WeaponAdvancedLaser
         - id: WeaponSniperHristov
         - id: MagazineBoxAntiMaterielBig
+        - id: WeaponEnergyGun
         - id: WeaponXrayCannon
         - id: Stunbaton
-        - id: MedicatedSuture
         - id: Bola
         - id: BoxHandcuff
         - id: BoxFlashbang
-        - id: WeaponAutomaticLaserCarbine
         - id: C4
         - id: C4
         - id: C4
@@ -277,8 +274,7 @@
         - id: FlashlightSeclite
         - id: PowerCellAntiqueProto
         - id: CrowbarRed
-        - id: WeaponDisabler
-        - id: MedicatedSuture
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -288,7 +284,7 @@
     - type: StorageFill
       contents: 
         - id: Stunbaton
-        - id: WeaponAutomaticLaserCarbine
+#        - id: WeaponEnergyGunPistol
         - id: Stimpack
         - id: Stimpack
         - id: Stimpack
@@ -304,6 +300,7 @@
         - id: CrowbarRed
         - id: BoxSurvivalMedical
         - id: WeaponDisabler
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -313,14 +310,14 @@
     - type: StorageFill
       contents:
         - id: Stunbaton
-        - id: WeaponAutomaticLaserCarbine
+ #       - id: WeaponEnergyGunPistol
         - id: trayScanner
-        - id: WeaponDisabler
         - id: MedicatedSuture
         - id: RCDExperimental
         - id: BoxSurvivalEngineering
         - id: CableHVStack
         - id: CableMVStack
+        - id: MicroBombImplanter
 
 - type: entity
   noSpawn: true
@@ -330,8 +327,7 @@
     - type: StorageFill
       contents:
         - id: Stunbaton
-        - id: WeaponLaserCarbine
-        - id: WeaponDisabler
+        - id: WeaponEnergyGun
         - id: HydroponicsToolScythe
         - id: LightReplacer
         - id: AdvMopItem
@@ -340,5 +336,6 @@
         - id: CrowbarRed
         - id: PowerCellAntiqueProto
         - id: FlashlightLantern
+        - id: MicroBombImplanter
 
  #End of Gamma
