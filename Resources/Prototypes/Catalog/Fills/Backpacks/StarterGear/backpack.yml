@@ -212,7 +212,7 @@
     - type: StorageFill
       contents:
         - id: BoxSurvival
-       - id: BookRandom
+        - id: BookRandom
 
 - type: entity
   noSpawn: true
@@ -221,7 +221,7 @@
   components:
     - type: StorageFill
       contents:
-    - id: BoxSurvival
+      - id: BoxSurvival
       - id: Lighter
       - id: CigPackBlack
       - id: HandLabeler
