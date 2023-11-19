@@ -19,7 +19,7 @@ public sealed class StackTest
 
         Assert.Multiple(() =>
         {
-            foreach (var entity in PoolManager.GetPrototypesWithComponent<StackComponent>(server))
+            foreach (var entity in pair.GetPrototypesWithComponent<StackComponent>())
             {
                 if (!entity.TryGetComponent<StackComponent>(out var stackComponent, compFact) ||
                     !entity.TryGetComponent<ItemComponent>(out var itemComponent, compFact))
