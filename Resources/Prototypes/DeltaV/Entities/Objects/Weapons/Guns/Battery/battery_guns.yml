@@ -128,7 +128,7 @@
     - state: mode-disabler
       shader: unshaded
       map: [ "Firemode" ]
-    - state: mag-unshaded-3
+    - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
@@ -156,7 +156,7 @@
       state: lethal
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 5
     zeroVisible: true
   - type: Appearance
   - type: GenericVisualizer
