@@ -242,6 +242,10 @@
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
   - type: Battery
     maxCharge: 3000
     startingCharge: 3000
