@@ -323,6 +323,7 @@
         damage: 10
       behaviors:
       - !type:GibBehavior { }
+  - type: NonSpreaderZombie
 
 - type: entity
   name: glockroach
@@ -1287,6 +1288,7 @@
     needsHands: true
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat mice, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
   - type: BadFood
+  - type: NonSpreaderZombie
 
 - type: entity
   parent: MobMouse
@@ -2707,6 +2709,7 @@
     BaseResistTime: 3
   - type: MobPrice
     price: 60
+  - type: NonSpreaderZombie
 
 - type: entity
   name: pig
