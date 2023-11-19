@@ -173,3 +173,232 @@
     sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/hos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatHoS
+
+#CENTCOMM / ERT HARDSUITS
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTLeader
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.50
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+
+#ERT Engineer Hardsuit AMBER
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTEngineer
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.80
+        Radiation: 0.20
+        Caustic: 0.75
+        Heat: 0.80
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitMedic
+  id: ClothingOuterHardsuitERTMedical
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.50
+        Radiation: 0.75
+        Caustic: 0.25
+        Heat: 0.75
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitERTSecurity
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.50
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTJanitor
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.50
+        Radiation: 0.75
+        Caustic: 0.20
+        Heat: 0.75
+#ERT Leader Hardsuit Gamma
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitLeaderElite
+  name: Elite ERT leader's hardsuit
+  description: An elite protective hardsuit worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.5
+
+#ERT Engineer Hardsuit Red and Gamma
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTEngineerElite
+  name: Elite ERT engineer's hardsuit
+  description: An elite protective hardsuit worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0
+        Caustic: 0.5
+#ERT Medic Hardsuit Gamma
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTMedicalElite
+  name: Elite ERT medic's hardsuit
+  description: An elite protective hardsuit worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.05
+
+#ERT Security Hardsuit Gamma
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTSecurityElite
+  name: Elite ERT security's hardsuit
+  description: An elite protective hardsuit worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.5
+
+#ERT Janitor Hardsuit Gamma
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTJanitorElite
+  name: Elite ERT janitor's hardsuit
+  description: An elite protective hardsuit worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.6
+        Radiation: 0.25
+        Caustic: 0.05
