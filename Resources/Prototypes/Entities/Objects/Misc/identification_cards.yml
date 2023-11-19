@@ -216,8 +216,10 @@
   components:
     - type: Sprite
       layers:
-        - state: default
+        - state: silver
         - state: idquartermaster
+    - type: Item
+      heldPrefix: silver
     - type: PresetIdCard
       job: Quartermaster
 
@@ -428,12 +430,14 @@
 - type: entity
   parent: IDCardStandard
   id: BrigmedicIDCard
-  name: brigmedic ID card
+  name: corpsman ID card # DeltaV - rename brigmedic to corpsman
   components:
   - type: Sprite
     layers:
     - state: default
     - state: idbrigmedic
+  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+    job: Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -448,6 +452,7 @@
     heldPrefix: blue
   - type: IdCard
     jobTitle: Central Commander
+    jobIcon: JobIconNanotrasen
   - type: Access
     groups:
     - AllAccess
@@ -497,7 +502,7 @@
 - type: entity
   parent: CentcomIDCard
   id: CentcomIDCardDeathsquad
-  name: deathsquad ID card
+  name: death squad ID card
   components:
   - type: Sprite
     layers:
@@ -621,6 +626,19 @@
   - type: Sprite
     layers:
     - state: syndie
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+
+- type: entity
+  parent: IDCardStandard
+  id: PirateIDCard
+  name: pirate ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: pirate
   - type: Access
     tags:
     - NuclearOperative

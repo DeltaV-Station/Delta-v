@@ -45,24 +45,38 @@
       state: shuttle
   - type: EscapeShuttleCondition
 
+##- type: entity # DeltaV
+#  noSpawn: true
+#  parent: BaseTraitorObjective
+#  id: DieObjective
+#  name: Die a glorious death
+#  description: Die.
+#  components:
+#  - type: Objective
+#    difficulty: 0.5
+#    icon:
+#      sprite: Mobs/Ghosts/ghost_human.rsi
+#      state: icon
+#  - type: ObjectiveBlacklistRequirement
+#    blacklist:
+#      components:
+#      - EscapeShuttleCondition
+#      - StealCondition
+#  - type: DieCondition
+
 - type: entity
   noSpawn: true
-  parent: BaseTraitorObjective
-  id: DieObjective
-  name: Die a glorious death
-  description: Die.
+  parent: [BaseTraitorObjective, BaseLivingObjective]
+  id: HijackShuttleObjective
+  name: Hijack emergency shuttle
+  description: Leave on the shuttle free and clear of the loyal Nanotrasen crew on board. Use ANY methods available to you. Syndicate agents, Nanotrasen enemies, and handcuffed hostages may remain alive on the shuttle. Ignore assistance from anyone other than a support agent.
   components:
-  - type: Objective
-    difficulty: 0.5
-    icon:
-      sprite: Mobs/Ghosts/ghost_human.rsi
-      state: icon
-  - type: ObjectiveBlacklistRequirement
-    blacklist:
-      components:
-      - EscapeShuttleCondition
-      - StealCondition
-  - type: DieCondition
+    - type: Objective
+      difficulty: 5 # insane, default config max difficulty
+      icon:
+        sprite: Objects/Tools/emag.rsi
+        state: icon
+    - type: HijackShuttleCondition
 
 # kill
 

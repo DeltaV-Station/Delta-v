@@ -50,7 +50,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
                 player.TryGetSessionByUsername(name, out var session))
             {
                 playerData.ContentData()!.Whitelisted = true;
-                playtime.SendWhitelistCached(session);
+                playtime.QueueSendWhitelist(session);
             }
 
             shell.WriteLine(Loc.GetString("cmd-whitelistadd-added", ("username", data.Username)));
@@ -110,7 +110,7 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
                 player.TryGetSessionByUsername(name, out var session))
             {
                 playerData.ContentData()!.Whitelisted = false;
-                playtime.SendWhitelistCached(session);
+                playtime.QueueSendWhitelist(session);
             }
 
             shell.WriteLine(Loc.GetString("cmd-whitelistremove-removed", ("username", data.Username)));

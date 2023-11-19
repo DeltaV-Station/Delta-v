@@ -79,6 +79,29 @@
     PoppySeeds: 1
 
 - type: microwaveMealRecipe
+  id: RecipeMothEngineFodder
+  name: engine fodder recipe
+  result: FoodMothEngineFodder
+  time: 30
+  solids:
+    FoodMothToastedSeeds: 1
+    FoodSnackChips: 1
+    FoodSnackCnDs: 1
+    FoodSnackPopcorn: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothFueljackLunch
+  name: fueljack lunch recipe
+  result: FoodMothFueljackLunch
+  time: 15
+  solids:
+    FoodCheeseSlice: 1
+    FoodCabbage: 1
+    FoodChili: 1
+    FoodPotato: 1
+    FoodOnionSlice: 2
+
+- type: microwaveMealRecipe
   id: RecipeMothChiliCabbageWrap
   name: sweet chili cabbage wrap recipe
   result: FoodMothChiliCabbageWrap
@@ -147,10 +170,11 @@
   name: buttered baked corn recipe
   result: FoodMothButteredBakedCorn
   time: 5
-  reagents:
-    Butter: 5
+  # reagents: # Whenever we can actually melt butter
+  #   Butter: 5
   solids:
     FoodMothBakedCorn: 1
+    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothMozzarellaSticks
@@ -170,9 +194,9 @@
   time: 15
   reagents:
     TomatoSauce: 10
+    Cornmeal: 5
   solids:
     FoodDonkpocket: 1 #macncheese donk
-    FoodCorn: 1 #CornMeal
 
 # Soups and stews
 
@@ -199,7 +223,7 @@
   reagents:
     Milk: 5
     Flour: 5
-    Butter: 5
+    Cream: 5 # Butter when it gets meltable
   solids:
     FoodBowlBig: 1
     FoodCheeseSlice: 1
@@ -283,7 +307,7 @@
   time: 10
   solids:
     FoodRiceBoiled: 1
-    FoodMealFriedegg: 2
+    FoodEgg: 2 #FoodMealFriedegg when we can actually fry eggs buh
     FoodMeatCutlet: 1 #FoodMeatBacon when it's actually findable
 
 - type: microwaveMealRecipe
@@ -304,7 +328,7 @@
   time: 10
   reagents:
     Milk: 5
-    Butter: 5
+    Cream: 5 # Butter when it's meltable
   solids:
     FoodMothCornmealPorridge: 1
     FoodCurdCheese: 1

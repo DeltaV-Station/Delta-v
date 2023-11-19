@@ -21,6 +21,9 @@
           Quantity: 3
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: cheese curds
@@ -41,6 +44,9 @@
         reagents:
         - ReagentId: Protein
           Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 # Mozzarella
 - type: entity
@@ -64,6 +70,9 @@
           Quantity: 3
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 
 - type: entity
   name: herby cheese
@@ -89,6 +98,9 @@
           Quantity: 2
         - ReagentId: Cream
           Quantity: 1
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food
 #Tastes like cheese, herbs
 
 - type: entity
@@ -116,3 +128,6 @@
           Quantity: 2
         - ReagentId: Allicin
           Quantity: 0.5
+  - type: Tag
+    tags:
+      - ClothMade # Mothic Food

@@ -6,6 +6,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Preferences;
 using Content.Shared.VoiceMask;
 using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 
 namespace Content.Server.VoiceMask;
 
@@ -67,7 +68,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void OpenUI(EntityUid player, ActorComponent? actor = null)
     {
-        if (!Resolve(player, ref actor))
+        // Delta-V: `logMissing: false` because of syrinx.
+        if (!Resolve(player, ref actor, logMissing: false))
             return;
         if (!_uiSystem.TryGetUi(player, VoiceMaskUIKey.Key, out var bui))
             return;
@@ -78,7 +80,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void UpdateUI(EntityUid owner, VoiceMaskComponent? component = null)
     {
-        if (!Resolve(owner, ref component))
+        // Delta-V: `logMissing: false` because of syrinx
+        if (!Resolve(owner, ref component, logMissing: false))
         {
             return;
         }

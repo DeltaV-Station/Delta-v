@@ -1,6 +1,6 @@
 [game]
 hostname         = "[EN][MRP] Delta-v (Ψ) | Periapsis"
-soft_max_players = 100
+soft_max_players = 50
 
 [server]
 rules_file   = "Rules.txt"
@@ -9,7 +9,7 @@ rules_header = "ui-rules-header"
 [whitelist]
 enabled     = false
 reason      = "whitelist-not-whitelisted"
-min_players = 30
+min_players = 40
 
 [ooc]
 enable_during_round = true

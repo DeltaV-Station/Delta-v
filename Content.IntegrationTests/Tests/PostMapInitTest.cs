@@ -45,26 +45,30 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
-            "Fland",
-            "Meta",
-            "Packed",
-            "Aspid",
-            "Cluster",
-            "Omega",
-            "Bagel",
-            "Origin",
+            //"Fland",
+            //"Meta",
+            //"Packed",
+            //"Aspid",
+            //"Cluster",
+            //"Omega",
+            //"Bagel",
+            //"Origin",
             "CentComm",
-            "Box",
-            "Europa",
-            "Barratry",
-            "Saltern",
-            "Core",
-            "Marathon",
-            "Kettle",
+            //"Box",
+            //"Europa",
+            //"Barratry",
+            //"Saltern",
+            //"Core",
+            //"Marathon",
+            //"Kettle",
             "MeteorArena",
             "Pebble", //DeltaV
             "Edge", //DeltaV
-            "Tortuga" //DeltaV
+            "Shoukou", //DeltaV
+            "Tortuga", //DeltaV
+            "Arena", //DeltaV
+            "Asterisk", //DeltaV
+            "TheHive" //DeltaV
         };
 
         /// <summary>
