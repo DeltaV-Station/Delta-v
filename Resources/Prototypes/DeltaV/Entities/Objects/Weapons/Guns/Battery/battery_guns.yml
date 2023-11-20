@@ -197,11 +197,11 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 200
+      fireCost: 100
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 
+      fireCost: 200
       name: lethal
       state: lethal
   - type: MagazineVisuals
