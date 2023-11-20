@@ -164,6 +164,12 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -403,6 +409,12 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -626,6 +638,12 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -641,6 +659,12 @@
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -655,6 +679,12 @@
     borderColor: "#A32D26"
   - type: Icon
     state: pda-security
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -866,6 +896,12 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -886,6 +922,12 @@
     scanDelay: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: ClownPDA
