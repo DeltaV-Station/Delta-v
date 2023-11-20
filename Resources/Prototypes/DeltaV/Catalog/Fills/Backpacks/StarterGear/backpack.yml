@@ -151,7 +151,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: WeaponDisabler
+        - id: WeaponEnergyGunPistol
         - id: WeaponGunLaserCarbineAutomatic
         - id: Flash
         - id: CombatKnife
@@ -257,6 +257,7 @@
         - id: MagazineBoxAntiMaterielBig
         - id: WeaponGunLaserCarbineAutomatic
         - id: WeaponXrayCannon
+        - id: WeaponEnergyGunPistol
         - id: Stunbaton
         - id: Bola
         - id: BoxHandcuff
@@ -293,7 +294,7 @@
         - id: MedkitAdvancedFilled
         - id: CheapRollerBedSpawnFolded
         - id: CrowbarRed
-        - id: BoxSurvivalMedical
+        - id: BoxSurvivalMedical    
         - id: MicroBombImplanter
 
 - type: entity
