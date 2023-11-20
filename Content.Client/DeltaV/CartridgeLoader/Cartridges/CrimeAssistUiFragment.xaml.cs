@@ -70,12 +70,12 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
             CrimeAssistUiState.UiStates.WasCrimeSexualInNature => yesPressed ? CrimeAssistUiState.UiStates.Result_SexualHarrassment : CrimeAssistUiState.UiStates.WasSuspectANuisance,
 
             //nuisance branch
-            CrimeAssistUiState.UiStates.WasSuspectANuisance => yesPressed ? CrimeAssistUiState.UiStates.FalselyReportingToSecurity : CrimeAssistUiState.UiStates.Result_Hooliganism,
+            CrimeAssistUiState.UiStates.WasSuspectANuisance => yesPressed ? CrimeAssistUiState.UiStates.FalselyReportingToSecurity : CrimeAssistUiState.UiStates.Result_Innocent,
             CrimeAssistUiState.UiStates.FalselyReportingToSecurity => yesPressed ? CrimeAssistUiState.UiStates.Result_PerjuryOrFalseReport : CrimeAssistUiState.UiStates.HappenInCourt,
             CrimeAssistUiState.UiStates.HappenInCourt => yesPressed ? CrimeAssistUiState.UiStates.Result_ContemptOfCourt : CrimeAssistUiState.UiStates.DuringActiveInvestigation,
             CrimeAssistUiState.UiStates.DuringActiveInvestigation => yesPressed ? CrimeAssistUiState.UiStates.Result_ObstructionOfJustice : CrimeAssistUiState.UiStates.ToCommandStaff,
             CrimeAssistUiState.UiStates.ToCommandStaff => yesPressed ? CrimeAssistUiState.UiStates.Result_Sedition : CrimeAssistUiState.UiStates.WasItCommandItself,
-            CrimeAssistUiState.UiStates.WasItCommandItself => yesPressed ? CrimeAssistUiState.UiStates.Result_AbuseOfPower : CrimeAssistUiState.UiStates.Result_Hooliganism, //if it's not any of these, it's hooliganism
+            CrimeAssistUiState.UiStates.WasItCommandItself => yesPressed ? CrimeAssistUiState.UiStates.Result_AbuseOfPower : CrimeAssistUiState.UiStates.Result_Hooliganism,
             _ => CrimeAssistUiState.UiStates.MainMenu
         };
 
