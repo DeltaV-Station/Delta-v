@@ -33,6 +33,7 @@
       
 - type: entity
   id: CrateArmoryEnergyGun
+  parent: CrateWeaponSecure
   components:
   - type: StorageFill
     contents: 
@@ -41,6 +42,7 @@
   
 - type: entity
   id: CrateArmoryEnergyGunMini
+  parent: CrateWeaponSecure
   components:
   - type: StorageFill
     contents: 
