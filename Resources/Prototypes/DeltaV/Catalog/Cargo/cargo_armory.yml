@@ -33,7 +33,15 @@
   icon: 
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
     state: icon
-  product: CrateArmoryEnergygun
+  product: CrateArmoryEnergyGun
   cost: 5500
   category: Armory
   group: market
+ 
+- type: cargoProduct
+  id: ArmoryEnergyGunMini
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+    state: icon
+  product: CrateArmoryEnergyGun
+  cost: 3500
