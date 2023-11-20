@@ -51,6 +51,7 @@ public sealed class CrimeAssistUiState : BoundUserInterfaceState
         WasItCommandItself,
 
         //Crime Endpoints
+        Result_Innocent,
         Result_AnimalCruelty,
         Result_Theft,
         Result_Trespass,

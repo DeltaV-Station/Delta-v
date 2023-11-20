@@ -1,16 +1,16 @@
 <cartridges:CrimeAssistUiFragment xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
                                  xmlns="https://spacestation14.io" Margin="1 0 2 0">
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
-    <BoxContainer Name="QuestionBox" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
-        <Label Name ="Title" Text=""/>
+    <BoxContainer Name="ExplanationBox" Orientation="Vertical" SetWidth="400"  VerticalExpand="True" Margin="5">
+        <Label Name ="Title" Text="{Loc 'crime-assist-question-mainmenu'}}"/>
         <Label Name ="Subtitle" Text=""/>
-        <Label Name ="Explanation" Text=""/>
+        <RichTextLabel Name ="Explanation" Text=""/>
         <Label Name ="Punishment" Text=""/>
     </BoxContainer>
-    <BoxContainer Name="QuestionBox" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="False">
-        <Button Name="StartButton" Access="Public" Text="Start" StyleClasses="OpenRight"/>
-        <Button Name="HomeButton" Access="Public" Text="Home" StyleClasses="OpenRight"/>
-        <Button Name="YesButton" Access="Public" Text="Yes" StyleClasses="OpenBoth"/>
-        <Button Name="NoButton" Access="Public" Text="No" StyleClasses="OpenLeft"/>
+    <BoxContainer Name="QuestionBox" Orientation="Horizontal" HorizontalAlignment="Center"  HorizontalExpand="True" VerticalExpand="False">
+        <Button Name="StartButton" Access="Public" Text="Start"/>
+        <Button Name="HomeButton" Access="Public" Text="Home" Visible="False"/>
+        <Button Name="YesButton" Access="Public" Text="Yes" Visible="False"/>
+        <Button Name="NoButton" Access="Public" Text="No" Visible="False"/>
     </BoxContainer>
 </cartridges:CrimeAssistUiFragment>

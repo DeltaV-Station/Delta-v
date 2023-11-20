@@ -34,12 +34,52 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
 
     public void AdvanceState(CrimeAssistUiState.UiStates currentState, bool yesPressed)
     {
-        switch (currentState)
+        CrimeAssistUiState.UiStates newState = currentState switch
         {
-            case CrimeAssistUiState.UiStates.IsItTerrorism:
-                UpdateUI(CrimeAssistUiState.UiStates.IsItTerrorism);
-                break;
-        }
+            CrimeAssistUiState.UiStates.IsItTerrorism => yesPressed ? CrimeAssistUiState.UiStates.Result_Terrorism : CrimeAssistUiState.UiStates.WasSomeoneAttacked,
+
+            //assault branch
+            CrimeAssistUiState.UiStates.WasSomeoneAttacked => yesPressed ? CrimeAssistUiState.UiStates.WasItSophont : CrimeAssistUiState.UiStates.ForcedMindbreakerToxin,
+            CrimeAssistUiState.UiStates.WasItSophont => yesPressed ? CrimeAssistUiState.UiStates.DidVictimDie : CrimeAssistUiState.UiStates.Result_AnimalCruelty,
+            CrimeAssistUiState.UiStates.DidVictimDie => yesPressed ? CrimeAssistUiState.UiStates.IsVictimRemovedFromBody : CrimeAssistUiState.UiStates.Result_Assault,
+            CrimeAssistUiState.UiStates.IsVictimRemovedFromBody => yesPressed ? CrimeAssistUiState.UiStates.Result_Decorporealisation : CrimeAssistUiState.UiStates.WasDeathIntentional,
+            CrimeAssistUiState.UiStates.WasDeathIntentional => yesPressed ? CrimeAssistUiState.UiStates.Result_Murder : CrimeAssistUiState.UiStates.Result_Manslaughter,
+
+            //mindbreaker branch
+            CrimeAssistUiState.UiStates.ForcedMindbreakerToxin => yesPressed ? CrimeAssistUiState.UiStates.Result_Mindbreaking : CrimeAssistUiState.UiStates.HadIllegitimateItem,
+
+            //theft branch
+            CrimeAssistUiState.UiStates.HadIllegitimateItem => yesPressed ? CrimeAssistUiState.UiStates.WasItAPerson : CrimeAssistUiState.UiStates.WasSuspectInARestrictedLocation,
+            CrimeAssistUiState.UiStates.WasItAPerson => yesPressed ? CrimeAssistUiState.UiStates.Result_Kidnapping : CrimeAssistUiState.UiStates.WasSuspectSelling,
+            CrimeAssistUiState.UiStates.WasSuspectSelling => yesPressed ? CrimeAssistUiState.UiStates.Result_BlackMarketeering : CrimeAssistUiState.UiStates.WasSuspectSeenTaking,
+            CrimeAssistUiState.UiStates.WasSuspectSeenTaking => yesPressed ? CrimeAssistUiState.UiStates.IsItemExtremelyDangerous : CrimeAssistUiState.UiStates.Result_Possession,
+            CrimeAssistUiState.UiStates.IsItemExtremelyDangerous => yesPressed ? CrimeAssistUiState.UiStates.Result_GrandTheft : CrimeAssistUiState.UiStates.Result_Theft,
+
+            //trespassing branch
+            CrimeAssistUiState.UiStates.WasSuspectInARestrictedLocation => yesPressed ? CrimeAssistUiState.UiStates.WasEntranceLocked : CrimeAssistUiState.UiStates.DidSuspectBreakSomething,
+            CrimeAssistUiState.UiStates.WasEntranceLocked => yesPressed ? CrimeAssistUiState.UiStates.Result_BreakingAndEntering : CrimeAssistUiState.UiStates.Result_Trespass,
+
+            //vandalism branch
+            CrimeAssistUiState.UiStates.DidSuspectBreakSomething => yesPressed ? CrimeAssistUiState.UiStates.WereThereManySuspects : CrimeAssistUiState.UiStates.WasCrimeSexualInNature,
+            CrimeAssistUiState.UiStates.WereThereManySuspects => yesPressed ? CrimeAssistUiState.UiStates.Result_Rioting : CrimeAssistUiState.UiStates.WasDamageSmall,
+            CrimeAssistUiState.UiStates.WasDamageSmall => yesPressed ? CrimeAssistUiState.UiStates.WasDestroyedItemImportantToStation : CrimeAssistUiState.UiStates.Result_Vandalism,
+            CrimeAssistUiState.UiStates.WasDestroyedItemImportantToStation => yesPressed ? CrimeAssistUiState.UiStates.IsLargePartOfStationDestroyed : CrimeAssistUiState.UiStates.Result_Endangerment,
+            CrimeAssistUiState.UiStates.IsLargePartOfStationDestroyed => yesPressed ? CrimeAssistUiState.UiStates.Result_GrandSabotage : CrimeAssistUiState.UiStates.Result_Sabotage,
+
+            //sexual branch
+            CrimeAssistUiState.UiStates.WasCrimeSexualInNature => yesPressed ? CrimeAssistUiState.UiStates.Result_SexualHarrassment : CrimeAssistUiState.UiStates.WasSuspectANuisance,
+
+            //nuisance branch
+            CrimeAssistUiState.UiStates.WasSuspectANuisance => yesPressed ? CrimeAssistUiState.UiStates.FalselyReportingToSecurity : CrimeAssistUiState.UiStates.Result_Hooliganism,
+            CrimeAssistUiState.UiStates.FalselyReportingToSecurity => yesPressed ? CrimeAssistUiState.UiStates.Result_PerjuryOrFalseReport : CrimeAssistUiState.UiStates.HappenInCourt,
+            CrimeAssistUiState.UiStates.HappenInCourt => yesPressed ? CrimeAssistUiState.UiStates.Result_ContemptOfCourt : CrimeAssistUiState.UiStates.DuringActiveInvestigation,
+            CrimeAssistUiState.UiStates.DuringActiveInvestigation => yesPressed ? CrimeAssistUiState.UiStates.Result_ObstructionOfJustice : CrimeAssistUiState.UiStates.ToCommandStaff,
+            CrimeAssistUiState.UiStates.ToCommandStaff => yesPressed ? CrimeAssistUiState.UiStates.Result_Sedition : CrimeAssistUiState.UiStates.WasItCommandItself,
+            CrimeAssistUiState.UiStates.WasItCommandItself => yesPressed ? CrimeAssistUiState.UiStates.Result_AbuseOfPower : CrimeAssistUiState.UiStates.Result_Hooliganism, //if it's not any of these, it's hooliganism
+            _ => CrimeAssistUiState.UiStates.MainMenu
+        };
+
+        UpdateUI(newState);
     }
 
     public void UpdateUI(CrimeAssistUiState.UiStates state)
@@ -59,6 +99,9 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         if (!isResult)
         {
             Title.Text = GetQuestionLocString(state);
+            Subtitle.Text = string.Empty;
+            Explanation.Text = string.Empty;
+            Punishment.Text = string.Empty;
         }
         else
         {
