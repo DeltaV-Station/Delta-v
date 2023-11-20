@@ -6,7 +6,7 @@ namespace Content.Server.Speech.EntitySystems
     public sealed class OwOAccentSystem : EntitySystem
     {
         // Dictionary to hold words to be replaced.
-        private static Dictionary<string, string> SpecialWords = new ();
+        private static Dictionary<string, string> SpecialWords = new();
 
         public override void Initialize()
         {
@@ -43,9 +43,9 @@ namespace Content.Server.Speech.EntitySystems
             // Check if a key doesn't already exist. If it does not, add the new entry uncapitalized, First letter capitalized and ALL CAPS.
             if (!dictionary.ContainsKey(original.ToLower()))
             {
-                dictionary.Add(original.ToLower(), replacement.ToLower());
-                dictionary.Add(original.ToUpper(), replacement.ToUpper());
-                dictionary.Add(FirstCharToUpper(original.ToLower()), FirstCharToUpper(replacement.ToLower()));
+                dictionary.TryAdd(original.ToLower(), replacement.ToLower());
+                dictionary.TryAdd(original.ToUpper(), replacement.ToUpper());
+                dictionary.TryAdd(FirstCharToUpper(original.ToLower()), FirstCharToUpper(replacement.ToLower()));
             }
         }
 
