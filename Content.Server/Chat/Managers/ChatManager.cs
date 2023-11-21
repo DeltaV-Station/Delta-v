@@ -185,6 +185,13 @@ namespace Content.Server.Chat.Managers
                 return;
             }
 
+            if (RateLimiter.IsBeingRateLimited(player.UserId.UserId.ToString())) // Delta-v rate limiter
+            {
+                var systemTextNotify = Loc.GetString("chat-manager-rate-limit");
+                DispatchServerMessage(player, systemTextNotify, true);
+                return;
+            }
+
             switch (type)
             {
                 case OOCChatType.OOC:

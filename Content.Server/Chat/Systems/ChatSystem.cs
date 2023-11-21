@@ -1,6 +1,8 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -21,6 +23,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Radio;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
@@ -193,6 +196,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             return;
         }
+ 
+        if (player != null && RateLimiter.IsBeingRateLimited(player.UserId.UserId.ToString())) // Delta-v rate limiter
+        {
+            var systemTextNotify = Loc.GetString("chat-manager-rate-limit");
+            _chatManager.DispatchServerMessage(player, systemTextNotify, true);
+            return;
+        }
 
         if (!CanSendInGame(message, shell, player))
             return;
@@ -275,6 +285,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         if (!CanSendInGame(message, shell, player))
             return;
+
+        if (player != null && RateLimiter.IsBeingRateLimited(player.UserId.UserId.ToString())) // Delta-v rate limiter
+        {
+            var systemTextNotify = Loc.GetString("chat-manager-rate-limit");
+            _chatManager.DispatchServerMessage(player, systemTextNotify, true);
+            return;
+        }
 
         // It doesn't make any sense for a non-player to send in-game OOC messages, whereas non-players may be sending
         // in-game IC messages.

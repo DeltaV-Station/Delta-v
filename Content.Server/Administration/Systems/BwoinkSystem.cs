@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
+using Content.Server.Chat;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
@@ -54,6 +55,9 @@ namespace Content.Server.Administration.Systems
         // Maximum length a message can be before it is cut off
         // Should be shorter than DescriptionMax
         private const ushort MessageLengthCap = 3000;
+
+        // Maximum length of incoming\outcoming bwoink message
+        private const ushort BwoinkMessageLengthCap = 512; // Delta-v rate limiter
 
         // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
         private const string TooLongText = "... **(too long)**";
@@ -378,6 +382,15 @@ namespace Content.Server.Administration.Systems
         {
             base.OnBwoinkTextMessage(message, eventArgs);
             var senderSession = eventArgs.SenderSession;
+
+            // Deny message if it's too long to avoid staggering and spamming
+            if (message.Text.Length >= BwoinkMessageLengthCap) // Delta-v rate limiter
+            {
+                var systemTextNotify = "Maximum message length: " + BwoinkMessageLengthCap;
+                var notifyMessage = new BwoinkTextMessage(message.UserId, SystemUserId, systemTextNotify);
+                RaiseNetworkEvent(notifyMessage, senderSession.ConnectedClient);
+                return;
+            }
 
             // TODO: Sanitize text?
             // Confirm that this person is actually allowed to send a message here.
