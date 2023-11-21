@@ -27,7 +27,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         HorizontalExpand = true;
         VerticalExpand = true;
 
-        Title.SetMarkup(GetQuestionLocString(CrimeAssistUiState.UiStates.MainMenu));
+        UpdateUI(CrimeAssistUiState.UiStates.MainMenu);
 
         StartButton.OnPressed += _ => UpdateUI(CrimeAssistUiState.UiStates.IsItTerrorism);
         HomeButton.OnPressed += _ => UpdateUI(CrimeAssistUiState.UiStates.MainMenu);
@@ -65,7 +65,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
             //vandalism branch
             CrimeAssistUiState.UiStates.DidSuspectBreakSomething => yesPressed ? CrimeAssistUiState.UiStates.WereThereManySuspects : CrimeAssistUiState.UiStates.WasCrimeSexualInNature,
             CrimeAssistUiState.UiStates.WereThereManySuspects => yesPressed ? CrimeAssistUiState.UiStates.Result_Rioting : CrimeAssistUiState.UiStates.WasDamageSmall,
-            CrimeAssistUiState.UiStates.WasDamageSmall => yesPressed ? CrimeAssistUiState.UiStates.WasDestroyedItemImportantToStation : CrimeAssistUiState.UiStates.Result_Vandalism,
+            CrimeAssistUiState.UiStates.WasDamageSmall => yesPressed ? CrimeAssistUiState.UiStates.Result_Vandalism : CrimeAssistUiState.UiStates.WasDestroyedItemImportantToStation,
             CrimeAssistUiState.UiStates.WasDestroyedItemImportantToStation => yesPressed ? CrimeAssistUiState.UiStates.IsLargePartOfStationDestroyed : CrimeAssistUiState.UiStates.Result_Endangerment,
             CrimeAssistUiState.UiStates.IsLargePartOfStationDestroyed => yesPressed ? CrimeAssistUiState.UiStates.Result_GrandSabotage : CrimeAssistUiState.UiStates.Result_Sabotage,
 
@@ -101,17 +101,25 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
 
         if (!isResult)
         {
-            Title.SetMarkup(GetQuestionLocString(state));
+            string question = $"\n[font size=15]{GetQuestionLocString(state)}[/font]";
+
+            if (question.ToLower().Contains("sophont"))
+            {
+                string sophontExplanation = Loc.GetString("crime-assist-sophont-explanation");
+                question += $"\n[font size=8][color=#999999]{sophontExplanation}[/color][/font]";
+            }
+
+            Title.SetMarkup(question);
             Subtitle.SetMarkup(string.Empty);
             Explanation.SetMarkup(string.Empty);
             Punishment.SetMarkup(string.Empty);
         }
         else
         {
-            Title.SetMarkup("[bold][color=#a4885c]" + GetCrimeNameLocString(state) + "[/color][/bold]");
-            Subtitle.SetMarkup(GetCrimeSeverityLocString(state));
-            Explanation.SetMarkup("[title]" + GetCrimeExplanationLocString(state) + "[/title]");
-            Punishment.SetMarkup("[bold]" + GetCrimePunishmentLocString(state) + "[/bold]");
+            Title.SetMarkup("\n[bold][font size=23][color=#a4885c]" + GetCrimeNameLocString(state) + "[/color][/font][/bold]");
+            Subtitle.SetMarkup("\n[font size=19]" + GetCrimeSeverityLocString(state) + "[/font]");
+            Explanation.SetMarkup("\n[title]" + GetCrimeExplanationLocString(state) + "[/title]\n");
+            Punishment.SetMarkup("[bold][font size=15]" + GetCrimePunishmentLocString(state) + "[/font][/bold]");
         }
     }
 
