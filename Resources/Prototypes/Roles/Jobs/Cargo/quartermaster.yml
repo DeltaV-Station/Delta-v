@@ -30,9 +30,9 @@
   - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Quartermaster
   - Maintenance
-  - External
   - Command
   - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  - External # DeltaV - for promoting salvage specialists
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
