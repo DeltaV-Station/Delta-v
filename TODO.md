@@ -5,3 +5,7 @@
 - [ ] https://github.com/space-wizards/space-station-14/commit/d07ea20f74bedc584cef22f1bad1a9f50b80baf1 - Probably not required
 
 - [ ] Proper announcement attributions
+
+- [ ] Move Shiva localization into /DeltaV/
+
+- [ ] https://github.com/space-wizards/space-station-14/commit/eb0c86f803648c0ad8387f7255e15c402dc41653 - Does this have to do with storage refactor is it actually generic?
