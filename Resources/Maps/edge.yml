@@ -11705,10 +11705,6 @@ entities:
     - label: CEL-1
       type: SignalTimer
     - linkedPorts:
-        invalid:
-        - Start: Close
-        - Timer: AutoClose
-        - Timer: Open
         93:
         - Start: Close
         - Timer: AutoClose
@@ -11722,10 +11718,6 @@ entities:
     - label: CEL-3
       type: SignalTimer
     - linkedPorts:
-        invalid:
-        - Start: Close
-        - Timer: AutoClose
-        - Timer: Open
         92:
         - Start: Close
         - Timer: AutoClose
@@ -11739,10 +11731,6 @@ entities:
     - label: CEL-2
       type: SignalTimer
     - linkedPorts:
-        invalid:
-        - Start: Close
-        - Timer: AutoClose
-        - Timer: Open
         84:
         - Start: Close
         - Timer: AutoClose
@@ -11756,10 +11744,6 @@ entities:
     - label: CEL-4
       type: SignalTimer
     - linkedPorts:
-        invalid:
-        - Start: Close
-        - Timer: AutoClose
-        - Timer: Open
         90:
         - Start: Close
         - Timer: AutoClose
