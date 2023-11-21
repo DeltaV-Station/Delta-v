@@ -1017,6 +1017,12 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: SyndiPDA
