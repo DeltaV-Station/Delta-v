@@ -1813,6 +1813,13 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> ReplayAutoRecordTempDir =
             CVarDef.Create("replay.auto_record_temp_dir", "", CVar.SERVERONLY);
 
+        /*
+         * Miscellaneous
+         */
+
+        public static readonly CVarDef<bool> GatewayGeneratorEnabled =
+            CVarDef.Create("gateway.generator_enabled", true);
+
         /// DELTA-V CCVARS
         /*
          * Glimmer
@@ -1837,6 +1844,5 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> PsionicRollsEnabled =
             CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
-
     }
 }
