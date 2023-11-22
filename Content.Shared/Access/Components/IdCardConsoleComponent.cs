@@ -47,7 +47,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Armory",
         "Atmospherics",
         "Bar",
-        "Brig",
+        //"Brig", Delta V: Removed Brig Access
         "Detective",
         "Captain",
         "Cargo",

@@ -317,15 +317,16 @@
   - type: Wires
     layoutId: AirlockSecurity
 
-- type: entity
-  parent: AirlockSecurity
-  id: AirlockBrigLocked
-  suffix: Brig, Locked
-  components:
-  - type: AccessReader
-    access: [["Brig"]]
-  - type: Wires
-    layoutId: AirlockSecurity
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: AirlockSecurity
+#  id: AirlockBrigLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+#  - type: Wires
+#    layoutId: AirlockSecurity
 
 - type: entity
   parent: AirlockSecurity
@@ -628,13 +629,14 @@
   - type: AccessReader
     access: [["Detective"]]
 
-- type: entity
-  parent: AirlockSecurityGlass
-  id: AirlockBrigGlassLocked
-  suffix: Brig, Locked
-  components:
-  - type: AccessReader
-    access: [["Brig"]]
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: AirlockSecurityGlass
+#  id: AirlockBrigGlassLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
 
 - type: entity
   parent: AirlockSecurityGlass
