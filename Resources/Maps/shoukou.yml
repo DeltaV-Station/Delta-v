@@ -284,6 +284,9 @@ entities:
             16: -33,-40
             17: -34,-40
             18: -33,-36
+            745: -53,-31
+            746: -53,-32
+            748: -53,-33
         - node:
             color: '#FFFFFFFF'
             id: BoxGreyscale
@@ -55381,6 +55384,16 @@ entities:
     - pos: 36.5,3.5
       parent: 34
       type: Transform
+- proto: Igniter
+  entities:
+  - uid: 12320
+    components:
+    - pos: -55.819836,-37.60099
+      parent: 34
+      type: Transform
+    - links:
+      - 12319
+      type: DeviceLinkSink
 - proto: IngotGold
   entities:
   - uid: 1847
@@ -56957,6 +56970,11 @@ entities:
     - pos: -23.5,-4.5
       parent: 34
       type: Transform
+  - uid: 12324
+    components:
+    - pos: -52.5,-31.5
+      parent: 34
+      type: Transform
 - proto: PaintingBlunt
   entities:
   - uid: 2407
@@ -57283,6 +57301,16 @@ entities:
     - pos: -9.339812,-27.309032
       parent: 34
       type: Transform
+  - uid: 12321
+    components:
+    - pos: -54.258076,-35.258347
+      parent: 34
+      type: Transform
+  - uid: 12322
+    components:
+    - pos: -54.226826,-35.52397
+      parent: 34
+      type: Transform
 - proto: PaperDoor
   entities:
   - uid: 131
@@ -57350,6 +57378,13 @@ entities:
   - uid: 6568
     components:
     - pos: 19.251152,-20.558546
+      parent: 34
+      type: Transform
+- proto: PlasmaCanister
+  entities:
+  - uid: 12323
+    components:
+    - pos: -52.5,-32.5
       parent: 34
       type: Transform
 - proto: PlasmaReinforcedWindowDirectional
@@ -64596,6 +64631,17 @@ entities:
     - pos: 11.5,-49.5
       parent: 34
       type: Transform
+- proto: RemoteSignaller
+  entities:
+  - uid: 12319
+    components:
+    - pos: -54.716194,-35.31927
+      parent: 34
+      type: Transform
+    - linkedPorts:
+        12320:
+        - Pressed: Trigger
+      type: DeviceLinkSource
 - proto: ResearchAndDevelopmentServer
   entities:
   - uid: 581
@@ -69541,6 +69587,11 @@ entities:
   - uid: 7095
     components:
     - pos: -35.5,1.5
+      parent: 34
+      type: Transform
+  - uid: 12318
+    components:
+    - pos: -54.5,-35.5
       parent: 34
       type: Transform
 - proto: TableReinforced
@@ -79124,6 +79175,13 @@ entities:
   - uid: 876
     components:
     - pos: -17.5,-8.5
+      parent: 34
+      type: Transform
+- proto: WaterVaporCanister
+  entities:
+  - uid: 12326
+    components:
+    - pos: -52.5,-30.5
       parent: 34
       type: Transform
 - proto: WeaponCapacitorRecharger
