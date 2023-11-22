@@ -47,7 +47,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Armory",
         "Atmospherics",
         "Bar",
-        "Brig",
+        //"Brig", Delta V: Removed Brig Access
         "Detective",
         "Captain",
         "Cargo",
@@ -63,6 +63,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Hydroponics",
         "Janitor",
         "Kitchen",
+        "Lawyer",
         "Maintenance",
         "Medical",
         "Paramedic", // DeltaV - Add Paramedic access
