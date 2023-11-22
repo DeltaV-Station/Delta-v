@@ -4650,11 +4650,6 @@ entities:
       type: Transform
 - proto: AirlockLawyerLocked
   entities:
-  - uid: 498
-    components:
-    - pos: 8.5,9.5
-      parent: 34
-      type: Transform
   - uid: 5542
     components:
     - pos: 9.5,4.5
@@ -4698,6 +4693,13 @@ entities:
   - uid: 429
     components:
     - pos: 5.5,-16.5
+      parent: 34
+      type: Transform
+- proto: AirlockMaintLawyerLocked
+  entities:
+  - uid: 498
+    components:
+    - pos: 8.5,9.5
       parent: 34
       type: Transform
 - proto: AirlockMaintLocked
@@ -4873,6 +4875,13 @@ entities:
   - uid: 8116
     components:
     - pos: 33.5,-0.5
+      parent: 34
+      type: Transform
+- proto: AirlockMaintServiceLocked
+  entities:
+  - uid: 10775
+    components:
+    - pos: 15.5,-39.5
       parent: 34
       type: Transform
 - proto: AirlockMaintTheatreLocked
@@ -5240,11 +5249,6 @@ entities:
   - uid: 4003
     components:
     - pos: 19.5,-36.5
-      parent: 34
-      type: Transform
-  - uid: 10775
-    components:
-    - pos: 15.5,-39.5
       parent: 34
       type: Transform
 - proto: AirlockTheatreLocked
