@@ -47,11 +47,11 @@
       - key: enum.StorageUiKey.Key
         type: StorageBoundUserInterface
     - type: Storage
-      capacity: 100 #20 burgers
-      whitelist:
-        components:
-          - Food
-          - Produce
+      capacity: 100 #20 burgers #Delta V
+      whitelist:  #Delta V
+        components:  #Delta V
+          - Food #Delta V
+          - Produce #Delta V
     - type: TileFrictionModifier
       modifier: 0.4 # makes it slide
 
