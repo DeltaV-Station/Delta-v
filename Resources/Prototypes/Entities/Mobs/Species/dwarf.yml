@@ -22,7 +22,7 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Sprite
+  - type: Sprite #SpriteComponent should no longer use Scale, it is effectively replaced by the height slider 
     noRot: true
     drawdepth: Mobs
   - type: Body
