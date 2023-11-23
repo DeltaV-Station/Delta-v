@@ -103,13 +103,14 @@
   - type: AccessReader
     access: [["Armory"]]
 
-- type: entity
-  parent: WindoorSecureSecurityLocked
-  id: WindoorSecureBrigLocked
-  suffix: Brig, Locked
-  components:
-  - type: AccessReader
-    access: [["Brig"]]
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: WindoorSecureSecurityLocked
+#  id: WindoorSecureBrigLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
 
 - type: entity
   parent: WindoorSecure
