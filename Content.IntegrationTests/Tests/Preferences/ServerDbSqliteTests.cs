@@ -40,6 +40,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 "Charlie Charlieson",
                 "The biggest boy around.",
                 "Human",
+                1,
                 21,
                 Sex.Male,
                 Gender.Epicene,

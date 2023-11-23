@@ -7,6 +7,11 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  defaultHeight: 1
+  minHeight: 0.85
+  maxHeight: 1.15
+  scaleHeight: true
+  scaleWidth: true
 
 # The lack of a layer means that
 # this person cannot have round-start anything
