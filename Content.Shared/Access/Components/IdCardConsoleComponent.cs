@@ -74,7 +74,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Paramedic", // DeltaV - Add Paramedic access
         "Psychologist", // DeltaV - Add Psychologist access
         "Quartermaster",
-        "Reporter", // DeltaV - Add Reporter access
+        "Reporter", //  DeltaV - Add Reporter access
         "Research",
         "ResearchDirector",
         "Salvage",
