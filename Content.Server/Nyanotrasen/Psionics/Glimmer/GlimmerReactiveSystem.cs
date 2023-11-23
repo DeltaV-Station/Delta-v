@@ -228,13 +228,13 @@ namespace Content.Server.Psionics.Glimmer
         public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
-            foreach (var target in _entityLookupSystem.GetComponentsInRange<StatusEffectsComponent>(Transform(prober).Coordinates, range))
+            foreach (var target in _entityLookupSystem.GetComponentsInRange<StatusEffectsComponent>(_transformSystem.GetMapCoordinates(prober), range))
             {
                 if (target.AllowedEffects.Contains("Electrocution"))
                     targetList.Add(target.Owner);
             }
 
-            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<SharedGlimmerReactiveComponent>(Transform(prober).Coordinates, range))
+            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<SharedGlimmerReactiveComponent>(_transformSystem.GetMapCoordinates(prober), range))
             {
                 targetList.Add(reactive.Owner);
             }
