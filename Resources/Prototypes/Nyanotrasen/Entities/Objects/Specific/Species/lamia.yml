@@ -1,0 +1,78 @@
+- type: entity
+  id: LamiaInitialSegment
+  noSpawn: true
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 80
+        restitution: 0.0
+        mask:
+        - MobMask
+
+  - type: Transform
+    anchored: false
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: LamiaSegment
+  parent: LamiaInitialSegment
+  name: lamia segment
+  noSpawn: true
+  description: A tail segment, hopefully attached to a lamia.
+  components:
+  - type: Sprite
+    layers:
+    - map: [0]
+      sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+      state: placeholder
+  - type: Clickable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ExplosionResistance #This looks stupid but remember that bombs are likely to damage every segment, we want them to be decent but not instagib the poor lamia.s
+    damageCoefficient: 0.2
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 80
+        restitution: 0.0
+        mask:
+        - MobMask
+
+- type: entity
+  id: LamiaSegmentEnd
+  parent: LamiaSegment
+  name: lamia tail tip
+  noSpawn: true
+  description: The end of a lamia's tail.
+  components:
+  - type: Sprite
+    layers:
+    - map: [0]
+      sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+      state: tip
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 80
+        restitution: 0.0
+        mask:
+        - MobMask
