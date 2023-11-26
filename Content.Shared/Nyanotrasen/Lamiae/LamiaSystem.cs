@@ -1,9 +1,7 @@
 using Robust.Shared.Physics;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
-using Content.Server.Humanoid;
-using Content.Server.Access.Systems;
-using Robust.Server.GameObjects;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -15,11 +13,10 @@ using Content.Shared.Nyanotrasen.Lamiae;
 
 namespace Content.Shared.Nyanotrasen.Lamiae
 {
-    public sealed partial class LamiaSystem : EntitySystem
+    public partial class SharedLamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
-        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
@@ -39,9 +36,6 @@ namespace Content.Shared.Nyanotrasen.Lamiae
 
                 EnsureComp<PhysicsComponent>(segmentUid);
                 EnsureComp<PhysicsComponent>(attachedUid); // Hello I hate tests
-
-                var ev = new SegmentSpawnedEvent(segment.lamia);
-                RaiseLocalEvent(segmentUid, ev, false);
 
                 if (segment.segment.SegmentNumber == 1)
                 {

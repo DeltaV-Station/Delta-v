@@ -5,23 +5,17 @@ using Robust.Shared.GameStates;
 using Robust.Client.GameObjects;
 namespace Content.Client.Nyanotrasen.Lamiae;
 
-public sealed class LamiaSystem : EntitySystem
+public sealed class LamiaVisualizerSystem : SharedLamiaSystem
 {
-    public override void Initialize()
+    public void UpdateAppearance(EntityUid uid, LamiaSegmentComponent? lamia = null)
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
-    }
-
-    public void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
-    {
-        component.Lamia = args.Lamia;
+        if (!Resolve(uid, ref lamia))
+            return;
 
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid))
+        if (TryComp<HumanoidAppearanceComponent>(lamia, out var humanoid))
         {
             foreach (var marking in humanoid.MarkingSet.GetForwardEnumerator())
             {
@@ -29,8 +23,14 @@ public sealed class LamiaSystem : EntitySystem
                     continue;
 
                 var color = marking.MarkingColors[0];
-                sprite.LayerSetColor(0, color);
+                sprite.LayerSetColor("enum.LamiaSegmentVisualLayers.Base", color);
             }
         }
     }
+}
+
+public enum LamiaVisualLayers
+{
+    Base,
+    Armor,
 }

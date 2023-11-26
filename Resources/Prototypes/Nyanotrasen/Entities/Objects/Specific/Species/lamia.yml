@@ -29,10 +29,12 @@
   description: A tail segment, hopefully attached to a lamia.
   components:
   - type: Sprite
+    sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - map: [0]
-      sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-      state: placeholder
+    - state: placeholder
+      map: ["enum.LamiaSegmentVisualLayers.Base"]
+    - map: ["enum.LamiaSegmentVisualLayers.Armor"]
+      visible: false
   - type: Clickable
   - type: Tag
     tags:
@@ -60,10 +62,12 @@
   description: The end of a lamia's tail.
   components:
   - type: Sprite
+    sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - map: [0]
-      sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-      state: tip
+    - state: tip
+      map: ["enum.LamiaSegmentVisualLayers.Base"]
+    - map: ["enum.LamiaSegmentVisualLayers.Armor"]
+      visible: false
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
