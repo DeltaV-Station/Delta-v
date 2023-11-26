@@ -196,8 +196,9 @@
   - type: AnimationPlayer
   - type: MeleeWeapon
     soundHit:
-      collection: Punch
+      path: /Audio/Items/hypospray.ogg
     range: 0.8
+    animation: WeaponArcBite
     damage:
       types:
         Piercing: 1
