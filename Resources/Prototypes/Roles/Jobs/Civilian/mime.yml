@@ -12,10 +12,11 @@
   access:
   - Theatre
   - Maintenance
+  - Mime # DeltaV - Add Mime access
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Psionic # Nyano - Summary: Makes the mime psionic. 
+    - type: Psionic # Nyano - Summary: Makes the mime psionic.
     - type: MimePowers
 
 - type: startingGear

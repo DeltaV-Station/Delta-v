@@ -48,6 +48,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Atmospherics",
         "Bar",
         //"Brig", Delta V: Removed Brig Access
+        "Boxer",  // DeltaV - Add Boxer access
         "Detective",
         "Captain",
         "Cargo",
@@ -55,6 +56,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Chemistry",
         "ChiefEngineer",
         "ChiefMedicalOfficer",
+        "Clown", // DeltaV - Add Clown access
         "Command",
         "Engineering",
         "External",
@@ -64,10 +66,15 @@ public sealed partial class IdCardConsoleComponent : Component
         "Janitor",
         "Kitchen",
         "Lawyer",
+        "Library",  // DeltaV - Add Library access 
         "Maintenance",
         "Medical",
+        "Mime", // DeltaV - Add Mime access
+        "Musician", // DeltaV - Add Musician access
         "Paramedic", // DeltaV - Add Paramedic access
+        "Psychologist", // DeltaV - Add Psychologist access
         "Quartermaster",
+        "Reporter", // DeltaV - Add Reporter access
         "Research",
         "ResearchDirector",
         "Salvage",
@@ -77,6 +84,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
         "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
         "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+        "Zookeeper",  // DeltaV - Add Zookeeper access
     };
 
     [Serializable, NetSerializable]

@@ -48,7 +48,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Boxer"]]
 
 - type: entity
   parent: VendingMachine
@@ -72,7 +72,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresVisuals
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Reporter"]]
 
 - type: entity
   parent: VendingMachine

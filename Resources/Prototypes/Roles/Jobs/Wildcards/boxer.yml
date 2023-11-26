@@ -10,8 +10,9 @@
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop
   access:
-  - Service
   - Maintenance
+  - Theatre # DeltaV - Add Theatre access
+  - Boxer # DeltaV - Add Boxer access
   special: # Nyanotrasen - BoxerComponent, see Content.Server/Nyanotrasen/Abilities/Boxer/Boxer/BoxerComponent.cs
   - !type:AddComponentSpecial
     components:
