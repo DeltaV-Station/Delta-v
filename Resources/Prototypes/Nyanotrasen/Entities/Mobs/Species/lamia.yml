@@ -200,7 +200,19 @@
     range: 0.8
     damage:
       types:
-        Blunt: 5
+        Piercing: 1
+        Poison: 2
+        Asphyxiation: 2
+      ignoreResistances: true
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 60
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 3
   - type: Pullable
   - type: DoAfter
   - type: CreamPied
