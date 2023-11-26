@@ -4891,6 +4891,14 @@ entities:
     - pos: 0.5,-16.5
       parent: 34
       type: Transform
+- proto: AirlockMantisLocked
+  entities:
+  - uid: 136
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -30.5,0.5
+      parent: 34
+      type: Transform
 - proto: AirlockMedicalGlass
   entities:
   - uid: 2976
@@ -5014,11 +5022,6 @@ entities:
       type: Transform
 - proto: AirlockScienceLocked
   entities:
-  - uid: 136
-    components:
-    - pos: -30.5,0.5
-      parent: 34
-      type: Transform
   - uid: 541
     components:
     - name: epistemics front
@@ -27142,8 +27145,8 @@ entities:
       type: Transform
   - uid: 11998
     components:
-    - rot: 3.141592653589793 rad
-      pos: -27.5,-35.5
+    - rot: 1.5707963267948966 rad
+      pos: -35.5,-39.5
       parent: 34
       type: Transform
 - proto: ClosetWallMaintenanceFilledRandom
@@ -32874,6 +32877,8 @@ entities:
     - pos: 9.5,7.5
       parent: 34
       type: Transform
+    - name: Service, Lawyer
+      type: FaxMachine
   - uid: 4202
     components:
     - pos: 30.5,-10.5
