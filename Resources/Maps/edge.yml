@@ -45383,19 +45383,6 @@ entities:
         metamorphicSprite:
           sprite: Objects/Consumable/Drinks/gintonicglass.rsi
           state: icon
-        footstepSound: !type:SoundCollectionSpecifier
-          params:
-            variation: null
-            playoffset: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxdistance: 25
-            busname: Master
-            pitchscale: 1
-            volume: 0
-            attenuation: Default
-          collection: FootstepWater
         flavor: gintonic
         flavorMinimum: 0.1
         slippery: False
@@ -45486,19 +45473,6 @@ entities:
         metamorphicSprite:
           sprite: Objects/Consumable/Drinks/whiskeycolaglass.rsi
           state: icon
-        footstepSound: !type:SoundCollectionSpecifier
-          params:
-            variation: null
-            playoffset: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxdistance: 25
-            busname: Master
-            pitchscale: 1
-            volume: 0
-            attenuation: Default
-          collection: FootstepWater
         flavor: whiskeycola
         flavorMinimum: 0.1
         slippery: False
