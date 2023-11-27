@@ -78,7 +78,7 @@
 - type: weightedRandomEntity
   id: RandomAsteroidPool
   weights:
-    AsteroidSalvageSmall: 3
+    AsteroidSalvageSmall: 0 #Delta V: remove chance for small chunks
     AsteroidSalvageMedium: 7
     AsteroidSalvageLarge: 5
     AsteroidSalvageHuge: 3
