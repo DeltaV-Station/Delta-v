@@ -50,8 +50,8 @@
       capacity: 100 #20 burgers #Delta V
       whitelist:  #Delta V
         components:  #Delta V
-          - Food #Delta V
-          - Produce #Delta V
+        - Food #Delta V
+        - Produce #Delta V
     - type: TileFrictionModifier
       modifier: 0.4 # makes it slide
 
@@ -164,3 +164,4 @@
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
+    - type: AntiRottingContainer
