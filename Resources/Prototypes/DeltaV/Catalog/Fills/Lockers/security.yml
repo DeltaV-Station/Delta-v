@@ -46,3 +46,22 @@
     - id: MagazineShotgun
       amount: 4
       
+- type: entity
+  parent: GunSafe
+  id: GunSafeEnergyGun
+  name: energy gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGun
+      amount: 3
+      
+- type: entity
+  parent: GunSafe
+  id: GunSafeEnergyGunMini
+  name: miniature energy gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGunMini
+      amount: 3

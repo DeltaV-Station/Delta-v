@@ -68,3 +68,43 @@
   materials:
     Steel: 500
     Plastic: 1000
+    
+- type: latheRecipe
+  id: WeaponEnergyGun
+  result: WeaponEnergyGun
+  completetime: 8
+  materials:
+    Steel: 2000
+    Glass: 800
+    Plastic: 500
+    
+- type: latheRecipe  
+  id: WeaponEnergyGunMini
+  result: WeaponEnergyGunMini
+  completetime: 4
+  materials:   #Half of Energy Gun Recipe
+    Steel: 1000
+    Glass: 400
+    Plastic: 250 
+
+- type: latheRecipe
+  id: WeaponEnergyGunPistol
+  result: WeaponEnergyGunPistol
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 600
+    Plastic: 400
+    Gold: 150
+    
+- type: latheRecipe
+  id: WeaponGunLaserCarbineAutomatic
+  result: WeaponGunLaserCarbineAutomatic
+  completetime: 15
+  materials: 
+    Steel: 2000
+    Glass: 1000
+    Plastic: 500
+    Gold: 250
+    Silver: 100
+    Plasma: 500

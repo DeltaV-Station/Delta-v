@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from paradise station at commit https://github.com/ParadiseSS13/Paradise/pull/15894/commits/199daf90ee25f4285a1a90696d152493abf6ca65",
+  "size": {
+    "x": 32,
+    "y": 32
+	},
+	"states": [
+		{
+			"name": "icon"
+		},
+		{
+			"name": "base"
+		},
+		{
+			"name": "mag-unshaded-0"
+		},
+		{
+			"name": "mag-unshaded-1"
+		},
+		{
+			"name": "mag-unshaded-2"
+		},
+		{
+			"name": "mag-unshaded-3"
+		},
+		{
+			"name": "mag-unshaded-4"
+		},
+        {
+			"name": "lethal-inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "lethal-inhand-right",
+			"directions": 4
+		}
+	]
+}

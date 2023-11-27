@@ -6,3 +6,9 @@ ent-ArmoryUniversal = { ent-CrateArmoryUniversal }
 
 ent-ArmoryAdjutant = { ent-CrateArmoryAdjutant }
     .desc = { ent-CrateArmoryAdjutant.desc }
+
+ent-ArmoryEnergyGun = { ent-CrateArmoryEnergyGun }
+    .desc = { ent-CrateArmoryEnergyGun.desc }
+
+ent-ArmoryEnergyGunMini = { ent-CrateArmoryEnergyGunMini }
+    .desc = { ent-CrateArmoryEnergyGunMini.desc }
