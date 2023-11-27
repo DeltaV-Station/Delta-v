@@ -1,10 +1,10 @@
 - type: entity
   save: false
   name: Lamia
-  parent: BaseMobHuman
+  parent: BaseMobHuman #parenting human so I can remove most of these components
   id: MobLamiaBase
   abstract: true
-  description: A miserable pile of scales.
+  description: A miserable pile of scales. #TODO: Add a better description
   components:
   - type: Flashable
   - type: Polymorphable
@@ -16,16 +16,6 @@
     baseWalkSpeed : 4
     baseSprintSpeed : 6
   - type: MovedByPressure
-  - type: Barotrauma
-    damage:
-      types:
-        Blunt: 0.075 #per second, scales with pressure and other constants.
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
   - type: Hunger
   - type: Thirst
   - type: IdExaminable
@@ -55,7 +45,7 @@
     noRot: true
     drawdepth: Mobs
     scale: 1, 1
-    layers:
+    layers: #TODO: manually fix these layers
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
         sprite: Nyanotrasen/Mobs/Species/lamia.rsi
@@ -125,47 +115,23 @@
   - type: Body
     template: LamiaTemplate
     preset: LamiaPreset
-  - type: AtmosExposed
-  - type: Flammable
-    fireSpread: true
-    canResistFire: true
-    damage:
-      types:
-        Heat: 1 #per second, scales with number of fire 'stacks'
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Scale
-  - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 285
-    currentTemperature: 310.15
-    specificHeat: 46
-    coldDamage:
-      types:
-        Cold : 0.2 #per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat : 0.1 #per second, scales with temperature & other constants
-  - type: LizardAccent
+    damageModifierSet: Scale #TODO: make a new damage modifier set
   - type: NoSlip
-  - type: ThermalRegulator
-    metabolismHeat: 800
-    radiatedHeat: 100
-    implicitHeatRegulation: 500
-    sweatHeatRegulation: 2000
-    shiveringHeatRegulation: 2000
-    normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 25
   - type: Internals
   - type: MobState
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+      200: Critical #these values aren't final'
+      300: Dead #these values aren't final'
+  - type: SlowOnDamage 
+    speedModifierThresholds: #these values aren't final, adjust accordingly with thresholds above'
+      60: 0.9
+      80: 0.8
+      100: 0.7
+      120: 0.6
+      140: 0.5  
   - type: Appearance
     visuals:
     - type: RotationVisualizer
@@ -173,7 +139,7 @@
     - type: CreamPiedVisualizer
       state: creampie_human
   - type: DamageVisuals
-    thresholds: [ 20, 40, 100 ]
+    thresholds: [ 60, 120, 200 ] #these values aren't final, adjust accordingly with thresholds above'
     targetLayers:
       - "enum.HumanoidVisualLayers.Chest"
       - "enum.HumanoidVisualLayers.Head"
@@ -194,9 +160,9 @@
   - type: Climbing
   - type: Cuffable
   - type: AnimationPlayer
-  - type: MeleeWeapon
+  - type: MeleeWeapon #This damage is most likely final
     soundHit:
-      path: /Audio/Items/hypospray.ogg
+      path: /Audio/Items/hypospray.ogg #this sound is not final, but is a pretty good placeholder so we might keep it
     range: 0.8
     animation: WeaponArcBite
     damage:
@@ -204,25 +170,21 @@
         Piercing: 1
         Poison: 2
         Asphyxiation: 2
-      ignoreResistances: true
+      ignoreResistances: true #We're basically going for a biological hypospray, but ideally I only want the piercing to ignore resistances
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
-        - ReagentId: SpaceDrugs
+        - ReagentId: SpaceDrugs #The poison is not final
           Quantity: 60
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 3
+    transferAmount: 3 #amount to inject is not final
   - type: Pullable
   - type: DoAfter
   - type: CreamPied
   - type: Stripping
   - type: Strippable
-  - type: UserInterface
-    interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
   - type: Puller
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
@@ -230,7 +192,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 2000
+        density: 2000 #Density is not final, adjust accordingly if the number of tail segments is reduced or increased
         restitution: 0.0
         mask:
         - MobMask
@@ -238,24 +200,7 @@
         - MobLayer
   - type: Lamia
   - type: Inventory
-    templateId: human
-  - type: StatusEffects
-    allowed:
-    - Stun
-    - SlowedDown
-    - Stutter
-    - SeeingRainbows
-    - Electrocution
-    - Drunk
-    - SlurredSpeech
-    - PressureImmunity
-    - Muted
-    - KnockedDown
-    - ForcedSleep
-    - TemporaryBlindness
-    - Pacified
-    - PsionicsDisabled
-    - PsionicallyInsulated
+    templateId: human #need to make a Lamia template, no shoes
   - type: Speech
     speechSounds: Alto
   - type: Vocal
@@ -265,9 +210,6 @@
       proper: true
   - type: StandingState
   - type: Fingerprint
-  - type: MobPrice
-    price: 1500 # Kidnapping a living person and selling them for cred is a good move.
-    deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
   - type: Perishable
 
 - type: entity
