@@ -2562,6 +2562,7 @@ entities:
             0: 9215
           -6,5:
             0: 255
+            4: 34816
           -5,5:
             0: 255
           -8,-9:
@@ -2574,10 +2575,10 @@ entities:
             0: 65280
           -5,-9:
             0: 65280
-            4: 128
+            4: 245
           -4,-9:
             0: 65504
-            4: 17
+            4: 21
           -3,-9:
             0: 65520
             4: 14
@@ -2586,17 +2587,19 @@ entities:
             4: 3
           -1,-9:
             0: 65296
-            4: 68
+            4: 69
           0,-9:
             0: 65280
           1,-9:
             0: 65280
+            4: 17
           2,-9:
             0: 65408
           3,-9:
             0: 65520
           4,-9:
             0: 65532
+            4: 3
           5,-9:
             0: 65535
           6,-9:
@@ -2619,6 +2622,7 @@ entities:
             0: 65535
           7,5:
             0: 8191
+            4: 8192
           -11,-2:
             0: 65535
           -11,-1:
@@ -2920,6 +2924,7 @@ entities:
             0: 4095
           7,6:
             0: 30464
+            4: 2
           7,7:
             0: 887
             4: 8
@@ -3035,6 +3040,7 @@ entities:
             0: 61440
           -7,6:
             0: 8738
+            4: 4108
           -7,7:
             0: 2
           -12,-8:
@@ -3087,10 +3093,12 @@ entities:
             0: 12544
           -10,6:
             0: 8738
+            4: 49153
           -10,7:
             0: 2
           -9,6:
             0: 34952
+            4: 28672
           8,6:
             0: 1
           9,6:
@@ -3108,13 +3116,13 @@ entities:
           -9,-10:
             4: 53248
           -4,-10:
-            4: 4096
+            4: 20480
           -1,-10:
-            4: 16384
+            4: 20480
           8,7:
             4: 1
           3,8:
-            4: 61167
+            4: 61439
           3,9:
             4: 3310
           -1,8:
@@ -3122,6 +3130,18 @@ entities:
           -1,9:
             4: 614
           4,8:
+            4: 8
+          -8,6:
+            4: 61440
+          -6,6:
+            4: 15
+          -5,-10:
+            4: 20480
+          4,-10:
+            4: 4352
+          -11,6:
+            4: 15
+          -9,7:
             4: 8
         uniqueMixes:
         - volume: 2500
@@ -4606,9 +4626,9 @@ entities:
     - pos: -41.5,-13.5
       parent: 2
       type: Transform
-- proto: AirlockChemistryLocked
+- proto: AirlockChemistryGlassLocked
   entities:
-  - uid: 4035
+  - uid: 381
     components:
     - pos: 23.5,-16.5
       parent: 2
@@ -5820,16 +5840,6 @@ entities:
     - pos: -49.5,2.5
       parent: 2
       type: Transform
-  - uid: 9061
-    components:
-    - pos: -16.5,9.5
-      parent: 2
-      type: Transform
-  - uid: 9062
-    components:
-    - pos: -17.5,4.5
-      parent: 2
-      type: Transform
   - uid: 9064
     components:
     - pos: -45.5,17.5
@@ -5838,6 +5848,18 @@ entities:
   - uid: 9065
     components:
     - pos: -40.5,17.5
+      parent: 2
+      type: Transform
+- proto: AirlockMaintSecurityLawyerLocked
+  entities:
+  - uid: 662
+    components:
+    - pos: -16.5,9.5
+      parent: 2
+      type: Transform
+  - uid: 665
+    components:
+    - pos: -17.5,4.5
       parent: 2
       type: Transform
 - proto: AirlockMaintServiceLocked
@@ -6006,6 +6028,13 @@ entities:
   - uid: 2471
     components:
     - pos: 26.5,-31.5
+      parent: 2
+      type: Transform
+- proto: AirlockMusicianLocked
+  entities:
+  - uid: 666
+    components:
+    - pos: 3.5,-26.5
       parent: 2
       type: Transform
 - proto: AirlockParamedicGlassLocked
@@ -6404,11 +6433,6 @@ entities:
       type: Transform
 - proto: AirlockTheatreLocked
   entities:
-  - uid: 3979
-    components:
-    - pos: 3.5,-26.5
-      parent: 2
-      type: Transform
   - uid: 3980
     components:
     - pos: -0.5,-27.5
@@ -7890,6 +7914,13 @@ entities:
   - uid: 2793
     components:
     - pos: -41.325523,14.524066
+      parent: 2
+      type: Transform
+- proto: BoxMouthSwab
+  entities:
+  - uid: 3979
+    components:
+    - pos: 15.109555,-20.140219
       parent: 2
       type: Transform
 - proto: BoxSyringe
@@ -25028,6 +25059,13 @@ entities:
     - pos: -30.5,-20.5
       parent: 2
       type: Transform
+- proto: CleanerDispenser
+  entities:
+  - uid: 9062
+    components:
+    - pos: -13.5,-3.5
+      parent: 2
+      type: Transform
 - proto: CloningPod
   entities:
   - uid: 2465
@@ -25173,6 +25211,11 @@ entities:
   - uid: 2904
     components:
     - pos: -13.5,-1.5
+      parent: 2
+      type: Transform
+  - uid: 4035
+    components:
+    - pos: 14.5,-9.5
       parent: 2
       type: Transform
 - proto: ClosetMaintenanceFilledRandom
@@ -26746,7 +26789,12 @@ entities:
   entities:
   - uid: 4153
     components:
-    - pos: 15.128561,-20.292566
+    - pos: -12.044842,-12.30005
+      parent: 2
+      type: Transform
+  - uid: 11102
+    components:
+    - pos: -11.992759,-12.48768
       parent: 2
       type: Transform
 - proto: DisposalBend
@@ -31485,6 +31533,13 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 29.5,-31.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
+  - uid: 9061
+    components:
+    - pos: 14.5,-9.5
       parent: 2
       type: Transform
     - fixtures: {}
@@ -50594,6 +50649,13 @@ entities:
     - pos: 37.25989,-20.5
       parent: 2
       type: Transform
+- proto: LockerClown
+  entities:
+  - uid: 4201
+    components:
+    - pos: -1.5,-28.5
+      parent: 2
+      type: Transform
 - proto: LockerDetectiveFilled
   entities:
   - uid: 490
@@ -50688,6 +50750,13 @@ entities:
   - uid: 2205
     components:
     - pos: 37.5,-8.5
+      parent: 2
+      type: Transform
+- proto: LockerMime
+  entities:
+  - uid: 11101
+    components:
+    - pos: -3.5,-26.5
       parent: 2
       type: Transform
 - proto: LockerParamedicFilled
@@ -51328,11 +51397,6 @@ entities:
       type: Transform
 - proto: MopItem
   entities:
-  - uid: 662
-    components:
-    - pos: 14.668055,-9.521283
-      parent: 2
-      type: Transform
   - uid: 10064
     components:
     - pos: -38.551044,18.852169
@@ -53840,11 +53904,6 @@ entities:
   - uid: 290
     components:
     - pos: -29.5,7.5
-      parent: 2
-      type: Transform
-  - uid: 381
-    components:
-    - pos: 14.5,-9.5
       parent: 2
       type: Transform
   - uid: 609
@@ -58385,11 +58444,6 @@ entities:
     - pos: 12.5,-17.5
       parent: 2
       type: Transform
-  - uid: 9966
-    components:
-    - pos: 14.5,-19.5
-      parent: 2
-      type: Transform
   - uid: 9967
     components:
     - pos: 16.5,-17.5
@@ -61752,17 +61806,17 @@ entities:
       type: Transform
   - uid: 4200
     components:
-    - pos: -1.5,-28.5
-      parent: 2
-      type: Transform
-  - uid: 4201
-    components:
-    - pos: -3.5,-26.5
+    - pos: -3.5,-27.5
       parent: 2
       type: Transform
   - uid: 8971
     components:
     - pos: -29.5,-14.5
+      parent: 2
+      type: Transform
+  - uid: 9966
+    components:
+    - pos: -2.5,-28.5
       parent: 2
       type: Transform
   - uid: 10871
@@ -69627,19 +69681,14 @@ entities:
       type: Transform
 - proto: WetFloorSign
   entities:
-  - uid: 665
-    components:
-    - pos: 14.43368,-9.239837
-      parent: 2
-      type: Transform
-  - uid: 666
-    components:
-    - pos: 14.65243,-9.208566
-      parent: 2
-      type: Transform
   - uid: 10066
     components:
     - pos: -38.207294,18.445639
+      parent: 2
+      type: Transform
+  - uid: 11103
+    components:
+    - pos: 12.80534,-8.106109
       parent: 2
       type: Transform
 - proto: WindoorCargoLocked
