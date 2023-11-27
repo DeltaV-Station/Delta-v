@@ -165,6 +165,9 @@
     node: bot
   - type: Storage
     capacity: 250
+  - type: Access
+    groups:
+    - Cargo
   - type: UserInterface
     interfaces:
     - key: enum.StorageUiKey.Key
