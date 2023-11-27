@@ -89,6 +89,11 @@ public enum LogType
     ItemConfigure = 84,
     DeviceLinking = 85,
     Tile = 86,
+    /// <summary>
+    /// A client has sent too many chat messages recently and is temporarily blocked from sending more.
+    /// </summary>
+    ChatRateLimited = 87,
+
     BagOfHolding = 420, //Nyano - Summary: adds bag of holding. 
     Psionics = 421, //Nyano - Summary: ads psionic as a log type.
 }
