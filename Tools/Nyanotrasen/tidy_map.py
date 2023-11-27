@@ -44,6 +44,7 @@ REMOVE_COMPONENT_DATA = {
     "SuitSensor": ["nextUpdate"],
     "Thruster": ["nextFire"],
     "VendingMachine": ["nextEmpEject"],
+    "TransformableContainer": ["footstepSound"],
 }
 
 # Remove only these fields from the components.
