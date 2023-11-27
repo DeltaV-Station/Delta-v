@@ -19,6 +19,9 @@
   - type: Hunger
   - type: Thirst
   - type: IdExaminable
+  - type: Inventory
+    speciesId: lamia
+    templateId: lamia
   - type: HealthExaminable
     examinableTypes:
     - Blunt
@@ -30,6 +33,15 @@
   - type: Blindable
   - type: Clickable
   - type: InteractionOutline
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-lamia
+    interactFailureString: petting-failure-lamia
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Mobs/Animals/purr.ogg #placeholder sound
+    interactFailureSound:
+      path: /Audio/Mobs/Animals/hiss.ogg #placeholder sound
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
     state: full
@@ -174,9 +186,13 @@
   - type: SolutionContainerManager
     solutions:
       melee:
-        reagents:
-        - ReagentId: SpaceDrugs #The poison is not final
-          Quantity: 60
+        maxVol: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 1
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 3 #amount to inject is not final
@@ -211,6 +227,9 @@
   - type: StandingState
   - type: Fingerprint
   - type: Perishable
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepLamia
 
 - type: entity
   save: false
