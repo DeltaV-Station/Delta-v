@@ -370,7 +370,7 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: Moth
-    speechSounds: Squeak
+    speechSounds: Chitter # Delta-V - Eep!
   - type: Sprite
     sprite: Mobs/Animals/mothroach.rsi
     layers:
@@ -417,8 +417,11 @@
   - type: CombatMode
   - type: Butcherable
     spawned:
-    - id: FoodMeatSlime
+    - id: FoodMeatRat
       amount: 2
+    - id: HideMothroach # Gotta make the plushies
+      amount: 1
+      prob: 0.5
   - type: Extractable
     grindableSolutionName: food
   - type: ReplacementAccent
@@ -435,6 +438,7 @@
     tags:
     - Trash
     - CannotSuicide
+    - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
