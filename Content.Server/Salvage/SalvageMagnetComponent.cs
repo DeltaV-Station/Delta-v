@@ -102,7 +102,7 @@ namespace Content.Server.Salvage
         /// generated rather than a static salvage prototype.
         /// </summary>
         [DataField("asteroidChance"), ViewVariables(VVAccess.ReadWrite)]
-        public float AsteroidChance = 0.6f;
+        public float AsteroidChance = 0.35f; /// Delta V: reduce the amount of asteroids
 
         /// <summary>
         /// A weighted random prototype corresponding to
