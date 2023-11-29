@@ -172,7 +172,8 @@ namespace Content.Server.Body.Systems
                     // still remove reagents
                     if (EntityManager.TryGetComponent<MobStateComponent>(solutionEntityUid.Value, out var state))
                     {
-                        if (_mobStateSystem.IsDead(solutionEntityUid.Value, state))
+                        // Delta-V: Add WorksOnTheDead check.
+                        if (_mobStateSystem.IsDead(solutionEntityUid.Value, state) && !proto.WorksOnTheDead)
                             continue;
                     }
 
