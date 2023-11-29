@@ -6,3 +6,9 @@ ent-CrateArmoryUniversal = Universal crate
 
 ent-CrateArmoryAdjutant = Adjutant crate
     .desc = Contains two Adjutant shotguns with 3 ammo boxes. Requires Armory access to open.
+
+ent-CrateArmoryEnergyGun = Energy Gun Crate
+    .desc = Contains three Energy Guns. Requires Armory access to open.
+
+ent-CrateArmoryEnergyGunMini = Miniature Energy Gun Crate
+    .desc = Contains three Miniature Energy Guns. Requires Armory access to open.
