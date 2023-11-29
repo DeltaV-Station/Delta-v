@@ -162,7 +162,17 @@ namespace Content.Server.Speech.EntitySystems
             AddReplacementSet(SpecialWords, "me", "mes");
             AddReplacementSet(SpecialWords, "person", "persoon");
             AddReplacementSet(SpecialWords, "up", "ups");
-            AddReplacementSet(SpecialWords, "cool", "kewl");
+            AddReplacementSet(SpecialWords, "cool", "kew");
+            AddReplacementSet(SpecialWords, "don't", "doesna");
+            AddReplacementSet(SpecialWords, "can't", "canna");
+            AddReplacementSet(SpecialWords, "won't", "wiwna");
+            AddReplacementSet(SpecialWords, "wouldn't", "wudna");
+            AddReplacementSet(SpecialWords, "doesn't", "doesna");
+            AddReplacementSet(SpecialWords, "didn't", "didna");
+            AddReplacementSet(SpecialWords, "shouldn't", "shudna");
+            AddReplacementSet(SpecialWords, "wasn't", "wasna");
+            AddReplacementSet(SpecialWords, "hey", "owaa");
+            AddReplacementSet(SpecialWords, "get", "gets");
 
             //special case that is more likely to have a different capitalisation not already included in the above list
             //These entries are added to the dictionary as-is, for special capitalization cases only.
