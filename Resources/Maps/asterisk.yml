@@ -5789,6 +5789,13 @@ entities:
     - pos: 17.5,-23.5
       parent: 2
       type: Transform
+- proto: AirlockMaintReporterLocked
+  entities:
+  - uid: 9151
+    components:
+    - pos: -14.5,-18.5
+      parent: 2
+      type: Transform
 - proto: AirlockMaintRnDLocked
   entities:
   - uid: 9036
@@ -5867,11 +5874,6 @@ entities:
   - uid: 9094
     components:
     - pos: 11.5,-11.5
-      parent: 2
-      type: Transform
-  - uid: 9151
-    components:
-    - pos: -14.5,-18.5
       parent: 2
       type: Transform
 - proto: AirlockMaintTheatreLocked
@@ -6078,6 +6080,13 @@ entities:
   - uid: 3112
     components:
     - pos: 8.5,18.5
+      parent: 2
+      type: Transform
+- proto: AirlockReporterLocked
+  entities:
+  - uid: 9152
+    components:
+    - pos: -9.5,-18.5
       parent: 2
       type: Transform
 - proto: AirlockResearchDirectorLocked
@@ -6421,14 +6430,6 @@ entities:
   - uid: 9093
     components:
     - pos: 13.5,-7.5
-      parent: 2
-      type: Transform
-- proto: AirlockServiceLocked
-  entities:
-  - uid: 9152
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -9.5,-18.5
       parent: 2
       type: Transform
 - proto: AirlockTheatreLocked
