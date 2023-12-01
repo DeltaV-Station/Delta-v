@@ -1,0 +1,166 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatJackoLanternMask
+  name: jack-o'-lantern mask
+  description: A jack o' lantern mask! Its eyes glow with a trickster aura...
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/jackolantern_mask.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/jackolantern_mask.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: PointLight
+    radius: 1.2
+    energy: 3.8
+    color: "#EBAB34"
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodGigaPompodour
+  name: giga pompodour
+  description: The kind of wig that gives you immense confidence to overshadow your lack of hair.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/gigapompodour.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/gigapompodour.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodBlondeGigaPompodour
+  name: blonde giga pompodour
+  description: The kind of wig that makes you want to say, "Hey there pretty mama, what's shakin'?".
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/gigapompodour.rsi
+    state: blonde-icon
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/gigapompodour.rsi
+    equippedPrefix: blonde
+  - type: Item
+    sprite: DeltaV/Clothing/Head/Misc/gigapompodour.rsi
+    heldPrefix: blonde
+  - type: Tag
+    tags:
+    - HidesHair
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodGorillaMask
+  name: gorilla mask
+  description: A mask of a gorilla, perfect to wear while eating bananas.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/gorillamask.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/gorillamask.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodCowMask
+  name: cow mask
+  description: Putting this on gives you the urge to eat some grass.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/cowmask.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/cowmask.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodPigMask
+  name: pig mask
+  description: The pig goes, "Oinkyay Oinkyay". Wait, what?
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/pigmask.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/pigmask.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodXenoHelm
+  name: xeno head-piece
+  description: A head-piece that resembles a Xeno.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/xeno_helm.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/xeno_helm.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodLobsterHelm
+  name: lobster head-piece
+  description: A head-piece that resembles a lobster. It reminds you of another lobster named Larry.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/lobster_helm.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/lobster_helm.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodNemesHeaddress
+  name: nemes headdress
+  description: Walk like an Egyptian.~ ♫
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/nemes_headdress.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/nemes_headdress.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodSkeletonmask
+  name: skeleton mask
+  description: It's a beautiful day outside.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/skeletonmask.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/skeletonmask.rsi
+  - type: IdentityBlocker
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodMonitorHelm
+  name: IPC monitor
+  description: An old IPC unit's monitor. You could fit your head in there.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/monitorhelm.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/monitorhelm.rsi
+  - type: Tag
+    tags:
+    - HidesHair

@@ -57,8 +57,8 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - FoodSnack # DeltaV - Summary: Added this for Candy Bowl
 #Tastes like vanilla and clouds.
-
 - type: entity
   name: mothmallow slice
   parent: FoodBakedBase
@@ -82,11 +82,12 @@
           Quantity: 4
         - ReagentId: Sugar
           Quantity: 2
+#Tastes like vanilla and clouds.
   - type: Tag
     tags:
       - ClothMade # Mothic Food
-#Tastes like vanilla and clouds.
-
+      - FoodSnack # DeltaV - Summary: Added this for Candy Bowl
+      
 - type: entity
   name: moffin
   parent: FoodBakedBase
@@ -125,4 +126,5 @@
   - type: Tag
     tags:
       - ClothMade # Mothic Food
+      - FoodSnack # DeltaV - Summary: Added this for Candy Bowl
 #Tastes like muffin, dust and lint

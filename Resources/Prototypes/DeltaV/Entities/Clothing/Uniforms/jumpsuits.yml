@@ -232,3 +232,91 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBloodyClothes
+  name: blood-soaked clothes
+  description: It's soaked in blood, presumably of Space-Camp goers...
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/bloody_clothes.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/bloody_clothes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRetroBloodyClothes
+  name: retro blood-soaked clothes
+  description: A more retro take on a famous murderer's garb. It smells like lake water and blood.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/retro_bloody_clothes.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/retro_bloody_clothes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitOldBandages
+  name: old bandages
+  description: A bunch of wrapped bandages. Very old and very used.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/old_bandages.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/old_bandages.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitScarecrowClothes
+  name: scarecrow clothes
+  description: Some clothes made from dirty ripped-rags and straw. If you only have brains on your head you would be as good a man as any of them, and a better man than some of them...
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/scarecrow_clothes.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/scarecrow_clothes.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitKilt
+  name: kilt
+  description: A fine bit o' garb for the lad an' lasses o' clan MacGroot.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSkeletonCostume
+  name: skeleton costume
+  description: Once we're dead, the only thing that's left is bones, hee hee hee!.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/skeletoncostume.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/skeletoncostume.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPizzaDelivery
+  name: pizza delivery uniform
+  description: Delivering Arnold's Pizza's since 300X!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pizzadelivery.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pizzadelivery.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilgrim
+  name: pilgrim clothes
+  description: A band t-shirt of "Smashing Squashes" and ripped jeans with a wallet-chain.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pilgrim.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pilgrim.rsi
