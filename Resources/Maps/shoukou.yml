@@ -5032,6 +5032,13 @@ entities:
     - pos: 12.5,-41.5
       parent: 34
       type: Transform
+- proto: AirlockMaintReporterLocked
+  entities:
+  - uid: 6235
+    components:
+    - pos: 15.5,-39.5
+      parent: 34
+      type: Transform
 - proto: AirlockMaintRnDLocked
   entities:
   - uid: 258
@@ -5071,13 +5078,6 @@ entities:
   - uid: 160
     components:
     - pos: 33.5,-0.5
-      parent: 34
-      type: Transform
-- proto: AirlockMaintServiceLocked
-  entities:
-  - uid: 10775
-    components:
-    - pos: 15.5,-39.5
       parent: 34
       type: Transform
 - proto: AirlockMaintTheatreLocked
@@ -5157,6 +5157,13 @@ entities:
   - uid: 12387
     components:
     - pos: -14.5,-37.5
+      parent: 34
+      type: Transform
+- proto: AirlockReporterLocked
+  entities:
+  - uid: 4003
+    components:
+    - pos: 19.5,-36.5
       parent: 34
       type: Transform
 - proto: AirlockResearchDirectorLocked
@@ -5441,13 +5448,6 @@ entities:
     - name: service storage
       type: MetaData
     - pos: -17.5,1.5
-      parent: 34
-      type: Transform
-- proto: AirlockServiceLocked
-  entities:
-  - uid: 4003
-    components:
-    - pos: 19.5,-36.5
       parent: 34
       type: Transform
 - proto: AirlockTheatreLocked
@@ -56364,14 +56364,14 @@ entities:
       type: Transform
 - proto: LockerParamedicFilled
   entities:
-  - uid: 6235
-    components:
-    - pos: 13.5,-38.5
-      parent: 34
-      type: Transform
   - uid: 10750
     components:
     - pos: 12.5,-38.5
+      parent: 34
+      type: Transform
+  - uid: 10775
+    components:
+    - pos: 13.5,-38.5
       parent: 34
       type: Transform
 - proto: LockerQuarterMasterFilled
