@@ -85,11 +85,11 @@
     Telecrystal: 16 # DeltaV - Originally 20 but no one bought it due to it's high cost.
   categories:
   - UplinkWeapons
-# conditions:      # DeltaV - Desword is a bit nerfed here
-#   - !type:StoreWhitelistCondition
-#     blacklist:
-#       tags:
-#         - NukeOpsUplink
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
 
 - type: listing
   id: UplinkDisposableTurret
