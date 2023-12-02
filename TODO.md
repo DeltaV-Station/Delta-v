@@ -9,3 +9,5 @@
 - [ ] Move Shiva localization into /DeltaV/
 
 - [ ] https://github.com/space-wizards/space-station-14/commit/eb0c86f803648c0ad8387f7255e15c402dc41653 - Does this have to do with storage refactor is it actually generic?
+
+- [ ] a698a85f3489b32df81ce5f6c62a2ad86465fea4 - Funny shuttle shit
