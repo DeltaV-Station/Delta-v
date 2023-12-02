@@ -69,6 +69,8 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> AmbienceVolume =
             CVarDef.Create("ambience.volume", 0.0f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
+        public const float MasterMultiplier = 2f;
+
         // Midi is on engine so deal
         public const float MidiMultiplier = 3f;
 
@@ -324,12 +326,6 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<int> GameAlertLevelChangeDelay =
             CVarDef.Create("game.alert_level_change_delay", 30, CVar.SERVERONLY);
-
-        /// <summary>
-        /// How many times per second artifacts when the round is over.
-        /// If set to 0, they won't activate (on a timer) when the round ends.
-        /// </summary>
-        public static readonly CVarDef<float> ArtifactRoundEndTimer = CVarDef.Create("game.artifact_round_end_timer", 0f, CVar.NOTIFY | CVar.REPLICATED);
 
         /// <summary>
         /// The time in seconds that the server should wait before restarting the round.
@@ -973,7 +969,7 @@ namespace Content.Shared.CCVar
         ///     Needs <see cref="MonstermosEqualization"/> and <see cref="MonstermosDepressurization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
