@@ -9222,6 +9222,13 @@ entities:
     - pos: 5.5,7.5
       parent: 2
       type: Transform
+- proto: AirlockMaintReporterLocked
+  entities:
+  - uid: 425
+    components:
+    - pos: -15.5,21.5
+      parent: 2
+      type: Transform
 - proto: AirlockMaintRnDLocked
   entities:
   - uid: 356
@@ -9434,6 +9441,13 @@ entities:
   - uid: 389
     components:
     - pos: 5.5,-14.5
+      parent: 2
+      type: Transform
+- proto: AirlockReporterLocked
+  entities:
+  - uid: 424
+    components:
+    - pos: -14.5,24.5
       parent: 2
       type: Transform
 - proto: AirlockResearchDirectorLocked
@@ -9713,20 +9727,8 @@ entities:
     - pos: 23.5,-12.5
       parent: 2
       type: Transform
-  - uid: 424
-    components:
-    - pos: -14.5,24.5
-      parent: 2
-      type: Transform
 - proto: AirlockServiceLocked
   entities:
-  - uid: 425
-    components:
-    - name: maintenance hatch
-      type: MetaData
-    - pos: -15.5,21.5
-      parent: 2
-      type: Transform
   - uid: 426
     components:
     - rot: 1.5707963267948966 rad
@@ -79105,7 +79107,7 @@ entities:
     - pos: -38.5,11.5
       parent: 2
       type: Transform
-- proto: LockerParamedicFilled
+- proto: LockerParamedicFilledHardsuit
   entities:
   - uid: 11809
     components:
