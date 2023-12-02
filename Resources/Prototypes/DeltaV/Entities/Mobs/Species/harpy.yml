@@ -76,7 +76,10 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-
+      - map: [ "singingLayer" ]
+        sprite: DeltaV/Effects/harpysinger.rsi
+        state: singing_music_notes
+        visible: false
   - type: HumanoidAppearance
     species: Harpy
   - type: Fixtures
@@ -84,8 +87,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.28
-        density: 140
+          radius: 0.32
+        density: 90
         restitution: 0.0
         mask:
         - MobMask
@@ -97,12 +100,11 @@
     damageModifierSet: Harpy
   - type: MeleeWeapon
     soundHit:
-      collection: Punch
+      collection: AlienClaw
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 1
-        Slash: 5
+        Piercing: 5
   - type: Speech
     speechSounds: Alto
   - type: Vocal
@@ -110,7 +112,16 @@
       Male: SoundsHarpy
       Female: SoundsHarpy
       Unsexed: SoundsHarpy
-
+  - type: GenericVisualizer
+    visuals:
+      enum.HarpyVisualLayers.Singing:
+        singingLayer:
+          False:  {visible: false}
+          True:  {visible: true}
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.0
+    
 - type: entity
   save: false
   name: Urist McHands
