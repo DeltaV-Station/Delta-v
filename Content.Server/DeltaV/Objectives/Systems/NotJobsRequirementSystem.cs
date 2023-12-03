@@ -25,7 +25,7 @@ public sealed class NotJobsRequirementSystem : EntitySystem
         if (!TryComp<JobComponent>(args.MindId, out var job))
             return;
         foreach (string forbidJob in comp.Jobs)
-            if (job.PrototypeId == forbidJob)
+            if (job.Prototype == forbidJob)
                 args.Cancelled = true;
     }
 }

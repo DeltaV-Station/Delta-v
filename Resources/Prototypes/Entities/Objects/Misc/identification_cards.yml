@@ -3,7 +3,7 @@
   id: IDCardStandard
   name: identification card
   description: A card necessary to access various areas aboard the station.
-  noSpawn: true
+  abstract: true
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -19,6 +19,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - WhitelistChameleon
 
 #IDs with layers
 
@@ -216,8 +217,10 @@
   components:
     - type: Sprite
       layers:
-        - state: default
+        - state: silver
         - state: idquartermaster
+    - type: Item
+      heldPrefix: silver
     - type: PresetIdCard
       job: Quartermaster
 
@@ -587,10 +590,18 @@
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ChameleonClothing
+    slot: [idcard]
+    default: PassengerIDCard
   - type: UserInterface
     interfaces:
       - key: enum.AgentIDCardUiKey.Key
         type: AgentIDCardBoundUserInterface
+      - key: enum.ChameleonUiKey.Key
+        type: ChameleonBoundUserInterface
 
 - type: entity
   name: passenger ID card
@@ -624,6 +635,19 @@
   - type: Sprite
     layers:
     - state: syndie
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+
+- type: entity
+  parent: IDCardStandard
+  id: PirateIDCard
+  name: pirate ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: pirate
   - type: Access
     tags:
     - NuclearOperative

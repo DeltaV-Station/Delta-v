@@ -7,8 +7,8 @@
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
   access:
+  - Service
   - Janitor
-  - Service # DeltaV - quite honestly the most noble service occupation
   - Maintenance
   special:
   - !type:GiveItemOnHolidaySpecial

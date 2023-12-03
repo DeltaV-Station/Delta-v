@@ -222,6 +222,7 @@
       - Beaker
       - LargeBeaker
       - CryostasisBeaker
+      - SyringeCryostasis
       - Dropper
       - Syringe
       - Implanter
@@ -251,11 +252,13 @@
       - VoiceTrigger
       - Igniter
       - PowerCellMedium
+      - PowerCellMicroreactor
       - PowerCellHigh
       - WeaponPistolCHIMP
       - SynthesizerInstrument
       - RPED
       - ClothingShoesBootsMag
+      - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
       - BluespaceBeaker
@@ -368,6 +371,7 @@
       - AnalysisComputerCircuitboard
       - ExosuitFabricatorMachineCircuitboard
       - AnomalyVesselCircuitboard
+      - AnomalySynchronizerCircuitboard
       - APECircuitboard
       - ArtifactAnalyzerMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
@@ -388,6 +392,7 @@
 #      - MetempsychoticMachineCircuitboard
       - DeepFryerMachineCircuitboard
     # End Nyano additions
+      - SalvageExpeditionsComputerCircuitboard # DeltaV
   - type: MaterialStorage
     whitelist:
       tags:
@@ -426,6 +431,9 @@
     - BorgModuleTool
     - BorgModuleAppraisal
     - BorgModuleConstruction
+    - BorgModuleService
+    - BorgModuleTreatment
+    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -464,8 +472,7 @@
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
-    - BorgModuleCleaning
-    - BorgModuleTrashCollection
+    - BorgModuleAdvancedCleaning
     - BorgModuleMining
     #- BorgModuleGrapplingGun
     - BorgModuleGasAnalyzer
@@ -476,10 +483,8 @@
     - BorgModuleGardening
     - BorgModuleHarvesting
     - BorgModuleMusique
-    - BorgModuleLiteracy
     - BorgModuleClowning
     - BorgModuleDiagnosis
-    - BorgModuleTreatment
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
@@ -619,6 +624,10 @@
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
       - ShockCollar # Nyanotrasen - Shock Collar
       - WeaponXrayCannon
+      - WeaponEnergyGun #DeltaV - Energy Gun
+      - WeaponEnergyGunMini #DeltaV - Energy Gun but miniature
+      - WeaponEnergyGunPistol #DeltaV - Energy Gun Mini but with the power of a normal energy gun
+      - WeaponGunLaserCarbineAutomatic #DeltaV - New Laser Projectiles with a 20 round carbine
   - type: MaterialStorage
     whitelist:
       tags:
@@ -733,6 +742,7 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - Jug
+      - SyringeCryostasis
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -942,9 +952,11 @@
     whitelist:
       tags:
       - Raw
+      - Wooden
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
     canEjectStoredMaterials: false
     staticRecipes:
     - MaterialSheetMeat
+    - SheetPaper

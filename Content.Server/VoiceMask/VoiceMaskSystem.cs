@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Shared.Database;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.VoiceMask;
 using Robust.Server.GameObjects;
@@ -35,7 +36,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         if (message.Name.Length > HumanoidCharacterProfile.MaxNameLength || message.Name.Length <= 0)
         {
-            _popupSystem.PopupCursor(Loc.GetString("voice-mask-popup-failure"), message.Session);
+            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Session, PopupType.SmallCaution);
             return;
         }
 
@@ -45,7 +46,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         else
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"Voice of {ToPrettyString(uid):mask} set: {component.VoiceName}");
 
-        _popupSystem.PopupCursor(Loc.GetString("voice-mask-popup-success"), message.Session);
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Session);
 
         TrySetLastKnownName(uid, message.Name);
 
@@ -68,7 +69,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void OpenUI(EntityUid player, ActorComponent? actor = null)
     {
-        if (!Resolve(player, ref actor))
+        // Delta-V: `logMissing: false` because of syrinx.
+        if (!Resolve(player, ref actor, logMissing: false))
             return;
         if (!_uiSystem.TryGetUi(player, VoiceMaskUIKey.Key, out var bui))
             return;
@@ -79,7 +81,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void UpdateUI(EntityUid owner, VoiceMaskComponent? component = null)
     {
-        if (!Resolve(owner, ref component))
+        // Delta-V: `logMissing: false` because of syrinx
+        if (!Resolve(owner, ref component, logMissing: false))
         {
             return;
         }

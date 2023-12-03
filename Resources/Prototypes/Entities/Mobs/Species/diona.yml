@@ -8,13 +8,13 @@
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
-    starvationDamage:
-      types:
-        Bloodloss: 0.5
+    # starvationDamage: # DeltaV - Disable starvation damage
+    #   types:
+    #     Bloodloss: 0.5
     baseDecayRate: 0.0083
   - type: Thirst
     baseDecayRate: 0.0083
-  - type: Carriable # Carrying system from nyanotrasen.  
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Diona/parts.rsi
     state: full

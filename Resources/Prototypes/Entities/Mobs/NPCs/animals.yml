@@ -131,6 +131,8 @@
         reagents:
         - ReagentId: GroundBee
           Quantity: 5
+  - type: ZombieImmune
+
 
 - type: entity
   name: bee
@@ -157,6 +159,7 @@
     - SimpleHostile
   - type: Bloodstream
     bloodMaxVolume: 0.1
+  - type: ZombieImmune
 
 
 - type: entity
@@ -245,6 +248,211 @@
     maximumEntitiesSpawned: 1
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
+
+- type: entity # TODO: figure out how to make these guys gib when stepped on
+  name: cockroach
+  parent: SimpleMobBase
+  id: MobCockroach
+  description: This station is just crawling with bugs.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: Mobs/Animals/cockroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cockroach
+  - type: Item
+    size: 2
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cockroach
+      Dead:
+        Base: cockroach_dead
+  - type: Food
+  - type: Hunger
+    baseDecayRate: 0.25
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Slime
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Cockroach
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodMaxVolume: 20
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 10
+      behaviors:
+      - !type:GibBehavior { }
+  - type: NonSpreaderZombie
+
+- type: entity
+  name: glockroach
+  parent: MobCockroach
+  suffix: Admeme
+  id: MobGlockroach
+  description: This station is just crawling with bu- OH GOD THAT COCKROACH HAS A GUN!!!
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: glockroach
+  - type: Gun
+    fireRate: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifle
+    capacity: 500
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: GlockroachCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+
+- type: entity
+  name: mothroach
+  parent: MobCockroach
+  id: MobMothroach
+  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    whitelistRequired: false
+    name: ghost-role-information-mothroach-name
+    description: ghost-role-information-mothroach-description
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Chitter # Delta-V - Eep!
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mothroach
+  - type: Item
+    size: 15
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical
+      45: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moth
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: CombatMode
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 2
+    - id: HideMothroach # Gotta make the plushies
+      amount: 1
+      prob: 0.5
+  - type: Extractable
+    grindableSolutionName: food
+  - type: ReplacementAccent
+    accent: mothroach
+  - type: Vocal
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
+    wilhelmProbability: 0.001
+  - type: MobPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
+    - VimPilot
+  - type: CanEscapeInventory
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  - type: Body
+    prototype: Mothroach
+  - type: TypingIndicator
+    proto: moth
 
 - type: entity
   name: mallard duck #Quack
@@ -538,12 +746,15 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+    bloodReagent: CopperBlood
   - type: Tag
     tags:
     - VimPilot
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: Body
+    prototype: AnimalHemocyanin
 
 - type: entity
   name: goat
@@ -570,6 +781,8 @@
         - MobLayer
   - type: Tag
     tags:
+    # let moths eat wool directly
+    - ClothMade
     - DoorBumpOpener
     - Goat
   - type: Reproductive
@@ -595,11 +808,19 @@
         reagents:
         - ReagentId: MilkGoat
           Quantity: 30
+      wool:
+        maxVol: 250
   - type: Udder
     reagentId: MilkGoat
     targetSolution: udder
     quantity: 25
     updateRate: 20
+  - type: Wooly
+  - type: Food
+    solution: wool
+    requiresSpecialDigestion: true
+    # Wooly prevents eating wool deleting the goat so its fine
+    requireDead: false
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -876,9 +1097,9 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "id" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "id" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "clownedon" ]
@@ -1070,6 +1291,7 @@
     needsHands: true
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat mice, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
   - type: BadFood
+  - type: NonSpreaderZombie
 
 - type: entity
   parent: MobMouse
@@ -1506,8 +1728,8 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "id" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "clownedon" ]
@@ -1645,6 +1867,8 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
+  - type: Body
+    prototype: AnimalHemocyanin
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -1682,9 +1906,13 @@
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodMaxVolume: 150
-    bloodReagent: SpiderBlood
+    bloodReagent: CopperBlood
   - type: Speech
     speechVerb: Arachnid
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
 
 - type: entity
   name: tarantula
@@ -1735,10 +1963,6 @@
         180: Dead
     - type: Spider
       webPrototype: SpiderWebClown
-    - type: Tag
-      tags:
-      - DoorBumpOpener
-      - FootstepSound
     - type: MeleeWeapon
       angle: 0
       animation: WeaponArcBite
@@ -2070,6 +2294,8 @@
     states:
       Alive:
         Base: puppy
+      Critical:
+        Base: puppy_dead
       Dead:
         Base: puppy_dead
   - type: Grammar
@@ -2128,6 +2354,10 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/cat_meow.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
   - type: Grammar
     attributes:
       gender: epicene
@@ -2201,6 +2431,39 @@
         Base: caracal_flop
       Dead:
         Base: caracal_dead
+
+- type: entity
+  name: kitten
+  parent: MobCat
+  id: MobCatKitten
+  description: Small and fluffy.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: kitten
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: kitten
+      Critical:
+        Base: kitten_dead
+      Dead:
+        Base: kitten_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: MobPrice
+    price: 100
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
 
 - type: entity
   name: sloth
@@ -2449,6 +2712,7 @@
     BaseResistTime: 3
   - type: MobPrice
     price: 60
+  - type: NonSpreaderZombie
 
 - type: entity
   name: pig
@@ -2521,3 +2785,4 @@
   - type: NpcFactionMember
     factions:
     - Passive
+
