@@ -95,7 +95,7 @@ public sealed partial class StorageSystem : SharedStorageSystem
             UpdateStorageVisualization(uid, storageComp);
 
             if (storageComp.StorageCloseSound is not null)
-                Audio.Play(storageComp.StorageCloseSound, Filter.Pvs(uid, entityManager: EntityManager), uid, true, storageComp.StorageCloseSound.Params);
+                Audio.PlayEntity(storageComp.StorageCloseSound, Filter.Pvs(uid, entityManager: EntityManager), uid, true, storageComp.StorageCloseSound.Params);
         }
     }
 

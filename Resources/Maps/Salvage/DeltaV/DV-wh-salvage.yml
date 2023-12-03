@@ -882,19 +882,6 @@ entities:
     - transformed: True
       currentReagent:
         metamorphicSprite: null
-        footstepSound: !type:SoundCollectionSpecifier
-          params:
-            variation: null
-            playoffset: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxdistance: 25
-            busname: Master
-            pitchscale: 1
-            volume: 0
-            attenuation: Default
-          collection: FootstepWater
         flavor: milk
         flavorMinimum: 0.1
         slippery: False
@@ -967,19 +954,6 @@ entities:
     - transformed: True
       currentReagent:
         metamorphicSprite: null
-        footstepSound: !type:SoundCollectionSpecifier
-          params:
-            variation: null
-            playoffset: 0
-            loop: False
-            referenceDistance: 1
-            rolloffFactor: 1
-            maxdistance: 25
-            busname: Master
-            pitchscale: 1
-            volume: 0
-            attenuation: Default
-          collection: FootstepWater
         flavor: orange
         flavorMinimum: 0.1
         slippery: True

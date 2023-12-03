@@ -7,6 +7,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.StationEvents.Events;
 
