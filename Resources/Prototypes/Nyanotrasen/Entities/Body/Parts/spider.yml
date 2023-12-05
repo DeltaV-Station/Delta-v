@@ -11,7 +11,7 @@
     containers:
       bodypart: !type:Container
         ents: []
-  - type: DynamicPrice
+  - type: StaticPrice
     price: 100
   - type: Tag
     tags:
@@ -25,32 +25,12 @@
         Quantity: 10
 
 - type: entity
-  id: ThoraxSpider
-  name: "spider thorax" #for arachne, actual spiders should get a cephalothorax that combines with head.
-  parent: PartSpider
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi # placeholder sprite
-    state: "torso_m"
-  - type: Icon
-    sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi
-    state: "torso_m"
-  - type: BodyPart #"Other" type
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: DemonsBlood
-        Quantity: 20
-
-- type: entity
   id: RightLegSpider
   name: "right spider leg"
   parent: PartSpider
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    sprite: Objects/Consumable/Food/meat.rsi
     state: spiderleg
   - type: Icon
     sprite: Objects/Consumable/Food/meat.rsi
@@ -68,7 +48,7 @@
   parent: PartSpider
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    sprite: Objects/Consumable/Food/meat.rsi
     state: spiderleg
   - type: Icon
     sprite: Objects/Consumable/Food/meat.rsi
