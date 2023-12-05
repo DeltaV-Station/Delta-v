@@ -1172,6 +1172,8 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: Body
+    prototype: Mouse
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1240,6 +1242,12 @@
         Base: splat-0
   - type: Food
   - type: Hunger
+    thresholds:
+      Overfed: 35
+      Okay: 25
+      Peckish: 15
+      Starving: 10
+      Dead: 0
     baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
   - type: Extractable
     grindableSolutionName: food
