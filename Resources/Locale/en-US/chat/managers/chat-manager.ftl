@@ -37,8 +37,8 @@ chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: {$message}
 chat-manager-send-ooc-wrap-message = OOC: {$playerName}: {$message}
 chat-manager-send-ooc-patron-wrap-message = OOC: [color={$patronColor}]{$playerName}[/color]: {$message}
 
-chat-manager-send-dead-chat-wrap-message = {$deadChannelName}: {$playerName}: {$message}
-chat-manager-send-admin-dead-chat-wrap-message = {$adminChannelName}: ({$userName}): {$message}
+chat-manager-send-dead-chat-wrap-message = {$deadChannelName}: [BubbleHeader]{$playerName}[/BubbleHeader]: [BubbleContent]{$message}[/BubbleContent]
+chat-manager-send-admin-dead-chat-wrap-message = {$adminChannelName}: ([BubbleHeader]{$userName}[/BubbleHeader]): [BubbleContent]{$message}[/BubbleContent]
 chat-manager-send-admin-chat-wrap-message = {$adminChannelName}: {$playerName}: {$message}
 chat-manager-send-admin-announcement-wrap-message = {$adminChannelName}: {$message}
 
