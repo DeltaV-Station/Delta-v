@@ -1356,8 +1356,8 @@
   name: tiles-planet-grass-floor
   sprite: /Textures/Tiles/grass.png
   baseTurf: FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  #canCrowbar: false # Come back
+  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrass
@@ -1369,8 +1369,8 @@
   name: tiles-jungle-grass-floor
   sprite: /Textures/Tiles/grassjungle.png
   baseTurf: FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  #canCrowbar: false # Come back
+  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassJungle
@@ -1388,10 +1388,11 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  #canCrowbar: false # Come back
+  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
+  itemDrop: FloorTileItemGrassDark # Delta V
   heatCapacity: 10000
   weather: true
 
@@ -1406,10 +1407,11 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  #canCrowbar: false # Come back
+  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
+  itemDrop: FloorTileItemGrassLight
   heatCapacity: 10000
   weather: true
 
@@ -1423,13 +1425,14 @@
   - 1.0
   - 1.0
   - 1.0
-  baseTurf: Plating
-  isSubfloor: true
-  canCrowbar: false
+  baseTurf: FloorBedrock # Delta V
+  #canCrowbar: false # Come back
+  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepAsteroid
+  itemDrop: FloorTileItemDirt # Delta V
   heatCapacity: 10000
-  weather: true
+  weather: True
 
 # Asteroid
 
