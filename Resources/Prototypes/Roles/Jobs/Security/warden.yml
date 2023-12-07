@@ -10,9 +10,9 @@
     - !type:DepartmentTimeRequirement # DeltaV - Security time requirement
       department: Security
       time: 36000 # 10 hours
-#    - !type:RoleTimeRequirement # DeltaV - Prisoner time requirement #uncomment these lines when the role doesn't spawn in arrivals
-#      role: JobPrisoner
-#      time: 3600 # 1 hour
+    - !type:RoleTimeRequirement # DeltaV - Prisoner time requirement
+      role: JobPrisoner
+      time: 3600 # 1 hour
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
