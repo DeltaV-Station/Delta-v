@@ -20,7 +20,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     {
         base.Started(uid, component, gameRule, args);
 
-        //if (!(_TraitorRuleSystem.TotalTraitor >= 0))
+        //if (!(_TraitorRuleSystem.TraitorMinds.Count >= 0))
         //{
         //    ForceEndSelf(uid, gameRule);
         //    return;

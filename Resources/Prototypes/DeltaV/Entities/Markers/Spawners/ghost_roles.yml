@@ -15,3 +15,28 @@
         - state: green
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
+
+- type: entity
+  id: SpawnPointSyndicateListener
+  name: ghost role spawn point
+  suffix: pirateradio
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-loneop-name
+    description: ghost-role-information-loneop-description
+    rules: ghost-role-information-loneop-rules
+    #requirements:
+    #- !type:OverallPlaytimeRequirement
+    #  time: 172800 # DeltaV - 48 hours
+    #- !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement (NOT SURE WHAT TO MAKE THESE)
+    #  department: Security
+    #  time: 36000 # DeltaV - 10 hours
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateListener
+  - type: Sprite
+    sprite: Markers/jobs.rsi #Not sure what needs to be changed here <-- and below
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation

@@ -27,6 +27,29 @@
   suffix: NukeOps
   components:
     - type: NukeOperative
+    
+- type: entity
+  name: Syndicate Listener
+  parent: MobHuman
+  id: MobHumanSyndicateListener
+  components:
+    - type: Loadout
+      prototypes: [SyndicateListenerGear]
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomMetadata
+      nameSegments:
+      - type: SyndicateNamesPrefix
+      - type: SyndicateNamesNormal
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+#    - type: AutoImplant
+#      implants:
+#      - DeathAcidifierImplant
+#    - PsionicBonusChance:
+#      multiplier: 5   # Not sure what to make this...
+      warn: false
 
 # Nuclear Operative
 - type: entity
