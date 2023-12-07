@@ -17,9 +17,10 @@
           state: full
 
 - type: entity
-  id: SpawnPointSyndicateListener
+  noSpawn: false
+  id: SpawnPointGhostSyndicateListener
   name: ghost role spawn point
-  suffix: pirateradio
+  suffix: syndicate listener
   parent: MarkerBase
   components:
   - type: GhostRole

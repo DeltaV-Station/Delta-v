@@ -29,21 +29,23 @@
     - type: NukeOperative
     
 - type: entity
-  name: Syndicate Listener
+  noSpawn: false
   parent: MobHuman
   id: MobHumanSyndicateListener
+  name: Syndicate Listener
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
     - type: RandomHumanoidAppearance
-      randomizeName: false
-    - type: RandomMetadata
+   #   randomizeName: false
+   # - type: RandomMetadata
       nameSegments:
       - type: SyndicateNamesPrefix
       - type: SyndicateNamesNormal
-    - type: NpcFactionMember
-      factions:
-      - Syndicate
+    #- type: NpcFactionMember
+    #  factions:
+    #  - Syndicate
+    - type: NukeOperative
 #    - type: AutoImplant
 #      implants:
 #      - DeathAcidifierImplant
