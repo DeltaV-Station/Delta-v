@@ -40,12 +40,14 @@
    #   randomizeName: false
    # - type: RandomMetadata
       nameSegments:
-      - type: SyndicateNamesPrefix
-      - type: SyndicateNamesNormal
+      - type: [SyndicateNamesPrefix]
+      - type: [SyndicateNamesNormal]
     - type: NpcFactionMember
       factions:
       - Syndicate
-    - type: NukeOperative
+    - type: AutoTraitor
+      giveUplink: false
+      giveObjectives: false
 #    - type: AutoImplant
 #      implants:
 #      - DeathAcidifierImplant
