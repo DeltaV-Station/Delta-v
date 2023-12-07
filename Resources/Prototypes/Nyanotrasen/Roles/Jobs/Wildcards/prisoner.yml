@@ -12,6 +12,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600
+    - !type:WhitelistRequirement
 
 - type: startingGear
   id: PrisonerGear
