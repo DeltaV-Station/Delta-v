@@ -421,4 +421,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return traitors;
     }
+//	public bool CheckPirateRadioSpawn()
+//    {
+//        return !EntityQuery<PirateRadioRuleComponent>().Any();
+//    }
 }

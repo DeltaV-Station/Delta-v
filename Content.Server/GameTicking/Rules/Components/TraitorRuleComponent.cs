@@ -1,12 +1,13 @@
 ﻿using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(TraitorRuleSystem))]
+[RegisterComponent, Access(typeof(TraitorRuleSystem), typeof(PirateRadioSpawnRule))]
 public sealed partial class TraitorRuleComponent : Component
 {
     public readonly List<EntityUid> TraitorMinds = new();
