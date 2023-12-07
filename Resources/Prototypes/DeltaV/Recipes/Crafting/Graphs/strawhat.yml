@@ -6,11 +6,26 @@
       edges:
         - to: strawhat
           steps:
-            - tag: Flower
-              name: name: flower
+            - tag: Wheat
+              name: Wheat Bushel
               icon:
-                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce
-          doAfter: 10
+            - tag: Wheat
+              name: Wheat Bushel
+              icon:
+                sprite: Objects/Specific/Hydroponics/wheat.rsi
+                state: produce
+            - tag: Wheat
+              name: Wheat Bushel
+              icon:
+                sprite: Objects/Specific/Hydroponics/wheat.rsi
+                state: produce
+            - tag: Wheat
+              name: Wheat Bushel
+              icon:
+                sprite: Objects/Specific/Hydroponics/wheat.rsi
+                state: produce
+              doAfter: 10
     - node: strawhat
       entity: ClothingHeadHatStrawHat
