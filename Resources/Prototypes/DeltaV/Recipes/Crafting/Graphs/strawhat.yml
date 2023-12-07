@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: StrawHat
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: strawhat
+          steps:
+            - tag: Flower
+              name: name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+          doAfter: 10
+    - node: strawhat
+      entity: ClothingHeadHatStrawHat
