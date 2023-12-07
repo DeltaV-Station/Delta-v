@@ -4,7 +4,7 @@
   description: job-description-prisoner
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
-#  alwaysUseSpawner: true
+  alwaysUseSpawner: true
   canBeAntag: false
 #  whitelistRequired: true
   icon: "JobIconPrisoner"
@@ -12,6 +12,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600
+    - !type:WhitelistRequirement
 
 - type: startingGear
   id: PrisonerGear
