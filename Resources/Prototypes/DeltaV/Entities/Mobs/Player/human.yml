@@ -15,6 +15,5 @@
 #    - type: AutoImplant # If Salvage begins causing trouble with loot; it's possible to "on-round-start" implant them.
 #      implants:
 #      - DeathAcidifierImplant
-#    - PsionicBonusChance:
-#      multiplier: 5
-      warn: false
+    - type: PsionicBonusChance #Giving them the same chance as a Nukie at being psychic
+      multiplier: 7
