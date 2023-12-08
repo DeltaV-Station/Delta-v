@@ -30,18 +30,18 @@
     
 - type: entity # Delta-V : Part of a mid-round Syndicate Shuttle spawn...
   noSpawn: false #Set to TRUE before PR, to follow prescedent with LoneOps etc.
-  parent: MobHuman
+  parent: MobHumanSyndicateAgent
   id: MobHumanSyndicateListener
   name: Syndicate Listener
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
     - type: RandomHumanoidAppearance
-   #   randomizeName: false
-   # - type: RandomMetadata
-      nameSegments:
-      - type: [SyndicateNamesPrefix]
-      - type: [SyndicateNamesNormal]
+      randomizeName: false
+    #- type: RandomMetadata
+      #nameSegments: - Would be nice to have these but I've chosen now to just inherit them from MobHumanSyndicateAgent
+      #- type: [SyndicateNamesPrefix]
+      #- type: [SyndicateNamesNormal]
     - type: NpcFactionMember
       factions:
       - Syndicate

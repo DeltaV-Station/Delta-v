@@ -17,7 +17,7 @@
           state: full
 
 - type: entity
-  noSpawn: false
+  noSpawn: false # Set to TRUE before PR to follow prescedent with LoneOps etc...
   id: SpawnPointGhostSyndicateListener
   name: ghost role spawn point
   suffix: syndicate listener
