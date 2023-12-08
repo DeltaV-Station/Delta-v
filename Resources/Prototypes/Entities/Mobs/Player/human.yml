@@ -28,31 +28,25 @@
   components:
     - type: NukeOperative
     
-- type: entity # Delta-V : Part of a mid-round Syndicate Shuttle spawn...
-  noSpawn: false #Set to TRUE before PR, to follow prescedent with LoneOps etc.
+- type: entity # Delta-V : Part of a mid-round PirateRadioSpawn
+  noSpawn: true
   parent: MobHumanSyndicateAgent
   id: MobHumanSyndicateListener
   name: Syndicate Listener
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
-    - type: RandomHumanoidAppearance
-      randomizeName: false
-    #- type: RandomMetadata
-      #nameSegments: - Would be nice to have these but I've chosen now to just inherit them from MobHumanSyndicateAgent
-      #- type: [SyndicateNamesPrefix]
-      #- type: [SyndicateNamesNormal]
     - type: NpcFactionMember
       factions:
       - Syndicate
     - type: AutoTraitor
       giveUplink: false
       giveObjectives: false
-#    - type: AutoImplant
+#    - type: AutoImplant # If Salvage begins causing trouble with loot; it's possible to "on-round-start" implant them.
 #      implants:
-#      - DeathAcidifierImplant  # Could be interesting...
+#      - DeathAcidifierImplant
 #    - PsionicBonusChance:
-#      multiplier: 5   # Not sure what to make this...
+#      multiplier: 5
       warn: false
 
 # Nuclear Operative

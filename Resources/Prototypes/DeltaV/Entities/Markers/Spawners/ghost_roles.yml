@@ -16,8 +16,8 @@
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
 
-- type: entity
-  noSpawn: false # Set to TRUE before PR to follow prescedent with LoneOps etc...
+- type: entity # Part of PirateRadioSpawn
+  noSpawn: true
   id: SpawnPointGhostSyndicateListener
   name: ghost role spawn point
   suffix: syndicate listener
@@ -27,16 +27,16 @@
     name: ghost-role-information-listeningop-name
     description: ghost-role-information-listeningop-description
     rules: ghost-role-information-listeningop-rules
-    #requirements:
+    #requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
     #- !type:OverallPlaytimeRequirement
-    #  time: 172800 
-    #- !type:DepartmentTimeRequirement #I would actually support making this higher to make sure someone of MRP nature takes this...
+    #  time: 200000 
+    #- !type:DepartmentTimeRequirement
     #  department: Security
-    #  time: 36000 
+    #  time: 40000 
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite
-    sprite: Markers/jobs.rsi #Not sure what needs to be changed, if anything, here <-- and below
+    sprite: Markers/jobs.rsi
     layers:
       - state: green
       - sprite: Structures/Wallmounts/signs.rsi
