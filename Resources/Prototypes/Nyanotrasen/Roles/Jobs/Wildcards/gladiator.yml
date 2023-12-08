@@ -13,6 +13,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600
+    - !type:WhitelistRequirement
   special:
   - !type:AddComponentSpecial
     components:
