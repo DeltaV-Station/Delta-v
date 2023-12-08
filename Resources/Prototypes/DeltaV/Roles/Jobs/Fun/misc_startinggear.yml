@@ -51,3 +51,20 @@
     id: ResearchIDCard
     pocket1: Pen
     pocket2: GlowstickBase
+
+#Syndicate Pirate Radio Listener
+- type: startingGear
+  id: SyndicateListenerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPyjamaSyndicateBlack
+    head: ClothingHeadPyjamaSyndicateBlack
+    #back: ClothingBackpackDuffelSyndicateOperative   # This comes pre-loaded with a gun & death acidifier. Not sure if we want to give this.
+    #mask: ClothingMaskGasSyndicate                   # Makes *sure* players pick up the Voice Mask. Makes use of their natural kleptomania..
+    #eyes: ClothingEyesHudSyndicate                   # Isn't drip. Doesn't work anyways.
+    ears: ClothingHeadsetAltSyndicateListening
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesSlippers
+    id: SyndiPDA
+  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink
+  #satchel: ClothingBackpackDuffelSyndicateOperative  
+  #duffelbag: ClothingBackpackDuffelSyndicateOperative

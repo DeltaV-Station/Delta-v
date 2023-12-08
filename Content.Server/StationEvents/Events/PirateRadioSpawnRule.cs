@@ -19,13 +19,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     protected override void Started(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-
-        //if (!(_TraitorRuleSystem.TraitorMinds.Count >= 0))
-        //{
-        //    ForceEndSelf(uid, gameRule);
-        //    return;
-        //}
-
+		
         var shuttleMap = _mapManager.CreateMap();
         var options = new MapLoadOptions
         {

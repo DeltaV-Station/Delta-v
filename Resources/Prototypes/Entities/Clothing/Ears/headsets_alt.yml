@@ -148,20 +148,6 @@
     sprite: Clothing/Ears/Headsets/syndicate.rsi
 
 - type: entity
-  parent: ClothingHeadsetAltSyndicate
-  id: ClothingHeadsetAltSyndicateListening
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
-  components:
-  - type: EncryptionKeyHolder
-    keyslots: 2
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeySyndie
-      - EncryptionKeyStationMaster
-
-- type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltFreelancer
   name: freelancer's over-ear headset

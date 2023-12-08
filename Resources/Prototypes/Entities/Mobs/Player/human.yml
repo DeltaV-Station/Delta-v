@@ -28,8 +28,8 @@
   components:
     - type: NukeOperative
     
-- type: entity
-  noSpawn: false
+- type: entity # Delta-V : Part of a mid-round Syndicate Shuttle spawn...
+  noSpawn: false #Set to TRUE before PR, to follow prescedent with LoneOps etc.
   parent: MobHuman
   id: MobHumanSyndicateListener
   name: Syndicate Listener
@@ -50,7 +50,7 @@
       giveObjectives: false
 #    - type: AutoImplant
 #      implants:
-#      - DeathAcidifierImplant
+#      - DeathAcidifierImplant  # Could be interesting...
 #    - PsionicBonusChance:
 #      multiplier: 5   # Not sure what to make this...
       warn: false
