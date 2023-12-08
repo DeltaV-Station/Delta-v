@@ -222,6 +222,7 @@
       - Beaker
       - LargeBeaker
       - CryostasisBeaker
+      - SyringeCryostasis
       - Dropper
       - Syringe
       - Implanter
@@ -283,6 +284,10 @@
       - WeaponLaserCannon
       - WeaponXrayCannon
       - WeaponTaser
+      - WeaponEnergyGun       # DeltaV - Energy Gun
+      - WeaponEnergyGunMini   # DeltaV - Miniature Energy Gun
+      - WeaponEnergyGunPistol # DeltaV - PDW-9 Energy Pistol
+      - WeaponGunLaserCarbineAutomatic # DeltaV - IK-60 Laser Carbine
 
 - type: entity
   id: CircuitImprinter
@@ -623,6 +628,10 @@
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
       - ShockCollar # Nyanotrasen - Shock Collar
       - WeaponXrayCannon
+      - WeaponEnergyGun #DeltaV - Energy Gun
+      - WeaponEnergyGunMini #DeltaV - Energy Gun but miniature
+      - WeaponEnergyGunPistol #DeltaV - Energy Gun Mini but with the power of a normal energy gun
+      - WeaponGunLaserCarbineAutomatic #DeltaV - New Laser Projectiles with a 20 round carbine
   - type: MaterialStorage
     whitelist:
       tags:
@@ -737,6 +746,7 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - Jug
+      - SyringeCryostasis
   - type: Machine
     board: MedicalTechFabCircuitboard
 

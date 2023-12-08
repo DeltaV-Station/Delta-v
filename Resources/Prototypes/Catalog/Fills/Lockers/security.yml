@@ -111,6 +111,7 @@
       - id: ClothingUniformJumpskirtBrigmedic
 ##      - id: ClothingUniformJumpskirtOfLife # DeltaV - nah
 ##        prob: 0.1
+      - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6
@@ -143,6 +144,7 @@
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
+      - id: HandheldGPSBasic # Added GPS because I just think it should be there tbh.
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6
