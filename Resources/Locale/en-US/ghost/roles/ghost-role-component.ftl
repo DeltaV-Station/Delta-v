@@ -183,10 +183,6 @@ ghost-role-information-loneop-name = Lone Operative
 ghost-role-information-loneop-description = You are a lone nuclear operative. Destroy the station!
 ghost-role-information-loneop-rules = You are a syndicate operative tasked with the destruction of the station. As an antagonist, do whatever is required to complete this task.
 
-ghost-role-information-listeningop-name = Listening Post Operative
-ghost-role-information-listeningop-description = You are a Listening Post operative. Get into range, observe the station, intercept communications and assist any operatives in the area!
-ghost-role-information-listeninop-rules = You are a syndicate operative tasked with the continous monitoring of the station and of assisting fellow operatives aboard the station. As an antagonist, do whatever is required to complete this task. Do NOT abandon your station, it is valuable company property!!
-
 ghost-role-information-behonker-name = Behonker
 ghost-role-information-behonker-description = You are an antagonist, bring death and honks to those who do not follow the honkmother.
 
