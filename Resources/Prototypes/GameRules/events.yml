@@ -374,19 +374,6 @@
     duration: 1
   - type: LoneOpsSpawnRule
 
-- type: entity # Delta-V : Midround Syndie Listening Station Spawn
-  id: PirateRadioSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 7.5 # Worth some thought as to how frequent this should be...
-    minimumPlayers: 25
-    reoccurrenceDelay: 180
-    duration: 1
-  - type: PirateRadioSpawnRule
-
 - type: entity
   id: MassHallucinations
   parent: BaseGameRule
