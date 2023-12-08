@@ -450,23 +450,7 @@
     - type: PsionicBonusChance #Nyano - Summary: makes more likely to be psionic. 
       multiplier: 7
       warn: false
-      
-- type: entity # Delta-V part of PirateRadioSpawn
-  id: RandomHumanoidSpawnerListener
-  name: Syndicate Listener
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Human/parts.rsi
-      state: full
-    - type: RandomHumanoidSpawner
-      settings: SyndicateListener
-      
-- type: randomHumanoidSettings
-  id: SyndicateListener
-  components:
-    - type: Loadout
-      prototypes: [SyndicateListenerGear]
-
+ 
 - type: entity
   id: RandomHumanoidSpawnerCluwne
   name: Cluwne
