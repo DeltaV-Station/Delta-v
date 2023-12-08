@@ -27,11 +27,6 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         };
 
         _map.TryLoad(shuttleMap, component.PirateRadioShuttlePath, out _, options);
-
-        var pirateradioEntity = _gameTicker.AddGameRule(component.GameRuleProto);
-        component.AdditionalRule = pirateradioEntity;
-        var pirateradioComp = EntityManager.GetComponent<TraitorRuleComponent>(pirateradioEntity);
-        _gameTicker.StartGameRule(pirateradioEntity);
     }
 
     protected override void Ended(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)

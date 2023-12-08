@@ -10,9 +10,6 @@ public sealed partial class PirateRadioSpawnRuleComponent : Component
     [DataField("PirateRadioShuttlePath")]
     public string PirateRadioShuttlePath = "Maps/Shuttles/pirateradio.yml";
 
-    [DataField("gameRuleProto", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string GameRuleProto = "pirateradio";
-
     [DataField("additionalRule")]
     public EntityUid? AdditionalRule;
 }
