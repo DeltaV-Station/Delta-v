@@ -1,0 +1,55 @@
+- type: constructionGraph
+  id: DiscoFloor
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: discoSquare
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+            - material: Glass
+              amount: 4
+              doAfter: 4
+            - tag: BorgHead
+        icon:
+          sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+          state: borg_head
+        name: borg head
+        doAfter: 1
+        - to: discoPart
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+            - material: Glass
+              amount: 4
+              doAfter: 4
+
+        doAfter: 1
+    - node: discoSquare
+      entity: DiscoFloor
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel5
+              amount: 5
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: discoPart
+      entity: DiscoFloor
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel5
+              amount: 5
+          steps:
+            - tool: Prying
+              doAfter: 5

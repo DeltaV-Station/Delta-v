@@ -1,0 +1,16 @@
+- type: construction
+  name: disco floor
+  id: DiscoFloor
+  graph: DiscoFloor
+  startNode: start
+  targetNode: discoSquare
+  category: construction-category-furniture
+  description: Construct multi-colored flooring to light up the dance floor.
+  icon:
+    sprite: DeltaV/Tiles/Misc/disco_tile.rsi
+    state: off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
