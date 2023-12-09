@@ -19,19 +19,6 @@
               amount: 4
               doAfter: 5
 
-        - to: discoPart
-          steps:
-            - material: Plasteel
-              amount: 5
-            - material: Glass
-              amount: 6
-            - material: Cable
-              amount: 5
-              doAfter: 8
-            - material: Gold
-              amount: 4
-              doAfter: 5
-
     - node: discoSquare
       entity: DiscoFloor
       edges:
@@ -40,18 +27,9 @@
             - !type:SpawnPrototype
               prototype: SheetSteel5
               amount: 5
-          steps:
-            - tool: Prying
-              doAfter: 5
-
-    - node: discoPart
-      entity: DiscoFloor
-      edges:
-        - to: start
-          completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel5
-              amount: 5
+              prototype: SheetGlass6
+              amount: 6
           steps:
-            - tool: Prying
+            - tool: Welding
               doAfter: 5
