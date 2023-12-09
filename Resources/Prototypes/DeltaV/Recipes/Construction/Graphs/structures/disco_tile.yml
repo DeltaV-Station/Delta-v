@@ -14,12 +14,7 @@
             - material: Glass
               amount: 4
               doAfter: 4
-            - tag: BorgHead
-        icon:
-          sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-          state: borg_head
-        name: borg head
-        doAfter: 1
+
         - to: discoPart
           steps:
             - material: Steel
