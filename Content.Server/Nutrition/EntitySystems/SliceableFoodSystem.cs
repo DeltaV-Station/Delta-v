@@ -123,7 +123,6 @@ namespace Content.Server.Nutrition.EntitySystems
             //So the last piece in question doesn't turn into its deep fried variant if needed to.
             //Fucking whacky idea, but WHAT IF, we call out to DeepFryerSystem.cs AGAIN?
             //BEGIN NYANO CODE.
-            var sliceEvent = new SliceFoodEvent(user, usedItem, uid, sliceUid);
             RaiseLocalEvent(uid, sliceEvent);
             //END NYANO CODE.
 
