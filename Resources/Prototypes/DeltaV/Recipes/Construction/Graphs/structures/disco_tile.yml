@@ -8,21 +8,29 @@
       edges:
         - to: discoSquare
           steps:
-            - material: Steel
-              amount: 2
-              doAfter: 2
+            - material: Plasteel
+              amount: 5
             - material: Glass
+              amount: 6
+            - material: Cable
+              amount: 5
+              doAfter: 8
+            - material: Gold
               amount: 4
-              doAfter: 4
+              doAfter: 5
 
         - to: discoPart
           steps:
-            - material: Steel
-              amount: 2
-              doAfter: 2
+            - material: Plasteel
+              amount: 5
             - material: Glass
+              amount: 6
+            - material: Cable
+              amount: 5
+              doAfter: 8
+            - material: Gold
               amount: 4
-              doAfter: 4
+              doAfter: 5
 
     - node: discoSquare
       entity: DiscoFloor
