@@ -92,7 +92,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
             var sliceEvent = new SliceFoodEvent(user, usedItem, uid, sliceUid);
             RaiseLocalEvent(uid, sliceEvent);
-            //Nyano - End Nyano Code.
+            //Nyano - End Nyano Code. 
 
             // If someone makes food proto with 1 slice...
             if (component.Count < 1)
@@ -120,11 +120,6 @@ namespace Content.Server.Nutrition.EntitySystems
                 _containerSystem.AttachParentToContainerOrGrid((sliceUid, xform));
                 xform.LocalRotation = 0;
             }
-            //So the last piece in question doesn't turn into its deep fried variant if needed to.
-            //Fucking whacky idea, but WHAT IF, we call out to DeepFryerSystem.cs AGAIN?
-            //BEGIN NYANO CODE.
-            RaiseLocalEvent(uid, sliceEvent);
-            //END NYANO CODE.
 
             DeleteFood(uid, user);
             return true;
@@ -169,7 +164,7 @@ namespace Content.Server.Nutrition.EntitySystems
             args.PushMarkup(Loc.GetString("sliceable-food-component-on-examine-remaining-slices-text", ("remainingCount", component.Count)));
         }
     }
-    //Nyano - Summary: Begin Nyano Code for the sliced food event.
+    //Nyano - Summary: Begin Nyano Code for the sliced food event. 
     public sealed class SliceFoodEvent : EntityEventArgs
     {
         /// <summary>
@@ -204,5 +199,5 @@ namespace Content.Server.Nutrition.EntitySystems
             Slice = slice;
         }
     }
-    //End Nyano Code.
+    //End Nyano Code. 
 }
