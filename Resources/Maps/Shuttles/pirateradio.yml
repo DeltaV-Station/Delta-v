@@ -232,46 +232,42 @@ entities:
       parent: 1
       type: Transform
     - ShutdownSubscribers:
-      - 662
-      - 645
-      - 644
-      - 655
-      - 656
-      - 646
-      - 657
-      - 648
-      - 649
+      - 612
+      - 614
+      - 615
+      - 611
+      - 589
+      - 591
+      - 588
+      - 587
+      - 586
+      - 613
       - 658
-      - 647
-      - 650
       - 659
-      - 651
       - 660
       - 661
-      - 652
-      - 653
       - 654
+      - 657
+      - 656
       type: DeviceNetwork
     - devices:
-      - 662
-      - 645
-      - 644
-      - 655
-      - 656
-      - 646
-      - 657
-      - 648
-      - 649
+      - 613
+      - 586
+      - 587
+      - 588
+      - 591
+      - 589
+      - 611
+      - 615
+      - 614
+      - 612
       - 658
-      - 647
-      - 650
       - 659
-      - 651
       - 660
       - 661
-      - 652
-      - 653
       - 654
+      - 657
+      - 656
       type: DeviceList
 - proto: AirCanister
   entities:
@@ -366,7 +362,7 @@ entities:
       pos: 2.5,-5.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -10287.723
+    - secondsUntilStateChange: -11489.6455
       state: Opening
       type: Door
 - proto: AlwaysPoweredLightColoredRed
@@ -3607,11 +3603,6 @@ entities:
       type: Transform
 - proto: GasPipeBend
   entities:
-  - uid: 577
-    components:
-    - pos: 2.5,4.5
-      parent: 1
-      type: Transform
   - uid: 578
     components:
     - rot: 3.141592653589793 rad
@@ -3623,76 +3614,65 @@ entities:
     - pos: -3.5,1.5
       parent: 1
       type: Transform
-  - uid: 580
+  - uid: 625
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 6.5,0.5
+    - pos: 6.5,2.5
       parent: 1
       type: Transform
-  - uid: 581
+  - uid: 626
     components:
     - rot: 1.5707963267948966 rad
-      pos: 5.5,0.5
+      pos: -1.5,-0.5
       parent: 1
       type: Transform
-  - uid: 582
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 7.5,3.5
-      parent: 1
-      type: Transform
-  - uid: 583
-    components:
-    - pos: 11.5,3.5
-      parent: 1
-      type: Transform
-  - uid: 584
-    components:
-    - pos: 9.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 585
+  - uid: 635
     components:
     - rot: 3.141592653589793 rad
-      pos: 9.5,-3.5
+      pos: 2.5,-6.5
       parent: 1
       type: Transform
-  - uid: 586
+  - uid: 636
     components:
     - rot: 3.141592653589793 rad
-      pos: 5.5,-3.5
+      pos: 6.5,-3.5
       parent: 1
       type: Transform
-  - uid: 587
+  - uid: 639
     components:
-    - pos: 1.5,-5.5
+    - pos: 10.5,-0.5
       parent: 1
       type: Transform
-  - uid: 588
+  - uid: 894
     components:
     - rot: 3.141592653589793 rad
-      pos: 0.5,-5.5
+      pos: 10.5,-3.5
       parent: 1
       type: Transform
 - proto: GasPipeFourway
   entities:
-  - uid: 589
+  - uid: 649
     components:
-    - pos: 5.5,-1.5
+    - pos: 2.5,-0.5
       parent: 1
       type: Transform
 - proto: GasPipeStraight
   entities:
+  - uid: 577
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 1.5,4.5
+      parent: 1
+      type: Transform
+  - uid: 585
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 0.5,3.5
+      parent: 1
+      type: Transform
   - uid: 590
     components:
     - rot: 1.5707963267948966 rad
       pos: -4.5,1.5
-      parent: 1
-      type: Transform
-  - uid: 591
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.5,3.5
       parent: 1
       type: Transform
   - uid: 592
@@ -3801,118 +3781,42 @@ entities:
       pos: 4.5,9.5
       parent: 1
       type: Transform
-  - uid: 611
-    components:
-    - pos: 5.5,-0.5
-      parent: 1
-      type: Transform
-  - uid: 612
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 9.5,3.5
-      parent: 1
-      type: Transform
-  - uid: 613
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 8.5,3.5
-      parent: 1
-      type: Transform
-  - uid: 614
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 7.5,2.5
-      parent: 1
-      type: Transform
-  - uid: 615
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 7.5,1.5
-      parent: 1
-      type: Transform
-  - uid: 616
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 7.5,0.5
-      parent: 1
-      type: Transform
-  - uid: 617
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 7.5,-0.5
-      parent: 1
-      type: Transform
-  - uid: 618
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 9.5,-2.5
-      parent: 1
-      type: Transform
-  - uid: 619
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 8.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 620
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 6.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 621
-    components:
-    - pos: 5.5,-2.5
-      parent: 1
-      type: Transform
   - uid: 622
     components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,-4.5
+    - rot: 1.5707963267948966 rad
+      pos: 7.5,-0.5
       parent: 1
       type: Transform
   - uid: 623
     components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,-2.5
+    - rot: 1.5707963267948966 rad
+      pos: 5.5,-0.5
       parent: 1
       type: Transform
   - uid: 624
     components:
     - rot: 1.5707963267948966 rad
-      pos: 1.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 625
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 2.5,-1.5
-      parent: 1
-      type: Transform
-  - uid: 626
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 4.5,-1.5
+      pos: 5.5,2.5
       parent: 1
       type: Transform
   - uid: 627
     components:
-    - pos: 0.5,-0.5
+    - pos: -1.5,-1.5
       parent: 1
       type: Transform
   - uid: 628
     components:
-    - pos: 0.5,1.5
+    - pos: 2.5,-5.5
       parent: 1
       type: Transform
   - uid: 629
     components:
-    - pos: 0.5,2.5
+    - pos: 2.5,-4.5
       parent: 1
       type: Transform
   - uid: 630
     components:
-    - pos: 0.5,3.5
+    - pos: 2.5,-3.5
       parent: 1
       type: Transform
   - uid: 631
@@ -3939,51 +3843,127 @@ entities:
       pos: -3.5,5.5
       parent: 1
       type: Transform
-  - uid: 635
-    components:
-    - pos: 11.5,2.5
-      parent: 1
-      type: Transform
-- proto: GasPipeTJunction
-  entities:
-  - uid: 636
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 1.5,4.5
-      parent: 1
-      type: Transform
   - uid: 637
     components:
-    - pos: 0.5,4.5
+    - rot: 3.141592653589793 rad
+      pos: 6.5,-2.5
       parent: 1
       type: Transform
   - uid: 638
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 0.5,0.5
-      parent: 1
-      type: Transform
-  - uid: 639
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 0.5,-1.5
+    - rot: 3.141592653589793 rad
+      pos: 6.5,-1.5
       parent: 1
       type: Transform
   - uid: 640
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 0.5,-3.5
+    - pos: 10.5,-1.5
       parent: 1
       type: Transform
   - uid: 641
     components:
-    - rot: 3.141592653589793 rad
-      pos: 7.5,-1.5
+    - pos: 10.5,-2.5
       parent: 1
       type: Transform
   - uid: 642
     components:
-    - pos: 3.5,-1.5
+    - rot: -1.5707963267948966 rad
+      pos: 9.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 644
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 4.5,2.5
+      parent: 1
+      type: Transform
+  - uid: 645
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+      type: Transform
+  - uid: 646
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 2.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 647
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 2.5,0.5
+      parent: 1
+      type: Transform
+  - uid: 650
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 1.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 651
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 0.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 652
+    components:
+    - pos: 2.5,-1.5
+      parent: 1
+      type: Transform
+  - uid: 653
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 3.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 708
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 4.5,-0.5
+      parent: 1
+      type: Transform
+- proto: GasPipeTJunction
+  entities:
+  - uid: 584
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 1.5,3.5
+      parent: 1
+      type: Transform
+  - uid: 616
+    components:
+    - pos: 2.5,3.5
+      parent: 1
+      type: Transform
+  - uid: 617
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 2.5,2.5
+      parent: 1
+      type: Transform
+  - uid: 618
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -0.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 619
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 2.5,-2.5
+      parent: 1
+      type: Transform
+  - uid: 620
+    components:
+    - pos: 6.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 621
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 8.5,-0.5
       parent: 1
       type: Transform
 - proto: GasPort
@@ -3995,37 +3975,89 @@ entities:
       type: Transform
 - proto: GasVentPump
   entities:
-  - uid: 644
+  - uid: 586
     components:
     - rot: 1.5707963267948966 rad
-      pos: -0.5,4.5
+      pos: -0.5,3.5
       parent: 1
       type: Transform
     - ShutdownSubscribers:
       - 2
       type: DeviceNetwork
-  - uid: 645
+  - uid: 587
+    components:
+    - pos: -0.5,0.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 588
     components:
     - rot: 3.141592653589793 rad
-      pos: 2.5,3.5
+      pos: -1.5,-2.5
       parent: 1
       type: Transform
     - ShutdownSubscribers:
       - 2
       type: DeviceNetwork
-  - uid: 646
+  - uid: 589
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -0.5,0.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 647
-    components:
-    - rot: 3.141592653589793 rad
+    - rot: -1.5707963267948966 rad
       pos: 3.5,-2.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 591
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 3.5,-6.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 611
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 7.5,-3.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 612
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 6.5,1.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 613
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 3.5,3.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 614
+    components:
+    - pos: 8.5,0.5
+      parent: 1
+      type: Transform
+    - ShutdownSubscribers:
+      - 2
+      type: DeviceNetwork
+  - uid: 615
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 11.5,-3.5
       parent: 1
       type: Transform
     - ShutdownSubscribers:
@@ -4037,54 +4069,6 @@ entities:
       pos: -0.5,-3.5
       parent: 1
       type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 649
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 1.5,-6.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 650
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 6.5,-3.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 651
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.5,-3.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 652
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 11.5,1.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
-  - uid: 653
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 6.5,1.5
-      parent: 1
-      type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
 - proto: GasVentScrubber
   entities:
   - uid: 654
@@ -4102,9 +4086,6 @@ entities:
       pos: -1.5,5.5
       parent: 1
       type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
   - uid: 656
     components:
     - rot: -1.5707963267948966 rad
@@ -4162,9 +4143,6 @@ entities:
       pos: 4.5,3.5
       parent: 1
       type: Transform
-    - ShutdownSubscribers:
-      - 2
-      type: DeviceNetwork
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 663
@@ -4752,11 +4730,6 @@ entities:
       parent: 1
       type: Transform
     - type: Timer
-  - uid: 708
-    components:
-    - pos: 0.5,-6.5
-      parent: 1
-      type: Transform
   - uid: 709
     components:
     - rot: 1.5707963267948966 rad
@@ -4769,6 +4742,32 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: -1.5,-2.5
+      parent: 1
+      type: Transform
+- proto: PoweredSmallLightMaintenanceRed
+  entities:
+  - uid: 580
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -1.5,-7.5
+      parent: 1
+      type: Transform
+  - uid: 581
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 2.5,-7.5
+      parent: 1
+      type: Transform
+  - uid: 582
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 4.5,-7.5
+      parent: 1
+      type: Transform
+  - uid: 583
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 0.5,-7.5
       parent: 1
       type: Transform
 - proto: Rack
@@ -6023,7 +6022,7 @@ entities:
     - pos: -1.5,-1.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -9049.939
+    - secondsUntilStateChange: -10251.862
       state: Opening
       type: Door
 ...
