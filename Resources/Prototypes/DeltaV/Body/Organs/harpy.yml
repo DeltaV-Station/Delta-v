@@ -17,7 +17,7 @@
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 100.0
+      rateModifier: 200.0
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -25,7 +25,7 @@
         - ReagentId: Nutriment
           Quantity: 10
       Lung:
-        maxVol: 100.0
+        maxVol: 200.0
         canReact: false
       food:
         maxVol: 5
