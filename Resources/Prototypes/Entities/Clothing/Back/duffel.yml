@@ -165,6 +165,8 @@
       sprite: Clothing/Back/Duffels/syndicate.rsi
     - type: Storage
       capacity: 131
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
