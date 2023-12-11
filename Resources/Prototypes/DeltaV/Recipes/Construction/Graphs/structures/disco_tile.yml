@@ -8,28 +8,12 @@
       edges:
         - to: discoSquare
           steps:
-            - material: Plasteel
-              amount: 5
-            - material: Glass
-              amount: 6
-            - material: Cable
-              amount: 5
-              doAfter: 8
-            - material: Gold
+            - material: Steel
               amount: 4
-              doAfter: 5
+              doAfter: 1
+            - material: Glass
+              amount: 4
+              doAfter: 1
 
     - node: discoSquare
       entity: DiscoFloor
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetSteel5
-              amount: 5
-            - !type:SpawnPrototype
-              prototype: SheetGlass6
-              amount: 6
-          steps:
-            - tool: Welding
-              doAfter: 5

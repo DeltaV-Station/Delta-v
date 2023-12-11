@@ -5,10 +5,25 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Clickable
+  - type: Sprite
+    sprite: DeltaV/Tiles/Misc/disco_tile.rsi
+    drawdepth: FloorTiles
+    layers:
+    - state: off
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: PowerSwitch
   - type: Physics
     bodyType: Static
     canCollide: false
+  - type: Clickable
   - type: Fixtures
   - type: Construction
     graph: Girder
@@ -35,23 +50,8 @@
             max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Sprite
-    sprite: DeltaV/Tiles/Misc/disco_tile.rsi
-    drawdepth: FloorTiles
-    layers:
-    - state: off
-    - state: powered
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: {visible: true}
-          False: {visible: false}
-  - type: PowerSwitch
-  - type: ExtensionCableReceiver
+  - type: PointLight
+    enabled: false
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetwork
@@ -64,6 +64,10 @@
       - On
       - Off
       - Toggle
+  - type: Construction
+    graph: DiscoFloor
+    node: discoFloor
+  - type: Appearance
   - type: PoweredLightVisuals
     blinkingSound:
       path: "/Audio/Machines/light_tube_on.ogg"
@@ -72,3 +76,9 @@
   - type: Tag
     tags:
       - Catwalk
+
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWood
+      params:
+        volume: 3
