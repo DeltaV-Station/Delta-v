@@ -228,6 +228,7 @@
       - spicy
   - type: Sprite
     state: cubancarp
+# Delta-V: Removed the toxin and changed the description.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -235,7 +236,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
-        - ReagentId: CarpoToxin
+        - ReagentId: Protein
           Quantity: 3
   - type: Tag
     tags:
