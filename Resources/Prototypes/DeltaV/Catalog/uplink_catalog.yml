@@ -42,3 +42,6 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Harpy
+    blacklist:
+      components:
+      - SurplusBundle
