@@ -1,23 +1,32 @@
 using Robust.Shared.Physics;
-using Content.Shared.Damage;
+using Content.Server.Damage;
+using Content.Server.Humanoid;
+using Robust.Server.GameObjects;
 using Content.Shared.Humanoid;
-using Robust.Shared.GameObjects;
+using Robust.Server.Prototypes;
+using Robust.Server.Containers;
+using System.Numerics;
+using Content.Server.Nyanotrasen.Lamiae;
+using Content.Shared.Nyanotrasen.Lamiae;
+using Robust.Shared.Physics;
+using Content.Shared.Damage;
+using Content.Server.Humanoid;
+using Content.Server.Access.Systems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Maths;
-using System.Numerics;
-using Content.Shared.Nyanotrasen.Lamiae;
 
-namespace Content.Shared.Nyanotrasen.Lamiae
+namespace Content.Server.Nyanotrasen.Lamiae
 {
-    public partial class SharedLamiaSystem : EntitySystem
+    public partial class LamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -36,6 +45,9 @@ namespace Content.Shared.Nyanotrasen.Lamiae
 
                 EnsureComp<PhysicsComponent>(segmentUid);
                 EnsureComp<PhysicsComponent>(attachedUid); // Hello I hate tests
+
+                var ev = new SegmentSpawnedEvent(segment.lamia);
+                RaiseLocalEvent(segmentUid, ev, false);
 
                 if (segment.segment.SegmentNumber == 1)
                 {
@@ -62,6 +74,16 @@ namespace Content.Shared.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
+        }
+
+        private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
+        {
+            component.Lamia = args.Lamia;
+
+            if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var segmentcolor))
+            {
+                _appearance.SetData(uid, LamiaSegmentVisuals.Color, segmentcolor);
+            }
         }
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
