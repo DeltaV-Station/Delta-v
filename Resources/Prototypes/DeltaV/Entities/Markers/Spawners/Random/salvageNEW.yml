@@ -233,3 +233,142 @@
 # i.e having a seperate spawner for armoury crates, which would be
 # great for modularity... but that would be a lot of new entities to make
 # not sure! - Danger!
+
+#Specialised Loot Spawners!!
+- type: entity
+  name: Salvage Medical Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageMedicalRewardSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage Medical Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageMedicalRewardSpawnerT4
+  suffix: T4
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage Medical Reward Spawner
+  id: SalvageSecurityRewardSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage Security Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageSecurityRewardSpawnerT4
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage Logistics Reward Spawner
+  id: SalvageLogisticsRewardSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage Medical Reward Spawner
+  id: SalvageLogisticsRewardSpawnerT4
+  suffix: T4
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      chance: 0.7
+      offset: 0.2
