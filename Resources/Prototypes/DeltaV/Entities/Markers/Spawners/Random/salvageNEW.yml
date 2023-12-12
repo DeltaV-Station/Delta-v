@@ -7,6 +7,36 @@
 
 - type: entity
   name: Salvage Melee Weapon Spawner
+  id: SalvageMeleeSpawnerT2
+  suffix: T2
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Objects/Weapons/Melee/machete.rsi
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        - CombatKnife
+        - PlasmaShiv
+        - UraniumShiv
+        - Machete
+      rareChance: 0.4
+      prototypes:
+        - KitchenKnife
+        - ButchCleaver
+        - SurvivalKnife
+        - Shiv
+        - ReinforcedShiv
+        - PickAxe
+        - Spear
+        - BaseBallBat
+      chance: 0.7
+      offset: 0.2
+
+- type: entity
+  name: Salvage Melee Weapon Spawner
   id: SalvageMeleeSpawnerT3
   suffix: T3
   parent: MarkerBase
@@ -70,7 +100,32 @@
         - EnergyDagger
       chance: 0.8
       offset: 0.2
-      
+
+- type: entity
+  name: Salvage Ranged Weapon Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageRangedSpawnerT2
+  suffix: T2
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+        - WeaponShotgunHandmade
+        - WeaponShotgunImprovised
+        - WeaponShotgunDoubleBarreled
+        - WeaponRevolverPirate # Not usually mapped-in, saved for Pirate Game mode..    
+      rareChance: 0.4
+      prototypes:
+        - WeaponPistolMk58
+        - WeaponPistolMk58Nonlethal
+        - BowImprovised # Could go into a Tier 2 category, but I don't know if there's enough for T2 weapons yet to justify a whole new spawner.
+        - WeaponProtoKineticAccelerator
+      chance: 0.6
+      offset: 0.2
+
 - type: entity
   name: Salvage Ranged Weapon Spawner # Worth thinking about how to get the accompanying ammo for these..
   id: SalvageRangedSpawnerT3
@@ -91,14 +146,12 @@
         - WeaponMakeshiftLaser    
       rareChance: 0.3
       prototypes:
-        - WeaponFlareGun
         - WeaponPistolMk58
-        - WeaponPistolMk58Nonlethal
         - WeaponShotgunHandmade
         - WeaponShotgunImprovised
         - BowImprovised # Could go into a Tier 2 category, but I don't know if there's enough for T2 weapons yet to justify a whole new spawner.
         - WeaponProtoKineticAccelerator
-        - WeaponLaserCarbinePractice
+        #- WeaponLaserCarbinePractice - Interesting but given AI's could get this, might make some wrecks weird..
       chance: 0.7
       offset: 0.2
 - type: entity
@@ -157,7 +210,7 @@
       rarePrototypes:
       - WaterTankHighCapacity
       - WeldingFuelTankHighCapacity
-      - LockerBooze
+      - LockerBoozeFilled
       rareChance: 0.3
       prototypes:
       - WaterTank
@@ -166,6 +219,7 @@
       - SalvageEquipmentCrate
       - ClosetTool
       - WardrobeMixed
+      - ResearchDisk5000
       chance: 0.7
       offset: 0.2
 
@@ -191,6 +245,7 @@
       - PowerCellAntiqueProto
       - CircuitImprinter
       - ResearchDisk10000
+      - LockerBotanistLoot
       rareChance: 0.2
       prototypes:
       - CratePartsT3
