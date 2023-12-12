@@ -144,28 +144,31 @@
 # I'm not a Salvage fella so I'm extrapolating rewards from Exped rewards + people's opinions in #general - Danger!Revolution!
 # Worth a discussion is the risk of power-creep here for Salvage Rewards...
 #
-#- type: entity
-#  name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
-#  id: SalvageGeneralRewardSpawnerT2
-#  suffix: T2
-#  parent: MarkerBase
-#  components:
-#    - type: Sprite
-#      layers:
-#        - state: green
-#        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
-#    - type: RandomSpawner
-#      rarePrototypes:
-#      - WaterTankHighCapacity
-#      - WeldingFuelTankHighCapacity
-#      rareChance: 0.3
-#      prototypes:
-#      - WaterTank
-#      - SpaceCash500
-#      - SpaceCash1000
-#      - SalvageEquipmentCrate
-#      chance: 0.7
-#      offset: 0.2
+- type: entity
+  name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageGeneralRewardSpawnerT2
+  suffix: T2
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - WaterTankHighCapacity
+      - WeldingFuelTankHighCapacity
+      - LockerBooze
+      rareChance: 0.3
+      prototypes:
+      - WaterTank
+      - SpaceCash500
+      - SpaceCash1000
+      - SalvageEquipmentCrate
+      - ClosetTool
+      - WardrobeMixed
+      chance: 0.7
+      offset: 0.2
 
 - type: entity
   name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
