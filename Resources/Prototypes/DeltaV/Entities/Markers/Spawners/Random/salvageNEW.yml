@@ -218,6 +218,8 @@
       rarePrototypes:
       - AmmoTechFabCircuitboard
       - RTG
+      - CrateSyndicateSurplusBundle
+      - CrateSyndicateSuperSurplusBundle # PROBABLY A BAD IDEA
       rareChance: 0.1
       prototypes:
       - CratePartsT4
@@ -248,13 +250,20 @@
     - type: RandomSpawner
       rarePrototypes:
       - CratePlasma
-      - LockerChemistry
+      - CrateEmergencyAdvancedKit
+      - CrateChemistrySupplies
+      - CrateMedicalSupplies
       rareChance: 0.3
       prototypes:
-      - CrateMedicalSecure
-      - CrateChemistrySecure
-      - ClosetL3Virology
-      - LockerMedicine
+      - CrateVirologyBiosuit
+      - CrateMedicalSurgery
+      - CrateMedicalScrubs
+      - CrateEmergencyBurnKit
+      - CrateEmergencyToxinKit
+      - CrateEmergencyBruteKit
+      - CrateEmergencyO2Kit
+      - CrateEmergencyRadiationKit
+      - CrateBodyBags
       chance: 0.7
       offset: 0.2
 
@@ -297,10 +306,9 @@
       - WeldingFuelTankHighCapacity
       rareChance: 0.3
       prototypes:
-      - WaterTank
-      - SpaceCash500
-      - SpaceCash1000
-      - SalvageEquipmentCrate
+      - CrateChemistryP
+      - CrateChemistryS
+      - CrateChemistryD
       chance: 0.7
       offset: 0.2
 
@@ -317,16 +325,29 @@
     - type: RandomSpawner
       rarePrototypes:
       - CrateArmorySMG
-      - GunSafe
-      rareChance: 0.1
-      prototypes:
+      - GunSafeRifleLecter
+      - GunSafeSubMachineGunDrozd
+      - GunSafeShotgunEnforcer
+      - GunSafeShotgunKammerer
+      - GunSafeSubMachineGunWt550
+     #- GunSafeLaserCarbine - Probably a bad idea..
       - CrateArmoryLaser
       - CrateArmoryShotgun
+      rareChance: 0.4
+      prototypes:
       - CrateArmoryPistols
       - CrateSecgear
       - ClosetBomb
-      - ClosetL3Security # Virology Suit Closet, Security Variant!
-      chance: 0.8
+      - CrateSecurityBiosuit # Virology Suit Closet, Security Variant!
+      - ClosetL3SecurityFilled
+      - LockerSecurityFilled
+      - CrateSecurityArmor
+      - CrateSecurityHelmet
+      - CrateSecurityNonlethal
+      - CrateSecurityRiot
+      - CrateSecuritySupplies
+      - CrateRestraints
+      chance: 0.6
       offset: 0.1
 
 - type: entity
@@ -341,14 +362,12 @@
         - sprite: Objects/Specific/Fun/bikehorn.rsi
     - type: RandomSpawner
       rarePrototypes:
-      - WaterTankHighCapacity
-      - WeldingFuelTankHighCapacity
+      - CrateMindShieldImplants
       rareChance: 0.3
       prototypes:
-      - WaterTank
-      - SpaceCash500
-      - SpaceCash1000
-      - SalvageEquipmentCrate
+      - CrateTrackingImplants
+      - CrateTrainingBombs
+      - CrateEmergencyExplosive
       chance: 0.7
       offset: 0.2
       
@@ -366,6 +385,11 @@
       rarePrototypes:
       - WaterTankHighCapacity
       - WeldingFuelTankHighCapacity
+      - GunSafeSubMachineGunDrozd
+      - GunSafeShotgunEnforcer
+      - GunSafeShotgunKammerer
+      - GunSafeSubMachineGunWt550
+     #- GunSafeLaserCarbine - Probably a bad idea..
       rareChance: 0.3
       prototypes:
       - WaterTank
@@ -374,6 +398,62 @@
       - SalvageEquipmentCrate
       chance: 0.7
       offset: 0.2
+      
+- type: entity
+  name: Salvage Logistics Reward Spawner
+  id: SalvageLogisticsRewardSpawnerT2
+  suffix: T2
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - CrateHydroponicsSeedsExotic
+      - CrateHydroponicsSeedsMedicinal
+      - CrateEmergencyInflatablewall
+      - CrateFoodPizzaLarge
+      - CrateMaterialTextiles
+      - CrateMaterialWood
+      - CrateMaterialPlasteel
+      - CrateServiceSmokeables
+      - CrateTrashCartFilled # THIS MAY CONTAIN MOTHROACHES & COCKROACHES
+      - CrateFunPlushie
+      - CrateFunATV
+      - CrateFunSadTromboneImplants
+      rareChance: 0.3
+      prototypes:
+      - CrateHydroponicsTools
+      - CrateHydroponicsSeeds
+      - CratePlantBGone
+      - CrateEmergencyFire
+      - CrateEmergencyInternals
+      - CrateSlimepersonLifeSupport
+      - CrateEmergencyRadiation
+      - CrateGenericBiosuit
+      - CrateEngineeringGear
+      - CrateEngineeringToolbox
+      - CrateEngineeringCableBulk
+      - CrateEngineeringElectricalSupplies
+      - CrateFoodPizza
+      - CrateFoodCooking
+      - CrateFoodDinnerware
+      - CrateFoodBarSupply
+      - CrateFoodSoftdrinks
+      - CrateFoodSoftdrinksLarge
+      - CrateMaterialCardboard
+      - CrateMaterialPaper
+      - CrateServiceJanitorialSupplies
+      - CrateServiceReplacementLights
+      - CrateMousetrapBoxes
+      - CrateServiceGuidebooks
+      - CrateFunParty
+      - CrateFunToyBox
+      - Dartboard Box Set
+      chance: 0.7
+      offset: 0.2      
       
 - type: entity
   name: Salvage Logistics Reward Spawner
@@ -387,16 +467,25 @@
         - sprite: Objects/Specific/Fun/bikehorn.rsi
     - type: RandomSpawner
       rarePrototypes:
-      - WaterTankHighCapacity
-      - WeldingFuelTankHighCapacity
-      rareChance: 0.3
+      - CrateCargoLuxuryHardsuit
+      - CrateMaterialPlasma
+      rareChance: 0.2
       prototypes:
-      - WaterTank
-      - SpaceCash500
-      - SpaceCash1000
-      - SalvageEquipmentCrate
-      chance: 0.7
-      offset: 0.2
+      - CrateCrewMonitoringBoards
+      - CrateEmergencyInternalsLarge
+      - CrateEngineeringMiniJetpack
+      - CrateEvaKit # I think these are the white EVA suits, no slowdown hence going to T3
+      - CrateEngineeringAMEJar
+      - CrateEngineeringSolar
+      - CrateFoodMRE # Quite valuable to Salvage..
+      - CrateMaterialGlass
+      - CrateMaterialSteel
+      - CrateMaterialPlastic
+      - CrateFunLightImplants # useful to salvage, has lights!
+      - CrateFunMysteryFigurines
+      - CrateServicePersonnel
+      chance: 0.8
+      offset: 0.1
       
 - type: entity
   name: Salvage Logistics Reward Spawner
@@ -410,13 +499,13 @@
         - sprite: Objects/Specific/Fun/bikehorn.rsi
     - type: RandomSpawner
       rarePrototypes:
-      - WaterTankHighCapacity
-      - WeldingFuelTankHighCapacity
-      rareChance: 0.3
+      - CrateEngineeringSingularityGenerator
+      - CrateEngineeringSingularityContainment
+      - CrateEngineeringSingularityCollector
+      - CrateEngineeringSingularityEmitter
+      rareChance: 0.1
       prototypes:
-      - WaterTank
-      - SpaceCash500
-      - SpaceCash1000
-      - SalvageEquipmentCrate
+      - CrateEngineeringParticleAccelerator
+      - CrateEngineeringShuttle # The Wallamount APLU is actually quite valuable to Salvage, 4-5 of them and the shuttle is fuel-free..
       chance: 0.7
-      offset: 0.2
+      offset: 0.1
