@@ -19,6 +19,11 @@
         density: 190
         mask:
         - Impassable
+  - type: Storage # Delta V - Felinid in plant
+    capacity: 150
+    whitelist:
+      components:
+        - Felinid # Delta V - Felinid in plant till here
   - type: Sprite
     drawdepth: Overdoors
     offset: "0.0,0.3"
