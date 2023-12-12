@@ -120,13 +120,12 @@
         - WeaponRevolverDeckard
         - WeaponRifleLecter
         - WeaponLightMachineGunL6
-        - WeaponMinigun # Never seen this in my life, but I don't want to compile for 6 minutes yet so I'm going to leave this here.
         - WeaponPulseRifle
         - WeaponPulseCarbine
         - WeaponPulsePistol
-        - WeaponLaserCarbine # These 4 <-- could probably be reserved for a T5 spawner even!
+        - WeaponLaserCarbine # This + 3 above <-- could probably be reserved for a T5 spawner even!
         - WeaponXrayCannon
-      rarechance: 0.1 # make the high-risk weapons here very rare, due to their nature.
+      rarechance: 0.1 # make the high-risk weapons here very rare, due to their nature and robustness
       prototypes:
         - WeaponRevolverPython
         - WeaponShotgunDoubleBarreled
@@ -218,8 +217,8 @@
       rarePrototypes:
       - AmmoTechFabCircuitboard
       - RTG
-      - CrateSyndicateSurplusBundle
-      - CrateSyndicateSuperSurplusBundle # PROBABLY A BAD IDEA
+      #- CrateSyndicateSurplusBundle
+      #- CrateSyndicateSuperSurplusBundle # PROBABLY A BAD IDEA
       rareChance: 0.1
       prototypes:
       - CratePartsT4
