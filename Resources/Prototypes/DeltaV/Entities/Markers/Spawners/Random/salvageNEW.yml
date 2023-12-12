@@ -238,7 +238,7 @@
 #Specialised Loot Spawners!!
 
 - type: entity
-  name: Salvage Medical Crate Spawner # Worth thinking about how to get the accompanying ammo for these..
+  name: Salvage Medical Crate Spawner
   id: SalvageMedicalCrateSpawner
   suffix: Medical
   parent: MarkerBase
@@ -268,7 +268,7 @@
       offset: 0.2
 
 - type: entity
-  name: Salvage Medical Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  name: Salvage Medical Reward Spawner
   id: SalvageMedicalRewardSpawnerT3
   suffix: T3
   parent: MarkerBase
@@ -291,7 +291,7 @@
       offset: 0.2
       
 - type: entity
-  name: Salvage Medical Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  name: Salvage Medical Reward Spawner
   id: SalvageMedicalRewardSpawnerT4
   suffix: T4
   parent: MarkerBase
@@ -372,7 +372,7 @@
       offset: 0.2
       
 - type: entity
-  name: Salvage Security Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  name: Salvage Security Reward Spawner
   id: SalvageSecurityRewardSpawnerT4
   suffix: T4
   parent: MarkerBase
