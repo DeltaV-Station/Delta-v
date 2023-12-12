@@ -421,7 +421,10 @@
   - type: LimitedItemGiver
     spawnEntries:
       - id: PresentRandom
-#        orGroup: present
+        orGroup: present
+      - id: PresentRandomCash
+        prob: 0.20
+        orGroup: present
 #      - id: PresentRandomUnsafe # DeltaV - Disabled until we get a list of actually safe items.
 #        prob: 0.25
 #        orGroup: present
