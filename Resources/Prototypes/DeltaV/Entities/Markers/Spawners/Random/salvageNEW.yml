@@ -276,8 +276,27 @@
       - SalvageEquipmentCrate
       chance: 0.7
       offset: 0.2
-#- type: entity
-#  name: SalvageArmouryCrateSpawner
+
+- type: entity
+  name: Salvage Armoury Crate Spawner
+  id: SalvageArmouryCrateSpawner
+  suffix: [Armoury , Security]
+  parent: MarkerBase
+  components:
+    - type: sprite
+      layers:
+        - state: yellow
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - CrateArmorySMG
+      rareChance: 0.1
+      prototypes:
+      - CrateArmoryLaser
+      - CrateArmoryShotgun
+      - CrateArmoryPistols
+      chance: 0.8
+      offset: 0.1
 
 - type: entity
   name: Salvage Security Reward Spawner
