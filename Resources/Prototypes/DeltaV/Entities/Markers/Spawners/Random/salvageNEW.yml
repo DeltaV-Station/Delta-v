@@ -82,7 +82,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Weapons/Melee/fireaxe.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -115,7 +115,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -141,7 +141,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -170,7 +170,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -213,7 +213,7 @@
     - type: Sprite
       layers:
         - state: green
-        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -241,7 +241,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -277,7 +277,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn - Danger!
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -311,7 +311,7 @@
     - type: Sprite
       layers:
         - state: green
-        - sprite: Objects/Fun/bikehorn.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -341,8 +341,8 @@
   components:
     - type: Sprite
       layers:
-        - state: green
-        - sprite: Objects/Fun/bikehorn.rsi
+        - state: blue
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -365,8 +365,8 @@
   components:
     - type: Sprite
       layers:
-        - state: green
-        - sprite: Objects/Fun/bikehorn.rsi
+        - state: red
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -388,8 +388,8 @@
   components:
     - type: sprite
       layers:
-        - state: yellow
-        - sprite: Objects/Fun/bikehorn.rsi
+        - state: red
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -428,7 +428,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Fun/bikehorn.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -450,7 +450,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/bikehorn.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -478,8 +478,8 @@
   components:
     - type: Sprite
       layers:
-        - state: blue
-        - sprite: Objects/Fun/bikehorn.rsi
+        - state: green
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -536,7 +536,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Fun/bikehorn.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -569,7 +569,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/bikehorn.rsi
+        - sprite: Objects/Weapons/Melee/machete.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
