@@ -231,6 +231,28 @@
 # not sure! - Danger!
 
 #Specialised Loot Spawners!!
+
+- type: entity
+  name: Salvage Medical Crate Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageMedicalCrateSpawner
+  suffix: Medical
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Objects/Specific/Fun/bikehorn.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - CratePlasma
+      rareChance: 0.3
+      prototypes:
+      - CrateMedicalSecure
+      - CrateChemistrySecure
+      - ClosetL3Virology
+      chance: 0.7
+      offset: 0.2
+
 - type: entity
   name: Salvage Medical Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
   id: SalvageMedicalRewardSpawnerT3
@@ -295,6 +317,9 @@
       - CrateArmoryLaser
       - CrateArmoryShotgun
       - CrateArmoryPistols
+      - CrateSecgear
+      - ClosetBomb
+      - ClosetL3Security # Virology Suit Closet, Security Variant!
       chance: 0.8
       offset: 0.1
 
