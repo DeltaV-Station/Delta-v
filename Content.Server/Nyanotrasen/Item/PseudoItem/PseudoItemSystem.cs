@@ -143,7 +143,6 @@ public sealed class PseudoItemSystem : EntitySystem
         }
 
         component.Active = true;
-        Transform(storageUid).AttachToGridOrMap();
         return true;
     }
 
