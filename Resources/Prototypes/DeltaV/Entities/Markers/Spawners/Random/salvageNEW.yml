@@ -248,11 +248,13 @@
     - type: RandomSpawner
       rarePrototypes:
       - CratePlasma
+      - LockerChemistry
       rareChance: 0.3
       prototypes:
       - CrateMedicalSecure
       - CrateChemistrySecure
       - ClosetL3Virology
+      - LockerMedicine
       chance: 0.7
       offset: 0.2
 
@@ -315,6 +317,7 @@
     - type: RandomSpawner
       rarePrototypes:
       - CrateArmorySMG
+      - GunSafe
       rareChance: 0.1
       prototypes:
       - CrateArmoryLaser
@@ -352,7 +355,7 @@
 - type: entity
   name: Salvage Security Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
   id: SalvageSecurityRewardSpawnerT4
-  suffix: T3
+  suffix: T4
   parent: MarkerBase
   components:
     - type: Sprite
