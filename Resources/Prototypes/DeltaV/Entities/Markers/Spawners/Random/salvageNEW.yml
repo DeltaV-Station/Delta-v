@@ -69,6 +69,7 @@
         - ReinforcedShiv
         - PickAxe
         - Spear
+        - ToolboxEmergency
       chance: 0.9
       offset: 0.2
 
@@ -115,6 +116,7 @@
       layers:
         - state: blue
         - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - WeaponShotgunHandmade
@@ -140,6 +142,7 @@
       layers:
         - state: blue
         - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - WeaponPistolViper
@@ -168,6 +171,7 @@
       layers:
         - state: red
         - sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - WeaponRevolverMateba # Should we want a T5 spawner, some of these could be slimmed and the % chance to spawn dropped!
@@ -210,6 +214,7 @@
       layers:
         - state: green
         - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - WaterTankHighCapacity
@@ -237,6 +242,7 @@
       layers:
         - state: blue
         - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - QuadraticCapacitorStockPart
@@ -270,8 +276,9 @@
   components:
     - type: Sprite
       layers:
-      - state: red
-      - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn - Danger!
+        - state: red
+        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn - Danger!
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - AmmoTechFabCircuitboard
@@ -304,7 +311,8 @@
     - type: Sprite
       layers:
         - state: green
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CratePlasma
@@ -334,7 +342,8 @@
     - type: Sprite
       layers:
         - state: green
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - WaterTankHighCapacity
@@ -357,7 +366,8 @@
     - type: Sprite
       layers:
         - state: green
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - WaterTankHighCapacity
@@ -373,13 +383,14 @@
 - type: entity
   name: Salvage Armoury Crate Spawner
   id: SalvageArmouryCrateSpawner
-  suffix: [Armoury , Security]
+  suffix: Security
   parent: MarkerBase
   components:
     - type: sprite
       layers:
         - state: yellow
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CrateArmorySMG
@@ -417,7 +428,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CrateMindShieldImplants
@@ -438,7 +450,8 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - WaterTankHighCapacity
@@ -466,7 +479,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CrateHydroponicsSeedsExotic
@@ -522,7 +536,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CrateCargoLuxuryHardsuit
@@ -554,7 +569,8 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Fun/bikehorn.rsi
+        - sprite: Objects/Fun/bikehorn.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
       - CrateEngineeringSingularityGenerator
