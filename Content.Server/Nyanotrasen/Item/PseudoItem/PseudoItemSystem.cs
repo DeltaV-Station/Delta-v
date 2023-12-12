@@ -31,6 +31,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
         SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
         SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PseudoItemComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
     }
 
     private void AddInsertVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<InnateVerb> args)
@@ -156,5 +157,14 @@ public sealed partial class PseudoItemSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(args);
+    }
+
+    private void OnInsertAttempt(EntityUid uid, PseudoItemComponent component,
+        ContainerGettingInsertedAttemptEvent args)
+    {
+        if (!component.Active)
+            return;
+        // This hopefully shouldn't trigger, but this is a failsafe just in case so we dont bluespace them cats
+        args.Cancel();
     }
 }
