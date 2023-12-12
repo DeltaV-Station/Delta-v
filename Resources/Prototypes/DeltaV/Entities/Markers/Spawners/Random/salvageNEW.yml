@@ -210,16 +210,26 @@
     - type: Sprite
       layers:
       - state: red
-      - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn
+      - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn - Danger!
     - type: RandomSpawner
       rarePrototypes:
       - AmmoTechFabCircuitboard
       - RTG
+      - CrateArmorySMG
+      - CrateArmoryLaser
+      - CrateArmoryShotgun
+      - CrateArmoryPistols
       rareChance: 0.1
       prototypes:
       - CratePartsT4
       - RPED
       - ClothingOuterArmorARC
       - CognizineChemistryBottle
+      - SpaceCash10000
       chance: 0.8
       offset: 0.2
+# Looking at all these T2-T4 spawns,
+# they could probably be compartmentalised a lot more
+# i.e having a seperate spawner for armoury crates, which would be
+# great for modularity... but that would be a lot of new entities to make
+# not sure! - Danger!
