@@ -1,0 +1,75 @@
+#Tier System:
+#T0: No-value spawners; usually reserved for set dressing like trash.
+#T1: Minimal value spawners; jumpsuits etc, set dressing + low-risk spawns
+#T2: Low Value; some extrinsic value to salvage, low risk
+#T3: Medium Value; extrinsic value to salvage, medium risk
+#T4: High value, high risk, high gain
+
+- type: entity
+  name: Salvage Melee Weapon Spawner
+  id: SalvageMeleeSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Weapons/Melee/machete.rsi
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        - Chainsaw
+        - BaseBallBat
+        - Spear
+        - SpearReinforced
+        - SpearBone # Never seen in-game, questionable if this should be here.
+        - CombatKnife
+        - PlasmaShiv
+        - UraniumShiv
+        - Machete
+      rareChance: 0.4
+      prototypes:
+        - KitchenKnife
+        - ButchCleaver
+        - SurvivalKnife
+        - Shiv
+        - ReinforcedShiv
+        - PickAxe
+      chance: 0.9
+      offset: 0.2
+
+- type: entity
+  name: Salvage Melee Weapon Spawner
+  id: SalvageMeleeSpawnerT4
+  suffix: T4
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Weapons/Melee/fireaxe.rsi#
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        - FireAxe
+        - SledgeHammer
+        - CaptainSabre
+        # Cult items I've never seen in-game, might be worth discussing the ethics of putting this in...
+        - RitualDagger
+        - UnholyHalberd
+        - EldritchBlade
+      rareChance: 0.2 # Eh? 0.2? Not sure.
+      prototypes:
+        - Claymore
+        - Cutlass
+        - Katana
+        - Stunprod #Might be questionable if this lands in the cold, calculating hands of the AI.
+      chance: 0.8
+      offset: 0.2
+      
+#- type: entity
+#  name: Salvage Ranged Weapon Spawner
+#  id: SalvageRangedSpawnerT3
+#  suffix: T3
+#  parent: MarkerBase
+#  components:
