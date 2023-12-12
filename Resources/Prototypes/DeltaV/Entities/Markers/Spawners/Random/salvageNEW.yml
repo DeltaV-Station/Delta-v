@@ -215,10 +215,6 @@
       rarePrototypes:
       - AmmoTechFabCircuitboard
       - RTG
-      - CrateArmorySMG
-      - CrateArmoryLaser
-      - CrateArmoryShotgun
-      - CrateArmoryPistols
       rareChance: 0.1
       prototypes:
       - CratePartsT4
@@ -280,9 +276,11 @@
       - SalvageEquipmentCrate
       chance: 0.7
       offset: 0.2
-      
+#- type: entity
+#  name: SalvageArmouryCrateSpawner
+
 - type: entity
-  name: Salvage Medical Reward Spawner
+  name: Salvage Security Reward Spawner
   id: SalvageSecurityRewardSpawnerT3
   suffix: T3
   parent: MarkerBase
@@ -351,7 +349,7 @@
       offset: 0.2
       
 - type: entity
-  name: Salvage Medical Reward Spawner
+  name: Salvage Logistics Reward Spawner
   id: SalvageLogisticsRewardSpawnerT4
   suffix: T4
   parent: MarkerBase
