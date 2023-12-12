@@ -20,7 +20,6 @@
       rarePrototypes:
         - Chainsaw
         - BaseBallBat
-        - Spear
         - SpearReinforced
         - SpearBone # Never seen in-game, questionable if this should be here.
         - CombatKnife
@@ -35,6 +34,7 @@
         - Shiv
         - ReinforcedShiv
         - PickAxe
+        - Spear
       chance: 0.9
       offset: 0.2
 
@@ -141,3 +141,72 @@
       offset: 0.2
 
 # LootSpawners!
+# I'm not a Salvage fella so I'm extrapolating rewards from Exped rewards + people's opinions in #general - Danger!Revolution!
+# Worth a discussion is the risk of power-creep here for Salvage Rewards...
+#
+#- type: entity
+#  name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+#  id: SalvageGeneralRewardSpawnerT2
+#  suffix: T2
+#  parent: MarkerBase
+#  components:
+#    - type: Sprite
+#      layers:
+#        - state: green
+#        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+#    - type: RandomSpawner
+#      rarePrototypes:
+#
+#      rareChance: 0.3
+#      prototypes:
+#      - 
+#      chance: 0.7
+#      offset: 0.2
+
+- type: entity
+  name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageGeneralRewardSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+      - QuadraticCapacitorStockPart
+      - PicoManipulatorStockPart
+      - BluespaceMatterBinStockPart
+      - ClothingHeadHelmetSwat
+      - ClothingOuterArmorPlateCarrier
+      - SpaceCash2500
+      - CognizineChemistryBottle
+      - PowerCellAntiqueProto
+      rareChance: 0.3
+      prototypes:
+      - CratePartsT3
+      - TechnologyDiskRare
+      - SpaceCash500
+      - SpaceCash1000
+      chance: 0.7
+      offset: 0.2
+      
+- type: entity
+  name: Salvage General Reward Spawner
+  id: SalvageGeneralRewardSpawnerT4
+  suffix: T4
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: red
+      - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn
+    - type: RandomSpawner
+      rarePrototypes:
+    - AmmoTechFabCircuitboard
+    rareChance: 0.1
+    prototypes:
+    - CratePartsT4
+    chance: 0.8
+    offset: 0.2
