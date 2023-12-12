@@ -67,9 +67,73 @@
       chance: 0.8
       offset: 0.2
       
-#- type: entity
-#  name: Salvage Ranged Weapon Spawner
-#  id: SalvageRangedSpawnerT3
-#  suffix: T3
-#  parent: MarkerBase
-#  components:
+- type: entity
+  name: Salvage Ranged Weapon Spawner # Worth thinking about how to get the accompanying ammo for these..
+  id: SalvageRangedSpawnerT3
+  suffix: T3
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+        - WeaponPistolViper
+        - WeaponShotgunDoubleBarreled
+        - WeaponShotgunSawn
+        - WeaponShotgunBlunderbuss
+        - WeaponRevolverPirate # Not usually mapped-in, saved for Pirate Game mode..
+        - WeaponMakeshiftLaser    
+      rareChance: 0.3
+      prototypes:
+        - WeaponFlareGun
+        - WeaponPistolMk58
+        - WeaponPistolMk58Nonlethal
+        - WeaponShotgunHandmade
+        - WeaponShotgunImprovised
+        - BowImprovised # Could go into a Tier 2 category, but I don't know if there's enough for T2 weapons yet to justify a whole new spawner.
+        - WeaponProtoKineticAccelerator
+        - WeaponLaserCarbinePractice
+      chance: 0.7
+      offset: 0.2
+- type: entity
+  name: Salvage Ranged Weapon Spawner
+  id: SalvageRangedSpawnerT4
+  suffix: T4
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    - type: RandomSpawner
+      rarePrototypes:
+        - WeaponRevolverMateba # Should we not want a T5 spawner, some of these could be slimmed and the % chance to spawn dropped!
+        - WeaponShotgunKammerer
+        - WeaponShotgunEnforcer
+        - WeaponShotgunBulldog
+        - WeaponRevolverDeckard
+        - WeaponRifleLecter
+        - WeaponLightMachineGunL6
+        - WeaponMinigun # Never seen this in my life, but I don't want to compile for 6 minutes yet so I'm going to leave this here.
+        - WeaponPulseRifle
+        - WeaponPulseCarbine
+        - WeaponPulsePistol
+        - WeaponLaserCarbine # These 4 <-- could probably be reserved for a T5 spawner even!
+        - WeaponXrayCannon
+      rarechance: 0.1 # make the high-risk weapons here very rare, due to their nature.
+      prototypes:
+        - WeaponRevolverPython
+        - WeaponShotgunDoubleBarreled
+        - WeaponPistolCobra
+        - WeaponPistolViper
+        - WeaponRevolverInspector
+        - WeaponRifleAk
+        - WeaponLaserGun
+        - WeaponDisabler
+        - WeaponTaser
+      chance: 0.8
+      offset: 0.2
+
+# LootSpawners!
