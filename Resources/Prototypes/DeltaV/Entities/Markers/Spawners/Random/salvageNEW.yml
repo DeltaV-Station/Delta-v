@@ -156,10 +156,14 @@
 #        - sprite: Objects/Specific/Library/Equipment/books_bag.rsi
 #    - type: RandomSpawner
 #      rarePrototypes:
-#
+#      - WaterTankHighCapacity
+#      - WeldingFuelTankHighCapacity
 #      rareChance: 0.3
 #      prototypes:
-#      - 
+#      - WaterTank
+#      - SpaceCash500
+#      - SpaceCash1000
+#      - SalvageEquipmentCrate
 #      chance: 0.7
 #      offset: 0.2
 
@@ -180,15 +184,20 @@
       - BluespaceMatterBinStockPart
       - ClothingHeadHelmetSwat
       - ClothingOuterArmorPlateCarrier
-      - SpaceCash2500
+      - SpaceCash5000
       - CognizineChemistryBottle
       - PowerCellAntiqueProto
-      rareChance: 0.3
+      - CircuitImprinter
+      - ResearchDisk10000
+      rareChance: 0.2
       prototypes:
       - CratePartsT3
       - TechnologyDiskRare
-      - SpaceCash500
-      - SpaceCash1000
+      - SpaceCash2500
+      - BluespaceBeaker
+      - AdvMopitem
+      - RandomArtifactSpawner
+      - OmnizineChemistryBottle
       chance: 0.7
       offset: 0.2
       
@@ -204,9 +213,13 @@
       - sprite: Objects/Specific/Library/Equipment/books_bag.rsi #too lazy to change this rn
     - type: RandomSpawner
       rarePrototypes:
-    - AmmoTechFabCircuitboard
-    rareChance: 0.1
-    prototypes:
-    - CratePartsT4
-    chance: 0.8
-    offset: 0.2
+      - AmmoTechFabCircuitboard
+      - RTG
+      rareChance: 0.1
+      prototypes:
+      - CratePartsT4
+      - RPED
+      - ClothingOuterArmorARC
+      - CognizineChemistryBottle
+      chance: 0.8
+      offset: 0.2
