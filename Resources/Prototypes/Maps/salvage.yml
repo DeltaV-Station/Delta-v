@@ -107,10 +107,10 @@
 
 # """Large""" maps
 
-- type: salvageMap
-  id: StationStation
-  name: "StationStation"
-  mapPath: /Maps/Salvage/stationstation.yml
+#- type: salvageMap #DeltaV: Remove non-salvage testing map from pool
+#  id: StationStation
+#  name: "StationStation"
+#  mapPath: /Maps/Salvage/stationstation.yml
 
 - type: salvageMap
   id: AsteroidBase
@@ -242,6 +242,11 @@
   id: AsteroidChemlab
   name: "Asteroid Mining Chemlab"
   mapPath: /Maps/Salvage/DeltaV/DV-asteroid-mining-chemlab.yml
+
+- type: salvageMap
+  id: LaundromatChunk
+  name: "Laundromat Chunk"
+  mapPath: /Maps/Salvage/DeltaV/DV-laundromat-chunk.yml
 
 # Asteroids
 
