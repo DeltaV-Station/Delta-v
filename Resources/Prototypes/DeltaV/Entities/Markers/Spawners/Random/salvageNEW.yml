@@ -24,7 +24,7 @@
         - Machete
         - ToolboxEmergency # Might be too strong for T2, this shit is actually robust..#
         - Spear
-      rareChance: 0.4
+      rareChance: 0.5
       prototypes:
         - KitchenKnife
         - ButchCleaver
@@ -96,7 +96,7 @@
         - EnergyCutlass
         - EnergySword
         - EnergySwordDouble # Could see use in T5
-      rareChance: 0.2 # Eh? 0.2? Not sure.
+      rareChance: 0.3 # Eh? 0.2? Not sure.
       prototypes:
         - Claymore
         - Cutlass
@@ -161,6 +161,7 @@
         #- WeaponLaserCarbinePractice - Interesting but given AI's could get this, might make some wrecks weird..
       chance: 0.7
       offset: 0.2
+
 - type: entity
   name: Salvage Ranged Weapon Spawner
   id: SalvageRangedSpawnerT4
@@ -203,7 +204,7 @@
 # LootSpawners!
 # I'm not a Salvage fella so I'm extrapolating rewards from Exped rewards + people's opinions in #general - Danger!Revolution!
 # Worth a discussion is the risk of power-creep here for Salvage Rewards...
-#
+
 - type: entity
   name: Salvage General Reward Spawner # Worth thinking about how to get the accompanying ammo for these..
   id: SalvageGeneralRewardSpawnerT2
@@ -294,14 +295,15 @@
       - SpaceCash10000
       chance: 0.8
       offset: 0.2
+      
 # Looking at all these T2-T4 spawns,
 # they could probably be compartmentalised a lot more
 # i.e having a seperate spawner for armoury crates, which would be
 # great for modularity... but that would be a lot of new entities to make
 # not sure! - Danger!
-
+#
 #Specialised Loot Spawners!!
-
+#
 - type: entity
   name: Salvage Medical Crate Spawner
   id: SalvageMedicalCrateSpawner
@@ -386,7 +388,7 @@
   suffix: Security
   parent: MarkerBase
   components:
-    - type: sprite
+    - type: Sprite
       layers:
         - state: red
         - sprite: Objects/Weapons/Melee/machete.rsi
@@ -454,8 +456,6 @@
           state: icon
     - type: RandomSpawner
       rarePrototypes:
-      - WaterTankHighCapacity
-      - WeldingFuelTankHighCapacity
       - GunSafeSubMachineGunDrozd
       - GunSafeShotgunEnforcer
       - GunSafeShotgunKammerer
@@ -542,6 +542,8 @@
       rarePrototypes:
       - CrateCargoLuxuryHardsuit
       - CrateMaterialPlasma
+#      - WaterTankHighCapacity
+#      - WeldingFuelTankHighCapacity
       rareChance: 0.2
       prototypes:
       - CrateCrewMonitoringBoards
