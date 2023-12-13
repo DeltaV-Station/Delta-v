@@ -236,3 +236,30 @@
     tags:
       - ClothMade # Mothic Food
 #Tastes like pasta, cornbread and cheese
+
+- type: entity
+  name: fish and chips
+  parent: FoodMealBase
+  id: FoodMealFishChips
+  description: A dish that consists of fried fish and potatoes.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+      - batter
+  - type: Sprite
+    state: fishandchips
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+# Tastes like fish and batter.
+
