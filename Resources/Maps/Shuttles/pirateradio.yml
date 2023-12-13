@@ -283,6 +283,9 @@ entities:
   entities:
   - uid: 4
     components:
+    - desc: The ominous red light fills you with dread
+      name: suspicious airlock
+      type: MetaData
     - pos: 3.5,6.5
       parent: 1
       type: Transform
@@ -2245,7 +2248,7 @@ entities:
     - pos: 13.5,0.5
       parent: 1
       type: Transform
-    - invokeCounter: 2
+    - invokeCounter: 4
       links:
       - 792
       type: DeviceLinkSink
@@ -2254,7 +2257,7 @@ entities:
     - pos: 13.5,1.5
       parent: 1
       type: Transform
-    - invokeCounter: 2
+    - invokeCounter: 4
       links:
       - 792
       type: DeviceLinkSink
@@ -2263,7 +2266,7 @@ entities:
     - pos: 13.5,-0.5
       parent: 1
       type: Transform
-    - invokeCounter: 2
+    - invokeCounter: 4
       links:
       - 792
       type: DeviceLinkSink
@@ -2272,7 +2275,7 @@ entities:
     - pos: 13.5,2.5
       parent: 1
       type: Transform
-    - invokeCounter: 2
+    - invokeCounter: 4
       links:
       - 792
       type: DeviceLinkSink
@@ -5522,6 +5525,8 @@ entities:
   entities:
   - uid: 792
     components:
+    - name: bridge blast doors button
+      type: MetaData
     - rot: 3.141592653589793 rad
       pos: 11.5,-1.5
       parent: 1
@@ -5539,6 +5544,9 @@ entities:
     - type: ItemCooldown
   - uid: 793
     components:
+    - desc: A note taped to it reads, "Be sure to keep it bolted, else those crazy guards might try to drink vacuum"
+      name: external bolts button
+      type: MetaData
     - pos: 4.5,4.5
       parent: 1
       type: Transform
@@ -5548,6 +5556,8 @@ entities:
       type: DeviceLinkSource
   - uid: 794
     components:
+    - name: botany blast doors button
+      type: MetaData
     - rot: 1.5707963267948966 rad
       pos: 9.5,-3.5
       parent: 1
@@ -5564,6 +5574,8 @@ entities:
       type: DeviceLinkSource
   - uid: 795
     components:
+    - name: game room blast doors button
+      type: MetaData
     - rot: -1.5707963267948966 rad
       pos: 9.5,-3.5
       parent: 1
@@ -6492,7 +6504,7 @@ entities:
     - pos: -1.5,-1.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -12023.719
+    - secondsUntilStateChange: -12631.861
       state: Opening
       type: Door
 ...
