@@ -198,6 +198,16 @@
   solids:
     FoodDonkpocket: 1 #macncheese donk
 
+- type: microwaveMealRecipe
+  id: RecipeFishChips
+  name: fish and chips recipe
+  result: FoodMealFishChips
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodPotato: 1
+    FoodMeatFish: 1
+
 # Soups and stews
 
 - type: microwaveMealRecipe
