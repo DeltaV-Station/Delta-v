@@ -1,0 +1,11 @@
+- type: entity
+  id: TacticalMaidOutfit
+  parent: BoxCardboard
+  name: tactical maid outfit
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingHeadHatTacticalMaidHeadband
+        - id: ClothingUniformJumpskirtTacticalMaid
+        - id: ClothingHandsTacticalMaidGloves

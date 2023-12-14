@@ -46,3 +46,12 @@
     blacklist:
       components:
       - SurplusBundle
+- type: listing
+  id: UplinktacticalMaidOutfits
+  name: uplink-tactical-maid-outfit-name
+  description: uplink-tactical-maid-outfit-desc
+  productEntity: TacticalMaidOutfit
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkPointless
