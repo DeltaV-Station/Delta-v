@@ -1060,7 +1060,7 @@ namespace Content.Shared.CCVar
         ///     gases heat up and cool down 64x faster than real life.
         /// </summary>
         public static readonly CVarDef<float> AtmosHeatScale =
-            CVarDef.Create("atmos.heat_scale", 64f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.heat_scale", 8f, CVar.SERVERONLY);
 
         /*
          * MIDI instruments
