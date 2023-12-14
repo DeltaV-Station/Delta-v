@@ -55,6 +55,7 @@
     earliestStart: 20
     weight: 7.5 # Worth some thought as to how frequent this should be...
     minimumPlayers: 25
-    reoccurrenceDelay: 180
+    maxoccurences: 1
+    reoccurrenceDelay: 180 #fallback for maxoccurences failing
     duration: 1
   - type: PirateRadioSpawnRule

@@ -27,12 +27,15 @@
     name: ghost-role-information-listeningop-name
     description: ghost-role-information-listeningop-description
     rules: ghost-role-information-listeningop-rules
-    #requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
-    #- !type:OverallPlaytimeRequirement
-    #  time: 200000 
-    #- !type:DepartmentTimeRequirement
-    #  department: Security
-    #  time: 40000 
+    requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
+    - !type:OverallPlaytimeRequirement
+      time: 259200 # 72 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 40000 # 11.5 hours
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 72000 # 20 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite
