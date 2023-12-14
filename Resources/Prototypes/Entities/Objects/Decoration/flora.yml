@@ -422,12 +422,12 @@
     spawnEntries:
       - id: PresentRandom
         orGroup: present
-      - id: PresentRandomUnsafe
-        prob: 0.35
-        orGroup: present
-      - id: PresentRandomInsane
-        prob: 0.20
-        orGroup: present
+#      - id: PresentRandomUnsafe # DeltaV - Disabled until we get a list of actually safe items.
+#        prob: 0.35
+#        orGroup: present
+#      - id: PresentRandomInsane
+#        prob: 0.20
+#        orGroup: present
       - id: PresentRandomCash
         prob: 0.20
         orGroup: present
