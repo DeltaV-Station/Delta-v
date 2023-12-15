@@ -210,3 +210,13 @@
     tags:
     - HamsterWearable
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatElfCap
+  name: elf hat
+  description: A green and red striped cap with pointy ears and a bell on the end.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/elfhat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/elfhat.rsi
