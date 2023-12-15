@@ -14,17 +14,18 @@ internal sealed class GlimmerMiteRule : StationEventSystem<GlimmerMiteRuleCompon
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
-    private static readonly string MitePrototype = "MobGlimmerMite";
+    [DataField(required: true)]
+    public EntProtoId MobPrototype;
 
     protected override void Started(EntityUid uid, GlimmerMiteRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
-        var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
+        var glimmerSources = EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
+        var normalSpawnLocations = EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
+        var hiddenSpawnLocations = EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
-        var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
+        var baseCount = Math.Max(1, EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
 
         var total = baseCount * multiplier;
@@ -34,25 +35,24 @@ internal sealed class GlimmerMiteRule : StationEventSystem<GlimmerMiteRuleCompon
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
-                EntityManager.SpawnEntity(MitePrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
+                Spawn(MitePrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (normalSpawnLocations.Count != 0)
             {
-                EntityManager.SpawnEntity(MitePrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                Spawn(MitePrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (hiddenSpawnLocations.Count != 0)
             {
-                EntityManager.SpawnEntity(MitePrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
+                Spawn(MitePrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
-            return;
         }
     }
 }
