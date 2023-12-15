@@ -232,3 +232,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitElf
+  name: elf jumpsuit
+  description: A sharp and professional jumpsuit worn by Santa's highest-trained little helpers.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/elf.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/elf.rsi
