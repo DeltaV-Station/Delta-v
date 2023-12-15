@@ -8,6 +8,3 @@ public sealed partial class GlimmerMobRuleComponent : Component
     [DataField(required: true)]
     public EntProtoId MobPrototype = string.Empty;
 }
-
-
-[DataField(required: true)]
