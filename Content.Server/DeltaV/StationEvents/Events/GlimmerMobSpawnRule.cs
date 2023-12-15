@@ -9,7 +9,7 @@ using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.StationEvents.Events;
 
-internal sealed class GlimmerMiteRule : StationEventSystem<GlimmerMiteRuleComponent>
+internal sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
@@ -17,7 +17,7 @@ internal sealed class GlimmerMiteRule : StationEventSystem<GlimmerMiteRuleCompon
     [DataField(required: true)]
     public EntProtoId MobPrototype;
 
-    protected override void Started(EntityUid uid, GlimmerMiteRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, GlimmerMobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -35,21 +35,21 @@ internal sealed class GlimmerMiteRule : StationEventSystem<GlimmerMiteRuleCompon
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
-                Spawn(MitePrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
+                Spawn(MobPrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (normalSpawnLocations.Count != 0)
             {
-                Spawn(MitePrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                Spawn(MobPrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (hiddenSpawnLocations.Count != 0)
             {
-                Spawn(MitePrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
+                Spawn(MobPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
