@@ -133,3 +133,14 @@
       maximumGlimmer: 900
       report: glimmer-event-report-signatures
     - type: GlimmerRevenantRule
+
+- type: entity
+  id: GlimmerMiteSpawn
+  parent: BaseGlimmerEvent
+  noSpawn: true
+  components:
+    - type: GlimmerEvent
+      minimumGlimmer: 50
+      maximumGlimmer: 900
+      report: glimmer-event-report-signatures
+    - type: GlimmerMiteRule

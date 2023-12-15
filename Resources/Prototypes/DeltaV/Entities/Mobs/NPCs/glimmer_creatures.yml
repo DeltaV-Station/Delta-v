@@ -1,0 +1,84 @@
+- type: entity
+  name: glimmer mite
+  parent: SimpleMobBase
+  id: MobGlimmerMite
+  description: aaaa
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: DeltaV/Mobs/Ghosts/glimmermite.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mite
+  - type: Item
+    size: 2
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mite
+      Dead:
+        Base: mite_dead
+  - type: Food
+  - type: Hunger
+    baseDecayRate: 0.25
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Cockroach
+  - type: Bloodstream
+    bloodReagent: Ectoplasm
+    bloodMaxVolume: 20
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 10
+      behaviors:
+      - !type:GibBehavior { }
+  - type: NonSpreaderZombie
+  - type: PotentialPsionic
+  - type: Psionic
+  - type: GlimmerSource
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound: /Audio/DeltaV/Glimmer_Creatures/mite.ogg
+  - type: AmbientOnPowered
