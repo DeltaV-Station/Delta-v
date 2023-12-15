@@ -117,6 +117,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckSalvager
+  name: salvager's cloak
+  description: Worn by dangerous people who've deconstructed stations with ease.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/salvage.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
   description: A cloak made from the hide of resilient fauna from a distant planet, though its protective value has faded with its age.
