@@ -54,7 +54,16 @@
         density: 80
         restitution: 0.0
         mask:
-        - MobMask
+        - MobMask'
+  - type: GenericVisualizer
+    visuals:
+      enum.LamiaSegmentVisualLayers.Base:
+        baseLayer:
+          Color:  {color: }
+      enum.LamiaSegmentVisualLayers.Armor:
+        armorLayer:
+          Hardsuit:  {path: }
+          NoHardsuit:  {path: }
 
 - type: entity
   id: LamiaSegmentEnd
@@ -69,6 +78,7 @@
     - state: tip
       map: ["enum.LamiaSegmentVisualLayers.Base"]
     - map: ["enum.LamiaSegmentVisualLayers.Armor"]
+      state: segmenttip
       visible: false
   - type: Physics
     bodyType: KinematicController
