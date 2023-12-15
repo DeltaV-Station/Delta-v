@@ -9,13 +9,11 @@ using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.StationEvents.Events;
 
-internal sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
+public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
-    [DataField(required: true)]
-    public EntProtoId MobPrototype;
 
     protected override void Started(EntityUid uid, GlimmerMobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -35,21 +33,21 @@ internal sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponen
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
-                Spawn(MobPrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
+                Spawn(component.MobPrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (normalSpawnLocations.Count != 0)
             {
-                Spawn(MobPrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                Spawn(component.MobPrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (hiddenSpawnLocations.Count != 0)
             {
-                Spawn(MobPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
+                Spawn(component.MobPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
