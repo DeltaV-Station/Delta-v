@@ -8,3 +8,14 @@
     sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesMiscElf
+  name: elf shoes
+  description: Little elf shoes with jingly bells. Jingle, jingle, jingle!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Shoes/Misc/elfshoes.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Shoes/Misc/elfshoes.rsi
