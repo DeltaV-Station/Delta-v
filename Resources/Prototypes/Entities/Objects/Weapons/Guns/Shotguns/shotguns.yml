@@ -130,25 +130,22 @@
   name: Enforcer
   parent: BaseWeaponShotgun
   id: WeaponShotgunEnforcer
-  description: A next-generation Frozen Star shotgun. Uses .50 shotgun shells.
+  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Shotguns/inhands_64x.rsi
+    heldPrefix: enforcer
   - type: BallisticAmmoProvider
   
 - type: entity
-  name: Enforcer
-  parent: BaseWeaponShotgun
+  parent: WeaponShotgunEnforcer
   id: WeaponShotgunEnforcerRubber
-  description: A next-generation Frozen Star shotgun. Uses .50 shotgun shells.
   suffix: Non-Lethal
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
   
