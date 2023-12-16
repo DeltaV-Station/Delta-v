@@ -4,7 +4,8 @@
   parent: BaseStorageItem
   id: Urn
   components:
-#  - type: Storage #Wyci
+  - type: Storage
+    capacity: 5 # Me when
 #    grid:
 #      - 0,0,0,1
 #  - type: UserInterface
