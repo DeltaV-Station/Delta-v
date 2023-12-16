@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: ginger-bomb man
   description: Used to put holes in walls for naughty children.
-  parent: BaseItem
+  parent: C4
   id: GingerBreadC4
   components:
   - type: Sprite
@@ -13,7 +13,7 @@
       map: ["base"]
   - type: Item
     sprite: DeltaV/Objects/Weapons/Bombs/gingerbreadc4.rsi
-    size: 10
+    size: 5
   - type: OnUseTimerTrigger
     delay: 10
     delayOptions: [10, 30, 60, 120, 300]
