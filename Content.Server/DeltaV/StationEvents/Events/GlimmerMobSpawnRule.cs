@@ -6,7 +6,6 @@ using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Abilities.Psionics;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Events;
 
