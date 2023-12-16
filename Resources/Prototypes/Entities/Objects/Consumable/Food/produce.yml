@@ -52,6 +52,9 @@
           Quantity: 10
   - type: Produce
     seedId: wheat
+  - type: Tag # Delta V straw hat
+    tags:
+    - Wheat # End of Delta V straw hat
 
 - type: entity
   name: oat bushel
@@ -294,6 +297,7 @@
     tags:
     - Recyclable
     - Trash
+    - BananaPeel
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1692,7 +1696,7 @@
     - Fruit
 
 - type: entity
-  name: cotton bol
+  name: cotton boll
   description: Moth people's favorite snack, and just as fluffy as them.
   id: CottonBol
   parent: FoodProduceBase

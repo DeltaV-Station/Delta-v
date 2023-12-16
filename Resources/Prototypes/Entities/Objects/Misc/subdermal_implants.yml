@@ -272,6 +272,8 @@
   - type: TriggerImplantAction
   - type: GibOnTrigger
     deleteItems: true
+  - type: SpawnOnTrigger
+    proto: Acidifier
   - type: Tag
     tags:
     - SubdermalImplant
@@ -306,7 +308,7 @@
   noSpawn: true
   components:
    - type: SubdermalImplant
-     #permanent: true # DeltaV - Temporarily allow them to be removed until a special item for this is created
+     permanent: true
    - type: Tag
      tags:
        - MindShield
