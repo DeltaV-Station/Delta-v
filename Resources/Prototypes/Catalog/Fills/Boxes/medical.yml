@@ -131,8 +131,9 @@
   description: A box full of vials.
   components:
   - type: Storage
-    grid:
-    - 0,0,2,1
+    capacity: 6
+    #grid:
+    #- 0,0,2,1
   - type: StorageFill
     contents:
       - id: BaseChemistryEmptyVial
