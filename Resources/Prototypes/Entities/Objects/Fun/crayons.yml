@@ -249,6 +249,7 @@
     - id: CrayonBlue
     - id: CrayonPurple
     - id: CrayonBlack
+    - id: CrayonWhite
   - type: ItemMapper
     mapLayers:
       black_box:
@@ -279,4 +280,8 @@
         whitelist:
           tags:
           - CrayonYellow
+      white_box:
+        whitelist:
+          tags:
+          - CrayonWhite
   - type: Appearance
