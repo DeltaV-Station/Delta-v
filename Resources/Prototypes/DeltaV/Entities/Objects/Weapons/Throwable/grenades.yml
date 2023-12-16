@@ -1,0 +1,26 @@
+- type: entity
+  name: bauble grenade
+  description: A nice little trinket to hang on the tree, or throw at your enemies.
+  parent: ExGrenade
+  id: BaubleGrenade
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Grenades/baublegrenade.rsi
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Item
+    sprite: DeltaV/Objects/Weapons/Grenades/baublegrenade.rsi
+    size: 5
+  - type: OnUseTimerTrigger
+    delayOptions: [10, 30, 60, 120, 300]
+    initialBeepDelay: 0
+    beepSound: /Audio/Effects/Footsteps/jesterstep2.ogg
+    beepInterval: .5 # 2 beeps total (at 0 and 2)
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        base:
+          Primed: { state: primed }
+          Unprimed: { state: complete }
