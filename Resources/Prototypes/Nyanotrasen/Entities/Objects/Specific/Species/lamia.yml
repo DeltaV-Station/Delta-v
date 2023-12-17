@@ -32,9 +32,6 @@
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
     - state: placeholder
-      map: ["enum.LamiaSegmentVisualLayers.Base"]
-    - map: ["enum.LamiaSegmentVisualLayers.Armor"]
-      visible: false
   - type: Clickable
   - type: Tag
     tags:
@@ -65,9 +62,6 @@
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
     - state: tip
-      map: ["enum.LamiaSegmentVisualLayers.Base"]
-    - map: ["enum.LamiaSegmentVisualLayers.Armor"]
-      visible: false
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
