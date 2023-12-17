@@ -34,9 +34,7 @@
     - state: placeholder
       map: ["enum.LamiaSegmentVisualLayers.Base"]
     - map: ["enum.LamiaSegmentVisualLayers.Armor"]
-      path: 
-      state: segment  
-      visible: true
+      visible: false
   - type: Clickable
   - type: Tag
     tags:

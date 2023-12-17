@@ -88,10 +88,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
-            if (AppearanceSystem.TryGetData<)
-            {
-                SpawnSegments(uid, component);
-            }
+            SpawnSegments(uid, component);
         }
 
         private void OnShutdown(EntityUid uid, LamiaComponent component, ComponentShutdown args)
