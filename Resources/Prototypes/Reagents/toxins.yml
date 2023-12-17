@@ -319,16 +319,18 @@
   metabolisms:
     Poison:
       effects:
-      - !type:HealthChange
-        probability: 0.1
-        damage:
-          groups:
-            Toxin: 2
-      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u. 
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 10
+        refresh: false
+      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u.
         conditions:
-        - !type:ReagentThreshold
-          reagent: MindbreakerToxin
-          min: 20
+          - !type:ReagentThreshold
+            reagent: MindbreakerToxin
+            min: 20
+  # TODO: PROPER hallucinations
 
 - type: reagent
   id: Histamine
