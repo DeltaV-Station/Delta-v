@@ -6,7 +6,6 @@ namespace Content.Shared.Nyanotrasen.Lamiae
     public enum LamiaSegmentVisualLayers
     {
         Base,
-        Armor,
     }
 
     [Serializable, NetSerializable]
