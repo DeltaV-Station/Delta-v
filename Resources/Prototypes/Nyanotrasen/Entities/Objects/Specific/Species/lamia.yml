@@ -92,12 +92,3 @@
         restitution: 0.0
         mask:
         - MobMask
-  - type: GenericVisualizer
-    visuals:
-      enum.LamiaSegmentVisualLayers.Base:
-        baseLayer:
-          Color:  {color: }
-      enum.LamiaSegmentVisualLayers.Armor:
-        armorLayer:
-          Hardsuit:  {path: }
-          NoHardsuit:  {path: }
