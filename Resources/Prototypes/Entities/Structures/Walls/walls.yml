@@ -730,6 +730,9 @@
         acts: ["Destruction"]
     destroySound:
       path: /Audio/Effects/metalbreak.ogg
+  - type: Construction
+    graph: Girder
+    node: diagonalshuttleWall
 
 - type: entity
   parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
