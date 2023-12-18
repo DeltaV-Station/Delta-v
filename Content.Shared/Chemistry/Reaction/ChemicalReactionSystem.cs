@@ -112,8 +112,7 @@ namespace Content.Shared.Chemistry.Reaction
             {
                 lowestUnitReactions = FixedPoint2.Zero;
                 return false;
-            }
-            if (solution.Temperature > reaction.MaximumTemperature)
+            } else if(solution.Temperature > reaction.MaximumTemperature)
             {
                 lowestUnitReactions = FixedPoint2.Zero;
                 return false;
@@ -127,7 +126,7 @@ namespace Content.Shared.Chemistry.Reaction
             }
 
             var attempt = new ReactionAttemptEvent(reaction, solution);
-            RaiseLocalEvent(owner, attempt);
+            RaiseLocalEvent(owner, attempt, false);
             if (attempt.Cancelled)
             {
                 lowestUnitReactions = FixedPoint2.Zero;

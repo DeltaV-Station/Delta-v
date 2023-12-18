@@ -25,7 +25,6 @@ public abstract class ClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<ClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
-        SubscribeLocalEvent<ClothingComponent, ItemMaskToggledEvent>(OnMaskToggled);
     }
 
     protected virtual void OnGotEquipped(EntityUid uid, ClothingComponent component, GotEquippedEvent args)
@@ -51,12 +50,6 @@ public abstract class ClothingSystem : EntitySystem
     {
         if (args.Current is ClothingComponentState state)
             SetEquippedPrefix(uid, state.EquippedPrefix, component);
-    }
-
-    private void OnMaskToggled(Entity<ClothingComponent> ent, ref ItemMaskToggledEvent args)
-    {
-        //TODO: sprites for 'pulled down' state. defaults to invisible due to no sprite with this prefix
-        SetEquippedPrefix(ent, args.IsToggled ? "toggled" : null, ent);
     }
 
     #region Public API

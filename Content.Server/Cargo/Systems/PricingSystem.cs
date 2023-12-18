@@ -342,8 +342,8 @@ public sealed class PricingSystem : EntitySystem
     {
         var xform = Transform(grid);
         var price = 0.0;
-        var enumerator = xform.ChildEnumerator;
-        while (enumerator.MoveNext(out var child))
+
+        foreach (var child in xform.ChildEntities)
         {
             if (predicate is null || predicate(child))
             {

@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Client.Popups;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.Construction.Steps;
 using Content.Shared.Examine;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -98,11 +97,7 @@ namespace Content.Client.Construction
                 return;
             }
 
-            foreach (ConstructionGraphStep step in edge.Steps)
-            {
-                args.Message.PushNewline();
-                step.DoExamine(args);
-            }
+            edge.Steps[0].DoExamine(args);
         }
 
         public event EventHandler<CraftingAvailabilityChangedArgs>? CraftingAvailabilityChanged;

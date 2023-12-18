@@ -153,38 +153,6 @@
     - !type:CreateEntityReactionEffect
       entity: FoodTofu
 
-- type: reaction
-  id: CreateMeatball
-  impact: Low
-  quantized: true
-  conserveEnergy: false
-  reactants:
-    UncookedAnimalProteins:
-      amount: 5
-    Flour:
-      amount: 5
-    Egg:
-      amount: 6
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: FoodMeatMeatball
-
-- type: reaction
-  id: CreateChocolate
-  impact: Low
-  quantized: true
-  conserveEnergy: false
-  reactants:
-    CocoaPowder:
-      amount: 4
-    Milk:
-      amount: 2
-    Sugar:
-      amount: 2
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: FoodSnackChocolateBar
-
 # Condiments
 
 - type: reaction
@@ -299,24 +267,33 @@
     Vinaigrette: 3
 
 - type: reaction
-  id: BananaBreakdown
-  requiredMixerCategories:
-  - Centrifuge
+  id: CreateMeatball
+  impact: Low
+  quantized: true
+  conserveEnergy: false
   reactants:
-    JuiceBanana:
-      amount: 10
-  products:
-    Sugar: 9
-    Potassium: 1
+    UncookedAnimalProteins:
+      amount: 5
+    Flour:
+      amount: 5
+    Egg:
+      amount: 6
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatMeatball
 
 - type: reaction
-  id: SugarBreakdown
-  minTemp: 520
+  id: CreateChocolate
+  impact: Low
+  quantized: true
+  conserveEnergy: false
   reactants:
-    Sugar:
+    CocoaPowder:
       amount: 4
-  products:
-    Carbon: 1
-    Oxygen: 1
-    Hydrogen: 2
-
+    Milk:
+      amount: 2
+    Sugar:
+      amount: 2
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodSnackChocolateBar

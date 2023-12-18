@@ -25,7 +25,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -63,7 +62,6 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public override void Initialize()
