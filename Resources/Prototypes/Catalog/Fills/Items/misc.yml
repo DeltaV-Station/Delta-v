@@ -3,18 +3,16 @@
   parent: ClothingShoesBootsCombat
   suffix: Filled
   components:
-  - type: ContainerFill
-    containers:
-      item:
-      - CombatKnife
+  - type: StorageFill
+    contents:
+      - id: CombatKnife
 
 - type: entity
   id: ClothingShoesBootsMercFilled
   parent: ClothingShoesBootsMerc
   suffix: Filled
   components:
-  - type: ContainerFill
-    containers:
-      item:
-      - KukriKnife
+  - type: StorageFill
+    contents:
+      - id: KukriKnife
 

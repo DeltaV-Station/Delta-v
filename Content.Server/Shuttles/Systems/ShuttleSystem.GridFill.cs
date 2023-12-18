@@ -148,7 +148,7 @@ public sealed partial class ShuttleSystem
             if (!dockQuery.TryGetComponent(child, out var dock))
                 continue;
 
-            return (child, dock);
+            return (child.Value, dock);
         }
 
         return null;

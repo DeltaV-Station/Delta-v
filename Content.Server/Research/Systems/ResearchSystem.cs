@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
-using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Research.Components;
@@ -20,7 +19,6 @@ namespace Content.Server.Research.Systems
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly RadioSystem _radio = default!;
 
         public override void Initialize()
         {

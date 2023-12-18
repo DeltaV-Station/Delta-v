@@ -100,9 +100,7 @@ namespace Content.Server.Paper
 
         private void OnInteractUsing(EntityUid uid, PaperComponent paperComp, InteractUsingEvent args)
         {
-            // only allow editing if there are no stamps or when using a cyberpen
-            var editable = paperComp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps");
-            if (_tagSystem.HasTag(args.Used, "Write") && editable)
+            if (_tagSystem.HasTag(args.Used, "Write") && paperComp.StampedBy.Count == 0)
             {
                 var writeEvent = new PaperWriteEvent(uid, args.User);
                 RaiseLocalEvent(args.Used, ref writeEvent);

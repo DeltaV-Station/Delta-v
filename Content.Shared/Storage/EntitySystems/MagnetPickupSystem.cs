@@ -45,10 +45,10 @@ public sealed class MagnetPickupSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<MagnetPickupComponent, StorageComponent, TransformComponent, MetaDataComponent>();
+        var query = EntityQueryEnumerator<MagnetPickupComponent, StorageComponent, TransformComponent>();
         var currentTime = _timing.CurTime;
 
-        while (query.MoveNext(out var uid, out var comp, out var storage, out var xform, out var meta))
+        while (query.MoveNext(out var uid, out var comp, out var storage, out var xform))
         {
             if (comp.NextScan > currentTime)
                 continue;
@@ -59,7 +59,7 @@ public sealed class MagnetPickupSystem : EntitySystem
             if (storage.StorageUsed >= storage.StorageCapacityMax)
                 continue;
 
-            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            if (!_inventory.TryGetContainingSlot(uid, out var slotDef))
                 continue;
 
             if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)

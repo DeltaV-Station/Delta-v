@@ -246,22 +246,6 @@
       - TraversalDistorterMachineCircuitboard
 
 - type: entity
-  id: ArtifactCrusherMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: artifact crusher machine board
-  description: A machine printed circuit board for an artifact crusher.
-  components:
-  - type: Sprite
-    state: science
-  - type: MachineBoard
-    prototype: MachineArtifactCrusher
-    requirements:
-      Manipulator: 2
-    materialRequirements:
-      Glass: 1
-      Steel: 5
-
-- type: entity
   parent: BaseMachineCircuitboard
   id: AnomalyVesselCircuitboard
   name: anomaly vessel machine board
@@ -272,7 +256,7 @@
     - type: MachineBoard
       prototype: MachineAnomalyVessel
       requirements:
-        Capacitor: 3
+        Capacitor: 5
       materialRequirements:
         Cable: 1
         PlasmaGlass: 10
@@ -280,23 +264,6 @@
       difficulty: 2
       recipes:
         - AnomalyVesselCircuitboard
-
-- type: entity
-  parent: BaseMachineCircuitboard
-  id: AnomalyVesselExperimentalCircuitboard
-  name: experimental anomaly vessel machine board
-  description: A machine printed circuit board for an experimental anomaly vessel.
-  components:
-  - type: Sprite
-    state: science
-  - type: MachineBoard
-    prototype: MachineAnomalyVesselExperimental
-    requirements:
-      Capacitor: 3
-    materialRequirements:
-      Cable: 5
-      PlasmaGlass: 15
-      MetalRod: 4
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -377,21 +344,6 @@
     graph: ThermomachineBoard
     deconstructionTarget: null
     node: heater
-
-- type: entity
-  id: CondenserMachineCircuitBoard
-  parent: BaseMachineCircuitboard
-  name: condenser machine board
-  description: A machine printed circuit board for a condenser.
-  components:
-  - type: Sprite
-    state: engineering
-  - type: MachineBoard
-    prototype: BaseGasCondenser
-    requirements:
-      MatterBin: 1
-    materialRequirements:
-      Glass: 1
 
 - type: entity
   id: PortableScrubberMachineCircuitBoard
@@ -912,36 +864,6 @@
       difficulty: 3
       recipes:
         - StasisBedMachineCircuitboard
-
-- type: entity
-  id: ElectrolysisUnitMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: electrolysis unit machine board
-  description: A machine printed circuit board for an electrolysis unit.
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: MachineElectrolysisUnit
-    requirements:
-      Capacitor: 2
-    materialRequirements:
-      Cable: 1
-
-- type: entity
-  id: CentrifugeMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: centrifuge machine board
-  description: A machine printed circuit board for a centrifuge.
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: MachineCentrifuge
-    requirements:
-      Manipulator: 1
-    materialRequirements:
-      Steel: 1
 
 - type: entity
   id: MaterialReclaimerMachineCircuitboard

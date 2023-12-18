@@ -18,7 +18,6 @@ using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
@@ -41,7 +40,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SolutionContainerSystem _solutions = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -102,11 +100,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         var target = GetEntity(ev.Target!.Value);
-
-        if (_mobState.IsIncapacitated(target))
-        {
-            return false;
-        }
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {

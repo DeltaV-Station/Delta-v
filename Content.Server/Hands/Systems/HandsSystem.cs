@@ -204,9 +204,9 @@ namespace Content.Server.Hands.Systems
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
             var ev = new BeforeThrowEvent(throwEnt, direction, throwStrength, player);
-            RaiseLocalEvent(player, ref ev);
+            RaiseLocalEvent(player, ev, false);
 
-            if (ev.Cancelled)
+            if (ev.Handled)
                 return true;
 
             // This can grief the above event so we raise it afterwards

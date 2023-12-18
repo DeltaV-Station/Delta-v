@@ -63,7 +63,7 @@ public sealed partial class ExplosionSystem : EntitySystem
     /// </summary>
     public const ushort DefaultTileSize = 1;
 
-    public const int MaxExplosionAudioRange = 30;
+    private AudioParams _audioParams = AudioParams.Default.WithVolume(-3f);
 
     /// <summary>
     ///     The "default" explosion prototype.
@@ -132,8 +132,7 @@ public sealed partial class ExplosionSystem : EntitySystem
     private void RelayedResistance(EntityUid uid, ExplosionResistanceComponent component,
         InventoryRelayedEvent<GetExplosionResistanceEvent> args)
     {
-        if (component.Worn)
-            OnGetResistance(uid, component, ref args.Args);
+        OnGetResistance(uid, component, ref args.Args);
     }
 
     private void OnGetResistance(EntityUid uid, ExplosionResistanceComponent component, ref GetExplosionResistanceEvent args)
@@ -328,33 +327,15 @@ public sealed partial class ExplosionSystem : EntitySystem
         var visualEnt = CreateExplosionVisualEntity(epicenter, type.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
         // camera shake
-        CameraShake(iterationIntensity.Count * 4f, epicenter, totalIntensity);
+        CameraShake(iterationIntensity.Count * 2.5f, epicenter, totalIntensity);
 
         //For whatever bloody reason, sound system requires ENTITY coordinates.
         var mapEntityCoords = EntityCoordinates.FromMap(EntityManager, _mapManager.GetMapEntityId(epicenter.MapId), epicenter);
 
         // play sound.
-        // for the normal audio, we want everyone in pvs range
-        // + if the bomb is big enough, people outside of it too
-        // this is capped to 30 because otherwise really huge bombs
-        // will attempt to play regular audio for people who can't hear it anyway because the epicenter is so far away
-        var audioRange = Math.Min(iterationIntensity.Count * 2, MaxExplosionAudioRange);
+        var audioRange = iterationIntensity.Count * 5;
         var filter = Filter.Pvs(epicenter).AddInRange(epicenter, audioRange);
-        var sound = iterationIntensity.Count < type.SmallSoundIterationThreshold
-            ? type.SmallSound
-            : type.Sound;
-
-        _audio.PlayStatic(sound, filter, mapEntityCoords, true, sound.Params);
-
-        // play far sound
-        // far sound should play for anyone who wasn't in range of any of the effects of the bomb
-        var farAudioRange = iterationIntensity.Count * 5;
-        var farFilter = Filter.Empty().AddInRange(epicenter, farAudioRange).RemoveInRange(epicenter, audioRange);
-        var farSound = iterationIntensity.Count < type.SmallSoundIterationThreshold
-            ? type.SmallSoundFar
-            : type.SoundFar;
-
-        _audio.PlayGlobal(farSound, farFilter, true, farSound.Params);
+        _audio.PlayStatic(type.Sound.GetSound(), filter, mapEntityCoords, true, _audioParams);
 
         return new Explosion(this,
             type,
@@ -397,9 +378,9 @@ public sealed partial class ExplosionSystem : EntitySystem
 
     private void OnArmorExamine(EntityUid uid, ExplosionResistanceComponent component, ref ArmorExamineEvent args)
     {
-        var value = MathF.Round((1f - component.DamageCoefficient) * 100, 1);
-
         args.Msg.PushNewline();
-        args.Msg.AddMarkup(Loc.GetString(component.Examine, ("value", value)));
+        args.Msg.AddMarkup(Loc.GetString("explosion-resistance-coefficient-value",
+            ("value", MathF.Round((1f - component.DamageCoefficient) * 100, 1))
+            ));
     }
 }

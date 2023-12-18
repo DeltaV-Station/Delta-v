@@ -67,15 +67,6 @@
     node: chair
 
 - type: entity
-  name: chair
-  id: ChairGreyscale
-  parent: Chair
-  suffix: White
-  components:
-  - type: Sprite
-    state: chair-greyscale
-
-- type: entity
   name: stool
   id: Stool
   parent: SeatBase

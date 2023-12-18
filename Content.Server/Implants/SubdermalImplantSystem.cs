@@ -1,5 +1,4 @@
 ﻿using Content.Server.Cuffs;
-using Content.Server.Forensics;
 using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
@@ -20,7 +19,6 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
 
     public override void Initialize()
     {
@@ -82,14 +80,6 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
             _humanoidAppearance.LoadProfile(ent, newProfile, humanoid);
             _metaData.SetEntityName(ent, newProfile.Name);
-            if (TryComp<DnaComponent>(ent, out var dna))
-            {
-                dna.DNA = _forensicsSystem.GenerateDNA();
-            }
-            if (TryComp<FingerprintComponent>(ent, out var fingerprint))
-            {
-                fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
-            }
             _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
         }
 

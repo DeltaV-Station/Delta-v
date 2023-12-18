@@ -1,9 +1,7 @@
 using Content.Server.GameTicking.Events;
 using Content.Shared.Audio;
-using Content.Shared.GameTicking;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Audio;
@@ -16,14 +14,8 @@ public sealed class ContentAudioSystem : SharedContentAudioSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundCleanup);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         _protoManager.PrototypesReloaded += OnProtoReload;
-    }
-
-    private void OnRoundCleanup(RoundRestartCleanupEvent ev)
-    {
-        SilenceAudio();
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs obj)

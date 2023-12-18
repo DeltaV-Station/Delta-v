@@ -35,13 +35,15 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
             }
 
-            if (component.BlockSlots != 0x0)
+            if (component.BlockSlots != 0x0 && TryComp<InventoryComponent>(target, out var inventory))
             {
-                var containerEnumerator = _inventorySystem.GetSlotEnumerator(target, component.BlockSlots);
+                var containerEnumerator = new InventorySystem.ContainerSlotEnumerator(target, inventory.TemplateId, _protoManager, _inventorySystem, component.BlockSlots);
 
-                // TODO add a helper method for this?
-                if (containerEnumerator.MoveNext(out _))
+                while (containerEnumerator.MoveNext(out var container))
+                {
+                    if (!container.ContainedEntity.HasValue) continue;
                     return;
+                }
             }
 
             var solRemoved = solution.SplitSolution(component.TransferAmount);
