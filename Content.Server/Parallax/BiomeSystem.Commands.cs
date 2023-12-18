@@ -29,15 +29,14 @@ public sealed partial class BiomeSystem
 
         int.TryParse(args[0], out var mapInt);
         var mapId = new MapId(mapInt);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
 
         if (_mapManager.MapExists(mapId) ||
-            !TryComp<BiomeComponent>(mapUid, out var biome))
+            !TryComp<BiomeComponent>(_mapManager.GetMapEntityId(mapId), out var biome))
         {
             return;
         }
 
-        ClearTemplate(mapUid, biome);
+        ClearTemplate(biome);
     }
 
     private CompletionResult BiomeClearCallbackHelper(IConsoleShell shell, string[] args)
@@ -64,9 +63,8 @@ public sealed partial class BiomeSystem
         }
 
         var mapId = new MapId(mapInt);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
 
-        if (!_mapManager.MapExists(mapId) || !TryComp<BiomeComponent>(mapUid, out var biome))
+        if (!_mapManager.MapExists(mapId) || !TryComp<BiomeComponent>(_mapManager.GetMapEntityId(mapId), out var biome))
         {
             return;
         }
@@ -83,7 +81,7 @@ public sealed partial class BiomeSystem
             int.TryParse(args[3], out offset);
         }
 
-        AddTemplate(mapUid, biome, args[2], template, offset);
+        AddTemplate(biome, args[2], template, offset);
     }
 
     private CompletionResult AddLayerCallbackHelp(IConsoleShell shell, string[] args)

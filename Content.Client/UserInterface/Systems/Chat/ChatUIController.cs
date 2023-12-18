@@ -374,7 +374,7 @@ public sealed class ChatUIController : UIController
         UpdateChannelPermissions();
     }
 
-    private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
+    private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType, string? prefixText = null, string? prefixEndText = null)
     {
         var ent = EntityManager.GetEntity(msg.SenderEntity);
 
@@ -384,13 +384,22 @@ public sealed class ChatUIController : UIController
             return;
         }
 
-        EnqueueSpeechBubble(ent, msg, speechType);
+        // Kind of shitty way to add prefixes but hey it works!
+        string Message = prefixText + msg.Message + prefixEndText;
+
+        // msg.Message should be the string that a user sent over text, without any added markup.
+        var messages = SplitMessage(Message);
+
+        foreach (var message in messages)
+        {
+            EnqueueSpeechBubble(ent, message, speechType);
+        }
     }
 
     private void CreateSpeechBubble(EntityUid entity, SpeechBubbleData speechData)
     {
         var bubble =
-            SpeechBubble.CreateSpeechBubble(speechData.Type, speechData.Message, entity);
+            SpeechBubble.CreateSpeechBubble(speechData.Type, speechData.Message, entity, _eye, _manager, EntityManager);
 
         bubble.OnDied += SpeechBubbleDied;
 
@@ -424,7 +433,7 @@ public sealed class ChatUIController : UIController
         RemoveSpeechBubble(entity, bubble);
     }
 
-    private void EnqueueSpeechBubble(EntityUid entity, ChatMessage message, SpeechBubble.SpeechType speechType)
+    private void EnqueueSpeechBubble(EntityUid entity, string contents, SpeechBubble.SpeechType speechType)
     {
         // Don't enqueue speech bubbles for other maps. TODO: Support multiple viewports/maps?
         if (EntityManager.GetComponent<TransformComponent>(entity).MapID != _eye.CurrentMap)
@@ -436,7 +445,7 @@ public sealed class ChatUIController : UIController
             _queuedSpeechBubbles.Add(entity, queueData);
         }
 
-        queueData.MessageQueue.Enqueue(new SpeechBubbleData(message, speechType));
+        queueData.MessageQueue.Enqueue(new SpeechBubbleData(contents, speechType));
     }
 
     public void RemoveSpeechBubble(EntityUid entityUid, SpeechBubble bubble)
@@ -573,7 +582,7 @@ public sealed class ChatUIController : UIController
 
             var msg = queueData.MessageQueue.Dequeue();
 
-            queueData.TimeLeft += BubbleDelayBase + msg.Message.Message.Length * BubbleDelayFactor;
+            queueData.TimeLeft += BubbleDelayBase + msg.Message.Length * BubbleDelayFactor;
 
             // We keep the queue around while it has 0 items. This allows us to keep the timer.
             // When the timer hits 0 and there's no messages left, THEN we can clear it up.
@@ -624,6 +633,52 @@ public sealed class ChatUIController : UIController
         {
             bubble.Visible = visible;
         }
+    }
+
+    private List<string> SplitMessage(string msg)
+    {
+        // Split message into words separated by spaces.
+        var words = msg.Split(' ');
+        var messages = new List<string>();
+        var currentBuffer = new List<string>();
+
+        // Really shoddy way to approximate word length.
+        // Yes, I am aware of all the crimes here.
+        // TODO: Improve this to use actual glyph width etc..
+        var currentWordLength = 0;
+        foreach (var word in words)
+        {
+            // +1 for the space.
+            currentWordLength += word.Length + 1;
+
+            if (currentWordLength > SingleBubbleCharLimit)
+            {
+                // Too long for the current speech bubble, flush it.
+                messages.Add(string.Join(" ", currentBuffer));
+                currentBuffer.Clear();
+
+                currentWordLength = word.Length;
+
+                if (currentWordLength > SingleBubbleCharLimit)
+                {
+                    // Word is STILL too long.
+                    // Truncate it with an ellipse.
+                    messages.Add($"{word.Substring(0, SingleBubbleCharLimit - 3)}...");
+                    currentWordLength = 0;
+                    continue;
+                }
+            }
+
+            currentBuffer.Add(word);
+        }
+
+        if (currentBuffer.Count != 0)
+        {
+            // Don't forget the last bubble.
+            messages.Add(string.Join(" ", currentBuffer));
+        }
+
+        return messages;
     }
 
     public ChatSelectChannel MapLocalIfGhost(ChatSelectChannel channel)
@@ -720,25 +775,21 @@ public sealed class ChatUIController : UIController
 
     private void OnDamageForceSay(DamageForceSayEvent ev, EntitySessionEventArgs _)
     {
-        var chatBox = UIManager.ActiveScreen?.GetWidget<ChatBox>() ?? UIManager.ActiveScreen?.GetWidget<ResizableChatBox>();
-        if (chatBox == null)
+        if (UIManager.ActiveScreen?.GetWidget<ChatBox>() is not { } chatBox)
             return;
 
-        var msg = chatBox.ChatInput.Input.Text.TrimEnd();
         // Don't send on OOC/LOOC obviously!
-        if (SplitInputContents(msg).chatChannel
-                is not (
-                    ChatSelectChannel.Local or
-                    ChatSelectChannel.Radio or
-                    ChatSelectChannel.Whisper
-                )
-            )
+        if (chatBox.SelectedChannel is not
+            (ChatSelectChannel.Local or
+            ChatSelectChannel.Radio or
+            ChatSelectChannel.Whisper))
             return;
 
-        if (_player.LocalSession?.AttachedEntity is not { } ent
+        if (_player.LocalPlayer?.ControlledEntity is not { } ent
             || !EntityManager.TryGetComponent<DamageForceSayComponent>(ent, out var forceSay))
             return;
 
+        var msg = chatBox.ChatInput.Input.Text.TrimEnd();
 
         if (string.IsNullOrWhiteSpace(msg))
             return;
@@ -812,7 +863,11 @@ public sealed class ChatUIController : UIController
 
             case ChatChannel.LOOC:
                 if (_cfg.GetCVar(CCVars.LoocAboveHeadShow))
-                    AddSpeechBubble(msg, SpeechBubble.SpeechType.Looc);
+                {
+                    const string prefixText = "(LOOC: ";
+                    const string prefixEndText = ")";
+                    AddSpeechBubble(msg, SpeechBubble.SpeechType.Looc, prefixText, prefixEndText);
+                }
                 break;
         }
     }
@@ -855,7 +910,7 @@ public sealed class ChatUIController : UIController
         }
     }
 
-    private readonly record struct SpeechBubbleData(ChatMessage Message, SpeechBubble.SpeechType Type);
+    private readonly record struct SpeechBubbleData(string Message, SpeechBubble.SpeechType Type);
 
     private sealed class SpeechBubbleQueueData
     {

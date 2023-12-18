@@ -10,7 +10,7 @@ namespace Content.Server.Atmos.Reactions;
 [UsedImplicitly]
 public sealed partial class MiasmicSubsumationReaction : IGasReactionEffect
 {
-    public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
+    public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem)
     {
         var initialMiasma = mixture.GetMoles(Gas.Miasma);
         var initialFrezon = mixture.GetMoles(Gas.Frezon);

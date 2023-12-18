@@ -133,20 +133,6 @@
   - type: Item
     heldPrefix: plasteel
   - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plasteel
-  - type: SolutionContainerManager
-    solutions:
-      plasteel:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 22
-        - ReagentId: Carbon
-          Quantity: 2.5
-        - ReagentId: Lead
-          Quantity: 0.5
 
 - type: entity
   parent: SheetPlasteel

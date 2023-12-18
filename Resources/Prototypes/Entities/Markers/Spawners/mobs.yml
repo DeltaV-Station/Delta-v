@@ -372,8 +372,7 @@
   - type: Sprite
     layers:
       - state: green
-      - state: shiva
-        sprite: Mobs/Pets/shiva.rsi
+      - state: ai
   - type: ConditionalSpawner
     prototypes:
       - MobSpiderShiva
@@ -428,25 +427,10 @@
   - type: Sprite
     layers:
     - state: green
-    - state: spacespider
-      sprite: Mobs/Animals/spacespider.rsi
+    - state: ai
   - type: ConditionalSpawner
     prototypes:
     - MobSpiderSpace
-
-- type: entity
-  name: Space Cobra Spawner
-  id: SpawnMobSpaceCobra
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: spacecobra
-      sprite: Mobs/Animals/spacecobra.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobCobraSpace
 
 - type: entity
   name: Slimes Spawner Blue

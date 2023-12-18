@@ -1,10 +1,7 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.Parallax;
-using Content.Server.Salvage;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Spawners.Components;
@@ -15,8 +12,6 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
-using Content.Shared.Parallax.Biomes;
-using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Spawners;
 using Content.Shared.Tiles;
@@ -25,7 +20,6 @@ using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -41,12 +35,9 @@ public sealed class ArrivalsSystem : EntitySystem
     [Dependency] private readonly IConsoleHost _console = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BiomeSystem _biomes = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly RestrictedRangeSystem _restricted = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ShuttleSystem _shuttles = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
@@ -56,13 +47,6 @@ public sealed class ArrivalsSystem : EntitySystem
     /// If enabled then spawns players on an alternate map so they can take a shuttle to the station.
     /// </summary>
     public bool Enabled { get; private set; }
-
-    private readonly List<ProtoId<BiomeTemplatePrototype>> _arrivalsBiomeOptions = new()
-    {
-        "Grasslands",
-        "LowDesert",
-        "Snow",
-    };
 
     public override void Initialize()
     {
@@ -236,9 +220,10 @@ public sealed class ArrivalsSystem : EntitySystem
         }
 
         var children = xform.ChildEnumerator;
+
         while (children.MoveNext(out var child))
         {
-            DumpChildren(child, ref args, pendingEntQuery, arrivalsBlacklistQuery, mobQuery, xformQuery);
+            DumpChildren(child.Value, ref args, pendingEntQuery, arrivalsBlacklistQuery, mobQuery, xformQuery);
         }
     }
 
@@ -411,8 +396,6 @@ public sealed class ArrivalsSystem : EntitySystem
     private void SetupArrivalsStation()
     {
         var mapId = _mapManager.CreateMap();
-        var mapUid = _mapManager.GetMapEntityId(mapId);
-        _mapManager.AddUninitializedMap(mapId);
 
         if (!_loader.TryLoad(mapId, _cfgManager.GetCVar(CCVars.ArrivalsMap), out var uids))
         {
@@ -425,20 +408,6 @@ public sealed class ArrivalsSystem : EntitySystem
             EnsureComp<ProtectedGridComponent>(id);
             EnsureComp<PreventPilotComponent>(id);
         }
-
-        // Setup planet arrivals if relevant
-        if (_cfgManager.GetCVar(CCVars.ArrivalsPlanet))
-        {
-            var template = _random.Pick(_arrivalsBiomeOptions);
-            _biomes.EnsurePlanet(mapUid, _protoManager.Index(template));
-            var restricted = new RestrictedRangeComponent
-            {
-                Range = 32f
-            };
-            AddComp(mapUid, restricted);
-        }
-
-        _mapManager.DoMapInitialize(mapId);
 
         // Handle roundstart stations.
         var query = AllEntityQuery<StationArrivalsComponent>();

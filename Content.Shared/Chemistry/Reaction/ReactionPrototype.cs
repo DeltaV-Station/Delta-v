@@ -48,7 +48,7 @@ namespace Content.Shared.Chemistry.Reaction
         ///     The required mixing categories for an entity to mix the solution with for the reaction to occur
         /// </summary>
         [DataField("requiredMixerCategories")]
-        public List<ProtoId<MixingCategoryPrototype>>? MixingCategories;
+        public List<string>? MixingCategories = null;
 
         /// <summary>
         /// Reagents created when the reaction occurs.

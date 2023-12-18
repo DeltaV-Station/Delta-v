@@ -92,9 +92,9 @@ namespace Content.Server.Administration.Commands
             }
 
             var invSystem = entityManager.System<InventorySystem>();
-            if (invSystem.TryGetSlots(target, out var slots))
+            if (invSystem.TryGetSlots(target, out var slotDefinitions, inventoryComponent))
             {
-                foreach (var slot in slots)
+                foreach (var slot in slotDefinitions)
                 {
                     invSystem.TryUnequip(target, slot.Name, true, true, false, inventoryComponent);
                     var gearStr = startingGear.GetGear(slot.Name, profile);
