@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.IntegrationTests;
-using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Robust.Client.GameObjects;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -12,7 +10,6 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -32,8 +29,7 @@ namespace Content.MapRenderer.Painters
                 DummyTicker = false,
                 Connected = true,
                 Fresh = true,
-                // Seriously whoever made MapPainter use GameMapPrototype I wish you step on a lego one time.
-                Map = map,
+                Map = map
             });
 
             var server = pair.Server;
@@ -77,7 +73,7 @@ namespace Content.MapRenderer.Painters
                     sEntityManager.DeleteEntity(playerEntity.Value);
                 }
 
-                var mapId = sEntityManager.System<GameTicker>().DefaultMap;
+                var mapId = sMapManager.GetAllMapIds().Last();
                 grids = sMapManager.GetAllGrids(mapId).ToArray();
 
                 foreach (var (uid, _) in grids)

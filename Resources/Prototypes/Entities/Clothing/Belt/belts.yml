@@ -29,7 +29,6 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
-        - JawsOfLife
       components:
         - SprayPainter
         - NetworkConfigurator
@@ -58,10 +57,6 @@
         whitelist:
           tags:
           - CrowbarRed
-      jaws:
-        whitelist:
-          tags:
-          - JawsOfLife
       screwdriver_nuke:
         whitelist:
           tags:
@@ -174,7 +169,6 @@
       components:
         - Stunbaton
         - FlashOnTrigger
-        - SmokeOnTrigger
         - Flash
         - Handcuff
         - RangedMagazine
@@ -189,10 +183,6 @@
         whitelist:
           components:
           - Stunbaton
-      tear_gas_grenade:
-        whitelist:
-          components:
-          - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
@@ -373,12 +363,9 @@
         - Taser
         - SecBeltEquip
         - Radio
-        - Sidearm
-        - MagazinePistol
       components:
         - Stunbaton
         - FlashOnTrigger
-        - SmokeOnTrigger
         - Flash
         - Handcuff
   - type: ItemMapper
@@ -391,10 +378,6 @@
         whitelist:
           components:
           - Stunbaton
-      tear_gas_grenade:
-        whitelist:
-          components:
-          - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
@@ -524,7 +507,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  parent: ClothingBeltStorageBase
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by Syndicate boarding parties.
@@ -533,11 +516,9 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
 
 - type: entity
-  parent: ClothingBeltMilitaryWebbing
+  parent: ClothingBeltStorageBase
   id: ClothingBeltMilitaryWebbingMed
   name: medical chest rig
   description: A set of tactical webbing worn by Gorlex Marauder medic operatives.

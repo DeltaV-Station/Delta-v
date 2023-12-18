@@ -65,8 +65,6 @@
     - Science
   - type: AccessReader
     access: [["Cargo"], ["Salvage"], ["Command"], ["Research"]]
-  - type: Inventory
-    templateId: borgTall
 
 - type: entity
   id: BorgChassisEngineer
@@ -108,8 +106,6 @@
     - Science
   - type: AccessReader
     access: [["Engineering"], ["Command"], ["Research"]]
-  - type: Inventory
-    templateId: borgShort
 
 - type: entity
   id: BorgChassisJanitor
@@ -151,8 +147,6 @@
     - Science
   - type: AccessReader
     access: [["Service"], ["Command"], ["Research"]]
-  - type: Inventory
-    templateId: borgShort
 
 - type: entity
   id: BorgChassisMedical
@@ -199,8 +193,6 @@
       borg_module:
       - BorgModuleTreatment
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
-  - type: Inventory
-    templateId: borgDutch
 
 - type: entity
   id: BorgChassisService
@@ -242,5 +234,3 @@
     - Science
   - type: AccessReader
     access: [["Service"], ["Command"], ["Research"]]
-  - type: Inventory
-    templateId: borgTall

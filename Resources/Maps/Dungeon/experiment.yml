@@ -6801,6 +6801,9 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
+    - type: ActiveEmergencyLight
   - uid: 1606
     components:
     - rot: 3.141592653589793 rad
@@ -6809,6 +6812,9 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
+    - type: ActiveEmergencyLight
   - uid: 1607
     components:
     - rot: 3.141592653589793 rad
@@ -6817,6 +6823,9 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
+    - type: ActiveEmergencyLight
 - proto: ExplosivePayload
   entities:
   - uid: 1104

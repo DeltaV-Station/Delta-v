@@ -44,8 +44,6 @@
       - id: Cautery
       - id: Retractor
       - id: ScalpelAdvanced
-      - id: ClothingHandsGlovesNitrile
-      - id: EmergencyRollerBedSpawnFolded
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -257,7 +255,6 @@
       - id: ClothingOuterHardsuitSyndicate
       - id: ClothingMaskGasSyndicate
       - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -295,7 +292,7 @@
     contents:
       - id: BoxSurvivalSyndicate
       - id: WeaponPistolViper
-      - id: PinpointerSyndicateNuclear
+      - id: PinpointerNuclear
       - id: DeathAcidifierImplanter
 
 
@@ -313,7 +310,7 @@
       - id: Cautery
       - id: CombatKnife
       - id: WeaponPistolViper
-      - id: PinpointerSyndicateNuclear
+      - id: PinpointerNuclear
       - id: HandheldHealthAnalyzer
       - id: CombatMedipen
       - id: DeathAcidifierImplanter
@@ -330,6 +327,6 @@
       - id: Defibrillator
       - id: CombatMedipen
         amount: 3
-      - id: ClothingHandsGlovesNitrile
+      - id: ClothingHandsGlovesLatex
       - id: SyringeTranexamicAcid
       - id: SyringeHyronalin

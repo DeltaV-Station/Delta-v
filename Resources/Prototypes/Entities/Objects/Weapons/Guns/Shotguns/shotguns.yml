@@ -7,8 +7,8 @@
   components:
   - type: Sprite
     layers:
-    - state: icon
-      map: [ "enum.GunVisualLayers.Base" ]
+      - state: icon
+        map: [ "enum.GunVisualLayers.Base" ]
   - type: Item
     # If you update this also update the bulldog's size.
     size: 30
@@ -130,22 +130,25 @@
   name: Enforcer
   parent: BaseWeaponShotgun
   id: WeaponShotgunEnforcer
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
+  description: A next-generation Frozen Star shotgun. Uses .50 shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
-  - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/inhands_64x.rsi
-    heldPrefix: enforcer
   - type: BallisticAmmoProvider
   
 - type: entity
-  parent: WeaponShotgunEnforcer
+  name: Enforcer
+  parent: BaseWeaponShotgun
   id: WeaponShotgunEnforcerRubber
+  description: A next-generation Frozen Star shotgun. Uses .50 shotgun shells.
   suffix: Non-Lethal
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
   
@@ -161,9 +164,6 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
     capacity: 4
-  - type: Tag
-    tags:
-    - WeaponShotgunKammerer
 
 - type: entity
   name: sawn-off shotgun

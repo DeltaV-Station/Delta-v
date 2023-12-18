@@ -66,6 +66,16 @@
     Gold: 100
 
 - type: latheRecipe
+  id: WeaponTaser
+  result: WeaponTaser
+  completetime: 5
+  materials:
+    Steel: 700
+    Plastic: 300
+    Gold: 250
+    Silver: 500
+
+- type: latheRecipe
   id: ForensicPad
   result: ForensicPad
   completetime: 4
@@ -79,7 +89,7 @@
   materials:
     Steel: 300
     Glass: 200
-
+    
 - type: latheRecipe
   id: ClothingEyesHudSecurity
   result: ClothingEyesHudSecurity

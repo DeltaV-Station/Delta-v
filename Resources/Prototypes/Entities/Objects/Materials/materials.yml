@@ -49,14 +49,6 @@
   - type: Appearance
   - type: Item
     size: 30
-  - type: Extractable
-    grindableSolutionName: cardboard
-  - type: SolutionContainerManager
-    solutions:
-      cardboard:
-        reagents:
-        - ReagentId: Cellulose
-          Quantity: 6
 
 - type: entity
   parent: MaterialCardboard
@@ -219,13 +211,6 @@
     count: 1
   - type: Item
     size: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents: #Hell if I know what durathread is made out of.
-        - ReagentId: Fiber
-          Quantity: 6
 
 - type: entity
   parent: MaterialBase
@@ -257,14 +242,6 @@
     - Wooden
     - DroneUsable
     - RawMaterial
-  - type: Extractable
-    grindableSolutionName: wood
-  - type: SolutionContainerManager
-    solutions:
-      wood:
-        reagents:
-        - ReagentId: Cellulose
-          Quantity: 10
 
 - type: entity
   parent: MaterialWoodPlank
@@ -381,14 +358,6 @@
   - type: Item
     heldPrefix: diamond
     size: 60
-  - type: Extractable
-    grindableSolutionName: diamond
-  - type: SolutionContainerManager
-    solutions:
-      diamond:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 20
 
 - type: entity
   parent: MaterialDiamond
@@ -430,11 +399,6 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
   - type: Tag
     tags:
       - ClothMade
@@ -543,11 +507,6 @@
       - cobwebs
     ignoreReagents:
       - Fiber
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
   - type: SolutionContainerManager
     solutions:
       food:

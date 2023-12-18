@@ -1560,7 +1560,9 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
-
+    - enabled: True
+      type: AmbientSound
+    - type: ActiveEmergencyLight
   - uid: 392
     components:
     - rot: 3.141592653589793 rad
@@ -1569,7 +1571,9 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
-
+    - enabled: True
+      type: AmbientSound
+    - type: ActiveEmergencyLight
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 362
