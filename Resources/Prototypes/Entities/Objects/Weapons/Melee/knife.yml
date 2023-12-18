@@ -92,6 +92,12 @@
     damage:
       types:
         Slash: 10
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/combat_knife.rsi
