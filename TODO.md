@@ -11,3 +11,11 @@
 - [ ] https://github.com/space-wizards/space-station-14/commit/eb0c86f803648c0ad8387f7255e15c402dc41653 - Does this have to do with storage refactor is it actually generic?
 
 - [ ] a698a85f3489b32df81ce5f6c62a2ad86465fea4 - Funny shuttle shit
+
+- [ ] beb8c262ae0633767647ad5dbbafc1b1fa1a5dec - To discuss :blunt:
+
+- [ ] 736300d505d72d1302392df2f474624c4087e440 - Make this work for the normal inventory system
+
+- [ ] b37b988ce36cd73cc15f321ecd36c89d84476841 - Fuck xaml
+
+- [ ] 0349c53d0cf723eec8bd72deb82e370cc9aa6519 - Sigh
