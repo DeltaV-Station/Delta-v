@@ -28,8 +28,8 @@
   - type: PlacementReplacement
     key: walls
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: MetallicStructure #Nyano
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -679,7 +679,7 @@
     state: state0
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StrongMetallic #Nyano
+    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -793,13 +793,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
