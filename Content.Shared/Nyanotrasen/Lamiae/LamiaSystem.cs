@@ -37,6 +37,9 @@ namespace Content.Shared.Nyanotrasen.Lamiae
                 EnsureComp<PhysicsComponent>(segmentUid);
                 EnsureComp<PhysicsComponent>(attachedUid); // Hello I hate tests
 
+                var ev = new SegmentSpawnedEvent(segment.lamia);
+                RaiseLocalEvent(segmentUid, ev, false);
+
                 if (segment.segment.SegmentNumber == 1)
                 {
                     Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates;
