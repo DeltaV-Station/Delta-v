@@ -26,7 +26,7 @@
     soundGunshot:
       path: /Audio/Weapons/click.ogg
   - type: BallisticAmmoProvider
-    autoCycle: false
+    Cycleable: false
     proto: BulletBB
     whitelist:
       tags:
