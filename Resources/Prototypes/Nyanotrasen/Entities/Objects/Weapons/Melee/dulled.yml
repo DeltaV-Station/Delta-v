@@ -19,6 +19,11 @@
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/katana.rsi
+  - type: Clothing #DeltaV
+    sprite: Objects/Weapons/Melee/katana.rsi
+    slots:
+    - mask
+  - type: DisarmMalus #DeltaV
 
 - type: entity
   name: claymore

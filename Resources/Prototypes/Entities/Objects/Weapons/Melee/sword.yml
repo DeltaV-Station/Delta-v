@@ -51,7 +51,11 @@
   - type: Item
     size: 15
     sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
-  - type: DisarmMalus
+  - type: Clothing #DeltaV
+    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+    slots:
+    - mask
+  - type: DisarmMalus #DeltaV
 
 - type: entity
   name: energy katana
