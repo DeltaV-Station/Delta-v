@@ -55,3 +55,36 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.75
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: N_Parka
+  name: N Parka
+  description: A white parka with a purple N smells of pudding.
+  components:
+  - type: Sprite
+    sprite: Clothing\OuterClothing\WinterCoats\N_Parka.rsi
+  - type: Clothing
+    sprite: Clothing\OuterClothing\WinterCoats\N_Parka.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Item
+    size: 10
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
