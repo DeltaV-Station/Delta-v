@@ -100,6 +100,15 @@
     - DoorBumpOpener
   - type: Input
     context: "human"
+    
+- type: entity
+  parent: BasePDA
+  id: BaseMedicalPDA
+  components:
+  - type: HealthAnalyzer
+    scanDelay: 1
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
   parent: BasePDA
@@ -129,7 +138,7 @@
     state: pda-interntech
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: MedicalInternPDA
   name: medical intern PDA
   description: Why isn't it white? Has a built-in health analyzer.
@@ -142,10 +151,6 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-internmed
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: GuideHelp
     guides:
     - Medical Doctor
@@ -279,7 +284,7 @@
   - type: Pda
     id: MimeIDCard
     state: pda-mime
-    idSlot:
+    idSlot: #  rewrite without sound because mime
       name: ID Card
       whitelist:
         components:
@@ -292,7 +297,7 @@
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: SciencePDA # DeltaV - Chaplain is part of episetmics
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
@@ -385,6 +390,8 @@
   - type: Pda
     id: LibrarianIDCard
     state: pda-library
+    penSlot:
+      startingItem: LuxuryPen
   - type: PdaBorderColor
     borderColor: "#858585"
   - type: Icon
@@ -399,6 +406,8 @@
   - type: Pda
     id: LawyerIDCard
     state: pda-lawyer
+    penSlot:
+      startingItem: LuxuryPen
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
@@ -490,7 +499,7 @@
     state: pda-engineer
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: CMOPDA
   name: chief medical officer PDA
   description: Extraordinarily shiny and sterile. Has a built-in health analyzer.
@@ -504,13 +513,9 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-cmo
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: MedicalPDA
   name: medical PDA
   description: Shiny and sterile. Has a built-in health analyzer.
@@ -523,16 +528,12 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-medical
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: GuideHelp
     guides:
     - Medical Doctor
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: ParamedicPDA
   name: paramedic PDA
   description: Shiny and sterile. Has a built-in rapid health analyzer.
@@ -545,13 +546,9 @@
     accentVColor: "#2a4b5b"
   - type: Icon
     state: pda-paramedic
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
-
+    
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: ChemistryPDA
   name: chemistry PDA
   description: It has a few discolored blotches here and there.
@@ -564,10 +561,6 @@
     accentVColor: "#B34200"
   - type: Icon
     state: pda-chemistry
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
   parent: BasePDA
@@ -769,6 +762,7 @@
   parent: BasePDA
   id: ERTLeaderPDA
   name: ERT PDA
+  suffix: Leader
   description: Red for firepower.
   components:
   - type: Pda
@@ -783,13 +777,53 @@
 
 - type: entity
   parent: ERTLeaderPDA
+  id: ERTChaplainPDA
+  name: ERT PDA
+  suffix: Chaplain
+  components:
+  - type: Pda
+    id: ERTChaplainIDCard
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: ERTEngineerPDA
+  suffix: Engineer
+  components:
+  - type: Pda
+    id: ERTEngineerIDCard
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: ERTJanitorPDA
+  suffix: Janitor
+  components:
+  - type: Pda
+    id: ERTJanitorIDCard
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: ERTMedicPDA
+  suffix: Medic
+  components:
+  - type: Pda
+    id: ERTMedicIDCard
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: ERTSecurityPDA
+  suffix: Security
+  components:
+  - type: Pda
+    id: ERTSecurityIDCard
+
+- type: entity
+  parent: ERTLeaderPDA
   id: CBURNPDA
   name: CBURN PDA
   description: Smells like rotten flesh.
   components:
   - type: Pda
     id: CBURNIDcard
-    state: pda-ert
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
@@ -819,6 +853,8 @@
   - type: Pda
     id: ReporterIDCard
     state: pda-reporter
+    penSlot:
+      startingItem: LuxuryPen
   - type: PdaBorderColor
     borderColor: "#3f3f74"
   - type: Icon
@@ -868,7 +904,7 @@
     state: pda-detective
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: BrigmedicPDA
   name: brigmedic PDA
   description: I wonder whose pulse is on the screen? I hope he doesnt stop... PDA has a built-in health analyzer.
@@ -882,10 +918,6 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
   parent: ClownPDA
@@ -942,7 +974,7 @@
     state: pda-seniorresearcher
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: SeniorPhysicianPDA
   name: senior physician PDA
   description: Smells faintly like iron and chemicals. Has a built-in health analyzer.
@@ -956,10 +988,6 @@
     accentVColor: "#B34200"
   - type: Icon
     state: pda-seniorphysician
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
   parent: BasePDA
@@ -989,7 +1017,7 @@
     state: pda-pirate
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: SyndiAgentPDA
   name: syndicate agent PDA
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
@@ -1013,7 +1041,3 @@
       whitelist:
         components:
           - Cartridge
-  - type: HealthAnalyzer 
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
