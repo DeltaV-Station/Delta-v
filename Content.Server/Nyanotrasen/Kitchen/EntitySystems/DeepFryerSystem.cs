@@ -517,7 +517,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         ("entity", component.OriginalName)));
                     break;
                 default:
-                    _metaDataSystem.SetEntityName(uid, Loc.GetString("deep-fried-burnt-item",
+                    _metaDataSystem.SetEntityName(uid, Loc.GetString("deep-fried-burned-item",
                         ("entity", component.OriginalName)));
                     break;
             }
