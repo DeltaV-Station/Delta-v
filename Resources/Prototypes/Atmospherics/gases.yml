@@ -60,7 +60,7 @@
 
 - type: gas
   id: 6
-  name: gases-miasma
+  name: gases-ammonia
   specificHeat: 20
   heatCapacityRatio: 1.4
   molarMass: 44
@@ -69,7 +69,8 @@
   gasMolesVisible: 2
   gasVisbilityFactor: 3.5
   color: 56941E
-  reagent: Miasma
+  reagent: Ammonia
+  pricePerMole: 0.15
 
 - type: gas
   id: 7
