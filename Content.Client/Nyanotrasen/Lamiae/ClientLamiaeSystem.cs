@@ -21,16 +21,11 @@ public sealed class LamiaSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid))
-        {
-            foreach (var marking in humanoid.MarkingSet.GetForwardEnumerator())
-            {
-                if (marking.MarkingId != "LamiaBottom")
-                    continue;
+        if (!TryComp<SpriteComponent>(args.Lamia, out var parent))
+            return;
 
-                var color = marking.MarkingColors[0];
-                sprite.LayerSetColor(0, color);
-            }
-        }
+        parent.LayerMapTryGet(HumanoidVisualLayers.Tail, out var tailLayer);
+        var color = parent.LayerGetColor(tailLayer + 1);
+        sprite.LayerSetColor(LamiaSegmentVisualLayers.Tail, color);
     }
 }
