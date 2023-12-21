@@ -183,12 +183,12 @@
         types:
             Slash: 17
             Heat: 17
-            Structural: 20
+ #          Structural: 20 DeltaV Rebalance
             Blunt: -4.5
     litDisarmMalus: 0.7
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1.5
+    attackRate: 1 #DeltaV: Rebalance
     angle: 100
     soundHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -209,9 +209,9 @@
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
   - type: Reflect
     enabled: true
-    reflectProb: .80 #DeltaV: 80% Energy Reflection but no ballistics.
+    reflectProb: .95 #DeltaV: 95% Energy Reflection but no ballistics.
     spread: 75
     reflects:   
-      - Energy #DeltaV: 80% Energy Reflection but no ballistics. 
+      - Energy #DeltaV: 95% Energy Reflection but no ballistics. 
   - type: UseDelay
     delay: 1
