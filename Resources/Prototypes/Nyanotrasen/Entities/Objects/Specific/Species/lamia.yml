@@ -31,7 +31,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - state: placeholder
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      state: placeholder
   - type: Clickable
   - type: Tag
     tags:
@@ -61,7 +62,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - state: tip
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      state: tip
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
