@@ -2,10 +2,11 @@
   parent: MarkerBase
   id: RandomBook
   name: random book spawner
+  placement:
+    mode: PlaceFree # want to be able to free place books for stacks, etc.
   components:
   - type: Sprite
     layers:
-      - state: red
       - sprite: Objects/Misc/books.rsi
         state: book6
   - type: RandomSpawner
