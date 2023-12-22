@@ -26,6 +26,7 @@
       - id: BoxPDACargo # Delta-V
       - id: QuartermasterIDCard # Delta-V
       - id: SocksStripedCargoLoQm
+      - id: ClothingShoesBootsWinterLogisticsOfficer #Delta V: Add departmental winter boots
 - type: entity
   id: LockerCaptainFilledHardsuit
   suffix: Filled, Hardsuit
@@ -63,6 +64,7 @@
       - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
       - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerCaptainFilled
@@ -120,6 +122,7 @@
       - id: BoxHeadset
       - id: IDComputerCircuitboard
       - id: WeaponDisabler
+      - id: ClothingOuterCoatHoPArmored # DeltaV
       - id: ClothingOuterWinterHoP
       - id: ClothingOuterArmorDuraVest # DeltaV - replaced HoP's armoured coat with a standard stabproof, pending HoPcoat resprite
       - id: ClothingOuterCoatHoPFormal # DeltaV - formal jacket
@@ -174,6 +177,7 @@
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
       - id: CEIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -226,6 +230,7 @@
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
       - id: CMOIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefMedicalOfficer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -277,6 +282,7 @@
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
+      - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -300,6 +306,7 @@
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
+      - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -336,6 +343,7 @@
       - id: BoxPDASecurity # Delta-V
       - id: WeaponEnergyGunMultiphase # DeltaV - HoS Energy Gun
       - id: HoSIDCard # Delta-V
+      - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -371,6 +379,7 @@
       - id: HoSIDCard # Delta-V
       - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
       - id: SocksStripedSecurityJackboots
+
 - type: entity
   id: LockerFreezerVaultFilled
   suffix: Vault, Locked
