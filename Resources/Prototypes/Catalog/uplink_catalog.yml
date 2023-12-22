@@ -431,7 +431,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 16
+    Telecrystal: 10 # Delta-V - Lowers cost to 10, from 16.
   categories:
   - UplinkUtility
   conditions:
@@ -447,7 +447,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 16
+    Telecrystal: 15 # Delta-V Lowers cost to 15, from 16.
   categories:
   - UplinkUtility
   conditions:
