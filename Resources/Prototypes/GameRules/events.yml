@@ -86,9 +86,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5 # DeltaV - was 10
+    weight: 3 # DeltaV - was 10
     duration: 1
-    earliestStart: 30
+    earliestStart: 45 # DeltaV - was 30
     reoccurrenceDelay: 60
     minimumPlayers: 40
   - type: NinjaSpawnRule
@@ -367,8 +367,8 @@
   noSpawn: true
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 5
+    earliestStart: 60 # DeltaV - was 45
+    weight: 3 # DeltaV - was 5
     minimumPlayers: 10
     reoccurrenceDelay: 30
     duration: 1
