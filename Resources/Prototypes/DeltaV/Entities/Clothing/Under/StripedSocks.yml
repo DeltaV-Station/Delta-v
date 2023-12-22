@@ -3,7 +3,7 @@
 
 - type: entity
   parent: ClothingShoesBase
-  id: SocksStripped WhiteandLightBlue
+  id: SocksStripedWhiteandLightBlue
   name: Striped white and light blue socks
   description: Wearing these makes you feel just a little bit lazier
   components:
@@ -41,13 +41,13 @@
   description: Striped Socks that make you feel special enough to boss the heads
   components:
   - type: Sprite
-    sprite:DeltaV/Clothing/Under/Socks/SocksStripedCaptainGoldandBlue.rsi
+sprite: DeltaV/Clothing/Under/Socks/SocksStripedCaptainGoldandBlue.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Under/Socks/SocksStripedCaptainGoldandBlue.rsi
 
 - type: entity
   parent: ClothingShoesBase
-  id: SocksStrippedCargo
+  id: SocksStripedCargo
   name: Cargo striped socks
   description: These Striped Socks make you feel a little bit stronger
   components:
@@ -140,7 +140,7 @@
   parent: ClothingShoesSlippers
   id: SocksStripedWhiteandLightBlueBunnySlipper
   name: Striped Socks with Bunny Slippers
-  description: a Pair of Bunny Slipers with striped socks for all your hospital needs.
+  description: A pair of bunny slippers with striped socks for all your hospital needs.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Under/Socks/SocksStripedWhiteandLightBlueBunnySlipper.rsi
