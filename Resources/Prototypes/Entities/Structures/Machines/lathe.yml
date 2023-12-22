@@ -808,6 +808,8 @@
       - ClothingUniformJumpskirtBartender
       - ClothingUniformJumpsuitCaptain
       - ClothingUniformJumpskirtCaptain
+      - ClothingUniformJumpsuitCapFormal
+      - ClothingUniformJumpskirtCapFormalDress
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -836,8 +838,12 @@
       - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitHosFormal
+      - ClothingUniformJumpskirtHosFormal
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
+      - ClothingUniformJumpsuitHoSBlue
+      - ClothingUniformJumpsuitHoSGrey
       - ClothingUniformJumpsuitHoSParadeMale
       - ClothingUniformJumpskirtHoSParadeMale
       - ClothingUniformJumpsuitHydroponics
@@ -917,6 +923,23 @@
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
       - ClothingOuterWinterSec
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - ClothingUniformJumpsuitCentcomAgent
+      - ClothingUniformJumpsuitCentcomFormal
+      - ClothingUniformJumpskirtCentcomFormalDress
+      - ClothingUniformJumpsuitCentcomOfficer
+      - ClothingUniformJumpsuitCentcomOfficial
+      - ClothingUniformJumpsuitOperative
+      - ClothingUniformJumpskirtOperative
+      - ClothingUniformJumpsuitSyndieFormal
+      - ClothingUniformJumpskirtSyndieFormalDress
+      - ClothingUniformJumpsuitPyjamaSyndicateBlack
+      - ClothingUniformJumpsuitPyjamaSyndicatePink
+      - ClothingUniformJumpsuitPyjamaSyndicateRed
+      - ClothingOuterWinterCentcom
+      - ClothingOuterWinterSyndie
+      - ClothingOuterWinterSyndieCap
   - type: MaterialStorage
     whitelist:
       tags:
