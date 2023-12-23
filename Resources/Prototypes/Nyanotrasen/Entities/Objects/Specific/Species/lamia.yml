@@ -14,12 +14,13 @@
         restitution: 0.0
         mask:
         - MobMask
-
   - type: Transform
     anchored: false
   - type: Tag
     tags:
     - HideContextMenu
+  - type: LamiaSegment
+    segmentId: initial
 
 - type: entity
   id: LamiaSegment
@@ -52,6 +53,8 @@
         restitution: 0.0
         mask:
         - MobMask
+  - type: LamiaSegment
+    segmentId: segment
 
 - type: entity
   id: LamiaSegmentEnd
@@ -66,6 +69,8 @@
     - map: [ "enum.LamiaSegmentVisualLayers.Null" ]
     - map: [ "enum.LamiaSegmentVisualLayers.Tail" ]
       state: tip
+  - type: LamiaSegment
+    segmentId: tip
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures

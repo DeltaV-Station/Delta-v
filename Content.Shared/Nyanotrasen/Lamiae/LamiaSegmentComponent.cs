@@ -14,5 +14,7 @@ namespace Content.Shared.Nyanotrasen.Lamiae
         public bool SexChanged = false;
         public EntityUid Lamia = default!;
         public int SegmentNumber = default!;
+        [DataField("segmentId")]
+        public string? segmentId;
     }
 }

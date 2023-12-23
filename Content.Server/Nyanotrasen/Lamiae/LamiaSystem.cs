@@ -1,7 +1,11 @@
 using Robust.Shared.Physics;
+using Robust.Shared.Utility;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
-using Robust.Shared.GameObjects;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Server.Humanoid;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -11,12 +15,14 @@ using Robust.Shared.Maths;
 using System.Numerics;
 using Content.Shared.Nyanotrasen.Lamiae;
 
-namespace Content.Shared.Nyanotrasen.Lamiae
+namespace Content.Server.Nyanotrasen.Lamiae
 {
     public partial class SharedLamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
+        [Dependency] private readonly MarkingManager _markingManager = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
@@ -64,7 +70,26 @@ namespace Content.Shared.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
+            SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
+        }
+
+        private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
+        {
+            component.Lamia = args.Lamia;
+            var segmentId = component.segmentId;
+
+            if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid))
+            {
+                foreach (var marking in humanoid.MarkingSet.GetForwardEnumerator())
+                {
+                    if (!(humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings)))
+                        continue;
+
+                 string segmentmarking = $"{marking}-{segmentId}";
+                 _humanoid.SetMarkingId(uid, MarkingCategories.Tail, 0, segmentmarking);
+                }
+            }
         }
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
