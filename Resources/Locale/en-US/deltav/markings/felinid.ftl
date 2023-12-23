@@ -1,0 +1,2 @@
+marking-FelinidAlternativeTail = Alternative Wagging Tail
+marking-FelinidAlternativeTail-m_waggingtail_cat_FRONT = Alternative Wagging Tail
