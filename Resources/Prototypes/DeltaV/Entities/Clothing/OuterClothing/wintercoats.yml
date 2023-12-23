@@ -58,7 +58,7 @@
 
 - type: entity
   parent: ClothingOuterWinterCoat
-  id: N_Parka
+  id: ClothingOuterN_Parka
   name: N Parka
   description: A white parka with a purple N. It smells of pudding
   components:
@@ -88,3 +88,8 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
