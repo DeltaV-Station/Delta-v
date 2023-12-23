@@ -1,5 +1,8 @@
 
-namespace Content.Shared.Item.PseudoItem;
+using Content.Shared.Item;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared.Nyanotrasen.Item.Components;
 
     /// <summary>
     /// For entities that behave like an item under certain conditions,
@@ -9,7 +12,14 @@ namespace Content.Shared.Item.PseudoItem;
 public sealed partial class PseudoItemComponent : Component
 {
     [DataField("size")]
-    public int Size = 120;
+    public ProtoId<ItemSizePrototype> Size = "Huge";
+
+    /// <summary>
+    /// An optional override for the shape of the item within the grid storage.
+    /// If null, a default shape will be used based on <see cref="Size"/>.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<Box2i>? Shape;
 
     public bool Active = false;
 }
