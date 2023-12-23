@@ -821,6 +821,7 @@
     modifier: 0.001
 
 - type: entity
+  parent: BaseItem
   id: ToySword
   name: toy sword
   description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
@@ -830,7 +831,7 @@
       colorOptions:
         - DodgerBlue
     - type: Sprite
-      sprite: Objects/Weapons/Melee/e_sword.rsi
+      sprite: Objects/Fun/toy_sword.rsi
       layers:
         - state: e_sword
         - state: e_sword_blade
@@ -840,7 +841,7 @@
           map: [ "blade" ]
     - type: Item
       size: 5
-      sprite: Objects/Weapons/Melee/e_sword.rsi
+      sprite: Objects/Fun/toy_sword.rsi
     - type: UseDelay
       delay: 1.0
     - type: PointLight

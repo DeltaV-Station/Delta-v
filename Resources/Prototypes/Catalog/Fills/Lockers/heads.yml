@@ -182,6 +182,8 @@
       - id: CEIDCard # Delta-V
       - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
       - id: ClothingUnderSocksStripedEngineering # DeltaV - Neptune's striped socks
+      - id: RCD
+      - id: RCDAmmo
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -208,6 +210,9 @@
       - id: CEIDCard # Delta-V
       - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
       - id: ClothingUnderSocksStripedEngineering # DeltaV - Neptune's striped socks
+      - id: RCD
+      - id: RCDAmmo
+
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
   suffix: Filled, Hardsuit
@@ -333,7 +338,7 @@
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
@@ -369,7 +374,7 @@
       - id: ClothingUniformJumpsuitHoSAlt
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
