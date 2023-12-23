@@ -20,6 +20,8 @@
     enabled: true
     reflectProb: .5
     spread: 90
+    reflects:
+      - Energy #Delta-V: Energy reflection, no bullet reflection
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
