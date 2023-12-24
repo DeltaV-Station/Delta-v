@@ -141,8 +141,8 @@
   materials:
     Steel: 2000
     Silver: 750
-    Plasma: 1500
-    Uranium: 150
+    Plasma: 1000 #DeltaV: Bluespace Exists so less plasma used, no uranium
+    Bluespace: 200 #DeltaV: Bluespace Exists
 
 - type: latheRecipe
   id: WeaponCrusher
