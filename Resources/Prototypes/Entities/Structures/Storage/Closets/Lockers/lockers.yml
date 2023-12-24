@@ -66,6 +66,16 @@
   name: head of personnel's locker
   components:
   - type: Appearance
+  - type: Sprite # Delta-V
+    sprite: DeltaV/Structures/Storage/closet.rsi
+    noRot: true
+    layers:
+    - state: hop
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: hop_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.StorageVisualLayers.Lock"]
   - type: EntityStorageVisuals
     stateBaseClosed: hop
     stateDoorOpen: hop_open
