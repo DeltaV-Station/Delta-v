@@ -81,13 +81,15 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
             if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid))
             {
-                foreach (var marking in humanoid.MarkingSet.GetForwardEnumerator())
+                foreach (var Marking in humanoid.MarkingSet.GetForwardEnumerator())
                 {
                     if (!(humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings)))
                         continue;
 
-                 string segmentmarking = $"{marking}-{segmentId}";
-                 _humanoid.SetMarkingId(uid, MarkingCategories.Tail, 0, segmentmarking);
+                 var markingId = Marking.MarkingId;
+                 string segmentmarking = $"{markingId}-{segmentId}";
+                 var color = Marking.MarkingColors[0];
+                 _humanoid.AddMarking(uid, segmentmarking, color);
                 }
             }
         }
