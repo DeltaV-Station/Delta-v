@@ -290,7 +290,7 @@
 
 - type: entity
   name: space cobra
-  id: MobCobraSpace
+  id: MobCobraSpaceNPC # Delta V : remove ghosttakeover comps
   parent: MobSpaceBasic
   description: Long fangs and a glowing hood, and the alluring look begs to come closer.
   components:
@@ -371,10 +371,7 @@
       radius: 1.1
       energy: 1.5
       color: "#4faffb"
-    - type: GhostRole
-      prob: 0.25
-      name: ghost-role-information-space-cobra-name
-      description: ghost-role-information-space-cobra-description
+    # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
     - type: Stealth
       enabledOnDeath: false
       maxVisibility: 1.2
