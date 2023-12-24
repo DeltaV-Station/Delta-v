@@ -481,6 +481,8 @@
     sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+  - type: StealTarget
+    stealGroup: ClothingHeadHatWarden
 
 - type: entity
   parent: ClothingHeadBase

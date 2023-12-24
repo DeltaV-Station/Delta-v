@@ -74,6 +74,8 @@
   noSpawn: true
   components:
   - type: TraitorRule
+  - type: ThiefRule #the thieves come as an extension of another gamemode
+    ruleChance: 0.5
 
 - type: entity
   id: Revolutionary
@@ -83,6 +85,8 @@
   - type: RevolutionaryRule
     maxHeadRevs: 2 # DeltaV
     playersPerHeadRev: 30 # DeltaV - need highpop readied up for multiple headrevs
+  - type: ThiefRule #the thieves come as an extension of another gamemode
+    ruleChance: 0.5
 
 - type: entity
   id: Sandbox
