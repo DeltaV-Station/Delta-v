@@ -254,9 +254,9 @@ entities:
       type: Fixtures
     - type: OccluderTree
     - type: SpreaderGrid
-    - angularDamping: 10000
+    - type: Shuttle
+      angularDamping: 10000
       linearDamping: 10000
-      type: Shuttle
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
