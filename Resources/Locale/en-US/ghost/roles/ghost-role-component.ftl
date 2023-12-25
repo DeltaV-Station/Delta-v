@@ -123,6 +123,9 @@ ghost-role-information-space-cobra-description = Space cobras really don't like 
 ghost-role-information-salvage-cobra-name = Space cobra on salvage wreck
 ghost-role-information-salvage-cobra-description = Space cobras really don't like guests, and will always snack on a visitor.
 
+ghost-role-information-tropico-name = Tropico
+ghost-role-information-tropico-description = The noble companion of Atmosia, and its most stalwart defender. Viva!
+
 ghost-role-information-guardian-name = Guardian
 ghost-role-information-guardian-description = Listen to your owner. Don't tank damage. Punch people hard.
 
