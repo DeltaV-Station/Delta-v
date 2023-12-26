@@ -36,7 +36,7 @@
       state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 200
-      name: kill
+      name: lethal
       state: lethal
   - type: MagazineVisuals
     magState: mag
@@ -91,7 +91,7 @@
       fireCost: 200
       name: lethal
       state: lethal
-    - proto: BulletEnergyGunIon
+    - proto: BulletEnergyGunIonSmall
       fireCost: 500
       name: ion
       state: special
@@ -252,6 +252,43 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  
+- type: entity
+  name: ion rifle
+  parent: BaseWeaponBattery
+  id: WeaponGunIonRifle
+  description: "A specialized rifle that fires ion bolts which are capable of disrupting and interfering with electronic devices."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/ionrifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/ionrifle.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+    selectedMode: SemiAuto
+    fireRate: 1
+    availableModes:
+      - SemiAuto
+  - type: Battery
+    maxCharge: 5000
+    startingCharge: 5000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunIonMedium
+    fireCost: 500
   - type: MagazineVisuals
     magState: mag
     steps: 5
