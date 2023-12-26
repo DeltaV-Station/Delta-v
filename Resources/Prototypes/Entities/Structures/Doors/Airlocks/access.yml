@@ -9,6 +9,14 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockLawyerLocked
+  suffix: Lawyer, Locked
+  components:
+  - type: AccessReader
+    access: [["Lawyer"]]
+
+- type: entity
+  parent: Airlock
   id: AirlockTheatreLocked
   suffix: Theatre, Locked
   components:
@@ -128,6 +136,14 @@
     access: [["Kitchen"], ["Hydroponics"]]
 
 - type: entity
+  parent: AirlockFreezer
+  id: AirlockFreezerHydroponicsLocked
+  suffix: Hydroponics, Locked
+  components:
+  - type: AccessReader
+    access: [["Hydroponics"]]
+
+- type: entity
   parent: AirlockEngineering
   id: AirlockEngineeringLocked
   suffix: Engineering, Locked
@@ -155,6 +171,14 @@
   parent: AirlockCargo
   id: AirlockSalvageLocked
   suffix: Salvage, Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: AirlockMining
+  id: AirlockMiningLocked
+  suffix: Mining(Salvage), Locked
   components:
   - type: AccessReader
     access: [["Salvage"]]
@@ -293,13 +317,24 @@
   - type: Wires
     layoutId: AirlockSecurity
 
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: AirlockSecurity
+#  id: AirlockBrigLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+#  - type: Wires
+#    layoutId: AirlockSecurity
+
 - type: entity
   parent: AirlockSecurity
-  id: AirlockBrigLocked
-  suffix: Brig, Locked
+  id: AirlockSecurityLawyerLocked
+  suffix: Security/Lawyer, Locked
   components:
   - type: AccessReader
-    access: [["Brig"]]
+    access: [["Security"], ["Lawyer"]]
   - type: Wires
     layoutId: AirlockSecurity
 
@@ -329,6 +364,80 @@
   - type: AccessReader
     access: [["External"]]
 
+#Delta V: Add Airlocks
+- type: entity
+  parent: Airlock
+  id: AirlockBoxerLocked
+  suffix: Boxer, Locked
+  components:
+  - type: AccessReader
+    access: [["Boxer"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockClownLocked
+  suffix: Clown, Locked
+  components:
+  - type: AccessReader
+    access: [["Clown"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockMimeLocked
+  suffix: Mime, Locked
+  components:
+  - type: AccessReader
+    access: [["Mime"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockMusicianLocked
+  suffix: Musician, Locked
+  components:
+  - type: AccessReader
+    access: [["Musician"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockReporterLocked
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockLibraryLocked
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockZookeeperLocked
+  suffix: Zookeeper, Locked
+  components:
+  - type: AccessReader
+    access: [["Zookeeper"]]
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSalvageLocked
+  suffix: External, Salvage, Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockPsychologistLocked
+  suffix: Psychologist, Locked
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+#End of Delta V
+
 # Glass Airlocks
 - type: entity
   parent: AirlockGlass
@@ -337,6 +446,14 @@
   components:
   - type: AccessReader
     access: [["Service"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockLawyerGlassLocked
+  suffix: Lawyer, Locked
+  components:
+  - type: AccessReader
+    access: [["Lawyer"]]
 
 - type: entity
   parent: AirlockGlass
@@ -449,6 +566,22 @@
   components:
   - type: AccessReader
     access: [["Salvage"]]
+
+- type: entity
+  parent: AirlockMiningGlass
+  id: AirlockMiningGlassLocked
+  suffix: Mining(Salvage), Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+    
+- type: entity
+  parent: AirlockChemistryGlass
+  id: AirlockChemistryGlassLocked
+  suffix: Chemistry, Locked
+  components:
+  - type: AccessReader
+    access: [["Chemistry"]]
 
 - type: entity
   parent: AirlockMedicalGlass
@@ -570,13 +703,22 @@
   - type: AccessReader
     access: [["Detective"]]
 
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: AirlockSecurityGlass
+#  id: AirlockBrigGlassLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+
 - type: entity
   parent: AirlockSecurityGlass
-  id: AirlockBrigGlassLocked
-  suffix: Brig, Locked
+  id: AirlockSecurityLawyerGlassLocked
+  suffix: Security/Lawyer, Locked
   components:
   - type: AccessReader
-    access: [["Brig"]]
+    access: [["Security"], ["Lawyer"]]
 
 - type: entity
   parent: AirlockSecurityGlass
@@ -609,6 +751,80 @@
   components:
   - type: AccessReader
     access: [["NuclearOperative"]]
+
+#Delta V: Add Airlocks
+- type: entity
+  parent: AirlockGlass
+  id: AirlockBoxerGlassLocked
+  suffix: Boxer, Locked
+  components:
+  - type: AccessReader
+    access: [["Boxer"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockClownGlassLocked
+  suffix: Clown, Locked
+  components:
+  - type: AccessReader
+    access: [["Clown"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockMimeGlassLocked
+  suffix: Mime, Locked
+  components:
+  - type: AccessReader
+    access: [["Mime"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockMusicianGlassLocked
+  suffix: Musician, Locked
+  components:
+  - type: AccessReader
+    access: [["Musician"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockReporterGlassLocked
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockLibraryGlassLocked
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockZookeeperGlassLocked
+  suffix: Zookeeper, Locked
+  components:
+  - type: AccessReader
+    access: [["Zookeeper"]]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassSalvageLocked
+  suffix: External, Glass, Salvage, Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockPsychologistGlassLocked
+  suffix: Psychologist, Locked
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+#End of Delta V
 
 # Maintenance Hatches
 - type: entity
@@ -709,6 +925,22 @@
 
 - type: entity
   parent: AirlockMaint
+  id: AirlockMaintLawyerLocked
+  suffix: Lawyer, Locked
+  components:
+  - type: AccessReader
+    access: [["Lawyer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: AirlockMaint
   id: AirlockMaintTheatreLocked
   suffix: Theatre, Locked
   components:
@@ -796,6 +1028,120 @@
     access: [["Captain"]]
 
 - type: entity
+  parent: AirlockMaint
+  id: AirlockMaintChiefEngineerLocked
+  suffix: ChiefEngineer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintChiefMedicalOfficerLocked
+  suffix: ChiefMedicalOfficer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintHeadOfSecurityLocked
+  suffix: HeadOfSecurity, Locked
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintResearchDirectorLocked
+  suffix: ResearchDirector, Locked
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+#Delta V: Add Airlocks
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintBoxerLocked
+  suffix: Boxer, Locked
+  components:
+  - type: AccessReader
+    access: [["Boxer"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintClownLocked
+  suffix: Clown, Locked
+  components:
+  - type: AccessReader
+    access: [["Clown"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintMimeLocked
+  suffix: Mime, Locked
+  components:
+  - type: AccessReader
+    access: [["Mime"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintMusicianLocked
+  suffix: Musician, Locked
+  components:
+  - type: AccessReader
+    access: [["Musician"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintReporterLocked
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintLibraryLocked
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintZookeeperLocked
+  suffix: Zookeeper, Locked
+  components:
+  - type: AccessReader
+    access: [["Zookeeper"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintPsychologistLocked
+  suffix: Psychologist, Locked
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintSecurityLawyerLocked
+  suffix: Security/Lawyer, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"], ["Lawyer"]]
+#End of Delta V
+
+- type: entity
   parent: AirlockSyndicate
   id: AirlockSyndicateLocked
   suffix: Syndicate, Locked
@@ -821,7 +1167,7 @@
     access: [["External"]]
 
 - type: entity
-  parent: AirlockShuttle
+  parent: AirlockShuttleSyndicate
   id: AirlockExternalShuttleSyndicateLocked
   suffix: External, Docking, Syndicate, Locked
   components:
@@ -829,7 +1175,7 @@
     access: [["SyndicateAgent"]]
 
 - type: entity
-  parent: AirlockShuttle
+  parent: AirlockShuttleSyndicate
   id: AirlockExternalShuttleNukeopLocked
   suffix: External, Docking, Nukeop, Locked
   components:
@@ -843,6 +1189,22 @@
   components:
   - type: AccessReader
     access: [["External"]]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockExternalGlassShuttleSyndicateLocked
+  suffix: Syndicate, Locked, Glass
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockExternalGlassShuttleNukeopLocked
+  suffix: Nukeop, Locked, Glass
+  components:
+  - type: AccessReader
+    access: [["NuclearOperative"]]
 
 - type: entity
   parent: AirlockGlassShuttle

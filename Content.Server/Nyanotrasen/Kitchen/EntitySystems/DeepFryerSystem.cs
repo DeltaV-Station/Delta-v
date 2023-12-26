@@ -10,7 +10,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
-using Content.Server.Atmos.Miasma;
 using Content.Server.Audio;
 using Content.Server.Body.Components;
 using Content.Server.Cargo.Systems;
@@ -23,6 +22,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.NPC.Components;
+using Content.Server.Nutrition;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Paper;
@@ -32,7 +32,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
-using Content.Shared.Atmos.Miasma;
+using Content.Shared.Atmos.Rotting;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -62,6 +62,8 @@ using Content.Shared.Tools.Components;
 using FastAccessors;
 using Content.Shared.NPC;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Construction;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -516,7 +518,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         ("entity", component.OriginalName)));
                     break;
                 default:
-                    _metaDataSystem.SetEntityName(uid, Loc.GetString("deep-fried-burnt-item",
+                    _metaDataSystem.SetEntityName(uid, Loc.GetString("deep-fried-burned-item",
                         ("entity", component.OriginalName)));
                     break;
             }

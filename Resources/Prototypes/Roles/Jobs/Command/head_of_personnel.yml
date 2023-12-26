@@ -47,10 +47,18 @@
 #  - Detective
 #  - Salvage
 #  - Security # NoooOoOo!! My HoPcurity!1
-#  - Brig
+#  - Brig # Lawyer access # Delta V: Removed
+  - Lawyer
 #  - Cargo
 #  - Atmospherics
 #  - Medical
+  - Boxer # DeltaV - Add Boxer access
+  - Clown # DeltaV - Add Clown access
+  - Library # DeltaV - Add Library access
+  - Mime # DeltaV - Add Mime access
+  - Musician # DeltaV - Add Musician access
+  - Reporter # DeltaV - Add Reporter access
+  - Zookeeper # DeltaV - Add Zookeeper access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -71,6 +79,7 @@
     head: ClothingHeadHatHopcap
     id: HoPPDA
     ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
+    gloves: ClothingHandsGlovesHop
     belt: BoxFolderClipboard
   innerClothingSkirt: ClothingUniformJumpskirtHoP
   satchel: ClothingBackpackSatchelHOPFilled

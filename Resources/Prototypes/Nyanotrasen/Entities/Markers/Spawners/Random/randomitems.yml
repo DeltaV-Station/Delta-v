@@ -35,10 +35,14 @@
       - ShardGlass
       - ShardGlassReinforced
       - ShardGlassPlasma
+      - ShardGlassUranium
       - MaterialCloth1
       - MaterialDurathread1
       - MaterialWoodPlank1
-      - MaterialCotton
+      - MaterialCotton1
+      - MaterialCardboard1
+      - MaterialWebSilk1
+      - MaterialBones1
       - SheetPlastic1
       - SheetSteel1
       - SheetGlass1
@@ -61,6 +65,8 @@
       - ColoredLightTubeFrostyBlue
       - ColoredLightTubeBlackLight
       - LightBulbMaintenanceRed
+      - LightBulbBroken
+      - LightTubeBroken
       - PowerCellPotato
       - PowerCellSmallPrinted
       - ChemistryEmptyBottle03
@@ -114,6 +120,23 @@
       - ClothingShoesTourist
       - ClothingUnderSocksBee
       - ClothingUnderSocksCoder
+      - CarvedPumpkinSmall
+      - CarvedPumpkinLarge
+      - DartBlue
+      - DartPurple
+      - DartYellow
+      - CandleRed
+      - CandleBlue
+      - CandleBlack
+      - CandleGreen
+      - CandlePurple
+      - BlankHandyFlag
+      - LGBTQHandyFlag
+      - PirateHandyFlag
+      - Fork
+      - Spoon
+      - KnifePlastic
+      - FishLabeler
     chance: 0.75
     rarePrototypes:
       - CigCartonGreen
@@ -127,19 +150,27 @@
       - SmokingPipeFilledCannabis
       - DiceBag
       - PersonalAI
+      - PotatoAI
       - PartRodMetal
       - IngotSilver1
       - CigarGold
       - IngotGold1
       - GoldOre1
+      - SilverOre1
       - SteelOre1
       - PlasmaOre1
       - SpaceQuartz1
       - UraniumOre1
+      - BananiumOre1
       - SheetUranium1
       - SheetPlasma1
       - SheetPlasteel1
       - SheetPGlass1
+      - SheetUGlass1
+      - MaterialSheetMeat1
+      - MaterialBiomass1
+      - MaterialBananium1
+      - MaterialBluespace1
       - Cablecuffs
       - Zipties
       - MonkeyCubeBox
@@ -148,6 +179,7 @@
       - PowerCellMediumPrinted
       - WoodenBuckler
       - MakeshiftShield
+      - WebShield
       - DehydratedSpaceCarp
       - RobustHarvestChemistryBottle
       - UnstableMutagenChemistryBottle
@@ -158,6 +190,7 @@
       - Brutepack
       - Gauze
       - AloeCream
+      - StrangePill
       # Pills/Syringes???
       - Medkit
       - MedkitBurn
@@ -192,4 +225,8 @@
       - ClothingHandsGlovesNitrile
       - ClothingOuterStraightjacket
       - ClothingShoesGaloshes
+      - HypoDart
+      - MrChips
+      - MrDips
+      - ProximitySensor
     rareChance: 0.05

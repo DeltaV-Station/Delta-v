@@ -86,9 +86,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5 # DeltaV - was 10
+    weight: 3 # DeltaV - was 10
     duration: 1
-    earliestStart: 30
+    earliestStart: 45 # DeltaV - was 30
     reoccurrenceDelay: 60
     minimumPlayers: 40
   - type: NinjaSpawnRule
@@ -128,7 +128,7 @@
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
     minimumPlayers: 5
-    weight: 5
+    weight: 10
     startDelay: 20
   - type: GasLeakRule
 
@@ -185,6 +185,21 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.005
+
+- type: entity
+  id: CockroachMigration
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 50
+  - type: VentCrittersRule
+    entries:
+    - id: MobCockroach
+      prob: 0.03
+    - id: MobMothroach
+      prob: 0.008
 
 - type: entity
   id: PowerGridCheck
@@ -336,7 +351,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    earliestStart: 50
+    earliestStart: 90 # DeltaV - was 50
     weight: 2.5 # DeltaV - was 5
     duration: 1
   - type: ZombieRule
@@ -352,8 +367,8 @@
   noSpawn: true
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 5
+    earliestStart: 60 # DeltaV - was 45
+    weight: 3 # DeltaV - was 5
     minimumPlayers: 10
     reoccurrenceDelay: 30
     duration: 1

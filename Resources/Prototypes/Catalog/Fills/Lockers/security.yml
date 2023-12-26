@@ -12,7 +12,7 @@
       - id: ClothingHeadHatBeretWarden
       - id: ClothingBeltSecurityFilled
       - id: Flash
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingHeadsetAltSecurity
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
@@ -24,6 +24,7 @@
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
       - id: BoxPDAPrisoner # Delta-V
+      - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerWardenFilled
@@ -39,7 +40,7 @@
       - id: ClothingHeadHatBeretWarden
       - id: ClothingBeltSecurityFilled
       - id: Flash
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingHeadsetAltSecurity
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
@@ -50,6 +51,7 @@
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
       - id: BoxPDAPrisoner # Delta-V
+      - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerSecurityFilled
@@ -84,7 +86,7 @@
       - id: ClothingBeltSecurityFilled
       - id: Flash
         prob: 0.5
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingHeadsetSecurity
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
@@ -111,6 +113,7 @@
       - id: ClothingUniformJumpskirtBrigmedic
 ##      - id: ClothingUniformJumpskirtOfLife # DeltaV - nah
 ##        prob: 0.1
+      - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6
@@ -143,6 +146,7 @@
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
+      - id: HandheldGPSBasic # Added GPS because I just think it should be there tbh.
       - id: MedkitFilled
       - id: MedkitCombatFilled
         prob: 0.6

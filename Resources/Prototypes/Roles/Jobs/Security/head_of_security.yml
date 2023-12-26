@@ -25,7 +25,7 @@
   access:
   - HeadOfSecurity
   - Command
-  - Brig
+  #- Brig  # Delta V: Removed
   - Security
   - Armory
   - Maintenance
@@ -50,7 +50,7 @@
     back: ClothingBackpackHOSFilled
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ClothingOuterCoatHoSTrench
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     head: ClothingHeadHatBeretHoS
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat

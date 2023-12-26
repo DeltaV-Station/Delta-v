@@ -10,19 +10,16 @@
     - !type:DepartmentTimeRequirement # DeltaV - Security time requirement
       department: Security
       time: 36000 # 10 hours
-#    - !type:RoleTimeRequirement # DeltaV - Prisoner time requirement #uncomment these lines when the role doesn't spawn in arrivals
-#      role: JobPrisoner 
-#      time: 3600 # 1 hour
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
+  #- Brig # Delta V: Removed
   - Armory
   - Maintenance
   - Service
-  - Brig
   - External
   - Detective
   special:
@@ -36,7 +33,7 @@
     jumpsuit: ClothingUniformJumpsuitWarden
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     outerClothing: ClothingOuterCoatWarden
     id: WardenPDA
     ears: ClothingHeadsetSecurity

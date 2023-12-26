@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement
       time: 18000
   startingGear: PrisonGuardGear
-#  alwaysUseSpawner: true
+  alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconPrisonGuard"
   supervisors: job-supervisors-warden
@@ -15,7 +15,7 @@
 #  whitelistRequired: true
   access:
   - Security
-  - Brig
+  #- Brig #Delta V: Removed brig access
   - Maintenance
 
 - type: startingGear

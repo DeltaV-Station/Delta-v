@@ -26,6 +26,7 @@
       - id: PlushieMoth
       - id: PlushieMothRandom # Nyanotrasen - Random Moth Plushies
         amount: 2
+      - id: PlushiePenguin
 
 - type: entity
   id: CrateFunInstrumentsVariety
@@ -131,7 +132,6 @@
   - type: StorageFill
     contents:
       - id: CrayonBox
-      - id: CrayonWhite
 
 - type: entity
   id: CrateFunBoardGames
@@ -198,6 +198,14 @@
       - id: DrinkLean
         amount: 4
       - id: KnifePlastic
+      - id: ClothingHeadHatPartyRed
+        amount: 2
+      - id: ClothingHeadHatPartyYellow
+        amount: 2
+      - id: ClothingHeadHatPartyGreen
+        amount: 2
+      - id: ClothingHeadHatPartyBlue
+        amount: 2
 
 - type: entity
   id: CrateFunWaterGuns
@@ -271,6 +279,7 @@
       - id: ClothingShoesClownLarge
       - id: ClothingHeadHatMagician
       - id: BeachBall
+      - id: ClothingShoesSkates
 
 - type: entity
   id: CrateFunBikeHornImplants
@@ -304,7 +313,7 @@
       - id: TargetDarts
         amount: 1
       - id: BoxDarts
-        amount: 1
+        amount: 2
       - id: BoxDarts
         amount: 1
         prob: 0.05

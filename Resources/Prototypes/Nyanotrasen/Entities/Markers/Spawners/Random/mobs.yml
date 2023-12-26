@@ -15,6 +15,9 @@
         - MobCarpMagic
         - MobCarpHolo
         - MobCarpRainbow
+      rarePrototypes:
+        - MobShark
+      rareChance: 0.05
 
 - type: entity
   name: NPC Snake Spawner
@@ -30,7 +33,10 @@
     - type: RandomSpawner
       prototypes:
         - MobPurpleSnake
+        - MobSpiderSpaceNPC
+      rarePrototypes:
         - MobSmallPurpleSnake
+      rareChance: 0.2
 
 - type: entity
   name: Salvage Snake Spawner
@@ -46,6 +52,7 @@
     - type: RandomSpawner
       prototypes:
         - MobPurpleSnakeGhost
+        - MobCobraSpaceSalvage
       chance: 0.75
       rarePrototypes:
         - MobSmallPurpleSnakeGhost
@@ -65,6 +72,7 @@
     - type: RandomSpawner
       prototypes:
         - MobPurpleSnakeGhost
+        - MobCobraSpaceSalvage
       chance: 0.25
       rarePrototypes:
         - MobSmallPurpleSnakeGhost

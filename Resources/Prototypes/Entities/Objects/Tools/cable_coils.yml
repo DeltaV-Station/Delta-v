@@ -4,7 +4,7 @@
 
 - type: entity
   id: CableStack
-  noSpawn: true
+  abstract: true
   parent: BaseItem
   name: cable stack
   suffix: Full
@@ -52,6 +52,18 @@
     cablePrototypeID: CableHV
     blockingWireType: HighVoltage
   - type: Appearance
+  - type: Extractable
+    grindableSolutionName: hvcable
+  - type: SolutionContainerManager
+    solutions:
+      hvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Copper
+          Quantity: 2
+        - ReagentId: Carbon #steel-reinforced
+          Quantity: 1
 
 - type: entity
   parent: CableHVStack
@@ -111,6 +123,16 @@
     cablePrototypeID: CableMV
     blockingWireType: MediumVoltage
   - type: Appearance
+  - type: Extractable
+    grindableSolutionName: mvcable
+  - type: SolutionContainerManager
+    solutions:
+      mvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Copper
+          Quantity: 2
 
 - type: entity
   parent: CableMVStack
@@ -169,6 +191,16 @@
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
   - type: Appearance
+  - type: Extractable
+    grindableSolutionName: lvcable
+  - type: SolutionContainerManager
+    solutions:
+      lvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Copper
+          Quantity: 2
 
 - type: entity
   parent: CableApcStack
