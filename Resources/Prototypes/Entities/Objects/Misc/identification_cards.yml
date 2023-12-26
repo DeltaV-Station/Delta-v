@@ -312,6 +312,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: SecDogIDCard
+  name: Security Dog ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idsecurityofficer
+    - type: PresetIdCard
+      job: SecurityOfficer
+
+- type: entity
+  parent: IDCardStandard
   id: ChefIDCard
   name: chef ID card
   components:
