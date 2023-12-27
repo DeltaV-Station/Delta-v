@@ -12,3 +12,6 @@ reagent-desc-the-martinez = The edgerunner legend.  Remembered by a drink, Forgo
 
 reagent-name-holywater = holy water
 reagent-desc-holywater = Water blessed by some otherworldly powers.
+
+reagent-name-lean = lean
+reagent-desc-lean = A disgusting mixture of soda, booze, and cough syrup.
