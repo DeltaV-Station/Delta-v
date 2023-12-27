@@ -7,3 +7,6 @@ marking-HumanHairClassicLowFade = Fade (Low, Classic)
 marking-HumanHairClassicMedFade = Fade (Medium, Classic)
 marking-HumanHairClassicOmbre = Ombre Classic
 marking-HumanHairClassicCrewcut = Crewcut Classic
+marking-HumanHairClassicLong = Long 1 (Classic)
+marking-HumanHairClassicLong2 = Long 2 (Classic)
+marking-HumanHairClassicLong3 = Long 3 (Classic)
