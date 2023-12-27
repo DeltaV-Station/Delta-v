@@ -316,6 +316,7 @@
   - type: StorageFill
     contents:
       - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesHeadofSecurity # Delta-V
       - id: WeaponDisabler
       - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatHoshat
@@ -327,7 +328,7 @@
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      # - id: ClothingEyesGlassesSunglasses # Delta-V replaced with HoS's shades
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
@@ -353,6 +354,7 @@
   - type: StorageFill
     contents:
       - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesHeadofSecurity # Delta-V
       - id: WeaponDisabler
       - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatHoshat
@@ -362,7 +364,7 @@
       - id: ClothingUniformJumpsuitHoSAlt
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      # - id: ClothingEyesGlassesSunglasses # Delta-V replaced with HoS's shades
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
