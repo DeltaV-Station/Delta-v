@@ -58,14 +58,14 @@
 
 - type: entity
   parent: ClothingOuterWinterCoat
-  id: ClothingOuterN_Parka
+  id: ClothingOuterNParka
   name: N Parka
   description: A white parka with a purple N. It smells of pudding
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/N_Parka.rsi
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/NParka.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/N_Parka.rsi
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/NParka.rsi
   - type: TemperatureProtection
     coefficient: 0.1
   - type: Item
