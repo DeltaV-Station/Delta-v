@@ -55,6 +55,20 @@
     state: gauze_righteye_1
 
 - type: marking
+  id: GauzeBlindfold
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_blindfold
+
+- type: marking
   id: GauzeShoulder
   bodyPart: Chest
   markingCategory: Chest
@@ -179,4 +193,103 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_lowerleg_r
+    
+- type: marking
+  id: GauzeBoxerWrapRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_boxerwrap_r
+    
+- type: marking
+  id: GauzeBoxerWrapLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_boxerwrap_l
+
+# Lizard Specific Markings
+- type: marking
+  id: GauzeLizardLefteyePatch
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_lizardlefteye
+
+- type: marking
+  id: GauzeLizardRighteyePatch
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_lizardrighteye
+
+- type: marking
+  id: GauzeLizardFootRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_lizardfoot_r
+
+- type: marking
+  id: GauzeLizardFootLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_lizardfoot_l
+
+- type: marking
+  id: GauzeLizardBlindfold
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/gauze.rsi
+    state: gauze_lizardblindfold
 
