@@ -461,3 +461,9 @@ accent-scottish-words-replace-160 = snake
 
 accent-scottish-words-161 = syndicates
 accent-scottish-words-replace-161 = snakes
+
+accent-scottish-words-162 = nukies
+accent-scottish-words-replace-162 = reddies
+
+accent-scottish-words-163 = syndicate agents
+accent-scottish-words-replace-163 = snakey bastards
