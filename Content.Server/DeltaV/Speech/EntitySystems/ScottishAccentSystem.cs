@@ -1,5 +1,4 @@
 using Content.Server.Speech.Components;
-using Robust.Shared.Random;
 using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems;
@@ -21,6 +20,7 @@ public sealed class ScottishAccentSystem : EntitySystem
         var msg = message;
 
         msg = _replacement.ApplyReplacements(msg, "Scottish");
+
         return msg;
     }
 
