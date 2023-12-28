@@ -77,21 +77,19 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
             component.Lamia = args.Lamia;
-            if (!TryComp<HumanoidAppearanceComponent>(uid, out var species))
-                return;
 
-            if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid))
+            if (!TryComp<HumanoidAppearanceComponent>(uid, out var species)) return;
+            if (!TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid)) return;
+
+            if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings))
             {
-                foreach (var markings in humanoid.MarkingSet.GetForwardEnumerator(MarkingCategories.Tail))
+                foreach (var markings in tailMarkings)
                 {
-                    if (!(humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings)))
-                        continue;
-
-                 var segmentId = species.Species;
-                 var markingId = markings.MarkingId;
-                 string segmentmarking = $"{markingId}-{segmentId}";
-                 var color = markings.MarkingColors[0];
-                 _humanoid.AddMarking(uid, segmentmarking, color);
+                    var segmentId = species.Species;
+                    var markingId = markings.MarkingId;
+                    string segmentmarking = $"{markingId}-{segmentId}";
+                    var color = markings.MarkingColors[0];
+                    _humanoid.AddMarking(uid, segmentmarking, color);
                 }
             }
         }
