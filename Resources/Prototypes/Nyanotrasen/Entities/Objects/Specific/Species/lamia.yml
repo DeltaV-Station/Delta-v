@@ -19,8 +19,6 @@
   - type: Tag
     tags:
     - HideContextMenu
-  - type: LamiaSegment
-    segmentId: initial
 
 - type: entity
   id: LamiaSegment
@@ -32,29 +30,15 @@
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - map: [ "enum.LamiaSegmentVisualLayers.Null" ]
-    - map: [ "enum.LamiaSegmentVisualLayers.Tail" ]
-      state: placeholder
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
   - type: Clickable
   - type: Tag
     tags:
     - DoorBumpOpener
   - type: ExplosionResistance #This looks stupid but remember that bombs are likely to damage every segment, we want them to be decent but not instagib the poor lamia.s
     damageCoefficient: 0.2
-  - type: Physics
-    bodyType: KinematicController
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.25
-        density: 80
-        restitution: 0.0
-        mask:
-        - MobMask
-  - type: LamiaSegment
-    segmentId: segment
+  - type: HumanoidAppearance
+    species: LamiaSegment
 
 - type: entity
   id: LamiaSegmentEnd
@@ -66,20 +50,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
-    - map: [ "enum.LamiaSegmentVisualLayers.Null" ]
-    - map: [ "enum.LamiaSegmentVisualLayers.Tail" ]
-      state: tip
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
   - type: LamiaSegment
     segmentId: tip
-  - type: Physics
-    bodyType: KinematicController
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.25
-        density: 80
-        restitution: 0.0
-        mask:
-        - MobMask
+  - type: HumanoidAppearance
+    species: LamiaSegmentEnd
