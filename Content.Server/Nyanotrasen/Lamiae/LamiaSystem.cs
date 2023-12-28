@@ -5,6 +5,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Humanoid;
+using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
@@ -72,6 +73,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
+            SubscribeLocalEvent<LamiaComponent, InsertIntoEntityStorageAttemptEvent>(OnLamiaStorageInsertAttempt);
+            SubscribeLocalEvent<LamiaSegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
         }
 
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
@@ -170,6 +173,16 @@ namespace Content.Server.Nyanotrasen.Lamiae
             _segments.Enqueue((segmentComponent, lamia));
             lamiaComponent.Segments.Add(segmentComponent.Owner);
             return segment;
+        }
+
+        private void OnLamiaStorageInsertAttempt(EntityUid uid, LamiaComponent comp, ref InsertIntoEntityStorageAttemptEvent args)
+        {
+            args.Cancelled = true;
+        }
+
+        private void OnSegmentStorageInsertAttempt(EntityUid uid, LamiaSegmentComponent comp, ref InsertIntoEntityStorageAttemptEvent args)
+        {
+            args.Cancelled = true;
         }
     }
 }
