@@ -21,7 +21,7 @@ public sealed class ScottishAccentSystem : EntitySystem
     {
         var msg = message;
 
-        msg = _replacement.ApplyReplacements(msg, "Scottish");
+        msg = _replacement.ApplyReplacements(msg, "scottish");
 
         return msg;
     }
