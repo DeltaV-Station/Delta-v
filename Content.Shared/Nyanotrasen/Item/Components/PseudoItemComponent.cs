@@ -1,5 +1,5 @@
 
-namespace Content.Server.Item.PseudoItem;
+namespace Content.Shared.Item.PseudoItem;
 
     /// <summary>
     /// For entities that behave like an item under certain conditions,
