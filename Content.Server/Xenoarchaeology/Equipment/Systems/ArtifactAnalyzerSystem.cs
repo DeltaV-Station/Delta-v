@@ -81,7 +81,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveArtifactAnalyzerComponent, ArtifactAnalyzerComponent>();
         while (query.MoveNext(out var uid, out var active, out var scan))
         {
-            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier)
+            if (active.AnalysisPaused)
+                continue;
+
+            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier - active.AccumulatedRunTime)
                 continue;
 
             FinishScan(uid, scan, active);
@@ -211,9 +214,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var serverConnected = TryComp<ResearchClientComponent>(uid, out var client) && client.ConnectedToServer;
 
         var scanning = TryComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity, out var active);
+        var paused = active != null ? active.AnalysisPaused : false;
+
 
         var state = new AnalysisConsoleScanUpdateState(GetNetEntity(artifact), analyzerConnected, serverConnected,
-            canScan, canPrint, msg, scanning, active?.StartTime, totalTime, points);
+            canScan, canPrint, msg, scanning, paused, active?.StartTime, active?.AccumulatedRunTime, totalTime, points);
 
         var bui = _ui.GetUi(uid, ArtifactAnalzyerUiKey.Key);
         _ui.SetUiState(bui, state);
@@ -250,7 +255,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var activeComp = EnsureComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity.Value);
         activeComp.StartTime = _timing.CurTime;
+        activeComp.AccumulatedRunTime = TimeSpan.Zero;
         activeComp.Artifact = ent.Value;
+
+        if (TryComp<ApcPowerReceiverComponent>(component.AnalyzerEntity.Value, out var powa))
+            activeComp.AnalysisPaused = !powa.Powered;
 
         var activeArtifact = EnsureComp<ActiveScannedArtifactComponent>(ent.Value);
         activeArtifact.Scanner = component.AnalyzerEntity.Value;
@@ -425,6 +434,33 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             UpdateUserInterface(component.Console.Value);
     }
 
+    [PublicAPI]
+    public void PauseScan(EntityUid uid, ArtifactAnalyzerComponent? component = null, ActiveArtifactAnalyzerComponent? active = null)
+    {
+        if (!Resolve(uid, ref component, ref active) || active.AnalysisPaused)
+            return;
+
+        active.AnalysisPaused = true;
+        // As we pause, we store what was already completed.
+        active.AccumulatedRunTime = (_timing.CurTime - active.StartTime) + active.AccumulatedRunTime;
+
+        if (Exists(component.Console))
+            UpdateUserInterface(component.Console.Value);
+    }
+
+    [PublicAPI]
+    public void ResumeScan(EntityUid uid, ArtifactAnalyzerComponent? component = null, ActiveArtifactAnalyzerComponent? active = null)
+    {
+        if (!Resolve(uid, ref component, ref active) || !active.AnalysisPaused)
+            return;
+
+        active.StartTime = _timing.CurTime;
+        active.AnalysisPaused = false;
+
+        if (Exists(component.Console))
+            UpdateUserInterface(component.Console.Value);
+    }
+
     private void OnRefreshParts(EntityUid uid, ArtifactAnalyzerComponent component, RefreshPartsEvent args)
     {
         var analysisRating = args.PartRatings[component.MachinePartAnalysisDuration];
@@ -479,10 +515,16 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         _ambientSound.SetAmbience(uid, false);
     }
 
-    private void OnPowerChanged(EntityUid uid, ActiveArtifactAnalyzerComponent component, ref PowerChangedEvent args)
+    private void OnPowerChanged(EntityUid uid, ActiveArtifactAnalyzerComponent active, ref PowerChangedEvent args)
     {
         if (!args.Powered)
-            CancelScan(component.Artifact);
+        {
+            PauseScan(uid, null, active);
+        }
+        else
+        {
+            ResumeScan(uid, null, active);
+        }
     }
 }
 
