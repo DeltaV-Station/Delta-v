@@ -394,7 +394,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
 
-        var message = TransformSpeech(source, originalMessage);
+        var message = TransformSpeech(source, FormattedMessage.RemoveMarkup(originalMessage));
+
         if (message.Length == 0)
             return;
 
@@ -426,7 +427,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
-		// Also doesn't log if hideLog is true.
+        // Also doesn't log if hideLog is true.
         if (!HasComp<ActorComponent>(source) || hideLog == true)
             return;
 
@@ -461,7 +462,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
 
-        var message = TransformSpeech(source, originalMessage);
+        var message = TransformSpeech(source, FormattedMessage.RemoveMarkup(originalMessage));
         if (message.Length == 0)
             return;
 
@@ -482,7 +483,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             name = nameEv.Name;
         }
         name = FormattedMessage.EscapeText(name);
-
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
@@ -561,7 +561,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", name),
             ("entity", ent),
-            ("message", FormattedMessage.EscapeText(action)));
+            ("message", FormattedMessage.RemoveMarkup(action)));
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
@@ -624,7 +624,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Utility
 
-    private enum MessageRangeCheckResult {
+    private enum MessageRangeCheckResult
+    {
         Disallowed,
         HideChat,
         Full
@@ -807,7 +808,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         foreach (var player in _playerManager.Sessions)
         {
-            if (player.AttachedEntity is not {Valid: true} playerEntity)
+            if (player.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
 
             var transformEntity = xforms.GetComponent(playerEntity);
