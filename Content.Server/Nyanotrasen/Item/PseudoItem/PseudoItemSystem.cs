@@ -1,18 +1,18 @@
-using System.Threading;
-using Content.Shared.Verbs;
-using Content.Shared.Item;
-using Content.Shared.Hands;
+using Content.Server.DoAfter;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;
 using Content.Shared.Storage;
-using Content.Server.Storage.EntitySystems;
-using Content.Server.DoAfter;
 using Content.Shared.Tag;
+using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Item.PseudoItem;
-public sealed partial class PseudoItemSystem : EntitySystem
+
+public sealed class PseudoItemSystem : EntitySystem
 {
     [Dependency] private readonly StorageSystem _storageSystem = default!;
     [Dependency] private readonly ItemSystem _itemSystem = default!;
@@ -31,6 +31,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
         SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
         SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PseudoItemComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
     }
 
     private void AddInsertVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<InnateVerb> args)
@@ -97,7 +98,8 @@ public sealed partial class PseudoItemSystem : EntitySystem
         component.Active = false;
     }
 
-    private void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
+    private void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
+        GettingPickedUpAttemptEvent args)
     {
         if (args.User == args.Item)
             return;
@@ -111,6 +113,7 @@ public sealed partial class PseudoItemSystem : EntitySystem
         if (component.Active)
             args.Cancel();
     }
+
     private void OnDoAfter(EntityUid uid, PseudoItemComponent component, DoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || args.Args.Used == null)
@@ -119,7 +122,8 @@ public sealed partial class PseudoItemSystem : EntitySystem
         args.Handled = TryInsert(args.Args.Used.Value, uid, component);
     }
 
-    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component, StorageComponent? storage = null)
+    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
+        StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
             return false;
@@ -139,16 +143,17 @@ public sealed partial class PseudoItemSystem : EntitySystem
         }
 
         component.Active = true;
-        Transform(storageUid).AttachToGridOrMap();
         return true;
     }
-    private void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity, PseudoItemComponent? pseudoItem = null)
+
+    private void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity,
+        PseudoItemComponent? pseudoItem = null)
     {
         if (!Resolve(toInsert, ref pseudoItem))
             return;
 
         var ev = new PseudoItemInsertDoAfterEvent();
-        var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, target: toInsert, used: storageEntity)
+        var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, toInsert, storageEntity)
         {
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
@@ -156,5 +161,14 @@ public sealed partial class PseudoItemSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(args);
+    }
+
+    private void OnInsertAttempt(EntityUid uid, PseudoItemComponent component,
+        ContainerGettingInsertedAttemptEvent args)
+    {
+        if (!component.Active)
+            return;
+        // This hopefully shouldn't trigger, but this is a failsafe just in case so we dont bluespace them cats
+        args.Cancel();
     }
 }
