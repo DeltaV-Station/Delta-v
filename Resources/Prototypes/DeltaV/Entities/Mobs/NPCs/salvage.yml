@@ -1,0 +1,39 @@
+- type: entity
+  name: Syndicate Guard
+  parent: BaseMobHuman
+  id: MobRadioGuard
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - RadioGuardGear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: Respirator #Mobs can't turn on internals by themselves, so we have to simulate them having it on
+      damage:
+        types:
+          Asphyxiation: 0
+      damageRecovery:
+        types:
+          Asphyxiation: -1.0
+    - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
+      fireRate: 2
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: CartridgePistol
+      capacity: 10
+      count: 10
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 1
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
