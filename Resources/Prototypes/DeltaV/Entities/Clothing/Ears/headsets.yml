@@ -10,3 +10,32 @@
       - EncryptionKeyService
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltService
+  name: head of personnel's over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyService
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
+    
+- type: entity
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateListening
+  name: blood-red over-ear interception headset
+  description: An advanced, modular syndicate interception intercom that fits over the head.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndie
+      - EncryptionKeyStationMaster
+
