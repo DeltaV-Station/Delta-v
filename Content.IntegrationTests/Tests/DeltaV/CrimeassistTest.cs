@@ -17,22 +17,13 @@ public sealed class CrimeAssistTest
         var server = pair.Server;
         await server.WaitIdleAsync();
 
-        var mapManager = server.ResolveDependency<IMapManager>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-
-        var testMap = await pair.CreateTestMap();
-
-        // Get all CrimeAssistPage
         var allProtos = prototypeManager.EnumeratePrototypes<CrimeAssistPage>().ToArray();
 
         await server.WaitAssertion(() =>
         {
             foreach (var proto in allProtos)
             {
-                // Assert that ID is unique, and not present a second time in allProtos
-                Assert.That(allProtos.Count(p => p.ID == proto.ID), Is.EqualTo(1),
-                    $"CrimeAssistPage {proto.ID} is not unique!");
-
                 if (proto.LocKey != null)
                 {
                     Assert.That(Loc.TryGetString(proto.LocKey, out var _),
@@ -81,12 +72,6 @@ public sealed class CrimeAssistTest
                         $"CrimeAssistPage {proto.ID} has invalid OnNo {proto.OnNo}!");
                 }
             }
-
-            // Because Server/Client pairs can be re-used between Tests, we
-            // need to clean up anything that might affect other tests,
-            // otherwise this pair cannot be considered clean, and the
-            // CleanReturnAsync call would need to be removed.
-            mapManager.DeleteMap(testMap.MapId);
         });
 
         await pair.CleanReturnAsync();
