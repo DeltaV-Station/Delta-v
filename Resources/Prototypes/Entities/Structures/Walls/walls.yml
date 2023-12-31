@@ -28,8 +28,8 @@
   - type: PlacementReplacement
     key: walls
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: MetallicStructure #Nyano
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -502,14 +502,14 @@
   - type: Construction
     graph: Girder
     node: reinforcedWall
-  - type: Damageable #Nyano component addition
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000 #excess damage (nuke?). avoid computational cost of spawning entities. #was 1200
+        damage: 600
       behaviors:
       - !type:PlaySoundBehavior #Nyano
         sound:
@@ -518,7 +518,7 @@
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 500 #was 600
+        damage: 400
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
@@ -560,6 +560,9 @@
     sprite: Structures/Walls/riveted.rsi
   - type: Icon
     sprite: Structures/Walls/riveted.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -679,7 +682,7 @@
     state: state0
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StrongMetallic #Nyano
+    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -796,13 +799,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:

@@ -32,6 +32,12 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-security
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
