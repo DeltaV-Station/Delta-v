@@ -36,6 +36,7 @@
     - !type:DepartmentTimeRequirement
       department: Civilian
       time: 72000 # 20 hours
+    - !type:WhitelistRequirement
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite
