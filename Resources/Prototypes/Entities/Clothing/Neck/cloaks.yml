@@ -18,6 +18,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckSalvager
+  name: salvager's cloak
+  description: Worn by dangerous people who've deconstructed stations with ease.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/salvage.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakCe
   name: chief engineer's cloak
   description: A dark green cloak with light blue ornaments, given to those who proved themselves to master the precise art of engineering.
