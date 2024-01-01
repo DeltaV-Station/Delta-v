@@ -6,6 +6,9 @@
     - type: NpcFactionMember
       factions:
         - Syndicate
+    - type: MindContainer
+      ghostOnShutdown: True
+      showExamineInfo: False
     - type: Loadout
       prototypes:
         - RadioGuardGear
@@ -37,3 +40,6 @@
       rechargeCooldown: 1
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
