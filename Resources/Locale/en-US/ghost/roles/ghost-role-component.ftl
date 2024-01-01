@@ -37,6 +37,7 @@ ghost-role-information-angry-slimes-description = Everything around you irritate
 
 ghost-role-information-smile-name = Smile the Slime
 ghost-role-information-smile-description = The sweetest creature in the world. Smile Slime!
+ghost-role-information-smile-rules = You are a crew-aligned pet. You can defend yourself and even attack threats to the station, but you generally should not attack the station's crew nor destroy their property.
 
 ghost-role-information-punpun-name = Pun Pun
 ghost-role-information-punpun-description = An honorable member of the monkey society in charge of the bar and helping the bartenders in any way he can.
@@ -115,6 +116,12 @@ ghost-role-information-space-spider-description =  Space spiders are just as agg
 
 ghost-role-information-salvage-spider-name = Space spider on salvage wreck
 ghost-role-information-salvage-spider-description = Space spiders are just as aggressive as regular spiders, feed.
+
+ghost-role-information-space-cobra-name = Space cobra
+ghost-role-information-space-cobra-description = Space cobras really don't like guests, and will always snack on a visitor.
+
+ghost-role-information-salvage-cobra-name = Space cobra on salvage wreck
+ghost-role-information-salvage-cobra-description = Space cobras really don't like guests, and will always snack on a visitor.
 
 ghost-role-information-guardian-name = Guardian
 ghost-role-information-guardian-description = Listen to your owner. Don't tank damage. Punch people hard.
@@ -196,3 +203,7 @@ ghost-role-information-Shiva-rules = Protect security staff and the crew from da
 ghost-role-information-Cak-name = Cak
 ghost-role-information-Cak-description = You are the chef's favorite child. You're a living cake cat.  
 ghost-role-information-Cak-rules = You are a living edible sweet cat. Your task is to find your place in this world where everything wants to eat you.
+
+ghost-role-information-BreadDog-name = BreadDog
+ghost-role-information-BreadDog-description = You are the chef's favorite child. You're a living bread dog.
+ghost-role-information-BreadDog-rules = You're an edible dog made of bread. Your task is to find your place in this world where everything wants to eat you.

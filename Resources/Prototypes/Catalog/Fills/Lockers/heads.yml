@@ -25,6 +25,7 @@
       - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
       - id: BoxPDACargo # Delta-V
       - id: QuartermasterIDCard # Delta-V
+      - id: ClothingShoesBootsWinterLogisticsOfficer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -63,6 +64,7 @@
       - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
       - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerCaptainFilled
@@ -99,6 +101,7 @@
       - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
       - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -116,6 +119,7 @@
       - id: BoxHeadset
       - id: IDComputerCircuitboard
       - id: WeaponDisabler
+      - id: ClothingOuterCoatHoPArmored # DeltaV
       - id: ClothingOuterWinterHoP
       - id: ClothingOuterArmorDuraVest # DeltaV - replaced HoP's armoured coat with a standard stabproof, pending HoPcoat resprite
       - id: ClothingOuterCoatHoPFormal # DeltaV - formal jacket
@@ -138,6 +142,7 @@
       - id: ClothingUniformJumpsuitBoatswain # DeltaV - Add turtleneck for HoP.
       - id: ClothingShoesBootsLaceup # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesBootsWinterHeadOfPersonel #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -168,6 +173,9 @@
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
       - id: CEIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
+      - id: RCD
+      - id: RCDAmmo
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -192,6 +200,9 @@
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
       - id: CEIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
+      - id: RCD
+      - id: RCDAmmo
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -219,6 +230,7 @@
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
       - id: CMOIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefMedicalOfficer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -245,6 +257,7 @@
       - id: BoxPDAMedical # Delta-V
       - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
       - id: CMOIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefMedicalOfficer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -269,6 +282,7 @@
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
+      - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -292,6 +306,7 @@
       - id: BoxEncryptionKeyScience
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
+      - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -312,7 +327,7 @@
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
@@ -328,6 +343,7 @@
       - id: BoxPDASecurity # Delta-V
       - id: WeaponEnergyGunMultiphase # DeltaV - HoS Energy Gun
       - id: HoSIDCard # Delta-V
+      - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -346,7 +362,7 @@
       - id: ClothingUniformJumpsuitHoSAlt
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSunglasses
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
@@ -361,3 +377,20 @@
       - id: BoxPDASecurity # Delta-V
       - id: WeaponEnergyGunMultiphase # DeltaV - HoS Energy Gun
       - id: HoSIDCard # Delta-V
+      - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
+
+- type: entity
+  id: LockerFreezerVaultFilled
+  suffix: Vault, Locked
+  parent: LockerFreezerBase
+  components:
+  - type: AccessReader
+    access: [ [ "Command" ] ]
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverDeckard
+    - id: ClothingOuterHardsuitBasic
+    - id: JetpackBlue
+    - id: SpaceCash1000
+    - id: BeachBall
+    - id: BikeHorn

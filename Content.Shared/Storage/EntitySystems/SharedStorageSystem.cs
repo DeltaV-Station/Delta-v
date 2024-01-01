@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Shared.ActionBlocker;
-using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -10,6 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Item.PseudoItem;
 using Content.Shared.Lock;
 using Content.Shared.Placeable;
 using Content.Shared.Popups;
@@ -39,7 +39,6 @@ public abstract class SharedStorageSystem : EntitySystem
     [Dependency] private   readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private   readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] protected   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly SharedStackSystem _stack = default!;
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
@@ -155,7 +154,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
-        if (args.Handled || _combatMode.IsInCombatMode(args.User) || TryComp(uid, out LockComponent? lockComponent) && lockComponent.Locked)
+        if (args.Handled || TryComp<LockComponent>(uid, out var lockComponent) && lockComponent.Locked)
             return;
 
         OpenStorageUI(uid, args.User, storageComp);
@@ -441,6 +440,9 @@ public abstract class SharedStorageSystem : EntitySystem
 
         foreach (var entity in entities.ToArray())
         {
+            if (HasComp<PseudoItemComponent>(entity)) // Nyanotrasen - They dont transfer properly
+                continue;
+
             Insert(target, entity, out _, user: user, targetComp, playSound: false);
         }
 
@@ -587,7 +589,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (!_sharedHandsSystem.TryDrop(player, toInsert.Value, handsComp: hands))
         {
-            _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop"), uid, player);
+            _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop", ("entity", toInsert.Value)), uid, player);
             return false;
         }
 
