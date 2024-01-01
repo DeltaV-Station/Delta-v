@@ -399,7 +399,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase]
+  parent: ClothingBeltStorageBase # was [ClothingBeltBase, ClothingSlotBase], reverted it from Makes sabre sheathe use ItemSlots #22792
   id: ClothingBeltSheath
   name: sabre sheath
   description: An ornate sheath designed to hold an officer's blade.
@@ -409,15 +409,11 @@
     state: sheath
   - type: Clothing
     sprite: Clothing/Belt/sheath.rsi
-  - type: ItemSlots
-    slots:
-      item:
-        name: Sabre
-        insertVerbText: sheath-insert-verb
-        ejectVerbText: sheath-eject-verb
-        whitelist:
-          tags:
-          - CaptainSabre
+  - type: Storage # Delta V - Reverts - Makes sabre sheathe use ItemSlots #22792
+    capacity: 15
+    whitelist:
+      tags:
+        - CaptainSabre # Delta V - Reverts till here.
   - type: ItemMapper
     mapLayers:
       sheath-sabre:

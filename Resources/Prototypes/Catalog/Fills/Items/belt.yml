@@ -114,10 +114,9 @@
   parent: ClothingBeltSheath
   suffix: Filled
   components:
-  - type: ContainerFill
-    containers:
-      item:
-      - CaptainSabre
+  - type: StorageFill # Delta V - Reverts - Makes sabre sheathe use ItemSlots #22792
+    contents:
+      - id: CaptainSabre # Delta V - Reverts till here.
 
 - type: entity
   id: ClothingBeltMilitaryWebbingGrenadeFilled
