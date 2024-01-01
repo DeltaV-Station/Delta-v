@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/brass_knuckles.rsi
-    state: wielded-inhand-left
+    state: icon
   - type: Item
     size: 10
   - type: EmitSoundOnLand
@@ -38,6 +38,6 @@
         Slash: 5
     bluntStaminaDamageFactor: 1.35
   - type: AmbientSound
-    range: 0.01
+    range: 1
     volume: -6
     sound: /Audio/DeltaV/Misc/miami_music.ogg
