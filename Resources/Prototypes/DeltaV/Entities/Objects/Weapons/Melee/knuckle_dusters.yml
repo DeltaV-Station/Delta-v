@@ -2,10 +2,10 @@
   name: bloody knuckle dusters
   parent: BaseItem
   id: BloodyKnuckleDuster
-  description: You get a certain rush wearing these gloves while tearing flesh off with each swing. It is very bloody.
+  description: You get a certain rush wearing these gloves while tearing flesh off with each swing. These are very bloody.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Melee/brass_knuckles.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/bloody_knuckle_dusters.rsi
     state: icon
   - type: Item
     size: 10
@@ -17,7 +17,7 @@
   - type: EmitSoundOnPickup
     sound: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
   - type: MeleeWeapon
-    attackRate: 2.5
+    attackRate: 2.2
     range: 1.1
     damage:
       types:
@@ -37,7 +37,3 @@
         Blunt: 10
         Slash: 5
     bluntStaminaDamageFactor: 1.35
-  - type: AmbientSound
-    range: 1
-    volume: -6
-    sound: /Audio/DeltaV/Misc/miami_music.ogg
