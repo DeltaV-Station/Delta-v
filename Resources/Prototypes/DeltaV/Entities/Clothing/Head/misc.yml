@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTony
+  name: tony
+  description: 'Man, this party stinks, I fucking hate these people.'
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Misc/tony.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Misc/tony.rsi
+    equipSound:
+      path: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: EmitSoundOnPickup
+    sound: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
+  - type: Tag
+    tags:
+    - HidesHair

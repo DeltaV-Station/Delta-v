@@ -1,0 +1,43 @@
+- type: entity
+  name: bloody knuckle dusters
+  parent: BaseItem
+  id: BloodyKnuckleDuster
+  description: You get a certain rush wearing these gloves while tearing flesh off with each swing. It is very bloody.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Melee/brass_knuckles.rsi
+    state: wielded-inhand-left
+  - type: Item
+    size: 10
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/wrench_drop.ogg
+      params:
+        volume: 2
+  - type: EmitSoundOnPickup
+    sound: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
+  - type: MeleeWeapon
+    attackRate: 1
+    range: 1.1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: KnuckleDuster
+    animation: WeaponArcFist
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/DeltaV/Weapons/Melee/drawknife.ogg
+      params:
+        volume: -6
+    animation: WeaponArcFist
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+    bluntStaminaDamageFactor: 1.35
+  - type: AmbientSound
+    range: 0.01
+    volume: -6
+    sound: /Audio/DeltaV/Misc/miami_music.ogg
