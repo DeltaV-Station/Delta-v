@@ -8,7 +8,8 @@
   },
     "states": [
         {
-            "name": "icon"
+            "name": "item",
+            "directions": 1
         },
         {
             "name": "inhand-left",
@@ -17,6 +18,28 @@
         {
             "name": "inhand-right",
             "directions": 4
+        },
+        {
+            "name": "icon",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         },
         {
             "name": "wielded-inhand-left",
