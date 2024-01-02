@@ -56,5 +56,6 @@
     weight: 7.5 # Worth some thought as to how frequent this should be...
     minimumPlayers: 25
     maxOccurences: 1
+    reoccurrenceDelay: 180 #Somehow maxOccurences is broken
     duration: 1
   - type: PirateRadioSpawnRule
