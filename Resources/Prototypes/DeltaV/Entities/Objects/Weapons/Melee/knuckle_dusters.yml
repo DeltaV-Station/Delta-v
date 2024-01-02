@@ -28,6 +28,8 @@
         Blunt: 10
     soundHit:
       collection: KnuckleDuster
+    params:
+        volume: 5
     animation: WeaponArcFist
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
