@@ -21,7 +21,7 @@
   - type: EmitSoundOnPickup
     sound: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
   - type: MeleeWeapon
-    attackRate: 2.2
+    attackRate: 2
     range: 1.25
     damage:
       types:
@@ -40,7 +40,3 @@
         Blunt: 10
         Slash: 5
     bluntStaminaDamageFactor: 1.35
-  - type: AmbientSound
-    range: 0.01
-    volume: -6
-    sound: /Audio/DeltaV/Misc/miami_music.ogg

@@ -1,0 +1,23 @@
+- type: entity
+  id: MiamiBox
+  parent: BoxCardboard
+  name: "???"
+  description: A weird box. How did this get here?
+  suffix: Miami Bundle Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingHeadHatTony
+          amount: 1
+        - id: BloodyKnuckleDuster
+          amount: 1
+        - id: ClothingOuterVestFlak
+          amount: 1
+        - id: ClothingUniformRat
+          amount: 1
+        - id: ClothingShoesBootsCombatFilled
+          amount: 1
+    - type: Sprite
+      layers:
+        - state: box_of_doom
+        - state: writing_of_doom
