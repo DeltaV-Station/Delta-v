@@ -81,7 +81,8 @@
   noSpawn: true
   components:
   - type: RevolutionaryRule
-    maxHeadRevs: 1 # DeltaV
+    maxHeadRevs: 2 # DeltaV
+    playersPerHeadRev: 30 # DeltaV - need highpop readied up for multiple headrevs
 
 - type: entity
   id: Sandbox
