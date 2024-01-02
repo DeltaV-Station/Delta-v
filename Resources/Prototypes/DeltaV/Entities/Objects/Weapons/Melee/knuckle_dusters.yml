@@ -21,11 +21,11 @@
   - type: EmitSoundOnPickup
     sound: /Audio/DeltaV/Weapons/Melee/pickupweapon.ogg
   - type: MeleeWeapon
-    attackRate: 2
-    range: 1.25
+    attackRate: 1.5
+    range: .75
     damage:
       types:
-        Blunt: 5
+        Blunt: 10
     soundHit:
       collection: KnuckleDuster
     animation: WeaponArcFist
