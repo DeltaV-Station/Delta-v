@@ -1,4 +1,4 @@
-﻿- type: entity # This is *meant* to make use of the concept that StationLimitedNetwork doesn't allow recievers to reciever across two different grids, however this uh, doesn't seem to be relevant. The Pirate Radio shuttle can still recieve across grids....
+﻿- type: entity
   id: SyndicateMonitoringServer
   parent: BaseMachinePowered
   name: suspicious crew monitoring server
@@ -29,7 +29,6 @@
       autoConnect: false
     - type: WirelessNetworkConnection
       range: 2000
-    #- type: StationLimitedNetwork
     - type: ApcPowerReceiver
       powerLoad: 200
       priority: Low
@@ -57,7 +56,7 @@
                   min: 1
                   max: 2
     - type: AmbientSound
-      volume: -5 # Hacked so it's louder?
+      volume: -1 # Hacked so it's quieter!
       range: 5
       sound:
         path: /Audio/Ambience/Objects/server_fans.ogg
