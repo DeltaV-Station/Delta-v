@@ -16,7 +16,6 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/hos.rsi
 
-
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakCe
@@ -115,15 +114,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/trans.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckSalvager
-  name: salvager's cloak
-  description: Worn by dangerous people who've deconstructed stations with ease.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/salvage.rsi
 
 - type: entity
   parent: ClothingNeckBase
