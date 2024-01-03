@@ -23,6 +23,7 @@ REMOVE_COMPONENTS = [
     "Fixtures",
     "GravityShake",
     "HandheldLight", # Floodlights are serializing these?
+    "PlaySoundBehaviour",
 ]
 
 # The component will have these fields removed, and if there is no other data
