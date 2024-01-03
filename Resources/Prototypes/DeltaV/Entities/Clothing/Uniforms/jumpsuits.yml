@@ -233,8 +233,15 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
 
-- type: entity
-  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitKilt
+  name: kilt
+  description: A fine bit o' garb for the lad an' lasses.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
+
   id: ClothingUniformJumpsuitElf
   name: elf jumpsuit
   description: A sharp and professional jumpsuit worn by Santa's highest-trained little helpers.

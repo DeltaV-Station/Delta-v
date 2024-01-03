@@ -1,0 +1,15 @@
+- type: entity # Delta-V part of PirateRadioSpawn
+  id: RandomHumanoidSpawnerListener
+  name: Syndicate Listener
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: SyndicateListener
+      
+- type: randomHumanoidSettings
+  id: SyndicateListener
+  components:
+    - type: Loadout
+      prototypes: [SyndicateListenerGear]
