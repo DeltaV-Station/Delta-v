@@ -46,3 +46,20 @@
     blacklist:
       components:
       - SurplusBundle
+
+# Bundles
+
+- type: listing
+  id: UplinkMiamiBundle
+  name: miami-name
+  description: miami-desc
+  productEntity: SyndicateMiamiBoxTony
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
