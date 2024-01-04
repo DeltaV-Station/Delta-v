@@ -8,15 +8,9 @@
     sprite: Clothing/Eyes/Hud/diag.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/diag.rsi
-#  - type: ClothingGrantComponent
-#    component:
-#    - type: ShowHealthBars
-#      damageContainers: 
-#      - Inorganic
-  - type: ReverseEngineering # Nyano
-    difficulty: 3
-    recipes:
-      - ClothingEyesHudDiagnostic
+  - type: ShowHealthBars
+    damageContainers: 
+    - Inorganic
 
 - type: entity
   parent: ClothingEyesBase
@@ -28,16 +22,12 @@
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/med.rsi
-#  - type: ClothingGrantComponent
-#    component:
-#    - type: ShowHealthBars
-#      damageContainers: 
-#      - Biological
-#      - HalfSpirit
-  - type: ReverseEngineering # Nyano
-    difficulty: 3
-    recipes:
-      - ClothingEyesHudMedical
+  - type: ShowHealthBars
+    damageContainers: 
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers: 
+    - Biological
 
 - type: entity
   parent: ClothingEyesBase
@@ -113,6 +103,12 @@
     sprite: Clothing/Eyes/Hud/medonion.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medonion.rsi
+  - type: ShowHealthBars
+    damageContainers: 
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers: 
+    - Biological
   - type: ShowHungerIcons
 
 - type: entity
@@ -125,6 +121,12 @@
     sprite: Clothing/Eyes/Hud/medonionbeer.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medonionbeer.rsi
+  - type: ShowHealthBars
+    damageContainers: 
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers: 
+    - Biological
   - type: ShowHungerIcons
   - type: ShowThirstIcons
 
@@ -151,6 +153,13 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medsecengi.rsi
   - type: ShowSecurityIcons
+  - type: ShowHealthBars
+    damageContainers: 
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers: 
+    - Biological
   - type: ShowSyndicateIcons
 
 - type: entity
@@ -164,6 +173,13 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/omni.rsi
   - type: ShowSecurityIcons
+  - type: ShowHealthBars
+    damageContainers: 
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers: 
+    - Biological
   - type: ShowHungerIcons
   - type: ShowThirstIcons
   - type: ShowSyndicateIcons
