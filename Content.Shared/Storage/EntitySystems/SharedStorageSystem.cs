@@ -9,6 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Item.PseudoItem;
 using Content.Shared.Lock;
 using Content.Shared.Placeable;
 using Content.Shared.Popups;
@@ -439,6 +440,9 @@ public abstract class SharedStorageSystem : EntitySystem
 
         foreach (var entity in entities.ToArray())
         {
+            if (HasComp<PseudoItemComponent>(entity)) // Nyanotrasen - They dont transfer properly
+                continue;
+
             Insert(target, entity, out _, user: user, targetComp, playSound: false);
         }
 
@@ -585,7 +589,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (!_sharedHandsSystem.TryDrop(player, toInsert.Value, handsComp: hands))
         {
-            _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop"), uid, player);
+            _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop", ("entity", toInsert.Value)), uid, player);
             return false;
         }
 

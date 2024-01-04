@@ -1,5 +1,5 @@
-﻿using Content.Server.Emp;
 using Content.Server.Explosion.Components;
+using Content.Server.Flash.Components;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Store.Components;
@@ -38,19 +38,25 @@ public sealed class PacifiedRoundEnd : EntitySystem
         var harmQuery = EntityQueryEnumerator<CombatModeComponent>();
         while (harmQuery.MoveNext(out var uid, out var _))
         {
-            _entityManager.EnsureComponent<PacifiedComponent>(uid);
+            EnsureComp<PacifiedComponent>(uid);
         }
 
-        var grenadeQuery = EntityQueryEnumerator<ExplodeOnTriggerComponent>();
+        var explosiveQuery = EntityQueryEnumerator<ExplosiveComponent>();
+        while (explosiveQuery.MoveNext(out var uid, out var _))
+        {
+            RemComp<ExplosiveComponent>(uid);
+        }
+
+        var grenadeQuery = EntityQueryEnumerator<OnUseTimerTriggerComponent>();
         while (grenadeQuery.MoveNext(out var uid, out var _))
         {
-            _entityManager.RemoveComponent<ExplodeOnTriggerComponent>(uid);
+            RemComp<OnUseTimerTriggerComponent>(uid);
         }
 
-        var empQuery = EntityQueryEnumerator<EmpOnTriggerComponent>();
-        while (empQuery.MoveNext(out var uid, out var _))
+        var flashQuery = EntityQueryEnumerator<FlashComponent>();
+        while (flashQuery.MoveNext(out var uid, out var _))
         {
-            _entityManager.RemoveComponent<EmpOnTriggerComponent>(uid);
+            RemComp<FlashComponent>(uid);
         }
 
         var uplinkQuery = EntityQueryEnumerator<StoreComponent>();

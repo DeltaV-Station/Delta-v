@@ -105,6 +105,11 @@
   name: "Crashed Shuttle"
   mapPath: /Maps/Salvage/DeltaV/DV-med-crashed-shuttle.yml #DeltaV: DV salvage map Location
 
+- type: salvageMap
+  id: EngineeringChunk
+  name: "Engineering Department Chunk"
+  mapPath: /Maps/Salvage/engineering-chunk.yml
+
 # """Large""" maps
 
 #- type: salvageMap #DeltaV: Remove non-salvage testing map from pool
@@ -126,6 +131,7 @@
   id: SecurityChunk
   name: "Security Department Chunk"
   mapPath: /Maps/Salvage/DeltaV/DV-security-chunk.yml #DeltaV: DV salvage map Location
+
 
   #Nyano Maps
   #Medium
