@@ -1,8 +1,8 @@
 - type: entity
-  name: "???"
+  name: "duffel bag"
   suffix: Tony Kit
-  parent: BoxCardboard
-  id: SyndicateMiamiBoxTony
+  parent: ClothingBackpackDuffel
+  id: SyndicateMiamiKitTony
   components:
   - type: StorageFill
     contents:
@@ -16,12 +16,50 @@
         amount: 1
       - id: ClothingShoesBootsCombatFilled
         amount: 1
-  - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
-    layers:
-      - state: box_of_doom
-      - state: writing_of_doom
-  - type: Item
-    size: 30
-  - type: Storage
-    capacity: 30
+
+- type: entity
+  name: "duffel bag"
+  suffix: Mark Kit
+  parent: ClothingBackpackDuffel
+  id: SyndicateMiamiKitMark
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBear
+        amount: 1
+      - id: WeaponSubMachineGunAtreides
+        amount: 2
+      - id: ClothingHandsGlovesFingerless
+        amount: 1
+      - id: ClothingOuterVestFlak
+        amount: 1
+      - id: ClothingUniformJumpsuitJeansGreen
+        amount: 1
+      - id: ClothingShoesBootsSalvage
+        amount: 1
+
+- type: entity
+  name: "duffel bag"
+  suffix: Richard Kit
+  parent: ClothingBackpackDuffel
+  id: SyndicateMiamiKitRichard
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatRichard
+        amount: 1
+      - id: BaseBallBat
+        amount: 1
+        orGroup: RichardWeapon
+      - id: Chainsaw
+        amount: 1
+        orGroup: RichardWeapon
+      - id: Sledgehammer
+        amount: 1
+        orGroup: RichardWeapon
+      - id: ClothingOuterCoatLettermanRed
+        amount: 1
+      - id: ClothingUniformJumpsuitJeansBrown
+        amount: 1
+      - id: ClothingShoesColorRed
+        amount: 1

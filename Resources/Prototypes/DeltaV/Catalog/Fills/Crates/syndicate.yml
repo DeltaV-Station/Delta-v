@@ -1,0 +1,17 @@
+- type: entity
+  id: CrateSyndicateMiamiBundle
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyndicateMiamiKitTony
+        amount: 1
+        orGroup: Miami
+        prob: 0.25
+      - id: SyndicateMiamiKitRichard
+        amount: 1
+        orGroup: Miami
+      - id: SyndicateMiamiKitMark
+        amount: 1
+        orGroup: Miami
+        prob: 0.01
