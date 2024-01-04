@@ -275,6 +275,12 @@
   # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
   - type: Speech
     speechVerb: Arachnid
+    speechSounds: Arachnid
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
 
 - type: entity
   id: MobSpiderSpaceSalvage
