@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/bloody_knuckle_dusters.rsi
     state: icon
-    scale: 0.85, 0.85
+    scale: 0.81, 0.81
   - type: Item
     sprite: DeltaV/Objects/Weapons/Melee/bloody_knuckle_dusters.rsi
     state: item
@@ -42,3 +42,4 @@
         Blunt: 10
         Slash: 5
     bluntStaminaDamageFactor: 1.35
+  - type: DisarmMalus
