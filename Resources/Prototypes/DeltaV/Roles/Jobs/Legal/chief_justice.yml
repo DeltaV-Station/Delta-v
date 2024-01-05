@@ -1,0 +1,53 @@
+- type: job
+  id: ChiefJustice
+  name: job-name-chiefjustice
+  description: job-description-chiefjustice
+  playTimeTracker: JobChiefJustice
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
+  requirements:
+#    - !type:RoleTimeRequirement
+#      role: JobClerk
+#      time: 36000 # DeltaV - 10 hours
+# Commenting out the clerk requirement for now until clerk has been around long enough for people to actually get the hours required.  
+    - !type:RoleTimeRequirement 
+      department: JobLawyer
+      time: 72000 # 20 hours
+    - !type:OverallPlaytimeRequirement 
+      time: 90000 # 25 hours
+  weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
+  startingGear: CJGear
+  icon: "JobIconChiefJustice"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - Command
+  - Lawyer
+  - Security
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
+
+- type: startingGear
+  id: CJGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefJustice
+    back: ClothingBackpackFilled # TODO- make legal department bags
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatCJToque
+    outerClothing: ClothingOuterChiefJustice
+    id: CJPDA
+    ears: ClothingHeadsetCJ
+    gloves: ClothingHandsGlovesColorWhite
+  innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
+  satchel: ClothingBackpackSatchelFilled # TODO- make legal departmebt bags
+  duffelbag: ClothingBackpackDuffelFilled # E.
