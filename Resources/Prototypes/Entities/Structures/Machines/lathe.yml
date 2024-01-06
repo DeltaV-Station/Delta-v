@@ -795,7 +795,7 @@
           - Sheet
     - type: StealTarget
       stealGroup: AmmoTechFabCircuitboard
-      
+
 - type: entity
   id: MedicalTechFab
   parent: BaseLathe
@@ -868,7 +868,7 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
-    
+
 - type: entity
   parent: BaseLathe
   id: UniformPrinter
@@ -894,6 +894,8 @@
       - ClothingUniformJumpskirtColorGrey
       - ClothingUniformJumpsuitBartender
       - ClothingUniformJumpskirtBartender
+      - ClothingHeadHatCapcap
+      - ClothingHeadHatCaptain
       - ClothingUniformJumpsuitCaptain
       - ClothingUniformJumpskirtCaptain
       - ClothingUniformJumpsuitCapFormal
@@ -901,6 +903,7 @@
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
+      - ClothingHeadHatBeretEngineering
       - ClothingUniformJumpsuitChiefEngineer
       - ClothingUniformJumpskirtChiefEngineer
       - ClothingUniformJumpsuitChiefEngineerTurtle
@@ -912,14 +915,18 @@
       - ClothingUniformJumpsuitChemistry
       - ClothingUniformJumpskirtChemistry
       - ClothingUniformJumpsuitClown
+      - ClothingHeadHatBeretCmo
       - ClothingUniformJumpsuitCMO
       - ClothingUniformJumpskirtCMO
       - ClothingUniformJumpsuitDetective
       - ClothingUniformJumpskirtDetective
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
+      - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
+      - ClothingHeadHatBeretHoS
+      - ClothingHeadHatHoshat
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
       - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
@@ -945,6 +952,7 @@
       - ClothingUniformSkirtCourier # DeltaV - Courier Uniform
       - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
       - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
+      - ClothingHeadHatBeretSeniorPhysician
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime
@@ -954,22 +962,28 @@
       - ClothingUniformJumpskirtParamedic
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
+      - ClothingHeadHatQMsoft
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
       - ClothingUniformJumpsuitQMTurtleneck
       - ClothingUniformJumpskirtQMTurtleneck
+      - ClothingHeadHatBeretRND
       - ClothingUniformJumpsuitResearchDirector
       - ClothingUniformJumpskirtResearchDirector
       - ClothingUniformJumpsuitScientist
       - ClothingUniformJumpskirtScientist
+      - ClothingHeadHatBeretSecurity
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
       - ClothingUniformJumpsuitSecBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
+      - ClothingHeadHatBeretBrigmedic
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
+      - ClothingHeadHatBeretWarden
+      - ClothingHeadHatWarden
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
       - ClothingUniformJumpsuitWardenBlue # DeltaV - alternate sec uniforms
@@ -1013,17 +1027,24 @@
       - ClothingOuterWinterSec
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      - ClothingHeadHatCentcomcap
+      - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
       - ClothingUniformJumpsuitCentcomFormal
       - ClothingUniformJumpskirtCentcomFormalDress
       - ClothingUniformJumpsuitCentcomOfficer
       - ClothingUniformJumpsuitCentcomOfficial
+      - ClothingHeadHatSyndieMAA
+      - ClothingHeadHatSyndie
       - ClothingUniformJumpsuitOperative
       - ClothingUniformJumpskirtOperative
       - ClothingUniformJumpsuitSyndieFormal
       - ClothingUniformJumpskirtSyndieFormalDress
+      - ClothingHeadPyjamaSyndicateBlack
       - ClothingUniformJumpsuitPyjamaSyndicateBlack
+      - ClothingHeadPyjamaSyndicatePink
       - ClothingUniformJumpsuitPyjamaSyndicatePink
+      - ClothingHeadPyjamaSyndicateRed
       - ClothingUniformJumpsuitPyjamaSyndicateRed
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
