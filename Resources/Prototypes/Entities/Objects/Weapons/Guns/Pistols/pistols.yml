@@ -213,7 +213,7 @@
     minAngle: 1
     maxAngle: 20
     angleIncrease: 8
-    angleDecay: 4
+    angleDecay: 9
     fireRate: 4
     availableModes:
     - SemiAuto
@@ -242,6 +242,7 @@
   name: N1984
   parent: WeaponPistolN1984
   id: WeaponPistolN1984Nonlethal
+  suffix: Non-lethal
   components:
   - type: ItemSlots
     slots:
