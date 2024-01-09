@@ -67,25 +67,3 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_right_broke_curved
-
-# Delta-V Added Horns
-
-- type: marking
-  id: OniHornBull
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/oni_horns.rsi
-    state: bull
-
-- type: marking
-  id: OniHornShaved
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/oni_horns.rsi
-    state: shaved
