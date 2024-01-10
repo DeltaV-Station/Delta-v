@@ -84,11 +84,17 @@
     attributes:
       proper: true
   - type: MovementIgnoreGravity
+  - type: NoSlip
   - type: EyeProtection
   - type: NpcFactionMember
     factions:
     - PsionicInterloper
     - NanoTrasen
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
 
 - type: entity
   parent: WelderExperimental
@@ -113,7 +119,7 @@
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
-        Blunt: -10
+       # Blunt: -10
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:

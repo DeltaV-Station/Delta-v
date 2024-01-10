@@ -5,8 +5,8 @@
   parent: MarkerBase
   noSpawn: true
   components:
-  # - type: GhostRoleMobSpawner
-  #   prototype: MobIfritFamiliar # Todo
+  - type: GhostRoleMobSpawner
+    prototype: MobIfritFamiliar
   - type: GhostRole
     name: Mystagogue's Ifrit
     description: Obey the mystagogue. Defend the oracle.
