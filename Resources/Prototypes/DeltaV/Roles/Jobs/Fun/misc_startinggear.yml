@@ -7,6 +7,7 @@
   id: MobSecDogLaikaGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
+    id: SecDogIDCard
 
 #Oldstation Roles
 
@@ -20,8 +21,8 @@
     pocket1: Brutepack
     pocket2: GlowstickBase
     belt: ClothingBeltMedical
-  
-  
+
+
 - type: startingGear
   id: OldstationGuard
   equipment:
@@ -30,7 +31,7 @@
     id: SecurityIDCard
     pocket1: Flash
     pocket2: GlowstickBase
-  
+
 - type: startingGear
   id: OldstationEngi
   equipment:
@@ -42,7 +43,7 @@
     pocket1: EmergencyOxygenTankFilled
     pocket2: GlowstickBase
     belt: ClothingBeltUtility
-  
+
 - type: startingGear
   id: OldstationScientist
   equipment:
@@ -51,3 +52,15 @@
     id: ResearchIDCard
     pocket1: Pen
     pocket2: GlowstickBase
+
+#Syndicate Pirate Radio Listener
+- type: startingGear
+  id: SyndicateListenerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPyjamaSyndicateBlack
+    head: ClothingHeadPyjamaSyndicateBlack
+    ears: ClothingHeadsetAltSyndicateListening
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesSlippers
+    id: SyndiPDA
+  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink
