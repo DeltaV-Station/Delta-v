@@ -1,5 +1,5 @@
 reagent-name-cryptobiolin = cryptobiolin
-reagent-desc-cryptobiolin = Causes confusion and dizziness. This is essential to make Spaceacillin.
+reagent-desc-cryptobiolin = Causes confusion and dizziness.
 
 reagent-name-dylovene = dylovene
 reagent-desc-dylovene = A broad-spectrum anti-toxin, which treats toxin damage in the blood stream. Overdosing will cause vomiting, dizzyness and pain.
@@ -114,3 +114,12 @@ reagent-desc-puncturase = A fizzy chemical that helps rebuild trauma caused by p
 
 reagent-name-bruizine = bruizine
 reagent-desc-bruizine = Originally developed as a cough medicine, it turns out this chemical is wildly effective at treating blunt force trauma.
+
+reagent-name-holywater = holy water
+reagent-desc-holywater = The cleanest and purest of waters straight from the hands of god, is known to magically heal wounds.
+
+reagent-name-pyrazine = pyrazine
+reagent-desc-pyrazine = Efficiently heals burns from the hottest of fires. Causes massive internal bleeding when overdosed.
+
+reagent-name-insuzine = insuzine
+reagent-desc-insuzine = Rapidly repairs dead tissue caused by electrocution, but cools you slightly. Completely freezes the patient when overdosed.
