@@ -1,8 +1,9 @@
 - type: entity
-  parent: SimpleSpaceMobBase
+  parent: SimpleSpaceMobBaseIfrit
   id: MobIfritFamiliar
   name: Ifrit
   description: The mystagogue's servant.
+  startingGear: Ifriitgear
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -32,6 +33,8 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
+    altDisarm: false # No shoving
+    angle: 0
     damage:
       groups:
         Burn: 10
@@ -69,11 +72,11 @@
       - DoorBumpOpener
   - type: Body
     prototype: Primate
-  - type: InnateTool
-    tools:
-      - id: WelderIfrit
-      - id: WelderIfrit
-  - type: Hands
+  #- type: InnateTool # Cant really use this anymore. FUCKING PAIN
+  #  tools:
+  #    - id: WelderIfrit
+  #    - id: WelderIfrit
+  #- type: Hands # No need if its not goin to work the way it used to.
   - type: RandomMetadata
     nameSegments: [names_golem]
   - type: PotentialPsionic
