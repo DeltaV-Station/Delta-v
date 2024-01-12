@@ -36,9 +36,9 @@
 #  - type: DiseaseCarrier
 #    naturalImmunities:
 #    - OwOnavirus
-  - type: Thieving
-    stealthy: true
-    stripTimeReduction: 1
+  #- type: Thieving  # FUCKIN KILL.
+  #  stealthy: true
+ #   stripTimeReduction: 1
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact
@@ -55,6 +55,9 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
+  - type: Tag
+    tags: 
+    - SoftPaws
 
 - type: entity
   save: false
