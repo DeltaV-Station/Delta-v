@@ -1,0 +1,15 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyLegal
+  name: legal encryption key
+  description: An encryption key used by the legal department.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Legal
+    defaultChannel: Legal
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - sprite: DeltaV/Objects/Devices/encryption_keys.rsi
+      state: law_label
