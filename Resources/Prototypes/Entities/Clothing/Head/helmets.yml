@@ -90,28 +90,6 @@
         Slash: 0.8
         Piercing: 0.95
 
-#Heavy Riot Helmet
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHelmetHeavy
-  name: heavy riot helmet
-  description: Heavier than other similar helmets, this one has some extra padding and weight to it.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # Placeholder
-  - type: Clothing
-    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # Placeholder
-  - type: IngestionBlocker
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.8
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-
 #Bombsuit Helmet
 - type: entity
   parent: ClothingHeadBase
