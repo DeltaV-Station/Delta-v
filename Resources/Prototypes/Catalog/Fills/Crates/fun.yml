@@ -318,3 +318,18 @@
         amount: 1
         prob: 0.05
   
+- type: entity
+  name: Dartboard Box Set
+  description: A box with everything you to scare station security.
+  id: CrateCapGunSet
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: RevolverCapGun
+        amount: 1
+      - id: SpeedLoaderCap
+        amount: 2
+      - id: BoxCartridgeCap
+        amount: 2
+  
