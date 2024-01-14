@@ -1,0 +1,36 @@
+﻿- type: entity
+  parent: FireAxeCabinet
+  id: SpareIdCabinet
+  name: spare id cabinet
+  description: There is a small label that reads "For Emergency use only".
+  components:
+    - type: Sprite
+      sprite: Structures/Wallmounts/fireaxe_cabinet.rsi # TODO: Custom sprite
+      layers:
+        - state: cabinet
+        - state: fireaxe
+          map: ["enum.ItemCabinetVisualLayers.ContainsItem"]
+          visible: true
+        - state: glass
+          map: ["enum.ItemCabinetVisualLayers.Door"]
+    - type: ItemCabinet
+      cabinetSlot:
+        ejectOnInteract: true
+        whitelist:
+          components:
+            - IdCard
+    - type: AccessReader
+      access: [["DV-SpareSafe"]]
+
+- type: entity
+  id: SpareIdCabinetFilled
+  parent: [SpareIdCabinet,FireAxeCabinetFilled]
+  suffix: Filled
+  components:
+    - type: ItemCabinet
+      cabinetSlot:
+        startingItem: CaptainIDCard
+        ejectOnInteract: true
+        whitelist:
+          components:
+            - IdCard
