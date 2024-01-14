@@ -37,7 +37,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
                 x.Grids.Select(x =>
                     xformQuery.GetComponent(x).WorldMatrix.TransformBox(_mapManager.GetGridComp(x).LocalAABB)))
             .ToArray();
-
+        if (aabbs.Length < 1) return;
         var aabb = aabbs[0];
 
         for (var i = 1; i < aabbs.Length; i++)
