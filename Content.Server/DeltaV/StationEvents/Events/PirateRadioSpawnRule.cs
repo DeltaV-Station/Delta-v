@@ -49,6 +49,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         _map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out _, new MapLoadOptions
         {
             Offset = aabb.Center + randomoffset,
+            LoadMap = false,
         });
     }
 
