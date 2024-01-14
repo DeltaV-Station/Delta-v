@@ -26,14 +26,11 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly TraitorRuleSystem _TraitorRuleSystem = default!;
 
     protected override void Started(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 		
-        var shuttleMap = _mapManager.CreateMap();
         var xformQuery = GetEntityQuery<TransformComponent>();
 
         var aabbs = EntityQuery<StationDataComponent>().SelectMany(x =>
@@ -49,7 +46,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         }
         var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * 20f;
         var randomoffset = _random.NextVector2(a, a * 2.5f);
-        _map.LoadGrid(GameTicker.DefaultMap, component.PirateRadioShuttlePath, new MapLoadOptions
+        _map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out _, new MapLoadOptions
         {
             Offset = aabb.Center + randomoffset,
             LoadMap = true,
