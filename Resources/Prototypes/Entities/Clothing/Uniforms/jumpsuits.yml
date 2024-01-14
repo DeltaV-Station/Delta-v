@@ -178,6 +178,17 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
 
+- type: entity  #Delta-V Chemistry jumpsuit variant
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChemShirt
+  name: formal chemistry suit
+  description: There's still some odd stains on this suit. Hm.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitVirology
