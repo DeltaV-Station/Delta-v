@@ -36,7 +36,7 @@ public sealed class BiscuitSystem : EntitySystem
             {
                 CrackBiscuit(uid, component);
             },
-            Text = Loc.GetString("crack"),
+            Text = Loc.GetString("biscuit-verb-crack"),
             Priority = 2
         };
         args.Verbs.Add(verb);
