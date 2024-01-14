@@ -5,10 +5,10 @@
   description: There is a small label that reads "For Emergency use only".
   components:
     - type: Sprite
-      sprite: Structures/Wallmounts/fireaxe_cabinet.rsi # TODO: Custom sprite
+      sprite: DeltaV/Structures/Wallmounts/idcard_cabinet.rsi
       layers:
         - state: cabinet
-        - state: fireaxe
+        - state: card
           map: ["enum.ItemCabinetVisualLayers.ContainsItem"]
           visible: true
         - state: glass
