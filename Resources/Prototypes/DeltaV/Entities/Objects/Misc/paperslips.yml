@@ -26,12 +26,15 @@
     - type: BiscuitVisuals
     - type: ItemSlots
       slots:
-        slip:
+        PaperSlip:
           name: Slip
           whitelist:
             tags:
               - PaperSlip
           locked: true
+    - type: ContainerContainer
+      containers:
+        PaperSlip: !type:ContainerSlot {}
     - type: ItemMapper
       sprite: DeltaV/Objects/Misc/biscuits.rsi
       mapLayers:
@@ -49,7 +52,7 @@
   components:
     - type: ItemSlots
       slots:
-        slip:
+        PaperSlip:
           startingItem: PaperSlip
           name: Slip
           whitelist:
@@ -82,7 +85,7 @@
   components:
     - type: ItemSlots
       slots:
-        slip:
+        PaperSlip:
           startingItem: PaperSlipCorporate
           name: Slip
           whitelist:
@@ -97,7 +100,7 @@
   components:
     - type: ItemSlots
       slots:
-        slip:
+        PaperSlip:
           startingItem: PaperSlipSpareID
           name: Slip
           whitelist:

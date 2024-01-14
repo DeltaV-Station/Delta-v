@@ -44,6 +44,6 @@ public sealed class BiscuitSystem : EntitySystem
         _audioSystem.PlayPvs("/Audio/DeltaV/Effects/crack1.ogg", uid,
             AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
 
-        _slotSystem.SetLock(uid, "slip", false);
+        _slotSystem.SetLock(uid, "PaperSlip", false);
     }
 }
