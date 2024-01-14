@@ -24,7 +24,6 @@
       damageModifierSet: Wood
     - type: Biscuit
     - type: BiscuitVisuals
-    # TODO: Destructable
     - type: ItemSlots
       slots:
         slip:
@@ -108,7 +107,7 @@
 
 # Paper slips
 - type: entity
-  parent: BaseItem # In theory we could inherit from paper, but I'd rather not inherit everything
+  parent: BaseItem
   id: PaperSlip
   name: paper slip
   description: A little slip of paper left over after a larger piece was cut. Whoa.
@@ -168,6 +167,10 @@
         - state: corpslip_words
           map: [ "enum.PaperVisualLayers.Writing" ]
           visible: false
+    - type: PaperVisuals
+      backgroundImagePath: "/Textures/DeltaV/Interface/Paper/paper_background_corpcard.svg.96dpi.png"
+      contentMargin: 70.0, 16.0, 70.0, 16.0
+      maxWritableArea: 400.0, 600.0
 
 
 - type: entity
