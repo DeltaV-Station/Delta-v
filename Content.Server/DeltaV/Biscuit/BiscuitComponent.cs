@@ -8,7 +8,5 @@ namespace Content.Server.DeltaV.Biscuit;
 [RegisterComponent]
 public sealed partial class BiscuitComponent : SharedBiscuitComponent
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("cracked")]
     public bool Cracked { get; set; }
 }
