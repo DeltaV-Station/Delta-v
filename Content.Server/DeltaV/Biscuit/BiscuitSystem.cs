@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Content.Shared.Containers.ItemSlots;
+﻿using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeltaV.Biscuit;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
@@ -8,18 +7,12 @@ using Robust.Shared.Audio;
 
 namespace Content.Server.DeltaV.Biscuit;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class BiscuitSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slotSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
 
-
-
-    /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<BiscuitComponent, GetVerbsEvent<AlternativeVerb>>(AddCrackVerb);
@@ -48,7 +41,8 @@ public sealed class BiscuitSystem : EntitySystem
 
         _appearanceSystem.SetData(uid, BiscuitStatus.Cracked, true);
 
-        _audioSystem.PlayPvs("/Audio/DeltaV/Effects/crack1.ogg", uid, AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
+        _audioSystem.PlayPvs("/Audio/DeltaV/Effects/crack1.ogg", uid,
+            AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
 
         _slotSystem.SetLock(uid, "slip", false);
     }

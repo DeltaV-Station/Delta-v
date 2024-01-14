@@ -22,5 +22,5 @@ public sealed class BiscuitSystem : VisualizerSystem<BiscuitVisualsComponent>
 public enum BiscuitVisualLayers : byte
 {
     Base,
-    Top,
+    Top
 }
