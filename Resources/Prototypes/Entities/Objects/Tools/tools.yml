@@ -501,9 +501,6 @@
   id: Shovel
   description: A large tool for digging and moving dirt.
   components:
-  - type: Tag
-    tags:
-    - Shovel
   - type: Sprite
     sprite: Objects/Tools/shovel.rsi
     state: icon
@@ -528,6 +525,7 @@
     useSound:
       path: /Audio/Nyanotrasen/Items/shovel_dig.ogg
   - type: EarthDigging
+  - type: Shovel
 
 - type: entity
   parent: BaseItem
