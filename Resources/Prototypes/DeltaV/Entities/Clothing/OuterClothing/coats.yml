@@ -123,3 +123,21 @@
     sprite: DeltaV/Clothing/OuterClothing/Coats/repcoat.rsi
   - type: TemperatureProtection
     coefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLetterman
+  name: brown letterman jacket
+  description: It's a brown letterman jacket.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/letterman.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/letterman.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.75
