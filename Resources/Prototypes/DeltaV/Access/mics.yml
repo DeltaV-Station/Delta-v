@@ -1,11 +1,21 @@
 ﻿- type: accessGroup
   id: AllAccessBorg
   tags:
+#    - EmergencyShuttleRepealAll
+#    - Captain
+#    - HeadOfPersonnel
+#    - ChiefEngineer
+#    - ChiefMedicalOfficer
+#    - HeadOfSecurity
+#    - ResearchDirector
     - Command
     - Security
+    - Detective
+#    - Armory
     - Lawyer
     - Engineering
     - Medical
+#    - Quartermaster
     - Salvage
     - Cargo
     - Research
@@ -20,14 +30,15 @@
     - Chapel
     - Hydroponics
     - Atmospherics
-    - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
-    - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
-    - Paramedic # DeltaV - Add Paramedic access
-    - Psychologist # DeltaV - Add Psychologist access
-    - Boxer # DeltaV - Add Boxer access
-    - Clown # DeltaV - Add Clown access
-    - Library # DeltaV - Add Library access
-    - Mime # DeltaV - Add Mime access
-    - Musician # DeltaV - Add Musician access
-    - Reporter # DeltaV - Add Reporter access
-    - Zookeeper # DeltaV - Add Zookeeper access
+    - Mail
+#   - Orders
+    - Mantis
+    - Paramedic
+    - Psychologist
+    - Boxer
+    - Clown
+    - Library
+    - Mime
+    - Musician
+    - Reporter
+    - Zookeeper
