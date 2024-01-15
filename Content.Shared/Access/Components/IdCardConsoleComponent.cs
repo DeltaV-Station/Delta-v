@@ -58,6 +58,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "ChiefMedicalOfficer",
         "Clown", // DeltaV - Add Clown access
         "Command",
+        "Cryogenics",
         "Engineering",
         "External",
         "HeadOfPersonnel",
