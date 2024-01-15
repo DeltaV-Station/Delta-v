@@ -55,9 +55,12 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
-  #- type: Tag
-  #  tags: 
-  #  - ShoesRequiredStepTriggerImmune
+  - type: Tag # If an entity gets a tag, it ignores previous tags from parent ID's.
+    tags:
+    - SoftPaws
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
 
 - type: entity
   save: false

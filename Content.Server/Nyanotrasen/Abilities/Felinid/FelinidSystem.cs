@@ -49,8 +49,8 @@ public sealed partial class FelinidSystem : EntitySystem
         SubscribeLocalEvent<FelinidComponent, DidUnequipHandEvent>(OnUnequipped);
         SubscribeLocalEvent<HairballComponent, ThrowDoHitEvent>(OnHairballHit);
         SubscribeLocalEvent<HairballComponent, GettingPickedUpAttemptEvent>(OnHairballPickupAttempt);
-        SubscribeLocalEvent<InventorySlotsComponent, DidEquipEvent>(OnEquipped);
-        SubscribeLocalEvent<InventorySlotsComponent, DidUnequipEvent>(OnUnequipped);
+      //  SubscribeLocalEvent<InventorySlotsComponent, DidEquipEvent>(OnDidEquip);
+      //  SubscribeLocalEvent<InventorySlotsComponent, DidUnequipEvent>(OnDidUnequip);
     }
 
     private Queue<EntityUid> RemQueue = new();
@@ -196,17 +196,17 @@ public sealed partial class FelinidSystem : EntitySystem
         }
     }
     // The thing to check if they wear or not?
-    private void OnDidUnequip(EntityUid uid, FelinidComponent component, DidUnequipEvent args) // used to be FelinidComponent instead of InventorySlotsComponent.
-    {
-        if (_inventorySystem.TryGetSlotEntity(uid, "shoes")) // out var idUid
+//    private void OnDidUnequip(EntityUid uid, FelinidComponent component, DidUnequipEvent args) // used to be FelinidComponent instead of InventorySlotsComponent.
+ //   {
+  //      if (_inventorySystem.TryGetSlotEntity(uid, "shoes")) // out var idUid
         //UpdateSlot(args.Equipee, component, args.Slot);
         //if (args.Equipee != _playerManager.LocalEntity)
         //    return;
-        if (!_inventory.TryGetSlotEntity(args.Tripper, "shoes", out _, inventory))
-            return;
+        //if (!_inventory.TryGetSlotEntity(args.Tripper, "shoes", out _, inventory))
+        //    return;
 
-        RemComp<ShoesRequiredStepTriggerComponent>(tripper); // args.Entity
-    }
+ //       RemComp<ShoesRequiredStepTriggerComponent>(tripper); // args.Entity
+ //   }
 
     //private void OnDidEquip(EntityUid uid, FelinidComponent component, DidEquipEvent args)
     //{
