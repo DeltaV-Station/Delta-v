@@ -1,17 +1,11 @@
-using Content.Shared.Clothing.Components;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.DeltaV.Harpy;
-using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Item;
 using Content.Shared.Tag;
-using Robust.Shared.GameStates;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.DeltaV.Harpy;
 
-public abstract class HarpyVisualsSystem : EntitySystem
+public sealed class HarpyVisualsSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
@@ -23,11 +17,11 @@ public abstract class HarpyVisualsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HarpyVisualsComponent, DidEquipEvent>(OnHardsuitEquip);
-        SubscribeLocalEvent<HarpyVisualsComponent, DidUnequipEvent>(OnHardsuitUnequip);
+        SubscribeLocalEvent<HarpySingerComponent, DidEquipEvent>(OnDidEquipEvent);
+        SubscribeLocalEvent<HarpySingerComponent, DidUnequipEvent>(OnDidUnequipEvent);
     }
 
-    private void OnHardsuitEquip(EntityUid uid, HarpyVisualsComponent component, DidEquipEvent args)
+    private void OnDidEquipEvent(EntityUid uid, HarpySingerComponent component, DidEquipEvent args)
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
@@ -35,7 +29,7 @@ public abstract class HarpyVisualsSystem : EntitySystem
         }
     }
 
-    private void OnHardsuitUnequip(EntityUid uid, HarpyVisualsComponent component, DidUnequipEvent args)
+    private void OnDidUnequipEvent(EntityUid uid, HarpySingerComponent component, DidUnequipEvent args)
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {

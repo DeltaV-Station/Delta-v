@@ -14,9 +14,9 @@ public sealed class HarpyVisualsSystem : VisualizerSystem<HarpyVisualsComponent>
         if (args.Sprite == null)
             return;
 
-        _appearance.TryGetData(uid, HardsuitWings.Worn, out bool Worn);
+        _appearance.TryGetData(uid, HardsuitWings.Worn, out bool worn);
 
-        args.Sprite.LayerSetVisible(HumanoidVisualLayers.RArm, !Worn);
-        args.Sprite.LayerSetVisible(HumanoidVisualLayers.Tail, !Worn);
+        args.Sprite.LayerSetVisible(HumanoidVisualLayers.RArm, !worn);
+        args.Sprite.LayerSetVisible(HumanoidVisualLayers.Tail, !worn);
     }
 }
