@@ -93,6 +93,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
 
 - type: entity
   abstract: true
@@ -111,6 +112,9 @@
   - type: HeldSpeedModifier
   - type: Item
     size: 80
+  - type: Tag
+    tags:
+    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
 
 - type: entity
   parent: ClothingOuterBase
