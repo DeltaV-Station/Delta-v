@@ -36,13 +36,21 @@ namespace Content.Server.Abilities.Psionics
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MetapsionicActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MetapsionicActionEntity; 
-                
+            {
+                psionic.PsionicAbility = component.MetapsionicActionEntity;
+                psionic.ActivePowers.Add(component);
+            }
+
         }
 
         private void OnShutdown(EntityUid uid, MetapsionicPowerComponent component, ComponentShutdown args)
         {
             _actions.RemoveAction(uid, component.MetapsionicActionEntity);
+
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Remove(component);
+            }
         }
 
         private void OnPowerUsed(EntityUid uid, MetapsionicPowerComponent component, MetapsionicPowerActionEvent args)

@@ -38,12 +38,19 @@ namespace Content.Server.Abilities.Psionics
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.NoosphericZapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            {
                 psionic.PsionicAbility = component.NoosphericZapActionEntity;
+                psionic.ActivePowers.Add(component);
+            }
         }
 
         private void OnShutdown(EntityUid uid, NoosphericZapPowerComponent component, ComponentShutdown args)
         {
             _actions.RemoveAction(uid, component.NoosphericZapActionEntity);
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Remove(component);
+            }
         }
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)

@@ -13,5 +13,8 @@ namespace Content.Shared.Abilities.Psionics
         /// </summary>
         [DataField("removable")]
         public bool Removable = true;
+
+        [DataField("activePowers")]
+        public HashSet<Component> ActivePowers = new();
     }
 }
