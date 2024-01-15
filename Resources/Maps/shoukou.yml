@@ -57186,6 +57186,13 @@ entities:
     - pos: -10.5,-41.5
       parent: 34
       type: Transform
+- proto: LockerFreezerVaultFilled
+  entities:
+  - uid: 12970
+    components:
+    - pos: 25.5,-35.5
+      parent: 34
+      type: Transform
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 129
@@ -67737,6 +67744,14 @@ entities:
   - uid: 11083
     components:
     - pos: 40.50937,-38.527203
+      parent: 34
+      type: Transform
+- proto: SpareIdCabinetFilled
+  entities:
+  - uid: 12969
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 27.5,-35.5
       parent: 34
       type: Transform
 - proto: SpawnMobAlexander
