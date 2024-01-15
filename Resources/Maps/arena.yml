@@ -14923,6 +14923,15 @@ entities:
     - pos: 35.5,-48.5
       parent: 6747
       type: Transform
+- proto: AirlockReporterLocked
+  entities:
+  - uid: 8628
+    components:
+    - name: announcers booth
+      type: MetaData
+    - pos: -25.5,-24.5
+      parent: 6747
+      type: Transform
 - proto: AirlockResearchDirectorGlassLocked
   entities:
   - uid: 5169
@@ -15282,11 +15291,6 @@ entities:
   - uid: 5382
     components:
     - pos: 43.5,-17.5
-      parent: 6747
-      type: Transform
-  - uid: 8628
-    components:
-    - pos: -25.5,-24.5
       parent: 6747
       type: Transform
 - proto: AirlockVirologyGlassLocked
@@ -55977,6 +55981,13 @@ entities:
     - pos: 50.11766,-17.46163
       parent: 6747
       type: Transform
+- proto: ClothingHandsGlovesLeather
+  entities:
+  - uid: 27352
+    components:
+    - pos: -49.45783,4.671504
+      parent: 6747
+      type: Transform
 - proto: ClothingHandsGlovesNitrile
   entities:
   - uid: 2033
@@ -56520,6 +56531,13 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 47.289085,-41.478985
+      parent: 6747
+      type: Transform
+- proto: ClothingOuterApronBotanist
+  entities:
+  - uid: 27351
+    components:
+    - pos: -49.38491,4.5985365
       parent: 6747
       type: Transform
 - proto: ClothingOuterArmorKendoBogu
@@ -118908,6 +118926,11 @@ entities:
     - pos: 38.813694,-87.14201
       parent: 6747
       type: Transform
+  - uid: 27353
+    components:
+    - pos: -49.52033,4.6298084
+      parent: 6747
+      type: Transform
 - proto: hydroponicsTray
   entities:
   - uid: 11335
@@ -128738,6 +128761,11 @@ entities:
   - uid: 1706
     components:
     - pos: -5.16932,-18.4539
+      parent: 6747
+      type: Transform
+  - uid: 27350
+    components:
+    - pos: -52.30158,2.513756
       parent: 6747
       type: Transform
 - proto: PlaqueAtmos
@@ -149361,6 +149389,13 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: -39.5,-36.5
+      parent: 6747
+      type: Transform
+- proto: SpareIdCabinetFilled
+  entities:
+  - uid: 27349
+    components:
+    - pos: -33.5,-44.5
       parent: 6747
       type: Transform
 - proto: SpawnMobAdultSlimesBlue
