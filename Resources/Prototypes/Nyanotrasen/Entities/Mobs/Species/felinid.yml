@@ -55,12 +55,7 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
-  - type: Tag # If an entity gets a tag, it ignores previous tags from parent ID's.
-    tags:
-    - SoftPaws
-    - CanPilot
-    - DoorBumpOpener
-    - FootstepSound
+  - type: SoftPaws
 
 - type: entity
   save: false

@@ -13,15 +13,15 @@ public sealed class SoftPawsSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ShoesRequiredStepTriggerComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
-        SubscribeLocalEvent<ShoesRequiredStepTriggerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<SoftPawsComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
+    //    SubscribeLocalEvent<SoftPawsComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void OnStepTriggerAttempt(EntityUid uid, ShoesRequiredStepTriggerComponent component, ref StepTriggerAttemptEvent args)
+    private void OnStepTriggerAttempt(EntityUid uid, SoftPawsComponent component, ref StepTriggerAttemptEvent args)
     {
         if (TryComp<InventoryComponent>(args.Tripper, out var inventory))
         {
-            if (_tagSystem.HasTag(args.Tripper, "SoftPaws") & !_inventory.TryGetSlotEntity(args.Tripper, "shoes", out _, inventory))
+            if (!_inventory.TryGetSlotEntity(args.Tripper, "shoes", out _, inventory))
             {
                 args.Cancelled = true;
                 return;
@@ -29,8 +29,8 @@ public sealed class SoftPawsSystem : EntitySystem
         }
     }
 
-    private void OnExamined(EntityUid uid, ShoesRequiredStepTriggerComponent component, ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString("shoes-required-step-trigger-examine"));
-    }
+//    private void OnExamined(EntityUid uid, SoftPawsComponent component, ExaminedEvent args)
+//    {
+//        args.PushMarkup(Loc.GetString("shoes-required-step-trigger-examine"));
+//    }
 }
