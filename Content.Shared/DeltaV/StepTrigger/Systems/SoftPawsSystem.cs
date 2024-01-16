@@ -1,6 +1,8 @@
 using Content.Shared.Tag;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Client.Clothing;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.StepTrigger.Systems;
 
@@ -16,7 +18,7 @@ public sealed partial class SoftPawsSystem
     {
         var user = args.Equipee;
         // have to be wearing the mask to use it, duh.
-        if (!_inventory.TryGetSlotEntity(user, ShoeSlot, out var shoeEntity) & _tagSystem.HasTag(args.Tripper, "SoftPaws")) // || shoeEntity != uid)  // maskEntity to shoeEntity
+        if (!_inventory.TryGetSlotEntity(user, ShoeSlot, out _, inventory) & _tagSystem.HasTag(args.Tripper, "SoftPaws")) // || shoeEntity != uid)  // maskEntity to shoeEntity
             return;
 
         var comp = EnsureComp<ShoesRequiredStepTriggerComponent>(user);
