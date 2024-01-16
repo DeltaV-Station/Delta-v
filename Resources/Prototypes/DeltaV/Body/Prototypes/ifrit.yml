@@ -1,0 +1,11 @@
+- type: body
+  id: Ifriit
+  name: "ifriit"
+  root: right hand
+  slots:
+    right hand:
+      part: WelderIfritRight
+      connections: 
+      - left hand
+    left hand:
+      part: WelderIfritLeft

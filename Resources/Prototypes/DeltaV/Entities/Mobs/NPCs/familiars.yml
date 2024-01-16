@@ -1,5 +1,5 @@
 - type: entity
-  parent: SimpleSpaceMobBaseIfrit
+  parent: SimpleSpaceMobBase
   id: MobIfritFamiliar
   name: Ifrit
   description: The mystagogue's servant.
@@ -35,8 +35,9 @@
     altDisarm: false # No shoving
     angle: 0
     damage:
-      groups:
-        Burn: 10
+      types:
+        Heat: 10
+    animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -59,8 +60,8 @@
   - type: Familiar
   - type: Dispellable
   - type: Damageable
-#    damageContainer: CorporealSpirit
-#    damageModifierSet: CorporealSpirit
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -70,12 +71,12 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Primate
+    prototype: Ifriit
   #- type: InnateTool # Cant really use this anymore. FUCKING PAIN
   #  tools:
   #    - id: WelderIfrit
   #    - id: WelderIfrit
-  #- type: Hands # No need if its not goin to work the way it used to.
+  - type: Hands
   - type: RandomMetadata
     nameSegments: [names_golem]
   - type: PotentialPsionic
@@ -97,6 +98,8 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
+  - type: Loadout
+    prototypes: [Ifriit's hands]
 
 - type: entity
   parent: WelderExperimental
@@ -121,7 +124,7 @@
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
-       # Blunt: -10
+        Blunt: -5
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:
@@ -136,6 +139,9 @@
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
 # sounds cooler than the default fizzling noise.
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/welder.ogg
   - type: SolutionRegeneration
     solution: Welder
     generated:
@@ -147,3 +153,4 @@
     radius: 2
     energy: 1.5
     color: orange
+  - type: Unremoveable

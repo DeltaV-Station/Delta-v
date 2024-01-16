@@ -1,0 +1,17 @@
+- type: entity
+  parent: WelderIfrit
+  id: WelderIfritRight
+  name: ifrit hand
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  parent: WelderIfrit
+  id: WelderIfritLeft
+  name: ifrit hand
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
