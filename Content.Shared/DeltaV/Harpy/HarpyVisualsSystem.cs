@@ -1,6 +1,7 @@
 using Content.Shared.DeltaV.Harpy;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
+using Content.Shared.Humanoid;
 using Robust.Shared.GameObjects;
 
 namespace Content.Shared.DeltaV.Harpy;
@@ -8,6 +9,7 @@ namespace Content.Shared.DeltaV.Harpy;
 public sealed class HarpyVisualsSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     [ValidatePrototypeId<TagPrototype>]
@@ -23,17 +25,21 @@ public sealed class HarpyVisualsSystem : EntitySystem
 
     private void OnDidEquipEvent(EntityUid uid, HarpySingerComponent component, DidEquipEvent args)
     {
+        if (args.Slot != "outerClothing") return;
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetData(uid, HardsuitWings.Worn, true);
+            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, false);
+            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, false);
         }
     }
 
     private void OnDidUnequipEvent(EntityUid uid, HarpySingerComponent component, DidUnequipEvent args)
     {
+        if (args.Slot != "outerClothing") return;
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetData(uid, HardsuitWings.Worn, false);
+            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, true);
+            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, true);
         }
     }
 }
