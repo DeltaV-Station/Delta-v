@@ -33,8 +33,10 @@
     bloodReagent: Phlogiston
   - type: MeleeWeapon
     damage:
-      groups:
-        Burn: 10
+      types:
+        Heat: 10
+    angle: 0
+    animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -68,11 +70,7 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Primate
-  - type: InnateTool
-    tools:
-      - id: WelderIfrit
-      - id: WelderIfrit
+    prototype: Ifrit
   - type: Hands
   - type: RandomMetadata
     nameSegments: [names_golem]
@@ -95,6 +93,7 @@
   id: WelderIfrit
   name: ifrit hand
   description: The welding hand of an ifrit.
+  abstract: true
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
@@ -113,7 +112,7 @@
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
-        Blunt: -10
+        Blunt: -5
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:
@@ -121,9 +120,9 @@
 #  - type: Tool
 #    useSound:
 #      collection: WelderIfritHand
-#  - type: MeleeWeapon
-#    soundHit:
-#      collection: WelderIfritHand
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/welder.ogg
 # TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
@@ -139,3 +138,34 @@
     radius: 2
     energy: 1.5
     color: orange
+  - type: Unremoveable
+  
+- type: entity
+  parent: WelderIfrit
+  id: WelderIfritRight
+  name: ifrit hand
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  parent: WelderIfrit
+  id: WelderIfritLeft
+  name: ifrit hand
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: body
+  id: Ifrit
+  name: "ifrit"
+  root: hand 1
+  slots:
+    hand 1:
+      part: WelderIfritRight
+      connections:
+      - hand 2
+    hand 2:
+      part: WelderIfritLeft
