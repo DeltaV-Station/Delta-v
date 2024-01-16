@@ -46,6 +46,7 @@ namespace Content.Shared.Movement.Systems
         [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
         [Dependency] private   readonly SharedTransformSystem _transform = default!;
         [Dependency] private   readonly TagSystem _tags = default!;
+        [Dependency] private readonly IEntityManager _entities = default!; // Delta V softpaws
 
         protected EntityQuery<InputMoverComponent> MoverQuery;
         protected EntityQuery<MobMoverComponent> MobMoverQuery;
@@ -443,6 +444,14 @@ namespace Content.Shared.Movement.Systems
                 sound = moverModifier.FootstepSoundCollection;
                 return true;
             }
+            
+            // If soft paws and no shoes, no sound. Delta V
+            if (_entities.TryGetComponent(uid, out SoftPawsComponent? _) &
+                !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
+            {
+                return false;
+            }
+            // Delta V soft paws till here.
 
             if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
                 TryComp<FootstepModifierComponent>(shoes, out var modifier))

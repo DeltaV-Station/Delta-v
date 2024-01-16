@@ -25,12 +25,6 @@ public sealed class ShoesRequiredStepTriggerSystem : EntitySystem
             return;
         }
         
-    //    if (!_inventory.TryGetSlotEntity(uid, "shoes", out _, inventory) & _tagSystem.HasTag(args.Tripper, "SoftPaws")) // (_tagSystem.HasTag(args.Tripper, "SoftPaws") & !_inventory.TryGetSlotEntity(uid, "shoes", out _, inventory))
-    //    {
-    //        args.Cancelled = true;
-    //        return;
-    //    }
-
         if (!TryComp<InventoryComponent>(args.Tripper, out var inventory))
             return;
 
