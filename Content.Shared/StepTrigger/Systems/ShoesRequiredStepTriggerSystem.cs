@@ -24,7 +24,7 @@ public sealed class ShoesRequiredStepTriggerSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-        
+
         if (!TryComp<InventoryComponent>(args.Tripper, out var inventory))
             return;
 
