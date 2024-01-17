@@ -258,9 +258,10 @@ namespace Content.Server.Cloning
 
                 if (_robustRandom.Prob(chance))
                 {
-                    if (clonePod.ConnectedConsole != null)
-                        _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-no-genetics", ("units", cloningCost)), InGameICChatType.Speak, false);
-                    return false;
+                    UpdateStatus(uid, CloningPodStatus.Gore, clonePod);
+                    clonePod.FailedClone = true;
+                    AddComp<ActiveCloningPodComponent>(uid);
+                    return true;
                 }
                 // End Nyano-code.
             }
