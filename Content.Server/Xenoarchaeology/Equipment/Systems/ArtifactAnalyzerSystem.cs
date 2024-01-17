@@ -22,7 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Psionics.Glimmer; //Nyano - Summary:. 
+using Content.Shared.Psionics.Glimmer; //Nyano - Summary:.
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -53,8 +53,6 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<ActiveArtifactAnalyzerComponent, ComponentShutdown>(OnAnalyzeEnd);
         SubscribeLocalEvent<ActiveArtifactAnalyzerComponent, PowerChangedEvent>(OnPowerChanged);
 
-        SubscribeLocalEvent<ArtifactAnalyzerComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        SubscribeLocalEvent<ArtifactAnalyzerComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<ArtifactAnalyzerComponent, ItemPlacedEvent>(OnItemPlaced);
         SubscribeLocalEvent<ArtifactAnalyzerComponent, ItemRemovedEvent>(OnItemRemoved);
 
@@ -84,7 +82,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             if (active.AnalysisPaused)
                 continue;
 
-            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier - active.AccumulatedRunTime)
+            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration - active.AccumulatedRunTime)
                 continue;
 
             FinishScan(uid, scan, active);
@@ -201,7 +199,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         {
             artifact = analyzer.LastAnalyzedArtifact;
             msg = GetArtifactScanMessage(analyzer);
-            totalTime = analyzer.AnalysisDuration * analyzer.AnalysisDurationMulitplier;
+            totalTime = analyzer.AnalysisDuration;
             if (TryComp<ItemPlacerComponent>(component.AnalyzerEntity, out var placer))
                 canScan = placer.PlacedEntities.Any();
             canPrint = analyzer.ReadyToPrint;
@@ -459,25 +457,6 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         if (Exists(component.Console))
             UpdateUserInterface(component.Console.Value);
-    }
-
-    private void OnRefreshParts(EntityUid uid, ArtifactAnalyzerComponent component, RefreshPartsEvent args)
-    {
-        var analysisRating = args.PartRatings[component.MachinePartAnalysisDuration];
-
-        component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
-
-        // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
-        var extractRating = args.PartRatings[component.MachinePartExtractRatio];
-
-        component.ExtractRatio = (400 + (int) (extractRating * component.PartRatingExtractRatioMultiplier));
-        // Nyano - End modified code block.
-    }
-
-    private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
-    {
-        args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
-        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.ExtractRatio - 550);
     }
 
     private void OnItemPlaced(EntityUid uid, ArtifactAnalyzerComponent component, ref ItemPlacedEvent args)
