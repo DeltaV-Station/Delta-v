@@ -119025,6 +119025,27 @@ entities:
       pos: -75.31066,9.590001
       parent: 1
       type: Transform
+- proto: MagazineShotgun
+  entities:
+  - uid: 25842
+    components:
+    - pos: 76.59831,15.676351
+      parent: 1
+      type: Transform
+- proto: MagazineShotgunBeanbag
+  entities:
+  - uid: 25841
+    components:
+    - pos: 76.34831,15.645079
+      parent: 1
+      type: Transform
+- proto: MagazineShotgunSlug
+  entities:
+  - uid: 25843
+    components:
+    - pos: 76.78581,15.624231
+      parent: 1
+      type: Transform
 - proto: MagicDiceBag
   entities:
   - uid: 3889
