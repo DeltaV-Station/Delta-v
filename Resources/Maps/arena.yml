@@ -53946,9 +53946,9 @@ entities:
       pos: 42.5,-59.5
       parent: 6747
       type: Transform
-  - uid: 17770
+  - uid: 17611
     components:
-    - pos: 51.086426,9.452867
+    - pos: 50.5,9.5
       parent: 6747
       type: Transform
   - uid: 23562
@@ -57558,6 +57558,11 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: -9.5,-5.5
+      parent: 6747
+      type: Transform
+  - uid: 17785
+    components:
+    - pos: 51.5,8.5
       parent: 6747
       type: Transform
 - proto: ComputerMassMedia
@@ -128631,7 +128636,7 @@ entities:
           maxVol: 25
           reagents:
           - data: null
-            ReagentId: Codeine
+            ReagentId: Bananadine
             Quantity: 15
       type: SolutionContainerManager
     - canCollide: False
@@ -129655,6 +129660,13 @@ entities:
     - pos: 32.5,-95.5
       parent: 6747
       type: Transform
+- proto: PottedPlant29
+  entities:
+  - uid: 17770
+    components:
+    - pos: 52.691494,9.715378
+      parent: 6747
+      type: Transform
 - proto: PottedPlant3
   entities:
   - uid: 4758
@@ -129970,11 +129982,6 @@ entities:
   - uid: 12020
     components:
     - pos: 55.5,25.5
-      parent: 6747
-      type: Transform
-  - uid: 17785
-    components:
-    - pos: 50.5,9.5
       parent: 6747
       type: Transform
   - uid: 18623
@@ -151114,8 +151121,8 @@ entities:
       type: Transform
   - uid: 19076
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 51.73348,8.584921
+    - rot: 1.5707963267948966 rad
+      pos: 50.514412,8.652139
       parent: 6747
       type: Transform
 - proto: SubstationWallBasic
@@ -155250,12 +155257,6 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 50.5,8.5
-      parent: 6747
-      type: Transform
-  - uid: 17611
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 51.5,8.5
       parent: 6747
       type: Transform
 - proto: TaikoInstrument
