@@ -25,11 +25,15 @@ using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
 using Content.Server.Jobs;
+using Content.Server.Popups;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Preferences.Managers;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Zombies;
@@ -65,8 +69,10 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly PuddleSystem _puddleSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
@@ -164,7 +170,7 @@ namespace Content.Server.Cloning
 
             args.PushMarkup(Loc.GetString("cloning-pod-biomass", ("number", _material.GetMaterialAmount(uid, component.RequiredMaterial))));
         }
-
+        // Nyano: Adds float karmaBonus
         public bool TryCloning(EntityUid uid, EntityUid bodyToClone, Entity<MindComponent> mindEnt, CloningPodComponent? clonePod, float failChanceModifier = 1, float karmaBonus = 0.25f)
         {
             if (!Resolve(uid, ref clonePod))
@@ -273,7 +279,6 @@ namespace Content.Server.Cloning
             AddComp<ActiveCloningPodComponent>(uid);
 
             // TODO: Ideally, components like this should be on a mind entity so this isn't neccesary.
-            // Remove this when 'mind entities' are added.
             // Add on special job components to the mob.
             if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
             {
@@ -315,6 +320,19 @@ namespace Content.Server.Cloning
             }
         }
 
+        /// <summary>
+        /// On emag, spawns a failed clone when cloning process fails which attacks nearby crew.
+        /// </summary>
+        private void OnEmagged(EntityUid uid, CloningPodComponent clonePod, ref GotEmaggedEvent args)
+        {
+            if (!this.IsPowered(uid, EntityManager))
+                return;
+
+            _audio.PlayPvs(clonePod.SparkSound, uid);
+            _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), uid);
+            args.Handled = true;
+        }
+
         public void Eject(EntityUid uid, CloningPodComponent? clonePod)
         {
             if (!Resolve(uid, ref clonePod))
@@ -337,9 +355,13 @@ namespace Content.Server.Cloning
             clonePod.CloningProgress = 0f;
             UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
             var transform = Transform(uid);
-            var indices = _transformSystem.GetGridOrMapTilePosition(uid);
-
+            var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
+            if (HasComp<EmaggedComponent>(uid))
+            {
+                _audio.PlayPvs(clonePod.ScreamSound, uid);
+                Spawn(clonePod.MobSpawnId, transform.Coordinates);
+            }
 
             Solution bloodSolution = new();
 
@@ -353,7 +375,10 @@ namespace Content.Server.Cloning
             }
             _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
 
-            _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
+            if (!HasComp<EmaggedComponent>(uid))
+            {
+                _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
+            }
 
             clonePod.UsedBiomass = 0;
             RemCompDeferred<ActiveCloningPodComponent>(uid);

@@ -168,7 +168,7 @@ namespace Content.Server.Cloning
 
             if (mind.UserId.HasValue == false || mind.Session == null)
                 return;
-
+                // Nyano: Adds scannerComp.MetemKarmaBonus
                 if (_cloningSystem.TryCloning(cloningPodUid, body.Value, (mindId, mind), cloningPod, scannerComp.CloningFailChanceMultiplier, scannerComp.MetemKarmaBonus))
                 _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(uid)} successfully cloned {ToPrettyString(body.Value)}.");
         }
