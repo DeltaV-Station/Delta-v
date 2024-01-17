@@ -1,5 +1,5 @@
 - type: body
-  id: Ifriit
+  id: Ifriit # This one would make it spawn in his right hand
   name: "ifriit"
   root: right hand
   slots:
@@ -9,3 +9,47 @@
       - left hand
     left hand:
       part: WelderIfritLeft
+
+- type: body 
+  id: Ifriit2 # This one is pretty much to make ifriit have 2 functioning hands
+  name: "ifriit2"
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHuman
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+    right_arm:
+      part: RightArmHuman
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmHuman
+      connections:
+      - left_hand
+    right_hand:
+      part: WelderIfritRight
+    left_hand:
+      part: WelderIfritLeft
+    right_leg:
+      part: RightLegHuman
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegHuman
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootHuman
+    left_foot:
+      part: LeftFootHuman

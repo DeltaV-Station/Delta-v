@@ -1,6 +1,6 @@
 - type: entity
   parent: WelderIfrit
-  id: WelderIfritRight
+  id: WelderIfritRight # Both of the hands are needed so that.... it spawns the hand itself on ifriit's hand???? Good enough.
   name: ifrit hand
   components:
   - type: BodyPart
