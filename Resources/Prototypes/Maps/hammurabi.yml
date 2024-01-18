@@ -1,0 +1,71 @@
+- type: gameMap
+  id: Hammurabi
+  mapName: 'Hammurabi'
+  mapPath: /Maps/hammurabi.yml
+  minPlayers: 50
+  stations:
+    Hammurabi:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Hammurabi Prison Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/NTES_Centipede.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
+          #command
+            Captain: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 3 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 6, 8 ]
+            TechnicalAssistant: [ 3, 5 ]
+          #medical
+            Chemist: [ 2, 3 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 7, 9 ]
+            MedicalIntern: [ 2, 4 ]
+            Paramedic: [ 2, 3 ]
+            Psychologist: [ 1, 1 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 6, 8 ] # move back to 10, 12 when ready
+            PrisonGuard: [ 4, 6 ] # someday a 2:1 ratio of guard:prisoner is preferred
+            SecurityOfficer: [ 6, 8 ]
+            SecurityCadet: [ 2, 3 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 3 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 3, 4 ]
+            Clown: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 4 ]
+            Lawyer: [ 2, 2 ]
+            Mime: [ 1, 2 ]
+            Musician: [ 2, 3 ]
+            Reporter: [ 2, 2 ]
+            ServiceWorker: [ 4, 6 ]
+          #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 6 ]
+            ResearchAssistant: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+            ForensicMantis: [ 1, 1 ]
+          #supply
+            Quartermaster: [ 1, 1 ]
+            CargoTechnician: [ 2, 4 ]
+            SalvageSpecialist: [ 3, 5 ]
+            MailCarrier: [ 2, 3 ]
