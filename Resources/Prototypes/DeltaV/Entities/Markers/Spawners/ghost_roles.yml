@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
   suffix: player character, DO NOT MAP
@@ -36,7 +36,6 @@
     - !type:DepartmentTimeRequirement
       department: Civilian
       time: 72000 # 20 hours
-    - !type:WhitelistRequirement
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite
