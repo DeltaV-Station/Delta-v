@@ -327,7 +327,7 @@ entities:
     - pos: 2.5,-1.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -7655.493
+    - secondsUntilStateChange: -7711.8403
       state: Opening
       type: Door
   - uid: 7
@@ -365,7 +365,7 @@ entities:
       pos: 7.5,-0.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -2163.1897
+    - secondsUntilStateChange: -2219.5366
       state: Opening
       type: Door
 - proto: AirlockSyndicateLocked
@@ -387,7 +387,7 @@ entities:
     - pos: 2.5,-5.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -2037.4736
+    - secondsUntilStateChange: -2093.8206
       state: Opening
       type: Door
 - proto: AlwaysPoweredLightColoredFrostyBlue
@@ -4286,6 +4286,14 @@ entities:
     - pos: -0.57726955,-3.500595
       parent: 1
       type: Transform
+- proto: Mirror
+  entities:
+  - uid: 957
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -2.5,-3.5
+      parent: 1
+      type: Transform
 - proto: NukeDiskFake
   entities:
   - uid: 760
@@ -6498,7 +6506,7 @@ entities:
     - pos: -1.5,-1.5
       parent: 1
       type: Transform
-    - secondsUntilStateChange: -20441.69
+    - secondsUntilStateChange: -20498.037
       state: Opening
       type: Door
 ...
