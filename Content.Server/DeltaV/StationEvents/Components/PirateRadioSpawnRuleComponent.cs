@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Events;
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -12,4 +13,13 @@ public sealed partial class PirateRadioSpawnRuleComponent : Component
 
     [DataField("additionalRule")]
     public EntityUid? AdditionalRule;
+
+    [DataField("debrisCount")]
+    public int DebrisCount;
+
+    [DataField("distanceModifier")]
+    public float DistanceModifier;
+
+    [DataField("debrisDistanceModifier")]
+    public float DebrisDistanceModifier;
 }

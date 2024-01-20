@@ -57,3 +57,6 @@
     maxOccurrences: 1
     duration: 1
   - type: PirateRadioSpawnRule
+    debrisCount: 6
+    distanceModifier: 20 #Math here is hard to explain, 20 is roughly 1 to 1.5 kilometers, but it's also a semirandom distance that forms the shape of a square with rounded corners.
+    debrisDistanceModifier: 5
