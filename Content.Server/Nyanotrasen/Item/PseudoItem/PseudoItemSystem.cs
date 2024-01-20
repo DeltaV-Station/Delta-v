@@ -13,7 +13,7 @@ using Robust.Shared.Containers;
 namespace Content.Server.Item.PseudoItem;
 public sealed partial class PseudoItemSystem : EntitySystem
 {
-    [Dependency] private readonly StorageSystem _storageSystem = default!;
+    /*[Dependency] private readonly StorageSystem _storageSystem = default!;
     [Dependency] private readonly ItemSystem _itemSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     public override void Initialize()
@@ -150,5 +150,5 @@ public sealed partial class PseudoItemSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(args);
-    }
+    }*/
 }

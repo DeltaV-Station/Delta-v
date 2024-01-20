@@ -3,6 +3,7 @@ using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using Robust.Shared.Player;
 
 namespace Content.Server.Chat.Commands
 {
@@ -15,7 +16,7 @@ namespace Content.Server.Chat.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (shell.Player is not IPlayerSession player)
+            if (shell.Player is not { } player)
             {
                 shell.WriteError("This command cannot be run from the server.");
                 return;
@@ -36,7 +37,7 @@ namespace Content.Server.Chat.Commands
             var message = string.Join(" ", args).Trim();
             if (string.IsNullOrEmpty(message))
                 return;
-            //Not sure if I should hide the logs from this. Default is false. 
+            //Not sure if I should hide the logs from this. Default is false.
             EntitySystem.Get<ChatSystem>().TrySendInGameICMessage(playerEntity, message, InGameICChatType.Telepathic, ChatTransmitRange.Normal, false, shell, player);
         }
     }
