@@ -32,10 +32,13 @@
       time: 259200 # 72 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 40000 # 11.5 hours
+      time: 40000 # 11.1 hours
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 72000 # 20 hours
+      time: 40000 # 11.1 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 40000 #11.1 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite

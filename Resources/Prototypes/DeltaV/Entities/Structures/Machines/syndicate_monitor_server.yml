@@ -28,7 +28,7 @@
       receiveFrequencyId: SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection
-      range: 2000
+      range: 10000
     - type: ApcPowerReceiver
       powerLoad: 200
       priority: Low
