@@ -17,7 +17,9 @@
       - state: box
       - state: lighttube
   - type: Storage
-    capacity: 60
+    maxItemSize: Small
+    grid:
+      - 0,0,4,4
     whitelist:
       components:
       - LightBulb
@@ -42,7 +44,9 @@
       - state: box
       - state: light
   - type: Storage
-    capacity: 60
+    maxItemSize: Small
+    grid:
+      - 0,0,4,4
     whitelist:
       components:
       - LightBulb
@@ -56,14 +60,14 @@
   id: BoxHolyWater
   description: This box is filled with everything you need to make homemade holy water. Water not included.
   components:
-    - type: StorageFill
-      contents:
-        - id: MercuryChemistryBottle
-          amount: 3
-        - id: DrinkWineBottleFull
-          amount: 1
-        - id: SprayBottle
-          amount: 1
+#    - type: StorageFill
+#      contents:
+#        - id: MercuryChemistryBottle
+#          amount: 3
+#        - id: DrinkWineBottleFull
+#          amount: 1
+#        - id: SprayBottle
+#          amount: 1
     - type: Sprite
       layers:
         - state: box_science
