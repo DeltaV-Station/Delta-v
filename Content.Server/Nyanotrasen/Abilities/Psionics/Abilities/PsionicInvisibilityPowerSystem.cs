@@ -12,6 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 using Content.Server.Mind;
 using Content.Shared.Actions.Events;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -24,6 +25,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -83,7 +85,7 @@ namespace Content.Server.Abilities.Psionics
             EnsureComp<PacifiedComponent>(uid);
             var stealth = EnsureComp<StealthComponent>(uid);
             _stealth.SetVisibility(uid, 0.66f, stealth);
-            SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
+            _audio.PlayPvs("/Audio/Effects/toss.ogg", uid);
 
         }
 
@@ -95,8 +97,8 @@ namespace Content.Server.Abilities.Psionics
             RemComp<PsionicallyInvisibleComponent>(uid);
             RemComp<PacifiedComponent>(uid);
             RemComp<StealthComponent>(uid);
-            SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
-            //Pretty sure this DOESN'T work as intended. 
+            _audio.PlayPvs("/Audio/Effects/toss.ogg", uid);
+            //Pretty sure this DOESN'T work as intended.
             _actions.RemoveAction(uid, component.PsionicInvisibilityUsedActionEntity);
 
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);

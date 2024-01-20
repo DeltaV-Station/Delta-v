@@ -341,7 +341,7 @@ namespace Content.Server.Administration.Systems
                     _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)), coordinates, PopupType.LargeCaution);
                     var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
                     var audioParams = new AudioParams().WithVolume(3);
-                    _audio.Play("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams);
+                    _audio.PlayStatic("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams);
                 }
 
                 foreach (var item in _inventory.GetHandOrInventoryEntities(entity.Value))

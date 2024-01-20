@@ -17,6 +17,7 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
@@ -34,6 +35,7 @@ public sealed partial class FelinidSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -111,7 +113,7 @@ public sealed partial class FelinidSystem : EntitySystem
         }
 
         _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid);
-        SoundSystem.Play("/Audio/Nyanotrasen/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
+        _audio.PlayPvs("/Audio/Nyanotrasen/Effects/Species/hairball.ogg", uid, AudioHelpers.WithVariation(0.15f));
 
         EnsureComp<CoughingUpHairballComponent>(uid);
         args.Handled = true;
@@ -147,7 +149,7 @@ public sealed partial class FelinidSystem : EntitySystem
         Del(component.EatActionTarget.Value);
         component.EatActionTarget = null;
 
-        SoundSystem.Play("/Audio/Items/eatfood.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
+        _audio.PlayPvs("/Audio/Items/eatfood.ogg", uid, AudioHelpers.WithVariation(0.15f));
 
         _hungerSystem.ModifyHunger(uid, 50f, hunger);
 
