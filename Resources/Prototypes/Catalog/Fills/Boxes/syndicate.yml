@@ -18,7 +18,8 @@
   description: A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
   components:
   - type: Storage
-    capacity: 30
+    grid:
+    - 0,0,3,2
   - type: StorageFill
     contents:
       - id: Beaker
