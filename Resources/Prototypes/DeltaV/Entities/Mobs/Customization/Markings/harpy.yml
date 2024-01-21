@@ -15,7 +15,7 @@
         - !type:SimpleColoring
           color: "#964b00"
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings_34x.rsi
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy
 
 - type: marking
@@ -33,7 +33,7 @@
           color: "#964b00"
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy
+      state: classicharpy
 
 - type: marking
   id: HarpyWingFolded
