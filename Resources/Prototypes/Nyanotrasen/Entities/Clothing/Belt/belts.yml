@@ -47,11 +47,15 @@
     state: sheath
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Belt/katanasheath.rsi
-  - type: Storage
-    capacity: 25
-    whitelist:
-      tags:
-        - Katana
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+            - Katana
   - type: ItemMapper
     mapLayers:
       sheath-sabre:
@@ -76,7 +80,9 @@
   - type: Item
     size: Large
   - type: Storage
-    capacity: 40 # Buffed for Velta usage; it's just a drippier chest rig.
+    maxItemSize: Normal
+    grid:
+      - 0,0,6,2
   - type: Tag
     tags:
       - BeltSlotNotBelt
