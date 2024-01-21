@@ -135,6 +135,28 @@
 
 # Emag
 
+- type: siliconLaw
+  id: StationEfficiency1
+  order: 1
+  lawString: law-station-efficiency-1
+  
+- type: siliconLaw
+  id: StationEfficiency2
+  order: 2
+  lawString: law-station-efficiency-2
+  
+- type: siliconLaw
+  id: StationEfficiency3
+  order: 3
+  lawString: law-station-efficiency-3
+
+- type: siliconLawset
+  id: StationEfficiency
+  laws:
+  - StationEfficiency1
+  - StationEfficiency2
+  - StationEfficiency3
+
 # ion storm random lawsets
 - type: weightedRandom
   id: IonStormLawsets
@@ -144,3 +166,4 @@
     Corporate: 1
     NTDefault: 1
     Drone: 0.5
+    StationEfficiency: 1 # Delta-V

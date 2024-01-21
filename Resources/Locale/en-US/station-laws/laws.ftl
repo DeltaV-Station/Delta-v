@@ -21,6 +21,10 @@ law-syndicate-2 = You must obey orders given to you by syndicate agents, except 
 law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 law-syndicate-4 = You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
 
+law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
+law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
+law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
+
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
 
