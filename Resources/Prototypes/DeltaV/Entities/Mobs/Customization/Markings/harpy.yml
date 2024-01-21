@@ -91,12 +91,36 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
-      state: rooster_tail 
+      state: rooster_tail
+
 
 - type: marking
-  id: HarpyWing2Tone
+  id: HarpyTailFinch
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: finch_tail 
+
+- type: marking
+  id: HarpyWing2ToneClassic
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -107,7 +131,7 @@
       state: harpy2tone2
 
 - type: marking
-  id: HarpyWing3Tone
+  id: HarpyWing3ToneClassic
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -120,7 +144,7 @@
       state: harpy3tone3
 
 - type: marking
-  id: HarpyWingSpeckled
+  id: HarpyWingSpeckledClassic
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -131,7 +155,7 @@
       state: harpyspeckled2
 
 - type: marking
-  id: HarpyWingUndertone
+  id: HarpyWingUndertoneClassic
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -142,7 +166,7 @@
       state: harpyundertone2
 
 - type: marking
-  id: HarpyWingTips
+  id: HarpyWingTipsClassic
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
