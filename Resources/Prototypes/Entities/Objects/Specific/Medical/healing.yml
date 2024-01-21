@@ -340,16 +340,6 @@
       amount: 7
 
 - type: entity
-  parent: PillCanister
-  id: PillCanisterDexalin
-  suffix: Dexalin, 7
-  components:
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      amount: 7
-
-- type: entity
   name: dylovene pill (10u)
   parent: Pill
   id: PillDylovene

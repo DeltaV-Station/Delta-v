@@ -493,31 +493,6 @@
     - state: folder-base
 
 - type: entity
-  id: BoxFolderGreen
-  parent: BoxFolderBase
-  suffix: Green
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: folder-colormap
-      color: "#43bc38"
-    - state: folder-base
-
-- type: entity
-  id: BoxFolderCentCom
-  name: centcom folder
-  parent: BoxFolderBase
-  suffix: DO NOT MAP
-  description: CentCom's miserable little pile of secrets!
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: folder-centcom
-    - state: folder-base
-
-- type: entity
   id: BoxFolderClipboard
   parent: BoxFolderBase
   name: clipboard
