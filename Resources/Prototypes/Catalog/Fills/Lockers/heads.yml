@@ -39,6 +39,7 @@
       - id: PinpointerNuclear
 #     - id: CaptainIDCard # DeltaV - Replaced by the spare ID system
       - id: ClothingHeadHatCaptain
+      - id: ClothingNeckCloakCap
       - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
       - id: ClothingNeckCloakCap
       - id: ClothingOuterHardsuitCap
@@ -172,10 +173,10 @@
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
       - id: BoxPDAEngineering # Delta-V
-      - id: CEIDCard # Delta-V
-      - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
       - id: RCD
       - id: RCDAmmo
+      - id: CEIDCard # Delta-V
+      - id: ClothingShoesBootsWinterChiefEngineer #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerChiefEngineerFilled

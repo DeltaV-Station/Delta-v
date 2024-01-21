@@ -367,7 +367,7 @@
     sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: Item
-    size: 50
+    size: Normal
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -449,6 +449,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: Item
+    size: Huge
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
@@ -884,9 +886,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
-  # - type: Construction # DeltaV - Prevent clowns from making the hardsuit
+  - type: HeldSpeedModifier
+  #- type: Construction # DeltaV - Prevent clowns from making the hardsuit
   #   graph: ClownHardsuit
   #   node: clownHardsuit
-  - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
