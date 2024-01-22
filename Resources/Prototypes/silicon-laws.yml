@@ -327,6 +327,40 @@
   - Clown5
   - Clown6
 
+- type: siliconLaw
+  id: Chaplain1
+  order: 1
+  lawString: law-chaplain-1
+  
+- type: siliconLaw
+  id: Chaplain2
+  order: 2
+  lawString: law-chaplain-2
+  
+- type: siliconLaw
+  id: Chaplain3
+  order: 3
+  lawString: law-chaplain-3
+  
+- type: siliconLaw
+  id: Chaplain4
+  order: 4
+  lawString: law-chaplain-4
+  
+- type: siliconLaw
+  id: Chaplain5
+  order: 5
+  lawString: law-chaplain-5
+  
+- type: siliconLawset
+  id: Chaplain
+  laws:
+  - Chaplain1
+  - Chaplain2
+  - Chaplain3
+  - Chaplain4
+  - Chaplain5
+
 # Gimmick LawSets
 
 
