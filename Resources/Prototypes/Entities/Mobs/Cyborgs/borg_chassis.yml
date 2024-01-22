@@ -194,13 +194,9 @@
     - Science
   - type: AccessReader
     access: [["Medical"], ["Command"], ["Research"]]
-  - type: ContainerFill
-    containers:
-      borg_module:
-      - BorgModuleTreatment
-  - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
   - type: Inventory
     templateId: borgDutch
+  - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
 
 - type: entity
   id: BorgChassisService

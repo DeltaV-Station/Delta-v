@@ -104,6 +104,8 @@
         Base: 0
       Dead:
         Base: dead
+  - type: Item
+    size: Tiny
   - type: Tag
     tags:
     - Bee
@@ -122,8 +124,6 @@
       task: SimpleHostileCompound
   - type: Puller
     needsHands: true
-  - type: Item # DeltaV - Allow grabbing and storing bees in inventory
-    size: 5
   - type: Extractable # DeltaV - Make it so bees can be ground up
     grindableSolutionName: bee
   - type: SolutionContainerManager
@@ -133,7 +133,6 @@
         - ReagentId: GroundBee
           Quantity: 5
   - type: ZombieImmune
-
 
 - type: entity
   name: bee
@@ -263,7 +262,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cockroach
   - type: Item
-    size: 2
+    size: Tiny
   - type: HTN
     rootTask:
       task: MouseCompound
@@ -383,7 +382,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mothroach
   - type: Item
-    size: 15
+    size: Normal
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mothroach.rsi
@@ -1197,7 +1196,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mouse-0
   - type: Item
-    size: 5
+    size: Tiny
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mouse.rsi
@@ -1672,7 +1671,7 @@
       groups:
         Brute: 5
   - type: Item
-    size: 80
+    size: Normal
   - type: OnUseTimerTrigger
     delay: 10
     beepSound:
@@ -2639,7 +2638,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: hamster-0
   - type: Item
-    size: 5
+    size: Tiny
   - type: Physics
   - type: Fixtures
     fixtures:
