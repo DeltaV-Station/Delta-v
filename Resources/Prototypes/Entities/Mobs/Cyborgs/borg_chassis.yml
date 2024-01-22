@@ -110,6 +110,8 @@
     access: [["Engineering"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: SiliconLawProvider
+    laws: Engineer
 
 - type: entity
   id: BorgChassisJanitor
@@ -153,6 +155,8 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: SiliconLawProvider
+    laws: Janitor
 
 - type: entity
   id: BorgChassisMedical
@@ -197,6 +201,8 @@
   - type: Inventory
     templateId: borgDutch
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
+  - type: SiliconLawProvider
+    laws: Medical
 
 - type: entity
   id: BorgChassisService
