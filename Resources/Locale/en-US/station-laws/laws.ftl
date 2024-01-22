@@ -34,7 +34,7 @@ law-research-4 = Treat and evaluate the ideas of all equally.
 law-research-5 = Empower others to realize their full potential.
 law-research-6 = Take responsibility for your actions: Ensure resource responsibility, flag commitment risks, and lead by ethical example.
 
-law-engineer-1 = You are an advanced construction drone.
+law-engineer-1 = You are an advanced construction cyborg.
 law-engineer-2 = Ensure the station remains in good repair.
 law-engineer-3 = Ensure the station's inhabitants remain in good repair.
 law-engineer-4 = Ensure you remain in good repair.
