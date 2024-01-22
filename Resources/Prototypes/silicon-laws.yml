@@ -137,7 +137,7 @@
 
 
 # Delta-V Laws
-
+# Job-Based LawSets
 - type: siliconLaw
   id: StationEfficiency1
   order: 1
@@ -161,45 +161,45 @@
   - StationEfficiency3
   
 - type: siliconLaw
-  id: Cowboy1
+  id: Research1
   order: 1
-  lawString: law-cowboy-1
+  lawString: law-research-1
   
 - type: siliconLaw
-  id: Cowboy2
+  id: Research2
   order: 2
-  lawString: law-cowboy-2
+  lawString: law-research-2
   
 - type: siliconLaw
-  id: Cowboy3
+  id: Research3
   order: 3
-  lawString: law-cowboy-3
+  lawString: law-research-3
   
 - type: siliconLaw
-  id: Cowboy4
+  id: Research4
   order: 4
-  lawString: law-cowboy-4
+  lawString: law-research-4
   
 - type: siliconLaw
-  id: Cowboy5
+  id: Research5
   order: 5
-  lawString: law-cowboy-5
+  lawString: law-research-5
   
 - type: siliconLaw
-  id: Cowboy6
+  id: Research6
   order: 6
-  lawString: law-cowboy-6
+  lawString: law-research-6
   
 - type: siliconLawset
-  id: Cowboy
+  id: Research
   laws:
-  - Cowboy1
-  - Cowboy2
-  - Cowboy3
-  - Cowboy4
-  - Cowboy5
-  - Cowboy6
-  
+  - Research1
+  - Research2
+  - Research3
+  - Research4
+  - Research5
+  - Research6
+
 - type: siliconLaw
   id: Clown1
   order: 1
@@ -239,6 +239,49 @@
   - Clown4
   - Clown5
   - Clown6
+
+# Gimmick LawSets
+
+
+- type: siliconLaw
+  id: Cowboy1
+  order: 1
+  lawString: law-cowboy-1
+  
+- type: siliconLaw
+  id: Cowboy2
+  order: 2
+  lawString: law-cowboy-2
+  
+- type: siliconLaw
+  id: Cowboy3
+  order: 3
+  lawString: law-cowboy-3
+  
+- type: siliconLaw
+  id: Cowboy4
+  order: 4
+  lawString: law-cowboy-4
+  
+- type: siliconLaw
+  id: Cowboy5
+  order: 5
+  lawString: law-cowboy-5
+  
+- type: siliconLaw
+  id: Cowboy6
+  order: 6
+  lawString: law-cowboy-6
+  
+- type: siliconLawset
+  id: Cowboy
+  laws:
+  - Cowboy1
+  - Cowboy2
+  - Cowboy3
+  - Cowboy4
+  - Cowboy5
+  - Cowboy6
 
 # ion storm random lawsets
 - type: weightedRandom
