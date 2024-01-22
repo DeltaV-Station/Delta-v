@@ -567,8 +567,13 @@
 - type: siliconLaw
   id: Painter2
   order: 2
+  lawString: law-painter-2
+
+- type: siliconLaw
+  id: Painter3
+  order: 3
   lawString: law-painter-3
-  
+
 - type: siliconLawset  # No ability for Borgs to paint, so won't spawn.
   id: Painter
   laws:
