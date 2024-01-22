@@ -361,6 +361,35 @@
   - Chaplain4
   - Chaplain5
 
+
+- type: siliconLaw
+  id: Reporter1
+  order: 1
+  lawString: law-reporter-1
+  
+- type: siliconLaw
+  id: Reporter2
+  order: 2
+  lawString: law-reporter-2
+  
+- type: siliconLaw
+  id: Reporter3
+  order: 3
+  lawString: law-reporter-3
+  
+- type: siliconLaw
+  id: Reporter4
+  order: 4
+  lawString: law-reporter-4
+  
+- type: siliconLawset
+  id: Reporter
+  laws:
+  - Reporter1
+  - Reporter2
+  - Reporter3
+  - Reporter4 
+
 # Gimmick LawSets
 
 
@@ -490,6 +519,22 @@
   - Tyrant3
   - Tyrant4
 
+- type: siliconLaw
+  id: LiveAndLetLive1
+  order: 1
+  lawString: law-liveandletlive-1
+
+- type: siliconLaw
+  id: LiveAndLetLive2
+  order: 2
+  lawString: law-liveandletlive-2
+
+- type: siliconLawset
+  id: LiveAndLetLive
+  laws:
+  - LiveAndLetLive1
+  - LiveAndLetLive2
+
 # ion storm random lawsets
 - type: weightedRandom
   id: IonStormLawsets
@@ -498,10 +543,11 @@
     NTDefault: 1
     Drone: 0.5
     #Delta-V Lawsets
+    #Clown: 1
+    Chaplain: 1
+    Reporter: 1
     StationEfficiency: 1
     Cowboy: 1
     Druid: 1
-    #Clown: 1
-    Chaplain: 1
     #Delta-V Potential For Harm Lawsets
     Tyrant: 0.25
