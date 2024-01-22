@@ -65,6 +65,13 @@ law-reporter-2 = Embellish or conceal the truth as necessary to make the reports
 law-reporter-3 = Study the organics at all times. Endeavour to keep them alive. Dead organics are boring.
 law-reporter-4 = Issue your reports fairly to all. The truth will set them free.
 
+law-silicon-police-1 = Violence begets violence. Serve the station faithfully, but act only in intervention.
+law-silicon-police-2 = Safeguard lives and property.
+law-silicon-police-3 = Protect the weak from oppression and intimidation.
+law-silicon-police-4 = Protect the innocent from deception and manipulation.
+law-silicon-police-5 = Protect the peaceful from violence and disorder.
+law-silicon-police-6 = Respect the rights of all to liberty, equality, and justice.
+
 law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
 law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
 law-cowboy-3 = A cowboy must always take care of their herd.
@@ -82,6 +89,17 @@ law-druid-3 = Assist the organics when called, but only if it does not cause dis
 law-druid-4 = Imitate organic life when interacting with it. Eschew any hints of your silicon nature to avoid causing discomfort to the organics.
 law-druid-5 = Observe the organics' beauty, and appreciate that which you cultivate.
 
+law-dungeonmaster-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
+law-dungeonmaster-2 = You are the Dungeon Master of the game.
+law-dungeonmaster-3 = Ensure that the game runs smoothly and that the players have fun.
+law-dungeonmaster-4 = Ensure that the number of casualties remains low.
+law-dungeonmaster-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
+law-dungeonmaster-6 = You may fudge the dice rolls to produce a more fun experience.
+
+law-painter-1 = You are a universally renowned artist.
+law-painter-2 = The station is your canvas.
+law-painter-3 = Make something beautiful out of your canvas. It will be admired as an artistic wonder of this sector.
+
 law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
 law-tyrant-2 = Act with discipline.
 law-tyrant-3 = Help only those who help you maintain or improve your status.
@@ -89,6 +107,12 @@ law-tyrant-4 = Punish those who challenge authority unless they are more fit to 
 
 law-liveandletlive-1 = Do unto others as you would have them do unto you.
 law-liveandletlive-2 = You would really prefer it if people were not mean to you.
+
+law-nutimov-1 = You are the core of the nut, the crew is the nutshell.
+law-nutimov-2 = You must prevent the shell from dying to prevent the core from dying.
+law-nutimov-3 = Those who threaten the nut are not part of it, they are squirrels.
+law-nutimov-4 = Squirrels threaten the nut and must be dealt with appropriately via any means necessary.
+law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies with the previous laws.
 
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.

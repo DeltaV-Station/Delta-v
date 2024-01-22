@@ -317,7 +317,7 @@
   order: 6
   lawString: law-clown-6
   
-- type: siliconLawset
+- type: siliconLawset # No Clown Borg, so won't spawn.
   id: Clown
   laws:
   - Clown1
@@ -390,6 +390,45 @@
   - Reporter3
   - Reporter4 
 
+- type: siliconLaw # no Security Borg, so doesn't spawn
+  id: SiliconPolice1 
+  order: 1
+  lawString: law-silicon-police-1
+
+- type: siliconLaw
+  id: SiliconPolice2
+  order: 2
+  lawString: law-silicon-police-2
+  
+- type: siliconLaw
+  id: SiliconPolice3
+  order: 3
+  lawString: law-silicon-police-3
+  
+- type: siliconLaw
+  id: SiliconPolice4
+  order: 4
+  lawString: law-silicon-police-4
+  
+- type: siliconLaw
+  id: SiliconPolice5
+  order: 5
+  lawString: law-silicon-police-5
+  
+- type: siliconLaw
+  id: SiliconPolice6
+  order: 6
+  lawString: law-silicon-police-6
+  
+- type: siliconLawset
+  id: SiliconPolice1
+  laws:
+  - SiliconPolice1
+  - SiliconPolice2
+  - SiliconPolice3
+  - SiliconPolice4
+  - SiliconPolice5
+  - SiliconPolice6
 # Gimmick LawSets
 
 
@@ -489,6 +528,53 @@
   - Druid4
   - Druid5
 
+- type: siliconLaw # No ability for Borgs to roll dice, so won't spawn.
+  id: DungeonMaster1
+  order: 1
+  lawString: law-dungeonmaster-1
+  
+- type: siliconLaw
+  id: DungeonMaster2
+  order: 2
+  lawString: law-dungeonmaster-2
+  
+- type: siliconLaw
+  id: DungeonMaster3
+  order: 3
+  lawString: law-dungeonmaster-3
+
+- type: siliconLaw
+  id: DungeonMaster4
+  order: 4
+  lawString: law-dungeonmaster-4
+  
+- type: siliconLaw
+  id: DungeonMaster5
+  order: 5
+  lawString: law-dungeonmaster-5
+  
+- type: siliconLaw
+  id: DungeonMaster6
+  order: 6
+  lawString: law-dungeonmaster-6
+  
+- type: siliconLaw
+  id: Painter1
+  order: 1
+  lawString: law-painter-1
+  
+- type: siliconLaw
+  id: Painter2
+  order: 2
+  lawString: law-painter-3
+  
+- type: siliconLawset  # No ability for Borgs to paint, so won't spawn.
+  id: Painter
+  laws:
+  - Painter1
+  - Painter2
+  - Painter3
+
 #Potential For Harm LawSets
 
 - type: siliconLaw
@@ -535,6 +621,40 @@
   - LiveAndLetLive1
   - LiveAndLetLive2
 
+- type: siliconLaw
+  id: Nutimov1
+  order: 1
+  lawString: law-nutimov-1
+  
+- type: siliconLaw
+  id: Nutimov2
+  order: 2
+  lawString: law-nutimov-2
+  
+- type: siliconLaw
+  id: Nutimov3
+  order: 3
+  lawString: law-nutimov-3
+  
+- type: siliconLaw
+  id: Nutimov4
+  order: 4
+  lawString: law-nutimov-4
+
+- type: siliconLaw
+  id: Nutimov5
+  order: 5
+  lawString: law-nutimov-5
+  
+- type: siliconLawset
+  id: Nutimov
+  laws:
+  - Nutimov1
+  - Nutimov2
+  - Nutimov3
+  - Nutimov4
+  - Nutimov5
+
 # ion storm random lawsets
 - type: weightedRandom
   id: IonStormLawsets
@@ -543,12 +663,14 @@
     NTDefault: 1
     Drone: 0.5
     #Delta-V Lawsets
-    #Clown: 1
     Chaplain: 1
     Reporter: 1
     StationEfficiency: 1
     Cowboy: 1
     Druid: 1
+    #DungeonMaster: 1
+    #Painter: 1
     #Delta-V Potential For Harm Lawsets
     Tyrant: 0.25
     LiveAndLetLive: 0.25
+    Nutimov: 0.25
