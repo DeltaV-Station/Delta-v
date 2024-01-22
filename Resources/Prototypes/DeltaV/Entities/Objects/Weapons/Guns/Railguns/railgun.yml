@@ -5,10 +5,6 @@
   description: A terrifying thunderous railcannon made handheld.
   abstract: true
   components:
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Huge
   - type: Clothing
@@ -43,7 +39,7 @@
       ballistic-ammo: !type:Container
         ents: []
   - type: StaticPrice
-    price: 5000
+    price: 10000
 
 - type: entity
   name: Decimator Railgun
@@ -51,5 +47,63 @@
   id: WeaponRailgunDecimator
   description: A terrifying starship railcannon, now in your hands.
   components:
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 3
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Wieldable
+  - type: GunRequiresWield
+    wieldSound:
+      path: /Audio/DeltaV/Effects/railgun_charge.ogg
+
+
+
+#meme variant for scaring the fuck out of sec
+
+- type: entity
+  name: Caninator
+  parent: BaseItem
+  id: WeaponRailgunCaninator
+  size: Huge
+  description: BEHOLD Syndie the Syndicus, the CANINATOR!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: UseDelay
+    delay: 5
+  - type: GunRequiresWield
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/DeltaV/Effects/railgun_charge.ogg
+  - type: Gun
+    projectileSpeed: 1000
+    minAngle: 0
+    maxAngle: 2
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun_laser.ogg
+  - type: ItemSlots
+    slots:
+      can:
+        name: Can
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
+        whitelist:
+          tags:
+          - DrinkCan
+  - type: ContainerContainer
+    containers:
+      can: !type:ContainerSlot
+  - type: ContainerAmmoProvider
+    container: can
+
