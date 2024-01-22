@@ -261,40 +261,41 @@
 - type: entity
   name: Decimator Laser
   parent: BaseWeaponBattery
+  id: WeaponLaserRailgun
   size: Huge
-  id: WeaponEnergyGunDecimator
-  description: The laser variant of the Decimator railcannon with two fire modes. Decimate and eviscerate.
+  description: Limited run energy variant of the Decimator railcannon. Self recharging, slow firing but extremely powerful.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_laser.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/DeltaV/Effects/railgun_charge.ogg
+  - type: UseDelay
+    delay: 5
+  - type: GunRequiresWield
   - type: Gun
+    fireRate: 0.25
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
     soundGunshot:
-      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
-    soundEmpty:
-      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
-    fireRate: 0.5
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun_laser.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: Decimator
+    fireCost: 25000
   - type: Battery
     maxCharge: 75000
     startingCharge: 75000
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 25000
-    fireModes:
-    - proto: RedLaser
-      fireCost: 25000
-      name: Decimate
-      state: lightshote
-    - proto: Pulse
-      fireCost: 75000
-      name: Eviscerate
-      state: heavyshot
-  - type: Tag
-    tags:
-    - Railgun
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 500
   - type: StaticPrice
     price: 15000
