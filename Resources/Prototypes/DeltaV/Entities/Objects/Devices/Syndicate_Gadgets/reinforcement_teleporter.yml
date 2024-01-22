@@ -19,3 +19,25 @@
   - type: ItemCooldown
   - type: UseDelay
     delay: 300
+    
+- type: entity
+  parent: ReinforcementRadioSyndicate
+  id: ReinforcementRadioSyndicateParamedic
+  name: syndicate paramedic reinforcement radio
+  description: Call in a syndicate paramedic instantly! Medical License not included.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: GhostRole
+    name: ghost-role-information-syndicate-paramedic-name
+    description: ghost-role-information-syndicate-paramedic-description
+    rules: ghost-role-information-syndicate-paramedic-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateParamedic
+  - type: EmitSoundOnUse
+    sound: /Audio/Effects/Emotes/parp1.ogg
+  - type: ItemCooldown
+  - type: UseDelay
+    delay: 300

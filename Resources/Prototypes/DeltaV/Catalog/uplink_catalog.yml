@@ -46,3 +46,14 @@
     blacklist:
       components:
       - SurplusBundle
+      
+- type: listing
+  id: Paramedic Operative Reinforcement
+  name: uplink-reinforcement-radio-syndicate-paramedic-name
+  description: uplink-reinforcement-radio-syndicate-paramedic-desc
+  productEntity: ReinforcementRadioSyndicateParamedic
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  cost:
+    Telecrystal: 16 # Same as normal reinforcement, far too expensive D:
+  categories:
+  - UplinkUtility

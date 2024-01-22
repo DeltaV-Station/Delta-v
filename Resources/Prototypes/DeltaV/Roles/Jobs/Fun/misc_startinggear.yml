@@ -64,3 +64,21 @@
     shoes: ClothingShoesSlippers
     id: SyndiPDA
   innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink
+  
+# Syndicate Paramedic
+
+- type: startingGear
+  id: SyndicateParamedicGear
+  equipment:
+    jumpsuit: UniformColourScrubsCybersun
+    back: ClothingBackpackDuffelSyndicateFilledMedical
+    shoes: ClothingShoesChameleonNoSlips
+    eyes: ClothingEyesHudSyndicateMedical
+    head: ClothingHeadHatSurgcapCybersun
+    outerClothing: CybersunWindbreaker
+    id: SyndiPDA
+    belt: ClothingBeltParamedicFilled
+    pocket1: HandheldGPSBasic # DeltaV - Give Paramedics useful tools on spawn
+    pocket2: HandheldCrewMonitor # DeltaV - Give Paramedics useful tools on spawn
+    mask: ClothingMaskSterile
+    belt: ClothingBeltMedicalFilled
