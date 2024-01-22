@@ -6,7 +6,7 @@
   - type: NotJobRequirement
     job: ForensicMantis
   - type: StealCondition
-    prototype: AntiPsychicKnife
+    stealGroup: AntiPsychicKnife
     owner: job-name-mantis
 
 - type: entity
@@ -45,7 +45,7 @@
 #    difficulty: 3.5
 #    #unique: false
 #    icon:
-#      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi  
+#      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
 #      state: full
 #  - type: ObjectiveBlacklistRequirement
 #    blacklist:
@@ -57,8 +57,8 @@
   id: RaiseGlimmerObjective
   parent: BaseTraitorObjective
   noSpawn: true
-  name: Raise Glimmer. 
-  description: Get the glimmer above the specified amount. 
+  name: Raise Glimmer.
+  description: Get the glimmer above the specified amount.
   components:
   - type: Objective
     difficulty: 2.5
