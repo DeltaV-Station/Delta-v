@@ -55,7 +55,7 @@
       type: IntercomBoundUserInterface
   - type: Appearance
   - type: Item
-    size: 40
+    size: Normal
     sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
     heldPrefix: ano01
   - type: Actions
@@ -179,7 +179,7 @@
         wizardball6: ""
   - type: Appearance
   - type: Item
-    size: 150
+    size: Normal
   - type: Tag
     tags:
     - ArtifactFragment
@@ -203,5 +203,3 @@
   components:
   - type: Stack
     count: 1
-  - type: Item
-    size: 5

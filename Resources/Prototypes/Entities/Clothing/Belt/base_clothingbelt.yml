@@ -6,7 +6,7 @@
   - type: Sprite
     state: icon
   - type: Item
-    size: 50
+    size: Normal
   - type: Clothing
     slots: [belt]
     quickEquip: false
@@ -22,7 +22,11 @@
   id: ClothingBeltStorageBase
   components:
   - type: Storage
-    capacity: 40
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1
+  - type: Item
+    size: Ginormous
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -36,12 +40,12 @@
   abstract: true
   parent: ClothingBeltBase
   id: ClothingBeltAmmoProviderBase
-  components: 
+  components:
   - type: BallisticAmmoProvider
     mayTransfer: true
   - type: Item
     size: Ginormous
   - type: ContainerContainer
-    containers: 
+    containers:
       ballistic-ammo: !type:Container
-      
+
