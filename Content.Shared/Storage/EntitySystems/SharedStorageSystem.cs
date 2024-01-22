@@ -12,6 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;
 using Content.Shared.Lock;
+using Content.Shared.Nyanotrasen.Item.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
