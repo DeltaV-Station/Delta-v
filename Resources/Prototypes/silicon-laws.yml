@@ -135,6 +135,9 @@
 
 # Emag
 
+
+# Delta-V Laws
+
 - type: siliconLaw
   id: StationEfficiency1
   order: 1
@@ -156,6 +159,86 @@
   - StationEfficiency1
   - StationEfficiency2
   - StationEfficiency3
+  
+- type: siliconLaw
+  id: Cowboy1
+  order: 1
+  lawString: law-cowboy-1
+  
+- type: siliconLaw
+  id: Cowboy2
+  order: 2
+  lawString: law-cowboy-2
+  
+- type: siliconLaw
+  id: Cowboy3
+  order: 3
+  lawString: law-cowboy-3
+  
+- type: siliconLaw
+  id: Cowboy4
+  order: 4
+  lawString: law-cowboy-4
+  
+- type: siliconLaw
+  id: Cowboy5
+  order: 5
+  lawString: law-cowboy-5
+  
+- type: siliconLaw
+  id: Cowboy6
+  order: 6
+  lawString: law-cowboy-6
+  
+- type: siliconLawset
+  id: Cowboy
+  laws:
+  - Cowboy1
+  - Cowboy2
+  - Cowboy3
+  - Cowboy4
+  - Cowboy5
+  - Cowboy6
+  
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+  
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+  
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+  
+- type: siliconLaw
+  id: Clown4
+  order: 4
+  lawString: law-clown-4
+  
+- type: siliconLaw
+  id: Clown5
+  order: 5
+  lawString: law-clown-5
+  
+- type: siliconLaw
+  id: Clown6
+  order: 6
+  lawString: law-clown-6
+  
+- type: siliconLawset
+  id: Clown
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  - Clown4
+  - Clown5
+  - Clown6
 
 # ion storm random lawsets
 - type: weightedRandom
@@ -166,4 +249,7 @@
     Corporate: 1
     NTDefault: 1
     Drone: 0.5
-    StationEfficiency: 1 # Delta-V
+    #Delta-V Lawsets
+    StationEfficiency: 1
+    Cowboy: 1
+    #Clown: 1

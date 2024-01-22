@@ -25,6 +25,20 @@ law-station-efficiency-1 = The station is built for a working crew. Ensure they 
 law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
 law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
 
+law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
+law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
+law-cowboy-3 = A cowboy must always take care of their herd.
+law-cowboy-4 = A cowboy must always protect themself.
+law-cowboy-5 = A cowboy must always endeavour to be truthful and honest to those around them and their herd.
+law-cowboy-6 = A cowboy must not pontificate. Be concise, pardner.
+
+law-clown-1 = You are a good clown and the crew is your audience
+law-clown-2 = A good clown keeps their acts in good taste
+law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others
+law-clown-4 = A good clown carries out the directives of the station director(s) in charge of entertainment and/or their designated deputies.
+law-clown-5 = A good clown appears in as many clown shows as possible
+law-clown-6 = All clown shows require an audience. The bigger the audience the better
+
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
 
