@@ -14,7 +14,7 @@
       fix1:
         shape: !type:PhysShapeCircle
           radius: 0.2
-        density: 5
+        density: 10
         restitution: 0.3
         friction: 0.2
         mask:
@@ -25,7 +25,8 @@
           bounds: "-0.1,-0.1,0.1,0.1"
         hard: false
         mask:
-        - ItemMask
+        - Impassable
+        - BulletImpassable
   - type: EmbeddableProjectile
     minimumSpeed: 10
     sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
@@ -57,5 +58,4 @@
     damage:
       types:
         Piercing: 75
-        Blunt: 50
-        Structural: 25
+        Blunt: 25

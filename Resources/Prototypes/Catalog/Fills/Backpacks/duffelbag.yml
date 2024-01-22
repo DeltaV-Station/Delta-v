@@ -336,3 +336,15 @@
       - id: ClothingHandsGlovesNitrile
       - id: SyringeTranexamicAcid
       - id: SyringeHyronalin
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRailgun
+  name: decimator bundle
+  description: "Favored by Gorlex Maurauder snipers, this railcannon packs a punch. Comes with 9 shots."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRailgunDecimator
+      - id: BulletRailgunBasic
+        amount: 9

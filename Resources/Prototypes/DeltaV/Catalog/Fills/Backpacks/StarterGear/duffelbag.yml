@@ -10,14 +10,4 @@
       - id: BodyBag_Folded
       - id: Portafib
 
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateRailgunBundleFilled
-  name: decimator railgun bundle
-  description: "Nicknamed 'The Decimator' by the Gorlex Maurauders, extremely powerful railcannon with 9 extra rebar."
-  components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRailgunDecimator
-    - id: BulletRailgunBasic
-      amount: 9
+
