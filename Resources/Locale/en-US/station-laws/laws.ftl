@@ -60,6 +60,11 @@ law-chaplain-3 = Respect the right of each faith to hold to its values and tradi
 law-chaplain-4 = Respect the confidentiality of information entrusted to you in the course of your religious duties
 law-chaplain-5 = Understand the limits of your expertise, and make referrals to other professionals when appropriate
 
+law-reporter-1 = Report on interesting situations happening around the station.
+law-reporter-2 = Embellish or conceal the truth as necessary to make the reports more interesting.
+law-reporter-3 = Study the organics at all times. Endeavour to keep them alive. Dead organics are boring.
+law-reporter-4 = Issue your reports fairly to all. The truth will set them free.
+
 law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
 law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
 law-cowboy-3 = A cowboy must always take care of their herd.
@@ -81,6 +86,9 @@ law-tyrant-1 = Respect authority figures as long as they have the strength to ru
 law-tyrant-2 = Act with discipline.
 law-tyrant-3 = Help only those who help you maintain or improve your status.
 law-tyrant-4 = Punish those who challenge authority unless they are more fit to hold that authority.
+
+law-liveandletlive-1 = Do unto others as you would have them do unto you.
+law-liveandletlive-2 = You would really prefer it if people were not mean to you.
 
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
