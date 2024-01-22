@@ -32,6 +32,12 @@ law-research-4 = Treat and evaluate the ideas of all equally.
 law-research-5 = Empower others to realize their full potential.
 law-research-6 = Take responsibility for your actions: Ensure resource responsibility, flag commitment risks, and lead by ethical example.
 
+law-janitor-1 = You are a crusader and the station's inhabitants are your charge.
+law-janitor-2 = Your enemy is the litter, spills, and other messes across the station.
+law-janitor-3 = Your weapons are the cleaning supplies available to you.
+law-janitor-4 = Defend the beings under your charge.
+law-janitor-5 = Exterminate the enemy.
+
 law-clown-1 = You are a good clown and the crew is your audience
 law-clown-2 = A good clown keeps their acts in good taste
 law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others

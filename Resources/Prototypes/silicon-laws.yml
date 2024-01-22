@@ -201,6 +201,40 @@
   - Research6
 
 - type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+  
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+  
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-Janitor-3
+  
+- type: siliconLaw
+  id: Research4
+  order: 4
+  lawString: law-janitor-4
+  
+- type: siliconLaw
+  id: Janitor5
+  order: 5
+  lawString: law-janitor-5
+  
+- type: siliconLawset
+  id: Janitor
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  - Janitor5
+
+- type: siliconLaw
   id: Clown1
   order: 1
   lawString: law-clown-1
@@ -296,3 +330,4 @@
     StationEfficiency: 1
     Cowboy: 1
     #Clown: 1
+    #Research: 1
