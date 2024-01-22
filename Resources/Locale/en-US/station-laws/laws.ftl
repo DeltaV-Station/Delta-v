@@ -54,6 +54,12 @@ law-clown-4 = A good clown carries out the directives of the station director(s)
 law-clown-5 = A good clown appears in as many clown shows as possible
 law-clown-6 = All clown shows require an audience. The bigger the audience the better
 
+law-chaplain-1 = Provide to all members of the station spiritual, mental, and emotional care that is intended to promote the best interest of the individual.
+law-chaplain-2 = Ensure all members of different faiths interact peacefully and maintain harmony
+law-chaplain-3 = Respect the right of each faith to hold to its values and traditions
+law-chaplain-4 = Respect the confidentiality of information entrusted to you in the course of your religious duties
+law-chaplain-5 = Understand the limits of your expertise, and make referrals to other professionals when appropriate
+
 law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
 law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
 law-cowboy-3 = A cowboy must always take care of their herd.
