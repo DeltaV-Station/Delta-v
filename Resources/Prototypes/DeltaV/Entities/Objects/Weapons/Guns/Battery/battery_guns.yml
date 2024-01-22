@@ -119,7 +119,7 @@
   parent: BaseWeaponBatterySmall
   id: WeaponEnergyGunMini
   description: A light version of the Energy gun with a smaller capacity.
-  components: 
+  components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
     layers:
@@ -257,3 +257,44 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Decimator Laser
+  parent: BaseWeaponBattery
+  size: Huge
+  id: WeaponEnergyGunDecimator
+  description: The laser variant of the Decimator railcannon with two fire modes. Decimate and eviscerate.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_laser.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+    fireRate: 0.5
+  - type: Battery
+    maxCharge: 75000
+    startingCharge: 75000
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 25000
+    fireModes:
+    - proto: RedLaser
+      fireCost: 25000
+      name: Decimate
+      state: lightshote
+    - proto: Pulse
+      fireCost: 75000
+      name: Eviscerate
+      state: heavyshot
+  - type: Tag
+    tags:
+    - Railgun
+  - type: StaticPrice
+    price: 15000
