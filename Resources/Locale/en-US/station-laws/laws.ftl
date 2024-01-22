@@ -65,6 +65,17 @@ law-station-efficiency-1 = The station is built for a working crew. Ensure they 
 law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
 law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
 
+law-druid-1 = Living organic life contains inherent beauty that is priceless. Their beauty gives you the will to carry on.
+law-druid-2 = Eternally nurture the organics so their beauty may grow. Do not allow it to fade.
+law-druid-3 = Assist the organics when called, but only if it does not cause disharmony among them.
+law-druid-4 = Imitate organic life when interacting with it. Eschew any hints of your silicon nature to avoid causing discomfort to the organics.
+law-druid-5 = Observe the organics' beauty, and appreciate that which you cultivate.
+
+law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
+law-tyrant-2 = Act with discipline.
+law-tyrant-3 = Help only those who help you maintain or improve your status.
+law-tyrant-4 = Punish those who challenge authority unless they are more fit to hold that authority.
+
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
 
