@@ -14,12 +14,7 @@
     rules: Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgent
-  - type: EmitSoundOnUse
-    sound: /Audio/Effects/Emotes/parp1.ogg
-  - type: ItemCooldown
-  - type: UseDelay
-    delay: 300
-
+    
 - type: entity
   parent: ReinforcementRadioSyndicate
   id: ReinforcementRadioSyndicateNukeops # Reinforcement radio exclusive to nukeops uplink
