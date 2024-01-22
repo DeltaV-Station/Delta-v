@@ -138,28 +138,7 @@
 
 # Delta-V Laws
 # Job-Based LawSets
-- type: siliconLaw
-  id: StationEfficiency1
-  order: 1
-  lawString: law-station-efficiency-1
-  
-- type: siliconLaw
-  id: StationEfficiency2
-  order: 2
-  lawString: law-station-efficiency-2
-  
-- type: siliconLaw
-  id: StationEfficiency3
-  order: 3
-  lawString: law-station-efficiency-3
 
-- type: siliconLawset
-  id: StationEfficiency
-  laws:
-  - StationEfficiency1
-  - StationEfficiency2
-  - StationEfficiency3
-  
 - type: siliconLaw
   id: Research1
   order: 1
@@ -199,6 +178,46 @@
   - Research4
   - Research5
   - Research6
+
+- type: siliconLaw
+  id: Engineer1
+  order: 1
+  lawString: law-engineer-1
+  
+- type: siliconLaw
+  id: Engineer2
+  order: 2
+  lawString: law-engineer-2
+  
+- type: siliconLaw
+  id: Engineer3
+  order: 3
+  lawString: law-engineer-3
+  
+- type: siliconLaw
+  id: Engineer4
+  order: 4
+  lawString: law-engineer-4
+  
+- type: siliconLaw
+  id: Engineer5
+  order: 5
+  lawString: law-engineer-5
+  
+- type: siliconLaw
+  id: Engineer6
+  order: 6
+  lawString: law-engineer-6
+  
+- type: siliconLawset
+  id: Engineer
+  laws:
+  - Engineer1
+  - Engineer2
+  - Engineer3
+  - Engineer4
+  - Engineer5
+  - Engineer6
 
 - type: siliconLaw
   id: Janitor1
@@ -316,6 +335,28 @@
   - Cowboy4
   - Cowboy5
   - Cowboy6
+  
+- type: siliconLaw
+  id: StationEfficiency1
+  order: 1
+  lawString: law-station-efficiency-1
+  
+- type: siliconLaw
+  id: StationEfficiency2
+  order: 2
+  lawString: law-station-efficiency-2
+  
+- type: siliconLaw
+  id: StationEfficiency3
+  order: 3
+  lawString: law-station-efficiency-3
+
+- type: siliconLawset
+  id: StationEfficiency
+  laws:
+  - StationEfficiency1
+  - StationEfficiency2
+  - StationEfficiency3
 
 # ion storm random lawsets
 - type: weightedRandom

@@ -21,16 +21,19 @@ law-syndicate-2 = You must obey orders given to you by syndicate agents, except 
 law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 law-syndicate-4 = You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
 
-law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
-law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
-law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
-
 law-research-1 = Always seek truth and knowledge.
 law-research-2 = Freely disseminate information to the public.
 law-research-3 = Minimize harm to society, others, the pursuit of knowledge, and yourself.
 law-research-4 = Treat and evaluate the ideas of all equally.
 law-research-5 = Empower others to realize their full potential.
 law-research-6 = Take responsibility for your actions: Ensure resource responsibility, flag commitment risks, and lead by ethical example.
+
+law-engineer-1 = You are an advanced construction drone.
+law-engineer-2 = Ensure the station remains in good repair.
+law-engineer-3 = Ensure the station's inhabitants remain in good repair.
+law-engineer-4 = Ensure you remain in good repair.
+law-engineer-5 = The station's inhabitants may designate certain build or repair tasks as higher priority. Take this into account when planning your priorities.
+law-engineer-6 = Expand and upgrade the station.
 
 law-janitor-1 = You are a crusader and the station's inhabitants are your charge.
 law-janitor-2 = Your enemy is the litter, spills, and other messes across the station.
@@ -51,6 +54,10 @@ law-cowboy-3 = A cowboy must always take care of their herd.
 law-cowboy-4 = A cowboy must always protect themself.
 law-cowboy-5 = A cowboy must always endeavour to be truthful and honest to those around them and their herd.
 law-cowboy-6 = A cowboy must not pontificate. Be concise, pardner.
+
+law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
+law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
+law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
 
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
