@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseCartridge
+  id: CartridgeRailgun
+  size: Small
+  name: cartridge (steel rod)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeRailgun
+  - type: CartridgeAmmo
+    proto: BulletRailgun
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 250

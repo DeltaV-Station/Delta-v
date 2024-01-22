@@ -1,0 +1,53 @@
+- type: entity
+  name: BaseWeaponRailgun
+  parent: BaseItem
+  id: BaseWeaponRailgun
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/railgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: AmmoCounter
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/railgun_charge.ogg
+  - type: UseDelay
+    delay: 5
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.25
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/railgun_laser.ogg
+  - type: BallisticAmmoProvider
+    capacity: 3
+    proto: CartridgeRailgun
+    whitelist:
+      tags:
+      - CartridgeRailgun
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: Decimator Railgun
+  parent: BaseWeaponRailgun
+  id: WeaponRailgunDecimator
+  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/railgun.rsi

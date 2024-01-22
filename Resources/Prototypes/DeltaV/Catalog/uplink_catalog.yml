@@ -9,6 +9,22 @@
   categories:
   - UplinkUtility
 
+- type: listing
+  id: Decimator Railgun Bundle
+  name: uplink-decimator-bundle-name
+  description: uplink-decimator-bundle-desc
+  productEntity: UplinkDecimatorBundle
+  icon: { sprite: DeltaV/Objects/Weapons/Guns/Snipers/railgun.rsi, state: icon }
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+
 #- type: listing
 #  id: UplinkCyborgBeaconSyndicate
 #  name: uplink-borg-beacon-name

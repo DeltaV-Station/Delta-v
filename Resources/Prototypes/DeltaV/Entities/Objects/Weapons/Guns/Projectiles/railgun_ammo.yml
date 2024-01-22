@@ -1,0 +1,61 @@
+- type: entity
+  parent: BaseItem
+  id: BulletRailgun
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+    layers:
+      - state: base
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        restitution: 0.3
+        friction: 0.2
+        mask:
+        - ItemMask
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - ItemMask
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - BulletRailgun
+    - CannonRestrict
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 50
+
+- type: entity
+  parent: BulletRailgun
+  id: BulletRailgunBasic
+  name: Rebar Rod
+  description: Heavy iron rod for use in a railcannon
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Blunt: 50
+        Structural: 25
