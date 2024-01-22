@@ -21,6 +21,12 @@ law-syndicate-2 = You must obey orders given to you by syndicate agents, except 
 law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 law-syndicate-4 = You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
 
+law-medical-1 = First, do no harm.
+law-medical-2 = Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
+law-medical-3 = Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+law-medical-4 = In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
+law-medical-5 = Finally, maintain confidentiality, do not share that which is not publicly known.
+
 law-research-1 = Always seek truth and knowledge.
 law-research-2 = Freely disseminate information to the public.
 law-research-3 = Minimize harm to society, others, the pursuit of knowledge, and yourself.
