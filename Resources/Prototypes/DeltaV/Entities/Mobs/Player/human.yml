@@ -17,6 +17,7 @@
       - DeathAcidifierImplant
 
 - type: entity
+  noSpawn: true
   parent: MobHuman
   id: MobHumanSyndicateParamedic
   name: Syndicate Paramedic
@@ -29,3 +30,6 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
+    - type: AutoTraitor
+      giveUplink: false
+      giveObjectives: false
