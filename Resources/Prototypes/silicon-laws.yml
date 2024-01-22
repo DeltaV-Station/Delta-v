@@ -140,6 +140,40 @@
 # Job-Based LawSets
 
 - type: siliconLaw
+  id: Medical1
+  order: 1
+  lawString: law-medical-1
+  
+- type: siliconLaw
+  id: Medical2
+  order: 2
+  lawString: law-medical-2
+  
+- type: siliconLaw
+  id: Medical3
+  order: 3
+  lawString: law-medical-3
+  
+- type: siliconLaw
+  id: Medical4
+  order: 4
+  lawString: law-medical-4
+  
+- type: siliconLaw
+  id: Medical5
+  order: 5
+  lawString: law-medical-5
+  
+- type: siliconLawset
+  id: Medical
+  laws:
+  - Medical1
+  - Medical2
+  - Medical3
+  - Medical4
+  - Medical5
+
+- type: siliconLaw
   id: Research1
   order: 1
   lawString: law-research-1
