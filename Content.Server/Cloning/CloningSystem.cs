@@ -443,7 +443,7 @@ namespace Content.Server.Cloning
             RaiseLocalEvent(bodyToClone, ref ev);
 
             if (!ev.NameHandled)
-                _metaData.SetEntityName(mob, name);
+                _metaSystem.SetEntityName(mob, MetaData(bodyToClone).EntityName);
 
             var grammar = EnsureComp<GrammarComponent>(mob);
             grammar.ProperNoun = true;
