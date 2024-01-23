@@ -54,6 +54,7 @@
   - type: PdaBorderColor
     borderColor: "#470823"
   - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-cj
   - type: CartridgeLoader
     preinstalled:
@@ -80,7 +81,8 @@
   - type: PdaBorderColor
     borderColor: "#611528"
   - type: Icon
-    state: pda-cj
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-clerk
   - type: CartridgeLoader
     preinstalled:
       - CrewManifestCartridge

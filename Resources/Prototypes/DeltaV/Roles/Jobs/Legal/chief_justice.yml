@@ -5,16 +5,16 @@
   playTimeTracker: JobChiefJustice
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-#    - !type:RoleTimeRequirement
-#      role: JobClerk
-#      time: 36000 # DeltaV - 10 hours
-# Commenting out the clerk requirement for now until clerk has been around long enough for people to actually get the hours required.  
+    - !type:RoleTimeRequirement
+      role: JobClerk
+      time: 36000 # DeltaV - 10 hours 
     - !type:RoleTimeRequirement 
       department: JobLawyer
       time: 72000 # 20 hours
     - !type:OverallPlaytimeRequirement 
       time: 90000 # 25 hours
-  weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
+    - !type:WhitelistRequirement # whitelist requirement because I don't want any dingus judges
+  weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
   requireAdminNotify: true
