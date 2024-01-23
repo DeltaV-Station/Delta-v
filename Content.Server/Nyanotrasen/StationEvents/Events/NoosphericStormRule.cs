@@ -6,6 +6,7 @@ using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Zombies;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -28,8 +29,8 @@ internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRu
             if (_mobStateSystem.IsDead(potentialPsionic))
                 continue;
 
-            // Skip over those who are already psionic or those who are insulated.
-            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<PsionicInsulationComponent>(potentialPsionic))
+            // Skip over those who are already psionic or those who are insulated, or zombies.
+            if (HasComp<PsionicComponent>(potentialPsionic) || HasComp<PsionicInsulationComponent>(potentialPsionic) || HasComp<ZombieComponent>(potentialPsionic))
                 continue;
 
             validList.Add(potentialPsionic);

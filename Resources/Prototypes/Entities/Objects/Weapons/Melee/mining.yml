@@ -57,7 +57,7 @@
         Structural: 10
   - type: GunRequiresWield
   - type: Item
-    size: 150
+    size: Ginormous
   - type: DisarmMalus
   - type: Tool
     qualities:
@@ -79,8 +79,6 @@
     damage:
       types:
         Slash: 12
-  - type: Item
-    size: 10
   - type: Tag
     tags:
     - Knife
@@ -102,8 +100,6 @@
         Brute: -15
   - type: MeleeWeapon
     attackRate: 1.25
-  - type: Item
-    size: 150
   - type: Tag
     tags:
       - Pickaxe

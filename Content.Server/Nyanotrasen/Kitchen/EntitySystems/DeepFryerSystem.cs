@@ -594,7 +594,7 @@ namespace Content.Server.Kitchen.EntitySystems
             // Determine how much solution to spend on this item.
             var solutionQuantity = FixedPoint2.Min(
                 component.Solution.Volume,
-                itemComponent.Size * component.SolutionSizeCoefficient);
+                _random.Next(5,100));
 
             if (component.Whitelist != null && component.Whitelist.IsValid(item, EntityManager) ||
                 beingEvent.TurnIntoFood)
