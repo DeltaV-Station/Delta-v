@@ -106,8 +106,6 @@ namespace Content.Server.Fugitive
 
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
             _audioSystem.PlayPvs(component.SpawnSoundPath, uid, AudioParams.Default.WithVolume(-6f));
-
-            var tile = Spawn("FloorTileItemSteel", Transform(uid).Coordinates);
         }
 
         private FormattedMessage GenerateFugiReport(EntityUid uid)
