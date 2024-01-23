@@ -1,0 +1,265 @@
+- type: entity
+  id: LunchboxGeneric
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  name: lunchbox
+  description: For on-the-go meal carrying needs.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/generic.rsi
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+  - type: Item
+    size: Normal
+    shape: null
+    sprite: DeltaV/Objects/Storage/Lunchbox/generic.rsi
+    heldPrefix: box
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,2
+    - 3,0,1,2
+    - 4,0,4,2
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+    soundHit:
+      path: "/Audio/Weapons/tap.ogg"
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledRandom
+  suffix: Filled, Random
+  name: pre-packed lunchbox
+  description: Packed with love.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodPizzaArnoldSlice
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.5
+      amount: 2
+    - id: FoodApple
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.5
+    - id: DrinkWaterBottleFull
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.5
+    - id: DrinkCartonOrange
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.5
+    - id: FoodSnackCheesie
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.25
+    - id: FoodSnackChocolate
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.25
+    - id: FoodCarrot
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.5
+    - id: PaperWrittenNoteFromMumGeneric
+      prob: 0.1
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledHealthy
+  suffix: Filled, Healthy
+  name: pre-packed lunchbox
+  description: Packed with healthy love.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodApple
+    - id: DrinkWaterBottleFull
+    - id: FoodCarrot
+    - id: PaperWrittenNoteFromMumHealthy
+      prob: 0.1
+    
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledUnhealthy
+  suffix: Filled, Unhealthy
+  name: pre-packed lunchbox
+  description: Packed with love.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodPizzaArnoldSlice
+      amount: 2
+    - id: DrinkCartonOrange
+    - id: FoodSnackCheesie
+      orGroup: UnhealthySnack
+      prob: 0.25
+    - id: FoodSnackChocolate
+      orGroup: UnhealthySnack
+      prob: 0.25
+    - id: PaperWrittenNoteFromMumUnhealthy
+      prob: 0.1
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxCommand
+  suffix: Command
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxCommandFilledRandom
+  suffix: Command, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxSecurity
+  suffix: Security
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+    
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxSecurityFilledRandom
+  suffix: Security, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+    
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxMedical
+  suffix: Medical
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+    
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxMedicalFilledRandom
+  suffix: Medical, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxLogistics
+  suffix: Logistics
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxLogisticsFilledRandom
+  suffix: Logistics, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxEngineering
+  suffix: Engineering
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxEngineeringFilledRandom
+  suffix: Engineering, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxEpistemics
+  suffix: Epistemics
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxEpistemicsFilledRandom
+  suffix: Epistemics, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxService
+  suffix: Service
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxServiceFilledRandom
+  suffix: Service, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+    
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxSyndicateFilledRandom
+  suffix: Syndicate, Filled, Random
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
