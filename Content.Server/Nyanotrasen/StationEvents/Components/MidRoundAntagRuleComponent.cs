@@ -9,8 +9,8 @@ public sealed partial class MidRoundAntagRuleComponent : Component
     public IReadOnlyList<string> MidRoundAntags = new[]
     {
         "SpawnPointGhostRatKing",
-        //"SpawnPointGhostVampSpider",//Has Arachne as a prereq
-        "SpawnPointGhostFugitive", //Yea this is temporarily the Fugitive event until the others are working
-        //"MobEvilTwinSpawn"
+        "SpawnPointGhostVampSpider",
+        "SpawnPointGhostFugitive",
+        "MobEvilTwinSpawn"
     };
 }

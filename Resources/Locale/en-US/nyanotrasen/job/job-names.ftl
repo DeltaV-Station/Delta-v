@@ -1,5 +1,4 @@
 job-name-gladiator = Gladiator
-job-name-fugitive = fugitive
 job-name-guard = Prison Guard
 job-name-mail-carrier = Courier
 job-name-martialartist =  Martial Artist
