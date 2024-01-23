@@ -1,0 +1,23 @@
+- type: entity
+  parent: Paper
+  id: PaperWrittenNoteFromMumGeneric
+  suffix: Lunchbox, Generic
+  components:
+  - type: Paper
+    content: book-text-lunchbox-generic
+    
+- type: entity
+  parent: PaperWrittenNoteFromMumGeneric
+  id: PaperWrittenNoteFromMumHealthy
+  suffix: Lunchbox, Healthy
+  components:
+  - type: Paper
+    content: book-text-lunchbox-healthy
+    
+- type: entity
+  parent: PaperWrittenNoteFromMumGeneric
+  id: PaperWrittenNoteFromMumUnhealthy
+  suffix: Lunchbox, Unhealthy
+  components:
+  - type: Paper
+    content: book-text-lunchbox-unhealthy
