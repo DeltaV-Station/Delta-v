@@ -422,15 +422,15 @@
     spawnEntries:
       - id: PresentRandom
         orGroup: present
+#      - id: PresentRandomUnsafe # DeltaV - Disabled until we get a list of actually safe items.
+#        prob: 0.35
+#        orGroup: present
+#      - id: PresentRandomInsane
+#        prob: 0.20
+#        orGroup: present
       - id: PresentRandomCash
         prob: 0.20
         orGroup: present
-#      - id: PresentRandomUnsafe # DeltaV - Disabled until we get a list of actually safe items.
-#        prob: 0.25
-#        orGroup: present
-#      - id: PresentRandomInsane
-#        prob: 0.10
-#        orGroup: present
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason

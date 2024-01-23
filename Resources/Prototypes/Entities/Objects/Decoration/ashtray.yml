@@ -10,14 +10,16 @@
       - state: icon-0
         map: ["enum.StorageFillLayers.Fill"]
   - type: Item
-    size: 10
+    size: Small
   - type: StaticPrice
     price: 1
   - type: Storage
-    capacity: 10
     whitelist:
       tags:
       - Burnt
+    maxItemSize: Tiny
+    grid:
+    - 0,0,9,0
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

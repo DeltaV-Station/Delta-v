@@ -35,12 +35,19 @@ namespace Content.Server.Abilities.Psionics
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.TelegnosisActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            {
                 psionic.PsionicAbility = component.TelegnosisActionEntity;
+                psionic.ActivePowers.Add(component);
+            }
         }
 
         private void OnShutdown(EntityUid uid, TelegnosisPowerComponent component, ComponentShutdown args)
         {
             _actions.RemoveAction(uid, component.TelegnosisActionEntity);
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Remove(component);
+            }
         }
 
         private void OnPowerUsed(EntityUid uid, TelegnosisPowerComponent component, TelegnosisPowerActionEvent args)
