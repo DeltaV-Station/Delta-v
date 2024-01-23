@@ -236,6 +236,7 @@ namespace Content.IntegrationTests.Tests
                 "TimedSpawner",
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+                "MobHumanFugitive", //DeltaV: MidroundAntagEvent comes with a complimentary floor tile, this sets off the test
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
