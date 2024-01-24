@@ -15,7 +15,8 @@ namespace Content.Server.Medical.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         public float CloningFailChanceMultiplier = 1f;
-        //Nyano, needed for Metem Machine. It's not like Wizden will ever touch this again though, since Cloning is no longer maintained upstream
+
+        // Nyano, needed for Metem Machine.
         public float MetemKarmaBonus = 0.25f; 
 
         [DataField("machinePartCloningFailChance", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
