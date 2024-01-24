@@ -386,7 +386,7 @@ namespace Content.Server.Cloning
         }
 
         /// <summary>
-        /// Handles fetching the mob and any appearance stuff...
+        /// Start Nyano Code: Handles fetching the mob and any appearance stuff...
         /// </summary>
         private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidAppearanceComponent humanoid, EntityUid bodyToClone, float karmaBonus)
         {
@@ -462,7 +462,7 @@ namespace Content.Server.Cloning
 
             return mob;
         }
-
+        //End Nyano Code
         public void Reset(RoundRestartCleanupEvent ev)
         {
             ClonesWaitingForMind.Clear();
