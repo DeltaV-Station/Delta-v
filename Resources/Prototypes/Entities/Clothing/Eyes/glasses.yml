@@ -228,3 +228,18 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+
+- type: entity #Delta-V safety glasses
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesChemist
+  name: safety glasses
+  description: Glasses made for chemists and other workers dealing around reagents.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/safetyglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/safetyglasses.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.15

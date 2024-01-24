@@ -40,3 +40,14 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity  #Delta-V chemist's tie
+  parent: ClothingNeckBase
+  id: ClothingNeckTieChem
+  name: chemistry tie
+  description: Wear your passion on your sleeve, or rather, around your neck.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Ties/chemtie.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Ties/chemtie.rsi
