@@ -262,9 +262,10 @@
   name: Decimator Laser
   parent: BaseWeaponBattery
   id: WeaponLaserRailgun
-  size: Huge
   description: Limited run energy variant of the Decimator railcannon. Self recharging, slow firing but extremely powerful.
   components:
+  - type: Item
+    size: Huge
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_laser.rsi
     layers:
@@ -282,7 +283,7 @@
     delay: 5
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.25
+    fireRate: 0.30
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

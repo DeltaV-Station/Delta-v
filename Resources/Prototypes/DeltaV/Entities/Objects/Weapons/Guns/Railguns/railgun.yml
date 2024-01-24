@@ -7,6 +7,11 @@
   components:
   - type: Item
     size: Huge
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
     quickEquip: false
@@ -16,14 +21,14 @@
   - type: Wieldable
     wieldSound:
       path: /Audio/DeltaV/Effects/railgun_charge.ogg
+  - type: GunRequiresWield
   - type: UseDelay
     delay: 5
   - type: HeldSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.20
+    fireRate: 0.30
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -52,34 +57,32 @@
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 3
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-  - type: Wieldable
-  - type: GunRequiresWield
-    wieldSound:
-      path: /Audio/DeltaV/Effects/railgun_charge.ogg
 
+
+
+- type: entity
+  name: ERT Railgun
+  parent: BaseWeaponRailgun
+  id: WeaponRailgunERT
+  description: A mighty railgun that packs a hefty punch. Heavy, yet destructive.
+  components:
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 3
 
 #admeme variant
 
 - type: entity
-  name: Unmaker Railgun [Admeme]
+  name: Unmaker Railgun
   parent: BaseWeaponRailgun
   id: WeaponRailgunAdmeme
+  suffix: "Admeme"
   description: So pants shittingly terrifying that it was banished to the bluespace dimension by Nar'Sie. It's back now.
   components:
   - type: BallisticAmmoProvider
     cycleable: false
     proto: BulletRailgunAdmeme
     capacity: 4200 #PANIC
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
   - type: Gun
     fireRate: 99 #the only thing they fear is you
     selectedMode: SemiAuto
@@ -87,10 +90,7 @@
     - SemiAuto
     - FullAuto
     soundGunshot:
-      path: /Audio/Items/Toys/ian.ogg
-  - type: Wieldable
-    wieldSound:
-      path: /Audio/Items/Toys/ian.ogg
+      path: /Audio/Items/Toys/ian.ogg #barks so your ears are saved from BRRRRRRRRRRRRRRRR
 
 #clown variant, not finished
 

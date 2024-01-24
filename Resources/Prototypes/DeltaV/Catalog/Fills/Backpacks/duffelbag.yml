@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRailgun
+  name: Decimator bundle
+  description: "Favored by Gorlex Maurauder snipers, this railcannon packs a punch. Comes with 3 shots."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRailgunDecimator
+      - id: BulletRailgunBasic
+        amount: 3
