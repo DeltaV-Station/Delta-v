@@ -1,4 +1,4 @@
-namespace Content.Server.Cloning
+namespace Content.Server.Nyanotrasen.Cloning
 {
     [RegisterComponent]
     public sealed partial class MetempsychoticMachineComponent : Component
