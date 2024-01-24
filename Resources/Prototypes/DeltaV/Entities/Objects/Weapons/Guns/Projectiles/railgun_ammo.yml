@@ -52,8 +52,6 @@
   name: Rebar Rod
   description: Heavy iron rod for use in a railcannon
   components:
-  - type: StaminaDamageOnCollide
-    damage: 100
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
   - type: Projectile
@@ -61,7 +59,7 @@
       types:
         Piercing: 15
         Blunt: 75
-        Heat: 10
+        Heat: 20
         Structural: 25
 
 # Fear that which cannot be understood
