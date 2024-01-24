@@ -4,7 +4,7 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Cloning
+namespace Content.Server.Nyanotrasen.Cloning
 {
     public sealed class MetempsychoticMachineSystem : EntitySystem
     {
