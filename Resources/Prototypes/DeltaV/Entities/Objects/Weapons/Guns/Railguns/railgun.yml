@@ -18,6 +18,9 @@
       path: /Audio/DeltaV/Effects/railgun_charge.ogg
   - type: UseDelay
     delay: 5
+  - type: HeldSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.20
