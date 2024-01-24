@@ -40,21 +40,18 @@ namespace Content.Server.Nyanotrasen.Cloning
 
             chance = Math.Clamp(chance, 0, 1);
 
-            if (_random.Prob(chance))
+            if (_random.Prob(chance) &&
+                _prototypeManager.TryIndex<WeightedRandomPrototype>(MetempsychoticHumanoidPool, out var humanoidPool) &&
+                _prototypeManager.TryIndex<SpeciesPrototype>(humanoidPool.Pick(), out var speciesPrototype))
             {
-                if (_prototypeManager.TryIndex<WeightedRandomPrototype>(MetempsychoticHumanoidPool, out var humanoidPool))
-                {
-                    if (_prototypeManager.TryIndex<SpeciesPrototype>(humanoidPool.Pick(), out var speciesPrototype))
-                    {
-                        species = speciesPrototype;
-                        return speciesPrototype.Prototype;
-                    } else
-                    {
-                        species = null;
-                        Logger.Error("Could not index species for metempsychotic machine...");
-                        return "MobHuman";
-                    }
-                }
+                species = speciesPrototype;
+                return speciesPrototype.Prototype;
+            }
+            else
+            {
+                species = null;
+                Logger.Error("Could not index species for metempsychotic machine...");
+                return "MobHuman";
             }
 
             species = null;
