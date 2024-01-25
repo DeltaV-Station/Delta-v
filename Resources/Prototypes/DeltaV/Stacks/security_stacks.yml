@@ -1,7 +1,28 @@
+- type: entity # huge thanks to IProduceWidgets on Github for figuring this shit out in his PR earlier
+  id: Zipties5
+  parent: Zipties
+  suffix: 5
+  components:
+  - type: Item
+    size: 10
+  - type: Stack
+    stackType: Zipties
+    count: 5
+
+- type: entity
+  id: Zipties5Lingering
+  parent: Zipties5
+  suffix: 5, Lingering
+  components:
+  - type: Stack
+    stackType: Zipties
+    lingering: true
+    count: 5
+    
 - type: stack
-  id: Handcuffs
-  name: handcuffs
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
-  spawn: Handcuffs
-  maxCount: 10
-  itemSize: 1
+  id: Zipties
+  name: zipties
+  icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
+  spawn: Zipties
+  maxCount: 5
+  itemSize: 2
