@@ -1,1 +1,44 @@
-#Just to upload to Github to get this ball rolling :O
+- type: entity
+  id: BorgChassisSecurity
+  parent: BorgChassisGeneric
+  name: security cyborg
+  components:
+  - type: BorgChassis
+    maxModules: 4
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSecurity
+    hasMindState: peace_e
+    noMindState: peace_e_r
+  - type: Sprite
+    layers:
+    - state: peace
+    - state: peace_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: peace_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: Construction
+    node: security
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
+  - type: AccessReader
+    access: [["Cargo"], ["Securtiy"], ["Command"], ["Research"]]
+  - type: ShowSecurityIcons
+  #- type: SiliconLawProvider
+  #  laws: SiliconPolice

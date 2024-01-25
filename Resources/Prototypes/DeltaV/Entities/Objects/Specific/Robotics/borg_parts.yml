@@ -1,0 +1,90 @@
+# Security
+
+- type: entity
+  id: LeftArmBorgSecurity
+  parent: BaseBorgArmLeft
+  name: security cyborg left arm
+  components:
+  - type: Sprite
+    state: service_l_arm
+  - type: Icon
+    state: service_l_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - BorgServiceLArm
+
+- type: entity
+  id: RightArmBorgSecurity
+  parent: BaseBorgArmRight
+  name: security cyborg right arm
+  components:
+  - type: Sprite
+    state: service_r_arm
+  - type: Icon
+    state: service_r_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - BorgServiceRArm
+
+- type: entity
+  id: LeftLegBorgSecurity
+  parent: BaseBorgLegLeft
+  name: security cyborg left leg
+  components:
+  - type: Sprite
+    state: service_l_leg
+  - type: Icon
+    state: service_l_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgServiceLLeg
+
+- type: entity
+  id: RightLegBorgSecurity
+  parent: BaseBorgLegRight
+  name: security cyborg right leg
+  components:
+  - type: Sprite
+    state: service_r_leg
+  - type: Icon
+    state: service_r_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgServiceRLeg
+
+- type: entity
+  id: HeadBorgSecurity
+  parent: BaseBorgHead
+  name: security cyborg head
+  components:
+  - type: Sprite
+    state: service_head
+  - type: Icon
+    state: service_head
+  - type: Tag
+    tags:
+    - Trash
+    - BorgHead
+    - BorgServiceHead
+
+- type: entity
+  id: TorsoBorgSecurity
+  parent: BaseBorgTorso
+  name: security cyborg torso
+  components:
+  - type: Sprite
+    state: service_chest
+  - type: Icon
+    state: service_chest
+  - type: Tag
+    tags:
+    - Trash
+    - BorgServiceTorso

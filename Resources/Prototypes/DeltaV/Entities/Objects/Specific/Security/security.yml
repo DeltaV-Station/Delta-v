@@ -1,0 +1,26 @@
+- type: entity
+  parent: Stunbaton
+  id: StunBatonSelfCharging
+  suffix: Recharging, Do Not Map
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+
+- type: entity
+  parent: Flash
+  id: FlashRecharging
+  suffix: Recharging, Do Not Map
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 120
+
+#- type: entity - This is dumb, can't figure it out, will come back when more patient
+#  parent: Handcuffs
+#  id: Handcuffs2Lingering
+#  suffix: 0, Lingering
+#  components:
+#  - type: Stack
+#    lingering: true
+#    count: 0
+#    stackType: Handcuffs
