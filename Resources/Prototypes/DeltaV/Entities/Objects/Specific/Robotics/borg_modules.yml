@@ -12,7 +12,7 @@
 - type: entity
   id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: peacekeeper cyborg module
+  name: peacekeeper security cyborg module
   components:
   - type: Sprite
     layers:
@@ -37,10 +37,12 @@
     - FlashlightSecliteBorg  
     #- SecurityWhistle - Not merged here yet
 
+
+
 - type: entity
   id: BorgModuleSecurityDetain # Research Locked
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: control security cyborg module
+  name: detain security cyborg module
   components:
   - type: Sprite
     layers:
@@ -55,7 +57,7 @@
 - type: entity
   id: BorgModuleSecurityControl # Research Locked
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: control security cyborg module
+  name: riot control security cyborg module
   components:
   - type: Sprite
     layers:
@@ -77,3 +79,6 @@
   - type: ItemBorgModule
     items:
     - Disabler
+    
+    
+#MAYBE I COULD TAKE THE PNEUMATIC CANNON, STICK A POWERCELL ON IT & THE BORG POWER CELL TO MAKE A BOLA LAUNCHER?!?!?
