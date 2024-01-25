@@ -89,7 +89,7 @@ public enum LogType
     ItemConfigure = 84,
     DeviceLinking = 85,
     Tile = 86,
-    BagOfHolding = 420, //Nyano - Summary: adds bag of holding. 
+    BagOfHolding = 420, //Nyano - Summary: adds bag of holding.
     Psionics = 421, //Nyano - Summary: ads psionic as a log type.
 
     /// <summary>

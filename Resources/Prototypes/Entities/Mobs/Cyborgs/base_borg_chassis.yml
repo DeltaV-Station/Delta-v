@@ -204,6 +204,10 @@
   - type: GuideHelp
     guides:
       - Cyborgs
+  - type: Eye
+    visMask:
+      - PsionicInvisibility
+      - Normal
 
 - type: entity
   id: BaseBorgChassisNT
@@ -216,7 +220,7 @@
   - type: Access
     enabled: false
     groups:
-    - AllAccess
+    - AllAccessBorg
   - type: Lock
     locked: true
   - type: ActivatableUIRequiresLock

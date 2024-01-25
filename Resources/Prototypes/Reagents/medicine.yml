@@ -17,10 +17,9 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
-        type: Add
       - !type:GenericStatusEffect
         key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
-        component: PsionicsDisabled #Nyano - Summary: see above. 
+        component: PsionicsDisabled #Nyano - Summary: see above.
         type: Add
       - !type:Drunk
         slurSpeech: false
