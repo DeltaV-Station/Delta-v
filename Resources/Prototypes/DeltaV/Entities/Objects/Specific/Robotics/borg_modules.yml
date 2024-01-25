@@ -10,7 +10,20 @@
 # Security Modules
 
 - type: entity
-  id: BorgModuleSecurityDetain
+  id: BorgModuleSecurityDetain # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detainment cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - Truncheon # Placeholder while I make a non-lethal stunning thing, no cuffs on round start
+
+- type: entity
+  id: BorgModuleSecurityDetain # Research Locked
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: detainment cyborg module
   components:
@@ -25,7 +38,7 @@
     - Zipties5Lingering
     
 - type: entity
-  id: BorgModuleSecurityPatrol
+  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: patrol cyborg module
   components:
