@@ -22,7 +22,7 @@
     items:
     - StunBatonSelfCharging
     - FlashRecharging
-    #- Handcuffs2Lingering
+    - Zipties5Lingering
     
 - type: entity
   id: BorgModuleSecurityPatrol
@@ -35,7 +35,7 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
-    - FlashlightSeclite
+    - FlashlightSecliteBorg  
     #- whistle - Not merged here yet
     
 #- type: entity
@@ -49,4 +49,3 @@
 #    - state: icon-tools
 #  - type: ItemBorgModule
 #    items:
-#    - WeaponLauncherBolaBorg
