@@ -1,0 +1,52 @@
+- type: entity
+  id: BaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSecurity
+    
+# Security Modules
+
+- type: entity
+  id: BorgModuleSecurityDetain
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detainment cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - StunBatonSelfCharging
+    - FlashRecharging
+    #- Handcuffs2Lingering
+    
+- type: entity
+  id: BorgModuleSecurityPatrol
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: patrol cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - FlashlightSeclite
+    #- whistle - Not merged here yet
+    
+#- type: entity
+#  id: BorgModuleSecurityChase
+#  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+#  name: chase cyborg module
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: generic
+#    - state: icon-tools
+#  - type: ItemBorgModule
+#    items:
+#    - WeaponLauncherBolaBorg
