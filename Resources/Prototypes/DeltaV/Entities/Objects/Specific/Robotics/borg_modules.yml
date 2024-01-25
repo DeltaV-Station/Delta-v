@@ -10,9 +10,9 @@
 # Security Modules
 
 - type: entity
-  id: BorgModuleSecurityDetain # Peacekeeper Set, Available on Round Start
+  id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: detainment cyborg module
+  name: peacekeeper cyborg module
   components:
   - type: Sprite
     layers:
@@ -21,11 +21,26 @@
   - type: ItemBorgModule
     items:
     - Truncheon # Placeholder while I make a non-lethal stunning thing, no cuffs on round start
+    - TelescopicShield
+
+- type: entity
+  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: patrol security cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - FlashlightSecliteBorg  
+    #- SecurityWhistle - Not merged here yet
 
 - type: entity
   id: BorgModuleSecurityDetain # Research Locked
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: detainment cyborg module
+  name: control security cyborg module
   components:
   - type: Sprite
     layers:
@@ -38,9 +53,9 @@
     - Zipties5Lingering
     
 - type: entity
-  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
+  id: BorgModuleSecurityControl # Research Locked
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: patrol cyborg module
+  name: control security cyborg module
   components:
   - type: Sprite
     layers:
@@ -48,17 +63,17 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
-    - FlashlightSecliteBorg  
-    #- whistle - Not merged here yet
+    - FlashRecharging
     
-#- type: entity
-#  id: BorgModuleSecurityChase
-#  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-#  name: chase cyborg module
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: generic
-#    - state: icon-tools
-#  - type: ItemBorgModule
-#    items:
+- type: entity
+  id: BorgModuleSecurityChase # Research Locked
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: chase security cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - Disabler
