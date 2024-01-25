@@ -24,6 +24,7 @@
     node: cyborg
   - type: Speech
     speechVerb: Robotic
+  - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisMining
@@ -67,6 +68,7 @@
     access: [["Cargo"], ["Salvage"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgTall
+  - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisEngineer
@@ -110,6 +112,7 @@
     access: [["Engineering"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisJanitor
@@ -153,6 +156,7 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisMedical
@@ -197,6 +201,7 @@
   - type: Inventory
     templateId: borgDutch
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
+  - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisService
@@ -240,3 +245,4 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgTall
+  - type: NoSlip # Delta-V , Unparents NoSlip component

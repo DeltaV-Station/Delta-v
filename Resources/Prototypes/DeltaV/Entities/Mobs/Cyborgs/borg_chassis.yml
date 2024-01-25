@@ -1,6 +1,6 @@
 - type: entity
   id: BorgChassisSecurity
-  parent: BorgChassisGeneric
+  parent: BaseBorgChassisNT
   name: security cyborg
   components:
   - type: BorgChassis
@@ -41,4 +41,21 @@
     access: [["Cargo"], ["Security"], ["Command"], ["Research"]]
   - type: ShowSecurityIcons
   #- type: SiliconLawProvider
-  #  laws: SiliconPolice
+  #  laws: SiliconPolice # Other PR
+  #- type: EmagSiliconLaw
+  #  stunTime: 5
+  #  emagLaws: SyndicateStatic # TODO: THINK OF A COOL SYNDICATE SECURITY LAW 
+                               # THAT DOESN'T GIVE AN ANTAG LICENSE TO STUNMETA BORG
+  #- type: StatusEffects
+  #  allowed:
+  #  - Stun
+  #  - KnockedDown
+  #  - SlowedDown
+  #- type: MobThresholds
+  #  thresholds:
+  #    0: Alive
+  #    100: Critical
+  #    200: Dead
+  #- type: NoSlip - This mf slips
+  - type: Speech
+    speechVerb: Robotic

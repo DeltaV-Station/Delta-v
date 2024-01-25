@@ -16,7 +16,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: CombatMode
-  - type: NoSlip
+  #- type: NoSlip # Delta-V , Unparents NoSlip component
   - type: StaticPrice
     price: 1250
   - type: Fixtures
