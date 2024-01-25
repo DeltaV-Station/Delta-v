@@ -41,16 +41,12 @@
     access: [["Cargo"], ["Security"], ["Command"], ["Research"]]
   - type: ShowSecurityIcons
   #- type: SiliconLawProvider
-  #  laws: SiliconPolice # Other PR
+  #  laws: SiliconPolice # PR-706
   #- type: EmagSiliconLaw
   #  stunTime: 5
   #  emagLaws: SyndicateStatic # TODO: THINK OF A COOL SYNDICATE SECURITY LAW 
                                # THAT DOESN'T GIVE AN ANTAG LICENSE TO STUNMETA BORG
-  #- type: StatusEffects
-  #  allowed:
-  #  - Stun
-  #  - KnockedDown
-  #  - SlowedDown
+                               # NOTE TO FUTURE SELF: LAW 0 IS ADDED TO WHATEVER EMAG LAW IS PUT HERE (EmagSiliconLawComponent.cs) 
   #- type: MobThresholds
   #  thresholds:
   #    0: Alive
@@ -59,3 +55,7 @@
   #- type: NoSlip - This mf slips
   - type: Speech
     speechVerb: Robotic
+  #- type: Access
+  #  enabled: false
+  #  groups:
+  #  - AllAccessBorg # Is it worth removing some access from the Borg?
