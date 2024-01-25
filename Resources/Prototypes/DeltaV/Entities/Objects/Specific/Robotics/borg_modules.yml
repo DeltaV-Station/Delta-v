@@ -21,7 +21,8 @@
   - type: ItemBorgModule
     items:
     - Truncheon # Placeholder while I make a non-lethal stunning thing, no cuffs on round start
-    - TelescopicShield
+    - TelescopicShield #
+    #- BorgSecurityHypospray # Pax or Chloral Hydrate Injector
 
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
@@ -51,8 +52,7 @@
   - type: ItemBorgModule
     items:
     - StunBatonSelfCharging
-    - FlashRecharging
-    - Zipties5Lingering
+    - Zipties5Lingering # This might go in it's own module to be honest to avoid Laika Syndrome
     
 - type: entity
   id: BorgModuleSecurityControl # Research Locked
@@ -79,3 +79,4 @@
   - type: ItemBorgModule
     items:
     - Disabler
+    #- BorgBolaLauncher # I should look into bootstrapping a powercell slot onto a pneumatic cannon and giving it the borg battery
