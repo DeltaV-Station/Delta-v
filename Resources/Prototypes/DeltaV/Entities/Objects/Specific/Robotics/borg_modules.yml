@@ -20,9 +20,7 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
-    - Truncheon # Placeholder while I make a non-lethal stunning thing, no cuffs on round start
-    - TelescopicShield #
-    #- BorgSecurityHypospray # Pax or Chloral Hydrate Injector
+    - PoliceBatonNonLethal
 
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
@@ -38,10 +36,21 @@
     - FlashlightSecliteBorg  
     #- SecurityWhistle - Not merged here yet
 
-
+- type: entity
+  id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: hold security cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ItemBorgModule
+    items:
+    - HoloprojectorSecurityBorg
 
 - type: entity
-  id: BorgModuleSecurityDetain # Research Locked
+  id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: detain security cyborg module
   components:
@@ -52,10 +61,10 @@
   - type: ItemBorgModule
     items:
     - StunBatonSelfCharging
-    - Zipties5Lingering # This might go in it's own module to be honest to avoid Laika Syndrome
+    - Zipties5Lingering
     
 - type: entity
-  id: BorgModuleSecurityControl # Research Locked
+  id: BorgModuleSecurityControl # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: riot control security cyborg module
   components:
@@ -66,9 +75,10 @@
   - type: ItemBorgModule
     items:
     - FlashRecharging
+    - HoloprojectorSecurityBorg
     
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked
+  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase security cyborg module
   components:
@@ -78,5 +88,4 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
-    - Disabler
-    #- BorgBolaLauncher # I should look into bootstrapping a powercell slot onto a pneumatic cannon and giving it the borg battery
+    - WeaponEnergyGunMiniBorg
