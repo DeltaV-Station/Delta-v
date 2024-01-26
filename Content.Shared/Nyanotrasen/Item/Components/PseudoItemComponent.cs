@@ -8,7 +8,7 @@ namespace Content.Shared.Nyanotrasen.Item.Components;
     /// For entities that behave like an item under certain conditions,
     /// but not under most conditions.
     /// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class PseudoItemComponent : Component
 {
     [DataField("size")]
