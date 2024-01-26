@@ -293,14 +293,14 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkLean
-  name: lean # Delta V : Re-adds Lean
-  description: Often paired with doja sweet, drinking this concoction is the staple of a trill O.G. # Delta V : Re-adds Lean
+  name: grape juice
+  description: Damn, no fun allowed.
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: Lean # Delta V : Re-adds Lean
+        - ReagentId: Water
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lean.rsi
