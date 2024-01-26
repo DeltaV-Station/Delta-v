@@ -536,6 +536,14 @@
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
+  # DeltaV Start
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
+    - BorgModuleSecurityHold
+    - BorgModuleSecurityDetain
+    - BorgModuleSecurityControl
+    - BorgModuleSecurityChase
+  # DeltaV End
   - type: MaterialStorage
     whitelist:
       tags:
