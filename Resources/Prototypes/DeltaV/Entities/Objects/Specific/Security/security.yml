@@ -6,6 +6,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
+  - type: GuideHelp
+    guides:
+    - Security
 
 - type: entity
   parent: Flash
@@ -14,6 +17,9 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 120
+  - type: GuideHelp
+    guides:
+    - Security
     
 - type: entity
   name: seclite
@@ -27,17 +33,46 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSelfChargingBorg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 10
+  - type: GuideHelp
+    guides:
+    - Security
 
-#- type: entity - This is dumb, can't figure it out, will come back when more patient
-#  parent: Handcuffs
-#  id: Handcuffs2Lingering
-#  suffix: 0, Lingering
-#  components:
-#  - type: Stack
-#    lingering: true
-#    count: 0
-#    stackType: Handcuffs
+- type: entity
+  name: non-lethal baton
+  parent: BaseItem
+  id: PoliceBatonNonLethal
+  description: First, do no harm.
+  components:
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0
+    - type: StaminaDamageOnHit
+      damage: 15
+      sound: /Audio/Weapons/click.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/truncheon.rsi
+      state: icon
+    - type: GuideHelp
+      guides:
+      - Security
+      
+- type: entity
+  parent: WeaponEnergyGunMini
+  id: WeaponEnergyGunMiniBorg
+  suffix: Do Not Map
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 25
+      
+- type: entity
+  parent: HoloprojectorSecurity
+  id: HoloprojectorSecurityBorg
+  suffix: Do Not Map
+  components:
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellSelfChargingBorg
