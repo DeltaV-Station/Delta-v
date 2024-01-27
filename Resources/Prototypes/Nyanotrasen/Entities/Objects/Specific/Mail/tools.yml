@@ -13,9 +13,10 @@
     slots:
         - belt
   - type: Item
-    size: 121
+    size: Large
   - type: Storage
-    capacity: 120
+    grid:
+      - 0,0,5,3
     quickInsert: true
     whitelist:
       components:
