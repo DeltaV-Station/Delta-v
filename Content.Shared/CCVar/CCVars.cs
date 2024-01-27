@@ -180,6 +180,19 @@ namespace Content.Shared.CCVar
             GameMap = CVarDef.Create("game.map", string.Empty, CVar.SERVERONLY);
 
         /// <summary>
+        ///     Controls whether to use world persistence or not.
+        /// </summary>
+        public static readonly CVarDef<bool>
+            UsePersistence = CVarDef.Create("game.usepersistence", false, CVar.ARCHIVE);
+
+        /// <summary>
+        ///     If world persistence is used, what map prototype should be initially loaded.
+        ///     If the save file exists, it replaces MapPath but everything else stays the same (station name and such).
+        /// </summary>
+        public static readonly CVarDef<string>
+            PersistenceMap = CVarDef.Create("game.persistencemap", "Empty", CVar.ARCHIVE);
+
+        /// <summary>
         ///     Prototype to use for map pool.
         /// </summary>
         public static readonly CVarDef<string>
@@ -1699,6 +1712,22 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> ToggleWalk =
             CVarDef.Create("control.toggle_walk", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        /*
+         * STORAGE
+         */
+
+        /// <summary>
+        /// Whether or not the storage UI is static and bound to the hotbar, or unbound and allowed to be dragged anywhere.
+        /// </summary>
+        public static readonly CVarDef<bool> StaticStorageUI =
+            CVarDef.Create("control.static_storage_ui", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        /// <summary>
+        /// Whether or not the storage window uses a transparent or opaque sprite.
+        /// </summary>
+        public static readonly CVarDef<bool> OpaqueStorageWindow =
+            CVarDef.Create("control.opaque_storage_background", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         /*
          * UPDATE

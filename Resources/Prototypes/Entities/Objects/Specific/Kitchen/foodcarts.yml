@@ -47,7 +47,9 @@
       - key: enum.StorageUiKey.Key
         type: StorageBoundUserInterface
     - type: Storage
-      capacity: 100 #20 burgers #Delta V
+      maxItemSize: Normal
+      grid:
+      - 0,0,7,4
     - type: TileFrictionModifier
       modifier: 0.4 # makes it slide
 

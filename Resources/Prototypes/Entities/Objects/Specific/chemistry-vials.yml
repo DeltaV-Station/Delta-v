@@ -47,8 +47,10 @@
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
   - type: Item
-    size: 2
+    size: Tiny
     sprite: Objects/Specific/Chemistry/vial.rsi
+    shape:
+    - 0,0,0,0
   - type: MeleeWeapon
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"

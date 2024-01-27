@@ -164,7 +164,9 @@
     graph: SupplyBot
     node: bot
   - type: Storage
-    capacity: 250
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,3
   - type: Access
     groups:
     - Cargo
