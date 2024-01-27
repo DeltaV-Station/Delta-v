@@ -223,7 +223,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
                 CookingDamageAmount);
 
             var result = _damageableSystem.TryChangeDamage(item, damage, origin: uid);
-            if (result?.Total > FixedPoint2.Zero)
+            if (result?.GetTotal() > FixedPoint2.Zero)
             {
                 // TODO: Smoke, waste, sound, or some indication.
             }
