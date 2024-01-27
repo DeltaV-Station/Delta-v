@@ -22,7 +22,8 @@ entities:
   entities:
   - uid: 1
     components:
-    - type: MetaData
+    - name: NTES Centipede
+      type: MetaData
     - pos: 0.39469033,0.22088978
       parent: invalid
       type: Transform
@@ -1779,32 +1780,6 @@ entities:
   - uid: 2374
     components:
     - pos: -10.5,19.5
-      parent: 1
-      type: Transform
-- proto: AlwaysPoweredLightColoredRed
-  entities:
-  - uid: 687
-    components:
-    - pos: -12.5,-35.5
-      parent: 1
-      type: Transform
-  - uid: 1417
-    components:
-    - pos: -8.5,-35.5
-      parent: 1
-      type: Transform
-- proto: AlwaysPoweredLightSodium
-  entities:
-  - uid: 1418
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -15.5,-41.5
-      parent: 1
-      type: Transform
-  - uid: 1419
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -5.5,-41.5
       parent: 1
       type: Transform
 - proto: APCBasic
@@ -7098,6 +7073,13 @@ entities:
     - pos: -11.5,-25.5
       parent: 1
       type: Transform
+- proto: FoodCakeBirthday
+  entities:
+  - uid: 1506
+    components:
+    - pos: -12.487526,-29.333473
+      parent: 1
+      type: Transform
 - proto: FoodTartGrape
   entities:
   - uid: 1495
@@ -10930,6 +10912,14 @@ entities:
     - pos: -7.5,-23.5
       parent: 1
       type: Transform
+- proto: MaintenanceToolSpawner
+  entities:
+  - uid: 1507
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -12.5,15.5
+      parent: 1
+      type: Transform
 - proto: MedicalBed
   entities:
   - uid: 530
@@ -11317,6 +11307,16 @@ entities:
       type: Transform
     - powerLoad: 0
       type: ApcPowerReceiver
+  - uid: 687
+    components:
+    - pos: -8.5,-35.5
+      parent: 1
+      type: Transform
+  - uid: 1417
+    components:
+    - pos: -12.5,-35.5
+      parent: 1
+      type: Transform
   - uid: 1451
     components:
     - pos: -4.5,-43.5
@@ -11431,6 +11431,20 @@ entities:
       type: Transform
     - powerLoad: 0
       type: ApcPowerReceiver
+- proto: PoweredlightSodium
+  entities:
+  - uid: 1418
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -5.5,-41.5
+      parent: 1
+      type: Transform
+  - uid: 1419
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -15.5,-41.5
+      parent: 1
+      type: Transform
 - proto: PoweredSmallLight
   entities:
   - uid: 1431
@@ -11668,6 +11682,43 @@ entities:
   - uid: 1699
     components:
     - pos: -5.5,-39.5
+      parent: 1
+      type: Transform
+- proto: Screen
+  entities:
+  - uid: 1497
+    components:
+    - pos: -16.5,21.5
+      parent: 1
+      type: Transform
+  - uid: 1498
+    components:
+    - pos: -4.5,21.5
+      parent: 1
+      type: Transform
+  - uid: 1500
+    components:
+    - pos: -10.5,10.5
+      parent: 1
+      type: Transform
+  - uid: 1501
+    components:
+    - pos: -10.5,-1.5
+      parent: 1
+      type: Transform
+  - uid: 1503
+    components:
+    - pos: -10.5,-6.5
+      parent: 1
+      type: Transform
+  - uid: 1504
+    components:
+    - pos: -6.5,-23.5
+      parent: 1
+      type: Transform
+  - uid: 1505
+    components:
+    - pos: -7.5,-38.5
       parent: 1
       type: Transform
 - proto: Screwdriver
