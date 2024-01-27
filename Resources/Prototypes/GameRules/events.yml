@@ -400,6 +400,7 @@
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
+    minimumPlayers: 15
     weight: 2.5 # DeltaV - was 5
     duration: 1
   - type: ZombieRule
