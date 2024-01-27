@@ -9,3 +9,15 @@
       - id: WeaponRailgunDecimator
       - id: BulletRailgunBasic
         amount: 3
+
+- type: entity
+  parent: BoxCardboard
+  id: RailgunAmmoBag
+  name: Rebar Box
+  description: A box for storing metal rods, commonly used in construction.
+  prefix: Syndicate
+  components:
+  - type: StorageFill
+    contents:
+      - id: BulletRailgunBasic
+        amount: 3

@@ -10,6 +10,22 @@
   - UplinkUtility
 
 - type: listing
+  id: Decimator Railgun Bundle NukeOps
+  name: uplink-decimator-bundle-name
+  description: uplink-decimator-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledRailgun
+  icon: { sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi, state: icon }
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+
+- type: listing
   id: Decimator Railgun Bundle
   name: uplink-decimator-bundle-name
   description: uplink-decimator-bundle-desc
@@ -19,6 +35,22 @@
     Telecrystal: 14
   categories:
   - UplinkBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+
+- type: listing
+  id: Railgun Ammo
+  name: uplink-railgun-ammo-name
+  description: uplink-railgun-ammo-desc
+  productEntity: RailgunAmmoBag
+  icon: { sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi, state: icon }
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
 
 #- type: listing
 #  id: UplinkCyborgBeaconSyndicate

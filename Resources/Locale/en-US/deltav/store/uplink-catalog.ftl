@@ -7,3 +7,6 @@ uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural
 # Bundles
 uplink-decimator-bundle-name = Decimator Bundle
 uplink-decimator-bundle-desc = The Decimator railgun and three extra rebar. Favored by Gorlex snipers.
+# Ammo
+uplink-railgun-ammo-name = Railgun Ammo
+uplink-railgun-ammo-desc = Three extra rods for the Decimator railgun.
