@@ -8,7 +8,10 @@ namespace Content.Server.Nyanotrasen.Cloning
 {
     public sealed class MetempsychoticMachineSystem : EntitySystem
     {
+        [ValidatePrototypeId<WeightedRandomPrototype>]
         public const string MetempsychoticHumanoidPool = "MetempsychoticHumanoidPool";
+
+        [ValidatePrototypeId<WeightedRandomPrototype>]
         public const string MetempsychoticNonHumanoidPool = "MetempsychoticNonhumanoidPool";
 
         [Dependency] private readonly IRobustRandom _random = default!;
