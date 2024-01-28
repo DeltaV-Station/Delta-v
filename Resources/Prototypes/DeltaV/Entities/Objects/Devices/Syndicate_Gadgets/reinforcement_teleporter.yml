@@ -16,10 +16,9 @@
     prototype: MobNukieMouse
   - type: EmitSoundOnUse
     sound: /Audio/Animals/mouse_squeak.ogg
-  - type: ItemCooldown
   - type: UseDelay
     delay: 300
-    
+
 - type: entity
   parent: ReinforcementRadioSyndicate
   id: ReinforcementRadioSyndicateParamedic
