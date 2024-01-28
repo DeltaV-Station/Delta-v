@@ -17,6 +17,8 @@ namespace Content.Server.Nyanotrasen.Cloning
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+        private ISawmill _sawmill = default!;
+
         public string GetSpawnEntity(EntityUid uid, float karmaBonus, SpeciesPrototype oldSpecies, out SpeciesPrototype? species, int? karma = null, MetempsychoticMachineComponent? component = null)
         {
             if (!Resolve(uid, ref component))
@@ -51,19 +53,9 @@ namespace Content.Server.Nyanotrasen.Cloning
             else
             {
                 species = null;
-                Logger.Error("Could not index species for metempsychotic machine...");
+                _sawmill.Error("Could not index species for metempsychotic machine...");
                 return "MobHuman";
             }
-
-            species = null;
-
-            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(MetempsychoticNonHumanoidPool, out var nonHumanoidPool))
-            {
-                Logger.Error("Could not index the pool of non humanoids for metempsychotic machine!");
-                return "MobHuman";
-            }
-
-            return nonHumanoidPool.Pick();
         }
     }
 }

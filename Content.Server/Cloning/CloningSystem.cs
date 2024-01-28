@@ -20,31 +20,19 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Chat.Systems;
-using Content.Server.Construction;
-using Content.Server.DeviceLinking.Events;
-using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
 using Content.Server.Jobs;
 using Content.Server.Popups;
 using Content.Server.Nyanotrasen.Cloning;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Server.Preferences.Managers;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Atmos;
-using Content.Shared.CCVar;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Cloning;
-using Content.Shared.Damage;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Zombies;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.GameObjects;
@@ -57,14 +45,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Content.Server.Traits.Assorted;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Containers;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Content.Server.Psionics;
-using Content.Server.Traits.Assorted; //Nyano - Summary: allows the potential psionic ability to be written to the character.
 
 namespace Content.Server.Cloning
 {
@@ -91,11 +71,9 @@ namespace Content.Server.Cloning
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
         [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -401,7 +379,6 @@ namespace Content.Server.Cloning
             List<Sex> sexes = new();
             bool switchingSpecies = false;
             bool applyKarma = false;
-            var name = pref.Name;
             var toSpawn = speciesPrototype.Prototype;
             TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
 
