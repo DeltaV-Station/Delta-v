@@ -1,23 +1,23 @@
 using System.Linq;
-using JetBrains.Annotations;
 using Content.Server.Administration.Logs;
-using Content.Server.Medical.Components;
 using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Medical.Components;
 using Content.Server.Power.Components;
-using Content.Server.UserInterface;
 using Content.Server.Power.EntitySystems;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
-using Content.Shared.Cloning.CloningConsole;
+using Content.Server.UserInterface;
 using Content.Shared.Cloning;
-using Content.Shared.Mind;
+using Content.Shared.Cloning.CloningConsole;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using JetBrains.Annotations;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
 
 namespace Content.Server.Cloning
 {
@@ -32,6 +32,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+        
         public override void Initialize()
         {
             base.Initialize();
