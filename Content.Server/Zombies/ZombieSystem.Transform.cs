@@ -31,6 +31,7 @@ using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.Pulling.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
@@ -277,6 +278,8 @@ namespace Content.Server.Zombies
                 _hands.RemoveHands(target);
                 RemComp(target, handsComp);
             }
+
+            RemComp<SharedPullerComponent>(target);
 
             // No longer waiting to become a zombie:
             // Requires deferral because this is (probably) the event which called ZombifyEntity in the first place.
