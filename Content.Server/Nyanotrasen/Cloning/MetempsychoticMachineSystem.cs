@@ -29,9 +29,7 @@ namespace Content.Server.Nyanotrasen.Cloning
             var chance = component.HumanoidBaseChance + karmaBonus;
 
             if (karma != null)
-            {
                 chance -= ((1 - component.HumanoidBaseChance) * (float) karma);
-            }
 
             if (chance > 1 && _random.Prob(chance - 1))
             {
