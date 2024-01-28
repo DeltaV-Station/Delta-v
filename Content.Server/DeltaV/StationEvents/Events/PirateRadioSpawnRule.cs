@@ -17,7 +17,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
-using Content.Server.Salvage;
+using Content.Shared.Salvage;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.CCVar;
@@ -90,11 +90,9 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
                     Offset = outpostaabb.Center + debrisRandomOffset + randomer,
                     LoadMap = false,
                 };
-                var forcedSalvage = _configurationManager.GetCVar(CCVars.SalvageForced);
-                //Obtain a random salvage wreck
-                var salvageProto = string.IsNullOrWhiteSpace(forcedSalvage)
-                    ? _random.Pick(_prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList())
-                    : _prototypeManager.Index<SalvageMapPrototype>(forcedSalvage);
+
+
+                var salvageProto = _random.Pick(_prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList());
                 //And finally spawn a salvage wreck
                 _map.TryLoad(GameTicker.DefaultMap, salvageProto.MapPath.ToString(), out _, DebrisOptions);
                 k++;
