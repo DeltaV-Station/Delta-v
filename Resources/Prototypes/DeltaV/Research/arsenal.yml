@@ -26,7 +26,8 @@
   recipeUnlocks:
   - WeaponEnergyGun
   - WeaponEnergyGunMini
-  
+  - BorgModuleSecurityChase # DeltaV SecBorg research
+
 - type: technology
   id: EnergyGunsAdvanced
   name: research-technology-energy-gun-advance
@@ -38,7 +39,6 @@
   cost: 7500
   recipeUnlocks:
   - WeaponEnergyGunPistol
-  - BorgModuleSecurityChase # DeltaV SecBorg research
   
 - type: technology
   id: Advanced Laser Manipulation
