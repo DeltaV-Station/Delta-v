@@ -6,7 +6,7 @@
   - type: NotJobRequirement
     job: Quartermaster
   - type: StealCondition
-    prototype: SpaceCashLuckyBill
+    stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
 
 - type: entity # Head of Personnel steal objective.
@@ -17,7 +17,7 @@
   - type: NotJobRequirement
     job: HeadOfPersonnel
   - type: StealCondition
-    prototype: BookIanDossier
+    stealGroup: BookIanDossier
     # owner: job-name-hop
 
 - type: entity # Head of Security steal objective.
@@ -30,5 +30,5 @@
   - type: NotJobRequirement
     job: HeadOfSecurity
   - type: StealCondition
-    prototype: WeaponEnergyGunMultiphase
+    stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
