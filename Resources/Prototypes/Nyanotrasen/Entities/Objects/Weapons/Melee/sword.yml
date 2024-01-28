@@ -11,7 +11,6 @@
   - type: Utensil
     types:
       - Knife
-  - type: ItemCooldown
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
     state: icon
@@ -23,7 +22,7 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    size: 10
+    size: Normal
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
   - type: Tool
     qualities:

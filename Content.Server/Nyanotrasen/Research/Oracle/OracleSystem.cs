@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Botany;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
@@ -175,7 +176,7 @@ public sealed class OracleSystem : EntitySystem
 
         sol.AddReagent(reagent, amount);
 
-        _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
+        _solutionSystem.TryMixAndOverflow(fountainSol.Value, sol, fountainSol.Value.Comp.Solution.MaxVolume, out var overflowing);
 
         if (overflowing != null && overflowing.Volume > 0)
             _puddleSystem.TrySpillAt(uid, overflowing, out var _);

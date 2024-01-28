@@ -71,7 +71,9 @@
   - type: Climbable
     delay: 1.6
   - type: Storage
-    capacity: 240
+    maxItemSize: Normal
+    grid:
+      - 0,0,5,5
     storageOpenSound:
       path: /Audio/Nyanotrasen/Machines/washer_open.ogg
     storageCloseSound:
@@ -104,7 +106,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/metalbreak.ogg
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
@@ -169,7 +171,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/metalbreak.ogg
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:

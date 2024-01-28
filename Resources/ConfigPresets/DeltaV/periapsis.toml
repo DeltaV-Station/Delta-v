@@ -6,6 +6,10 @@ soft_max_players = 50
 rules_file   = "Rules.txt"
 rules_header = "ui-rules-header"
 
+[vote]
+preset_enabled = true
+map_enabled = true
+
 [whitelist]
 enabled     = false
 reason      = "whitelist-not-whitelisted"

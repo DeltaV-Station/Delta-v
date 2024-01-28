@@ -1,3 +1,4 @@
+using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Chat;
@@ -15,6 +16,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -29,6 +31,7 @@ using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.Pulling.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
@@ -59,6 +62,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly ActionsSystem _actions = default!; // DeltaV - No psionic zombies
 
         /// <summary>
         /// Handles an entity turning into a zombie when they die or go into crit
@@ -102,8 +106,21 @@ namespace Content.Server.Zombies
             RemComp<BarotraumaComponent>(target);
             RemComp<HungerComponent>(target);
             RemComp<ThirstComponent>(target);
-            RemComp<ReproductiveComponent>(target); 
+            RemComp<ReproductiveComponent>(target);
             RemComp<ReproductivePartnerComponent>(target);
+
+            if (TryComp<PsionicComponent>(target, out var psionic)) // DeltaV - Prevent psionic zombies
+            {
+                if (psionic.ActivePowers.Count > 0)
+                {
+                    foreach (var power in psionic.ActivePowers)
+                    {
+                        RemComp(target, power);
+                    }
+                    psionic.ActivePowers.Clear();
+                }
+                RemComp<PsionicComponent>(target);
+            }
 
             //funny voice
             var accentType = "zombie";
@@ -261,6 +278,8 @@ namespace Content.Server.Zombies
                 _hands.RemoveHands(target);
                 RemComp(target, handsComp);
             }
+
+            RemComp<SharedPullerComponent>(target);
 
             // No longer waiting to become a zombie:
             // Requires deferral because this is (probably) the event which called ZombifyEntity in the first place.
