@@ -77,6 +77,8 @@ public sealed partial class ShuttleSystem
     /// </summary>
     public const float FTLDestinationMass = 500f;
 
+    private HashSet<EntityUid> _lookupEnts = new();
+
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<BuckleComponent> _buckleQuery;
     private EntityQuery<GhostComponent> _ghostQuery;
@@ -698,7 +700,7 @@ public sealed partial class ShuttleSystem
             return;
 
         // Flatten anything not parented to a grid.
-        var transform = _physics.GetPhysicsTransform(uid, xform, _xformQuery);
+        var transform = _physics.GetPhysicsTransform(uid, xform);
         var aabbs = new List<Box2>(manager.Fixtures.Count);
         var immune = new HashSet<EntityUid>();
         var tileSet = new List<(Vector2i, Tile)>();
@@ -716,8 +718,10 @@ public sealed partial class ShuttleSystem
             // Handle clearing biome stuff as relevant.
             tileSet.Clear();
             _biomes.ReserveTiles(xform.MapUid.Value, aabb, tileSet);
+            _lookupEnts.Clear();
+            _lookup.GetEntitiesIntersecting(xform.MapUid.Value, aabb, _lookupEnts, LookupFlags.Uncontained);
 
-            foreach (var ent in _lookup.GetEntitiesIntersecting(xform.MapUid.Value, aabb, LookupFlags.Uncontained))
+            foreach (var ent in _lookupEnts)
             {
                 if (ent == uid || immune.Contains(ent))
                 {
