@@ -1,50 +1,50 @@
-using Content.Shared.GameTicking;
-using Content.Shared.Damage;
-using Content.Shared.Examine;
-using Content.Shared.Cloning;
-using Content.Shared.Speech;
-using Content.Shared.Atmos;
-using Content.Shared.Tag;
-using Content.Shared.CCVar;
-using Content.Shared.Preferences;
-using Content.Shared.Emoting;
-using Content.Server.Psionics;
-using Content.Server.Cloning.Components;
-using Content.Server.Speech.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.StationEvents.Components;
-using Content.Server.EUI;
-using Content.Server.Humanoid;
-using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.Materials;
+using Content.Server.EUI;
+using Content.Server.Fluids.EntitySystems;
+using Content.Server.Humanoid;
 using Content.Server.Jobs;
+using Content.Server.Materials;
 using Content.Server.Popups;
-using Content.Server.Nyanotrasen.Cloning;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Atmos;
+using Content.Shared.CCVar;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Cloning;
+using Content.Shared.Damage;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Examine;
+using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles.Jobs;
-using Robust.Server.GameObjects;
 using Robust.Server.Containers;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.GameObjects.Components.Localization;
-using Content.Server.Traits.Assorted;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Content.Server.Psionics; //DeltaV needed for Psionic Systems
+using Content.Server.Traits.Assorted; //Nyano - Summary: allows the potential psionic ability to be written to the character.
+using Content.Shared.Speech; //DeltaV Start Metem Usings
+using Content.Shared.Tag;
+using Content.Shared.Preferences;
+using Content.Shared.Emoting;
+using Content.Server.Speech.Components;
+using Content.Server.StationEvents.Components;
+using Content.Server.Ghost.Roles.Components;
+using Content.Server.Nyanotrasen.Cloning;
+using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.GameObjects.Components.Localization; //DeltaV End Metem Usings
 
 namespace Content.Server.Cloning
 {
@@ -69,11 +69,11 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
+        [Dependency] private readonly TagSystem _tag = default!; //DeltaV
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -244,7 +244,7 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus);
+            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob 
 
             ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
