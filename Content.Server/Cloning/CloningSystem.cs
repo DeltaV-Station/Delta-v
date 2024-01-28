@@ -33,8 +33,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Psionics; //DeltaV needed for Psionic Systems
 using Content.Server.Traits.Assorted; //Nyano - Summary: allows the potential psionic ability to be written to the character.
+using Content.Server.Psionics; //DeltaV needed for Psionic Systems
 using Content.Shared.Speech; //DeltaV Start Metem Usings
 using Content.Shared.Tag;
 using Content.Shared.Preferences;
