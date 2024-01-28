@@ -3,25 +3,26 @@
   parent: BaseBorgChassisNT
   name: security cyborg
   components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Silicon/chassis.rsi
+    layers:
+    - state: security
+    - state: security_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: security_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: BorgChassis
     maxModules: 4
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
       - BorgModuleSecurity
-    hasMindState: peace_e
-    noMindState: peace_e_r
-  - type: Sprite
-    layers:
-    - state: peace
-    - state: peace_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: peace_l
-      shader: unshaded
-      map: ["light"]
-      visible: false
+    hasMindState: security_e
+    noMindState: security_e_r
   - type: Construction
     node: security
   - type: IntrinsicRadioReceiver
@@ -38,7 +39,7 @@
     - Science
     - Security
   - type: AccessReader
-    access: ["Security"], ["Command"], ["Research"]]
+    access: [["Security"], ["Command"], ["Research"]]
   - type: ShowSecurityIcons
   #- type: SiliconLawProvider
   #  laws: SiliconPolice # PR-706
@@ -55,7 +56,3 @@
   #- type: NoSlip - This mf slips
   - type: Speech
     speechVerb: Robotic
-  #- type: Access
-  #  enabled: false
-  #  groups:
-  #  - AllAccessBorg # Is it worth removing some access from the Borg?

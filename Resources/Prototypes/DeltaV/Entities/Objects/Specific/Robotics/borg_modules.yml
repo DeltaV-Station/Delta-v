@@ -6,18 +6,20 @@
   - type: Tag
     tags:
     - BorgModuleSecurity
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Robotics/borgmodule.rsi
     
 # Security Modules
 
 - type: entity
   id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: peacekeeper security cyborg module
+  name: peacekeeper cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-peacekeeper
   - type: ItemBorgModule
     items:
     - PoliceBatonNonLethal
@@ -25,12 +27,12 @@
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: patrol security cyborg module
+  name: patrol cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-patrol
   - type: ItemBorgModule
     items:
     - FlashlightSecliteBorg  
@@ -39,12 +41,12 @@
 - type: entity
   id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: hold security cyborg module
+  name: holding cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-hold
   - type: ItemBorgModule
     items:
     - HoloprojectorSecurityBorg
@@ -52,12 +54,12 @@
 - type: entity
   id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: detain security cyborg module
+  name: detainment cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-detain
   - type: ItemBorgModule
     items:
     - StunBatonSelfCharging
@@ -66,12 +68,12 @@
 - type: entity
   id: BorgModuleSecurityControl # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: riot control security cyborg module
+  name: riot control cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-control
   - type: ItemBorgModule
     items:
     - FlashRecharging
@@ -80,12 +82,12 @@
 - type: entity
   id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: chase security cyborg module
+  name: chase cyborg module
   components:
   - type: Sprite
     layers:
-    - state: generic
-    - state: icon-tools
+    - state: security
+    - state: icon-chase
   - type: ItemBorgModule
     items:
     - WeaponEnergyGunMiniBorg
