@@ -26,6 +26,8 @@
   - type: Tag
     tags:
     - HighRiskItem
+  - type: StealTarget
+    stealGroup: Hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -101,7 +103,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: Item
     sprite: Objects/Specific/Medical/medipen.rsi
-    size: 3
+    size: Tiny
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -314,8 +316,6 @@
     layers:
     - state: stimpen
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: Item
-    size: 10
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -346,8 +346,6 @@
     layers:
     - state: microstimpen
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: Item
-    size: 5
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -375,8 +373,6 @@
     layers:
     - state: morphen
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: Item
-    size: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -426,6 +422,8 @@
   name: hypopen box
   description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Objects/Storage/penbox.rsi
     state: hypopen

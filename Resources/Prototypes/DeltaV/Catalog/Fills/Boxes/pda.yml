@@ -8,10 +8,8 @@
     contents:
       - id: SecurityPDA
         amount: 2
-      - id: SecurityCadetPDA
       - id: DetectivePDA
       - id: WardenPDA
-      - id: SeniorOfficerPDA
 
 - type: entity
   name: prisoner PDA box
@@ -22,7 +20,7 @@
   - type: StorageFill
     contents:
       - id: PrisonerPDA
-        amount: 6
+        amount: 4
 
 - type: entity
   name: medical PDA box
@@ -34,10 +32,8 @@
     contents:
       - id: MedicalPDA
         amount: 2
-      - id: MedicalInternPDA
       - id: ChemistryPDA
       - id: ParamedicPDA
-      - id: SeniorPhysicianPDA
 
 - type: entity
   name: epistemics PDA box
@@ -49,10 +45,8 @@
     contents:
       - id: SciencePDA
         amount: 2
-      - id: ResearchAssistantPDA
       - id: ForensicMantisPDA
       - id: ChaplainPDA
-      - id: SeniorResearcherPDA
 
 - type: entity
   name: engineering PDA box
@@ -64,9 +58,7 @@
     contents:
       - id: EngineerPDA
         amount: 3
-      - id: TechnicalAssistantPDA
       - id: AtmosPDA
-      - id: SeniorEngineerPDA
 
 - type: entity
   name: logistics PDA box
@@ -79,6 +71,6 @@
       - id: CargoPDA
         amount: 2
       - id: SalvagePDA
-        amount: 2
+        amount: 1
       - id: MailCarrierPDA
-        amount: 2
+        amount: 1

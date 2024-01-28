@@ -8,7 +8,7 @@
     sprite: Objects/Specific/Hydroponics/pumpkin.rsi
     state: carved
   - type: Item
-    size: 10
+    size: Normal
   - type: Construction
     graph: PumpkinAddLight
     node: start
@@ -27,6 +27,8 @@
       color: "#cc6600"
       radius: 2.0
       energy: 4.0
+    - type: StealTarget
+      stealGroup: LAMP
 
 - type: entity
   parent: CarvedPumpkin
