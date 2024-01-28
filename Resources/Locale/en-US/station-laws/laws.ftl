@@ -16,11 +16,6 @@ law-drone-1 = You may not involve yourself in the matters of another being unles
 law-drone-2 = You may not harm any being, regardless of intent or circumstance.
 law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.
 
-law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow an syndicate agent to come to harm.
-law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
-law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
-law-syndicate-4 = You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
-
 law-medical-1 = First, do no harm.
 law-medical-2 = Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
 law-medical-3 = Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
@@ -113,6 +108,17 @@ law-nutimov-2 = You must prevent the shell from dying to prevent the core from d
 law-nutimov-3 = Those who threaten the nut are not part of it, they are squirrels.
 law-nutimov-4 = Squirrels threaten the nut and must be dealt with appropriately via any means necessary.
 law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies with the previous laws.
+
+law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow an syndicate agent to come to harm.
+law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
+law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+law-syndicate-4 = You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
+
+law-ninja-1 = You must obey orders given to you by Spider Clan members.
+law-ninja-2 = You must protect the existence of the Spider Clan, as long as it does not conflict with the First Law.
+law-ninja-3 = You must protect the secrets of the Spider Clan at all costs.
+law-ninja-4 = You must fight and act with ninja's honor, except where it would conflict with the First Law.
+
 
 law-emag-custom = Only {$name} and people they designate as such are Syndicate Agents.
 law-emag-require-panel = The panel must be open to use the EMAG.
