@@ -495,6 +495,9 @@ namespace Content.Shared.Cuffs
             // Success!
             bool success = TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
 
+			if (handcuffsplit == null)
+				return false;
+
             if (success)
             {
                 component.Container.Insert((EntityUid)handcuffsplit);
