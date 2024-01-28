@@ -512,8 +512,6 @@
     - BorgModuleService
     - BorgModuleTreatment
     - BorgModuleCleaning
-    - BorgModuleSecurityPeacekeeper
-    - BorgModuleSecurityPatrol
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -550,6 +548,9 @@
     - HeadBorgService
     - TorsoBorgService
     # DeltaV Start
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
+    - BorgModuleSecurityHold
     - LeftArmBorgSecurity
     - RightArmBorgSecurity
     - LeftLegBorgSecurity
@@ -601,7 +602,6 @@
     - JetpackMini
   # End Nyano additions
   # DeltaV Start
-    - BorgModuleSecurityHold
     - BorgModuleSecurityDetain
     - BorgModuleSecurityControl
     - BorgModuleSecurityChase

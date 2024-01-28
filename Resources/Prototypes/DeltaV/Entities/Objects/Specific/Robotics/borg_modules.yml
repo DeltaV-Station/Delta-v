@@ -41,7 +41,7 @@
 - type: entity
   id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: holding cyborg module
+  name: blockade cyborg module
   components:
   - type: Sprite
     layers:
