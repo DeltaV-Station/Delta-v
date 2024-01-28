@@ -512,6 +512,8 @@
     - BorgModuleService
     - BorgModuleTreatment
     - BorgModuleCleaning
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -547,6 +549,14 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    # DeltaV Start
+    - LeftArmBorgSecurity
+    - RightArmBorgSecurity
+    - LeftLegBorgSecurity
+    - RightLegBorgSecurity
+    - HeadBorgSecurity
+    - TorsoBorgSecurity
+    # DeltaV end
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -591,8 +601,6 @@
     - JetpackMini
   # End Nyano additions
   # DeltaV Start
-    - BorgModuleSecurityPeacekeeper
-    - BorgModuleSecurityPatrol
     - BorgModuleSecurityHold
     - BorgModuleSecurityDetain
     - BorgModuleSecurityControl
