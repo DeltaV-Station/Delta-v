@@ -53,7 +53,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/metalbreak.ogg
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
@@ -67,6 +67,8 @@
   - type: Construction #Nyano
     graph: Altar
     node: nanotrasen
+  - type: StealTarget
+    stealGroup: AltarNanotrasen
 
 - type: entity
   id: AltarChaos
@@ -206,7 +208,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/woodhit.ogg
+          collection: WoodDestroyHeavy
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialWoodPlank:
@@ -428,7 +430,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/metalbreak.ogg
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
