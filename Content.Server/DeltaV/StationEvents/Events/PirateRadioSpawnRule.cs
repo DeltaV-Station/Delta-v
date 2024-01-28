@@ -1,28 +1,17 @@
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
-using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Shared.Salvage;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
-using Content.Shared.CCVar;
 using System.Linq;
-using System.Numerics;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -33,7 +22,6 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     protected override void Started(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -60,19 +48,19 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         //Do not for any reason set DistanceModifier greater than 25f or less than 1f. 
         var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * component.DistanceModifier;
         var randomoffset = _random.NextVector2(a, a * 2.5f);
-        var OutpostOptions = new MapLoadOptions
+        var outpostOptions = new MapLoadOptions
         {
             Offset = aabb.Center + randomoffset,
             LoadMap = false,
         };
         //Now spawn the Listening Outpost
-        _map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out var Outpostids, OutpostOptions);
+        _map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out var outpostids, outpostOptions);
 
         //Now we generate the outpost's debris field
-        if (Outpostids == null) return;
+        if (outpostids == null) return;
         //Yes, this is a loop within a loop. Actually, foreach is just here to convert an array into a variable.
         //For whatever ungodly reason, Outpostids is an array of gridUids, even though it can only ever contain a single gridUid. 
-        foreach (var id in Outpostids)
+        foreach (var id in outpostids)
         {
             if (!TryComp<MapGridComponent>(id, out var grid)) return;
             //Obtain the bounding box of the Listening Outpost
@@ -85,7 +73,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
                 //We have to remake this region for every wreck, otherwise they'll all spawn in the same place
                 var debrisRandomOffset = _random.NextVector2(b, b * 2.5f);
                 var randomer = _random.NextVector2(b, b * 5f); //Second random vector to ensure the outpost isn't perfectly centered in the debris field
-                var DebrisOptions = new MapLoadOptions
+                var debrisOptions = new MapLoadOptions
                 {
                     Offset = outpostaabb.Center + debrisRandomOffset + randomer,
                     LoadMap = false,
@@ -94,7 +82,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
 
                 var salvageProto = _random.Pick(_prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList());
                 //And finally spawn a salvage wreck
-                _map.TryLoad(GameTicker.DefaultMap, salvageProto.MapPath.ToString(), out _, DebrisOptions);
+                _map.TryLoad(GameTicker.DefaultMap, salvageProto.MapPath.ToString(), out _, debrisOptions);
                 k++;
             }
         }
