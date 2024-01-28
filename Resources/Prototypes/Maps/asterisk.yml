@@ -9,7 +9,6 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Asterisk Station {1}'
           nameGenerator:
