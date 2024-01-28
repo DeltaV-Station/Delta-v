@@ -65,7 +65,15 @@
       - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
-
+      - id: ClothingUnderSocksStripedCaptainBlueandGold 
+      prob: 0.3
+      orGroup: socks 
+      - id: ClothingUnderSocksStripedCaptainBlueandWhite 
+      prob: 0.3
+      orGroup: socks 
+      - id: ClothingUnderSocksStripedCaptainBlueandWhite 
+      prob: 0.3
+      orGroup: socks 
 
 - type: entity
   id: LockerCaptainFilled
@@ -103,7 +111,15 @@
       - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
       - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
-
+      - id: ClothingUnderSocksStripedCaptainBlueandGold 
+      prob: 0.3
+      orGroup: socks 
+      - id: ClothingUnderSocksStripedCaptainBlueandWhite 
+      prob: 0.3
+      orGroup: socks 
+      - id: ClothingUnderSocksStripedCaptainBlueandWhite 
+      prob: 0.3
+      orGroup: socks 
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
