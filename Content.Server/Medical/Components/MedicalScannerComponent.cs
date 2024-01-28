@@ -13,9 +13,9 @@ namespace Content.Server.Medical.Components
         public ContainerSlot BodyContainer = default!;
         public EntityUid? ConnectedConsole;
 
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float CloningFailChanceMultiplier = 1f;
-
+        
         // Nyano, needed for Metem Machine.
         public float MetemKarmaBonus = 0.25f; 
 
