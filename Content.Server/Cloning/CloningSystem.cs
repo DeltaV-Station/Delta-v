@@ -1,7 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
-using Content.Server.Construction;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.EUI;
 using Content.Server.Fluids.EntitySystems;
@@ -10,7 +9,6 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Traits.Assorted;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -29,14 +27,14 @@ using Content.Shared.Roles.Jobs;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Psionics; //Nyano - Summary: allows the potential psionic ability to be written to the character.
+using Content.Server.Psionics;
+using Content.Server.Traits.Assorted; //Nyano - Summary: allows the potential psionic ability to be written to the character.
 
 namespace Content.Server.Cloning
 {
@@ -73,8 +71,6 @@ namespace Content.Server.Cloning
             base.Initialize();
 
             SubscribeLocalEvent<CloningPodComponent, ComponentInit>(OnComponentInit);
-            SubscribeLocalEvent<CloningPodComponent, RefreshPartsEvent>(OnPartsRefreshed);
-            SubscribeLocalEvent<CloningPodComponent, UpgradeExamineEvent>(OnUpgradeExamine);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
             SubscribeLocalEvent<BeingClonedComponent, MindAddedMessage>(HandleMindAdded);
             SubscribeLocalEvent<CloningPodComponent, PortDisconnectedEvent>(OnPortDisconnected);
@@ -87,21 +83,6 @@ namespace Content.Server.Cloning
         {
             clonePod.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(uid, "clonepod-bodyContainer");
             _signalSystem.EnsureSinkPorts(uid, CloningPodComponent.PodPort);
-        }
-
-        private void OnPartsRefreshed(EntityUid uid, CloningPodComponent component, RefreshPartsEvent args)
-        {
-            var materialRating = args.PartRatings[component.MachinePartMaterialUse];
-            var speedRating = args.PartRatings[component.MachinePartCloningSpeed];
-
-            component.BiomassRequirementMultiplier = MathF.Pow(component.PartRatingMaterialMultiplier, materialRating - 1);
-            component.CloningTime = component.BaseCloningTime * MathF.Pow(component.PartRatingSpeedMultiplier, speedRating - 1);
-        }
-
-        private void OnUpgradeExamine(EntityUid uid, CloningPodComponent component, UpgradeExamineEvent args)
-        {
-            args.AddPercentageUpgrade("cloning-pod-component-upgrade-speed", component.BaseCloningTime / component.CloningTime);
-            args.AddPercentageUpgrade("cloning-pod-component-upgrade-biomass-requirement", component.BiomassRequirementMultiplier);
         }
 
         internal void TransferMindToClone(EntityUid mindId, MindComponent mind)
@@ -192,7 +173,7 @@ namespace Content.Server.Cloning
             if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
                 return false;
 
-            var cloningCost = (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
+            var cloningCost = (int) Math.Round(physics.FixturesMass);
 
             if (_configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
@@ -247,7 +228,7 @@ namespace Content.Server.Cloning
             var mob = Spawn(speciesPrototype.Prototype, Transform(uid).MapPosition);
             _humanoidSystem.CloneAppearance(bodyToClone, mob);
 
-            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob. 
+            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
 
             var ev = new CloningEvent(bodyToClone, mob);
@@ -259,7 +240,7 @@ namespace Content.Server.Cloning
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
             cloneMindReturn.Parent = uid;
-            clonePod.BodyContainer.Insert(mob);
+            _containerSystem.Insert(mob, clonePod.BodyContainer);
             ClonesWaitingForMind.Add(mind, mob);
             UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
             _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
@@ -330,7 +311,7 @@ namespace Content.Server.Cloning
                 return;
 
             EntityManager.RemoveComponent<BeingClonedComponent>(entity);
-            clonePod.BodyContainer.Remove(entity);
+            _containerSystem.Remove(entity, clonePod.BodyContainer);
             clonePod.CloningProgress = 0f;
             clonePod.UsedBiomass = 0;
             UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
