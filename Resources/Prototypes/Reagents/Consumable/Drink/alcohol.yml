@@ -73,7 +73,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-cognac
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: cognac
   color: "#AB3C05"
   recognizable: true
   metamorphicSprite:
@@ -301,7 +301,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-vermouth
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: vermouth
   color: "#91FF91"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/vermouthglass.rsi
@@ -571,7 +571,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-black-russian
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: blackrussian
   color: "#360000"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/blackrussianglass.rsi
@@ -870,7 +870,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-irish-car-bomb
   physicalDesc: reagent-physical-desc-bubbly
-  flavor: alcohol
+  flavor: irishcarbomb
   color: "#2E6671"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/irishcarbomb.rsi
@@ -1018,7 +1018,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-mead
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: mead
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/meadglass.rsi
@@ -1042,7 +1042,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-moonshine
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: moonshine
   color: "#d1d7d155"
   metabolisms:
     Drink:
@@ -1404,7 +1404,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-white-russian
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: whiterussian
   color: "#A68340"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiterussianglass.rsi
