@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -218,7 +218,7 @@ public sealed partial class PlayTimeTrackingManager
             Trackers = roles
         };
 
-        _net.ServerSendMessage(msg, pSession.ConnectedClient);
+        _net.ServerSendMessage(msg, pSession.Channel);
     }
 
     /// <summary>

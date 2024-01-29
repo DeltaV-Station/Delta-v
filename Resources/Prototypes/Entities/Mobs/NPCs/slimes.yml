@@ -121,6 +121,9 @@
     rules: deltav-ghost-role-information-softantag-rules #DeltaV
   - type: Speech
     speechVerb: Slime
+    speechSounds: Slime
+  - type: TypingIndicator
+    proto: slime
 
 - type: entity
   name: blue slime
