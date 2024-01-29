@@ -3829,6 +3829,7 @@ entities:
             2990: 1.0636721,-25.214315
             2991: 0.39550686,-34.45684
         - node:
+            cleanable: True
             angle: 4.71238898038469 rad
             color: '#FFFFFFFF'
             id: Dirt
@@ -3916,6 +3917,7 @@ entities:
             5579: 60.44457,13.635814
             5580: 60.44457,13.552423
         - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
@@ -128915,7 +128917,7 @@ entities:
     - type: Transform
       pos: -19.976349,-5.430711
       parent: 6747
-- proto: PaperBin10
+- proto: PaperBin20
   entities:
   - uid: 2746
     components:
