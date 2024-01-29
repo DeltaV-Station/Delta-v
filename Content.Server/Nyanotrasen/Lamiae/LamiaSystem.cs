@@ -91,8 +91,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
                     var segmentId = species.Species;
                     var markingId = markings.MarkingId;
                     string segmentmarking = $"{markingId}-{segmentId}";
-                    var color = markings.MarkingColors[0];
-                    _humanoid.AddMarking(uid, segmentmarking, color);
+                    _humanoid.AddMarking(uid, segmentmarking, markings.MarkingColors);
                 }
             }
         }
