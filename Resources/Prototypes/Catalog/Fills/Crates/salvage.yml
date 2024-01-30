@@ -21,6 +21,8 @@
       - id: ClothingBeltUtility
       - id: OreBag
       - id: ClothingBeltSalvageWebbing
+      - id: ClothingNeckSalvager # DeltaV - salvage cloak
+        prob: 0.8
 
 - type: entity
   id: CrateSalvageAssortedGoodies
@@ -78,6 +80,8 @@
       - id: Skub
         prob: 0.001
       - id: ClothingHeadHatCatEars
+        prob: 0.01
+      - id: ClothingHeadHatDogEars
         prob: 0.01
         # TRAITOR EQUIPMENT (0.01%)
       - id: Telecrystal10

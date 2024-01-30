@@ -45,3 +45,16 @@
     entries:
     - id: MobMothroach
       prob: 0.05
+
+- type: entity # Delta-V : Midround Syndie Listening Station Spawn
+  id: PirateRadioSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 5
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: 1
+  - type: PirateRadioSpawnRule

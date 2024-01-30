@@ -83,7 +83,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - GlassesNearsight # SimpleStation14 NearsightedTrait
-    
+
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesJensen
@@ -129,7 +129,7 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesGlassesCosmeticSunglasses
+  id: ClothingEyesGlassesSunglasses
   name: sun glasses
   description: A pair of black sunglasses.
   components:
@@ -137,19 +137,14 @@
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
   - type: Tag
     tags:
     - HamsterWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear sunglasses
-
-- type: entity
-  parent: ClothingEyesGlassesCosmeticSunglasses
-  id: ClothingEyesGlassesSunglasses
-  components:
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
 
 - type: entity
   parent: ClothingEyesBase

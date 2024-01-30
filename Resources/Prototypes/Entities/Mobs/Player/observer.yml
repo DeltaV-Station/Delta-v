@@ -27,6 +27,11 @@
         - GhostImpassable
   - type: Eye
     drawFov: false
+    visMask:
+      - TelegnosticProjection
+      - PsionicInvisibility
+      - Ghost
+      - Normal
   - type: Input
     context: "ghost"
   - type: Examiner

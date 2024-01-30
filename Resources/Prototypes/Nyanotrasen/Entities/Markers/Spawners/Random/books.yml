@@ -5,6 +5,8 @@
   placement:
     mode: PlaceFree # want to be able to free place books for stacks, etc.
   components:
+  - type: Transform
+    anchored: false
   - type: Sprite
     layers:
       - sprite: Objects/Misc/books.rsi

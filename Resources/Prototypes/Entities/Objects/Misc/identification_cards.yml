@@ -12,7 +12,9 @@
     - idcard
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
+    size: Small
     heldPrefix: default
+    storedRotation: -90
   - type: Access
   - type: IdCard
   - type: StationRecordKeyStorage
@@ -20,6 +22,8 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+  - type: StealTarget
+    stealGroup: IDCard
 
 #IDs with layers
 
@@ -113,6 +117,8 @@
     - DoorBumpOpener
     - WhitelistChameleon
     - HighRiskItem
+  - type: StealTarget
+    stealGroup: CaptainIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -310,6 +316,19 @@
       job: Bartender
       name: Pun Pun
 
+- type: entity # DeltaV - Security dog Laika ID card
+  parent: IDCardStandard
+  id: SecDogIDCard
+  name: Security Dog ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idsecurityofficer
+    - type: PresetIdCard
+      job: SecurityOfficer
+      name: Laika
+
 - type: entity
   parent: IDCardStandard
   id: ChefIDCard
@@ -457,6 +476,8 @@
   - type: Access
     groups:
     - AllAccess
+    tags:
+    - CentralCommand
 
 - type: entity
   parent: CentcomIDCard
@@ -475,7 +496,7 @@
 - type: entity
   parent: ERTLeaderIDCard
   id: ERTChaplainIDCard
-  name: ERT Chaplain ID card
+  name: ERT chaplain ID card
   components:
   - type: Sprite
     layers:
@@ -489,7 +510,7 @@
 - type: entity
   parent: ERTChaplainIDCard
   id: ERTEngineerIDCard
-  name: ERT Engineer ID card
+  name: ERT engineer ID card
   components:
   - type: Sprite
     layers:
@@ -501,7 +522,7 @@
 - type: entity
   parent: ERTChaplainIDCard
   id: ERTJanitorIDCard
-  name: ERT Janitor ID card
+  name: ERT janitor ID card
   components:
   - type: Sprite
     layers:
@@ -513,7 +534,7 @@
 - type: entity
   parent: ERTChaplainIDCard
   id: ERTMedicIDCard
-  name: ERT Medic ID card
+  name: ERT medic ID card
   components:
   - type: Sprite
     layers:
@@ -525,7 +546,7 @@
 - type: entity
   parent: ERTChaplainIDCard
   id: ERTSecurityIDCard
-  name: ERT Security ID card
+  name: ERT security ID card
   components:
   - type: Sprite
     layers:

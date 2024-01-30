@@ -23,6 +23,11 @@
     state: pda
   - type: Pda
     state: pda
+    paiSlot:
+      priority: -2
+      whitelist:
+        components:
+        - PAI
     penSlot:
       startingItem: Pen
       priority: -1
@@ -30,18 +35,19 @@
         tags:
         - Write
     idSlot:
-      name: ID Card
+      name: access-id-card-component-default
       ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
       whitelist:
         components:
         - IdCard
   - type: Item
-    size: 10
+    size: Small
   - type: ContainerContainer
     containers:
       PDA-id: !type:ContainerSlot {}
       PDA-pen: !type:ContainerSlot {}
+      PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
   - type: ItemSlots
@@ -71,9 +77,9 @@
       - NewsReadCartridge
     cartridgeSlot:
       priority: -1
-      name: Cartridge
+      name: device-pda-slot-component-slot-name-cartridge
       ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
       whitelist:
         components:
           - Cartridge
@@ -93,14 +99,12 @@
       type: InstrumentBoundUserInterface
     - key: enum.HealthAnalyzerUiKey.Key
       type: HealthAnalyzerBoundUserInterface
-  - type: CrewManifestViewer
-    unsecure: true
   - type: Tag
     tags:
     - DoorBumpOpener
   - type: Input
     context: "human"
-    
+
 - type: entity
   parent: BasePDA
   id: BaseMedicalPDA
@@ -169,6 +173,12 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -420,6 +430,12 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -554,7 +570,7 @@
     accentVColor: "#2a4b5b"
   - type: Icon
     state: pda-paramedic
-    
+
 - type: entity
   parent: BaseMedicalPDA
   id: ChemistryPDA
@@ -627,6 +643,12 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -642,6 +664,12 @@
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -656,6 +684,12 @@
     borderColor: "#A32D26"
   - type: Icon
     state: pda-security
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BasePDA
@@ -675,6 +709,24 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+
+- type: entity
+  parent: CentcomPDA
+  id: AdminPDA
+  name: Admin PDA
+  description: If you are not an admin please return this PDA to the nearest admin.
+  components:
+  - type: Pda
+    id: PassengerIDCard
+  - type: HealthAnalyzer
+    scanDelay: 0
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - LogProbeCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -761,7 +813,7 @@
       priority: -1
       name: Cartridge
       ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
       whitelist:
         components:
           - Cartridge
@@ -914,6 +966,12 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -930,6 +988,12 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: ClownPDA
@@ -1015,6 +1079,12 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: SyndiPDA
@@ -1049,7 +1119,7 @@
       priority: -1
       name: Cartridge
       ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
       whitelist:
         components:
           - Cartridge

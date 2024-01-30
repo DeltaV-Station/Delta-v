@@ -5,4 +5,7 @@
   traitGear: ClothingEyesGlasses
   components:
     - type: Nearsighted
+  whitelist: # Delta V fix to borgs spawning with it.
+    components:
+      - Blindable
 

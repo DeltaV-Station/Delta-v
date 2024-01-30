@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false
@@ -17,6 +20,10 @@
   - Security
   #- Brig #Delta V: Removed brig access
   - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
 
 - type: startingGear
   id: PrisonGuardGear

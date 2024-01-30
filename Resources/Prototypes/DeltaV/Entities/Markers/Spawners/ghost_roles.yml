@@ -15,3 +15,33 @@
         - state: green
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
+
+- type: entity # Part of PirateRadioSpawn
+  noSpawn: true
+  id: SpawnPointGhostSyndicateListener
+  name: ghost role spawn point
+  suffix: syndicate listener
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-listeningop-name
+    description: ghost-role-information-listeningop-description
+    rules: ghost-role-information-listeningop-rules
+    requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
+    - !type:OverallPlaytimeRequirement
+      time: 259200 # 72 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 40000 # 11.5 hours
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 72000 # 20 hours
+    - !type:WhitelistRequirement
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateListener
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: radiation

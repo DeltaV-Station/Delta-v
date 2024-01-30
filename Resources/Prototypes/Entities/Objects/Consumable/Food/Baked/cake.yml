@@ -22,7 +22,7 @@
         - ReagentId: Vitamin
           Quantity: 5
   - type: Item
-    size: 25
+    size: Normal
 
 - type: entity
   parent: FoodCakeBase
@@ -44,7 +44,7 @@
         - ReagentId: Vitamin
           Quantity: 1
   - type: Item
-    size: 5
+    size: Tiny
 
 # Custom Cake Example
 
@@ -61,6 +61,9 @@
       color: blue
   - type: SliceableFood
     slice: FoodCakeBlueberrySlice
+  - type: Tag
+    tags:
+    - Fruit
 
 - type: entity
   name: blueberry slice
@@ -73,6 +76,9 @@
     - state: plain-slice
     - state: alpha-slice-filling
       color: blue
+  - type: Tag
+    tags:
+    - Fruit
 
 # Cake
 
@@ -195,6 +201,9 @@
     state: orange
   - type: SliceableFood
     slice: FoodCakeOrangeSlice
+  - type: Tag
+    tags:
+    - Fruit
 
 - type: entity
   name: slice of orange cake
@@ -203,6 +212,9 @@
   components:
   - type: Sprite
     state: orange-slice
+  - type: Tag
+    tags:
+    - Fruit
 # Tastes like sweetness, cake, oranges.
 
 - type: entity
@@ -215,6 +227,9 @@
     state: lime
   - type: SliceableFood
     slice: FoodCakeLimeSlice
+  - type: Tag
+    tags:
+    - Fruit
 
 - type: entity
   name: slice of lime cake
@@ -223,6 +238,9 @@
   components:
   - type: Sprite
     state: lime-slice
+  - type: Tag
+    tags:
+    - Fruit
 # Tastes like sweetness, cake, limes.
 
 - type: entity
@@ -235,6 +253,9 @@
     state: lemon
   - type: SliceableFood
     slice: FoodCakeLemonSlice
+  - type: Tag
+    tags:
+    - Fruit
 
 - type: entity
   name: slice of lemon cake
@@ -243,6 +264,9 @@
   components:
   - type: Sprite
     state: lemon-slice
+  - type: Tag
+    tags:
+    - Fruit
 # Tastes like sweetness, cake, lemons.
 
 - type: entity
@@ -634,7 +658,8 @@
     defaultRotation: 0
     horizontalRotation: 0
   - type: Item
-    size: 100 # Did I randomly decide this? Yes. Yes I did.
+    size: Ginormous
+    heldPrefix: cak
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Pets/cat.rsi
@@ -697,7 +722,7 @@
   - type: Food
     transferAmount: 12
   - type: Item
-    size: 40
+    size: Normal
   - type: PointLight
     color: "#FFFF00"
     radius: 2
