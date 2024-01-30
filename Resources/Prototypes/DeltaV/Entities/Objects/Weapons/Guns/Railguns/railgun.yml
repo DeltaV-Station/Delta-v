@@ -70,6 +70,8 @@
   description: A mighty railgun that packs a hefty punch.
   suffix: reverse-engineered
   components:
+  - type: Gun
+    fireRate: 0.40
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 3
