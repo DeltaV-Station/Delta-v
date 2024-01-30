@@ -16,7 +16,7 @@
           radius: 0.2
         density: 10
         restitution: 0.3
-        friction: 0.2
+        friction: 0.8
         mask:
         - ItemMask
       projectile:
@@ -27,10 +27,6 @@
         mask:
         - Impassable
         - BulletImpassable
-  - type: EmbeddableProjectile
-    minimumSpeed: 10
-    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
-    embedOnThrow: false
   - type: ThrowingAngle
     angle: 0
   - type: Ammo
@@ -40,6 +36,7 @@
     - BulletRailgun
     - CannonRestrict
   - type: Projectile
+    impactEffect: BulletImpactEffect
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
@@ -50,10 +47,12 @@
   parent: BulletRailgun
   id: BulletRailgunBasic
   name: Rebar Rod
-  description: Heavy iron rod for use in a railcannon
+  description: Heavy rebar rod for use in a railcannon, or when you REALLY hate somebody.
   components:
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
+    embedOnThrow: false
   - type: Projectile
     damage:
       types:
@@ -61,23 +60,73 @@
         Blunt: 75
         Heat: 20
         Structural: 25
+  - type: StaminaDamageOnEmbed
+    damage: 80
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    newItem: BulletRailgunBasic
+    recipes:
+      - BulletRailgunBasic
 
-# Laser variant
+- type: entity
+  parent: BulletRailgun
+  id: BulletRailgunReverseEngineered
+  name: Rebar Rod (Less Lethal)
+  description: Hurts like hell and sticks into your target, knocking most over. Fragile.
+  components:
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Effects/suction.ogg
+    embedOnThrow: false
+  - type: Sprite
+    state: icon
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod_nonlethal.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Weapons/Guns/Hits/snap.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaminaDamageOnEmbed
+    damage: 100
+  - type: Projectile
+    onlyCollideWhenShot: true
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 10
+
+# Laser variant for borgs
 
 - type: hitscan
   id: DecimatorLaser
   damage:
     types:
-      Heat: 100
+      Heat: 80
+      Radiation: 20
+  # Special green laser!!!
   muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_blue
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_beam_heavy_green
   travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_blue
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_heavy_green
   impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_blue
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_beam_heavy_green
 
 
 # Fear that which cannot be understood
@@ -91,6 +140,10 @@
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
+    embedOnThrow: false
   - type: TimedDespawn
     lifetime: 3
   - type: Projectile

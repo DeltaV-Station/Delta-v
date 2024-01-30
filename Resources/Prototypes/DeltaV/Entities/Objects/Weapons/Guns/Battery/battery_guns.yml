@@ -260,6 +260,8 @@
     zeroVisible: true
   - type: Appearance
 
+# For Borgs
+
 - type: entity
   name: Decimator Laser
   parent: BaseWeaponBattery
@@ -287,8 +289,6 @@
   - type: Gun
     fireRate: 0.30
     selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun_laser.ogg
   - type: HitscanBatteryAmmoProvider
