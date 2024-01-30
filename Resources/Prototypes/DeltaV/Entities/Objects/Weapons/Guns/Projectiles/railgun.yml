@@ -47,7 +47,7 @@
   parent: BulletRailgun
   id: BulletRailgunBasic
   name: Rebar Rod
-  description: Heavy rebar rod for use in a railcannon, or when you REALLY hate somebody.
+  description: Heavy steel rod for use in a railcannon.
   components:
   - type: EmbeddableProjectile
     minimumSpeed: 10
@@ -67,12 +67,13 @@
     newItem: BulletRailgunBasic
     recipes:
       - BulletRailgunBasic
+      - BulletRailgunReverseEngineered
 
 - type: entity
   parent: BulletRailgun
   id: BulletRailgunReverseEngineered
   name: Rebar Rod (Less Lethal)
-  description: Hurts like hell and sticks into your target, knocking most over. Fragile.
+  description: Hurts like hell and sticks into your target, knocking them over. Fragile.
   components:
   - type: EmbeddableProjectile
     minimumSpeed: 10
@@ -108,6 +109,12 @@
     damage:
       types:
         Blunt: 10
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    newItem: BulletRailgunReverseEngineered
+    recipes:
+      - BulletRailgunBasic
+      - BulletRailgunReverseEngineered
 
 # Laser variant for borgs
 
