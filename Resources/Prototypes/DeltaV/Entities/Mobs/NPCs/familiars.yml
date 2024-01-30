@@ -71,8 +71,8 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Ifriit # Spawns the first hand of ifriit.
-  #- type: InnateTool # Cant really use this anymore. FUCKING PAIN
+    prototype: Ifriit # Spawns the first hand of ifriit and only hand for ifriit - the sprite is currently only using right hand sprite.
+  #- type: InnateTool # Cant really use this anymore.
   #  tools:
   #    - id: WelderIfrit
   #    - id: WelderIfrit
@@ -98,8 +98,6 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-  - type: Loadout # Spawns the second hand of ifriit... IF ONLY IT DID IT ON HIS HAND AND NOT BEHIND HIM.
-    prototypes: [Ifriitloadout]
 
 - type: entity
   parent: WelderExperimental
@@ -124,7 +122,7 @@
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
-      #  Blunt: -5
+        Blunt: -5
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:

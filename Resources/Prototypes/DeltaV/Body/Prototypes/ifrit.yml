@@ -5,13 +5,13 @@
   slots:
     right hand:
       part: WelderIfritRight
-      connections: 
-      - left hand
-    left hand:
-      part: WelderIfritLeft
+    #  connections: # Not needed. Simply sprite to have the flame on both hands with a single click instead of having to turn both hands on.
+    #  - left hand
+    #left hand:
+    #  part: WelderIfritLeft
 
 - type: body 
-  id: Ifriit2 # This one is pretty much to make ifriit have 2 functioning hands
+  id: Ifriit2 # This one is pretty much to make ifriit have 2 functioning hands, no much other reason to keep it.
   name: "ifriit2"
   root: torso
   slots:

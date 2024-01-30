@@ -1,17 +1,8 @@
 - type: entity
   parent: WelderIfrit
-  id: WelderIfritRight # Both of the hands are needed so that.... it spawns the hand itself on ifriit's hand???? Good enough.
+  id: WelderIfritRight # The body part that spawns in the hand, does NOT work as a hand but it gets the job done.
   name: ifrit hand
   components:
   - type: BodyPart
     partType: Hand
     symmetry: Right
-
-- type: entity
-  parent: WelderIfrit
-  id: WelderIfritLeft
-  name: ifrit hand
-  components:
-  - type: BodyPart
-    partType: Hand
-    symmetry: Left
