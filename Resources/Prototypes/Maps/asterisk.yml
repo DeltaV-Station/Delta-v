@@ -9,6 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Lox.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Asterisk Station {1}'
           nameGenerator:
