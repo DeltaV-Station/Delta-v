@@ -26,6 +26,10 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         if (args.SpawnResult != null)
             return;
 
+        // DeltaV - Prevent spawnpoint overrides from being ignored
+        if (args.DesiredSpawnPointType != null && args.DesiredSpawnPointType != SpawnPointType.Unset)
+            return;
+
         var query = EntityQueryEnumerator<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>();
         var possibleContainers = new List<Entity<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>>();
 
