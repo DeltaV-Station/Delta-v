@@ -449,36 +449,24 @@ namespace Content.Shared.Cuffs
                 handcuffsplit = null;
                 return false;
             }
-            if (TryComp<StackComponent>(handcuff, out var stackComp))
-            {
-                if (_stacks.GetCount(handcuff, stackComp) >= 1)
-                {
-                    _stacks.Use(handcuff, 1, stackComp);
-
-                    if (_net.IsServer) /// let the server spawn because client mispredicts
-                    {
-                        var pos = Transform(target).Coordinates;
-                        handcuffsplit = Spawn("Zipties", pos); /// This should somehow get the proto ID instead of zipties, but fuck if I know how.
-                        return true;
-                    }
-                    else
-                    {
-                        handcuffsplit = null;
-                        return false;
-                    }
-                }
-                else
-                {
-                    handcuffsplit = null;
-                    return false;
-                }
-            }
-            else
+            if (!TryComp<StackComponent>(handcuff, out var stackComp))
             {
                 handcuffsplit = handcuff;
                 _hands.TryDrop(user, handcuff);
                 return true;
             }
+
+            if (_stacks.GetCount(handcuff, stackComp) >= 1)
+            {
+                _stacks.Use(handcuff, 1, stackComp);
+
+                var pos = Transform(target).Coordinates;
+                handcuffsplit = _net.IsServer ? Spawn("Zipties", pos) : null;
+            }
+            else
+                handcuffsplit = null;
+
+            return handcuffsplit != null;
         }
 
         /// <summary>
