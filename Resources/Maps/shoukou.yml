@@ -2519,6 +2519,7 @@ entities:
             0: 65535
           4,2:
             0: 53247
+            2: 4096
           5,2:
             0: 65535
           6,2:
@@ -2529,6 +2530,7 @@ entities:
             0: 65535
           10,-8:
             0: 10239
+            2: 55296
           9,-4:
             0: 65535
           9,-3:
@@ -2661,7 +2663,7 @@ entities:
             0: 10239
           10,-7:
             0: 7171
-            2: 57344
+            2: 57596
           9,2:
             0: 12846
           10,2:
@@ -2781,20 +2783,25 @@ entities:
             0: 4352
           4,3:
             0: 50380
+            2: 15154
           5,3:
             0: 62463
+            2: 3072
           6,3:
             0: 61695
+            2: 3072
           7,3:
             0: 63095
+            2: 256
           10,-6:
             0: 31761
             2: 238
           11,-8:
             0: 3151
+            2: 4368
           11,-7:
             0: 18368
-            2: 47104
+            2: 47121
           11,-6:
             2: 2235
             0: 51012
@@ -2949,12 +2956,16 @@ entities:
             0: 51208
           4,4:
             0: 196
+            2: 65339
           5,4:
             0: 241
+            2: 16130
           6,4:
             0: 240
+            2: 263
           7,4:
             0: 244
+            2: 256
           8,4:
             0: 17
           -5,-10:
@@ -2988,8 +2999,15 @@ entities:
             0: 4096
           10,-5:
             0: 30583
+            2: 34816
           2,-14:
             0: 13107
+          11,-5:
+            2: 30464
+          4,5:
+            2: 15
+          5,5:
+            2: 3
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -5660,7 +5678,10 @@ entities:
       type: Transform
   - uid: 3031
     components:
-    - rot: 1.5707963267948966 rad
+    - type: MetaData
+      name: Lawyer's APC
+    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 11.5,5.5
       parent: 34
       type: Transform
@@ -5771,7 +5792,10 @@ entities:
       type: Transform
   - uid: 7348
     components:
-    - rot: 3.141592653589793 rad
+    - type: MetaData
+      name: Dojo hall's APC
+    - type: Transform
+      rot: 3.141592653589793 rad
       pos: -2.5,-2.5
       parent: 34
       type: Transform
@@ -80761,62 +80785,127 @@ entities:
     - rot: 1.5707963267948966 rad
       pos: 2.5,-8.5
       parent: 34
-      type: Transform
-    - text: Bar
-      type: NavMapBeacon
-- proto: WarpPointBeaconCargo
+    - type: NavMapBeacon
+      text: Bar
+- proto: WarpPointBeacon
   entities:
-  - uid: 11321
+  - uid: 13153
     components:
-    - pos: -10.5,-31.5
+    - type: Transform
+      pos: -32.5,-32.5
       parent: 34
-      type: Transform
-    - location: logistics
-      type: WarpPoint
-- proto: WarpPointBeaconCommand
-  entities:
-  - uid: 12919
+    - type: NavMapBeacon
+      text: Engineering
+    - type: WarpPoint
+      location: Engineering
+  - uid: 13154
     components:
-    - pos: 31.5,-34.5
+    - type: Transform
+      pos: -45.5,-15.5
       parent: 34
-      type: Transform
-- proto: WarpPointBeaconEngineering
-  entities:
-  - uid: 11015
+    - type: NavMapBeacon
+      text: robotics
+    - type: WarpPoint
+      location: robotics
+  - uid: 13155
     components:
-    - pos: -32.5,-37.5
+    - type: Transform
+      pos: -30.5,-7.5
       parent: 34
-      type: Transform
-- proto: WarpPointBeaconMedical
-  entities:
-  - uid: 10915
+    - type: NavMapBeacon
+      text: Epistemics
+    - type: WarpPoint
+      location: Epistemics
+  - uid: 13156
     components:
-    - pos: 4.5,-34.5
+    - type: Transform
+      pos: -47.5,-5.5
       parent: 34
-      type: Transform
-- proto: WarpPointBeaconScience
-  entities:
-  - uid: 10916
+    - type: NavMapBeacon
+      text: Dorms
+    - type: WarpPoint
+      location: Dorms
+  - uid: 13157
     components:
-    - pos: -30.5,-9.5
+    - type: Transform
+      pos: 33.5,-32.5
       parent: 34
-      type: Transform
-    - location: epistemics
-      type: WarpPoint
-- proto: WarpPointBeaconSecurity
-  entities:
-  - uid: 11318
+    - type: NavMapBeacon
+      text: Bridge
+    - type: WarpPoint
+      location: Bridge
+  - uid: 13158
     components:
-    - pos: 24.5,-12.5
+    - type: Transform
+      pos: 1.5,5.5
       parent: 34
-      type: Transform
-- proto: WarpPointBeaconService
-  entities:
-  - uid: 10917
+    - type: NavMapBeacon
+      text: Dojo
+    - type: WarpPoint
+      location: Dojo
+  - uid: 13159
     components:
-    - pos: -13.5,-5.5
+    - type: Transform
+      pos: -18.5,-5.5
       parent: 34
-      type: Transform
+    - type: NavMapBeacon
+      text: Botany
+    - type: WarpPoint
+      location: Botany
+  - uid: 13160
+    components:
+    - type: Transform
+      pos: -11.5,-33.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Logistics
+    - type: WarpPoint
+      location: Logistics
+  - uid: 13161
+    components:
+    - type: Transform
+      pos: 4.5,-34.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Medical
+    - type: WarpPoint
+      location: Medical
+  - uid: 13162
+    components:
+    - type: Transform
+      pos: 17.5,16.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Public cryopods
+    - type: WarpPoint
+      location: Public cryopods
+  - uid: 13163
+    components:
+    - type: Transform
+      pos: -8.5,4.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Detective's room
+    - type: WarpPoint
+      location: Detective's room
+  - uid: 13164
+    components:
+    - type: Transform
+      pos: -18.5,-18.5
+      parent: 34
+    - type: NavMapBeacon
+      text: HoP's office
+    - type: WarpPoint
+      location: HoP's office
+  - uid: 13165
+    components:
+    - type: Transform
+      pos: 5.5,-17.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Janitor
+    - type: WarpPoint
+      location: Janitor
 - proto: WarpPointBombing
   entities:
   - uid: 6490
