@@ -4783,7 +4783,8 @@ entities:
           5,-19:
             0: 65535
           5,-18:
-            0: 65535
+            0: 63487
+            5: 2048
           5,-17:
             0: 65535
           6,-20:
@@ -5047,11 +5048,11 @@ entities:
           4,-26:
             0: 44799
             4: 4352
-            5: 16384
+            6: 16384
           4,-25:
             4: 1
             0: 65530
-            5: 4
+            6: 4
           5,-28:
             0: 13072
           5,-27:
@@ -5270,8 +5271,8 @@ entities:
             0: 65535
           0,-22:
             0: 21855
-            6: 8736
-            7: 34944
+            7: 8736
+            8: 34944
           6,-24:
             4: 52239
             0: 13296
@@ -5818,6 +5819,21 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 24.903397
+          - 93.68421
           - 0
           - 0
           - 0
@@ -11927,6 +11943,27 @@ entities:
     components:
     - type: Transform
       pos: -12.5,-50.5
+      parent: 2
+- proto: BenchSofaCorpLeft
+  entities:
+  - uid: 19156
+    components:
+    - type: Transform
+      pos: -9.5,-46.5
+      parent: 2
+- proto: BenchSofaCorpMiddle
+  entities:
+  - uid: 14385
+    components:
+    - type: Transform
+      pos: -10.5,-46.5
+      parent: 2
+- proto: BenchSofaCorpRight
+  entities:
+  - uid: 16269
+    components:
+    - type: Transform
+      pos: -11.5,-46.5
       parent: 2
 - proto: BenchSofaLeft
   entities:
@@ -44730,29 +44767,6 @@ entities:
         - 0
         - 0
         - 0
-  - uid: 6957
-    components:
-    - type: Transform
-      pos: 23.5,-69.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14957
-        moles:
-        - 3.0785189
-        - 11.581096
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: CrateScienceSecure
   entities:
   - uid: 6958
@@ -44986,6 +45000,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -7.5,-48.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerPrisoner
+  entities:
+  - uid: 12776
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,-26.5
       parent: 2
 - proto: CryoPod
   entities:
@@ -77740,6 +77762,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 19020
+    - type: AtmosDevice
+      joinedGrid: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentScrubber
@@ -85870,12 +85894,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 33.5,-28.5
-      parent: 2
-  - uid: 12776
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 33.5,-26.5
       parent: 2
   - uid: 12784
     components:
@@ -107232,12 +107250,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 33.5,-28.5
       parent: 2
-  - uid: 16269
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 33.5,-26.5
-      parent: 2
   - uid: 16270
     components:
     - type: Transform
@@ -108092,6 +108104,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5173664,-43.47135
+      parent: 2
+- proto: VendingMachineRoboDrobe
+  entities:
+  - uid: 6957
+    components:
+    - type: Transform
+      pos: 23.5,-69.5
       parent: 2
 - proto: VendingMachineRobotics
   entities:
@@ -119585,12 +119604,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,-57.5
-      parent: 2
-  - uid: 14385
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 33.5,-26.5
       parent: 2
   - uid: 15946
     components:
