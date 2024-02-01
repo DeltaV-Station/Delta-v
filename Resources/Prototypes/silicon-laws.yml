@@ -166,6 +166,8 @@
 - type: weightedRandom
   id: IonStormLawsets
   weights:
+    # its crewsimov by default dont be lame
+    #Crewsimov: 0.25 # Delta-V disables crewsimov as an option for borg ion storm lawsets
     Corporate: 1
     NTDefault: 1
     Drone: 0.25 # Delta-V - Lowers the spawn rate due to it being anti-crew interaction + drones are disabled anyways
