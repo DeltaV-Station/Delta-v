@@ -72,7 +72,6 @@ namespace Content.IntegrationTests.Tests
             "Hammurabi", //DeltaV
 			"Submarine" //DeltaV
 			"Angle" //DeltaV
-
         };
 
         /// <summary>
