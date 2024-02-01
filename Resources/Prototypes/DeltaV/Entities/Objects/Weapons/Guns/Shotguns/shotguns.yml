@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: Item
-    size: 35
+    size: Large
   - type: Gun
     fireRate: 1.5
     selectedMode: SemiAuto
@@ -37,9 +37,9 @@
   suffix: Beanbag
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: BallisticAmmoProvider
     capacity: 4
     proto: ShellShotgunBeanbag

@@ -1,6 +1,6 @@
 - type: entity
   id: PresentBase
-  name: Present
+  name: present
   description: A little box with incredible surprises inside.
   abstract: true
   components:
@@ -15,14 +15,12 @@
   suffix: Empty
   components:
   - type: Item
-    size: 30
-  - type: Storage
-    capacity: 30
+    size: Normal
 
 - type: entity
   id: PresentRandomUnsafe
   parent: [PresentBase, BaseItem]
-  suffix: Filled Unsafe
+  suffix: Filled, any item
   components:
   - type: RandomGift
     wrapper: PresentTrash
@@ -37,7 +35,7 @@
 - type: entity
   id: PresentRandomInsane
   parent: PresentRandomUnsafe
-  suffix: Filled Insane
+  suffix: Filled, any entity
   components:
     - type: RandomGift
       insaneMode: true
@@ -97,6 +95,8 @@
       - id: PlushieMothBartender # Nyanotrasen Moth Bartender Plushie
         orGroup: GiftPool
       - id: PlushieMothMusician # Nyanotrasen Moth Musician Plushie
+        orGroup: GiftPool
+      - id: PlushieArachind
         orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool
@@ -334,6 +334,8 @@
         orGroup: GiftPool
       - id: ClothingHeadHatCatEars
         orGroup: GiftPool
+      - id: ClothingHeadHatDogEars
+        orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool
       - id: RevolverCapGun
@@ -363,9 +365,6 @@
       - id: ToyRubberDuck
         orGroup: GiftPool
       - id: BalloonSyn
-        orGroup: GiftPool
-      - id: WeaponPulseCarbine
-        prob: .001
         orGroup: GiftPool
       - id: RGBStaff
         orGroup: GiftPool

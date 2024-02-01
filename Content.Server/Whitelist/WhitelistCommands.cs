@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration;
+using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.Administration;
@@ -11,7 +11,7 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Whitelist;
 
-[AdminCommand(AdminFlags.Ban)]
+[AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist
 public sealed class AddWhitelistCommand : LocalizedCommands
 {
     public override string Command => "whitelistadd";
@@ -71,7 +71,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
     }
 }
 
-[AdminCommand(AdminFlags.Ban)]
+[AdminCommand(AdminFlags.Ban | AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist. Hopefully this is an or, not an and
 public sealed class RemoveWhitelistCommand : LocalizedCommands
 {
     public override string Command => "whitelistremove";
@@ -161,7 +161,7 @@ public sealed class KickNonWhitelistedCommand : LocalizedCommands
 
             if (!await db.GetWhitelistStatusAsync(session.UserId))
             {
-                net.DisconnectChannel(session.ConnectedClient, Loc.GetString("whitelist-not-whitelisted"));
+                net.DisconnectChannel(session.Channel, Loc.GetString("whitelist-not-whitelisted"));
             }
         }
     }

@@ -115,15 +115,16 @@
     thresholds: # BIG DOG. STRONG DOG
       0: Alive
       100: Critical
-      300: Dead
+      200: Dead
   - type: StaminaDamageOnHit
     damage: 22
   - type: MeleeWeapon
     hidden: true
+    altDisarm: false
     soundHit:
         path: /Audio/Effects/bite.ogg
     angle: 0
-    attackRate: 0.75
+    attackRate: 1
     damage:
       types:
         Slash: 10
@@ -168,6 +169,7 @@
   - type: Bloodstream
     bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
   - type: Puller
+    needsHands: false
   - type: MobPrice
     price: 400
   - type: Tag

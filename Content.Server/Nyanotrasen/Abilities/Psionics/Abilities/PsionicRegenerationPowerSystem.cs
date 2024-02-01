@@ -4,6 +4,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Shared.Abilities.Psionics;
@@ -57,7 +58,10 @@ namespace Content.Server.Abilities.Psionics
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            {
                 psionic.PsionicAbility = component.PsionicRegenerationActionEntity;
+                psionic.ActivePowers.Add(component);
+            }
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationPowerActionEvent args)
@@ -84,6 +88,11 @@ namespace Content.Server.Abilities.Psionics
         private void OnShutdown(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentShutdown args)
         {
             _actions.RemoveAction(uid, component.PsionicRegenerationActionEntity);
+
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Remove(component);
+            }
         }
 
         private void OnDispelled(EntityUid uid, PsionicRegenerationPowerComponent component, DispelledEvent args)

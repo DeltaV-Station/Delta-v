@@ -20,6 +20,8 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/gold.rsi
+  - type: StealTarget
+    stealGroup: ClothingNeckGoldmedal
 
 - type: entity
   parent: ClothingNeckBase
@@ -86,3 +88,5 @@
     sprite: DeltaV/Clothing/Neck/Medals/clownmedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/clownmedal.rsi # DeltaV - resprite
+  - type: StealTarget
+    stealGroup: ClothingNeckClownmedal

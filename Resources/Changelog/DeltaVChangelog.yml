@@ -859,7 +859,7 @@ Entries:
     - type: Tweak
       message: >-
         Centcomm Geneticists have modified the Harpies so that they can no
-        longer imitate flash bangs. Your eardrums are safe now. 
+        longer imitate flash bangs. Your eardrums are safe now.
   id: 130
   time: '2023-11-08T22:30:39.0000000+00:00'
 - author: leonardo-dabepis
@@ -967,7 +967,7 @@ Entries:
     - type: Add
       message: >-
         Salvage has been rebased. New but strangely familiar space debris will
-        be pulled in by the salvage magnet. Caution is recommended. 
+        be pulled in by the salvage magnet. Caution is recommended.
   id: 146
   time: '2023-11-22T16:13:12.0000000+00:00'
 - author: tryded
@@ -1081,7 +1081,7 @@ Entries:
     - type: Tweak
       message: >-
         Harpies have been re-balanced so that they now actually have a numerical
-        positive. 
+        positive.
   id: 161
   time: '2023-12-06T20:10:49.0000000+00:00'
 - author: DebugOk
@@ -1200,3 +1200,264 @@ Entries:
       message: The random client freezes/crashes should be mostly gone.
   id: 179
   time: '2023-12-22T23:46:32.0000000+00:00'
+- author: ps3moira
+  changes:
+    - type: Tweak
+      message: Reverted in-hand E-Sword sprites.
+  id: 180
+  time: '2023-12-24T02:56:01.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Ore Bags of Holding now use bluespace crystals instead of uranium.
+  id: 181
+  time: '2023-12-24T19:58:23.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Fixes cyborgs spawning with nearsighted trait.
+  id: 182
+  time: '2023-12-27T17:55:07.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Add
+      message: 'Added 3 classic hairstyles: Long hair, Long hair 2, Long hair 3.'
+  id: 183
+  time: '2023-12-27T18:23:39.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Tweak
+      message: >-
+        Security dogs now can wear an id card and radio, are able to drag
+        things, and have received additional combat training.
+  id: 184
+  time: '2023-12-28T09:32:10.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Gives shoukou an oxygen miner until air actualy works.
+  id: 185
+  time: '2023-12-28T21:38:57.0000000+00:00'
+- author: Master2112
+  changes:
+    - type: Add
+      message: >-
+        Crime Assist program to Security and Lawyer PDA's, to help identify a
+        crime with a simple yes/no question tree.
+  id: 186
+  time: '2023-12-29T19:34:56.0000000+00:00'
+- author: ps3moira
+  changes:
+    - type: Add
+      message: Added Scottish Trait.
+    - type: Add
+      message: Added Kilt to Theatervend.
+  id: 187
+  time: '2023-12-29T19:44:44.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Mail no longer has throwing damage.
+  id: 188
+  time: '2023-12-29T19:53:10.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Remove
+      message: Space winter is officially over!
+  id: 189
+  time: '2023-12-30T14:15:42.0000000+00:00'
+- author: Master2112
+  changes:
+    - type: Fix
+      message: Fixed incorrect reference to ftl in crimeassist yaml
+  id: 190
+  time: '2023-12-30T22:03:53.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Add
+      message: Added a fluffy tail for the felinids.
+  id: 191
+  time: '2023-12-30T22:05:52.0000000+00:00'
+- author: DarkenedSynergy
+  changes:
+    - type: Fix
+      message: Fixed logistics airlocks looking like engineering airlocks when opened.
+  id: 192
+  time: '2023-12-31T16:23:10.0000000+00:00'
+- author: DangerRevolution and VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Rumours say that Syndicate Agents have cracked encoded communications!
+        Added the Syndicate Listening Post to the Syndicate's arsenal of
+        espionage!
+  id: 193
+  time: '2023-12-31T16:48:27.0000000+00:00'
+- author: VMSolidus and DangerRevolution
+  changes:
+    - type: Tweak
+      message: >-
+        The Listening Outpost has received several tweaks and balance changes.
+        It should spawn less often now.
+  id: 194
+  time: '2024-01-01T21:33:58.0000000+00:00'
+- author: ps3moira
+  changes:
+    - type: Tweak
+      message: Reverted Shotgun sprites
+  id: 195
+  time: '2024-01-01T21:48:08.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Add
+      message: Added BB guns! Don't shoot your eye out.
+  id: 196
+  time: '2024-01-02T22:03:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: On very high pop revolution rounds, there can be 2 head revolutionaries.
+  id: 197
+  time: '2024-01-02T22:06:22.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: There should only ever be one Listening Outpost spawning at a time
+  id: 198
+  time: '2024-01-02T23:05:25.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Add
+      message: 'Added maiden outfits into janidrobe. '
+  id: 199
+  time: '2024-01-07T14:57:38.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: >-
+        Prison guards are now mindshielded and have a security playtime
+        requirement.
+  id: 200
+  time: '2024-01-07T18:20:45.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: Atmos hopefully shouldn't break anymore
+  id: 201
+  time: '2024-01-07T22:10:36.0000000+00:00'
+- author: Bribrooo
+  changes:
+    - type: Add
+      message: 'added a ChemVend inside of Chemistry on Pebble Station '
+  id: 202
+  time: '2024-01-11T06:14:27.0000000+00:00'
+- author: Adrian
+  changes:
+    - type: Tweak
+      message: Shoukou has maintenance now in logistics and in security
+  id: 203
+  time: '2024-01-12T22:08:47.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: Added the spare ID safe
+    - type: Remove
+      message: The captain's locker no longer starts with a spare ID card
+  id: 204
+  time: '2024-01-14T23:48:30.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Add
+      message: Added Hammurabi Prison Station. Crime must be punished!
+  id: 205
+  time: '2024-01-17T03:53:36.0000000+00:00'
+- author: Gregg
+  changes:
+    - type: Tweak
+      message: Adjusted the rules in regards to PDA confiscation and borg memory.
+  id: 206
+  time: '2024-01-19T10:30:34.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: Zombies can no longer be psionic
+  id: 207
+  time: '2024-01-19T20:53:05.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Fixes mantis and them not be able to spawn with duffelbags and satchels.
+  id: 208
+  time: '2024-01-19T20:54:29.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Laika no longer takes 200 damage before dying from critical.
+  id: 209
+  time: '2024-01-19T20:57:11.0000000+00:00'
+- author: lleftTheDragon
+  changes: []
+  id: 210
+  time: '2024-01-19T21:06:32.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Tweak
+      message: Enabled gamerule voting on periapsis
+    - type: Tweak
+      message: Enabled map voting on periapsis
+  id: 211
+  time: '2024-01-19T22:33:21.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: Added gridinv, sorry.
+  id: 212
+  time: '2024-01-21T18:58:28.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - type: Tweak
+      message: >-
+        Pride vend has received an adjusted inventory. Make sure to check out
+        the new cloaks available!
+  id: 213
+  time: '2024-01-30T14:22:13.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: Updated Asterisk Station.
+  id: 214
+  time: '2024-01-30T21:09:41.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Tweak
+      message: >-
+        You should be able to exit cryo even after leaving now, meaning it just
+        keeps your body safe?
+  id: 215
+  time: '2024-01-31T07:41:58.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: Prisoners will no longer spawn in cryopods instead of in the brig.
+  id: 216
+  time: '2024-01-31T09:42:57.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Tweak
+      message: Made HCV cocktail less immediately lethal (damnation!!!)
+  id: 217
+  time: '2024-01-31T10:34:16.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Tweak
+      message: Shoukou has received the cryopods.
+  id: 218
+  time: '2024-01-31T15:34:32.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Tweak
+      message: >-
+        Prisoners can now spawn from a special cryopod that can be put in
+        security, instead of magically appearing in a cell.
+  id: 219
+  time: '2024-01-31T22:02:05.0000000+00:00'
