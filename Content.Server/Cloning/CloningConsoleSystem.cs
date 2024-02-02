@@ -43,6 +43,7 @@ namespace Content.Server.Cloning
             SubscribeLocalEvent<CloningConsoleComponent, NewLinkEvent>(OnNewLink);
             SubscribeLocalEvent<CloningConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
             SubscribeLocalEvent<CloningConsoleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+            SubscribeLocalEvent<CloningPodComponent, GotEmaggedEvent>(OnEmagged);
         }
 
         private void OnInit(EntityUid uid, CloningConsoleComponent component, ComponentInit args)
