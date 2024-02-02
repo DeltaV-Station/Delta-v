@@ -1,0 +1,73 @@
+- type: gameMap
+  id: Submarine
+  mapName: 'Submarine'
+  mapPath: /Maps/submarine.yml
+  minPlayers: 35
+  maxPlayers: 100
+  stations:
+    Submarine:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Submarine {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_BC20.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
+          #command
+            Captain: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 3 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 3, 5 ]
+            TechnicalAssistant: [ 2, 4 ]
+          #medical
+            Chemist: [ 1, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 5, 7 ]
+            MedicalIntern: [ 4, 4 ]
+            Paramedic: [ 2, 3 ]
+            Psychologist: [ 1, 2 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 1, 3 ]
+            PrisonGuard: [ 1, 2 ]
+            SecurityOfficer: [ 4, 6 ]
+            SecurityCadet: [ 3, 4 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 3 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 3, 4 ]
+            Clown: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Lawyer: [ 2, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 1, 2 ]
+            ServiceWorker: [ 2, 3 ]
+            Zookeeper: [ 1, 1 ]
+          #science
+            Borg: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 4 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 4 ]
+          #supply
+            CargoTechnician: [ 2, 4 ]
+            MailCarrier: [ 1, 2 ]
+            SalvageSpecialist: [ 2, 4 ]
+            Quartermaster: [ 1, 1 ]
