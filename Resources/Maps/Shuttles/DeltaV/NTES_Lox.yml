@@ -4392,6 +4392,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,-12.5
       parent: 670
+- proto: WarpPoint
+  entities:
+  - uid: 122
+    components:
+    - type: Transform
+      pos: -2.5,2.5
+      parent: 670
+    - type: WarpPoint
+      location: Evac Shuttle
 - proto: WindoorSecureMedicalLocked
   entities:
   - uid: 258
