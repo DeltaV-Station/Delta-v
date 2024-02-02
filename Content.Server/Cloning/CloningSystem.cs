@@ -88,6 +88,7 @@ namespace Content.Server.Cloning
             SubscribeLocalEvent<CloningPodComponent, PortDisconnectedEvent>(OnPortDisconnected);
             SubscribeLocalEvent<CloningPodComponent, AnchorStateChangedEvent>(OnAnchor);
             SubscribeLocalEvent<CloningPodComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<CloningPodComponent, GotEmaggedEvent>(OnEmagged);
         }
 
         private void OnComponentInit(EntityUid uid, CloningPodComponent clonePod, ComponentInit args)
