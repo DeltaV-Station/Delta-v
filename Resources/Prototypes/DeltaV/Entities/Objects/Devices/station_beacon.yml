@@ -95,11 +95,11 @@
 #Surveilance
 - type: entity
   parent: DefaultStationBeaconAI
-  id: DefaultStationBeaconServerRoom
-  suffix: Server Room
+  id: DefaultStationBeaconCameraServerRoom
+  suffix: Camera Servers
   components:
   - type: NavMapBeacon
-    text: station-beacon-server-room
+    text: station-beacon-camera-servers
 
 #General
 - type: entity

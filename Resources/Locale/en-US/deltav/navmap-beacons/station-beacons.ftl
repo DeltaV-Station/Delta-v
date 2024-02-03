@@ -21,7 +21,7 @@ station-beacon-engi-outpost = Engineering Outpost
 station-beacon-janitor-office = Janitor's Office
 station-beacon-reporter-office = Reporter's Office
 
-station-beacon-server-room = Server Room
+station-beacon-camera-servers = Camera Servers
 
 station-beacon-boxing-ring = Boxing Ring
 station-beacon-park = Park
