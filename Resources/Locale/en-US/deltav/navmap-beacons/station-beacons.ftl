@@ -26,3 +26,5 @@ station-beacon-camera-servers = Camera Servers
 station-beacon-boxing-ring = Boxing Ring
 station-beacon-park = Park
 station-beacon-escape-pod = Escape Pod
+
+station-beacon-corpsman = Corpsman's Room

@@ -125,3 +125,12 @@
   components:
   - type: NavMapBeacon
     text: station-beacon-escape-pod
+
+#Security
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconCorpsman
+  suffix: Corpsman's Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-corpsman
