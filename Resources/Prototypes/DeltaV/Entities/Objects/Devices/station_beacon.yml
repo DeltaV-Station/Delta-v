@@ -1,0 +1,127 @@
+#Command
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconConferenceRoom
+  suffix: Conference Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-conference-room
+
+#Medical
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconVirology
+  suffix: Virology
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-virology
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMetempsychosis
+  suffix: Cloning #Metempsychosis
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-metempsychosis #change locale file when metem added
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconExam
+  suffix: Exam Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-exam
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMedicalOutpost
+  suffix: Medical Outpost
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-med-outpost
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconPsychologist
+  suffix: Psychologist's Office
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-psych-office
+
+#Epistemics
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconProberRoom
+  suffix: Glimmer Prober Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-glimmer-prober
+
+#Logistics
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconMailroom
+  suffix: Mailroom
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-mailroom
+
+#Engineering
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconEngineeringOutpost
+  suffix: Engineering Outpost
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-engi-outpost
+
+#Service
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconJanitorsOffice
+  suffix: Janitor's Office
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-janitor-office
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconReportersOffice
+  suffix: Reporter's Office
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-reporter-office
+
+#Surveilance
+- type: entity
+  parent: DefaultStationBeaconAI
+  id: DefaultStationBeaconServerRoom
+  suffix: Server Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-server-room
+
+#General
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconBoxing
+  suffix: Boxing Ring
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-boxing-ring
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconPark
+  suffix: Park
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-park
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconEscapePod
+  suffix: Escape Pod
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-escape-pod

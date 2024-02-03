@@ -219,7 +219,7 @@
     text: station-beacon-courtroom
 
 - type: entity
-  parent: DefaultStationBeaconSecurity
+  parent: DefaultStationBeaconService #Delta V - Lawer is Service until Justice Dept is a thing
   id: DefaultStationBeaconLawOffice
   suffix: Law Office
   components:
@@ -294,10 +294,10 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
-  suffix: Science
+  suffix: Epistemics #Delta V - Renamed
   components:
   - type: NavMapBeacon
-    text: station-beacon-science
+    text: station-beacon-epistemics #Delta V - Renamed
     color: "#D381C9"
 
 - type: entity
@@ -351,19 +351,19 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconSupply
-  suffix: Supply
+  suffix: Logistics #Delta V - Renamed
   components:
   - type: NavMapBeacon
-    text: station-beacon-supply
+    text: station-beacon-logistics #Delta V - Renamed
     color: "#A46106"
 
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconCargoReception
-  suffix: Cargo Reception
+  suffix: Logistics Reception #Delta V - Renamed
   components:
   - type: NavMapBeacon
-    text: station-beacon-cargo
+    text: station-beacon-logistics-reception #Delta V - Renamed
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -376,10 +376,10 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconQMRoom
-  suffix: QM's Room
+  suffix: LO's Room #Delta V - Renamed
   components:
   - type: NavMapBeacon
-    text: station-beacon-qm
+    text: station-beacon-lo #Delta V - Renamed
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -569,7 +569,7 @@
     text: station-beacon-eva-storage
 
 - type: entity
-  parent: DefaultStationBeacon
+  parent: DefaultStationBeaconScience #Delta V - Chapel in Epi
   id: DefaultStationBeaconChapel
   suffix: Chapel
   components:
