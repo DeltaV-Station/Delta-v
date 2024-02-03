@@ -40373,6 +40373,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -30.5,20.5
       parent: 2
+- proto: CryogenicSleepUnitSpawnerPrisoner
+  entities:
+  - uid: 17467
+    components:
+    - type: Transform
+      pos: -54.5,1.5
+      parent: 2
 - proto: CryoPod
   entities:
   - uid: 6282
