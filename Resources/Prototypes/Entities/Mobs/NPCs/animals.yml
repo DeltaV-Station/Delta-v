@@ -536,6 +536,8 @@
     prototype: Mothroach
   - type: TypingIndicator
     proto: moth
+  - type: Puller
+    needsHands: true
   - type: Destructible
     thresholds:
     - trigger:
