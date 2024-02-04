@@ -43,19 +43,27 @@
 - type: entity
   parent: DefaultStationBeaconMedical
   id: DefaultStationBeaconPsychologist
-  suffix: Psychologist's Office
+  suffix: Psychologist
   components:
   - type: NavMapBeacon
-    text: station-beacon-psych-office
+    text: station-beacon-psych
 
 #Epistemics
 - type: entity
   parent: DefaultStationBeaconScience
-  id: DefaultStationBeaconProberRoom
-  suffix: Glimmer Prober Room
+  id: DefaultStationBeaconProber
+  suffix: Glimmer Prober
   components:
   - type: NavMapBeacon
     text: station-beacon-glimmer-prober
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconMantis
+  suffix: Forensic Mantis
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-forensic-mantis
 
 #Logistics
 - type: entity
@@ -69,8 +77,8 @@
 #Engineering
 - type: entity
   parent: DefaultStationBeaconEngineering
-  id: DefaultStationBeaconEngineeringOutpost
-  suffix: Engineering Outpost
+  id: DefaultStationBeaconEngiOutpost
+  suffix: Engi Outpost
   components:
   - type: NavMapBeacon
     text: station-beacon-engi-outpost
@@ -86,11 +94,11 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconReportersOffice
-  suffix: Reporter's Office
+  id: DefaultStationBeaconReporter
+  suffix: Reporter
   components:
   - type: NavMapBeacon
-    text: station-beacon-reporter-office
+    text: station-beacon-reporter
 
 #Surveilance
 - type: entity
@@ -130,7 +138,7 @@
 - type: entity
   parent: DefaultStationBeaconSecurity
   id: DefaultStationBeaconCorpsman
-  suffix: Corpsman's Room
+  suffix: Corpsman
   components:
   - type: NavMapBeacon
     text: station-beacon-corpsman
