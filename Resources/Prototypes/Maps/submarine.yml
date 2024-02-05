@@ -2,7 +2,7 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/submarine.yml
-  minPlayers: 40
+  minPlayers: 50
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation
@@ -31,7 +31,7 @@
           #medical
             Chemist: [ 2, 2 ]
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 6, 9 ] 
+            MedicalDoctor: [ 6, 9 ]
             MedicalIntern: [ 4, 4 ]
             Paramedic: [ 2, 3 ]
             Psychologist: [ 1, 2 ]
