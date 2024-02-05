@@ -368,4 +368,21 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
+        
+- type: entity
+  name: cap gun box set
+  description: A box filled with fun, harmless cap guns that are sure to keep security entertained and the air smelling of sulfur.
+  id: CrateCapGunSet
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: RevolverCapGun
+        amount: 1
+      - id: BaseSpeedLoaderCap
+        amount: 2
+      - id: BoxCartridgeCap
+        amount: 2
+  
+
 
