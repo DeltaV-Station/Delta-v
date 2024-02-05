@@ -4994,6 +4994,52 @@ entities:
     - type: Transform
       pos: -13.5,-32.5
       parent: 1
+- proto: CrateFreezer
+  entities:
+  - uid: 608
+    components:
+    - type: Transform
+      pos: -5.5,-26.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 609
+          - 610
+          - 611
+          - 612
+          - 613
+          - 614
+          - 615
+          - 616
+          - 1354
+          - 1539
+          - 1924
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: CrowbarRed
   entities:
   - uid: 80
@@ -5705,73 +5751,100 @@ entities:
       parent: 1
 - proto: FoodDough
   entities:
+  - uid: 285
+    components:
+    - type: Transform
+      pos: -5.642726,-27.30953
+      parent: 1
   - uid: 605
     components:
     - type: Transform
-      pos: -5.580912,-26.589458
+      pos: -5.642726,-27.30953
       parent: 1
-  - uid: 2024
-    components:
-    - type: Transform
-      pos: -5.5976076,-26.57262
-      parent: 1
-  - uid: 2025
-    components:
-    - type: Transform
-      pos: -5.5976076,-26.57262
-      parent: 1
-- proto: FoodMeat
-  entities:
   - uid: 607
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
+      pos: -5.642726,-27.30953
       parent: 1
-  - uid: 608
-    components:
-    - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+- proto: FoodMeat
+  entities:
   - uid: 609
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 610
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 611
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 612
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 613
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 614
     components:
     - type: Transform
-      pos: -5.653828,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 615
     components:
     - type: Transform
-      pos: -5.664245,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 616
     components:
     - type: Transform
-      pos: -5.664245,-27.068958
-      parent: 1
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1354
+    components:
+    - type: Transform
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1539
+    components:
+    - type: Transform
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1924
+    components:
+    - type: Transform
+      parent: 608
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: GasFilterFlipped
   entities:
   - uid: 850
@@ -10801,11 +10874,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-28.5
-      parent: 1
-  - uid: 285
-    components:
-    - type: Transform
-      pos: -5.5,-26.5
       parent: 1
   - uid: 286
     components:
