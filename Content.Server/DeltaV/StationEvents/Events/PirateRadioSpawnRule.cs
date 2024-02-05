@@ -45,8 +45,8 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         //DistanceModifier allows for fine tuning of how large this area is.
         //The initial target distance(for DistanceModifier = 20f) is between 1km and 1.5km of the station.
         //But with the way NextVector2 works, it can be less than that
-        //Do not for any reason set DistanceModifier greater than 25f or less than 1f. 
-        var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * component.DistanceModifier;
+        var distanceModifier = Math.Clamp(component.DistanceModifier, 1, 25);
+        var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * distanceModifier;
         var randomoffset = _random.NextVector2(a, a * 2.5f);
         var outpostOptions = new MapLoadOptions
         {
@@ -54,12 +54,9 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
             LoadMap = false,
         };
         //Now spawn the Listening Outpost
-        _map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out var outpostids, outpostOptions);
+        if (!_map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out var outpostids, outpostOptions)) return;
 
         //Now we generate the outpost's debris field
-        if (outpostids == null) return;
-        //Yes, this is a loop within a loop. Actually, foreach is just here to convert an array into a variable.
-        //For whatever ungodly reason, Outpostids is an array of gridUids, even though it can only ever contain a single gridUid. 
         foreach (var id in outpostids)
         {
             if (!TryComp<MapGridComponent>(id, out var grid)) return;
