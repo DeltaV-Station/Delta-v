@@ -376,7 +376,6 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
 - proto: AirAlarm
   entities:
@@ -9446,6 +9445,15 @@ entities:
     - type: Transform
       pos: 8.5,0.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 1487
+    components:
+    - type: Transform
+      pos: 0.5,-2.5
+      parent: 1
+    - type: WarpPoint
+      location: Evac Shuttle
 - proto: WaterTankFull
   entities:
   - uid: 733

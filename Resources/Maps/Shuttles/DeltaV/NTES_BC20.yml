@@ -554,7 +554,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
 - proto: AirlockAtmosphericsGlassLocked
   entities:
@@ -2481,6 +2480,26 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-16.5
+      parent: 1
+  - uid: 2085
+    components:
+    - type: Transform
+      pos: -8.5,-33.5
+      parent: 1
+  - uid: 2086
+    components:
+    - type: Transform
+      pos: 5.5,-33.5
+      parent: 1
+  - uid: 2087
+    components:
+    - type: Transform
+      pos: 6.5,-33.5
+      parent: 1
+  - uid: 2088
+    components:
+    - type: Transform
+      pos: -7.5,-33.5
       parent: 1
 - proto: CableMV
   entities:
@@ -4790,15 +4809,15 @@ entities:
       parent: 1
 - proto: ClosetToolFilled
   entities:
-  - uid: 418
+  - uid: 2089
     components:
     - type: Transform
-      pos: 7.5,-39.5
+      pos: 11.5,-38.5
       parent: 1
-  - uid: 1369
+  - uid: 2090
     components:
     - type: Transform
-      pos: -9.5,-39.5
+      pos: -13.5,-38.5
       parent: 1
 - proto: ClosetWallEmergency
   entities:
@@ -9276,6 +9295,18 @@ entities:
     - type: Transform
       pos: -10.476601,-28.44223
       parent: 1
+- proto: PortableGeneratorSuperPacman
+  entities:
+  - uid: 418
+    components:
+    - type: Transform
+      pos: -9.5,-39.5
+      parent: 1
+  - uid: 1369
+    components:
+    - type: Transform
+      pos: 7.5,-39.5
+      parent: 1
 - proto: PortableGeneratorSuperPacmanMachineCircuitboard
   entities:
   - uid: 932
@@ -9532,14 +9563,6 @@ entities:
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 1354
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-21.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 0
   - uid: 1358
     components:
     - type: Transform
@@ -9553,14 +9576,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,-27.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 0
-  - uid: 1539
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,-40.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
@@ -9593,14 +9608,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-27.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 0
-  - uid: 1924
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,-40.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
@@ -12609,6 +12616,15 @@ entities:
     - type: Transform
       pos: 0.5,-35.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 2084
+    components:
+    - type: Transform
+      pos: -1.5,-12.5
+      parent: 1
+    - type: WarpPoint
+      location: Evac Shuttle
 - proto: WaterTankHighCapacity
   entities:
   - uid: 2040
