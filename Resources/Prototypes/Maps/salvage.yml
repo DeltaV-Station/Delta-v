@@ -2,136 +2,255 @@
 
 # "Small"-class maps - Max size square: 7x7, indicated size: 3.5
 
-- type: salvageMap
-  id: Small1
-  mapPath: /Maps/Salvage/small-1.yml
+# Delta V: Remove small maps
+#- type: salvageMap
+#  id: Small1
+#  mapPath: /Maps/Salvage/small-1.yml
 
-- type: salvageMap
-  id: Small2
-  mapPath: /Maps/Salvage/small-2.yml
+#- type: salvageMap
+#  id: Small2
+#  mapPath: /Maps/Salvage/small-2.yml
 
-- type: salvageMap
-  id: SmallShip1
-  mapPath: /Maps/Salvage/small-ship-1.yml
+#- type: salvageMap
+#  id: Small-ship-1
+#  mapPath: /Maps/Salvage/small-ship-1.yml
 
-- type: salvageMap
-  id: Small3
-  mapPath: /Maps/Salvage/small-3.yml
+#- type: salvageMap
+#  id: Small3
+#  mapPath: /Maps/Salvage/small-3.yml
 
-- type: salvageMap
-  id: SmallAISurveyDrone
-  mapPath: /Maps/Salvage/small-ai-survey-drone.yml
+#- type: salvageMap
+#  id: SmallAISurveyDrone
+#  mapPath: /Maps/Salvage/small-ai-survey-drone.yml
 
-- type: salvageMap
-  id: Small4
-  mapPath: /Maps/Salvage/small-4.yml
+#- type: salvageMap
+#  id: Small4
+#  mapPath: /Maps/Salvage/small-4.yml
 
-- type: salvageMap
-  id: SmallCargo
-  mapPath: /Maps/Salvage/small-cargo.yml
+#- type: salvageMap
+#  id: SmallCargo
+#  mapPath: /Maps/Salvage/small-cargo.yml
 
-- type: salvageMap
-  id: SmallChapel
-  mapPath: /Maps/Salvage/small-chapel.yml
+#- type: salvageMap
+#  id: SmallChapel
+#  mapPath: /Maps/Salvage/small-chapel.yml
 
-- type: salvageMap
-  id: SmallChef
-  mapPath: /Maps/Salvage/small-chef.yml
+#- type: salvageMap
+#  id: SmallChef
+# mapPath: /Maps/Salvage/small-chef.yml
 
-- type: salvageMap
-  id: SmallParty
-  mapPath: /Maps/Salvage/small-party.yml
+#- type: salvageMap
+#  id: SmallParty
+#  mapPath: /Maps/Salvage/small-party.yml
 
-- type: salvageMap
-  id: SmallSyndicate
-  mapPath: /Maps/Salvage/small-syndicate.yml
+#- type: salvageMap
+#  id: SmallSyndicate
+#  mapPath: /Maps/Salvage/small-syndicate.yml
 
-#- type: salvageMap # DeltaV - No Tesla
+#- type: salvageMap
 #  id: SmallTesla
 #  mapPath: /Maps/Salvage/small-tesla.yml
 
 # Small - Asteroids
 
-- type: salvageMap
-  id: SmallA1
-  mapPath: /Maps/Salvage/small-a-1.yml
+#- type: salvageMap
+#  id: SmallA1
+#  name: "Small / Asteroid 1 Plasmafire"
+#  mapPath: /Maps/Salvage/small-a-1.yml
 
 # "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
 
 - type: salvageMap
   id: Medium1
-  mapPath: /Maps/Salvage/medium-1.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-medium-01.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumVault1
-  mapPath: /Maps/Salvage/medium-vault-1.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-vault-01.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumOrchestra
-  mapPath: /Maps/Salvage/medium-silent-orchestra.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-silent-orchestra.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumLibraryWreck
-  mapPath: /Maps/Salvage/medium-library.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-library.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumCargoWreck
-  mapPath: /Maps/Salvage/cargo-1.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-cargo-01.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumPirateWreck
-  mapPath: /Maps/Salvage/medium-pirate.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-pirate.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: TickColony
-  mapPath: /Maps/Salvage/tick-colony.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-tick-colony.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: CargoDock
-  mapPath: /Maps/Salvage/medium-dock.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-dock.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: SpaceWaffleHome
-  mapPath: /Maps/Salvage/wh-salvage.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-wh-salvage.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumShuttleWreck
-  mapPath: /Maps/Salvage/medium-ruined-emergency-shuttle.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-ruined-emergency-shuttle.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
-  id: MediumPetHospital
-  mapPath: /Maps/Salvage/medium-pet-hospital.yml
+  id: mediumPetHospital
+  mapPath: /Maps/Salvage/DeltaV/DV-med-pet-hospital.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: MediumCrashedShuttle
-  mapPath: /Maps/Salvage/medium-crashed-shuttle.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-med-crashed-shuttle.yml #DeltaV: DV salvage map Location
 
-#- type: salvageMap
-#  id: Meatball
-#  mapPath: /Maps/Salvage/meatball.yml
+- type: salvageMap
+  id: Meatball
+  mapPath: /Maps/Salvage/DeltaV/DV-meatball.yml
 
 - type: salvageMap
   id: MediumHaulingShuttleWreck
-  mapPath: /Maps/Salvage/hauling-shuttle.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-hauling-shuttle.yml
 
 # """Large""" maps
 
 - type: salvageMap
   id: StationStation
-  mapPath: /Maps/Salvage/stationstation.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-stationstation.yml
 
 - type: salvageMap
   id: AsteroidBase
-  mapPath: /Maps/Salvage/asteroid-base.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-base.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: RuinCargoBase
-  mapPath: /Maps/Salvage/ruin-cargo-salvage.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-ruin-cargo-salvage.yml #DeltaV: DV salvage map Location
 
 - type: salvageMap
   id: SecurityChunk
-  mapPath: /Maps/Salvage/security-chunk.yml
+  mapPath: /Maps/Salvage/DeltaV/DV-security-chunk.yml #DeltaV: DV salvage map Location
+
+  #Nyano Maps
+  #Medium
 
 - type: salvageMap
-  id: EngineeringChunk
-  mapPath: /Maps/Salvage/engineering-chunk.yml
+  id: AnimalFarm
+  mapPath: /Maps/Salvage/DeltaV/DV-animalfarm.yml
+
+- type: salvageMap
+  id: MediumChunk01
+  mapPath: /Maps/Salvage/DeltaV/DV-med-chunk-01.yml
+
+- type: salvageMap
+  id: MediumMiningOutpost01
+  mapPath: /Maps/Salvage/DeltaV/DV-mining-outpost-01.yml
+
+- type: salvageMap
+  id: AtlasPerma
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-perma.yml
+
+- type: salvageMap
+  id: AtlasCells
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-jailcells.yml
+
+- type: salvageMap
+  id: AtlasSalvage
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-salvage.yml
+
+- type: salvageMap
+  id: AtlasAtmos
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-atmos.yml
+
+- type: salvageMap
+  id: AtlasCargo
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-cargo.yml
+
+- type: salvageMap
+  id: ServiceChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-med-service-chunk-01.yml
+
+# Large
+- type: salvageMap
+  id: ResearchPost
+  mapPath: /Maps/Salvage/DeltaV/DV-research-outpost-01.yml
+
+- type: salvageMap
+  id: LargeEngineerChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-large-engineer-chunk.yml
+
+- type: salvageMap
+  id: AtlasConferenceRoom
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-conference-room.yml
+
+- type: salvageMap
+  id: AtlasDorms
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-dorms.yml
+
+- type: salvageMap
+  id: AtlasEpistemics
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-epi.yml
+
+- type: salvageMap
+  id: AtlasMedbay
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-medical.yml
+
+- type: salvageMap
+  id: AtlasService
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-salvage.yml
+
+# Asteroids 30x30
+
+- type: salvageMap
+  id: LargeAsteroid_1
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-01.yml
+
+- type: salvageMap
+  id: LargeAsteroid_2
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-02.yml
+
+- type: salvageMap
+  id: LargeAsteroid_3
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-03.yml
+
+#Delta V Maps
+#Medium
+
+- type: salvageMap
+  id: AsteroidSyndiHideout
+  mapPath: /Maps/Salvage/DeltaV/DV-syndi-hideout.yml
+
+#Large
+
+- type: salvageMap
+  id: AsteroidChemlab
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-mining-chemlab.yml
+
+- type: salvageMap
+  id: LaundromatChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-laundromat-chunk.yml
+
+# Asteroids
+
+- type: salvageMap
+  id: AsteroidTickNest
+  mapPath: /Maps/Salvage/DeltaV/DV-tick-nest.yml
+
+- type: salvageMap
+  id: AsteroidMiningMed1
+  mapPath: /Maps/Salvage/DeltaV/DV-large-asteroid-mining-01.yml
+
+- type: salvageMap
+  id: AsteroidMiningLarge1
+  mapPath: /Maps/Salvage/DeltaV/DV-med-asteroid-mining-01.yml
+
+- type: salvageMap
+  id: AsteroidCrystalCave
+  mapPath: /Maps/Salvage/DeltaV/DV-crystal-cave.yml
+
+- type: salvageMap
+  id: AsteroidBoneCave
+  mapPath: /Maps/Salvage/DeltaV/DV-bone-cave.yml
