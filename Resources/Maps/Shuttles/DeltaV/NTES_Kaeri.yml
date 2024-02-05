@@ -234,7 +234,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
 - proto: AirCanister
   entities:
@@ -4070,6 +4069,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-14.5
       parent: 617
+- proto: WarpPoint
+  entities:
+  - uid: 660
+    components:
+    - type: Transform
+      pos: -0.5,4.5
+      parent: 617
+    - type: WarpPoint
+      location: Evac Shuttle
 - proto: WindoorSecureSecurityLocked
   entities:
   - uid: 631
