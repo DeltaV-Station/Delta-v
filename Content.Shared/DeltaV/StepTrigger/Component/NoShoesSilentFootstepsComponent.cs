@@ -4,6 +4,6 @@ namespace Content.Shared.StepTrigger.Components;
 
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class SoftPawsComponent : Component
+public sealed partial class NoShoesSilentFootstepsComponent : Component
 {
 }

@@ -447,7 +447,7 @@ namespace Content.Shared.Movement.Systems
             }
             
             // If soft paws and no shoes, no sound. Delta V
-            if (_entities.TryGetComponent(uid, out SoftPawsComponent? _) &
+            if (_entities.TryGetComponent(uid, out NoShoesSilentFootstepsComponent? _) &
                 !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
             {
                 return false;
