@@ -41,3 +41,23 @@
     damage:
       types:
         Blunt: 9.5
+
+- type: entity  #Delta-V heavy duty chemistry gloves
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesChemist
+  name: heavy chemical resistant gloves
+  description: Perfect for dealing with chemicals that wants your skin to melt away.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Hands/Gloves/hvchemresgloves.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Hands/Gloves/hvchemresgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-black
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 1.05
+  - type: TemperatureProtection
+    coefficient: 1
