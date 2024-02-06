@@ -9,6 +9,7 @@ action-description-metapsionic = Send a mental pulse through the area to see if 
 metapsionic-pulse-success = You detect psychic presence nearby.
 metapsionic-pulse-failure = You don't detect any psychic presence nearby.
 metapsionic-pulse-power = You detect that {$power} was used nearby.
+metapsionic-pulse-mindswapped = You detect that someone is mindswapped
 
 action-name-dispel = Dispel
 action-description-dispel = Dispel summoned entities such as familiars or forcewalls.

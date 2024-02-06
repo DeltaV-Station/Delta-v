@@ -54,7 +54,13 @@ namespace Content.Server.Abilities.Psionics
         }
 
         private void OnPowerUsed(EntityUid uid, MetapsionicPowerComponent component, MetapsionicPowerActionEvent args)
-        {
+        {   
+            if (HasComp<MindSwappedComponent>(entity))
+            
+                _popups.PopupEntity(Loc.GetString("metapsionic-pulse-mindswapped"), uid, uid, PopupType.LargeCaution);
+                args.Handled = true;
+                return;
+            
             foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
             {
                 if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity) &&
@@ -63,6 +69,13 @@ namespace Content.Server.Abilities.Psionics
                     _popups.PopupEntity(Loc.GetString("metapsionic-pulse-success"), uid, uid, PopupType.LargeCaution);
                     args.Handled = true;
                     return;
+                }
+
+                if (HasComp<MindSwappedComponent>(entity) && entity != uid)
+                {
+                _popups.PopupEntity(Loc.GetString("metapsionic-pulse-mindswapped"), uid, uid, PopupType.LargeCaution);
+                args.Handled = true;
+                return;
                 }
             }
             _popups.PopupEntity(Loc.GetString("metapsionic-pulse-failure"), uid, uid, PopupType.Large);
