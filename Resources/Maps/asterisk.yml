@@ -461,8 +461,8 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileWhiteLineN
           decals:
-            1234: -15,-24
-            1235: -14,-24
+            1230: -15,-24
+            1231: -14,-24
         - node:
             color: '#FFFFFFFF'
             id: Caution
@@ -717,8 +717,8 @@ entities:
           decals:
             55: 29,-10
             56: 30,-10
-            1236: -15,-23
-            1237: -15,-22
+            1232: -15,-23
+            1233: -15,-22
         - node:
             color: '#FFFFFFFF'
             id: DeliveryGreyscale
@@ -3244,6 +3244,18 @@ entities:
       parent: 2
 - proto: AirAlarm
   entities:
+  - uid: 2045
+    components:
+    - type: MetaData
+      name: burn chamber air alarm
+    - type: Transform
+      pos: 30.5,17.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2046
+    - type: AtmosDevice
+      joinedGrid: 2
   - uid: 2603
     components:
     - type: Transform
@@ -6078,6 +6090,16 @@ entities:
       parent: 2
 - proto: AirSensor
   entities:
+  - uid: 2046
+    components:
+    - type: Transform
+      pos: 29.5,18.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 2045
+    - type: AtmosDevice
+      joinedGrid: 2
   - uid: 7127
     components:
     - type: Transform
@@ -6193,7 +6215,7 @@ entities:
   - uid: 4782
     components:
     - type: MetaData
-      name: APC  (Medical, North)
+      name: APC (Medical, North)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,-15.5
@@ -7376,7 +7398,7 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       links:
-      - 2087
+      - 11173
   - uid: 2026
     components:
     - type: Transform
@@ -7384,7 +7406,7 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       links:
-      - 2087
+      - 11173
   - uid: 8034
     components:
     - type: Transform
@@ -7392,7 +7414,7 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       links:
-      - 2087
+      - 11173
   - uid: 10156
     components:
     - type: Transform
@@ -7400,7 +7422,7 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       links:
-      - 2087
+      - 11173
 - proto: BlockGameArcade
   entities:
   - uid: 10063
@@ -7795,6 +7817,11 @@ entities:
     - type: Transform
       pos: -25.5,0.5
       parent: 2
+  - uid: 2063
+    components:
+    - type: Transform
+      pos: 31.5,18.5
+      parent: 2
   - uid: 2068
     components:
     - type: Transform
@@ -7814,6 +7841,11 @@ entities:
     components:
     - type: Transform
       pos: 25.5,22.5
+      parent: 2
+  - uid: 2087
+    components:
+    - type: Transform
+      pos: 29.5,22.5
       parent: 2
   - uid: 3796
     components:
@@ -31536,15 +31568,6 @@ entities:
       joinedGrid: 2
     - type: AtmosPipeColor
       color: '#FFAA00FF'
-  - uid: 2030
-    components:
-    - type: Transform
-      pos: 26.5,20.5
-      parent: 2
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
   - uid: 2847
     components:
     - type: Transform
@@ -31665,6 +31688,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
+  - uid: 1959
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,20.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
   - uid: 1960
     components:
     - type: Transform
@@ -31689,6 +31720,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#00AAFFFF'
+  - uid: 2018
+    components:
+    - type: Transform
+      pos: 28.5,20.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
   - uid: 2036
     components:
     - type: Transform
@@ -31697,26 +31735,11 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
-  - uid: 2042
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 28.5,20.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2043
-    components:
-    - type: Transform
-      pos: 29.5,20.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2044
+  - uid: 2040
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 29.5,18.5
+      pos: 26.5,15.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
@@ -32860,6 +32883,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
+  - uid: 2031
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 26.5,16.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
   - uid: 2032
     components:
     - type: Transform
@@ -32867,20 +32898,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
-  - uid: 2033
-    components:
-    - type: Transform
-      pos: 26.5,19.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2034
-    components:
-    - type: Transform
-      pos: 26.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
   - uid: 2035
     components:
     - type: Transform
@@ -32888,11 +32905,34 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
-  - uid: 2046
+  - uid: 2037
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 27.5,15.5
+      rot: 3.141592653589793 rad
+      pos: 28.5,15.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
+  - uid: 2041
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,20.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
+  - uid: 2042
+    components:
+    - type: Transform
+      pos: 19.5,16.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#00AAFFFF'
+  - uid: 2043
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,16.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
@@ -42485,30 +42525,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#00AAFFFF'
-  - uid: 2031
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 28.5,15.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2041
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 28.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2045
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,15.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
   - uid: 2047
     components:
     - type: Transform
@@ -44636,6 +44652,8 @@ entities:
     - type: Transform
       pos: 21.5,13.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#00AAFFFF'
     - type: AtmosDevice
       joinedGrid: 2
 - proto: GasThermoMachineFreezerEnabled
@@ -44679,6 +44697,8 @@ entities:
     - type: Transform
       pos: 27.5,13.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
     - type: AtmosDevice
       joinedGrid: 2
 - proto: GasValve
@@ -44703,26 +44723,6 @@ entities:
       joinedGrid: 2
     - type: AtmosPipeColor
       color: '#00AAFFFF'
-  - uid: 2037
-    components:
-    - type: Transform
-      pos: 26.5,16.5
-      parent: 2
-    - type: GasValve
-      open: False
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
-  - uid: 2038
-    components:
-    - type: Transform
-      pos: 28.5,16.5
-      parent: 2
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#FF6600FF'
   - uid: 2052
     components:
     - type: Transform
@@ -47329,15 +47329,6 @@ entities:
       joinedGrid: 2
     - type: AtmosPipeColor
       color: '#00AAFFFF'
-  - uid: 1959
-    components:
-    - type: Transform
-      pos: 19.5,16.5
-      parent: 2
-    - type: AtmosDevice
-      joinedGrid: 2
-    - type: AtmosPipeColor
-      color: '#00AAFFFF'
   - uid: 1995
     components:
     - type: Transform
@@ -48331,11 +48322,6 @@ entities:
     - type: Transform
       pos: 19.5,17.5
       parent: 2
-  - uid: 1985
-    components:
-    - type: Transform
-      pos: 25.5,18.5
-      parent: 2
   - uid: 1988
     components:
     - type: Transform
@@ -48355,6 +48341,11 @@ entities:
     components:
     - type: Transform
       pos: 26.5,17.5
+      parent: 2
+  - uid: 2020
+    components:
+    - type: Transform
+      pos: 25.5,18.5
       parent: 2
   - uid: 2023
     components:
@@ -49687,6 +49678,24 @@ entities:
       joinedGrid: 2
     - type: AtmosPipeColor
       color: '#00AAFFFF'
+  - uid: 2033
+    components:
+    - type: Transform
+      pos: 26.5,19.5
+      parent: 2
+    - type: AtmosDevice
+      joinedGrid: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
+  - uid: 2034
+    components:
+    - type: Transform
+      pos: 28.5,18.5
+      parent: 2
+    - type: AtmosDevice
+      joinedGrid: 2
+    - type: AtmosPipeColor
+      color: '#FF6600FF'
   - uid: 2039
     components:
     - type: Transform
@@ -49696,10 +49705,10 @@ entities:
       joinedGrid: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
-  - uid: 2040
+  - uid: 2044
     components:
     - type: Transform
-      pos: 29.5,19.5
+      pos: 26.5,18.5
       parent: 2
     - type: AtmosDevice
       joinedGrid: 2
@@ -49876,14 +49885,14 @@ entities:
       parent: 2
 - proto: Igniter
   entities:
-  - uid: 2063
+  - uid: 2030
     components:
     - type: Transform
-      pos: 27.557285,20.384415
+      pos: 29.359453,19.449102
       parent: 2
     - type: DeviceLinkSink
       links:
-      - 2018
+      - 2038
 - proto: IngotSilver
   entities:
   - uid: 2120
@@ -55167,15 +55176,20 @@ entities:
     - type: Transform
       pos: -44.5,10.5
       parent: 2
+  - uid: 1985
+    components:
+    - type: Transform
+      pos: 25.5,19.5
+      parent: 2
   - uid: 2004
     components:
     - type: Transform
-      pos: 26.5,17.5
+      pos: 27.5,17.5
       parent: 2
   - uid: 2005
     components:
     - type: Transform
-      pos: 27.5,17.5
+      pos: 26.5,17.5
       parent: 2
   - uid: 2006
     components:
@@ -55186,11 +55200,6 @@ entities:
     components:
     - type: Transform
       pos: 25.5,18.5
-      parent: 2
-  - uid: 2020
-    components:
-    - type: Transform
-      pos: 25.5,19.5
       parent: 2
   - uid: 2021
     components:
@@ -56765,7 +56774,7 @@ entities:
       - 2116
 - proto: SignalButtonDirectional
   entities:
-  - uid: 2018
+  - uid: 2038
     components:
     - type: MetaData
       name: igniter button
@@ -56774,7 +56783,7 @@ entities:
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        2063:
+        2030:
         - Pressed: Trigger
 - proto: SignalSwitchDirectional
   entities:
@@ -56961,27 +56970,6 @@ entities:
         1886:
         - On: Close
         - Off: Open
-  - uid: 2087
-    components:
-    - type: MetaData
-      name: blast door switch
-    - type: Transform
-      pos: 30.5,17.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        2026:
-        - On: Open
-        - Off: Close
-        2025:
-        - On: Open
-        - Off: Close
-        8034:
-        - On: Open
-        - Off: Close
-        10156:
-        - On: Open
-        - Off: Close
   - uid: 2116
     components:
     - type: Transform
@@ -61851,6 +61839,31 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
+  - uid: 11173
+    components:
+    - type: MetaData
+      name: blast door lever
+    - type: Transform
+      pos: 29.5,16.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        8034:
+        - Left: Open
+        - Right: Open
+        - Middle: Close
+        2026:
+        - Left: Open
+        - Right: Open
+        - Middle: Close
+        2025:
+        - Left: Open
+        - Right: Open
+        - Middle: Close
+        10156:
+        - Left: Open
+        - Right: Open
+        - Middle: Close
 - proto: UniformPrinter
   entities:
   - uid: 2318
