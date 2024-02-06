@@ -1,0 +1,14 @@
+- type: entity #Delta-V safety glasses
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesChemist
+  name: safety glasses
+  description: Glasses made for chemists and other workers dealing around reagents.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Glasses/safetyglasses.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Glasses/safetyglasses.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
