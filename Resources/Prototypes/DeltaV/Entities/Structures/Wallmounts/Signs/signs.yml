@@ -17,3 +17,23 @@
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/signs.rsi
     state: direction_mail
+
+- type: entity
+  parent: BaseSign
+  id: SignLaundromat
+  name: laundromat sign
+  description: A sign indicating the laundromat.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: laundromat
+
+- type: entity
+  parent: BaseSign
+  id: SignBarbershop
+  name: barbershop sign
+  description: A sign indicating the barbershop.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: barbershop
