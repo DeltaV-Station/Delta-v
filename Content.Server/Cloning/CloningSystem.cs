@@ -181,11 +181,10 @@ namespace Content.Server.Cloning
 
             // Begin Nyano-code: allow paradox anomalies to be cloned.
             var pref = humanoid.LastProfileLoaded;
-            // End Nyano-code.
 
             if (pref == null)
                 return false;
-
+            // End Nyano-code
             if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
                 return false;
 
@@ -393,9 +392,7 @@ namespace Content.Server.Cloning
                     sexes = newSpecies.Sexes;
 
                     if (speciesPrototype.ID != newSpecies.ID)
-                    {
                         switchingSpecies = true;
-                    }
 
                     speciesPrototype = newSpecies;
                 }
