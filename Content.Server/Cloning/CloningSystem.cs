@@ -45,6 +45,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Nyanotrasen.Cloning;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization; //DeltaV End Metem Usings
+using Content.Server.EntityList;
 
 namespace Content.Server.Cloning
 {
@@ -265,7 +266,7 @@ namespace Content.Server.Cloning
 
             AddComp<ActiveCloningPodComponent>(uid);
 
-            // TODO: Ideally, components like this should be on a mind entity so this isn't neccesary.
+            // TODO: Ideally, components like this should be components on the mind entity so this isn't necessary.
             // Add on special job components to the mob.
             if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
             {
@@ -384,7 +385,7 @@ namespace Content.Server.Cloning
 
             if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
             {
-                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, karmaBonus, speciesPrototype, out var newSpecies, oldKarma?.Score, metem);
+                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, karmaBonus, metem, speciesPrototype, out var newSpecies, oldKarma?.Score);
                 applyKarma = true;
 
                 if (newSpecies != null)

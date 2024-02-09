@@ -17,12 +17,6 @@ namespace Content.Server.Medical.Components
         public float CloningFailChanceMultiplier = 1f;
         
         // Nyano, needed for Metem Machine.
-        public float MetemKarmaBonus = 0.25f; 
-
-        [DataField("machinePartCloningFailChance", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartCloningFailChance = "Capacitor";
-
-        [DataField("partRatingCloningFailChanceMultiplier")]
-        public float PartRatingFailMultiplier = 0.75f;
+        public float MetemKarmaBonus = 0.25f;
     }
 }
