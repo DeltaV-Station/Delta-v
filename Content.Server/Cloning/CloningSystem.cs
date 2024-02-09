@@ -46,6 +46,9 @@ using Content.Server.Nyanotrasen.Cloning;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization; //DeltaV End Metem Usings
 using Content.Server.EntityList;
+using Content.Shared.SSDIndicator;
+using Content.Shared.Damage.ForceSay;
+using Content.Server.Polymorph.Components;
 
 namespace Content.Server.Cloning
 {
@@ -436,7 +439,10 @@ namespace Content.Server.Cloning
 
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
+            EnsureComp<DamageForceSayComponent>(mob);
             EnsureComp<EmotingComponent>(mob);
+            EnsureComp<MindContainerComponent>(mob);
+            EnsureComp<SSDIndicatorComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
             RemComp<MonkeyAccentComponent>(mob);
             RemComp<SentienceTargetComponent>(mob);
