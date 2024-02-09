@@ -12,5 +12,11 @@ namespace Content.Shared.Abilities.Psionics
 
         [DataField("psionicInvisibilityActionEntity")]
         public EntityUid? PsionicInvisibilityActionEntity;
+
+        [DataField("InvisibilityFeedback")]
+        public string InvisibilityFeedback = "invisibility-feedback";
+
+        [DataField("UseTimer")]
+        public float UseTimer = 30f;
     }
 }

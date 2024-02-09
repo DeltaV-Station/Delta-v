@@ -1,43 +1,33 @@
 using Robust.Shared.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Chemistry.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
-using Content.Shared.Tag;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
 using Robust.Shared.Timing;
-using Content.Server.Mind;
 using Content.Shared.Actions.Events;
-using Content.Shared.Chemistry.EntitySystems;
 using Robust.Server.Audio;
 
 namespace Content.Server.Abilities.Psionics
 {
     public sealed class PsionicRegenerationPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
 
 
         public override void Initialize()
@@ -46,7 +36,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationPowerActionEvent>(OnPowerUsed);
-
+            SubscribeLocalEvent<PsionicRegenerationPowerComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationDoAfterEvent>(OnDoAfter);
         }
@@ -57,10 +47,10 @@ namespace Content.Server.Abilities.Psionics
             _actions.TryGetActionData( component.PsionicRegenerationActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.PsionicRegenerationActionEntity;
                 psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.RegenerationFeedback);
             }
         }
 
@@ -68,6 +58,12 @@ namespace Content.Server.Abilities.Psionics
         {
             var ev = new PsionicRegenerationDoAfterEvent(_gameTiming.CurTime);
             var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid);
+
+            //Prevent the power from ignoring its own cooldown
+            _actions.TryGetActionData(component.PsionicRegenerationActionEntity, out var actionData);
+            var curTime = _gameTiming.CurTime;
+            if (actionData != null && actionData.Cooldown.HasValue && actionData.Cooldown.Value.End > curTime)
+                return;
 
             _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
 
@@ -80,9 +76,52 @@ namespace Content.Server.Abilities.Psionics
                 true,
                 PopupType.Medium);
 
-            _audioSystem.PlayPvs(component.SoundUse, component.Owner, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
+            _audioSystem.PlayPvs(component.SoundUse, uid, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
             _psionics.LogPowerUsed(uid, "psionic regeneration");
             args.Handled = true;
+        }
+
+        /// <summary>
+        /// Regenerators automatically activate upon crit, provided the power was off cooldown at that exact point in time.
+        /// Self-rescusitation is also far more costly, and extremely obvious
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        private void OnMobStateChangedEvent(EntityUid uid, PsionicRegenerationPowerComponent component, MobStateChangedEvent args)
+        {
+            if (HasComp<PsionicInsulationComponent>(uid))
+                return;
+
+            if (args.NewMobState is MobState.Critical)
+            {
+                _actions.TryGetActionData(component.PsionicRegenerationActionEntity, out var actionData);
+                var curTime = _gameTiming.CurTime;
+                if (actionData != null && actionData.Cooldown.HasValue && actionData.Cooldown.Value.End > curTime)
+                    return;
+
+                if (actionData is { UseDelay: not null })
+                {
+                    component.SelfRevive = true;
+                    _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.UseDelay, new PsionicRegenerationDoAfterEvent(_gameTiming.CurTime), uid, args.Target, uid)
+                    {
+                        BreakOnUserMove = false,
+                        BreakOnTargetMove = false,
+                        BreakOnWeightlessMove = false,
+                        BreakOnDamage = false,
+                        RequireCanInteract = false,
+                    });
+                    _popupSystem.PopupEntity(Loc.GetString("psionic-regeneration-self-revive", ("entity", uid)),
+                        uid,
+                        // TODO: Use LoS-based Filter when one is available.
+                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                        true,
+                        PopupType.MediumCaution);
+                    _audioSystem.PlayPvs(component.SoundUse, uid, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
+                    _psionics.LogPowerUsed(uid, "psionic regeneration", 20, 40);
+                    _actions.StartUseDelay(component.PsionicRegenerationActionEntity);
+                }
+            }
         }
 
         private void OnShutdown(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentShutdown args)
@@ -92,6 +131,7 @@ namespace Content.Server.Abilities.Psionics
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.RegenerationFeedback);
             }
         }
 
@@ -122,7 +162,13 @@ namespace Content.Server.Abilities.Psionics
             var solution = new Solution();
             solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
             _bloodstreamSystem.TryAddToChemicals(uid, solution, stream);
+            if (component.SelfRevive == true)
+            {
+                var critSolution = new Solution();
+                critSolution.AddReagent("Epinephrine", 10);
+                _bloodstreamSystem.TryAddToChemicals(uid, critSolution, stream);
+                component.SelfRevive = false;
+            }
         }
     }
 }
-

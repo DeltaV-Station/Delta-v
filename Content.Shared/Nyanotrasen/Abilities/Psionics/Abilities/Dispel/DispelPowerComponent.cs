@@ -9,12 +9,15 @@ namespace Content.Shared.Abilities.Psionics
     {
         [DataField("range")]
         public float Range = 10f;
-        
+
         [DataField("dispelActionId",
         customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? DispelActionId = "ActionDispel";
 
         [DataField("dispelActionEntity")]
         public EntityUid? DispelActionEntity;
+
+        [DataField("dispelFeedback")]
+        public string DispelFeedback = "dispel-feedback";
     }
 }

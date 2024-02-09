@@ -19,10 +19,8 @@ namespace Content.Server.Abilities.Psionics
 {
     public sealed class MindSwapPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -48,10 +46,11 @@ namespace Content.Server.Abilities.Psionics
             _actions.TryGetActionData( component.MindSwapActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MindSwapActionEntity);
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.PsionicAbility = component.MindSwapActionEntity;
                 psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.MindSwapFeedback);
             }
         }
 
@@ -61,6 +60,7 @@ namespace Content.Server.Abilities.Psionics
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.MindSwapFeedback);
             }
         }
 

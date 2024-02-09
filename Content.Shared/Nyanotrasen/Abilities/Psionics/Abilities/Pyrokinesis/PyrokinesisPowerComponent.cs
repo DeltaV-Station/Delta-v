@@ -14,5 +14,8 @@ namespace Content.Shared.Abilities.Psionics
 
         [DataField("pyrokinesisActionEntity")]
         public EntityUid? PyrokinesisActionEntity;
+
+        [DataField("pyrokinesisFeedback")]
+        public string PyrokinesisFeedback = "pyrokinesis-feedback";
     }
 }

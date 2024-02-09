@@ -52,10 +52,10 @@ namespace Content.Server.Abilities.Psionics
             _actions.TryGetActionData( component.DispelActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.DispelActionEntity);
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+            if (TryComp<PsionicComponent>(uid, out var psionic))
             {
-                psionic.PsionicAbility = component.DispelActionEntity;
                 psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.DispelFeedback);
             }
         }
 
@@ -66,6 +66,7 @@ namespace Content.Server.Abilities.Psionics
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.DispelFeedback);
             }
         }
 

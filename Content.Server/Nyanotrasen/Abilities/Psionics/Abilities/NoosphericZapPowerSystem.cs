@@ -4,23 +4,17 @@ using Content.Server.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Server.Stunnable;
 using Content.Server.Beam;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Content.Server.Mind;
 using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
 {
     public sealed class NoosphericZapPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly StunSystem _stunSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly BeamSystem _beam = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
 
 
         public override void Initialize()
@@ -41,6 +35,7 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.PsionicAbility = component.NoosphericZapActionEntity;
                 psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.NoosphericZapFeedback);
             }
         }
 
@@ -50,6 +45,7 @@ namespace Content.Server.Abilities.Psionics
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.NoosphericZapFeedback);
             }
         }
 

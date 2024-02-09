@@ -15,6 +15,9 @@ namespace Content.Shared.Abilities.Psionics
         public bool Removable = true;
 
         [DataField("activePowers")]
-        public HashSet<Component> ActivePowers = new();
+        public List<Component> ActivePowers = new();
+
+        [DataField("psychicFeedback")]
+        public List<string> PsychicFeedback= new();
     }
 }

@@ -38,6 +38,7 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.PsionicAbility = component.TelegnosisActionEntity;
                 psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.TelegnosisFeedback);
             }
         }
 
@@ -47,6 +48,7 @@ namespace Content.Server.Abilities.Psionics
             if (TryComp<PsionicComponent>(uid, out var psionic))
             {
                 psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.TelegnosisFeedback);
             }
         }
 

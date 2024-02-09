@@ -20,7 +20,6 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicInsulationComponent, ComponentInit>(OnInsulInit);
             SubscribeLocalEvent<PsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
-            SubscribeLocalEvent<EyeComponent, ComponentInit>(OnEyeInit);
 
             /// Layer
             SubscribeLocalEvent<PsionicallyInvisibleComponent, ComponentInit>(OnInvisInit);
@@ -36,11 +35,15 @@ namespace Content.Server.Psionics
             SetCanSeePsionicInvisiblity(uid, false);
         }
 
+        /// <summary>
+        /// Being able to see invisible by default is no longer tracked by "Not having Potential Psionic".
+        /// Anything intended to be immune to invisibility(and mind magic in general) should instead have PsionicInsulation as a built-in component
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
         private void OnInsulInit(EntityUid uid, PsionicInsulationComponent component, ComponentInit args)
         {
-            if (!HasComp<PotentialPsionicComponent>(uid))
-                return;
-
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
                 _invisSystem.ToggleInvisibility(uid);
 
@@ -61,9 +64,6 @@ namespace Content.Server.Psionics
 
         private void OnInsulShutdown(EntityUid uid, PsionicInsulationComponent component, ComponentShutdown args)
         {
-            if (!HasComp<PotentialPsionicComponent>(uid))
-                return;
-
             SetCanSeePsionicInvisiblity(uid, false);
 
             if (!HasComp<PsionicComponent>(uid))
@@ -103,10 +103,6 @@ namespace Content.Server.Psionics
                 SetCanSeePsionicInvisiblity(uid, false);
         }
 
-        private void OnEyeInit(EntityUid uid, EyeComponent component, ComponentInit args)
-        {
-            //SetCanSeePsionicInvisiblity(uid, true); //JJ Comment - Not allowed to modifies .yml on spawn any longer. See UninitializedSaveTest.
-        }
         private void OnEntInserted(EntityUid uid, PsionicallyInvisibleComponent component, EntInsertedIntoContainerMessage args)
         {
             DirtyEntity(args.Entity);
@@ -129,7 +125,7 @@ namespace Content.Server.Psionics
             {
                 if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
-                    //_eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) VisibilityFlags.PsionicInvisibility, eye);
+                    _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(int) VisibilityFlags.PsionicInvisibility, eye);
                 }
             }
         }
