@@ -7,6 +7,7 @@ using Content.Server.UserInterface;
 using Content.Server.Power.Components;
 using Content.Server.Construction;
 using Content.Server.Popups;
+using Content.Shared.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
