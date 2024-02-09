@@ -126,14 +126,6 @@
   - type: NavMapBeacon
     text: station-beacon-park
 
-- type: entity
-  parent: DefaultStationBeacon
-  id: DefaultStationBeaconEscapePod
-  suffix: Escape Pod
-  components:
-  - type: NavMapBeacon
-    text: station-beacon-escape-pod
-
 #Security
 - type: entity
   parent: DefaultStationBeaconSecurity
