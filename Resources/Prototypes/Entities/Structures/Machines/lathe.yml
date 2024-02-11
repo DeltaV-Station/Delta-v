@@ -383,6 +383,12 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - MicrowaveMachineCircuitboard
+    - ReagentGrinderMachineCircuitboard
+    - ElectricGrillMachineCircuitboard
+    - BoozeDispenserMachineCircuitboard
+    - SodaDispenserMachineCircuitboard
+    - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -408,9 +414,6 @@
       - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
-      - ReagentGrinderMachineCircuitboard
-      - MicrowaveMachineCircuitboard
-      - ElectricGrillMachineCircuitboard
       - FatExtractorMachineCircuitboard
       - FlatpackerMachineCircuitboard
       - SheetifierMachineCircuitboard
@@ -452,8 +455,6 @@
       - ArtifactAnalyzerMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
       - ArtifactCrusherMachineCircuitboard
-      - BoozeDispenserMachineCircuitboard
-      - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
     # Begin Nyano additions
@@ -467,7 +468,6 @@
       - SalvageMagnetMachineCircuitboard
       - StationMapElectronics
       - MetempsychoticMachineCircuitboard
-      - DeepFryerMachineCircuitboard
     # End Nyano additions
       - SalvageExpeditionsComputerCircuitboard # DeltaV
   - type: MaterialStorage
