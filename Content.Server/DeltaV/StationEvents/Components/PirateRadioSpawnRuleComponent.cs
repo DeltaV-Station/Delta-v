@@ -12,10 +12,10 @@ public sealed partial class PirateRadioSpawnRuleComponent : Component
     public EntityUid? AdditionalRule;
 
     [DataField("debrisCount")]
-    public int DebrisCount;
+    public int DebrisCount { get; set; }
 
     [DataField("distanceModifier")]
-    public float DistanceModifier;
+    public float DistanceModifier { get; set; }
 
     [DataField("debrisDistanceModifier")]
     public float DebrisDistanceModifier { get; set; }

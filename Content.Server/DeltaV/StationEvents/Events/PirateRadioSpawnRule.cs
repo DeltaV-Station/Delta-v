@@ -22,14 +22,13 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly ILogManager _log = default!;
 
     protected override void Started(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        //This handles spawning the Listening Outpost
+        //Start of Syndicate Listening Outpost spawning system
         base.Started(uid, component, gameRule, args);
-
         var xformQuery = GetEntityQuery<TransformComponent>();
-        //Find where the station is and get a bounding box
         var aabbs = EntityQuery<StationDataComponent>().SelectMany(x =>
                 x.Grids.Select(x =>
                     xformQuery.GetComponent(x).WorldMatrix.TransformBox(_mapManager.GetGridComp(x).LocalAABB)))
@@ -41,10 +40,6 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         {
             aabb.Union(aabbs[i]);
         }
-        //Generates a potential spawning area, shaped like a square with rounded corners.
-        //DistanceModifier allows for fine tuning of how large this area is.
-        //The initial target distance(for DistanceModifier = 20f) is between 1km and 1.5km of the station.
-        //But with the way NextVector2 works, it can be less than that
         var distanceModifier = Math.Clamp(component.DistanceModifier, 1, 25);
         var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * distanceModifier;
         var randomoffset = _random.NextVector2(a, a * 2.5f);
@@ -53,21 +48,21 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
             Offset = aabb.Center + randomoffset,
             LoadMap = false,
         };
-        //Now spawn the Listening Outpost
         if (!_map.TryLoad(GameTicker.DefaultMap, component.PirateRadioShuttlePath, out var outpostids, outpostOptions)) return;
+        //End of Syndicate Listening Outpost spawning system
 
-        //Now we generate the outpost's debris field
+        //Start of Debris Field Generation
+        var debrisCount = Math.Clamp(component.DebrisCount, 0, 6);
+        if (debrisCount == 0) return;
+        var debrisDistanceModifier = Math.Clamp(component.DebrisDistanceModifier, 3, 10);
         foreach (var id in outpostids)
         {
             if (!TryComp<MapGridComponent>(id, out var grid)) return;
-            //Obtain the bounding box of the Listening Outpost
             var outpostaabb = _entities.GetComponent<TransformComponent>(id).WorldMatrix.TransformBox(grid.LocalAABB);
-            var b = MathF.Max(outpostaabb.Height / 2f, aabb.Width / 2f) * component.DebrisDistanceModifier; //DebrisDistanceModifier controls how dense we want the debris field to be
-            int k = 1;
-            while (k < component.DebrisCount + 1) //DebrisCount defines how many wrecks to spawn
+            var b = MathF.Max(outpostaabb.Height / 2f, aabb.Width / 2f) * debrisDistanceModifier;
+            var k = 1;
+            while (k < debrisCount + 1)
             {
-                //Generate the region to spawn the debris
-                //We have to remake this region for every wreck, otherwise they'll all spawn in the same place
                 var debrisRandomOffset = _random.NextVector2(b, b * 2.5f);
                 var randomer = _random.NextVector2(b, b * 5f); //Second random vector to ensure the outpost isn't perfectly centered in the debris field
                 var debrisOptions = new MapLoadOptions
@@ -76,13 +71,12 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
                     LoadMap = false,
                 };
 
-
                 var salvageProto = _random.Pick(_prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList());
-                //And finally spawn a salvage wreck
                 _map.TryLoad(GameTicker.DefaultMap, salvageProto.MapPath.ToString(), out _, debrisOptions);
                 k++;
             }
         }
+        //End of Debris Field generation
     }
 
     protected override void Ended(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
