@@ -48,10 +48,26 @@
 - type: entity
   id: BulletSpecialMindbreaker
   name: bullet (.38 special mindbreaker)
-  parent: BaseBullet
+  parent: BaseBulletPractice
   noSpawn: true
   components:
   - type: Projectile
     damage:
       types:
-        Blunt: 3
+        Blunt: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 9
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnCollide
+    transferAmount: 9
+    blockSlots: NONE #shouldn't be blocked by a mask
+  - type: InjectableSolution
+    solution: ammo
+  - type: GuideHelp
+    guides:
+    - Psionics
