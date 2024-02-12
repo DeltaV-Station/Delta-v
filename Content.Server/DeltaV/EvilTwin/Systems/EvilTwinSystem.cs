@@ -94,8 +94,8 @@ public sealed class EvilTwinSystem : EntitySystem
             return null;
 
         var (uid, mindId, species, profile) = _random.Pick(candidates);
-        var jobId = Comp<JobComponent>(mindId).Prototype!;
-        var job = _proto.Index<JobPrototype>(jobId);
+        var jobId = Comp<JobComponent>(mindId).Prototype;
+        var job = _proto.Index<JobPrototype>(jobId!);
 
         // Find a suitable spawn point.
         var station = _station.GetOwningStation(uid);
