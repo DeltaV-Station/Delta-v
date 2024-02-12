@@ -32,6 +32,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         SubscribeLocalEvent<PseudoItemComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<PseudoItemComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PseudoItemComponent, AttackAttemptEvent>(OnAttackAttempt);
     }
 
     private void AddInsertVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<InnateVerb> args)
@@ -154,5 +155,11 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(args);
+    }
+
+    private void OnAttackAttempt(EntityUid uid, PseudoItemComponent component, AttackAttemptEvent args)
+    {
+        if (component.Active)
+            args.Cancel();
     }
 }
