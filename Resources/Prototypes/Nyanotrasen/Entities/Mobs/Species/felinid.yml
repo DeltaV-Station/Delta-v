@@ -25,6 +25,10 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.85  # 0.7 is base speed.
+      80: 0.75  # 0.5 is base speed.
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -36,12 +40,9 @@
 #  - type: DiseaseCarrier
 #    naturalImmunities:
 #    - OwOnavirus
-  - type: Thieving
-    stealthy: true
-    stripTimeReduction: 1
   - type: Speech
     speechSounds: Alto
-  - type: DamageOnHighSpeedImpact
+  - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:
         Blunt: 1
@@ -62,6 +63,7 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
+  - type: NoShoesSilentFootsteps
 
 - type: entity
   save: false
