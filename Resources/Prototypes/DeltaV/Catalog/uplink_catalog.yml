@@ -9,6 +9,15 @@
   categories:
   - UplinkUtility
 
+- type: listing
+  id: Home Run Bat
+  name: uplink-weapon-bat-name
+  description: uplink-weapon-bat-desc
+  productEntity: BaseBallBatHomerun
+  icon: { sprite: DeltaV/Objects/Weapons/Melee/home_run_bat.rsi, state: icon }
+  cost:
+    Telecrystal: 20
+
 #- type: listing
 #  id: UplinkCyborgBeaconSyndicate
 #  name: uplink-borg-beacon-name
