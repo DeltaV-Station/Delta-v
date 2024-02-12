@@ -20,11 +20,12 @@
   - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.
   - type: Wieldable
   - type: MeleeThrowOnHit
+    Speed: 30 # Triple the speed of a gorilla gauntlet, not always a good thing!
     Lifetime: 5
     unanchorOnHit: true
     Enabled: true
   - type: Item
-    size: Large #Takes up more room as a compromise
+    size: Large
   - type: Tool
     qualities:
     - Rolling
