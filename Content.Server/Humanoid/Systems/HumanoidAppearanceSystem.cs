@@ -64,6 +64,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             grammar.Gender = sourceHumanoid.Gender;
         }
 
+        targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let evil twin be cloned
+
         Dirty(targetHumanoid);
     }
 

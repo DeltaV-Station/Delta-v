@@ -329,6 +329,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.Age = profile.Age;
 
+        humanoid.LastProfileLoaded = profile; // DeltaV - let evil twin be cloned
+
         Dirty(humanoid);
     }
 
