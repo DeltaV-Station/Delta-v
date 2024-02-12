@@ -12,12 +12,12 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
 
-public class SharedPseudoItemSystem : EntitySystem
+public abstract partial class SharedPseudoItemSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStorageSystem _storageSystem = default!;
-    [Dependency] private readonly SharedItemSystem _itemSystem = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     private const string PreventTag = "PreventLabel";
@@ -29,9 +29,9 @@ public class SharedPseudoItemSystem : EntitySystem
         SubscribeLocalEvent<PseudoItemComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
         SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
-        SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<PseudoItemComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<PseudoItemComponent, InteractionAttemptEvent>(OnInteractAttempt);
+        SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
     }
 
     private void AddInsertVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<InnateVerb> args)
@@ -45,7 +45,8 @@ public class SharedPseudoItemSystem : EntitySystem
         if (!TryComp<StorageComponent>(args.Target, out var targetStorage))
             return;
 
-        // There *should* be a check here to see if we can fit, but I'm not aware of an easy way to do that, so eh, who cares
+        if (!CheckItemFits((uid, component), (args.Target, targetStorage)))
+            return;
 
         if (Transform(args.Target).ParentUid == uid)
             return;
@@ -60,6 +61,33 @@ public class SharedPseudoItemSystem : EntitySystem
             Priority = 2
         };
         args.Verbs.Add(verb);
+    }
+
+    private bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
+        StorageComponent? storage = null)
+    {
+        if (!Resolve(storageUid, ref storage))
+            return false;
+
+        if (!CheckItemFits((toInsert, component), (storageUid, storage)))
+            return false;
+
+        var itemComp = new ItemComponent
+            { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };
+        AddComp(toInsert, itemComp);
+        _item.VisualsChanged(toInsert);
+
+        _tag.TryAddTag(toInsert, PreventTag);
+
+        if (!_storage.Insert(storageUid, toInsert, out _, null, storage))
+        {
+            component.Active = false;
+            RemComp<ItemComponent>(toInsert);
+            return false;
+        }
+
+        component.Active = true;
+        return true;
     }
 
     private void OnEntRemoved(EntityUid uid, PseudoItemComponent component, EntGotRemovedFromContainerMessage args)
@@ -87,56 +115,6 @@ public class SharedPseudoItemSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnDoAfter(EntityUid uid, PseudoItemComponent component, DoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled || args.Args.Used == null)
-            return;
-
-        args.Handled = TryInsert(args.Args.Used.Value, uid, component);
-    }
-
-    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
-        StorageComponent? storage = null)
-    {
-        if (!Resolve(storageUid, ref storage))
-            return false;
-
-        // Again, here we really should check if the item will fit, but at least insert takes care of it for us by failing if not /shrug
-
-        var itemComp = new ItemComponent { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };
-        AddComp(toInsert, itemComp);
-        _itemSystem.VisualsChanged(toInsert);
-
-        _tagSystem.TryAddTag(toInsert, PreventTag);
-
-        if (!_storageSystem.Insert(storageUid, toInsert, out _, null, storage))
-        {
-            component.Active = false;
-            RemComp<ItemComponent>(toInsert);
-            return false;
-        }
-
-        component.Active = true;
-        return true;
-    }
-
-    protected internal void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity,
-        PseudoItemComponent? pseudoItem = null)
-    {
-        if (!Resolve(toInsert, ref pseudoItem))
-            return;
-
-        var ev = new PseudoItemInsertDoAfterEvent();
-        var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, toInsert, storageEntity)
-        {
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
-            NeedHand = true
-        };
-
-        _doAfter.TryStartDoAfter(args);
-    }
-
     private void OnInsertAttempt(EntityUid uid, PseudoItemComponent component,
         ContainerGettingInsertedAttemptEvent args)
     {
@@ -151,5 +129,30 @@ public class SharedPseudoItemSystem : EntitySystem
     {
         if (args.Uid == args.Target && component.Active)
             args.Cancel();
+    }
+
+    private void OnDoAfter(EntityUid uid, PseudoItemComponent component, DoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Args.Used == null)
+            return;
+
+        args.Handled = TryInsert(args.Args.Used.Value, uid, component);
+    }
+
+    protected void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity,
+        PseudoItemComponent? pseudoItem = null)
+    {
+        if (!Resolve(toInsert, ref pseudoItem))
+            return;
+
+        var ev = new PseudoItemInsertDoAfterEvent();
+        var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, toInsert, storageEntity)
+        {
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            NeedHand = true
+        };
+
+        _doAfter.TryStartDoAfter(args);
     }
 }

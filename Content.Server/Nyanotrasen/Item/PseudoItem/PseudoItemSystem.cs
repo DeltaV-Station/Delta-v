@@ -1,18 +1,30 @@
-﻿using Content.Shared.IdentityManagement;
+﻿using Content.Server.DoAfter;
+using Content.Server.Item;
+using Content.Server.Storage.EntitySystems;
+using Content.Shared.DoAfter;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
+using Content.Shared.Item.PseudoItem;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 
 namespace Content.Server.Nyanotrasen.Item.PseudoItem;
 
 public sealed class PseudoItemSystem : SharedPseudoItemSystem
 {
+    [Dependency] private readonly StorageSystem _storage = default!;
+    [Dependency] private readonly ItemSystem _item = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+
+
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<PseudoItemComponent, GetVerbsEvent<AlternativeVerb>>(AddInsertAltVerb);
     }
 
-    // For whatever reason, I have to put these in server or the verbs duplicate
     private void AddInsertAltVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract || !args.CanAccess)
@@ -21,10 +33,11 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         if (component.Active)
             return;
 
-        if (!TryComp<StorageComponent>(args.Using, out _))
+        if (!TryComp<StorageComponent>(args.Using, out var targetStorage))
             return;
 
-        // There *should* be a check here to see if we can fit, but I'm not aware of an easy way to do that, so eh, who cares
+        if (!CheckItemFits((uid, component), (args.Using.Value, targetStorage)))
+            return;
 
         if (args.Hands?.ActiveHandEntity == null)
             return;
