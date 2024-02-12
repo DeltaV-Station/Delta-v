@@ -1,8 +1,7 @@
-
 using Content.Shared.Item;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Nyanotrasen.Item.Components;
+namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
 
     /// <summary>
     /// For entities that behave like an item under certain conditions,
@@ -20,6 +19,9 @@ public sealed partial class PseudoItemComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<Box2i>? Shape;
+
+    [DataField, AutoNetworkedField]
+    public Vector2i StoredOffset;
 
     public bool Active = false;
 }
