@@ -7,7 +7,7 @@ namespace Content.Server.StationEvents.Components;
 public sealed partial class MidRoundAntagRuleComponent : Component
 {
     [DataField("antags")]
-    public IReadOnlyList<EntProtoId> MidRoundAntags = new[]
+    public List<EntProtoId> MidRoundAntags = new()
     {
         "SpawnPointGhostRatKing",
         //"SpawnPointGhostVampSpider",
