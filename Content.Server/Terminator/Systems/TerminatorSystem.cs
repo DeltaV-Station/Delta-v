@@ -24,7 +24,7 @@ public sealed class TerminatorSystem : EntitySystem
     private void OnMapInit(EntityUid uid, TerminatorComponent comp, MapInitEvent args)
     {
         // cyborg doesn't need to breathe
-        RemComp<RespiratorComponent>(uid);
+        //RemComp<RespiratorComponent>(uid); // DeltaV - evil twin does actually need to breathe
     }
 
     private void OnSpawned(EntityUid uid, TerminatorComponent comp, GhostRoleSpawnerUsedEvent args)
@@ -45,6 +45,15 @@ public sealed class TerminatorSystem : EntitySystem
             Briefing = Loc.GetString("terminator-role-briefing")
         }, mind);
         _role.MindAddRole(mindId, new TerminatorRoleComponent(), mind);
+    }
+
+    /// <summary>
+    /// DeltaV - used for evil twin.
+    /// </summary>
+    public void SetTarget(Entity<TerminatorComponent?> ent, EntityUid mindId)
+    {
+        ent.Comp ??= EnsureComp<TerminatorComponent>(ent);
+        ent.Comp.Target = mindId;
     }
 
     /// <summary>

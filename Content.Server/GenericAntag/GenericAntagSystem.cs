@@ -57,6 +57,14 @@ public sealed class GenericAntagSystem : EntitySystem
             _mind.TryAddObjective(mindId, mind, id);
         }
     }
+
+    /// <summary>
+    /// DeltaV - used by evil twin
+    /// </summary>
+    public void MakeAntag(EntityUid uid, string rule)
+    {
+        AddComp<GenericAntagComponent>(uid).Rule = rule;
+    }
 }
 
 /// <summary>
