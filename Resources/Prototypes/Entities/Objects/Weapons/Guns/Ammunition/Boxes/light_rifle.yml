@@ -12,7 +12,7 @@
     proto: CartridgeLightRifle
     capacity: 50
   - type: Item
-    size: 5
+    size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -117,3 +117,4 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium

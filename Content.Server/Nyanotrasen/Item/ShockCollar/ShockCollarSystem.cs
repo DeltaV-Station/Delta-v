@@ -29,11 +29,9 @@ public sealed partial class ShockCollarSystem : EntitySystem
             return;
 
         // DeltaV: prevent clocks from instantly killing people
-        TryComp<UseDelayComponent>(uid, out var useDelay);
-        if (_useDelay.ActiveDelay(uid, useDelay))
+        if (TryComp<UseDelayComponent>(uid, out var useDelay)
+            && !_useDelay.TryResetDelay((uid, useDelay), true))
             return;
-
-        _useDelay.BeginDelay(uid, useDelay);
 
         _electrocutionSystem.TryDoElectrocution(containerEnt, null, 5, TimeSpan.FromSeconds(2), true);
     }

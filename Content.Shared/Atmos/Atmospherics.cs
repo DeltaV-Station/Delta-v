@@ -52,7 +52,7 @@ namespace Content.Shared.Atmos
         ///     calculations and so cap it here. The physical interpretation is that at this temperature, any
         ///     gas that you would have transforms into plasma.
         /// </summary>
-        public const float Tmax = 200e3f;
+        public const float Tmax = 262144; // 1/64 of max safe integer, any values above will result in a ~0.03K epsilon
 
         /// <summary>
         ///     Liters in a cell.
@@ -192,7 +192,7 @@ namespace Content.Shared.Atmos
         public const float FireMinimumTemperatureToExist = T0C + 100f;
         public const float FireMinimumTemperatureToSpread = T0C + 150f;
         public const float FireSpreadRadiosityScale = 0.85f;
-        public const float FirePlasmaEnergyReleased = 16e3f; // methane is 16 kJ/mol
+        public const float FirePlasmaEnergyReleased = 160e3f; // methane is 16 kJ/mol, plus plasma's spark of magic
         public const float FireGrowthRate = 40000f;
 
         public const float SuperSaturationThreshold = 96f;

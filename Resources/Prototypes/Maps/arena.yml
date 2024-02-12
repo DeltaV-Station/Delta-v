@@ -3,6 +3,7 @@
   mapName: 'Arena'
   mapPath: /Maps/arena.yml
   minPlayers: 30
+  maxPlayers: 80
   stations:
     Arena:
       stationProto: StandardNanotrasenStation
@@ -13,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/NTES_UCLB.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_UCLB.yml
         - type: StationJobs
           overflowJobs:
             - Passenger

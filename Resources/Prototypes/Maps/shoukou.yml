@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
@@ -65,4 +65,4 @@
             SalvageSpecialist: [ 2, 4 ]
             MailCarrier: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
-           
+

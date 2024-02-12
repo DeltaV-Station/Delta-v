@@ -20,7 +20,7 @@
     sprite: Nyanotrasen/Objects/Consumable/Food/ration.rsi
     state: psb
   - type: Item
-    size: 3
+    size: Tiny
   - type: SpaceGarbage
   - type: StaticPrice #DynamicPrice
     price: 0
@@ -74,7 +74,7 @@
           Quantity: 15
   - type: Tag
     tags:
-    - ClothMade # DeltaV - A dirty fix to allow Moths to eat it.
+    - Fruit # DeltaV - Allow anyone to eat it, hopefully
 
 - type: entity
   name: soy sustenance bar

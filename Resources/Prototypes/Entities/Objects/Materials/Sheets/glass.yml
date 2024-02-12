@@ -9,7 +9,7 @@
     sprite: Objects/Materials/Sheets/glass.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/glass.rsi
-    size: 30
+    size: Normal
   - type: StaticPrice
     price: 0
   - type: Tag
@@ -45,6 +45,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      glass: 
+        canReact: false
 
 - type: entity
   parent: SheetGlassBase
@@ -93,8 +97,6 @@
   - type: Stack
     stackType: Glass
     count: 10
-  - type: Item
-    size: 10
 
 - type: entity
   parent: SheetGlass
@@ -106,16 +108,12 @@
   - type: Stack
     stackType: Glass
     count: 1
-  - type: Item
-    size: 1
 
 - type: entity
   parent: SheetGlass
   id: SheetGlassLingering0
   suffix: Lingering, 0
   components:
-  - type: Item
-    size: 0
   - type: Stack
     lingering: true
     count: 0
@@ -186,8 +184,6 @@
   - type: Stack
     stackType: ReinforcedGlass
     count: 1
-  - type: Item
-    size: 1
   - type: Extractable
     grindableSolutionName: rglass
   - type: SolutionContainerManager
@@ -200,7 +196,8 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
-
+        canReact: false
+        
 - type: entity
   parent: SheetGlassBase
   id: SheetPGlass
@@ -225,7 +222,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: pglass
-    size: 30
   - type: Construction
     graph: Glass
     node: SheetPGlass
@@ -265,8 +261,6 @@
   - type: Stack
     stackType: PlasmaGlass
     count: 1
-  - type: Item
-    size: 1
   - type: Extractable
     grindableSolutionName: pglass
   - type: SolutionContainerManager
@@ -277,6 +271,7 @@
           Quantity: 10
         - ReagentId: Plasma
           Quantity: 10
+        canReact: false
 
 - type: entity
   parent: SheetPGlass
@@ -319,6 +314,7 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+        canReact: false
 
 - type: entity
   parent: SheetRPGlass
@@ -331,8 +327,6 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
-  - type: Item
-    size: 1
 
 - type: entity
   parent: SheetGlassBase
@@ -395,6 +389,7 @@
           Quantity: 10
         - ReagentId: Uranium
           Quantity: 10
+        canReact: false
 
 - type: entity
   parent: SheetUGlass
@@ -407,8 +402,6 @@
   - type: Stack
     stackType: UraniumGlass
     count: 1
-  - type: Item
-    size: 1
 
 - type: entity
   parent: SheetUGlass
@@ -450,6 +443,8 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+        canReact: false 
+    
 - type: entity
   parent: SheetRUGlass
   id: SheetRUGlass1
@@ -461,5 +456,3 @@
   - type: Stack
     stackType: ReinforcedUraniumGlass
     count: 1
-  - type: Item
-    size: 1

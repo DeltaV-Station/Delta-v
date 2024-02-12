@@ -2,7 +2,7 @@
   id: GauzeLefteyePatch
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -16,7 +16,7 @@
   id: GauzeLefteyeTape
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -30,7 +30,7 @@
   id: GauzeRighteyePatch
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -44,7 +44,7 @@
   id: GauzeRighteyeTape
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -58,7 +58,7 @@
   id: GauzeBlindfold
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Moth, Dwarf, Human, Arachnid]
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -72,7 +72,7 @@
   id: GauzeShoulder
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -81,12 +81,12 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_shoulder
-    
+
 - type: marking
   id: GauzeStomach
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
   coloring:
     default:
       type:
@@ -128,7 +128,7 @@
   id: GauzeLeftArm
   bodyPart: LArm, LHand
   markingCategory: Arms
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -142,7 +142,7 @@
   id: GauzeLowerLegLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -156,7 +156,7 @@
   id: GauzeUpperLegLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -170,7 +170,7 @@
   id: GauzeUpperLegRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -179,12 +179,12 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_upperleg_r
-    
+
 - type: marking
   id: GauzeLowerLegRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -193,12 +193,12 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_lowerleg_r
-    
+
 - type: marking
   id: GauzeBoxerWrapRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -207,12 +207,12 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_boxerwrap_r
-    
+
 - type: marking
   id: GauzeBoxerWrapLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+  speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
     default:
       type:
@@ -292,4 +292,3 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_lizardblindfold
-

@@ -36,7 +36,7 @@
       state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 200
-      name: kill
+      name: lethal
       state: lethal
   - type: MagazineVisuals
     magState: mag
@@ -113,13 +113,15 @@
     - Sidearm
   - type: StaticPrice
     price: 750
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunMultiphase
 
 - type: entity
   name: miniature energy gun
   parent: BaseWeaponBatterySmall
   id: WeaponEnergyGunMini
   description: A light version of the Energy gun with a smaller capacity.
-  components: 
+  components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
     layers:
@@ -149,7 +151,7 @@
       state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 200
-      name: kill
+      name: lethal
       state: lethal
   - type: MagazineVisuals
     magState: mag

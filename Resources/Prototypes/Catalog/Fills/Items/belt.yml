@@ -125,6 +125,12 @@
   name: grenadier chest rig
   suffix: Filled
   components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1
   - type: StorageFill
     contents:
       - id: ExGrenade
@@ -170,3 +176,13 @@
         - id: WeaponRevolverInspector
         - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnumRubber
+
+- type: entity
+  id: ClothingBeltChefFilled
+  parent: ClothingBeltChef
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodShakerSalt
+    - id: FoodShakerPepper
