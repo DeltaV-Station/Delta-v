@@ -330,7 +330,7 @@ namespace Content.Server.Psionics.Glimmer
 
             _lightning.ShootRandomLightnings(uid, 10, 2, "SuperchargedLightning", 2, false);
 
-            // check if the transform parent of args.thing is alive
+            // Check if the parent of the user is alive, which will be the case if the user is an item and is being held.
             var zapTarget = _transformSystem.GetParentUid(args.User);
             if (TryComp<MindContainerComponent>(zapTarget, out _))
                 _electrocutionSystem.TryDoElectrocution(zapTarget, uid, 5, TimeSpan.FromSeconds(3), true,
