@@ -1,0 +1,10 @@
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: EvilTwin
+  components:
+  - type: GenericAntagRule
+    agentName: evil-twin-round-end-agent-name
+    objectives:
+    - EvilTwinKillObjective
+    - EvilTwinEscapeObjective

@@ -45,3 +45,14 @@
       - state: green
       - sprite: Structures/Wallmounts/signs.rsi
         state: radiation
+
+- type: entity
+  parent: SpawnPointGhostTerminator # for terminator skull icon
+  id: SpawnPointGhostEvilTwin
+  name: evil twin spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-evil-twin-name
+    description: ghost-role-information-evil-twin-description
+    rules: ghost-role-information-evil-twin-rules
+  - type: EvilTwinSpawner
