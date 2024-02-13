@@ -59,3 +59,6 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: Tag #DeltaV, needed for species with nonhuman legs/can only wear skirts
+    tags:
+    - Skirt

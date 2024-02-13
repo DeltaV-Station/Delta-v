@@ -1,26 +1,32 @@
 marking-HarpyWingDefault = Basic Wings
 marking-HarpyWingDefault-harpy = Wings
 
-marking-HarpyWing2Tone = Two Tone Wings
-marking-HarpyWing2Tone-harpy2tone1 = Top Half
-marking-HarpyWing2Tone-harpy2tone2 = Bottom Half
+marking-HarpyWingFolded = Folded Wings
+marking-HarpyWingFolded-harpyfolded = Wings
 
-marking-HarpyWing3Tone = Three Tone Wings
-marking-HarpyWing3Tone-harpy3tone1 = Top Third
-marking-HarpyWing3Tone-harpy3tone2 = Middle Third
-marking-HarpyWing3tone-harpy3tone3 = Bottom Third
+marking-HarpyWingClassic = Classic Wings
+marking-HarpyWingClassic-classicharpy = Wings
 
-marking-HarpyWingSpeckled = Speckled Wings
-marking-HarpyWingSpeckled-harpyspeckled1 = Main
-marking-HarpyWingSpeckled-harpyspeckled2 = Speckles
+marking-HarpyWing2ToneClassic = Classic Two Tone Wings
+marking-HarpyWing2ToneClassic-harpy2tone1 = Top Half
+marking-HarpyWing2ToneClassic-harpy2tone2 = Bottom Half
 
-marking-HarpyWingUndertone = Wings with Undertone
-marking-HarpyWingUndertone-harpyundertone1 = Front
-marking-HarpyWingUndertone-harpyundertone2 = Back
+marking-HarpyWing3ToneClassic = Classic Three Tone Wings
+marking-HarpyWing3ToneClassic-harpy3tone1 = Top Third
+marking-HarpyWing3ToneClassic-harpy3tone2 = Middle Third
+marking-HarpyWing3ToneClassic-harpy3tone3 = Bottom Third
 
-marking-HarpyWingTips = Wings with Feather Tips
-marking-HarpyWingTips-harpywingtip1 = Main
-marking-HarpyWingTips-harpywingtip2 = Feathertips
+marking-HarpyWingSpeckledClassic = Speckled Classic Wings
+marking-HarpyWingSpeckledClassic-harpyspeckled1 = Main
+marking-HarpyWingSpeckledClassic-harpyspeckled2 = Speckles
+
+marking-HarpyWingUndertoneClassic = Classic Wings with Undertone
+marking-HarpyWingUndertoneClassic-harpyundertone1 = Front
+marking-HarpyWingUndertoneClassic-harpyundertone2 = Back
+
+marking-HarpyWingTipsClassic = Classic Wings with Feather Tips
+marking-HarpyWingTipsClassic-harpywingtip1 = Main
+marking-HarpyWingTipsClassic-harpywingtip2 = Feathertips
 
 marking-HarpyEarsDefault = Feather Tufts
 marking-HarpyEarsDefault-harpy_ears_default = Tufts
@@ -30,3 +36,17 @@ marking-HarpyTailPhoenix-phoenix_tail = Tail
 
 marking-HarpyTailRooster = Rooster Tail
 marking-HarpyTailRooster-rooster_tail = Tail
+
+marking-HarpyTailFinch = Finch Tail
+marking-HarpyTailFinch-finch_tail = Tail
+
+marking-HarpyChestDefault = Wing & Groin Under-Clothes
+marking-HarpyChestDefault-upper = Wing Under-Clothes
+marking-HarpyChestDefault-lower = Groin Under-Clothes
+
+marking-HarpyLegsDefault = Avian Legs
+marking-HarpyLegsDefault-thighs = Thighs
+
+marking-HarpyFeetDefault = Avian Feet
+marking-HarpyFeetDefault-feet = Feet
+marking-HarpyFeetDefault-talons = Talons
