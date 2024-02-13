@@ -106,7 +106,8 @@
       types:
         Piercing: 5
   - type: Speech
-    speechSounds: Alto
+    speechSounds: Harpy
+    speechVerb: Harpy
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -121,6 +122,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+  - type: Inventory 
+    speciesId: harpy
+    templateId: digitigrade
+  - type: HarpyVisuals
+  - type: UltraVision
     
 - type: entity
   save: false
@@ -132,6 +138,8 @@
   components:
   - type: HumanoidAppearance
     species: Harpy
+  - type: Inventory 
+    speciesId: harpy
   - type: Sprite
     scale: 0.9, 0.9
     layers:
