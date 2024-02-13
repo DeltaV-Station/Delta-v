@@ -1,10 +1,11 @@
 - type: entity
   noSpawn: true
   parent: BaseGameRule
-  id: EvilTwin
+  id: ParadoxAnomaly
   components:
   - type: GenericAntagRule
-    agentName: evil-twin-round-end-agent-name
+    agentName: paradox-anomaly-round-end-agent-name
     objectives:
-    - EvilTwinKillObjective
-    - EvilTwinEscapeObjective
+    - ParadoxAnomalyKillObjective
+    - ParadoxAnomalyFriendObjective
+    - ParadoxAnomalyEscapeObjective

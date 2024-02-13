@@ -1,4 +1,4 @@
-using Content.Server.DeltaV.EvilTwin.Components;
+using Content.Server.DeltaV.ParadoxAnomaly.Components;
 using Content.Server.DetailExaminable;
 using Content.Server.GenericAntag;
 using Content.Server.Psionics;
@@ -18,13 +18,13 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Server.DeltaV.EvilTwin.Systems;
+namespace Content.Server.DeltaV.ParadoxAnomaly.Systems;
 
 /// <summary>
 /// 90% of the work is done by exterminator since its a reskin.
 /// All the logic here is spawning since thats tricky.
 /// </summary>
-public sealed class EvilTwinSystem : EntitySystem
+public sealed class ParadoxAnomalySystem : EntitySystem
 {
     [Dependency] private readonly GenericAntagSystem _genericAntag = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -42,22 +42,22 @@ public sealed class EvilTwinSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EvilTwinSpawnerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<ParadoxAnomalySpawnerComponent, PlayerAttachedEvent>(OnPlayerAttached);
     }
 
-    private void OnPlayerAttached(Entity<EvilTwinSpawnerComponent> ent, ref PlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<ParadoxAnomalySpawnerComponent> ent, ref PlayerAttachedEvent args)
     {
         if (!_mind.TryGetMind(args.Player, out var mindId, out var mind))
             return;
 
-        if (!TrySpawnEvilTwin(ent.Comp.Rule, out var twin))
+        if (!TrySpawnParadoxAnomaly(ent.Comp.Rule, out var twin))
             return;
 
         _mind.TransferTo(mindId, twin, ghostCheckOverride: true, mind: mind);
         QueueDel(ent);
     }
 
-    private bool TrySpawnEvilTwin(string rule, [NotNullWhen(true)] out EntityUid? twin)
+    private bool TrySpawnParadoxAnomaly(string rule, [NotNullWhen(true)] out EntityUid? twin)
     {
         twin = null;
 
@@ -83,11 +83,11 @@ public sealed class EvilTwinSystem : EntitySystem
             candidates.Add((uid, mindId, species, profile));
         }
 
-        twin = SpawnEvilTwin(candidates, rule);
+        twin = SpawnParadoxAnomaly(candidates, rule);
         return twin != null;
     }
 
-    private EntityUid? SpawnEvilTwin(List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile)> candidates, string rule)
+    private EntityUid? SpawnParadoxAnomaly(List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile)> candidates, string rule)
     {
         // Select a candidate.
         if (candidates.Count == 0)

@@ -85,7 +85,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public Color? CachedFacialHairColor;
 
     /// <summary>
-    /// DeltaV - allows for evil twins to be cloned.
+    /// DeltaV - let paradox anomaly be cloned
     /// </summary>
     [ViewVariables]
     public HumanoidCharacterProfile? LastProfileLoaded;

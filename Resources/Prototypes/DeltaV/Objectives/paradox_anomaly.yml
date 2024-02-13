@@ -1,0 +1,38 @@
+- type: entity
+  abstract: true
+  parent: BaseTerminatorObjective # mrp terminator real
+  id: BaseParadoxAnomalyObjective
+  components:
+  - type: Objective
+    issuer: self
+
+- type: entity
+  noSpawn: true
+  parent: [BaseParadoxAnomalyObjective, BaseKillObjective]
+  id: ParadoxAnomalyKillObjective
+  description: This universe doesn't have room for both of us.
+  components:
+  - type: TerminatorTargetOverride
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  noSpawn: true
+  parent: [BaseParadoxAnomalyObjective, BaseKeepAliveObjective]
+  id: ParadoxAnomalyFriendObjective
+  description: Perhaps there is room, as friends.
+  components:
+  - type: TargetObjective
+    title: objective-condition-paradox-anomaly-friend-title
+  - type: TerminatorTargetOverride
+
+- type: entity
+  noSpawn: true
+  parent: [BaseParadoxAnomalyObjective, BaseLivingObjective]
+  id: ParadoxAnomalyEscapeObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition

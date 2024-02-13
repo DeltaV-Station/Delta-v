@@ -59,7 +59,7 @@ public sealed class GenericAntagSystem : EntitySystem
     }
 
     /// <summary>
-    /// DeltaV - used by evil twin
+    /// DeltaV - used by paradox anomaly
     /// </summary>
     public void MakeAntag(EntityUid uid, string rule)
     {
