@@ -20,6 +20,7 @@
       - RandomCrystalSpawner
       - RandomWallRockSpawner
       - RandomBasaltRockSpawner
+      - RandomStalagmiteSpawner
     rareChance: 0.15
 
 - type: entity
@@ -82,3 +83,22 @@
       - WallRockBasaltUranium
       - WallRockBasaltArtifactFragment
 #Might add chance for no crystal later??
+
+- type: entity
+  name: Stalagmite Spawner
+  id: RandomStalagmiteSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/flora_stalagmite.rsi
+        state: stalagmite1
+  - type: RandomSpawner
+    prototypes:
+      - FloraStalagmite1
+      - FloraStalagmite2
+      - FloraStalagmite3
+      - FloraStalagmite4
+      - FloraStalagmite5
+      - FloraStalagmite6
