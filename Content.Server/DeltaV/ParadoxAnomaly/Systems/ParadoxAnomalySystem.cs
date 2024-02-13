@@ -1,6 +1,8 @@
 using Content.Server.DeltaV.ParadoxAnomaly.Components;
 using Content.Server.DetailExaminable;
 using Content.Server.GenericAntag;
+using Content.Server.Ghost.Roles;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Psionics;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
@@ -12,7 +14,6 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -27,6 +28,7 @@ namespace Content.Server.DeltaV.ParadoxAnomaly.Systems;
 public sealed class ParadoxAnomalySystem : EntitySystem
 {
     [Dependency] private readonly GenericAntagSystem _genericAntag = default!;
+    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -42,18 +44,21 @@ public sealed class ParadoxAnomalySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ParadoxAnomalySpawnerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<ParadoxAnomalySpawnerComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
     }
 
-    private void OnPlayerAttached(Entity<ParadoxAnomalySpawnerComponent> ent, ref PlayerAttachedEvent args)
+    private void OnTakeGhostRole(Entity<ParadoxAnomalySpawnerComponent> ent, ref TakeGhostRoleEvent args)
     {
-        if (!_mind.TryGetMind(args.Player, out var mindId, out var mind))
-            return;
-
+        Log.Info($"Using paradox anomaly spawner {ent}");
         if (!TrySpawnParadoxAnomaly(ent.Comp.Rule, out var twin))
             return;
 
-        _mind.TransferTo(mindId, twin, ghostCheckOverride: true, mind: mind);
+        Log.Info($"Created paradox anomaly {ToPrettyString(twin):twin}");
+        var role = Comp<GhostRoleComponent>(ent);
+        _ghostRole.GhostRoleInternalCreateMindAndTransfer(args.Player, ent, twin.Value, role);
+        _ghostRole.UnregisterGhostRole((ent.Owner, role));
+
+        args.TookRole = true;
         QueueDel(ent);
     }
 

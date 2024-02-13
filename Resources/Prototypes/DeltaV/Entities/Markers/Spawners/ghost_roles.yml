@@ -47,7 +47,7 @@
         state: radiation
 
 - type: entity
-  parent: SpawnPointGhostTerminator # for terminator skull icon
+  parent: MarkerBase
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
   components:
@@ -56,3 +56,7 @@
     description: ghost-role-information-paradox-anomaly-description
     rules: ghost-role-information-paradox-anomaly-rules
   - type: ParadoxAnomalySpawner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
