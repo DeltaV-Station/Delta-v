@@ -1,5 +1,6 @@
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -22,6 +23,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IConfigurationManager _confMan = default!;
 
     protected override void Started(EntityUid uid, PirateRadioSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -39,8 +41,10 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         {
             aabb.Union(aabbs[i]);
         }
+        var distanceFactorCoefficient = component.SOUSK / aabb.Width;
         var distanceModifier = Math.Clamp(component.DistanceModifier, 1, 25);
-        var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * distanceModifier;
+        var distanceModifierNormalized = distanceModifier * distanceFactorCoefficient;
+        var a = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * distanceModifierNormalized;
         var randomoffset = _random.NextVector2(a, a * 2.5f);
         var outpostOptions = new MapLoadOptions
         {
@@ -51,6 +55,8 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         //End of Syndicate Listening Outpost spawning system
 
         //Start of Debris Field Generation
+        var debrisSpawner = _confMan.GetCVar<bool>("worldgen");
+        if (debrisSpawner == true) return;
         var debrisCount = Math.Clamp(component.DebrisCount, 0, 6);
         if (debrisCount == 0) return;
         var debrisDistanceModifier = Math.Clamp(component.DebrisDistanceModifier, 3, 10);

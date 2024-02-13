@@ -19,4 +19,12 @@ public sealed partial class PirateRadioSpawnRuleComponent : Component
 
     [DataField("debrisDistanceModifier")]
     public float DebrisDistanceModifier { get; set; }
+
+    /// <summary>
+    /// "Stations of Unusual Size Constant", derived from the AABB.Width of Shoukou.
+    /// This Constant is used to check the size of a station relative to the reference point
+    /// </summary>
+    [DataField("sousk")]
+    public float SOUSK = 123.44f;
+
 }
