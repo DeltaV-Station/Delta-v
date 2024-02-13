@@ -104,9 +104,14 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
-        var ev = new AttemptMeleeThrowOnHitEvent(target);
-        RaiseLocalEvent(uid, ref ev);
+        var ev = new AttemptMeleeThrowOnHitEvent(target, ent);
 
+        // Delta-V modification: Also raise on the entity being hit, in case it wants to object
+        RaiseLocalEvent(target, ref ev);
+        if (ev.Handled)
+            return !ev.Cancelled;
+
+        RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
             return !ev.Cancelled;
 
