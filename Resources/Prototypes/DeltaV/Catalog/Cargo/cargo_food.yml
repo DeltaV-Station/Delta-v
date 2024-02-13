@@ -27,3 +27,33 @@
   cost: 6000 # Thanks bounties
   category: Food
   group: market
+
+- type: cargoProduct
+  id: FoodBeerKeg
+  icon:
+    sprite: DeltaV/Structures/Storage/keg.rsi
+    state: base
+  product: WoodenKegBeer
+  cost: 500
+  category: Food
+  group: market
+
+- type: cargoProduct
+  id: FoodRootBeerKeg
+  icon:
+    sprite: DeltaV/Structures/Storage/keg.rsi
+    state: base
+  product: WoodenKegRootBeer
+  cost: 500
+  category: Food
+  group: market
+
+- type: cargoProduct
+  id: FoodWineBarrel
+  icon:
+    sprite: DeltaV/Structures/Storage/keg.rsi
+    state: base
+  product: WoodenKegWine
+  cost: 500
+  category: Food
+  group: market

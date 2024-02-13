@@ -38,6 +38,8 @@
     node: woodenbarrel
     containers:
     - entity_storage
+  - type: StaticPrice
+    price: 50
   - type: Fixtures
     fixtures:
       fix1:
@@ -110,6 +112,8 @@
             max: 4
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 50
   - type: Construction
     graph: WoodenKeg
     node: woodenkeg
@@ -130,3 +134,45 @@
         - MachineLayer
   - type: Transform
     noRot: true
+
+- type: entity
+  parent: WoodenKeg
+  name: root beer keg
+  id: WoodenKegRootBeer
+  components:
+    - type: Label
+      currentLabel: reagent-name-root-beer
+    - type: SolutionContainerManager
+      solutions:
+        keg:
+          reagents:
+            - ReagentId: RootBeer
+              Quantity: 500
+
+- type: entity
+  parent: WoodenKeg
+  name: beer keg
+  id: WoodenKegBeer
+  components:
+    - type: Label
+      currentLabel: reagent-name-beer
+    - type: SolutionContainerManager
+      solutions:
+        keg:
+          reagents:
+            - ReagentId: Beer
+              Quantity: 500
+
+- type: entity
+  parent: WoodenKeg
+  name: wine keg
+  id: WoodenKegWine
+  components:
+    - type: Label
+      currentLabel: reagent-name-wine
+    - type: SolutionContainerManager
+      solutions:
+        keg:
+          reagents:
+            - ReagentId: Wine
+              Quantity: 500
