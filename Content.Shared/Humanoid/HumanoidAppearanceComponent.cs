@@ -1,5 +1,6 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences; // DeltaV
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -84,13 +85,11 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Color? CachedFacialHairColor;
 
-    // Begin Nyano-code: allow paradox anomalies to be cloned.
     /// <summary>
-    ///     The last profile loaded onto this entity.
+    /// DeltaV - let paradox anomaly be cloned
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables]
     public HumanoidCharacterProfile? LastProfileLoaded;
-    // End Nyano-code.
 }
 
 [DataDefinition]

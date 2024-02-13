@@ -101,9 +101,10 @@ public sealed partial class MeleeThrownComponent : Component
 /// <summary>
 /// Event raised before an entity is thrown by <see cref="MeleeThrowOnHitComponent"/> to see if a throw is allowed.
 /// If not handled, the enabled field on the component will be used instead.
+/// Delta-V modification: Added User field, since it is now also raised on the entity being hit
 /// </summary>
 [ByRefEvent]
-public record struct AttemptMeleeThrowOnHitEvent(EntityUid Hit, bool Cancelled = false, bool Handled = false);
+public record struct AttemptMeleeThrowOnHitEvent(EntityUid Hit, Entity<MeleeThrowOnHitComponent> User, bool Cancelled = false, bool Handled = false);
 
 [ByRefEvent]
 public record struct MeleeThrowOnHitStartEvent(EntityUid User, EntityUid Used);

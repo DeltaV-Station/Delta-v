@@ -45,3 +45,18 @@
       - state: green
       - sprite: Structures/Wallmounts/signs.rsi
         state: radiation
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostParadoxAnomaly
+  name: paradox anomaly spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-paradox-anomaly-name
+    description: ghost-role-information-paradox-anomaly-description
+    rules: ghost-role-information-paradox-anomaly-rules
+  - type: ParadoxAnomalySpawner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
