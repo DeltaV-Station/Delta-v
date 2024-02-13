@@ -13,6 +13,7 @@ using Content.Server.Station.Components;
 using Content.Shared.Salvage;
 using Content.Shared.Random.Helpers;
 using System.Linq;
+using Content.Shared.CCVar;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -55,7 +56,7 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         //End of Syndicate Listening Outpost spawning system
 
         //Start of Debris Field Generation
-        var debrisSpawner = _confMan.GetCVar<bool>("worldgen");
+        var debrisSpawner = _confMan.GetCVar<bool>(CCVars.WorldgenEnabled);
         if (debrisSpawner == true) return;
         var debrisCount = Math.Clamp(component.DebrisCount, 0, 6);
         if (debrisCount == 0) return;
