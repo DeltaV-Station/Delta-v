@@ -2,6 +2,7 @@
   id: LamiaInitialSegment
   noSpawn: true
   components:
+  - type: Appearance
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -16,6 +17,7 @@
         - MobMask
   - type: Transform
     anchored: false
+  - type: LamiaSegmentVisuals
   - type: Tag
     tags:
     - HideContextMenu
@@ -31,12 +33,14 @@
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.LamiaSegmentVisualLayers.Armor" ]
+      sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+      state: segment
+      visible: false
   - type: Clickable
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: ExplosionResistance #This looks stupid but remember that bombs are likely to damage every segment, we want them to be decent but not instagib the poor lamia.s
-    damageCoefficient: 0.2
   - type: HumanoidAppearance
     species: LamiaSegment
 
@@ -51,6 +55,10 @@
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     layers:
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.LamiaSegmentVisualLayers.Armor" ]
+      sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+      state: segment
+      visible: false
   - type: LamiaSegment
     segmentId: tip
   - type: HumanoidAppearance

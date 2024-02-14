@@ -1,30 +1,32 @@
 using Robust.Shared.Physics;
-using Robust.Shared.Utility;
 using Content.Shared.Damage;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Humanoid;
+using Content.Shared.Inventory.Events;
+using Content.Shared.Tag;
 using Content.Shared.Storage.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Maths;
 using System.Numerics;
 using Content.Shared.Nyanotrasen.Lamiae;
 
 namespace Content.Server.Nyanotrasen.Lamiae
 {
-    public partial class SharedLamiaSystem : EntitySystem
+    public sealed partial class LamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypes = default!;
-        [Dependency] private readonly MarkingManager _markingManager = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+        [ValidatePrototypeId<TagPrototype>]
+        private const string LamiaHardsuitTag = "AllowLamiaHardsuit";
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -76,6 +78,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
             SubscribeLocalEvent<LamiaComponent, InsertIntoEntityStorageAttemptEvent>(OnLamiaStorageInsertAttempt);
             SubscribeLocalEvent<LamiaSegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
+            SubscribeLocalEvent<LamiaComponent, DidEquipEvent>(OnDidEquipEvent);
+            SubscribeLocalEvent<LamiaComponent, DidUnequipEvent>(OnDidUnequipEvent);
         }
 
         /// <summary>
@@ -194,6 +198,33 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private void OnSegmentStorageInsertAttempt(EntityUid uid, LamiaSegmentComponent comp, ref InsertIntoEntityStorageAttemptEvent args)
         {
             args.Cancelled = true;
+        }
+
+        private void OnDidEquipEvent(EntityUid equipee, LamiaComponent component, DidEquipEvent args)
+        {
+            if (!TryComp<ClothingComponent>(args.Equipment, out var clothing)) return;
+            if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, LamiaHardsuitTag))
+            {
+                foreach (var uid in component.Segments)
+                {
+                    if (!TryComp<AppearanceComponent>(uid, out var appearance)) return;
+                    _appearance.SetData(uid, LamiaSegmentVisualLayers.Armor, true, appearance);
+                    if (clothing.RsiPath == null) return;
+                    _appearance.SetData(uid, LamiaSegmentVisualLayers.ArmorRsi, clothing.RsiPath, appearance);
+                }
+            }
+        }
+
+        private void OnDidUnequipEvent(EntityUid equipee, LamiaComponent component, DidUnequipEvent args)
+        {
+            if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, LamiaHardsuitTag))
+            {
+                foreach (var uid in component.Segments)
+                {
+                    if (!TryComp<AppearanceComponent>(uid, out var appearance)) return;
+                    _appearance.SetData(uid, LamiaSegmentVisualLayers.Armor, false, appearance);
+                }
+            }
         }
     }
 }
