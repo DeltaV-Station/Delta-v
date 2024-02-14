@@ -21,3 +21,9 @@ reagent-desc-healthviolation = Allegedly it's a cocktail. The warning cone motif
 
 reagent-name-mothamphetamine = mothamphetamine
 reagent-desc-mothamphetamine = A strangely... fuzzy drink. It has a chaotic aura.
+
+reagent-name-admiralty = admiralty
+reagent-desc-admiralty = Look at me. I am the Admiral now.
+
+reagent-name-amnesia = amnesia
+reagent-desc-amnesia = They put something in the water, something to make you forget.

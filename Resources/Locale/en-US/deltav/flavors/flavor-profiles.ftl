@@ -27,3 +27,5 @@ flavor-complex-daiquiri = fashionable
 flavor-complex-arsonistsbrew = like ash and flame
 flavor-complex-dulleavene = ominous
 flavor-complex-pumpkin = like pumpkin
+flavor-complex-amnesia = like ...huh?
+
