@@ -6,6 +6,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Server.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
+using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
@@ -24,6 +25,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly StandingStateSystem _standing = default!;
 
         [ValidatePrototypeId<TagPrototype>]
         private const string LamiaHardsuitTag = "AllowLamiaHardsuit";
@@ -81,6 +83,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, DidEquipEvent>(OnDidEquipEvent);
             SubscribeLocalEvent<LamiaComponent, DidUnequipEvent>(OnDidUnequipEvent);
             SubscribeLocalEvent<LamiaSegmentComponent, BeforeDamageChangedEvent>(OnHitSelf);
+            SubscribeLocalEvent<LamiaSegmentComponent, StandAttemptEvent>(TailCantStand);
         }
 
         /// <summary>
@@ -94,6 +97,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
             component.Lamia = args.Lamia;
+            _standing.Down(uid);
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var species)) return;
             if (!TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid)) return;
@@ -164,6 +168,11 @@ namespace Content.Server.Nyanotrasen.Lamiae
             {
                 args.Cancelled = true;
             }
+        }
+
+        private void TailCantStand(EntityUid uid, LamiaSegmentComponent component, StandAttemptEvent args)
+        {
+            args.Cancelled = true;
         }
 
         private void SpawnSegments(EntityUid uid, LamiaComponent component)
