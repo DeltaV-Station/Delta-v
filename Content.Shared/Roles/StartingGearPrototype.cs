@@ -34,7 +34,8 @@ namespace Content.Shared.Roles
             if (profile != null)
             {
                 if (slot == "jumpsuit" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(InnerClothingSkirt)
-                    || slot == "jumpsuit" && profile.Species == "Harpy" && !string.IsNullOrEmpty(InnerClothingSkirt)) //DeltaV adds this line to prevent Harpies from starting with jumpsuits
+                    || slot == "jumpsuit" && profile.Species == "Harpy" && !string.IsNullOrEmpty(InnerClothingSkirt)
+                    || slot == "jumpsuit" && profile.Species == "Lamia" && !string.IsNullOrEmpty(InnerClothingSkirt)) //DeltaV adds checks for Harpy & Lamia to prevent wearing jumpsuits
                     return InnerClothingSkirt;
                 if (slot == "back" && profile.Backpack == BackpackPreference.Satchel && !string.IsNullOrEmpty(Satchel))
                     return Satchel;
