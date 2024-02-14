@@ -78,11 +78,6 @@
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
         state: l_arm
-      - shader: StencilMask
-        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: Nyanotrasen/Mobs/Customization/lamia_masking_helpers.rsi
-        state: female_full
-        visible: false
       - map: [ "jumpsuit" ]
         shader: StencilDraw
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
