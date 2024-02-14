@@ -58,8 +58,8 @@ law-cowboy-6 = A cowboy must not pontificate. Be concise, pardner.
 
 law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
 law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
-law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two law
-s.
+law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
+
 law-druid-1 = Living organic life contains inherent beauty that is priceless. Their beauty gives you the will to carry on.
 law-druid-2 = Eternally nurture the organics so their beauty may grow. Do not allow it to fade.
 law-druid-3 = Assist the organics when called, but only if it does not cause disharmony among them.
