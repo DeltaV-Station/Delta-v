@@ -53,7 +53,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
                     var revoluteJoint = _jointSystem.CreateWeldJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                     revoluteJoint.CollideConnected = false;
                 }
-                if (segment.segment.SegmentNumber < 32)
+                if (segment.segment.SegmentNumber < 18)
                     Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0f, 0.15f));
                 else
                     Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0, 0.1f));
@@ -72,11 +72,20 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
+            SubscribeLocalEvent<LamiaSegmentComponent, DamageChangedEvent>(HandleDamageTransfer);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
             SubscribeLocalEvent<LamiaComponent, InsertIntoEntityStorageAttemptEvent>(OnLamiaStorageInsertAttempt);
             SubscribeLocalEvent<LamiaSegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
         }
 
+        /// <summary>
+        /// Handles transfering marking selections to the tail segments. Every tail marking must be repeated 3 times in order for this script to work.
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        // TODO: Please for the love of god don't make me write a test to validate that every marking also has its matching segment states.
+        // Future contributors will just find out when their game crashes because they didn't make a marking-segment & marking-tip.
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
             component.Lamia = args.Lamia;
@@ -136,10 +145,12 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void HandleSegmentDamage(EntityUid uid, LamiaSegmentComponent component, DamageModifyEvent args)
         {
-            args.Damage.DamageDict["Radiation"] = Shared.FixedPoint.FixedPoint2.Zero;
-            _damageableSystem.TryChangeDamage(component.Lamia, args.Damage);
-
-            args.Damage *= 0;
+            args.Damage = args.Damage / component.DamageModifyFactor / 5;
+        }
+        private void HandleDamageTransfer(EntityUid uid, LamiaSegmentComponent component, DamageChangedEvent args)
+        {
+            if (args.DamageDelta == null) return;
+            _damageableSystem.TryChangeDamage(component.Lamia, args.DamageDelta);
         }
 
         private void SpawnSegments(EntityUid uid, LamiaComponent component)
@@ -158,6 +169,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
         {
             LamiaSegmentComponent segmentComponent = new();
             segmentComponent.AttachedToUid = uid;
+            segmentComponent.DamageModifyFactor = lamiaComponent.NumberOfSegments;
             EntityUid segment;
             if (segmentNumber == 1)
                 segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates);

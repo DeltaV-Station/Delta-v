@@ -10,7 +10,7 @@ namespace Content.Shared.Nyanotrasen.Lamiae
     public sealed partial class LamiaSegmentComponent : Component
     {
         public EntityUid AttachedToUid = default!;
-
+        public int DamageModifyFactor = default!;
         public bool SexChanged = false;
         public EntityUid Lamia = default!;
         public int SegmentNumber = default!;

@@ -6,9 +6,12 @@ namespace Content.Shared.Nyanotrasen.Lamiae
     [RegisterComponent]
     public sealed partial class LamiaComponent : Component
     {
+        /// <summary>
+        /// A list of each UID attached to the Lamia, in order of spawn
+        /// </summary>
         public List<EntityUid> Segments = new();
 
         [DataField("numberOfSegments")]
-        public int NumberOfSegments = 32;
+        public int NumberOfSegments = 18;
     }
 }
