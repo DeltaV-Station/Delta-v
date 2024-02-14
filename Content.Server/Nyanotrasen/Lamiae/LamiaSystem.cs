@@ -172,7 +172,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void TailCantStand(EntityUid uid, LamiaSegmentComponent component, StandAttemptEvent args)
         {
-            args.Cancelled = true;
+            args.Cancel();
         }
 
         private void SpawnSegments(EntityUid uid, LamiaComponent component)
