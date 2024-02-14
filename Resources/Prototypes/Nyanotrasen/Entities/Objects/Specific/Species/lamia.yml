@@ -2,6 +2,7 @@
   id: LamiaInitialSegment
   noSpawn: true
   components:
+  - type: Damageable
   - type: Appearance
   - type: Physics
     bodyType: KinematicController

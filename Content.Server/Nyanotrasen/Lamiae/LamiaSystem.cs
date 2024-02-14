@@ -80,6 +80,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaSegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
             SubscribeLocalEvent<LamiaComponent, DidEquipEvent>(OnDidEquipEvent);
             SubscribeLocalEvent<LamiaComponent, DidUnequipEvent>(OnDidUnequipEvent);
+            SubscribeLocalEvent<LamiaSegmentComponent, BeforeDamageChangedEvent>(OnHitSelf);
         }
 
         /// <summary>
@@ -155,6 +156,14 @@ namespace Content.Server.Nyanotrasen.Lamiae
         {
             if (args.DamageDelta == null) return;
             _damageableSystem.TryChangeDamage(component.Lamia, args.DamageDelta);
+        }
+
+        private void OnHitSelf(EntityUid uid, LamiaSegmentComponent component, ref BeforeDamageChangedEvent args)
+        {
+            if (args.Origin == component.Lamia)
+            {
+                args.Cancelled = true;
+            }
         }
 
         private void SpawnSegments(EntityUid uid, LamiaComponent component)
