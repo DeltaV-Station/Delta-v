@@ -3,7 +3,11 @@
   noSpawn: true
   components:
   - type: Damageable
+  - type: StandingState
   - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PsionicInsulation #Not a brain, target the lamia instead
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -16,6 +20,8 @@
         restitution: 0.0
         mask:
         - MobMask
+        layer:
+        - MobLayer
   - type: Transform
     anchored: false
   - type: LamiaSegmentVisuals
