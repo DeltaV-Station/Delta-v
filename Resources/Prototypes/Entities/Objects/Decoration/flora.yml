@@ -176,6 +176,18 @@
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_stalagmite.rsi
     state: stalagmite1
+    # Delta-V - modify max damage of stalagmites to be *far* more sensible, stalagmites are very fragile IRL, and give it a noise too
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
 
 - type: entity
   parent: FloraStalagmite1

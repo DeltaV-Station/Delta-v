@@ -1,0 +1,49 @@
+- type: entity
+  name: stalagmite
+  description: Natural stone spikes.
+  parent: FloraStalagmite1
+  id: FloraGreyStalagmite1
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite1
+
+- type: entity
+  parent: FloraGreyStalagmite1
+  id: FloraGreyStalagmite2
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite2
+
+- type: entity
+  parent: FloraGreyStalagmite1
+  id: FloraGreyStalagmite3
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite3
+
+- type: entity
+  parent: FloraGreyStalagmite1
+  id: FloraGreyStalagmite4
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite4
+
+- type: entity
+  parent: FloraGreyStalagmite1
+  id: FloraGreyStalagmite5
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite5
+
+- type: entity
+  parent: FloraGreyStalagmite1
+  id: FloraGreyStalagmite6
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_grey_stalagmite.rsi
+    state: stalagmite6
