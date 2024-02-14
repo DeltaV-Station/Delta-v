@@ -97,9 +97,6 @@
       - map: [ "gloves" ]
       - map: [ "ears" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
@@ -114,11 +111,6 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
-      - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: underscales
   - type: Body
     template: LamiaTemplate
     preset: LamiaPreset
@@ -128,6 +120,7 @@
   - type: NoSlip
   - type: Internals
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       200: Critical #these values aren't final'
@@ -223,6 +216,14 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepLamia
+  - type: Bloodstream
+    bloodMaxVolume: 60000
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
 
 - type: entity
   save: false
