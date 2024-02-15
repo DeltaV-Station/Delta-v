@@ -45,7 +45,7 @@
               doAfter: 2
           conditions:
             - !type:SolutionEmpty
-              solution: keg
+              solution: tank
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
