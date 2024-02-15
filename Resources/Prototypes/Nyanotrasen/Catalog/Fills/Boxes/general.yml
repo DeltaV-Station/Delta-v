@@ -60,16 +60,16 @@
   id: BoxHolyWater
   description: This box is filled with everything you need to make homemade holy water. Water not included.
   components:
-#    - type: StorageFill
-#      contents:
-#        - id: MercuryChemistryBottle
-#          amount: 3
-#        - id: DrinkWineBottleFull
-#          amount: 1
-#        - id: SprayBottle
-#          amount: 1
-    - type: Sprite
-      layers:
-        - state: box_science
-        - sprite: Nyanotrasen/Objects/Storage/boxes.rsi
-          state: holywater
+  - type: StorageFill
+    contents:
+      - id: DrinkWineCan
+        amount: 2
+      - id: SprayBottle
+        amount: 1
+      - id: MercuryChemistryBottle
+        amount: 2
+  - type: Sprite
+    layers:
+      - state: box_science
+      - sprite: Nyanotrasen/Objects/Storage/boxes.rsi
+        state: holywater
