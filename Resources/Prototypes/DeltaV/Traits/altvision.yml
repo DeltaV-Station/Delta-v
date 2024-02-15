@@ -1,13 +1,20 @@
 - type: trait
   id: UltraVision
-  name: Ultraviolet Vision
+  name: trait-ultravision-name
   description: trait-ultravision-desc
   components:
     - type: UltraVision
 
 - type: trait
+  id: DogVision
+  name: trait-dogvision-name
+  description: trait-dogvision-desc
+  components:
+    - type: DogVision
+
+- type: trait
   id: DefaultVision
-  name: Normal Vision
+  name: trait-defaultvision-name
   description: trait-defaultvision-desc
   components:
     - type: DefaultVision
