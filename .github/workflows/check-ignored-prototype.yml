@@ -1,0 +1,38 @@
+﻿name: "No ignored prototype edits"
+
+on:
+  pull_request_target:
+
+jobs:
+  verify-ignored:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Read ignored prototypes
+        uses: pietrobolcato/action-read-yaml@1.1.0
+        id: ignored_protos
+        with:
+          config: ${{ github.workspace }}/Resources/IgnoredPrototypes/ignoredPrototypes.yml
+
+      - name: Get changed files
+        id: files
+        uses: Ana06/get-changed-files@v2.2.0
+        with:
+          format: 'space-delimited'
+
+      - name: Check for ignored prototypes
+        run: |
+          CHANGED_FILES="${{ steps.files.outputs.files }}"
+          IGNORED_PROTOS="${{ steps.ignored_protos.outputs }}"
+
+          for FILE in $CHANGED_FILES; do
+            # Remove the "/Resources/" prefix if present
+            FILE="${FILE/\/Resources\//}"
+
+            if echo "$IGNORED_PROTOS" | grep -q "$FILE"; then
+              echo "Error: This pull request contains changes to ignored prototype: $FILE"
+              exit 1
+            fi
+          done
