@@ -12,4 +12,10 @@ public sealed class SalvageMapPrototype : IPrototype
     /// Relative directory path to the given map, i.e. `Maps/Salvage/template.yml`
     /// </summary>
     [DataField(required: true)] public ResPath MapPath;
+
+    /// <summary>
+    /// Add Size field for Delta V naming strings
+    /// </summary>
+    [DataField("size"), ViewVariables(VVAccess.ReadWrite)]
+    public string Size { get; } = default!;
 }
