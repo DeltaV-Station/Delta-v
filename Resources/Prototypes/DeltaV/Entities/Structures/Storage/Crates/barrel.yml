@@ -45,12 +45,13 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,-0.3,0.2,0.3"
+          bounds: "-0.2,-0.3,0.2,0.4"
         density: 125
         mask:
         - SmallMobMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: Climbable
 
 - type: entity
   parent: BaseStructureDynamic
@@ -126,7 +127,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,-0.3,0.2,0.3"
+          bounds: "-0.2,-0.3,0.2,0.4"
         density: 125
         mask:
         - SmallMobMask #this is so they can go under plastic flaps
@@ -134,6 +135,7 @@
         - MachineLayer
   - type: Transform
     noRot: true
+  - type: Climbable
 
 - type: entity
   parent: WoodenKeg
