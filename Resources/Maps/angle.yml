@@ -53172,13 +53172,13 @@ entities:
       parent: 2
     - type: AtmosDevice
       joinedGrid: 2
-- proto: GasMinerPlasma
+- proto: GasMinerOxygenStation
   entities:
-  - uid: 8235
+  - uid: 12273
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 18.5,-99.5
+      rot: 3.141592653589793 rad
+      pos: 3.5,-85.5
       parent: 2
     - type: AtmosDevice
       joinedGrid: 2
@@ -88912,14 +88912,6 @@ entities:
       parent: 2
 - proto: Pickaxe
   entities:
-  - uid: 13255
-    components:
-    - type: MetaData
-      desc: What, is this not good enough?
-      name: O2 gas miner
-    - type: Transform
-      pos: 3.5000806,-85.539406
-      parent: 2
   - uid: 18791
     components:
     - type: Transform
@@ -101019,6 +101011,26 @@ entities:
     - type: Transform
       pos: -7.5,-62.5
       parent: 2
+- proto: SignDirectionalLogistics
+  entities:
+  - uid: 12274
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.51325,-49.71187
+      parent: 2
+  - uid: 13255
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.4903703,-38.491505
+      parent: 2
+  - uid: 15277
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5051675,-8.316112
+      parent: 2
 - proto: SignDirectionalMed
   entities:
   - uid: 15275
@@ -101035,11 +101047,6 @@ entities:
       parent: 2
 - proto: SignDirectionalSalvage
   entities:
-  - uid: 15277
-    components:
-    - type: Transform
-      pos: 6.501845,-49.722504
-      parent: 2
   - uid: 15278
     components:
     - type: Transform
@@ -101075,18 +101082,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 50.513306,-9.269057
-      parent: 2
-  - uid: 15283
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,-38.5
-      parent: 2
-  - uid: 15284
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5069604,-8.269593
       parent: 2
 - proto: SignDirectionalWash
   entities:
@@ -103298,40 +103293,6 @@ entities:
     - type: Transform
       pos: 29.5,-17.5
       parent: 2
-- proto: SpawnVehicleATV
-  entities:
-  - uid: 15674
-    components:
-    - type: Transform
-      pos: 81.5,-0.5
-      parent: 2
-  - uid: 15675
-    components:
-    - type: Transform
-      pos: 46.5,-82.5
-      parent: 2
-  - uid: 15676
-    components:
-    - type: Transform
-      pos: 67.5,-48.5
-      parent: 2
-  - uid: 15677
-    components:
-    - type: Transform
-      pos: 82.5,10.5
-      parent: 2
-  - uid: 15678
-    components:
-    - type: Transform
-      pos: 84.5,10.5
-      parent: 2
-- proto: SpawnVehicleJanicart
-  entities:
-  - uid: 15679
-    components:
-    - type: Transform
-      pos: 74.5,-17.5
-      parent: 2
 - proto: SpeedLoaderLightRifle
   entities:
   - uid: 15680
@@ -103429,6 +103390,69 @@ entities:
     components:
     - type: Transform
       pos: -5.5,-28.5
+      parent: 2
+- proto: StationMap
+  entities:
+  - uid: 8235
+    components:
+    - type: Transform
+      pos: 36.5,-78.5
+      parent: 2
+  - uid: 15283
+    components:
+    - type: Transform
+      pos: 77.5,-3.5
+      parent: 2
+  - uid: 15284
+    components:
+    - type: Transform
+      pos: 60.5,-3.5
+      parent: 2
+  - uid: 15674
+    components:
+    - type: Transform
+      pos: 47.5,-3.5
+      parent: 2
+  - uid: 15675
+    components:
+    - type: Transform
+      pos: 35.5,-3.5
+      parent: 2
+  - uid: 15676
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-2.5
+      parent: 2
+  - uid: 15677
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-18.5
+      parent: 2
+  - uid: 15678
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,-23.5
+      parent: 2
+  - uid: 15679
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-42.5
+      parent: 2
+  - uid: 16315
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-55.5
+      parent: 2
+  - uid: 16316
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-71.5
       parent: 2
 - proto: Stool
   entities:
@@ -107725,42 +107749,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-21.5
-      parent: 2
-- proto: VehicleJanicartDestroyed
-  entities:
-  - uid: 16315
-    components:
-    - type: Transform
-      pos: 32.5,-67.5
-      parent: 2
-- proto: VehicleKeyATV
-  entities:
-  - uid: 12273
-    components:
-    - type: Transform
-      pos: 72.85013,-0.3645668
-      parent: 2
-  - uid: 12274
-    components:
-    - type: Transform
-      pos: 71.527214,-0.4583168
-      parent: 2
-  - uid: 16316
-    components:
-    - type: Transform
-      pos: 69.25146,-50.092117
-      parent: 2
-  - uid: 16317
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 84.32639,0.022134662
-      parent: 2
-  - uid: 16318
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 45.75602,-84.99219
       parent: 2
 - proto: VendingBarDrobe
   entities:
