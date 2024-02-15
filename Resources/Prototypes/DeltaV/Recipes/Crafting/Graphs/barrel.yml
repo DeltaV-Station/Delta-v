@@ -16,7 +16,7 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 2
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
@@ -42,7 +42,10 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 2
+          conditions:
+            - !type:SolutionEmpty
+              solution: keg
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
