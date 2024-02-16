@@ -32,12 +32,29 @@
     Steel: 5
 
 - type: latheRecipe
+  id: CartridgeSpecialIncendiary
+  result: CartridgeSpecialIncendiary
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+
+- type: latheRecipe
+  id: CartridgeSpecialUranium
+  result: CartridgeSpecialUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+    Uranium: 10
+
+- type: latheRecipe
   id: CartridgeSpecialHoly
   result: CartridgeSpecialHoly
   category: Ammo
   completetime: 2
   materials:
-    Plastic: 5
+    Plastic: 15
     Steel: 5
     Silver: 5
 
@@ -47,7 +64,7 @@
   category: Ammo
   completetime: 2
   materials:
-    Plastic: 5
+    Plastic: 15
     Steel: 5
     Bluespace: 5
 
@@ -57,7 +74,24 @@
   category: Ammo
   completetime: 5
   materials:
-    Steel: 1000
+    Steel: 1250
+
+- type: latheRecipe
+  id: MagazineBoxSpecialIncendiary
+  result: MagazineBoxSpecialIncendiary
+  category: Ammo
+  completetime: 5
+  materials:
+    Plastic: 1250
+
+- type: latheRecipe
+  id: MagazineBoxSpecialUranium
+  result: MagazineBoxSpecialUranium
+  category: Ammo
+  completetime: 5
+  materials:
+    Plastic: 1250
+    Uranium: 125
 
 - type: latheRecipe
   id: MagazineBoxSpecialPractice
@@ -65,7 +99,7 @@
   category: Ammo
   completetime: 5
   materials:
-    Plastic: 950
+    Plastic: 1200
 
 - type: latheRecipe
   id: MagazineBoxSpecialRubber

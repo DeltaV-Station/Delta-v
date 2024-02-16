@@ -45,6 +45,22 @@
     proto: BulletSpecialRubber
 
 - type: entity
+  id: CartridgeSpecialIncendiary
+  name: cartridge (.38 special incendiary)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialIncendiary
+
+- type: entity
+  id: CartridgeSpecialUranium
+  name: cartridge (.38 special uranium)
+  parent: BaseCartridgeSpecial
+  components:
+  - type: CartridgeAmmo
+    proto: BulletSpecialUranium
+
+- type: entity
   id: CartridgeSpecialHoly
   name: cartridge (.38 special holy)
   parent: BaseCartridgeSpecial
