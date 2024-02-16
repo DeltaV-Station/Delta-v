@@ -78,8 +78,8 @@
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
         state: l_arm
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "jumpsuit" ]
-        shader: StencilDraw
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
@@ -96,7 +96,6 @@
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "ears" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
@@ -258,11 +257,6 @@
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
         state: l_arm
-      - shader: StencilMask
-        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: Nyanotrasen/Mobs/Customization/lamia_masking_helpers.rsi
-        state: female_full
-        visible: false
       - map: [ "jumpsuit" ]
         shader: StencilDraw
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
@@ -294,14 +288,6 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
-      - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: underscales
   - type: Inventory
     templateId: lamia

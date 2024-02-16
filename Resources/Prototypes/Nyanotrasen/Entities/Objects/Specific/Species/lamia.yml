@@ -38,6 +38,7 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+    drawdepth: SmallMobs
     layers:
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.LamiaSegmentVisualLayers.Armor" ]

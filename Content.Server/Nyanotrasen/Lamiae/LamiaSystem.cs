@@ -57,7 +57,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
                     var revoluteJoint = _jointSystem.CreateWeldJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                     revoluteJoint.CollideConnected = false;
                 }
-                if (segment.segment.SegmentNumber < 18)
+                if (segment.segment.SegmentNumber < segment.segment.MaxSegments)
                     Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0f, 0.15f));
                 else
                     Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0, 0.1f));
@@ -87,13 +87,13 @@ namespace Content.Server.Nyanotrasen.Lamiae
         }
 
         /// <summary>
-        /// Handles transfering marking selections to the tail segments. Every tail marking must be repeated 3 times in order for this script to work.
+        /// Handles transfering marking selections to the tail segments. Every tail marking must be repeated 2 times in order for this script to work.
         /// </summary>
         /// <param name="uid"></param>
         /// <param name="component"></param>
         /// <param name="args"></param>
         // TODO: Please for the love of god don't make me write a test to validate that every marking also has its matching segment states.
-        // Future contributors will just find out when their game crashes because they didn't make a marking-segment & marking-tip.
+        // Future contributors will just find out when their game crashes because they didn't make a marking-segment.
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
             component.Lamia = args.Lamia;
@@ -191,12 +191,11 @@ namespace Content.Server.Nyanotrasen.Lamiae
         {
             LamiaSegmentComponent segmentComponent = new();
             segmentComponent.AttachedToUid = uid;
+            segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
             segmentComponent.DamageModifyFactor = lamiaComponent.NumberOfSegments;
             EntityUid segment;
             if (segmentNumber == 1)
                 segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates);
-            else if (segmentNumber == lamiaComponent.NumberOfSegments)
-                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates);
             else
                 segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates);
 

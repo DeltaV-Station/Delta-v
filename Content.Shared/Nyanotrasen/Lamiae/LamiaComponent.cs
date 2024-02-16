@@ -12,6 +12,6 @@ namespace Content.Shared.Nyanotrasen.Lamiae
         public List<EntityUid> Segments = new();
 
         [DataField("numberOfSegments")]
-        public int NumberOfSegments = 18;
+        public int NumberOfSegments = 30;
     }
 }
