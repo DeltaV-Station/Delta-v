@@ -36,7 +36,9 @@ We are currently accepting translations of the game on our main repository. If y
 
 ## License
 
-All code for the content repository is licensed under [MIT](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE.TXT).
+All code for the repository is licensed under [MIT](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-MIT.txt), or [AGPLv3](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-AGPLv3.txt).
+
+If code does not explicitly mention the license it is under, it should be assumed to be MIT. To avoid any confusion, it is best to take all code outside of the DeltaV namespaces from our upstream, [space-wizards/space-station-14](https://github.com/space-wizards/space-station-14)
 
 Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/DeltaV-Station/Delta-v/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
