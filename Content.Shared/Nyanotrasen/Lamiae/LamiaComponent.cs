@@ -13,5 +13,12 @@ namespace Content.Shared.Nyanotrasen.Lamiae
 
         [DataField("numberOfSegments")]
         public int NumberOfSegments = 30;
+
+        /// <summary>
+        /// Used to derive how much damage should transfer from segments to body. Higher = less damage transfered.
+        /// Clamped to NumberOfSegments as a maximum value
+        /// </summary>
+        [DataField("damageModifierConstant")]
+        public float DamageModifierConstant = 8f;
     }
 }

@@ -119,6 +119,19 @@
   - type: NoSlip
   - type: Internals
   - type: MobState
+  - type: DamageVisuals
+    thresholds: [ 60, 120, 200 ] #these values aren't final, adjust accordingly with thresholds above'
+    targetLayers:
+      - "enum.HumanoidVisualLayers.Chest"
+      - "enum.HumanoidVisualLayers.Head"
+      - "enum.HumanoidVisualLayers.LArm"
+      - "enum.HumanoidVisualLayers.RArm"
+    damageOverlayGroups:
+      Brute:
+        sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -137,19 +150,6 @@
     - type: BuckleVisualizer
     - type: CreamPiedVisualizer
       state: creampie_human
-  - type: DamageVisuals
-    thresholds: [ 60, 120, 200 ] #these values aren't final, adjust accordingly with thresholds above'
-    targetLayers:
-      - "enum.HumanoidVisualLayers.Chest"
-      - "enum.HumanoidVisualLayers.Head"
-      - "enum.HumanoidVisualLayers.LArm"
-      - "enum.HumanoidVisualLayers.RArm"
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#FF0000"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -202,6 +202,7 @@
         layer:
         - MobLayer
   - type: Lamia
+    damageModifierConstant: 12
   - type: Speech
     speechSounds: Alto
   - type: Vocal

@@ -1,5 +1,6 @@
 using Robust.Shared.Physics;
 using Content.Shared.Damage;
+using Content.Shared.Explosion;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -8,7 +9,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
@@ -58,9 +58,9 @@ namespace Content.Server.Nyanotrasen.Lamiae
                     revoluteJoint.CollideConnected = false;
                 }
                 if (segment.segment.SegmentNumber < segment.segment.MaxSegments)
-                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0f, 0.15f));
+                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0, segment.segment.OffsetSwitching));
                 else
-                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0, 0.1f));
+                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset(new Vector2(0, segment.segment.OffsetSwitching));
 
                 var joint = _jointSystem.CreateDistanceJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                 joint.CollideConnected = false;
@@ -84,6 +84,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
             SubscribeLocalEvent<LamiaComponent, DidUnequipEvent>(OnDidUnequipEvent);
             SubscribeLocalEvent<LamiaSegmentComponent, BeforeDamageChangedEvent>(OnHitSelf);
             SubscribeLocalEvent<LamiaSegmentComponent, StandAttemptEvent>(TailCantStand);
+            SubscribeLocalEvent<LamiaSegmentComponent, GetExplosionResistanceEvent>(OnSnekBoom);
         }
 
         /// <summary>
@@ -101,6 +102,9 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var species)) return;
             if (!TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid)) return;
+            if (!TryComp<AppearanceComponent>(uid, out var appearance)) return;
+
+            _appearance.SetData(uid, ScaleVisuals.Scale, component.ScaleFactor, appearance);
 
             if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings))
             {
@@ -116,6 +120,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
+            component.DamageModifierConstant = Math.Clamp(component.DamageModifierConstant, 1, component.NumberOfSegments);
             SpawnSegments(uid, component);
         }
 
@@ -154,7 +159,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void HandleSegmentDamage(EntityUid uid, LamiaSegmentComponent component, DamageModifyEvent args)
         {
-            args.Damage = args.Damage / component.DamageModifyFactor / 5;
+            args.Damage = args.Damage / component.DamageModifyFactor;
         }
         private void HandleDamageTransfer(EntityUid uid, LamiaSegmentComponent component, DamageChangedEvent args)
         {
@@ -190,18 +195,33 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private EntityUid AddSegment(EntityUid uid, EntityUid lamia, LamiaComponent lamiaComponent, int segmentNumber)
         {
             LamiaSegmentComponent segmentComponent = new();
+            segmentComponent.Lamia = lamia;
             segmentComponent.AttachedToUid = uid;
             segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
-            segmentComponent.DamageModifyFactor = lamiaComponent.NumberOfSegments;
+            float taperConstant = segmentComponent.MaxSegments / 2;
+            float damageModifyCoefficient = lamiaComponent.DamageModifierConstant / lamiaComponent.NumberOfSegments;
+            segmentComponent.DamageModifyFactor = lamiaComponent.DamageModifierConstant * damageModifyCoefficient;
+            segmentComponent.ExplosiveModifyFactor = 1 / segmentComponent.DamageModifyFactor / (segmentComponent.MaxSegments / 10);
+
             EntityUid segment;
             if (segmentNumber == 1)
                 segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates);
             else
                 segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates);
+            if (segmentNumber >= taperConstant)
+            {
+                segmentComponent.OffsetSwitching = 0.15f * MathF.Pow(1.02f, segmentNumber);
+                segmentComponent.ScaleFactor = MathF.Pow(0.99f, segmentNumber);
+            }
+            if (segmentNumber % 2 != 0)
+            {
+                segmentComponent.OffsetSwitching *= -1;
+            }
 
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;
             EntityManager.AddComponent(segment, segmentComponent, true);
+
             _segments.Enqueue((segmentComponent, lamia));
             lamiaComponent.Segments.Add(segmentComponent.Owner);
             return segment;
@@ -230,6 +250,11 @@ namespace Content.Server.Nyanotrasen.Lamiae
                     _appearance.SetData(uid, LamiaSegmentVisualLayers.ArmorRsi, clothing.RsiPath, appearance);
                 }
             }
+        }
+
+        private void OnSnekBoom(EntityUid uid, LamiaSegmentComponent component, ref GetExplosionResistanceEvent args)
+        {
+            args.DamageCoefficient = component.ExplosiveModifyFactor;
         }
 
         private void OnDidUnequipEvent(EntityUid equipee, LamiaComponent component, DidUnequipEvent args)
