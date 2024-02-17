@@ -99,7 +99,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
             component.Lamia = args.Lamia;
-            _standing.Down(uid);
+            if (component.BulletPassover == true)
+                _standing.Down(uid, false);
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var species)) return;
             if (!TryComp<HumanoidAppearanceComponent>(args.Lamia, out var humanoid)) return;
@@ -121,6 +122,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
+            Math.Clamp(component.NumberOfSegments, 2, 30);
+            Math.Clamp(component.TaperOffset, 1, component.NumberOfSegments - 1);
             SpawnSegments(uid, component);
         }
 
@@ -179,7 +182,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void TailCantStand(EntityUid uid, LamiaSegmentComponent component, StandAttemptEvent args)
         {
-            args.Cancel();
+            if (component.BulletPassover == true)
+                args.Cancel();
         }
 
         public void SpawnSegments(EntityUid uid, LamiaComponent component)
@@ -197,24 +201,29 @@ namespace Content.Server.Nyanotrasen.Lamiae
         private EntityUid AddSegment(EntityUid uid, EntityUid lamia, LamiaComponent lamiaComponent, int segmentNumber)
         {
             LamiaSegmentComponent segmentComponent = new();
+            segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
+            segmentComponent.BulletPassover = lamiaComponent.BulletPassover;
             segmentComponent.Lamia = lamia;
             segmentComponent.AttachedToUid = uid;
-            segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
-            segmentComponent.DamageModifierConstant = segmentComponent.MaxSegments * 0.4f;
-            float taperConstant = segmentComponent.MaxSegments / 2;
+            segmentComponent.DamageModifierConstant = lamiaComponent.NumberOfSegments * lamiaComponent.DamageModifierOffset;
+            float taperConstant = lamiaComponent.NumberOfSegments - lamiaComponent.TaperOffset;
             float damageModifyCoefficient = segmentComponent.DamageModifierConstant / lamiaComponent.NumberOfSegments;
             segmentComponent.DamageModifyFactor = segmentComponent.DamageModifierConstant * damageModifyCoefficient;
-            segmentComponent.ExplosiveModifyFactor = 1 / segmentComponent.DamageModifyFactor / (segmentComponent.MaxSegments * 0.1f);
+            segmentComponent.ExplosiveModifyFactor = 1 / segmentComponent.DamageModifyFactor / (lamiaComponent.NumberOfSegments * lamiaComponent.ExplosiveModifierOffset);
 
             EntityUid segment;
             if (segmentNumber == 1)
-                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates);
+                segment = EntityManager.SpawnEntity(lamiaComponent.InitialSegmentId, Transform(uid).Coordinates);
             else
-                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates);
-            if (segmentNumber >= taperConstant)
+                segment = EntityManager.SpawnEntity(lamiaComponent.SegmentId, Transform(uid).Coordinates);
+            if (segmentNumber >= taperConstant && lamiaComponent.UseTaperSystem == true)
             {
-                segmentComponent.OffsetSwitching = 0.15f * MathF.Pow(1.02f, segmentNumber);
-                segmentComponent.ScaleFactor = MathF.Pow(0.99f, segmentNumber);
+                segmentComponent.OffsetSwitching = lamiaComponent.StaticOffset * MathF.Pow(lamiaComponent.OffsetConstant, segmentNumber - taperConstant);
+                segmentComponent.ScaleFactor = lamiaComponent.StaticScale * MathF.Pow(1f / lamiaComponent.OffsetConstant, segmentNumber - taperConstant);
+            } else
+            {
+                segmentComponent.OffsetSwitching = lamiaComponent.StaticOffset;
+                segmentComponent.ScaleFactor = lamiaComponent.StaticScale;
             }
             if (segmentNumber % 2 != 0)
             {
