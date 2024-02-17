@@ -120,7 +120,6 @@ namespace Content.Server.Nyanotrasen.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
-            component.DamageModifierConstant = Math.Clamp(component.DamageModifierConstant, 1, component.NumberOfSegments);
             SpawnSegments(uid, component);
         }
 
