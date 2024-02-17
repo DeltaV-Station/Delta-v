@@ -7,6 +7,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Server.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
+using Content.Shared.Teleportation.Components;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Containers;
@@ -138,6 +139,8 @@ namespace Content.Server.Nyanotrasen.Lamiae
             if (!component.Segments.Contains(args.OtherBody.Owner))
                 return;
 
+            if (HasComp<PortalTimeoutComponent>(uid)) return;
+
             foreach (var segment in component.Segments)
                 QueueDel(segment);
 
@@ -179,7 +182,7 @@ namespace Content.Server.Nyanotrasen.Lamiae
             args.Cancel();
         }
 
-        private void SpawnSegments(EntityUid uid, LamiaComponent component)
+        public void SpawnSegments(EntityUid uid, LamiaComponent component)
         {
             int i = 1;
             var addTo = uid;

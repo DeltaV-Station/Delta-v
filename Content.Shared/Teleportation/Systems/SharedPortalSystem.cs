@@ -1,5 +1,6 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Ghost;
+using Content.Shared.Nyanotrasen.Lamiae; //DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Pulling;
@@ -103,6 +104,13 @@ public abstract class SharedPortalSystem : EntitySystem
         {
             _pulling.TryStopPull(subjectPulling);
         }
+
+        //Start DeltaV Code: Prevent Lamia Segments from entering portals
+        if (HasComp<LamiaSegmentComponent>(subject))
+        {
+            return;
+        }
+        //End DeltaV Code
 
         // if they came from another portal, just return and wait for them to exit the portal
         if (HasComp<PortalTimeoutComponent>(subject))
