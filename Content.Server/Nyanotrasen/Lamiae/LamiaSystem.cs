@@ -198,10 +198,11 @@ namespace Content.Server.Nyanotrasen.Lamiae
             segmentComponent.Lamia = lamia;
             segmentComponent.AttachedToUid = uid;
             segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
+            segmentComponent.DamageModifierConstant = segmentComponent.MaxSegments * 0.4f;
             float taperConstant = segmentComponent.MaxSegments / 2;
-            float damageModifyCoefficient = lamiaComponent.DamageModifierConstant / lamiaComponent.NumberOfSegments;
-            segmentComponent.DamageModifyFactor = lamiaComponent.DamageModifierConstant * damageModifyCoefficient;
-            segmentComponent.ExplosiveModifyFactor = 1 / segmentComponent.DamageModifyFactor / (segmentComponent.MaxSegments / 10);
+            float damageModifyCoefficient = segmentComponent.DamageModifierConstant / lamiaComponent.NumberOfSegments;
+            segmentComponent.DamageModifyFactor = segmentComponent.DamageModifierConstant * damageModifyCoefficient;
+            segmentComponent.ExplosiveModifyFactor = 1 / segmentComponent.DamageModifyFactor / (segmentComponent.MaxSegments * 0.1f);
 
             EntityUid segment;
             if (segmentNumber == 1)

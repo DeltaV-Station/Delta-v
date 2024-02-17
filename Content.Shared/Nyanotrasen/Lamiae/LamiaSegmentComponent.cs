@@ -18,6 +18,7 @@ namespace Content.Shared.Nyanotrasen.Lamiae
         public EntityUid Lamia = default!;
         public int SegmentNumber = default!;
         public int MaxSegments = default!;
+        public float DamageModifierConstant = default!;
         [DataField("segmentId")]
         public string? segmentId;
     }
