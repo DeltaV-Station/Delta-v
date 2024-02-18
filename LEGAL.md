@@ -19,7 +19,10 @@ Note: We may make changes in within files that are licensed under MIT. These mod
 
 ---
 
-Human-readable source code materials in this repository contributed **after** 17 February, 2024 at 23:00:00 UTC are licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
+Content contributed to this repository after commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 may be licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
+Note: If a file does not explicitly relicense itself as AGPLv3, it is to be assumed that it is still under MIT.
+
+Content contributed to this repository before commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
 
 ## Warranty
 
