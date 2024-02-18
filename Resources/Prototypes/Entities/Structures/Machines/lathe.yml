@@ -785,18 +785,17 @@
       - WeaponGunLaserCarbineAutomatic #DeltaV - New Laser Projectiles with a 20 round carbine
       # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
       - CartridgeSpecialRubber
-      - CartridgeSpecialIncendiary
-      - CartridgeSpecialUranium
       - CartridgeSpecialHoly
       - CartridgeSpecialMindbreaker
-      - MagazineBoxSpecial
-      - MagazineBoxSpecialPractice
       - MagazineBoxSpecialRubber
+      # End of modified code
+      # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
+      # This code is licensed under AGPLv3. See LICENSE
+      - CartridgeSpecialIncendiary
+      - CartridgeSpecialUranium
       - MagazineBoxSpecialIncendiary
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialMindbreaker
-      - SpeedLoaderSpecial
-      - MagazinePistolSpecial
       # End of modified code
   - type: MaterialStorage
     whitelist:
