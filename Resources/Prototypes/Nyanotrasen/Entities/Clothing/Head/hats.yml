@@ -12,9 +12,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHoodMysta
-  # DeltaV - Better Mystagogue Hat - Rename the hat from "mystagogue's turban" to "mystagogue's muffin cap"
-  name: mystagogue's muffin cap
-  # End of modified code
+  name: mystagogue's muffin cap # Delta V - Mystagogue new hat
   description: Contrary to its silly name, it's actually a symbol of great academic achievement.
   components:
   - type: Sprite
@@ -124,9 +122,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFezMantis
-  # DeltaV - Forensic Mantis Rename - Rename Forensic Mantis to Psionic Mantis
-  name: psionic mantis' fez
-  # End of modified code
+  name: psionic mantis' fez # DeltaV - Rename Forensic Mantis to Psionic Mantis
   description: A fine red fez with a gold tassel.
   components:
   - type: Sprite
