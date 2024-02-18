@@ -74,10 +74,13 @@
         prob: 0.001
       - id: WeaponRevolverInspector
         prob: 0.001
-      - id: WeaponRevolverLucky # DeltaV - .38 special revolver
-        prob: 0.001
       - id: ClothingShoesBootsMagBlinding
         prob: 0.001
+      # DeltaV - .38 special revolver - Adds the .38 Special Revolver 'Lucky' to the salvage potential loot
+      # This code is licensed under AGPLv3. See LICENSE
+      - id: WeaponRevolverLucky
+        prob: 0.001
+      # End of modified code
         #  - Skub
       - id: Skub
         prob: 0.001

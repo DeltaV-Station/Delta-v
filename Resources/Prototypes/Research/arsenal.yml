@@ -26,15 +26,18 @@
   recipeUnlocks:
   - ShellShotgunIncendiary
   - CartridgePistolIncendiary
-  - CartridgeSpecialIncendiary # DeltaV - .38 Special revolver
   - CartridgeMagnumIncendiary
   - CartridgeLightRifleIncendiary
   - CartridgeRifleIncendiary
   - MagazineBoxPistolIncendiary
-  - MagazineBoxSpecialIncendiary # DeltaV - .38 Special revolver
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # DeltaV - .38 special incendiary ammo - Add .38 special incendiary ammo to the research tree
+  # This code is licensed under AGPLv3. See LICENSE
+  - CartridgeSpecialIncendiary
+  - MagazineBoxSpecialIncendiary
+  # End of modified code
 
 - type: technology
   id: ExplosiveTechnology
@@ -79,15 +82,17 @@
   recipeUnlocks:
   - ShellShotgunBeanbag
   - CartridgePistolRubber
-  - CartridgeSpecialRubber # DeltaV - .38 Special revolver
   - CartridgeMagnumRubber
   - CartridgeLightRifleRubber
   - CartridgeRifleRubber
   - MagazineBoxPistolRubber
-  - MagazineBoxSpecialRubber # DeltaV - .38 Special revolver
   - MagazineBoxMagnumRubber
   - MagazineBoxLightRifleRubber
   - MagazineBoxRifleRubber
+  # DeltaV - .38 special rubber ammo - Adds .38 special rubber ammo to the research tree
+  - CartridgeSpecialRubber
+  - MagazineBoxSpecialRubber
+  # End of modified code
 
 - type: technology
   id: UraniumMunitions
@@ -101,15 +106,18 @@
   recipeUnlocks:
   - ShellShotgunUranium
   - CartridgePistolUranium
-  - CartridgeSpecialUranium # DeltaV - .38 Special revolver
   - CartridgeMagnumUranium
   - CartridgeLightRifleUranium
   - CartridgeRifleUranium
   - MagazineBoxPistolUranium
-  - MagazineBoxSpecialUranium # DeltaV - .38 Special revolver
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
+  # This code is licensed under AGPLv3. See LICENSE
+  - CartridgeSpecialUranium
+  - MagazineBoxSpecialUranium
+  # End of modified code
 
 # Tier 2
 
