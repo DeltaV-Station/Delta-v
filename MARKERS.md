@@ -16,7 +16,7 @@ For any changes within MIT licensed(upstream) files, the following marker should
 
 ```csharp
 /* DeltaV - [Title of changes] - [Description of changes]
-This code is licensed under AGPLv3. See LICENSE */
+This code is licensed under AGPLv3. See AGPLv3.txt */
 yourCodeHere();
 // End of modified code
 ```
