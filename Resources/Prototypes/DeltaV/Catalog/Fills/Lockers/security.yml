@@ -1,3 +1,7 @@
+# Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
 - type: entity
   parent: GunSafe
   id: GunSafePistolUniversal
@@ -33,7 +37,7 @@
       amount: 2
     - id: MagazineLightRifle
       amount: 4
-      
+
 - type: entity
   parent: GunSafe
   id: GunSafeAdjutantShotgun
@@ -45,7 +49,7 @@
       amount: 2
     - id: MagazineShotgun
       amount: 4
-      
+
 - type: entity
   parent: GunSafe
   id: GunSafeEnergyGun
@@ -55,7 +59,7 @@
     contents:
     - id: WeaponEnergyGun
       amount: 3
-      
+
 - type: entity
   parent: GunSafe
   id: GunSafeEnergyGunMini
