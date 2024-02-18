@@ -39,9 +39,8 @@ Any changes made to files belonging to our upstream should be properly marked in
 
 ## License
 
-All code for the repository is licensed under [MIT](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-MIT.txt), or [AGPLv3](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-AGPLv3.txt).
-
-If code does not explicitly mention the license it is under, it should be assumed to be MIT. To avoid any confusion, it is best to take all code outside of the DeltaV namespaces from our upstream, [space-wizards/space-station-14](https://github.com/space-wizards/space-station-14)
+Content contributed to this repository after commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
+Content contributed to this repository before commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
 
 Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/DeltaV-Station/Delta-v/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
