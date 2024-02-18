@@ -1,4 +1,10 @@
-﻿using Content.Server.Administration.Commands;
+﻿/*
+ * Delta-V - This file is licensed under AGPLv3
+ * Copyright (c) 2024 Delta-V Contributors
+ * See AGPLv3.txt for details.
+*/
+
+using Content.Server.Administration.Commands;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Preferences.Managers;

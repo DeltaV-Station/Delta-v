@@ -1,4 +1,10 @@
-﻿using Robust.Shared.Configuration;
+﻿/*
+ * Delta-V - This file is licensed under AGPLv3
+ * Copyright (c) 2024 Delta-V Contributors
+ * See AGPLv3.txt for details.
+*/
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.DeltaV.CCVars;
 

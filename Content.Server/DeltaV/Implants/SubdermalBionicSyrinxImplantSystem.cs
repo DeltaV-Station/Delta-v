@@ -1,4 +1,10 @@
-﻿using Content.Server.Administration.Logs;
+﻿/*
+ * Delta-V - This file is licensed under AGPLv3
+ * Copyright (c) 2024 Delta-V Contributors
+ * See AGPLv3.txt for details.
+*/
+
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.VoiceMask;

@@ -1,4 +1,10 @@
-﻿using System.Linq;
+﻿/*
+ * Delta-V - This file is licensed under AGPLv3
+ * Copyright (c) 2024 Delta-V Contributors
+ * See AGPLv3.txt for details.
+*/
+
+using System.Linq;
 using Content.Shared.DeltaV.CartridgeLoader.Cartridges;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
