@@ -35,6 +35,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialPractice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#dbdbdb"
 
 - type: entity
   id: CartridgeSpecialRubber
@@ -43,6 +50,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialRubber
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#43c4f7"
 
 - type: entity
   id: CartridgeSpecialIncendiary
@@ -51,6 +65,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"
 
 - type: entity
   id: CartridgeSpecialUranium
@@ -59,6 +80,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#65fe08"
 
 - type: entity
   id: CartridgeSpecialHoly
@@ -67,6 +95,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialHoly
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#fff600"
 
 - type: entity
   id: CartridgeSpecialMindbreaker
@@ -75,6 +110,13 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialMindbreaker
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#950ea9"
   - type: ChemicalAmmo
   - type: SolutionContainerManager
     solutions:
