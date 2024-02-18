@@ -12,7 +12,7 @@ All C# code contributed after 17 February, 2024 23:00:00 UTC should contain the 
  */
 ```
 
-For any changes within MIT licensed(upstream) files, the following marker should be used at the start of the modification
+For any changes within non Delta-V files, the following marker should be used at the start of the modification
 
 ```csharp
 /* DeltaV - [Title of changes] - [Description of changes]
@@ -31,7 +31,7 @@ All Yaml files contributed after 17 February, 2024 23:00:00 UTC should contain t
 # See AGPLv3.txt for details.
 ```
 
-For any changes within MIT licensed(upstream) files, the following marker should be used at the start of the modification
+For any changes within non Delta-V files, the following marker should be used at the start of the modification
 
 ```yaml
 # DeltaV - [Title of changes] - [Description of changes]
