@@ -3,7 +3,7 @@
 /Content.*/ @DebugOk
 /Content.*/SimpleStation14/ @DEATHB4DEFEAT
 
-/Resources/ @DebugOk @Colin-Tel
+/Resources/ @DebugOk
 /Resources/ConfigPresets/ @DebugOk
 /Resources/*.yml @DebugOk
 /Resources/*/SimpleStation14/ @DEATHB4DEFEAT
@@ -14,3 +14,6 @@
 /Resources/Prototypes/Maps/ @IamVelcroboy
 
 /Tools/ @DebugOk
+
+/* @DebugOk # Standalone files in root, shouldn't apply to subdirectories
+/.github/ @DebugOk # Workflows, codeowners, templates, etc
