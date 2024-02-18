@@ -26,6 +26,9 @@ We are happy to accept contributions from anybody. Get in Discord if you want to
 
 We are currently accepting translations of the game on our main repository. If you would like to translate the game into another language check the #localization channel in our [Discord](https://go.delta-v.org/AtDxv)
 
+If you make any contributions, please make sure to read the markers section in [MARKERS.md](https://github.com/DeltaV-Station/Delta-v/blob/master/MARKERS.md)
+Any changes made to files belonging to our upstream should be properly marked in accordance to what is specified there.
+
 ## Building
 
 1. Clone this repo.
@@ -36,7 +39,10 @@ We are currently accepting translations of the game on our main repository. If y
 
 ## License
 
-All code for the content repository is licensed under [MIT](https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE.TXT).
+Content contributed to this repository after commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
+Content contributed to this repository before commit 87c70a89a67d0521a56388e6b1c3f2cb947943e4 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
+
+[87c70a89a67d0521a56388e6b1c3f2cb947943e4](https://github.com/DeltaV-Station/Delta-v/commit/87c70a89a67d0521a56388e6b1c3f2cb947943e4) was pushed on February 17th 2024 at 21:48 UTC
 
 Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/DeltaV-Station/Delta-v/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
