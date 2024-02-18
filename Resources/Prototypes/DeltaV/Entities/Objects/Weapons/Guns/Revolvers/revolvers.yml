@@ -34,7 +34,7 @@
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/k38master.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2.5
+    fireRate: 2
     availableModes:
     - SemiAuto
   - type: RevolverAmmoProvider
@@ -59,7 +59,7 @@
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/fitz.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 1.75
     availableModes:
     - SemiAuto
   - type: RevolverAmmoProvider
@@ -84,7 +84,7 @@
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/lucky.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2.5
+    fireRate: 2
     availableModes:
     - SemiAuto
   - type: RevolverAmmoProvider
@@ -108,10 +108,10 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Revolvers/faith.rsi
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Revolvers/lucky.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Revolvers/faith.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1.75
+    fireRate: 1.5
     availableModes:
     - SemiAuto
   - type: RevolverAmmoProvider
