@@ -1,0 +1,42 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionMedHud
+  name: prescription medical hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. This was put together with prescription glasses for anyone that wants to use the hud while maintaining their vision.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Construction
+    graph: PrescriptionMedHud
+    node: prescmedhud
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Tag
+    tags:
+    - HudMedical
+    - GlassesNearsight
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionHudSecurity
+  name: prescription security hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This was put together with prescription glasses for anyone that wants to use the hud while maintaining their vision.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: ShowSecurityIcons
+  - type: Construction
+    graph: PrescriptionSecHud
+    node: prescsechud
+  - type: Tag
+    tags:
+    - HudSecurity
+    - GlassesNearsight
