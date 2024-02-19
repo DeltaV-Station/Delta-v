@@ -1,0 +1,69 @@
+- type: entity
+  name: space shrimp
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  id: MobSpaceShrimp
+  description: Shrimply cursed...
+  suffix: METEM MACHINE ONLY #for now, only to be used as a very rare result for the metempsychosis machine. If fishing ever gets added, this suffix can be removed.
+  components:
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/pop.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 6
+    baseSprintSpeed : 6
+  - type: Sprite
+    sprite: DeltaV/Mobs/Animals/shrimp.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shrimp
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Physics
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shrimp
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCrab
+      amount: 3
+  - type: Bloodstream
+    bloodMaxVolume: 100
+    bloodReagent: BbqSauce #australia reference
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-possum
+    interactFailureString: petting-failure-possum
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/raccoon_chatter.ogg
+  - type: Speech
+    speechSounds: Slime
+  - type: Puller
+    needsHands: false
+  - type: MindContainer
+    showExamineInfo: true
+  - type: PotentialPsionic
+  - type: Psionic
+    removable: false
+  - type: PyrokinesisPower
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: Body
+    prototype: Animal
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
