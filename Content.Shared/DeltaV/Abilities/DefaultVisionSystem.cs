@@ -15,5 +15,6 @@ public sealed partial class DefaultVisionSystem : EntitySystem
     private void OnDefaultVisionInit(EntityUid uid, DefaultVisionComponent component, ComponentInit args)
     {
         RemComp<UltraVisionComponent>(uid);
+        RemComp<DogVisionComponent>(uid);
     }
 }
