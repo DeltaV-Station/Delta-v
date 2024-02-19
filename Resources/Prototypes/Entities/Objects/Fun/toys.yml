@@ -439,6 +439,9 @@
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite # Rrrr!
+  - type: Tag
+    tags:
+    - PlushieCarp # DeltaV - fish labeler craft
 
 - type: entity
   parent: BasePlushie
@@ -1317,9 +1320,11 @@
           True: { state: icon }
           False: { state: icon-off }
   - type: ItemToggle
+  - type: UseDelay
+    delay: 1
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Items/newton_cradle.ogg
       params:
-        volume: -7
-        maxDistance: 5
+        volume: -9
+        maxDistance: 3

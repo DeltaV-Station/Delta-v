@@ -280,7 +280,7 @@
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
 
-# - type: entity
+# - type: entity # DeltaV - replaced terminator with paradox anomaly in midroundantag rule
 #   parent: BaseGameRule
 #   id: TerminatorSpawn
 #   noSpawn: true
@@ -462,7 +462,7 @@
   - type: StationEvent
     weight: 10
     earliestStart: 20
-    reoccurrenceDelay: 60
+    reoccurrenceDelay: 20
     duration: 1
   - type: IonStormRule
 

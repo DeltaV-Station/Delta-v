@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -6,11 +7,11 @@ namespace Content.Server.StationEvents.Components;
 public sealed partial class MidRoundAntagRuleComponent : Component
 {
     [DataField("antags")]
-    public IReadOnlyList<string> MidRoundAntags = new[]
+    public List<EntProtoId> MidRoundAntags = new()
     {
         "SpawnPointGhostRatKing",
-        "SpawnPointGhostVampSpider",
-        "SpawnPointGhostFugitive",
-        "MobEvilTwinSpawn"
+        //"SpawnPointGhostVampSpider",
+        //"SpawnPointGhostFugitive",
+        "SpawnPointGhostParadoxAnomaly"
     };
 }
