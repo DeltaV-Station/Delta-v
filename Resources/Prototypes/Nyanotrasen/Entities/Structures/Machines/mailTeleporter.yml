@@ -56,5 +56,8 @@
           True: {visible: true}
           False: {visible: false}
   - type: PowerSwitch
+  - type: Construction
+    graph: Machine
+    node: machine
   - type: Machine
     board: MailTeleporterMachineCircuitboard
