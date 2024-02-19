@@ -1,10 +1,10 @@
 - type: constructionGraph
-  id: PrescriptionMedHud # HudMedSec
+  id: PrescriptionMedHud
   start: start
   graph:
     - node: start
       edges:
-        - to: prescmedhud # medsecHud
+        - to: prescmedhud
           steps:
             - tag: HudMedical
               name: medical hud
@@ -12,7 +12,7 @@
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
-            - tag: GlassesNearsight # Prescription Glasses
+            - tag: GlassesNearsight
               name: glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/glasses.rsi
@@ -27,24 +27,24 @@
                 sprite: Objects/Consumable/Drinks/glue-tube.rsi
                 state: icon
               doAfter: 5
-    - node: prescmedhud # medsecHud
-      entity: ClothingEyesPrescriptionMedHud # ClothingEyesHudMedSec
+    - node: prescmedhud
+      entity: ClothingEyesPrescriptionMedHud
 
 - type: constructionGraph
-  id: PrescriptionSecHud # HudMedSec
+  id: PrescriptionSecHud
   start: start
   graph:
     - node: start
       edges:
-        - to: prescsechud # medsecHud
+        - to: prescsechud
           steps:
-            - tag: HudMedical
-              name: medical hud
+            - tag: HudSecurity
+              name: security hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
-            - tag: GlassesNearsight # Prescription Glasses
+            - tag: GlassesNearsight
               name: glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/glasses.rsi
@@ -59,5 +59,5 @@
                 sprite: Objects/Consumable/Drinks/glue-tube.rsi
                 state: icon
               doAfter: 5
-    - node: prescsechud # medsecHud
-      entity: ClothingEyesPrescriptionHudSecurity # ClothingEyesHudMedSec
+    - node: prescsechud
+      entity: ClothingEyesPrescriptionHudSecurity

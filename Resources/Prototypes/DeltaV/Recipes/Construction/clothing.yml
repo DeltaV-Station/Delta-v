@@ -1,9 +1,9 @@
 - type: construction
   name: prescription medhud
-  id: ClothingEyesPrescriptionMedHud # ClothingEyesHudMedSec
-  graph: PrescriptionMedHud # HudMedSec
+  id: ClothingEyesPrescriptionMedHud
+  graph: PrescriptionMedHud
   startNode: start
-  targetNode: prescmedhud # medsecHud 
+  targetNode: prescmedhud 
   category: construction-category-clothing
   description: Prescription medhud, merged glasses and medhud together by sheer luck and cables with glue.
   icon: { sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi, state: icon }
@@ -11,10 +11,10 @@
 
 - type: construction
   name: prescription sechud
-  id: ClothingEyesPrescriptionHudSecurity # ClothingEyesHudMedSec
-  graph: PrescriptionSecHud # HudMedSec
+  id: ClothingEyesPrescriptionHudSecurity
+  graph: PrescriptionSecHud
   startNode: start
-  targetNode: prescsechud # medsecHud 
+  targetNode: prescsechud 
   category: construction-category-clothing
   description: Prescription sechud, merged glasses and sechud together by sheer luck and cables with glue.
   icon: { sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi, state: icon }
