@@ -57378,18 +57378,16 @@ entities:
       parent: 1
 - proto: ComputerCloningConsole
   entities:
-  - uid: 5635
+  - uid: 5634
     components:
     - type: Transform
       pos: 70.5,-6.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        5634:
-        - MedicalScannerSender: MedicalScannerReceiver
-        invalid:
-        - CloningPodSender: CloningPodReceiver
         2571:
+        - MedicalScannerSender: MedicalScannerReceiver
+        5635:
         - CloningPodSender: CloningPodReceiver
 - proto: ComputerComms
   entities:
@@ -119949,14 +119947,14 @@ entities:
       parent: 1
 - proto: MedicalScanner
   entities:
-  - uid: 5634
+  - uid: 2571
     components:
     - type: Transform
       pos: 71.5,-6.5
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 5635
+      - 5634
 - proto: MedicalScannerMachineCircuitboard
   entities:
   - uid: 6608
@@ -120107,14 +120105,14 @@ entities:
       parent: 1
 - proto: MetempsychoticMachine
   entities:
-  - uid: 2571
+  - uid: 5635
     components:
     - type: Transform
       pos: 69.5,-5.5
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 5635
+      - 5634
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 6584

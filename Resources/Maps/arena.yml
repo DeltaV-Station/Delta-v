@@ -55622,16 +55622,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 74.64603,8.559326
       parent: 6747
-- proto: CloningPod
-  entities:
-  - uid: 131
-    components:
-    - type: Transform
-      pos: 20.5,-34.5
-      parent: 6747
-    - type: DeviceLinkSink
-      links:
-      - 2149
 - proto: CloningPodMachineCircuitboard
   entities:
   - uid: 17741
@@ -57838,10 +57828,10 @@ entities:
       parent: 6747
     - type: DeviceLinkSource
       linkedPorts:
-        131:
-        - CloningPodSender: CloningPodReceiver
         2150:
         - MedicalScannerSender: MedicalScannerReceiver
+        131:
+        - CloningPodSender: CloningPodReceiver
 - proto: ComputerComms
   entities:
   - uid: 3948
@@ -122329,6 +122319,16 @@ entities:
     - type: Transform
       pos: 37.5,7.5
       parent: 6747
+- proto: MetempsychoticMachine
+  entities:
+  - uid: 131
+    components:
+    - type: Transform
+      pos: 20.5,-34.5
+      parent: 6747
+    - type: DeviceLinkSink
+      links:
+      - 2149
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 5097
