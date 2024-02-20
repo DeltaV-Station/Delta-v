@@ -206,7 +206,7 @@ namespace Content.Server.DeltaV.Lamiae
 
         private EntityUid AddSegment(EntityUid uid, EntityUid lamia, LamiaComponent lamiaComponent, int segmentNumber)
         {
-            EnsureComp<LamiaSegmentComponent>(uid, out var segmentComponent);
+            LamiaSegmentComponent segmentComponent = new();
             segmentComponent.MaxSegments = lamiaComponent.NumberOfSegments;
             segmentComponent.BulletPassover = lamiaComponent.BulletPassover;
             segmentComponent.Lamia = lamia;
@@ -238,6 +238,7 @@ namespace Content.Server.DeltaV.Lamiae
 
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;
+            EntityManager.AddComponent(segment, segmentComponent, true);
 
             _segments.Enqueue((segmentComponent, lamia));
             lamiaComponent.Segments.Add(segmentComponent.Owner);
