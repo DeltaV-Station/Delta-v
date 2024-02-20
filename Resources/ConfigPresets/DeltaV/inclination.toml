@@ -1,0 +1,17 @@
+[game]
+hostname         = "[EN][MRP] Delta-v (Ψ) | Inclination"
+soft_max_players = 50
+
+[server]
+rules_file   = "Rules.txt"
+rules_header = "ui-rules-header"
+
+[vote]
+preset_enabled = true
+map_enabled = true
+
+[ooc]
+enable_during_round = true
+
+[hub]
+tags = "lang:en-US,region:eu_w,rp:med"
