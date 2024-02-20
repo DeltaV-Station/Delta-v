@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Nyanotrasen.Lamiae
+namespace Content.Shared.DeltaV.Lamiae
 {
     /// <summary>
     /// Lamia segment

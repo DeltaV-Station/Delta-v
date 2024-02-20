@@ -1,7 +1,7 @@
-namespace Content.Shared.Nyanotrasen.Lamiae
+namespace Content.Shared.DeltaV.Lamiae
 {
     /// <summary>
-    /// Controls initialization of the multisegmented lamia species.
+    /// Controls initialization of any Multi-segmented entity
     /// </summary>
     [RegisterComponent]
     public sealed partial class LamiaComponent : Component

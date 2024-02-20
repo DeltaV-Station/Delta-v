@@ -1,8 +1,8 @@
 using Robust.Client.GameObjects;
 using System.Numerics;
-using Content.Shared.Nyanotrasen.Lamiae;
+using Content.Shared.DeltaV.Lamiae;
 
-namespace Content.Client.Nyanotrasen.Lamiae;
+namespace Content.Client.DeltaV.Lamiae;
 
 public sealed class ClientLamiaVisualSystem : VisualizerSystem<LamiaSegmentVisualsComponent>
 {

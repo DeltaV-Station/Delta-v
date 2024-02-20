@@ -1,4 +1,4 @@
-namespace Content.Shared.Nyanotrasen.Lamiae;
+namespace Content.Shared.DeltaV.Lamiae;
 
 public sealed class SegmentSpawnedEvent : EntityEventArgs
 {

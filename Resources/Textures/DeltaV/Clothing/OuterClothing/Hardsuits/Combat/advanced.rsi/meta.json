@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC0-1.0",
-  "copyright": "Original work by TJohnson.",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Original work by TJohnson. lamia & segment by @noctyrnal",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -19,12 +19,19 @@
             "directions": 4
         },
         {
+            "name": "equipped-OUTERCLOTHING-lamia",
+            "directions": 4
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },
         {
             "name": "inhand-right",
             "directions": 4
+        },
+        {
+            "name": "segment"
         }
     ]
 }

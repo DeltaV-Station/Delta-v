@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Nyanotrasen.Lamiae
+namespace Content.Shared.DeltaV.Lamiae
 {
     [Serializable, NetSerializable]
     public enum LamiaSegmentVisualLayers

@@ -195,7 +195,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 2000 #Density is not final, adjust accordingly if the number of tail segments is reduced or increased
+        density: 400 #Density is not final, adjust accordingly if the number of tail segments is reduced or increased
         restitution: 0.0
         mask:
         - MobMask

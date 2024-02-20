@@ -1,9 +1,9 @@
-using Content.Server.Nyanotrasen.Lamiae; //DeltaV
+using Content.Server.DeltaV.Lamiae; //DeltaV
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
-using Content.Shared.Nyanotrasen.Lamiae; //DeltaV
+using Content.Shared.DeltaV.Lamiae; //DeltaV
 using Content.Shared.Teleportation.Systems;
 using Robust.Shared.Map;
 

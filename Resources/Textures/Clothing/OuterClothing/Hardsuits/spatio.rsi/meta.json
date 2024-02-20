@@ -1,13 +1,12 @@
-
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Original by Emisse, modified by EmoGarbage404",
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Original by Emisse, modified by EmoGarbage404, lamia & segment by @noctyrnal",
 
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "icon"
@@ -27,6 +26,13 @@
         {
             "name": "equipped-OUTERCLOTHING-harpy",
             "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-lamia",
+            "directions": 4
+        },
+        {
+            "name": "segment"
         }
     ]
 }

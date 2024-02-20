@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared.Ghost;
-using Content.Shared.Nyanotrasen.Lamiae; //DeltaV
+using Content.Shared.DeltaV.Lamiae; //DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Pulling;
