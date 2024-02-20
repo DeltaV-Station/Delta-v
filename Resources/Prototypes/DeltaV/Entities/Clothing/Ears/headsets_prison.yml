@@ -1,44 +1,33 @@
-- type: entity
-  parent: ClothingHeadsetService
-  id: ClothingHeadsetHoP
-  name: hop headset
-  description: A headset used by the head of personnel.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltService
-  name: head of personnel's over-ear headset
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrison
+  name: prison headset
+  description: Headset used by anybody who needs direct contact with prisoners
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyService
-      - EncryptionKeyCommand
+      - EncryptionKeyPrison
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
+    sprite: DeltaV/Clothing/Ears/Headsets/prisoner.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-    
+    sprite: DeltaV/Clothing/Ears/Headsets/prisoner.rsi
+
 - type: entity
-  parent: ClothingHeadsetAltSyndicate
-  id: ClothingHeadsetAltSyndicateListening
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrisonGuard
+  name: guard headset
+  description: Headset used by prison guards.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeySyndie
-      - EncryptionKeyStationMaster
+      - EncryptionKeyPrison
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
   - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+    sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+    sprite: Clothing/Ears/Headsets/security.rsi
