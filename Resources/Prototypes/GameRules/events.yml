@@ -198,9 +198,11 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.005
+    # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
+    # specialEntries:
+    # - id: SpawnPointGhostRatKing
+    #   prob: 0.005
+    # End of modified code
 
 - type: entity
   id: CockroachMigration
