@@ -4,6 +4,7 @@
 
 - type: entity
   id: LamiaInitialSegment
+  save: false
   noSpawn: true
   components:
   - type: Damageable
@@ -35,6 +36,7 @@
 
 - type: entity
   id: LamiaSegment
+  save: false
   parent: LamiaInitialSegment
   name: lamia segment
   noSpawn: true
