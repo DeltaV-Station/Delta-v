@@ -43,9 +43,9 @@
     interactFailureString: petting-failure-lamia
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: /Audio/Mobs/Animals/purr.ogg #placeholder sound
+      path: /Audio/Mobs/Animals/lizard_happy.ogg #placeholder sound
     interactFailureSound:
-      path: /Audio/Mobs/Animals/hiss.ogg #placeholder sound
+      path: /Audio/Mobs/Animals/snake_hiss.ogg #placeholder sound
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
     state: full
@@ -114,9 +114,6 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-  - type: Body
-    template: LamiaTemplate
-    preset: LamiaPreset
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale #TODO: make a new damage modifier set
@@ -148,12 +145,6 @@
       100: 0.7
       120: 0.6
       140: 0.5  
-  - type: Appearance
-    visuals:
-    - type: RotationVisualizer
-    - type: BuckleVisualizer
-    - type: CreamPiedVisualizer
-      state: creampie_human
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -172,7 +163,6 @@
         Piercing: 1
         Poison: 2
         Asphyxiation: 2
-      ignoreResistances: true #We're basically going for a biological hypospray, but ideally I only want the piercing to ignore resistances
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -216,9 +206,6 @@
   - type: StandingState
   - type: Fingerprint
   - type: Perishable
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepLamia
   - type: Bloodstream
     bloodMaxVolume: 60000
     bloodlossDamage:
