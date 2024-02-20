@@ -12,18 +12,18 @@
       earliestStart: 15
     - type: NoosphericStormRule
 
-# Rat king, paradox anomaly, fugitive, oneiro, etc.
-#- type: entity
-#  id: MidRoundAntag
-#  parent: BaseGameRule
-#  noSpawn: true
-#  components:
-#    - type: StationEvent
-#      weight: 7
-#      reoccurrenceDelay: 5
-#      minimumPlayers: 15
-#      earliestStart: 25
-#    - type: MidRoundAntagRule
+# Rat king and paradox anomaly.
+- type: entity
+  id: MidRoundAntag
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: StationEvent
+      weight: 7
+      reoccurrenceDelay: 5
+      minimumPlayers: 15
+      earliestStart: 25
+    - type: MidRoundAntagRule
 
 # Base glimmer event
 - type: entity
