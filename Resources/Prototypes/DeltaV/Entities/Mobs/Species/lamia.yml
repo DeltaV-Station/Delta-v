@@ -166,7 +166,6 @@
   - type: MeleeWeapon #This damage is most likely final
     soundHit:
       path: /Audio/Items/hypospray.ogg #this sound is not final, but is a pretty good placeholder so we might keep it
-    range: 0.8
     animation: WeaponArcBite
     damage:
       types:
@@ -199,7 +198,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 400 #Density is not final, adjust accordingly if the number of tail segments is reduced or increased
+        density: 1000 #Density is not final, adjust accordingly if the number of tail segments is reduced or increased
         restitution: 0.0
         mask:
         - MobMask
