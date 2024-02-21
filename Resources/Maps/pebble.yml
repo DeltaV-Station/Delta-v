@@ -28257,13 +28257,6 @@ entities:
     - type: Transform
       pos: 6.5,11.5
       parent: 2
-- proto: CloningPod
-  entities:
-  - uid: 4393
-    components:
-    - type: Transform
-      pos: -23.5,14.5
-      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 4394
@@ -30091,6 +30084,272 @@ entities:
     components:
     - type: Transform
       pos: 33.80485,25.2214
+      parent: 2
+- proto: DefaultStationBeaconAnomalyGenerator
+  entities:
+  - uid: 10875
+    components:
+    - type: Transform
+      pos: 3.5,25.5
+      parent: 2
+- proto: DefaultStationBeaconArmory
+  entities:
+  - uid: 10853
+    components:
+    - type: Transform
+      pos: 21.5,-15.5
+      parent: 2
+- proto: DefaultStationBeaconArtifactLab
+  entities:
+  - uid: 10876
+    components:
+    - type: Transform
+      pos: -13.5,32.5
+      parent: 2
+- proto: DefaultStationBeaconAtmospherics
+  entities:
+  - uid: 10877
+    components:
+    - type: Transform
+      pos: 31.5,28.5
+      parent: 2
+- proto: DefaultStationBeaconBar
+  entities:
+  - uid: 10878
+    components:
+    - type: Transform
+      pos: -7.5,-7.5
+      parent: 2
+- proto: DefaultStationBeaconBotany
+  entities:
+  - uid: 10879
+    components:
+    - type: Transform
+      pos: -5.5,8.5
+      parent: 2
+- proto: DefaultStationBeaconBridge
+  entities:
+  - uid: 10880
+    components:
+    - type: Transform
+      pos: 0.5,-19.5
+      parent: 2
+- proto: DefaultStationBeaconBrig
+  entities:
+  - uid: 10881
+    components:
+    - type: Transform
+      pos: 14.5,-26.5
+      parent: 2
+- proto: DefaultStationBeaconCaptainsQuarters
+  entities:
+  - uid: 10884
+    components:
+    - type: Transform
+      pos: -10.5,-29.5
+      parent: 2
+- proto: DefaultStationBeaconCargoBay
+  entities:
+  - uid: 10885
+    components:
+    - type: Transform
+      pos: 26.5,1.5
+      parent: 2
+- proto: DefaultStationBeaconCargoReception
+  entities:
+  - uid: 10886
+    components:
+    - type: Transform
+      pos: 12.5,-1.5
+      parent: 2
+- proto: DefaultStationBeaconCERoom
+  entities:
+  - uid: 10882
+    components:
+    - type: Transform
+      pos: 25.5,13.5
+      parent: 2
+- proto: DefaultStationBeaconChapel
+  entities:
+  - uid: 10887
+    components:
+    - type: Transform
+      pos: -7.5,21.5
+      parent: 2
+- proto: DefaultStationBeaconChemistry
+  entities:
+  - uid: 10888
+    components:
+    - type: Transform
+      pos: -15.5,12.5
+      parent: 2
+- proto: DefaultStationBeaconCMORoom
+  entities:
+  - uid: 10883
+    components:
+    - type: Transform
+      pos: -20.5,21.5
+      parent: 2
+- proto: DefaultStationBeaconCommand
+  entities:
+  - uid: 10889
+    components:
+    - type: Transform
+      pos: -0.5,-28.5
+      parent: 2
+- proto: DefaultStationBeaconCourtroom
+  entities:
+  - uid: 10890
+    components:
+    - type: Transform
+      pos: 7.5,-27.5
+      parent: 2
+- proto: DefaultStationBeaconDetectiveRoom
+  entities:
+  - uid: 10891
+    components:
+    - type: Transform
+      pos: -17.5,-20.5
+      parent: 2
+- proto: DefaultStationBeaconDisposals
+  entities:
+  - uid: 10892
+    components:
+    - type: Transform
+      pos: 12.5,9.5
+      parent: 2
+- proto: DefaultStationBeaconEngineering
+  entities:
+  - uid: 10894
+    components:
+    - type: Transform
+      pos: 13.5,17.5
+      parent: 2
+- proto: DefaultStationBeaconEscapePod
+  entities:
+  - uid: 10895
+    components:
+    - type: Transform
+      pos: -28.5,34.5
+      parent: 2
+- proto: DefaultStationBeaconEVAStorage
+  entities:
+  - uid: 10893
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 2
+- proto: DefaultStationBeaconGravGen
+  entities:
+  - uid: 10896
+    components:
+    - type: Transform
+      pos: 10.5,23.5
+      parent: 2
+- proto: DefaultStationBeaconHOPOffice
+  entities:
+  - uid: 10897
+    components:
+    - type: Transform
+      pos: 9.5,-5.5
+      parent: 2
+- proto: DefaultStationBeaconHOSRoom
+  entities:
+  - uid: 10898
+    components:
+    - type: Transform
+      pos: 23.5,-20.5
+      parent: 2
+- proto: DefaultStationBeaconJanitorsCloset
+  entities:
+  - uid: 10899
+    components:
+    - type: Transform
+      pos: 5.5,9.5
+      parent: 2
+- proto: DefaultStationBeaconKitchen
+  entities:
+  - uid: 10900
+    components:
+    - type: Transform
+      pos: -3.5,3.5
+      parent: 2
+- proto: DefaultStationBeaconLawOffice
+  entities:
+  - uid: 10901
+    components:
+    - type: Transform
+      pos: -25.5,-28.5
+      parent: 2
+- proto: DefaultStationBeaconMedbay
+  entities:
+  - uid: 10902
+    components:
+    - type: Transform
+      pos: -16.5,5.5
+      parent: 2
+- proto: DefaultStationBeaconMorgue
+  entities:
+  - uid: 10903
+    components:
+    - type: Transform
+      pos: -22.5,18.5
+      parent: 2
+- proto: DefaultStationBeaconSalvage
+  entities:
+  - uid: 10904
+    components:
+    - type: Transform
+      pos: 23.5,-2.5
+      parent: 2
+- proto: DefaultStationBeaconSecurity
+  entities:
+  - uid: 10906
+    components:
+    - type: Transform
+      pos: 9.5,-18.5
+      parent: 2
+- proto: DefaultStationBeaconSecurityCheckpoint
+  entities:
+  - uid: 10905
+    components:
+    - type: Transform
+      pos: -18.5,-6.5
+      parent: 2
+- proto: DefaultStationBeaconSolars
+  entities:
+  - uid: 10854
+    components:
+    - type: Transform
+      pos: 46.5,16.5
+      parent: 2
+- proto: DefaultStationBeaconTelecoms
+  entities:
+  - uid: 10907
+    components:
+    - type: Transform
+      pos: -7.5,45.5
+      parent: 2
+- proto: DefaultStationBeaconToolRoom
+  entities:
+  - uid: 10908
+    components:
+    - type: Transform
+      pos: -0.5,17.5
+      parent: 2
+- proto: DefaultStationBeaconVault
+  entities:
+  - uid: 10909
+    components:
+    - type: Transform
+      pos: -14.5,-20.5
+      parent: 2
+- proto: DefaultStationBeaconWardensOffice
+  entities:
+  - uid: 10910
+    components:
+    - type: Transform
+      pos: 15.5,-13.5
       parent: 2
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -51102,6 +51361,13 @@ entities:
     - type: Transform
       pos: -22.579123,3.5572662
       parent: 2
+- proto: MetempsychoticMachine
+  entities:
+  - uid: 4393
+    components:
+    - type: Transform
+      pos: -23.5,14.5
+      parent: 2
 - proto: MicrophoneInstrument
   entities:
   - uid: 7704
@@ -58595,11 +58861,6 @@ entities:
     - type: Transform
       pos: -15.5,12.5
       parent: 2
-  - uid: 8899
-    components:
-    - type: Transform
-      pos: -16.5,11.5
-      parent: 2
   - uid: 8900
     components:
     - type: Transform
@@ -61981,6 +62242,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,10.5
+      parent: 2
+- proto: VendingMachinePride
+  entities:
+  - uid: 8899
+    components:
+    - type: Transform
+      pos: -27.5,3.5
       parent: 2
 - proto: VendingMachineRestockChang
   entities:
