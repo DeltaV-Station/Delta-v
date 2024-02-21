@@ -496,8 +496,10 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMFormal
-  name: quartermasters's formal suit
-  description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  name: logistics officer's formal suit
+  description: Inspired by the logistics officers of military's past, the perfect outfit for supplying a formal occasion.
+  # End of modified code
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
