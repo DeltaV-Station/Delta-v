@@ -103,6 +103,22 @@
   - type: AccessReader
     access: [["Armory"]]
 
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureAtmosphericsLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureBarLocked
+  suffix: Bar, Locked
+  components:
+  - type: AccessReader
+    access: [["Bar"]]
+
 #Delta V: Removed Brig Access
 #- type: entity
 #  parent: WindoorSecureSecurityLocked
@@ -151,6 +167,14 @@
   components:
   - type: AccessReader
     access: [["Command"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
 
 - type: entity
   parent: WindoorSecure
@@ -226,16 +250,16 @@
 
 - type: entity
   parent: WindoorSecure
+  id: WindoorSecureServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: WindoorSecure
   id: WindoorSecureHeadOfPersonnelLocked
   suffix: HeadOfPersonnel, Locked
   components:
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
-
-- type: entity
-  parent: WindoorSecure
-  id: WindoorSecureAtmosphericsLocked
-  suffix: Atmospherics, Locked
-  components:
-  - type: AccessReader
-    access: [["Atmospherics"]]
