@@ -118,7 +118,6 @@
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true
-  - type: DeleteOnTrigger
   - type: Extractable
     grindableSolutionName: food
 
@@ -142,7 +141,7 @@
           reagents:
             - ReagentId: Ash
               Quantity: 5
-            - ReagentId: SpaceLube
+            - ReagentId: Necrosol
               Quantity: 5
             - ReagentId: Ectoplasm  # DeltaV - for normality crystals
               Quantity: 30          # DeltaV

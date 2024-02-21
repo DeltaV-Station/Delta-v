@@ -161,7 +161,6 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMothOatStew",
             "FoodMeatLizardtailKebab",
             "FoodSoupTomato",
-            "FoodDonkpocketGondolaWarm",
             "FoodDonkpocketBerryWarm",
             "FoodBreadButteredToast",
             "FoodMothCottonSoup",
