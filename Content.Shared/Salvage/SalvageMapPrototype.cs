@@ -12,4 +12,9 @@ public sealed class SalvageMapPrototype : IPrototype
     /// Relative directory path to the given map, i.e. `Maps/Salvage/template.yml`
     /// </summary>
     [DataField(required: true)] public ResPath MapPath;
+
+    /// <summary>
+    /// DeltaV - Used for getting the proper name for the map
+    /// </summary>
+    [DataField] public string Size { get; } = "unknown";
 }
