@@ -45,22 +45,7 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
-            //"Fland",
-            //"Meta",
-            //"Packed",
-            //"Aspid",
-            //"Cluster",
-            //"Omega",
-            //"Bagel",
-            //"Origin",
             "CentComm",
-            //"Box",
-            //"Europa",
-            //"Barratry",
-            //"Saltern",
-            //"Core",
-            //"Marathon",
-            //"Kettle",
             "MeteorArena",
             "Pebble", //DeltaV
             "Edge", //DeltaV
