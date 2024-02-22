@@ -30,6 +30,7 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
+using Content.Shared.DeltaV.Abilities;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
@@ -907,6 +908,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         _metaData.SetEntityName(mob, name);
         EnsureComp<NukeOperativeComponent>(mob);
+        EnsureComp<DefaultVisionComponent>(mob); // DeltaV - Ensures Vulps and Harpies dont spawn with their respective vision filter
 
         if (profile != null)
         {
