@@ -44759,22 +44759,6 @@ entities:
           - 4648
           - 4646
           - 4649
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
-          priority: 0
-          component: Armor
-        title: null
   - uid: 19023
     components:
     - type: Transform
@@ -46285,10 +46269,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -41.5,-1.5
       parent: 100
-    - type: DeviceLinkSource
-      linkedPorts:
-        invalid:
-        - OrderSender: OrderReceiver
 - proto: ComputerCloningConsole
   entities:
   - uid: 1345
@@ -110744,79 +110724,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -42.022163,56.67719
       parent: 100
-    - type: ItemToggle
-      activated: True
-    - type: ItemToggleActiveSound
-      playingStream: invalid
-    - type: PointLight
-      enabled: True
-    - type: MeleeWeapon
-      soundNoDamage: !type:SoundPathSpecifier
-        params:
-          variation: 0.25
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 20
-          busName: Master
-          pitch: 1
-          volume: 0
-          attenuation: LinearDistanceClamped
-        path: /Audio/Weapons/eblade1.ogg
-      soundHit: !type:SoundPathSpecifier
-        params:
-          variation: 0.25
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 20
-          busName: Master
-          pitch: 1
-          volume: 0
-          attenuation: LinearDistanceClamped
-        path: /Audio/Weapons/eblade1.ogg
-      soundSwing: !type:SoundPathSpecifier
-        params:
-          variation: 0.125
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 20
-          busName: Master
-          pitch: 1
-          volume: 0
-          attenuation: LinearDistanceClamped
-        path: /Audio/Weapons/eblademiss.ogg
-    - type: ItemToggleMeleeWeapon
-      deactivatedSoundOnSwing: !type:SoundPathSpecifier
-        params:
-          variation: 0.025
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 20
-          busName: Master
-          pitch: 1
-          volume: -3
-          attenuation: LinearDistanceClamped
-        path: /Audio/Weapons/punchmiss.ogg
-      deactivatedSoundOnHitNoDamage: !type:SoundCollectionSpecifier
-        params:
-          variation: null
-          playOffsetSeconds: 0
-          loop: False
-          referenceDistance: 1
-          rolloffFactor: 1
-          maxDistance: 20
-          busName: Master
-          pitch: 1
-          volume: 0
-          attenuation: LinearDistanceClamped
-        collection: WeakHit
 - proto: TrashBag
   entities:
   - uid: 9563
