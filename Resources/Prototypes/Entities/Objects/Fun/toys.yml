@@ -398,6 +398,7 @@
     state: blue
   - type: Item
     heldPrefix: blue
+    storedRotation: -90
   - type: Tag
     tags:
       - PlushieSharkBlue
@@ -467,6 +468,7 @@
     state: carpplush
   - type: Item
     heldPrefix: carpplush
+    storedRotation: -90
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Effects/bite.ogg
