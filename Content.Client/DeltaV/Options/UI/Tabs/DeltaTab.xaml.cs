@@ -4,47 +4,43 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 
-namespace Content.Client.DeltaV.Options.UI.Tabs
+namespace Content.Client.DeltaV.Options.UI.Tabs;
+
+[GenerateTypedNameReferences]
+public sealed partial class DeltaTab : Control
 {
-    [GenerateTypedNameReferences]
-    public sealed partial class DeltaTab : Control
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    public DeltaTab()
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
-        public DeltaTab()
-        {
-            RobustXamlLoader.Load(this);
-            IoCManager.InjectDependencies(this);
+        DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
+        DisableFiltersCheckBox.Pressed = _cfg.GetCVar(DCCVars.NoVisionFilters);
 
-            DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
-            DisableFiltersCheckBox.Pressed = _cfg.GetCVar(DCCVars.NoVisionFilters);
-
-            ApplyButton.OnPressed += OnApplyButtonPressed;
-            UpdateApplyButton();
-        }
-
-        private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
-        {
-            UpdateApplyButton();
-        }
-
-        private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
-        {
-            _cfg.SetCVar(DCCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
-
-            _cfg.SaveToFile();
-            UpdateApplyButton();
-        }
-
-        private void UpdateApplyButton()
-        {
-            var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(DCCVars.NoVisionFilters);
-
-            ApplyButton.Disabled = isNoVisionFiltersSame;
-        }
-
+        ApplyButton.OnPressed += OnApplyButtonPressed;
+        UpdateApplyButton();
     }
 
+    private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
+    {
+        UpdateApplyButton();
+    }
+
+    private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
+    {
+        _cfg.SetCVar(DCCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
+
+        _cfg.SaveToFile();
+        UpdateApplyButton();
+    }
+
+    private void UpdateApplyButton()
+    {
+        var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(DCCVars.NoVisionFilters);
+
+        ApplyButton.Disabled = isNoVisionFiltersSame;
+    }
 }
