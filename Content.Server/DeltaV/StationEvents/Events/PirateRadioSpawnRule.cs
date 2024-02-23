@@ -1,3 +1,9 @@
+/*
+* Delta-V - This file is licensed under AGPLv3
+* Copyright (c) 2024 Delta-V Contributors
+* See AGPLv3.txt for details.
+*/
+
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
