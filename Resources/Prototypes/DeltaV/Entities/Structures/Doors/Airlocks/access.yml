@@ -13,3 +13,27 @@
   components:
   - type: AccessReader
     access: [["Mantis"]]
+
+- type: entity
+  parent: AirlockMaintRnDLocked
+  id: AirlockMaintMantisLocked
+  suffix: Mantis, Locked
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockCorpsmanGlassLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
