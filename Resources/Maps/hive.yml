@@ -10968,6 +10968,7 @@ entities:
             0: 5100
           16,9:
             0: 32776
+            2: 2244
           17,9:
             0: 65535
           18,9:
@@ -60512,6 +60513,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 71.5,-8.5
       parent: 1
+  - uid: 26342
+    components:
+    - type: Transform
+      pos: 83.5,27.5
+      parent: 1
 - proto: CryoPod
   entities:
   - uid: 5651
@@ -73069,8 +73075,6 @@ entities:
       pos: 81.5,30.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 22342
       - 22460
