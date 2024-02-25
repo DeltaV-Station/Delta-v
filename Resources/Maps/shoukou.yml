@@ -2643,6 +2643,7 @@ entities:
             0: 30578
           8,-13:
             0: 62071
+            2: 3072
           -4,3:
             0: 3839
           -8,2:
@@ -2687,6 +2688,7 @@ entities:
             0: 4369
           9,-13:
             0: 12305
+            2: 20366
           -14,1:
             0: 65535
           -3,3:
@@ -2829,6 +2831,7 @@ entities:
             0: 65392
           13,-4:
             0: 8448
+            2: 15
           13,-3:
             0: 17479
           13,-1:
@@ -2853,8 +2856,10 @@ entities:
             0: 16384
           10,-13:
             0: 17612
+            2: 37635
           11,-13:
             0: 25360
+            2: 98
           12,-8:
             0: 65535
           12,-7:
@@ -2863,18 +2868,23 @@ entities:
             0: 65535
           13,-8:
             0: 55295
+            2: 2048
           13,-7:
             0: 65337
           13,-6:
             0: 65535
           13,-5:
             0: 2009
+            2: 4100
           14,-7:
             0: 62257
+            2: 3268
           14,-6:
             0: 13311
+            2: 52224
           14,-5:
             0: 1
+            2: 8944
           -4,4:
             0: 15
           -3,4:
@@ -2899,6 +2909,7 @@ entities:
             0: 15
           12,-12:
             0: 4369
+            2: 3754
           12,-11:
             0: 65523
           12,-10:
@@ -2989,16 +3000,19 @@ entities:
             0: 4096
           10,-5:
             0: 65399
+            2: 8
           2,-14:
             0: 13107
           11,-5:
             0: 30464
+            2: 5
           4,5:
             0: 15
           5,5:
             0: 3
           14,-8:
             0: 31
+            2: 20224
           13,-11:
             0: 65520
           13,-10:
@@ -3011,18 +3025,24 @@ entities:
             0: 4383
           15,-4:
             0: 12
+            2: 3
           15,-8:
             0: 3
+            2: 62240
           15,-7:
             0: 65520
+            2: 7
           15,-6:
             0: 65535
           15,-5:
             0: 32776
+            2: 28401
           13,-12:
             0: 8
+            2: 4006
           14,-12:
             0: 17969
+            2: 256
           14,-11:
             0: 61692
           15,-11:
@@ -3033,22 +3053,40 @@ entities:
             0: 8738
           16,-8:
             0: 40704
+            2: 24576
           16,-7:
             0: 65521
+            2: 14
           16,-6:
             0: 32767
+            2: 32768
           16,-5:
             0: 6087
+            2: 24
           17,-8:
             0: 4096
           17,-7:
             0: 17523
+            2: 13056
           17,-6:
             0: 26228
+            2: 4355
           17,-5:
             0: 50
+            2: 1
           13,-13:
             0: 35840
+            2: 881
+          14,-4:
+            2: 15
+          11,-14:
+            2: 57344
+          12,-5:
+            2: 11
+          12,-14:
+            2: 28672
+          12,-13:
+            2: 40733
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -5685,8 +5723,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13430
-    - type: AtmosDevice
-      joinedGrid: 34
 - proto: AltarSpawner
   entities:
   - uid: 38
@@ -27222,6 +27258,18 @@ entities:
     - type: Transform
       pos: -46.333908,-26.566626
       parent: 34
+  - uid: 2360
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,-28.5
+      parent: 34
+  - uid: 2484
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,-29.5
+      parent: 34
   - uid: 2727
     components:
     - type: Transform
@@ -27293,6 +27341,12 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-36.5
+      parent: 34
+  - uid: 4405
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,-29.5
       parent: 34
   - uid: 4690
     components:
@@ -27374,6 +27428,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -38.410248,-27.462744
+      parent: 34
+  - uid: 10915
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,-30.5
       parent: 34
   - uid: 10991
     components:
@@ -27472,6 +27532,12 @@ entities:
       parent: 34
 - proto: ChairFoldingSpawnFolded
   entities:
+  - uid: 1098
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.505953,-30.266048
+      parent: 34
   - uid: 8120
     components:
     - type: Transform
@@ -29018,13 +29084,6 @@ entities:
     components:
     - type: Transform
       pos: 11.547624,-26.478827
-      parent: 34
-- proto: ClothingNeckMantleCE
-  entities:
-  - uid: 2484
-    components:
-    - type: Transform
-      pos: -24.217266,-29.723326
       parent: 34
 - proto: ClothingNeckMantleHOP
   entities:
@@ -35377,7 +35436,7 @@ entities:
       pos: -36.5,-22.5
       parent: 34
     - type: Door
-      secondsUntilStateChange: -46849.543
+      secondsUntilStateChange: -46999.16
       state: Closing
   - uid: 1274
     components:
@@ -36226,6 +36285,11 @@ entities:
     - type: Transform
       pos: 10.603919,-38.149315
       parent: 34
+  - uid: 13436
+    components:
+    - type: Transform
+      pos: 23.50204,-30.047298
+      parent: 34
 - proto: FoodBurgerBacon
   entities:
   - uid: 13264
@@ -36253,6 +36317,11 @@ entities:
     components:
     - type: Transform
       pos: 51.390053,-33.538113
+      parent: 34
+  - uid: 13435
+    components:
+    - type: Transform
+      pos: 33.450184,-29.531673
       parent: 34
 - proto: FoodBurgerMcrib
   entities:
@@ -36410,6 +36479,11 @@ entities:
     components:
     - type: Transform
       pos: -41.016098,-27.677042
+      parent: 34
+  - uid: 13437
+    components:
+    - type: Transform
+      pos: 23.747625,-28.125423
       parent: 34
 - proto: FoodSnackSus
   entities:
@@ -59245,13 +59319,6 @@ entities:
     - type: Transform
       pos: 60.5,-23.5
       parent: 34
-- proto: HolofanProjector
-  entities:
-  - uid: 4405
-    components:
-    - type: Transform
-      pos: -24.64519,-29.318565
-      parent: 34
 - proto: HoloprojectorEngineering
   entities:
   - uid: 5266
@@ -59950,9 +60017,9 @@ entities:
     - type: Transform
       pos: 2.5,-26.5
       parent: 34
-- proto: LockerChiefEngineerFilledHardsuit
+- proto: LockerChiefEngineerFilled
   entities:
-  - uid: 10915
+  - uid: 1110
     components:
     - type: Transform
       pos: -24.5,-30.5
@@ -63489,6 +63556,23 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 50.5,-24.5
       parent: 34
+  - uid: 13438
+    components:
+    - type: Transform
+      pos: 62.5,-21.5
+      parent: 34
+  - uid: 13439
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 62.5,-25.5
+      parent: 34
+  - uid: 13440
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 66.5,-23.5
+      parent: 34
 - proto: PoweredLightBlueInterior
   entities:
   - uid: 2238
@@ -64203,11 +64287,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-9.5
-      parent: 34
-  - uid: 1098
-    components:
-    - type: Transform
-      pos: -24.5,-29.5
       parent: 34
   - uid: 1099
     components:
@@ -65791,25 +65870,6 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-10.5
-      parent: 34
-- proto: RCD
-  entities:
-  - uid: 1061
-    components:
-    - type: Transform
-      pos: -24.3519,-29.269886
-      parent: 34
-- proto: RCDAmmo
-  entities:
-  - uid: 1110
-    components:
-    - type: Transform
-      pos: -24.742525,-29.55133
-      parent: 34
-  - uid: 2360
-    components:
-    - type: Transform
-      pos: -24.5394,-29.598238
       parent: 34
 - proto: ReagentGrinderMachineCircuitboard
   entities:
@@ -71297,6 +71357,13 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-27.5
+      parent: 34
+- proto: SuitStorageCE
+  entities:
+  - uid: 1061
+    components:
+    - type: Transform
+      pos: -24.5,-29.5
       parent: 34
 - proto: SuitStorageCMO
   entities:
