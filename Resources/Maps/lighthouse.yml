@@ -111329,6 +111329,33 @@ entities:
     - type: Transform
       pos: 10.5,-41.5
       parent: 100
+- proto: SpawnPointTechnicalAssistant
+  entities:
+  - uid: 20737
+    components:
+    - type: Transform
+      pos: 12.5,-41.5
+      parent: 100
+  - uid: 20738
+    components:
+    - type: Transform
+      pos: 11.5,-41.5
+      parent: 100
+  - uid: 20739
+    components:
+    - type: Transform
+      pos: 12.5,-44.5
+      parent: 100
+  - uid: 20740
+    components:
+    - type: Transform
+      pos: 10.5,-45.5
+      parent: 100
+  - uid: 20741
+    components:
+    - type: Transform
+      pos: 9.5,-44.5
+      parent: 100
 - proto: SpawnPointWarden
   entities:
   - uid: 12636
