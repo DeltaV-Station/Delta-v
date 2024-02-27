@@ -47731,23 +47731,6 @@ entities:
     - type: Transform
       pos: 10.531735,-72.32409
       parent: 100
-- proto: ClothingOuterHardsuitEVAPrisoner
-  entities:
-  - uid: 18722
-    components:
-    - type: Transform
-      pos: 20.7733,41.738495
-      parent: 100
-  - uid: 18723
-    components:
-    - type: Transform
-      pos: 20.3358,41.87912
-      parent: 100
-  - uid: 19189
-    components:
-    - type: Transform
-      pos: 20.320175,41.62912
-      parent: 100
 - proto: ClothingOuterRobeBrown
   entities:
   - uid: 16749
@@ -93656,18 +93639,8 @@ entities:
     - type: Transform
       pos: 28.5,33.5
       parent: 100
-- proto: LockerEngineerFilled
+- proto: LockerEngineerFilledHardsuit
   entities:
-  - uid: 4971
-    components:
-    - type: Transform
-      pos: 10.5,-40.5
-      parent: 100
-  - uid: 4975
-    components:
-    - type: Transform
-      pos: 12.5,-40.5
-      parent: 100
   - uid: 7522
     components:
     - type: Transform
@@ -93677,6 +93650,26 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-40.5
+      parent: 100
+  - uid: 18601
+    components:
+    - type: Transform
+      pos: 10.5,-40.5
+      parent: 100
+  - uid: 18722
+    components:
+    - type: Transform
+      pos: 12.5,-40.5
+      parent: 100
+  - uid: 20734
+    components:
+    - type: Transform
+      pos: 13.5,-45.5
+      parent: 100
+  - uid: 20735
+    components:
+    - type: Transform
+      pos: 13.5,-44.5
       parent: 100
 - proto: LockerEvidence
   entities:
@@ -101673,11 +101666,6 @@ entities:
     components:
     - type: Transform
       pos: 29.5,35.5
-      parent: 100
-  - uid: 18601
-    components:
-    - type: Transform
-      pos: 20.5,41.5
       parent: 100
   - uid: 18608
     components:
@@ -111865,6 +111853,35 @@ entities:
     components:
     - type: Transform
       pos: 2.5,47.5
+      parent: 100
+- proto: SuitStorageEngi
+  entities:
+  - uid: 19189
+    components:
+    - type: Transform
+      pos: -53.5,37.5
+      parent: 100
+  - uid: 20736
+    components:
+    - type: Transform
+      pos: 26.5,29.5
+      parent: 100
+- proto: SuitStorageEVAPrisoner
+  entities:
+  - uid: 4971
+    components:
+    - type: Transform
+      pos: 20.5,39.5
+      parent: 100
+  - uid: 4975
+    components:
+    - type: Transform
+      pos: 20.5,40.5
+      parent: 100
+  - uid: 18723
+    components:
+    - type: Transform
+      pos: 20.5,41.5
       parent: 100
 - proto: SuitStorageHOS
   entities:
