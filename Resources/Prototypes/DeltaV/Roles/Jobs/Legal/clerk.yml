@@ -7,16 +7,19 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
-    - !type:RoleTimeRequirement 
-      department: JobLawyer
-      time: 72000 # 20 hours
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobProsecuter
+      time: 36000 # 10 hours
   startingGear: ClerkGear
   icon: "JobIconClerk"
   requireAdminNotify: true
   supervisors: job-supervisors-cj
   access:
-  - Service
-  - Lawyer
+  - Legal
+  - Security
   - Maintenance
 
 - type: startingGear

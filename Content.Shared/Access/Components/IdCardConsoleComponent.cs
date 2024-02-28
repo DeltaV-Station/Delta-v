@@ -86,6 +86,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
         "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
         "Zookeeper",  // DeltaV - Add Zookeeper access
+        "ChiefJustice",  // DeltaV - Add Chief Justice access
+        "Legal",  // DeltaV - Add Legal access
     };
 
     [Serializable, NetSerializable]

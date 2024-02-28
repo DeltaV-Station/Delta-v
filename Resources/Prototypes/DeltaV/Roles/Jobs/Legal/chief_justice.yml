@@ -7,11 +7,14 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobClerk
-      time: 36000 # DeltaV - 10 hours 
-    - !type:RoleTimeRequirement 
-      department: JobLawyer
-      time: 72000 # 20 hours
-    - !type:OverallPlaytimeRequirement 
+      time: 36000 # DeltaV - 10 hours
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobProsecuter
+      time: 36000 # 10 hours
+    - !type:OverallPlaytimeRequirement
       time: 90000 # 25 hours
     - !type:WhitelistRequirement # whitelist requirement because I don't want any dingus judges
   weight: 20
@@ -22,7 +25,8 @@
   canBeAntag: false
   access:
   - Command
-  - Lawyer
+  - ChiefJustice
+  - Legal
   - Security
   - Maintenance
   - External
@@ -48,6 +52,7 @@
     id: CJPDA
     ears: ClothingHeadsetCJ
     gloves: ClothingHandsGlovesColorWhite
+    # Todo - pocket1: Gavel
   innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
   satchel: ClothingBackpackSatchelFilled # TODO- make legal departmebt bags
   duffelbag: ClothingBackpackDuffelFilled # E.

@@ -13,3 +13,53 @@
   components:
   - type: AccessReader
     access: [["Mantis"]]
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockChiefJusticeLocked
+  suffix: Chief Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockChiefJusticeGlassLocked
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockLegalLocked
+  suffix: Legal, Locked
+  components:
+  - type: AccessReader
+    access: [["Legal"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockLegalGlassLocked
+  suffix: Legal, Locked
+  components:
+  - type: AccessReader
+    access: [["Legal"]]
+
+
+# Maintenance
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintChiefJusticeLocked
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintLegalLocked
+  suffix: Legal, Locked
+  components:
+  - type: AccessReader
+    access: [["Legal"]]

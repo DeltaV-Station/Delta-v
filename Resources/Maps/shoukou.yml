@@ -35427,7 +35427,7 @@ entities:
       pos: -36.5,-22.5
       parent: 34
     - type: Door
-      secondsUntilStateChange: -47813.645
+      secondsUntilStateChange: -47890.125
       state: Closing
   - uid: 1274
     components:
@@ -70470,12 +70470,26 @@ entities:
     - type: Transform
       pos: 50.5,-33.5
       parent: 34
+- proto: SpawnPointChiefJustice
+  entities:
+  - uid: 13446
+    components:
+    - type: Transform
+      pos: -9.5,-15.5
+      parent: 34
 - proto: SpawnPointChiefMedicalOfficer
   entities:
   - uid: 13183
     components:
     - type: Transform
       pos: 50.5,-35.5
+      parent: 34
+- proto: SpawnPointClerk
+  entities:
+  - uid: 13448
+    components:
+    - type: Transform
+      pos: -7.5,-15.5
       parent: 34
 - proto: SpawnPointClown
   entities:
@@ -70924,6 +70938,13 @@ entities:
     components:
     - type: Transform
       pos: 47.5,-9.5
+      parent: 34
+- proto: SpawnPointProsecuter
+  entities:
+  - uid: 13447
+    components:
+    - type: Transform
+      pos: -8.5,-15.5
       parent: 34
 - proto: SpawnPointPsychologist
   entities:

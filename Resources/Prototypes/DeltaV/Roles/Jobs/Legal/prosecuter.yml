@@ -1,25 +1,21 @@
 - type: job
-  id: Lawyer
-  name: job-name-lawyer
-  description: job-description-lawyer
-  playTimeTracker: JobLawyer
-  antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
+  id: Prosecuter
+  name: job-name-prosecuter
+  description: job-description-prosecuter
+  playTimeTracker: JobProsecuter
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
-      department: Security
-      time: 14400 # 4 hours
-  startingGear: LawyerGear
+  startingGear: ProsecuterGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
   access:
-  - Service
-  - Lawyer
+  - Legal
+  - Security
   - Maintenance
 
-- type: startingGear
-  id: LawyerGear
+- type: startingGear # Need prosecuter stuff
+  id: ProsecuterGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerBlack  # TODO change jumpsuit to randomiser of the 4 variants
     back: ClothingBackpackFilled

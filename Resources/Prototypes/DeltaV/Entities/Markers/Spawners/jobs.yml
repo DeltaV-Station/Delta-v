@@ -13,3 +13,45 @@
       state: medical
     - sprite: Mobs/Silicon/chassis.rsi
       state: medical_e
+
+- type: entity
+  id: SpawnPointChiefJustice
+  parent: SpawnPointJobBase
+  name: chief justice
+  components:
+  - type: SpawnPoint
+    job_id: ChiefJustice
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer
+      #- sprite: DeltaV/Markers/jobs.rsi
+      #  state: chiefjustice
+
+- type: entity
+  id: SpawnPointClerk
+  parent: SpawnPointJobBase
+  name: clerk
+  components:
+  - type: SpawnPoint
+    job_id: Clerk
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+    #- sprite: DeltaV/Markers/jobs.rsi
+    #  state: clerk
+
+- type: entity
+  id: SpawnPointProsecuter
+  parent: SpawnPointJobBase
+  name: prosecuter
+  components:
+  - type: SpawnPoint
+    job_id: Prosecuter
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+    #- sprite: DeltaV/Markers/jobs.rsi
+    #  state: prosecuter

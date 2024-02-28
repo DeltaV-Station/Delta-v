@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: ChiefJustice
+  name: id-card-access-level-cj
+
+- type: accessLevel
+  id: Legal
+  name: id-card-access-level-legal
+
+- type: accessGroup
+  id: Legal
+  tags:
+  - Legal
+  - ChiefJustice
