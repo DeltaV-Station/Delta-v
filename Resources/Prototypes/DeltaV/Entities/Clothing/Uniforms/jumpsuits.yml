@@ -235,6 +235,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCentcomTurtleneck
+  name: centcom turtleneck suit
+  description: A more comfortable turtleneck for members of Central Command bored in their officers, answering faxes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_turtleneck.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/centcom_turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitKilt
   name: kilt
   description: A fine bit o' garb for the lad an' lasses.
