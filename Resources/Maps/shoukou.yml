@@ -3915,25 +3915,6 @@ entities:
       - 8424
     - type: AtmosDevice
       joinedGrid: 34
-  - uid: 11513
-    components:
-    - type: Transform
-      pos: -40.5,-24.5
-      parent: 34
-    - type: DeviceList
-      devices:
-      - 8362
-      - 9414
-      - 10546
-      - 10555
-      - 10554
-      - 719
-      - 1828
-      - 11517
-      - 11250
-      - 11005
-    - type: AtmosDevice
-      joinedGrid: 34
   - uid: 11539
     components:
     - type: Transform
@@ -4066,6 +4047,25 @@ entities:
       - 9621
       - 9619
       - 13434
+    - type: AtmosDevice
+      joinedGrid: 34
+  - uid: 13443
+    components:
+    - type: Transform
+      pos: -42.5,-23.5
+      parent: 34
+    - type: DeviceList
+      devices:
+      - 8362
+      - 9414
+      - 10546
+      - 10555
+      - 10554
+      - 719
+      - 1828
+      - 11517
+      - 11250
+      - 11005
     - type: AtmosDevice
       joinedGrid: 34
 - proto: AirCanister
@@ -6545,6 +6545,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,-49.5
       parent: 34
+- proto: BaseGasCondenser
+  entities:
+  - uid: 13444
+    components:
+    - type: Transform
+      pos: -45.5,-37.5
+      parent: 34
+    - type: AtmosDevice
+      joinedGrid: 34
 - proto: Beaker
   entities:
   - uid: 897
@@ -23802,11 +23811,6 @@ entities:
     - type: Transform
       pos: -3.5,-53.5
       parent: 34
-  - uid: 93
-    components:
-    - type: Transform
-      pos: -43.5,-38.5
-      parent: 34
   - uid: 104
     components:
     - type: Transform
@@ -24824,11 +24828,6 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-34.5
-      parent: 34
-  - uid: 3791
-    components:
-    - type: Transform
-      pos: -46.5,-38.5
       parent: 34
   - uid: 3801
     components:
@@ -26449,11 +26448,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 16.5,-41.5
       parent: 34
-  - uid: 11257
-    components:
-    - type: Transform
-      pos: -47.5,-38.5
-      parent: 34
   - uid: 11483
     components:
     - type: Transform
@@ -26464,18 +26458,6 @@ entities:
     components:
     - type: Transform
       pos: -28.5,-41.5
-      parent: 34
-  - uid: 11620
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -45.5,-38.5
-      parent: 34
-  - uid: 11638
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -44.5,-38.5
       parent: 34
   - uid: 11686
     components:
@@ -29848,11 +29830,6 @@ entities:
       parent: 34
 - proto: ComputerTelevision
   entities:
-  - uid: 2416
-    components:
-    - type: Transform
-      pos: -39.5,-25.5
-      parent: 34
   - uid: 3625
     components:
     - type: Transform
@@ -29862,6 +29839,11 @@ entities:
     components:
     - type: Transform
       pos: 48.5,1.5
+      parent: 34
+  - uid: 7766
+    components:
+    - type: Transform
+      pos: -40.5,-25.5
       parent: 34
   - uid: 13002
     components:
@@ -34638,6 +34620,8 @@ entities:
     - type: Transform
       pos: 10.5,-31.5
       parent: 34
+    - type: FaxMachine
+      name: Chief Medical Officer
   - uid: 5798
     components:
     - type: Transform
@@ -34678,6 +34662,8 @@ entities:
     - type: Transform
       pos: 30.5,-38.5
       parent: 34
+    - type: FaxMachine
+      name: Reporter
   - uid: 11013
     components:
     - type: Transform
@@ -34697,6 +34683,8 @@ entities:
     - type: Transform
       pos: 44.5,-34.5
       parent: 34
+    - type: FaxMachine
+      name: Bridge
 - proto: FaxMachineCaptain
   entities:
   - uid: 11724
@@ -35395,6 +35383,9 @@ entities:
     - type: Transform
       pos: -37.5,-24.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 737
     components:
     - type: Transform
@@ -35436,7 +35427,7 @@ entities:
       pos: -36.5,-22.5
       parent: 34
     - type: Door
-      secondsUntilStateChange: -46999.16
+      secondsUntilStateChange: -47813.645
       state: Closing
   - uid: 1274
     components:
@@ -35466,6 +35457,9 @@ entities:
     - type: Transform
       pos: -38.5,-24.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 1952
     components:
     - type: Transform
@@ -35783,6 +35777,9 @@ entities:
     - type: Transform
       pos: -30.5,-28.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 10549
     components:
     - type: Transform
@@ -35808,11 +35805,17 @@ entities:
     - type: Transform
       pos: -35.5,-28.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 10555
     components:
     - type: Transform
       pos: -34.5,-28.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 10556
     components:
     - type: Transform
@@ -35948,6 +35951,9 @@ entities:
     - type: Transform
       pos: -39.5,-28.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
   - uid: 11903
     components:
     - type: Transform
@@ -36671,6 +36677,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-42.5
       parent: 34
+    - type: GasFilter
+      transferRate: 100
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -36683,6 +36691,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-41.5
       parent: 34
+    - type: GasFilter
+      transferRate: 100
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -50774,6 +50784,12 @@ entities:
       parent: 34
     - type: AtmosPipeColor
       color: '#FF1212FF'
+  - uid: 7765
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,-39.5
+      parent: 34
   - uid: 7767
     components:
     - type: Transform
@@ -52390,6 +52406,22 @@ entities:
       joinedGrid: 34
     - type: AtmosPipeColor
       color: '#FF1212FF'
+  - uid: 2416
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -45.5,-40.5
+      parent: 34
+    - type: AtmosDevice
+      joinedGrid: 34
+  - uid: 3290
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -46.5,-39.5
+      parent: 34
+    - type: AtmosDevice
+      joinedGrid: 34
   - uid: 3415
     components:
     - type: Transform
@@ -52561,6 +52593,14 @@ entities:
       parent: 34
     - type: GasPressurePump
       targetPressure: 4500
+    - type: AtmosDevice
+      joinedGrid: 34
+  - uid: 2062
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -45.5,-38.5
+      parent: 34
     - type: AtmosDevice
       joinedGrid: 34
   - uid: 7847
@@ -53088,6 +53128,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -28.5,-26.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -53891,6 +53934,9 @@ entities:
     - type: Transform
       pos: -40.5,-25.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -54532,6 +54578,9 @@ entities:
     - type: Transform
       pos: -30.5,-26.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -55153,6 +55202,9 @@ entities:
     - type: Transform
       pos: -39.5,-25.5
       parent: 34
+    - type: DeviceNetwork
+      deviceLists:
+      - 13443
     - type: AtmosDevice
       joinedGrid: 34
     - type: AtmosPipeColor
@@ -59769,20 +59821,29 @@ entities:
       pos: -39.5,-23.5
       parent: 34
     - type: DeviceLinkSink
+      invokeCounter: 1
       links:
-      - 2062
+      - 11428
   - uid: 11133
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 44.5,-25.5
       parent: 34
+    - type: DeviceLinkSink
+      invokeCounter: 1
+      links:
+      - 13442
   - uid: 11134
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,-24.5
       parent: 34
+    - type: DeviceLinkSink
+      invokeCounter: 1
+      links:
+      - 11513
   - uid: 12371
     components:
     - type: Transform
@@ -62896,11 +62957,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -42.5,-24.5
       parent: 34
-  - uid: 3290
-    components:
-    - type: Transform
-      pos: 0.5,-26.5
-      parent: 34
   - uid: 3292
     components:
     - type: Transform
@@ -63347,6 +63403,11 @@ entities:
       parent: 34
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 11257
+    components:
+    - type: Transform
+      pos: -0.5,-26.5
+      parent: 34
   - uid: 11371
     components:
     - type: Transform
@@ -67623,6 +67684,21 @@ entities:
     - type: Transform
       pos: 1.5,-32.5
       parent: 34
+  - uid: 11607
+    components:
+    - type: Transform
+      pos: -46.5,-11.5
+      parent: 34
+  - uid: 11620
+    components:
+    - type: Transform
+      pos: -44.5,-11.5
+      parent: 34
+  - uid: 11638
+    components:
+    - type: Transform
+      pos: -45.5,-11.5
+      parent: 34
   - uid: 11671
     components:
     - type: Transform
@@ -67702,6 +67778,11 @@ entities:
     components:
     - type: Transform
       pos: -60.5,-33.5
+      parent: 34
+  - uid: 12262
+    components:
+    - type: Transform
+      pos: -41.5,-19.5
       parent: 34
   - uid: 12325
     components:
@@ -67872,6 +67953,11 @@ entities:
     components:
     - type: Transform
       pos: 20.5,14.5
+      parent: 34
+  - uid: 13215
+    components:
+    - type: Transform
+      pos: -41.5,-18.5
       parent: 34
 - proto: RemoteSignaller
   entities:
@@ -68772,20 +68858,6 @@ entities:
         - On: On
         - Off: Off
         - Status: Toggle
-  - uid: 2062
-    components:
-    - type: MetaData
-      name: Janitorial service lights
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -36.5,-28.5
-      parent: 34
-    - type: DeviceLinkSource
-      linkedPorts:
-        10572:
-        - On: On
-        - Off: Off
-        - Status: Toggle
   - uid: 2159
     components:
     - type: Transform
@@ -68915,6 +68987,30 @@ entities:
         12971:
         - On: Close
         - Off: Open
+  - uid: 11428
+    components:
+    - type: MetaData
+      name: Janitorial service light
+    - type: Transform
+      pos: -39.5,-24.5
+      parent: 34
+    - type: DeviceLinkSource
+      linkedPorts:
+        10572:
+        - On: On
+        - Off: Off
+        - Status: Toggle
+  - uid: 11513
+    components:
+    - type: Transform
+      pos: 5.5,-25.5
+      parent: 34
+    - type: DeviceLinkSource
+      linkedPorts:
+        11134:
+        - On: On
+        - Off: Off
+        - Status: Toggle
   - uid: 12999
     components:
     - type: Transform
@@ -68934,6 +69030,17 @@ entities:
         12738:
         - On: Close
         - Off: Open
+  - uid: 13442
+    components:
+    - type: Transform
+      pos: 44.5,-26.5
+      parent: 34
+    - type: DeviceLinkSource
+      linkedPorts:
+        11133:
+        - On: On
+        - Off: Off
+        - Status: Toggle
 - proto: SignAnomaly
   entities:
   - uid: 963
@@ -69504,6 +69611,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,-39.5
+      parent: 34
+- proto: SignPsychology
+  entities:
+  - uid: 13441
+    components:
+    - type: Transform
+      pos: 16.5,-25.5
       parent: 34
 - proto: SignRedOne
   entities:
@@ -83146,8 +83260,34 @@ entities:
       text: Janitor
     - type: WarpPoint
       location: Janitor
+  - uid: 13445
+    components:
+    - type: Transform
+      pos: 45.5,-35.5
+      parent: 34
+    - type: NavMapBeacon
+      text: Bridge
+    - type: WarpPoint
+      location: Bridge
 - proto: WarpPointBombing
   entities:
+  - uid: 93
+    components:
+    - type: Transform
+      pos: 28.5,-29.5
+      parent: 34
+    - type: WarpPoint
+      location: Court
+    - type: NavMapBeacon
+      text: Court
+  - uid: 3791
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,-28.5
+      parent: 34
+    - type: WarpPoint
+      location: Surgery
   - uid: 7494
     components:
     - type: Transform
@@ -83578,12 +83718,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,-54.5
-      parent: 34
-  - uid: 13215
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 53.5,-38.5
       parent: 34
   - uid: 13340
     components:
@@ -84055,16 +84189,6 @@ entities:
     - type: Transform
       pos: 12.5,12.5
       parent: 34
-  - uid: 7765
-    components:
-    - type: Transform
-      pos: -46.5,-11.5
-      parent: 34
-  - uid: 7766
-    components:
-    - type: Transform
-      pos: -44.5,-11.5
-      parent: 34
   - uid: 8726
     components:
     - type: Transform
@@ -84095,16 +84219,6 @@ entities:
     - type: Transform
       pos: -8.5,12.5
       parent: 34
-  - uid: 11428
-    components:
-    - type: Transform
-      pos: -45.5,-11.5
-      parent: 34
-  - uid: 11607
-    components:
-    - type: Transform
-      pos: -41.5,-18.5
-      parent: 34
   - uid: 11616
     components:
     - type: Transform
@@ -84124,11 +84238,6 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-37.5
-      parent: 34
-  - uid: 12262
-    components:
-    - type: Transform
-      pos: -41.5,-19.5
       parent: 34
   - uid: 12709
     components:
