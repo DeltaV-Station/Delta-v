@@ -93,3 +93,25 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtChiefJustice
+  name: chief justice's jumpskirt
+  description: A fancy black jumpskirt with a lace cravat to make it even more fancy. Proper judicial attire.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cj.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniform/Jumpskirt/cj.rsi
+    
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtClerk
+  name: clerk's dress skirt
+  description: A modest dress skirt for the person with the power to notarize anything.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/clerk.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/clerk.rsi

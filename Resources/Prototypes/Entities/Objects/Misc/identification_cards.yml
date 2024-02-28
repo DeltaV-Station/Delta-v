@@ -360,7 +360,8 @@
     - type: Sprite
       layers:
         - state: default
-        - state: idlawyer
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Legal colors
+          state: idlawyer
     - type: PresetIdCard
       job: Lawyer
 

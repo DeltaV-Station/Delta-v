@@ -123,3 +123,16 @@
     sprite: DeltaV/Clothing/OuterClothing/Coats/repcoat.rsi
   - type: TemperatureProtection
     coefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterChiefJustice
+  name: chief justice's robes
+  description: Heavy black robes with magenta and gold trim. It smells old.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cjrobe.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cjrobe.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1

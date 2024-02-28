@@ -42,3 +42,43 @@
     sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetLegal
+  name: legal headset
+  description: This is used by your elite security force.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyLegal
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/legal.rsi
+    state: icon
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/legal.rsi
+    state: equipped-EARS
+
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetCJ
+  name: chief justice's headset
+  description: The headset used by the chief justice.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyLegal
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+      - EncryptionKeyCommand
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/legal.rsi
+    state: icon_alt
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/legal.rsi
+    state: alt-equipped-EARS

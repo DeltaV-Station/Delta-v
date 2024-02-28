@@ -243,3 +243,25 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/kilt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChiefJustice
+  name: chief justice's jumpsuit
+  description: A fancy black jumpsuit with a lace cravat to make it even more fancy. Proper judicial attire.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cj.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniform/Jumpsuit/cj.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClerk
+  name: clerk's suit
+  description: A modest suit for the person with the power to notarize anything.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/clerk.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/clerk.rsi

@@ -192,3 +192,31 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatStrawHat
+  name: straw hat
+  description: A fancy hat for hot days! Not recommended to wear near fires.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/straw_hat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/straw_hat.rsi
+  - type: Construction
+    graph: StrawHat
+    node: strawhat
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCJToque
+  name: chief justice's toque
+  description: A standard-issue judicial hat. Wigs are old-fashioned anyway.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi

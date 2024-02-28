@@ -35,3 +35,57 @@
     scanDelay: 1
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: BasePDA
+  id: CJPDA
+  name: chief justice PDA
+  description: Whosoever bears this PDA is the law.
+  components:
+  - type: Pda
+    id: CJIDCard
+    state: pda-cj
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#470823"
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-cj
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
+
+- type: entity
+  parent: BasePDA
+  id: ClerkPDA
+  name: clerk PDA
+  description: It has the stamp to prove it's been officially notarized!
+  components:
+  - type: Pda
+    id: ClerkIDCard
+    state: pda-clerk
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#611528"
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-clerk
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReadCartridge
+      - CrimeAssistCartridge
