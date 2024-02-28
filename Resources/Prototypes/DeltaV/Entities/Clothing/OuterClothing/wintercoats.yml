@@ -18,6 +18,17 @@
 
 - type: entity
   parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCCLong
+  name: central command's long winter coat
+  description: A variation of the regular central command winter coat, for the more dashing officers of Central Command.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/cc_large_winter_coat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/cc_large_winter_coat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterCorporateJacket
   name: Nanotrasen Corporate Jacket
   description: A cozy jacket with the Nanotrasen logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
