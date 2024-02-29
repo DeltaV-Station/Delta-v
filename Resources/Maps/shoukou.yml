@@ -35427,7 +35427,7 @@ entities:
       pos: -36.5,-22.5
       parent: 34
     - type: Door
-      secondsUntilStateChange: -47813.645
+      secondsUntilStateChange: -48522.074
       state: Closing
   - uid: 1274
     components:
@@ -60347,6 +60347,13 @@ entities:
     - type: Transform
       pos: 16.5,-19.5
       parent: 34
+- proto: LockerWallMedicalDoctorFilled
+  entities:
+  - uid: 13450
+    components:
+    - type: Transform
+      pos: 10.5,-35.5
+      parent: 34
 - proto: LockerWallMedicalFilled
   entities:
   - uid: 6957
@@ -62538,6 +62545,11 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-45.5
+      parent: 34
+  - uid: 13446
+    components:
+    - type: Transform
+      pos: 7.5,-29.5
       parent: 34
 - proto: Poweredlight
   entities:
@@ -67992,6 +68004,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -11.5,-11.5
       parent: 34
+- proto: RollerBed
+  entities:
+  - uid: 13448
+    components:
+    - type: Transform
+      pos: 7.429779,-26.349916
+      parent: 34
+  - uid: 13449
+    components:
+    - type: Transform
+      pos: 7.445404,-27.318666
+      parent: 34
 - proto: RubberStampApproved
   entities:
   - uid: 1979
@@ -73096,6 +73120,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 54.5,-38.5
+      parent: 34
+  - uid: 13447
+    components:
+    - type: Transform
+      pos: 7.5,-29.5
       parent: 34
 - proto: TableCounterWood
   entities:
