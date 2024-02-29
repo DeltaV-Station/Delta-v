@@ -31,6 +31,7 @@ namespace Content.IntegrationTests.Tests
         {
             "CentComm",
             "Dart",
+            "NukieOutpost"
         };
 
         private static readonly string[] Grids =
@@ -38,7 +39,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
-            "/Maps/infiltrator.yml",
+            "/Maps/Shuttles/infiltrator.yml",
         };
 
         private static readonly string[] GameMaps =
@@ -47,6 +48,7 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
+            "NukieOutpost",
             "Pebble", //DeltaV
             "Edge", //DeltaV
             "Shoukou", //DeltaV
