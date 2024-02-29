@@ -37,6 +37,8 @@
         output:
           !type:CableDeviceNode
           nodeGroupID: HVPower
+    - type: PreventDeconstruction
+      removeWirePanel: true
 
 - type: entity
   id: SMESEmergencyHighCapacity
