@@ -16,7 +16,7 @@ public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComp
         var spawnLocations = FindSpawns(station.Value);
         if (spawnLocations.Count == 0)
         {
-            Log.Warn("Couldn't find any midround antag spawners or vent critter spawners, not spawning an antag.");
+            Log.Warning("Couldn't find any midround antag spawners or vent critter spawners, not spawning an antag.");
             return;
         }
 
