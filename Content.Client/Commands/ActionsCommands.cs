@@ -37,7 +37,7 @@ public sealed class SaveActionsCommand : IConsoleCommand
 }
 */
 
-// [AnyCommand] DeltaV - Disable AnyCommand, require at least admin rank
+[AnyCommand]
 public sealed class LoadActionsCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
@@ -85,7 +85,7 @@ public sealed class LoadActionsCommand : LocalizedCommands
     }
 }
 
-// [AnyCommand] DeltaV - Disable AnyCommand, require at least admin rank
+[AnyCommand]
 public sealed class LoadMappingActionsCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
