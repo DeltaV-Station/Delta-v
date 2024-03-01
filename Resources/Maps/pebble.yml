@@ -7604,6 +7604,8 @@ entities:
       parent: 2
   - uid: 322
     components:
+    - type: MetaData
+      name: APC (West Hall)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -13.5,-1.5
@@ -7627,7 +7629,7 @@ entities:
   - uid: 325
     components:
     - type: MetaData
-      name: APC (Engi. storage)
+      name: APC (Engi storage)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,18.5
@@ -7664,6 +7666,8 @@ entities:
       parent: 2
   - uid: 330
     components:
+    - type: MetaData
+      name: APC (South East Hall)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-10.5
@@ -7671,13 +7675,15 @@ entities:
   - uid: 331
     components:
     - type: MetaData
-      name: APC (Security)
+      name: APC (Security/Armory)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,-15.5
       parent: 2
   - uid: 332
     components:
+    - type: MetaData
+      name: APC (HOS/Perma)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.5,-19.5
@@ -7692,19 +7698,23 @@ entities:
       parent: 2
   - uid: 334
     components:
+    - type: MetaData
+      name: APC (North Maintenance)
     - type: Transform
       pos: -12.5,21.5
       parent: 2
   - uid: 335
     components:
     - type: MetaData
-      name: APC (Atmos.)
+      name: APC (Atmos)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 18.5,24.5
       parent: 2
   - uid: 336
     components:
+    - type: MetaData
+      name: APC (EPI 2)
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -8.5,30.5
@@ -7727,12 +7737,16 @@ entities:
       parent: 2
   - uid: 339
     components:
+    - type: MetaData
+      name: APC (Dorms/Lawyer/Detective)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-14.5
       parent: 2
   - uid: 341
     components:
+    - type: MetaData
+      name: APC (AI/Telecomms)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,45.5
@@ -7747,7 +7761,7 @@ entities:
   - uid: 343
     components:
     - type: MetaData
-      name: APC (EPI)
+      name: APC (EPI 2)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,30.5
@@ -7778,6 +7792,8 @@ entities:
       parent: 2
   - uid: 347
     components:
+    - type: MetaData
+      name: APC (TEG)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,29.5
@@ -59169,7 +59185,7 @@ entities:
   - uid: 8824
     components:
     - type: Transform
-      pos: -8.260092,-12.235714
+      pos: -24.52284,-27.160583
       parent: 2
   - uid: 8825
     components:
@@ -60526,7 +60542,7 @@ entities:
   - uid: 9045
     components:
     - type: MetaData
-      name: Engieering Substation
+      name: Engineering Substation
     - type: Transform
       pos: 16.5,15.5
       parent: 2
