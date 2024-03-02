@@ -7,8 +7,8 @@
     - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
       role: JobSecurityOfficer
       time: 43200 # DeltaV - 12 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
-      department: JobDetective
+    - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
+      role: JobDetective
       time: 14400 # DeltaV - 4 hours
     - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   startingGear: WardenGear
