@@ -1,21 +1,5 @@
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesHudSyndicateMed
-  name: syndicate medical visor
-  description: An upgraded syndicate visor with automatic health readings, designed for better detection of humanoids and their subsequent elimination.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Hud/syndmed.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Hud/syndmed.rsi
-  - type: ShowSyndicateIcons
-  - type: ShowSecurityIcons
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-
-- type: entity
-  parent: ClothingEyesBase
   id: ClothingEyesPrescriptionMedHud
   name: prescription medical hud
   description: A poorly done and rushed mix between half of a pair of prescription glasses and a medical HUD allowing you to see clearly out of one eye and view the health of people out of the other!
@@ -56,3 +40,19 @@
     tags:
     - HudSecurity
     - GlassesNearsight
+    
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudSyndicateMed
+  name: syndicate medical visor
+  description: An upgraded syndicate visor with automatic health readings, designed for better detection of humanoids and their subsequent elimination.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/syndmed.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/syndmed.rsi
+  - type: ShowSyndicateIcons
+  - type: ShowSecurityIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
