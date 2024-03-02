@@ -59029,6 +59029,53 @@ entities:
     - type: Transform
       pos: -24.5,-28.5
       parent: 2
+- proto: SpawnPointLocationMidRoundAntag
+  entities:
+  - uid: 10911
+    components:
+    - type: Transform
+      pos: -26.5,24.5
+      parent: 2
+  - uid: 10912
+    components:
+    - type: Transform
+      pos: -32.5,31.5
+      parent: 2
+  - uid: 10913
+    components:
+    - type: Transform
+      pos: 38.5,26.5
+      parent: 2
+  - uid: 10914
+    components:
+    - type: Transform
+      pos: 33.5,14.5
+      parent: 2
+  - uid: 10915
+    components:
+    - type: Transform
+      pos: 20.5,5.5
+      parent: 2
+  - uid: 10916
+    components:
+    - type: Transform
+      pos: 24.5,-10.5
+      parent: 2
+  - uid: 10917
+    components:
+    - type: Transform
+      pos: -4.5,-14.5
+      parent: 2
+  - uid: 10918
+    components:
+    - type: Transform
+      pos: -29.5,-19.5
+      parent: 2
+  - uid: 10919
+    components:
+    - type: Transform
+      pos: -29.5,-4.5
+      parent: 2
 - proto: SpawnPointMailCarrier
   entities:
   - uid: 8928
