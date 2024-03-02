@@ -25,13 +25,13 @@
     earliestStart: 25
   - type: MidRoundAntagRule
 
-- type: entity
-  noSpawn: true
-  parent: BaseMidRoundAntag
-  id: RatKingSpawn
-  components:
-  - type: MidRoundAntagRule
-    spawner: SpawnPointGhostRatKing
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMidRoundAntag
+#  id: RatKingSpawn
+#  components:
+#  - type: MidRoundAntagRule
+#    spawner: SpawnPointGhostRatKing
 
 - type: entity
   noSpawn: true
