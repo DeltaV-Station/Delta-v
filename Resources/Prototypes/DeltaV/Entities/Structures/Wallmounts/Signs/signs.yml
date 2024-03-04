@@ -57,3 +57,23 @@
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/signs.rsi
     state: barbershop
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalJustice
+  name: justice department sign
+  description:  A direction sign, pointing out which way the Justice department is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_justice
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionaCourt
+  name: court room sign
+  description:  A direction sign, pointing out which way the court room is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_court

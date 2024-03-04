@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "directional sprites taken from https://github.com/space-wizards/space-station-14/commit/c1556214de46d66fe4057500e269b17438dc96ca | direction_mail modified by Hyenh, direction_logi modified by Floofers | directional_exam, directional_icu, laundromat, barbershop signs by @rosieposieeee based on existing signage style",
+    "copyright": "directional sprites taken from https://github.com/space-wizards/space-station-14/commit/c1556214de46d66fe4057500e269b17438dc96ca | direction_mail modified by Hyenh, direction_logi modified by Floofers | directional_exam, directional_icu, laundromat, barbershop signs by @rosieposieeee based on existing signage style | direction_court, direction_justice by leonardo-dabepis",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,14 @@
         },
         {
             "name": "direction_icu",
+            "directions": 4
+        },
+        {
+            "name": "direction_court",
+            "directions": 4
+        },
+        {
+            "name": "direction_justice",
             "directions": 4
         },
         {
