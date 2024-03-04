@@ -56616,13 +56616,6 @@ entities:
     - type: Transform
       pos: 6.5,44.5
       parent: 1
-- proto: CloningPodMachineCircuitboard
-  entities:
-  - uid: 6578
-    components:
-    - type: Transform
-      pos: -61.525852,-0.04177773
-      parent: 1
 - proto: ClosetBombFilled
   entities:
   - uid: 4645
@@ -124298,6 +124291,13 @@ entities:
     - type: DeviceLinkSink
       links:
       - 5634
+- proto: MetempsychoticMachineCircuitboard
+  entities:
+  - uid: 6578
+    components:
+    - type: Transform
+      pos: -61.561176,-0.009781718
+      parent: 1
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 6584
