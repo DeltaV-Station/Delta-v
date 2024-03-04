@@ -29089,6 +29089,13 @@ entities:
     - type: Transform
       pos: 16.5,-45.5
       parent: 34
+- proto: ClosetMaintenance
+  entities:
+  - uid: 3571
+    components:
+    - type: Transform
+      pos: 15.5,-30.5
+      parent: 34
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 692
@@ -36492,7 +36499,7 @@ entities:
       pos: -36.5,-22.5
       parent: 34
     - type: Door
-      secondsUntilStateChange: -65651.84
+      secondsUntilStateChange: -65927.375
       state: Closing
   - uid: 1274
     components:
@@ -64931,11 +64938,6 @@ entities:
     - type: Transform
       pos: 49.5,1.5
       parent: 34
-  - uid: 5495
-    components:
-    - type: Transform
-      pos: 15.5,-30.5
-      parent: 34
   - uid: 10296
     components:
     - type: Transform
@@ -65461,12 +65463,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,6.5
       parent: 34
-  - uid: 3571
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 25.5,4.5
-      parent: 34
   - uid: 3579
     components:
     - type: Transform
@@ -65704,6 +65700,12 @@ entities:
       parent: 34
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 8683
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 39.5,-25.5
+      parent: 34
   - uid: 8800
     components:
     - type: Transform
@@ -65715,12 +65717,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.5,-6.5
-      parent: 34
-  - uid: 8813
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,-10.5
       parent: 34
   - uid: 8814
     components:
@@ -66052,18 +66048,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 66.5,-23.5
       parent: 34
-  - uid: 13667
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,-25.5
-      parent: 34
-  - uid: 13668
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 40.5,-25.5
-      parent: 34
 - proto: PoweredLightBlueInterior
   entities:
   - uid: 2238
@@ -66192,10 +66176,11 @@ entities:
       parent: 34
 - proto: PoweredlightRed
   entities:
-  - uid: 8683
+  - uid: 8813
     components:
     - type: Transform
-      pos: 33.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: 29.5,-8.5
       parent: 34
 - proto: PoweredlightSodium
   entities:
@@ -66360,6 +66345,12 @@ entities:
       parent: 34
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 5495
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 25.5,4.5
+      parent: 34
   - uid: 5805
     components:
     - type: Transform
