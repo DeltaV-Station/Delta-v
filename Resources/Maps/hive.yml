@@ -58350,6 +58350,11 @@ entities:
     - type: Transform
       pos: -13.504318,-2.4398108
       parent: 1
+  - uid: 24001
+    components:
+    - type: Transform
+      pos: -4.4101806,34.616287
+      parent: 1
 - proto: ClothingShoesSlippers
   entities:
   - uid: 5382
@@ -124778,11 +124783,18 @@ entities:
   entities:
   - uid: 9582
     components:
+    - type: Transform
+      pos: 100.5,-3.5
+      parent: 1
+- proto: NuclearBombKeg
+  entities:
+  - uid: 2280
+    components:
     - type: MetaData
       desc: You probably shouldn't stick around to see if this is armed. It has a tap on the side. (Serves Gin 'n Tonic)
       name: nuclear fission explosive (Gin 'n Tonic)
     - type: Transform
-      pos: 100.5,-3.5
+      pos: 44.5,14.5
       parent: 1
     - type: SolutionContainerManager
       solutions:
@@ -124791,14 +124803,6 @@ entities:
           reagents:
           - ReagentId: GinTonic
             Quantity: 500
-      containers: []
-- proto: NuclearBombKeg
-  entities:
-  - uid: 2280
-    components:
-    - type: Transform
-      pos: 44.5,14.5
-      parent: 1
   - uid: 16766
     components:
     - type: Transform
