@@ -1,19 +1,14 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
-using Content.Shared.Mobs;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
-using Content.Shared.IdentityManagement;
 using Content.Shared.CCVar;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Chat.Systems;
 using Content.Server.Electrocution;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 
@@ -27,7 +22,6 @@ namespace Content.Server.Psionics
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -151,7 +145,7 @@ namespace Content.Server.Psionics
             chance = Math.Clamp(chance, 0, 1);
 
             if (_random.Prob(chance))
-                _psionicAbilitiesSystem.AddPsionics(uid, warn);
+                _psionicAbilitiesSystem.AddPsionics(uid);
         }
 
         public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null, float bonusMuliplier = 1f)

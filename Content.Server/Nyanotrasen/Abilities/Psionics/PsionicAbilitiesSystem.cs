@@ -6,14 +6,15 @@ using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Player;
+using Content.Shared.Examine;
+using Content.Shared.Popups;
+using Content.Shared.Examine;
+using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -22,29 +23,26 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly SharedPopupSystem _popups = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<PsionicAwaitingPlayerComponent, PlayerAttachedEvent>(OnPlayerAttached);
         }
 
-        private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
-        {
-            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
-                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
-            else
-                AddRandomPsionicPower(uid);
-            RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
-        }
-
-        public void AddPsionics(EntityUid uid, bool warn = true)
+        /// <summary>
+        /// Adds a psychic power once a character rolls one. This used to be a system you have to select for. However the opt-in is no longer the text window, but is now done at character creation.
+        /// This is going to get removed when I reach Part 3 of my reworks, when I touch upon the GlimmerSystem itself and overhaul how players get powers.
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        public void AddPsionics(EntityUid uid)
         {
             if (Deleted(uid))
                 return;
@@ -52,44 +50,11 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicComponent>(uid))
                 return;
 
-            //Don't know if this will work. New mind state vs old.
-            if (!TryComp<MindContainerComponent>(uid, out var mindContainer) ||
-                !_mindSystem.TryGetMind(uid, out _, out var mind ))
-            //||
-            //!_mindSystem.TryGetMind(uid, out var mind, mindContainer))
-            {
-                EnsureComp<PsionicAwaitingPlayerComponent>(uid);
-                return;
-            }
-
-            if (!_mindSystem.TryGetSession(mind, out var client))
-                return;
-
-            if (warn && TryComp<ActorComponent>(uid, out var actor))
-                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
-            else
-                AddRandomPsionicPower(uid);
+            AddRandomPsionicPower(uid);
         }
-
-        public void AddPsionics(EntityUid uid, string powerComp)
-        {
-            if (Deleted(uid))
-                return;
-
-            if (HasComp<PsionicComponent>(uid))
-                return;
-
-            AddComp<PsionicComponent>(uid);
-
-            var newComponent = (Component) _componentFactory.GetComponent(powerComp);
-            newComponent.Owner = uid;
-
-            EntityManager.AddComponent(uid, newComponent);
-        }
-
         public void AddRandomPsionicPower(EntityUid uid)
         {
-            AddComp<PsionicComponent>(uid);
+            EnsureComp<PsionicComponent>(uid, out var psionic);
 
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomPsionicPowerPool", out var pool))
             {
@@ -103,7 +68,7 @@ namespace Content.Server.Abilities.Psionics
 
             EntityManager.AddComponent(uid, newComponent);
 
-            _glimmerSystem.Glimmer += _random.Next(1, 5);
+            _glimmerSystem.Glimmer += _random.Next((int) MathF.Round(psionic.Amplification * psionic.Dampening * 1), (int) MathF.Round(psionic.Amplification * psionic.Dampening * 5));
         }
 
         public void RemovePsionics(EntityUid uid)
@@ -130,14 +95,22 @@ namespace Content.Server.Abilities.Psionics
             if (psionic.PsionicAbility != null){
                 _actionsSystem.TryGetActionData( psionic.PsionicAbility, out var psiAbility );
                 if (psiAbility != null){
-                    var owner = psiAbility.Owner;
                     _actionsSystem.RemoveAction(uid, psiAbility.Owner);
                 }
             }
 
+            _popups.PopupEntity(Loc.GetString("mindbreaking-feedback", ("entity", uid)),
+                uid,
+                // TODO: Use LoS-based Filter when one is available.
+                Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                true,
+                PopupType.Medium);
+
             _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
 
+            _glimmerSystem.Glimmer += _random.Next((int) MathF.Round(psionic.Amplification * psionic.Dampening * -5), (int) MathF.Round(psionic.Amplification * psionic.Dampening * -10));
             RemComp<PsionicComponent>(uid);
+            RemComp<PotentialPsionicComponent>(uid);
         }
     }
 }

@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Abilities.Psionics
@@ -19,5 +18,11 @@ namespace Content.Shared.Abilities.Psionics
 
         [DataField("psychicFeedback")]
         public List<string> PsychicFeedback= new();
+
+        [DataField("amplification")]
+        public float Amplification = 1f;
+
+        [DataField("dampening")]
+        public float Dampening = 1f;
     }
 }

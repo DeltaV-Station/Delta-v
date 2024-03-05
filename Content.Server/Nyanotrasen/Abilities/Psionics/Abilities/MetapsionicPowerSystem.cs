@@ -52,6 +52,8 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Add(component);
                 psionic.PsychicFeedback.Add(component.MetapsionicFeedback);
+                psionic.Amplification += 0.1f;
+                psionic.Dampening += 0.5f;
             }
 
         }
@@ -73,11 +75,16 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Remove(component);
                 psionic.PsychicFeedback.Remove(component.MetapsionicFeedback);
+                psionic.Amplification -= 0.1f;
+                psionic.Dampening -= 0.5f;
             }
         }
 
         private void OnWidePowerUsed(EntityUid uid, MetapsionicPowerComponent component, WideMetapsionicPowerActionEvent args)
         {
+            if (!TryComp<PsionicComponent>(uid, out var psionic))
+                return;
+
             foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
             {
                 if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity) &&
@@ -89,13 +96,16 @@ namespace Content.Server.Abilities.Psionics
                 }
             }
             _popups.PopupEntity(Loc.GetString("metapsionic-pulse-failure"), uid, uid, PopupType.Large);
-            _psionics.LogPowerUsed(uid, "metapsionic pulse", 2, 4);
+            _psionics.LogPowerUsed(uid, "metapsionic pulse", (int) MathF.Round(psionic.Amplification / psionic.Dampening * 2), (int) MathF.Round(psionic.Amplification / psionic.Dampening * 4));
             UpdateActions(uid, component);
             args.Handled = true;
         }
 
         private void OnFocusedPowerUsed(FocusedMetapsionicPowerActionEvent args)
         {
+            if (!TryComp<PsionicComponent>(args.Performer, out var psionic))
+                return;
+
             if (HasComp<PsionicInsulationComponent>(args.Target))
                 return;
 
@@ -122,7 +132,7 @@ namespace Content.Server.Abilities.Psionics
                 PopupType.Medium);
 
             _audioSystem.PlayPvs(component.SoundUse, component.Owner, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
-            _psionics.LogPowerUsed(args.Performer, "focused metapsionic pulse", 3, 6);
+            _psionics.LogPowerUsed(args.Performer, "focused metapsionic pulse", (int) MathF.Round(psionic.Amplification / psionic.Dampening * 3), (int) MathF.Round(psionic.Amplification / psionic.Dampening * 6));
             args.Handled = true;
 
             UpdateActions(args.Performer, component);
@@ -130,9 +140,18 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnDoAfter(EntityUid uid, MetapsionicPowerComponent component, FocusedMetapsionicDoAfterEvent args)
         {
+            if (!TryComp<PsionicComponent>(args.Target, out var psychic))
+                return;
+
             component.DoAfter = null;
 
             if (args.Target == null) return;
+
+            if (args.Target == uid)
+            {
+                _popups.PopupEntity(Loc.GetString("metapulse-self", ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
+                return;
+            }
 
             if (!HasComp<PotentialPsionicComponent>(args.Target))
             {
@@ -146,12 +165,9 @@ namespace Content.Server.Abilities.Psionics
                 return;
             }
 
-            if (!TryComp<PsionicComponent>(args.Target, out var psychic))
-                return;
-
-            foreach (var PsychicFeedback in psychic.PsychicFeedback)
+            foreach (var psychicFeedback in psychic.PsychicFeedback)
             {
-                _popups.PopupEntity(Loc.GetString(PsychicFeedback, ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
+                _popups.PopupEntity(Loc.GetString(psychicFeedback, ("entity", args.Target)), uid, uid, PopupType.LargeCaution);
             }
 
         }
