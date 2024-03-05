@@ -1,0 +1,35 @@
+- type: entity
+  id: CigaretteOlive
+  suffix: olive
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: OilOlive
+            Quantity: 10
+
+- type: entity
+  id: CigaretteCandy
+  suffix: candy
+  parent: FoodLollipop
+  name: cigarette
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    slots: [ mask ]
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 10
+        reagents:
+          - ReagentId: Sugar
+            Quantity: 10
