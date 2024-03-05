@@ -85,6 +85,8 @@
     runningState: building
     staticRecipes:
       - Wirecutter
+      - Igniter
+      - Signaller
       - Screwdriver
       - Welder
       - Wrench
@@ -98,6 +100,7 @@
       - CableHVStack
       - HandheldGPSBasic
       - TRayScanner
+      - AirTank
       - GasAnalyzer
       - UtilityBelt
       - Fulton
@@ -288,6 +291,7 @@
       - ChemicalPayload
       - FlashPayload
       - Signaller
+      - SignallerAdvanced
       - SignalTrigger
       - VoiceTrigger
       - Igniter
@@ -383,6 +387,12 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - MicrowaveMachineCircuitboard
+    - ReagentGrinderMachineCircuitboard
+    - ElectricGrillMachineCircuitboard
+    - BoozeDispenserMachineCircuitboard
+    - SodaDispenserMachineCircuitboard
+    - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -408,9 +418,6 @@
       - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
-      - ReagentGrinderMachineCircuitboard
-      - MicrowaveMachineCircuitboard
-      - ElectricGrillMachineCircuitboard
       - FatExtractorMachineCircuitboard
       - FlatpackerMachineCircuitboard
       - SheetifierMachineCircuitboard
@@ -452,8 +459,6 @@
       - ArtifactAnalyzerMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
       - ArtifactCrusherMachineCircuitboard
-      - BoozeDispenserMachineCircuitboard
-      - SodaDispenserMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
     # Begin Nyano additions
@@ -466,8 +471,7 @@
       - MailingUnitElectronics
       - SalvageMagnetMachineCircuitboard
       - StationMapElectronics
-#      - MetempsychoticMachineCircuitboard
-      - DeepFryerMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
     # End Nyano additions
       - SalvageExpeditionsComputerCircuitboard # DeltaV
   - type: MaterialStorage
@@ -677,6 +681,7 @@
       - ShellShotgunSlug
       - ShellShotgunFlare
       - ShellTranquilizer
+      - MagazinePistolSpecial # DeltaV - .38 Special psi-breaker
       - MagazinePistol
       - MagazinePistolSubMachineGun
       - MagazinePistolSubMachineGunTopMounted
@@ -684,6 +689,7 @@
       - MagazineLightRifle
       - MagazineBoxPistol
       - MagazineBoxSpecial # DeltaV - .38 Special revolver
+      - MagazineBoxSpecialPractice # DeltaV - .38 Special revolver
       - MagazineBoxMagnum
       - MagazineBoxRifle
       - MagazineBoxLightRifle
@@ -802,6 +808,7 @@
       staticRecipes:
         - CartridgePistol
         - CartridgeMagnum
+        - CartridgeSpecial # DeltaV - .38 Special revolver
         - ShellShotgun
         - ShellShotgunSlug
         - ShellShotgunFlare
@@ -810,6 +817,7 @@
         - CartridgeRifle
         - MagazineBoxPistol
         - MagazineBoxMagnum
+        - MagazineBoxSpecial # DeltaV - .38 Special revolver
         - MagazineBoxRifle
         - MagazineBoxLightRifle
     - type: MaterialStorage
@@ -984,10 +992,12 @@
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
       - ClothingHeadHatQMsoft
+      - ClothingHeadHatBeretQM
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
       - ClothingUniformJumpsuitQMTurtleneck
       - ClothingUniformJumpskirtQMTurtleneck
+      - ClothingUniformJumpsuitQMFormal
       - ClothingHeadHatBeretRND
       - ClothingUniformJumpsuitResearchDirector
       - ClothingUniformJumpskirtResearchDirector

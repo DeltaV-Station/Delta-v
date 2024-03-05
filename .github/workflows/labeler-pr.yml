@@ -5,7 +5,7 @@ on:
 
 jobs:
   labeler:
-    if: github.actor != 'PJBot'
+    if: github.actor != 'PJBot' && github.actor != 'DeltaV-Bot'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v3
