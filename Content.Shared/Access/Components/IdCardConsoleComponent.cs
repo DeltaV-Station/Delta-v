@@ -87,7 +87,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
         "Zookeeper",  // DeltaV - Add Zookeeper access
         "ChiefJustice",  // DeltaV - Add Chief Justice access
-        "Legal",  // DeltaV - Add Legal access
+        "Justice",  // DeltaV - Add Justice access
+        "Prosecutor", // Delta V - Add Prosecutor access
     };
 
     [Serializable, NetSerializable]

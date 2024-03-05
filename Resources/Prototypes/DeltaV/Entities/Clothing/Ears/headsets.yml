@@ -26,7 +26,7 @@
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-    
+
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
@@ -45,14 +45,14 @@
 
 - type: entity
   parent: ClothingHeadset
-  id: ClothingHeadsetLegal
-  name: legal headset
-  description: This is used by your elite security force.
+  id: ClothingHeadsetJustice
+  name: justice headset
+  description: This is used by the justice department.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyLegal
+      - EncryptionKeyJustice
       - EncryptionKeySecurity
       - EncryptionKeyCommon
   - type: Sprite
@@ -72,7 +72,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyLegal
+      - EncryptionKeyJustice
       - EncryptionKeySecurity
       - EncryptionKeyCommon
       - EncryptionKeyCommand

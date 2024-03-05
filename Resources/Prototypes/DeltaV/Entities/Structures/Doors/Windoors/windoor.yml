@@ -32,8 +32,16 @@
 
 - type: entity
   parent: WindoorSecure
-  id: WindoorSecureLegalLocked
-  suffix: Legal, Locked
+  id: WindoorSecureJusticeLocked
+  suffix: Justice, Locked
   components:
   - type: AccessReader
-    access: [["Legal"]]
+    access: [["Justice"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
