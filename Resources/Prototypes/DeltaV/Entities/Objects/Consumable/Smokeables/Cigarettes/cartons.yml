@@ -2,7 +2,7 @@
   id: CigCartonPurple
   parent: CigCartonGreen
   name: De Jure carton
-  description: A carton containing 6 packets of De' Jure.
+  description: A carton containing 6 packets of De Jure.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Smokeables/Cigarettes/Cartons/purple.rsi
@@ -15,3 +15,19 @@
       - id: CigPackPurple
         amount: 5
 
+- type: entity
+  id: CigCartonCandy
+  parent: CigCartonGreen
+  name: Sugar Rush carton
+  description: A carton containing 6 packets of Sugar Rush.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Smokeables/Cigarettes/Cartons/pink.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: DeltaV/Objects/Consumable/Smokeables/Cigarettes/Cartons/pink.rsi
+  - type: StorageFill
+    contents:
+      - id: CigPackCandy
+        amount: 5
