@@ -53,6 +53,7 @@ namespace Content.Server.Abilities.Psionics
                 psionic.PsionicAbility = component.PsionicInvisibilityActionEntity;
                 psionic.ActivePowers.Add(component);
                 psionic.PsychicFeedback.Add(component.InvisibilityFeedback);
+                psionic.Amplification += 0.5f;
             }
         }
 
@@ -65,6 +66,7 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Remove(component);
                 psionic.PsychicFeedback.Remove(component.InvisibilityFeedback);
+                psionic.Amplification -= 0.5f;
             }
         }
 

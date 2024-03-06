@@ -38,12 +38,13 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
+            SubscribeLocalEvent<MindSwappedComponent, ComponentShutdown>(OnSwapShutdown);
         }
 
         private void OnInit(EntityUid uid, MindSwapPowerComponent component, ComponentInit args)
         {
-            _actions.AddAction(uid, ref component.MindSwapActionEntity, component.MindSwapActionId );
-            _actions.TryGetActionData( component.MindSwapActionEntity, out var actionData );
+            _actions.AddAction(uid, ref component.MindSwapActionEntity, component.MindSwapActionId);
+            _actions.TryGetActionData( component.MindSwapActionEntity, out var actionData);
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MindSwapActionEntity);
             if (TryComp<PsionicComponent>(uid, out var psionic))
@@ -51,6 +52,7 @@ namespace Content.Server.Abilities.Psionics
                 psionic.PsionicAbility = component.MindSwapActionEntity;
                 psionic.ActivePowers.Add(component);
                 psionic.PsychicFeedback.Add(component.MindSwapFeedback);
+                psionic.Amplification += 1f;
             }
         }
 
@@ -61,20 +63,25 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Remove(component);
                 psionic.PsychicFeedback.Remove(component.MindSwapFeedback);
+                psionic.Amplification -= 1f;
             }
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)
         {
+
             if (!(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))
                 return;
 
+            if (!TryComp<PsionicComponent>(args.Performer, out var psionic))
+                return;
+
             Swap(args.Performer, args.Target);
 
-            _psionics.LogPowerUsed(args.Performer, "mind swap");
+            _psionics.LogPowerUsed(args.Performer, "mind swap", (int) MathF.Round(psionic.Amplification / psionic.Dampening * 8), (int) MathF.Round(psionic.Amplification / psionic.Dampening * 12));
             args.Handled = true;
         }
 
@@ -151,8 +158,21 @@ namespace Content.Server.Abilities.Psionics
             _actions.TryGetActionData( component.MindSwapReturnActionEntity, out var actionData );
             if (actionData is { UseDelay: not null })
                 _actions.StartUseDelay(component.MindSwapReturnActionEntity);
-            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
-                psionic.PsionicAbility = component.MindSwapReturnActionEntity;
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Add(component);
+                psionic.PsychicFeedback.Add(component.MindSwappedFeedback);
+            }
+        }
+
+        private void OnSwapShutdown(EntityUid uid, MindSwappedComponent component, ComponentShutdown args)
+        {
+            _actions.RemoveAction(uid, component.MindSwapReturnActionEntity);
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+            {
+                psionic.ActivePowers.Remove(component);
+                psionic.PsychicFeedback.Remove(component.MindSwappedFeedback);
+            }
         }
 
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
