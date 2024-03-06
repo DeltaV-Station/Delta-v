@@ -6,11 +6,8 @@ using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using Content.Shared.Mind;
 using Content.Shared.Actions.Events;
 using Robust.Shared.Audio.Systems;
 
@@ -18,7 +15,6 @@ namespace Content.Server.Abilities.Psionics
 {
     public sealed class DispelPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -27,8 +23,6 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
 
         public override void Initialize()
@@ -56,6 +50,9 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Add(component);
                 psionic.PsychicFeedback.Add(component.DispelFeedback);
+                //It's fully intended that Dispel doesn't increase Amplification, and instead heavily spikes Dampening
+                //Antimage archetype.
+                psionic.Dampening += 1f;
             }
         }
 
@@ -67,12 +64,15 @@ namespace Content.Server.Abilities.Psionics
             {
                 psionic.ActivePowers.Remove(component);
                 psionic.PsychicFeedback.Remove(component.DispelFeedback);
+                psionic.Dampening -= 1f;
             }
         }
 
         private void OnPowerUsed(DispelPowerActionEvent args)
         {
             if (HasComp<PsionicInsulationComponent>(args.Target))
+                return;
+            if (!TryComp<PsionicComponent>(args.Performer, out var psionic) || !HasComp<PsionicComponent>(args.Target))
                 return;
 
             var ev = new DispelledEvent();
@@ -81,7 +81,7 @@ namespace Content.Server.Abilities.Psionics
             if (ev.Handled)
             {
                 args.Handled = true;
-                _psionics.LogPowerUsed(args.Performer, "dispel");
+                _psionics.LogPowerUsed(args.Performer, "dispel", (int) MathF.Round(psionic.Dampening * -2), (int) MathF.Round(psionic.Dampening * -4));
             }
         }
 
@@ -97,7 +97,7 @@ namespace Content.Server.Abilities.Psionics
         private void OnDmgDispelled(EntityUid uid, DamageOnDispelComponent component, DispelledEvent args)
         {
             var damage = component.Damage;
-            var modifier = (1 + component.Variance) - (_random.NextFloat(0, component.Variance * 2));
+            var modifier = 1 + component.Variance - _random.NextFloat(0, component.Variance * 2);
 
             damage *= modifier;
             DealDispelDamage(uid, damage);
@@ -146,5 +146,3 @@ namespace Content.Server.Abilities.Psionics
     }
     public sealed class DispelledEvent : HandledEntityEventArgs {}
 }
-
-
