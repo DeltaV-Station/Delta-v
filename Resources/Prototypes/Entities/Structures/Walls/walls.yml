@@ -78,7 +78,7 @@
         acts: [ "Destruction" ]
 
   - type: IconSmooth
-    key: walls
+    key: bricks
     base: brick
 
 - type: entity
@@ -994,7 +994,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: woods
     base: wood
 
 - type: entity
@@ -1036,7 +1036,7 @@
         sound:
           collection: WoodDestroy
   - type: IconSmooth
-    key: walls
+    key: webs
     base: wall
   - type: Construction
     graph: WebStructures
@@ -1242,7 +1242,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1255,7 +1255,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_basalt.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1269,7 +1269,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_snow.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1282,7 +1282,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_asteroid.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1295,7 +1295,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_sand.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1308,7 +1308,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_chromite.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1321,5 +1321,5 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_andesite.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
