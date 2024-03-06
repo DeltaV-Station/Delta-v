@@ -688,10 +688,13 @@ entities:
     - type: Broadphase
     - type: Physics
       bodyStatus: InAir
-      angularDamping: 1000
-      linearDamping: 1000
+      angularDamping: 10000
+      linearDamping: 10000
       fixedRotation: False
       bodyType: Dynamic
+    - type: Shuttle
+      angularDamping: 10000
+      linearDamping: 10000
     - type: Fixtures
       fixtures: {}
     - type: OccluderTree
