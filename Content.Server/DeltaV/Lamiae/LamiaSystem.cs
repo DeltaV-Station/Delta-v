@@ -89,7 +89,6 @@ namespace Content.Server.DeltaV.Lamiae
             SubscribeLocalEvent<LamiaSegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
             SubscribeLocalEvent<LamiaComponent, DidEquipEvent>(OnDidEquipEvent);
             SubscribeLocalEvent<LamiaComponent, DidUnequipEvent>(OnDidUnequipEvent);
-            SubscribeLocalEvent<LamiaSegmentComponent, BeforeDamageChangedEvent>(OnHitSelf);
             SubscribeLocalEvent<LamiaSegmentComponent, StandAttemptEvent>(TailCantStand);
             SubscribeLocalEvent<LamiaSegmentComponent, GetExplosionResistanceEvent>(OnSnekBoom);
         }
@@ -170,20 +169,14 @@ namespace Content.Server.DeltaV.Lamiae
 
         private void HandleSegmentDamage(EntityUid uid, LamiaSegmentComponent component, DamageModifyEvent args)
         {
+            if (args.Origin == component.Lamia)
+                args.Damage *= 0;
             args.Damage = args.Damage / component.DamageModifyFactor;
         }
         private void HandleDamageTransfer(EntityUid uid, LamiaSegmentComponent component, DamageChangedEvent args)
         {
             if (args.DamageDelta == null) return;
             _damageableSystem.TryChangeDamage(component.Lamia, args.DamageDelta);
-        }
-
-        private void OnHitSelf(EntityUid uid, LamiaSegmentComponent component, ref BeforeDamageChangedEvent args)
-        {
-            if (args.Origin == component.Lamia)
-            {
-                args.Cancelled = true;
-            }
         }
 
         private void TailCantStand(EntityUid uid, LamiaSegmentComponent component, StandAttemptEvent args)

@@ -21,7 +21,7 @@ namespace Content.Shared.DeltaV.Lamiae
         /// A clamped variable that represents the number of segments to be spawned
         /// </summary>
         [DataField("numberOfSegments")]
-        public int NumberOfSegments = 30;
+        public int NumberOfSegments = 18;
 
         /// <summary>
         /// If UseTaperSystem is true, this constant represents the rate at which a segmented entity will taper towards the tip. Tapering is on a logarithmic scale, and will asymptotically approach 0.
