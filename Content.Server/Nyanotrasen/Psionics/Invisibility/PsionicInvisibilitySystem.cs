@@ -86,8 +86,6 @@ namespace Content.Server.Psionics
             _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
             _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibilitySystem.RefreshVisibility(uid, visibility);
-
-            SetCanSeePsionicInvisiblity(uid, true);
         }
 
 
@@ -99,8 +97,6 @@ namespace Content.Server.Psionics
                 _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(uid, visibility);
             }
-            if (HasComp<PotentialPsionicComponent>(uid) && !HasComp<PsionicInsulationComponent>(uid))
-                SetCanSeePsionicInvisiblity(uid, false);
         }
 
         private void OnEntInserted(EntityUid uid, PsionicallyInvisibleComponent component, EntInsertedIntoContainerMessage args)
