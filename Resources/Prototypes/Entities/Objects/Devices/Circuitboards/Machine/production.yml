@@ -491,7 +491,7 @@
   id: PortableScrubberMachineCircuitBoard
   parent: BaseMachineCircuitboard
   name: portable scrubber machine board
-  description: A PCB for a portable scrubber.
+  description: A machine printed circuit board for a portable scrubber.
   components:
   - type: Sprite
     state: engineering
@@ -506,6 +506,22 @@
   - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
+
+- type: entity
+  id: SpaceHeaterMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: space heater machine board
+  description: A machine printed circuit board for a space heater.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: SpaceHeater
+    requirements:
+      MatterBin: 1
+      Capacitor: 2
+    materialRequirements:
+      Cable: 5
 
 - type: entity
   id: CloningPodMachineCircuitboard
