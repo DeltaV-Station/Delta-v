@@ -71,11 +71,11 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Ifriit # Spawns the first hand of ifriit and only hand for ifriit - the sprite is currently only using right hand sprite.
-  #- type: InnateTool # Cant really use this anymore.
-  #  tools:
-  #    - id: WelderIfrit
-  #    - id: WelderIfrit
+    prototype: Primate
+  - type: InnateTool # Cant really use this anymore.
+    tools:
+      - id: WelderIfrit
+      - id: WelderIfrit
   - type: Hands
   - type: RandomMetadata
     nameSegments: [names_golem]
@@ -151,4 +151,3 @@
     radius: 2
     energy: 1.5
     color: orange
-  - type: Unremoveable
