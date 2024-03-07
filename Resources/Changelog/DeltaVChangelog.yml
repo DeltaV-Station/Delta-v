@@ -1756,3 +1756,11 @@ Entries:
       message: Warden requirements now include mandatory officer time and whitelist.
   id: 261
   time: '2024-03-02T23:00:08.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: The salvage shuttle has been completely removed
+    - type: Tweak
+      message: Salvage specialists now start with a mini jetpack in their locker
+  id: 262
+  time: '2024-03-06T23:27:01.0000000+00:00'
