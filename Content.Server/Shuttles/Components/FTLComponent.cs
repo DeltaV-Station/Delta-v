@@ -46,7 +46,7 @@ public sealed partial class FTLComponent : Component
     public string? PriorityTag;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("soundTravel")]
-    public SoundSpecifier? TravelSound = new SoundPathSpecifier("/Audio/Effects/Shuttle/hyperspace_progress.ogg")
+    public SoundSpecifier? TravelSound = new SoundPathSpecifier("/Audio/DeltaV/Effects/Shuttle/hyperspace_progress.ogg") // DeltaV - Replace FTL sound
     {
         Params = AudioParams.Default.WithVolume(-3f).WithLoop(true)
     };
