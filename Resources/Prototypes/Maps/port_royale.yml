@@ -1,7 +1,7 @@
 - type: gameMap
   id: PortRoyale
-  mapName: 'PortRoyale'
-  mapPath: /Maps/port-royale.yml
+  mapName: 'Port Royale'
+  mapPath: /Maps/port_royale.yml
   minPlayers: 25
   maxPlayers: 80
   stations:
@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
