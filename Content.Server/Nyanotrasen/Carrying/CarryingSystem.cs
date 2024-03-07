@@ -4,7 +4,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Resist;
 using Content.Server.Popups;
-using Content.Server.Contests;
 using Content.Server.Inventory;
 using Content.Shared.Climbing; // Shared instead of Server
 using Content.Shared.Mobs;
@@ -28,6 +27,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Physics.Pull;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Carrying
 {
@@ -42,7 +42,6 @@ namespace Content.Server.Carrying
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
         [Dependency] private readonly RespiratorSystem _respirator = default!;
 
@@ -120,7 +119,7 @@ namespace Content.Server.Carrying
 
             args.ItemUid = virtItem.BlockingEntity;
 
-            var multiplier = _contests.MassContest(uid, virtItem.BlockingEntity);
+            var multiplier = MassContest(uid, virtItem.BlockingEntity);
             args.ThrowStrength = 5f * multiplier;
         }
 
@@ -161,7 +160,7 @@ namespace Content.Server.Carrying
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
             {
-                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, _contests.MassContest(uid, component.Carrier));
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, MassContest(uid, component.Carrier));
             }
         }
 
@@ -212,7 +211,7 @@ namespace Content.Server.Carrying
         {
             TimeSpan length = TimeSpan.FromSeconds(3);
 
-            var mod = _contests.MassContest(carrier, carried);
+            var mod = MassContest(carrier, carried);
 
             if (mod != 0)
                 length /= mod;
@@ -276,7 +275,7 @@ namespace Content.Server.Carrying
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
         {
-            var massRatio = _contests.MassContest(carrier, carried);
+            var massRatio = MassContest(carrier, carried);
 
             if (massRatio == 0)
                 massRatio = 1;
@@ -312,6 +311,17 @@ namespace Content.Server.Carrying
                 return false;
 
             return true;
+        }
+
+        private float MassContest(EntityUid roller, EntityUid target, PhysicsComponent? rollerPhysics = null, PhysicsComponent? targetPhysics = null)
+        {
+            if (!Resolve(roller, ref rollerPhysics, false) || !Resolve(target, ref targetPhysics, false))
+                return 1f;
+
+            if (targetPhysics.FixturesMass == 0)
+                return 1f;
+
+            return rollerPhysics.FixturesMass / targetPhysics.FixturesMass;
         }
     }
 }

@@ -156,8 +156,6 @@
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
       - id: ClothingMaskBreath
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -212,7 +210,6 @@
       - id: ClothingHeadsetAltMedical
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
-      - id: ClothingOuterCoatLabCmo
       - id: ClothingMaskSterile
       - id: ClothingHeadHatBeretCmo
       - id: ClothingOuterHardsuitMedical
@@ -261,7 +258,6 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
       - id: HandTeleporter
       - id: DoorRemoteResearch
@@ -271,6 +267,7 @@
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
       - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
+      - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
 
 - type: entity
@@ -283,7 +280,6 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingHeadsetMedicalScience
       - id: HandTeleporter
       - id: DoorRemoteResearch
       - id: ClothingBeltUtilityFilled
@@ -292,6 +288,7 @@
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
       - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
+      - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
 
 - type: entity
@@ -304,6 +301,7 @@
       - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
+      - id: ClothingMaskNeckGaiter
       - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
@@ -334,6 +332,7 @@
       - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
+      - id: ClothingMaskNeckGaiter
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
       - id: ClothingEyesGlassesSunglasses

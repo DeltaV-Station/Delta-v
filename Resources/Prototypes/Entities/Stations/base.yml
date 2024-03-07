@@ -38,7 +38,6 @@
   components:
     - type: GatewayGenerator
 
-
 - type: entity
   id: BaseStationShuttles
   abstract: true
@@ -131,6 +130,12 @@
   components:
   - type: SiliconLawProvider
     laws: Crewsimov
+
+- type: entity
+  id: BaseStationNews
+  abstract: true
+  components:
+    - type: StationNews
 
 - type: entity
   id: BaseStationAllEventsEligible
