@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 [Access(typeof(SharedGunSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
 public sealed partial class GunComponent : Component
 {
@@ -199,6 +199,7 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     [AutoNetworkedField]
+    [AutoPausedField]
     public TimeSpan NextFire = TimeSpan.Zero;
 
     /// <summary>
