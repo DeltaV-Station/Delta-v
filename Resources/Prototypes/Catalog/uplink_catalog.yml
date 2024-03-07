@@ -362,21 +362,21 @@
 
 #Utility
 
-- type: listing
-  id: UplinkHoloparaKit
-  name: uplink-holopara-kit-name
-  description: uplink-holopara-kit-desc
-  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
-  productEntity: BoxHoloparasite
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+#- type: listing #
+#  id: UplinkHoloparaKit
+#  name: uplink-holopara-kit-name
+#  description: uplink-holopara-kit-desc
+#  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
+#  productEntity: BoxHoloparasite
+#  cost:
+#    Telecrystal: 14
+#  categories:
+#  - UplinkUtility
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkHolster
