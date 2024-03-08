@@ -11,3 +11,6 @@ trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
 
 trait-uncloneable-name = Uncloneable
 trait-uncloneable-desc = Cannot be cloned
+
+trait-german-accent-name = German Accent
+trait-german-accent-desc = For ze ones who speak vith precision und efficiency.

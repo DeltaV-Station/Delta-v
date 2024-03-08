@@ -5,3 +5,10 @@
   traitGear: BagpipeInstrument
   components:
     - type: ScottishAccent
+    
+- type: trait
+  id: GermanAccent
+  name: trait-german-accent-name
+  description: trait-german-accent-desc
+  components:
+    - type: GermanAccent
