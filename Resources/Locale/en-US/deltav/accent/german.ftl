@@ -1,6 +1,6 @@
 # Taken from YogStation: https://github.com/yogstation13/Yogstation/blob/master/strings/accents/accent_kraut.json
 #
-# I just want to say that this system is chronically insane, torturous even, masochistic at a minimum.
+# I just want to say for whoever comes after me, wanting to make an accent that this system is chronically insane, torturous even, masochistic at a minimum.
 # This was 80% done with Bing AI, Co-Pilot specifically once I realised this is going to take FOREVER!!!
 # Prompt:
 # Take the provides strings and Sort the left word into the formatted pairs, where X is the word, Y is it's corresponding replacement from the right side and N starts from 51 and goes up every pair, so after one pair of words and words-replace it goes up by 1.
