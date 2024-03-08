@@ -4,10 +4,11 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
-using Content.Server.UserInterface;
+using Content.Shared.UserInterface;
 using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.DeviceNetwork;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
@@ -84,16 +85,14 @@ public sealed partial class EmergencyShuttleSystem
 
     private void InitializeEmergencyConsole()
     {
-        _configManager.OnValueChanged(CCVars.EmergencyShuttleMinTransitTime, SetMinTransitTime, true);
-        _configManager.OnValueChanged(CCVars.EmergencyShuttleMaxTransitTime, SetMaxTransitTime, true);
-        _configManager.OnValueChanged(CCVars.EmergencyShuttleAuthorizeTime, SetAuthorizeTime, true);
+        Subs.CVar(_configManager, CCVars.EmergencyShuttleMinTransitTime, SetMinTransitTime, true);
+        Subs.CVar(_configManager, CCVars.EmergencyShuttleMaxTransitTime, SetMaxTransitTime, true);
+        Subs.CVar(_configManager, CCVars.EmergencyShuttleAuthorizeTime, SetAuthorizeTime, true);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, ComponentStartup>(OnEmergencyStartup);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleAuthorizeMessage>(OnEmergencyAuthorize);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleRepealMessage>(OnEmergencyRepeal);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleRepealAllMessage>(OnEmergencyRepealAll);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, ActivatableUIOpenAttemptEvent>(OnEmergencyOpenAttempt);
-
-        SubscribeLocalEvent<EscapePodComponent, EntityUnpausedEvent>(OnEscapeUnpaused);
     }
 
     private void OnEmergencyOpenAttempt(EntityUid uid, EmergencyShuttleConsoleComponent component, ActivatableUIOpenAttemptEvent args)
@@ -120,13 +119,6 @@ public sealed partial class EmergencyShuttleSystem
     private void SetMaxTransitTime(float obj)
     {
         MaximumTransitTime = Math.Max(MinimumTransitTime, obj);
-    }
-
-    private void ShutdownEmergencyConsole()
-    {
-        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleAuthorizeTime, SetAuthorizeTime);
-        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleMinTransitTime, SetMinTransitTime);
-        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleMaxTransitTime, SetMaxTransitTime);
     }
 
     private void OnEmergencyStartup(EntityUid uid, EmergencyShuttleConsoleComponent component, ComponentStartup args)
@@ -186,13 +178,11 @@ public sealed partial class EmergencyShuttleSystem
             }
 
             var podQuery = AllEntityQuery<EscapePodComponent>();
-            var podLaunchOffset = 0.5f;
 
             // Stagger launches coz funny
             while (podQuery.MoveNext(out _, out var pod))
             {
-                pod.LaunchTime = _timing.CurTime + TimeSpan.FromSeconds(podLaunchOffset);
-                podLaunchOffset += _random.NextFloat(0.5f, 2.5f);
+                pod.LaunchTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(0.05f, 0.75f));
             }
         }
 
@@ -203,7 +193,9 @@ public sealed partial class EmergencyShuttleSystem
             var stationUid = _station.GetOwningStation(uid);
 
             if (!TryComp<StationCentcommComponent>(stationUid, out var centcomm) ||
-                Deleted(centcomm.Entity) || pod.LaunchTime == null || pod.LaunchTime < _timing.CurTime)
+                Deleted(centcomm.Entity) ||
+                pod.LaunchTime == null ||
+                pod.LaunchTime > _timing.CurTime)
             {
                 continue;
             }

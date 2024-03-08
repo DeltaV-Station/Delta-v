@@ -43,6 +43,7 @@ using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
+using Content.Shared.UserInterface;
 using FastAccessors;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -180,6 +181,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     /// </summary>
     public FixedPoint2 GetOilPurity(EntityUid uid, DeepFryerComponent component)
     {
+        if (component.Solution.Volume == 0) return 0;
         return GetOilVolume(uid, component) / component.Solution.Volume;
     }
 

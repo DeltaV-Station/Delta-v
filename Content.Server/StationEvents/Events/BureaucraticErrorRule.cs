@@ -25,25 +25,25 @@ public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticError
         if (jobList.Count == 0)
             return;
 
-        var mod = GetSeverityModifier();
-
         // Low chance to completely change up the late-join landscape by closing all positions except infinite slots.
         // Lower chance than the /tg/ equivalent of this event.
-        if (RobustRandom.Prob(Math.Min(0.25f * MathF.Sqrt(mod), 1.0f)))
+        if (RobustRandom.Prob(0.25f))
         {
             var chosenJob = RobustRandom.PickAndTake(jobList);
             _stationJobs.MakeJobUnlimited(chosenStation.Value, chosenJob); // INFINITE chaos.
+            /* DeltaV - don't close all other jobs
             foreach (var job in jobList)
             {
                 if (_stationJobs.IsJobUnlimited(chosenStation.Value, job))
                     continue;
                 _stationJobs.TrySetJobSlot(chosenStation.Value, job, 0);
             }
+            */
         }
         else
         {
-            var lower = (int) (jobList.Count * Math.Min(1.0f, 0.20 * mod));
-            var upper = (int) (jobList.Count * Math.Min(1.0f, 0.30 * mod));
+            var lower = (int) (jobList.Count * 0.20);
+            var upper = (int) (jobList.Count * 0.30);
             // Changing every role is maybe a bit too chaotic so instead change 20-30% of them.
             var num = RobustRandom.Next(lower, upper);
             for (var i = 0; i < num; i++)

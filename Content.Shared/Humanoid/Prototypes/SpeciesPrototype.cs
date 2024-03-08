@@ -124,6 +124,7 @@ public sealed partial class SpeciesPrototype : IPrototype
 
 public enum SpeciesNaming : byte
 {
+    First,
     FirstLast,
     FirstDashFirst,
     //Start of Nyano - Summary: for Oni naming

@@ -89,10 +89,16 @@
         /// </summary>
         EditNotes = 1 << 14,
 
+
+        /// <summary>
+        ///     Lets you Massban, on SS14.Admin
+        /// </summary>
+        MassBan = 1 << 15,
+
         /// <summary>
         ///     DeltaV - The ability to whitelist people. Either this permission or +BAN is required for remove.
         /// </summary>
-        Whitelist = 1 << 15,
+        Whitelist = 1 << 20,
 
         /// <summary>
         ///     Dangerous host permissions like scsi.

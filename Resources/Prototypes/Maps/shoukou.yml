@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Box.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
@@ -45,6 +45,7 @@
             MedicalDoctor: [ 3, 3 ]
             Chemist: [ 1, 2 ]
             MedicalIntern: [ 2, 3 ]
+            Psychologist: [ 1, 1 ]
           #Security
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 2, 4 ]
