@@ -1674,3 +1674,156 @@ Entries:
       message: Fixed the upstream changelog not rendering
   id: 249
   time: '2024-02-18T23:05:48.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Tweak
+      message: Whitelist to join now works based on slots instead of player count
+    - type: Tweak
+      message: Periapsis now has only 10 non-whitelisted slots
+  id: 250
+  time: '2024-02-20T19:46:17.0000000+00:00'
+- author: rosieposieeee
+  changes:
+    - type: Remove
+      message: >-
+        Submarine Station has been temporarily removed from rotation for routine
+        maintenance.
+  id: 251
+  time: '2024-02-21T01:15:08.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: >-
+        Added a new accessibility setting to globally disable species vision
+        filters
+    - type: Remove
+      message: The DefaultVision trait has been removed
+  id: 252
+  time: '2024-02-23T18:36:18.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Tweak
+      message: 'Rekajiggered The Hive''s medical. '
+  id: 253
+  time: '2024-02-24T00:34:16.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Tweak
+      message: 'The Hive Rekajiggering part 2 of 3: Perma addition'
+  id: 254
+  time: '2024-02-24T06:38:02.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: Space mobs no longer have ghost roles
+  id: 255
+  time: '2024-02-26T20:20:53.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Tweak
+      message: Overhauled the bar on The Hive
+  id: 256
+  time: '2024-02-26T21:53:05.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: >-
+        Psionic invisibility has been disabled until the issues with it can be
+        properly fixed
+  id: 257
+  time: '2024-02-28T16:54:47.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Add
+      message: Added prescription medical hud and security hud.
+  id: 258
+  time: '2024-03-01T23:41:11.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed midround antags sometimes spawning on CentComm.
+  id: 259
+  time: '2024-03-02T22:27:13.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: Rat kings have been removed after a unanimous admin vote
+  id: 260
+  time: '2024-03-02T22:41:12.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - type: Tweak
+      message: Warden requirements now include mandatory officer time and whitelist.
+  id: 261
+  time: '2024-03-02T23:00:08.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: The salvage shuttle has been completely removed
+    - type: Tweak
+      message: Salvage specialists now start with a mini jetpack in their locker
+  id: 262
+  time: '2024-03-06T23:27:01.0000000+00:00'
+- author: DangerRevolution
+  changes:
+    - type: Add
+      message: Added several new potential Lawsets for Cyborgs.
+    - type: Tweak
+      message: Janitor/Engineer/Medical Borgs spawn with their own lawsets.
+  id: 263
+  time: '2024-03-07T22:22:42.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+    - type: Tweak
+      message: Pumpkin Pies can now be baked by professional Chefs.
+  id: 264
+  time: '2024-03-07T22:49:22.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Tweak
+      message: Reverted AME buff.
+  id: 265
+  time: '2024-03-08T03:13:49.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Nuclear operative combat medics now have combination syndicate/medical
+        hud
+  id: 266
+  time: '2024-03-08T03:18:03.0000000+00:00'
+- author: '- BonkTrauma and DangerRevolution'
+  changes:
+    - type: Add
+      message: >-
+        Added Prisoner communication channel and updated a few headsets to
+        include it
+  id: 267
+  time: '2024-03-08T03:22:48.0000000+00:00'
+- author: Tryded
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Energy Guns' charging time to half of what it originally was to
+        be similar to normal laser guns.
+  id: 268
+  time: '2024-03-08T03:28:44.0000000+00:00'
+- author: DangerRevolution and VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Adds pAI, one-way handheld radio, instrument and new fax machine to the
+        Listening Post
+    - type: Add
+      message: All Syndicate Operatives now spawn with a Cybersun Pen
+    - type: Remove
+      message: Syndicate Listening Post Operative no longer requires whitelist
+    - type: Add
+      message: Listening Post now spawns visible on IFF.
+    - type: Add
+      message: >-
+        The Listening Outpost has received significant improvements to its
+        interiors. It's now a place I personally would feel comfortable working
+        in-VMSolidus
+  id: 269
+  time: '2024-03-08T03:35:45.0000000+00:00'
