@@ -1,1 +1,1 @@
-department-Legal-description = Uphold justice on the station.
+department-Justice-description = Uphold justice on the station.

@@ -62539,6 +62539,11 @@ entities:
     - type: Transform
       pos: 28.5,-45.5
       parent: 34
+  - uid: 13446
+    components:
+    - type: Transform
+      pos: 7.5,-29.5
+      parent: 34
 - proto: Poweredlight
   entities:
   - uid: 7
@@ -67992,6 +67997,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -11.5,-11.5
       parent: 34
+- proto: RollerBed
+  entities:
+  - uid: 13448
+    components:
+    - type: Transform
+      pos: 7.429779,-26.349916
+      parent: 34
+  - uid: 13449
+    components:
+    - type: Transform
+      pos: 7.445404,-27.318666
+      parent: 34
 - proto: RubberStampApproved
   entities:
   - uid: 1979
@@ -70470,26 +70487,12 @@ entities:
     - type: Transform
       pos: 50.5,-33.5
       parent: 34
-- proto: SpawnPointChiefJustice
-  entities:
-  - uid: 13446
-    components:
-    - type: Transform
-      pos: -9.5,-15.5
-      parent: 34
 - proto: SpawnPointChiefMedicalOfficer
   entities:
   - uid: 13183
     components:
     - type: Transform
       pos: 50.5,-35.5
-      parent: 34
-- proto: SpawnPointClerk
-  entities:
-  - uid: 13448
-    components:
-    - type: Transform
-      pos: -7.5,-15.5
       parent: 34
 - proto: SpawnPointClown
   entities:
@@ -70938,13 +70941,6 @@ entities:
     components:
     - type: Transform
       pos: 47.5,-9.5
-      parent: 34
-- proto: SpawnPointProsecuter
-  entities:
-  - uid: 13447
-    components:
-    - type: Transform
-      pos: -8.5,-15.5
       parent: 34
 - proto: SpawnPointPsychologist
   entities:
@@ -73117,6 +73113,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 54.5,-38.5
+      parent: 34
+  - uid: 13447
+    components:
+    - type: Transform
+      pos: 7.5,-29.5
       parent: 34
 - proto: TableCounterWood
   entities:

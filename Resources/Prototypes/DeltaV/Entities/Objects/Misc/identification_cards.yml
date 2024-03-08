@@ -3,23 +3,36 @@
   id: CJIDCard
   name: chief justice ID card
   components:
+    - type: PresetIdCard
+      job: ChiefJustice
     - type: Sprite
       layers:
         - state: default
         - sprite: DeltaV/Objects/Misc/id_cards.rsi
           state: idchiefjustice
-    - type: PresetIdCard
-      job: ChiefJustice
 
 - type: entity
   parent: IDCardStandard
   id: ClerkIDCard
   name: clerk ID card
   components:
+    - type: PresetIdCard
+      job: Clerk
     - type: Sprite
       layers:
         - state: default
         - sprite: DeltaV/Objects/Misc/id_cards.rsi
           state: idclerk
+
+- type: entity
+  parent: IDCardStandard
+  id: ProsecutorIDCard
+  name: presecutor ID card
+  components:
     - type: PresetIdCard
-      job: Clerk
+      job: Prosecutor
+    - type: Sprite
+      layers:
+        - state: default
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi
+          state: idclerk #NEED

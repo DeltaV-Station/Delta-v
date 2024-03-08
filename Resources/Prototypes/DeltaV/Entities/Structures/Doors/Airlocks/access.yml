@@ -32,20 +32,35 @@
 
 - type: entity
   parent: AirlockSecurity
-  id: AirlockLegalLocked
-  suffix: Legal, Locked
+  id: AirlockJusticeLocked
+  suffix: Justice, Locked
   components:
   - type: AccessReader
-    access: [["Legal"]]
+    access: [["Justice"]]
 
 - type: entity
   parent: AirlockSecurityGlass
-  id: AirlockLegalGlassLocked
-  suffix: Legal, Locked
+  id: AirlockJusticeGlassLocked
+  suffix: Justice, Locked
   components:
   - type: AccessReader
-    access: [["Legal"]]
+    access: [["Justice"]]
 
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockProsecutorGlassLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
 
 # Maintenance
 - type: entity
@@ -58,8 +73,16 @@
 
 - type: entity
   parent: AirlockMaint
-  id: AirlockMaintLegalLocked
-  suffix: Legal, Locked
+  id: AirlockMaintJusticeLocked
+  suffix: Justice, Locked
   components:
   - type: AccessReader
-    access: [["Legal"]]
+    access: [["Justice"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]

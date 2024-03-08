@@ -12,10 +12,11 @@
       time: 14400 # 4 hours
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-cj  # Delta V - Change supervisor to chief justice
   access:
   - Service
   - Lawyer
+  - Justice # Delta V - Add justice departement access
   - Maintenance
 
 - type: startingGear

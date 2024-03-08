@@ -12,18 +12,34 @@
       earliestStart: 15
     - type: NoosphericStormRule
 
-# Rat king and paradox anomaly.
+# Mid round antag spawns
 - type: entity
-  id: MidRoundAntag
+  abstract: true
   parent: BaseGameRule
-  noSpawn: true
+  id: BaseMidRoundAntag
   components:
-    - type: StationEvent
-      weight: 7
-      reoccurrenceDelay: 5
-      minimumPlayers: 15
-      earliestStart: 25
-    - type: MidRoundAntagRule
+  - type: StationEvent
+    weight: 7
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+  - type: MidRoundAntagRule
+
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMidRoundAntag
+#  id: RatKingSpawn
+#  components:
+#  - type: MidRoundAntagRule
+#    spawner: SpawnPointGhostRatKing
+
+- type: entity
+  noSpawn: true
+  parent: BaseMidRoundAntag
+  id: ParadoxAnomalySpawn
+  components:
+  - type: MidRoundAntagRule
+    spawner: SpawnPointGhostParadoxAnomaly
 
 # Base glimmer event
 - type: entity
