@@ -198,9 +198,11 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.005
+    # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
+    # specialEntries:
+    # - id: SpawnPointGhostRatKing
+    #   prob: 0.005
+    # End of modified code
 
 - type: entity
   id: CockroachMigration
@@ -280,7 +282,7 @@
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
 
-# - type: entity
+# - type: entity # DeltaV - replaced terminator with paradox anomaly in midroundantag rule
 #   parent: BaseGameRule
 #   id: TerminatorSpawn
 #   noSpawn: true
@@ -462,7 +464,7 @@
   - type: StationEvent
     weight: 10
     earliestStart: 20
-    reoccurrenceDelay: 60
+    reoccurrenceDelay: 20
     duration: 1
   - type: IonStormRule
 

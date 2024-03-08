@@ -23,7 +23,6 @@ namespace Content.Client.Popups
         [Dependency] private readonly IOverlayManager _overlay = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
-        [Dependency] private readonly IResourceCache _resource = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
         [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
@@ -45,7 +44,14 @@ namespace Content.Client.Popups
             SubscribeNetworkEvent<PopupEntityEvent>(OnPopupEntityEvent);
             SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
             _overlay
-                .AddOverlay(new PopupOverlay(_configManager, EntityManager, _playerManager, _prototype, _resource, _uiManager, this));
+                .AddOverlay(new PopupOverlay(
+                    _configManager,
+                    EntityManager,
+                    _playerManager,
+                    _prototype,
+                    _uiManager,
+                    _uiManager.GetUIController<PopupUIController>(),
+                    this));
         }
 
         public override void Shutdown()
@@ -144,7 +150,7 @@ namespace Content.Client.Popups
                 PopupEntity(message, uid, type);
         }
 
-        public override void PopupEntity(string? message, EntityUid uid, Filter filter, bool recordReplay, PopupType type=PopupType.Small)
+        public override void PopupEntity(string? message, EntityUid uid, Filter filter, bool recordReplay, PopupType type = PopupType.Small)
         {
             if (!filter.Recipients.Contains(_playerManager.LocalSession))
                 return;
@@ -162,6 +168,12 @@ namespace Content.Client.Popups
         {
             if (TryComp(uid, out TransformComponent? transform))
                 PopupMessage(message, type, transform.Coordinates, uid, true);
+        }
+
+        public override void PopupPredicted(string? message, EntityUid uid, EntityUid? recipient, PopupType type = PopupType.Small)
+        {
+            if (recipient != null && _timing.IsFirstTimePredicted)
+                PopupEntity(message, uid, recipient.Value, type);
         }
 
         #endregion

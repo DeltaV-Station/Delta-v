@@ -2,7 +2,9 @@
   id: CrateCargoLuxuryHardsuit
   parent: CratePirate
   name: luxury mining hardsuit crate
-  description: Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  description: Finally, a hardsuit the Logistics Officer could call their own. Centcomm has heard you, now stop asking.
+  # End of modified code
   components:
   - type: StorageFill
     contents:
