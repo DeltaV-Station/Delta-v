@@ -1,0 +1,21 @@
+- type: entity
+  parent: Airlock
+  id: AirlockJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/justice.rsi
+  - type: PaintableAirlock
+    department: Justice
+
+# Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockJusticeGlass
+  suffix: Justice
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/justice.rsi
+  - type: PaintableAirlock
+    department: Justice

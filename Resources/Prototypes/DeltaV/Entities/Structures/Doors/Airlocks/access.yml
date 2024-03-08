@@ -31,7 +31,7 @@
     access: [["ChiefJustice"]]
 
 - type: entity
-  parent: AirlockSecurity
+  parent: AirlockJustice
   id: AirlockJusticeLocked
   suffix: Justice, Locked
   components:
@@ -39,7 +39,7 @@
     access: [["Justice"]]
 
 - type: entity
-  parent: AirlockSecurityGlass
+  parent: AirlockJusticeGlass
   id: AirlockJusticeGlassLocked
   suffix: Justice, Locked
   components:
@@ -47,7 +47,7 @@
     access: [["Justice"]]
 
 - type: entity
-  parent: AirlockSecurity
+  parent: AirlockJustice
   id: AirlockProsecutorLocked
   suffix: Prosecutor, Locked
   components:
@@ -55,7 +55,7 @@
     access: [["Prosecutor"]]
 
 - type: entity
-  parent: AirlockSecurityGlass
+  parent: AirlockJusticeGlass
   id: AirlockProsecutorGlassLocked
   suffix: Prosecutor, Locked
   components:
