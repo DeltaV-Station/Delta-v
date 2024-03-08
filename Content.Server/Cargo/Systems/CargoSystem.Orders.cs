@@ -222,12 +222,14 @@ namespace Content.Server.Cargo.Systems
 
         private void GetTradeStations(StationDataComponent data, ref List<EntityUid> ents)
         {
-            foreach (var gridUid in data.Grids)
-            {
-                if (!_tradeQuery.HasComponent(gridUid))
-                    continue;
+            var tradeStationQuery = AllEntityQuery<TradeStationComponent>(); // We *could* cache this, but I don't know where it'd go
 
-                ents.Add(gridUid);
+            while (tradeStationQuery.MoveNext(out var uid, out _))
+            {
+                //if (!_tradeQuery.HasComponent(uid))
+                //    continue;
+
+                ents.Add(uid);
             }
         }
 
