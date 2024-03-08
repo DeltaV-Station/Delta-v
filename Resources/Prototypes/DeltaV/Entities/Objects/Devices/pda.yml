@@ -1,3 +1,7 @@
+#Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
 - type: entity
   parent: BasePDA
   id: CorpsmanPDA
@@ -20,7 +24,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
-      - NewsReadCartridge
+      - NewsReaderCartridge
       - CrimeAssistCartridge
   - type: Pda
     id: BrigmedicIDCard
@@ -89,3 +93,16 @@
       - NotekeeperCartridge
       - NewsReadCartridge
       - CrimeAssistCartridge
+
+- type: entity
+  parent: SyndiPDA
+  id: SyndiListeningPostPDA
+  components:
+  - type: Pda
+    id: SyndicateIDCard
+    state: pda-syndi-agent
+    penSlot:
+      startingItem: CyberPen
+      whitelist:
+        tags:
+        - Write

@@ -265,3 +265,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/clerk.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/clerk.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChemShirt
+  name: formal chemistry suit
+  description: There's still some odd stains on this suit. Hm.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
