@@ -38,7 +38,6 @@
   components:
     - type: GatewayGenerator
 
-
 - type: entity
   id: BaseStationShuttles
   abstract: true
@@ -47,9 +46,9 @@
       path: /Maps/Shuttles/cargo.yml
     - type: GridSpawn
       groups:
-        mining:
-          paths:
-          - /Maps/Shuttles/mining.yml
+#        mining:
+#          paths:
+#          - /Maps/Shuttles/mining.yml
         ruins:
           hide: true
           nameGrid: true
@@ -76,9 +75,9 @@
         cargo:
           paths:
           - /Maps/Shuttles/cargo_core.yml
-        mining:
-          paths:
-          - /Maps/Shuttles/mining.yml
+#        mining:
+#          paths:
+#          - /Maps/Shuttles/mining.yml
         ruins:
           hide: true
           nameGrid: true
@@ -131,6 +130,12 @@
   components:
   - type: SiliconLawProvider
     laws: Crewsimov
+
+- type: entity
+  id: BaseStationNews
+  abstract: true
+  components:
+    - type: StationNews
 
 - type: entity
   id: BaseStationAllEventsEligible

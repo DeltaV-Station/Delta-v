@@ -94,7 +94,7 @@
       - id: ClothingOuterArmorCaptainCarapace
       - id: NukeDisk
       - id: PinpointerNuclear
-      - id: CaptainIDCard
+#      - id: CaptainIDCard # Delta V - Replaced by spare ID system. The funny biscuit that I cant even eat.
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
@@ -108,6 +108,10 @@
       - id: RubberStampCaptain
       - id: JetpackCaptainFilled
       - id: MedalCase
+      - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
+      - id: ClothingShoesLeather # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesMiscWhite # DeltaV - add fancy shoes for HoP and cap
+      - id: ClothingShoesBootsWinterCap #Delta V: Add departmental winter boots
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -156,8 +160,6 @@
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
       - id: ClothingMaskBreath
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -212,7 +214,6 @@
       - id: ClothingHeadsetAltMedical
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
-      - id: ClothingOuterCoatLabCmo
       - id: ClothingMaskSterile
       - id: ClothingHeadHatBeretCmo
       - id: ClothingOuterHardsuitMedical
@@ -220,6 +221,7 @@
       - id: HandheldCrewMonitor
       - id: DoorRemoteMedical
       - id: RubberStampCMO
+      - id: RubberStampPsychologist # DeltaV
       - id: MedicalTechFabCircuitboard
       - id: BoxEncryptionKeyMedical
       - id: BoxPDAMedical # Delta-V
@@ -261,7 +263,6 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
       - id: HandTeleporter
       - id: DoorRemoteResearch
@@ -271,6 +272,7 @@
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
       - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
+      - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
 
 - type: entity
@@ -283,7 +285,6 @@
       - id: ResearchComputerCircuitboard
       - id: ProtolatheMachineCircuitboard
       - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingHeadsetMedicalScience
       - id: HandTeleporter
       - id: DoorRemoteResearch
       - id: ClothingBeltUtilityFilled
@@ -292,6 +293,7 @@
       - id: BoxPDAScience # Delta-V
       - id: RDIDCard # Delta-V
       - id: ClothingShoesBootsWinterMystagogue #Delta V: Add departmental winter boots
+      - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
 
 - type: entity
@@ -304,6 +306,7 @@
       - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
+      - id: ClothingMaskNeckGaiter
       - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
@@ -334,6 +337,7 @@
       - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
+      - id: ClothingMaskNeckGaiter
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
       - id: ClothingEyesGlassesSunglasses

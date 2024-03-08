@@ -10,7 +10,8 @@ using Content.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
-using Content.Shared.Abilities.Psionics; //Nyano - Summary: Makes Mime psionic. 
+using Content.Shared.Abilities.Psionics; //Nyano - Summary: Makes Mime psionic.
+using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Abilities.Mime
 {
@@ -57,7 +58,7 @@ namespace Content.Server.Abilities.Mime
             EnsureComp<MutedComponent>(uid);
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
             _actionsSystem.AddAction(uid, ref component.InvisibleWallActionEntity, component.InvisibleWallAction, uid);
-            //Nyano - Summary: Add Psionic Ability to Mime. 
+            //Nyano - Summary: Add Psionic Ability to Mime.
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.InvisibleWallActionEntity;
         }
