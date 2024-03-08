@@ -458,8 +458,8 @@
     access: [["Service"]]
 
 - type: entity
-  parent: AirlockGlass
-  id: AirlockJusticeGlass # DeltaV - Lawyer is in Justice Dept
+  parent: AirlockJusticeGlass
+  id: AirlockLawyerGlassLocked # DeltaV - Lawyer is in Justice Dept
   suffix: Lawyer, Locked
   components:
   - type: AccessReader
