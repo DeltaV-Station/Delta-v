@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Content.Server.DeltaV.Speech.EntitySystems;
 
-public sealed class RussianAccentSystem : EntitySystem
+public sealed class SlavicAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
@@ -13,20 +13,20 @@ public sealed class RussianAccentSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccentGet);
+        SubscribeLocalEvent<SlavicAccentComponent, AccentGetEvent>(OnAccentGet);
     }
 
     // converts left word when typed into the right word. For example typing you becomes ye.
-    public string Accentuate(string message, RussianAccentComponent component)
+    public string Accentuate(string message, SlavicAccentComponent component)
     {
         var msg = message;
 
-        msg = _replacement.ApplyReplacements(msg, "russian");
+        msg = _replacement.ApplyReplacements(msg, "slavic");
 
         return msg;
     }
 
-    private void OnAccentGet(EntityUid uid, RussianAccentComponent component, AccentGetEvent args)
+    private void OnAccentGet(EntityUid uid, SlavicAccentComponent component, AccentGetEvent args)
     {
         args.Message = Accentuate(args.Message, component);
     }

@@ -11,3 +11,6 @@ trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
 
 trait-uncloneable-name = Uncloneable
 trait-uncloneable-desc = Cannot be cloned
+
+trait-slavic-accent-name = Slavic Accent
+trait-slavic-accent-desc = Placeholder
