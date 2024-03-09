@@ -5,3 +5,11 @@
   traitGear: BagpipeInstrument
   components:
     - type: ScottishAccent
+    
+- type: trait
+  id: RussianAccent
+  name: trait-russian-accent-name
+  description: trait-russian-accent-desc
+  components:
+    - type: RussianAccent
+    
