@@ -71,8 +71,8 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Primate
-  - type: InnateTool # Cant really use this anymore.
+    prototype: Human # For two hands.
+  - type: InnateTool
     tools:
       - id: WelderIfrit
       - id: WelderIfrit
@@ -82,7 +82,7 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  - type: PyrokinesisPower
+  # - type: PyrokinesisPower # Pending psionic rework
   - type: Grammar
     attributes:
       proper: true
@@ -122,7 +122,7 @@
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
-        Blunt: -5
+        Blunt: -10
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:
