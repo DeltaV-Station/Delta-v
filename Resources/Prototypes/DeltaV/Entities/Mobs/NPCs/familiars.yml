@@ -32,9 +32,12 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
+    altDisarm: false # No shoving
+    angle: 0
     damage:
-      groups:
-        Burn: 10
+      types:
+        Heat: 10
+    animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -57,8 +60,8 @@
   - type: Familiar
   - type: Dispellable
   - type: Damageable
-#    damageContainer: CorporealSpirit
-#    damageModifierSet: CorporealSpirit
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -68,7 +71,7 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    prototype: Primate
+    prototype: Human # For two hands.
   - type: InnateTool
     tools:
       - id: WelderIfrit
@@ -79,16 +82,22 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  - type: PyrokinesisPower
+  # - type: PyrokinesisPower # Pending psionic rework
   - type: Grammar
     attributes:
       proper: true
   - type: MovementIgnoreGravity
+  - type: NoSlip
   - type: EyeProtection
   - type: NpcFactionMember
     factions:
     - PsionicInterloper
     - NanoTrasen
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
 
 - type: entity
   parent: WelderExperimental
@@ -128,6 +137,9 @@
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
 # sounds cooler than the default fizzling noise.
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/welder.ogg
   - type: SolutionRegeneration
     solution: Welder
     generated:
