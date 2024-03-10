@@ -1181,10 +1181,8 @@
         - IngotSilver30
         - MaterialBananium10
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
-      range: 0.30
-      whitelist:
-        tags:
-          - Ore # Delta V - End Magnet Pull
+      magnetEnabled: True
+      range: 0.30 # Delta V - End Magnet Pull
 
 - type: entity
   parent: OreProcessor
