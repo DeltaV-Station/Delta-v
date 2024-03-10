@@ -1,4 +1,8 @@
-﻿- type: entity # This is *meant* to make use of the concept that StationLimitedNetwork doesn't allow recievers to reciever across two different grids, however this uh, doesn't seem to be relevant. The Pirate Radio shuttle can still recieve across grids....
+#Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
+- type: entity
   id: SyndicateMonitoringServer
   parent: BaseMachinePowered
   name: suspicious crew monitoring server
@@ -30,8 +34,7 @@
       receiveFrequencyId: SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection
-      range: 2000
-    #- type: StationLimitedNetwork
+      range: 10000 # Mega range for Listening Post
     - type: ApcPowerReceiver
       powerLoad: 200
       priority: Low
@@ -59,7 +62,7 @@
                   min: 1
                   max: 2
     - type: AmbientSound
-      volume: -5 # Hacked so it's louder?
-      range: 5
+      volume: -1
+      range: 2
       sound:
         path: /Audio/Ambience/Objects/server_fans.ogg
