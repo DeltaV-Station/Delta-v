@@ -7,12 +7,12 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 20
+        maxVol: 15
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: OilOlive
-            Quantity: 10
+            Quantity: 5
 
 - type: entity
   id: CigaretteCandy
