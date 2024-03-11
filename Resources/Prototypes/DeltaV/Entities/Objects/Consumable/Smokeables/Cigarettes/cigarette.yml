@@ -3,6 +3,7 @@
   suffix: olive
   parent: Cigarette
   name: cigarette
+  description: A roll of tobacco and nicotine soaked in some chemical, smells like olives.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -19,7 +20,16 @@
   suffix: candy
   parent: [Cigarette, FoodBase]
   name: cigarette
+  description: Sugar sticks designed to look like a roll of nicotine and tobacco.
   components:
+  - type: Appearance
+  - type: Food
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: FlavorProfile
+    flavors:
+      - sweet
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
     state: unlit-icon
@@ -28,7 +38,7 @@
     slots: [ mask ]
   - type: SolutionContainerManager
     solutions:
-      smokable:
+      food:
         maxVol: 10
         reagents:
           - ReagentId: Sugar
