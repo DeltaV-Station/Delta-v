@@ -21,17 +21,23 @@
   - type: Wieldable
     wieldSound:
       path: /Audio/DeltaV/Effects/railgun_charge.ogg
-  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -35
   - type: UseDelay
-    delay: 5
+    delay: 4
   - type: HeldSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: Gun
-    fireRate: 0.30
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 0.40
     selectedMode: SemiAuto
     soundGunshot:
-      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun_laser.ogg
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun.ogg
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 3
@@ -47,11 +53,13 @@
     price: 10000
 
 - type: entity
-  name: Decimator Railgun
+  name: decimator railgun
   parent: BaseWeaponRailgun
   id: WeaponRailgunDecimator
   description: A terrifying starship railcannon, now in your hands.
   components:
+  - type: Gun
+    fireRate: 0.40
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 3
@@ -63,14 +71,14 @@
 
 # Reverse Engineering
 - type: entity
-  name: Railgun
+  name: railgun
   parent: BaseWeaponRailgun
   id: WeaponRailgunERT
   description: A mighty railgun that packs a hefty punch.
-  suffix: reverse-engineered
+  suffix: reverse engineered
   components:
   - type: Gun
-    fireRate: 0.40
+    fireRate: 0.50
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 3
@@ -83,20 +91,19 @@
     sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_ert.rsi
 
 # admeme variant
-
 - type: entity
-  name: Unmaker Railgun
+  name: unmaker railgun
   parent: BaseWeaponRailgun
   id: WeaponRailgunAdmeme
-  suffix: "Admeme"
-  description: So pants shittingly terrifying that it was banished to the bluespace dimension by Nar'Sie. It's back now.
+  suffix: Admeme
+  description: BRRRRRRRRRRRRRRRRT
   components:
   - type: BallisticAmmoProvider
     cycleable: false
     proto: BulletRailgunAdmeme
-    capacity: 4200 #PANIC
+    capacity: 420 #PANIC
   - type: Gun
-    fireRate: 99 #the only thing they fear is you
+    fireRate: 100 #the only thing they fear is you
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

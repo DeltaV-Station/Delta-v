@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRailgun
-  name: Decimator bundle
-  description: "Favored by Gorlex Maurauder snipers, this railcannon packs a punch. Comes with 3 shots."
+  name: decimator bundle
+  description: Favored by Gorlex Maurauder snipers, this railcannon packs a punch. Comes with 3 shots.
   components:
   - type: StorageFill
     contents:
@@ -13,9 +13,9 @@
 - type: entity
   parent: BoxCardboard
   id: RailgunAmmoBag
-  name: Box of Rebar
+  name: box of rebar
   description: A box for storing metal rods, commonly used in construction.
-  #prefix: Syndicate   # What is this meant to be for?
+  prefix: Syndicate
   components:
   - type: StorageFill
     contents:

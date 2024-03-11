@@ -46,7 +46,7 @@
 - type: entity
   parent: BulletRailgun
   id: BulletRailgunBasic
-  name: Rebar Rod
+  name: rebar rod
   description: Heavy steel rod for use in a railcannon.
   components:
   - type: EmbeddableProjectile
@@ -57,9 +57,9 @@
     damage:
       types:
         Piercing: 15
-        Blunt: 75
+        Blunt: 65
         Heat: 20
-        Structural: 25
+        Structural: 10
   - type: StaminaDamageOnEmbed
     damage: 80
   - type: ReverseEngineering # Nyano
@@ -72,7 +72,7 @@
 - type: entity
   parent: BulletRailgun
   id: BulletRailgunReverseEngineered
-  name: Rebar Rod (Less Lethal)
+  name: rebar rod (less lethal)
   description: Hurts like hell and sticks into your target, knocking them over. Fragile.
   components:
   - type: EmbeddableProjectile
@@ -136,12 +136,11 @@
 
 
 # Fear that which cannot be understood
-
 - type: entity
   parent: BulletRailgun
   id: BulletRailgunAdmeme
-  suffix: "DO NOT MAP"
-  name: Unholy Rod
+  suffix: DO NOT MAP
+  name: unholy rod
   description: By the time you're able to pick this up, the station's probably already destroyed.
   components:
   - type: Sprite
@@ -151,7 +150,7 @@
     sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
     embedOnThrow: false
   - type: TimedDespawn
-    lifetime: 3
+    lifetime: 5
   - type: Projectile
     deleteOnCollide: true
     damage:
