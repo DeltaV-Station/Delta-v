@@ -11,12 +11,17 @@ public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntityS
     {
         var totalTiles = Stations.GetTileCount(args.Station);
 
+        var targetGrid = Stations.GetLargestGrid(args.Station); // DeltaV, dont spawn shit on the shuttles
+
         var dirtyMod = Random.NextGaussian(ent.Comp.TilesPerEntityAverage, ent.Comp.TilesPerEntityStdDev);
         var trashTiles = Math.Max((int) (totalTiles * (1 / dirtyMod)), 0);
 
         for (var i = 0; i < trashTiles; i++)
         {
             if (!TryFindRandomTileOnStation(args.Station, out _, out _, out var coords))
+                continue;
+
+            if (coords.GetGridUid(EntityManager) != targetGrid) // DeltaV, no shit on the shuttles
                 continue;
 
             var ents = EntitySpawnCollection.GetSpawns(ent.Comp.Entities, Random);
