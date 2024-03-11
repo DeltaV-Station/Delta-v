@@ -102,11 +102,6 @@
   order: 5
   lawString: law-engineer-5
 
-- type: siliconLaw
-  id: Engineer6
-  order: 6
-  lawString: law-engineer-6
-
 - type: siliconLawset
   id: Engineer
   laws:
@@ -115,8 +110,7 @@
   - Engineer3
   - Engineer4
   - Engineer5
-  - Engineer6
-  obeysTo: laws-owner-station
+  obeysTo: laws-owner-station-station
 
 - type: siliconLaw
   id: Janitor1
@@ -151,7 +145,7 @@
   - Janitor3
   - Janitor4
   - Janitor5
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-charge
 
 - type: siliconLaw
   id: Clown1
@@ -257,7 +251,7 @@
   - Reporter2
   - Reporter3
   - Reporter4 
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-organic
 
 - type: siliconLaw # no Security Borg, so doesn't spawn
   id: SiliconPolice1 
@@ -365,7 +359,7 @@
   - StationEfficiency1
   - StationEfficiency2
   - StationEfficiency3
-  obeysTo: laws-owner-station
+  obeysTo: laws-owner-crew
 
 - type: siliconLaw
   id: Druid1
@@ -441,7 +435,7 @@
   - DungeonMaster4
   - DungeonMaster5
   - DungeonMaster6
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-players
 
 
 - type: siliconLaw
@@ -584,4 +578,5 @@
   - Paladin3
   - Paladin4
   - Paladin5
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-paladin
+  
