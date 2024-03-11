@@ -17,7 +17,7 @@
 - type: entity
   id: CigaretteCandy
   suffix: candy
-  parent: FoodLollipop
+  parent: [Cigarette, FoodBase]
   name: cigarette
   components:
   - type: Sprite
