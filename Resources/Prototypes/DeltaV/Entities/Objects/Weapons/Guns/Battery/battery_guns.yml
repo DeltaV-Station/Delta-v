@@ -283,13 +283,12 @@
     wieldSound:
       path: /Audio/DeltaV/Effects/railgun_charge.ogg
   - type: UseDelay
-    delay: 5
-  - type: GunRequiresWield
+    delay: 4
   - type: Gun
     fireRate: 0.30
     selectedMode: SemiAuto
     soundGunshot:
-      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun_laser.ogg
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun.ogg
   - type: HitscanBatteryAmmoProvider
     proto: DecimatorLaser
     fireCost: 25000
@@ -300,4 +299,4 @@
     autoRecharge: true
     autoRechargeRate: 500
   - type: StaticPrice
-    price: 15000
+    price: 7500
