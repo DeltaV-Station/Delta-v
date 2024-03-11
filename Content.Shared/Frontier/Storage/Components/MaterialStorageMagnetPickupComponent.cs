@@ -1,4 +1,4 @@
-namespace Content.Server.Storage.Components;
+namespace Content.Shared.Frontier.Storage.Components;
 
 /// <summary>
 /// Applies an ongoing pickup area around the attached entity.

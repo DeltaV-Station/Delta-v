@@ -1,4 +1,4 @@
-using Content.Server.Storage.Components;
+using Content.Shared.Frontier.Storage.Components;
 using Content.Shared.Materials;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -7,7 +7,7 @@ using Content.Shared.Hands.Components;  // Frontier
 using Content.Shared.Verbs;     // Frontier
 using Robust.Shared.Utility;    // Frontier
 
-namespace Content.Shared.Storage.EntitySystems;
+namespace Content.Shared.Frontier.Storage.EntitySystems;
 
 /// <summary>
 /// <see cref="MaterialReclaimerMagnetPickupComponent"/>
@@ -45,17 +45,16 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
     // Frontier, used to add the magnet toggle to the context menu
     private void AddToggleMagnetVerb(EntityUid uid, MaterialReclaimerMagnetPickupComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (!HasComp<HandsComponent>(args.User))
+        if (!HasComp<HandsComponent>(args.User)
+            || !args.CanInteract
+            || !args.CanAccess)
             return;
 
         AlternativeVerb verb = new()
         {
             Act = () =>
             {
-                ToggleMagnet(uid, component);
+                component.MagnetEnabled = !component.MagnetEnabled;
             },
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
             Text = Loc.GetString("magnet-pickup-component-toggle-verb"),
@@ -72,15 +71,6 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
                         ("stateText", Loc.GetString(component.MagnetEnabled
                         ? "magnet-pickup-component-magnet-on"
                         : "magnet-pickup-component-magnet-off"))));
-    }
-
-    // Frontier, used to toggle the magnet on the ore bag/box
-    public bool ToggleMagnet(EntityUid uid, MaterialReclaimerMagnetPickupComponent comp)
-    {
-        var query = EntityQueryEnumerator<MaterialReclaimerMagnetPickupComponent>();
-        comp.MagnetEnabled = !comp.MagnetEnabled;
-
-        return comp.MagnetEnabled;
     }
 
     public override void Update(float frameTime)
@@ -110,8 +100,7 @@ public sealed class MaterialReclaimerMagnetPickupSystem : EntitySystem
                 if (near == parentUid)
                     continue;
 
-                if (!_storage.TryStartProcessItem(uid, near))
-                    continue;
+                _storage.TryStartProcessItem(uid, near);
             }
         }
     }
