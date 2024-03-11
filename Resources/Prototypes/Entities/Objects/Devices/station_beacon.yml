@@ -319,10 +319,10 @@
 - type: entity
   parent: DefaultStationBeaconScience
   id: DefaultStationBeaconRDRoom
-  suffix: RD's Room
+  suffix: MG's Room
   components:
   - type: NavMapBeacon
-    text: station-beacon-research-director
+    text: station-beacon-mystagogue  #Delta V - Renamed
 
 - type: entity
   parent: DefaultStationBeaconScience
