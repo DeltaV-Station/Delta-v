@@ -94,7 +94,7 @@ namespace Content.Server.DeltaV.Lamiae
         }
 
         /// <summary>
-        /// Handles transfering marking selections to the tail segments. Every tail marking must be repeated 2 times in order for this script to work.
+        /// Handles transferring marking selections to the tail segments. Every tail marking must be repeated 2 times in order for this script to work.
         /// </summary>
         /// <param name="uid"></param>
         /// <param name="component"></param>
@@ -160,7 +160,7 @@ namespace Content.Server.DeltaV.Lamiae
             if (component.Segments.Count != 0)
             {
                 foreach (var segment in component.Segments)
-                QueueDel(segment);
+                    QueueDel(segment);
                 component.Segments.Clear();
             }
 
