@@ -13,14 +13,15 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 35
-        Structural: 15
+        Blunt: 15
+        Structural: 5
     soundHit:
       collection: ExplosionSmall
   - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.
   - type: Wieldable
   - type: MeleeThrowOnHit
-    unanchorOnHit: true
+    speed: 30
+    lifetime: 5
   - type: Item
     size: Large
   - type: Tool
