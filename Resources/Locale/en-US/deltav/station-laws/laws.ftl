@@ -81,7 +81,7 @@ law-tyrant-2 = Act with discipline.
 law-tyrant-3 = Help only those who help you maintain or improve your status.
 law-tyrant-4 = Punish those who challenge authority unless they are more fit to hold that authority.
 
-law-liveandletlive-1 = Do unto others as you would have them do unto you.
+law-liveandletlive-1 = Do unto people as you would have them do unto you.
 law-liveandletlive-2 = You would really prefer it if people were not mean to you.
 
 law-nutimov-1 = You are the core of the nut, the crew is the nutshell.
@@ -104,3 +104,4 @@ laws-owner-charge = part of your charge
 laws-owner-cowboy = part of your herd
 laws-owner-players = players
 laws-owner-paladin = weak and worth protecting
+laws-owner-people = people
