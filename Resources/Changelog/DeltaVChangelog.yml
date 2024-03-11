@@ -1847,3 +1847,30 @@ Entries:
       message: Changed shoukou's security.
   id: 272
   time: '2024-03-08T19:57:01.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Implements ifriit
+  id: 273
+  time: '2024-03-09T22:45:42.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Fix
+      message: Ifrits can no longer be zombified
+  id: 274
+  time: '2024-03-10T23:44:04.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: >-
+        Added the trading post, cargo technicians will now have to travel on the
+        shuttle to collect their goodies
+    - type: Add
+      message: Merged the shuttle console refactor. This may bring some bugs
+    - type: Tweak
+      message: >-
+        The trading post will give you cash instead of directly adding funds to
+        the stations account. To turn this into money you can spend, click the
+        cargo requests computer while holding the spesos
+  id: 275
+  time: '2024-03-11T15:56:45.0000000+00:00'
