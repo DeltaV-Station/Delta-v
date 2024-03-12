@@ -360,6 +360,7 @@ public sealed partial class CargoSystem
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
+        Reset();
         CleanupTradeStation();
     }
 
@@ -383,19 +384,6 @@ public sealed partial class CargoSystem
 
         _mapManager.DeleteMap(CargoMap.Value);
         CargoMap = null;
-
-        // Shuttle may not have been in the cargo dimension (e.g. on the station map) so need to delete.
-        var query = AllEntityQuery<CargoShuttleComponent>();
-
-        while (query.MoveNext(out var uid, out var _))
-        {
-            if (TryComp<StationCargoOrderDatabaseComponent>(uid, out var station))
-            {
-                station.Shuttle = null;
-            }
-
-            QueueDel(uid);
-        }
     }
 
     private void SetupTradePost()
@@ -426,7 +414,8 @@ public sealed partial class CargoSystem
 
             var shuttleComponent = EnsureComp<ShuttleComponent>(grid);
             shuttleComponent.AngularDamping = 10000;
-            shuttleComponent.LinearDamping = 10000; // This shit ain't going nowhere
+            shuttleComponent.LinearDamping = 10000;
+            Dirty(shuttleComponent);
         }
 
         var mapUid = _mapManager.GetMapEntityId(CargoMap.Value);
