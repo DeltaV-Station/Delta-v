@@ -276,3 +276,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitProsecutorRed
+  name: prosecutor's suit
+  description: A red suit with a fancy cravat. Perfect for a prosecutor.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi

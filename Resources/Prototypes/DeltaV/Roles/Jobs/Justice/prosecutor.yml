@@ -1,12 +1,12 @@
 - type: job
-  id: Prosecuter
-  name: job-name-prosecuter
-  description: job-description-prosecuter
-  playTimeTracker: JobProsecuter
+  id: Prosecutor
+  name: job-name-prosecutor
+  description: job-description-prosecutor
+  playTimeTracker: JobProsecutor
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
-  startingGear: ProsecuterGear
+  startingGear: ProsecutorGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
   access:
@@ -16,9 +16,9 @@
   - Maintenance
 
 - type: startingGear # Need prosecuter stuff
-  id: ProsecuterGear
+  id: ProsecutorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitLawyerBlack  # TODO change jumpsuit to randomiser of the 4 variants
+    jumpsuit: ClothingUniformJumpsuitProsecutorRed
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
@@ -26,6 +26,6 @@
     # TODO add copy of space law
   inhand:
     - BriefcaseBrownFilled
-  innerClothingSkirt: ClothingUniformJumpskirtLawyerBlack
+  innerClothingSkirt: ClothingUniformJumpskirtProsecutorRed
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
