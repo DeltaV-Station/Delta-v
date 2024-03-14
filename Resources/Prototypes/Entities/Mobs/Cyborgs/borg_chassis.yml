@@ -307,7 +307,6 @@
       noMindState: synd_sec
     - type: Construction
       node: syndicateassault
-    - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisSyndicateMedical
@@ -337,7 +336,6 @@
       noMindState: synd_medical
     - type: Construction
       node: syndicatemedical
-    - type: NoSlip # Delta-V , Unparents NoSlip component
 
 - type: entity
   id: BorgChassisSyndicateSaboteur
@@ -367,4 +365,3 @@
       noMindState: synd_engi
     - type: Construction
       node: syndicatesaboteur
-    - type: NoSlip # Delta-V , Unparents NoSlip component
