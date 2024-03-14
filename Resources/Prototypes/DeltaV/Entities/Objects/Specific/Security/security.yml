@@ -1,7 +1,7 @@
 - type: entity
   parent: Stunbaton
-  id: StunBatonSelfCharging
-  suffix: Recharging, Do Not Map
+  id: StunbatonSelfCharging
+  suffix: Do Not Map, Recharging
   components:
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -13,7 +13,7 @@
 - type: entity
   parent: Flash
   id: FlashRecharging
-  suffix: Recharging, Do Not Map
+  suffix: Do Not Map, Recharging
   components:
   - type: AutoRecharge
     rechargeDuration: 120
@@ -24,9 +24,9 @@
 - type: entity
   name: seclite
   parent: FlashlightSeclite
-  id: FlashlightSecliteBorg
+  id: FlashlightSecliteRecharging
   description: A robust flashlight used by security.
-  suffix: Do Not Map
+  suffix: Do Not Map , Recharging
   components:
   - type: ItemSlots
     slots:
@@ -38,10 +38,10 @@
     - Security
 
 - type: entity
-  name: non-lethal baton
+  name: non-lethal wooden baton
   parent: BaseItem
-  id: PoliceBatonNonLethal
-  description: First, do no harm.
+  id: WoodBaton
+  description: First, do no crime.
   components:
     - type: MeleeWeapon
       wideAnimationRotation: -135
@@ -49,7 +49,7 @@
         types:
           Blunt: 0
     - type: StaminaDamageOnHit
-      damage: 17
+      damage: 17 # Stuns in 6
       sound: /Audio/Weapons/click.ogg
     - type: Sprite
       sprite: Objects/Weapons/Melee/truncheon.rsi
@@ -60,8 +60,8 @@
       
 - type: entity
   parent: WeaponEnergyGunMini
-  id: WeaponEnergyGunMiniBorg
-  suffix: Do Not Map
+  id: WeaponEnergyGunMiniRecharging
+  suffix: Recharging, Do Not Map
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -69,8 +69,8 @@
       
 - type: entity
   parent: HoloprojectorSecurity
-  id: HoloprojectorSecurityBorg
-  suffix: Do Not Map
+  id: HoloprojectorSecurityRecharging
+  suffix: Recharging, Do Not Map
   components:
     - type: ItemSlots
       slots:
