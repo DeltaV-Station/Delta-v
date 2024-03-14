@@ -33,11 +33,24 @@
   description: An old-fashioned seal for marking important documents, made of polished bronze.
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-notary
+    stampedName: stamp-component-stamped-name-notary
     stampedColor: "#a81f3d"
     stampState: "paper_stamp-notary"
   - type: Sprite
-    sprite: DeltaV/Objects/Misc/bureaucracy.rsi
+    sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-notary
   - type: StealTarget
     stealGroup: RubberStampNotary
+    
+- type: entity
+  name: chief justice stamp
+  parent: RubberStampBase
+  id: RubberStampCJ
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-chiefjustice
+    stampedColor: "#6b2833"
+    stampState: "paper_stamp-notary"
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-notary # Change to CJ when sprited
