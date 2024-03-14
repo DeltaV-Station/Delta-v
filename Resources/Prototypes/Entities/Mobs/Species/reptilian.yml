@@ -59,6 +59,9 @@
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: Wagging
+  - type: SizeAttributeWhitelist # Frontier - tall/short traits (cosmetic-only)
+    tall: true
+    tallscale: 1.2
 
 - type: entity
   parent: BaseSpeciesDummy

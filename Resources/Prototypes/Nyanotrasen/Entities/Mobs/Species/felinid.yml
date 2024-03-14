@@ -64,6 +64,9 @@
       Unsexed: MaleFelinid
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: SizeAttributeWhitelist # Frontier - tall/short traits (cosmetic-only, but does remove pseudo-item)
+    tall: true
+    tallscale: 1
 
 - type: entity
   save: false

@@ -97,6 +97,15 @@
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
   - type: DogVision
+  - type: SizeAttributeWhitelist # Frontier - tall/short traits
+    short: true
+    shortscale: 0.8
+    shortDensity: 140
+    shortPseudoItem: true
+    pseudoItemShape: # Delta-v - custom pseudo-item shape
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
 
 - type: entity
   save: false

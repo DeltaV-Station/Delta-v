@@ -1,3 +1,4 @@
+using Content.Server._NF.Cloning;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
@@ -49,6 +50,8 @@ using Content.Server.EntityList;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Server.Polymorph.Components;
+using Content.Server._NF.Cloning; //Frontier - needed for implementation of ITransferredByCloning
+using Robust.Shared.Serialization.Manager; // Frontier
 
 namespace Content.Server.Cloning
 {
@@ -78,6 +81,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
         [Dependency] private readonly TagSystem _tag = default!; //DeltaV
+        [Dependency] private readonly ISerializationManager _serialization = default!; //Frontier -> deltav
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -248,10 +252,21 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob 
+            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
 
             ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
+
+            // Frontier - transfer of special components, e.g. small/big traits
+            foreach (var comp in EntityManager.GetComponents(bodyToClone))
+            {
+                if (comp is ITransferredByCloning)
+                {
+                    var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
+                    copy.Owner = mob;
+                    EntityManager.AddComponent(mob, copy, overwrite: true);
+                }
+            }
 
             var ev = new CloningEvent(bodyToClone, mob);
             RaiseLocalEvent(bodyToClone, ref ev);
