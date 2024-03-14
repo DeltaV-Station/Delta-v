@@ -22,7 +22,7 @@
     - state: icon-peacekeeper
   - type: ItemBorgModule
     items:
-    - PoliceBatonNonLethal
+    - WoodBaton
 
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
@@ -35,7 +35,7 @@
     - state: icon-patrol
   - type: ItemBorgModule
     items:
-    - FlashlightSecliteBorg  
+    - FlashlightSecliteRecharging  
     - SecurityWhistle
 
 - type: entity
@@ -49,7 +49,7 @@
     - state: icon-hold
   - type: ItemBorgModule
     items:
-    - HoloprojectorSecurityBorg
+    - HoloprojectorSecurityRecharging
 
 - type: entity
   id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
@@ -76,7 +76,7 @@
   - type: ItemBorgModule
     items:
     - FlashRecharging
-    - HoloprojectorSecurityBorg
+    - HoloprojectorSecurityRecharging
     
 - type: entity
   id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
@@ -89,4 +89,4 @@
     - state: icon-chase
   - type: ItemBorgModule
     items:
-    - WeaponEnergyGunMiniBorg
+    - WeaponEnergyGunMiniRecharging
