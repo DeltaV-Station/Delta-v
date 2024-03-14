@@ -1,7 +1,7 @@
 - type: entity
   id: BorgChassisSecurity
   parent: BaseBorgChassisNT
-  name: peace enforcement cyborg
+  name: security cyborg
   components:
   - type: Sprite
     sprite: DeltaV/Mobs/Silicon/chassis.rsi
@@ -42,19 +42,12 @@
     access: [["Security"], ["Command"], ["Research"]]
   - type: ShowSecurityIcons
   - type: SiliconLawProvider
-    laws: SiliconPolice1 # PR-706
-  #- type: EmagSiliconLaw
-  #  stunTime: 5
-  #  emagLaws: SyndicateStatic # TODO: THINK OF A COOL SYNDICATE SECURITY LAW 
-                               # THAT DOESN'T GIVE AN ANTAG LICENSE TO STUNMETA BORG
-                               # NOTE TO FUTURE SELF: LAW 0 IS ADDED TO WHATEVER EMAG LAW IS PUT HERE (EmagSiliconLawComponent.cs) 
+    laws: SiliconPolice1
   - type: MobThresholds
     thresholds:
       0: Alive
       80: Critical # -20 to Crit Threshold
-      150: Dead    # -50 to Dead Threshold
+      200: Dead
   #- type: NoSlip - This mf slips
   - type: Speech
     speechVerb: Robotic
-  - type: Inventory
-    templateId: borgDutch
