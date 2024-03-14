@@ -3,7 +3,7 @@
 - type: entity
   id: LeftArmBorgSecurity
   parent: BaseBorgArmLeft
-  name: peace enforcement cyborg left arm
+  name: security cyborg left arm
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
@@ -20,7 +20,7 @@
 - type: entity
   id: RightArmBorgSecurity
   parent: BaseBorgArmRight
-  name: peace enforcement cyborg right arm
+  name: security cyborg right arm
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
@@ -37,7 +37,7 @@
 - type: entity
   id: LeftLegBorgSecurity
   parent: BaseBorgLegLeft
-  name: peace enforcement cyborg left leg
+  name: security cyborg left leg
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
@@ -54,7 +54,7 @@
 - type: entity
   id: RightLegBorgSecurity
   parent: BaseBorgLegRight
-  name: peace enforcement cyborg right leg
+  name: security cyborg right leg
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
@@ -71,7 +71,7 @@
 - type: entity
   id: HeadBorgSecurity
   parent: BaseBorgHead
-  name: peace enforcement cyborg head
+  name: security cyborg head
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
@@ -88,7 +88,7 @@
 - type: entity
   id: TorsoBorgSecurity
   parent: BaseBorgTorso
-  name: peace enforcement cyborg torso
+  name: security cyborg torso
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
