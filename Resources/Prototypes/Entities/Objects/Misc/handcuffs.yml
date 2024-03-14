@@ -3,7 +3,6 @@
   description: Used to detain criminals and other assholes.
   id: Handcuffs
   parent: BaseItem
-  suffix: single #Delta-V makes cuffs stackable
   components:
   - type: Item
     size: Small
@@ -17,9 +16,6 @@
   - type: Tag
     tags:
     - Handcuffs
-  - type: Stack # Delta-V makes cuffs stackable
-    stackType: Zipties
-    count: 1
   - type: MeleeWeapon
     wideAnimationRotation: 90
     resetOnHandSelected: false
