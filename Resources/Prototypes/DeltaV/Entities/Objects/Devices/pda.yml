@@ -117,6 +117,32 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      
+- type: entity
+  parent: BasePDA
+  id: ProsecutorPDA
+  name: prosecutor PDA
+  description: Sharp. Looks like it could prosecute you all on its own.
+  components:
+  - type: Pda
+    id: ProsecutorIDCard
+    state: pda-lawyer #Change this to prosecutor when sprited
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    state: pda-lawyer #Change this to prosecutor when sprited
+  - type: CartridgeLoader # DeltaV - Crime Assist
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
 
 - type: entity
   parent: SyndiPDA
