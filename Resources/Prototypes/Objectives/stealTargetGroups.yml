@@ -8,6 +8,13 @@
     state: hypo
 
 - type: stealTargetGroup
+  id: HandheldCrewMonitor
+  name: handheld crew monitor
+  sprite:
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+
+- type: stealTargetGroup
   id: ClothingOuterHardsuitRd
   name: experimental research hardsuit
   sprite:
@@ -215,11 +222,11 @@
     state: icon
 
 - type: stealTargetGroup
-  id: AmePart
+  id: AmePartFlatpack
   name: AME part
   sprite:
-    sprite: Objects/Power/AME/ame_part.rsi
-    state: box
+    sprite: Objects/Devices/flatpack.rsi
+    state: ame-part
 
 - type: stealTargetGroup
   id: SalvageExpeditionsComputerCircuitboard
@@ -287,13 +294,6 @@
     state: icon
 
 - type: stealTargetGroup
-  id: VehicleSecway
-  name: secway
-  sprite:
-    sprite: Objects/Vehicles/secway.rsi
-    state: icon
-
-- type: stealTargetGroup
   id: ChemDispenser
   name: chemical dispenser
   sprite:
@@ -337,7 +337,7 @@
 
 - type: stealTargetGroup
   id: PlantRD
-  name: RD's potted plant
+  name: Mystagogue's potted plant # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
   sprite:
     sprite: Structures/Furniture/potted_plants.rsi
     state: plant-25

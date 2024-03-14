@@ -1,4 +1,8 @@
-﻿- type: entity
+#Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
+- type: entity
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
   suffix: player character, DO NOT MAP
@@ -32,11 +36,13 @@
       time: 259200 # 72 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 40000 # 11.5 hours
+      time: 40000 # 11.1 hours
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 72000 # 20 hours
-    - !type:WhitelistRequirement
+      time: 40000 # 11.1 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 40000 # 11.1 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateListener
   - type: Sprite
@@ -45,3 +51,18 @@
       - state: green
       - sprite: Structures/Wallmounts/signs.rsi
         state: radiation
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostParadoxAnomaly
+  name: paradox anomaly spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-paradox-anomaly-name
+    description: ghost-role-information-paradox-anomaly-description
+    rules: ghost-role-information-paradox-anomaly-rules
+  - type: ParadoxAnomalySpawner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green

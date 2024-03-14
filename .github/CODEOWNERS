@@ -3,14 +3,14 @@
 /Content.*/ @DebugOk
 /Content.*/SimpleStation14/ @DEATHB4DEFEAT
 
-/Resources/ @DebugOk @Colin-Tel
+/Resources/ @DebugOk
 /Resources/ConfigPresets/ @DebugOk
-/Resources/*.yml @DebugOk
+/Resources/*.yml @DebugOk @Colin-Tel
 /Resources/*/SimpleStation14/ @DEATHB4DEFEAT
-# /Resources/Textures/ @leonardo-dabepis # No write access
-# /Resources/DeltaV/Textures/ @leonardo-dabepis
-# /Resources/Nyanotrasen/Textures/ @leonardo-dabepis
 /Resources/Maps/ @IamVelcroboy
 /Resources/Prototypes/Maps/ @IamVelcroboy
 
 /Tools/ @DebugOk
+
+/* @DebugOk # Standalone files in root, shouldn't apply to subdirectories
+/.github/ @DebugOk # Workflows, codeowners, templates, etc

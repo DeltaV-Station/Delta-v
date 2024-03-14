@@ -38,4 +38,40 @@
       key_slots:
       - EncryptionKeySyndie
       - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+    
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrison
+  name: prison headset
+  description: Headset used by anybody who needs direct contact with prisoners
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyPrison
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: DeltaV/Clothing/Ears/Headsets/prisoner.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Ears/Headsets/prisoner.rsi
 
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrisonGuard
+  name: guard headset
+  description: Headset used by prison guards.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyPrison
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi

@@ -57,10 +57,18 @@ public sealed class GenericAntagSystem : EntitySystem
             _mind.TryAddObjective(mindId, mind, id);
         }
     }
+
+    /// <summary>
+    /// DeltaV - used by paradox anomaly
+    /// </summary>
+    public void MakeAntag(EntityUid uid, string rule)
+    {
+        AddComp<GenericAntagComponent>(uid).Rule = rule;
+    }
 }
 
 /// <summary>
-/// Event raised on a player's entity after its simple antag rule is started and objectives get added.
+/// Event raised on a player's entity after its simple antag rule is started.
 /// Use this to add a briefing, roles, etc.
 /// </summary>
 [ByRefEvent]

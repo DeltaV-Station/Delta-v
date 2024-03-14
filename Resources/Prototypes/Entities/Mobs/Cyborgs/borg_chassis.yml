@@ -121,6 +121,8 @@
   - type: Inventory
     templateId: borgShort
   - type: NoSlip # Delta-V , Unparents NoSlip component
+  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Engineering Cyborg
+    laws: Engineer 
 
 - type: entity
   id: BorgChassisJanitor
@@ -173,6 +175,8 @@
   - type: Inventory
     templateId: borgShort
   - type: NoSlip # Delta-V , Unparents NoSlip component
+  - type: SiliconLawProvider # Delta-V Adds custom lawset for Janitor Cyborg
+    laws: Janitor
 
 - type: entity
   id: BorgChassisMedical
@@ -226,6 +230,8 @@
     templateId: borgDutch
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
   - type: NoSlip # Delta-V , Unparents NoSlip component
+  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Medical cyborg
+    laws: Medical
 
 - type: entity
   id: BorgChassisService
@@ -288,6 +294,8 @@
           shader: unshaded
           map: ["light"]
           visible: false
+    - type: PointLight
+      color: "#dd200b"
     - type: BorgChassis
       maxModules: 3
       moduleWhitelist:

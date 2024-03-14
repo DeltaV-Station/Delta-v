@@ -10,10 +10,10 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
-  - CartridgeSpecialHoly # DeltaV - .38 Special revolver, Holy ammo
-  - CartridgeSpecialMindbreaker # DeltaV - .38 Special revolver, Mindbreaker ammo
+  - CartridgeSpecialHoly
+  - CartridgeSpecialMindbreaker
   - ShellSoulbreaker # Nyanotrasen - Soulbreaker shotgun ammo
-  
+
 - type: technology
   id: EnergyGuns
   name: research-technology-energy-gun
@@ -39,7 +39,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponEnergyGunPistol
-  
+
 - type: technology
   id: Advanced Laser Manipulation
   name: research-technology-advance-laser
@@ -51,5 +51,5 @@
   cost: 12500
   recipeUnlocks:
   - WeaponGunLaserCarbineAutomatic
-  
+
 
