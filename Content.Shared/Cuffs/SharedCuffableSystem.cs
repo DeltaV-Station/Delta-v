@@ -26,7 +26,6 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Stacks;
 using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
@@ -37,7 +36,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Cuffs
 {
@@ -59,7 +57,6 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedInteractionSystem _interaction = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly SharedStackSystem _stacks = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
 
         public override void Initialize()
@@ -434,37 +431,6 @@ namespace Content.Shared.Cuffs
         }
 
         /// <summary>
-        /// Checks if the handcuff is stackable, and creates a new handcuff entity if the stack requires it.                                   
-        /// </summary>
-        /// <returns></returns>
-        public bool TrySpawnCuffSplitStack(EntityUid handcuff, EntityUid user, EntityUid target, [NotNullWhen(true)] out EntityUid? handcuffsplit)
-        {
-            if (!HasComp<HandcuffComponent>(handcuff))
-            {
-                handcuffsplit = null;
-                return false;
-            }
-            if (!TryComp<StackComponent>(handcuff, out var stackComp))
-            {
-                handcuffsplit = handcuff;
-                _hands.TryDrop(user, handcuff);
-                return true;
-            }
-
-            if (_stacks.GetCount(handcuff, stackComp) >= 1)
-            {
-                _stacks.Use(handcuff, 1, stackComp);
-
-                var pos = Transform(target).Coordinates;
-                handcuffsplit = _net.IsServer ? Spawn("Zipties", pos) : null;
-            }
-            else
-                handcuffsplit = null;
-
-            return handcuffsplit != null;
-        }
-
-        /// <summary>
         /// Add a set of cuffs to an existing CuffedComponent.
         /// </summary>
         public bool TryAddNewCuffs(EntityUid target, EntityUid user, EntityUid handcuff, CuffableComponent? component = null, HandcuffComponent? cuff = null)
@@ -476,20 +442,12 @@ namespace Content.Shared.Cuffs
                 return false;
 
             // Success!
-            bool success = TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
+            _hands.TryDrop(user, handcuff);
 
-			if (handcuffsplit == null)
-				return false;
-
-            if (success)
-            {
-                component.Container.Insert((EntityUid)handcuffsplit);
-                UpdateHeldItems(target, (EntityUid)handcuffsplit, component);
-            }
-
-            return success;
+            _container.Insert(handcuff, component.Container);
+            UpdateHeldItems(target, handcuff, component);
+            return true;
         }
-
 
         /// <returns>False if the target entity isn't cuffable.</returns>
         public bool TryCuffing(EntityUid user, EntityUid target, EntityUid handcuff, HandcuffComponent? handcuffComponent = null, CuffableComponent? cuffable = null)
@@ -639,18 +597,6 @@ namespace Content.Shared.Cuffs
             }
             else
             {
-                _popup.PopupEntity(Loc.GetString("cuffable-component-start-uncuffing-observer",
-                    ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
-                    target, Filter.Pvs(target, entityManager: EntityManager)
-                .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
-
-                if (target == user)
-                {
-                    _color.RaiseEffect(Color.Red, new List<EntityUid>() { user }, Filter.Pvs(user, entityManager: EntityManager));
-                    _popup.PopupEntity(Loc.GetString("cuffable-component-start-uncuffing-self"), user, user);
-                }
-                else
-                {
                 _popup.PopupClient(Loc.GetString("cuffable-component-start-uncuffing-target-message",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
                 _popup.PopupClient(Loc.GetString("cuffable-component-start-uncuffing-by-other-message",
