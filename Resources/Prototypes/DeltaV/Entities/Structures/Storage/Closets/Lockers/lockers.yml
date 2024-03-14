@@ -1,0 +1,12 @@
+- type: entity
+  id: LockerChiefJustice
+  parent: LockerBaseSecure
+  name: chief justice's locker # DeltaV - Justice dept
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: qm # TODO: Replace this with CJ locker sprite
+    stateDoorOpen: qm_open
+    stateDoorClosed: qm_door
+  - type: AccessReader
+    access: [["ChiefJustice"]]

@@ -1,0 +1,14 @@
+- type: entity
+  parent: LockerChiefJustice
+  id: LockerChiefJusticeFilled
+  name: chief justice's locker
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadsetCJ
+    - id: BoxPDAJustice
+    - id: BoxEncryptionKeyJustice
+    - id: CJIDCard
+    - id: DoorRemoteJustice
+    #- id: Gavel
+    #- id: RubberStampCJ - Uncomment when added
