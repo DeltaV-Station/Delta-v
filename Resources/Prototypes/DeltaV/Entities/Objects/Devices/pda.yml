@@ -46,6 +46,18 @@
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
   components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: CJIDCard
     state: pda-cj
@@ -64,7 +76,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
-      - NewsReadCartridge
+      - NewsReaderCartridge
       - CrimeAssistCartridge
 
 - type: entity
@@ -73,6 +85,18 @@
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: ClerkIDCard
     state: pda-clerk
@@ -91,7 +115,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
-      - NewsReadCartridge
+      - NewsReaderCartridge
       - CrimeAssistCartridge
 
 - type: entity

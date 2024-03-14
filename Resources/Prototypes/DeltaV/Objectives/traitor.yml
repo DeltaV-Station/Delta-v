@@ -32,3 +32,14 @@
   - type: StealCondition
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
+
+- type: entity # Clerk steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: ClerkNotaryStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Clerk
+  - type: StealCondition
+    stealGroup: RubberStampNotary
+    owner: job-name-clerk
