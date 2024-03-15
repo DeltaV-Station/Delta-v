@@ -1,6 +1,6 @@
 - type: entity
   id: MailTeleporter
-  parent: BaseStructureDynamic
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: mail teleporter
   description: Teleports mail addressed to the crew of this station.
   components:
@@ -56,12 +56,5 @@
           True: {visible: true}
           False: {visible: false}
   - type: PowerSwitch
-  - type: Construction
-    graph: Machine
-    node: machine
   - type: Machine
     board: MailTeleporterMachineCircuitboard
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
