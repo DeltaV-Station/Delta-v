@@ -1,0 +1,136 @@
+#Command
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconConferenceRoom
+  suffix: Conference Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-conference-room
+
+#Medical
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconVirology
+  suffix: Virology
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-virology
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMetempsychosis
+  suffix: Cloning #Metempsychosis
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-metempsychosis
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconExam
+  suffix: Exam Room
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-exam
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconMedicalOutpost
+  suffix: Medical Outpost
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-med-outpost
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconPsychologist
+  suffix: Psychologist
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-psych
+
+#Epistemics
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconProber
+  suffix: Glimmer Prober
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-glimmer-prober
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconMantis
+  suffix: Forensic Mantis
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-forensic-mantis
+
+#Logistics
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconMailroom
+  suffix: Mailroom
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-mailroom
+
+#Engineering
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconEngiOutpost
+  suffix: Engi Outpost
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-engi-outpost
+
+#Service
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconJanitorsOffice
+  suffix: Janitor's Office
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-janitor-office
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: DefaultStationBeaconReporter
+  suffix: Reporter
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-reporter
+
+#Surveilance
+- type: entity
+  parent: DefaultStationBeaconAI
+  id: DefaultStationBeaconCameraServerRoom
+  suffix: Camera Servers
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-camera-servers
+
+#General
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconBoxing
+  suffix: Boxing Ring
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-boxing-ring
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconPark
+  suffix: Park
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-park
+
+#Security
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconCorpsman
+  suffix: Corpsman
+  components:
+  - type: NavMapBeacon
+    text: station-beacon-corpsman
