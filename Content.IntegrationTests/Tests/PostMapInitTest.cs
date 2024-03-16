@@ -57,7 +57,7 @@ namespace Content.IntegrationTests.Tests
             "Asterisk", //DeltaV
             "TheHive", //DeltaV
             "Hammurabi", //DeltaV
-			"Submarine" //DeltaV
+			"Submarine", //DeltaV
             "Helios" //DeltaV
         };
 
