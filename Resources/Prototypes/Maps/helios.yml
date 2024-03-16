@@ -1,0 +1,72 @@
+- type: gameMap
+  id: Helios
+  mapName: 'Helios'
+  mapPath: /Maps/helios.yml
+  minPlayers: 75
+  stations:
+    Helios:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Helios {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Centipede.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
+          #command
+            Captain: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 3 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 6, 8 ]
+            TechnicalAssistant: [ 3, 5 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 7, 9 ]
+            MedicalIntern: [ 2, 4 ]
+            Paramedic: [ 1, 2 ]
+            Psychologist: [ 1, 1 ]
+          #security
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Prisoner: [ 2, 3 ]
+            PrisonGuard: [ 1, 1 ]
+            SecurityOfficer: [ 6, 9 ]
+            SecurityCadet: [ 2, 3 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 3, 4 ]
+            Clown: [ 1, 2 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Lawyer: [ 2, 2 ]
+            Mime: [ 1, 2 ]
+            Musician: [ 2, 3 ]
+            Reporter: [ 2, 2 ]
+            ServiceWorker: [ 3, 6 ]
+          #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 5, 6 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 4 ]
+            Chaplain: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+          #supply
+            Quartermaster: [ 1, 1 ]
+            CargoTechnician: [ 2, 4 ]
+            SalvageSpecialist: [ 3, 4 ]
+            MailCarrier: [ 2, 2 ]
+           
