@@ -9,3 +9,13 @@
       - id: EmergencyRollerBedSpawnFolded
       - id: BodyBag_Folded
       - id: Portafib
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelPsychologistFilled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalMedical
+    - id: RubberStampPsychologist

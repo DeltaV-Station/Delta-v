@@ -9,7 +9,6 @@
     state: airalarm_electronics
   - type: Tag
     tags:
-      - DroneUsable
       - AirAlarmElectronics
   - type: ReverseEngineering # Nyano
     recipes:
@@ -23,12 +22,13 @@
   name: fire alarm electronics
   description: An electronics board used in fire alarms
   components:
+  - type: Item
+    storedRotation: 0
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: airalarm_electronics
   - type: Tag
     tags:
-      - DroneUsable
       - FireAlarmElectronics
   - type: ReverseEngineering # Nyano
     recipes:

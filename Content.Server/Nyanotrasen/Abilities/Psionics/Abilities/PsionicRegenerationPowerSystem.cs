@@ -28,7 +28,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-
+        [Dependency] private readonly ExamineSystemShared _examine = default!;
 
         public override void Initialize()
         {
@@ -72,7 +72,7 @@ namespace Content.Server.Abilities.Psionics
             _popupSystem.PopupEntity(Loc.GetString("psionic-regeneration-begin", ("entity", uid)),
                 uid,
                 // TODO: Use LoS-based Filter when one is available.
-                Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !_examine.InRangeUnOccluded(uid, entity, ExamineRange, null)),
                 true,
                 PopupType.Medium);
 
@@ -114,7 +114,7 @@ namespace Content.Server.Abilities.Psionics
                     _popupSystem.PopupEntity(Loc.GetString("psionic-regeneration-self-revive", ("entity", uid)),
                         uid,
                         // TODO: Use LoS-based Filter when one is available.
-                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !_examine.InRangeUnOccluded(uid, entity, ExamineRange, null)),
                         true,
                         PopupType.MediumCaution);
                     _audioSystem.PlayPvs(component.SoundUse, uid, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));

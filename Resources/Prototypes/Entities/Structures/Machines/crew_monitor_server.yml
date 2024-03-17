@@ -22,13 +22,15 @@
         machine_board: !type:Container
         machine_parts: !type:Container
     - type: CrewMonitoringServer
+    - type: SingletonDeviceNetServer
+      ServerType: CrewMonitoringServer
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CrewMonitor
       receiveFrequencyId: SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection
-      range: 500
+      range: 10000 # Delta-V Maximises the range for the Crew Monitor Server to make it work for Listening Post
     - type: StationLimitedNetwork
     - type: ApcPowerReceiver
       powerLoad: 200
