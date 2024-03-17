@@ -15,8 +15,6 @@ public sealed partial class NpcFactionSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
-    private ISawmill _sawmill = default!;
-
     /// <summary>
     /// To avoid prototype mutability we store an intermediary data class that gets used instead.
     /// </summary>
@@ -25,7 +23,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = Logger.GetSawmill("faction");
+
         SubscribeLocalEvent<NpcFactionMemberComponent, ComponentStartup>(OnFactionStartup);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload);
 
@@ -70,7 +68,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         if (!_protoManager.HasIndex<NpcFactionPrototype>(faction))
         {
-            _sawmill.Error($"Unable to find faction {faction}");
+            Log.Error($"Unable to find faction {faction}");
             return;
         }
 
@@ -91,7 +89,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         if (!_protoManager.HasIndex<NpcFactionPrototype>(faction))
         {
-            _sawmill.Error($"Unable to find faction {faction}");
+            Log.Error($"Unable to find faction {faction}");
             return;
         }
 
@@ -214,13 +212,13 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         if (!_factions.TryGetValue(source, out var sourceFaction))
         {
-            _sawmill.Error($"Unable to find faction {source}");
+            Log.Error($"Unable to find faction {source}");
             return;
         }
 
         if (!_factions.ContainsKey(target))
         {
-            _sawmill.Error($"Unable to find faction {target}");
+            Log.Error($"Unable to find faction {target}");
             return;
         }
 
@@ -256,13 +254,13 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         if (!_factions.TryGetValue(source, out var sourceFaction))
         {
-            _sawmill.Error($"Unable to find faction {source}");
+            Log.Error($"Unable to find faction {source}");
             return;
         }
 
         if (!_factions.ContainsKey(target))
         {
-            _sawmill.Error($"Unable to find faction {target}");
+            Log.Error($"Unable to find faction {target}");
             return;
         }
 
