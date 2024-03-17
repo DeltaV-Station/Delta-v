@@ -15,6 +15,7 @@ using Content.Server.Nyanotrasen.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Storage.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
@@ -42,6 +43,7 @@ using Content.Shared.Nyanotrasen.Kitchen;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
+using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using FastAccessors;
@@ -78,6 +80,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
 
     private static readonly string CookingDamageType = "Heat";
     private static readonly float CookingDamageAmount = 10.0f;
@@ -242,7 +245,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             MetaData(item).EntityPrototype?.ID != component.CharredPrototype)
         {
             var charred = Spawn(component.CharredPrototype, Transform(uid).Coordinates);
-            component.Storage.Insert(charred);
+            _storage.Insert(charred, uid);
             Del(item);
         }
     }
@@ -453,7 +456,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
         if (!CanInsertItem(uid, component, args.Thrown) ||
             _random.Prob(missChance) ||
-            !component.Storage.Insert(args.Thrown))
+            !_storage.Insert(args.Thrown, uid))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-thrown-missed"),
@@ -501,7 +504,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     private void OnRelayMovement(EntityUid uid, DeepFryerComponent component,
         ref ContainerRelayMovementEntityEvent args)
     {
-        if (!component.Storage.Remove(args.Entity, EntityManager, destination: Transform(uid).Coordinates))
+        if (!_storage.Remove(args.Entity, uid, xform: Transform(uid)))
             return;
 
         _popupSystem.PopupEntity(
@@ -524,7 +527,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         if (removedItem.Valid)
         {
             //JJ Comment - This line should be unnecessary. Some issue is keeping the UI from updating when converting straight to a Burned Mess while the UI is still open. To replicate, put a Raw Meat in the fryer with no oil in it. Wait until it sputters with no effect. It should transform to Burned Mess, but doesn't.
-            if (!component.Storage.Remove(removedItem))
+            if (!_storage.Remove(removedItem, uid, xform: Transform(uid)))
                 return;
 
             var user = args.Session.AttachedEntity;
