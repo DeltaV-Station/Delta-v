@@ -26,6 +26,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Spawners.EntitySystems;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -75,7 +76,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-        [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
+        [Dependency] private readonly EntityStorageSystem _storage = default!;
 
         private ISawmill _sawmill = default!;
 

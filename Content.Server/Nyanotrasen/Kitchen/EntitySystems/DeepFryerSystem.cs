@@ -43,7 +43,6 @@ using Content.Shared.Nyanotrasen.Kitchen;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
-using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using FastAccessors;
@@ -80,7 +79,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
+    [Dependency] private readonly EntityStorageSystem _storage = default!;
 
     private static readonly string CookingDamageType = "Heat";
     private static readonly float CookingDamageAmount = 10.0f;

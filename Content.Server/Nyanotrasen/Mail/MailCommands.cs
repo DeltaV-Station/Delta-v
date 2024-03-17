@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Administration;
 using Content.Server.Administration;
 using Content.Server.Mail.Components;
-using Content.Shared.Storage.EntitySystems;
+using Content.Server.Storage.EntitySystems;
 
 namespace Content.Server.Mail;
 
@@ -19,7 +19,6 @@ public sealed class MailToCommand : IConsoleCommand
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
 
     private readonly string _blankMailPrototype = "MailAdminFun";
     private readonly string _container = "storagebase";
@@ -102,7 +101,7 @@ public sealed class MailToCommand : IConsoleCommand
         }
 
         foreach (var entity in targetContainer.ContainedEntities.ToArray())
-            _storage.Insert(entity, mailUid);
+            _entitySystemManager.GetEntitySystem<EntityStorageSystem>().Insert(mailUid, teleporterComponent.Owner);
 
         mailComponent.IsFragile = isFragile;
         mailComponent.IsPriority = isPriority;
@@ -110,7 +109,7 @@ public sealed class MailToCommand : IConsoleCommand
         _mailSystem.SetupMail(mailUid, teleporterComponent, recipient.Value);
 
         var teleporterQueue = _containerSystem.EnsureContainer<Container>(teleporterComponent.Owner, "queued");
-        _storage.Insert(mailUid, teleporterComponent.Owner);
+        _entitySystemManager.GetEntitySystem<EntityStorageSystem>().Insert(mailUid, teleporterComponent.Owner);
         shell.WriteLine(Loc.GetString("command-mailto-success", ("timeToTeleport", teleporterComponent.TeleportInterval.TotalSeconds - teleporterComponent.Accumulator)));
     }
 }
