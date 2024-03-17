@@ -31,6 +31,7 @@
             - FlyingMobLayer
   - type: Bloodstream
     bloodReagent: Phlogiston
+    bloodMaxVolume: 0
   - type: MeleeWeapon
     altDisarm: false # No shoving
     angle: 0
@@ -99,6 +100,10 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400 # DeltaV - 4 hours
 
 - type: entity
   parent: WelderExperimental
