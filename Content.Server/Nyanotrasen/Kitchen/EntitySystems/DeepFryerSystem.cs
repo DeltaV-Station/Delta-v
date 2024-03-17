@@ -79,7 +79,6 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-    [Dependency] private readonly EntityStorageSystem _storage = default!;
 
     private static readonly string CookingDamageType = "Heat";
     private static readonly float CookingDamageAmount = 10.0f;
@@ -244,7 +243,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             MetaData(item).EntityPrototype?.ID != component.CharredPrototype)
         {
             var charred = Spawn(component.CharredPrototype, Transform(uid).Coordinates);
-            _storage.Insert(charred, uid);
+            _containerSystem.Insert(charred, component.Storage);
             Del(item);
         }
     }
@@ -455,7 +454,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
         if (!CanInsertItem(uid, component, args.Thrown) ||
             _random.Prob(missChance) ||
-            !_storage.Insert(args.Thrown, uid))
+            !_containerSystem.Insert(args.Thrown, component.Storage))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-thrown-missed"),
@@ -503,7 +502,8 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     private void OnRelayMovement(EntityUid uid, DeepFryerComponent component,
         ref ContainerRelayMovementEntityEvent args)
     {
-        if (!_storage.Remove(args.Entity, uid, xform: Transform(uid)))
+
+        if (!_containerSystem.Remove(args.Entity, component.Storage, destination: Transform(uid).Coordinates))
             return;
 
         _popupSystem.PopupEntity(
@@ -526,7 +526,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         if (removedItem.Valid)
         {
             //JJ Comment - This line should be unnecessary. Some issue is keeping the UI from updating when converting straight to a Burned Mess while the UI is still open. To replicate, put a Raw Meat in the fryer with no oil in it. Wait until it sputters with no effect. It should transform to Burned Mess, but doesn't.
-            if (!_storage.Remove(removedItem, uid, xform: Transform(uid)))
+            if (!_containerSystem.Remove(removedItem, component.Storage))
                 return;
 
             var user = args.Session.AttachedEntity;
