@@ -1148,17 +1148,6 @@
 # Wearables
 
 - type: listing
-  id: Observationkit
-  name: uplink-observation-kit-name
-  description: uplink-observation-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: tracks }
-  productEntity: Observationskit
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkBundles
-
-- type: listing
   id: UplinkJetpack
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
