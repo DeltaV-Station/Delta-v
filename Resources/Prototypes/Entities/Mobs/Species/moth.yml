@@ -8,10 +8,6 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Hunger
-    # starvationDamage: # DeltaV - Disable starvation damage
-    #   types:
-    #     Cold: 0.5
-    #     Bloodloss: 0.5
   - type: Thirst
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
@@ -54,7 +50,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 4.5 # moths burn more easily
+        Heat: 4 # DV - Reduced by .5
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230

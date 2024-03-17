@@ -16,6 +16,9 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -62,6 +65,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, AttemptMeleeThrowOnHitEvent>(OnMeleeThrowOnHitAttempt);
         }
 
         /// <summary>
@@ -312,6 +316,25 @@ namespace Content.Server.Psionics.Glimmer
 
             // Wasn't able to get a grid or a free tile, so explode.
             _destructibleSystem.DestroyEntity(uid);
+        }
+
+        private void OnMeleeThrowOnHitAttempt(Entity<SharedGlimmerReactiveComponent> ent, ref AttemptMeleeThrowOnHitEvent args)
+        {
+            var (uid, _) = ent;
+
+            if (_glimmerSystem.GetGlimmerTier() < GlimmerTier.Dangerous)
+                return;
+
+            args.Cancelled = true;
+            args.Handled = true;
+
+            _lightning.ShootRandomLightnings(uid, 10, 2, "SuperchargedLightning", 2, false);
+
+            // Check if the parent of the user is alive, which will be the case if the user is an item and is being held.
+            var zapTarget = _transformSystem.GetParentUid(args.User);
+            if (TryComp<MindContainerComponent>(zapTarget, out _))
+                _electrocutionSystem.TryDoElectrocution(zapTarget, uid, 5, TimeSpan.FromSeconds(3), true,
+                    ignoreInsulation: true);
         }
 
         private void Reset(RoundRestartCleanupEvent args)

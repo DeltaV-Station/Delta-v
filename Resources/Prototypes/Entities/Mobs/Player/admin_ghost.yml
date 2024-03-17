@@ -72,6 +72,7 @@
     title: comms-console-announcement-title-centcom
     color: "#228b22"
   - type: RadarConsole
+    followEntity: true
   - type: CargoOrderConsole
   - type: CrewMonitoringConsole
     snap: false
@@ -89,6 +90,8 @@
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
+  - type: ShowRevIcons
+  - type: ShowZombieIcons
   - type: Inventory
     templateId: aghost
   - type: InventorySlots

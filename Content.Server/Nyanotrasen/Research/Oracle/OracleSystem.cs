@@ -38,6 +38,7 @@ public sealed class OracleSystem : EntitySystem
         {
             oracle.Accumulator += frameTime;
             oracle.BarkAccumulator += frameTime;
+            oracle.RejectAccumulator += frameTime;
             if (oracle.BarkAccumulator >= oracle.BarkTime.TotalSeconds)
             {
                 oracle.BarkAccumulator = 0;
@@ -120,8 +121,12 @@ public sealed class OracleSystem : EntitySystem
 
         if (!validItem)
         {
-            if (!HasComp<RefillableSolutionComponent>(args.Used))
+            if (!HasComp<RefillableSolutionComponent>(args.Used) &&
+                component.RejectAccumulator >= component.RejectTime.TotalSeconds)
+            {
+                component.RejectAccumulator = 0;
                 _chat.TrySendInGameICMessage(uid, _random.Pick(component.RejectMessages), InGameICChatType.Speak, true);
+            }
             return;
         }
 
@@ -186,6 +191,7 @@ public sealed class OracleSystem : EntitySystem
     {
         component.Accumulator = 0;
         component.BarkAccumulator = 0;
+        component.RejectAccumulator = 0;
         var protoString = GetDesiredItem(component);
         if (_prototypeManager.TryIndex<EntityPrototype>(protoString, out var proto))
             component.DesiredPrototype = proto;

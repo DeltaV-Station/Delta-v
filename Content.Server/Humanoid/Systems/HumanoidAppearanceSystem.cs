@@ -64,6 +64,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             grammar.Gender = sourceHumanoid.Gender;
         }
 
+        targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let paradox anomaly be cloned
+
         Dirty(targetHumanoid);
     }
 
@@ -186,7 +188,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         if (speciesPrototype == null)
         {
-            Logger.Error("Tried to get age representation of species that couldn't be indexed: " + species);
+            Log.Error("Tried to get age representation of species that couldn't be indexed: " + species);
             return Loc.GetString("identity-age-young");
         }
 

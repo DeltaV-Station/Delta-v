@@ -1,6 +1,8 @@
 using Content.Server.Nutrition; // DeltaV
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Nutrition.Components;
+using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -66,6 +68,8 @@ namespace Content.Server.Nutrition.EntitySystems
             FillSlice(sliceUid, lostSolution);
 
             _audio.PlayPvs(component.Sound, transform.Coordinates, AudioParams.Default.WithVolume(-2));
+            var ev = new SliceFoodEvent(user, uid, sliceUid);
+            RaiseLocalEvent(uid, ref ev);
 
             // Decrease size of item based on count - Could implement in the future
             // Bug with this currently is the size in a container is not updated
@@ -121,7 +125,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
             // DeltaV - Begin deep frier related code
             var sliceEvent = new SliceFoodEvent(user, uid, sliceUid);
-            RaiseLocalEvent(uid, sliceEvent);
+            RaiseLocalEvent(uid, ref sliceEvent);
             // DeltaV - End deep frier related code
 
             return sliceUid;

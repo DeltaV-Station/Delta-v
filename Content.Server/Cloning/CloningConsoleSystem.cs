@@ -5,7 +5,7 @@ using Content.Server.DeviceLinking.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.UserInterface;
+using Content.Shared.UserInterface;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.CloningConsole;
 using Content.Shared.Database;
@@ -32,7 +32,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-
+        
         public override void Initialize()
         {
             base.Initialize();
@@ -169,8 +169,8 @@ namespace Content.Server.Cloning
 
             if (mind.UserId.HasValue == false || mind.Session == null)
                 return;
-
-            if (_cloningSystem.TryCloning(cloningPodUid, body.Value, (mindId, mind), cloningPod, scannerComp.CloningFailChanceMultiplier))
+            // Nyano: Adds scannerComp.MetemKarmaBonus
+            if (_cloningSystem.TryCloning(cloningPodUid, body.Value, (mindId, mind), cloningPod, scannerComp.CloningFailChanceMultiplier, scannerComp.MetemKarmaBonus))
                 _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(uid)} successfully cloned {ToPrettyString(body.Value)}.");
         }
 

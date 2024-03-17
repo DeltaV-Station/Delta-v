@@ -16,7 +16,20 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.55
+        amount: 0.3
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-damnation" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        probability: 0.02
 
 - type: reagent
   id: Gunmetal #Credit to DinkusMcsplinkus for inspiring this drink. This could've also been called "Creamy Ignition"

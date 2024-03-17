@@ -25,18 +25,18 @@ station-beacon-cmo = CMO
 station-beacon-morgue = Morgue
 station-beacon-surgery = Surgery
 
-station-beacon-science = Epistemics
+station-beacon-science = Science
 station-beacon-research-and-development = Research
 station-beacon-research-server = Server
-station-beacon-research-director = MG
+station-beacon-research-director = RD
 station-beacon-robotics = Robotics
 station-beacon-artifact-lab = Artifact
 station-beacon-anomaly-gen = Anomaly
 
 station-beacon-supply = Supply
-station-beacon-cargo = Logistics
-station-beacon-cargo-bay = Logistics Bay
-station-beacon-qm = LO
+station-beacon-cargo = Cargo
+station-beacon-cargo-bay = Cargo Bay
+station-beacon-qm = QM
 station-beacon-salvage = Salvage
 
 station-beacon-engineering = Engineering
@@ -71,3 +71,4 @@ station-beacon-theater = Theater
 station-beacon-tools = Tools
 station-beacon-disposals = Disposals
 station-beacon-cryosleep = Cryosleep
+station-beacon-escape-pod = Escape Pod

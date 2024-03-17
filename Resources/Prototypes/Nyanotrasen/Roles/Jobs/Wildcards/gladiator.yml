@@ -11,9 +11,9 @@
   setPreference: true
 #  whitelistRequired: true
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 3600
-    - !type:WhitelistRequirement
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 21600
   special:
   - !type:AddComponentSpecial
     components:

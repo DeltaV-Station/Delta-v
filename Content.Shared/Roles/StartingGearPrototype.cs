@@ -1,3 +1,4 @@
+using Content.Shared.DeltaV.Harpy;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 
@@ -32,7 +33,8 @@ namespace Content.Shared.Roles
         {
             if (profile != null)
             {
-                if (slot == "jumpsuit" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(InnerClothingSkirt))
+                if (slot == "jumpsuit" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(InnerClothingSkirt)
+                    || slot == "jumpsuit" && profile.Species == "Harpy" && !string.IsNullOrEmpty(InnerClothingSkirt)) //DeltaV adds this line to prevent Harpies from starting with jumpsuits
                     return InnerClothingSkirt;
                 if (slot == "back" && profile.Backpack == BackpackPreference.Satchel && !string.IsNullOrEmpty(Satchel))
                     return Satchel;

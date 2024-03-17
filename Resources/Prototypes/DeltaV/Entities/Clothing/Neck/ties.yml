@@ -52,3 +52,14 @@
     sprite: DeltaV/Clothing/Neck/Ties/greentie.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Ties/greentie.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieChem
+  name: chemistry tie
+  description: An safety-orange tie.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Ties/chemtie.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Neck/Ties/chemtie.rsi

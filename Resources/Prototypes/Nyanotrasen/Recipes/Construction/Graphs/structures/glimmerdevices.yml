@@ -30,36 +30,36 @@
           conditions:
             - !type:EntityAnchored {}
           steps:
-            - tag: NormalityCrystal # DeltaV - Temporarily makes Drain only need 1 Crystal until Golemnization is implemented otherwise it's just imposible to craft
+            - tag: NormalityCrystal
               icon:
                 sprite: Nyanotrasen/Objects/Materials/materials.rsi
                 state: bluespace
               name: a normality crystal
               doAfter: 1
-            # - tag: NormalityCrystal
-            #   icon:
-            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-            #     state: bluespace
-            #   name: a normality crystal
-            #   doAfter: 1
-            # - tag: NormalityCrystal
-            #   icon:
-            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-            #     state: bluespace
-            #   name: a normality crystal
-            #   doAfter: 1
-            # - tag: NormalityCrystal
-            #   icon:
-            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-            #     state: bluespace
-            #   name: a normality crystal
-            #   doAfter: 1
-            # - tag: NormalityCrystal
-            #   icon:
-            #     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-            #     state: bluespace
-            #   name: a normality crystal
-            #   doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
             - tool: Welding
               doAfter: 5
 

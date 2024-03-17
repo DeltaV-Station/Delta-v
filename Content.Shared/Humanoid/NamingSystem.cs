@@ -26,6 +26,9 @@ namespace Content.Shared.Humanoid
 
             switch (speciesProto.Naming)
             {
+                case SpeciesNaming.First:
+                    return Loc.GetString("namepreset-first",
+                        ("first", GetFirstName(speciesProto, gender)));
                 // Start of Nyano - Summary: for Oni naming
                 case SpeciesNaming.LastNoFirst:
                     return Loc.GetString("namepreset-lastnofirst",

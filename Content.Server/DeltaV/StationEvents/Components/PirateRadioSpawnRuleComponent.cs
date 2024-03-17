@@ -1,6 +1,10 @@
+/*
+* Delta-V - This file is licensed under AGPLv3
+* Copyright (c) 2024 Delta-V Contributors
+* See AGPLv3.txt for details.
+*/
+
 using Content.Server.StationEvents.Events;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -12,4 +16,21 @@ public sealed partial class PirateRadioSpawnRuleComponent : Component
 
     [DataField("additionalRule")]
     public EntityUid? AdditionalRule;
+
+    [DataField("debrisCount")]
+    public int DebrisCount { get; set; }
+
+    [DataField("distanceModifier")]
+    public float DistanceModifier { get; set; }
+
+    [DataField("debrisDistanceModifier")]
+    public float DebrisDistanceModifier { get; set; }
+
+    /// <summary>
+    /// "Stations of Unusual Size Constant", derived from the AABB.Width of Shoukou.
+    /// This Constant is used to check the size of a station relative to the reference point
+    /// </summary>
+    [DataField("sousk")]
+    public float SOUSK = 123.44f;
+
 }

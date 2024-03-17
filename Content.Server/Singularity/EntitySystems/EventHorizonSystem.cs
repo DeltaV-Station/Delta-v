@@ -42,7 +42,6 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         SubscribeLocalEvent<TelegnosticProjectionComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume); ///Nyano - Summary: the telegnositic projection has the same trait as ghosts. 
         SubscribeLocalEvent<StationDataComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<EventHorizonComponent, MapInitEvent>(OnHorizonMapInit);
-        SubscribeLocalEvent<EventHorizonComponent, EntityUnpausedEvent>(OnHorizonUnpaused);
         SubscribeLocalEvent<EventHorizonComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<EventHorizonComponent, EntGotInsertedIntoContainerMessage>(OnEventHorizonContained);
         SubscribeLocalEvent<EventHorizonContainedEvent>(OnEventHorizonContained);
@@ -57,11 +56,6 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     private void OnHorizonMapInit(EntityUid uid, EventHorizonComponent component, MapInitEvent args)
     {
         component.NextConsumeWaveTime = _timing.CurTime;
-    }
-
-    private void OnHorizonUnpaused(EntityUid uid, EventHorizonComponent component, ref EntityUnpausedEvent args)
-    {
-        component.NextConsumeWaveTime += args.PausedTime;
     }
 
     public override void Shutdown()
