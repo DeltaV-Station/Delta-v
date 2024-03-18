@@ -13,6 +13,9 @@
   - Service
   - Maintenance
   - Zookeeper # DeltaV - Add Zookeeper access
+  special:
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: ZookeeperGear

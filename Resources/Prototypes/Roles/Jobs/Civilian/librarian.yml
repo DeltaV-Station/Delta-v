@@ -13,6 +13,9 @@
   - Service
   - Maintenance
   - Library # DeltaV - Add Library access
+  special:
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: LibrarianGear

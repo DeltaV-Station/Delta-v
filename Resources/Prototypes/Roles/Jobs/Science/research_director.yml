@@ -31,7 +31,7 @@
     - type: Psionic # Nyano - They start with telepathic chat
     - type: DispelPower # Nyano - They get the Dispel psionic power on spawn
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, SadTromboneImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

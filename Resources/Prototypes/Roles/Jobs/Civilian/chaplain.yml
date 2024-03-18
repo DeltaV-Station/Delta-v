@@ -22,6 +22,8 @@
     components:
     - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
       multiplier: 3
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: ChaplainGear

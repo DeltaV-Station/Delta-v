@@ -14,6 +14,9 @@
   - Maintenance
   - Theatre # DeltaV - Add Theatre access
   - Reporter # DeltaV - Add Reporter access
+  special:
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: ReporterGear

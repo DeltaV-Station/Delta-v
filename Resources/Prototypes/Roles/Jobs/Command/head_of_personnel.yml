@@ -62,7 +62,7 @@
   - Zookeeper # DeltaV - Add Zookeeper access
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, SadTromboneImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

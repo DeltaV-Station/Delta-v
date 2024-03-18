@@ -13,6 +13,9 @@
   extendedAccess:
   - Salvage
   - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  special:
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: CargoTechGear
