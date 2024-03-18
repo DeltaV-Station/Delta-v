@@ -46,10 +46,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitStartEvent>(OnAnomalyThrowStart);
         SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitEndEvent>(OnAnomalyThrowEnd);
 
-        SubscribeLocalEvent<AnomalyComponent, EntityUnpausedEvent>(OnAnomalyUnpause);
-        SubscribeLocalEvent<AnomalyPulsingComponent, EntityUnpausedEvent>(OnPulsingUnpause);
-        SubscribeLocalEvent<AnomalySupercriticalComponent, EntityUnpausedEvent>(OnSupercriticalUnpause);
-
         _sawmill = Logger.GetSawmill("anomaly");
     }
 
@@ -87,23 +83,6 @@ public abstract class SharedAnomalySystem : EntitySystem
             return;
         Audio.PlayPvs(component.AnomalyContactDamageSound, source);
         Popup.PopupEntity(Loc.GetString("anomaly-component-contact-damage"), target, target);
-    }
-
-    private void OnAnomalyUnpause(EntityUid uid, AnomalyComponent component, ref EntityUnpausedEvent args)
-    {
-        component.NextPulseTime += args.PausedTime;
-        Dirty(uid, component);
-    }
-
-    private void OnPulsingUnpause(EntityUid uid, AnomalyPulsingComponent component, ref EntityUnpausedEvent args)
-    {
-        component.EndTime += args.PausedTime;
-    }
-
-    private void OnSupercriticalUnpause(EntityUid uid, AnomalySupercriticalComponent component, ref EntityUnpausedEvent args)
-    {
-        component.EndTime += args.PausedTime;
-        Dirty(uid, component);
     }
 
     public void DoAnomalyPulse(EntityUid uid, AnomalyComponent? component = null)
@@ -154,7 +133,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (HasComp<AnomalySupercriticalComponent>(uid))
             return;
 
-        AdminLog.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
+        AdminLog.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
         if (_net.IsServer)
             _sawmill.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
 
@@ -201,7 +180,8 @@ public abstract class SharedAnomalySystem : EntitySystem
         // Logging before resolve, in case the anomaly has deleted itself.
         if (_net.IsServer)
             _sawmill.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
-        AdminLog.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} went supercritical.");
+        AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
+                     $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
 
         if (!Resolve(uid, ref component))
             return;

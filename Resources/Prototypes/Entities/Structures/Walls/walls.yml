@@ -49,6 +49,7 @@
     price: 75
   - type: RadiationBlocker
     resistance: 2
+  - type: BlockWeather
 
 - type: entity
   parent: BaseWall
@@ -78,7 +79,7 @@
         acts: [ "Destruction" ]
 
   - type: IconSmooth
-    key: walls
+    key: bricks
     base: brick
 
 - type: entity
@@ -94,6 +95,9 @@
     sprite: Structures/Walls/clock.rsi
   - type: Icon
     sprite: Structures/Walls/clock.rsi
+  - type: Construction
+    graph: ClockworkGirder
+    node: clockworkWall
   - type: Destructible
     thresholds:
     - trigger:
@@ -102,7 +106,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          Girder:
+          ClockworkGirder:
             min: 1
             max: 1
       - !type:DoActsBehavior
@@ -569,7 +573,7 @@
     state: rgeneric
   - type: Construction
     graph: Girder
-    node: reinforcedWall
+    node: reinforcedWallRust
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -991,7 +995,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: woods
     base: wood
 
 - type: entity
@@ -1033,7 +1037,7 @@
         sound:
           collection: WoodDestroy
   - type: IconSmooth
-    key: walls
+    key: webs
     base: wall
   - type: Construction
     graph: WebStructures
@@ -1239,7 +1243,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1252,7 +1256,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_basalt.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1266,7 +1270,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_snow.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1279,7 +1283,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_asteroid.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1292,7 +1296,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_sand.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1305,7 +1309,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_chromite.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
 
 - type: entity
@@ -1318,5 +1322,5 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick_andesite.rsi
   - type: IconSmooth
-    key: walls
+    key: cobblebricks
     base: cobblebrick
