@@ -64,13 +64,13 @@
     radius: 1.2
     energy: 2
     color: "#4faffb"
-  #- type: GhostTakeoverAvailable # Delta V: Moves ghost takeover to child
+  - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
 
 - type: entity
   name: space bear
-  id: MobBearSpaceNPC # Delta V : remove ghosttakeover comps
+  id: MobBearSpace
   parent: MobSpaceBasic
   description: It looks friendly. Why don't you give it a hug?
   components:
@@ -110,23 +110,17 @@
     interactFailureString: petting-failure-bear
     interactSuccessSound:
       path: /Audio/Animals/sloth_squeak.ogg
-  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
 
 - type: entity
   id: MobBearSpaceSalvage
   parent: MobBearSpace
   suffix: "Salvage Ruleset"
   components:
-  - type: GhostRole
-    prob: 0.25
-    name: ghost-role-information-salvage-bear-name
-    description: ghost-role-information-salvage-bear-description
-    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions
 
 - type: entity
   name: space kangaroo
-  id: MobKangarooSpaceNPC # Delta V : remove ghosttakeover comps
+  id: MobKangarooSpace
   parent: MobSpaceBasic
   description: It looks friendly. Why don't you give it a hug?
   components:
@@ -179,23 +173,17 @@
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
-  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
 
 - type: entity
   id: MobKangarooSpaceSalvage
   parent: MobKangarooSpace
   suffix: "Salvage Ruleset"
   components:
-  - type: GhostRole
-    prob: 0.25
-    name: ghost-role-information-salvage-kangaroo-name
-    description: ghost-role-information-salvage-kangaroo-description
-    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions
 
 - type: entity
   name: space spider
-  id: MobSpiderSpaceNPC # Delta V : remove ghosttakeover comps
+  id: MobSpiderSpace
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
@@ -272,7 +260,6 @@
     color: "#4faffb"
   - type: NoSlip
   - type: IgnoreSpiderWeb
-  # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -289,16 +276,11 @@
   parent: MobSpiderSpace
   suffix: "Salvage Ruleset"
   components:
-  - type: GhostRole
-    prob: 0.30
-    name: ghost-role-information-salvage-spider-name
-    description: ghost-role-information-salvage-spider-description
-    rules: deltav-ghost-role-information-salvageantag-rules #DeltaV
   - type: SalvageMobRestrictions
 
 - type: entity
   name: space cobra
-  id: MobCobraSpaceNPC # Delta V : remove ghosttakeover comps
+  id: MobCobraSpace
   parent: MobSpaceBasic
   description: Long fangs and a glowing hood, and the alluring look begs to come closer.
   components:
@@ -379,7 +361,6 @@
       radius: 1.1
       energy: 1.5
       color: "#4faffb"
-    # Moved to Nyanotrasen\Entities\Mobs\NPCs\space.yml
     - type: Stealth
       enabledOnDeath: false
       maxVisibility: 1.2
@@ -392,8 +373,4 @@
   parent: MobCobraSpace
   suffix: "Salvage Ruleset"
   components:
-    - type: GhostRole
-      prob: 0.25
-      name: ghost-role-information-salvage-cobra-name
-      description: ghost-role-information-salvage-cobra-description
     - type: SalvageMobRestrictions

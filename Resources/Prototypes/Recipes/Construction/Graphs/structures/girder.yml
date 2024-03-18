@@ -336,7 +336,7 @@
             - material: Plasteel
               amount: 2
               doAfter: 1
-        
+
         - to: diagonalshuttleWall #Nyano
           completed:
             - !type:SnapToGrid
@@ -551,3 +551,11 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+    - node: reinforcedWallRust
+      entity: WallReinforcedRust
+      edges:
+        - to: reinforcedWall
+          steps:
+            - tool: Welding
+              doAfter: 5

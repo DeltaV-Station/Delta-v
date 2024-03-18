@@ -86,8 +86,6 @@ namespace Content.Server.Psionics
             _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
             _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
             _visibilitySystem.RefreshVisibility(uid, visibility);
-
-            SetCanSeePsionicInvisiblity(uid, true);
         }
 
 
@@ -99,8 +97,6 @@ namespace Content.Server.Psionics
                 _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(uid, visibility);
             }
-            if (HasComp<PotentialPsionicComponent>(uid) && !HasComp<PsionicInsulationComponent>(uid))
-                SetCanSeePsionicInvisiblity(uid, false);
         }
 
         private void OnEyeInit(EntityUid uid, EyeComponent component, ComponentInit args)
@@ -129,7 +125,7 @@ namespace Content.Server.Psionics
             {
                 if (EntityManager.TryGetComponent(uid, out EyeComponent? eye))
                 {
-                    //_eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) VisibilityFlags.PsionicInvisibility, eye);
+                    _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~ (int) VisibilityFlags.PsionicInvisibility, eye);
                 }
             }
         }

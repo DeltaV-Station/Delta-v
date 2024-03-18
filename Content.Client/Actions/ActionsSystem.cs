@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using Content.Shared.Actions;
+using Content.Shared.Mapping;
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
@@ -78,10 +79,12 @@ namespace Content.Client.Actions
 
         private void BaseHandleState<T>(EntityUid uid, BaseActionComponent component, BaseActionComponentState state) where T : BaseActionComponent
         {
+            // TODO ACTIONS use auto comp states
             component.Icon = state.Icon;
             component.IconOn = state.IconOn;
             component.IconColor = state.IconColor;
-            component.Keywords = new HashSet<string>(state.Keywords);
+            component.Keywords.Clear();
+            component.Keywords.UnionWith(state.Keywords);
             component.Enabled = state.Enabled;
             component.Toggled = state.Toggled;
             component.Cooldown = state.Cooldown;
@@ -101,8 +104,7 @@ namespace Content.Client.Actions
             component.ItemIconStyle = state.ItemIconStyle;
             component.Sound = state.Sound;
 
-            if (_playerManager.LocalPlayer?.ControlledEntity == component.AttachedEntity)
-                ActionsUpdated?.Invoke();
+            UpdateAction(uid, component);
         }
 
         protected override void UpdateAction(EntityUid? actionId, BaseActionComponent? action = null)
@@ -111,7 +113,7 @@ namespace Content.Client.Actions
                 return;
 
             base.UpdateAction(actionId, action);
-            if (_playerManager.LocalPlayer?.ControlledEntity != action.AttachedEntity)
+            if (_playerManager.LocalEntity != action.AttachedEntity)
                 return;
 
             ActionsUpdated?.Invoke();
@@ -144,7 +146,7 @@ namespace Content.Client.Actions
                 _added.Add((actionId, action));
             }
 
-            if (_playerManager.LocalPlayer?.ControlledEntity != uid)
+            if (_playerManager.LocalEntity != uid)
                 return;
 
             foreach (var action in _removed)
@@ -177,7 +179,7 @@ namespace Content.Client.Actions
         protected override void ActionAdded(EntityUid performer, EntityUid actionId, ActionsComponent comp,
             BaseActionComponent action)
         {
-            if (_playerManager.LocalPlayer?.ControlledEntity != performer)
+            if (_playerManager.LocalEntity != performer)
                 return;
 
             OnActionAdded?.Invoke(actionId);
@@ -185,7 +187,7 @@ namespace Content.Client.Actions
 
         protected override void ActionRemoved(EntityUid performer, EntityUid actionId, ActionsComponent comp, BaseActionComponent action)
         {
-            if (_playerManager.LocalPlayer?.ControlledEntity != performer)
+            if (_playerManager.LocalEntity != performer)
                 return;
 
             OnActionRemoved?.Invoke(actionId);
@@ -193,7 +195,7 @@ namespace Content.Client.Actions
 
         public IEnumerable<(EntityUid Id, BaseActionComponent Comp)> GetClientActions()
         {
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { } user)
+            if (_playerManager.LocalEntity is not { } user)
                 return Enumerable.Empty<(EntityUid, BaseActionComponent)>();
 
             return GetActions(user);
@@ -216,7 +218,7 @@ namespace Content.Client.Actions
 
         public void LinkAllActions(ActionsComponent? actions = null)
         {
-             if (_playerManager.LocalPlayer?.ControlledEntity is not { } user ||
+             if (_playerManager.LocalEntity is not { } user ||
                  !Resolve(user, ref actions, false))
              {
                  return;
@@ -233,7 +235,7 @@ namespace Content.Client.Actions
 
         public void TriggerAction(EntityUid actionId, BaseActionComponent action)
         {
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { } user ||
+            if (_playerManager.LocalEntity is not { } user ||
                 !TryComp(user, out ActionsComponent? actions))
             {
                 return;
@@ -261,7 +263,7 @@ namespace Content.Client.Actions
         /// </summary>
         public void LoadActionAssignments(string path, bool userData)
         {
-            if (_playerManager.LocalPlayer?.ControlledEntity is not { } user)
+            if (_playerManager.LocalEntity is not { } user)
                 return;
 
             var file = new ResPath(path).ToRootedPath();
@@ -294,6 +296,70 @@ namespace Content.Client.Actions
 
                 if (map.TryGet<ValueDataNode>("name", out var nameNode))
                     _metaData.SetEntityName(actionId, nameNode.Value);
+
+                if (!map.TryGet("assignments", out var assignmentNode))
+                    continue;
+
+                var nodeAssignments = _serialization.Read<List<(byte Hotbar, byte Slot)>>(assignmentNode, notNullableOverride: true);
+
+                foreach (var index in nodeAssignments)
+                {
+                    var assignment = new SlotAssignment(index.Hotbar, index.Slot, actionId);
+                    assignments.Add(assignment);
+                }
+            }
+
+            AssignSlot?.Invoke(assignments);
+        }
+
+        /// <summary>
+        ///     Load actions and their toolbar assignments from a file.
+        ///     DeltaV - Load from an existing yaml stream instead
+        /// </summary>
+        public void LoadActionAssignments(YamlStream stream)
+        {
+            if (_playerManager.LocalEntity is not { } user)
+                return;
+
+            if (stream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
+                return;
+
+            ClearAssignments?.Invoke();
+
+            var assignments = new List<SlotAssignment>();
+            var existingActions = GetClientActions();
+            var existingActionsList = existingActions.ToList();
+
+            foreach (var entry in sequence.Sequence)
+            {
+                if (entry is not MappingDataNode map)
+                    continue;
+
+                if (!map.TryGet("action", out var actionNode))
+                    continue;
+
+                if (!map.TryGet<ValueDataNode>("name", out var nameNode))
+                    continue;
+
+                var action = _serialization.Read<BaseActionComponent>(actionNode, notNullableOverride: true);
+
+                // Prevent spawning actions multiple times
+                var existing = existingActionsList.FirstOrNull(a =>
+                    Name(a.Id) == nameNode.Value);
+
+                EntityUid actionId;
+                if (existing == null)
+                {
+                    actionId = Spawn(null);
+                    AddComp(actionId, action);
+                    _metaData.SetEntityName(actionId, nameNode.Value);
+                    DirtyEntity(actionId);
+                    AddActionDirect(user, actionId);
+                }
+                else
+                {
+                    actionId = existing.Value.Id;
+                }
 
                 if (!map.TryGet("assignments", out var assignmentNode))
                     continue;

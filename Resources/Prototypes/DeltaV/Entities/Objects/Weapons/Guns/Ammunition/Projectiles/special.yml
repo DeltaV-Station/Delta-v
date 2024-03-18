@@ -31,7 +31,31 @@
       types:
         Blunt: 3
   - type: StaminaDamageOnCollide
-    damage: 35 # 3 hits to stun cuz revolver
+    damage: 30
+
+- type: entity
+  id: BulletSpecialIncendiary
+  name: bullet (.38 special incendiary)
+  parent: BaseBulletIncendiary
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+        Heat: 27
+
+- type: entity
+  id: BulletSpecialUranium
+  name: bullet (.38 special uranium)
+  parent: BaseBulletUranium
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 12
+        Piercing: 18
 
 - type: entity
   id: BulletSpecialHoly
@@ -42,8 +66,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Holy: 5
+        Holy: 6
+        Piercing: 25
 
 - type: entity
   id: BulletSpecialMindbreaker

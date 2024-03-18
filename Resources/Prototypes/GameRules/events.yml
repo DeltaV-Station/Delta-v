@@ -67,16 +67,17 @@
     duration: 1
   - type: ClericalErrorRule
 
-#- type: entity
-#  parent: BaseGameRule # DeltaV - this shit is busted most of the time
-#  id: ClosetSkeleton
-#  noSpawn: true
-#  components:
-#  - type: StationEvent
-#    weight: 10
-#    duration: 1
-#  - type: RandomEntityStorageSpawnRule
-#    prototype: MobSkeletonCloset
+- type: entity
+  parent: BaseGameRule
+  id: ClosetSkeleton
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    minimumPlayers: 10
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobSkeletonCloset
 
 - type: entity
   parent: BaseGameRule
@@ -198,9 +199,11 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.005
+    # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
+    # specialEntries:
+    # - id: SpawnPointGhostRatKing
+    #   prob: 0.005
+    # End of modified code
 
 - type: entity
   id: CockroachMigration
@@ -461,8 +464,7 @@
   components:
   - type: StationEvent
     weight: 10
-    earliestStart: 20
-    reoccurrenceDelay: 60
+    reoccurrenceDelay: 20
     duration: 1
   - type: IonStormRule
 

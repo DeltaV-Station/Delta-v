@@ -23,6 +23,12 @@ public sealed partial class OracleComponent : Component
     [DataField("barkTime")]
     public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
+    [DataField("rejectAccumulator")]
+    public float RejectAccumulator;
+
+    [DataField("rejectTime")]
+    public TimeSpan RejectTime = TimeSpan.FromSeconds(5);
+
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityPrototype DesiredPrototype = default!;
 

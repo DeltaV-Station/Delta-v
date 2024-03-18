@@ -1,7 +1,10 @@
+using System.IO;
 using Content.Client.Actions;
 using Content.Client.Mapping;
 using Content.Shared.Administration;
+using Robust.Client.UserInterface;
 using Robust.Shared.Console;
+using YamlDotNet.RepresentationModel;
 
 namespace Content.Client.Commands;
 
@@ -47,7 +50,7 @@ public sealed class LoadActionsCommand : LocalizedCommands
     {
         if (args.Length != 1)
         {
-            shell.WriteLine(Help);
+            LoadActs(); // DeltaV - Load from a file dialogue instead
             return;
         }
 
@@ -59,6 +62,26 @@ public sealed class LoadActionsCommand : LocalizedCommands
         {
             shell.WriteError(LocalizationManager.GetString($"cmd-{Command}-error"));
         }
+    }
+
+    /// <summary>
+    /// DeltaV - Load actions from a file stream instead
+    /// </summary>
+    private static async void LoadActs()
+    {
+        var fileMan = IoCManager.Resolve<IFileDialogManager>();
+        var actMan = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ActionsSystem>();
+
+        var stream = await fileMan.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+        if (stream is null)
+            return;
+
+        var reader = new StreamReader(stream);
+        var yamlStream = new YamlStream();
+        yamlStream.Load(reader);
+
+        actMan.LoadActionAssignments(yamlStream);
+        reader.Close();
     }
 }
 

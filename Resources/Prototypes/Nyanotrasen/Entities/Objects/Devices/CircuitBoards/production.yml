@@ -1,4 +1,25 @@
 - type: entity
+  id: MetempsychoticMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: metempsychotic machine machine board
+  description: A machine printed circuit board for a cloning pod
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: MetempsychoticMachine
+      requirements:
+        Capacitor: 2
+        Manipulator: 2
+      materialRequirements:
+        Glass: 1
+        Cable: 1
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - MetempsychoticMachineCircuitboard
+
+- type: entity
   id: ReverseEngineeringMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: reverse engineering machine machine board
