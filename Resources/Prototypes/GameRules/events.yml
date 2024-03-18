@@ -421,7 +421,7 @@
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
     weight: 3 # DeltaV - was 5
-    minimumPlayers: 10
+    minimumPlayers: 20
     reoccurrenceDelay: 30
     duration: 1
   - type: LoneOpsSpawnRule
