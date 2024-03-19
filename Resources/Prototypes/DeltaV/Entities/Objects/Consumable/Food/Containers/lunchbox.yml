@@ -5,16 +5,16 @@
   description: For on-the-go meal carrying needs.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/generic.rsi
+    sprite: DeltaV/Objects/Storage/lunchbox.rsi
     layers:
-    - state: box
-    - state: box-open
+    - state: generic
+    - state: generic-open
       map: ["openLayer"]
   - type: Item
     size: Normal
     shape: null
-    sprite: DeltaV/Objects/Storage/Lunchbox/generic.rsi
-    heldPrefix: box
+    sprite: DeltaV/Objects/Storage/lunchbox.rsi
+    heldPrefix: generic
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -81,7 +81,7 @@
     - id: FoodCarrot
     - id: PaperWrittenNoteFromMumHealthy
       prob: 0.1
-    
+
 - type: entity
   parent: LunchboxGeneric
   id: LunchboxGenericFilledUnhealthy
@@ -109,9 +109,12 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+    layers:
+    - state: command
+    - state: command-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+    heldPrefix: command
 
 - type: entity
   parent: LunchboxGenericFilledRandom
@@ -119,9 +122,12 @@
   suffix: Command, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+    layers:
+    - state: command
+    - state: command-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/command.rsi
+    heldPrefix: command
 
 - type: entity
   parent: LunchboxGeneric
@@ -129,39 +135,51 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+    layers:
+    - state: security
+    - state: security-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
-    
+    heldPrefix: security
+
 - type: entity
   parent: LunchboxGenericFilledRandom
   id: LunchboxSecurityFilledRandom
   suffix: Security, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
+    layers:
+    - state: security
+    - state: security-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/security.rsi
-    
+    heldPrefix: security
+
 - type: entity
   parent: LunchboxGeneric
   id: LunchboxMedical
   suffix: Medical
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+    layers:
+    - state: medical
+    - state: medical-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
-    
+    heldPrefix: medical
+
 - type: entity
   parent: LunchboxGenericFilledRandom
   id: LunchboxMedicalFilledRandom
   suffix: Medical, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+    layers:
+    - state: medical
+    - state: medical-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/medical.rsi
+    heldPrefix: medical
 
 - type: entity
   parent: LunchboxGeneric
@@ -169,9 +187,12 @@
   suffix: Logistics
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+    layers:
+    - state: logistics
+    - state: logistics-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+    heldPrefix: logistics
 
 - type: entity
   parent: LunchboxGenericFilledRandom
@@ -179,9 +200,12 @@
   suffix: Logistics, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+    layers:
+    - state: logistics
+    - state: logistics-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/logistics.rsi
+    heldPrefix: logistics
 
 - type: entity
   parent: LunchboxGeneric
@@ -189,9 +213,12 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+    layers:
+    - state: engineering
+    - state: engineering-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+    heldPrefix: engineering
 
 - type: entity
   parent: LunchboxGenericFilledRandom
@@ -199,9 +226,12 @@
   suffix: Engineering, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+    layers:
+    - state: engineering
+    - state: engineering-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/engineering.rsi
+    heldPrefix: engineering
 
 - type: entity
   parent: LunchboxGeneric
@@ -209,9 +239,12 @@
   suffix: Epistemics
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+    layers:
+    - state: epistemics
+    - state: epistemics-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+    heldPrefix: epistemics
 
 - type: entity
   parent: LunchboxGenericFilledRandom
@@ -219,9 +252,12 @@
   suffix: Epistemics, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+    layers:
+    - state: epistemics
+    - state: epistemics-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/epistemics.rsi
+    heldPrefix: epistemics
 
 
 - type: entity
@@ -230,9 +266,12 @@
   suffix: Service
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+    layers:
+    - state: service
+    - state: service-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+    heldPrefix: service
 
 - type: entity
   parent: LunchboxGenericFilledRandom
@@ -240,9 +279,12 @@
   suffix: Service, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+    layers:
+    - state: service
+    - state: service-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/service.rsi
+    heldPrefix: service
 
 - type: entity
   parent: LunchboxGeneric
@@ -250,16 +292,22 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+    layers:
+    - state: syndicate
+    - state: syndicate-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
-    
+    heldPrefix: syndicate
+
 - type: entity
   parent: LunchboxGenericFilledRandom
   id: LunchboxSyndicateFilledRandom
   suffix: Syndicate, Filled, Random
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+    layers:
+    - state: syndicate
+    - state: syndicate-open
+      map: [ "openLayer" ]
   - type: Item
-    sprite: DeltaV/Objects/Storage/Lunchbox/syndicate.rsi
+    heldPrefix: syndicate
