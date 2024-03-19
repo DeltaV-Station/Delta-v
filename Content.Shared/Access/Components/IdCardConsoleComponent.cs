@@ -57,6 +57,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "ChiefEngineer",
         "ChiefMedicalOfficer",
         "Clown", // DeltaV - Add Clown access
+        "Corpsman", // DeltaV - Add Corpsman access
         "Command",
         "Cryogenics",
         "Engineering",
@@ -67,7 +68,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Janitor",
         "Kitchen",
         "Lawyer",
-        "Library",  // DeltaV - Add Library access 
+        "Library",  // DeltaV - Add Library access
         "Maintenance",
         "Medical",
         "Mime", // DeltaV - Add Mime access

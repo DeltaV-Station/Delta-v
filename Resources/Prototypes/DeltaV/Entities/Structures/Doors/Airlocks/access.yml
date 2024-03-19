@@ -86,3 +86,17 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
+  parent: AirlockSecurity
+  id: AirlockCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockCorpsmanGlassLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
