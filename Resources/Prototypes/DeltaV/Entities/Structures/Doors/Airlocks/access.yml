@@ -15,6 +15,22 @@
     access: [["Mantis"]]
 
 - type: entity
+  parent: AirlockSecurity
+  id: AirlockCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockCorpsmanGlassLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleEscapeSub
   suffix: External, Escape Sub, Glass, Docking
