@@ -100,3 +100,11 @@
   components:
   - type: AccessReader
     access: [["Corpsman"]]
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleEscapeSub
+  suffix: External, Escape Sub, Glass, Docking
+  components:
+    - type: GridFill
+      path: /Maps/Shuttles/DeltaV/sub_escape_pod.yml
