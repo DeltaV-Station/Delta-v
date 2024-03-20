@@ -1,7 +1,7 @@
 - type: entity
   id: LockerChiefJustice
   parent: LockerBaseSecure
-  name: chief justice's locker # DeltaV - Justice dept
+  name: chief justice's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -10,3 +10,16 @@
     stateDoorClosed: qm_door
   - type: AccessReader
     access: [["ChiefJustice"]]
+    
+- type: entity
+  id: LockerClerk
+  parent: LockerBaseSecure
+  name: clerk's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: qm # TODO: Replace this with Clerk locker sprite
+    stateDoorOpen: qm_open
+    stateDoorClosed: qm_door
+  - type: AccessReader
+    access: [["Justice"]]
