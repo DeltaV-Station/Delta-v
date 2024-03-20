@@ -10,8 +10,8 @@
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
   access:
-  - Justice
   - Prosecutor
+  - Justice
   - Security
   - Maintenance
 
@@ -19,9 +19,10 @@
   id: ProsecutorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitProsecutorRed
+    neck: ClothingNeckProsecutorbadge
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
+    id: ProsecutorPDA
     ears: ClothingHeadsetSecurity
     # TODO add copy of space law
   inhand:
