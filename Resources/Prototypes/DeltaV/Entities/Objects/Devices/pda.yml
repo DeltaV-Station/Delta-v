@@ -124,9 +124,21 @@
   name: prosecutor PDA
   description: Sharp. Looks like it could prosecute you all on its own.
   components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: ProsecutorIDCard
-    state: pda-lawyer #Change this to prosecutor when sprited
+    state: pda-prosecutor
     penSlot:
       startingItem: LuxuryPen
       priority: -1
@@ -136,7 +148,7 @@
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
-    state: pda-lawyer #Change this to prosecutor when sprited
+    state: pda-prosecutor
   - type: CartridgeLoader # DeltaV - Crime Assist
     preinstalled:
       - CrewManifestCartridge
