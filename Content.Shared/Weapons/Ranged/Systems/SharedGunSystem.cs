@@ -118,7 +118,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            Dirty(component);
+            Dirty(uid, component);
         }
     }
 
