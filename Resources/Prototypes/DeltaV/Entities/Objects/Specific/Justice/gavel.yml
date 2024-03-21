@@ -15,9 +15,7 @@
           Blunt: 5
     - type: Item
       size: Small
+    - type: Tag
+      tags:
+        - Gavel
       sprite: DeltaV\Objects\Specific\Justice\gavel.rsi
-    - type: EmitSoundOnUse
-      sound:
-        path: /Audio/DeltaV/Items/gavel.ogg
-    - type: UseDelay
-      delay: 2.0
