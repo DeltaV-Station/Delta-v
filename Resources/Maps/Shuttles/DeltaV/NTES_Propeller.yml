@@ -2749,16 +2749,6 @@ entities:
     - type: Transform
       pos: 9.5,-22.5
       parent: 1
-  - uid: 582
-    components:
-    - type: Transform
-      pos: 2.5,-25.5
-      parent: 1
-  - uid: 583
-    components:
-    - type: Transform
-      pos: 4.5,-25.5
-      parent: 1
   - uid: 584
     components:
     - type: Transform
@@ -3794,20 +3784,10 @@ entities:
     - type: Transform
       pos: 4.5,-28.5
       parent: 1
-  - uid: 1564
-    components:
-    - type: Transform
-      pos: 2.5,-24.5
-      parent: 1
   - uid: 1588
     components:
     - type: Transform
       pos: 4.5,-29.5
-      parent: 1
-  - uid: 1634
-    components:
-    - type: Transform
-      pos: 4.5,-24.5
       parent: 1
   - uid: 1638
     components:
@@ -4127,6 +4107,16 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-11.5
+      parent: 1
+  - uid: 582
+    components:
+    - type: Transform
+      pos: 2.5,-26.5
+      parent: 1
+  - uid: 583
+    components:
+    - type: Transform
+      pos: 4.5,-26.5
       parent: 1
   - uid: 826
     components:
@@ -4588,10 +4578,15 @@ entities:
     - type: Transform
       pos: 0.5,12.5
       parent: 1
-  - uid: 1702
+  - uid: 1564
     components:
     - type: Transform
-      pos: 3.5,-25.5
+      pos: 1.5,-26.5
+      parent: 1
+  - uid: 1634
+    components:
+    - type: Transform
+      pos: 5.5,-26.5
       parent: 1
   - uid: 1703
     components:
@@ -4602,11 +4597,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-27.5
-      parent: 1
-  - uid: 1705
-    components:
-    - type: Transform
-      pos: 4.5,-25.5
       parent: 1
   - uid: 1706
     components:
@@ -4627,11 +4617,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-25.5
-      parent: 1
-  - uid: 1710
-    components:
-    - type: Transform
-      pos: 2.5,-25.5
       parent: 1
   - uid: 1711
     components:
@@ -14885,7 +14870,7 @@ entities:
       pos: -0.5,11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1703.8262
+      secondsUntilStateChange: -1790.4072
       state: Opening
   - uid: 1907
     components:
