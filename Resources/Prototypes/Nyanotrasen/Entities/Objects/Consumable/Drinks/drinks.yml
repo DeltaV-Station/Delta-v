@@ -16,9 +16,9 @@
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sakeglass.rsi
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkOrangeCreamiceGlass
-  name: orange creamcicle glass
+  suffix: orange creamcicle
   description: Orangy, creamy goodness.
   components:
   - type: SolutionContainerManager
@@ -28,13 +28,14 @@
         reagents:
         - ReagentId: OrangeCreamice
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/orangecreamcicle.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkSilverjackGlass
-  name: silverjack glass
+  suffix: silverjack
   description: Reminds you of family.
   components:
   - type: SolutionContainerManager
@@ -44,13 +45,14 @@
         reagents:
         - ReagentId: Silverjack
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkBrainbombGlass
-  name: brainbomb glass
+  suffix: brainbomb
   description: Toxic to about anything alive, especially your liver.
   components:
   - type: SolutionContainerManager
@@ -60,13 +62,14 @@
         reagents:
         - ReagentId: Brainbomb
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/brainbomb.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkClownBloodGlass
-  name: clown blood glass
+  suffix: clown blood
   description: Security Officers favorite drink after a long day.
   components:
   - type: SolutionContainerManager
@@ -76,13 +79,14 @@
         reagents:
         - ReagentId: ClownBlood
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/clownblood.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkCircusJuiceGlass
-  name: circus juice glass
+  suffix: circus juice
   description: Honkmother would be proud.
   components:
   - type: SolutionContainerManager
@@ -92,13 +96,14 @@
         reagents:
         - ReagentId: CircusJuice
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/circusjuice.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkSapoPicanteGlass
-  name: sapo picante glass
+  suffix: sapo picante
   description: Tastes nothing like a toad.
   components:
   - type: SolutionContainerManager
@@ -108,13 +113,14 @@
         reagents:
         - ReagentId: SapoPicante
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkGraveyardGlass
-  name: graveyard glass
+  suffix: graveyard
   description: For those shifts that never seem to end.
   components:
   - type: SolutionContainerManager
@@ -124,13 +130,14 @@
         reagents:
         - ReagentId: Graveyard
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/graveyard.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkAtomicPunchGlass
-  name: atomic punch glass
+  suffix: atomic punch
   description: Will NOT make you immune to bullets; Isotopes included!
   components:
   - type: SolutionContainerManager
@@ -140,13 +147,14 @@
         reagents:
         - ReagentId: AtomicPunch
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/atomicpunch.rsi
-    
+    state: icon
+
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkPinkDrinkGlass
-  name: pink drink glass
+  suffix: pink drink
   description: Entire civilizations have crumbled trying to decide if this drink really tastes like pink...
   components:
   - type: SolutionContainerManager
@@ -156,13 +164,14 @@
         reagents:
         - ReagentId: PinkDrink
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/pinkdrink.rsi
+    state: icon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: DrinkGlass
   id: DrinkBubbleTeaGlass
-  name: bubble tea glass
+  suffix: bubble tea
   description: Big straw not included.
   components:
   - type: SolutionContainerManager
@@ -172,5 +181,6 @@
         reagents:
         - ReagentId: BubbleTea
           Quantity: 30
-  - type: Sprite
+  - type: Icon
     sprite: Nyanotrasen/Objects/Consumable/Drinks/bubbletea.rsi
+    state: icon
