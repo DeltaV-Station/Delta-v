@@ -1,16 +1,8 @@
 # Last match in file takes precedence.
 
-/Content.*/ @DebugOk
 /Content.*/SimpleStation14/ @DEATHB4DEFEAT
 
-/Resources/ @DebugOk
-/Resources/ConfigPresets/ @DebugOk
-/Resources/*.yml @DebugOk @Colin-Tel
+/Resources/*.yml @Colin-Tel
 /Resources/*/SimpleStation14/ @DEATHB4DEFEAT
 /Resources/Maps/ @IamVelcroboy
 /Resources/Prototypes/Maps/ @IamVelcroboy
-
-/Tools/ @DebugOk
-
-/* @DebugOk # Standalone files in root, shouldn't apply to subdirectories
-/.github/ @DebugOk # Workflows, codeowners, templates, etc
