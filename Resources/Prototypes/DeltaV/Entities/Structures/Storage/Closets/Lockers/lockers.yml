@@ -5,9 +5,9 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: qm # TODO: Replace this with CJ locker sprite
-    stateDoorOpen: qm_open
-    stateDoorClosed: qm_door
+    stateBaseClosed: cj 
+    stateDoorOpen: cj_open
+    stateDoorClosed: cj_door
   - type: AccessReader
     access: [["ChiefJustice"]]
     
@@ -18,8 +18,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: qm # TODO: Replace this with Clerk locker sprite
-    stateDoorOpen: qm_open
-    stateDoorClosed: qm_door
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Justice"]]
