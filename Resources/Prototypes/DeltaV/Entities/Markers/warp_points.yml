@@ -1,0 +1,338 @@
+# Off station
+- type: entity
+  id: WarpPointEvacShuttle
+  parent: WarpPoint
+  suffix: Evac Shuttle
+  components:
+  - type: WarpPoint
+    location: warp-point-evac
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointShuttle
+  parent: WarpPoint
+  suffix: Shuttle
+  components:
+  - type: WarpPoint
+    location: warp-point-shuttle
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointDebris
+  parent: WarpPoint
+  suffix: Space Debris
+  components:
+  - type: WarpPoint
+    location: warp-point-debris
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointRuin
+  parent: WarpPoint
+  suffix: Space Ruin
+  components:
+  - type: WarpPoint
+    location: warp-point-ruin
+  - type: Sprite
+    state: pink
+
+# Command
+- type: entity
+  id: WarpPointBridge
+  parent: WarpPoint
+  suffix: Bridge
+  components:
+  - type: WarpPoint
+    location: warp-point-bridge
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointVault
+  parent: WarpPoint
+  suffix: Vault
+  components:
+  - type: WarpPoint
+    location: warp-point-vault
+  - type: Sprite
+    state: pink
+
+# Security
+- type: entity
+  id: WarpPointSecurity
+  parent: WarpPoint
+  suffix: Security
+  components:
+  - type: WarpPoint
+    location: warp-point-sec
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointPerma
+  parent: WarpPoint
+  suffix: Perma
+  components:
+  - type: WarpPoint
+    location: warp-point-perma
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointDetective
+  parent: WarpPoint
+  suffix: Detective
+  components:
+  - type: WarpPoint
+    location: warp-point-detective
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointCourt
+  parent: WarpPoint
+  suffix: Courtroom
+  components:
+  - type: WarpPoint
+    location: warp-point-court
+  - type: Sprite
+    state: pink
+
+#Medical
+- type: entity
+  id: WarpPointMedical
+  parent: WarpPoint
+  suffix: Medical
+  components:
+  - type: WarpPoint
+    location: warp-point-medical
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointMorgue
+  parent: WarpPoint
+  suffix: Morgue
+  components:
+  - type: WarpPoint
+    location: warp-point-morgue
+  - type: Sprite
+    state: pink
+
+#Epistemics
+- type: entity
+  id: WarpPointEpistemics
+  parent: WarpPoint
+  suffix: Epistemics
+  components:
+  - type: WarpPoint
+    location: warp-point-epistemics
+  - type: Sprite
+    state: pink
+
+#Logistics
+- type: entity
+  id: WarpPointLogistics
+  parent: WarpPoint
+  suffix: Logistics
+  components:
+  - type: WarpPoint
+    location: warp-point-logistics
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointSalvage
+  parent: WarpPoint
+  suffix: Salvage
+  components:
+  - type: WarpPoint
+    location: warp-point-salvage
+  - type: Sprite
+    state: pink
+
+#Engineering
+- type: entity
+  id: WarpPointEngineering
+  parent: WarpPoint
+  suffix: Engineering
+  components:
+  - type: WarpPoint
+    location: warp-point-engineering
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointSingulo
+  parent: WarpPoint
+  suffix: Singularity
+  components:
+  - type: WarpPoint
+    location: warp-point-singularity
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointAtmos
+  parent: WarpPoint
+  suffix: Atmos
+  components:
+  - type: WarpPoint
+    location: warp-point-atmospherics
+  - type: Sprite
+    state: pink
+
+#Service
+- type: entity
+  id: WarpPointHOP
+  parent: WarpPoint
+  suffix: HoP
+  components:
+  - type: WarpPoint
+    location: warp-point-hop
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointKitchen
+  parent: WarpPoint
+  suffix: Kitchen
+  components:
+  - type: WarpPoint
+    location: warp-point-kitchen
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointBar
+  parent: WarpPoint
+  suffix: Bar
+  components:
+  - type: WarpPoint
+    location: warp-point-bar
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointBotany
+  parent: WarpPoint
+  suffix: Botany
+  components:
+  - type: WarpPoint
+    location: warp-point-botany
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointJanitor
+  parent: WarpPoint
+  suffix: Janitor
+  components:
+  - type: WarpPoint
+    location: warp-point-janitor
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointReporter
+  parent: WarpPoint
+  suffix: Reporter
+  components:
+  - type: WarpPoint
+    location: warp-point-reporter
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointLawyer
+  parent: WarpPoint
+  suffix: Lawyer
+  components:
+  - type: WarpPoint
+    location: warp-point-lawyer
+  - type: Sprite
+    state: pink
+
+#Misc
+- type: entity
+  id: WarpPointAI
+  parent: WarpPoint
+  suffix: AI
+  components:
+  - type: WarpPoint
+    location: warp-point-ai
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointArrivals
+  parent: WarpPoint
+  suffix: Arrivals
+  components:
+  - type: WarpPoint
+    location: warp-point-arrivals
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointEvac
+  parent: WarpPoint
+  suffix: Evac
+  components:
+  - type: WarpPoint
+    location: warp-point-evac
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointCryo
+  parent: WarpPoint
+  suffix: Cryo
+  components:
+  - type: WarpPoint
+    location: warp-point-cryo
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointChapel
+  parent: WarpPoint
+  suffix: Chapel
+  components:
+  - type: WarpPoint
+    location: warp-point-chapel
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointLibrary
+  parent: WarpPoint
+  suffix: Library
+  components:
+  - type: WarpPoint
+    location: warp-point-library
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointDorms
+  parent: WarpPoint
+  suffix: Dorms
+  components:
+  - type: WarpPoint
+    location: warp-point-dorms
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: WarpPointDisposals
+  parent: WarpPoint
+  suffix: Disposals
+  components:
+  - type: WarpPoint
+    location: warp-point-disposals
+  - type: Sprite
+    state: pink
