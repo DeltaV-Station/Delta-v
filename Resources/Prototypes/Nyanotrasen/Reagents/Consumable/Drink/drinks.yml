@@ -9,6 +9,9 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/atomicpunch.rsi
     state: icon
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -29,6 +32,10 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/pinkdrink.rsi
     state: icon
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
   metabolisms:
     Drink:
       effects:
@@ -46,6 +53,9 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/bubbletea.rsi
     state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
