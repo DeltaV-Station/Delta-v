@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Asterisk Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: 'DV'
         - type: StationJobs
           overflowJobs:
             - Passenger
