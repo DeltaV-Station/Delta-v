@@ -9,6 +9,9 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sakeglass.rsi
     state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -29,6 +32,9 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/sojuglass.rsi
     state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
