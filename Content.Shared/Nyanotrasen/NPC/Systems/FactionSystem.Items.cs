@@ -1,15 +1,14 @@
-using Content.Server.NPC.Components;
-using Content.Server.Store.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
+using Content.Shared.NPC.Components;
 
-namespace Content.Server.NPC.Systems;
+namespace Content.Shared.NPC.Systems;
 
 public partial class NpcFactionSystem : EntitySystem
 {
     public void InitializeItems()
     {
-        SubscribeLocalEvent<NpcFactionMemberComponent, ItemPurchasedEvent>(OnItemPurchased);
+        // SubscribeLocalEvent<NpcFactionMemberComponent, ItemPurchasedEvent>(OnItemPurchased);
 
         SubscribeLocalEvent<ClothingAddFactionComponent, GotEquippedEvent>(OnClothingEquipped);
         SubscribeLocalEvent<ClothingAddFactionComponent, GotUnequippedEvent>(OnClothingUnequipped);
@@ -19,10 +18,10 @@ public partial class NpcFactionSystem : EntitySystem
     /// If we bought something we probably don't want it to start biting us after it's automatically placed in our hands.
     /// If you do, consider finding a better solution to grenade penguin CBT.
     /// </summary>
-    private void OnItemPurchased(EntityUid uid, NpcFactionMemberComponent component, ref ItemPurchasedEvent args)
-    {
-        component.ExceptionalFriendlies.Add(args.Purchaser);
-    }
+    // private void OnItemPurchased(EntityUid uid, NpcFactionMemberComponent component, ref ItemPurchasedEvent args)
+    // {
+    //     component.ExceptionalFriendlies.Add(args.Purchaser);
+    // }
 
     private void OnClothingEquipped(EntityUid uid, ClothingAddFactionComponent component, GotEquippedEvent args)
     {
