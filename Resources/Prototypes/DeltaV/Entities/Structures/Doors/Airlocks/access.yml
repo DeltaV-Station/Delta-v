@@ -5,6 +5,8 @@
   components:
   - type: AccessReader
     access: [["Mantis"]]
+  - type: Wires
+    layoutId: AirlockScience
 
 - type: entity
   parent: AirlockScienceGlass
@@ -13,6 +15,8 @@
   components:
   - type: AccessReader
     access: [["Mantis"]]
+  - type: Wires
+    layoutId: AirlockScience
 
 - type: entity
   parent: AirlockSecurity
@@ -21,6 +25,8 @@
   components:
   - type: AccessReader
     access: [["Corpsman"]]
+  - type: Wires
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockSecurityGlass
@@ -29,6 +35,8 @@
   components:
   - type: AccessReader
     access: [["Corpsman"]]
+  - type: Wires
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockGlassShuttle
