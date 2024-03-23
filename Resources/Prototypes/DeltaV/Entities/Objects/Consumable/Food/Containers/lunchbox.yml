@@ -52,7 +52,7 @@
     - id: DrinkWaterBottleFull
       orGroup: HealthyOrUnhealthyDrink
       prob: 0.5
-    - id: DrinkCartonOrange
+    - id: DrinkJuiceOrangeCarton
       orGroup: HealthyOrUnhealthyDrink
       prob: 0.5
     - id: FoodSnackCheesie
@@ -93,7 +93,7 @@
     contents:
     - id: FoodPizzaArnoldSlice
       amount: 2
-    - id: DrinkCartonOrange
+    - id: DrinkJuiceOrangeCarton
     - id: FoodSnackCheesie
       orGroup: UnhealthySnack
       prob: 0.25
