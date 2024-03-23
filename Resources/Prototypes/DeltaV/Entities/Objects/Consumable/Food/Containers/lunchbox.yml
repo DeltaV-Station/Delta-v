@@ -11,7 +11,7 @@
     - state: generic-open
       map: ["openLayer"]
   - type: Item
-    size: Normal
+    size: Large
     shape: null
     sprite: DeltaV/Objects/Storage/lunchbox.rsi
     heldPrefix: generic
@@ -20,14 +20,7 @@
     grid:
     - 0,0,1,1
     - 3,0,1,1
-    - 4,0,4,2
-    whitelist:
-      components:
-      - Food
-      - Drink
-      - Paper
-      tags:
-      - FoodSnack
+    - 4,0,4,1
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
