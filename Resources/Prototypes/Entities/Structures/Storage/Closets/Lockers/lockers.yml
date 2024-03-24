@@ -321,7 +321,7 @@
     stateDoorOpen: armory_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Corpsman"]] # DeltaV - add corpsman access
 
 # Security Officer
 - type: entity
