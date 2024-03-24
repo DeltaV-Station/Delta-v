@@ -11,4 +11,7 @@
     - type: Item
       size: Small
     - type: Clickable
-    - type: GavelBlock
+    - type: EmitSoundOnInteractUsing
+      sound:
+        path: /Audio/DeltaV/Items/gavel.ogg
+      UsedItemID: Gavel
