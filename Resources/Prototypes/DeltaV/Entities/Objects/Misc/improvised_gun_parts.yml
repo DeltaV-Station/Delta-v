@@ -8,7 +8,10 @@
       size: Small
     - type: Sprite
       sprite: DeltaV/Objects/Misc/modular_breech.rsi
-      state: icon
+      state: base
+    - type: Construction
+      graph: ModularBreechGraph
+      node: modularbreech
     - type: Tag
       - Metal
       - ModularBreech
@@ -23,7 +26,10 @@
       size: Small
     - type: Sprite
       sprite: DeltaV/Objects/Misc/modular_trigger.rsi
-      state: icon
+      state: base
+    - type: Construction
+      graph: ModularTriggerGraph
+      node: modulartrigger
     - type: Tag
       - Metal
       - ModularTrigger
@@ -38,7 +44,10 @@
       size: Small
     - type: Sprite
       sprite: DeltaV/Objects/Misc/bayonet.rsi
-      state: icon
+      state: base
+    - type: Construction
+      graph: BayonetGraph
+      node: bayonet
     - type: Tag
       - Metal
       - Bayonet

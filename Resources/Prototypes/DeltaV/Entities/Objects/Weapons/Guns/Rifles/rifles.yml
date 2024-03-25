@@ -179,7 +179,7 @@
   id: WeaponRifleMusket
   parent: Musket
   suffix: "DeltaV"
-  description: This should've been in a museum long before you were born. Uses paper musket cartridges.
+  description: An old flintlock musket. Uses musket cartridges.
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -194,3 +194,6 @@
     slots:
     - suitStorage
     - Back
+  - type: Construction
+    graph: WeaponRifleMusketGraph
+    node: musket
