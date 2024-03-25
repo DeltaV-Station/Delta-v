@@ -18,7 +18,7 @@
   cost:
     Telecrystal: 20 # 1 TC cheaper since nukies spawn with 40 tc anyways.
   categories:
-  - UplinkBundles
+  - UplinkWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
@@ -34,7 +34,7 @@
   cost:
     Telecrystal: 21 # Find a friend to unleash the beast.
   categories:
-  - UplinkBundles
+  - UplinkWeapons
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
