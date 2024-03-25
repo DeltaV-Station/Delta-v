@@ -2,6 +2,7 @@
   parent: BaseCartridge
   id: CartridgeMusket
   name: cartridge (musket)
+  description: A paper musket cartridge used to load a musket.
   components:
   - type: Tag
     tags:
@@ -13,3 +14,6 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Casings/musket_casing.rsi
     state: base
+  - type: Construction
+    graph: CartridgeMusketGraph
+    node: cartridgemusket

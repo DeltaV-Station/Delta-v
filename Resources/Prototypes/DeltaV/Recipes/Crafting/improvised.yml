@@ -49,3 +49,16 @@
   icon:
     sprite: DeltaV/Objects/Misc/bayonet.rsi
     state: base
+    
+- type: construction
+  name: cartridge (musket)
+  id: CartridgeMusket
+  graph: CartridgeMusketGraph
+  startNode: start
+  targetNode: musketcartridge
+  category: construction-category-weapons
+  objectType: Item
+  description: A paper musket cartridge used to load a musket.
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Casings/musket_casings.rsi
+    state: base
