@@ -1,0 +1,38 @@
+- type: constructionGraph
+  id: MusketGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: musket
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: ModularBreech
+        icon:
+          sprite: DeltaV/Objects/Misc/modular_breech.rsi
+          state: base
+        name: modular breech
+      - tag: ModularTrigger
+        icon:
+          sprite: DeltaV/Objects/Misc/modular_trigger.rsi
+          state: base
+        name: modular trigger
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: rifle stock
+      - tag: Bayonet
+        icon:
+          sprite: DeltaV/Objects/Misc/bayonet.rsi
+          state: base
+        name: bayonet
+      - material: WoodPlank
+        amount: 3
+        doAfter: 10
+  - node: musket
+    entity: WeaponRifleMusket
