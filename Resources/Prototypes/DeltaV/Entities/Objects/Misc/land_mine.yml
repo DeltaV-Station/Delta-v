@@ -1,12 +1,16 @@
 - type: entity
   parent: LandMineExplosive
-  id: LandMineExplosiveNonStructural
-  suffix: Non-Structural
+  id: LandMineLowImpactExplosive
+  suffix: Low-Impact
   components:
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+    delay: 30
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
+    maxIntensity: 5
+    intensitySlope: 20
+    totalIntensity: 5
     canCreateVacuum: false
     tileBreakScale: 0
