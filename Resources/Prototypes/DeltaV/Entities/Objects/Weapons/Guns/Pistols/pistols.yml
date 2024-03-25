@@ -124,8 +124,8 @@
     proto: CartridgeMusket
   - type: Gun #Smoothbore
     minAngle: 0
-    maxAngle: 15
-    fireRate: 0.125 #Musket
+    maxAngle: 30
+    fireRate: 2 #Allows for quickdraw to actually work
   - type: Construction
     graph: WeaponPistolFlintlockCraftedGraph
     node: flintlock
