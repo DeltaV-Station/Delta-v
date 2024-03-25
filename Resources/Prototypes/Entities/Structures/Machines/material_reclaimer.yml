@@ -77,6 +77,7 @@
       - Material
       - Pda
       - IdCard
+      - Brain
       tags:
       - HighRiskItem
     soundCooldown: 0
@@ -103,3 +104,6 @@
     solution: output
   - type: StaticPrice
     price: 500
+  - type: MaterialReclaimerMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+    magnetEnabled: True
+    range: 0.30 # Delta V - End Magnet Pull
