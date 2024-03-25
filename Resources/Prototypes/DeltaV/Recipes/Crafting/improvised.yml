@@ -62,3 +62,16 @@
   icon:
     sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Casings/musket_casings.rsi
     state: base
+
+- type: construction
+  name: flintlock
+  id: WeaponPistolFlintlockCrafted
+  graph: WeaponPistolFlintlockCraftedGraph
+  startNode: start
+  targetNode: flintlock
+  category: construction-category-weapons
+  objectType: Item
+  description: An old flintlock, feels like 1800s gang warfare. Uses musket cartidges.
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+    state: base
