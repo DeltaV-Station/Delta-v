@@ -125,6 +125,9 @@
   - type: Gun #Smoothbore
     minAngle: 0
     maxAngle: 15
+    firerate: 0.125 #Musket
   - type: Construction
     graph: WeaponPistolFlintlockCrafted
     node: flintlock
+  - type: UseDelay
+    delay: null #Straight up doesn't work for guns

@@ -190,6 +190,9 @@
   - type: Gun #Smoothbore
     minAngle: 0
     maxAngle: 2 
+    firerate: 0.125 #Musket
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
+  - type: UseDelay
+    delay: null #Straight up doesn't work for guns
