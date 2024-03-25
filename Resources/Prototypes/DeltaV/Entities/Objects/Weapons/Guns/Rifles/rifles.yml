@@ -178,7 +178,7 @@
   name: musket
   id: WeaponRifleMusket
   parent: Musket
-  suffix: "DeltaV"
+  suffix: "craftable"
   description: An old flintlock musket. Uses musket cartridges.
   components:
   - type: BallisticAmmoProvider
@@ -187,7 +187,6 @@
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Wieldable
   - type: Gun #Smoothbore
     minAngle: 0
     maxAngle: 2 
