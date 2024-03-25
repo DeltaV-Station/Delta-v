@@ -173,3 +173,24 @@
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
+
+- type: entity
+  name: musket
+  id: WeaponRifleMusket
+  parent: Musket
+  suffix: "DeltaV"
+  description: This should've been in a museum long before you were born. Uses paper musket cartridges.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags: 
+      - CartridgeMusket
+    capacity: 1
+    proto: CartridgeMusket
+  - type: Wieldable
+  - type: Gun #Smoothbore
+    minAngle: 0
+    maxAngle: 2 
+    slots:
+    - suitStorage
+    - Back

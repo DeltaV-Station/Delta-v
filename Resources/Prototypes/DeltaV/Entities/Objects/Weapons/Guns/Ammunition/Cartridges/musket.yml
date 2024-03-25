@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseCartridge
+  id: CartridgeMusket
+  name: cartridge (musket)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeMusket
+  - type: CartridgeAmmo
+    proto: BulletMusket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Casings/musket_casing.rsi
+    state: base
