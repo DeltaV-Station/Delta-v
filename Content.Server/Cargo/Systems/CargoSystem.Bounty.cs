@@ -129,7 +129,6 @@ public sealed partial class CargoSystem
 
     private void OnSold(ref EntitySoldEvent args)
     {
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"OnSold has been called");
         foreach (var sold in args.Sold)
         {
             if (!TryGetBountyLabel(sold, out _, out var component))
@@ -137,20 +136,15 @@ public sealed partial class CargoSystem
 
             if (component.AssociatedStationId is not { } station || !TryGetBountyFromId(station, component.Id, out var bounty))
             {
-                _adminLogger.Add(LogType.Action, LogImpact.Low, $"Failed to find the bounty");
                 continue;
             }
 
             if (!IsBountyComplete(sold, bounty.Value))
             {
-                _adminLogger.Add(LogType.Action, LogImpact.Low, $"Failed to complete the bounty");
                 continue;
             }
 
-            if (TryRemoveBounty(station, bounty.Value))
-            {
-                _adminLogger.Add(LogType.Action, LogImpact.Low, $"Failed to remove the bounty");
-            }
+            TryRemoveBounty(station, bounty.Value);
             FillBountyDatabase(station);
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"Bounty \"{bounty.Value.Bounty}\" (id:{bounty.Value.Id}) was fulfilled");
         }
