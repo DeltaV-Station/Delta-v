@@ -321,7 +321,7 @@ public sealed partial class CargoSystem
                 var children = GetBountyEntities(ent);
                 foreach (var child in children)
                 {
-                    entities.Add(child);
+                 entities.Add(child);
                 }
             }
         }
