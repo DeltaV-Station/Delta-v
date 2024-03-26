@@ -19,6 +19,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using Content.Shared.Database;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -254,7 +255,7 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(EntityUid gridUid, EntityUid? station, out double amount)
+    private bool SellPallets(EntityUid gridUid, out double amount)
     {
         //station ??= _station.GetOwningStation(gridUid);
         GetPalletGoods(gridUid, out var toSell, out amount);
@@ -264,11 +265,9 @@ public sealed partial class CargoSystem
         if (toSell.Count == 0)
             return false;
 
-        if (station != null)
-        {
-            var ev = new EntitySoldEvent(toSell);
-            RaiseLocalEvent(ref ev);
-        }
+
+        var ev = new EntitySoldEvent(toSell);
+        RaiseLocalEvent(ref ev);
 
         foreach (var ent in toSell)
         {
@@ -356,7 +355,7 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!SellPallets(gridUid, null, out var price))
+        if (!SellPallets(gridUid, out var price))
             return;
 
         var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
