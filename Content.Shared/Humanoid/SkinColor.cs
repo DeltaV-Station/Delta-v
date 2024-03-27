@@ -136,7 +136,7 @@ public static class SkinColor
     /// <param name="skinColor">The skin color to blend with</param>
     /// <param name="blendFactor">Blending factor (0.0 to 1.0)</param>
     /// <returns>Tinted hue color</returns>
-    public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.5f)
+    public static Color TintedHuesSkin(Color color, Color skinColor, float blendFactor = 0.75f)
     {
         blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
 
