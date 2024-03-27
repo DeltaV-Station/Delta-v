@@ -42,7 +42,7 @@
 
 - type: entity
   parent: BasePDA
-  id: CJPDA
+  id: ChiefJusticePDA
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
   components:
@@ -59,7 +59,7 @@
       shader: "unshaded"
       visible: false
   - type: Pda
-    id: CJIDCard
+    id: ChiefJusticeIDCard
     state: pda-cj
     penSlot:
       startingItem: LuxuryPen
