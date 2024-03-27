@@ -140,12 +140,7 @@ public static class SkinColor
     {
         blendFactor = MathHelper.Clamp(blendFactor, 0.0f, 1.0f);
 
-        var r = MathHelper.Lerp(skinColor.R, color.R, blendFactor);
-        var g = MathHelper.Lerp(skinColor.G, color.G, blendFactor);
-        var b = MathHelper.Lerp(skinColor.B, color.B, blendFactor);
-        var a = color.A;
-
-        return new Color(r, g, b, a);
+        return Color.InterpolateBetween(skinColor, color, blendFactor);
     }
 
     /// <summary>
