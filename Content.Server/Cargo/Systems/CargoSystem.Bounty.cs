@@ -16,7 +16,6 @@ using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Serilog;
 
 namespace Content.Server.Cargo.Systems;
 
