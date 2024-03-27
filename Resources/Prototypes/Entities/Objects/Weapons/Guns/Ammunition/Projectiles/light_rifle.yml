@@ -29,7 +29,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
+        Blunt: 5 # Delta-V: Previously 3. Rubber bullets are otherwise a direct upgrade to disablers.
 
 - type: entity
   id: BulletLightRifleIncendiary
