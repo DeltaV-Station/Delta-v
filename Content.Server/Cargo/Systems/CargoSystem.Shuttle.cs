@@ -19,7 +19,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
-using Content.Shared.Database;
 
 namespace Content.Server.Cargo.Systems;
 
