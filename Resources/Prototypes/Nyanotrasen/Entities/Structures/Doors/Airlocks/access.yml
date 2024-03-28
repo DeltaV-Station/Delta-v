@@ -5,6 +5,8 @@
   components:
   - type: AccessReader
     access: [["Mail"]]
+  - type: Wires
+    layoutId: AirlockCargo
 
 - type: entity
   parent: AirlockCargoGlass
@@ -13,3 +15,5 @@
   components:
   - type: AccessReader
     access: [["Mail"]]
+  - type: Wires
+    layoutId: AirlockCargo
