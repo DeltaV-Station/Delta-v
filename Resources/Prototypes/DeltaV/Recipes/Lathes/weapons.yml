@@ -1,0 +1,26 @@
+- type: latheRecipe
+  id: WeaponRailgunERT
+  result: WeaponRailgunERT
+  completetime: 30
+  materials:
+    Steel: 5000
+    Glass: 2000
+    Gold: 250
+    Silver: 500
+    Plasma: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  id: BulletRailgunBasic
+  result: BulletRailgunBasic
+  completetime: 1
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  id: BulletRailgunReverseEngineered
+  result: BulletRailgunReverseEngineered
+  completetime: 1
+  materials:
+    Steel: 250
+    Plastic: 100

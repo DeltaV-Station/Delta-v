@@ -1,0 +1,112 @@
+- type: entity
+  name: BaseWeaponRailgun
+  parent: BaseItem
+  id: BaseWeaponRailgun
+  description: A terrifying thunderous railcannon made handheld.
+  abstract: true
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: AmmoCounter
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/DeltaV/Effects/railgun_charge.ogg
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -35
+  - type: UseDelay
+    delay: 4
+  - type: HeldSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 0.40
+    selectedMode: SemiAuto
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/railgun.ogg
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 3
+    proto: BulletRailgunBasic
+    whitelist:
+      tags:
+        - BulletRailgun
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 10000
+
+- type: entity
+  name: Decimator
+  parent: BaseWeaponRailgun
+  id: WeaponRailgunDecimator
+  description: A terrifying starship railcannon, now in your hands.
+  components:
+  - type: Gun
+    fireRate: 0.40
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 3
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    newItem: WeaponRailgunERT
+    recipes:
+      - WeaponRailgunERT
+
+# Reverse Engineering
+- type: entity
+  name: railgun
+  parent: BaseWeaponRailgun
+  id: WeaponRailgunERT
+  description: A mighty railgun that packs a hefty punch.
+  suffix: reverse engineered
+  components:
+  - type: Gun
+    fireRate: 0.50
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 3
+  - type: HeldSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_ert.rsi
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Railguns/railgun_ert.rsi
+
+# admeme variant
+- type: entity
+  name: Unmaker
+  parent: BaseWeaponRailgun
+  id: WeaponRailgunAdmeme
+  suffix: Admeme
+  description: BRRRRRRRRRRRRRRRRT
+  components:
+  - type: BallisticAmmoProvider
+    cycleable: false
+    proto: BulletRailgunAdmeme
+    capacity: 420 #PANIC
+  - type: Gun
+    fireRate: 100 #the only thing they fear is you
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Items/Toys/ian.ogg #barks so your ears are saved from BRRRRRRRRRRRRRRRR
