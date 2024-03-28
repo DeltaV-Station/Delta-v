@@ -12,10 +12,20 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
     Crying:
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Weh:
+      collection: Weh
     Hiss:
       collection: FelinidHisses
     Meow:
@@ -26,8 +36,6 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Sigh:
-      collection: MaleSigh
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -42,10 +50,20 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
     Crying:
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Weh:
+      collection: Weh
     Hiss:
       collection: FelinidHisses
     Meow:
@@ -56,13 +74,3 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Sigh:
-      collection: FemaleSigh
-
-# mobs
-- type: emoteSounds
-  id: Mothroach
-  sound:
-    path: /Audio/Voice/Moth/moth_squeak.ogg
-    params:
-      variation: 0.125
