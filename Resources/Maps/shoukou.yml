@@ -3479,7 +3479,6 @@ entities:
       - 1828
       - 719
       - 180
-      - 1121
       - 11251
       - 10311
       - 10312
@@ -3878,7 +3877,6 @@ entities:
     - type: DeviceList
       devices:
       - 180
-      - 1121
       - 11251
       - 10315
       - 10316
@@ -31705,6 +31703,13 @@ entities:
     - type: Transform
       pos: 9.5,16.5
       parent: 34
+- proto: DefaultStationBeaconAtmospherics
+  entities:
+  - uid: 13780
+    components:
+    - type: Transform
+      pos: -46.5,-40.5
+      parent: 34
 - proto: DefaultStationBeaconBar
   entities:
   - uid: 11712
@@ -31718,6 +31723,13 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-6.5
+      parent: 34
+- proto: DefaultStationBeaconBridge
+  entities:
+  - uid: 1121
+    components:
+    - type: Transform
+      pos: 45.5,-32.5
       parent: 34
 - proto: DefaultStationBeaconBrig
   entities:
@@ -31761,12 +31773,19 @@ entities:
     - type: Transform
       pos: 14.5,-33.5
       parent: 34
-- proto: DefaultStationBeaconCommand
+- proto: DefaultStationBeaconConferenceRoom
   entities:
-  - uid: 13680
+  - uid: 13785
     components:
     - type: Transform
-      pos: 45.5,-35.5
+      pos: 52.5,-35.5
+      parent: 34
+- proto: DefaultStationBeaconCourtroom
+  entities:
+  - uid: 13783
+    components:
+    - type: Transform
+      pos: 28.5,-30.5
       parent: 34
 - proto: DefaultStationBeaconCryosleep
   entities:
@@ -31789,12 +31808,26 @@ entities:
     - type: Transform
       pos: -41.5,8.5
       parent: 34
+- proto: DefaultStationBeaconDorms
+  entities:
+  - uid: 13779
+    components:
+    - type: Transform
+      pos: -48.5,-5.5
+      parent: 34
 - proto: DefaultStationBeaconEngineering
   entities:
   - uid: 11713
     components:
     - type: Transform
       pos: -32.5,-32.5
+      parent: 34
+- proto: DefaultStationBeaconEngiOutpost
+  entities:
+  - uid: 13786
+    components:
+    - type: Transform
+      pos: -24.5,4.5
       parent: 34
 - proto: DefaultStationBeaconEscapePod
   entities:
@@ -31864,6 +31897,13 @@ entities:
     - type: Transform
       pos: 8.5,7.5
       parent: 34
+- proto: DefaultStationBeaconMantis
+  entities:
+  - uid: 13787
+    components:
+    - type: Transform
+      pos: -31.5,1.5
+      parent: 34
 - proto: DefaultStationBeaconMedical
   entities:
   - uid: 13155
@@ -31885,12 +31925,26 @@ entities:
     - type: Transform
       pos: 45.5,1.5
       parent: 34
+- proto: DefaultStationBeaconPsychologist
+  entities:
+  - uid: 13782
+    components:
+    - type: Transform
+      pos: 18.5,-29.5
+      parent: 34
 - proto: DefaultStationBeaconRDRoom
   entities:
   - uid: 13153
     components:
     - type: Transform
       pos: -34.5,-4.5
+      parent: 34
+- proto: DefaultStationBeaconReporter
+  entities:
+  - uid: 13784
+    components:
+    - type: Transform
+      pos: 28.5,-37.5
       parent: 34
 - proto: DefaultStationBeaconSalvage
   entities:
@@ -31919,6 +31973,13 @@ entities:
     components:
     - type: Transform
       pos: 32.5,-44.5
+      parent: 34
+- proto: DefaultStationBeaconSurgery
+  entities:
+  - uid: 13781
+    components:
+    - type: Transform
+      pos: 10.5,-27.5
       parent: 34
 - proto: DefaultStationBeaconTEG
   entities:
@@ -36859,14 +36920,6 @@ entities:
       - 2410
       - 7684
       - 6707
-  - uid: 1121
-    components:
-    - type: Transform
-      pos: -36.5,-22.5
-      parent: 34
-    - type: Door
-      secondsUntilStateChange: -67176.98
-      state: Closing
   - uid: 1274
     components:
     - type: Transform
@@ -37650,6 +37703,11 @@ entities:
       - 13672
       - 2410
       - 6707
+  - uid: 13680
+    components:
+    - type: Transform
+      pos: -36.5,-22.5
+      parent: 34
 - proto: Fireplace
   entities:
   - uid: 2186
@@ -86342,35 +86400,38 @@ entities:
     - type: Transform
       pos: -39.5,-46.5
       parent: 34
-- proto: WarpPoint
+- proto: WarpPointArrivals
+  entities:
+  - uid: 13758
+    components:
+    - type: Transform
+      pos: 9.5,17.5
+      parent: 34
+- proto: WarpPointAtmos
   entities:
   - uid: 11316
     components:
     - type: Transform
       pos: -44.5,-41.5
       parent: 34
-    - type: WarpPoint
-      location: atmospherics
-- proto: WarpPointBeacon
+- proto: WarpPointBar
   entities:
-  - uid: 13156
+  - uid: 13760
     components:
     - type: Transform
-      pos: -47.5,-5.5
+      pos: 1.5,-8.5
       parent: 34
-    - type: NavMapBeacon
-      text: Dorms
-    - type: WarpPoint
-      location: Dorms
+- proto: WarpPointBeacon
+  entities:
   - uid: 13158
     components:
     - type: Transform
       pos: 1.5,5.5
       parent: 34
-    - type: NavMapBeacon
-      text: Dojo
     - type: WarpPoint
       location: Dojo
+    missingComponents:
+    - NavMapBeacon
 - proto: WarpPointBombing
   entities:
   - uid: 93
@@ -86380,16 +86441,14 @@ entities:
       parent: 34
     - type: WarpPoint
       location: Court
-    - type: NavMapBeacon
-      text: Court
   - uid: 3791
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,-28.5
       parent: 34
-    - type: WarpPoint
-      location: Surgery
+    missingComponents:
+    - WarpPoint
   - uid: 7494
     components:
     - type: Transform
@@ -86403,23 +86462,161 @@ entities:
       pos: -8.5,-16.5
       parent: 34
     - type: WarpPoint
-      location: central square
+      location: Central Square
   - uid: 11315
     components:
     - type: Transform
       pos: -43.5,-5.5
       parent: 34
-    - type: WarpPoint
-      location: dorms
+    missingComponents:
+    - WarpPoint
   - uid: 12918
     components:
     - type: Transform
       pos: -24.5,4.5
       parent: 34
-    - type: WarpPoint
-      location: engineering checkpoint
-    - type: NavMapBeacon
-      text: North Solars
+    missingComponents:
+    - WarpPoint
+- proto: WarpPointBotany
+  entities:
+  - uid: 13761
+    components:
+    - type: Transform
+      pos: -18.5,-6.5
+      parent: 34
+- proto: WarpPointBridge
+  entities:
+  - uid: 13778
+    components:
+    - type: Transform
+      pos: 48.5,-34.5
+      parent: 34
+- proto: WarpPointChapel
+  entities:
+  - uid: 13762
+    components:
+    - type: Transform
+      pos: -27.5,-16.5
+      parent: 34
+- proto: WarpPointCryo
+  entities:
+  - uid: 13759
+    components:
+    - type: Transform
+      pos: 17.5,15.5
+      parent: 34
+- proto: WarpPointDetective
+  entities:
+  - uid: 13763
+    components:
+    - type: Transform
+      pos: -9.5,4.5
+      parent: 34
+- proto: WarpPointDisposals
+  entities:
+  - uid: 13764
+    components:
+    - type: Transform
+      pos: -41.5,9.5
+      parent: 34
+- proto: WarpPointDorms
+  entities:
+  - uid: 13156
+    components:
+    - type: Transform
+      pos: -47.5,-5.5
+      parent: 34
+- proto: WarpPointEngineering
+  entities:
+  - uid: 13765
+    components:
+    - type: Transform
+      pos: -38.5,-26.5
+      parent: 34
+- proto: WarpPointEpistemics
+  entities:
+  - uid: 13766
+    components:
+    - type: Transform
+      pos: -30.5,-10.5
+      parent: 34
+- proto: WarpPointEvac
+  entities:
+  - uid: 13767
+    components:
+    - type: Transform
+      pos: 1.5,-49.5
+      parent: 34
+- proto: WarpPointHOP
+  entities:
+  - uid: 13768
+    components:
+    - type: Transform
+      pos: -18.5,-17.5
+      parent: 34
+- proto: WarpPointJanitor
+  entities:
+  - uid: 13769
+    components:
+    - type: Transform
+      pos: 5.5,-18.5
+      parent: 34
+- proto: WarpPointKitchen
+  entities:
+  - uid: 13770
+    components:
+    - type: Transform
+      pos: -9.5,-6.5
+      parent: 34
+- proto: WarpPointLogistics
+  entities:
+  - uid: 13771
+    components:
+    - type: Transform
+      pos: -10.5,-34.5
+      parent: 34
+- proto: WarpPointMedical
+  entities:
+  - uid: 13772
+    components:
+    - type: Transform
+      pos: 4.5,-36.5
+      parent: 34
+- proto: WarpPointPerma
+  entities:
+  - uid: 13773
+    components:
+    - type: Transform
+      pos: 44.5,-1.5
+      parent: 34
+- proto: WarpPointReporter
+  entities:
+  - uid: 13774
+    components:
+    - type: Transform
+      pos: 28.5,-38.5
+      parent: 34
+- proto: WarpPointSalvage
+  entities:
+  - uid: 13775
+    components:
+    - type: Transform
+      pos: -31.5,-61.5
+      parent: 34
+- proto: WarpPointSecurity
+  entities:
+  - uid: 13776
+    components:
+    - type: Transform
+      pos: 27.5,-2.5
+      parent: 34
+- proto: WarpPointVault
+  entities:
+  - uid: 13777
+    components:
+    - type: Transform
+      pos: 38.5,-34.5
+      parent: 34
 - proto: WashingMachineBroken
   entities:
   - uid: 6038
