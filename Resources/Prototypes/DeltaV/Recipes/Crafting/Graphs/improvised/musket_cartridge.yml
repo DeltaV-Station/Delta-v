@@ -1,0 +1,20 @@
+- type: constructionGraph
+  id: CartridgeMusketGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: musketcartridge
+      steps:
+      - tag: Paper
+        icon: 
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - material: Gunpowder
+        amount: 1
+      - material: Steel
+        amount: 1
+        doAfter: 1
+  - node: musketcartridge
+    entity: CartridgeMusket

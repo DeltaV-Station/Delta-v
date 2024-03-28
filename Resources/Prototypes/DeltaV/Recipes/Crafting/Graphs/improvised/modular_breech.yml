@@ -1,0 +1,14 @@
+#In its own file and not musket.yml in case anyone ever wants to add more guns that use it.
+- type: constructionGraph
+  id: ModularBreechGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: modularbreech
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 8
+  - node: modularbreech
+    entity: ModularBreech
