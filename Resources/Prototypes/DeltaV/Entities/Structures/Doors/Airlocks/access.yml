@@ -20,6 +20,79 @@
     layoutId: AirlockScience
 
 - type: entity
+  parent: AirlockCommand
+  id: AirlockChiefJusticeLocked
+  suffix: Chief Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockChiefJusticeGlassLocked
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockJusticeLocked
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockJusticeGlassLocked
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockProsecutorGlassLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+# Maintenance
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintChiefJusticeLocked
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintJusticeLocked
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
   parent: AirlockSecurity
   id: AirlockCorpsmanLocked
   suffix: Corpsman, Locked

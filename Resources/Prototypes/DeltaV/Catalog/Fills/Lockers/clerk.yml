@@ -1,0 +1,11 @@
+- type: entity
+  parent: LockerClerk
+  id: LockerClerkFilled
+  name: clerk's locker
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterClerkVest
+    - id: BoxEncryptionKeyJustice
+    - id: ClerkIDCard
+    - id: RubberStampNotary

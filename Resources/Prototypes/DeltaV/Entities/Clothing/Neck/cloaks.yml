@@ -31,3 +31,15 @@
     sprite: DeltaV/Clothing/Neck/Cloaks/salvage.rsi 
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Cloaks/salvage.rsi  
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCJ
+  name: chief justice's cloak
+  description: A hefty cloak adorned with a modest insignia and grand fur trim.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/cjcloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+

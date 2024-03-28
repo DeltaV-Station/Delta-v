@@ -21,3 +21,27 @@
   components:
   - type: AccessReader
     access: [["Paramedic"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureChiefJusticeLocked
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureJusticeLocked
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]

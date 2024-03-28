@@ -10,7 +10,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: Airlock
+  parent: AirlockJustice # DeltaV - Lawyer is in Justice Dept
   id: AirlockLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -454,8 +454,8 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockGlass
-  id: AirlockLawyerGlassLocked
+  parent: AirlockJusticeGlass
+  id: AirlockLawyerGlassLocked # DeltaV - Lawyer is in Justice Dept
   suffix: Lawyer, Locked
   components:
   - type: AccessReader
