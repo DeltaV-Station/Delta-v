@@ -60,7 +60,7 @@
       visible: false
   - type: Pda
     id: ChiefJusticeIDCard
-    state: pda-cj
+    state: pda-chiefjustice
     penSlot:
       startingItem: LuxuryPen
       priority: -1
@@ -71,7 +71,7 @@
     borderColor: "#470823"
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
-    state: pda-cj
+    state: pda-chiefjustice
   - type: CartridgeLoader
     preinstalled:
       - CrewManifestCartridge
