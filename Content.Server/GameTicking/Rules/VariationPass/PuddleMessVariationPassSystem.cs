@@ -17,6 +17,8 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
     {
         var totalTiles = Stations.GetTileCount(args.Station);
 
+        var targetGrid = Stations.GetLargestGrid(args.Station); // DeltaV, dont spawn puddles on the shuttles
+
         if (!_proto.TryIndex(ent.Comp.RandomPuddleSolutionFill, out var proto))
             return;
 
@@ -26,6 +28,9 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
         for (var i = 0; i < puddleTiles; i++)
         {
             if (!TryFindRandomTileOnStation(args.Station, out _, out _, out var coords))
+                continue;
+
+            if (coords.GetGridUid(EntityManager) != targetGrid) // DeltaV, no puddles on the shuttles
                 continue;
 
             var sol = proto.Pick(Random);
