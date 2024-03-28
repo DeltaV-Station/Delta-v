@@ -56,7 +56,8 @@ public sealed partial class RevolutionaryRuleComponent : Component
     public List<EntProtoId> StartingGear = new()
     {
         "Flash",
-        "ClothingEyesGlassesSunglasses"
+        "ClothingEyesGlassesSunglasses",
+        "EncryptionKeySyndie"
     };
 
     /// <summary>
