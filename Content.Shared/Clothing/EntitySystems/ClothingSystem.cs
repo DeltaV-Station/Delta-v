@@ -91,7 +91,7 @@ public abstract class ClothingSystem : EntitySystem
 
     private void ToggleVisualLayer(EntityUid equipee, HumanoidVisualLayers layer, string tag)
     {
-        InventorySystem.InventorySlotEnumerator enumerator = _invSystem.GetSlotEnumerator(equipee, SlotFlags.All & ~SlotFlags.POCKET);
+        InventorySystem.InventorySlotEnumerator enumerator = _invSystem.GetSlotEnumerator(equipee, SlotFlags.HEAD ^ SlotFlags.MASK);
         bool shouldLayerShow = true;
 
         while (enumerator.NextItem(out EntityUid item))
