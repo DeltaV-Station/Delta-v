@@ -183,3 +183,94 @@
     Poison:
       effects:
       - !type:Jitter
+
+- type: reagent
+  id: Admiralty
+  name: reagent-name-admiralty
+  parent: BaseDrink
+  desc: reagent-desc-admiralty
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: strong
+  color: "#000070"
+  metamorphicSprite:
+    sprite: DeltaV/Objects/Consumable/Drinks/admiralty.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+
+- type: reagent
+  id: Amnesia
+  name: reagent-name-amnesia
+  parent: BaseDrink
+  desc: reagent-desc-amnesia
+  physicalDesc: reagent-physical-desc-inky
+  flavor: amnesia
+  metamorphicSprite:
+    sprite: DeltaV/Objects/Consumable/Drinks/amnesia.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: THC
+        amount: 0.3
+    Poison:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 10
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages:
+        - "generic-reagent-effect-confusion"
+        - "generic-reagent-effect-spoiler"
+        - "generic-reagent-effect-knowledge"
+        - "generic-reagent-effect-headache"
+        - "generic-reagent-effect-clown"
+        - "generic-reagent-effect-question"
+        - "generic-reagent-effect-paranoia"
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "generic-reagent-effect-trivia-plasma"
+        - "generic-reagent-effect-trivia-toilet"
+        - "generic-reagent-effect-trivia-coordinates"
+        - "generic-reagent-effect-trivia-soap"
+        - "generic-reagent-effect-trivia-foam"
+        - "generic-reagent-effect-trivia-drink"
+        - "generic-reagent-effect-trivia-plant"
+        - "generic-reagent-effect-trivia-walk"
+        probability: 0.02
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages:
+        - "generic-reagent-effect-error"
+        - "generic-reagent-effect-sophie"
+        - "generic-reagent-effect-syndicate"
+        - "generic-reagent-effect-reach"
+        - "generic-reagent-effect-lie"
+        probability: 0.001 # Rare easter egg subtles
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
