@@ -12,7 +12,3 @@ marking-OniHornDoubleLeftBrokeCurved = Double Left Broke Curved
 marking-OniHornDoubleLeftBrokeCurved-double_left_broke_curved = Double Left Broke Curved
 marking-OniHornDoubleRightBrokeCurved =  Double Right Broke Curved
 marking-OniHornDoubleRightBrokeCurved-double_right_broke_curved = Double Right Broke Curved
-marking-OniHornShaved = Shaved
-marking-OniHornShaved-shaved = Shaved
-marking-OniHornBull = Bull
-marking-OniHornBull-bull = Bull
