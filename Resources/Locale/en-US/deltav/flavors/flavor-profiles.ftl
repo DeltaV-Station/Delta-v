@@ -25,5 +25,5 @@ flavor-complex-lemondrop = refreshingly tart
 flavor-complex-greengrass = like a holiday in the sun
 flavor-complex-daiquiri = fashionable
 flavor-complex-arsonistsbrew = like ash and flame
-flavor-complex-dulleavene = ominous
+flavor-complex-healthcodeviolation = ominous
 flavor-complex-pumpkin = like pumpkin

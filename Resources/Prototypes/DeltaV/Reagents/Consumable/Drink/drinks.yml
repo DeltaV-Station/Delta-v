@@ -4,11 +4,14 @@
   parent: BaseDrink
   desc: reagent-desc-healthviolation
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: dulleavene
+  flavor: healthcodeviolation
   color: "#ff7f00"
   metamorphicSprite:
-    sprite: DeltaV/Objects/Consumable/Drinks/dulleavene.rsi
-    state: icon
+    sprite: DeltaV/Objects/Consumable/Drinks/healthcodeviolation.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -41,7 +44,10 @@
   color: "#994422"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/gunmetal.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -67,7 +73,9 @@
   color: "#fff789"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/lemondrop.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
   metabolisms:
     Drink:
       effects:
@@ -87,7 +95,9 @@
   color: "#66aa55"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/greengrass.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
   metabolisms:
     Drink:
       effects:
@@ -107,7 +117,10 @@
   color: "#ddffdd"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/daiquiri.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -127,7 +140,10 @@
   color: "#fff789"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/arsonist.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -158,8 +174,11 @@
   flavor: bread
   color: "#381600"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/kvass.rsi
-    state: icon
+    sprite: DeltaV/Objects/Consumable/Drinks/kvass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: Mothamphetamine
@@ -171,7 +190,10 @@
   color: "#2fa1ef"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/mothamphetamine.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
