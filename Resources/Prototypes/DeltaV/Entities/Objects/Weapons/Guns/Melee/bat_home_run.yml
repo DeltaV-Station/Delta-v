@@ -1,0 +1,39 @@
+# DeltaV "Home Run Bat"
+
+- type: entity
+  name: home run bat
+  parent: BaseItem
+  id: BaseBallBatHomerun
+  description: Heavy metal bat with an extra kick.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Melee/home_run_bat.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+        Structural: 5
+    soundHit:
+      collection: ExplosionSmall
+  - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.
+  - type: Wieldable
+  - type: MeleeThrowOnHit
+    speed: 30
+    lifetime: 5
+  - type: Item
+    size: Large
+  - type: Tool
+    qualities:
+    - Rolling
+    speed: 0.50 # it's very heavy, it does it slower than a wooden bat
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: UseDelay
+    delay: 2
+  - type: Tag
+    tags:
+    - BaseballBat

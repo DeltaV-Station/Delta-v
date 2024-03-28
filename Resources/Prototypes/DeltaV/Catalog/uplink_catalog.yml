@@ -10,6 +10,37 @@
   - UplinkAllies
 
 - type: listing
+  id: Home Run Bat
+  name: uplink-homerunbat-name
+  description: uplink-homerunbat-desc
+  productEntity: BaseBallBatHomerun
+  icon: { sprite: DeltaV/Objects/Weapons/Melee/home_run_bat.rsi, state: icon }
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeapons
+
+#- type: listing
+#  id: UplinkCyborgBeaconSyndicate
+#  name: uplink-borg-beacon-name
+#  description: uplink-borg-beacon-desc
+#  productEntity: CyborgBeaconSyndicate
+#  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+#  cost:
+#    Telecrystal: 65
+#  categories:
+#    - UplinkUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#          - SurplusBundle
+
+- type: listing
   id: UplinkBionicSyrinxImplanter
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc
