@@ -38,6 +38,10 @@
         type: RadarConsoleBoundUserInterface
   - type: StaticPrice
     price: 150
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+       - HandHeldMassScanner
 
 - type: entity
   id: HandHeldMassScannerEmpty
@@ -70,8 +74,3 @@
         startingItem: PowerCellMicroreactor
         disableEject: true
         swap: false
-
-      - type: ReverseEngineering # Nyano
-        difficulty: 2
-        recipes:
-      - HandHeldMassScanner
