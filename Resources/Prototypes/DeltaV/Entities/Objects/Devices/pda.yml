@@ -52,3 +52,12 @@
       whitelist:
         tags:
         - Write
+
+- type: entity
+  parent: PassengerPDA
+  id: OffDutyCrewPDA
+  name: off duty crew pda
+  components:
+  - type: Pda
+    id: OffDutyCrewID
+    state: pda

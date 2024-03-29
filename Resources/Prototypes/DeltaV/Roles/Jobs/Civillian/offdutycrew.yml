@@ -1,0 +1,22 @@
+- type: job
+  id: OffDutyCrew
+  name: job-name-off-duty-crew
+  description: job-description-off-duty-crew
+  playTimeTracker: JobOffDutyCrew
+  startingGear: OffDutyCrewGear
+  icon: "JobIconPassenger"
+  supervisors: job-supervisors-everyone
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: OffDutyCrew
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: OffDutyCrewPDA
+    ears: ClothingHeadsetGrey
+  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
