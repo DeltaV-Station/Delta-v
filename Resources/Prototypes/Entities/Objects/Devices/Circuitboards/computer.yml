@@ -122,6 +122,10 @@
       prototype: ComputerSalvageExpedition
     - type: StealTarget
       stealGroup: SalvageExpeditionsComputerCircuitboard
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SalvageExpeditionsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -156,6 +160,10 @@
     - type: Tag
       tags:
         - SurveillanceCameraMonitorCircuitboard
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SurveillanceCameraMonitorCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -165,6 +173,10 @@
   components:
     - type: ComputerBoard
       prototype: ComputerSurveillanceWirelessCameraMonitor
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SurveillanceWirelessCameraMonitorCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -176,6 +188,10 @@
       prototype: ComputerTelevision
     - type: Tag
       tags:
+        - ComputerTelevisionCircuitboard
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
         - ComputerTelevisionCircuitboard
 
 - type: entity
@@ -286,6 +302,10 @@
   components:
   - type: ComputerBoard
     prototype: ComputerRadar
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - RadarConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -339,6 +359,10 @@
   components:
     - type: ComputerBoard
       prototype: ComputerShuttle
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - ShuttleConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -396,6 +420,10 @@
       price: 150
     - type: ComputerBoard
       prototype: ComputerMassMedia
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - ComputerMassMediaCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
