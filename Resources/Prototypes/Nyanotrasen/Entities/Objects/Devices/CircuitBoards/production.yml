@@ -35,14 +35,14 @@
       materialRequirements:
         Glass: 1
         Cable: 1
-        Diamond: 10
+        PlasmaGlass: 10
       tagRequirements:
         BorgArm:
           Amount: 3
           DefaultPrototype: LeftArmBorg
           ExamineName: borg arm
     - type: ReverseEngineering
-      difficulty: 3
+      difficulty: 2
       recipes:
         - ReverseEngineeringMachineCircuitboard
 
