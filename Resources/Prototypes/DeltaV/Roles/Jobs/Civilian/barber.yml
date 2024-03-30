@@ -1,0 +1,28 @@
+- type: job
+  id: Barber
+  name: job-name-barber
+  description: job-description-barber
+  playTimeTracker: JobBarber
+  #requirements:    #TODO: Worth considering if this is worth gate-keeping even slightly.
+  #  - !type:OverallPlaytimeRequirement
+  #    time: 7200
+  startingGear: BarberGear
+  icon: "JobIconServiceWorker"
+  supervisors: job-supervisors-service
+  access:
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: BarberGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkGreen # DeltaV
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: BarberPDA
+    ears: ClothingHeadsetService
+    pocket1: BarberScissor
+    pocket2: SprayBottle
+  innerClothingSkirt: ClothingUniformJumpskirtColorDarkGreen # DeltaV
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

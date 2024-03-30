@@ -1,0 +1,8 @@
+- type: entity
+  parent: ServiceWorkerIDCard
+  id: BarberIDCard
+  name: barber ID card
+  description: something funny
+  components:
+  - type: PresetIdCard
+    job: Barber
