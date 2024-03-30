@@ -28,6 +28,11 @@
     - type: Tag
       tags:
       - WhitelistChameleon
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - ClothingShoesBootsMagSci
+
 
 - type: entity
   parent: ClothingShoesBootsMag
@@ -66,6 +71,11 @@
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
   - type: Magboots
     toggleAction: ActionToggleMagbootsSci
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - ClothingShoesBootsMagSci
+
 
 - type: entity
   parent: ClothingShoesBootsMag
