@@ -227,6 +227,10 @@
       beaker:
         maxVol: 60
         canReact: false
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - cryostasisBeaker
 
 - type: entity
   name: bluespace beaker
@@ -245,6 +249,10 @@
       beaker:
         maxVol: 1000
         canMix: true
+  - type: ReverseEngineering # Nyano
+    difficulty: 4
+    recipes:
+      - BluespaceBeaker
 
 - type: entity
   name: dropper
@@ -401,6 +409,10 @@
     tags:
     - Syringe
     - Trash
+  - type: ReverseEngineering # Nyano
+    difficulty: 4
+    recipes:
+      - SyringeBluespace
 
 - type: entity
   id: SyringeCryostasis
@@ -432,6 +444,10 @@
     tags:
     - Syringe
     - Trash
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - SyringeCryostasis
 
 
 - type: entity
