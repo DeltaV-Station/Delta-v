@@ -519,6 +519,8 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/bite.ogg
+  - type: ReplaceOnSpawn
+    prototype: MobCarpRainbow
   - type: MeleeWeapon
     wideAnimationRotation: -90
     soundHit:
@@ -965,6 +967,8 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+  - type: ReplaceOnSpawn
+    prototype: RevolverCapGunFake
 
 - type: entity
   parent: RevolverCapGun
@@ -1238,6 +1242,8 @@
       damage:
         types:
           Blunt: 0
+    - type: ReplaceOnSpawn
+      prototype: EnergySword
     - type: ItemToggleMeleeWeapon
       activatedSoundOnHit:
         path: /Audio/Weapons/eblade1.ogg
