@@ -1,0 +1,20 @@
+- type: job
+  id: Tourist
+  name: job-name-tourist
+  description: job-description-tourist
+  playTimeTracker: JobTourist
+  startingGear: TouristGear
+  icon: "JobIconPassenger"
+  supervisors: job-supervisors-everyone
+
+- type: startingGear
+  id: TouristGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTourist
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesTourist
+    id: TouristPDA
+    ears: ClothingHeadsetGrey
+  innerClothingSkirt: ClothingUniformJumpsuitTourist  # TODO: Check this works with Harpies.
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

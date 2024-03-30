@@ -13,3 +13,18 @@
       state: medical
     - sprite: Mobs/Silicon/chassis.rsi
       state: medical_e
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointTourist
+  name: Tourist
+  components:
+  - type: SpawnPoint
+    job_id: Tourist
+  - type: Sprite
+    layers:
+    - type: Sprite
+      layers:
+      - state: green
+      - state: passenger
+  
