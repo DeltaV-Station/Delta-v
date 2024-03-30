@@ -11,6 +11,9 @@
         Manipulator: 1
       materialRequirements:
         Glass: 1
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -50,6 +53,9 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - ProtolatheMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -325,10 +331,10 @@
     materialRequirements:
       Glass: 1
       Steel: 5
-    - type: ReverseEngineering # Nyano
-      difficulty: 3
-      recipes:
-       - ArtifactCrusherMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - ArtifactCrusherMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -366,10 +372,10 @@
       Cable: 5
       PlasmaGlass: 15
       MetalRod: 4
-    - type: ReverseEngineering # Nyano
-      difficulty: 3
-      recipes:
-       - AnomalyVesselExperimentalCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - AnomalyVesselExperimentalCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -876,9 +882,9 @@
     materialComposition:
       Steel: 30
       Plastic: 30
-   - type: ReverseEngineering # Nyano
-     difficulty: 2
-     recipes: TurboItemRechargerCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes: TurboItemRechargerCircuitboard
 
 - type: entity
   id: SubstationMachineCircuitboard
@@ -978,10 +984,10 @@
       Capacitor: 4
     materialRequirements:
       Steel: 5
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes: 
-       - ThrusterMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes: 
+      - ThrusterMachineCircuitboard
 
 - type: entity
   id: GyroscopeMachineCircuitboard
@@ -995,10 +1001,10 @@
       Capacitor: 1
     materialRequirements:
       Glass: 2
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes: 
-       - GyroscopeMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes: 
+      - GyroscopeMachineCircuitboard
 
 - type: entity
   id: PortableGeneratorSuperPacmanMachineCircuitboard
@@ -1136,9 +1142,9 @@
       Capacitor: 2
     materialRequirements:
       Cable: 1
-   - type: ReverseEngineering # Nyano
-     recipes:
-       - ElectrolysisUnitMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    recipes:
+      - ElectrolysisUnitMachineCircuitboard
   
 - type: entity
   id: CentrifugeMachineCircuitboard
@@ -1154,9 +1160,9 @@
       Manipulator: 1
     materialRequirements:
       Steel: 1
-     - type: ReverseEngineering # Nyano
-     recipes:
-       - CentrifugeMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    recipes:
+      - CentrifugeMachineCircuitboard
 
 - type: entity
   id: MaterialReclaimerMachineCircuitboard
@@ -1210,10 +1216,10 @@
       Manipulator: 3
     materialRequirements:
       Glass: 1
-   - type: ReverseEngineering # Nyano
-     difficulty: 2
-     recipes:
-       - OreProcessorIndustrialMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - OreProcessorIndustrialMachineCircuitboard
 
 - type: entity
   id: SheetifierMachineCircuitboard
@@ -1225,10 +1231,10 @@
     requirements:
       MatterBin: 1
       Manipulator: 1
-   - type: ReverseEngineering # Nyano
-     difficulty: 2
-     recipes:
-       - SheetifierMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - SheetifierMachineCircuitboard
 
 - type: entity
   id: MicrowaveMachineCircuitboard
@@ -1501,10 +1507,10 @@
       Steel: 5
       CableHV: 5
       Uranium: 2
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes:
-       - MiniGravityGeneratorCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - MiniGravityGeneratorCircuitboard
 
 - type: entity
   id: ShuttleGunSvalinnMachineGunCircuitboard
@@ -1522,10 +1528,10 @@
     materialRequirements:
       Steel: 5
       CableHV: 5
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes:
-       - ShuttleGunSvalinnMachineGunCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - ShuttleGunSvalinnMachineGunCircuitboard
 
 - type: entity
   id: ShuttleGunPerforatorCircuitboard
@@ -1543,10 +1549,10 @@
     materialRequirements:
       Steel: 10
       CableHV: 5
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes:
-       - ShuttleGunPerforatorCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - ShuttleGunPerforatorCircuitboard
 
 - type: entity
   id: ShuttleGunFriendshipCircuitboard
@@ -1564,10 +1570,10 @@
     materialRequirements:
       Steel: 7
       CableHV: 5
-   - type: ReverseEngineering # Nyano
-     difficulty: 3
-     recipes:
-       - ShuttleGunFriendshipCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - ShuttleGunFriendshipCircuitboard
 
 - type: entity
   id: ShuttleGunDusterCircuitboard
@@ -1586,10 +1592,10 @@
       Steel: 10
       CableHV: 5
       Uranium: 2
-   - type: ReverseEngineering # Nyano
-     difficulty: 4
-     recipes:
-       - ShuttleGunDusterCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 4
+    recipes:
+      - ShuttleGunDusterCircuitboard
 
 - type: entity
   id: ShuttleGunKineticCircuitboard
@@ -1607,7 +1613,7 @@
     materialRequirements:
       Steel: 5
       CableHV: 2
-   - type: ReverseEngineering # Nyano
-     difficulty: 2
-     recipes:
-       - ShuttleGunKineticCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - ShuttleGunKineticCircuitboard
