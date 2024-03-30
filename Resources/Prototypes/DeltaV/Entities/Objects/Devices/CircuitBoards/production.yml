@@ -1,0 +1,27 @@
+- type: entity
+  id: ReverseEngineeringExperimentalCircuitboard
+  parent: BaseMachineCircuitboard
+  name: experimental reverse engineering machine machine board
+  description: A machine printed circuit board for an experimental reverse engineering machine
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: ExperimentalReverseEngineeringMachine
+      requirements:
+        MatterBin: 1
+        Manipulator: 1
+      materialRequirements:
+        Glass: 1
+        Cable: 1
+        Uranium: 5
+        Plasteel: 5
+      tagRequirements:
+        BorgArm:
+          Amount: 3
+          DefaultPrototype: LeftArmBorg
+          ExamineName: borg arm
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - ReverseEngineeringExperimentalCircuitboard

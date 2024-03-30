@@ -14,6 +14,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Content.Server.Radiation.Systems; // The thing that makes it radiate
 
 namespace Content.Server.ReverseEngineering;
 
@@ -27,6 +28,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly RadiationSystem _radiation = default!; // Radiation go brr
 
     private const string TargetSlot = "target_slot";
     public override void Initialize()
@@ -34,8 +36,6 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<ReverseEngineeringMachineComponent, RefreshPartsEvent>(OnRefreshParts);
-        SubscribeLocalEvent<ReverseEngineeringMachineComponent, UpgradeExamineEvent>(OnExamineParts);
 
         SubscribeLocalEvent<ActiveReverseEngineeringMachineComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ActiveReverseEngineeringMachineComponent, ComponentShutdown>(OnShutdown);
@@ -98,29 +98,17 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             _appearanceSystem.SetData(uid, ReverseEngineeringVisuals.ChamberOpen, true, appearance);
     }
 
-    private void OnRefreshParts(EntityUid uid, ReverseEngineeringMachineComponent component, RefreshPartsEvent args)
-    {
-        var bonusRating = args.PartRatings[component.MachinePartScanBonus];
-        var aversionRating = args.PartRatings[component.MachinePartDangerAversionScore];
-
-        component.ScanBonus = (int) bonusRating;
-        component.DangerAversionScore = (int) aversionRating;
-    }
-
-    private void OnExamineParts(EntityUid uid, ReverseEngineeringMachineComponent component, UpgradeExamineEvent args)
-    {
-        args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus - 1);
-        args.AddNumberUpgrade("reverse-engineering-machine-aversion-upgrade", component.DangerAversionScore - 1);
-    }
 
     private void OnStartup(EntityUid uid, ActiveReverseEngineeringMachineComponent component, ComponentStartup args)
     {
         _ambientSoundSystem.SetAmbience(uid, true);
+        _radiation.SetSourceEnabled(uid, true);
     }
 
     private void OnShutdown(EntityUid uid,ActiveReverseEngineeringMachineComponent component, ComponentShutdown args)
     {
         _ambientSoundSystem.SetAmbience(uid, false);
+        _radiation.SetSourceEnabled(uid, false);
     }
 
     private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)
