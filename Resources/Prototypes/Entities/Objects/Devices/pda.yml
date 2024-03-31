@@ -903,7 +903,7 @@
     accentVColor: "#447987"
 
 - type: entity
-  parent: BaseMedicalPDA #Delta-v Make PyschologistPDA able to use medical scan
+  parent: BasePDA 
   id: PsychologistPDA
   name: psychologist PDA
   description: Looks immaculately cleaned.
@@ -915,7 +915,11 @@
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
   - type: Icon
-    state: pda-medical
+    state: pda-medical 
+  - type: HealthAnalyzer #Delta-v - (Start) Make PyschologistPDA able to use medical scan
+    scanDelay: 2 # Make the scan slower as psychologists should focus on mental health
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg" #Delta-v - (End) Make PyschologistPDA able to use medical scan
 
 - type: entity
   parent: BasePDA
