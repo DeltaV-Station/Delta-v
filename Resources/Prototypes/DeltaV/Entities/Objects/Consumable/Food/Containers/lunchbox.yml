@@ -11,7 +11,7 @@
     - state: generic-open
       map: ["openLayer"]
   - type: Item
-    size: Normal
+    size: Large
     shape: null
     sprite: DeltaV/Objects/Storage/lunchbox.rsi
     heldPrefix: generic
@@ -20,7 +20,7 @@
     grid:
     - 0,0,1,1
     - 3,0,1,1
-    - 4,0,4,2
+    - 4,0,4,1
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -42,28 +42,74 @@
   components:
   - type: StorageFill
     contents:
+    #Main
     - id: FoodPizzaArnoldSlice
       orGroup: HealthyOrUnhealthyMain
-      prob: 0.5
+      prob: 0.2
       amount: 2
-    - id: FoodApple
+    - id: FoodBurgerCheese
       orGroup: HealthyOrUnhealthyMain
-      prob: 0.5
+      prob: 0.2
+    - id: FoodCarrot
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    - id: FoodMothCapreseSalad
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    - id: FoodEggBoiled
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    #Drink
+    - id: DrinkJuiceOrangeJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuicePineappleJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuiceAppleJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuiceGrapeJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkChocolateJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
     - id: DrinkWaterBottleFull
       orGroup: HealthyOrUnhealthyDrink
-      prob: 0.5
-    - id: DrinkCartonOrange
-      orGroup: HealthyOrUnhealthyDrink
-      prob: 0.5
+      prob: 0.15
+    #Snack
     - id: FoodSnackCheesie
       orGroup: HealthyOrUnhealthySnack
-      prob: 0.25
+      prob: 0.15
+    - id: FoodSnackBoritos
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChips
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackPistachios
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
     - id: FoodSnackChocolate
       orGroup: HealthyOrUnhealthySnack
-      prob: 0.25
-    - id: FoodCarrot
+      prob: 0.15
+    - id: FoodSnackSus
       orGroup: HealthyOrUnhealthySnack
-      prob: 0.5
+      prob: 0.15
+    - id: FoodMothMoffin
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.05
+    - id: FoodMothMothmallowSlice
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.05
+    - id: FoodApple
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodBanana
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    #Note
     - id: PaperWrittenNoteFromMumGeneric
       prob: 0.1
 
@@ -76,9 +122,26 @@
   components:
   - type: StorageFill
     contents:
-    - id: FoodApple
-    - id: DrinkWaterBottleFull
+    #Main
     - id: FoodCarrot
+      orGroup: HealthyMain
+      prob: 0.5
+    - id: FoodMothCapreseSalad
+      orGroup: HealthyMain
+      prob: 0.5
+    - id: FoodEggBoiled
+      orGroup: HealthyMain
+      prob: 0.25
+    #Drink
+    - id: DrinkWaterBottleFull
+    #Snack
+    - id: FoodApple
+      orGroup: HealthySnack
+      prob: 0.5
+    - id: FoodBanana
+      orGroup: HealthySnack
+      prob: 0.5
+    #Note
     - id: PaperWrittenNoteFromMumHealthy
       prob: 0.1
 
@@ -91,15 +154,51 @@
   components:
   - type: StorageFill
     contents:
+    #Main
     - id: FoodPizzaArnoldSlice
       amount: 2
-    - id: DrinkCartonOrange
+    #Drink
+    - id: DrinkJuiceOrangeJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuicePineappleJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuiceAppleJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuiceGrapeJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkChocolateJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    #Snack
     - id: FoodSnackCheesie
       orGroup: UnhealthySnack
-      prob: 0.25
+      prob: 0.15
+    - id: FoodSnackBoritos
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChips
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackPistachios
+      orGroup: UnhealthySnack
+      prob: 0.15
     - id: FoodSnackChocolate
       orGroup: UnhealthySnack
-      prob: 0.25
+      prob: 0.15
+    - id: FoodSnackSus
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodMothMoffin
+      orGroup: UnhealthySnack
+      prob: 0.05
+    - id: FoodMothMothmallowSlice
+      orGroup: UnhealthySnack
+      prob: 0.05
+    #Note
     - id: PaperWrittenNoteFromMumUnhealthy
       prob: 0.1
 
