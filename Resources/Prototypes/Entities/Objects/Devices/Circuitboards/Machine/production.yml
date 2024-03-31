@@ -884,7 +884,8 @@
       Plastic: 30
   - type: ReverseEngineering # Nyano
     difficulty: 2
-    recipes: TurboItemRechargerCircuitboard
+    recipes:
+      - TurboItemRechargerCircuitboard
 
 - type: entity
   id: SubstationMachineCircuitboard
@@ -1278,10 +1279,10 @@
           Amount: 1
           DefaultPrototype: ForkPlastic
           ExamineName: Utensil
-     - type: ReverseEngineering # Nyano
-       difficulty: 2
-       recipes:
-         - FatExtractorMachineCircuitboard
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - FatExtractorMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1295,10 +1296,10 @@
       MatterBin: 1
     materialRequirements:
       Steel: 1
-   - type: ReverseEngineering # Nyano
-     difficulty: 2
-     recipes:
-       - FlatpackerMachineCircuitboard
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - FlatpackerMachineCircuitboard
 
 
 - type: entity
