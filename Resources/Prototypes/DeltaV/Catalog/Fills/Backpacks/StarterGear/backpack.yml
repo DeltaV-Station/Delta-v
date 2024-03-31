@@ -32,3 +32,302 @@
     contents:
     - id: BoxSurvivalMedical
     - id: RubberStampPsychologist
+
+# ERT
+# Amber ERT:
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderAmber
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: WeaponEnergyGun
+        - id: Stunbaton 
+        - id: Handcuffs
+        - id: PinpointerNuclear
+        - id: CrowbarRed
+        - id: MindShieldImplanter
+        - id: MindShieldImplanter
+        - id: MindShieldImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackERTSecurityAmber
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: WeaponEnergyGun
+        - id: FlashlightSeclite
+        - id: BoxFlashbang
+        - id: BoxHandcuff
+        - id: CrowbarRed
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackERTMedicalAmber
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvivalMedical
+        - id: WeaponEnergyGunMini
+        - id: Hypospray
+        - id: MedkitFilled
+        - id: MedkitAdvancedFilled
+        - id: CrowbarRed
+        - id: Stunbaton
+        - id: Portafib
+        - id: CombatMedipen
+        - id: EphedrineChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: EpinephrineChemistryBottle
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackERTEngineerAmber
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvivalEngineering
+        - id: trayScanner
+        - id: WeaponEnergyGunMini
+        - id: SheetSteel
+        - id: SheetGlass
+        - id: FlashlightLantern
+        - id: GasAnalyzer
+        - id: Stunbaton
+        - id: CableMVStack
+        - id: CableHVStack
+
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTJanitor
+  id: ClothingBackpackERTJanitorAmber
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: WeaponDisabler
+        - id: BoxLightMixed
+        - id: LightReplacer
+        - id: Soap
+        - id: CrowbarRed
+        - id: AdvMopItem
+        - id: Stunbaton
+        - id: BoxMousetrap
+
+# End of Amber
+# Red ERT
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderRed
+  components:
+   - type: StorageFill
+     contents: 
+       - id: Stunbaton
+       - id: WeaponEnergyGunPistol
+       - id: Handcuffs
+       - id: PinpointerNuclear
+       - id: DoorRemoteAll
+       - id: BoxSurvival
+       - id: CrowbarRed
+       - id: MindShieldImplanter
+       - id: MindShieldImplanter
+       - id: MindShieldImplanter
+       - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackERTSecurityRed
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponEnergyGunPistol
+        - id: WeaponGunLaserCarbineAutomatic
+        - id: Flash
+        - id: CombatKnife
+        - id: BoxHandcuff
+        - id: BoxSurvivalSecurity
+        - id: FlashlightSeclite
+        - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackERTMedicalRed
+  components:
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: WeaponEnergyGun
+        - id: Hypospray
+        - id: Portafib #make advanced compact
+        - id: CombatMedipen
+        - id: CombatMedipen
+        - id: CombatMedipen
+        - id: CrowbarRed
+        - id: BoxSurvivalMedical
+        - id: RollerBedSpawnFolded
+        - id: DeathAcidifierImplanter
+        - id: EphedrineChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: EpinephrineChemistryBottle
+       
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackERTEngineerRed
+  components:
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: BoxSurvivalEngineering
+        - id: trayScanner
+        - id: RCD
+        - id: RCDAmmo
+        - id: RCDAmmo
+        - id: RCDAmmo
+        - id: WeaponEnergyGun
+        - id: CableHVStack
+        - id: CableMVStack
+        - id: FlashlightLantern
+        - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTJanitor
+  id: ClothingBackpackERTJanitorRed
+  components:
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: WeaponEnergyGunMini
+        - id: HydroponicsToolScythe
+        - id: AdvMopItem
+        - id: LightReplacer
+        - id: BoxLightMixed
+        - id: BoxSurvival
+        - id: CrowbarRed
+        - id: SoapOmega
+        - id: CombatKnife
+        - id: DeathAcidifierImplanter
+
+# End of Red
+# Gamma ERT
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderGamma
+  components:
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: WeaponEnergyGunPistol
+        - id: Flash
+        - id: Handcuffs
+        - id: PinpointerNuclear
+        - id: DoorRemoteAll
+        - id: BoxSurvival
+        - id: CrowbarRed
+        - id: MindShieldImplanter
+          amount: 3
+        - id: WeaponPistolUniversal
+        - id: MagazineUniversalMagnum
+          amount: 2
+        - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackERTSecurityGamma
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponAdvancedLaser
+        - id: WeaponGunLaserCarbineAutomatic
+        - id: WeaponXrayCannon
+        - id: WeaponEnergyGunPistol
+        - id: Stunbaton
+        - id: Bola
+        - id: BoxHandcuff
+        - id: BoxFlashbang
+        - id: C4
+        - id: C4
+        - id: C4
+        - id: BoxSurvivalSecurity
+        - id: FlashlightSeclite
+        - id: CrowbarRed
+        - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackERTMedicalGamma
+  components:
+    - type: StorageFill
+      contents: 
+        - id: Stunbaton
+        - id: WeaponEnergyGunPistol
+        - id: Stimpack
+        - id: Stimpack
+        - id: Stimpack
+        - id: Hypospray
+        - id: OmnizineChemistryBottle
+        - id: OmnizineChemistryBottle
+        - id: OmnizineChemistryBottle
+        - id: Portafib #make advanced
+        - id: MedkitFilled
+        - id: MedkitAdvancedFilled
+        - id: RollerBedSpawnFolded
+        - id: CrowbarRed
+        - id: BoxSurvivalMedical    
+        - id: DeathAcidifierImplanter
+        - id: EphedrineChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: EpinephrineChemistryBottle
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackERTEngineerGamma
+  components: 
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: WeaponEnergyGunPistol
+        - id: trayScanner
+        - id: MedicatedSuture
+        - id: RCDExperimental
+        - id: BoxSurvivalEngineering
+        - id: CableHVStack
+        - id: CableMVStack
+        - id: DeathAcidifierImplanter
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackERTJanitor
+  id: ClothingBackpackERTJanitorGamma
+  components:
+    - type: StorageFill
+      contents:
+        - id: Stunbaton
+        - id: WeaponEnergyGun
+        - id: HydroponicsToolScythe
+        - id: LightReplacer
+        - id: AdvMopItem
+        - id: BoxLightMixed
+        - id: BoxSurvival
+        - id: CrowbarRed
+        - id: DeathAcidifierImplanter
+
+ #End of Gamma
