@@ -1107,6 +1107,11 @@
     materialRequirements:
       Glass: 2
       Cable: 5
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - ElectricGrillMachineCircuitboard
+
 
 - type: entity
   id: StasisBedMachineCircuitboard
