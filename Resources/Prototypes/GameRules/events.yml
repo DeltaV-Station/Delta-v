@@ -199,6 +199,8 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
+    - id: MobMouseCancer
+      prob: 0.02
     # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
     # specialEntries:
     # - id: SpawnPointGhostRatKing
@@ -333,6 +335,8 @@
     - id: MobMouse1
       prob: 0.02
     - id: MobMouse2
+      prob: 0.02
+    - id: MobMouseCancer
       prob: 0.02
 
 - type: entity
