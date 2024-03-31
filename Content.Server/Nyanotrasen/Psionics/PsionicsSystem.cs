@@ -11,6 +11,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Electrocution;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;

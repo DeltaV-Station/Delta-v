@@ -71,7 +71,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
     }
 }
 
-[AdminCommand(AdminFlags.Ban | AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist. Hopefully this is an or, not an and
+[AdminCommand(AdminFlags.Ban), AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist.
 public sealed class RemoveWhitelistCommand : LocalizedCommands
 {
     public override string Command => "whitelistremove";
