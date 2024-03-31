@@ -6,3 +6,8 @@
   components:
   - type: PresetIdCard
     job: Barber
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idbarber

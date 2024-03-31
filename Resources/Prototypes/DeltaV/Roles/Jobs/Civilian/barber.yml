@@ -3,11 +3,11 @@
   name: job-name-barber
   description: job-description-barber
   playTimeTracker: JobBarber
-  #requirements:    #TODO: Worth considering if this is worth gate-keeping even slightly.
-  #  - !type:OverallPlaytimeRequirement
-  #    time: 7200
+  requirements:    #If you can play service worker, you can play Barber.
+    - !type:OverallPlaytimeRequirement
+      time: 7200
   startingGear: BarberGear
-  icon: "JobIconServiceWorker"
+  icon: "JobIconBarber"
   supervisors: job-supervisors-service
   access:
   - Service
