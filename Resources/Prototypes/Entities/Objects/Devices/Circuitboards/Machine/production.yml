@@ -559,8 +559,8 @@
       Capacitor: 2
     materialRequirements:
       Cable: 5
-   - type: ReverseEngineering # Nyano
-     recipes: SpaceHeaterMachineCircuitBoard
+  - type: ReverseEngineering # Nyano
+    recipes: SpaceHeaterMachineCircuitBoard
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -987,7 +987,7 @@
       Steel: 5
   - type: ReverseEngineering # Nyano
     difficulty: 3
-    recipes: 
+    recipes:
       - ThrusterMachineCircuitboard
 
 - type: entity
@@ -1004,7 +1004,7 @@
       Glass: 2
   - type: ReverseEngineering # Nyano
     difficulty: 3
-    recipes: 
+    recipes:
       - GyroscopeMachineCircuitboard
 
 - type: entity
@@ -1151,7 +1151,7 @@
   - type: ReverseEngineering # Nyano
     recipes:
       - ElectrolysisUnitMachineCircuitboard
-  
+
 - type: entity
   id: CentrifugeMachineCircuitboard
   parent: BaseMachineCircuitboard
