@@ -542,7 +542,8 @@
       Glass: 2
   - type: ReverseEngineering # Nyano
     difficulty: 2
-    recipes: PortableScrubberMachineCircuitBoard
+    recipes:
+      - PortableScrubberMachineCircuitBoard
 
 - type: entity
   id: SpaceHeaterMachineCircuitBoard
@@ -560,7 +561,8 @@
     materialRequirements:
       Cable: 5
   - type: ReverseEngineering # Nyano
-    recipes: SpaceHeaterMachineCircuitBoard
+    recipes:
+      - SpaceHeaterMachineCircuitBoard
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -816,7 +818,8 @@
       price: 30
     - type: ReverseEngineering # Nyano
       difficulty: 3
-      recipes: PowerCageRechargerCircuitboard
+      recipes:
+        - PowerCageRechargerCircuitboard
 
 
 - type: entity
