@@ -22,7 +22,9 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// <summary>
     /// Added to the 3d6, scales off of scanner.
     /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int ScanBonus = 1;
+    //public int ScanBonus = 1;
 
 
     [DataField("machinePartDangerAversionScore", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]

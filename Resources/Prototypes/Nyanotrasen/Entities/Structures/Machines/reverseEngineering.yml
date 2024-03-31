@@ -5,6 +5,7 @@
   description: Destructively analyses pieces of technology in the hopes that we can retrieve information from them.
   components:
   - type: ReverseEngineeringMachine
+    scanBonus: 2
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/reverse_engineering.rsi
     snapCardinals: true
