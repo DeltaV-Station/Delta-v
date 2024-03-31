@@ -122,7 +122,7 @@
       prototype: ComputerSalvageExpedition
     - type: StealTarget
       stealGroup: SalvageExpeditionsComputerCircuitboard
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
         - SalvageExpeditionsComputerCircuitboard
@@ -160,7 +160,7 @@
     - type: Tag
       tags:
         - SurveillanceCameraMonitorCircuitboard
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
         - SurveillanceCameraMonitorCircuitboard
@@ -173,7 +173,7 @@
   components:
     - type: ComputerBoard
       prototype: ComputerSurveillanceWirelessCameraMonitor
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
         - SurveillanceWirelessCameraMonitorCircuitboard
@@ -188,8 +188,7 @@
       prototype: ComputerTelevision
     - type: Tag
       tags:
-        - ComputerTelevisionCircuitboard
-    - type: ReverseEngineering # Nyano
+        - ComputerTelevisionCircuitboard # delta
       difficulty: 2
       recipes:
         - ComputerTelevisionCircuitboard
@@ -243,7 +242,7 @@
   components:
     - type: ComputerBoard
       prototype: ComputerCrewMonitoring
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
         - CrewMonitoringComputerCircuitboard
@@ -302,7 +301,7 @@
   components:
   - type: ComputerBoard
     prototype: ComputerRadar
-  - type: ReverseEngineering # Nyano
+  - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
       - RadarConsoleCircuitboard
@@ -359,7 +358,7 @@
   components:
     - type: ComputerBoard
       prototype: ComputerShuttle
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 3
       recipes:
         - ShuttleConsoleCircuitboard
@@ -420,7 +419,7 @@
       price: 150
     - type: ComputerBoard
       prototype: ComputerMassMedia
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
         - ComputerMassMediaCircuitboard
