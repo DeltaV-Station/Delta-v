@@ -18,10 +18,8 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect
     enabled: true
-    reflectProb: .5
+    reflectProb: .25 # Delta-V : Halves reflection chance to better fit in-line with other reflection changes
     spread: 90
-    reflects:
-      - Energy #DeltaV:  Energy Reflection but no ballistics.
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
