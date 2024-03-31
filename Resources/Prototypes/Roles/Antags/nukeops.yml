@@ -10,6 +10,9 @@
   - !type:DepartmentTimeRequirement # DeltaV - engi dept time requirement
     department: Engineering
     time: 7200 # DeltaV - 2 hours
+  - !type:RoleTimeRequirement # DeltaV - salvage time requirement
+    role: SalvageSpecialist
+    time: 7200 # DeltaV - 2 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 36000 # DeltaV - 10 hours
