@@ -237,8 +237,6 @@ reagent-effect-guidebook-drunk =
         *[other] cause
     } drunkness
 
-reagent-effect-guidebook-byondify = Causes a superior gameplay experience
-
 reagent-effect-guidebook-electrocute =
     { $chance ->
         [1] Electrocutes
