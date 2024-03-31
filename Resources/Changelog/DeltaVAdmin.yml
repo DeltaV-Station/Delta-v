@@ -1,0 +1,24 @@
+﻿AdminOnly: true
+Entries:
+- author: DebugOk
+  changes:
+  - message: Add back the loadcharacter and spawncharacter commands.
+    type: Add
+  id: 1
+  time: '2023-10-19T00:00:00.0000000+00:00'
+- author: DebugOk
+  changes:
+  - message: Test entry, ignore me
+    type: Add
+  id: 2
+  time: '2024-03-11T22:00:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/958
+- author: NullWanderer
+  changes:
+  - message: whitelistremove now requires either ban or whitelist, not both.
+    type: Fix
+  id: 3
+  time: '2024-03-27T23:53:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/994
+Name: Admin
+Order: 1

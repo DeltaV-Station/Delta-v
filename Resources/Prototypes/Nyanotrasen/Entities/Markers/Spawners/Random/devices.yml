@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomBoards
-  name: random machine board spawner
+  name: random device & board spawner
   components:
   - type: Sprite
     layers:
@@ -71,11 +71,21 @@
       - HotplateMachineCircuitboard
       - ElectricGrillMachineCircuitboard
       - FatExtractorMachineCircuitboard
+      - SpaceHeaterMachineCircuitBoard
+      - StationMapCircuitboard
+      - Igniter
+      - IntercomElectronics
+      - DoorRemoteFirefight
+      - RadiationCollectorFlatpack
+      - ContainmentFieldGeneratorFlatpack
+      - SolarAssemblyFlatpack
+      - StationBeaconPart
+      - HandheldStationMap
     chance: 0.8
     rarePrototypes:
       - TraversalDistorterMachineCircuitboard
       - CloningPodMachineCircuitboard
-      # - MetempsychoticMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
       - ReverseEngineeringMachineCircuitboard
       - MedicalScannerMachineCircuitboard
       - DawInstrumentMachineCircuitboard
@@ -107,4 +117,26 @@
       - ShockCollar
       - GlimmerMonitorCartridge
       - PotatoAIChip
+      - CargoTelepadMachineCircuitboard
+      - FlatpackerMachineCircuitboard
+      - OreProcessorIndustrialMachineCircuitboard
+      - TurboItemRechargerCircuitboard
+      - PowerCageRechargerCircuitboard
+      - HellfireHeaterMachineCircuitBoard
+      - HellfireFreezerMachineCircuitBoard
+      - BiofabricatorMachineCircuitboard
+      - SalvageExpeditionsComputerCircuitboard
+      - RadarConsoleCircuitboard
+      - RipleyCentralElectronics
+      - RipleyPeripheralsElectronics
+      - HamtrCentralElectronics
+      - HamtrPeripheralsElectronics
+      - HonkerCentralElectronics
+      - HonkerPeripheralsElectronics
+      - HonkerTargetingElectronics
+      - RemoteSignallerAdvanced
+      - SignalTimerElectronics
+      - LogProbeCartridge
+      - HoloprojectorField
+      - DeviceQuantumSpinInverter
     rareChance: 0.25
