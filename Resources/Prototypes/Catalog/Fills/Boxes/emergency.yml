@@ -4,6 +4,10 @@
   id: BoxSurvival
   description: It's a box with basic internals inside.
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: StorageFill
     contents:
       - id: ClothingMaskBreath
@@ -13,6 +17,7 @@
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Sprite
     layers:
       - state: internals
@@ -24,6 +29,10 @@
   id: BoxSurvivalEngineering
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: StorageFill
     contents:
       - id: ClothingMaskBreath
@@ -33,6 +42,7 @@
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Sprite
     layers:
       - state: internals
@@ -45,6 +55,10 @@
   description: It's a box with basic internals inside.
   suffix: Security
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: StorageFill
     contents:
       - id: ClothingMaskGasSecurity
@@ -75,6 +89,7 @@
       - id: EmergencyMedipen
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Sprite
     layers:
       - state: internals
@@ -87,6 +102,10 @@
   description: It's a box with basic internals inside.
   suffix: Medical
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: StorageFill
     contents:
       - id: ClothingMaskBreathMedical
@@ -96,6 +115,7 @@
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Sprite
     layers:
       - state: internals
@@ -108,6 +128,10 @@
   description: A special box for sensitive people.
   suffix: Emergency
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: Sprite
     layers:
       - state: box_hug
@@ -123,6 +147,7 @@
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Tag
     tags:
       - BoxHug
@@ -133,6 +158,10 @@
   id: BoxSurvivalSyndicate
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   components:
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    - 3,0,3,0
   - type: StorageFill
     contents:
       - id: ClothingMaskGasSyndicate
@@ -141,6 +170,7 @@
       - id: Flare
       - id: FoodPSB # Nyanotrasen - Replace Tinned Meat with PSB
       - id: DrinkWaterBottleFull
+      - id: Tilenol
   - type: Sprite
     layers:
       - state: internals
