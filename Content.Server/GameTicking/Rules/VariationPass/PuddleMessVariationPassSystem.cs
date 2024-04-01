@@ -1,7 +1,10 @@
-﻿using Content.Server.Fluids.EntitySystems;
+﻿using System.Linq;
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Random.Helpers;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -12,10 +15,24 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
 {
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly EntityQuery<MapGridComponent> _mapgridQuery = default!;
 
     protected override void ApplyVariation(Entity<PuddleMessVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
-        var totalTiles = Stations.GetTileCount(args.Station);
+        var largestStationGridUid = Stations.GetLargestGrid(args.Station);
+        _mapgridQuery.TryGetComponent(largestStationGridUid, out var largestStationGridComponent);
+
+        IEnumerable<Robust.Shared.Map.TileRef>? largestStationGridTiles = null;
+        if (largestStationGridComponent is not null)
+        {
+            largestStationGridTiles = _map.GetAllTiles(args.Station, largestStationGridComponent);
+        }
+        else
+        {
+            return;
+        }
+        var totalTiles = largestStationGridTiles.Count();
 
         if (!_proto.TryIndex(ent.Comp.RandomPuddleSolutionFill, out var proto))
             return;
@@ -25,8 +42,9 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
 
         for (var i = 0; i < puddleTiles; i++)
         {
-            if (!TryFindRandomTileOnStation(args.Station, out _, out _, out var coords))
-                continue;
+            var curTileIndex = Random.Next(totalTiles);
+            var curTileRef = largestStationGridTiles.ElementAt(curTileIndex);
+            var coords = _map.GridTileToLocal(args.Station, largestStationGridComponent, curTileRef.GridIndices);
 
             var sol = proto.Pick(Random);
             _puddle.TrySpillAt(coords, new Solution(sol.reagent, sol.quantity), out _, sound: false);
