@@ -1,4 +1,5 @@
 ﻿using Content.Server.Chat.Managers;
+using Content.Server.DeltaV.SpaceFerret.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GenericAntag;
@@ -9,13 +10,12 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Roles;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret;
 
-public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
+public sealed class SpaceFerretSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -46,7 +46,7 @@ public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
         {
             Briefing = Loc.GetString(component.RoleBriefing)
         }, mind);
-        _role.MindAddRole(args.MindId, new LegallyDistinctSpaceFerretRoleComponent()
+        _role.MindAddRole(args.MindId, new SpaceFerretRoleComponent()
         {
             PrototypeId = component.AntagProtoId
         }, mind);
@@ -68,15 +68,9 @@ public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
     }
 }
 
-[RegisterComponent, Access(typeof(LegallyDistinctSpaceFerretSystem)), ExclusiveAntagonist]
-public sealed partial class LegallyDistinctSpaceFerretRoleComponent : AntagonistRoleComponent;
-
-[RegisterComponent]
-public sealed partial class LegallyDistinctSpaceFerretSpawnRuleComponent : Component;
-
-public sealed class LegallyDistinctSpaceFerretSpawnRule : StationEventSystem<LegallyDistinctSpaceFerretSpawnRuleComponent>
+public sealed class LegallyDistinctSpaceFerretSpawnRule : StationEventSystem<SpaceFerretSpawnRuleComponent>
 {
-    protected override void Started(EntityUid uid, LegallyDistinctSpaceFerretSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, SpaceFerretSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
 

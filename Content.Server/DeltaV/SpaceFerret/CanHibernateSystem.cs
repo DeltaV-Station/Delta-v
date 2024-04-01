@@ -11,7 +11,7 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret;
 
 public sealed class CanHibernateSystem : EntitySystem
 {

@@ -1,7 +1,7 @@
 ﻿using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret;
 
 public sealed class HibernateObjectiveSystem : EntitySystem
 {
