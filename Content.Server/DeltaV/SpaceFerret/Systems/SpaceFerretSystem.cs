@@ -8,7 +8,7 @@ using Content.Shared.Mind;
 using Content.Shared.Nutrition;
 using Robust.Shared.Audio;
 
-namespace Content.Server.DeltaV.SpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret.Systems;
 
 public sealed class SpaceFerretSystem : EntitySystem
 {

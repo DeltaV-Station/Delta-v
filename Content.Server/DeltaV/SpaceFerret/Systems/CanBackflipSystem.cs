@@ -1,7 +1,7 @@
 ﻿using Content.Server.Actions;
 using Content.Shared.DeltaV.SpaceFerret;
 
-namespace Content.Server.DeltaV.SpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret.Systems;
 
 public sealed class CanBackflipSystem : EntitySystem
 {

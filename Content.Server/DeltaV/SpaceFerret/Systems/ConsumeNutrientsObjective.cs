@@ -1,7 +1,7 @@
 ﻿using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server.DeltaV.SpaceFerret;
+namespace Content.Server.DeltaV.SpaceFerret.Systems;
 
 public sealed class ConsumeNutrientsObjectiveSystem : EntitySystem
 {
