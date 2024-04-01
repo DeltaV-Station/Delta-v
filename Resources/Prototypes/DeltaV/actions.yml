@@ -19,6 +19,6 @@
   components:
   - type: InstantAction
     useDelay: 100
-    icon: { sprite: /DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi, state: spaceferret_eepy }
+    icon: { sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi, state: spaceferret_eepy }
     event: !type:EepyActionEvent
     checkCanInteract: false

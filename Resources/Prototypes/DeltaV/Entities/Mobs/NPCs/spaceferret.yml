@@ -6,12 +6,12 @@
   components:
   # Basics
   - type: SpaceFerret
-    roleIntroSfx: /DeltaV/Audio/Animals/wawa_intro.ogg
+    roleIntroSfx: /Audio/DeltaV/Animals/wawa_intro.ogg
     antagProtoId: SpaceFerret
     roleBriefing: spaceferret-role-briefing
     roleGreeting: spaceferret-role-greeting
   - type: CanBackflip
-    clappaSfx: /DeltaV/Audio/Animals/slugclappa.ogg
+    clappaSfx: /Audio/DeltaV/Animals/slugclappa.ogg
   - type: CanHibernate
     tooFarFromHibernationSpot: spaceferret-out-of-range
     notEnoughNutrientsMessage: spaceferret-not-enough-nutrients
@@ -72,9 +72,9 @@
     interactFailureString: petting-failure-spaceferret
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: /DeltaV/Audio/Animals/wawa_chillin.ogg
+      path: /Audio/DeltaV/Animals/wawa_chillin.ogg
     interactFailureSound:
-      path: /DeltaV/Audio/Animals/wawa_chatter.ogg
+      path: /Audio/DeltaV/Animals/wawa_chatter.ogg
   - type: MovementSpeedModifier
     baseWalkSpeed: 5 # nyoom
     baseSprintSpeed: 7 # NYOOOOOM

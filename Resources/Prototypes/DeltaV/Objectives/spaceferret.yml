@@ -19,7 +19,7 @@
   components:
   - type: Objective
     icon:
-      sprite: /DeltaV/Mobs/Animals/spaceferret.rsi
+      sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
       state: spaceferret_eepy
   - type: ConsumeNutrientsCondition
     nutrientsRequired: 300.0
@@ -32,8 +32,8 @@
   components:
   - type: Objective
     icon:
-      sprite: /DeltaV/Mobs/Animals/spaceferret.rsi
+      sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
       state: spaceferret_eepy
   - type: HibernateCondition
     successMessage: spaceferret-you-win-popup
-    successSfx: /DeltaV/Audio/Animals/wawa_outro.ogg
+    successSfx: /Audio/DeltaV/Animals/wawa_outro.ogg
