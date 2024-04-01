@@ -7,7 +7,9 @@
   components:
   - type: InstantAction
     useDelay: 3
-    icon: deprecated.rsi/deprecated.png
+    icon:
+      sprite: DeltaV/Interface/Actions/backflip.rsi
+      state: backflip
     event: !type:BackflipActionEvent
     checkCanInteract: false
 
