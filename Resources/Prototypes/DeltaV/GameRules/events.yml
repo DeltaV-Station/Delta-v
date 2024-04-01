@@ -72,6 +72,6 @@
     duration: 1
     minimumPlayers: 10
   - type: VentCrittersRule
-    entries:
+    specialEntries:
     - id: SpawnPointGhostSpaceFerret
-      prob: 1
+      prob: 0 # Only one skug for you!
