@@ -94,7 +94,7 @@
       materialRequirements:
         Glass: 1
     - type: ReverseEngineering # delta
-      difficulty: 3
+      difficulty: 2
       recipes:
        - BiofabricatorMachineCircuitboard
 
@@ -539,7 +539,7 @@
     materialRequirements:
       Cable: 5
       Glass: 2
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # Nayno
     difficulty: 2
     recipes:
       - PortableScrubberMachineCircuitBoard
@@ -700,7 +700,7 @@
           ExamineName: Knife
       materialRequirements:
         Steel: 5
-    - type: ReverseEngineering # delta
+    - type: ReverseEngineering # Nyano 
       difficulty: 2
       recipes:
         - BiomassReclaimerMachineCircuitboard
@@ -884,7 +884,7 @@
     materialComposition:
       Steel: 30
       Plastic: 30
-  - type: ReverseEngineering # Delta
+  - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
       - TurboItemRechargerCircuitboard
@@ -1150,7 +1150,7 @@
       Capacitor: 2
     materialRequirements:
       Cable: 1
-  - type: ReverseEngineering # Nyano
+  - type: ReverseEngineering # delta
     recipes:
       - ElectrolysisUnitMachineCircuitboard
 
@@ -1168,7 +1168,7 @@
       Manipulator: 1
     materialRequirements:
       Steel: 1
-  - type: ReverseEngineering # Nyano
+  - type: ReverseEngineering # delta
     recipes:
       - CentrifugeMachineCircuitboard
 
