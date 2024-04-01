@@ -5,17 +5,17 @@
   description: There's apparently a cult who worship these adorable vermin. It's a shame they cause Brainrot. Skug.
   components:
   # Basics
-  - type: LegallyDistinctSpaceFerret
-    roleIntroSfx: /Audio/Animals/wawa_intro.ogg
+  - type: SpaceFerret
+    roleIntroSfx: /DeltaV/Audio/Animals/wawa_intro.ogg
     antagProtoId: SpaceFerret
     roleBriefing: spaceferret-role-briefing
     roleGreeting: spaceferret-role-greeting
   - type: CanBackflip
-    clappaSfx: /Audio/Animals/slugclappa.ogg
+    clappaSfx: /DeltaV/Audio/Animals/slugclappa.ogg
   - type: CanHibernate
     tooFarFromHibernationSpot: spaceferret-out-of-range
     notEnoughNutrientsMessage: spaceferret-not-enough-nutrients
-    spriteStateId: legallydistinctspaceferret_eepy
+    spriteStateId: spaceferret_eepy
   - type: NameIdentifier
     group: SpaceFerret
   - type: ReplacementAccent
