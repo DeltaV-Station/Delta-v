@@ -75,7 +75,6 @@
       path: /DeltaV/Audio/Animals/wawa_chillin.ogg
     interactFailureSound:
       path: /DeltaV/Audio/Animals/wawa_chatter.ogg
-  # They nyoom and go under doors/tables
   - type: MovementSpeedModifier
     baseWalkSpeed: 5 # nyoom
     baseSprintSpeed: 7 # NYOOOOOM
@@ -96,9 +95,9 @@
           radius: 0.2
         density: 120
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   # Round impact
   - type: GhostRole
     prob: 1
