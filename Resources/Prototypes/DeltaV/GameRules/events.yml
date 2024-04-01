@@ -9,7 +9,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 1
+    weight: 2.5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -30,21 +30,21 @@
     - id: MobXenoQueen
       prob: 0.005
 
-- type: entity
-  id: MothroachSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    id: VentCritters
-    earliestStart: 15
-    minimumPlayers: 15
-    weight: 4
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobMothroach
-      prob: 0.05
+# - type: entity
+#   id: MothroachSpawn
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     id: VentCritters
+#     earliestStart: 15
+#     minimumPlayers: 15
+#     weight: 4
+#     duration: 60
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobMothroach
+#       prob: 0.05
 
 - type: entity # Delta-V : Midround Syndie Listening Station Spawn
   id: PirateRadioSpawn
