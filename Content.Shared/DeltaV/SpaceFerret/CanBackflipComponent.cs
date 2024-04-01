@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.SpaceFerret;
 
 [RegisterComponent]
 public sealed partial class CanBackflipComponent : Component
@@ -21,7 +21,7 @@ public sealed partial class BackflipActionEvent : InstantActionEvent
 {
 }
 
-[Serializable, NetSerializable]
+[Serializable] [NetSerializable]
 public sealed class DoABackFlipEvent(NetEntity actioner, string sfxSource) : EntityEventArgs
 {
     public NetEntity Actioner = actioner;

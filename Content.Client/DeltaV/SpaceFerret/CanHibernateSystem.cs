@@ -1,7 +1,7 @@
-﻿using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+﻿using Content.Shared.DeltaV.SpaceFerret;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Client.DeltaV.SpaceFerret;
 
 public sealed class CanHibernateSystem : EntitySystem
 {

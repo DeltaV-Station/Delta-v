@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+﻿namespace Content.Shared.DeltaV.SpaceFerret;
 
 [RegisterComponent]
 public sealed partial class ConsumeNutrientsConditionComponent : Component

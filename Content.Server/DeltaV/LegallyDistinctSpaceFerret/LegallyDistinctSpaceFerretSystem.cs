@@ -6,7 +6,7 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.StationEvents.Events;
-using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Roles;
@@ -29,12 +29,12 @@ public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LegallyDistinctSpaceFerretComponent, GenericAntagCreatedEvent>(OnInit);
-        SubscribeLocalEvent<LegallyDistinctSpaceFerretComponent, InteractionAttemptFailed>(OnInteractFailed);
-        SubscribeLocalEvent<LegallyDistinctSpaceFerretComponent, HungerModifiedEvent>(OnHungerModified);
+        SubscribeLocalEvent<SpaceFerretComponent, GenericAntagCreatedEvent>(OnInit);
+        SubscribeLocalEvent<SpaceFerretComponent, InteractionAttemptFailed>(OnInteractFailed);
+        SubscribeLocalEvent<SpaceFerretComponent, HungerModifiedEvent>(OnHungerModified);
     }
 
-    private void OnInit(EntityUid uid, LegallyDistinctSpaceFerretComponent component, GenericAntagCreatedEvent args)
+    private void OnInit(EntityUid uid, SpaceFerretComponent component, GenericAntagCreatedEvent args)
     {
         var mind = args.Mind;
 
@@ -54,12 +54,12 @@ public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
         _chatMan.DispatchServerMessage(session, Loc.GetString(component.RoleGreeting));
     }
 
-    public void OnInteractFailed(EntityUid uid, LegallyDistinctSpaceFerretComponent _, InteractionAttemptFailed args)
+    public void OnInteractFailed(EntityUid uid, SpaceFerretComponent _, InteractionAttemptFailed args)
     {
         RaiseLocalEvent(uid, new BackflipActionEvent());
     }
 
-    private void OnHungerModified(EntityUid uid, LegallyDistinctSpaceFerretComponent comp, HungerModifiedEvent args)
+    private void OnHungerModified(EntityUid uid, SpaceFerretComponent comp, HungerModifiedEvent args)
     {
         if (_mind.TryGetObjectiveComp<ConsumeNutrientsConditionComponent>(uid, out var nutrientsCondition) && args.Amount > 0)
         {

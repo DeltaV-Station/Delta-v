@@ -1,5 +1,5 @@
 ﻿using Content.Server.Actions;
-using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret;
 
 namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
 

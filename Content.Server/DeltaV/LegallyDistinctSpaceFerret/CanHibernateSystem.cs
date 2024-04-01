@@ -3,7 +3,7 @@ using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
-using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC;

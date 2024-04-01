@@ -1,4 +1,4 @@
-﻿using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+﻿using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Objectives.Components;
 
 namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;

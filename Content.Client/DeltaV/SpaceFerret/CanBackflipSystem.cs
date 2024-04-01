@@ -1,4 +1,4 @@
-﻿using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+﻿using Content.Shared.DeltaV.SpaceFerret;
 using Robust.Client.Animations;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
@@ -6,7 +6,7 @@ using Robust.Shared.Animations;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-namespace Content.Client.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Client.DeltaV.SpaceFerret;
 
 public sealed class CanBackflipSystem : EntitySystem
 {

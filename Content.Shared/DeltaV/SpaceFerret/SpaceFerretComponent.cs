@@ -1,16 +1,16 @@
 ﻿using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.SpaceFerret;
 
 [RegisterComponent]
-public sealed partial class LegallyDistinctSpaceFerretComponent : Component
+public sealed partial class SpaceFerretComponent : Component
 {
     [DataField]
     public string RoleIntroSfx = "";
 
     [DataField]
-    public ProtoId<AntagPrototype> AntagProtoId = "LegallyDistinctSpaceFerret";
+    public ProtoId<AntagPrototype> AntagProtoId = "SpaceFerret";
 
     [DataField]
     public string RoleBriefing = "";

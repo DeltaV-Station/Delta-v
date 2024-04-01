@@ -1,0 +1,39 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseSpaceFerretObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: spaceferret
+  - type: RoleRequirement
+    roles:
+      components:
+      - SpaceFerretRole
+
+- type: entity
+  noSpawn: true
+  parent: BaseSpaceFerretObjective
+  id: ConsumeNutrientsObjective
+  description: Consume enough food to survive.
+  components:
+  - type: Objective
+    icon:
+      sprite: /DeltaV/Mobs/Animals/spaceferret.rsi
+      state: spaceferret_eepy
+  - type: ConsumeNutrientsCondition
+    nutrientsRequired: 300.0
+
+- type: entity
+  noSpawn: true
+  parent: BaseSpaceFerretObjective
+  id: HibernateObjective
+  description: Hibernate in a gas scrubber.
+  components:
+  - type: Objective
+    icon:
+      sprite: /DeltaV/Mobs/Animals/spaceferret.rsi
+      state: spaceferret_eepy
+  - type: HibernateCondition
+    successMessage: spaceferret-you-win-popup
+    successSfx: /DeltaV/Audio/Animals/wawa_outro.ogg

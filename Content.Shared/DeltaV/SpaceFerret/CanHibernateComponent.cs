@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.SpaceFerret;
 
 [RegisterComponent]
 public sealed partial class CanHibernateComponent : Component
@@ -27,7 +27,7 @@ public sealed partial class EepyActionEvent : InstantActionEvent
 {
 }
 
-[Serializable, NetSerializable]
+[Serializable] [NetSerializable]
 public sealed class EntityHasHibernated(NetEntity hibernator, string spriteStateId) : EntityEventArgs
 {
     public NetEntity Hibernator = hibernator;
