@@ -6,14 +6,14 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.StationEvents.Events;
-using Content.Shared.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Roles;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-namespace Content.Server.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
 
 public sealed class LegallyDistinctSpaceFerretSystem : EntitySystem
 {

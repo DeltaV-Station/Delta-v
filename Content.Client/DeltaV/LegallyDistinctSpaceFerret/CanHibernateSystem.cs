@@ -1,9 +1,7 @@
-﻿using Content.Shared.LegallyDistinctSpaceFerret;
-using Robust.Client.Audio;
+﻿using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 using Robust.Client.GameObjects;
-using Robust.Shared.Audio;
 
-namespace Content.Client.LegallyDistinctSpaceFerret;
+namespace Content.Client.DeltaV.LegallyDistinctSpaceFerret;
 
 public sealed class CanHibernateSystem : EntitySystem
 {

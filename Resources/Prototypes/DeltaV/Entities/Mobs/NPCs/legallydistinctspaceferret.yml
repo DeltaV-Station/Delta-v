@@ -1,32 +1,31 @@
 ﻿- type: entity
   name: Legally Distinct Space Ferret
-  id: MobLegallyDistinctSpaceFerret
+  id: MobSpaceFerret
   parent: MobBaseAncestor
   description: There's apparently a cult who worship these adorable vermin. It's a shame they cause Brainrot. Skug.
   components:
   # Basics
   - type: LegallyDistinctSpaceFerret
     roleIntroSfx: /Audio/Animals/wawa_intro.ogg
-    antagProtoId: LegallyDistinctSpaceFerret
-    roleBriefing: legallydistinctspaceferret-role-briefing
-    roleGreeting: legallydistinctspaceferret-role-greeting
-  - type: BrainrotAura
+    antagProtoId: SpaceFerret
+    roleBriefing: spaceferret-role-briefing
+    roleGreeting: spaceferret-role-greeting
   - type: CanBackflip
     clappaSfx: /Audio/Animals/slugclappa.ogg
   - type: CanHibernate
-    tooFarFromHibernationSpot: legallydistinctspaceferret-out-of-range
-    notEnoughNutrientsMessage: legallydistinctspaceferret-not-enough-nutrients
+    tooFarFromHibernationSpot: spaceferret-out-of-range
+    notEnoughNutrientsMessage: spaceferret-not-enough-nutrients
     spriteStateId: legallydistinctspaceferret_eepy
   - type: NameIdentifier
-    group: LegallyDistinctSpaceFerret
+    group: SpaceFerret
   - type: ReplacementAccent
-    accent: legallydistinctspaceferret
+    accent: spaceferret
   - type: Sprite
     drawdepth: SmallMobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/legallydistinctspaceferret.rsi
-      state: legallydistinctspaceferret
+      sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
+      state: spaceferret
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -36,15 +35,15 @@
     getAllGroups: true
     available:
     - enum.DamageStateVisualLayers.Base:
-        legallydistinctspaceferret: LegallyDistinctSpaceFerretColors
+        spaceferret: SpaceFerretColors
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: legallydistinctspaceferret
+        Base: spaceferret
       Critical:
-        Base: legallydistinctspaceferret_oof
+        Base: spaceferret_crit
       Dead:
-        Base: legallydistinctspaceferret_rip
+        Base: spaceferret_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -69,13 +68,13 @@
   # They hard to pet
   - type: InteractionPopup
     successChance: 0.5
-    interactSuccessString: petting-success-legallydistinctspaceferret
-    interactFailureString: petting-failure-legallydistinctspaceferret
+    interactSuccessString: petting-success-spaceferret
+    interactFailureString: petting-failure-spaceferret
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: /Audio/Animals/wawa_chillin.ogg
+      path: /DeltaV/Audio/Animals/wawa_chillin.ogg
     interactFailureSound:
-      path: /Audio/Animals/wawa_chatter.ogg
+      path: /DeltaV/Audio/Animals/wawa_chatter.ogg
   # They nyoom and go under doors/tables
   - type: MovementSpeedModifier
     baseWalkSpeed: 5 # nyoom
@@ -104,8 +103,8 @@
   - type: GhostRole
     prob: 1
     makeSentient: true
-    name: ghost-role-information-legallydistinctspaceferret-name
-    description: ghost-role-information-legallydistinctspaceferret-description
+    name: ghost-role-information-spaceferret-name
+    description: ghost-role-information-spaceferret-description
   - type: Food
   - type: Hunger
     baseDecayRate: 0.3
@@ -115,6 +114,7 @@
   - type: Inventory
     templateId: legallydistinctspaceferret
   - type: InventorySlots
+  - type: GhostTakeoverAvailable
 
   # Midround antagonist, spawned via random event
 - type: entity
@@ -126,24 +126,24 @@
     weight: 10
     duration: 1
     minimumPlayers: 10
-  - type: LegallyDistinctSpaceFerretSpawnRule
+  - type: SpaceFerretSpawnRule
 
 - type: entity
-  id: SpawnPointGhostLegallyDistinctSpaceFerret
+  id: SpawnPointGhostSpaceFerret
   name: ghost role spawn point
   suffix: legally distinct space ferret
   parent: MarkerBase
   components:
   - type: GhostRole
-    name: ghost-role-information-legallydistinctspaceferret-name
-    description: ghost-role-information-legallydistinctspaceferret-description
-    rules: ghost-role-information-legallydistinctspaceferret-rules
+    name: ghost-role-information-spaceferret-name
+    description: ghost-role-information-spaceferret-description
+    rules: ghost-role-information-spaceferret-rules
   - type: GhostRoleMobSpawner
-    prototype: MobLegallyDistinctSpaceFerret
+    prototype: MobSpaceFerret
   - type: Sprite
-    sprite: Mobs/Animals/legallydistinctspaceferret.rsi
+    sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
     layers:
-    - state: legallydistinctspaceferret_eepy
+    - state: spaceferret_eepy
 
 - type: entity
   noSpawn: true
@@ -151,7 +151,7 @@
   id: LegallyDistinctSpaceFerretRule
   components:
   - type: GenericAntagRule
-    agentName: legallydistinctspaceferret-round-end-agent-name
+    agentName: spaceferret-round-end-agent-name
     objectives:
     - ConsumeNutrientsObjective
     - HibernateObjective
@@ -159,17 +159,18 @@
 - type: entity
   abstract: true
   parent: BaseObjective
-  id: BaseLegallyDistinctSpaceFerretObjective
+  id: BaseSpaceFerretObjective
   components:
   - type: Objective
     difficulty: 1.5
-    issuer: legallydistinctspaceferret
+    issuer: spaceferret
   - type: RoleRequirement
     roles:
       components:
-      - LegallyDistinctSpaceFerretRole
+      - SpaceFerretRole
 
 - type: entity
+  noSpawn: true
   parent: BaseLegallyDistinctSpaceFerretObjective
   id: ConsumeNutrientsObjective
   description: Consume enough food to survive.
@@ -177,11 +178,12 @@
   - type: Objective
     icon:
       sprite: Mobs/Animals/legallydistinctspaceferret.rsi
-      state: legallydistinctspaceferret_eepy
+      state: sleeping
   - type: ConsumeNutrientsCondition
     nutrientsRequired: 300.0
 
 - type: entity
+  noSpawn: true
   parent: BaseLegallyDistinctSpaceFerretObjective
   id: HibernateObjective
   description: Hibernate in a gas scrubber.
@@ -195,16 +197,16 @@
     successSfx: /Audio/Animals/wawa_outro.ogg
 
 - type: accent
-  id: legallydistinctspaceferret
+  id: spaceferret
   fullReplacements:
-  - accent-words-legallydistinctspaceferret-1
-  - accent-words-legallydistinctspaceferret-2
-  - accent-words-legallydistinctspaceferret-3
-  - accent-words-legallydistinctspaceferret-4
-  - accent-words-legallydistinctspaceferret-5
-  - accent-words-legallydistinctspaceferret-6
-  - accent-words-legallydistinctspaceferret-7
-  - accent-words-legallydistinctspaceferret-8
+  - accent-words-spaceferret-1
+  - accent-words-spaceferret-2
+  - accent-words-spaceferret-3
+  - accent-words-spaceferret-4
+  - accent-words-spaceferret-5
+  - accent-words-spaceferret-6
+  - accent-words-spaceferret-7
+  - accent-words-spaceferret-8
 
 - type: speechVerb
   id: Wawa
@@ -214,8 +216,8 @@
   - chat-speech-verb-wawa-3
 
 - type: palette
-  id: LegallyDistinctSpaceFerretColors
-  name: LegallyDistinctSpaceFerretColors
+  id: SpaceFerretColors
+  name: SpaceFerretColors
   colors:
     Default: "#ffffff"
     Innocent: "#f6f439"
@@ -248,28 +250,28 @@
   components:
   - type: InstantAction
     useDelay: 100
-    icon: { sprite: Mobs/Animals/legallydistinctspaceferret.rsi, state: legallydistinctspaceferret_eepy }
+    icon: { sprite: /DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi, state: spaceferret_eepy }
     event: !type:EepyActionEvent
     checkCanInteract: false
 
 - type: speechSounds
   id: Wawa
   saySound:
-    path: /Audio/Animals/wawa_statement.ogg
+    path: /DeltaV/Audio/Animals/wawa_statement.ogg
   askSound:
-    path: /Audio/Animals/wawa_question.ogg
+    path: /DeltaV/Audio/Animals/wawa_question.ogg
   exclaimSound:
-    path: /Audio/Animals/wawa_exclaim.ogg
+    path: /DeltaV/Audio/Animals/wawa_exclaim.ogg
 
 - type: antag
   id: LegallyDistinctSpaceFerret
-  name: roles-antag-legallydistinctspaceferret-agent-name
+  name: roles-antag-spaceferret-agent-name
   antagonist: true
   setPreference: false
-  objective: roles-antag-legallydistinctspaceferret-objective
+  objective: roles-antag-spaceferret-objective
 
 - type: inventoryTemplate
-  id: legallydistinctspaceferret
+  id: spaceferret
   slots:
   - name: head
     slotTexture: head
@@ -300,6 +302,6 @@
     displayName: ID
 
 - type: nameIdentifierGroup
-  id: LegallyDistinctSpaceFerret
+  id: SpaceFerret
   minValue: 1
   maxValue: 99 # I fucking dare you to spawn more than 100 wawa

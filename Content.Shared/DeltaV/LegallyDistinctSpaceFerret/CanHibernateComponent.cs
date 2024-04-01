@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 
 [RegisterComponent]
 public sealed partial class CanHibernateComponent : Component

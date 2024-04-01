@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Content.Shared.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 
 [RegisterComponent]
 public sealed partial class BrainrotComponent : Component

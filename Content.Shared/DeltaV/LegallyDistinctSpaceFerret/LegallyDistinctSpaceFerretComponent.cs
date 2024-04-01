@@ -1,12 +1,7 @@
-﻿using System.Threading;
-using Content.Shared.Actions;
-using Content.Shared.Roles;
-using Robust.Shared.GameStates;
+﻿using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.LegallyDistinctSpaceFerret;
+namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 
 [RegisterComponent]
 public sealed partial class LegallyDistinctSpaceFerretComponent : Component

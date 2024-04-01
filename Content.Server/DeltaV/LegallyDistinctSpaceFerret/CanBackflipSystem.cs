@@ -1,7 +1,7 @@
 ﻿using Content.Server.Actions;
-using Content.Shared.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 
-namespace Content.Server.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
 
 public sealed class CanBackflipSystem : EntitySystem
 {

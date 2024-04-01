@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Content.Server.Popups;
 using Content.Server.Speech;
-using Content.Shared.LegallyDistinctSpaceFerret;
+using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 using Content.Shared.Mind;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
@@ -11,7 +11,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Server.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
 
 /// <summary>
 /// Raised locally when a mind gets too close to a Brainrot-causer.

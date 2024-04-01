@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.LegallyDistinctSpaceFerret;
+﻿namespace Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 
 [RegisterComponent]
 public sealed partial class HibernateConditionComponent : Component

@@ -3,15 +3,15 @@ using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
+using Content.Shared.DeltaV.LegallyDistinctSpaceFerret;
 using Content.Shared.Interaction.Components;
-using Content.Shared.LegallyDistinctSpaceFerret;
 using Content.Shared.Mind;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-namespace Content.Server.LegallyDistinctSpaceFerret;
+namespace Content.Server.DeltaV.LegallyDistinctSpaceFerret;
 
 public sealed class CanHibernateSystem : EntitySystem
 {
