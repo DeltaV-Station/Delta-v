@@ -85,7 +85,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 5
+    weight: 2.5 # DeltaV - was 5
     duration: 1
     earliestStart: 45
     reoccurrenceDelay: 60
@@ -99,7 +99,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 3 # DeltaV - was 10
+    weight: 7.5 # DeltaV - was 10
     duration: 1
     earliestStart: 45 # DeltaV - was 30
     reoccurrenceDelay: 60
@@ -112,7 +112,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 3 # DeltaV - was 10
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -177,52 +177,52 @@
     startDelay: 30
   - type: MeteorSwarmRule
 
-- type: entity
-  id: MouseMigration
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    earliestStart: 30
-    minimumPlayers: 35
-    weight: 5
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
+# - type: entity # Delta-V: Commented out uninteresting events
+#   id: MouseMigration
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-vent-creatures-start-announcement
+#     startAudio:
+#       path: /Audio/Announcements/attention.ogg
+#     startDelay: 10
+#     earliestStart: 30
+#     minimumPlayers: 35
+#     weight: 5
+#     duration: 50
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobMouse
+#       prob: 0.02
+#     - id: MobMouse1
+#       prob: 0.02
+#     - id: MobMouse2
+#       prob: 0.02
     # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
     # specialEntries:
     # - id: SpawnPointGhostRatKing
     #   prob: 0.005
     # End of modified code
 
-- type: entity
-  id: CockroachMigration
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    weight: 5
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
+# - type: entity # Delta-V: Commented out uninteresting events
+#   id: CockroachMigration
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-vent-creatures-start-announcement
+#     startAudio:
+#       path: /Audio/Announcements/attention.ogg
+#     startDelay: 10
+#     weight: 5
+#     duration: 50
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobCockroach
+#       prob: 0.03
+#     - id: MobMothroach
+#       prob: 0.008
 
 - type: entity
   id: PowerGridCheck
@@ -312,28 +312,28 @@
     duration: 60
   - type: VentClogRule
 
-- type: entity
-  id: VentCritters
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    earliestStart: 15
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
+# - type: entity # Delta-V: Commented out uninteresting events
+#   id: VentCritters
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: station-event-vent-creatures-start-announcement
+#     startAudio:
+#       path: /Audio/Announcements/attention.ogg
+#     startDelay: 10
+#     earliestStart: 15
+#     minimumPlayers: 15
+#     weight: 5
+#     duration: 60
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobMouse
+#       prob: 0.02
+#     - id: MobMouse1
+#       prob: 0.02
+#     - id: MobMouse2
+#       prob: 0.02
 
 - type: entity
   id: SlimesSpawn
@@ -426,21 +426,21 @@
     duration: 1
   - type: LoneOpsSpawnRule
 
-- type: entity
-  id: MassHallucinations
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    weight: 10
-    duration: 150
-    maxDuration: 300
-  - type: MassHallucinationsRule
-    minTimeBetweenIncidents: 0.1
-    maxTimeBetweenIncidents: 300
-    maxSoundDistance: 7
-    sounds:
-      collection: Paracusia
+# - type: entity # DeltaV - commented out uninterested events
+#   id: MassHallucinations
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     weight: 10
+#     duration: 150
+#     maxDuration: 300
+#   - type: MassHallucinationsRule
+#     minTimeBetweenIncidents: 0.1
+#     maxTimeBetweenIncidents: 300
+#     maxSoundDistance: 7
+#     sounds:
+#       collection: Paracusia
 
 #- type: entity # DeltaV - Why does this exist??
 #  id: ImmovableRodSpawn
