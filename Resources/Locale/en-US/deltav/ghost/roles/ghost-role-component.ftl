@@ -2,7 +2,7 @@ ghost-role-information-nukie-mouse-name = Nuclear Operative Mouse
 ghost-role-information-nukie-mouse-description = A Nuclear Operative reinforcement for the Syndicate.
 ghost-role-information-nukie-mouse-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
                                            The crew is allowed to kill you without warning.
-                                           You are allowed to attack the crew and destroy the station without provocation. 					
+                                           You are allowed to attack the crew and destroy the station without provocation.
 ghost-role-information-listeningop-name = Listening Post Operative
 ghost-role-information-listeningop-description = You are a Listening Post operative. Get into range, observe the station, intercept communications and assist any operatives in the area!
 ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked with the continuous reporting and monitoring of the station and its activities, as well as assisting any fellow operatives who may be aboard the station. As an antagonist, do whatever is required for you to complete this task. Make sure your station doesn't fall into enemy hands and DO NOT abandon your station! Hide your existence at any cost!
@@ -10,3 +10,7 @@ ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked 
 ghost-role-information-paradox-anomaly-name = Paradox Anomaly
 ghost-role-information-paradox-anomaly-description = Replace your double, or befriend them.
 ghost-role-information-paradox-anomaly-rules = Try and replace your twin with this funny roleplay antag rather than plasma flooding the station or something. You can also just befriend them.
+
+ghost-role-information-spaceferret-name = Legally Distinct Space Ferret
+ghost-role-information-spaceferret-description = Wawa! Wawawa. Wa, wawawa, wa wa wa.
+ghost-role-information-spaceferret-rules = You're a neutral antagonist, much like the closet skeleton, but have two objectives to fulfil. You don't remember anything from your previous life, unless you were a Legally Distinct Space Ferret. Consider yourself valid for random murder by the crew. We suggest you act adorable, are helpful, or become extremely robust. Go live your best life, wawa.

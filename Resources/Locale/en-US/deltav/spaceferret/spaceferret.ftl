@@ -1,0 +1,3 @@
+spaceferret-out-of-range = You need to find an air scrubber to hibernate in.
+spaceferret-not-enough-nutrients = You've not consumed enough nutrients to hibernate yet.
+spaceferret-you-win-popup = Until the next cycle...
