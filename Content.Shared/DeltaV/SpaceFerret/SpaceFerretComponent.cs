@@ -10,7 +10,7 @@ public sealed partial class SpaceFerretComponent : Component
     public string RoleIntroSfx = "";
 
     [DataField]
-    public ProtoId<AntagPrototype> AntagProtoId = "SpaceFerret";
+    public ProtoId<AntagPrototype> AntagProtoId = "LegallyDistinctSpaceFerret";
 
     [DataField]
     public string RoleBriefing = "";
