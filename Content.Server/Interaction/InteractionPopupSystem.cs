@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio;
@@ -12,11 +13,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Interaction;
-
-public sealed class InteractionAttemptFailed(EntityUid target)
-{
-    public EntityUid Target = target;
-}
 
 public sealed class InteractionPopupSystem : EntitySystem
 {

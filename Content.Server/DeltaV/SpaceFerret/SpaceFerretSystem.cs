@@ -8,8 +8,9 @@ using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.StationEvents.Events;
 using Content.Shared.DeltaV.SpaceFerret;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
-using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 

@@ -212,8 +212,3 @@ public sealed class HungerSystem : EntitySystem
         }
     }
 }
-
-public sealed class HungerModifiedEvent(float amount) : EntityEventArgs
-{
-    public float Amount = amount;
-}
