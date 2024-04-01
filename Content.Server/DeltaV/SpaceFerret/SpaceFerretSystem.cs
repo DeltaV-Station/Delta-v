@@ -1,12 +1,9 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.DeltaV.SpaceFerret.Components;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GenericAntag;
-using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Server.StationEvents.Events;
 using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
@@ -66,17 +63,5 @@ public sealed class SpaceFerretSystem : EntitySystem
         {
             nutrientsCondition.NutrientsConsumed += args.Amount;
         }
-    }
-}
-
-public sealed class LegallyDistinctSpaceFerretSpawnRule : StationEventSystem<SpaceFerretSpawnRuleComponent>
-{
-    protected override void Started(EntityUid uid, SpaceFerretSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
-    {
-        base.Started(uid, comp, gameRule, args);
-
-        TryFindRandomTile(out _, out _, out _, out var coords);
-        Sawmill.Info($"Creating ferret spawn point at {coords}");
-        Spawn("SpawnPointGhostLegallyDistinctSpaceFerret", coords);
     }
 }
