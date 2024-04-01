@@ -1,0 +1,24 @@
+# Stupid brainrot creatures <3
+- type: entity
+  id: ActionBackflip
+  name: Backflip
+  description: DO A BACKFLIP!
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 3
+    icon: deprecated.rsi/deprecated.png
+    event: !type:BackflipActionEvent
+    checkCanInteract: false
+
+- type: entity
+  id: ActionEepy
+  name: Eepy
+  description: Hibernate. This ends your time as a Legally Distinct Space Ferret.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 100
+    icon: { sprite: /DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi, state: spaceferret_eepy }
+    event: !type:EepyActionEvent
+    checkCanInteract: false

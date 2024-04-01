@@ -66,3 +66,20 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
+- type: entity
+  id: SpawnPointGhostSpaceFerret
+  name: ghost role spawn point
+  suffix: legally distinct space ferret
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-spaceferret-name
+    description: ghost-role-information-spaceferret-description
+    rules: ghost-role-information-spaceferret-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobSpaceFerret
+  - type: Sprite
+    sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
+    layers:
+    - state: spaceferret_eepy

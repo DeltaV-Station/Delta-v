@@ -9,3 +9,14 @@
     - ParadoxAnomalyKillObjective
     - ParadoxAnomalyFriendObjective
     - ParadoxAnomalyEscapeObjective
+
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: LegallyDistinctSpaceFerretRule
+  components:
+  - type: GenericAntagRule
+    agentName: spaceferret-round-end-agent-name
+    objectives:
+    - ConsumeNutrientsObjective
+    - HibernateObjective

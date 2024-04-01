@@ -61,3 +61,14 @@
     debrisCount: 6
     distanceModifier: 13
     debrisDistanceModifier: 3
+
+- type: entity
+  parent: BaseGameRule
+  id: LegallyDistinctSpaceFerretSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    minimumPlayers: 10
+  - type: SpaceFerretSpawnRule
