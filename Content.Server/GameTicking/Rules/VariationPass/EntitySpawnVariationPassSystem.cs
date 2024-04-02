@@ -10,38 +10,25 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 /// <inheritdoc cref="EntitySpawnVariationPassComponent"/>
 public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntitySpawnVariationPassComponent>
 {
-    private readonly MapSystem _map = new();
-    private EntityQuery<MapGridComponent> _mapgridQuery;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _mapgridQuery = GetEntityQuery<MapGridComponent>();
-    }
     protected override void ApplyVariation(Entity<EntitySpawnVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
-        var largestStationGridUid = Stations.GetLargestGrid(args.Station);
-        _mapgridQuery.TryGetComponent(largestStationGridUid, out var largestStationGridComponent);
+        var largestGridTiles = GetAllTilesFromLargestGrid(ent, args.Station, out var largestGridComponent);
 
-        IEnumerable<Robust.Shared.Map.TileRef>? largestStationGridTiles = null;
-        if (largestStationGridComponent is not null)
-        {
-            largestStationGridTiles = _map.GetAllTiles(args.Station, largestStationGridComponent);
-        }
-        else
+        if (largestGridTiles is null || largestGridComponent is null)
         {
             return;
         }
-        var totalTiles = largestStationGridTiles.Count();
+
+        var totalTiles = largestGridTiles.Count();
         var dirtyMod = Random.NextGaussian(ent.Comp.TilesPerEntityAverage, ent.Comp.TilesPerEntityStdDev);
         var trashTiles = Math.Max((int) (totalTiles * (1 / dirtyMod)), 0);
 
+        var largestGridRandomTiles = GetRandomTiles(largestGridTiles, trashTiles);
+
         for (var i = 0; i < trashTiles; i++)
         {
-            var curTileIndex = Random.Next(totalTiles);
-            var curTileRef = largestStationGridTiles.ElementAt(curTileIndex);
-            var coords = _map.GridTileToLocal(args.Station, largestStationGridComponent, curTileRef.GridIndices);
+            var curTileRef = largestGridRandomTiles.ElementAt(i);
+            var coords = Map.GridTileToLocal(args.Station, largestGridComponent, curTileRef.GridIndices);
 
             var ents = EntitySpawnCollection.GetSpawns(ent.Comp.Entities, Random);
             foreach (var spawn in ents)

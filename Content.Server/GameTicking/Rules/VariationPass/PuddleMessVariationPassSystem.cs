@@ -15,42 +15,27 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
 {
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    private readonly MapSystem _map = new();
-    private EntityQuery<MapGridComponent> _mapgridQuery;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _mapgridQuery = GetEntityQuery<MapGridComponent>();
-    }
     protected override void ApplyVariation(Entity<PuddleMessVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
-        var largestStationGridUid = Stations.GetLargestGrid(args.Station);
-        _mapgridQuery.TryGetComponent(largestStationGridUid, out var largestStationGridComponent);
-
-        IEnumerable<Robust.Shared.Map.TileRef>? largestStationGridTiles = null;
-        if (largestStationGridComponent is not null)
-        {
-            largestStationGridTiles = _map.GetAllTiles(args.Station, largestStationGridComponent);
-        }
-        else
+        var largestGridTiles = GetAllTilesFromLargestGrid(ent, args.Station, out var largestGridComponent);
+        if (largestGridTiles is null || largestGridComponent is null)
         {
             return;
         }
-        var totalTiles = largestStationGridTiles.Count();
-
         if (!_proto.TryIndex(ent.Comp.RandomPuddleSolutionFill, out var proto))
             return;
 
+        var totalTiles = largestGridTiles.Count();
         var puddleMod = Random.NextGaussian(ent.Comp.TilesPerSpillAverage, ent.Comp.TilesPerSpillStdDev);
         var puddleTiles = Math.Max((int) (totalTiles * (1 / puddleMod)), 0);
 
+        var largestGridRandomTiles = GetRandomTiles(largestGridTiles, puddleTiles);
+
         for (var i = 0; i < puddleTiles; i++)
         {
-            var curTileIndex = Random.Next(totalTiles);
-            var curTileRef = largestStationGridTiles.ElementAt(curTileIndex);
-            var coords = _map.GridTileToLocal(args.Station, largestStationGridComponent, curTileRef.GridIndices);
+            var curTileRef = largestGridRandomTiles.ElementAt(i);
+            var coords = Map.GridTileToLocal(args.Station, largestGridComponent, curTileRef.GridIndices);
 
             var sol = proto.Pick(Random);
             _puddle.TrySpillAt(coords, new Solution(sol.reagent, sol.quantity), out _, sound: false);
