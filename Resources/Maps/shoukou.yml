@@ -6151,8 +6151,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13836
-    - type: AtmosDevice
-      joinedGrid: 34
 - proto: AltarSpawner
   entities:
   - uid: 38
@@ -39819,6 +39817,12 @@ entities:
     - type: Transform
       pos: -45.5,-37.5
       parent: 34
+  - uid: 13838
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,-4.5
+      parent: 34
 - proto: GasPipeFourway
   entities:
   - uid: 107
@@ -55194,15 +55198,6 @@ entities:
       color: '#444444FF'
 - proto: GasThermoMachineFreezer
   entities:
-  - uid: 824
-    components:
-    - type: Transform
-      pos: -10.5,-3.5
-      parent: 34
-    - type: GasThermoMachine
-      targetTemperature: 0
-    - type: AtmosDevice
-      joinedGrid: 34
   - uid: 1544
     components:
     - type: Transform
@@ -55219,6 +55214,15 @@ entities:
       joinedGrid: 34
 - proto: GasThermoMachineFreezerEnabled
   entities:
+  - uid: 824
+    components:
+    - type: Transform
+      pos: -10.5,-3.5
+      parent: 34
+    - type: GasThermoMachine
+      targetTemperature: 150
+    - type: AtmosDevice
+      joinedGrid: 34
   - uid: 12611
     components:
     - type: Transform
