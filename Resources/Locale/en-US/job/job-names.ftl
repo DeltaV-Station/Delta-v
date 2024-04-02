@@ -24,8 +24,8 @@ job-name-centcomoff = CentCom Official
 job-name-reporter = Reporter
 job-name-musician = Musician
 job-name-librarian = Librarian
-# DeltaV - Renamed Lawyer to Attorney
-job-name-lawyer = Attorney
+# DeltaV - Changed Lawyer to Attorney
+# job-name-lawyer = Lawyer
 job-name-mime = Mime
 job-name-ce = Chief Engineer
 job-name-janitor = Janitor
