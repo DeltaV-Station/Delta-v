@@ -534,6 +534,11 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: ReverseEngineering # Delta V
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieReverseEngineered
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -570,6 +575,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: ReverseEngineering # Delta V
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieReverseEngineered
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -602,6 +612,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: ReverseEngineering # Delta V
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieReverseEngineered
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -634,6 +649,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitJuggernautReverseEngineered
 
 #Wizard Hardsuit
 - type: entity

@@ -492,7 +492,10 @@
       - StationMapElectronics
       - MetempsychoticMachineCircuitboard
     # End Nyano additions
-      - SalvageExpeditionsComputerCircuitboard # DeltaV
+    # Beginning of Delta V additions
+      - SalvageExpeditionsComputerCircuitboard
+      - ReverseEngineeringExperimentalCircuitboard
+    # End of Delta V Additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -611,6 +614,9 @@
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
+  # Beginning of Delta V additions
+    - ClothingShoesBootsMagSyndieReverseEngineered
+  # End of Delta V additions 
   - type: MaterialStorage
     whitelist:
       tags:

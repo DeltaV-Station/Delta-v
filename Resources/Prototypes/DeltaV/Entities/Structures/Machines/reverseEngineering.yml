@@ -27,9 +27,9 @@
           True: { state: open }
           False: { state: closed }
   - type: RadiationSource
-    intensity: 1.00
-    slope: 1.0 # 0.1
+    intensity: 1.00 # More intensity, bigger range with bigger lethality next to it.
+    slope: 0.15 # 0.1 is on experimental vessel, 0.25 was 3 tiles with 1 intensity. 0.15 with 1 intensity is 5 tiles
     enabled: false
-  - type: ReverseEngineeringMachine
-    scanBonus: 4
-    dangerAversionScore: 4
+  - type: ReverseEngineeringMachine # The numbers below are numbers with bluespace parts had back in nyano days.
+    scanBonus: 4 # Basic scanning power is 1
+    dangerAversionScore: 4 # The higher the number, lower the chance of the item inside being destroyed while safety is off.

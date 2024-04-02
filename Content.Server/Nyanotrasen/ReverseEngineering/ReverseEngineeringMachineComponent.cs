@@ -22,7 +22,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// <summary>
     /// Added to the 3d6, scales off of scanner.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int ScanBonus = 1;
 
 
@@ -33,7 +33,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// If we rolled destruction, this is added to the roll and if it <= 9 it becomes
     /// stagnation instead.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int DangerAversionScore = 1;
 
     /// <summary>
