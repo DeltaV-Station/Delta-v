@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
 using Robust.Server.GameObjects;
@@ -10,8 +10,15 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 /// <inheritdoc cref="EntitySpawnVariationPassComponent"/>
 public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntitySpawnVariationPassComponent>
 {
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly EntityQuery<MapGridComponent> _mapgridQuery = default!;
+    private readonly MapSystem _map = new();
+    private EntityQuery<MapGridComponent> _mapgridQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _mapgridQuery = GetEntityQuery<MapGridComponent>();
+    }
     protected override void ApplyVariation(Entity<EntitySpawnVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
         var largestStationGridUid = Stations.GetLargestGrid(args.Station);

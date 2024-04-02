@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Chemistry.Components;
@@ -15,9 +15,15 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
 {
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly EntityQuery<MapGridComponent> _mapgridQuery = default!;
+    private readonly MapSystem _map = new();
+    private EntityQuery<MapGridComponent> _mapgridQuery;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _mapgridQuery = GetEntityQuery<MapGridComponent>();
+    }
     protected override void ApplyVariation(Entity<PuddleMessVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
         var largestStationGridUid = Stations.GetLargestGrid(args.Station);
