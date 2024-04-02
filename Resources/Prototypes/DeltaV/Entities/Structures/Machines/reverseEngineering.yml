@@ -2,32 +2,34 @@
   parent: ReverseEngineeringMachine
   id: ExperimentalReverseEngineeringMachine
   name: experimental reverse engineering machine
-  description: An upgraded version of its predecessor, now with a healthy dose of radiation making.
-  #- type: Machine
-  #  board: ReverseEngineeringExperimentalCircuitboard
-  #- type: Sprite
-  #  sprite: Nyanotrasen/Structures/Machines/reverse_engineering.rsi
-  #  snapCardinals: true
-  #  layers:
-  #  - state: open
-   #   map: ["open"]
-   # - state: unlit
-   #   shader: unshaded
-   #   map: ["enum.PowerDeviceVisualLayers.Powered"]
-   # noRot: true
-   # - type: GenericVisualizer
-   # visuals:
-   #   enum.PowerDeviceVisuals.Powered:
-   #     enum.PowerDeviceVisualLayers.Powered:
-    #      True: { visible: true }
-    #      False: { visible: false }
-    #  enum.ReverseEngineeringVisuals.ChamberOpen:
-    #    open:
-    #      True: { state: open }
-    #      False: { state: closed }
-  #- type: RadiationSource
-  #  intensity: 1.75
- #   slope: 0.1
- #   enabled: false
- # - type: ReverseEngineeringMachine
-
+  description: An extremely unstable reverse engineering prototype. It is capable of reversing at extreme rates but at the cost of safety of anyone around it.
+  components:
+  - type: Machine
+    board: ReverseEngineeringExperimentalCircuitboard
+  - type: Sprite
+    sprite: DeltaV/Structures/Machines/reverse_engineering.rsi
+    snapCardinals: true
+    layers:
+    - state: open
+      map: ["open"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    noRot: true
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReverseEngineeringVisuals.ChamberOpen:
+        open:
+          True: { state: open }
+          False: { state: closed }
+  - type: RadiationSource
+    intensity: 1.00
+    slope: 1.0 # 0.1
+    enabled: false
+  - type: ReverseEngineeringMachine
+    scanBonus: 4
+    dangerAversionScore: 4

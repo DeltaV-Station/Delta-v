@@ -24,7 +24,6 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int ScanBonus = 1;
-    //public int ScanBonus = 1;
 
 
     [DataField("machinePartDangerAversionScore", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
@@ -34,6 +33,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// If we rolled destruction, this is added to the roll and if it <= 9 it becomes
     /// stagnation instead.
     /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int DangerAversionScore = 1;
 
     /// <summary>
