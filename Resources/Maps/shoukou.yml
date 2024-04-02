@@ -5661,6 +5661,9 @@ entities:
     - type: Transform
       pos: 1.5,-33.5
       parent: 34
+    - type: DeviceLinkSink
+      links:
+      - 13840
   - uid: 2982
     components:
     - type: Transform
@@ -6420,6 +6423,10 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-2.5
       parent: 34
+    - type: Apc
+      hasAccess: True
+      lastExternalState: Good
+      lastChargeState: Full
   - uid: 7427
     components:
     - type: MetaData
@@ -8085,6 +8092,32 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -60.5,-35.5
+      parent: 34
+- proto: ButtonFrameExit
+  entities:
+  - uid: 13839
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,-32.5
+      parent: 34
+- proto: ButtonFrameJanitor
+  entities:
+  - uid: 13841
+    components:
+    - type: Transform
+      pos: 5.5,-25.5
+      parent: 34
+  - uid: 13844
+    components:
+    - type: Transform
+      pos: -39.5,-24.5
+      parent: 34
+  - uid: 13846
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,-19.5
       parent: 34
 - proto: CableApcExtension
   entities:
@@ -72062,6 +72095,16 @@ entities:
       linkedPorts:
         1484:
         - Pressed: Toggle
+  - uid: 13840
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,-32.5
+      parent: 34
+    - type: DeviceLinkSource
+      linkedPorts:
+        2978:
+        - Pressed: Open
 - proto: SignalButtonDirectional
   entities:
   - uid: 7459
@@ -72110,8 +72153,7 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         3582:
-        - Pressed: Open
-        - Pressed: Close
+        - Pressed: Toggle
 - proto: SignalSwitch
   entities:
   - uid: 246
@@ -72200,7 +72242,6 @@ entities:
         13679:
         - On: On
         - Off: Off
-        - Status: Toggle
 - proto: SignalSwitchDirectional
   entities:
   - uid: 1922
