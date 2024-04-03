@@ -23,7 +23,7 @@
     drawdepth: SmallMobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: DeltaV/Mobs/Animals/legallydistinctspaceferret.rsi
+      sprite: DeltaV/Mobs/Animals/spaceferret.rsi
       state: spaceferret
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
@@ -109,7 +109,7 @@
   - type: Hunger
     baseDecayRate: 0.15
   - type: GenericAntag
-    rule: LegallyDistinctSpaceFerretRule
+    rule: SpaceFerretRule
   - type: Inventory
     templateId: spaceferret
   - type: InventorySlots

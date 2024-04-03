@@ -13,7 +13,7 @@
 - type: entity
   noSpawn: true
   parent: BaseGameRule
-  id: LegallyDistinctSpaceFerretRule
+  id: SpaceFerretRule
   components:
   - type: GenericAntagRule
     agentName: spaceferret-round-end-agent-name
