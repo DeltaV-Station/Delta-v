@@ -2,6 +2,8 @@
 using Content.Server.DeltaV.SpaceFerret.Components;
 using Content.Server.GenericAntag;
 using Content.Server.Roles;
+using Content.Shared.DeltaV.Interaction.Events;
+using Content.Shared.DeltaV.Nutrition;
 using Content.Shared.DeltaV.SpaceFerret;
 using Content.Shared.DeltaV.SpaceFerret.Events;
 using Content.Shared.Interaction.Events;

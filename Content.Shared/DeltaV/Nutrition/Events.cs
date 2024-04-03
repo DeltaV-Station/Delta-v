@@ -1,4 +1,4 @@
-namespace Content.Shared.Nutrition;
+namespace Content.Shared.DeltaV.Nutrition;
 
 public sealed class HungerModifiedEvent(float amount) : EntityEventArgs
 {

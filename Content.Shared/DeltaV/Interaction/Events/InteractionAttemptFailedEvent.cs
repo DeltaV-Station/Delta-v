@@ -1,4 +1,4 @@
-namespace Content.Shared.Interaction.Events;
+namespace Content.Shared.DeltaV.Interaction.Events;
 
 public sealed class InteractionAttemptFailed(EntityUid target)
 {

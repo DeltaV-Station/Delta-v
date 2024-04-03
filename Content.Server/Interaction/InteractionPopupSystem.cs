@@ -1,6 +1,7 @@
 using Content.Server.Interaction.Components;
 using Content.Server.Popups;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.DeltaV.Interaction.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
