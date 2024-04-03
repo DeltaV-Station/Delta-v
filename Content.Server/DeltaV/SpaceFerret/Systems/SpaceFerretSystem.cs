@@ -3,10 +3,10 @@ using Content.Server.DeltaV.SpaceFerret.Components;
 using Content.Server.GenericAntag;
 using Content.Server.Roles;
 using Content.Shared.DeltaV.SpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition;
-using Robust.Shared.Audio;
 
 namespace Content.Server.DeltaV.SpaceFerret.Systems;
 
@@ -41,7 +41,7 @@ public sealed class SpaceFerretSystem : EntitySystem
         {
             PrototypeId = component.AntagProtoId
         }, mind);
-        _role.MindPlaySound(args.MindId, new SoundPathSpecifier(component.RoleIntroSfx), mind);
+        _role.MindPlaySound(args.MindId, component.RoleIntroSfx, mind);
         _chatMan.DispatchServerMessage(session, Loc.GetString(component.RoleGreeting));
     }
 
