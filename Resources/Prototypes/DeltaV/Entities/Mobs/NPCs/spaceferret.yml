@@ -102,6 +102,9 @@
     makeSentient: true
     name: ghost-role-information-spaceferret-name
     description: ghost-role-information-spaceferret-description
+    requirements: # Note: If you change this, also tweak the values in Prototypes/DeltaV/Entities/Mobs/NPCs/spaceferret.yml
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24 hours
   - type: Food
   - type: Hunger
     baseDecayRate: 0.3

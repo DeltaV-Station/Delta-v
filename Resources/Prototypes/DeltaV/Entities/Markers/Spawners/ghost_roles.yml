@@ -77,6 +77,9 @@
     name: ghost-role-information-spaceferret-name
     description: ghost-role-information-spaceferret-description
     rules: ghost-role-information-spaceferret-rules
+    requirements: # Note: If you change this, also tweak the values in Prototypes/DeltaV/Entities/Markers/Spawners/ghost_roles.yml
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24 hours
   - type: GhostRoleMobSpawner
     prototype: MobSpaceFerret
   - type: Sprite
