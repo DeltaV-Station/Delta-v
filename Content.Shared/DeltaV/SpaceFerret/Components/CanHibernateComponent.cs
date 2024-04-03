@@ -7,28 +7,18 @@ namespace Content.Shared.DeltaV.SpaceFerret;
 [RegisterComponent]
 public sealed partial class CanHibernateComponent : Component
 {
-    [DataField]
+    [DataField(required: true)]
     public EntProtoId EepyAction = "ActionEepy";
 
     [DataField]
     public EntityUid? EepyActionEntity;
 
-    [DataField]
-    public string NotEnoughNutrientsMessage = "";
+    [DataField(required: true)]
+    public LocId NotEnoughNutrientsMessage = "spaceferret-not-enough-nutrients";
 
-    [DataField]
-    public string TooFarFromHibernationSpot = "";
+    [DataField(required: true)]
+    public LocId TooFarFromHibernationSpot = "spaceferret-out-of-range";
 
-    [DataField]
+    [DataField(required: true)]
     public string SpriteStateId = "";
-}
-
-public sealed partial class EepyActionEvent : InstantActionEvent
-{
-}
-
-[Serializable] [NetSerializable]
-public sealed class EntityHasHibernated(NetEntity hibernator) : EntityEventArgs
-{
-    public NetEntity Hibernator = hibernator;
 }
