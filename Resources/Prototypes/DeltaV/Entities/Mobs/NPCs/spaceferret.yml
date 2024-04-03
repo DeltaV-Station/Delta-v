@@ -76,7 +76,7 @@
       path: /Audio/DeltaV/Animals/wawa_chatter.ogg
   - type: MovementSpeedModifier
     baseWalkSpeed: 5 # nyoom
-    baseSprintSpeed: 7 # NYOOOOOM
+    baseSprintSpeed: 5 # nyoom but slightly less than their april fools version
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -84,7 +84,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 15 # NOM - Do NOT mess with skugs.
+        Piercing: 5 # Soft nibble, they're pretty much defenseless. Why would you want to hurt a poor skug :(
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -92,12 +92,11 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 120 # Fat
         mask:
         - MobMask
         layer:
         - MobLayer
-  # Round impact
   - type: GhostRole
     prob: 1
     makeSentient: true
