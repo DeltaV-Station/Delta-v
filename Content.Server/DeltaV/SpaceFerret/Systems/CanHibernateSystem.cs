@@ -56,7 +56,7 @@ public sealed class CanHibernateSystem : EntitySystem
 
         if (_mind.TryGetObjectiveComp<HibernateConditionComponent>(uid, out var hibernateCondition))
         {
-            _audio.PlayPvs(new SoundPathSpecifier(hibernateCondition.SuccessSfx), uid);
+            _audio.PlayPvs(hibernateCondition.SuccessSfx, uid);
             _popup.PopupEntity(Loc.GetString(hibernateCondition.SuccessMessage), uid, PopupType.Large);
             hibernateCondition.Hibernated = true;
         }
