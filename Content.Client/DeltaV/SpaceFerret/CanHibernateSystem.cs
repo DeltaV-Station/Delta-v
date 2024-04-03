@@ -1,4 +1,5 @@
-﻿using Content.Shared.DeltaV.SpaceFerret;
+﻿using Content.Client.DamageState;
+using Content.Shared.DeltaV.SpaceFerret;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.DeltaV.SpaceFerret;
@@ -14,16 +15,15 @@ public sealed class CanHibernateSystem : EntitySystem
 
     public void OnHibernateEvent(EntityHasHibernated args)
     {
-        if (!TryGetEntity(args.Hibernator, out var uid))
-        {
+        if (!TryGetEntity(args.Hibernator, out var uid) | !TryComp<CanHibernateComponent>(uid, out var comp))
             return;
-        }
 
-        if (!TryComp<SpriteComponent>(uid, out var comp))
-        {
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
-        }
 
-        comp.LayerSetState(0, args.SpriteStateId);
+        if (!sprite.TryGetLayer((int) DamageStateVisualLayers.Base, out var layer))
+            return;
+
+        layer.SetState(comp!.SpriteStateId);
     }
 }

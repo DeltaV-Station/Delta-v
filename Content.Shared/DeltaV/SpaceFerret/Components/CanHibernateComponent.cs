@@ -28,8 +28,7 @@ public sealed partial class EepyActionEvent : InstantActionEvent
 }
 
 [Serializable] [NetSerializable]
-public sealed class EntityHasHibernated(NetEntity hibernator, string spriteStateId) : EntityEventArgs
+public sealed class EntityHasHibernated(NetEntity hibernator) : EntityEventArgs
 {
     public NetEntity Hibernator = hibernator;
-    public string SpriteStateId = spriteStateId;
 }

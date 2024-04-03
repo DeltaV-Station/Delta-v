@@ -74,7 +74,7 @@ public sealed class CanHibernateSystem : EntitySystem
         RemComp<GhostTakeoverAvailableComponent>(uid);
 
         // Notify
-        RaiseNetworkEvent(new EntityHasHibernated(GetNetEntity(uid), comp.SpriteStateId));
+        RaiseNetworkEvent(new EntityHasHibernated(GetNetEntity(uid)));
 
         args.Handled = true;
     }
