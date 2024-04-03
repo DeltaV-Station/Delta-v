@@ -12,7 +12,7 @@ ghost-role-information-paradox-anomaly-name = Paradox Anomaly
 ghost-role-information-paradox-anomaly-description = Replace your double, or befriend them.
 ghost-role-information-paradox-anomaly-rules = Try and replace your twin with this funny roleplay antag rather than plasma flooding the station or something. You can also just befriend them.
 
-ghost-role-information-spaceferret-name = Legally Distinct Space Ferret
+ghost-role-information-spaceferret-name = Space Ferret
 ghost-role-information-spaceferret-description = An adorable, devious little creature. Go live your best life, wawa!
 ghost-role-information-spaceferret-rules = You're a neutral antagonist, much like the closet skeleton, but you have two objectives to fulfil. You are NOT required to complete these objectives.
     You are allowed to cause minor havoc to obtain your goals, however you shouldn't be causing any major damage, or be attacking people for no good reason.
