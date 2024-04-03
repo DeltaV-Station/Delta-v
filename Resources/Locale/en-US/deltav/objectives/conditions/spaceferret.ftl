@@ -1,5 +1,5 @@
 ent-ConsumeNutrientsObjective = Consume enough food to survive.
-    .desc = Eat at least 300 nutrients worth of food.
+    .desc = Eat at least 100 nutrients worth of food.
 # Had to hardloc, sorry :<
 
 ent-HibernateObjective = Prepare for hibernation!
