@@ -12,10 +12,11 @@
       - SpaceFerretRole
 
 - type: entity
-  noSpawn: true
+  name: Consume enough food to survive.
+  description: Eat at least 100 nutrients worth of food.
   parent: BaseSpaceFerretObjective
   id: ConsumeNutrientsObjective
-  description: Consume enough food to survive.
+  noSpawn: true
   components:
   - type: Objective
     icon:
@@ -25,10 +26,11 @@
     nutrientsRequired: 100.0
 
 - type: entity
-  noSpawn: true
+  name: Prepare for hibernation!
+  description: Find as much food as possible, then hibernate in a gas scrubber.
   parent: BaseSpaceFerretObjective
   id: HibernateObjective
-  description: Hibernate in a gas scrubber.
+  noSpawn: true
   components:
   - type: Objective
     icon:
