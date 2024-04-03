@@ -98,7 +98,7 @@ public sealed class InteractionPopupSystem : EntitySystem
             if (component.InteractFailureSpawn != null)
                 Spawn(component.InteractFailureSpawn, _transform.GetMapCoordinates(uid));
 
-            RaiseLocalEvent(target, new InteractionAttemptFailed(target));
+            RaiseLocalEvent(target, new InteractionAttemptFailed(target)); // DeltaV - Allow systems to be aware of failed interactions. Probably should also be one for successful interactions, but I didn't need it
         }
 
         if (component.MessagePerceivedByOthers != null)

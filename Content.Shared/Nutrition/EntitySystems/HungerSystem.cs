@@ -70,7 +70,7 @@ public sealed class HungerSystem : EntitySystem
             return;
         SetHunger(uid, component.CurrentHunger + amount, component);
 
-        RaiseLocalEvent(uid, new HungerModifiedEvent(amount));
+        RaiseLocalEvent(uid, new HungerModifiedEvent(amount)); // DeltaV - Hunger modified event, used for Space Ferrets. Wawa!
     }
 
     /// <summary>
