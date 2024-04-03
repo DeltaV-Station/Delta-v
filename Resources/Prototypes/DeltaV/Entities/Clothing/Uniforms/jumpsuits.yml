@@ -257,6 +257,28 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChiefJusticeFormal
+  name: chief justice's formal jumpsuit
+  description: A fancy double-breasted suit with golden accoutrements. Sharp and authoritative.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cjformal.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cjformal.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChiefJusticeWhite
+  name: chief justice's white jumpsuit
+  description: A modest, white office shirt with hard-earned rank epaulets.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cj_white.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cj_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitClerk
   name: clerk's suit
   description: A modest suit for the person with the power to notarize anything.
