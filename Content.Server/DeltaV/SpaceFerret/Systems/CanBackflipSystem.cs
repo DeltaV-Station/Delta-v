@@ -1,5 +1,6 @@
 ﻿using Content.Server.Actions;
 using Content.Shared.DeltaV.SpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret.Events;
 
 namespace Content.Server.DeltaV.SpaceFerret.Systems;
 
@@ -22,7 +23,7 @@ public sealed class CanBackflipSystem : EntitySystem
 
     public void OnBackflipAction(EntityUid uid, CanBackflipComponent comp, BackflipActionEvent args)
     {
-        RaiseNetworkEvent(new DoABackFlipEvent(GetNetEntity(uid), comp.ClappaSfx));
+        RaiseNetworkEvent(new DoABackFlipEvent(GetNetEntity(uid)));
 
         args.Handled = true;
     }

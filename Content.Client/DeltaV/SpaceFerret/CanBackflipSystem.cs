@@ -1,4 +1,5 @@
 ﻿using Content.Shared.DeltaV.SpaceFerret;
+using Content.Shared.DeltaV.SpaceFerret.Events;
 using Robust.Client.Animations;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
@@ -24,7 +25,7 @@ public sealed class CanBackflipSystem : EntitySystem
 
     public void OnBackflipEvent(DoABackFlipEvent args)
     {
-        if (!TryGetEntity(args.Actioner, out var uid))
+        if (!TryGetEntity(args.Actioner, out var uid) || !TryComp<CanBackflipComponent>(uid, out var comp))
         {
             return;
         }
@@ -49,6 +50,6 @@ public sealed class CanBackflipSystem : EntitySystem
             }
         }, BackflipKey);
 
-        _audio.PlayEntity(new SoundPathSpecifier(args.SfxSource), Filter.Local(), uid.Value, false);
+        _audio.PlayPvs(comp.ClappaSfx, uid.Value);
     }
 }
