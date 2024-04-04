@@ -20,3 +20,9 @@
         volume: -6
     startOnStick: true
     canToggleStartOnStick: true
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 10
+    intensitySlope: 10
+    maxIntensity: 10
+    canCreateVacuum: false
