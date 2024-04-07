@@ -42,6 +42,7 @@ using Content.Shared.Item;
 using Content.Shared.Mail;
 using Content.Shared.Maps;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
