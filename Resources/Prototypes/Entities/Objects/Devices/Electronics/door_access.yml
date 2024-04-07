@@ -215,13 +215,13 @@
   - type: AccessReader
     access: [["Detective"]]
 
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsBrig
-  suffix: Brig, Locked
-  components:
-  - type: AccessReader
-    access: [["Brig"]]
+#- type: entity
+#  parent: DoorElectronics
+#  id: DoorElectronicsBrig
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
 
 - type: entity
   parent: DoorElectronics
