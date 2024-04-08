@@ -4,6 +4,8 @@
   name: Mr. Butlertron
   description: It asks for food to deliver to exotic customers across the cosmos. Powered by the latest technology in bluespace food delivery.
   components:
+  - type: Anchorable
+  - type: Pullable
   - type: Sprite
     noRot: true
     drawdepth: Mobs
