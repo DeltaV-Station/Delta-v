@@ -7767,6 +7767,7 @@ entities:
       - 7107
       - 5758
       - 17223
+      - 18759
     - type: AtmosDevice
       joinedGrid: 100
   - uid: 17234
@@ -7779,6 +7780,13 @@ entities:
       devices:
       - 5229
       - 5611
+      - 17559
+      - 19845
+      - 19844
+      - 18652
+      - 18488
+      - 16
+      - 5580
     - type: AtmosDevice
       joinedGrid: 100
   - uid: 17236
@@ -7799,6 +7807,8 @@ entities:
       - 5248
       - 5496
       - 10747
+      - 18652
+      - 18488
     - type: AtmosDevice
       joinedGrid: 100
   - uid: 17247
@@ -7842,6 +7852,7 @@ entities:
       - 5513
       - 10759
       - 13970
+      - 17559
     - type: AtmosDevice
       joinedGrid: 100
   - uid: 17252
@@ -8736,6 +8747,8 @@ entities:
       - 5962
       - 3383
       - 337
+      - 18759
+      - 18867
     - type: AtmosDevice
       joinedGrid: 100
   - uid: 19857
@@ -22866,6 +22879,11 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-2.5
+      parent: 100
+  - uid: 12541
+    components:
+    - type: Transform
+      pos: -31.5,-24.5
       parent: 100
   - uid: 12638
     components:
@@ -55693,6 +55711,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: -47.5,60.5
       parent: 100
+  - uid: 17559
+    components:
+    - type: Transform
+      pos: -19.5,-1.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 17234
+      - 17249
+  - uid: 18488
+    components:
+    - type: Transform
+      pos: -21.5,-14.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 17236
+      - 17234
   - uid: 18644
     components:
     - type: Transform
@@ -55718,6 +55754,15 @@ entities:
     - type: Transform
       pos: -32.5,66.5
       parent: 100
+  - uid: 18652
+    components:
+    - type: Transform
+      pos: -21.5,-13.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 17236
+      - 17234
   - uid: 18656
     components:
     - type: Transform
@@ -55748,6 +55793,15 @@ entities:
     - type: Transform
       pos: 45.5,46.5
       parent: 100
+  - uid: 18759
+    components:
+    - type: Transform
+      pos: -5.5,-10.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 17221
+      - 19843
   - uid: 18852
     components:
     - type: Transform
@@ -55758,6 +55812,14 @@ entities:
     - type: Transform
       pos: 36.5,45.5
       parent: 100
+  - uid: 18867
+    components:
+    - type: Transform
+      pos: -7.5,-13.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 19843
   - uid: 19151
     components:
     - type: Transform
@@ -55794,6 +55856,7 @@ entities:
       - 19843
       - 19842
       - 20784
+      - 17234
   - uid: 19845
     components:
     - type: Transform
@@ -55805,6 +55868,7 @@ entities:
       - 19843
       - 19842
       - 20784
+      - 17234
   - uid: 19858
     components:
     - type: Transform
@@ -78828,6 +78892,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 19842
+      - 17234
     - type: AtmosDevice
       joinedGrid: 100
     - type: AtmosPipeColor
@@ -81015,6 +81080,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 19842
+      - 17234
     - type: AtmosDevice
       joinedGrid: 100
     - type: AtmosPipeColor
@@ -91586,6 +91652,13 @@ entities:
     components:
     - type: Transform
       pos: 25.702765,8.09902
+      parent: 100
+- proto: MaterialReclaimer
+  entities:
+  - uid: 17406
+    components:
+    - type: Transform
+      pos: -22.5,6.5
       parent: 100
 - proto: MaterialWoodPlank1
   entities:
@@ -132070,7 +132143,6 @@ entities:
         17405:
         - DoorStatus: Input
     - type: DoorBolt
-      powered: True
       boltsDown: True
 - proto: WindoorSecureCargoLocked
   entities:
