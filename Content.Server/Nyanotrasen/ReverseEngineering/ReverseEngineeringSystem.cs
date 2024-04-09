@@ -310,6 +310,16 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 if (component.CurrentItem != null)
                     Del(component.CurrentItem.Value);
             }
+            if (rev.Research == null) // Should I even keep it this way and not attempt to hardcode that its depended on difficulties
+            {
+                Eject(uid, component);
+            } else
+            {
+                _slots.SetLock(uid, TargetSlot, false);
+                Spawn(rev.Research, Transform(uid).Coordinates);
+                if (component.CurrentItem != null)
+                    Del(component.CurrentItem.Value);
+            }
             RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         }
 

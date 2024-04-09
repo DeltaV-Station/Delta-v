@@ -35,4 +35,12 @@ public sealed partial class ReverseEngineeringComponent : Component
     /// </summary>
     [DataField("newItem", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? NewItem;
+
+    /// <summary>
+    /// A research disk that should be given by the reverse engineering machine when it completes something.
+    /// Difficulty 1/2 = ResearchDisk, Difficulty 3/4 = ResearchDisk 5000, Difficulty 5/above = ResearchDisk 10000.
+    /// Should I keep it yml? We shall see. More work with yml technicly.
+    /// </summary>
+    [DataField("research", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? Research;
 }
