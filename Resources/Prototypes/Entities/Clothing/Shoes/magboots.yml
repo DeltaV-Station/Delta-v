@@ -70,10 +70,6 @@
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
   - type: Magboots
     toggleAction: ActionToggleMagbootsSci
-  - type: ReverseEngineering # delta
-    difficulty: 2
-    recipes:
-      - ClothingShoesBootsMagSci
 
 - type: entity
   parent: ClothingShoesBootsMag
