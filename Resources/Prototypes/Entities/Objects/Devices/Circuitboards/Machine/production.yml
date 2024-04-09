@@ -13,7 +13,7 @@
         Glass: 1
     - type: ReverseEngineering # delta
       recipes:
-        - AutolatheHyperConvectionMachineCircuitboard
+        - AutolatheMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -395,7 +395,7 @@
     - type: ReverseEngineering # delta
       difficulty: 3
       recipes:
-       - AnomalyVesselExperimentalCircuitboard
+       - AnomalySynchronizerCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
