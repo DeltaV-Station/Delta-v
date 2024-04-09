@@ -6,100 +6,100 @@
   components:
   - type: Mail
     contents:
-    # Author Books
-    - id: BookNarsieLegend
-      prob: 0.02
-      orGroup: bookauthor
-    - id: BookTruth
-      prob: 0.02
-      orGroup: bookauthor
-    - id: BookWorld
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookIanAntarctica
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookSlothClownSSS
-      prob: 0.04
-      orGroup: bookauthor
-    - id: BookSlothClownPranks
-      prob: 0.04
-      orGroup: bookauthor
-    - id: BookSlothClownMMD
-      prob: 0.04
-      orGroup: bookauthor
-    - id: BookStruck
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookSun
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookPossum
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookCafe
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookFeather
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookIanLostWolfPup
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanRanch
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanOcean
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanMountain
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanCity
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanArctic
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookIanDesert
-      prob: 0.05
-      orGroup: bookauthor
-    - id: BookNames
-      prob: 0.08
-      orGroup: bookauthor
-    - id: BookEarth
-      prob: 0.08
-      orGroup: bookauthor
-    - id: BookTemple
-      prob: 0.09
-      orGroup: bookauthor
-    - id: BookAurora
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookWatched
-      prob: 0.04
-      orGroup: bookauthor
-    - id: BookMedicalOfficer
-      prob: 0.06
-      orGroup: bookauthor
-    - id: BookMorgue
-      prob: 0.06
-      orGroup: bookauthor
-    - id: BookRufus
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookMap
-      prob: 0.08
-      orGroup: bookauthor
-    - id: BookJourney
-      prob: 0.1
-      orGroup: bookauthor
-    - id: BookInspiration
-      prob: 0.09
-      orGroup: bookauthor
-    - id: BookRandom # The "spawn nothing" in the 'orGroup'
-      prob: 0.3
-      orGroup: bookauthor
+#    # Author Books
+#    - id: BookNarsieLegend
+#      prob: 0.02
+#      orGroup: bookauthor
+#    - id: BookTruth
+#      prob: 0.02
+#      orGroup: bookauthor
+#    - id: BookWorld
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookIanAntarctica
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookSlothClownSSS
+#      prob: 0.04
+#      orGroup: bookauthor
+#    - id: BookSlothClownPranks
+#      prob: 0.04
+#      orGroup: bookauthor
+#    - id: BookSlothClownMMD
+#      prob: 0.04
+#      orGroup: bookauthor
+#    - id: BookStruck
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookSun
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookPossum
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookCafe
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookFeather
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookIanLostWolfPup
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanRanch
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanOcean
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanMountain
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanCity
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanArctic
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookIanDesert
+#      prob: 0.05
+#      orGroup: bookauthor
+#    - id: BookNames
+#      prob: 0.08
+#      orGroup: bookauthor
+#    - id: BookEarth
+#      prob: 0.08
+#      orGroup: bookauthor
+#    - id: BookTemple
+#      prob: 0.09
+#      orGroup: bookauthor
+#    - id: BookAurora
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookWatched
+#      prob: 0.04
+#      orGroup: bookauthor
+#    - id: BookMedicalOfficer
+#      prob: 0.06
+#      orGroup: bookauthor
+#    - id: BookMorgue
+#      prob: 0.06
+#      orGroup: bookauthor
+#    - id: BookRufus
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookMap
+#      prob: 0.08
+#      orGroup: bookauthor
+#    - id: BookJourney
+#      prob: 0.1
+#      orGroup: bookauthor
+#    - id: BookInspiration
+#      prob: 0.09
+#      orGroup: bookauthor
+#    - id: BookRandom # The "spawn nothing" in the 'orGroup'
+#      prob: 0.3
+#      orGroup: bookauthor
     # id: Guidebook Books
     - id: BookSpaceEncyclopedia
       prob: 0.2
@@ -143,28 +143,28 @@
     - id: BookRandom # The "spawn nothing" in the 'orGroup'
       prob: 0.5
       orGroup: bookguide
-    # Other Books
-    - id: BookEscalation
-      prob: 0.2
-      orGroup: bookother
-    - id: BookEscalationSecurity
-      prob: 0.15
-      orGroup: bookother
-    - id: BookAtmosDistro
-      prob: 0.1
-      orGroup: bookother
-    - id: BookAtmosWaste
-      prob: 0.1
-      orGroup: bookother
-    - id: BookAtmosAirAlarms
-      prob: 0.1
-      orGroup: bookother
-    - id: BookAtmosVentsMore
-      prob: 0.1
-      orGroup: bookother
-    - id: BookRandom # The "spawn nothing" in the 'orGroup'
-      prob: 0.7
-      orGroup: bookother
+#    # Other Books
+#    - id: BookEscalation
+#      prob: 0.2
+#      orGroup: bookother
+#    - id: BookEscalationSecurity
+#      prob: 0.15
+#      orGroup: bookother
+#    - id: BookAtmosDistro
+#      prob: 0.1
+#      orGroup: bookother
+#    - id: BookAtmosWaste
+#      prob: 0.1
+#      orGroup: bookother
+#    - id: BookAtmosAirAlarms
+#      prob: 0.1
+#      orGroup: bookother
+#    - id: BookAtmosVentsMore
+#      prob: 0.1
+#      orGroup: bookother
+#    - id: BookRandom # The "spawn nothing" in the 'orGroup'
+#      prob: 0.7
+#      orGroup: bookother
 
 - type: entity
   noSpawn: true
