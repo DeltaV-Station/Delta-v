@@ -43591,11 +43591,6 @@ entities:
     - type: Transform
       pos: -50.372066,-37.45332
       parent: 100
-  - uid: 13437
-    components:
-    - type: Transform
-      pos: 9.502972,-47.553177
-      parent: 100
   - uid: 17076
     components:
     - type: Transform
@@ -88489,6 +88484,11 @@ entities:
     - type: Transform
       pos: 23.395061,-9.563329
       parent: 100
+  - uid: 18868
+    components:
+    - type: Transform
+      pos: 32.53824,49.207493
+      parent: 100
 - proto: HydroponicsToolMiniHoe
   entities:
   - uid: 959
@@ -88506,6 +88506,11 @@ entities:
     - type: Transform
       pos: 11.543571,-64.47795
       parent: 100
+  - uid: 18870
+    components:
+    - type: Transform
+      pos: 32.72574,49.582493
+      parent: 100
 - proto: HydroponicsToolScythe
   entities:
   - uid: 2819
@@ -88519,6 +88524,11 @@ entities:
     components:
     - type: Transform
       pos: 23.691936,-4.4852033
+      parent: 100
+  - uid: 13437
+    components:
+    - type: Transform
+      pos: 32.35074,49.691868
       parent: 100
   - uid: 17445
     components:
@@ -95659,28 +95669,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -31.5,-7.5
       parent: 100
-  - uid: 9768
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -30.5,68.5
-      parent: 100
-  - uid: 9771
-    components:
-    - type: Transform
-      pos: -34.5,78.5
-      parent: 100
-  - uid: 10797
-    components:
-    - type: Transform
-      pos: -37.5,78.5
-      parent: 100
-  - uid: 10798
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -33.5,67.5
-      parent: 100
   - uid: 11293
     components:
     - type: Transform
@@ -95814,18 +95802,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,25.5
       parent: 100
-  - uid: 11667
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -41.5,77.5
-      parent: 100
-  - uid: 11668
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -38.5,67.5
-      parent: 100
   - uid: 11713
     components:
     - type: Transform
@@ -95837,23 +95813,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,57.5
       parent: 100
-  - uid: 11796
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -30.5,77.5
-      parent: 100
   - uid: 12211
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -49.5,21.5
-      parent: 100
-  - uid: 12472
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -41.5,68.5
       parent: 100
   - uid: 12586
     components:
@@ -95941,6 +95905,52 @@ entities:
       parent: 100
 - proto: PoweredSmallLightMaintenanceRed
   entities:
+  - uid: 3829
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,68.5
+      parent: 100
+  - uid: 4028
+    components:
+    - type: Transform
+      pos: -34.5,78.5
+      parent: 100
+  - uid: 5658
+    components:
+    - type: Transform
+      pos: -37.5,78.5
+      parent: 100
+  - uid: 5659
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,67.5
+      parent: 100
+  - uid: 5981
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -41.5,77.5
+      parent: 100
+  - uid: 9768
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -38.5,67.5
+      parent: 100
+  - uid: 9771
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,77.5
+      parent: 100
+  - uid: 10797
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -41.5,68.5
+      parent: 100
   - uid: 11403
     components:
     - type: Transform
@@ -101721,6 +101731,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,-11.5
       parent: 100
+  - uid: 10798
+    components:
+    - type: Transform
+      pos: -21.5,-19.5
+      parent: 100
+  - uid: 11667
+    components:
+    - type: Transform
+      pos: -21.5,-18.5
+      parent: 100
   - uid: 12055
     components:
     - type: Transform
@@ -103074,12 +103094,6 @@ entities:
     - type: Transform
       pos: -56.5,28.5
       parent: 100
-  - uid: 3829
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-18.5
-      parent: 100
   - uid: 3973
     components:
     - type: Transform
@@ -103139,12 +103153,6 @@ entities:
     components:
     - type: Transform
       pos: -12.5,55.5
-      parent: 100
-  - uid: 4028
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-19.5
       parent: 100
   - uid: 4064
     components:
@@ -105576,6 +105584,11 @@ entities:
     - type: Transform
       pos: -21.56959,-11.007892
       parent: 100
+  - uid: 12472
+    components:
+    - type: Transform
+      pos: 9.561907,-47.541306
+      parent: 100
   - uid: 13672
     components:
     - type: Transform
@@ -105644,6 +105657,16 @@ entities:
     components:
     - type: Transform
       pos: -14.60158,-3.449087
+      parent: 100
+  - uid: 11668
+    components:
+    - type: Transform
+      pos: -23.44756,-50.28237
+      parent: 100
+  - uid: 11796
+    components:
+    - type: Transform
+      pos: -23.681934,-50.43862
       parent: 100
   - uid: 13486
     components:
@@ -114221,6 +114244,13 @@ entities:
     components:
     - type: Transform
       pos: -43.684677,75.762085
+      parent: 100
+- proto: ToolboxGoldFilled
+  entities:
+  - uid: 3236
+    components:
+    - type: Transform
+      pos: -5.4975023,58.39306
       parent: 100
 - proto: ToolboxMechanical
   entities:
