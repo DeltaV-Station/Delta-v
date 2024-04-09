@@ -19,13 +19,14 @@ using Content.Shared.Carrying;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling;
-using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Throwing;
-using Content.Shared.Physics.Pull;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 
@@ -38,7 +39,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-        [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
+        [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -230,8 +231,7 @@ namespace Content.Server.Carrying
             var ev = new CarryDoAfterEvent();
             var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
             {
-                BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnMove = true,
                 NeedHand = true
             };
 
@@ -240,8 +240,8 @@ namespace Content.Server.Carrying
 
         private void Carry(EntityUid carrier, EntityUid carried)
         {
-            if (TryComp<SharedPullableComponent>(carried, out var pullable))
-                _pullingSystem.TryStopPull(pullable);
+            if (TryComp<PullableComponent>(carried, out var pullable))
+                _pullingSystem.TryStopPull(carried, pullable);
 
             Transform(carrier).AttachToGridOrMap();
             Transform(carried).AttachToGridOrMap();
