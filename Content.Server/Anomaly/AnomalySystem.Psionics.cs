@@ -8,14 +8,13 @@ namespace Content.Server.Anomaly;
 public sealed partial class AnomalySystem
 {
     [Dependency] private readonly SharedAnomalySystem _sharedAnomaly = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly DispelPowerSystem _dispel = default!;
     private void InitializePsionics()
     {
         SubscribeLocalEvent<AnomalyComponent, DispelledEvent>(OnDispelled);
     }
 
-    //Nyano - Summary: gives dispellable behavior to Anomalies. 
+    //Nyano - Summary: gives dispellable behavior to Anomalies.
     private void OnDispelled(EntityUid uid, AnomalyComponent component, DispelledEvent args)
     {
         _dispel.DealDispelDamage(uid);
