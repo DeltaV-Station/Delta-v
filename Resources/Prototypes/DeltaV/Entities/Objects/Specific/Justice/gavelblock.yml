@@ -14,5 +14,6 @@
     - type: EmitSoundOnInteractUsing
       sound:
         path: /Audio/DeltaV/Items/gavel.ogg
-      UsedItemID: Gavel
-
+      whitelist:
+        tags:
+          - Gavel
