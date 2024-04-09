@@ -12,6 +12,14 @@
     sprite: DeltaV/Structures/Machines/roboisseur.rsi
     layers:
     - state: roboisseur-1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Roboisseur
   - type: Speech
     speechSounds: Pai
