@@ -27,3 +27,7 @@ flavor-complex-daiquiri = fashionable
 flavor-complex-arsonistsbrew = like ash and flame
 flavor-complex-healthcodeviolation = ominous
 flavor-complex-pumpkin = like pumpkin
+
+candy-flavor-profile = This one is supposed to taste {$flavor}.
+candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.
+candy-flavor-profile-unknown = You have no idea what this one is supposed to taste like.

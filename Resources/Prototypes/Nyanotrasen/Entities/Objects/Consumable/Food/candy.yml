@@ -2,7 +2,7 @@
   parent: FoodBase
   id: FoodLollipop
   name: lollipop
-  description: For being such a good sport.
+  description: For being such a good sport! Now enriched with medicine.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -21,13 +21,19 @@
           Quantity: 3
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
-    state: lollipop
+    layers:
+    - state: lollipop-stick
+    - state: lollipop-ball
+      map: [ "enum.CandyVisualLayers.Ball" ]
+    - state: lollipop-shine
+  - type: Appearance
+  - type: RandomizedCandy
 
 - type: entity
   parent: FoodBase
   id: FoodGumball
   name: gumball
-  description: For being such a good sport.
+  description: Try as you might, you can't blow bubbles with it... at least it's medicinal.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -44,4 +50,9 @@
           Quantity: 3
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
-    state: gumball
+    layers:
+    - state: gumball
+      map: [ "enum.CandyVisualLayers.Ball" ]
+    - state: gumball-shine
+  - type: Appearance
+  - type: RandomizedCandy
