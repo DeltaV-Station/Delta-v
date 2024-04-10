@@ -55,7 +55,7 @@ namespace Content.Server.Abilities.Psionics
             if (!TryComp<FlammableComponent>(args.Target, out var flammableComponent))
                 return;
 
-            flammableComponent.FireStacks += 2; // Used to be 5 but buffed fire makes it crit people alone. 3 stacks dealt 224 damage??? 2 stacks is 78.
+            flammableComponent.FireStacks += 1; // Used to be 5. 3 stacks dealt 224 damage??? 2 stacks is 78. 1 stack is Moth = 28/Human = 14
             _flammableSystem.Ignite(args.Target, args.Target);
             _popupSystem.PopupEntity(Loc.GetString("pyrokinesis-power-used", ("target", args.Target)), args.Target, Shared.Popups.PopupType.LargeCaution);
 
