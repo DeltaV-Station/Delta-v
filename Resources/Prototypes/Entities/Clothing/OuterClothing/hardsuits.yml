@@ -155,6 +155,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: ReverseEngineering # Delta V
+    difficulty: 4
+    newItem: ClothingOuterHardsuitSalvageReversedEngineered
+    recipes:
+      - ClothingOuterHardsuitSalvageReversedEngineered
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -531,9 +536,9 @@
     - WhitelistChameleon
   - type: ReverseEngineering # Delta V
     difficulty: 5
-    newItem: ClothingOuterHardsuitSyndieReverseEngineered
+    newItem: ClothingOuterHardsuitSyndieMedicReverseEngineered
     recipes:
-      - ClothingOuterHardsuitSyndieReverseEngineered
+      - ClothingOuterHardsuitSyndieMedicReverseEngineered
 
 #Syndicate Elite Hardsuit
 - type: entity

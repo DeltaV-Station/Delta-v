@@ -173,3 +173,44 @@
     sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/hos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatHoS
+
+# Reverse Engineerd Hardsuits
+
+- type: entity
+  parent: ClothingOuterHardsuitSalvage
+  id: ClothingOuterHardsuitSalvageReversedEngineered
+  name: HE-7 hardsuit
+  description: A Heavy Excavation suit, an improved version of the mining suit that protects against anything that could hit you while mining for the company. Improved movement for better efficiency.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: ReverseEngineering
+    newItem: ClothingOuterHardsuitSalvageReversedEngineered
+    recipes:
+      - ClothingOuterHardsuitSalvageReversedEngineered
+  
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieMedic
+  id: ClothingOuterHardsuitSyndieMedicReverseEngineered
+  name: SA-124 medical hardsuit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations. Now with Nanotrasen approval.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/syndiemedic.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/syndiemedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
+  - type: ReverseEngineering
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieMedicReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieMedicReverseEngineered

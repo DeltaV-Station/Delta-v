@@ -609,14 +609,9 @@
     - HamtrRLeg
     - VimHarness
   # Begin Nyano additions
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
-  # End Nyano additions
-  # Beginning of Delta V additions
-    - ClothingShoesBootsMagSyndieReverseEngineered
-  # End of Delta V additions 
+  # End Nyano additions 
   - type: MaterialStorage
     whitelist:
       tags:
@@ -808,6 +803,11 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialMindbreaker
       # End of modified code
+      # Beginning of Delta V Reverse Engineered
+      - ClothingShoesBootsMagSyndieReverseEngineered
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
+      # End of Delta V Reverse Engineered
   - type: MaterialStorage
     whitelist:
       tags:
