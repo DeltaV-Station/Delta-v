@@ -1621,3 +1621,21 @@
     difficulty: 2
     recipes:
       - ShuttleGunKineticCircuitboard
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ReagentGrinderIndustrialMachineCircuitboard
+  name: industrial reagent grinder machine board
+  components:
+  - type: MachineBoard
+    prototype: ReagentGrinderIndustrial
+    requirements:
+      MatterBin: 1
+      Manipulator: 3
+    materialRequirements:
+      Glass: 1
+  - type: ReverseEngineering # delta
+    difficulty: 2
+    recipes:
+      - ReagentGrinderIndustrialMachineCircuitboard
+

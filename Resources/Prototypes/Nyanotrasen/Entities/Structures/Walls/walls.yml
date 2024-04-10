@@ -1,23 +1,4 @@
 - type: entity
-  parent: WallSolid #basically non-Reinforced Wall (shuttle variant)
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Reflect
-    reflectProb: 1
-
-- type: entity
   parent: BaseWall
   id: WallPaper
   name: paper wall
@@ -92,4 +73,3 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
