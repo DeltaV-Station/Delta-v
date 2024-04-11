@@ -5995,14 +5995,14 @@ entities:
       pos: 15.5,-13.5
       parent: 34
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
       links:
       - 12927
       - 4532
     - type: DeviceLinkSource
       linkedPorts:
         4532:
-        - DoorStatus: DoorBolt
+        - DoorStatus: Close
   - uid: 3671
     components:
     - type: MetaData
@@ -6018,13 +6018,13 @@ entities:
       pos: 19.5,-13.5
       parent: 34
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
       links:
       - 3582
     - type: DeviceLinkSource
       linkedPorts:
         3582:
-        - DoorStatus: DoorBolt
+        - DoorStatus: Close
 - proto: AirlockSecurityLawyerLocked
   entities:
   - uid: 10148
@@ -72062,7 +72062,7 @@ entities:
       - 1163
 - proto: shuttle_manipulator
   entities:
-  - uid: 13025
+  - uid: 13019
     components:
     - type: Transform
       pos: 52.5,-34.5
@@ -76477,46 +76477,6 @@ entities:
     - type: Transform
       pos: -9.5,2.5
       parent: 34
-  - uid: 13017
-    components:
-    - type: Transform
-      pos: 51.5,-33.5
-      parent: 34
-  - uid: 13018
-    components:
-    - type: Transform
-      pos: 51.5,-34.5
-      parent: 34
-  - uid: 13019
-    components:
-    - type: Transform
-      pos: 51.5,-35.5
-      parent: 34
-  - uid: 13020
-    components:
-    - type: Transform
-      pos: 53.5,-35.5
-      parent: 34
-  - uid: 13021
-    components:
-    - type: Transform
-      pos: 52.5,-35.5
-      parent: 34
-  - uid: 13022
-    components:
-    - type: Transform
-      pos: 53.5,-34.5
-      parent: 34
-  - uid: 13023
-    components:
-    - type: Transform
-      pos: 53.5,-33.5
-      parent: 34
-  - uid: 13024
-    components:
-    - type: Transform
-      pos: 52.5,-33.5
-      parent: 34
   - uid: 13425
     components:
     - type: Transform
@@ -76918,6 +76878,48 @@ entities:
     components:
     - type: Transform
       pos: 52.5,-41.5
+      parent: 34
+- proto: TableFancyBlack
+  entities:
+  - uid: 13017
+    components:
+    - type: Transform
+      pos: 51.5,-35.5
+      parent: 34
+  - uid: 13018
+    components:
+    - type: Transform
+      pos: 51.5,-34.5
+      parent: 34
+  - uid: 13020
+    components:
+    - type: Transform
+      pos: 51.5,-33.5
+      parent: 34
+  - uid: 13021
+    components:
+    - type: Transform
+      pos: 53.5,-33.5
+      parent: 34
+  - uid: 13022
+    components:
+    - type: Transform
+      pos: 52.5,-33.5
+      parent: 34
+  - uid: 13023
+    components:
+    - type: Transform
+      pos: 53.5,-34.5
+      parent: 34
+  - uid: 13024
+    components:
+    - type: Transform
+      pos: 52.5,-35.5
+      parent: 34
+  - uid: 13025
+    components:
+    - type: Transform
+      pos: 53.5,-35.5
       parent: 34
 - proto: TableGlass
   entities:
