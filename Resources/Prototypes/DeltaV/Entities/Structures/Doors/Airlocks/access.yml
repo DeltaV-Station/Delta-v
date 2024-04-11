@@ -44,7 +44,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsBoxer
+      board: [ DoorElectronicsBoxer ]
 
 - type: entity
   parent: AirlockServiceLocked
@@ -53,7 +53,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsClown
+      board: [ DoorElectronicsClown ]
 
 - type: entity
   parent: AirlockServiceLocked
@@ -62,7 +62,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsMime
+      board: [ DoorElectronicsMime ]
 
 - type: entity
   parent: AirlockServiceLocked
