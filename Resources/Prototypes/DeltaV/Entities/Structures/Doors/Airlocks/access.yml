@@ -235,7 +235,7 @@
 
 # Maintenance Hatches
 - type: entity
-  parent: AirlockMaintScienceLocked
+  parent: AirlockMaintRnDLocked
   id: AirlockMaintMantisLocked
   suffix: Mantis, Locked
   components:
@@ -255,7 +255,7 @@
     layoutId: AirlockCommand
 
 - type: entity
-  parent: AirlockMaintMedicalLocked
+  parent: AirlockMaintMedLocked
   id: AirlockMaintParamedicLocked
   suffix: Paramedic, Locked
   components:
