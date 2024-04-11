@@ -218,14 +218,6 @@
       board: [ DoorElectronicsMedical ]
 
 - type: entity
-  parent: AirlockMedical
-  id: AirlockParamedicLocked
-  suffix: Paramedic, Locked
-  components:
-  - type: AccessReader
-    access: [["Paramedic"]]
-
-- type: entity
   parent: AirlockVirology
   id: AirlockVirologyLocked
   suffix: Virology, Locked
@@ -601,14 +593,6 @@
       board: [ DoorElectronicsMedical ]
 
 - type: entity
-  parent: AirlockMedicalGlass
-  id: AirlockParamedicGlassLocked
-  suffix: Paramedic, Locked
-  components:
-  - type: AccessReader
-    access: [["Paramedic"]]
-
-- type: entity
   parent: AirlockVirologyGlass
   id: AirlockVirologyGlassLocked
   suffix: Virology, Locked
@@ -872,7 +856,7 @@
       board: [ DoorElectronicsBar ]
 
 - type: entity
-  parent: AirlockMaintServiceLocked
+  parent: AirlockMaintScienceLocked # DeltaV - Chapel is in Epistemics
   id: AirlockMaintChapelLocked
   suffix: Chapel, Locked
   components:

@@ -6,16 +6,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsMantis
-
-- type: entity
-  parent: AirlockScienceGlass
-  id: AirlockMantisGlassLocked
-  suffix: Mantis, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsMantis
+      board: [ DoorElectronicsMantis ]
 
 - type: entity
   parent: AirlockSecurity
@@ -24,20 +15,18 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsCorpsman
+      board: [ DoorElectronicsCorpsman ]
   - type: Wires
     layoutId: AirlockCommand
 
 - type: entity
-  parent: AirlockSecurityGlass
-  id: AirlockCorpsmanGlassLocked
-  suffix: Corpsman, Locked
+  parent: AirlockMedical
+  id: AirlockParamedicLocked
+  suffix: Paramedic, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsCorpsman
-  - type: Wires
-    layoutId: AirlockCommand
+      board: [ DoorElectronicsParamedic ]
 
 - type: entity
   parent: AirlockGlassShuttle
@@ -133,6 +122,35 @@
 
 # Glass Airlocks
 - type: entity
+  parent: AirlockScienceGlass
+  id: AirlockMantisGlassLocked
+  suffix: Mantis, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMantis ]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockCorpsmanGlassLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorpsman ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockParamedicGlassLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]
+
+- type: entity
   parent: AirlockServiceGlassLocked
   id: AirlockBoxerGlassLocked
   suffix: Boxer, Locked
@@ -216,6 +234,35 @@
       board: [ DoorElectronicsPsychologist ]
 
 # Maintenance Hatches
+- type: entity
+  parent: AirlockMaintScienceLocked
+  id: AirlockMaintMantisLocked
+  suffix: Mantis, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMantis ]
+
+- type: entity
+  parent: AirlockMaintSecurityLocked
+  id: AirlockMaintCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorpsman ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockMaintMedicalLocked
+  id: AirlockMaintParamedicLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]
+
 - type: entity
   parent: AirlockMaintServiceLocked
   id: AirlockMaintBoxerLocked
