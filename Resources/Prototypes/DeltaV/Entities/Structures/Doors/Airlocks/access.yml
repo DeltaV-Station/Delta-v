@@ -6,7 +6,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMantis
+      board: [ DoorElectronicsMantis
 
 - type: entity
   parent: AirlockScienceGlass
@@ -15,7 +15,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMantis
+      board: [ DoorElectronicsMantis
 
 - type: entity
   parent: AirlockSecurity
@@ -24,7 +24,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsCorpsman
+      board: [ DoorElectronicsCorpsman
   - type: Wires
     layoutId: AirlockCommand
 
@@ -35,7 +35,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsCorpsman
+      board: [ DoorElectronicsCorpsman
   - type: Wires
     layoutId: AirlockCommand
 
@@ -55,7 +55,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsBoxer
+      board: [ DoorElectronicsBoxer
 
 - type: entity
   parent: AirlockServiceLocked
@@ -64,7 +64,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsClown
+      board: [ DoorElectronicsClown
 
 - type: entity
   parent: AirlockServiceLocked
@@ -73,7 +73,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMime
+      board: [ DoorElectronicsMime
 
 - type: entity
   parent: AirlockServiceLocked
@@ -82,7 +82,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMusician
+      board: [ DoorElectronicsMusician ]
 
 - type: entity
   parent: AirlockServiceLocked
@@ -91,7 +91,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsReporter
+      board: [ DoorElectronicsReporter ]
 
 - type: entity
   parent: AirlockServiceLocked
@@ -100,7 +100,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsLibrary
+      board: [ DoorElectronicsLibrary ]
 
 - type: entity
   parent: AirlockServiceLocked
@@ -109,7 +109,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsZookeeper
+      board: [ DoorElectronicsZookeeper ]
 
 - type: entity
   parent: AirlockExternal
@@ -118,7 +118,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsSalvage
+      board: [ DoorElectronicsSalvage ]
   - type: Wires
     layoutId: AirlockCargo
 
@@ -129,7 +129,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsPsychologist
+      board: [ DoorElectronicsPsychologist ]
 
 # Glass Airlocks
 - type: entity
@@ -139,7 +139,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsBoxer
+      board: [ DoorElectronicsBoxer ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -148,7 +148,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsClown
+      board: [ DoorElectronicsClown ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -157,7 +157,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMime
+      board: [ DoorElectronicsMime ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -166,7 +166,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMusician
+      board: [ DoorElectronicsMusician ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -175,7 +175,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsReporter
+      board: [ DoorElectronicsReporter ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -184,7 +184,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsLibrary
+      board: [ DoorElectronicsLibrary ]
 
 - type: entity
   parent: AirlockServiceGlassLocked
@@ -193,7 +193,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsZookeeper
+      board: [ DoorElectronicsZookeeper ]
 
 - type: entity
   parent: AirlockExternalGlass
@@ -202,7 +202,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsSalvage
+      board: [ DoorElectronicsSalvage ]
   - type: Wires
     layoutId: AirlockCargo
 
@@ -213,7 +213,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsPsychologist
+      board: [ DoorElectronicsPsychologist ]
 
 # Maintenance Hatches
 - type: entity
@@ -223,7 +223,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsBoxer
+      board: [ DoorElectronicsBoxer ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -232,7 +232,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsClown
+      board: [ DoorElectronicsClown ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -241,7 +241,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMime
+      board: [ DoorElectronicsMime ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -250,7 +250,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsMusician
+      board: [ DoorElectronicsMusician ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -259,7 +259,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsReporter
+      board: [ DoorElectronicsReporter ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -268,7 +268,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsLibrary
+      board: [ DoorElectronicsLibrary ]
 
 - type: entity
   parent: AirlockMaintServiceLocked
@@ -277,7 +277,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsZookeeper
+      board: [ DoorElectronicsZookeeper ]
 
 - type: entity
   parent: AirlockMaintMedLocked
@@ -286,7 +286,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsPsychologist
+      board: [ DoorElectronicsPsychologist ]
 
 - type: entity
   parent: AirlockMaintSecLocked
@@ -295,4 +295,4 @@
   components:
   - type: ContainerFill
     containers:
-      board: DoorElectronicsSecurityLawyer
+      board: [ DoorElectronicsSecurityLawyer ]
