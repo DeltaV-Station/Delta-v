@@ -119,44 +119,6 @@
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
-  id: MountainSnowRock
-  parent: MountainRock
-  name: mountain rock
-  suffix: Un-mineable
-  description: A craggy mountain wall. It is too hard to mine.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Structures/Walls/mountain_rock.rsi
-    state: full
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Occluder
-  - type: Airtight
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-  - type: IconSmooth
-    key: walls
-    base: rock_
-
-- type: entity
   id: AsteroidRockOreCrab
   parent: AsteroidAltRock
   name: asteroid rock
