@@ -43,7 +43,7 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoPalletConsoleComponent, BoundUIOpenedEvent>(OnPalletUIOpen);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize);
+        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize); // DeltaV - trade station map
 
         Subs.CVar(_cfgManager, CCVars.GridFill, SetGridFill);
     }
@@ -370,6 +370,7 @@ public sealed partial class CargoSystem
         CleanupTradeStation();
     }
 
+    // DeltaV - begin trade station map
     private void OnStationInitialize(StationInitializedEvent args)
     {
         if (!HasComp<StationCargoOrderDatabaseComponent>(args.Station)) // No cargo, L
@@ -378,6 +379,7 @@ public sealed partial class CargoSystem
         if (_cfgManager.GetCVar(CCVars.GridFill))
             SetupTradePost();
     }
+    // DeltaV - end trade station map
 
     private void CleanupTradeStation()
     {
@@ -392,6 +394,7 @@ public sealed partial class CargoSystem
         CargoMap = null;
     }
 
+    // DeltaV - begin trade station map
     private void SetupTradePost()
     {
         if (CargoMap != null && _mapManager.MapExists(CargoMap.Value))
@@ -421,7 +424,6 @@ public sealed partial class CargoSystem
             var shuttleComponent = EnsureComp<ShuttleComponent>(grid);
             shuttleComponent.AngularDamping = 10000;
             shuttleComponent.LinearDamping = 10000;
-            Dirty(shuttleComponent);
         }
 
         var mapUid = _mapManager.GetMapEntityId(CargoMap.Value);
@@ -438,6 +440,7 @@ public sealed partial class CargoSystem
 
         _console.RefreshShuttleConsoles();
     }
+    // DeltaV - end trade station map
 }
 
 /// <summary>
