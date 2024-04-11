@@ -89,7 +89,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     private static readonly string MobFlavorMeat = "meaty";
 
     private static readonly AudioParams
-        AudioParamsInsertRemove = new(0.5f, 1f, "Master", 5f, 1.5f, 1f, false, 0f, 0.2f);
+        AudioParamsInsertRemove = new(0.5f, 1f, 5f, 1.5f, 1f, false, 0f, 0.2f);
 
     private ISawmill _sawmill = default!;
 
