@@ -87,4 +87,30 @@
     BlueCuracao:
       amount: 1
   products:
-    Mothamphetamine: 3  
+    Mothamphetamine: 3
+
+- type: reaction
+  id: Admiralty
+  reactants:
+    NavyRum:
+      amount: 3
+    Fernet:
+      amount: 1
+    Vermouth:
+      amount: 1
+  products:
+    Admiralty: 5
+  sound:
+    path: Delta-V\Resources\Audio\Effects\Weather\rain2.ogg
+
+- type: reaction
+  id: Amnesia
+  reactants:
+    LotophagoiOil:
+      amount: 1
+    Nothing:
+      amount: 1
+    MindbreakerToxin:
+      amount: 1
+  products:
+    Amnesia: 3
