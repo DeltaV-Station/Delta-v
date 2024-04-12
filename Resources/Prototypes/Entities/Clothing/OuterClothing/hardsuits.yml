@@ -954,6 +954,9 @@
     node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
+  - type: ContainerContainer # Delta V-Brings back clownsuit but make it make sense
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
 
 #Mime Hardsuit
 - type: entity
