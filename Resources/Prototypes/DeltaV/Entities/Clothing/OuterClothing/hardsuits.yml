@@ -176,6 +176,7 @@
 
 # Reverse Engineerd Hardsuits
 
+# Salvage
 - type: entity
   parent: ClothingOuterHardsuitSalvage
   id: ClothingOuterHardsuitSalvageReversedEngineered
@@ -206,7 +207,7 @@
     recipes:
       - ClothingOuterHardsuitSalvageReversedEngineered
   
-
+# Syndicate
 - type: entity
   parent: ClothingOuterHardsuitSyndieMedic
   id: ClothingOuterHardsuitSyndieMedicReverseEngineered
@@ -214,13 +215,31 @@
   description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations. Now with Nanotrasen approval.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/syndiemedic.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/SA-124_medical_hardsuit.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/syndiemedic.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/SA-124_medical_hardsuit.rsi
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedicReverseEngineered
   - type: ReverseEngineering
     difficulty: 5
     newItem: ClothingOuterHardsuitSyndieMedicReverseEngineered
     recipes:
       - ClothingOuterHardsuitSyndieMedicReverseEngineered
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitSyndieEliteReverseEngineered
+  name: SA-125 elite hardsuit
+  description: A reversed engineered version of the elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Nanotrasen now.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/SA-125_elite_hardsuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Bluekies/SA-125_elite_hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: ReverseEngineering
+    difficulty: 5
+    newItem: ClothingOuterHardsuitSyndieEliteReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitSyndieEliteReverseEngineered
