@@ -61,17 +61,15 @@ public sealed partial class RandomizedCandySystem : EntitySystem
     // is upstream code in a private method with fixed loc strings and unnecessary sorting, so i don't want to touch it
     private string GetExamineFluff(HashSet<ProtoId<FlavorPrototype>> flavorIds)
     {
-        var flavorSet = new HashSet<string>();
+        var flavors = new List<string>();
         foreach (var flavorId in flavorIds)
         {
             if (_prototypeManager.TryIndex(flavorId, out var flavor) &&
                 Loc.TryGetString(flavor.FlavorDescription, out var flavorText))
             {
-                flavorSet.Add(flavorText);
+                flavors.Add(flavorText);
             }
         }
-
-        var flavors = flavorSet.ToList();
 
         return flavors.Count switch
         {
