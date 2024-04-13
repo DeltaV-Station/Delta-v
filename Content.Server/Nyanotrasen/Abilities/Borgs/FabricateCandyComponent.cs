@@ -15,7 +15,6 @@ public sealed partial class FabricateCandyComponent : Component
     /// The sound played when fabricating candy.
     /// </summary>
     [DataField("fabricationSound")]
-    [ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier FabricationSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg")
     {
         Params = new AudioParams

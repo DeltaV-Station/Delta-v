@@ -37,8 +37,7 @@ public sealed partial class RandomizedCandySystem : EntitySystem
         var candyFlavor = _random.Pick(flavors.ToList());
 
         // color the candy :3
-        if (TryComp(uid, out AppearanceComponent? appearance))
-            _appearance.SetData(uid, RandomizedCandyVisuals.Color, candyFlavor.Color, appearance);
+        _appearance.SetData(uid, RandomizedCandyVisuals.Color, candyFlavor.Color);
 
         // flavor the candy! yummy
         var flavorProfile = EnsureComp<FlavorProfileComponent>(uid);

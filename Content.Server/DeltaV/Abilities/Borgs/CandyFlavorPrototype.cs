@@ -16,16 +16,16 @@ public sealed partial class CandyFlavorPrototype : IPrototype
     /// <summary>
     /// The display name for this candy. Not localized.
     /// </summary>
-    [DataField("name")] public string Name { get; private set; } = "";
+    [DataField] public string Name { get; private set; } = "";
 
     /// <summary>
     /// The color of the candy.
     /// </summary>
-    [DataField("color")] public Color Color { get; private set; } = Color.White;
+    [DataField] public Color Color { get; private set; } = Color.White;
 
     /// <summary>
     /// How the candy tastes like.
     /// </summary>
-    [DataField("flavors")]
+    [DataField]
     public HashSet<ProtoId<FlavorPrototype>> Flavors { get; private set; } = [];
 }
