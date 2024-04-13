@@ -22,10 +22,9 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     layers:
-    - state: lollipop-stick
     - state: lollipop-ball
       map: [ "enum.CandyVisualLayers.Ball" ]
-    - state: lollipop-shine
+    - state: lollipop-stickandshine
   - type: Clothing
     sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     slots: [ mask ]
