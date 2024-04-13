@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Nutrition;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Abilities.Borgs;
+namespace Content.Server.DeltaV.Abilities.Borgs;
 
 /// <summary>
 /// Describes the color and flavor profile of lollipops and gumballs. Yummy!

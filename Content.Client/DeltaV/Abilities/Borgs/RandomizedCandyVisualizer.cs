@@ -1,7 +1,7 @@
-﻿using Content.Shared.Abilities.Borgs;
+﻿using Content.Shared.DeltaV.Abilities.Borgs;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Abilities.Borgs;
+namespace Content.Client.DeltaV.Abilities.Borgs;
 
 /// <summary>
 /// Responsible for coloring randomized candy.

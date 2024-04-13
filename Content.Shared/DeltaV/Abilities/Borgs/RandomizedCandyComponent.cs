@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Abilities.Borgs;
+namespace Content.Shared.DeltaV.Abilities.Borgs;
 
 /// <summary>
 /// Marks this entity as being candy with a random flavor and color.

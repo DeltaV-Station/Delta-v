@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using Content.Server.Nutrition.Components;
-using Content.Shared.Abilities.Borgs;
+using Content.Shared.DeltaV.Abilities.Borgs;
 using Content.Shared.Nutrition;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Abilities.Borgs;
+namespace Content.Server.DeltaV.Abilities.Borgs;
 
 /// <summary>
 /// Gives things with a <see cref="RandomizedCandyComponent"/> a random flavor, with corresponding appearance and
