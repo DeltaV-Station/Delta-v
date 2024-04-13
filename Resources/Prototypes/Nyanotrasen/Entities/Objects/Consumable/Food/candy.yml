@@ -26,6 +26,11 @@
     - state: lollipop-ball
       map: [ "enum.CandyVisualLayers.Ball" ]
     - state: lollipop-shine
+  - type: Clothing
+    sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
+    slots: [ mask ]
+    equippedPrefix: lollipop
+    quickEquip: false   # would block eating otherwise
   - type: Appearance
   - type: RandomizedCandy
 
