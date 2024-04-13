@@ -27,10 +27,10 @@ public sealed partial class RandomizedCandySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizedCandyComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<RandomizedCandyComponent, MapInitEvent>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, RandomizedCandyComponent candyComp, ComponentInit args)
+    private void OnInit(EntityUid uid, RandomizedCandyComponent candyComp, MapInitEvent args)
     {
         // pick a random flavor
         var flavors = _prototypeManager.EnumeratePrototypes<CandyFlavorPrototype>();
