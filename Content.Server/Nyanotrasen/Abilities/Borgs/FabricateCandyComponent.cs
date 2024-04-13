@@ -16,5 +16,11 @@ public sealed partial class FabricateCandyComponent : Component
     /// </summary>
     [DataField("fabricationSound")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier FabricationSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg");
+    public SoundSpecifier FabricationSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg")
+    {
+        Params = new AudioParams
+        {
+            Volume = -2f
+        }
+    };
 }
