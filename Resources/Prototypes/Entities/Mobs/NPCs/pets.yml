@@ -599,6 +599,10 @@
   parent: MobGiantSpider
   id: MobSpiderShiva
   description: The first defender of the station.
+  requirements: # Delta V - No raiders
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400 # DeltaV - 4 hours
   components:
   - type: GhostRole # DeltaV
     makeSentient: true
@@ -771,6 +775,10 @@
   parent: MobMonkey
   id: MobMonkeyPunpun
   description: A prominent representative of monkeys with unlimited access to alcohol.
+  requirements: # Delta V - No raiders
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 14400 # Delta V - 4 hours
   components:
   - type: GhostRole
     prob: 1
