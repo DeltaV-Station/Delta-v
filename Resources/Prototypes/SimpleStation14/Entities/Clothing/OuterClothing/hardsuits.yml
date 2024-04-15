@@ -1,0 +1,47 @@
+- type: entity # Most of this hardsuit was changed compared to SimpleStation that its easier to just point out what is simplestation compared to what is delta V
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitHoP
+  name: head of personnel's advanced office hardsuit
+  description: An office suit with a built in fax machine.
+  components:
+  - type: Sprite # SimpleStation14 Sprite starts here
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitHoP # Simplestation14 Sprite till here.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.8 # Built in protection against paper cuts.
+  - type: ExplosionResistance
+    damageCoefficient: 0.85 # Incase the office explodes
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75 # Not built for outside office use. You wear it to keep being at the office, goddamit.
+  - type: FaxMachine # The built-in fax machine starts here.
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+          - Paper
+      blacklist:
+        tags:
+          - PaperSlip
+    name: "Head Of Personnel's hardsuit"
+  - type: ActivatableUI
+    key: enum.FaxUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.FaxUiKey.Key
+      type: FaxBoundUi
+  - type: ItemSlots
+  #- type: ContainerContainer
+  #  containers:
+  #    Paper: !type:ContainerSlot
+  #    toggleable-clothing: !type:ContainerSlot {}
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Fax
+    transmitFrequencyId: Fax # The built-in fax machine ends here.
