@@ -735,8 +735,8 @@
 - type: entity
   parent: BaseSign
   id: SignScience
-  name: science sign
-  description: A sign indicating the science area.
+  name: epistemics sign # DeltaV - Epistemics Department replacing Science
+  description: A sign indicating the epistemics area. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     state: sci
@@ -744,20 +744,22 @@
 - type: entity
   parent: BaseSign
   id: SignScience1
-  name: science sign
-  description: A sign indicating the science area.
+  name: epistemics sign # DeltaV - Epistemics Department replacing Science
+  description: A sign indicating the epistemics area. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    state: science1
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Signs read "Epi" instead of "Sci"
+    state: epi1
 
 - type: entity
   parent: BaseSign
   id: SignScience2
-  name: science sign
-  description: A sign indicating the science area.
+  name: epistemics sign
+  description: A sign indicating the epistemics area.
   components:
   - type: Sprite
-    state: science2
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Signs read "Epi" instead of "Sci"
+    state: epi2
 
 - type: entity
   parent: BaseSign

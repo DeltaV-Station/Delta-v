@@ -1,18 +1,23 @@
-﻿using Content.Server.Administration.Logs;
+﻿using Content.Server.Actions;
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
+using Content.Server.Implants;
 using Content.Server.Popups;
 using Content.Server.VoiceMask;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Speech;
 using Content.Shared.Tag;
 using Content.Shared.VoiceMask;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.Implants;
+namespace Content.Server.DeltaV.Implants;
 
 public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
 {
@@ -20,9 +25,14 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     public const string BionicSyrinxImplant = "BionicSyrinxImplant";
+
+    private const string MaskSlot = "mask";
 
 
     public override void Initialize()
@@ -32,9 +42,25 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskerComponent, ImplantImplantedEvent>(OnInsert);
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, TransformSpeakerNameEvent>(OnSpeakerNameTransform);
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
+        SubscribeLocalEvent<SyrinxVoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
         // We need to remove the SyrinxVoiceMaskComponent from the owner before the implant
         // is removed, so we need to execute before the SubdermalImplantSystem.
         SubscribeLocalEvent<VoiceMaskerComponent, EntGotRemovedFromContainerMessage>(OnRemove, before: new[] { typeof(SubdermalImplantSystem) });
+    }
+
+    private void OnChangeVerb(Entity<SyrinxVoiceMaskComponent> ent, ref VoiceMaskChangeVerbMessage msg)
+    {
+        if (msg.Verb is {} id && !_proto.HasIndex<SpeechVerbPrototype>(id))
+            return;
+
+        ent.Comp.SpeechVerb = msg.Verb;
+        // verb is only important to metagamers so no need to log as opposed to name
+
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), ent, msg.Session);
+
+        TrySetLastSpeechVerb(ent, msg.Verb);
+
+        UpdateUI(ent, ent.Comp);
     }
 
     private void OnInsert(EntityUid uid, VoiceMaskerComponent component, ImplantImplantedEvent args)
@@ -99,7 +125,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
             return;
 
         if (_uiSystem.TryGetUi(owner, VoiceMaskUIKey.Key, out var bui))
-            _uiSystem.SetUiState(bui, new VoiceMaskBuiState(component.VoiceName));
+            _uiSystem.SetUiState(bui, new VoiceMaskBuiState(component.VoiceName, component.SpeechVerb));
     }
 
     /// <summary>
@@ -109,5 +135,19 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         if (component.Enabled)
             args.Name = component.VoiceName;
+    }
+
+    private VoiceMaskerComponent? TryGetMask(EntityUid user)
+    {
+        if (!HasComp<VoiceMaskComponent>(user) || !_inventory.TryGetSlotEntity(user, MaskSlot, out var maskEntity))
+            return null;
+
+        return CompOrNull<VoiceMaskerComponent>(maskEntity);
+    }
+
+    private void TrySetLastSpeechVerb(EntityUid user, string? verb)
+    {
+        if (TryGetMask(user) is {} comp)
+            comp.LastSpeechVerb = verb;
     }
 }
