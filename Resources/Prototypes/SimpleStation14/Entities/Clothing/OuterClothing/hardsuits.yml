@@ -37,10 +37,10 @@
     - key: enum.FaxUiKey.Key
       type: FaxBoundUi
   - type: ItemSlots
-  #- type: ContainerContainer
-  #  containers:
-  #    Paper: !type:ContainerSlot
-  #    toggleable-clothing: !type:ContainerSlot {}
+  - type: ContainerContainer
+    containers:
+      Paper: !type:ContainerSlot
+      toggleable-clothing: !type:ContainerSlot {}
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: Fax
