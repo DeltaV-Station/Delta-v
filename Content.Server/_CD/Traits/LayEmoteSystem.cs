@@ -77,7 +77,7 @@ public sealed class LayEmoteSystem : EntitySystem
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, LayEmoteComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (component.Laying)
-            args.ModifySpeed(0f, 0f);
+            args.ModifySpeed(0.1f, 0.1f); // Delta V- crawl, baby, crawl!
 
         if (!component.Laying)
             args.ModifySpeed(1f, 1f);
