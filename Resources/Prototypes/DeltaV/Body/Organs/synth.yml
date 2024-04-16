@@ -1,0 +1,34 @@
+﻿# This file is licensed to you under the MIT license. See: https://spdx.org/licenses/MIT.html
+# SPDX-FileCopyrightText: (c) 2024 pissdemon (https://github.com/pissdemon)
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: OrganSynthBrain
+  parent: BaseItem # can't base this on BaseHumanOrganUnGibbable because it's not food
+  name: synth brain
+  description: "A plastitanium shell housing a synthetic crew member's mind. May contain traces of brains and/or silicon."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Species/Synth/synth_brain.rsi
+    layers:
+      - state: brain
+      - state: brain-lights
+        map: ["lights"]
+        visible: false
+        shader: unshaded
+
+  - type: Organ
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: BorgBrain
+  - type: SynthBrain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: GenericVisualizer
+    visuals:
+      enum.SynthBrainVisuals.ContainsMind:
+        lights:
+          True: { visible: true }
+          False: { visible: false }

@@ -90,6 +90,12 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [ViewVariables]
     public HumanoidCharacterProfile? LastProfileLoaded;
+
+    /// <summary>
+    /// DeltaV - denotes whether someone is visibly synthetic
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Synthetic;
 }
 
 [DataDefinition]

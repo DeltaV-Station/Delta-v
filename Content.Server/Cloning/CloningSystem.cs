@@ -49,6 +49,7 @@ using Content.Server.EntityList;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Server.Polymorph.Components;
+using Content.Shared.DeltaV.Traits.Synthetic; // DeltaV: Synthetics
 
 namespace Content.Server.Cloning
 {
@@ -248,7 +249,7 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob 
+            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
 
             ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
@@ -436,6 +437,11 @@ namespace Content.Server.Cloning
             grammar.ProperNoun = true;
             grammar.Gender = humanoid.Gender;
             Dirty(grammar);
+
+            // Delta-V: synths stay synths! if the oracle can make floppy disks out of thin air i'm sure
+            // the metem machine can recreate cybernetics...
+            if (humanoid.Synthetic)
+                EnsureComp<SynthComponent>(mob);
 
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);

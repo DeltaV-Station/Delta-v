@@ -7,6 +7,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
+using Content.Shared.DeltaV.Traits.Synthetic; // DeltaV: Synthetics
 
 namespace Content.Server.Humanoid;
 
@@ -27,7 +28,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
         var identity = Identity.Entity(uid, EntityManager);
-        var species = GetSpeciesRepresentation(component.Species).ToLower();
+        var species = GetSpeciesRepresentation(component.Species, component.Synthetic).ToLower(); // DeltaV: Synthetics
         var age = GetAgeRepresentation(component.Species, component.Age);
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
@@ -62,6 +63,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         if (TryComp<GrammarComponent>(target, out var grammar))
         {
             grammar.Gender = sourceHumanoid.Gender;
+        }
+
+        if (sourceHumanoid.Synthetic && TryComp<SynthComponent>(source, out var sourceSynth)) // DeltaV - copy synthetic status
+        {
+            _synthSystem.EnsureSynthetic(target, sourceSynth);
+            targetHumanoid.Synthetic = true;
         }
 
         targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let paradox anomaly be cloned
@@ -170,16 +177,16 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.
     /// </summary>
-    public string GetSpeciesRepresentation(string speciesId)
+    // DeltaV: synths are visibly synthetic
+    public string GetSpeciesRepresentation(string speciesId, bool synthetic)
     {
+        var syntheticPrefix = synthetic ? $"{Loc.GetString("humanoid-appearance-component-synthetic")} " : "";
         if (_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
         {
-            return Loc.GetString(species.Name);
+            return syntheticPrefix + Loc.GetString(species.Name);
         }
-        else
-        {
-            return Loc.GetString("humanoid-appearance-component-unknown-species");
-        }
+
+        return syntheticPrefix + Loc.GetString("humanoid-appearance-component-unknown-species");
     }
 
     public string GetAgeRepresentation(string species, int age)

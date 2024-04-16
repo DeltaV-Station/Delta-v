@@ -40,4 +40,16 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
 
         indicator.Prototype = SharedTypingIndicatorSystem.InitialIndicatorId;
     }
+
+    /// <summary>
+    /// Delta-V: Sets whether the typing indicator should use overrides for synths.
+    /// </summary>
+    public void SetUseSyntheticVariant(EntityUid uid, bool enabled)
+    {
+        // we need to ensurecomp here because humans and anything else that doesn't have a typingindicator out of the
+        // factory will not have a typingindicator comp. (non-humans like moths have one set in the proto)
+        EnsureComp<TypingIndicatorComponent>(uid, out var component);
+        component.UseSyntheticVariant = enabled;
+        Dirty(uid, component);
+    }
 }
