@@ -13,7 +13,6 @@ public sealed partial class ThievingComponent : Component
     [DataField("stripTimeReduction")]
     public TimeSpan StripTimeReduction = TimeSpan.FromSeconds(0.5f);
 
-
     /// <summary>
     /// Should it notify the user if they're stripping a pocket?
     /// </summary>
