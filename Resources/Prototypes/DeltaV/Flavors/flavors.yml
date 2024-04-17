@@ -115,3 +115,19 @@
   id: arsonistsbrew
   flavorType: Complex
   description: flavor-complex-arsonistsbrew
+
+- type: flavor
+  id: blellow
+  flavorType: Complex
+  description: flavor-complex-blellow
+
+# this is prefixed with "candy" to avoid clashes with potential future strawberries upstream
+- type: flavor
+  id: candystrawberry
+  flavorType: Complex
+  description: flavor-complex-candy-strawberry
+
+- type: flavor
+  id: candybubblegum
+  flavorType: Complex
+  description: flavor-complex-candy-bubblegum

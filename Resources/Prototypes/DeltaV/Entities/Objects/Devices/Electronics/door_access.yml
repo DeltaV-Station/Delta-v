@@ -85,3 +85,11 @@
   components:
   - type: AccessReader
     access: [["Psychologist"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMail
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
