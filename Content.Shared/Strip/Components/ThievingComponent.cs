@@ -23,7 +23,6 @@ public sealed partial class ThievingComponent : Component
     /// <summary>
     ///  Should the user be able to see hidden items? (i.e pockets)
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("ignoreStripHidden")] //DeltaV
-    public bool IgnoreStripHidden = false;
+    [DataField]
+    public bool IgnoreStripHidden; //DeltaV
 }
