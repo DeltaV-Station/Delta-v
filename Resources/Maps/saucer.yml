@@ -1051,19 +1051,35 @@ entities:
             273: 37,-19
         - node:
             color: '#FFFFFFFF'
+            id: WarnCornerNE
+          decals:
+            560: 10,-47
+            561: 16,-47
+        - node:
+            color: '#FFFFFFFF'
             id: WarnCornerNW
           decals:
             407: 37,-34
+            562: 8,-47
+            563: 12,-47
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerSE
           decals:
             144: 20,-49
+            554: 10,-49
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSW
+          decals:
+            553: 8,-49
+            555: 12,-49
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerSmallNE
           decals:
             158: 30,-43
+            559: 16,-48
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerSmallNW
@@ -1093,6 +1109,7 @@ entities:
             157: 30,-42
             399: 38,-36
             400: 38,-35
+            556: 10,-48
         - node:
             color: '#FFFFFFFF'
             id: WarnLineN
@@ -1103,6 +1120,11 @@ entities:
             401: 41,-34
             402: 40,-34
             403: 39,-34
+            558: 9,-49
+            566: 13,-49
+            567: 14,-49
+            568: 15,-49
+            569: 16,-49
         - node:
             color: '#FFFFFFFF'
             id: WarnLineS
@@ -1118,6 +1140,7 @@ entities:
             138: 19,-47
             405: 37,-36
             406: 37,-35
+            570: 8,-48
         - node:
             color: '#FFFFFFFF'
             id: WarnLineW
@@ -1135,6 +1158,9 @@ entities:
             167: 39,-43
             168: 40,-43
             169: 41,-43
+            557: 9,-47
+            564: 15,-47
+            565: 14,-47
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -2875,6 +2901,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-54.5
       parent: 67
+  - uid: 5163
+    components:
+    - type: MetaData
+      name: Salvage APC
+    - type: Transform
+      pos: 41.5,-45.5
+      parent: 67
 - proto: APCHighCapacity
   entities:
   - uid: 1660
@@ -3781,6 +3814,11 @@ entities:
     - type: Transform
       pos: 31.5,-27.5
       parent: 67
+  - uid: 234
+    components:
+    - type: Transform
+      pos: 40.5,-43.5
+      parent: 67
   - uid: 294
     components:
     - type: Transform
@@ -3845,11 +3883,6 @@ entities:
     components:
     - type: Transform
       pos: 43.5,-44.5
-      parent: 67
-  - uid: 357
-    components:
-    - type: Transform
-      pos: 43.5,-45.5
       parent: 67
   - uid: 358
     components:
@@ -4910,11 +4943,6 @@ entities:
     components:
     - type: Transform
       pos: 41.5,-43.5
-      parent: 67
-  - uid: 2068
-    components:
-    - type: Transform
-      pos: 41.5,-44.5
       parent: 67
   - uid: 2069
     components:
@@ -7196,6 +7224,101 @@ entities:
     - type: Transform
       pos: 48.5,-41.5
       parent: 67
+  - uid: 5145
+    components:
+    - type: Transform
+      pos: 30.5,-46.5
+      parent: 67
+  - uid: 5146
+    components:
+    - type: Transform
+      pos: 30.5,-47.5
+      parent: 67
+  - uid: 5147
+    components:
+    - type: Transform
+      pos: 30.5,-48.5
+      parent: 67
+  - uid: 5148
+    components:
+    - type: Transform
+      pos: 30.5,-49.5
+      parent: 67
+  - uid: 5149
+    components:
+    - type: Transform
+      pos: 34.5,-46.5
+      parent: 67
+  - uid: 5150
+    components:
+    - type: Transform
+      pos: 34.5,-47.5
+      parent: 67
+  - uid: 5151
+    components:
+    - type: Transform
+      pos: 34.5,-48.5
+      parent: 67
+  - uid: 5152
+    components:
+    - type: Transform
+      pos: 34.5,-49.5
+      parent: 67
+  - uid: 5153
+    components:
+    - type: Transform
+      pos: 40.5,-49.5
+      parent: 67
+  - uid: 5154
+    components:
+    - type: Transform
+      pos: 40.5,-48.5
+      parent: 67
+  - uid: 5155
+    components:
+    - type: Transform
+      pos: 40.5,-47.5
+      parent: 67
+  - uid: 5156
+    components:
+    - type: Transform
+      pos: 41.5,-47.5
+      parent: 67
+  - uid: 5157
+    components:
+    - type: Transform
+      pos: 41.5,-46.5
+      parent: 67
+  - uid: 5158
+    components:
+    - type: Transform
+      pos: 41.5,-45.5
+      parent: 67
+  - uid: 5159
+    components:
+    - type: Transform
+      pos: 42.5,-46.5
+      parent: 67
+  - uid: 5160
+    components:
+    - type: Transform
+      pos: 43.5,-46.5
+      parent: 67
+  - uid: 5164
+    components:
+    - type: Transform
+      pos: 39.5,-47.5
+      parent: 67
+  - uid: 5165
+    components:
+    - type: Transform
+      pos: 38.5,-47.5
+      parent: 67
+  - uid: 5166
+    components:
+    - type: Transform
+      pos: 37.5,-47.5
+      parent: 67
 - proto: CableApcStack1
   entities:
   - uid: 3770
@@ -8365,7 +8488,7 @@ entities:
       parent: 67
 - proto: CableHVStack1
   entities:
-  - uid: 179
+  - uid: 235
     components:
     - type: Transform
       pos: 13.304116,-47.659504
@@ -8377,6 +8500,11 @@ entities:
       parent: 67
 - proto: CableMV
   entities:
+  - uid: 179
+    components:
+    - type: Transform
+      pos: 42.5,-46.5
+      parent: 67
   - uid: 199
     components:
     - type: Transform
@@ -9461,6 +9589,16 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-54.5
+      parent: 67
+  - uid: 5161
+    components:
+    - type: Transform
+      pos: 41.5,-46.5
+      parent: 67
+  - uid: 5162
+    components:
+    - type: Transform
+      pos: 41.5,-45.5
       parent: 67
 - proto: CableTerminal
   entities:
@@ -23326,7 +23464,7 @@ entities:
       parent: 67
 - proto: PosterContrabandSaucerNumberOne
   entities:
-  - uid: 234
+  - uid: 357
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -23614,12 +23752,6 @@ entities:
       parent: 67
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 1022
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.5,-9.5
-      parent: 67
   - uid: 1159
     components:
     - type: Transform
@@ -23632,6 +23764,12 @@ entities:
       parent: 67
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 1389
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,-9.5
+      parent: 67
   - uid: 1749
     components:
     - type: Transform
@@ -25751,12 +25889,6 @@ entities:
     - type: Transform
       pos: -0.5,-24.5
       parent: 67
-  - uid: 1389
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,-45.5
-      parent: 67
   - uid: 1461
     components:
     - type: Transform
@@ -25777,12 +25909,18 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 9.5,-45.5
+      pos: 8.5,-45.5
       parent: 67
   - uid: 1874
     components:
     - type: Transform
       pos: 44.5,-44.5
+      parent: 67
+  - uid: 2068
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,-45.5
       parent: 67
   - uid: 2100
     components:
@@ -26625,7 +26763,7 @@ entities:
       parent: 67
 - proto: SignJanitor
   entities:
-  - uid: 235
+  - uid: 1022
     components:
     - type: Transform
       pos: 14.5,-18.5
@@ -26643,6 +26781,27 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-20.5
+      parent: 67
+- proto: SignMinerDock
+  entities:
+  - uid: 5167
+    components:
+    - type: Transform
+      pos: 42.5,-49.5
+      parent: 67
+- proto: SignRadiationMed
+  entities:
+  - uid: 5144
+    components:
+    - type: Transform
+      pos: 11.5,-45.5
+      parent: 67
+- proto: SignSalvage
+  entities:
+  - uid: 5168
+    components:
+    - type: Transform
+      pos: 38.5,-45.5
       parent: 67
 - proto: SignScience
   entities:
