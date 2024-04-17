@@ -6,6 +6,7 @@
   - CaptainNeck
   - CaptainJumpsuit
   - CaptainBackpack
+  - CaptainOuterClothing
   - Trinkets
 
 - type: roleLoadout
@@ -15,6 +16,7 @@
   - HoPNeck
   - HoPJumpsuit
   - HoPBackpack
+  - HoPOuterClothing
   - Trinkets
 
 # Civilian
@@ -25,6 +27,8 @@
   - CommonBackpack
   - PassengerFace
   - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
   - Trinkets
 
 - type: roleLoadout
@@ -86,6 +90,7 @@
   - JanitorJumpsuit
   - JanitorGloves
   - CommonBackpack
+  - JanitorOuterClothing
   - Trinkets
 
 - type: roleLoadout
@@ -103,6 +108,7 @@
   - ClownHead
   - ClownJumpsuit
   - ClownBackpack
+  - ClownOuterClothing
   - ClownShoes
   - Trinkets
 
@@ -113,12 +119,14 @@
   - MimeMask
   - MimeJumpsuit
   - MimeBackpack
+  - MimeOuterClothing
   - Trinkets
 
 - type: roleLoadout
   id: JobMusician
   groups:
   - MusicianBackpack
+  - MusicianOuterClothing
   - Trinkets
 
 # Cargo
@@ -129,6 +137,8 @@
   - QuartermasterNeck
   - QuartermasterJumpsuit
   - QuartermasterBackpack
+  - QuartermasterOuterClothing
+  - QuartermasterShoes
   - Trinkets
 
 - type: roleLoadout
@@ -137,12 +147,16 @@
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
+  - CargoTechnicianOuterClothing
+  - CargoTechnicianShoes
   - Trinkets
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
   - SalvageSpecialistBackpack
+  - SalvageSpecialistOuterClothing
+  - SalvageSpecialistShoes
   - Trinkets
 
 # Engineering
@@ -153,6 +167,8 @@
   - ChiefEngineerJumpsuit
   - ChiefEngineerBackpack
   - ChiefEngineerNeck
+  - ChiefEngineerOuterClothing
+  - ChiefEngineerShoes
   - Trinkets
 
 - type: roleLoadout
@@ -169,6 +185,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
+  - StationEngineerShoes
   - StationEngineerID
   - Trinkets
 
@@ -177,6 +194,8 @@
   groups:
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
+  - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianShoes
   - Trinkets
 
 # Science
@@ -189,6 +208,7 @@
   - ResearchDirectorBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
+  - ResearchDirectorShoes
   - Trinkets
 
 - type: roleLoadout
@@ -200,6 +220,7 @@
   - ScientistBackpack
   - ScientistOuterClothing
   - ScientistGloves
+  - ScientistShoes
   - ScientistPDA
   - Trinkets
 
@@ -219,6 +240,7 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - HeadofSecurityOuterClothing
+  - SecurityShoes
   - Trinkets
 
 - type: roleLoadout
@@ -228,6 +250,7 @@
   - WardenJumpsuit
   - SecurityBackpack
   - WardenOuterClothing
+  - SecurityShoes
   - Trinkets
 
 - type: roleLoadout
@@ -236,6 +259,8 @@
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
   - SecurityPDA
   - Trinkets
 
@@ -247,6 +272,7 @@
   - DetectiveJumpsuit
   - DetectiveBackpack
   - DetectiveOuterClothing
+  - SecurityShoes
   - Trinkets
 
 - type: roleLoadout
@@ -265,7 +291,9 @@
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - ChiefMedicalOfficerBackpack
+  - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
+  - ChiefMedicalOfficerShoes
   - Trinkets
 
 - type: roleLoadout
@@ -277,6 +305,7 @@
   - MedicalGloves
   - MedicalBackpack
   - MedicalDoctorOuterClothing
+  - MedicalShoes
   - MedicalDoctorPDA
   - Trinkets
 
@@ -294,6 +323,8 @@
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
+  - ChemistOuterClothing
+  - MedicalShoes
   - Trinkets
 
 - type: roleLoadout
@@ -303,8 +334,9 @@
   - MedicalMask
   - ParamedicJumpsuit
   - MedicalGloves
-  - ParamedicOuterClothing
   - ParamedicBackpack
+  - ParamedicOuterClothing
+  - ParamedicShoes
   - Trinkets
 
 # Wildcards

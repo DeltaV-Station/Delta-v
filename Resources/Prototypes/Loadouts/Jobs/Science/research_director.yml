@@ -86,15 +86,24 @@
   equipment: ResearchDirectorLabCoat
 
 - type: startingGear # DeltaV
-  id: ResearchDirectorRDCoat
+  id: MystaLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRD
 
 - type: loadout # DeltaV
-  id: ResearchDirectorRDCoat
+  id: MystaLabCoat
   equipment: ResearchDirectorRDCoat
 
 - type: startingGear
   id: ResearchDirectorLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRndMysta
+
+- type: loadout
+  id: ResearchDirectorWintercoat
+  equipment: ResearchDirectorWintercoat
+
+- type: startingGear
+  id: ResearchDirectorWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterRD
