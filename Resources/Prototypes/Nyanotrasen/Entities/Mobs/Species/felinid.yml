@@ -64,6 +64,11 @@
       Unsexed: MaleFelinid
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: Thieving
+    ignoreStripHidden: true
+    stealthy: false
+    stripTimeMultiplier: 0.667
+    stripTimeReduction: 0
 
 - type: entity
   save: false
