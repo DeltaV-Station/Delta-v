@@ -25,4 +25,10 @@ public sealed partial class ThievingComponent : Component
     /// </summary>
     [DataField]
     public bool IgnoreStripHidden; //DeltaV
+
+    /// <summary>
+    ///  A multiplier coefficient for strip time
+    /// </summary>
+    [DataField]
+    public float StripTimeMultiplier = 1f; //DeltaV
 }
