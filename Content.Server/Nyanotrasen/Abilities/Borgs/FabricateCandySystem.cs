@@ -1,3 +1,5 @@
+using Robust.Server.Audio;
+using Robust.Shared.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 
@@ -6,6 +8,8 @@ namespace Content.Server.Abilities.Borgs;
 public sealed partial class FabricateCandySystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,13 +29,19 @@ public sealed partial class FabricateCandySystem : EntitySystem
 
     private void OnLollipop(FabricateLollipopActionEvent args)
     {
-        Spawn("FoodLollipop", Transform(args.Performer).Coordinates);
-        args.Handled = true;
+        OnCandy("FoodLollipop", args);
     }
 
     private void OnGumball(FabricateGumballActionEvent args)
     {
-        Spawn("FoodGumball", Transform(args.Performer).Coordinates);
-        args.Handled = true;
+        OnCandy("FoodGumball", args);
+    }
+
+    private void OnCandy(EntProtoId proto, BaseActionEvent evt)
+    {
+        Spawn(proto, Transform(evt.Performer).Coordinates);
+        if (TryComp(evt.Performer, out FabricateCandyComponent? comp))
+            _audioSystem.PlayPvs(comp.FabricationSound, evt.Performer);
+        evt.Handled = true;
     }
 }
