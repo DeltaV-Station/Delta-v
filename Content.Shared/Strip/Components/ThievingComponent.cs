@@ -1,5 +1,3 @@
-using SixLabors.ImageSharp;
-
 namespace Content.Shared.Strip.Components;
 
 /// <summary>
