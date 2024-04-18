@@ -23,7 +23,7 @@
     - GlassesNearsight
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesPrescriptionHudSecurity
   name: prescription security hud
   description: A poorly done and rushed mix between half of a pair of prescription glasses and a security HUD allowing you to see clearly out of one eye and inspect the employee's ID and warning status in the other!
@@ -32,7 +32,6 @@
     sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
-  - type: ShowSecurityIcons
   - type: Construction
     graph: PrescriptionSecHud
     node: prescsechud
