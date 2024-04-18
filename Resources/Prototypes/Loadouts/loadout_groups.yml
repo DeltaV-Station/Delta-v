@@ -270,9 +270,9 @@
   name: loadout-group-janitor-gloves
   minLimit: 0
   loadouts:
-  - JanitorGlovesRubber
-  - JanitorGlovesOrange
-  - JanitorGlovesPurple
+  - JanitorRubberGloves
+  - OrangeGloves
+  - PurpleGloves
 
 - type: loadoutGroup
   id: BotanistHead
@@ -583,6 +583,8 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
+  - RoboticistCap
+  - SkullBandana
   - ScientificBeret
 
 - type: loadoutGroup
@@ -598,6 +600,8 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -616,7 +620,17 @@
   loadouts:
   - RegularLabCoat
   - ScienceLabCoat
+  - ScienceWintercoat
   - SeniorResearcherLabCoat
+
+- type: loadoutGroup
+  id: ScientistGloves
+  name: loadout-group-scientist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
 
 - type: loadoutGroup
   id: ScientistPDA
