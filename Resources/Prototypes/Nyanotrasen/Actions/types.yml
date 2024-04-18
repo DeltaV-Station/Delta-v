@@ -175,5 +175,6 @@
   components:
   - type: InstantAction
     icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: gumball }
+    iconColor: '#FFAED7'
     useDelay: 40
     event: !type:FabricateGumballActionEvent
