@@ -50,7 +50,7 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
-  - type: Tag #Delta-V : Adds tags to fix the Syndicate Jumpskirt, which is parented to this?
+  - type: Tag #Delta-V : Adds tags to fix the Syndicate Jumpskirt, which is parented to this? this needs to be updated with *every* new tag given to UnsensoredClothingUniformBase, as tags aren't inherited
     tags:
     - Skirt # Delta-V : Harpies can wear this
     - ClothMade # Delta-V : Moths can eat this
