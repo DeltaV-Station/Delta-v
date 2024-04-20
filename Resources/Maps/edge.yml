@@ -7820,6 +7820,58 @@ entities:
         - DoorStatus: DoorBolt
         170:
         - DoorStatus: DoorBolt
+- proto: AirlockExternalGlass
+  entities:
+  - uid: 179
+    components:
+    - type: Transform
+      pos: -51.5,19.5
+      parent: 2
+  - uid: 180
+    components:
+    - type: Transform
+      pos: -51.5,11.5
+      parent: 2
+  - uid: 181
+    components:
+    - type: Transform
+      pos: -51.5,13.5
+      parent: 2
+  - uid: 182
+    components:
+    - type: Transform
+      pos: -51.5,21.5
+      parent: 2
+  - uid: 183
+    components:
+    - type: Transform
+      pos: 41.5,-3.5
+      parent: 2
+  - uid: 184
+    components:
+    - type: Transform
+      pos: 41.5,-9.5
+      parent: 2
+  - uid: 185
+    components:
+    - type: Transform
+      pos: 41.5,-17.5
+      parent: 2
+  - uid: 186
+    components:
+    - type: Transform
+      pos: 41.5,-19.5
+      parent: 2
+  - uid: 187
+    components:
+    - type: Transform
+      pos: 41.5,-11.5
+      parent: 2
+  - uid: 188
+    components:
+    - type: Transform
+      pos: 41.5,-1.5
+      parent: 2
 - proto: AirlockExternalGlassAtmosphericsLocked
   entities:
   - uid: 172
@@ -7896,58 +7948,6 @@ entities:
     components:
     - type: Transform
       pos: 19.5,-33.5
-      parent: 2
-- proto: AirlockExternalGlassEasyPry
-  entities:
-  - uid: 179
-    components:
-    - type: Transform
-      pos: -51.5,19.5
-      parent: 2
-  - uid: 180
-    components:
-    - type: Transform
-      pos: -51.5,11.5
-      parent: 2
-  - uid: 181
-    components:
-    - type: Transform
-      pos: -51.5,13.5
-      parent: 2
-  - uid: 182
-    components:
-    - type: Transform
-      pos: -51.5,21.5
-      parent: 2
-  - uid: 183
-    components:
-    - type: Transform
-      pos: 41.5,-3.5
-      parent: 2
-  - uid: 184
-    components:
-    - type: Transform
-      pos: 41.5,-9.5
-      parent: 2
-  - uid: 185
-    components:
-    - type: Transform
-      pos: 41.5,-17.5
-      parent: 2
-  - uid: 186
-    components:
-    - type: Transform
-      pos: 41.5,-19.5
-      parent: 2
-  - uid: 187
-    components:
-    - type: Transform
-      pos: 41.5,-11.5
-      parent: 2
-  - uid: 188
-    components:
-    - type: Transform
-      pos: 41.5,-1.5
       parent: 2
 - proto: AirlockExternalGlassLocked
   entities:
@@ -89087,15 +89087,6 @@ entities:
     - type: Transform
       pos: 12.552183,-10.534737
       parent: 2
-  - uid: 13535
-    components:
-    - type: Transform
-      pos: -0.5,27.5
-      parent: 2
-    - type: Stack
-      count: 10
-    - type: Item
-      size: 10
 - proto: SheetSteel1
   entities:
   - uid: 13536
@@ -89128,6 +89119,11 @@ entities:
       parent: 2
 - proto: SheetSteel10
   entities:
+  - uid: 13535
+    components:
+    - type: Transform
+      pos: -0.48492527,27.537094
+      parent: 2
   - uid: 13541
     components:
     - type: Transform
