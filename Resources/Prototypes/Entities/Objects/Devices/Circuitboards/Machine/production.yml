@@ -278,27 +278,6 @@
         - ArtifactAnalyzerMachineCircuitboard
 
 - type: entity
-  id: TraversalDistorterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: traversal distorter machine board
-  description: A machine printed circuit board for a traversal distorter.
-  components:
-    - type: Sprite
-      state: science
-    - type: MachineBoard
-      prototype: MachineTraversalDistorter
-      requirements:
-        Manipulator: 1
-        Capacitor: 2
-      materialRequirements:
-        Steel: 5
-        Cable: 1
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-      - TraversalDistorterMachineCircuitboard
-
-- type: entity
   id: ArtifactCrusherMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: artifact crusher machine board
