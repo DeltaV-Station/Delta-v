@@ -126,7 +126,12 @@ namespace Content.Server.Carrying
 
         private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
         {
-            if (Transform(uid).MapID != args.OldMapId)
+            var xform = Transform(uid);
+            if (xform.MapID != args.OldMapId)
+                return;
+
+            // Do not drop the carried entity if the new parent is a grid
+            if (xform.ParentUid == xform.GridUid)
                 return;
 
             DropCarried(uid, component.Carried);
@@ -157,6 +162,9 @@ namespace Content.Server.Carrying
         private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
         {
             if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape))
+                return;
+
+            if (!args.HasDirectionalMovement)
                 return;
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
