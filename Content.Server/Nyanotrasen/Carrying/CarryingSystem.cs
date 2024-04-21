@@ -244,6 +244,9 @@ namespace Content.Server.Carrying
             };
 
             _doAfterSystem.TryStartDoAfter(args);
+
+            // Show a popup to the person getting picked up
+            _popupSystem.PopupEntity(Loc.GetString("carry-started", ("carrier", carrier)), carried, carried);
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)

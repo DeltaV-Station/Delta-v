@@ -4,6 +4,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;
+using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Tag;
@@ -18,6 +19,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     private const string PreventTag = "PreventLabel";
@@ -153,7 +155,11 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
             NeedHand = true
         };
 
-        _doAfter.TryStartDoAfter(args);
+        if (_doAfter.TryStartDoAfter(args))
+        {
+            // Show a popup to the person getting picked up
+            _popupSystem.PopupEntity(Loc.GetString("carry-started", ("carrier", inserter)), toInsert, toInsert);
+        }
     }
 
     private void OnAttackAttempt(EntityUid uid, PseudoItemComponent component, AttackAttemptEvent args)
