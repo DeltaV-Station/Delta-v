@@ -202,7 +202,8 @@ namespace Content.Server.Carrying
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
             {
-                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, MassContest(uid, component.Carrier));
+                // Note: the mass contest is inverted because weaker entities are supposed to take longer to escape
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, MassContest(component.Carrier, uid));
             }
         }
 
