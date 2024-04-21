@@ -1,4 +1,5 @@
-﻿using Content.Server.DoAfter;
+﻿using Content.Server.Carrying;
+using Content.Server.DoAfter;
 using Content.Server.Item;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.DoAfter;
@@ -17,7 +18,7 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
     [Dependency] private readonly StorageSystem _storage = default!;
     [Dependency] private readonly ItemSystem _item = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
-
+    [Dependency] private readonly CarryingSystem _carrying = default!;
 
     public override void Initialize()
     {
@@ -52,5 +53,18 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
             Priority = 2
         };
         args.Verbs.Add(verb);
+    }
+
+    protected override void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
+    {
+        // Try to pick the entity up instead first
+        if (args.User != args.Item && _carrying.TryCarry(args.User, uid))
+        {
+            args.Cancel();
+            return;
+        }
+
+        // If could not pick up, just take it out onto the ground as per default
+        base.OnGettingPickedUpAttempt(uid, component, args);
     }
 }

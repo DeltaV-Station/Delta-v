@@ -66,7 +66,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
+    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
         StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
@@ -102,7 +102,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         component.Active = false;
     }
 
-    private void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
+    protected virtual void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
         GettingPickedUpAttemptEvent args)
     {
         if (args.User == args.Item)

@@ -6,6 +6,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Inventory;
+using Content.Server.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Climbing; // Shared instead of Server
 using Content.Shared.Mobs;
 using Content.Shared.DoAfter;
@@ -23,11 +24,14 @@ using Content.Shared.Pulling;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Nyanotrasen.Item.PseudoItem;
+using Content.Shared.Storage;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 
@@ -46,11 +50,13 @@ namespace Content.Server.Carrying
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
         [Dependency] private readonly RespiratorSystem _respirator = default!;
+        [Dependency] private readonly PseudoItemSystem _pseudoItem = default!; // Needed for fitting check
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
+            SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
             SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
             SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -93,6 +99,33 @@ namespace Content.Server.Carrying
                     StartCarryDoAfter(args.User, uid, component);
                 },
                 Text = Loc.GetString("carry-verb"),
+                Priority = 2
+            };
+            args.Verbs.Add(verb);
+        }
+
+        private void AddInsertCarriedVerb(EntityUid uid, CarryingComponent component, GetVerbsEvent<InnateVerb> args)
+        {
+            // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
+            // then add an action to insert the carried entity into the target
+            var toInsert = args.Using;
+            if (toInsert is not { Valid: true } || !args.CanAccess || !TryComp<PseudoItemComponent>(toInsert, out var pseudoItem))
+                return;
+
+            if (!TryComp<StorageComponent>(args.Target, out var storageComp))
+                return;
+
+            if (!_pseudoItem.CheckItemFits((toInsert.Value, pseudoItem), (args.Target, storageComp)))
+                return;
+
+            InnateVerb verb = new()
+            {
+                Act = () =>
+                {
+                    DropCarried(uid, toInsert.Value);
+                    _pseudoItem.TryInsert(args.Target, toInsert.Value, pseudoItem, storageComp);
+                },
+                Text = Loc.GetString("action-name-insert-other", ("target", toInsert)),
                 Priority = 2
             };
             args.Verbs.Add(verb);
@@ -218,12 +251,7 @@ namespace Content.Server.Carrying
         }
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
-            TimeSpan length = TimeSpan.FromSeconds(3);
-
-            var mod = MassContest(carrier, carried);
-
-            if (mod != 0)
-                length /= mod;
+            TimeSpan length = GetPickupDuration(carrier, carried);
 
             if (length >= TimeSpan.FromSeconds(9))
             {
@@ -269,6 +297,26 @@ namespace Content.Server.Carrying
             carriedComp.Carrier = carrier;
 
             _actionBlockerSystem.UpdateCanMove(carried);
+        }
+
+        public bool TryCarry(EntityUid carrier, EntityUid toCarry, CarriableComponent? carriedComp = null)
+        {
+            if (!Resolve(toCarry, ref carriedComp, false))
+                return false;
+
+            if (!CanCarry(carrier, toCarry, carriedComp))
+                return false;
+
+            // The second one means that carrier is a pseudo-item and is inside a bag.
+            if (HasComp<BeingCarriedComponent>(carrier) || HasComp<ItemComponent>(carrier))
+                return false;
+
+            if (GetPickupDuration(carrier, toCarry) > TimeSpan.FromSeconds(9))
+                return false;
+
+            Carry(carrier, toCarry);
+
+            return true;
         }
 
         public void DropCarried(EntityUid carrier, EntityUid carried)
@@ -333,6 +381,17 @@ namespace Content.Server.Carrying
                 return 1f;
 
             return rollerPhysics.FixturesMass / targetPhysics.FixturesMass;
+        }
+
+        private TimeSpan GetPickupDuration(EntityUid carrier, EntityUid carried)
+        {
+            var length = TimeSpan.FromSeconds(3);
+
+            var mod = MassContest(carrier, carried);
+            if (mod != 0)
+                length /= mod;
+
+            return length;
         }
 
         public override void Update(float frameTime)
