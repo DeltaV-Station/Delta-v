@@ -14,8 +14,10 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Content.Shared.Traits;
+using Content.Shared.Zombies;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -53,10 +55,17 @@ public abstract class SharedSynthSystem : EntitySystem
     // ReSharper restore InconsistentNaming
 
     // no ValidatePrototypeIdAttribute for lists yet :<
+    // full-sized visors (vulps, lizards)
     private readonly ProtoId<MarkingPrototype>[] _visorMarkings =
     [
         "LizardHeadLEDVisorGlowing",
-        "VulpHeadLEDVisorGlowing"
+        "VulpHeadLEDVisorGlowing",
+    ];
+
+    // half-sized screens (humans, felinids, oni)
+    private readonly ProtoId<MarkingPrototype>[] _screenMarkings =
+    [
+        "SyntheticScreenGlowing"
     ];
 
     [ValidatePrototypeId<TraitPrototype>]
@@ -77,6 +86,28 @@ public abstract class SharedSynthSystem : EntitySystem
         SubscribeLocalEvent<SynthComponent, DidEquipEvent>(OnDidEquip);
         SubscribeLocalEvent<SynthComponent, DidUnequipEvent>(OnDidUnequip);
         SubscribeLocalEvent<SynthComponent, WearerMaskToggledEvent>(OnWearerMaskToggled);
+        SubscribeLocalEvent<SynthComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<EntityZombifiedEvent>(OnEntityZombified);
+    }
+
+    /// <summary>
+    /// Handles updating the visor when an entity is zombified, since zombification makes their eyes red.
+    /// Does robotic synths getting zombified make sense? NOPE. BUT WHO CARES.
+    /// </summary>
+    private void OnEntityZombified(ref EntityZombifiedEvent ev)
+    {
+        if (!TryComp<SynthComponent>(ev.Target, out var synthComponent))
+            return;
+
+        UpdateVisorLightState(ev.Target, synthComponent);
+    }
+
+    /// <summary>
+    /// Triggered if admemes rejuvenate someone.
+    /// </summary>
+    private void OnRejuvenate(EntityUid uid, SynthComponent component, RejuvenateEvent args)
+    {
+        UpdateVisorLightState(uid, component);
     }
 
     /// <inheritdoc cref="OnDidEquip"/>
@@ -135,7 +166,10 @@ public abstract class SharedSynthSystem : EntitySystem
 
         // determine coverage
         var areEyesCovered = false;
-        var isMouthCovered = false;
+        // right now the only non-visor thing is the screen which only has glowing eyes.
+        // the regular visors on the other hand have glowing mouths too, the resolution of sprites is just too low
+        // to actually represent those well.
+        var isMouthCovered = component.EyeGlowOnly;
 
         while (inventory.NextItem(out var equippedUid, out var slot))
         {
@@ -187,7 +221,7 @@ public abstract class SharedSynthSystem : EntitySystem
         _light.SetRadius(visorUid, radius);
         _light.SetEnabled(visorUid, true);
         if (_humanoidAppearanceQuery.TryComp(uid, out var appearance))
-            _light.SetColor(visorUid, appearance.EyeColor); // seems to be necessary to make sure the light is actually the color we want...
+            _light.SetColor(visorUid, appearance.EyeColor);
     }
 
     private void OnInit(EntityUid uid, SynthComponent component, MapInitEvent args)
@@ -203,19 +237,32 @@ public abstract class SharedSynthSystem : EntitySystem
         _humanoidAppearance.SetSynthetic(uid, true);
         _typingIndicator.SetUseSyntheticVariant(uid, true);
 
-        RaiseLocalEvent(uid, new TurnedSyntheticEvent
-        {
-            Species = appearance.Species
-        });
+        RaiseLocalEvent(uid, new TurnedSyntheticEvent());
     }
 
     /// <summary>
-    /// Returns whether this appearance has a glowy visor marking.
+    /// Returns whether this appearance has a glowy visor marking. Out param contains the kind of visor it has.
     /// </summary>
-    protected bool HasVisorMarking(HumanoidAppearanceComponent appearance)
+    protected bool TryGetGlowyMarking(HumanoidAppearanceComponent appearance, out SynthVisorKind kind)
     {
-        return appearance.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var headMarkings)
-               && headMarkings.Any(marking => _visorMarkings.Contains(marking.MarkingId));
+        kind = SynthVisorKind.None;
+
+        if (!appearance.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var headMarkings))
+            return false;
+
+        if (headMarkings.Any(marking => _visorMarkings.Contains(marking.MarkingId)))
+        {
+            kind = SynthVisorKind.Visor;
+            return true;
+        }
+
+        if (headMarkings.Any(marking => _screenMarkings.Contains(marking.MarkingId)))
+        {
+            kind = SynthVisorKind.Screen;
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -237,10 +284,6 @@ public abstract class SharedSynthSystem : EntitySystem
 /// </summary>
 public sealed class TurnedSyntheticEvent : EntityEventArgs
 {
-    /// <summary>
-    /// What their underlying species is.
-    /// </summary>
-    public ProtoId<SpeciesPrototype>? Species { get; set; }
 }
 
 /// <summary>
@@ -271,3 +314,21 @@ public enum SynthVisorVisuals : byte
     Alive
 }
 
+/// <summary>
+/// What kind of visor marking someone has.
+/// </summary>
+public enum SynthVisorKind
+{
+    /// <summary>
+    /// No visor or screen.
+    /// </summary>
+    None,
+    /// <summary>
+    /// Full-sized visor, glows from eyes and sides.
+    /// </summary>
+    Visor,
+    /// <summary>
+    /// Screen, only glows from eyes.
+    /// </summary>
+    Screen
+}

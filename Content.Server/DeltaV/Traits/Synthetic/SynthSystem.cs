@@ -12,16 +12,13 @@ using Content.Server.Stunnable;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DeltaV.Traits.Synthetic;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
-using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Traits.Synthetic;
@@ -129,19 +126,24 @@ public sealed class SynthSystem : SharedSynthSystem
     {
         _bloodstream.ChangeBloodReagent(uid, _reagentSynthBloodId);
 
+        if (!_humanoidAppearanceQuery.TryComp(uid, out var humanoidAppearanceComponent))
+            return;
+
+        var species = humanoidAppearanceComponent.Species;
+
         // dionae turn into nymphs when you gib them, so don't mess with their brains
-        if (args.Species != _speciesDionaId)
+        if (species != _speciesDionaId)
             ReplaceBrain(uid);
 
-        if (!_humanoidAppearanceQuery.TryComp(uid, out var humanoidAppearanceComponent)
-            || !TryComp<TransformComponent>(uid, out var transform)
+        if (!TryComp<TransformComponent>(uid, out var transform)
             || !_mobStateQuery.TryComp(uid, out var mobStateComponent)
-            || !HasVisorMarking(humanoidAppearanceComponent))
+            || !TryGetGlowyMarking(humanoidAppearanceComponent, out var synthVisorKind))
             return;
 
         var visorUid = SpawnAttachedTo("SynthVisor", transform.Coordinates);
         _transform.SetParent(visorUid, uid); // make it actually stick
         component.VisorUid = visorUid;
+        component.EyeGlowOnly = synthVisorKind == SynthVisorKind.Screen;
         Dirty(uid, component);
 
         _light.SetColor(visorUid, humanoidAppearanceComponent.EyeColor);
