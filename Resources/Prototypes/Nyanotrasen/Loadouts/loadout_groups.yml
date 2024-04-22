@@ -1,0 +1,21 @@
+# Logistics
+## Mail Carrier
+- type: loadoutGroup
+  id: MailCarrierHead
+  name: loadout-group-mail-carrier-head
+  minLimit: 0
+  loadouts:
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: MailCarrierJumpsuit
+  name: loadout-group-mail-carrier-jumpsuit
+  loadouts:
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: MailCarrierOuterClothing
+  name: loadout-group-mail-carrier-outer-clothing
+  loadouts:
+  - MailCarrierWintercoat
