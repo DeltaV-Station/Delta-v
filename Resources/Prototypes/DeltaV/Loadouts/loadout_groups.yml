@@ -19,7 +19,7 @@
 
 - type: loadoutGroup
   id: CourierOuterClothing
-  name: loadout-group-courier-outer-clothing
+  name: loadout-group-courier-outerclothing
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
@@ -32,6 +32,13 @@
   - BlackShoes
   - CargoWinterBoots
   - RollerSkates
+
+- type: loadoutGroup
+  id: CourierPDA
+  name: loadout-group-courier-id
+  loadouts:
+  - CourierPDA
+  - MailCarrierPDA
 
 # Security
 ## Brig Medic
