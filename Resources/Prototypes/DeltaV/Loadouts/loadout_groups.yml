@@ -1,21 +1,37 @@
 # Logistics
-- type: roleLoadout
-  id: JobCourier
-  groups:
+## Courier
+- type: loadoutGroup
+  id: CourierHead
+  name: loadout-group-courier-head
+  loadouts:
   - CourierHead
+
+- type: loadoutGroup
+  id: CourierJumpsuit
+  name: loadout-group-courier-jumpsuit
+  loadouts:
   - CourierJumpsuit
-  - CargoTechnicianBackpack
-  - CargoTechnicianShoes
-  - Trinkets
+  - CourierJumpskirt
 
 # Security
-- type: roleLoadout
-  id: JobBrigmedic
-  groups:
-  - BrigMedicHead
+## Brig Medic
+- type: loadoutGroup
+  id: BrigMedicHead
+  name: loadout-group-brig-medic-head
+  loadouts:
+  - CorpsmanBeret
+
+- type: loadoutGroup
+  id: BrigMedicJumpsuit
+  name: loadout-group-brig-medic-jumpsuit
+  loadouts:
   - BrigMedicJumpsuit
-  - BrigMedicBack
-  - SecurityShoes
-  - SecurityOuterClothing
-  - MedicalGloves
-  - Trinkets
+  - BrigMedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigMedicBack
+  name: loadout-group-brig-medic-back
+  loadouts:
+  - BrigMedicBackpack
+  - BrigMedicSatchel
+  - BrigMedicDuffel
