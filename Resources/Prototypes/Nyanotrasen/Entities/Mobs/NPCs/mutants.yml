@@ -237,9 +237,10 @@
   - type: Puller
     needsHands: false
   - type: Vocal
-    # mice are gender neutral who cares
-    maleScream: /Audio/Animals/mouse_squeak.ogg
-    femaleScream: /Audio/Animals/mouse_squeak.ogg
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
     wilhelmProbability: 0.001
   - type: Tag
     tags:
@@ -274,8 +275,6 @@
       proper: true
       gender: male
   - type: IntrinsicRadioReceiver
-    channels:
-    - Common
   - type: IntrinsicRadioTransmitter
     channels:
     - Common

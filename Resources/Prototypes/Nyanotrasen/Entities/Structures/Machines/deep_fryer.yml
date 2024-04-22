@@ -124,8 +124,9 @@
   - type: RefillableSolution
     solution: vat_oil
   - type: Drink
-    isOpen: true
     solution: vat_oil
+  - type: Openable
+    opened: true
   - type: Appearance
   - type: ActivatableUI
     key: enum.DeepFryerUiKey.Key
