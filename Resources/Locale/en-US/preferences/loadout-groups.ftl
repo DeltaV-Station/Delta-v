@@ -69,12 +69,12 @@ loadout-group-musician-backpack = Musician backpack
 loadout-group-musician-outerclothing = Musician outer clothing
 
 # Cargo
-loadout-group-quartermaster-head = Quartermaster head
-loadout-group-quartermaster-jumpsuit = Quartermaster jumpsuit
-loadout-group-quartermaster-backpack = Quartermaster backpack
-loadout-group-quartermaster-neck = Quartermaster neck
-loadout-group-quartermaster-outerclothing = Quartermaster outer clothing
-loadout-group-quartermaster-shoes = Quartermaster shoes
+loadout-group-quartermaster-head = Logistics Officer head
+loadout-group-quartermaster-jumpsuit = Logistics Officer jumpsuit
+loadout-group-quartermaster-backpack = Logistics Officer backpack
+loadout-group-quartermaster-neck = Logistics Officer neck
+loadout-group-quartermaster-outerclothing = Logistics Officer outer clothing
+loadout-group-quartermaster-shoes = Logistics Officer shoes
 
 loadout-group-cargo-technician-head = Cargo Technician head
 loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
@@ -109,12 +109,12 @@ loadout-group-atmospheric-technician-outerclothing = Atmospheric Technician oute
 loadout-group-atmospheric-technician-shoes = Atmospheric Technician shoes
 
 # Science
-loadout-group-research-director-head = Research Director head
-loadout-group-research-director-neck = Research Director neck
-loadout-group-research-director-jumpsuit = Research Director jumpsuit
-loadout-group-research-director-backpack = Research Director backpack
-loadout-group-research-director-outerclothing = Research Director outer clothing
-loadout-group-research-director-shoes = Research Director shoes
+loadout-group-research-director-head = Mystagogue head
+loadout-group-research-director-neck = Mystagogue neck
+loadout-group-research-director-jumpsuit = Mystagogue jumpsuit
+loadout-group-research-director-backpack = Mystagogue backpack
+loadout-group-research-director-outerclothing = Mystagogue outer clothing
+loadout-group-research-director-shoes = Mystagogue shoes
 
 loadout-group-scientist-head = Scientist head
 loadout-group-scientist-neck = Scientist neck
