@@ -11,15 +11,18 @@ namespace Content.Shared.DeltaV.Traits.Synthetic;
 /// <summary>
 /// Set players' blood to coolant, and is used to notify them of ion storms
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SynthComponent : Component
 {
-    // out of a lack of better places to put this: this is naming the trait that makes you synthetic
-    public static readonly ProtoId<TraitPrototype> SyntheticTrait = "Synthetic";
-
     /// <summary>
     /// The chance that the synth is alerted of an ion storm
     /// </summary>
     [DataField]
     public float AlertChance = 0.3f;
+
+    /// <summary>
+    /// The EntityUid of the visor if present, used for controlling the visor light and such.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? VisorUid;
 }

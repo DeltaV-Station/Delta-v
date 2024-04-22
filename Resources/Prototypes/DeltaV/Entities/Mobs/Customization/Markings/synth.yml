@@ -1,0 +1,71 @@
+﻿# This file is licensed to you under the MIT license. See: https://spdx.org/licenses/MIT.html
+# SPDX-FileCopyrightText: (c) 2024 pissdemon (https://github.com/pissdemon)
+# SPDX-License-Identifier: MIT
+
+- type: marking
+  id: LizardHeadLEDVisor
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#808080"
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_primary
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_secondary
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_tertiary
+
+- type: marking
+  id: LizardHeadLEDVisorGlowing
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#808080"
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_primary_dark
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_secondary
+
+- type: marking
+  id: VulpHeadLEDVisor
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#808080"
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_primary
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_secondary
+  - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
+    state: head_ledvisor_tertiary
+
+- type: marking
+  id: VulpHeadLEDVisorGlowing
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#808080"
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Vulpkanin/visor.rsi
+    state: head_ledvisor_primary_dark
+  - sprite: DeltaV/Mobs/Customization/Vulpkanin/visor.rsi
+    state: head_ledvisor_secondary

@@ -12,8 +12,12 @@ using Content.Server.Stunnable;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DeltaV.Traits.Synthetic;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
@@ -25,6 +29,7 @@ namespace Content.Server.DeltaV.Traits.Synthetic;
 public sealed class SynthSystem : SharedSynthSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -47,11 +52,40 @@ public sealed class SynthSystem : SharedSynthSystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<SynthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SynthComponent, TurnedSyntheticEvent>(OnTurnedSynthetic);
         SubscribeLocalEvent<SynthComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<SynthComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<SynthComponent, IdentityChangedEvent>(OnIdentityChanged);
         SubscribeLocalEvent<SynthBrainComponent, MindAddedMessage>(OnBrainMindAdded);
         SubscribeLocalEvent<SynthBrainComponent, MindRemovedMessage>(OnBrainMindRemoved);
+    }
+
+    /// <summary>
+    /// Destroys visor on shutdown. Doesn't actually turn someone back into a non-synth.
+    /// </summary>
+    private void OnShutdown(EntityUid uid, SynthComponent component, ComponentShutdown args)
+    {
+        QueueDel(component.VisorUid);
+    }
+
+    /// <summary>
+    /// Updates visor when synth aliveness changes.
+    /// </summary>
+    protected override void OnMobStateChanged(EntityUid uid, SynthComponent component, MobStateChangedEvent args)
+    {
+        if (component.VisorUid is not null)
+            _appearance.SetData(uid, SynthVisorVisuals.Alive, args.NewMobState != MobState.Dead);
+
+        UpdateVisorLightState(uid, component);
+    }
+
+    /// <summary>
+    /// Updates visor when identity changes.
+    /// </summary>
+    private void OnIdentityChanged(EntityUid uid, SynthComponent component, IdentityChangedEvent args)
+    {
+        UpdateVisorLightState(uid, component);
     }
 
     /// <summary>
@@ -89,11 +123,31 @@ public sealed class SynthSystem : SharedSynthSystem
     /// </summary>
     private void OnTurnedSynthetic(EntityUid uid, SynthComponent component, TurnedSyntheticEvent args)
     {
-        // Give them synth blood. Ion storm notif is handled in that system
         _bloodstream.ChangeBloodReagent(uid, _reagentSynthBloodId);
-        // dionae turn into nymphs, so eh
+
+        // dionae turn into nymphs when you gib them, so don't mess with their brains
         if (args.Species != _speciesDionaId)
             ReplaceBrain(uid);
+
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearanceComponent)
+            || !TryComp<TransformComponent>(uid, out var transform)
+            || !TryComp<MobStateComponent>(uid, out var mobStateComponent)
+            || !HasVisorMarking(humanoidAppearanceComponent))
+            return;
+
+        var visorUid = SpawnAttachedTo("SynthVisor", transform.Coordinates);
+        _transform.SetParent(visorUid, uid); // make it actually stick
+        component.VisorUid = visorUid;
+        Dirty(uid, component);
+
+        _light.SetColor(visorUid, humanoidAppearanceComponent.EyeColor);
+        UpdateVisorLightState(uid, component);
+
+        // setup visor appearance
+        EnsureComp<AppearanceComponent>(uid, out var appearance);
+
+        _appearance.SetData(uid, SynthVisorVisuals.EyeColor, humanoidAppearanceComponent.EyeColor, appearance);
+        _appearance.SetData(uid, SynthVisorVisuals.Alive, mobStateComponent.CurrentState != MobState.Dead, appearance);
     }
 
     /// <summary>

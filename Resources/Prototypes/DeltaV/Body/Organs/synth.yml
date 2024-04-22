@@ -16,7 +16,6 @@
         map: ["lights"]
         visible: false
         shader: unshaded
-
   - type: Organ
   - type: Input
     context: "ghost"
@@ -32,3 +31,19 @@
         lights:
           True: { visible: true }
           False: { visible: false }
+
+# so why this entity? because one, i don't wanna put a point light on a mob (i don't think anything else does, but
+# if it were to, it would break the visor light), and two, because you can't set a pointlight mask in code,
+# this needs to have one, and i don't feel like patching upstream code for it
+- type: entity
+  id: SynthVisor
+  noSpawn: true
+  name: synth visor
+  components:
+  - type: PointLight
+    enabled: true
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    energy: 0.6
+    radius: 1.6
+    netsync: false

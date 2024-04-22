@@ -4,6 +4,7 @@
 
 using Content.Client.Flash;
 using Content.Shared.DeltaV.Traits.Synthetic;
+using Content.Shared.Mobs;
 using Robust.Client.Graphics;
 
 namespace Content.Client.DeltaV.Traits.Synthetic;
@@ -22,6 +23,11 @@ public sealed class SynthSystem : SharedSynthSystem
     {
         var overlay = _overlayManager.GetOverlay<FlashOverlay>();
         overlay.ReceiveFlash(10);
+    }
+
+    protected override void OnMobStateChanged(EntityUid uid, SynthComponent component, MobStateChangedEvent args)
+    {
+        UpdateVisorLightState(uid, component);
     }
 }
 

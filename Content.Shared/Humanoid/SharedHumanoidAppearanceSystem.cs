@@ -332,7 +332,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.Age = profile.Age;
 
         humanoid.LastProfileLoaded = profile; // DeltaV - let paradox anomaly be cloned
-        if (profile.TraitPreferences.Any(trait => trait == SynthComponent.SyntheticTrait)) // DeltaV - synthetics
+        if (profile.TraitPreferences.Any(trait => trait == SharedSynthSystem.SyntheticTrait)) // DeltaV - synthetics
         {
             humanoid.Synthetic = true;
             _synthSystem.EnsureSynthetic(uid);
