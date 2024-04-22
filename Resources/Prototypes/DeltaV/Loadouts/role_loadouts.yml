@@ -1,5 +1,5 @@
 # Logistics
-# Courier
+## Courier
 - type: loadoutGroup
   id: CourierHead
   name: loadout-group-courier-head
@@ -12,3 +12,26 @@
   loadouts:
   - CourierJumpsuit
   - CourierJumpskirt
+
+# Security
+## Brig Medic
+- type: loadoutGroup
+  id: BrigMedicHead
+  name: loadout-group-brig-medic-head
+  loadouts:
+  - BrigMedicBeret
+
+- type: loadoutGroup
+  id: BrigMedicJumpsuit
+  name: loadout-group-brig-medic-jumpsuit
+  loadouts:
+  - BrigMedicJumpsuit
+  - BrigMedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigMedicBack
+  name: loadout-group-brig-medic-back
+  loadouts:
+  - BrigMedicBackpack
+  - BrigMedicSatchel
+  - BrigMedicDuffel
