@@ -29,7 +29,6 @@ namespace Content.Server.DeltaV.Traits.Synthetic;
 public sealed class SynthSystem : SharedSynthSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -37,6 +36,8 @@ public sealed class SynthSystem : SharedSynthSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+
+    private EntityQuery<MutedComponent> _mutedQuery;
 
     [ValidatePrototypeId<ReagentPrototype>]
     private readonly ProtoId<ReagentPrototype> _reagentSynthBloodId = "SynthBlood";
@@ -52,6 +53,9 @@ public sealed class SynthSystem : SharedSynthSystem
     public override void Initialize()
     {
         base.Initialize();
+
+        _mutedQuery = _entityManager.GetEntityQuery<MutedComponent>();
+
         SubscribeLocalEvent<SynthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SynthComponent, TurnedSyntheticEvent>(OnTurnedSynthetic);
         SubscribeLocalEvent<SynthComponent, EmoteEvent>(OnEmote);
@@ -129,9 +133,9 @@ public sealed class SynthSystem : SharedSynthSystem
         if (args.Species != _speciesDionaId)
             ReplaceBrain(uid);
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearanceComponent)
+        if (!_humanoidAppearanceQuery.TryComp(uid, out var humanoidAppearanceComponent)
             || !TryComp<TransformComponent>(uid, out var transform)
-            || !TryComp<MobStateComponent>(uid, out var mobStateComponent)
+            || !_mobStateQuery.TryComp(uid, out var mobStateComponent)
             || !HasVisorMarking(humanoidAppearanceComponent))
             return;
 
@@ -145,7 +149,6 @@ public sealed class SynthSystem : SharedSynthSystem
 
         // setup visor appearance
         EnsureComp<AppearanceComponent>(uid, out var appearance);
-
         _appearance.SetData(uid, SynthVisorVisuals.EyeColor, humanoidAppearanceComponent.EyeColor, appearance);
         _appearance.SetData(uid, SynthVisorVisuals.Alive, mobStateComponent.CurrentState != MobState.Dead, appearance);
     }
@@ -157,9 +160,6 @@ public sealed class SynthSystem : SharedSynthSystem
     {
         var debrained = false;
         var brainContainingBodyPartUid = EntityUid.Invalid;
-
-        // if (!TryComp<TransformComponent>(uid, out var transform))
-        //     return; // wat
 
         var bodyRootPartResult = _body.GetRootPartOrNull(uid);
         if (bodyRootPartResult is null)
@@ -219,7 +219,7 @@ public sealed class SynthSystem : SharedSynthSystem
     private void OnEmote(EntityUid uid, SynthComponent component, EmoteEvent args)
     {
         // can't beep when you're muted, silly!
-        if (args.Handled || HasComp<MutedComponent>(uid))
+        if (args.Handled || _mutedQuery.HasComp(uid))
             return;
 
         // missing the prototype!?

@@ -27,15 +27,15 @@ namespace Content.Shared.DeltaV.Traits.Synthetic;
 /// </summary>
 public abstract class SharedSynthSystem : EntitySystem
 {
+    // ReSharper disable InconsistentNaming
+    [Dependency] protected readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedTypingIndicatorSystem _typingIndicator = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] protected readonly SharedPointLightSystem _light = default!;
     [Dependency] protected readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly StandingStateSystem _standingState = default!;
 
     [Dependency] private readonly ILogManager _log = default!;
-    // ReSharper disable once InconsistentNaming
     protected ISawmill _sawmill = default!;
 
     // tuples of (energy, radius) for visor light, depending on eye/mouth coverage. overkill? yes, but it's cool
@@ -44,6 +44,13 @@ public abstract class SharedSynthSystem : EntitySystem
     private readonly (float, float) _visorFullyVisibleSettings = (0.6f, 1.6f);
     private readonly (float, float) _visorEyesVisibleSettings = (0.5f, 1.4f);
     private readonly (float, float) _visorMouthVisibleSettings = (0.3f, 1.4f);
+
+
+    protected EntityQuery<MobStateComponent> _mobStateQuery;
+    protected EntityQuery<HumanoidAppearanceComponent> _humanoidAppearanceQuery;
+    private EntityQuery<IdentityBlockerComponent> _identityBlockerQuery;
+    private EntityQuery<MaskComponent> _maskQuery;
+    // ReSharper restore InconsistentNaming
 
     // no ValidatePrototypeIdAttribute for lists yet :<
     private readonly ProtoId<MarkingPrototype>[] _visorMarkings =
@@ -59,29 +66,17 @@ public abstract class SharedSynthSystem : EntitySystem
     {
         base.Initialize();
         _sawmill = _log.GetSawmill("system.synth");
+
+        _mobStateQuery = _entityManager.GetEntityQuery<MobStateComponent>();
+        _humanoidAppearanceQuery = _entityManager.GetEntityQuery<HumanoidAppearanceComponent>();
+        _identityBlockerQuery = _entityManager.GetEntityQuery<IdentityBlockerComponent>();
+        _maskQuery = _entityManager.GetEntityQuery<MaskComponent>();
+
         SubscribeLocalEvent<SynthComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<SynthComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SynthComponent, DidEquipEvent>(OnDidEquip);
         SubscribeLocalEvent<SynthComponent, DidUnequipEvent>(OnDidUnequip);
         SubscribeLocalEvent<SynthComponent, WearerMaskToggledEvent>(OnWearerMaskToggled);
-        SubscribeLocalEvent<SynthComponent, StoodEvent>(OnStood);
-        SubscribeLocalEvent<SynthComponent, DownedEvent>(OnDowned);
-    }
-
-    private void OnDowned(EntityUid uid, SynthComponent component, DownedEvent args)
-    {
-        if (component.VisorUid is null)
-            return;
-
-        _standingState.Down(component.VisorUid.Value, playSound: false);
-    }
-
-    private void OnStood(EntityUid uid, SynthComponent component, StoodEvent args)
-    {
-        if (component.VisorUid is null)
-            return;
-
-        _standingState.Stand(component.VisorUid.Value);
     }
 
     /// <inheritdoc cref="OnDidEquip"/>
@@ -118,7 +113,7 @@ public abstract class SharedSynthSystem : EntitySystem
     {
         if (!Resolve(uid, ref component)
             || component.VisorUid is null // no visor, no light
-            || !TryComp<MobStateComponent>(uid, out var mobState))
+            || !_mobStateQuery.TryComp(uid, out var mobState))
             return;
 
         var visorUid = component.VisorUid.Value;
@@ -154,14 +149,14 @@ public abstract class SharedSynthSystem : EntitySystem
             if (0 == (slot.SlotFlags & (SlotFlags.EYES | SlotFlags.HEAD | SlotFlags.EARS | SlotFlags.MASK | SlotFlags.NECK)))
                 continue;
 
-            if (!TryComp<IdentityBlockerComponent>(equippedUid, out var blockerComponent))
+            if (!_identityBlockerQuery.TryComp(equippedUid, out var blockerComponent))
                 continue;
 
             // many masks can be toggled, and if they are down they shouldn't block light.
             // unfortunately they still block identity when they are pulled down, which is presumably an upstream bug,
             // hence why we need to check this and can't rely on identityblockercomponent
             var isAMaskThatIsPulledDown = (slot.SlotFlags & SlotFlags.MASK) != 0 // is it a mask?
-                                          && TryComp<MaskComponent>(equippedUid, out var maskComponent)
+                                          && _maskQuery.TryComp(equippedUid, out var maskComponent)
                                           && maskComponent.IsToggled; // is it down?
 
             // for everything that is NOT a pulled down mask, set the covered flags if their section of the face is covered.
@@ -195,13 +190,13 @@ public abstract class SharedSynthSystem : EntitySystem
         _light.SetEnergy(visorUid, energy);
         _light.SetRadius(visorUid, radius);
         _light.SetEnabled(visorUid, true);
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var appearance))
-            _light.SetColor(visorUid, appearance.EyeColor); // not sure why this keeps failing
+        if (_humanoidAppearanceQuery.TryComp(uid, out var appearance))
+            _light.SetColor(visorUid, appearance.EyeColor); // seems to be necessary to make sure the light is actually the color we want...
     }
 
     private void OnInit(EntityUid uid, SynthComponent component, MapInitEvent args)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var appearance))
+        if (!_humanoidAppearanceQuery.TryComp(uid, out var appearance))
         {
             _sawmill.Error($"Can't turn {uid} into a synth because they are not humanoid!");
             return;
