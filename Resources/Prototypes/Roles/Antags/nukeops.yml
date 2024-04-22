@@ -7,6 +7,12 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
+  - !type:DepartmentTimeRequirement # DeltaV - engi dept time requirement
+    department: Engineering
+    time: 7200 # DeltaV - 2 hours
+  - !type:RoleTimeRequirement # DeltaV - salvage time requirement
+    role: JobSalvageSpecialist
+    time: 7200 # DeltaV - 2 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 36000 # DeltaV - 10 hours

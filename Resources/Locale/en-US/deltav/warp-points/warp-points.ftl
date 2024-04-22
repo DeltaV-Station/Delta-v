@@ -1,4 +1,4 @@
-warp-point-evac = Evac
+warp-point-evacshuttle = Evac Shuttle
 warp-point-shuttle = Shuttle
 warp-point-debris = Space Debris
 warp-point-ruin = Space Ruin

@@ -10,7 +10,7 @@
   - type: Sprite
     layers:
       - sprite: Objects/Misc/books.rsi
-        state: book6
+        state: cover_base
   - type: RandomSpawner
     offset: 0
     prototypes:
@@ -45,6 +45,7 @@
       - BookMap
       - BookJourney
       - BookInspiration
+      - BookJanitorTale
       # Guidebook Books
       - BookSpaceEncyclopedia
       - BookTheBookOfControl
@@ -59,21 +60,20 @@
       - BookMedicalReferenceBook
       - BookHowToSurvive
       - BookChemicalCompendium
-      # Other Books
-      - BookEscalation
-      - BookEscalationSecurity
       - BookAtmosDistro
       - BookAtmosWaste
       - BookAtmosAirAlarms
       - BookAtmosVentsMore
+      # Other Books
       - BookRandom # The empty random book because why not
+      - BookRandomStory
     chance: 0.9
     rarePrototypes:
-      - BookChemistryInsane
-      - BookBotanicalTextbook
-      - BookGnominomicon
-      - BookFishing
+#      - BookChemistryInsane
+#      - BookBotanicalTextbook
+#      - BookGnominomicon
+#      - BookFishing
       - BookFishops # DeltaV - fishops book
-      - BookDetective
-      - BookSalvageEpistemics1 # Nyanotrasen - Epistemic Lore Book
+#      - BookDetective
+#      - BookSalvageEpistemics1 # Nyanotrasen - Epistemic Lore Book
     rareChance: 0.25
