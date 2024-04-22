@@ -29,7 +29,7 @@ public sealed class EvacShuttleTest
         Assert.That(entMan.Count<StationCentcommComponent>(), Is.Zero);
 
         var shuttleEnabled = pair.Server.CfgMan.GetCVar(CCVars.EmergencyShuttleEnabled);
-        pair.Server.CfgMan.SetCVar(CCVars.GameMap, "Saltern");
+        pair.Server.CfgMan.SetCVar(CCVars.GameMap, "Edge");
         pair.Server.CfgMan.SetCVar(CCVars.GameDummyTicker, false);
         pair.Server.CfgMan.SetCVar(CCVars.EmergencyShuttleEnabled, true);
 
