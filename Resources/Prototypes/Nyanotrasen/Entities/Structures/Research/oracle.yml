@@ -22,8 +22,9 @@
       fountain:
         maxVol: 200
   - type: Drink
-    isOpen: true
     solution: fountain
+  - type: Openable
+    opened: true
   - type: DrawableSolution
     solution: fountain
   - type: DrainableSolution
