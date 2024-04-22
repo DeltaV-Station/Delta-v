@@ -125,10 +125,6 @@ public abstract class SharedSynthSystem : EntitySystem
             return;
         }
 
-        // TODO: i'd add the visor light source adjusting itself based on whether you are lying down but that doesn't work
-        // with buckling + rotating your view and is also really cumbersome to implement somehow...
-        // normally the light rotates with your view but this breaks when you're pinned for some godforsaken reason
-
         // are they wearing anything that would block their eyes or mouth? this is currently tracked by the
         // identity blocking system.
         if (!_inventory.TryGetContainerSlotEnumerator(uid, out var inventory))
