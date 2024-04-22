@@ -25,4 +25,10 @@ public sealed partial class SynthComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? VisorUid;
+
+    /// <summary>
+    /// If set true only the eyes glow, not the side LEDs.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool EyeGlowOnly;
 }

@@ -1,5 +1,5 @@
 ﻿# This file is licensed to you under the MIT license. See: https://spdx.org/licenses/MIT.html
-# SPDX-FileCopyrightText: (c) 2024 pissdemon (https://github.com/pissdemon)
+# SPDX-FileCopyrightText: (c) 2024 pissdemon (https://github.com/pissdemon), Cosmatic Drift contributors
 # SPDX-License-Identifier: MIT
 
 - type: marking
@@ -29,7 +29,7 @@
     default:
       type:
         !type:SimpleColoring
-        color: "#808080"
+        color: "#FFFFFF"
   sprites:
   - sprite: DeltaV/Mobs/Customization/Reptilian/visor.rsi
     state: head_ledvisor_primary_dark
@@ -63,9 +63,65 @@
     default:
       type:
         !type:SimpleColoring
-        color: "#808080"
+        color: "#FFFFFF"
   sprites:
   - sprite: DeltaV/Mobs/Customization/Vulpkanin/visor.rsi
     state: head_ledvisor_primary_dark
   - sprite: DeltaV/Mobs/Customization/Vulpkanin/visor.rsi
     state: head_ledvisor_secondary
+
+- type: marking
+  id: SyntheticScreen
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Human, Felinid, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_screen
+
+- type: marking
+  id: SyntheticScreenGlowing
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human, Felinid, Oni ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_screen
+
+- type: marking
+  id: SyntheticAntennaLeft
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human, Felinid, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_left
+
+- type: marking
+  id: SyntheticAntennaRight
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human, Felinid, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_right
