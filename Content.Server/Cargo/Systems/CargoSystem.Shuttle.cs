@@ -43,7 +43,7 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoPalletConsoleComponent, BoundUIOpenedEvent>(OnPalletUIOpen);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize);
+        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize); // DeltaV - trade station map
 
         Subs.CVar(_cfgManager, CCVars.GridFill, SetGridFill);
     }
@@ -254,9 +254,8 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(EntityUid gridUid, EntityUid? station, out double amount)
+    private bool SellPallets(EntityUid gridUid, out double amount)
     {
-        station ??= _station.GetOwningStation(gridUid);
         GetPalletGoods(gridUid, out var toSell, out amount);
 
         Log.Debug($"Cargo sold {toSell.Count} entities for {amount}");
@@ -264,11 +263,9 @@ public sealed partial class CargoSystem
         if (toSell.Count == 0)
             return false;
 
-        if (station != null)
-        {
-            var ev = new EntitySoldEvent(station.Value, toSell);
-            RaiseLocalEvent(ref ev);
-        }
+
+        var ev = new EntitySoldEvent(toSell);
+        RaiseLocalEvent(ref ev);
 
         foreach (var ent in toSell)
         {
@@ -323,7 +320,7 @@ public sealed partial class CargoSystem
             return false;
         }
 
-        var complete = IsBountyComplete(uid, (EntityUid?) null, out var bountyEntities);
+        var complete = IsBountyComplete(uid, out var bountyEntities);
 
         // Recursively check for mobs at any point.
         var children = xform.ChildEnumerator;
@@ -356,7 +353,7 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!SellPallets(gridUid, null, out var price))
+        if (!SellPallets(gridUid, out var price))
             return;
 
         var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
@@ -373,6 +370,7 @@ public sealed partial class CargoSystem
         CleanupTradeStation();
     }
 
+    // DeltaV - begin trade station map
     private void OnStationInitialize(StationInitializedEvent args)
     {
         if (!HasComp<StationCargoOrderDatabaseComponent>(args.Station)) // No cargo, L
@@ -381,6 +379,7 @@ public sealed partial class CargoSystem
         if (_cfgManager.GetCVar(CCVars.GridFill))
             SetupTradePost();
     }
+    // DeltaV - end trade station map
 
     private void CleanupTradeStation()
     {
@@ -395,6 +394,7 @@ public sealed partial class CargoSystem
         CargoMap = null;
     }
 
+    // DeltaV - begin trade station map
     private void SetupTradePost()
     {
         if (CargoMap != null && _mapManager.MapExists(CargoMap.Value))
@@ -424,7 +424,6 @@ public sealed partial class CargoSystem
             var shuttleComponent = EnsureComp<ShuttleComponent>(grid);
             shuttleComponent.AngularDamping = 10000;
             shuttleComponent.LinearDamping = 10000;
-            Dirty(shuttleComponent);
         }
 
         var mapUid = _mapManager.GetMapEntityId(CargoMap.Value);
@@ -441,6 +440,7 @@ public sealed partial class CargoSystem
 
         _console.RefreshShuttleConsoles();
     }
+    // DeltaV - end trade station map
 }
 
 /// <summary>
@@ -448,4 +448,4 @@ public sealed partial class CargoSystem
 /// deleted but after the price has been calculated.
 /// </summary>
 [ByRefEvent]
-public readonly record struct EntitySoldEvent(EntityUid Station, HashSet<EntityUid> Sold);
+public readonly record struct EntitySoldEvent(HashSet<EntityUid> Sold);

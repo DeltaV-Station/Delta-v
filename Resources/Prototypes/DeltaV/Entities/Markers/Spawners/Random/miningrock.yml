@@ -17,14 +17,17 @@
       - Barricade
       - MountainRockMining
       - MountainRock
-      - RandomCrystalSpawner
+      - RandomStalagmiteOrCrystal
       - RandomWallRockSpawner
       - RandomBasaltRockSpawner
+      - AsteroidRockOreCrab
+      - RandomWoodenStructure
     rareChance: 0.15
 
 - type: entity
   name: Crystal Spawner
   id: RandomCrystalSpawner
+  suffix: 100%
   parent: MarkerBase
   components:
   - type: Sprite
@@ -81,4 +84,19 @@
       - WallRockBasaltTin
       - WallRockBasaltUranium
       - WallRockBasaltArtifactFragment
-#Might add chance for no crystal later??
+
+- type: entity
+  id: RandomWoodenStructure
+  name: wooden wall or support spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Decoration/mines.rsi
+        state: support_wall_broken
+  - type: RandomSpawner
+    prototypes:
+      - RandomWoodenWall
+      - RandomWoodenSupport
+    chance: 0.9

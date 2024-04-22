@@ -19,7 +19,8 @@
         amount: 2
       - id: Plunger
         amount: 2
-
+      - id: BoxCleanerGrenades
+      
 - type: entity
   id: CrateServiceReplacementLights
   parent: CrateGenericSteel
@@ -50,15 +51,20 @@
   - type: StorageFill
     contents:
       - id: CigCartonGreen
-        prob: 0.50
+        prob: 0.33 # DeltaV
         orGroup: CigCarton1
       - id: CigCartonRed
         orGroup: CigCarton1
       - id: CigCartonBlue
-        prob: 0.50
+        prob: 0.33 # DeltaV
         orGroup: CigCarton2
       - id: CigCartonBlack
         orGroup: CigCarton2
+      - id: CigCartonPurple # DeltaV
+        prob: 0.33
+        orGroup: CigCarton3 
+      - id: CigCartonCandy # DeltaV
+        orGroup: CigCarton3
       - id: CigarGoldCase
         prob: 0.05
         orGroup: Cigars

@@ -1,0 +1,95 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMantis
+  suffix: Mantis, Locked
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCorpsman
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsParamedic
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBoxer
+  suffix: Boxer, Locked
+  components:
+  - type: AccessReader
+    access: [["Boxer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClown
+  suffix: Clown, Locked
+  components:
+  - type: AccessReader
+    access: [["Clown"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsLibrary
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMime
+  suffix: Mime, Locked
+  components:
+  - type: AccessReader
+    access: [["Mime"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMusician
+  suffix: Musician, Locked
+  components:
+  - type: AccessReader
+    access: [["Musician"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsReporter
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsZookeeper
+  suffix: Zookeeper, Locked
+  components:
+  - type: AccessReader
+    access: [["Zookeeper"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPsychologist
+  suffix: Psychologist, Locked
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMail
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
