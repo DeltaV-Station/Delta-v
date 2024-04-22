@@ -19,3 +19,46 @@
   name: loadout-group-mail-carrier-outer-clothing
   loadouts:
   - MailCarrierWintercoat
+
+# Epistemics
+## Forensic Mantis
+- type: loadoutGroup
+  id: MantisHead
+  name: loadout-group-mantis-head
+  minLimit: 0
+  loadouts:
+  - MantisFezHat
+
+- type: loadoutGroup
+  id: MantisJumpsuit
+  name: loadout-group-mantis-jumpsuit
+  loadouts:
+  - MantisJumpsuit
+  - MantisJumpskirt
+
+- type: loadoutGroup
+  id: MantisBackpack
+  name: loadout-group-mantis-backpack
+  loadouts:
+  - MantisBackpack
+  - MantisSatchel
+  - MantisDuffel
+
+- type: loadoutGroup
+  id: MantisOuterClothing
+  name: loadout-group-mantis-outer-clothing
+  loadouts:
+  - MantisCoat
+  - MantisWintercoat
+
+- type: loadoutGroup
+  id: MantisShoes
+  name: loadout-group-mantis-shoes
+  loadouts:
+  - MantisBoots
+
+- type: loadoutGroup
+  id: MantisGloves
+  name: loadout-group-mantis-gloves
+  loadouts:
+  - WhiteGloves
