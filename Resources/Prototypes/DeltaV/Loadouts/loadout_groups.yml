@@ -3,6 +3,7 @@
 - type: loadoutGroup
   id: CourierHead
   name: loadout-group-courier-head
+  minLimit: 0
   loadouts:
   - CourierHead
   - MailCarrierHead
@@ -19,6 +20,7 @@
 - type: loadoutGroup
   id: CourierOuterClothing
   name: loadout-group-courier-outer-clothing
+  minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
   - MailCarrierWintercoat
@@ -36,6 +38,7 @@
 - type: loadoutGroup
   id: BrigMedicHead
   name: loadout-group-brig-medic-head
+  minLimit: 0
   loadouts:
   - CorpsmanBeret
 

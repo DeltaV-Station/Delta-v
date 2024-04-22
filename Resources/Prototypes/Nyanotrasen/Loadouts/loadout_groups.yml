@@ -17,6 +17,7 @@
 - type: loadoutGroup
   id: MailCarrierOuterClothing
   name: loadout-group-mail-carrier-outer-clothing
+  minLimit: 0
   loadouts:
   - MailCarrierWintercoat
 
@@ -47,6 +48,7 @@
 - type: loadoutGroup
   id: MantisOuterClothing
   name: loadout-group-mantis-outer-clothing
+  minLimit: 0
   loadouts:
   - MantisCoat
   - MantisWintercoat
@@ -60,6 +62,7 @@
 - type: loadoutGroup
   id: MantisGloves
   name: loadout-group-mantis-gloves
+  minLimit: 0
   loadouts:
   - WhiteGloves
 
@@ -68,6 +71,7 @@
 - type: loadoutGroup
   id: PrisonGuardHead
   name: loadout-group-prison-guard-head
+  minLimit: 0
   loadouts:
   - PrisonGuardHead
 
@@ -96,6 +100,7 @@
 - type: loadoutGroup
   id: MartialArtistBelt
   name: loadout-group-martial-belt
+  minLimit: 0
   loadouts:
   - MartialBlackBelt
 
