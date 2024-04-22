@@ -3,6 +3,8 @@
 # Logistics
 loadout-group-courier-head = Courier head
 loadout-group-courier-jumpsuit = Courier jumpsuit
+loadout-group-courier-shoes = Courier shoes
+loadout-group-courier-outer-clothing = Courier outer clothing
 
 loadout-group-mail-carrier-head = Mail Carrier head
 loadout-group-mail-carrier-jumpsuit = Mail Carrier jumpsuit

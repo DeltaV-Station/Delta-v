@@ -5,6 +5,7 @@
   name: loadout-group-courier-head
   loadouts:
   - CourierHead
+  - MailCarrierHead
 
 - type: loadoutGroup
   id: CourierJumpsuit
@@ -12,6 +13,23 @@
   loadouts:
   - CourierJumpsuit
   - CourierJumpskirt
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: CourierOuterClothing
+  name: loadout-group-courier-outer-clothing
+  loadouts:
+  - CargoTechnicianWintercoat
+  - MailCarrierWintercoat
+
+- type: loadoutGroup
+  id: CourierShoes
+  name: loadout-group-courier-shoes
+  loadouts:
+  - BlackShoes
+  - CargoWinterBoots
+  - RollerSkates
 
 # Security
 ## Brig Medic
