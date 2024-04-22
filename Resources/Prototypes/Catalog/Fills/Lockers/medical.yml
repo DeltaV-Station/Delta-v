@@ -169,28 +169,6 @@
         prob: 0.5
 
 - type: entity
-  id: LockerParamedicFilled #Delta V - Paramedic locker without suit
-  suffix: Filled
-  parent: LockerParamedic
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      - id: ClothingOuterWinterPara # Delta-V - Parity between lockers
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
-      - id: MedkitFilled
-        prob: 0.3
-      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3 
-
-- type: entity
   id: LockerParamedicFilledHardsuit #Delta V - Paramedic locker with suit
   suffix: Filled, Hardsuit
   parent: LockerParamedic
