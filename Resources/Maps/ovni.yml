@@ -3586,13 +3586,11 @@ entities:
       id: Ovni
     - type: GasTileOverlay
     - type: SpreaderGrid
-      updateAccumulator: 0.20265605
   - uid: 55
     components:
     - type: MetaData
     - type: Transform
     - type: Map
-      mapPaused: True
     - type: PhysicsMap
     - type: GridTree
     - type: MovedGrids
@@ -32271,93 +32269,53 @@ entities:
     - type: Transform
       pos: 25.5,17.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 856
     components:
     - type: Transform
       pos: -8.5,17.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 1101
     components:
     - type: Transform
       pos: -12.5,0.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 1383
     components:
     - type: Transform
       pos: -12.5,-5.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 1873
     components:
     - type: Transform
       pos: 19.5,-13.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 1943
     components:
     - type: Transform
       pos: 27.5,27.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 2016
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,29.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 3607
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 47.5,16.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 8882
     components:
     - type: Transform
       pos: -8.5,-1.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
   - uid: 9544
     components:
     - type: Transform
       pos: -7.5,10.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
-    - type: Fixtures
-      fixtures: {}
 - proto: FloorTileItemSteel
   entities:
   - uid: 9447
@@ -46939,8 +46897,6 @@ entities:
     - type: Transform
       pos: -18.5,26.5
       parent: 8
-    - type: GlimmerSource
-      accumulator: 2.5627315
 - proto: GravityGenerator
   entities:
   - uid: 2227
@@ -58448,24 +58404,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-8.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 741
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.5,18.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 8881
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,-1.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
 - proto: SinkEmpty
   entities:
   - uid: 4151
@@ -58474,15 +58424,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 47.5,15.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 5438
     components:
     - type: Transform
       pos: 36.5,-6.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
 - proto: SinkWide
   entities:
   - uid: 1251
@@ -58491,16 +58437,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -12.527168,-7.075291
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 3088
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,-14.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
 - proto: SmallLight
   entities:
   - uid: 7228
@@ -62990,8 +62932,6 @@ entities:
     - type: Transform
       pos: -5.5,36.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
 - proto: ToiletEmpty
   entities:
   - uid: 720
@@ -62999,31 +62939,23 @@ entities:
     - type: Transform
       pos: 25.5,19.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 1954
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 28.5,27.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 5847
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 47.5,6.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
   - uid: 6182
     components:
     - type: Transform
       pos: 38.5,-6.5
       parent: 8
-    - type: Drain
-      accumulator: 0.780942
 - proto: ToolboxArtistic
   entities:
   - uid: 9438
