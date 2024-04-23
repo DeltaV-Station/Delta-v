@@ -8,14 +8,12 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Standing;
 using Content.Shared.Traits;
 using Content.Shared.Zombies;
 using JetBrains.Annotations;
@@ -221,12 +219,15 @@ public abstract class SharedSynthSystem : EntitySystem
         _light.SetRadius(visorUid, radius);
         _light.SetEnabled(visorUid, true);
         if (_humanoidAppearanceQuery.TryComp(uid, out var appearance))
+        {
+            RaiseLocalEvent(uid, new SynthUpdateEyeColorEvent(appearance.EyeColor));
             _light.SetColor(visorUid, appearance.EyeColor);
+        }
     }
 
     private void OnInit(EntityUid uid, SynthComponent component, MapInitEvent args)
     {
-        if (!_humanoidAppearanceQuery.TryComp(uid, out var appearance))
+        if (!_humanoidAppearanceQuery.HasComp(uid))
         {
             _sawmill.Error($"Can't turn {uid} into a synth because they are not humanoid!");
             return;
@@ -250,16 +251,19 @@ public abstract class SharedSynthSystem : EntitySystem
         if (!appearance.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var headMarkings))
             return false;
 
-        if (headMarkings.Any(marking => _visorMarkings.Contains(marking.MarkingId)))
+        // linq would read nicer but would allocate
+        foreach (var marking in headMarkings)
         {
-            kind = SynthVisorKind.Visor;
-            return true;
-        }
-
-        if (headMarkings.Any(marking => _screenMarkings.Contains(marking.MarkingId)))
-        {
-            kind = SynthVisorKind.Screen;
-            return true;
+            if (_visorMarkings.Contains(marking.MarkingId))
+            {
+                kind = SynthVisorKind.Visor;
+                return true;
+            }
+            if (_screenMarkings.Contains(marking.MarkingId))
+            {
+                kind = SynthVisorKind.Screen;
+                return true;
+            }
         }
 
         return false;
@@ -285,6 +289,15 @@ public abstract class SharedSynthSystem : EntitySystem
 public sealed class TurnedSyntheticEvent : EntityEventArgs
 {
 }
+
+/// <summary>
+/// Raised when a synth's visor eye color needs to be updated.
+/// </summary>
+public sealed class SynthUpdateEyeColorEvent(Color color) : EntityEventArgs
+{
+    public Color Color { get; set; } = color;
+}
+
 
 /// <summary>
 /// Raised when a synth has gotten hit by an EMP pulse.

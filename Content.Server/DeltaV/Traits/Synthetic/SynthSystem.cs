@@ -58,8 +58,20 @@ public sealed class SynthSystem : SharedSynthSystem
         SubscribeLocalEvent<SynthComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<SynthComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SynthComponent, IdentityChangedEvent>(OnIdentityChanged);
+        SubscribeLocalEvent<SynthComponent, SynthUpdateEyeColorEvent>(OnUpdateEyeColor);
         SubscribeLocalEvent<SynthBrainComponent, MindAddedMessage>(OnBrainMindAdded);
         SubscribeLocalEvent<SynthBrainComponent, MindRemovedMessage>(OnBrainMindRemoved);
+    }
+
+    /// <summary>
+    /// Server-only code for updating eye color in response to zombification etc.
+    /// </summary>
+    private void OnUpdateEyeColor(EntityUid uid, SynthComponent component, SynthUpdateEyeColorEvent args)
+    {
+        if (component.VisorUid is null)
+            return;
+
+        _appearance.SetData(uid, SynthVisorVisuals.EyeColor, args.Color);
     }
 
     /// <summary>

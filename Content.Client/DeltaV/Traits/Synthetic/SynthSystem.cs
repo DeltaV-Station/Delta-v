@@ -30,4 +30,3 @@ public sealed class SynthSystem : SharedSynthSystem
         UpdateVisorLightState(uid, component);
     }
 }
-
