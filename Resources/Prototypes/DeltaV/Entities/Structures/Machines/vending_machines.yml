@@ -56,10 +56,5 @@
   components:
   - type: VendingMachine
     pack: BoozeOMatUnlockedInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-    loopDeny: false
   - type: AccessReader
     enabled: false
