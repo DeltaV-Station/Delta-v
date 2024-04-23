@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Shared.Decals;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Network;
@@ -22,7 +24,7 @@ namespace Content.Shared.Humanoid;
 public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] protected readonly SharedSynthSystem _synthSystem = default!; // DeltaV: Proper appearance and cloning of synths
 
@@ -32,7 +34,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnInit(EntityUid uid, HumanoidAppearanceComponent humanoid, ComponentInit args)
@@ -43,7 +47,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         if (string.IsNullOrEmpty(humanoid.Initial)
-            || !_prototypeManager.TryIndex(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
+            || !_proto.TryIndex(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
         {
             LoadProfile(uid, HumanoidCharacterProfile.DefaultWithSpecies(humanoid.Species), humanoid);
             return;
@@ -56,6 +60,15 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         LoadProfile(uid, startingSet.Profile, humanoid);
+    }
+
+    private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
+    {
+        var identity = Identity.Entity(uid, EntityManager);
+        var species = GetSpeciesRepresentation(component.Species, component.Synthetic).ToLower(); // DeltaV: Synthetics
+        var age = GetAgeRepresentation(component.Species, component.Age);
+
+        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
     }
 
     /// <summary>
@@ -138,7 +151,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="humanoid">Humanoid component of the entity</param>
     public void SetSpecies(EntityUid uid, string species, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
     {
-        if (!Resolve(uid, ref humanoid) || !_prototypeManager.TryIndex<SpeciesPrototype>(species, out var prototype))
+        if (!Resolve(uid, ref humanoid) || !_proto.TryIndex<SpeciesPrototype>(species, out var prototype))
         {
             return;
         }
@@ -146,7 +159,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.Species = species;
         humanoid.MarkingSet.EnsureSpecies(species, humanoid.SkinColor, _markingManager);
         var oldMarkings = humanoid.MarkingSet.GetForwardEnumerator().ToList();
-        humanoid.MarkingSet = new(oldMarkings, prototype.MarkingPoints, _markingManager, _prototypeManager);
+        humanoid.MarkingSet = new(oldMarkings, prototype.MarkingPoints, _markingManager, _proto);
 
         if (sync)
             Dirty(uid, humanoid);
@@ -166,7 +179,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (!Resolve(uid, ref humanoid))
             return;
 
-        if (!_prototypeManager.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
+        if (!_proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
         {
             return;
         }
@@ -290,24 +303,24 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         // Hair/facial hair - this may eventually be deprecated.
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _prototypeManager)
+        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _proto)
             ? profile.Appearance.SkinColor.WithAlpha(hairAlpha) : profile.Appearance.HairColor;
-        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
+        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _proto)
             ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha) : profile.Appearance.FacialHairColor;
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype) &&
-            _markingManager.CanBeApplied(profile.Species, profile.Sex, hairPrototype, _prototypeManager))
+            _markingManager.CanBeApplied(profile.Species, profile.Sex, hairPrototype, _proto))
         {
             AddMarking(uid, profile.Appearance.HairStyleId, hairColor, false);
         }
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.FacialHairStyleId, out var facialHairPrototype) &&
-            _markingManager.CanBeApplied(profile.Species, profile.Sex, facialHairPrototype, _prototypeManager))
+            _markingManager.CanBeApplied(profile.Species, profile.Sex, facialHairPrototype, _proto))
         {
             AddMarking(uid, profile.Appearance.FacialHairStyleId, facialHairColor, false);
         }
 
-        humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);
+        humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _proto);
 
         // Finally adding marking with forced colors
         foreach (var (marking, prototype) in markingFColored)
@@ -424,5 +437,42 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (sync)
             Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    /// Takes ID of the species prototype, returns UI-friendly name of the species.
+    /// </summary>
+    // DeltaV: synths are visibly synthetic
+    public string GetSpeciesRepresentation(string speciesId, bool synthetic)
+    {
+        var syntheticPrefix = synthetic ? $"{Loc.GetString("humanoid-appearance-component-synthetic")} " : "";
+        if (_proto.TryIndex<SpeciesPrototype>(speciesId, out var species))
+        {
+            return syntheticPrefix + Loc.GetString(species.Name);
+        }
+
+        Log.Error("Tried to get representation of unknown species: {speciesId}");
+        return Loc.GetString("humanoid-appearance-component-unknown-species");
+    }
+
+    public string GetAgeRepresentation(string species, int age)
+    {
+        if (!_proto.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
+        {
+            Log.Error("Tried to get age representation of species that couldn't be indexed: " + species);
+            return Loc.GetString("identity-age-young");
+        }
+
+        if (age < speciesPrototype.YoungAge)
+        {
+            return Loc.GetString("identity-age-young");
+        }
+
+        if (age < speciesPrototype.OldAge)
+        {
+            return Loc.GetString("identity-age-middle-aged");
+        }
+
+        return Loc.GetString("identity-age-old");
     }
 }

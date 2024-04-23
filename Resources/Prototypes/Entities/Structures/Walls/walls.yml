@@ -169,7 +169,7 @@
     sprite: Structures/Walls/meat.rsi
   - type: Construction
     graph: Girder
-    node: bananiumWall
+    node: meatWall
   - type: Destructible
     thresholds:
     - trigger:
@@ -546,8 +546,9 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -797,8 +798,9 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall

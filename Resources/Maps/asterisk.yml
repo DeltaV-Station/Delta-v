@@ -7451,7 +7451,7 @@ entities:
     - type: Transform
       pos: -52.5,-20.5
       parent: 2
-- proto: BodyBag_Folded
+- proto: BodyBagFolded
   entities:
   - uid: 7103
     components:
@@ -29385,7 +29385,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: True
           canReact: True
           maxVol: 20
           name: null
@@ -29404,7 +29403,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: True
           canReact: True
           maxVol: 20
           name: null
