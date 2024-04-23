@@ -4536,10 +4536,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 55.5,-21.5
       parent: 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
     - type: DeviceLinkSink
       links:
       - 8927
@@ -4773,10 +4769,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 57.5,-21.5
       parent: 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
     - type: DeviceLinkSink
       links:
       - 123
@@ -25532,6 +25524,7 @@ entities:
       parent: 8
     - type: SingletonDeviceNetServer
       active: False
+      available: False
 - proto: Crowbar
   entities:
   - uid: 8777
@@ -25610,51 +25603,11 @@ entities:
     - type: Transform
       pos: -6.5,29.5
       parent: 8
-    - type: CryoPod
-      nextInjectionTime: 0
-    - type: CryoPodAir
-      gasMixture:
-        volume: 1000
-        immutable: False
-        temperature: 2.735976
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 8983
     components:
     - type: Transform
       pos: -8.5,29.5
       parent: 8
-    - type: CryoPod
-      nextInjectionTime: 0
-    - type: CryoPodAir
-      gasMixture:
-        volume: 1000
-        immutable: False
-        temperature: 2.7327845
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: CryoxadoneBeakerSmall
   entities:
   - uid: 2239
@@ -31288,11 +31241,12 @@ entities:
       parent: 8
     - type: Door
       state: Closed
+    - type: Physics
       canCollide: True
     - type: Airtight
       airBlocked: True
-    - type: RadiationBlocker
     - type: Occluder
+      enabled: True
   - uid: 520
     components:
     - type: Transform
@@ -31357,11 +31311,12 @@ entities:
       parent: 8
     - type: Door
       state: Closed
+    - type: Physics
       canCollide: True
     - type: Airtight
       airBlocked: True
-    - type: RadiationBlocker
     - type: Occluder
+      enabled: True
   - uid: 2369
     components:
     - type: Transform
@@ -31861,10 +31816,10 @@ entities:
       parent: 8
     - type: Door
       state: Closed
+    - type: Physics
       canCollide: True
     - type: Airtight
       airBlocked: True
-    - type: RadiationBlocker
   - uid: 563
     components:
     - type: Transform
@@ -31872,10 +31827,10 @@ entities:
       parent: 8
     - type: Door
       state: Closed
+    - type: Physics
       canCollide: True
     - type: Airtight
       airBlocked: True
-    - type: RadiationBlocker
   - uid: 602
     components:
     - type: Transform
@@ -31883,10 +31838,10 @@ entities:
       parent: 8
     - type: Door
       state: Closed
+    - type: Physics
       canCollide: True
     - type: Airtight
       airBlocked: True
-    - type: RadiationBlocker
   - uid: 702
     components:
     - type: Transform
@@ -46995,6 +46950,7 @@ entities:
       parent: 8
     - type: GravityGenerator
       charge: 0
+    - type: PointLight
       radius: 0.75
       enabled: False
 - proto: Grille
@@ -51109,6 +51065,8 @@ entities:
         - Output: DoorBolt
         141:
         - Output: DoorBolt
+    - type: Physics
+      canCollide: False
       bodyType: Static
   - uid: 6251
     components:
@@ -51127,6 +51085,8 @@ entities:
         - Output: DoorBolt
         146:
         - Output: DoorBolt
+    - type: Physics
+      canCollide: False
       bodyType: Static
 - proto: MachineAnomalyGenerator
   entities:
@@ -51637,10 +51597,6 @@ entities:
     - type: Transform
       pos: -16.5,6.5
       parent: 8
-    - type: Oracle
-      rejectAccumulator: 248.88322
-      barkAccumulator: 8.833253
-      accumulator: 248.88322
 - proto: OreBox
   entities:
   - uid: 2950
@@ -52027,17 +51983,7 @@ entities:
       parent: 8
     - type: Paper
       content: >
-        bee
-        beebeebeebeebeebeebeebeebeebeebeebeebee
-        beebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebee
-        beebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebee
-        beebeebeebee
-        beebeebeebee
-        beebeebeebee
-        beebeebeebee
-        beebeebeebeebeebeebeebee
-        beebeebeebee
-        beebeebeebee
+        bee beebeebeebeebeebeebeebeebeebeebeebeebee beebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebee beebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebeebee beebeebeebee beebeebeebee beebeebeebee beebeebeebee beebeebeebeebeebeebeebee beebeebeebee beebeebeebee
   - uid: 7094
     components:
     - type: Transform
@@ -52675,46 +52621,39 @@ entities:
     - type: Transform
       pos: 11.5,14.5
       parent: 8
-      powerLoad: 0
   - uid: 2171
     components:
     - type: Transform
       pos: 10.5,39.5
       parent: 8
-      powerLoad: 0
   - uid: 6908
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 23.5,13.5
       parent: 8
-      powerLoad: 0
   - uid: 7859
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,-20.5
       parent: 8
-      powerLoad: 0
   - uid: 11024
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 30.5,-24.5
       parent: 8
-      powerLoad: 0
   - uid: 11136
     components:
     - type: Transform
       pos: -3.5,-24.5
       parent: 8
-      powerLoad: 0
   - uid: 11224
     components:
     - type: Transform
       pos: -1.5,24.5
       parent: 8
-      powerLoad: 0
 - proto: Poweredlight
   entities:
   - uid: 232
@@ -52723,279 +52662,207 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -9.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 368
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 504
     components:
     - type: Transform
       pos: 14.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 634
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 693
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -5.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 781
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 807
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 860
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 27.5,7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1175
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1651
     components:
     - type: Transform
       pos: -20.5,-12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1656
     components:
     - type: Transform
       pos: 5.5,-23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1838
     components:
     - type: Transform
       pos: 3.5,-23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2017
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 12.5,7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2107
     components:
     - type: Transform
       pos: 23.5,15.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2118
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,-32.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2135
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -29.5,15.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2326
     components:
     - type: Transform
       pos: 11.5,4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2336
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 23.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2361
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2516
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2812
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 16.5,-1.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2924
     components:
     - type: Transform
       pos: -29.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3138
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -23.5,-8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3174
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -23.5,-11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3372
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3373
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 30.5,-23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4214
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 11.5,-1.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4225
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4230
     components:
     - type: Transform
       pos: 19.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4234
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 19.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4241
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 11.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4286
     components:
     - type: Transform
       pos: 10.5,-36.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4287
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-35.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4288
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,-39.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4289
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-35.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4465
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -26.5,15.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 5337
     components:
     - type: Transform
@@ -53008,597 +52875,443 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -26.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6983
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6985
     components:
     - type: Transform
       pos: -3.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7031
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 32.5,-12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7118
     components:
     - type: Transform
       pos: 32.5,1.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7121
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,-15.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7136
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,-2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7152
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7153
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7154
     components:
     - type: Transform
       pos: -1.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7155
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7156
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7157
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7158
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -9.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7159
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7160
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7161
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7162
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,21.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7165
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7168
     components:
     - type: Transform
       pos: 1.5,22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7169
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7170
     components:
     - type: Transform
       pos: 2.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7171
     components:
     - type: Transform
       pos: 5.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7203
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 39.5,8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7204
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 45.5,6.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7205
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 47.5,8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7206
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 39.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7223
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7243
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -18.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7252
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7337
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,-30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7515
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7575
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7576
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7577
     components:
     - type: Transform
       pos: 29.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7678
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 31.5,-4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7855
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -7.5,-7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8224
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 37.5,-8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8235
     components:
     - type: Transform
       pos: 21.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8237
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 31.5,10.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8238
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 17.5,10.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8258
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 37.5,8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8259
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.5,7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8293
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 35.5,-22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8380
     components:
     - type: Transform
       pos: 38.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8526
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,6.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8538
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.5,5.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8875
     components:
     - type: Transform
       pos: -23.5,12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8876
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9159
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-39.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9287
     components:
     - type: Transform
       pos: -2.5,-30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9290
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9291
     components:
     - type: Transform
       pos: -1.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9292
     components:
     - type: Transform
       pos: 4.5,-27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9299
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,-34.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9414
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -11.5,-38.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9551
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 66.5,-22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9552
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 66.5,-20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9562
     components:
     - type: Transform
       pos: -28.5,28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9611
     components:
     - type: Transform
       pos: -18.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9612
     components:
     - type: Transform
       pos: -15.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9613
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -18.5,-36.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9614
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -14.5,-36.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9728
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -21.5,-36.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9887
     components:
     - type: Transform
       pos: 29.5,-12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10536
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10537
     components:
     - type: Transform
       pos: -23.5,32.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10538
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -25.5,29.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10539
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -25.5,25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10540
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -24.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10541
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10542
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -23.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10544
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -18.5,20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10545
     components:
     - type: Transform
       pos: -13.5,24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 11116
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 37.5,-4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 11217
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,-30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 11218
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,-30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredLightBlueInterior
   entities:
   - uid: 1236
@@ -53607,91 +53320,67 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -31.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1237
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -31.5,7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1241
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -31.5,0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7013
     components:
     - type: Transform
       pos: 32.5,-35.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9288
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,-42.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9293
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,-42.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9553
     components:
     - type: Transform
       pos: 62.5,-19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9555
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 58.5,-23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9567
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9652
     components:
     - type: Transform
       pos: -14.5,-41.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9653
     components:
     - type: Transform
       pos: -18.5,-41.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 11117
     components:
     - type: Transform
       pos: 31.5,-35.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredlightLED
   entities:
   - uid: 996
@@ -53700,719 +53389,533 @@ entities:
       rot: 3.141592653589793 rad
       pos: -16.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2654
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -10.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2931
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,-12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3375
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,-9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3376
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3377
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.5,-19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3379
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,-10.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3382
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,-0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3383
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 23.5,-5.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6982
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6986
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -16.5,-21.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6987
     components:
     - type: Transform
       pos: -19.5,-17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6988
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6989
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -12.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7119
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7120
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7122
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 11.5,-21.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7123
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7124
     components:
     - type: Transform
       pos: 18.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7125
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7126
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 11.5,-11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7127
     components:
     - type: Transform
       pos: 20.5,-8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7129
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,-7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7130
     components:
     - type: Transform
       pos: 4.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7132
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -5.5,-7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7133
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7134
     components:
     - type: Transform
       pos: -5.5,0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7135
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7137
     components:
     - type: Transform
       pos: -11.5,-4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7138
     components:
     - type: Transform
       pos: -7.5,-9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7139
     components:
     - type: Transform
       pos: -13.5,-9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7140
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -19.5,-7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7143
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -17.5,-0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7144
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -24.5,1.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7145
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -18.5,3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7146
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -26.5,3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7147
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -26.5,11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7149
     components:
     - type: Transform
       pos: -20.5,8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7150
     components:
     - type: Transform
       pos: -12.5,8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7151
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7172
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7173
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7174
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7175
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 8.5,25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7177
     components:
     - type: Transform
       pos: 8.5,30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7178
     components:
     - type: Transform
       pos: 16.5,30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7179
     components:
     - type: Transform
       pos: 4.5,30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7180
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 21.5,27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7181
     components:
     - type: Transform
       pos: 27.5,28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7182
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,32.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7183
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7184
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,32.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7185
     components:
     - type: Transform
       pos: 9.5,40.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7186
     components:
     - type: Transform
       pos: 15.5,40.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7187
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,35.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7188
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,33.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7189
     components:
     - type: Transform
       pos: 1.5,40.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7190
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,38.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7209
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 14.5,-6.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7210
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 10.5,-7.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7230
     components:
     - type: Transform
       pos: -4.5,-16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7231
     components:
     - type: Transform
       pos: -7.5,-16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7232
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,-20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7233
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -10.5,-19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7234
     components:
     - type: Transform
       pos: -4.5,-23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7235
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7236
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7237
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -11.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7238
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7240
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,-18.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7241
     components:
     - type: Transform
       pos: -0.5,-16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7244
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,-2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7245
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,5.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7246
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7247
     components:
     - type: Transform
       pos: -16.5,14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7248
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -20.5,13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7254
     components:
     - type: Transform
       pos: -19.5,24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7256
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7259
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7260
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -18.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7262
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7263
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7264
     components:
     - type: Transform
       pos: 7.5,0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7265
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7266
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,2.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7267
     components:
     - type: Transform
       pos: 7.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7268
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -12.5,-0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8428
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -16.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9526
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,-9.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9527
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-8.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9713
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9714
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9757
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -20.5,17.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredLightPostSmall
   entities:
   - uid: 9656
@@ -54420,8 +53923,6 @@ entities:
     - type: Transform
       pos: -14.5,-46.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredlightSodium
   entities:
   - uid: 2533
@@ -54429,79 +53930,59 @@ entities:
     - type: Transform
       pos: 19.5,-27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 5390
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 14.5,-30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7814
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -30.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7815
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -32.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7816
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -20.5,34.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7817
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,38.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7818
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 30.5,27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7821
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 40.5,-10.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7822
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 41.5,-21.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7823
     components:
     - type: Transform
       pos: 29.5,-27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredSmallLight
   entities:
   - uid: 118
@@ -54510,268 +53991,198 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-11.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1315
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1630
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 27.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1648
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-45.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 1801
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-45.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2231
     components:
     - type: Transform
       pos: 47.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2348
     components:
     - type: Transform
       pos: 33.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2399
     components:
     - type: Transform
       pos: 30.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 2763
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 3270
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -15.5,0.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 4452
     components:
     - type: Transform
       pos: 17.5,-27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 5129
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.5,-4.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 5156
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -29.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 5841
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 47.5,6.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6189
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 6880
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -16.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7207
     components:
     - type: Transform
       pos: 40.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7225
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7288
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -10.5,37.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7289
     components:
     - type: Transform
       pos: 42.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7290
     components:
     - type: Transform
       pos: 44.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7291
     components:
     - type: Transform
       pos: 46.5,16.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7381
     components:
     - type: Transform
       pos: -2.5,30.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7884
     components:
     - type: Transform
       pos: -10.5,-28.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7920
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 22.5,-34.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7995
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.5,-20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7997
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.5,-22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8283
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 28.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8804
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -26.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8821
     components:
     - type: Transform
       pos: 37.5,-10.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9545
     components:
     - type: Transform
       pos: 36.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9580
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 28.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9607
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,-22.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9756
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -14.5,19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9815
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -18.5,-26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: PoweredSmallLightEmpty
   entities:
   - uid: 3786
@@ -54780,14 +54191,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -15.5,-29.5
       parent: 8
-      powerLoad: 0
   - uid: 9631
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-29.5
       parent: 8
-      powerLoad: 0
 - proto: PoweredSmallLightMaintenance
   entities:
   - uid: 7211
@@ -54795,214 +54204,158 @@ entities:
     - type: Transform
       pos: 26.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7212
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7213
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7214
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -10.5,26.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7215
     components:
     - type: Transform
       pos: -1.5,-13.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7217
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 37.5,-29.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7221
     components:
     - type: Transform
       pos: 21.5,-27.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7312
     components:
     - type: Transform
       pos: 5.5,25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7313
     components:
     - type: Transform
       pos: 10.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7446
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,-19.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7451
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -11.5,20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7454
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -17.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7455
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,21.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7481
     components:
     - type: Transform
       pos: 26.5,23.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7483
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,-20.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7758
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 21.5,-25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7759
     components:
     - type: Transform
       pos: 17.5,-3.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7812
     components:
     - type: Transform
       pos: -10.5,-31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 7854
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-14.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8212
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 18.5,1.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8269
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8394
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,31.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8554
     components:
     - type: Transform
       pos: 41.5,-24.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 8563
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,12.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9525
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,-25.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 9557
     components:
     - type: Transform
       pos: 0.5,33.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 10835
     components:
     - type: Transform
       pos: 17.5,-5.5
       parent: 8
-      enabled: False
-      powerLoad: 0
   - uid: 11280
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,-44.5
       parent: 8
-      enabled: False
-      powerLoad: 0
 - proto: Protolathe
   entities:
   - uid: 890
@@ -60697,8 +60050,6 @@ entities:
     - type: Transform
       pos: -18.5,17.5
       parent: 8
-    - type: SophicScribe
-      nextAnnounce: 618.6480054
 - proto: SpaceCash100
   entities:
   - uid: 8796
@@ -63578,6 +62929,7 @@ entities:
     - type: Transform
       pos: -5.5,-38.5
       parent: 8
+    - type: PointLight
       color: '#FF3300FF'
   - uid: 9947
     components:
@@ -63585,6 +62937,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,-38.5
       parent: 8
+    - type: PointLight
       color: '#FF3300FF'
 - proto: TelecomServerFilled
   entities:
@@ -63912,8 +63265,6 @@ entities:
     - type: Transform
       pos: 14.5,-30.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2737.074381
 - proto: VendingMachineAtmosDrobe
   entities:
   - uid: 9127
@@ -63921,8 +63272,6 @@ entities:
     - type: Transform
       pos: 8.5,-40.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2690.074509
 - proto: VendingMachineBooze
   entities:
   - uid: 54
@@ -63930,15 +63279,11 @@ entities:
     - type: Transform
       pos: 1.5,-9.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2687.074565
   - uid: 8473
     components:
     - type: Transform
       pos: 15.5,-30.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2700.074509
 - proto: VendingMachineCart
   entities:
   - uid: 125
@@ -63953,15 +63298,11 @@ entities:
     - type: Transform
       pos: 15.5,-8.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2661.074685
   - uid: 1167
     components:
     - type: Transform
       pos: -26.5,1.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2693.074813
 - proto: VendingMachineChapel
   entities:
   - uid: 1206
@@ -63976,8 +63317,6 @@ entities:
     - type: Transform
       pos: -12.5,-0.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2681.074669
 - proto: VendingMachineChefvend
   entities:
   - uid: 1257
@@ -63985,8 +63324,6 @@ entities:
     - type: Transform
       pos: -6.5,-2.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2728.074693
 - proto: VendingMachineChemDrobe
   entities:
   - uid: 867
@@ -63994,8 +63331,6 @@ entities:
     - type: Transform
       pos: -8.5,11.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2814.074381
 - proto: VendingMachineChemicals
   entities:
   - uid: 9404
@@ -64010,22 +63345,16 @@ entities:
     - type: Transform
       pos: 3.5,-9.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2891.073989
   - uid: 6156
     components:
     - type: Transform
       pos: -4.5,7.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3115.0896676
   - uid: 8733
     components:
     - type: Transform
       pos: 22.5,-7.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2671.074745
 - proto: VendingMachineClothing
   entities:
   - uid: 7735
@@ -64033,15 +63362,11 @@ entities:
     - type: Transform
       pos: 17.5,-17.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2694.074745
   - uid: 11435
     components:
     - type: Transform
       pos: 30.5,-7.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2764.074617
 - proto: VendingMachineCoffee
   entities:
   - uid: 51
@@ -64049,8 +63374,6 @@ entities:
     - type: Transform
       pos: 16.5,-8.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3136.0895476
 - proto: VendingMachineCola
   entities:
   - uid: 1199
@@ -64058,15 +63381,11 @@ entities:
     - type: Transform
       pos: -26.5,11.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2691.074821
   - uid: 1369
     components:
     - type: Transform
       pos: -8.5,-23.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2655.074645
 - proto: VendingMachineCondiments
   entities:
   - uid: 6502
@@ -64075,16 +63394,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.5,6.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2728.074489
   - uid: 9559
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -5.5,0.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2739.074333
 - proto: VendingMachineCourierDrobe
   entities:
   - uid: 9399
@@ -64092,8 +63407,6 @@ entities:
     - type: Transform
       pos: -21.5,-13.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3142.0894356
 - proto: VendingMachineCuraDrobe
   entities:
   - uid: 3030
@@ -64101,8 +63414,6 @@ entities:
     - type: Transform
       pos: -29.5,-0.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2696.074761
 - proto: VendingMachineDinnerware
   entities:
   - uid: 7116
@@ -64110,8 +63421,6 @@ entities:
     - type: Transform
       pos: -13.5,-0.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2825.074417
 - proto: VendingMachineEngiDrobe
   entities:
   - uid: 1996
@@ -64119,8 +63428,6 @@ entities:
     - type: Transform
       pos: -2.5,-26.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2794.074385
 - proto: VendingMachineEngivend
   entities:
   - uid: 1593
@@ -64135,8 +63442,6 @@ entities:
     - type: Transform
       pos: -26.5,-4.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2812.074197
 - proto: VendingMachineHydrobe
   entities:
   - uid: 479
@@ -64144,8 +63449,6 @@ entities:
     - type: Transform
       pos: -12.5,-4.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2690.074889
 - proto: VendingMachineJaniDrobe
   entities:
   - uid: 1864
@@ -64153,8 +63456,6 @@ entities:
     - type: Transform
       pos: 20.5,-12.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2732.074657
 - proto: VendingMachineLawDrobe
   entities:
   - uid: 332
@@ -64162,8 +63463,6 @@ entities:
     - type: Transform
       pos: 14.5,-6.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2750.074517
 - proto: VendingMachineMedical
   entities:
   - uid: 507
@@ -64171,22 +63470,16 @@ entities:
     - type: Transform
       pos: -2.5,9.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2752.074525
   - uid: 827
     components:
     - type: Transform
       pos: 3.5,22.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2777.074445
   - uid: 6951
     components:
     - type: Transform
       pos: -4.5,23.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2665.074809
 - proto: VendingMachineMediDrobe
   entities:
   - uid: 766
@@ -64194,8 +63487,6 @@ entities:
     - type: Transform
       pos: 2.5,22.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3171.0894996
 - proto: VendingMachineMNKDrobe
   entities:
   - uid: 3057
@@ -64215,8 +63506,6 @@ entities:
     - type: Transform
       pos: -10.5,-4.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3171.0894156
 - proto: VendingMachinePride
   entities:
   - uid: 11432
@@ -64224,8 +63513,6 @@ entities:
     - type: Transform
       pos: 27.5,-7.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2707.074749
 - proto: VendingMachineRoboDrobe
   entities:
   - uid: 11516
@@ -64261,8 +63548,6 @@ entities:
     - type: Transform
       pos: 19.5,11.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2682.074645
 - proto: VendingMachineSecDrobe
   entities:
   - uid: 348
@@ -64270,8 +63555,6 @@ entities:
     - type: Transform
       pos: 20.5,11.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2827.074201
 - proto: VendingMachineSeedsUnlocked
   entities:
   - uid: 1353
@@ -64279,15 +63562,11 @@ entities:
     - type: Transform
       pos: -11.5,-4.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2752.074649
   - uid: 6280
     components:
     - type: Transform
       pos: 39.5,6.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2655.074829
 - proto: VendingMachineSnack
   entities:
   - uid: 1673
@@ -64295,15 +63574,11 @@ entities:
     - type: Transform
       pos: -9.5,-23.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3161.0894396
   - uid: 8772
     components:
     - type: Transform
       pos: 7.5,27.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2695.074781
 - proto: VendingMachineSovietSoda
   entities:
   - uid: 8374
@@ -64311,8 +63586,6 @@ entities:
     - type: Transform
       pos: -21.5,-31.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2712.074809
 - proto: VendingMachineTankDispenserEVA
   entities:
   - uid: 650
@@ -64332,15 +63605,11 @@ entities:
     - type: Transform
       pos: 4.5,0.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 2849.074249
   - uid: 2317
     components:
     - type: Transform
       pos: 20.5,-20.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3115.0896236
 - proto: VendingMachineWallMedical
   entities:
   - uid: 7242
@@ -64361,8 +63630,6 @@ entities:
     - type: Transform
       pos: 28.5,-7.5
       parent: 8
-    - type: Advertise
-      nextAdvertisementTime: 3130.0895076
 - proto: VendingMachineYouTool
   entities:
   - uid: 6199
@@ -71319,13 +70586,11 @@ entities:
     - type: Transform
       pos: 28.5,17.5
       parent: 8
-      powerLoad: 0
   - uid: 3710
     components:
     - type: Transform
       pos: 29.5,17.5
       parent: 8
-      powerLoad: 0
 - proto: WallWood
   entities:
   - uid: 5157
@@ -71576,25 +70841,21 @@ entities:
     - type: Transform
       pos: 11.5,13.5
       parent: 8
-      powerLoad: 0
   - uid: 1132
     components:
     - type: Transform
       pos: 10.5,41.5
       parent: 8
-      powerLoad: 0
   - uid: 3501
     components:
     - type: Transform
       pos: 19.5,15.5
       parent: 8
-      powerLoad: 0
   - uid: 3638
     components:
     - type: Transform
       pos: 23.5,19.5
       parent: 8
-      powerLoad: 0
 - proto: WeaponDisabler
   entities:
   - uid: 4783
@@ -71717,10 +70978,6 @@ entities:
     - type: Transform
       pos: 14.5,-28.5
       parent: 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
 - proto: WindoorBarLocked
   entities:
   - uid: 136
@@ -71838,20 +71095,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 64.5,-20.5
       parent: 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
   - uid: 3339
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 64.5,-22.5
       parent: 8
-    - type: Airlock
-      powered: True
-    - type: DoorBolt
-      powered: True
 - proto: WindoorSecureEngineeringLocked
   entities:
   - uid: 1212
