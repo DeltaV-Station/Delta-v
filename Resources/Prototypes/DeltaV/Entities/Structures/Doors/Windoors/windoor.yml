@@ -3,16 +3,18 @@
   id: WindoorMailLocked
   suffix: Mail, Locked
   components:
-  - type: AccessReader
-    access: [["Mail"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMail ]
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureMailLocked
   suffix: Mail, Locked
   components:
-  - type: AccessReader
-    access: [["Mail"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMail ]
 
 - type: entity
   parent: WindoorSecure
@@ -21,6 +23,9 @@
   components:
   - type: AccessReader
     access: [["Paramedic"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]
 
 - type: entity
   parent: WindoorSecure
@@ -45,4 +50,3 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
-

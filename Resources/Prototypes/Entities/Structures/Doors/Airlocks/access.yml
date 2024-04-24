@@ -152,7 +152,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsFreezer ]
+      board: [ DoorElectronicsKitchenHydroponics ]
 
 - type: entity
   parent: AirlockFreezer
@@ -251,7 +251,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsScience ]
+      board: [ DoorElectronicsMedicalResearch ]
 
 - type: entity
   parent: AirlockCentralCommand
@@ -617,7 +617,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsScience ]
+      board: [ DoorElectronicsMedicalResearch ]
 
 - type: entity
   parent: AirlockCentralCommandGlass
@@ -967,7 +967,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsRnDMed ]
+      board: [ DoorElectronicsMedicalResearch ]
 
 - type: entity
   parent: AirlockMaint
@@ -1042,6 +1042,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsResearchDirector ]
+
+- type: entity
+  parent: AirlockMaintCommandLocked
+  id: AirlockMaintQuartermasterLocked
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsQuartermaster ]
 
 - type: entity
   parent: AirlockMaint

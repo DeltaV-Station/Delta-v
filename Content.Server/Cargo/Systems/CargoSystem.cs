@@ -8,6 +8,7 @@ using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -48,6 +49,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
