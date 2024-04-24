@@ -3431,7 +3431,6 @@ entities:
     - type: MetaData
     - type: Transform
     - type: Map
-      mapPaused: True
     - type: PhysicsMap
     - type: GridTree
     - type: MovedGrids
@@ -50338,87 +50337,63 @@ entities:
     - type: Transform
       pos: 44.5,8.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 40
   - uid: 3670
     components:
     - type: Transform
       pos: 43.5,8.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 36
   - uid: 6459
     components:
     - type: Transform
       pos: -9.5,-6.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 12
   - uid: 6501
     components:
     - type: Transform
       pos: -9.5,-7.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 6
   - uid: 6503
     components:
     - type: Transform
       pos: -11.5,-6.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 16
   - uid: 6504
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 41.5,8.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 30
   - uid: 6505
     components:
     - type: Transform
       pos: -12.5,-6.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 28
   - uid: 6506
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 42.5,8.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 42
   - uid: 6549
     components:
     - type: Transform
       pos: -10.5,-7.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 20
   - uid: 6621
     components:
     - type: Transform
       pos: -11.5,-7.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 18
   - uid: 6906
     components:
     - type: Transform
       pos: -12.5,-7.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 24
   - uid: 6940
     components:
     - type: Transform
       pos: -10.5,-6.5
       parent: 8
-    - type: PlantHolder
-      weedLevel: 22
 - proto: IDComputerCircuitboard
   entities:
   - uid: 9044
