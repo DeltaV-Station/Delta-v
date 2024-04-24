@@ -2108,11 +2108,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,19.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
 - proto: APCBasic
   entities:
   - uid: 557
@@ -6495,11 +6490,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,14.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
   - uid: 681
     components:
     - type: Transform
@@ -10344,11 +10334,6 @@ entities:
     - type: Transform
       pos: -0.5,17.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 2207
@@ -10356,11 +10341,6 @@ entities:
     - type: Transform
       pos: 8.5,17.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasVentScrubber
@@ -10608,11 +10588,6 @@ entities:
     - type: Transform
       pos: -1.5,17.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 2208
@@ -10620,11 +10595,6 @@ entities:
     - type: Transform
       pos: 7.5,17.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 2201
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: Gauze
