@@ -77,7 +77,7 @@
     - trigger:
         !type:DamageTrigger
         damage: 5
-        triggersOnce: true
+        #triggersOnce: true
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]

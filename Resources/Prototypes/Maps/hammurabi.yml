@@ -11,7 +11,7 @@
           mapNameTemplate: '{0} Hammurabi Prison Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'DV'
+            prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Centipede.yml
         - type: StationJobs
@@ -58,14 +58,14 @@
             Reporter: [ 2, 2 ]
             ServiceWorker: [ 4, 6 ]
           #science
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 6 ]
-            ResearchAssistant: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
             Borg: [ 2, 3 ]
             ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 3 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 6 ]
           #supply
-            Quartermaster: [ 1, 1 ]
             CargoTechnician: [ 2, 4 ]
-            SalvageSpecialist: [ 3, 5 ]
             MailCarrier: [ 2, 3 ]
+            SalvageSpecialist: [ 3, 5 ]
+            Quartermaster: [ 1, 1 ]
