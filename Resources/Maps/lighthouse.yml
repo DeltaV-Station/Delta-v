@@ -6948,14 +6948,15 @@ entities:
     - type: MetaData
     - type: Transform
     - type: Map
+      mapPaused: True
     - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
       parallax: LighthouseStation
     - type: LoadedMap
-    - type: GridTree
-    - type: MovedGrids
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2179
@@ -13802,7 +13803,7 @@ entities:
     - type: Transform
       pos: -25.703403,16.915356
       parent: 100
-- proto: BodyBag_Container
+- proto: BodyBag
   entities:
   - uid: 14380
     components:
@@ -42909,6 +42910,18 @@ entities:
     - type: Transform
       pos: -47.5,82.5
       parent: 100
+- proto: ClosetEmergencyN2FilledRandom
+  entities:
+  - uid: 13499
+    components:
+    - type: Transform
+      pos: -49.5,27.5
+      parent: 100
+  - uid: 20859
+    components:
+    - type: Transform
+      pos: -49.5,55.5
+      parent: 100
 - proto: ClosetFireFilled
   entities:
   - uid: 10887
@@ -43034,25 +43047,6 @@ entities:
     components:
     - type: Transform
       pos: -27.5,-16.5
-      parent: 100
-    - type: ContainerContainer
-      containers:
-        EntityStorageComponent: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13499
-    components:
-    - type: Transform
-      pos: -49.5,27.5
       parent: 100
     - type: ContainerContainer
       containers:
@@ -51284,7 +51278,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -51365,7 +51358,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -51535,7 +51527,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -89172,6 +89163,13 @@ entities:
     - type: Transform
       pos: -27.67767,33.634888
       parent: 100
+- proto: Jukebox
+  entities:
+  - uid: 20858
+    components:
+    - type: Transform
+      pos: -9.5,15.5
+      parent: 100
 - proto: KatanaDulled
   entities:
   - uid: 17782
@@ -91422,7 +91420,6 @@ entities:
       solutions:
         tank:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 30
           name: null
