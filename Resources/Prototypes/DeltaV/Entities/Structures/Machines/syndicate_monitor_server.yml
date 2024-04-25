@@ -27,7 +27,6 @@
         machine_parts: !type:Container
     - type: CrewMonitoringServer
     - type: SingletonDeviceNetServer
-      ServerType: CrewMonitoringServer
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CrewMonitor
@@ -37,7 +36,6 @@
       range: 10000 # Mega range for Listening Post
     - type: ApcPowerReceiver
       powerLoad: 200
-      priority: Low
     - type: ExtensionCableReceiver
     - type: Destructible
       thresholds:
