@@ -39508,6 +39508,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,41.5
       parent: 2
+  - uid: 17483
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -23.5,-8.5
+      parent: 2
 - proto: ComputerId
   entities:
   - uid: 6146
@@ -39673,12 +39679,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -21.5,-79.5
       parent: 2
-  - uid: 6171
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,-7.5
-      parent: 2
   - uid: 6172
     components:
     - type: Transform
@@ -39691,13 +39691,19 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -34.5,33.5
       parent: 2
-- proto: ComputerSurveillanceCameraMonitor
-  entities:
   - uid: 6174
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -23.5,-7.5
+      parent: 2
+- proto: ComputerSurveillanceCameraMonitor
+  entities:
+  - uid: 6171
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-7.5
       parent: 2
   - uid: 6175
     components:
