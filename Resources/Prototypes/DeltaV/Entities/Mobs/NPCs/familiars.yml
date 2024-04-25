@@ -127,10 +127,6 @@
   - type: Welder
     fuelReagent: Phlogiston
     tankSafe: true
-    litMeleeDamageBonus:
-      types: # When lit, negate standard melee damage and replace with heat
-        Heat: 10
-        Blunt: -10
 #    welderOnSounds:
 #      collection: WelderIfritHandOn
 #    welderOffSounds:
