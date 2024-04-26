@@ -35,7 +35,7 @@ namespace Content.Client.Credits
             IoCManager.InjectDependencies(this);
             RobustXamlLoader.Load(this);
 
-            _patronManager.Load(_resourceManager);
+            _patronManager.Load(_resourceManager); // Delta-V
 
             TabContainer.SetTabTitle(Ss14ContributorsTab, Loc.GetString("credits-window-ss14contributorslist-tab"));
             TabContainer.SetTabTitle(PatronsTab, Loc.GetString("credits-window-patrons-tab"));
@@ -92,23 +92,13 @@ namespace Content.Client.Credits
                 first = false;
                 patronsContainer.AddChild(new Label {StyleClasses = {StyleBase.StyleClassLabelHeading}, Text = $"{tier.Key.Name}"});
 
-                var msg = string.Join(", ", tier.OrderBy(p => p.UserName ?? p.Name).Select(p => p.UserName ?? p.Name));
+                var msg = string.Join(", ", tier.OrderBy(p => p.Name).Select(p => p.Name));
 
                 var label = new RichTextLabel();
                 label.SetMessage(msg);
 
                 patronsContainer.AddChild(label);
             }
-        }
-
-        private IEnumerable<PatronEntry> LoadPatrons()
-        {
-            var yamlStream = _resourceManager.ContentFileReadYaml(new ("/Credits/Patrons.yml"));
-            var sequence = (YamlSequenceNode) yamlStream.Documents[0].RootNode;
-
-            return sequence
-                .Cast<YamlMappingNode>()
-                .Select(m => new PatronEntry(m["Name"].AsString(), m["Tier"].AsString()));
         }
 
         private void PopulateContributors(BoxContainer ss14ContributorsContainer)
@@ -167,16 +157,5 @@ namespace Content.Client.Credits
                 contributeButton.Visible = false;
         }
 
-        private sealed class PatronEntry
-        {
-            public string Name { get; }
-            public string Tier { get; }
-
-            public PatronEntry(string name, string tier)
-            {
-                Name = name;
-                Tier = tier;
-            }
-        }
     }
 }
