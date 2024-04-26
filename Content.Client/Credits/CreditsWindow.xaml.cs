@@ -28,7 +28,7 @@ namespace Content.Client.Credits
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-        private PatronManager _patronManager = new PatronManager();
+        private PatronManager _patronManager = new PatronManager(); // Delta-V
 
         public CreditsWindow()
         {

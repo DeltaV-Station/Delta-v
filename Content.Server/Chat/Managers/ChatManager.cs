@@ -47,7 +47,7 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
+        [Dependency] private readonly IResourceManager _resourceManager = default!; // Delta-V
 
         /// <summary>
         /// The maximum length a player-sent message can be sent
@@ -58,7 +58,7 @@ namespace Content.Server.Chat.Managers
         private bool _adminOocEnabled = true;
 
         private readonly Dictionary<NetUserId, ChatUser> _players = new();
-        private PatronManager _patronManager = new PatronManager();
+        private PatronManager _patronManager = new PatronManager(); // Delta-V
 
         public void Initialize()
         {
@@ -69,7 +69,7 @@ namespace Content.Server.Chat.Managers
             _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
 
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
-            _patronManager.Load(_resourceManager);
+            _patronManager.Load(_resourceManager); // Delta-V
         }
 
         private void OnOocEnabledChanged(bool val)
@@ -254,7 +254,7 @@ namespace Content.Server.Chat.Managers
             Patron? deltaVPatron = _patronManager.GetPatronByName(player.Name);
             if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor))
             {
-                // Delta-V patron name coloring take precedence over SS14 patron name coloring.
+                // Delta-V patron name coloring takes precedence over SS14 patron name coloring.
                 if (deltaVPatron != null)
                 {
                     // Delta-V patron.

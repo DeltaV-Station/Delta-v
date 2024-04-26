@@ -18,7 +18,7 @@ public sealed class Patron
     public string RealName { get; }
 
     /// <summary>
-    /// The in-game name of the patron, if specified in the Patrons.yml file.
+    /// The in-game name of the patron, if specified in the PatronUsernames.yml file.
     /// </summary>
     public string? UserName { get; internal set; }
 
