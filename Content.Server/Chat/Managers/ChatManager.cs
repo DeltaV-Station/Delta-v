@@ -254,6 +254,7 @@ namespace Content.Server.Chat.Managers
             Patron? deltaVPatron = _patronManager.GetPatronByName(player.Name);
             if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor))
             {
+                // Delta-V patron name coloring take precedence over SS14 patron name coloring.
                 if (deltaVPatron != null)
                 {
                     // Delta-V patron.
