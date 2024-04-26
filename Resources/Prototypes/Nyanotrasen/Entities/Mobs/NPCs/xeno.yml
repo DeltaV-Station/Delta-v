@@ -6,6 +6,7 @@
   id: MobPurpleSnakeGhost
   components:
   - type: GhostTakeoverAvailable
+  - type: GhostRole
     allowMovement: true
     allowSpeech: false
     makeSentient: true
@@ -19,6 +20,7 @@
   id: MobSmallPurpleSnakeGhost
   components:
   - type: GhostTakeoverAvailable
+  - type: GhostRole
     allowMovement: true
     allowSpeech: false
     makeSentient: true
