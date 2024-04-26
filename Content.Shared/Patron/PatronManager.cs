@@ -82,7 +82,11 @@ public sealed class PatronManager
         {
             // If a patron exists with the given Patron name, we assign it the Username.
             // After this assignment, the Patron will only be findable by Username, as that takes precedence.
-            GetPatronByName(patronMapping.PatronName)?.UserName = patronMapping.UserName;
+            var patron = GetPatronByName(patronMapping.PatronName);
+            if (patron != null)
+            {
+                patron.UserName = patronMapping.UserName;
+            }
         }
     }
 
