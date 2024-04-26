@@ -90,6 +90,9 @@ public sealed class PatronManager
         }
     }
 
+    /// <summary>
+    /// Find the Patron object for a given player name.
+    /// </summary>
     public Patron? GetPatronByName(string playerName)
     {
         return Patrons?

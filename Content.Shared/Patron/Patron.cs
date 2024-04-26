@@ -27,6 +27,9 @@ public sealed class Patron
     /// </summary>
     public string Name => UserName ?? RealName;
 
+    /// <summary>
+    /// The tier of this Patron.
+    /// </summary>
     public PatronTier Tier { get; }
 
     public Patron(string realName, PatronTier tier)
