@@ -261,7 +261,7 @@ namespace Content.Server.Chat.Managers
                     wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", deltaVPatron.Tier.Color), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
                 } else if (player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
                 {
-                    // Wizden patron.
+                    // SS14 patron.
                     wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
                 }
             }
