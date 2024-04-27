@@ -188,8 +188,14 @@
     capacity: 1
     proto: CartridgeMusket
   - type: Gun #Smoothbore
-    minAngle: 0
-    maxAngle: 2 
+    firerate: .125
+    resetOnHandSelected: false
+    minAngle: 20
+    maxAngle: 23
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
