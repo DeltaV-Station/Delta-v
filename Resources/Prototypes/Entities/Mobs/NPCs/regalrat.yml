@@ -164,7 +164,7 @@
   noSpawn: true #Must be configured to a King or the AI breaks.
   components:
   - type: Carriable #DeltaV
-    FreeHandsRequired: 1
+    freeHandsRequired: 1
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
