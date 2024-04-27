@@ -25,6 +25,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IDependencyCollection _collection = default!;
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
@@ -186,6 +187,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))
         {
             var loadout = profile.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), EntityManager, _prototypeManager);
+            loadout.EnsureValid(null, profile, _collection);
             GiveDummyLoadout(dummy, loadout);
         }
     }
