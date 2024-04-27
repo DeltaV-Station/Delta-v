@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using Microsoft.VisualBasic.CompilerServices;
+
 namespace Content.Shared.Humanoid;
 
 public static class SkinColor
@@ -6,6 +9,13 @@ public static class SkinColor
     public const float MinTintedHuesLightness = 0.85f;
 
     public const float MinHuesLightness = 0.175f;
+
+    public const float MinFeathersHue = 29f / 360;
+    public const float MaxFeathersHue = 174f / 360;
+    public const float MinFeathersSaturation = 20f / 100;
+    public const float MaxFeathersSaturation = 88f / 100;
+    public const float MinFeathersValue = 36f / 100;
+    public const float MaxFeathersValue = 55f / 100;
 
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
@@ -160,6 +170,60 @@ public static class SkinColor
     }
 
     /// <summary>
+    ///     Converts a Color proportionally to the allowed vox color range.
+    ///     Will NOT preserve the specific input color even if it is within the allowed vox color range.
+    /// </summary>
+    /// <param name="color">Color to convert</param>
+    /// <returns>Vox feather coloration</returns>
+    public static Color ProportionalVoxColor(Color color)
+    {
+        var newColor = Color.ToHsv(color);
+
+        newColor.X = newColor.X * (MaxFeathersHue - MinFeathersHue) + MinFeathersHue;
+        newColor.Y = newColor.Y * (MaxFeathersSaturation - MinFeathersSaturation) + MinFeathersSaturation;
+        newColor.Z = newColor.Z * (MaxFeathersValue - MinFeathersValue) + MinFeathersValue;
+
+        return Color.FromHsv(newColor);
+    }
+
+    // /// <summary>
+    // ///      Ensures the input Color is within the allowed vox color range.
+    // /// </summary>
+    // /// <param name="color">Color to convert</param>
+    // /// <returns>The same Color if it was within the allowed range, or the closest matching Color otherwise</returns>
+    public static Color ClosestVoxColor(Color color)
+    {
+        var hsv = Color.ToHsv(color);
+
+        hsv.X = Math.Clamp(hsv.X, MinFeathersHue, MaxFeathersHue);
+        hsv.Y = Math.Clamp(hsv.Y, MinFeathersSaturation, MaxFeathersSaturation);
+        hsv.Z = Math.Clamp(hsv.Z, MinFeathersValue, MaxFeathersValue);
+
+        return Color.FromHsv(hsv);
+    }
+
+    /// <summary>
+    ///     Verify if this color is a valid vox feather coloration, or not.
+    /// </summary>
+    /// <param name="color">The color to verify</param>
+    /// <returns>True if valid, false otherwise</returns>
+    public static bool VerifyVoxFeathers(Color color)
+    {
+        var colorHsv = Color.ToHsv(color);
+
+        if (colorHsv.X < MinFeathersHue || colorHsv.X > MaxFeathersHue)
+            return false;
+
+        if (colorHsv.Y < MinFeathersSaturation || colorHsv.Y > MaxFeathersSaturation)
+            return false;
+
+        if (colorHsv.Z < MinFeathersValue || colorHsv.Z > MaxFeathersValue)
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
     ///     This takes in a color, and returns a color guaranteed to be above MinHuesLightness
     /// </summary>
     /// <param name="color"></param>
@@ -189,6 +253,7 @@ public static class SkinColor
             HumanoidSkinColor.TintedHues => VerifyTintedHues(color),
             HumanoidSkinColor.TintedHuesSkin => true, // DeltaV - Tone blending
             HumanoidSkinColor.Hues => VerifyHues(color),
+            HumanoidSkinColor.VoxFeathers => VerifyVoxFeathers(color),
             _ => false,
         };
     }
@@ -201,6 +266,7 @@ public static class SkinColor
             HumanoidSkinColor.TintedHues => ValidTintedHuesSkinTone(color),
             HumanoidSkinColor.TintedHuesSkin => ValidTintedHuesSkinTone(color), // DeltaV - Tone blending
             HumanoidSkinColor.Hues => MakeHueValid(color),
+            HumanoidSkinColor.VoxFeathers => ClosestVoxColor(color),
             _ => color
         };
     }
@@ -210,6 +276,7 @@ public enum HumanoidSkinColor : byte
 {
     HumanToned,
     Hues,
+    VoxFeathers, // Vox feathers are limited to a specific color range
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
     TintedHuesSkin, // DeltaV - Default TintedHues assumes the texture will have the proper skin color, but moths dont
 }
