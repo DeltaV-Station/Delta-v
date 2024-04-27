@@ -521,7 +521,7 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
-                loadouts.EnsureValid(session, collection);
+                loadouts.EnsureValid(session, this, collection);
             }
 
             foreach (var value in toRemove)

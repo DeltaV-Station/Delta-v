@@ -10,8 +10,7 @@ public sealed partial class PointsCostLoadoutEffect : LoadoutEffect
     [DataField(required: true)]
     public int Cost = 1;
 
-    public override bool Validate(
-        RoleLoadout loadout,
+    public override bool Validate(ICharacterProfile? profile, RoleLoadout loadout,
         ICommonSession session,
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)

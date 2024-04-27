@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Humanoid;
 using Content.Shared.Random;
 using Robust.Shared.Collections;
 using Robust.Shared.Player;
@@ -44,7 +45,7 @@ public sealed class RoleLoadout
     /// <summary>
     /// Ensures all prototypes exist and effects can be applied.
     /// </summary>
-    public void EnsureValid(ICommonSession session, IDependencyCollection collection)
+    public void EnsureValid(ICommonSession session, ICharacterProfile? profile, IDependencyCollection collection)
     {
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
@@ -81,7 +82,7 @@ public sealed class RoleLoadout
                 }
 
                 // Validate the loadout can be applied (e.g. points).
-                if (!IsValid(session, loadout.Prototype, collection, out _))
+                if (!IsValid(session, profile, loadout.Prototype, collection, out _))
                 {
                     loadouts.RemoveAt(i);
                     continue;
@@ -95,11 +96,18 @@ public sealed class RoleLoadout
             // If you put invalid ones first but that's your fault for not using sensible defaults
             if (loadouts.Count < groupProto.MinLimit)
             {
+                bool foundReplacement = false;
+                // but wait! first try if there is some applicable loadout item they could use instead
                 for (var i = 0; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
                 {
+                    // Validate the loadout can be applied (e.g. points).
+                    if (!IsValid(session, profile, groupProto.Loadouts[i], collection, out _))
+                        continue;
+
                     if (!protoManager.TryIndex(groupProto.Loadouts[i], out var loadoutProto))
                         continue;
 
+                    foundReplacement = true;
                     var defaultLoadout = new Loadout()
                     {
                         Prototype = loadoutProto.ID,
@@ -108,9 +116,30 @@ public sealed class RoleLoadout
                     if (loadouts.Contains(defaultLoadout))
                         continue;
 
-                    // Still need to apply the effects even if validation is ignored.
                     loadouts.Add(defaultLoadout);
                     Apply(loadoutProto);
+                }
+
+                // okay, we are shit out of luck so just grab the default
+                if (!foundReplacement)
+                {
+                    for (var i = 0; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
+                    {
+                        if (!protoManager.TryIndex(groupProto.Loadouts[i], out var loadoutProto))
+                            continue;
+
+                        var defaultLoadout = new Loadout()
+                        {
+                            Prototype = loadoutProto.ID,
+                        };
+
+                        if (loadouts.Contains(defaultLoadout))
+                            continue;
+
+                        // Still need to apply the effects even if validation is ignored.
+                        loadouts.Add(defaultLoadout);
+                        Apply(loadoutProto);
+                    }
                 }
             }
 
@@ -167,7 +196,7 @@ public sealed class RoleLoadout
     /// <summary>
     /// Returns whether a loadout is valid or not.
     /// </summary>
-    public bool IsValid(ICommonSession session, ProtoId<LoadoutPrototype> loadout, IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool IsValid(ICommonSession session, ICharacterProfile? profile, ProtoId<LoadoutPrototype> loadout, IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
 
@@ -190,7 +219,7 @@ public sealed class RoleLoadout
 
         foreach (var effect in loadoutProto.Effects)
         {
-            valid = valid && effect.Validate(this, session, collection, out reason);
+            valid = valid && effect.Validate(profile, this, session, collection, out reason);
         }
 
         return valid;

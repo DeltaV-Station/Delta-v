@@ -10,8 +10,7 @@ public abstract partial class LoadoutEffect
     /// <summary>
     /// Tries to validate the effect.
     /// </summary>
-    public abstract bool Validate(
-        RoleLoadout loadout,
+    public abstract bool Validate(ICharacterProfile? profile, RoleLoadout loadout,
         ICommonSession session,
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason);

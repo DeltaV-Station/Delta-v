@@ -3,6 +3,7 @@ using Content.Client.Lobby;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Clothing;
+using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
@@ -75,7 +76,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
     /// <summary>
     /// Actually adds the controls, must be called in the inheriting class' constructor.
     /// </summary>
-    protected void Setup(RoleLoadout? loadout, (string, int)[] items, string title, int titleSize, string? description, TextureRect? icon = null)
+    protected void Setup(ICharacterProfile? profile, RoleLoadout? loadout, (string, int)[] items, string title, int titleSize, string? description, TextureRect? icon = null)
     {
         _loadout = loadout;
 
@@ -131,7 +132,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
                     _loadout ??= new RoleLoadout(LoadoutSystem.GetJobPrototype(Proto.ID));
                     _loadout.SetDefault(protoManager);
 
-                    _loadoutWindow = new LoadoutWindow(_loadout, protoManager.Index(_loadout.Role), session, collection)
+                    _loadoutWindow = new LoadoutWindow(_loadout, profile, protoManager.Index(_loadout.Role), session, collection)
                     {
                         Title = Loc.GetString(Proto.ID + "-loadout"),
                     };
@@ -150,7 +151,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
                         if (!_loadout.RemoveLoadout(selectedGroup, selectedLoadout, protoManager))
                             return;
 
-                        _loadout.EnsureValid(session, collection);
+                        _loadout.EnsureValid(session, profile, collection);
                         _loadoutWindow.RefreshLoadouts(_loadout, session, collection);
                         var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
                         controller.ReloadProfile();
@@ -162,7 +163,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
                         if (!_loadout.AddLoadout(selectedGroup, selectedLoadout, protoManager))
                             return;
 
-                        _loadout.EnsureValid(session, collection);
+                        _loadout.EnsureValid(session, profile, collection);
                         _loadoutWindow.RefreshLoadouts(_loadout, session, collection);
                         var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
                         controller.ReloadProfile();

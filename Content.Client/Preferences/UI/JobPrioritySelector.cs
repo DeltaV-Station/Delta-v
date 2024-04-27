@@ -20,7 +20,7 @@ public sealed class JobPrioritySelector : RequirementsSelector<JobPrototype>
 
     public event Action<JobPriority>? PriorityChanged;
 
-    public JobPrioritySelector(RoleLoadout? loadout, JobPrototype proto, ButtonGroup btnGroup, IPrototypeManager protoMan)
+    public JobPrioritySelector(ICharacterProfile? profile, RoleLoadout? loadout, JobPrototype proto, ButtonGroup btnGroup, IPrototypeManager protoMan)
         : base(proto, btnGroup)
     {
         Options.OnItemSelected += args => PriorityChanged?.Invoke(Priority);
@@ -41,6 +41,6 @@ public sealed class JobPrioritySelector : RequirementsSelector<JobPrototype>
         var jobIcon = protoMan.Index<StatusIconPrototype>(proto.Icon);
         icon.Texture = jobIcon.Icon.Frame0();
 
-        Setup(loadout, items, proto.LocalizedName, 200, proto.LocalizedDescription, icon);
+        Setup(profile, loadout, items, proto.LocalizedName, 200, proto.LocalizedDescription, icon);
     }
 }

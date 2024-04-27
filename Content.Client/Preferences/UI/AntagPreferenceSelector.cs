@@ -1,4 +1,5 @@
 using Content.Client.Players.PlayTimeTracking;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
 
@@ -15,7 +16,7 @@ public sealed class AntagPreferenceSelector : RequirementsSelector<AntagPrototyp
 
     public event Action<bool>? PreferenceChanged;
 
-    public AntagPreferenceSelector(AntagPrototype proto, ButtonGroup btnGroup)
+    public AntagPreferenceSelector(AntagPrototype proto, ButtonGroup btnGroup, ICharacterProfile? profile)
         : base(proto, btnGroup)
     {
         Options.OnItemSelected += args => PreferenceChanged?.Invoke(Preference);
@@ -28,7 +29,7 @@ public sealed class AntagPreferenceSelector : RequirementsSelector<AntagPrototyp
         var title = Loc.GetString(proto.Name);
         var description = Loc.GetString(proto.Objective);
         // Not supported yet get fucked.
-        Setup(null, items, title, 250, description);
+        Setup(profile, null, items, title, 250, description);
 
         // immediately lock requirements if they arent met.
         // another function checks Disabled after creating the selector so this has to be done now

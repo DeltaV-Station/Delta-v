@@ -26,6 +26,9 @@
 - type: loadout
   id: GreyJumpsuit
   equipment: GreyJumpsuit
+  effects:
+  - !type:SpeciesRequirementLoadoutEffect
+    deny: ["Harpy"]
 
 - type: startingGear
   id: GreyJumpsuit

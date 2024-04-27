@@ -494,7 +494,7 @@ namespace Content.Client.Preferences.UI
                 if (!antag.SetPreference)
                     continue;
 
-                var selector = new AntagPreferenceSelector(antag, btnGroup)
+                var selector = new AntagPreferenceSelector(antag, btnGroup, Profile)
                 {
                     Margin = new Thickness(3f, 3f, 3f, 0f),
                 };
@@ -582,7 +582,7 @@ namespace Content.Client.Preferences.UI
                     // Clone so we don't modify the underlying loadout.
                     Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
                     loadout = loadout?.Clone();
-                    var selector = new JobPrioritySelector(loadout, job, jobLoadoutGroup, _prototypeManager)
+                    var selector = new JobPrioritySelector(Profile, loadout, job, jobLoadoutGroup, _prototypeManager)
                     {
                         Margin = new Thickness(3f, 3f, 3f, 0f),
                     };
