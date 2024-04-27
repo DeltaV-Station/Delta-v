@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: basic slime
   id: MobAdultSlimes
   parent: [ SimpleMobBase, MobCombat ]
@@ -17,6 +17,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
+  - type: Carriable #i imagine hard to hold together, but possible.
   - type: Fixtures
     fixtures:
       fix1:
