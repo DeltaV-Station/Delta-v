@@ -61,6 +61,7 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
+<<<<<<< HEAD
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer 
   - BoxBeanbag 
@@ -76,6 +77,11 @@
   - MagazineBoxRifleRubber
   - MagazineBoxSpecialRubber
   # End of modified code
+=======
+  - ShellTranquilizer 
+  - BoxBeanbag 
+  - WeaponDisabler
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
 
 - type: technology
   id: UraniumMunitions
@@ -96,10 +102,13 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
+<<<<<<< HEAD
   # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
   - CartridgeSpecialUranium
   - MagazineBoxSpecialUranium
   # End of modified code
+=======
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
 
 - type: technology
   id: AdvancedRiotControl

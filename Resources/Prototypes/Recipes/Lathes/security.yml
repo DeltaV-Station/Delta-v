@@ -419,6 +419,8 @@
   completetime: 5
   materials:
     Steel: 190
+<<<<<<< HEAD
+=======
 
 - type: latheRecipe
   id: SpeedLoaderMagnumPractice
@@ -489,6 +491,81 @@
   materials:
     Steel: 100
     Plastic: 190
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
+
+- type: latheRecipe
+  id: SpeedLoaderMagnumPractice
+  result: SpeedLoaderMagnumPractice
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 90
+
+- type: latheRecipe
+  id: SpeedLoaderMagnumUranium
+  result: SpeedLoaderMagnumUranium
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 50
+    Plastic: 150
+    Uranium: 110
+
+- type: latheRecipe
+  id: SpeedLoaderMagnumIncendiary
+  result: SpeedLoaderMagnumIncendiary
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  id: MagazineShotgunEmpty
+  result: MagazineShotgunEmpty
+  category: Ammo
+  completetime: 5
+  materials:
+<<<<<<< HEAD
+    Steel: 50
+=======
+    Plastic: 15
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
+
+- type: latheRecipe
+  id: MagazineShotgun
+  result: MagazineShotgun
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 240
+
+- type: latheRecipe
+  id: MagazineShotgunBeanbag
+  result: MagazineShotgunBeanbag
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 150
+    Plastic: 140
+
+- type: latheRecipe
+  id: MagazineShotgunSlug
+  result: MagazineShotgunSlug
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 190
+    Plastic: 100
+
+- type: latheRecipe
+  id: MagazineShotgunIncendiary
+  result: MagazineShotgunIncendiary
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 100
+    Plastic: 190
 
 - type: latheRecipe
   id: MagazineBoxPistolIncendiary
@@ -521,6 +598,27 @@
   completetime: 5
   materials:
     Plastic: 750
+<<<<<<< HEAD
+=======
+
+- type: latheRecipe
+  id: BoxShotgunFlare
+  result: BoxShotgunFlare
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 80
+    Plastic: 80
+
+- type: latheRecipe
+  id: BoxShotgunIncendiary
+  result: BoxShotgunIncendiary
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 80
+    Plastic: 320
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
 
 - type: latheRecipe
   id: BoxShotgunFlare
@@ -595,10 +693,62 @@
 - type: latheRecipe
   id: BoxShotgunPractice
   result: BoxShotgunPractice
+<<<<<<< HEAD
+=======
   category: Ammo
   completetime: 5
   materials:
     Steel: 80
+
+- type: latheRecipe
+  id: ShellShotgunUranium
+  result: ShellShotgunUranium
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
+  category: Ammo
+  completetime: 5
+  materials:
+<<<<<<< HEAD
+    Steel: 80
+=======
+    Plastic: 20
+    Uranium: 15
+
+- type: latheRecipe
+  id: CartridgePistolUranium
+  result: CartridgePistolUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 5
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgeMagnumUranium
+  result: CartridgeMagnumUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+    Uranium: 15
+
+- type: latheRecipe
+  id: CartridgeLightRifleUranium
+  result: CartridgeLightRifleUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 10
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgeRifleUranium
+  result: CartridgeRifleUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 10
+    Uranium: 10
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
 
 - type: latheRecipe
   id: MagazineBoxPistolUranium
@@ -699,6 +849,7 @@
      Steel: 150
      Plastic: 100
      Glass: 20
+<<<<<<< HEAD
 
 - type: latheRecipe
   id: PortableRecharger
@@ -710,3 +861,5 @@
      Plastic: 1000
      Plasma: 500
      Glass: 500
+=======
+>>>>>>> cafb41c161 (Printable Special Mags and Empty Mags and Material Rebalance for Ammo (#26178))
