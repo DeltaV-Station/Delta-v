@@ -122,13 +122,9 @@
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Wieldable
-  - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -20
   - type: Gun #Smoothbore
     minAngle: 0
-    maxAngle: 10
+    maxAngle: 30
     fireRate: .125 #slow firerate
     resetOnHandSelected: false #Dual Wielding Muskets
   - type: Construction

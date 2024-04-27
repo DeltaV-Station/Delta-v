@@ -191,7 +191,11 @@
     fireRate: .125
     resetOnHandSelected: false
     minAngle: 20
-    maxAngle: 23
+    maxAngle: 43
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -40
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
