@@ -45,7 +45,7 @@ public sealed class RoleLoadout
     /// <summary>
     /// Ensures all prototypes exist and effects can be applied.
     /// </summary>
-    public void EnsureValid(ICommonSession session, ICharacterProfile? profile, IDependencyCollection collection)
+    public void EnsureValid(ICommonSession? session, ICharacterProfile? profile, IDependencyCollection collection)
     {
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
@@ -96,34 +96,40 @@ public sealed class RoleLoadout
             // If you put invalid ones first but that's your fault for not using sensible defaults
             if (loadouts.Count < groupProto.MinLimit)
             {
-                bool foundReplacement = false;
                 // but wait! first try if there is some applicable loadout item they could use instead
-                for (var i = 0; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
+                var foundReplacements = 0;
+                for (var slotIdx = 0; slotIdx < groupProto.MinLimit && foundReplacements < groupProto.MinLimit; slotIdx++)
                 {
-                    // Validate the loadout can be applied (e.g. points).
-                    if (!IsValid(session, profile, groupProto.Loadouts[i], collection, out _))
-                        continue;
-
-                    if (!protoManager.TryIndex(groupProto.Loadouts[i], out var loadoutProto))
-                        continue;
-
-                    foundReplacement = true;
-                    var defaultLoadout = new Loadout()
+                    foreach (var loadout in groupProto.Loadouts)
                     {
-                        Prototype = loadoutProto.ID,
-                    };
+                        if (foundReplacements >= groupProto.MinLimit)
+                            break;
+                        // Validate the loadout can be applied (e.g. points).
+                        if (!IsValid(session, profile, loadout, collection, out _))
+                            continue;
 
-                    if (loadouts.Contains(defaultLoadout))
-                        continue;
+                        if (!protoManager.TryIndex(loadout, out var loadoutProto))
+                            continue;
 
-                    loadouts.Add(defaultLoadout);
-                    Apply(loadoutProto);
+                        var defaultLoadout = new Loadout()
+                        {
+                            Prototype = loadoutProto.ID,
+                        };
+
+                        if (loadouts.Contains(defaultLoadout))
+                            continue;
+
+                        foundReplacements += 1;
+
+                        loadouts.Add(defaultLoadout);
+                        Apply(loadoutProto);
+                    }
                 }
 
-                // okay, we are shit out of luck so just grab the default
-                if (!foundReplacement)
+                // okay, we are shit out of luck so just grab the defaults
+                if (foundReplacements < groupProto.MinLimit)
                 {
-                    for (var i = 0; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
+                    for (var i = foundReplacements; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
                     {
                         if (!protoManager.TryIndex(groupProto.Loadouts[i], out var loadoutProto))
                             continue;
@@ -196,7 +202,7 @@ public sealed class RoleLoadout
     /// <summary>
     /// Returns whether a loadout is valid or not.
     /// </summary>
-    public bool IsValid(ICommonSession session, ICharacterProfile? profile, ProtoId<LoadoutPrototype> loadout, IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool IsValid(ICommonSession? session, ICharacterProfile? profile, ProtoId<LoadoutPrototype> loadout, IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
 

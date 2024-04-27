@@ -16,9 +16,13 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
     [DataField(required: true)]
     public JobRequirement Requirement = default!;
 
-    public override bool Validate(ICharacterProfile? profile, RoleLoadout loadout, ICommonSession session,
+    public override bool Validate(ICharacterProfile? profile, RoleLoadout loadout, ICommonSession? session,
         IDependencyCollection collection, [NotNullWhen(false)] out FormattedMessage? reason)
     {
+        reason = null;
+        if (session is null)
+            return true;
+
         var manager = collection.Resolve<ISharedPlaytimeManager>();
         var playtimes = manager.GetPlayTimes(session);
         var isWhitelisted = session.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement

@@ -11,7 +11,7 @@ public abstract partial class LoadoutEffect
     /// Tries to validate the effect.
     /// </summary>
     public abstract bool Validate(ICharacterProfile? profile, RoleLoadout loadout,
-        ICommonSession session,
+        ICommonSession? session,
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason);
 

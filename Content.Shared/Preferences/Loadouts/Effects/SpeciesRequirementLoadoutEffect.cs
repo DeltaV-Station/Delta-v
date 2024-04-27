@@ -14,7 +14,7 @@ public sealed partial class SpeciesRequirementLoadoutEffect : LoadoutEffect
     [DataField(required: true)]
     public List<ProtoId<SpeciesPrototype>> Deny = [];
 
-    public override bool Validate(ICharacterProfile? profile, RoleLoadout loadout, ICommonSession session,
+    public override bool Validate(ICharacterProfile? profile, RoleLoadout loadout, ICommonSession? session,
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {

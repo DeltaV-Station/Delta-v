@@ -53,6 +53,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly ArrivalsSystem _arrivalsSystem = default!;
     [Dependency] private readonly ContainerSpawnPointSystem _containerSpawnPointSystem = default!;
 
+    [Dependency] private readonly IDependencyCollection _collection = default!;
+
     private bool _randomizeCharacters;
 
     private Dictionary<SpawnPriorityPreference, Action<PlayerSpawningEvent>> _spawnerCallbacks = new();
@@ -201,6 +203,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                 loadout = new RoleLoadout(jobLoadout);
                 loadout.SetDefault(_prototypeManager);
             }
+
+            // actually make sure species requirements etc. are met by the outfit.  don't check e.g. job requirements
+            loadout.EnsureValid(null, profile, _collection);
 
             // Order loadout selections by the order they appear on the prototype.
             foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
