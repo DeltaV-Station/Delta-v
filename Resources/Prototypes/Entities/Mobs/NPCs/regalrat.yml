@@ -163,7 +163,7 @@
   description: He's da mini rat. He don't make da roolz.
   noSpawn: true #Must be configured to a King or the AI breaks.
   components:
-  - type: Carriable
+  - type: Carriable #DeltaV
     FreeHandsRequired: 1
   - type: CombatMode
   - type: MovementSpeedModifier
