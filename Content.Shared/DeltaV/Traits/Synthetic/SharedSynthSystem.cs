@@ -225,7 +225,7 @@ public abstract class SharedSynthSystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, SynthComponent component, MapInitEvent args)
+    protected void OnInit(EntityUid uid, SynthComponent component, MapInitEvent args)
     {
         if (!_humanoidAppearanceQuery.HasComp(uid))
         {
