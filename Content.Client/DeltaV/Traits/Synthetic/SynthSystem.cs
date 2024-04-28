@@ -4,7 +4,6 @@
 
 using Content.Client.DeltaV.Overlays;
 using Content.Shared.DeltaV.Traits.Synthetic;
-using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
 using Robust.Client.Graphics;
 using Robust.Shared.Audio;
@@ -15,6 +14,7 @@ namespace Content.Client.DeltaV.Traits.Synthetic;
 
 public sealed class SynthSystem : SharedSynthSystem
 {
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -30,32 +30,38 @@ public sealed class SynthSystem : SharedSynthSystem
         }
     };
 
+    private readonly StaticVisionOverlay _overlay = new();
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<SynthComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<SynthComponent, RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+        SubscribeLocalEvent<SynthComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<SynthComponent, LocalPlayerAttachedEvent>(OnLocalPlayerAttached);
+        SubscribeLocalEvent<SynthComponent, LocalPlayerDetachedEvent>(OnLocalPlayerDetached);
         SubscribeNetworkEvent<SynthGotEmpedEvent>(OnGotEmped);
     }
 
-    /// <summary>
-    /// Handles registering visor EMP effect overlay.
-    /// </summary>
     private void OnComponentInit(EntityUid uid, SynthComponent component, ComponentInit args)
     {
-        // yes, this never gets removed anymore during the round, and it gets added when someone "becomes a synth"
-        // (e.g. by spawning) near you even if you are not a synth...
-        // but it should hopefully not affect performance unless you are a synth.
-        _overlayManager.AddOverlay(new StaticVisionOverlay());
-
+        if (_playerManager.LocalEntity == uid)
+            _overlayManager.AddOverlay(_overlay);
     }
 
-    /// <summary>
-    /// Removes visor EMP effect overlay on round end.
-    /// </summary>
-    private void OnRoundRestartCleanup(EntityUid uid, SynthComponent component, RoundRestartCleanupEvent args)
+    private void OnComponentShutdown(EntityUid uid, SynthComponent component, ComponentShutdown args)
     {
-        _overlayManager.RemoveOverlay<StaticVisionOverlay>();
+        if (_playerManager.LocalEntity == uid)
+            _overlayManager.RemoveOverlay(_overlay);
+    }
+
+    private void OnLocalPlayerAttached(EntityUid uid, SynthComponent component, LocalPlayerAttachedEvent args)
+    {
+        _overlayManager.AddOverlay(_overlay);
+    }
+
+    private void OnLocalPlayerDetached(EntityUid uid, SynthComponent component, LocalPlayerDetachedEvent args)
+    {
+        _overlayManager.RemoveOverlay(_overlay);
     }
 
     /// <summary>

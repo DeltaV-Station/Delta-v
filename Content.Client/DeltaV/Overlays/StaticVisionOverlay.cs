@@ -67,5 +67,6 @@ public sealed class StaticVisionOverlay : Overlay
         var viewport = args.WorldBounds;
         worldHandle.SetTransform(Matrix3.Identity);
         worldHandle.DrawRect(viewport, Color.White);
+        worldHandle.UseShader(null);
     }
 }
