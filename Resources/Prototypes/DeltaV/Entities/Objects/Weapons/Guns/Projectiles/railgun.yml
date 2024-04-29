@@ -1,0 +1,145 @@
+- type: entity
+  parent: BaseItem
+  id: BulletRailgun
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+    layers:
+      - state: base
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 10
+        restitution: 0.3
+        friction: 0.8
+        mask:
+        - ItemMask
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - BulletRailgun
+    - CannonRestrict
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 50
+
+- type: entity
+  parent: BulletRailgun
+  id: BulletRailgunBasic
+  name: rebar rod
+  description: Heavy steel rod for use in a railcannon.
+  components:
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
+    embedOnThrow: false
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Blunt: 65
+        Heat: 20
+        Structural: 10
+  - type: StaminaDamageOnEmbed
+    damage: 80
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    newItem: BulletRailgunBasic
+    recipes:
+      - BulletRailgunBasic
+      - BulletRailgunReverseEngineered
+
+- type: entity
+  parent: BulletRailgun
+  id: BulletRailgunReverseEngineered
+  name: rebar rod (less lethal)
+  description: Hurts like hell and sticks into your target, knocking them over. Fragile.
+  components:
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    embedOnThrow: false
+  - type: Sprite
+    state: icon
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod_nonlethal.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Weapons/Guns/Hits/snap.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaminaDamageOnEmbed
+    damage: 100
+  - type: Projectile
+    onlyCollideWhenShot: true
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 10
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    newItem: BulletRailgunReverseEngineered
+    recipes:
+      - BulletRailgunBasic
+      - BulletRailgunReverseEngineered
+
+# Fear that which cannot be understood
+- type: entity
+  parent: BulletRailgun
+  id: BulletRailgunAdmeme
+  suffix: DO NOT MAP
+  name: unholy rod
+  description: "By the time you're able to pick this up, the station's probably already destroyed."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Cartridges/railrod.rsi
+  - type: EmbeddableProjectile
+    minimumSpeed: 10
+    sound: /Audio/DeltaV/Weapons/Guns/Impacts/rod_impact.ogg
+    embedOnThrow: false
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Piercing: 100
+        Blunt: 100
+        Slash: 1
+        Caustic: 1
+        Radiation: 1
+        Heat: 1
+        Cellular: 1
+        Structural: 20000

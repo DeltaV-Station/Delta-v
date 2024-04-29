@@ -1,0 +1,17 @@
+# Laser variant for borgs
+- type: hitscan
+  id: DecimatorLaser
+  damage:
+    types:
+      Heat: 80
+      Radiation: 20
+  # Special green laser!!!
+  muzzleFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_beam_heavy_green
+  travelFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_heavy_green
+  impactFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_beam_heavy_green
