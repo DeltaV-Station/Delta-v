@@ -66,19 +66,25 @@
 - type: emote
   id: Caw
   category: Vocal
-  chatMessages: [caws.]
+  chatMessages: [каркает.]
   chatTriggers:
     - caws.
     - caw.
     - caw!
     - cawing
     - cawed
+    - кар
+    - кар!
+    - кар.
+    - каркает
+    - каркает!
+    - каркает.
 
 #Vulpkanin
 - type: emote
   id: Bark
   category: Vocal
-  chatMessages: [barks.]
+  chatMessages: [лает.]
   chatTriggers:
     - bark.
     - bark!
@@ -87,6 +93,9 @@
     - barked.
     - barked!
     - barking.
+    - лает
+    - гав
+    - гавкает
 
 - type: emote
   id: Snarl
@@ -104,7 +113,7 @@
 - type: emote
   id: Whine
   category: Vocal
-  chatMessages: [whines.]
+  chatMessages: [скулит.]
   chatTriggers:
     - whine.
     - whine!
@@ -113,11 +122,14 @@
     - whined.
     - whined!
     - whining.
+    - скулит
+    - скулит!
+    - скулит.
 
 - type: emote
   id: Howl
   category: Vocal
-  chatMessages: [howls.]
+  chatMessages: [воет.]
   chatTriggers:
     - howl.
     - howl!
@@ -125,6 +137,9 @@
     - howls!
     - howling.
     - howled.
+    - воет
+    - воет!
+    - воет.
 
 - type: emote
   id: Awoo
