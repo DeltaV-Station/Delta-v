@@ -1,0 +1,186 @@
+- type: entity
+  id: PartPlasmaman
+  parent: BaseItem
+  name: "Plasmaman body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+
+- type: entity
+  id: TorsoPlasmaman
+  name: "Plasmaman torso"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "torso"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "torso"
+  - type: BodyPart
+    partType: Torso
+
+- type: entity
+  id: HeadPlasmaman
+  name: "Plasmaman head"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "head"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "head"
+  - type: BodyPart
+    partType: Head
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+
+- type: entity
+  id: LeftArmPlasmaman
+  name: "left Plasmaman arm"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+
+- type: entity
+  id: RightArmPlasmaman
+  name: "right Plasmaman arm"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+
+- type: entity
+  id: LeftHandPlasmaman
+  name: "left Plasmaman hand"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: RightHandPlasmaman
+  name: "right Plasmaman hand"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: LeftLegPlasmaman
+  name: "left Plasmaman leg"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 2.7
+
+- type: entity
+  id: RightLegPlasmaman
+  name: "right Plasmaman leg"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 2.7
+
+- type: entity
+  id: LeftFootPlasmaman
+  name: "left Plasmaman foot"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: RightFootPlasmaman
+  name: "right Plasmaman foot"
+  parent: PartPlasmaman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right

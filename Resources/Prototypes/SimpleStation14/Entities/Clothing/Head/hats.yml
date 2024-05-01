@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSec
+  name: security beret
+  description: A soft blue beret for the secoff who thinks he's specops 
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_sec.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_sec.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretEng
+  name: engineering beret
+  description: A beret for engineers that are more inclined towards style than safety. 
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_eng.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_eng.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMed
+  name: medical beret
+  description: A turquoise beret. The sight of it calms you down and makes it clear that you will be cured. 
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_med.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_med.rsi

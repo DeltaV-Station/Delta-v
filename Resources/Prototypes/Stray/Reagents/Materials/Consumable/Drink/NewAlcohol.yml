@@ -1,0 +1,999 @@
+- type: reagent
+  id: AnnasGift
+  name: reagent-name-annasgift
+  parent: BaseAlcohol
+  desc: reagent-desc-annasgift
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#d1d1d155"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/annasgift.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+
+- type: reagent
+  id: SinZan
+  name: reagent-name-sinzan
+  parent: BaseAlcohol
+  desc: reagent-desc-sinzan
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#7E4043"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/singulozam.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+
+- type: reagent
+  id: DeadGob
+  name: reagent-name-deadgob
+  parent: BaseAlcohol
+  desc: reagent-desc-deadgob
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#1FA431"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/deadgoblin.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+
+
+- type: reagent
+  id: Opres
+  name: reagent-name-opres
+  parent: BaseAlcohol
+  desc: reagent-desc-opres
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#C67F31"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/opresn.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: -1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+
+- type: reagent
+  id: Myusuo
+  name: reagent-name-myusuo
+  parent: BaseAlcohol
+  desc: reagent-desc-myusuo
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#98B383"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -35
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
+
+
+- type: reagent
+  id: Gayach
+  name: reagent-name-gayach
+  parent: BaseAlcohol
+  desc: reagent-desc-gayach
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#32B383"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/gayach.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+
+- type: reagent
+  id: Injir
+  name: reagent-name-injir
+  parent: BaseAlcohol
+  desc: reagent-desc-injir
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#9EB383"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/injir.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+
+- type: reagent
+  id: DilEater
+  name: reagent-name-dileater
+  parent: BaseAlcohol
+  desc: reagent-desc-dileater
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#000000"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/dilovenEater.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -15
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 2
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        reagent: Dylovene
+        amount: -1
+
+- type: reagent
+  id: Sbiv
+  name: reagent-name-sbiv
+  parent: BaseAlcohol
+  desc: reagent-desc-sbiv
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#9B4E80"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/sbivatelsnog.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Sbiv
+          min: 8
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+
+- type: reagent
+  id: Bomba
+  name: reagent-name-bomba
+  parent: BaseAlcohol
+  desc: reagent-desc-bomba
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#000000"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/bomba.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -25
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+      - !type:AdjustReagent
+        reagent: Bomba
+        amount: -1
+      - !type:ExplosionReactionEffect
+        explosionType: Default
+        maxIntensity: 100
+        intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
+        intensitySlope: 4
+        maxTotalIntensity: 100
+
+# Base Alcohol
+
+
+- type: reagent
+  id: BosTea
+  name: reagent-name-BosTea
+  parent: BaseAlcohol
+  desc: reagent-desc-BosTea
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#A45500"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/BosTea.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4 
+
+- type: reagent
+  id: Empt
+  name: reagent-name-Empt
+  parent: BaseAlcohol
+  desc: reagent-desc-Empt
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#d1d1d155"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/Empt.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -3
+
+- type: reagent
+  id: FireMix
+  name: reagent-name-FireMix
+  parent: BaseAlcohol
+  desc: reagent-desc-FireMix
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#FF5300"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/FireMix.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Burn: 1
+
+- type: reagent
+  id: Creator
+  name: reagent-name-Creator
+  parent: BaseAlcohol
+  desc: reagent-desc-Creator
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#d1d1d155"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/Creator.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 10
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+      - !type:AdjustReagent
+        reagent: SpaceDrugs
+        amount: 1
+
+#- type: reagent
+#  id: GodsBlood
+#  name: reagent-name-GodsBlood
+#  parent: BaseAlcohol
+#  desc: reagent-desc-GodsBlood
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/GodsBlood.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 5
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.05
+#      - !type:HealthChange
+#        damage:
+#          groups:
+#            Burn: -1
+#            Toxin: -1
+#            Airloss: -1
+#            Brute: -1
+
+- type: reagent
+  id: IchorNast
+  name: reagent-name-IchorNast
+  parent: BaseAlcohol
+  desc: reagent-desc-IchorNast
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#FFFF00"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/IchorNast.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -25
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+
+- type: reagent
+  id: BestHealing
+  name: reagent-name-BestHealing
+  parent: BaseAlcohol
+  desc: reagent-desc-BestHealing
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#929A91"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/BestHealing.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+
+#- type: reagent
+#  id: SugarRain
+#  name: reagent-name-SugarRain
+#  parent: BaseAlcohol
+#  desc: reagent-desc-SugarRain
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/SugarRain.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 1
+#      - !type:AdjustReagent
+#        reagent: Sugar
+#        amount: 2
+
+
+
+- type: reagent
+  id: SlimeTea
+  name: reagent-name-SlimeTea
+  parent: BaseAlcohol
+  desc: reagent-desc-SlimeTea
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#929A91"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/SlimeTea.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 5
+
+- type: reagent
+  id: SmileTea
+  name: reagent-name-SmileTea
+  parent: BaseAlcohol
+  desc: reagent-desc-SmileTea
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#00FF00"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/SmileTea.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+
+- type: reagent
+  id: OldNavar
+  name: reagent-name-OldNavar
+  parent: BaseAlcohol
+  desc: reagent-desc-OldNavar
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#009900"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/OldNavar.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+
+#- type: reagent
+#  id: HmelKash
+#  name: reagent-name-HmelKash
+#  parent: BaseAlcohol
+#  desc: reagent-desc-HmelKash
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/HmelKash.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 3
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.2
+
+- type: reagent
+  id: HeadAcce
+  name: reagent-name-HeadAcce
+  parent: BaseAlcohol
+  desc: reagent-desc-HeadAcce
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#d1d1d155"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/HeadAcce.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 10
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
+      - !type:AdjustReagent
+        reagent: Milk
+        amount: 1
+
+#- type: reagent
+#  id: GoodForest
+#  name: reagent-name-GoodForest
+#  parent: BaseAlcohol
+#  desc: reagent-desc-GoodForest
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/GoodForest.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.4
+
+- type: reagent
+  id: PoisonedVoodka
+  name: reagent-name-PoisonedVoodka
+  parent: BaseAlcohol
+  desc: reagent-desc-PoisonedVoodka
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#0098FF"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/PoisonedVoodka.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: 0.1
+
+- type: reagent
+  id: MilkedGreenTea
+  name: reagent-name-MilkedGreenTea
+  parent: BaseAlcohol
+  desc: reagent-desc-MilkedGreenTea
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#BEFFC5"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/MilkedGreenTea.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+
+#- type: reagent
+#  id: AlchollessBeer
+#  name: reagent-name-AlchollessBeer
+#  parent: BaseAlcohol
+#  desc: reagent-desc-AlchollessBeer
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/AlchollessBeer.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 3
+
+- type: reagent
+  id: GermanSmuzi
+  name: reagent-name-GermanSmuzi
+  parent: BaseAlcohol
+  desc: reagent-desc-GermanSmuzi
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#592300"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/GermanSmuzi.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+
+#- type: reagent
+#  id: KislSladNechto
+#  name: reagent-name-KislSladNechto
+#  parent: BaseAlcohol
+#  desc: reagent-desc-KislSladNechto
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/KislSladNechto.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 1
+
+- type: reagent
+  id: MushroonNast
+  name: reagent-name-MushroonNast
+  parent: BaseAlcohol
+  desc: reagent-desc-MushroonNast
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#F01472"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/MushroonNast.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -10
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+
+
+#- type: reagent
+#  id: TermoatomicReactor
+#  name: reagent-name-TermoatomicReactor
+#  parent: BaseAlcohol
+#  desc: reagent-desc-TermoatomicReactor
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/TermoatomicReactor.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.4
+#      - !type:HealthChange
+#        damage:
+#          types:
+#            Poison: 1
+#            Radiation: 1
+
+- type: reagent
+  id: AtmoJoy
+  name: reagent-name-AtmoJoy
+  parent: BaseAlcohol
+  desc: reagent-desc-AtmoJoy
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#009A72"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/AtmoJoy.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- type: reagent
+  id: LiquidSilic
+  name: reagent-name-LiquidSilic
+  parent: BaseAlcohol
+  desc: reagent-desc-LiquidSilic
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#DFDADE"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/LiquidSilic.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+      - !type:HealthChange
+        damage:
+          types:
+            Burn: -0.1
+
+#- type: reagent
+#  id: LiquidGen
+#  name: reagent-name-LiquidGen
+#  parent: BaseAlcohol
+#  desc: reagent-desc-LiquidGen
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/LiquidGen.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 3
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.2
+#      - !type:HealthChange
+#        damage:
+#          groups:
+#            Burn: 2
+
+- type: reagent
+  id: AngelCry
+  name: reagent-name-AngelCry
+  parent: BaseAlcohol
+  desc: reagent-desc-AngelCry
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#7DCAFF"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/AngelCry.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.0001
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: -0.1
+
+#- type: reagent
+#  id: BankaCoktail
+#  name: reagent-name-BankaCoktail
+#  parent: BaseAlcohol
+#  desc: reagent-desc-BankaCoktail
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/BankaCoktail.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 4
+#      - !type:AdjustTemperature
+#        conditions:
+#        - !type:Temperature
+#          max: 293.15
+#        amount: 10 # thermal energy, not temperature!
+
+- type: reagent
+  id: HappySumrak
+  name: reagent-name-HappySumrak
+  parent: BaseAlcohol
+  desc: reagent-desc-HappySumrak
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#7D0041"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/HappySumrak.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#- type: reagent
+#  id: Shlak
+#  name: reagent-name-Shlak
+#  parent: BaseAlcohol
+#  desc: reagent-desc-Shlak
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/Shlak.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.4
+
+- type: reagent
+  id: BurningBlood
+  name: reagent-name-BurningBlood
+  parent: BaseAlcohol
+  desc: reagent-desc-BurningBlood
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#9F3200"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/BurningBlood.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -10
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.01
+      - !type:HealthChange
+        damage:
+          types:
+            Burn: 2
+
+- type: reagent
+  id: DeadJonnyCoktail
+  name: reagent-name-DeadJonnyCoktail
+  parent: BaseAlcohol
+  desc: reagent-desc-DeadJonnyCoktail
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#1C53A1"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/DeadJonnyCoktail.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 1
+
+#- type: reagent
+#  id: LoveCoktail
+#  name: reagent-name-LoveCoktail
+#  parent: BaseAlcohol
+#  desc: reagent-desc-LoveCoktail
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/LoveCoktail.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: -20
+
+#- type: reagent
+#  id: GogolMogol
+#  name: reagent-name-GogolMogol
+#  parent: BaseAlcohol
+#  desc: reagent-desc-GogolMogol
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/GogolMogol.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 5
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.2
+
+#- type: reagent
+#  id: Chinga
+#  name: reagent-name-Chinga
+#  parent: BaseAlcohol
+#  desc: reagent-desc-Chinga
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/Chinga.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 0.1
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.3
+#      - !type:HealthChange
+#        damage:
+#          types:
+#            Poison: -1
+
+
+#- type: reagent
+#  id: NekoKofe
+#  name: reagent-name-NekoKofe
+#  parent: BaseAlcohol
+#  desc: reagent-desc-NekoKofe
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/NekoKofe.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.02
+
+#- type: reagent
+#  id: GoodTea
+#  name: reagent-name-GoodTea
+#  parent: BaseAlcohol
+#  desc: reagent-desc-GoodTea
+#  physicalDesc: reagent-physical-desc-strong-smelling
+#  flavor: alcohol
+#  color: "#d1d1d155"
+#  metamorphicSprite:
+#    sprite: Stray/Objects/Consumable/Drinks/GoodTea.rsi
+#    state: icon
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 5

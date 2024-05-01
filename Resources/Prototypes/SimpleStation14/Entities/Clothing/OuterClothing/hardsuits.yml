@@ -1,0 +1,81 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitDominia
+  name: dominia power armor
+  description: A power armor suit, straight out of those old Dominia comic books.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/dominia.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/dominia.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.75
+        Heat: 0.3
+        Radiation: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDominia
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitHoP
+  name: head of personnel's hardsuit
+  description: A stylish hardsuit for only the most esteemed crew members. Doesn't offer much damage protection.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/hopsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 4500
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.8
+        Piercing: 0.90
+        Heat: 0.8
+        Radiation: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitHoP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitEnvirosuit
+  name: envirosuit
+  description: A tight-fitting suit made for keeping oxygen or the vacuum of space away from the plasmamen.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/OuterClothing/Hardsuits/envirosuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.1
+        Heat: 0.25
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitEnvirosuit

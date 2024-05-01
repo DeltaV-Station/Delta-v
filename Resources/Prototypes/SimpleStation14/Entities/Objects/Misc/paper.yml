@@ -1,0 +1,32 @@
+- type: entity
+  name: css's fountain pen
+  parent: Pen
+  id: PenCSS
+  description: 'A luxurious fountain pen for the CSS of the station.'
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/bureaucracy.rsi
+    state: pen_css
+
+- type: entity
+  name: chief service supervisor's rubber stamp
+  parent: RubberStampMime
+  id: RubberStampCSS
+  components:
+  - type: Stamp
+    stampedName: "Chief Service Supervisor"
+    stampState: "paper_stamp-css"
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/bureaucracy.rsi
+    state: paper_stamp-css
+
+- type: entity
+  name: note
+  description: 'A piece of white paper.'
+  id: PaperWrittenPunpunNote
+  parent: PaperCaptainsThoughts
+  suffix: "Punpun Note"
+  components:
+  - type: Paper
+    content: |
+      I, Punpun, invoke my right to have all of my clones on the NT family vacation to the meat packaging plant one out of every 15 shifts.

@@ -1,0 +1,843 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseCard
+  name: Карта
+  description: Есть идеи что на этой карте?
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    layers:
+    - state: closedCard
+  - type: Item
+    size: Small
+  - type: TrayScanner
+    range: 0.01
+  - type: Appearance
+  - type: Tag
+    tags:
+      - GameCard
+  #- type: LayerChangeOnWeld
+  #  unWeldedLayer: 1
+  #  weldedLayer: 2
+
+- type: entity
+  parent: BaseItem
+  id: GameCardsInHand
+  name: Колода Карт
+  description: Это твои карты. Помещает до 20 карт
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    state: InHand
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,19,1
+    quickInsert: true
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - GameCard
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+
+- type: entity
+  parent: BaseItem
+  id: GameCardsColode
+  name: Упаковка карт
+  description: Сыграем в покер?
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    state: colode
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,12,7
+    quickInsert: true
+    areaInsert: true
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - GameCard
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Dumpable
+  - type: StorageFill
+    contents:
+      - id: CarDpt
+      - id: CarDp2
+      - id: CarDp3
+      - id: CarDp4
+      - id: CarDp5
+      - id: CarDp6
+      - id: CarDp7
+      - id: CarDp8
+      - id: CarDp9
+      - id: CarDp10
+      - id: CarDpd
+      - id: CarDpk
+      - id: CarDpv
+
+      - id: CarDkt
+      - id: CarDk2
+      - id: CarDk3
+      - id: CarDk4
+      - id: CarDk5
+      - id: CarDk6
+      - id: CarDk7
+      - id: CarDk8
+      - id: CarDk9
+      - id: CarDk10
+      - id: CarDkd
+      - id: CarDkk
+      - id: CarDkv
+
+      - id: CarDbt
+      - id: CarDb2
+      - id: CarDb3
+      - id: CarDb4
+      - id: CarDb5
+      - id: CarDb6
+      - id: CarDb7
+      - id: CarDb8
+      - id: CarDb9
+      - id: CarDb10
+      - id: CarDbd
+      - id: CarDbk
+      - id: CarDbv
+
+      - id: CarDht
+      - id: CarDh2
+      - id: CarDh3
+      - id: CarDh4
+      - id: CarDh5
+      - id: CarDh6
+      - id: CarDh7
+      - id: CarDh8
+      - id: CarDh9
+      - id: CarDh10
+      - id: CarDhd
+      - id: CarDhk
+      - id: CarDhv
+  #- type: SpawnAfterInteract
+  #  prototype: CarDptC
+  #  doAfter: 0
+  #  ignoreDistance: false
+  #  removeOnInteract: true
+
+  #- type: Defibrillator
+  #  zapHeal:
+  #    types:
+  #      Asphyxiation: -40
+
+      #enum.ToggleVisuals.Toggled:
+      #  enum.ToggleVisuals.Layer:
+      #    True: { visible: true }
+      #    False: { visible: false }
+      #enum.DefibrillatorVisuals.Ready:
+      #  enum.PowerDeviceVisualLayers.Powered:
+      #    True: { visible: true }
+      #    False: { visible: false }
+
+
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.TrayScannerVisual.Visual:
+  #      base:
+  #        Off: { state: pt }
+  #        On: { state: closedCard }
+  #- type: ActionOnInteract
+  #  actions:
+  #   - CarDptC
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+    #layers:
+    #  - state: pt
+    #    shader: "unshaded"
+    #  - state: closedCard
+    #    shader: "unshaded"
+#
+#- type: entity
+#  parent: BaseCard
+#  id: CarDptC
+#  name: Карта
+#  description: Есть идеи что на этой карте?
+#  components:
+#  - type: Sprite
+#    state: closedCard
+    #layers:
+    #- state: closedCard
+    #  map: ["base"]
+    #layers:
+    #  - state: closedCard
+    #    shader: "unshaded"
+    #    visible: true
+  #- type: ActionOnInteract
+  #  actions:
+  #   - CarDpt
+  #- type: TrayScanner
+  #  range: 0.01
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.TrayScannerVisual.Visual:
+  #      base:
+  #        Off: { state: closedCard }
+  #        On: { state: closedCard }
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+      #- state: pt
+      #  shader: "unshaded"
+
+  #- type: SpawnAfterInteract
+  #  prototype: CarDpt
+  #  doAfter: 0
+  #  ignoreDistance: false
+  #  removeOnInteract: true
+    #canTargetSelf: false
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+  #-type: InteractionRelay
+  #  RelayEntity: CarDpt
+  #- type: Actions
+  #  Actions:
+  #   - ReplacementAccent
+  #  #canTargetSelf: false
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+  #- type: SpawnOnTrigger
+  #  proto: CarDpt
+  #- type: EntityTargetAction
+  #  event:
+  #    toAdd:
+  #    - type: ReplacementAccent
+  #      Accent: CarDpt
+  #-type: InteractionRelay
+  #  RelayEntity: ReplacementAccent
+  #- type: Actions
+  #  actions:
+  #   - ReplacementAccent
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+  #- type: SpawnOnTrigger
+  #  proto: CarDpt
+  #- type: EntityTargetAction
+  #  event:
+  #    toAdd:
+  #    - type: RandomSpawner
+  #      prototypes:
+  #        - CarDptC
+  #    #- type: ReplacementAccent
+  #    #  Accent: CarDptC
+    #- type: Actions
+  #- type: ReplacementAccent
+    #layers:
+    #- map: [ "enum.ItemCabinetVisualLayers.Base" ]
+    #- state: "closedCard"
+    #  map: [ "enum.PdaVisualLayers.Flashlight" ]
+    #  shader: "unshaded"
+    #  visible: false
+     #- type: Clickable
+- type: entity
+  parent: BaseCard
+  id: CarDpt
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: pt }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp2
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p2 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp3
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p3 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp4
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p4 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp5
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p5 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp6
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p6 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp7
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p7 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp8
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p8 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp9
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p9 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDp10
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: p10 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDpd
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: pd }
+
+- type: entity
+  parent: BaseCard
+  id: CarDpk
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: pk }
+
+- type: entity
+  parent: BaseCard
+  id: CarDpv
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: pv }
+
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDkt
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: kt }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk2
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k2 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk3
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k3 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk4
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k4 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk5
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k5 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk6
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k6 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk7
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k7 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk8
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k8 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk9
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k9 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDk10
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: k10 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDkd
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: kd }
+
+- type: entity
+  parent: BaseCard
+  id: CarDkk
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: kk }
+
+- type: entity
+  parent: BaseCard
+  id: CarDkv
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: kv }
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDht
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: ht }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh2
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h2 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh3
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h3 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh4
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h4 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh5
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h5 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh6
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h6 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh7
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h7 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh8
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h8 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh9
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h9 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDh10
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: h10 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDhd
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: hd }
+
+- type: entity
+  parent: BaseCard
+  id: CarDhk
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: hk }
+
+- type: entity
+  parent: BaseCard
+  id: CarDhv
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: hv }
+
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDbt
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: bt }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb2
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b2 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb3
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b3 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb4
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b4 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb5
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b5 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb6
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b6 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb7
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b7 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb8
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b8 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb9
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b9 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDb10
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: b10 }
+
+- type: entity
+  parent: BaseCard
+  id: CarDbd
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: bd }
+
+- type: entity
+  parent: BaseCard
+  id: CarDbk
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: bk }
+
+- type: entity
+  parent: BaseCard
+  id: CarDbv
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          Off: { state: closedCard }
+          On: { state: bv }

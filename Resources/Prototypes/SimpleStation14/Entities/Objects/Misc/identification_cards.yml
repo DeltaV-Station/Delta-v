@@ -1,0 +1,32 @@
+- type: entity
+  parent: IDCardStandard
+  id: IDCardStandardPs
+  name: identification card
+  description: A card necessary to access various areas aboard the station.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/id_cards.rsi
+
+- type: entity
+  parent: IDCardStandardPs
+  id: AIIDCard
+  name: ai identification chip
+  components:
+  - type: Sprite
+    layers:
+    - state: idai
+  - type: Item
+    heldPrefix: gold
+
+- type: entity
+  parent: IDCardStandardPs
+  id: CSSIDCard
+  name: chief service supervisor ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idchiefservicesupervisor
+  - type: Item
+    heldPrefix: silver

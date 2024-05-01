@@ -1,0 +1,88 @@
+{
+    "version": 1,
+    "size": {
+        "x": 64,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGStation",
+    "states": [
+        {
+            "name": "lights_opening",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "lights_closing",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "lights_bolts"
+        },
+        {
+            "name": "lights_denied",
+            "delays": [[0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "sparks",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "lights_emergency",
+            "delays": [[1.2, 1.2]]
+        },
+        {
+            "name": "panel_closed"
+        },
+        {
+            "name": "panel_closed_protected"
+        },
+        {
+            "name": "panel_opening",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "panel_opening_protected",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "panel_closing",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "panel_closing_protected",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "panel_c1"
+        },
+        {
+            "name": "panel_c2"
+        },
+        {
+            "name": "panel_c3"
+        },
+        {
+            "name": "welded"
+        },
+        {
+            "name": "sealed"
+        },
+        {
+            "name": "closed"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "opening",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "closing",
+            "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+        },
+        {
+            "name": "construction"
+        }
+    ]
+}
