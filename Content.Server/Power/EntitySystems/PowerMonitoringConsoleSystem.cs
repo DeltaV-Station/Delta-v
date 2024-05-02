@@ -14,6 +14,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.GameTicking.Rules.Components;
 
 namespace Content.Server.Power.EntitySystems;
 
