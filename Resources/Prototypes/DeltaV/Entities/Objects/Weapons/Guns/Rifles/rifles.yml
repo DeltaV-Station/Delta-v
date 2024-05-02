@@ -2,7 +2,7 @@
   name: Vulcan
   parent: BaseWeaponRifle
   id: WeaponRifleVulcan
-  description: One of the first firearms modified for space usage, this rifle was purpose-designed to punch holes in Cargonian "combat mechs." Uses .30 rifle ammo.
+  description: One of the heaviest small arms to grace Security's armory, this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/vulcan.rsi
@@ -12,10 +12,15 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 2
+    minAngle: 1
+    maxAngle: 24
+    angleIncrease: 6
+    angleDecay: 24
+    fireRate: 5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    - FullAuto
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
