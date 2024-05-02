@@ -1,0 +1,49 @@
+- type: job
+  id: Blueshield
+  name: "Офицер «Синий щит»"
+  description: "Специально обученный сотрудник, посланный на станцию для защиты Капитана, Командного состава и VIP-персон с ЦК."
+  playTimeTracker: JobBlueshield
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 3600
+  startingGear: BlueshieldGear
+  icon: "JobIconBlueshield"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Command
+  - Medical
+  - Armory
+  - Security
+  - Maintenance
+  - Service
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
+
+- type: startingGear
+  id: BlueshieldGear
+  equipment:
+    head: ClothingHeadHatBeretCorpsman
+    jumpsuit: ClothingUniformJumpskirtSecBlue
+    back: ClothingBackpackBrigmedicDeltaVFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCombatCorpsman
+    id: CentcomPDA
+    ears: ClothingHeadsetCentCom
+    belt: ClothingBeltCorpsmanWebbingFilled
+    pocket1: WeaponPistolUniversal
+    pocket2: MagazineUniversalMagnum
+  innerClothingSkirt: ClothingUniformJumpskirtSecBlue
+  satchel: ClothingBackpackSatchelBrigmedicDeltaVFilled
+  duffelbag: ClothingBackpackDuffelBrigmedicDeltaVFilled

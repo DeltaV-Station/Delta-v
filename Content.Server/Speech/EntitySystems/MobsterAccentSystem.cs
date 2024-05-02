@@ -13,6 +13,35 @@ public sealed class MobsterAccentSystem : EntitySystem
 
     private static readonly Dictionary<string, string> DirectReplacements = new()
     {
+        // Corvax-Localization-Start
+        { "утащил", "сдёрнул" },
+        { "принеси", "надыбай" },
+        { "принесите", "надыбайте" },
+        { "сб", "мусора" },
+        { "враг", "шелупонь" },
+        { "враги", "шелупонь" },
+        { "тревога", "шухер" },
+        { "заметили", "спалили" },
+        { "оружие", "валына" },
+        { "убийство", "мокруха" },
+        { "убить", "замочить" },
+        { "убей", "вальни" },
+        { "убейте", "завалите" },
+        { "еда", "жратва"},
+        { "еды", "жратвы"},
+        { "убили", "замаслили" },
+        { "ранен", "словил маслину"},
+        { "мертв", "спит с рыбами"},
+        { "мёртв", "спит с рыбами"},
+        { "мертва", "спит с рыбами"},
+        { "хэй", "йоу" },
+        { "хей", "йоу" },
+        { "здесь", "здеся" },
+        { "тут", "тута" },
+        { "привет", "аве" },
+        { "плохо", "ацтой" },
+        { "хорошо", "агонь" },
+        // Corvax-Localization-End
         { "let me", "lemme" },
         { "should", "oughta" },
         { "the", "da" },
@@ -94,7 +123,7 @@ public sealed class MobsterAccentSystem : EntitySystem
             else
             {
                 var pick = _random.Next(1, 3);
-                suffix = Loc.GetString($"accent-mobster-suffix-minion-{pick}");                
+                suffix = Loc.GetString($"accent-mobster-suffix-minion-{pick}");
             }
             if (lastWordAllCaps)
                 suffix = suffix.ToUpper();
