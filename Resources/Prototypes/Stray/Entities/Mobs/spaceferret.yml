@@ -21,13 +21,14 @@
   - type: RandomSprite
     available:
       - 0:
-          spaceferret1: ""                               
+          spaceferret1: ""
           spaceferret2: ""
           spaceferret3: ""
           spaceferret4: ""
           spaceferret5: ""
           spaceferret6: ""
           spaceferret7: ""
+          spaceferret8: ""
   - type: DamageStateVisuals
     states:
       Alive:
@@ -96,9 +97,6 @@
   - type: Food
   - type: Hunger
     baseDecayRate: 0.3
-  - type: GenericAntag
-    rule: LegallyDistinctSpaceFerretRule
-  # L.D.S.F.'s can have IDs because ... why not, honestly
   - type: Inventory
     templateId: spaceferret
   - type: InventorySlots
