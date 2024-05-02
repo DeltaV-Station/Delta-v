@@ -606,6 +606,10 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -617,6 +621,10 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -628,6 +636,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
@@ -641,6 +653,10 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -656,6 +672,10 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltBase
