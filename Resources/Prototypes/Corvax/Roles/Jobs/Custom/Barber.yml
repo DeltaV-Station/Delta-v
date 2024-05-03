@@ -1,0 +1,28 @@
+- type: job
+  id: Barber
+  name: job-name-barber
+  description: job-description-barber
+  playTimeTracker: JobBarber
+  startingGear: BarberGear
+  icon: "JobIconBarber"
+  supervisors: job-supervisors-service
+  canBeAntag: true # DeltaV - Can be antagonist
+  antagAdvantage: 1 # DeltaV - Reduced TC: Accesses
+  access:
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: BarberGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlack
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    id: ServiceWorkerPDA
+    neck: ClothingNeckTieRed
+    ears: ClothingHeadsetService
+    outerClothing: ClothingOuterApronBar
+    pocket1: BarberScissors
+    pocket2: BarberScissors
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

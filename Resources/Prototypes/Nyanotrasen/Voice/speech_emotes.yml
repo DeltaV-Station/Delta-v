@@ -2,18 +2,21 @@
 - type: emote
   id: Hiss
   category: Vocal
-  chatMessages: [hisses.]
+  chatMessages: [шипит.]
   chatTriggers:
     - hiss.
     - hisses.
     - hisses!
     - hissing.
     - hissed.
+    - шипит
+    - шипит.
+    - шипит!
 
 - type: emote
   id: Meow
   category: Vocal
-  chatMessages: [meows.]
+  chatMessages: [мяукает.]
   chatTriggers:
     - meow.
     - meow!
@@ -34,11 +37,19 @@
     - mraows.
     - mraows!
     - mraows~
+    - мяукает
+    - мяукает!
+    - мяукает.
+    - мяу
+    - мяу.
+    - мяу!
+    - мяу~
+
 
 - type: emote
   id: Mew
   category: Vocal
-  chatMessages: [mews.]
+  chatMessages: [миукает.]
   chatTriggers:
     - mew.
     - mew!
@@ -48,22 +59,34 @@
     - mews~
     - mewing.
     - mewed.
+    - миукает
+    - миукает.
+    - миукает!
+    - миу
+    - миу.
+    - миу!
+    - миу~
 
 - type: emote
   id: Growl
   category: Vocal
-  chatMessages: [growls.]
+  chatMessages: [рычит.]
   chatTriggers:
     - growl.
     - growls.
     - growls!
     - growling.
     - growled.
+    - рычит
+    - рычит!
+    - рычит.
+    - недоволен
+    - недовольна
 
 - type: emote
   id: Purr
   category: Vocal
-  chatMessages: [purrs.]
+  chatMessages: [мурчит.]
   chatTriggers:
     - purr.
     - purrs.
@@ -71,3 +94,12 @@
     - purrs!
     - purring.
     - purred.
+    - мурлыкает
+    - мурчит
+    - мур
+    - мурлыкает.
+    - мурчит.
+    - мур.
+    - мурлыкает!
+    - мурчит!
+    - мур!

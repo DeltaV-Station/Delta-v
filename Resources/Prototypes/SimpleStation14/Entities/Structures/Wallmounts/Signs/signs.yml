@@ -1,0 +1,686 @@
+# Parkstation
+- type: entity
+  id: SignParkstation
+  name: parkstation floor sign
+  description: A more scenic path.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Decorations/flooricon.rsi
+    state: tileicon
+    scale: 0.333333, 0.333333
+    drawdepth: FloorObjects
+    netsync: false
+    snapCardinals: false
+
+- type: entity
+  id: SignParkstationLarge
+  name: large parkstation floor sign
+  description: A REALLY scenic path.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Decorations/flooricon.rsi
+    state: tileicon
+    scale: 0.666666, 0.666666
+    drawdepth: FloorObjects
+    netsync: false
+    snapCardinals: false
+
+- type: entity
+  id: SignParkstationOffset
+  parent: SignParkstation
+  suffix: "offset"
+  components:
+  - type: Sprite
+    offset: 0.0, -0.5
+
+- type: entity
+  id: SignParkstationLargeOffset
+  parent: SignParkstationLarge
+  suffix: "offset"
+  components:
+  - type: Sprite
+    offset: 0.0, -0.5
+
+- type: entity
+  id: SignParkstationWall
+  parent: SignParkstation
+  name: parkstation wall sign
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+
+# Departments
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkAtmos
+  name: atmospherics
+  description: A sign indicating that this is the atmospherics area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: atmo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkBridge
+  name: bridge
+  description: A sign indicating that this is the bridge.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: bridge
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCargo
+  name: cargo
+  description: A sign indicating that this is the cargo area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: cargo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCharge
+  name: charging
+  description: A sign indicating that this is the charging area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: charge
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkChemistryGreen
+  name: chemistry
+  description: A sign indicating that this is the chemistry area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: chem
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkChemistryBlue
+  name: chemistry
+  description: A sign indicating that this is the chemistry area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: chemb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCloningGreen
+  name: cloning
+  description: A sign indicating that this is the cloning area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: clone
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCloningBlue
+  name: cloning
+  description: A sign indicating that this is the cloning area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: cloneb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkCommand
+  name: command
+  description: A sign indicating that this is the command area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: command
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkEngineering
+  name: engineering
+  description: A sign indicating that this is the engineering area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: engi
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkEvac
+  name: evacuation
+  description: A sign indicating that this is the evacuation area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: evac
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkGenetics
+  name: genetics
+  description: A sign indicating that this is the genetics area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: gene
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkHoP
+  name: head of personnel
+  description: A sign indicating that this is the head of personnel's office.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: hop
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkHydroponics
+  name: hydroponics
+  description: A sign indicating that this is the hydroponics area of service.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: hydro
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkJanitor
+  name: janitor
+  description: A sign indicating that this is the janitor's area of service.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: jani
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMedicalGreen
+  name: medical
+  description: A sign indicating that this is the medical area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: medic
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMedicalBlue
+  name: medical
+  description: A sign indicating that this is the medical area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: medicb
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkMining
+  name: mining
+  description: A sign indicating that this is the mining area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: mine
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkResearch
+  name: research
+  description: A sign indicating that this is the research area of science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: rd
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkRobotics
+  name: robotics
+  description: A sign indicating that this is the robotics area of science. # TODO: sprite needs to be recolored and description changed for engi
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: robo
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkSecurity # TODO: recolor blue
+  name: security
+  description: A sign indicating that this is the security area.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: sec
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkSpace
+  name: space
+  description: A sign indicating that this leads to space.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: space
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkTelecomms
+  name: telecomms
+  description: A sign indicating that this is the telecomms area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: tcom
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkVirologyGreen
+  name: virology
+  description: A sign indicating that this is the virology area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: viro
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkVirologyBlue
+  name: virology
+  description: A sign indicating that this is the virology area of medical.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: virob
+
+- type: entity
+  parent: BaseSign
+  id: SignDepartmentParkXenobiology
+  name: xenobiology
+  description: A sign indicating that this is the xenobiology area of science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsigns.rsi
+    state: xeno
+
+
+# Salvage
+- type: entity
+  parent: BaseSign
+  id: SignMiningSalvage
+  name: mining
+  description: A sign indicating that this is the mining area of engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
+    state: mining_salvage
+
+- type: entity
+  parent: BaseSign
+  id: SignMiningNanotrasen
+  name: mining
+  description: A sign indicating that this is the mining area of Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/deptsign.rsi
+    state: mining_nanotrasen
+
+
+# Directional
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyBridge
+  name: bridge
+  description: A fancy sign directing you towards the bridge.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: bridge
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyEngineering
+  name: engineering
+  description: A fancy sign directing you towards engineering.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: eng
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyEvac
+  name: evac
+  description: A fancy sign directing you towards the evacuation shuttle.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: evac
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyMedbay
+  name: medbay
+  description: A fancy sign directing you towards the medbay.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: med
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskyScience
+  name: science
+  description: A fancy sign directing you towards science.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: sci
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskySecurity # TODO: recolor blue
+  name: security
+  description: A fancy sign directing you towards security.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: sec
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalDepartmentMinskySupply
+  name: cargo
+  description: A fancy sign directing you towards cargo.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/minsky.rsi
+    state: supply
+
+
+# Dorm rooms
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom1
+  name: dorm room 1
+  description: A sign indicating that this is room 1 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_1
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom2
+  name: dorm room 2
+  description: A sign indicating that this is room 2 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_2
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom3
+  name: dorm room 3
+  description: A sign indicating that this is room 3 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_3
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom4
+  name: dorm room 4
+  description: A sign indicating that this is room 4 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_4
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom5
+  name: dorm room 5
+  description: A sign indicating that this is room 5 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_5
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom6
+  name: dorm room 6
+  description: A sign indicating that this is room 6 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_6
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom7
+  name: dorm room 7
+  description: A sign indicating that this is room 7 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_7
+
+- type: entity
+  parent: BaseSign
+  id: SignDormRoom8
+  name: dorm room 8
+  description: A sign indicating that this is room 8 of the dorms.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/Directional/rooms.rsi
+    state: room_8
+
+
+# Atmospherics
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsAir
+  name: air
+  description: A sign indicating that air is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: air
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsCarbonDioxide
+  name: carbon dioxide
+  description: A sign indicating that carbon dioxide is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: carbon_dioxide
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsMix
+  name: mix
+  description: A sign indicating the atmospherics mix chamber.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: mix
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsNitrogen
+  name: nitrogen
+  description: A sign indicating that nitrogen is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: nitrogen
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsNitrousOxide
+  name: nitrous oxide
+  description: A sign indicating that nitrous oxide is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: nitrous_oxide
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsOxygen
+  name: oxygen
+  description: A sign indicating that oxygen is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: oxygen
+
+- type: entity
+  parent: BaseSign
+  id: SignAtmosphericsPlasma
+  name: plasma
+  description: A sign indicating that plasma is stored here.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/gases.rsi
+    state: plasma
+
+
+# Numbers
+- type: entity
+  parent: BaseSign
+  id: SignNumber0
+  name: number 0
+  description: A sign, all it says is 0.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 0
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber1
+  name: number 1
+  description: A sign, all it says is 1.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 1
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber2
+  name: number 2
+  description: A sign, all it says is 2.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 2
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber3
+  name: number 3
+  description: A sign, all it says is 3.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 3
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber4
+  name: number 4
+  description: A sign, all it says is 4.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 4
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber5
+  name: number 5
+  description: A sign, all it says is 5.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 5
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber6
+  name: number 6
+  description: A sign, all it says is 6.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 6
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber7
+  name: number 7
+  description: A sign, all it says is 7.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 7
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber8
+  name: number 8
+  description: A sign, all it says is 8.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 8
+
+- type: entity
+  parent: BaseSign
+  id: SignNumber9
+  name: number 9
+  description: A sign, all it says is 9.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/numbers.rsi
+    state: 9

@@ -10,6 +10,21 @@
   metabolisms:
     Gas:
       effects:
+      - !type:FlammableReaction
+        multiplier: 0.2
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        - !type:HasTag
+          tag: PlasmamanFlammable
+          invert: true
+      - !type:Ignite
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        - !type:HasTag
+          tag: PlasmamanFlammable
+          invert: true
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -61,6 +76,10 @@
         amount: -2.0
     Gas:
       effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
@@ -68,6 +87,10 @@
           types:
             Poison:
               1
+        conditions:
+          - !type:OrganType
+            type: Plasmaman
+            shouldHave: false
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins

@@ -137,7 +137,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
+      path: /Audio/Announcements/gasleak_start.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
     minimumPlayers: 5
@@ -170,7 +170,7 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
-      path: /Audio/Announcements/meteors.ogg
+      path: /Audio/Announcements/meteors_start.ogg
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
