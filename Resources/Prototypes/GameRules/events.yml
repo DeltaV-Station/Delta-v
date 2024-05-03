@@ -448,8 +448,8 @@
 #  noSpawn: true
 #  components:
 #  - type: StationEvent
-#    endAnnouncement: station-event-immovable-rod-start-announcement
-#    endAudio:
+#    startAnnouncement: station-event-immovable-rod-start-announcement
+#    startAudio:
 #      path: /Audio/Announcements/attention.ogg
 #    weight: 5
 #    duration: 1
