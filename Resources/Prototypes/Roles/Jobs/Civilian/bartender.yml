@@ -3,10 +3,10 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 3600 #DeltaV
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Civilian
+  #    time: 3600 #DeltaV
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop
