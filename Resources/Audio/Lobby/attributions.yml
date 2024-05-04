@@ -58,6 +58,16 @@
   copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in this directory) and is free for non-commercial use. It was converted from MOD to WAV using Schism Tracker, in 16 Bit, Non-Interpolated mode, no output equalizer settings, Ramp volume at start of sample enabled. From there it was converted to OGG Vorbis with `ffmpeg -i flip-flap.wav -q 2.9 flip-flap-renc.ogg` (quality scale chosen to match size of the OGG file being replaced). Non-interpolated mode was chosen as the module has a high enough sample rate to balance it out, but seems muffled in other interpolation modes. If 'Ramp volume at start of sample' is not enabled, a clicking phenomenon results."
   source: "http://aminet.net/package/mods/xceed/Flipflap"
 
+- files: ["Patricia_Taxxon_-_Chipshop.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Chipshop by Patricia Taxxon off the album 'Bicycle'"
+  source: "https://patriciataxxon.bandcamp.com/track/chipshop"
+
+- files: ["Patricia_Taxxon_-_Minute.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Minute by Patricia Taxxon off the album 'Aeroplane'"
+  source: "https://patriciataxxon.bandcamp.com/track/minute"
+
 - files: ["psirius_-_nights_of_orion.xm.ogg"]
   license: "CC-BY-NC-SA-4.0"
   copyright: "Nights of Orion by Psirius"
