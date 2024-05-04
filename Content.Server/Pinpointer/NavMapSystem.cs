@@ -100,8 +100,8 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
-        if (!ev.EmptyChanged || !_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
-            return;
+        if (/*!ev.EmptyChanged || */!_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
+            return; // Depends on Robust Toolbox V221.1.0+
 
         var tile = ev.NewTile.GridIndices;
         var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
