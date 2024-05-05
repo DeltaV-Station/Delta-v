@@ -2,7 +2,7 @@
   id: Edge
   mapName: 'Edge'
   mapPath: /Maps/edge.yml
-  minPlayers: 10
+  minPlayers: 0
   maxPlayers: 80
   stations:
     Edge:
@@ -68,4 +68,3 @@
             CargoTechnician: [ 2, 4 ]
           #civilian
             Passenger: [ -1, -1 ]
-

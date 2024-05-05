@@ -219,6 +219,13 @@
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/goldschlagerbottle_empty.rsi
 
+- type: entity
+  name: gildlager bottle
+  parent: DrinkBottleBaseEmpty
+  id: DrinkBottleGildlager
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/TrashDrinks/gildlagerbottle_empty.rsi
 
 - type: entity
   name: coffee liqueur bottle
