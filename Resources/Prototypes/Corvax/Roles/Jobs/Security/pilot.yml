@@ -5,9 +5,9 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 72000 #20 hrs
+    time: 3600
   startingGear: PilotGear
-  icon: "JobIconPilot"
+  icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
