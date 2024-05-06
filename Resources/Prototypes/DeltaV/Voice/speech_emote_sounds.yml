@@ -30,8 +30,6 @@
       collection: HarpyPurrs
     Ring:
       collection: HarpyRings
-    HonkHarpy:
-      collection: HarpyHonks
     Pew:
       collection: HarpyPews
     Bang:
@@ -58,6 +56,12 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+    Honk:
+      collection: HarpyHonks
+    Weh:
+      collection: Weh
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -72,12 +76,20 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
     Crying:
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Sigh:
-      collection: MaleSigh
+    Weh:
+      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -87,6 +99,8 @@
     Whine:
       collection: VulpkaninWhines
     Howl:
+      collection: VulpkaninHowls
+    Awoo:
       collection: VulpkaninHowls
 
 - type: emoteSounds
@@ -102,12 +116,20 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
     Crying:
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Sigh:
-      collection: FemaleSigh
+    Weh:
+      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -117,4 +139,6 @@
     Whine:
       collection: VulpkaninWhines
     Howl:
+      collection: VulpkaninHowls
+    Awoo:
       collection: VulpkaninHowls
