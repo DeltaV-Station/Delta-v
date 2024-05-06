@@ -1046,7 +1046,7 @@
 - type: entity
   parent: AirlockMaintCommandLocked
   id: AirlockMaintQuartermasterLocked
-  suffix: Quartermaster, Locked
+  suffix: Logistics Officer, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: ContainerFill
     containers:
