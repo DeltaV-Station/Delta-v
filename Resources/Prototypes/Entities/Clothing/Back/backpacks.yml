@@ -30,6 +30,7 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: AllowsSleepInside # DeltaV - enable sleeping inside bags
 
 - type: entity
   parent: ClothingBackpack
@@ -267,7 +268,7 @@
   - type: Sprite
     sprite: Clothing/Back/Backpacks/syndicate.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.1         
+    damageCoefficient: 0.1
 
 #Special
 - type: entity
