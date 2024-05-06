@@ -52788,17 +52788,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,56.5
       parent: 2
+  - uid: 5448
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,55.5
+      parent: 2
   - uid: 6852
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 32.5,-28.5
-      parent: 2
-  - uid: 6854
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -15.5,55.5
       parent: 2
   - uid: 7620
     components:
@@ -52811,7 +52811,7 @@ entities:
     - type: Transform
       pos: -13.5,57.5
       parent: 2
-  - uid: 8386
+  - uid: 8339
     components:
     - type: Transform
       pos: -15.5,57.5
@@ -52876,6 +52876,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -16.5,53.5
       parent: 2
+  - uid: 4824
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,55.5
+      parent: 2
   - uid: 4962
     components:
     - type: Transform
@@ -52917,12 +52923,6 @@ entities:
     - type: Transform
       pos: -1.5,53.5
       parent: 2
-  - uid: 5409
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,55.5
-      parent: 2
   - uid: 5410
     components:
     - type: Transform
@@ -52939,6 +52939,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,63.5
+      parent: 2
+  - uid: 6854
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -15.5,60.5
       parent: 2
   - uid: 6857
     components:
@@ -53773,12 +53779,6 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 8338
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -15.5,60.5
-      parent: 2
-  - uid: 8339
     components:
     - type: Transform
       pos: -12.5,57.5
@@ -63894,6 +63894,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,63.5
       parent: 2
+  - uid: 5409
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,58.5
+      parent: 2
   - uid: 5436
     components:
     - type: Transform
@@ -63909,12 +63915,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 5448
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,58.5
-      parent: 2
   - uid: 6828
     components:
     - type: Transform
@@ -82153,11 +82153,6 @@ entities:
     - type: Transform
       pos: -16.5,51.5
       parent: 2
-  - uid: 4824
-    components:
-    - type: Transform
-      pos: -15.5,51.5
-      parent: 2
   - uid: 5447
     components:
     - type: Transform
@@ -93248,6 +93243,11 @@ entities:
       parent: 2
 - proto: StorageCanister
   entities:
+  - uid: 8386
+    components:
+    - type: Transform
+      pos: -15.5,51.5
+      parent: 2
   - uid: 12269
     components:
     - type: Transform
