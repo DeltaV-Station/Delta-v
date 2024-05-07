@@ -29,9 +29,7 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
 
     private void OnPurchase(Entity<ShipyardConsoleComponent> ent, ref ShipyardConsolePurchaseMessage msg)
     {
-        if (msg.Session.AttachedEntity is not {} user)
-            return;
-
+        var user = msg.Actor;
         if (!_access.IsAllowed(user, ent.Owner))
         {
             Popup.PopupClient(Loc.GetString("comms-console-permission-denied"), ent, user);
