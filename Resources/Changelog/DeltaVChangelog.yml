@@ -2254,3 +2254,20 @@
   id: 337
   time: '2024-05-06T22:04:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1165
+- author: NullWanderer
+  changes:
+  - message: Merged upstream
+    type: Add
+  id: 338
+  time: '2024-05-07T20:50:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1170
+- author: NullWanderer
+  changes:
+  - message: Fixed some of the harpies emotes that had previously broken with merges
+    type: Fix
+  - message: Futureproofed harpy emotes by allowing conflicting chat triggers to exist.
+      If you notice sounds playing twice, please report them.
+    type: Tweak
+  id: 339
+  time: '2024-05-07T23:49:26.865090+00:00'
+  url: null
