@@ -89,7 +89,7 @@ public sealed class NukeOpsTest
         Assert.That(entMan.Count<MapComponent>(), Is.GreaterThan(0));
         Assert.That(entMan.Count<MapGridComponent>(), Is.GreaterThan(0));
         Assert.That(entMan.Count<StationDataComponent>(), Is.EqualTo(2)); // The main station & nukie station
-        Assert.That(entMan.Count<StationMemberComponent>(), Is.GreaterThan(3)); // Each station has at least 1 grid, plus some shuttles
+        Assert.That(entMan.Count<StationMemberComponent>(), Is.GreaterThan(2)); // Each station has at least 1 grid, plus some shuttles // DeltaV - Changed to 2, ATS isn't a station member
         Assert.That(entMan.Count<StationCentcommComponent>(), Is.EqualTo(1));
 
         // And we now have nukie related components
