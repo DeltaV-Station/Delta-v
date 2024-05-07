@@ -4,8 +4,9 @@
 
 "Changes: Documentation":
 - changed-files:
-  - "**/*.xml"
-  - "**/*.md"
+  - any-glob-to-any-file:
+    - "**/*.xml"
+    - "**/*.md"
 
 "Changes: Localization":
 - changed-files:
