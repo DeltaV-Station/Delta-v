@@ -16,9 +16,9 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShipyardSystem _shipyard = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -81,7 +81,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             return;
 
         var state = new ShipyardConsoleState(balance);
-        _ui.TrySetUiState(uid, ShipyardConsoleUiKey.Key, state);
+        _ui.SetUiState(uid, ShipyardConsoleUiKey.Key, state);
     }
 
     private Entity<StationBankAccountComponent>? GetBankAccount(EntityUid console)

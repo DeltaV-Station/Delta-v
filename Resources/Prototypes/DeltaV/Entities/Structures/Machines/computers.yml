@@ -11,9 +11,8 @@
     key: enum.ShipyardConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-    # TODO: fix when upstream merge
-    - key: enum.ShipyardConsoleUiKey.Key
-      type: ShipyardConsoleBoundUserInterface
+      enum.ShipyardConsoleUiKey.Key:
+        type: ShipyardConsoleBoundUserInterface
   - type: Computer
     board: ShipyardComputerCircuitboard
   - type: PointLight

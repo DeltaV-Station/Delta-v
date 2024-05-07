@@ -27,9 +27,9 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
         });
     }
 
-    private void OnPurchase(Entity<ShipyardConsoleComponent> ent, ref ShipyardConsolePurchaseMessage args)
+    private void OnPurchase(Entity<ShipyardConsoleComponent> ent, ref ShipyardConsolePurchaseMessage msg)
     {
-        if (args.Session.AttachedEntity is not {} user)
+        if (msg.Session.AttachedEntity is not {} user)
             return;
 
         if (!_access.IsAllowed(user, ent.Owner))
@@ -39,7 +39,7 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
             return;
         }
 
-        if (!_proto.TryIndex(args.Vessel, out var vessel) || vessel.Whitelist?.IsValid(ent) == false)
+        if (!_proto.TryIndex(msg.Vessel, out var vessel) || vessel.Whitelist?.IsValid(ent) == false)
             return;
 
         TryPurchase(ent, user, vessel);
