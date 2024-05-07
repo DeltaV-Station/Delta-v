@@ -3,6 +3,7 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
+  antagAdvantage: 4 # DeltaV - Synthesize any chem you want with little oversight. 
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
