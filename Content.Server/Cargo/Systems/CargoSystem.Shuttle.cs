@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
@@ -50,7 +51,7 @@ public sealed partial class CargoSystem
 
     private void SetGridFill(bool obj)
     {
-        if (obj)
+        if (obj && _ticker.RunLevel != GameRunLevel.PreRoundLobby) // Ensure run level is in game
         {
             SetupTradePost();
         }
