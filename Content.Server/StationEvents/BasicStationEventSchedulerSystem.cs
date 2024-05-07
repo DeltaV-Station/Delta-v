@@ -57,7 +57,7 @@ namespace Content.Server.StationEvents
         /// </summary>
         private void ResetTimer(BasicStationEventSchedulerComponent component)
         {
-            component.TimeUntilNextEvent = _random.Next(3 * 60, 10 * 60);
+            component.TimeUntilNextEvent = _random.Next(5 * 60, 25 * 60); // DeltaV - Was between 3 and 10 minutes
         }
     }
 
