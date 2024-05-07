@@ -5,6 +5,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
 using Robust.Server.GameObjects;
+using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Shipyard;
@@ -12,10 +13,12 @@ namespace Content.Server.Shipyard;
 public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 {
     [Dependency] private readonly CargoSystem _cargo = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShipyardSystem _shipyard = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -40,13 +43,15 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
             return;
         }
 
-        if (!_shipyard.TrySendShuttle(bank.Owner, vessel.Path.ToString()))
+        if (_shipyard.TrySendShuttle(bank.Owner, vessel.Path.ToString()) is not {} shuttle)
         {
             var popup = Loc.GetString("shipyard-console-error");
             Popup.PopupEntity(popup, ent, user);
             Audio.PlayPvs(ent.Comp.DenySound, ent);
             return;
         }
+
+        _meta.SetEntityName(shuttle, $"{vessel.Name} {_random.Next(1000):000}");
 
         _cargo.UpdateBankAccount(bank, bank.Comp, -vessel.Price);
 

@@ -76,22 +76,22 @@ public sealed class ShipyardSystem : EntitySystem
     /// <summary>
     /// Adds a ship to the shipyard and attempts to ftl-dock it to the given station.
     /// </summary>
-    public bool TrySendShuttle(Entity<StationDataComponent?> station, string path)
+    public Entity<ShuttleComponent>? TrySendShuttle(Entity<StationDataComponent?> station, string path)
     {
         if (!Resolve(station, ref station.Comp))
-            return false;
+            return null;
 
         if (_station.GetLargestGrid(station.Comp) is not {} grid)
         {
             Log.Error($"Station {ToPrettyString(station):station} had no largest grid to FTL to");
-            return false;
+            return null;
         }
 
         if (TryCreateShuttle(path) is not {} shuttle)
-            return false;
+            return null;
 
         Log.Info($"Shuttle {path} was spawned for {ToPrettyString(station):station}, FTLing to {grid}");
         _shuttle.FTLToDock(shuttle, shuttle.Comp, grid, priorityTag: DockTag);
-        return true;
+        return shuttle;
     }
 }
