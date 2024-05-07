@@ -63,7 +63,6 @@ public sealed class SignatureSystem : EntitySystem
         {
             StampedName = signatureName,
             StampedColor = Color.DarkSlateGray, // TODO: make configurable? Perhaps it should depend on the pen.
-
         };
 
         if (!paperComp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState, paperComp))
