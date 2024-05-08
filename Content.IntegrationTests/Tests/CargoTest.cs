@@ -17,7 +17,7 @@ public sealed class CargoTest
     public static HashSet<ProtoId<CargoProductPrototype>> Ignored = new ()
     {
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
-        new("FunCrateGambling")
+        // new("FunCrateGambling")
     };
 
     [Test]

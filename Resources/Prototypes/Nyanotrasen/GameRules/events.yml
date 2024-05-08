@@ -82,14 +82,15 @@
       maximumGlimmer: 900
     - type: NoosphericFryRule
 
+#Deltav- was 200/500, now 500/900
 - type: entity
   id: PsionicCatGotYourTongue
   parent: BaseGlimmerEvent
   noSpawn: true
   components:
     - type: GlimmerEvent
-      minimumGlimmer: 200
-      maximumGlimmer: 500
+      minimumGlimmer: 500 
+      maximumGlimmer: 900
       glimmerBurnLower: 18
       glimmerBurnUpper: 40
     - type: PsionicCatGotYourTongueRule

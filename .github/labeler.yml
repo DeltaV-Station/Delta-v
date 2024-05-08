@@ -1,24 +1,39 @@
-﻿"Changes: C#":
-  - "**/*.cs"
+"Changes: C#":
+- changed-files:
+  - any-glob-to-any-file: "**/*.cs"
 
 "Changes: Documentation":
-  - "**/*.xml"
-  - "**/*.md"
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.xml"
+    - "**/*.md"
 
 "Changes: Localization":
-- 'Resources/Locale/**/*.ftl'
+- changed-files:
+  - any-glob-to-any-file:
+    - 'Resources/Locale/**/*.ftl'
 
 "Changes: Map":
-  - "Resources/Maps/**/*.yml"
-  - "Resources/Prototypes/Maps/**/*.yml"
+- changed-files:
+  - any-glob-to-any-file:
+    - "Resources/Maps/**/*.yml"
+    - "Resources/Prototypes/Maps/**/*.yml"
 
 "Changes: Sprite":
-  - "**/*.rsi/*.png"
-  - "**/*.rsi/*.json"
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.rsi/*.png"
+    - "**/*.rsi/*.json"
 
 "Changes: UI":
-  - "**/*.xaml*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.xaml*"
 
 "Changes: YML":
-  - any: ["**/*.yml"]
-    all: ["!Resources/Maps/**/*.yml", "!Resources/Prototypes/Maps/**/*.yml"]
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.yml"
+  - all-globs-to-all-files:
+    - "!Resources/Maps/**/*.yml"
+    - "!Resources/Prototypes/Maps/**/*.yml"

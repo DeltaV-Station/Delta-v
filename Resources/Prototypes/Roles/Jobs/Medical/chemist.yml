@@ -3,6 +3,7 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
+  antagAdvantage: 4 # DeltaV - Synthesize any chem you want with little oversight. 
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
@@ -26,7 +27,7 @@
     ears: ClothingHeadsetMedical
     belt: ChemBag
     pocket1: HandLabeler
-    # the purple glasses?
-  innerClothingSkirt: ClothingUniformJumpskirtChemistry
-  satchel: ClothingBackpackSatchelChemistryFilled
-  duffelbag: ClothingBackpackDuffelChemistryFilled
+    eyes: ClothingEyesGlassesChemical
+    innerClothingSkirt: ClothingUniformJumpskirtChemistry
+    satchel: ClothingBackpackSatchelChemistryFilled
+    duffelbag: ClothingBackpackDuffelChemistryFilled

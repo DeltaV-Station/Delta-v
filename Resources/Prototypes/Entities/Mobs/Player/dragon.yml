@@ -14,6 +14,8 @@
     makeSentient: true
     name: ghost-role-information-space-dragon-name
     description: ghost-role-information-space-dragon-description
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
@@ -85,9 +87,13 @@
       0: Alive
       450: Critical
       500: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      250: 0.7
+      400: 0.5
   - type: Metabolizer
     solutionOnBody: false
-    updateFrequency: 0.25
+    updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     groups:
     - id: Medicine
@@ -125,14 +131,13 @@
   - type: Tag
     tags:
     - CannotSuicide
+    - DoorBumpOpener
 
 - type: entity
   parent: BaseMobDragon
   id: MobDragon
   components:
   - type: Dragon
-    spawnsLeft: 2
-    spawnsProto: MobCarpDragon
     spawnRiftAction: ActionSpawnRift
   - type: GenericAntag
     rule: Dragon
@@ -147,6 +152,8 @@
   components:
   - type: GhostRole
     description: ghost-role-information-space-dragon-dungeon-description
+    raffle:
+      settings: default
   - type: SlowOnDamage
     speedModifierThresholds:
       100: 0.7

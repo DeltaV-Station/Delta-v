@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
@@ -43,14 +44,14 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoPalletConsoleComponent, BoundUIOpenedEvent>(OnPalletUIOpen);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize);
+        SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialize); // DeltaV - trade station map
 
         Subs.CVar(_cfgManager, CCVars.GridFill, SetGridFill);
     }
 
     private void SetGridFill(bool obj)
     {
-        if (obj)
+        if (obj && _ticker.RunLevel != GameRunLevel.PreRoundLobby) // Ensure run level is in game
         {
             SetupTradePost();
         }
@@ -78,21 +79,20 @@ public sealed partial class CargoSystem
 
     private void UpdatePalletConsoleInterface(EntityUid uid)
     {
-        var bui = _uiSystem.GetUi(uid, CargoPalletConsoleUiKey.Sale);
         if (Transform(uid).GridUid is not EntityUid gridUid)
         {
-            _uiSystem.SetUiState(bui,
+            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
             new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
         GetPalletGoods(gridUid, out var toSell, out var amount);
-        _uiSystem.SetUiState(bui,
+        _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
             new CargoPalletConsoleInterfaceState((int) amount, toSell.Count, true));
     }
 
     private void OnPalletUIOpen(EntityUid uid, CargoPalletConsoleComponent component, BoundUIOpenedEvent args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
@@ -110,7 +110,7 @@ public sealed partial class CargoSystem
 
     private void OnPalletAppraise(EntityUid uid, CargoPalletConsoleComponent component, CargoPalletAppraiseMessage args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
@@ -132,8 +132,8 @@ public sealed partial class CargoSystem
         var orders = GetProjectedOrders(station ?? EntityUid.Invalid, orderDatabase, shuttle);
         var shuttleName = orderDatabase?.Shuttle != null ? MetaData(orderDatabase.Shuttle.Value).EntityName : string.Empty;
 
-        if (_uiSystem.TryGetUi(uid, CargoConsoleUiKey.Shuttle, out var bui))
-            _uiSystem.SetUiState(bui, new CargoShuttleConsoleBoundUserInterfaceState(
+        if (_uiSystem.HasUi(uid, CargoConsoleUiKey.Shuttle))
+            _uiSystem.SetUiState(uid, CargoConsoleUiKey.Shuttle, new CargoShuttleConsoleBoundUserInterfaceState(
                 station != null ? MetaData(station.Value).EntityName : Loc.GetString("cargo-shuttle-console-station-unknown"),
                 string.IsNullOrEmpty(shuttleName) ? Loc.GetString("cargo-shuttle-console-shuttle-not-found") : shuttleName,
                 orders
@@ -178,7 +178,7 @@ public sealed partial class CargoSystem
                     // We won't be able to fit the whole order on, so make one
                     // which represents the space we do have left:
                     var reducedOrder = new CargoOrderData(order.OrderId,
-                            order.ProductId, order.Price, spaceRemaining, order.Requester, order.Reason);
+                            order.ProductId, order.ProductName, order.Price, spaceRemaining, order.Requester, order.Reason);
                     orders.Add(reducedOrder);
                 }
                 else
@@ -338,17 +338,16 @@ public sealed partial class CargoSystem
 
     private void OnPalletSale(EntityUid uid, CargoPalletConsoleComponent component, CargoPalletSellMessage args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
 
-        var bui = _uiSystem.GetUi(uid, CargoPalletConsoleUiKey.Sale);
         var xform = Transform(uid);
 
         if (xform.GridUid is not EntityUid gridUid)
         {
-            _uiSystem.SetUiState(bui,
+            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
             new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
@@ -370,6 +369,7 @@ public sealed partial class CargoSystem
         CleanupTradeStation();
     }
 
+    // DeltaV - begin trade station map
     private void OnStationInitialize(StationInitializedEvent args)
     {
         if (!HasComp<StationCargoOrderDatabaseComponent>(args.Station)) // No cargo, L
@@ -378,6 +378,7 @@ public sealed partial class CargoSystem
         if (_cfgManager.GetCVar(CCVars.GridFill))
             SetupTradePost();
     }
+    // DeltaV - end trade station map
 
     private void CleanupTradeStation()
     {
@@ -392,6 +393,7 @@ public sealed partial class CargoSystem
         CargoMap = null;
     }
 
+    // DeltaV - begin trade station map
     private void SetupTradePost()
     {
         if (CargoMap != null && _mapManager.MapExists(CargoMap.Value))
@@ -421,7 +423,6 @@ public sealed partial class CargoSystem
             var shuttleComponent = EnsureComp<ShuttleComponent>(grid);
             shuttleComponent.AngularDamping = 10000;
             shuttleComponent.LinearDamping = 10000;
-            Dirty(shuttleComponent);
         }
 
         var mapUid = _mapManager.GetMapEntityId(CargoMap.Value);
@@ -438,6 +439,7 @@ public sealed partial class CargoSystem
 
         _console.RefreshShuttleConsoles();
     }
+    // DeltaV - end trade station map
 }
 
 /// <summary>
