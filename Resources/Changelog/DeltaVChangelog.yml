@@ -2212,3 +2212,62 @@
   id: 332
   time: '2024-05-04T16:59:28.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1130
+- author: NullWanderer
+  changes:
+  - message: The color mixing applied to moths has been increased in strength by 25%.
+    type: Tweak
+  id: 333
+  time: '2024-05-06T15:27:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1015
+- author: Mnemotechnician
+  changes:
+  - message: Carrying is less likely to behave erratically or suddenly interrupt now.
+    type: Fix
+  - message: You can now see when someone is trying to pick you up, and also you can
+      interrupt your attempt at escaping from their hands or inventory.
+    type: Add
+  - message: You can now properly take Felinids out of bags and place them inside.
+    type: Add
+  - message: Scientists have discovered that Felinids can sleep in bags.
+    type: Add
+  id: 334
+  time: '2024-05-06T18:21:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1118
+- author: Lyndomen
+  changes:
+  - message: Syndicate Agents will no longer receive the "Become Psionic" objective.
+    type: Tweak
+  id: 335
+  time: '2024-05-06T22:02:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1166
+- author: Lyndomen
+  changes:
+  - message: Psionic Mute now has a higher Glimmer threshold for when it may occur.
+    type: Tweak
+  id: 336
+  time: '2024-05-06T22:02:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1168
+- author: Lyndomen
+  changes:
+  - message: Changed TC penalties for several roles! Atmosians rejoice.
+    type: Tweak
+  id: 337
+  time: '2024-05-06T22:04:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1165
+- author: NullWanderer
+  changes:
+  - message: Merged upstream
+    type: Add
+  id: 338
+  time: '2024-05-07T20:50:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1170
+- author: NullWanderer
+  changes:
+  - message: Fixed some of the harpies emotes that had previously broken with merges
+    type: Fix
+  - message: Futureproofed harpy emotes by allowing conflicting chat triggers to exist.
+      If you notice sounds playing twice, please report them.
+    type: Tweak
+  id: 339
+  time: '2024-05-07T23:49:26.865090+00:00'
+  url: null
