@@ -24,6 +24,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Power\Components\" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="DeltaV\Abilities\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

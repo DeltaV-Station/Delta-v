@@ -196,8 +196,9 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
+#    - ShoesRequiredStepTriggerImmune # DeltaV - Replaced by ClothingRequiredStepTriggerImmune
     # let mind transfer on gib work
     - MindTransferTarget
     # its just metal so no implants
     - Unimplantable
+  - type: ClothingRequiredStepTriggerImmune # DeltaV - Replaces ShoesRequiredStepTriggerImmuneTag
