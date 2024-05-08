@@ -12,14 +12,14 @@ namespace Content.Server.DeltaV.Paper;
 
 public sealed class SignatureSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IdCardSystem _idCard = default!;
+    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     // The sprite used to visualize "signatures" on paper entities.
-    private static readonly string SignatureStampState = "paper_stamp-signature";
+    private const string SignatureStampState = "paper_stamp-signature";
 
     public override void Initialize()
     {
@@ -39,7 +39,7 @@ public sealed class SignatureSystem : EntitySystem
         {
             Act = () =>
             {
-                TrySignPaper(uid, args.User, component);
+                TrySignPaper((uid, component), args.User);
             },
             Text = Loc.GetString("paper-sign-verb"),
             DoContactInteraction = true,
@@ -51,9 +51,9 @@ public sealed class SignatureSystem : EntitySystem
     /// <summary>
     ///     Tries add add a signature to the paper with signer's name.
     /// </summary>
-    /// <param name="silent">Whether to avoid showing a popup if the paper cannot be signed.</param>
-    public bool TrySignPaper(EntityUid paper, EntityUid signer, PaperComponent? paperComp = null)
+    public bool TrySignPaper(Entity<PaperComponent?> paper, EntityUid signer)
     {
+        var paperComp = paper.Comp;
         if (!Resolve(paper, ref paperComp))
             return false;
 
