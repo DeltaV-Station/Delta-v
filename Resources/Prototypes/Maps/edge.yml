@@ -2,7 +2,7 @@
   id: Edge
   mapName: 'Edge'
   mapPath: /Maps/edge.yml
-  minPlayers: 10
+  minPlayers: 0
   maxPlayers: 80
   stations:
     Edge:
@@ -21,6 +21,8 @@
           availableJobs:
           #service
             Captain: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 3 ]
@@ -44,6 +46,7 @@
             Psychologist: [ 1, 1 ]
             MedicalDoctor: [ 3, 5 ]
             MedicalIntern: [ 2, 4 ]
+            Slugcat: [ 1, 1 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -65,4 +68,3 @@
             CargoTechnician: [ 2, 4 ]
           #civilian
             Passenger: [ -1, -1 ]
-

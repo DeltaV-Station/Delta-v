@@ -3,11 +3,10 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
-  antagAdvantage: 4 # DeltaV - Protolathe, Increased Psionics, Gib machine, anomaly access, glimmer factor
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 14400 #DeltaV 4 hours
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Epistemics # DeltaV - Epistemics Department replacing Science
+  #    time: 14400 #DeltaV 4 hours
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd

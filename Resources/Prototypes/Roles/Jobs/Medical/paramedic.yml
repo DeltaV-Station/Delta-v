@@ -4,15 +4,18 @@
   description: job-description-paramedic
   playTimeTracker: JobParamedic
   antagAdvantage: 2 # DeltaV - Reduced TC: External Access
+  #requirements:
+  #  # - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
+  #  #   role: JobMedicalDoctor
+  #  #   time: 14400 #4 hrs
+  #  - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
+  #    department: Medical
+  #    time: 28800 # DeltaV - 8 hours
+  #  # - !type:OverallPlaytimeRequirement # DeltaV - No playtime requirement
+  #  #   time: 54000 # 15 hrs
   requirements:
-    # - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
-    #   role: JobMedicalDoctor
-    #   time: 14400 #4 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
-      department: Medical
-      time: 28800 # DeltaV - 8 hours
-    # - !type:OverallPlaytimeRequirement # DeltaV - No playtime requirement
-    #   time: 54000 # 15 hrs
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

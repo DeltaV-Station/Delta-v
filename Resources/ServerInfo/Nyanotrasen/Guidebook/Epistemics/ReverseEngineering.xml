@@ -1,33 +1,34 @@
 <Document>
-# Reverse Engineering
+# Машина обратного проектирования
 
 <GuideEntityEmbed Entity="ReverseEngineeringMachine"/>
 
-The reverse engineering machine allows salvage to bootstrap their way into unlocking powerful lathe recipes that are otherwise unacquirable.
+Машина обратного проектирования позволяет найти редкие и сложные черчежи, которые невозможно получить иначе.
 
-The machine's power is very limited without upgrades to its matter bin and manipulator.
-The matter bin increases its analysis power and the manipulator decreases the chance of destruction with safety turned off.
+Мощность машины очень ограничена без модернизации.
+Ёмкость материи увеличивает возможности анализа, а манипулятор снижает вероятность разрушения при отключенной безопасного режима.
 
-## Operation
+## Операции
 
-The machine will only accept items it can reverse engineer. Currently this is most circuit boards and machine parts, but it accepts quite a variety of objects.
+Машина будет принимать только те элементы, которые можно реконструировать. В настоящее время это большинство печатных плат и деталей машин, но он принимает и довольно разнообразные объекты.
 
-It does not accept firearms and never will.
+Он не исследует огнестрельное оружие.
 
-To use the machine, insert an item and use the buttons on the left.
+Чтобы использовать машину, вставьте предмет и используйте кнопки слева.
 
-- [color=#a4885c]Analyze:[/color]
-This starts a new reverse engineering attempt.
+- [color=#a4885c]Анализ:[/color]
+Это начинает новую попытку обратного проектирования.
 
-- [color=#a4885c]Safety:[/color]
-With safety off, you have more analysis power, but there is a chance to destroy the item.
+- [color=#a4885c]Безопасность:[/color]
+Если безопасность отключена, у вас больше аналитических возможностей, но есть шанс сломать объект.
 
-- [color=#a4885c]AutoProbe:[/color]
-This will automatically start a new attempt when the last one ends.
+- [color=#a4885c]АвтоИсследование:[/color]
+Это автоматически начнет новую попытку, когда закончится последняя. И так до получения дерчежа в технологическом диска.
 
-- [color=#a4885c]Stop:[/color]
-Stops the current attempt.
 
-- [color=#a4885c]Item:[/color]
-Ejects the item.
+- [color=#a4885c]Остановить:[/color]
+Останавливает текущую попытку.
+
+- [color=#a4885c]Извлечь:[/color]
+Извлечь объект.
 </Document>

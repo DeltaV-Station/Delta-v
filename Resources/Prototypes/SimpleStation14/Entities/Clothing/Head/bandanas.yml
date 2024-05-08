@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: HatBandLightBlue
+  name: light blue bandana
+  description: A light blue bandana fitting for security.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Bandanas/lightblue.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Bandanas/lightblue.rsi

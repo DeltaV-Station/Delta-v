@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: dissolver
+  name: dielectric dissolver
+  description: It asks for items to continue research on. Works through some crazy space science. Placeholder sprite.
+  components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: SimpleStation14/Structures/Machines/dissolver.rsi
+    layers:
+      - state: chamber_temp
+  - type: Oracle
+  - type: Speech
+    speechSounds: Pai
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: PointLight
+    enabled: false
+    # castShadows: false
+    radius: 1.5
+  - type: LitOnPowered

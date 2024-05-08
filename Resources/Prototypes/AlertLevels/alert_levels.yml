@@ -5,19 +5,19 @@
     green:
       announcement: alert-level-green-announcement
       color: Green
-      sound: /Audio/Announcements/Alerts/code_green.ogg
+      sound: /Audio/Misc/notice1.ogg
       emergencyLightColor: LawnGreen
       shuttleTime: 600
     blue:
       announcement: alert-level-blue-announcement
-      sound: /Audio/Announcements/Alerts/code_blue.ogg
+      sound: /Audio/Misc/bluealert.ogg
       color: DodgerBlue
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/Announcements/Alerts/code_violet.ogg
+      sound: /Audio/Misc/notice1.ogg
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
@@ -31,7 +31,7 @@
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Announcements/Alerts/code_yellow.ogg
+      sound: /Audio/Misc/notice1.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
@@ -46,7 +46,7 @@
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
-      sound: /Audio/Announcements/Alerts/code_gamma.ogg
+      sound: /Audio/Misc/siren.ogg
       disableSelection: true
       color: PaleVioletRed
       emergencyLightColor: PaleVioletRed
@@ -55,7 +55,7 @@
     delta:
       announcement: alert-level-delta-announcement
       selectable: false
-      sound: /Audio/Announcements/Alerts/code_delta.ogg
+      sound: /Audio/Misc/delta.ogg
       disableSelection: true
       color: DarkRed
       emergencyLightColor: Orange

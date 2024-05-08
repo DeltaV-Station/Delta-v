@@ -3,9 +3,9 @@
   name: job-name-clown
   description: job-description-clown
   playTimeTracker: JobClown
-  requirements:
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 7200 #2 hrs
+  #requirements:
+  #  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+  #    time: 7200 #2 hrs
   startingGear: ClownGear
   icon: "JobIconClown"
   supervisors: job-supervisors-hop

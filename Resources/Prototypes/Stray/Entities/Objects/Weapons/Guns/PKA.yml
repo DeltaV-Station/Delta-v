@@ -1,0 +1,87 @@
+- type: entity
+  id: WeaponProtoKineticAcceleratorMining
+  parent: WeaponProtoKineticAccelerator
+  name: Mining ProtoKinetic Accelerator
+  description: A weapon for mining, or revolution.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_mining.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+  - type: Item
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_mining.rsi
+  - type: Clothing
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_mining.rsi
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+    capacity: 1
+    count: 1
+
+- type: entity
+  id: WeaponProtoKineticAcceleratorAdvancedMining
+  parent: WeaponProtoKineticAcceleratorMining
+  name: Advanced Mining ProtoKinetic Accelerator
+  description: A weapon for mining, or revolution.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_DRG.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+  - type: Item
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_DRG.rsi
+  - type: Clothing
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_DRG.rsi
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: AmmoCounter
+    capacity: 30
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+    capacity: 30
+    count: 1
+
+- type: entity
+  id: WeaponProtoKineticAcceleratorSubversiveMining
+  parent: WeaponProtoKineticAcceleratorMining
+  name: Subversive Mining ProtoKinetic Accelerator
+  description: A weapon for mining, or revolution.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_bomb.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+  - type: Item
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_bomb.rsi
+  - type: Clothing
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_bomb.rsi
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+  - type: AmmoCounter
+    capacity: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 30
+  - type: BasicEntityAmmoProvider
+    proto: BulletGrenadeBlast
+    capacity: 1
+    count: 1

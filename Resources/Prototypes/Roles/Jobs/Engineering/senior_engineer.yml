@@ -4,16 +4,19 @@
   description: job-description-senior-engineer
   playTimeTracker: JobSeniorEngineer
   setPreference: false # DeltaV - Disable Senior Roles round start selection
+  #requirements:
+  #  - !type:RoleTimeRequirement
+  #    role: JobAtmosphericTechnician
+  #    time: 21600 #6 hrs
+  #  - !type:RoleTimeRequirement
+  #    role: JobStationEngineer
+  #    time: 21600 #6 hrs
+  #  - !type:DepartmentTimeRequirement
+  #    department: Engineering
+  #    time: 216000 # 60 hrs
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 21600 #6 hrs
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 216000 # 60 hrs
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1800
   startingGear: SeniorEngineerGear
   icon: "JobIconSeniorEngineer"
   supervisors: job-supervisors-ce

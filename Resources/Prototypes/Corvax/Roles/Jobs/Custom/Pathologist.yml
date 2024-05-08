@@ -1,0 +1,31 @@
+- type: job
+  id: Pathologist
+  name: job-name-pathologist
+  description: job-description-pathologist
+  playTimeTracker: JobPathologist
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
+  startingGear: PathologistGear
+  icon: "JobIconPathologist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
+  - Paramedic # DeltaV - Add Paramedic access
+
+- type: startingGear
+  id: PathologistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    back: ClothingBackpackMedicalFilled
+    shoes: ClothingShoesColorWhite
+    outerClothing: ClothingOuterWinterMed
+    id: MedicalPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+  innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled

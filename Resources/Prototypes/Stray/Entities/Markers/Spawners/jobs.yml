@@ -1,0 +1,35 @@
+- type: entity
+  id: SpawnPointIAA
+  parent: SpawnPointJobBase
+  name: IAA
+  components:
+  - type: SpawnPoint
+    job_id: IAA
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer
+
+- type: entity
+  id: SpawnPointSeniorSlugcat
+  parent: SpawnPointJobBase
+  name: Slugcat
+  components:
+  - type: SpawnPoint
+    job_id: Slugcat
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorphysician
+
+- type: entity
+  id: SpawnPointBlueshield
+  parent: SpawnPointJobBase
+  name: Blueshield
+  components:
+  - type: SpawnPoint #Delta V
+    job_id: Blueshield
+  - type: Sprite
+    layers:
+      - state: green
+      - state: brigmedic
