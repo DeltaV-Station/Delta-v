@@ -76,7 +76,7 @@
     Steel: 100
     Plastic: 200
     Glass: 100
-    
+
 - type: latheRecipe
   id: SignallerAdvanced
   result: RemoteSignallerAdvanced
@@ -177,6 +177,14 @@
     Silver: 750
     Plasma: 1000 #DeltaV: Bluespace Exists so less plasma used, no uranium
     Bluespace: 200 #DeltaV: Bluespace Exists
+
+- type: latheRecipe
+  id: ClothingMaskWeldingGas
+  result: ClothingMaskWeldingGas
+  completetime: 3
+  materials:
+    Steel: 600
+    Glass: 200
 
 #- type: latheRecipe #DeltaV - LRP
 #  id: WeaponForceGun
