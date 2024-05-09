@@ -19,5 +19,6 @@ public sealed class ThievingSystem : EntitySystem
     {
         args.Stealth |= component.Stealthy;
         args.Additive -= component.StripTimeReduction;
+        args.Multiplier *= component.StripTimeMultiplier;
     }
 }
