@@ -7,6 +7,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      time: 900 #DeltaV 6 hrs
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
