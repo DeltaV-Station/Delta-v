@@ -19,4 +19,16 @@ public sealed partial class ThievingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("stealthy")]
     public bool Stealthy;
+
+    /// <summary>
+    ///  Should the user be able to see hidden items? (i.e pockets)
+    /// </summary>
+    [DataField]
+    public bool IgnoreStripHidden; //DeltaV
+
+    /// <summary>
+    ///  A multiplier coefficient for strip time
+    /// </summary>
+    [DataField]
+    public float StripTimeMultiplier = 1f; //DeltaV
 }

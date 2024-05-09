@@ -2271,3 +2271,17 @@
   id: 339
   time: '2024-05-07T23:49:26.865090+00:00'
   url: null
+- author: WarMechanic
+  changes:
+  - message: Added the IgnoreStripHidden variable to ThievingComponent, which allows
+      entities to look into the pockets of mobs it strips.
+    type: Tweak
+  - message: Added the StripTimeMultiplier variable to ThievingComponent, which multiplies
+      strip time.
+    type: Tweak
+  - message: Felinids and Admin Observers are now able to identify items in pockets
+      of other players. Felinids also gain a faster strip speed.
+    type: Add
+  id: 340
+  time: '2024-05-09T04:40:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1102
