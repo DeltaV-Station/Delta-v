@@ -1,0 +1,84 @@
+- type: entity
+  id: LockerBestlungVertigerJiFilled
+  name: шкаф Вертеигера Джи
+  description: стандартное хранилище
+  parent: ClosetSteelBase
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSniperMosin
+      - id: MagazineBoxLightRifle
+      - id: ClothingBeltMilitaryWebbingBestlung
+      - id: ClothingShoesBootsJack
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskNeckGaiter
+      - id: SpeedLoaderLightRifle
+      - id: CombatKnife
+      - id: ClothingHeadsetAltFreelancer
+      - id: ClothingOuterArmorBestlungJaketJi
+      - id: ClothingHeadBestlungHelmetJi
+      - id: ClothingUniformJumpsuitBestlungJi
+  - type: Sprite
+    sprite: Stray/Structures/Storage/LockerJi.rsi
+    noRot: true
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+
+
+
+- type: entity
+  id: LockerBestlungVertigerAntazioFilled
+  name: шкаф Вертеигера Аназио
+  description: стандартное хранилище
+  parent: ClosetSteelBase
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunTypewriter
+      - id: MagazinePistolSubMachineGun
+      - id: MagazineBoxPistol
+      - id: ClothingBeltMilitaryWebbingBestlung
+      - id: ClothingShoesBootsJackSecFilled
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingMaskNeckGaiter
+      - id: SpeedLoaderLightRifle
+      - id: ClothingHeadsetAltFreelancer
+      - id: ClothingOuterArmorBestlungJaketAnazio
+      - id: ClothingHeadBestlungHelmetAnazio
+      - id: ClothingUniformJumpsuitBestlungAnazio
+  - type: Sprite
+    sprite: Stray/Structures/Storage/LockenAnazio.rsi
+    noRot: true
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateSteelBestlung
+  name: ящик
+  description: стандартное хранилище
+  suffix: Бэстенлунг
+  components:
+  - type: Icon
+    sprite: Stray/Structures/Storage/CrateBestlung.rsi
+  - type: Sprite
+    sprite: Stray/Structures/Storage/CrateBestlung.rsi
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90

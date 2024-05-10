@@ -1,0 +1,52 @@
+- type: entity
+  id: BannerBestlung
+  parent: BannerBase
+  name: Знамя Бэстенлунга
+  description: Знамя Бэстенлунга
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Structures/Misc/banner.rsi
+    state: banner
+
+- type: entity
+  parent: PosterBase
+  id: PosterBaseBestlung
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Stray/Structures/Misc/Posters.rsi
+
+- type: entity
+  parent: PosterBaseBestlung
+  id: PosterInstructionBestlung
+  suffix: Бэстенлунг
+  name: инструкция по сборке винтовки
+  description: "Инструкция по сборке Кардашёва-Мосина. Выпилите деревянное основание, выпилите ствол и ударник. Собирите это вместе, а затем вставьте модульный ресивер. В конце привяжите лямку. Сдайте винтовку на склад."
+  components:
+  - type: Sprite
+    state: mosin
+
+- type: entity
+  parent: PosterBaseBestlung
+  suffix: Бэстенлунг
+  id: PosterFlagBestlung
+  name: флаг Бэстенлунга
+  description: Просто флаг Бэстенлунга.
+  components:
+  - type: Sprite
+    state: flag
+
+
+- type: entity
+  parent: BaseSign
+  id: ClothFlagBestlung
+  suffix: Бэстенлунг
+  name: флаг Бэстенлунга
+  description: тканьевый флаг Бэстенлунга.
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    sprite: Stray/Structures/Misc/Posters.rsi
+    state: clothFlag
