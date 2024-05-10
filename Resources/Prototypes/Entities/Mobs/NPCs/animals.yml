@@ -2180,6 +2180,7 @@
       0: Alive
       90: Dead
   - type: MeleeWeapon
+    altDisarm: false
     angle: 0
     animation: WeaponArcBite
     soundHit:
@@ -2306,6 +2307,7 @@
     - type: Spider
       webPrototype: SpiderWebClown
     - type: MeleeWeapon
+      altDisarm: false
       angle: 0
       animation: WeaponArcBite
       soundHit:
