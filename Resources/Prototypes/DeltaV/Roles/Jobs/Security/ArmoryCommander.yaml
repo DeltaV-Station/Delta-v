@@ -1,11 +1,11 @@
 - type: job
   id: ArmoryCommander
   parent: Warden
-  name: job-name-warden #here
-  description: job-description-warden  #here
+  name: job-name-armory-commander
+  description: job-description-armory-commander
   playTimeTracker: JobArmoryCommander
   startingGear: ArmoryCommanderGear
-  icon: "JobIconWarden"
+  icon: "JobIconWarden" #here???
 
 - type: startingGear
   id: ArmoryCommanderGear
