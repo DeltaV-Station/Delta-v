@@ -1,0 +1,25 @@
+- type: job
+  id: ArmoryCommander
+  parent: Warden
+  name: job-name-warden #here
+  description: job-description-warden  #here
+  playTimeTracker: JobArmoryCommander
+  startingGear: ArmoryCommanderGear
+  icon: "JobIconWarden"
+
+- type: startingGear
+  id: ArmoryCommanderGear
+  equipment:
+    head: ClothingHeadHatWarden  #here
+    jumpsuit: ClothingUniformJumpsuitWarden  #here
+    back: ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSecurity
+    outerClothing: ClothingOuterCoatWarden  #here
+    id: WardenPDA  #here
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponPistolMk58Nonlethal
+  innerClothingSkirt: ClothingUniformJumpskirtWarden  #here
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled

@@ -13,3 +13,16 @@
       state: medical
     - sprite: Mobs/Silicon/chassis.rsi
       state: medical_e
+
+- type: entity
+  id: SpawnPointArmoryCommander
+  parent: SpawnPointJobBase
+  name: armory commander
+  suffix: Hammurabi
+  components:
+  - type: SpawnPoint
+    job_id: ArmoryCommander
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warden #here??
