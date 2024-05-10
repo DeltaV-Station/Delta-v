@@ -968,20 +968,20 @@
       - ClothingUniformJumpskirtColorGrey
       - ClothingUniformJumpsuitBartender
       - ClothingUniformJumpskirtBartender
-      - ClothingHeadHatCapcap
-      - ClothingHeadHatCaptain
-      - ClothingUniformJumpsuitCaptain
-      - ClothingUniformJumpskirtCaptain
-      - ClothingUniformJumpsuitCapFormal
-      - ClothingUniformJumpskirtCapFormalDress
+      #- ClothingHeadHatCapcap # Delta V - remove head clothing from uniform printer
+      #- ClothingHeadHatCaptain
+      #- ClothingUniformJumpsuitCaptain
+      #- ClothingUniformJumpskirtCaptain
+      #- ClothingUniformJumpsuitCapFormal
+      #- ClothingUniformJumpskirtCapFormalDress
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
       - ClothingHeadHatBeretEngineering
-      - ClothingUniformJumpsuitChiefEngineer
-      - ClothingUniformJumpskirtChiefEngineer
-      - ClothingUniformJumpsuitChiefEngineerTurtle
-      - ClothingUniformJumpskirtChiefEngineerTurtle
+      #- ClothingUniformJumpsuitChiefEngineer # Delta V - remove head clothing from uniform printer
+      #- ClothingUniformJumpskirtChiefEngineer
+      #- ClothingUniformJumpsuitChiefEngineerTurtle
+      #- ClothingUniformJumpskirtChiefEngineerTurtle
       - ClothingUniformJumpsuitChaplain
       - ClothingUniformJumpskirtChaplain
       - ClothingUniformJumpsuitChef
@@ -989,9 +989,9 @@
       - ClothingUniformJumpsuitChemistry
       - ClothingUniformJumpskirtChemistry
       - ClothingUniformJumpsuitClown
-      - ClothingHeadHatBeretCmo
-      - ClothingUniformJumpsuitCMO
-      - ClothingUniformJumpskirtCMO
+      #- ClothingHeadHatBeretCmo # Delta V - remove head clothing from uniform printer
+      #- ClothingUniformJumpsuitCMO
+      #- ClothingUniformJumpskirtCMO
       - ClothingUniformJumpsuitDetective
       - ClothingUniformJumpskirtDetective
       - ClothingUniformJumpsuitEngineering
@@ -1001,22 +1001,18 @@
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
-      - ClothingHeadHatBeretHoS
-      - ClothingHeadHatHoshat
-      - ClothingUniformJumpsuitHoS
-      - ClothingUniformJumpskirtHoS
-      - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitHosFormal
-      - ClothingUniformJumpskirtHosFormal
-      - ClothingUniformJumpsuitHoSAlt
-      - ClothingUniformJumpskirtHoSAlt
-      - ClothingUniformJumpsuitHoSBlue
-      - ClothingUniformJumpsuitHoSGrey
-      - ClothingUniformJumpsuitHoSParadeMale
-      - ClothingUniformJumpskirtHoSParadeMale
+      #- ClothingHeadHatBeretHoS # Delta V - remove head clothing from uniform printer
+      #- ClothingHeadHatHoshat
+      #- ClothingUniformJumpsuitHoS
+      #- ClothingUniformJumpskirtHoS
+      #- ClothingUniformJumpsuitHosFormal
+      #- ClothingUniformJumpskirtHosFormal
+      #- ClothingUniformJumpsuitHoSAlt
+      #- ClothingUniformJumpskirtHoSAlt
+      #- ClothingUniformJumpsuitHoSBlue
+      #- ClothingUniformJumpsuitHoSGrey
+      #- ClothingUniformJumpsuitHoSParadeMale
+      #- ClothingUniformJumpskirtHoSParadeMale
       - ClothingUniformJumpsuitHydroponics
       - ClothingUniformJumpskirtHydroponics
       - ClothingUniformJumpsuitJanitor
@@ -1042,16 +1038,16 @@
       - ClothingUniformJumpskirtSeniorOfficer
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
-      - ClothingHeadHatQMsoft
-      - ClothingHeadHatBeretQM
-      - ClothingUniformJumpsuitQM
-      - ClothingUniformJumpskirtQM
-      - ClothingUniformJumpsuitQMTurtleneck
-      - ClothingUniformJumpskirtQMTurtleneck
-      - ClothingUniformJumpsuitQMFormal
-      - ClothingHeadHatBeretRND
-      - ClothingUniformJumpsuitResearchDirector
-      - ClothingUniformJumpskirtResearchDirector
+      #- ClothingHeadHatQMsoft # Delta V - remove head clothing from uniform printer
+      #- ClothingHeadHatBeretQM
+      #- ClothingUniformJumpsuitQM
+      #- ClothingUniformJumpskirtQM
+      #- ClothingUniformJumpsuitQMTurtleneck
+      #- ClothingUniformJumpskirtQMTurtleneck
+      #- ClothingUniformJumpsuitQMFormal
+      #- ClothingHeadHatBeretRND
+      #- ClothingUniformJumpsuitResearchDirector
+      #- ClothingUniformJumpskirtResearchDirector
       - ClothingUniformJumpsuitScientist
       - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSeniorResearcher
@@ -1076,21 +1072,21 @@
       - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
       - ClothingHeadHatParamedicsoft
       # Winter outfits
-      - ClothingOuterWinterCap
-      - ClothingOuterWinterCE
-      - ClothingOuterWinterCMO
+      #- ClothingOuterWinterCap # Delta V - remove head clothing from uniform printer
+      #- ClothingOuterWinterCE
+      #- ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
       - ClothingOuterWinterHoSUnarmored
       - ClothingOuterWinterWardenUnarmored
-      - ClothingOuterWinterQM
-      - ClothingOuterWinterRD
-      - ClothingNeckMantleCap
-      - ClothingNeckMantleCE
-      - ClothingNeckMantleCMO
+      #- ClothingOuterWinterQM # Delta V - remove head clothing from uniform printer
+      #- ClothingOuterWinterRD
+      #- ClothingNeckMantleCap
+      #- ClothingNeckMantleCE
+      #- ClothingNeckMantleCMO
       - ClothingNeckMantleHOP
-      - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
-      - ClothingNeckMantleQM
+      #- ClothingNeckMantleHOS
+      #- ClothingNeckMantleRD
+      #- ClothingNeckMantleQM
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
