@@ -3,6 +3,25 @@
 
 - type: entity
   parent: ClothingShoesBase
+  id: ClothingUnderSocksStripedBase
+  noSpawn: true
+  components:
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandLightBlue
   name: light blue striped socks
   description: Wearing these makes you feel just a little bit lazier
@@ -11,22 +30,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedCaptainBlueandGold
   name: Blue and gold striped socks
   description: Striped Socks that make you feel special enough to boss the heads
@@ -35,22 +41,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandGold.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandGold.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedCaptainBlueandWhite
   name: Blue striped socks
   description: Striped Socks that make you feel special enough to boss the heads
@@ -59,22 +52,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandWhite.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandWhite.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedCaptainGoldandBlue
   name: Gold and blue striped socks
   description: Striped Socks that make you feel special enough to boss the heads
@@ -83,22 +63,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainGoldandBlue.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainGoldandBlue.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedCargo
   name: Cargo striped socks
   description: These Striped Socks make you feel a little bit stronger
@@ -107,22 +74,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargo.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargo.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedCargoQm
   name: Logistics striped socks
   description: Striped Socks that make you feel like becoming an independant Station State
@@ -131,22 +85,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargoQm.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargoQm.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: SocksStripedEngineeringAtmos
   name: Atmos Tech striped socks
   description: Striped socks to make you stand out in an emergency
@@ -155,22 +96,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineeringAtmos.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineeringAtmos.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedEngineering
   name: Engineer striped socks
   description: Striped socks to make you stand out in an emergency
@@ -179,22 +107,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineering.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineering.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedScience
   name: Science striped socks
   description: These Striped socks make you want to do some Science
@@ -203,22 +118,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedScience.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedScience.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedSecurity
   name: Security striped socks
   description: These striped socks make you feel like beating up a mime
@@ -227,22 +129,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurity.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurity.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesMilitaryBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedSecurityJackboots
   name: JackBoots with striped socks
   description: The striped socks make you feel a little more "Secure"
@@ -251,23 +140,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurityJackboots.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurityJackboots.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandGreen
   name: Green striped socks
   description: Minty! Now in Green.
@@ -276,23 +151,10 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandGreen.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandGreen.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 
 - type: entity
-  parent: ClothingShoesSlippers
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper
   name: Striped socks with bunny slippers
   description: A pair of bunny slippers with striped socks for all your hospital needs.
@@ -301,22 +163,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandOrange
   name: Orange striped socks
   description: Striped Socks that match the traffic style
@@ -325,23 +174,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandOrange.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandOrange.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandPurple
   name: Purple striped socks
   description: Striped Socks that smell like Grape Soda
@@ -350,22 +185,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandPurple.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandPurple.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandRed
   name: Red striped socks
   description: Minty! Now in red
@@ -374,22 +196,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandRed.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandRed.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedWhiteandYellow
   name: yellow striped socks
   description: Please don't order pilk at the bar
@@ -398,23 +207,9 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandYellow.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandYellow.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksStripedBase
   id: ClothingUnderSocksStripedYellowandPurple
   name: Yellow and purple striped socks
   description: Striped Socks styled after banana and grape jelly sandwiches
@@ -423,16 +218,3 @@
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedYellowandPurple.rsi
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedYellowandPurple.rsi
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
