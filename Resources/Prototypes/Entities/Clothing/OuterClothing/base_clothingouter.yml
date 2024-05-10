@@ -139,6 +139,7 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: AllowSuitStorage
 
 - type: entity
   abstract: true
@@ -162,6 +163,7 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterBase
