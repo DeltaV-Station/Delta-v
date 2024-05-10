@@ -36,6 +36,11 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: Tag #Delta-V : Adds tags to fix the Syndicate Jumpskirt, which is parented to this? this needs to be updated with *every* new tag given to UnsensoredClothingUniformBase, as tags aren't inherited
+    tags:
+    - Skirt # Delta-V : Harpies can wear this
+    - ClothMade # Delta-V : Moths can eat this
+    - WhitelistChameleon # Delta-V : You can set Chameleon clothes to this.
 
 
 - type: entity
@@ -59,7 +64,8 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-  - type: Tag #DeltaV, needed for species with nonhuman legs/can only wear skirts
+  - type: Tag #Delta-V : Adds the Skirt tag so Harpies can wear this, this needs to be updated with *every* new tag given to UnsensoredClothingUniformBase, as tags aren't inherited
     tags:
-    - Skirt
-    - ClothMade # Delta-V - allows moths to eat this
+    - Skirt # Delta-V : Harpies can wear this
+    - ClothMade # Delta-V : Moths can eat this
+    - WhitelistChameleon # Delta-V : You can set Chameleon clothes to this.

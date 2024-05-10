@@ -4,12 +4,22 @@
   name: Mr. Butlertron
   description: It asks for food to deliver to exotic customers across the cosmos. Powered by the latest technology in bluespace food delivery.
   components:
+  - type: Anchorable
+  - type: Pullable
   - type: Sprite
     noRot: true
     drawdepth: Mobs
     sprite: DeltaV/Structures/Machines/roboisseur.rsi
     layers:
     - state: roboisseur-1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Roboisseur
   - type: Speech
     speechSounds: Pai

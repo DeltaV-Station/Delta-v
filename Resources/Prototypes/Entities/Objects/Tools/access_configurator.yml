@@ -43,7 +43,9 @@
       - Kitchen
       - Lawyer
       - Library #Delta V: Add Library Access
+      - Mail #Nyanotrasen: Add Mail Access
       - Maintenance
+      - Mantis #Nyanotrasen: Add Mantis Access
       - Medical
       - Mime #Delta V: Add Mime Access
       - Musician #Delta V: Add Musician Access
@@ -72,12 +74,12 @@
       doAfter: 0.5
     - type: UserInterface
       interfaces:
-        - key: enum.AccessOverriderUiKey.Key
+        enum.AccessOverriderUiKey.Key:
           type: AccessOverriderBoundUserInterface
     - type: ActivatableUI
       key: enum.AccessOverriderUiKey.Key
       requireHands: true
-      closeOnHandDeselect: false
+      requireActiveHand: false
       singleUser: true
     - type: ItemSlots
     - type: ContainerContainer

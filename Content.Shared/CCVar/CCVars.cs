@@ -1,3 +1,4 @@
+using Content.Shared.Maps;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 
@@ -177,7 +178,7 @@ namespace Content.Shared.CCVar
         ///     Controls the maximum number of character slots a player is allowed to have.
         /// </summary>
         public static readonly CVarDef<int>
-            GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 10, CVar.ARCHIVE | CVar.SERVERONLY);
+            GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 30, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /// <summary>
         ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
@@ -228,25 +229,6 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool>
             GameCryoSleepRejoining = CVarDef.Create("game.cryo_sleep_rejoining", false, CVar.SERVER | CVar.REPLICATED);
-
-        /// <summary>
-        ///     Whether a random position offset will be applied to the station on roundstart.
-        /// </summary>
-        public static readonly CVarDef<bool> StationOffset =
-            CVarDef.Create("game.station_offset", true);
-
-        /// <summary>
-        /// When the default blueprint is loaded what is the maximum amount it can be offset from 0,0.
-        /// Does nothing without <see cref="StationOffset"/> as true.
-        /// </summary>
-        public static readonly CVarDef<float> MaxStationOffset =
-            CVarDef.Create("game.maxstationoffset", 1000.0f);
-
-        /// <summary>
-        ///     Whether a random rotation will be applied to the station on roundstart.
-        /// </summary>
-        public static readonly CVarDef<bool> StationRotation =
-            CVarDef.Create("game.station_rotation", true);
 
         /// <summary>
         ///     When enabled, guests will be assigned permanent UIDs and will have their preferences stored.
@@ -539,12 +521,18 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> LoginTipsDataset =
             CVarDef.Create("tips.login_dataset", "Tips");
 
+        /// <summary>
+        ///     The chance for Tippy to replace a normal tip message.
+        /// </summary>
+        public static readonly CVarDef<float> TipsTippyChance =
+            CVarDef.Create("tips.tippy_chance", 0.01f);
+
         /*
          * Console
          */
 
-        public static readonly CVarDef<bool>
-            ConsoleLoginLocal = CVarDef.Create("console.loginlocal", true, CVar.ARCHIVE | CVar.SERVERONLY);
+        public static readonly CVarDef<bool> ConsoleLoginLocal =
+            CVarDef.Create("console.loginlocal", true, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /// <summary>
         /// Automatically log in the given user as host, equivalent to the <c>promotehost</c> command.
@@ -774,6 +762,13 @@ namespace Content.Shared.CCVar
             CVarDef.Create("admin.announce_logout", true, CVar.SERVERONLY);
 
         /// <summary>
+        ///     The token used to authenticate with the admin API. Leave empty to disable the admin API. This is a secret! Do not share!
+        /// </summary>
+        public static readonly CVarDef<string> AdminApiToken =
+            CVarDef.Create("admin.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+
+        /// <summary>
         /// Should users be able to see their own notes? Admins will be able to see and set notes regardless
         /// </summary>
         public static readonly CVarDef<bool> SeeOwnNotes =
@@ -808,19 +803,43 @@ namespace Content.Shared.CCVar
         /// Default severity for role bans
         /// </summary>
         public static readonly CVarDef<string> RoleBanDefaultSeverity =
-            CVarDef.Create("admin.role_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER);
+            CVarDef.Create("admin.role_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Default severity for department bans
         /// </summary>
         public static readonly CVarDef<string> DepartmentBanDefaultSeverity =
-            CVarDef.Create("admin.department_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER);
+            CVarDef.Create("admin.department_ban_default_severity", "medium", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Default severity for server bans
         /// </summary>
         public static readonly CVarDef<string> ServerBanDefaultSeverity =
-            CVarDef.Create("admin.server_ban_default_severity", "High", CVar.ARCHIVE | CVar.SERVER);
+            CVarDef.Create("admin.server_ban_default_severity", "High", CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether a server ban will ban the player's ip by default.
+        /// </summary>
+        public static readonly CVarDef<bool> ServerBanIpBanDefault =
+            CVarDef.Create("admin.server_ban_ip_ban_default", true, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether a server ban will ban the player's hardware id by default.
+        /// </summary>
+        public static readonly CVarDef<bool> ServerBanHwidBanDefault =
+            CVarDef.Create("admin.server_ban_hwid_ban_default", true, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether to use details from last connection for ip/hwid in the BanPanel.
+        /// </summary>
+        public static readonly CVarDef<bool> ServerBanUseLastDetails =
+            CVarDef.Create("admin.server_ban_use_last_details", true, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether to erase a player's chat messages and their entity from the game when banned.
+        /// </summary>
+        public static readonly CVarDef<bool> ServerBanErasePlayer =
+            CVarDef.Create("admin.server_ban_erase_player", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         ///     Minimum explosion intensity to create an admin alert message. -1 to disable the alert.
@@ -836,6 +855,7 @@ namespace Content.Shared.CCVar
 
         /// <summary>
         ///     Should the ban details in admin channel include PII? (IP, HWID, etc)
+        /// </summary>
         public static readonly CVarDef<bool> AdminShowPIIOnBan =
             CVarDef.Create("admin.show_pii_onban", false, CVar.SERVERONLY);
 
@@ -970,6 +990,13 @@ namespace Content.Shared.CCVar
         /// </remarks>
         public static readonly CVarDef<int> ExplosionSingleTickAreaLimit =
             CVarDef.Create("explosion.single_tick_area_limit", 400, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Whether or not explosions are allowed to create tiles that have
+        ///     <see cref="ContentTileDefinition.MapAtmosphere"/> set to true.
+        /// </summary>
+        public static readonly CVarDef<bool> ExplosionCanCreateVacuum =
+            CVarDef.Create("explosion.can_create_vacuum", true, CVar.SERVERONLY);
 
         /*
          * Radiation
@@ -1225,6 +1252,9 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> OocEnableDuringRound =
             CVarDef.Create("ooc.enable_during_round", false, CVar.NOTIFY | CVar.REPLICATED | CVar.SERVER);
 
+        public static readonly CVarDef<bool> ShowOocPatronColor =
+            CVarDef.Create("ooc.show_ooc_patron_color", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
+
         /*
          * LOOC
          */
@@ -1454,6 +1484,7 @@ namespace Content.Shared.CCVar
 
         /// <summary>
         /// The minimum time for the emergency shuttle to arrive at centcomm.
+        /// Actual minimum travel time cannot be less than <see cref="ShuttleSystem.DefaultArrivalTime"/>
         /// </summary>
         public static readonly CVarDef<float> EmergencyShuttleMinTransitTime =
             CVarDef.Create("shuttle.emergency_transit_time_min", 90f, CVar.SERVERONLY);
@@ -1562,6 +1593,9 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+        public static readonly CVarDef<bool> ViewportVerticalFit =
+            CVarDef.Create("viewport.vertical_fit", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
         /*
          * UI
          */
@@ -1579,6 +1613,13 @@ namespace Content.Shared.CCVar
         /*
         * Accessibility
         */
+
+        /// <summary>
+        /// Chat window opacity slider, controlling the alpha of the chat window background.
+        /// Goes from to 0 (completely transparent) to 1 (completely opaque)
+        /// </summary>
+        public static readonly CVarDef<float> ChatWindowOpacity =
+            CVarDef.Create("accessibility.chat_window_transparency", 0.85f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         /// <summary>
         /// Toggle for visual effects that may potentially cause motion sickness.
@@ -2042,6 +2083,10 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> GatewayGeneratorEnabled =
             CVarDef.Create("gateway.generator_enabled", true);
+
+        // Clippy!
+        public static readonly CVarDef<string> TippyEntity =
+            CVarDef.Create("tippy.entity", "Tippy", CVar.SERVER | CVar.REPLICATED);
 
         /*
          * DEBUG

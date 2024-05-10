@@ -211,8 +211,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -274,8 +274,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -373,8 +373,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
@@ -529,7 +529,7 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: /Audio/Animals/fox_squeak.ogg
+      collection: Fox
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -607,6 +607,10 @@
     name: ghost-role-information-Shiva-name
     description: ghost-role-information-Shiva-description
     rules: ghost-role-information-Shiva-rules
+    requirements: # Delta V - No raiders
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400 # DeltaV - 4 hours
   - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
@@ -753,6 +757,9 @@
       types:
         Blunt: 1
         Caustic: 1
+  - type: MultiHandedItem
+  - type: Item
+    size: Huge
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
@@ -779,6 +786,10 @@
     allowMovement: true
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
+    requirements: # Delta V - No raiders
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 14400 # Delta V - 4 hours
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike

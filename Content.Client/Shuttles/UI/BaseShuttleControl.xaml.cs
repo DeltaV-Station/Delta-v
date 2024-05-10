@@ -88,7 +88,6 @@ public partial class BaseShuttleControl : MapGridControl
         var cornerDistance = MathF.Sqrt(WorldRange * WorldRange + WorldRange * WorldRange);
 
         var origin = ScalePosition(-new Vector2(Offset.X, -Offset.Y));
-        var distOffset = -24f;
 
         for (var radius = minDistance; radius <= maxDistance; radius *= EquatorialMultiplier)
         {
@@ -101,7 +100,7 @@ public partial class BaseShuttleControl : MapGridControl
             var textDimensions = handle.GetDimensions(Font, text, UIScale);
 
             handle.DrawCircle(origin, scaledRadius, color, false);
-            handle.DrawString(Font, ScalePosition(new Vector2(0f, -radius)) - new Vector2(0f, textDimensions.Y), text, color);
+            handle.DrawString(Font, ScalePosition(new Vector2(0f, -radius)) - new Vector2(0f, textDimensions.Y), text, UIScale, color);
         }
 
         const int gridLinesRadial = 8;

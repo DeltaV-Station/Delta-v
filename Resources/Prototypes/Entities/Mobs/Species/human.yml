@@ -16,6 +16,11 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
   - type: PotentialPsionic #Nyano - Summary: makes potentially psionic.
 
 - type: entity

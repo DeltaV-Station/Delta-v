@@ -672,6 +672,8 @@
     allowMovement: true
     description: ghost-role-information-Cak-description
     rules: ghost-role-information-Cak-rules
+    raffle:
+      settings: short
   - type: GhostTakeoverAvailable
   - type: OwOAccent
   - type: Speech
@@ -711,7 +713,7 @@
     state: suppermatter
   - type: SliceableFood
     slice: FoodCakeSuppermatterSlice
-    TotalCount: 8
+    count: 8
   - type: SolutionContainerManager
     solutions:
       food:
