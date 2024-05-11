@@ -101,7 +101,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, GeigerCounterClothing]
+  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
@@ -139,11 +139,10 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-  - type: AllowSuitStorage
 
 - type: entity
   abstract: true
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, AllowSuitStorageClothing]
   id: ClothingOuterEVASuitBase
   name: base EVA Suit
   components:
@@ -163,7 +162,6 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterBase
