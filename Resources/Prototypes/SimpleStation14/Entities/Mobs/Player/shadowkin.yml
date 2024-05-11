@@ -1,16 +1,6 @@
-- type: damageContainer
-  id: Shadowkin
-  supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-    - Genetic
-  supportedTypes:
-    - Bloodloss
-
 - type: entity
   save: false
-  parent: BaseMobHuman
+  parent: BaseMobShadowkinPerson
   id: MobShadowkin
   name: Urist McFloof
   components:
@@ -33,13 +23,13 @@
     thresholds: # Weak
       0: Alive
       100: Critical
-      200: Dead
+      180: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       48: 0.85
       64: 0.65
   - type: Damageable
-    damageContainer: Shadowkin # Shadowkin
+    damageContainer: Biological # Shadowkin
     damageModifierSet: Shadowkin
   - type: Barotrauma
     damage:
@@ -83,7 +73,7 @@
         layer:
           - MobLayer
   - type: Sprite
-    scale: 0.85, 0.85 # Small
+    scale: 0.8, 0.8 # Small
   - type: Eye
     zoom: "0.85, 0.85"
   - type: MeleeWeapon
