@@ -37,6 +37,8 @@ public sealed class ShipyardTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [Test]
@@ -68,6 +70,8 @@ public sealed class ShipyardTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     private bool FindComponent<T>(IEntityManager entities, EntityUid shuttle) where T: Component
