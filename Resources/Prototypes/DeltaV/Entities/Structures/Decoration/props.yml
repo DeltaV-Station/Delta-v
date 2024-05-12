@@ -1,0 +1,77 @@
+- type: entity
+  id: BaseStageProp
+  parent: BaseStructureDynamic
+  name: base stage prop
+  description: This is the base for a prop. You should not be seeing this.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
+    state: tree01
+    noRot: true
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - Opaque
+        - MidImpassable
+        - HighImpassable
+        - BulletImpassable # Wooden props, worth discussing this.
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    daamgeModifierSet: Wood
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodBreak
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: BaseStageProp
+  id: StagePropTree1
+  suffix: Theatre
+  name: prop tree
+  description: A fake tree cutout. Looks cheap.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
+    layers:
+    - state: tree01
+    - state: wheelframe
+
+- type: entity
+  parent: BaseStageProp # Not parented to StagePropTree1 in case this needs to be customised
+  id: StagePropTree2
+  suffix: Theatre
+  name: prop tree
+  description: A fake tree cutout. Looks cheap.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
+    layers:
+    - state: tree02
+    - state: wheelframe
