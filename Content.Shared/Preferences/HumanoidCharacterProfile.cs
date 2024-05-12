@@ -24,6 +24,18 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
+        private static readonly Regex RestrictedNameRegex = new("[^\\u0030-\\u0039,\\u0041-\\u005A,\\u0061-\\u007A,\\u00C0-\\u00D6,\\u00D8-\\u00F6,\\u00F8-\\u00FF,\\u0100-\\u017F, '.,-]");
+        /*
+         * 0030-0039  Basic Latin: ASCII Digits
+         * 0041-005A  Basic Latin: Uppercase Latin Alphabet
+         * 0061-007A  Basic Latin: Lowercase Latin Alphabet
+         * 00C0-00D6  Latin-1 Supplement: Letters I
+         * 00D8-00F6  Latin-1 Supplement: Letters II
+         * 00F8-00FF  Latin-1 Supplement: Letters III
+         * 0100-017F  Latin Extended A: European Latin
+         */
+        private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
+
         public const int MaxNameLength = 32;
         public const int MaxDescLength = 512;
 
@@ -361,6 +373,7 @@ namespace Content.Shared.Preferences
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
+            if (Species != other.Species) return false;
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (Clothing != other.Clothing) return false;
             if (Backpack != other.Backpack) return false;
@@ -420,24 +433,13 @@ namespace Content.Shared.Preferences
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
-                name = Regex.Replace(name, @"[^\u0030-\u0039,\u0041-\u005A,\u0061-\u007A,\u00C0-\u00D6,\u00D8-\u00F6,\u00F8-\u00FF,\u0100-\u017F, '.,-]", string.Empty);
-                /*
-                 * 0030-0039  Basic Latin: ASCII Digits
-                 * 0041-005A  Basic Latin: Uppercase Latin Alphabet
-                 * 0061-007A  Basic Latin: Lowercase Latin Alphabet
-                 * 00C0-00D6  Latin-1 Supplement: Letters I
-                 * 00D8-00F6  Latin-1 Supplement: Letters II
-                 * 00F8-00FF  Latin-1 Supplement: Letters III
-                 * 0100-017F  Latin Extended A: European Latin
-                 */
+                name = RestrictedNameRegex.Replace(name, string.Empty);
             }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
                 // This regex replaces the first character of the first and last words of the name with their uppercase version
-                name = Regex.Replace(name,
-                @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
-                m => m.Groups["word"].Value.ToUpper());
+                name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
             }
 
             if (string.IsNullOrEmpty(name))

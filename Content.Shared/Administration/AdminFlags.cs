@@ -99,6 +99,11 @@
         /// </summary>
         Stealth = 1 << 16,
 
+        ///<summary>
+		/// Allows you to use Admin chat
+		///</summary>
+		Adminchat = 1 << 17,
+
         /// <summary>
         ///     DeltaV - The ability to whitelist people. Either this permission or +BAN is required for remove.
         /// </summary>

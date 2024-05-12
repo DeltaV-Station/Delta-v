@@ -56,7 +56,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         ent.Comp.SpeechVerb = msg.Verb;
         // verb is only important to metagamers so no need to log as opposed to name
 
-        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), ent, msg.Session);
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), ent, msg.Actor);
 
         TrySetLastSpeechVerb(ent, msg.Verb);
 
@@ -89,18 +89,17 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         if (message.Name.Length > HumanoidCharacterProfile.MaxNameLength || message.Name.Length <= 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Session, PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Actor, PopupType.SmallCaution);
             return;
         }
 
         component.VoiceName = message.Name;
-        if (message.Session.AttachedEntity != null)
-            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} set voice of {ToPrettyString(uid):mask}: {component.VoiceName}");
-        else
-            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"Voice of {ToPrettyString(uid):mask} set: {component.VoiceName}");
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(message.Actor):player} set voice of {ToPrettyString(uid):mask}: {component.VoiceName}");
 
-        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Session);
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Actor);
+
         TrySetLastKnownName(uid, message.Name);
+
         UpdateUI(uid, component);
     }
 
@@ -124,8 +123,8 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         if (!Resolve(owner, ref component, logMissing: false))
             return;
 
-        if (_uiSystem.TryGetUi(owner, VoiceMaskUIKey.Key, out var bui))
-            _uiSystem.SetUiState(bui, new VoiceMaskBuiState(component.VoiceName, component.SpeechVerb));
+        if (_uiSystem.HasUi(owner, VoiceMaskUIKey.Key))
+            _uiSystem.SetUiState(owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(component.VoiceName, component.SpeechVerb));
     }
 
     /// <summary>
