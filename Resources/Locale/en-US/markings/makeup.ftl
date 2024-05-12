@@ -1,5 +1,5 @@
-marking-MakeupLipstick-lipstick = Lipstick
-marking-MakeupLipstick = Lipstick
+marking-MakeupLips-lips = Lips
+marking-MakeupLips = Lips
 
 marking-MakeupBlush-blush = Blush
 marking-MakeupBlush = Blush

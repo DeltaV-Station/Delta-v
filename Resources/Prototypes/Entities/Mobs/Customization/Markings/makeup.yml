@@ -1,5 +1,5 @@
 - type: marking
-  id: MakeupLipstick
+  id: MakeupLips
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy] # Delta V - Felinid, Oni
@@ -10,7 +10,7 @@
           color: "#4a1313"
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
-    state: lipstick
+    state: lips
 
 - type: marking
   id: MakeupBlush
