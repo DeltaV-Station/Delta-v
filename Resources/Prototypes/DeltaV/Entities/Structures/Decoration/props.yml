@@ -31,7 +31,7 @@
     daamgeModifierSet: Wood
   - type: Pullable
   - type: Destructible
-     thresholds:
+    thresholds:
      - trigger:
          !type:DamageTrigger
          damage: 25
