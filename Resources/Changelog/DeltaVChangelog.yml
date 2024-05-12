@@ -2182,3 +2182,120 @@
   id: 328
   time: '2024-04-29T10:16:53.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/718
+- author: pissdemon
+  changes:
+  - message: Voice changer mask now lists vulpkanin, felinid and harpy accents correctly.
+    type: Fix
+  id: 329
+  time: '2024-05-03T21:49:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1162
+- author: DangerRevolution
+  changes:
+  - message: Chameleon clothing can now be set to skirts again
+    type: Fix
+  - message: Harpies can now wear chameleon clothing
+    type: Fix
+  id: 330
+  time: '2024-05-03T23:49:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1110
+- author: NullWanderer
+  changes:
+  - message: Fixed server performance issues
+    type: Fix
+  id: 331
+  time: '2024-05-04T16:26:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1163
+- author: Colin-Tel
+  changes:
+  - message: Added a number of new tracks to the Jukebox.
+    type: Add
+  id: 332
+  time: '2024-05-04T16:59:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1130
+- author: NullWanderer
+  changes:
+  - message: The color mixing applied to moths has been increased in strength by 25%.
+    type: Tweak
+  id: 333
+  time: '2024-05-06T15:27:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1015
+- author: Mnemotechnician
+  changes:
+  - message: Carrying is less likely to behave erratically or suddenly interrupt now.
+    type: Fix
+  - message: You can now see when someone is trying to pick you up, and also you can
+      interrupt your attempt at escaping from their hands or inventory.
+    type: Add
+  - message: You can now properly take Felinids out of bags and place them inside.
+    type: Add
+  - message: Scientists have discovered that Felinids can sleep in bags.
+    type: Add
+  id: 334
+  time: '2024-05-06T18:21:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1118
+- author: Lyndomen
+  changes:
+  - message: Syndicate Agents will no longer receive the "Become Psionic" objective.
+    type: Tweak
+  id: 335
+  time: '2024-05-06T22:02:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1166
+- author: Lyndomen
+  changes:
+  - message: Psionic Mute now has a higher Glimmer threshold for when it may occur.
+    type: Tweak
+  id: 336
+  time: '2024-05-06T22:02:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1168
+- author: Lyndomen
+  changes:
+  - message: Changed TC penalties for several roles! Atmosians rejoice.
+    type: Tweak
+  id: 337
+  time: '2024-05-06T22:04:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1165
+- author: NullWanderer
+  changes:
+  - message: Merged upstream
+    type: Add
+  id: 338
+  time: '2024-05-07T20:50:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1170
+- author: NullWanderer
+  changes:
+  - message: Fixed some of the harpies emotes that had previously broken with merges
+    type: Fix
+  - message: Futureproofed harpy emotes by allowing conflicting chat triggers to exist.
+      If you notice sounds playing twice, please report them.
+    type: Tweak
+  id: 339
+  time: '2024-05-07T23:49:26.865090+00:00'
+  url: null
+- author: WarMechanic
+  changes:
+  - message: Added the IgnoreStripHidden variable to ThievingComponent, which allows
+      entities to look into the pockets of mobs it strips.
+    type: Tweak
+  - message: Added the StripTimeMultiplier variable to ThievingComponent, which multiplies
+      strip time.
+    type: Tweak
+  - message: Felinids and Admin Observers are now able to identify items in pockets
+      of other players. Felinids also gain a faster strip speed.
+    type: Add
+  id: 340
+  time: '2024-05-09T04:40:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1102
+- author: Remuchi
+  changes:
+  - message: Security dogs (such as Laika) now have vulpkanin vocal emotes. Howl!
+    type: Add
+  id: 341
+  time: '2024-05-09T20:07:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1176
+- author: Velcroboy
+  changes:
+  - message: Fixed announcement screens not showing ETA/ETD of evac shuttles
+    type: Fix
+  id: 342
+  time: '2024-05-09T22:27:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1178
