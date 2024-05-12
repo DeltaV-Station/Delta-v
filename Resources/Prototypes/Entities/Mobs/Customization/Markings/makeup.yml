@@ -1,0 +1,55 @@
+- type: marking
+  id: MakeupLipstick
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy] # Delta V - Felinid, Oni
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#4a1313"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: lipstick
+
+- type: marking
+  id: MakeupBlush
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy] # Delta V - Felinid, Oni, Vulpkanin, Harpy
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#c28093"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: blush
+
+- type: marking
+  id: MakeupNailPolishRight
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#5c5c5c"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: nail_polish_r
+
+- type: marking
+  id: MakeupNailPolishLeft
+  bodyPart: LHand
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#5c5c5c"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: nail_polish_l
