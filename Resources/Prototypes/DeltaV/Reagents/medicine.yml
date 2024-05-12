@@ -1,0 +1,26 @@
+- type: reagent
+  parent: Opporozidone
+  id: PolytachiatricAcid
+  name: reagent-name-polytachiactricacid
+  group: Medicine
+  desc: reagent-desc-polytachiactricacid
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#1a3626"
+  worksOnTheDead: true
+  metabolism:
+    Medicine:
+      effects:
+        - !type:ReduceRotting
+           seconds: 40
+           conditions:
+           - !type:MobStateCondition
+             mobstate: Dead
+        - !type:HealthChange
+           damage:
+            groups:
+              Brute: -3
+              Burn: -2
+            types:
+              Poison: -2
+              Radiation: -1
