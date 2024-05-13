@@ -75,3 +75,29 @@
     layers:
     - state: tree02
     - state: wheelframe
+
+- type: entity
+  parent: BaseStageProp # Not parented in case this needs to be customised
+  id: StagePropCastleTower1
+  suffix: Theatre
+  name: prop castle tower
+  description: A fake tower cutout. Looks cheap.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
+    layers:
+    - state: castletower01
+    - state: wheelframe
+
+- type: entity
+  parent: BaseStageProp # Not parented in case this needs to be customised
+  id: StagePropCastleTower2
+  suffix: Theatre
+  name: prop castle tower
+  description: A fake tower cutout. Looks cheap.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
+    layers:
+    - state: castletower02
+    - state: wheelframe
