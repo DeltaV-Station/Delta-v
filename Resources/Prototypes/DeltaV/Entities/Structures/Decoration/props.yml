@@ -5,6 +5,11 @@
   description: This is the base for a prop. You should not be seeing this.
   abstract: true
   components:
+  - type: Tag # This keeps failing tests, just sticking it here so I can stop fucking with it's indentation
+    tags:
+      - Wooden
+  - type: StaticPrice
+    price: 10
   - type: Sprite
     sprite: DeltaV/Objects/Specific/Theatre/StageProps.rsi
     state: tree01
@@ -28,27 +33,24 @@
   - type: InteractionOutline
   - type: Damageable
     damageContainer: StructuralInorganic
-    daamgeModifierSet: Wood
+    damageModifierSet: Wood
   - type: Pullable
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodBreak
-  - type: StaticPrice
-    price: 10
+     - trigger:
+         !type:DamageTrigger
+         damage: 25
+       behaviors:
+       - !type:DoActsBehavior
+         acts: ["Destruction"]
+       - !type:PlaySoundBehavior
+         sound:
+           collection: WoodDestroy
+       - !type:SpawnEntitiesBehavior
+          spawn:
+           MaterialWoodPlank:
+             min: 1
+             max: 1
 
 - type: entity
   parent: BaseStageProp
