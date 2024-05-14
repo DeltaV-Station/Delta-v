@@ -2,7 +2,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVar;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -31,7 +31,7 @@ public sealed class ShipyardSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.CVar(_config, CCVars.Shipyard, value => Enabled = value, true);
+        Subs.CVar(_config, DCCVars.Shipyard, value => Enabled = value, true);
     }
 
     /// <summary>
