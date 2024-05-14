@@ -13,6 +13,9 @@
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: 'NY'
+      - type: StationSurface
+        mapPath: /Maps/Nonstations/glacier_surface.yml
+        biome: Snow
       - type: StationJobs
         overflowJobs:
         - Passenger
