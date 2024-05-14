@@ -53,3 +53,35 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: nail_polish_l
+
+# Moth-specific
+
+- type: marking
+  id: MakeupMothLips
+  bodyPart: Head
+  markingCategory: Overlay   # The marking category is in Overlay instead of Head
+                             # because the Head category for moths only allows 1
+                             # marking and lips should be usable alongside blush
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#7e2727"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: moth_lips
+
+- type: marking
+  id: MakeupMothBlush
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d39394"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: moth_blush
