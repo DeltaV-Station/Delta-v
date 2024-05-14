@@ -32,6 +32,7 @@ public sealed class StationSurfaceSystem : EntitySystem
 
         // loading replaced the map entity with a new one so get the latest id
         map = _map.GetMap(mapId);
+        _map.SetPaused(map, false);
 
         _biome.SetEnabled(map); // generate the terrain after the grids loaded to prevent it getting hidden under it
         ent.Comp.Map = map;
