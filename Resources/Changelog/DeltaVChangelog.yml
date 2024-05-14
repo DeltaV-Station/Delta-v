@@ -2254,3 +2254,63 @@
   id: 337
   time: '2024-05-06T22:04:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1165
+- author: NullWanderer
+  changes:
+  - message: Merged upstream
+    type: Add
+  id: 338
+  time: '2024-05-07T20:50:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1170
+- author: NullWanderer
+  changes:
+  - message: Fixed some of the harpies emotes that had previously broken with merges
+    type: Fix
+  - message: Futureproofed harpy emotes by allowing conflicting chat triggers to exist.
+      If you notice sounds playing twice, please report them.
+    type: Tweak
+  id: 339
+  time: '2024-05-07T23:49:26.865090+00:00'
+  url: null
+- author: WarMechanic
+  changes:
+  - message: Added the IgnoreStripHidden variable to ThievingComponent, which allows
+      entities to look into the pockets of mobs it strips.
+    type: Tweak
+  - message: Added the StripTimeMultiplier variable to ThievingComponent, which multiplies
+      strip time.
+    type: Tweak
+  - message: Felinids and Admin Observers are now able to identify items in pockets
+      of other players. Felinids also gain a faster strip speed.
+    type: Add
+  id: 340
+  time: '2024-05-09T04:40:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1102
+- author: Remuchi
+  changes:
+  - message: Security dogs (such as Laika) now have vulpkanin vocal emotes. Howl!
+    type: Add
+  id: 341
+  time: '2024-05-09T20:07:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1176
+- author: Velcroboy
+  changes:
+  - message: Fixed announcement screens not showing ETA/ETD of evac shuttles
+    type: Fix
+  id: 342
+  time: '2024-05-09T22:27:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1178
+- author: angelofallars
+  changes:
+  - message: Unflipped the hands of Felinids, Vulpkanins, and Harpies. Their direction
+      on the UI should now be consistent with other species.
+    type: Fix
+  id: 343
+  time: '2024-05-14T14:27:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1194
+- author: Colin-Tel
+  changes:
+  - message: Updated Asterisk station with several QoL changes and a higher max population.
+    type: Tweak
+  id: 344
+  time: '2024-05-14T14:45:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1193
