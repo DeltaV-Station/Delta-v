@@ -1,14 +1,15 @@
 using System.Linq;
-using Robust.Shared.Random;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.NPC.Components;
+using Content.Server.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
+using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
-using Content.Shared.Psionics.Glimmer;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.NPC.Components;
+using Content.Shared.Psionics.Glimmer;
+using Robust.Shared.Random;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleComponent>
 {

@@ -1,14 +1,15 @@
-using Robust.Shared.Random;
 using Content.Server.Abilities.Psionics;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.StationEvents.Components;
+using Content.Server.GameTicking.Components;
 using Content.Server.Psionics;
+using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Zombies;
+using Robust.Shared.Random;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRuleComponent>
 {

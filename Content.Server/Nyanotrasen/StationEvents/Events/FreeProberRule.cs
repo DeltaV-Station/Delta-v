@@ -1,14 +1,15 @@
-using Robust.Shared.Map;
-using Robust.Shared.Random;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Components;
 using Content.Server.Power.Components;
+using Content.Server.Psionics.Glimmer;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
-using Content.Server.Psionics.Glimmer;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Psionics.Glimmer;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 internal sealed class FreeProberRule : StationEventSystem<FreeProberRuleComponent>
 {
