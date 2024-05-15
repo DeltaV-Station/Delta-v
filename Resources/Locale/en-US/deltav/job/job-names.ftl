@@ -1,4 +1,5 @@
 job-name-medical-borg = Medical Cyborg
+job-name-courier = Courier
 job-name-senior-engineer = Senior Engineer
 job-name-senior-physician = Senior Physician
 job-name-senior-researcher = Senior Researcher

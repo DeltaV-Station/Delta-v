@@ -104,6 +104,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance
             HumanoidSkinColor.HumanToned => Humanoid.SkinColor.HumanSkinTone(speciesPrototype.DefaultHumanSkinTone),
             HumanoidSkinColor.Hues => speciesPrototype.DefaultSkinTone,
             HumanoidSkinColor.TintedHues => Humanoid.SkinColor.TintedHues(speciesPrototype.DefaultSkinTone),
+            HumanoidSkinColor.VoxFeathers => Humanoid.SkinColor.ClosestVoxColor(speciesPrototype.DefaultSkinTone),
             // DeltaV - Blended tint for moths
             HumanoidSkinColor.TintedHuesSkin => Humanoid.SkinColor.TintedHuesSkin(speciesPrototype.DefaultSkinTone, speciesPrototype.DefaultSkinTone),
             _ => Humanoid.SkinColor.ValidHumanSkinTone
@@ -168,6 +169,9 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance
                 break;
             case HumanoidSkinColor.TintedHues:
                 newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);
+                break;
+            case HumanoidSkinColor.VoxFeathers:
+                newSkinColor = Humanoid.SkinColor.ProportionalVoxColor(newSkinColor);
                 break;
             case HumanoidSkinColor.TintedHuesSkin: // DeltaV, tone blending
                 newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);

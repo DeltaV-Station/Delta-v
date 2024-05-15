@@ -38,8 +38,8 @@
         ents: []
   - type: UserInterface
     interfaces:
-    - key: enum.StorageUiKey.Key
-      type: StorageBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: StaticPrice
     price: 70
 
@@ -135,6 +135,8 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+  - type: ClothingRequiredStepTriggerImmune
+    slots: WITHOUT_POCKET
 
 - type: entity
   abstract: true
@@ -156,6 +158,8 @@
   - type: Tag
     tags:
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+  - type: ClothingRequiredStepTriggerImmune
+    slots: WITHOUT_POCKET
 
 - type: entity
   parent: ClothingOuterBase
