@@ -1,8 +1,10 @@
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Components;
+using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Random;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComponent>
 {
