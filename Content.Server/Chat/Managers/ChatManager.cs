@@ -11,8 +11,10 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Mind;
+using Content.Shared.Patron;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
@@ -45,6 +47,7 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IResourceManager _resourceManager = default!; // Delta-V
 
         /// <summary>
         /// The maximum length a player-sent message can be sent
@@ -55,6 +58,7 @@ namespace Content.Server.Chat.Managers
         private bool _adminOocEnabled = true;
 
         private readonly Dictionary<NetUserId, ChatUser> _players = new();
+        private PatronManager _patronManager = new PatronManager(); // Delta-V
 
         public void Initialize()
         {
@@ -65,6 +69,7 @@ namespace Content.Server.Chat.Managers
             _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
 
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
+            _patronManager.Load(_resourceManager); // Delta-V
         }
 
         private void OnOocEnabledChanged(bool val)
@@ -244,10 +249,23 @@ namespace Content.Server.Chat.Managers
                 var prefs = _preferencesManager.GetPreferences(player.UserId);
                 colorOverride = prefs.AdminOOCColor;
             }
-            if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
+
+            // Delta-V: Begin
+            Patron? deltaVPatron = _patronManager.GetPatronByName(player.Name);
+            if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor))
             {
-                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+                // Delta-V patron name coloring takes precedence over SS14 patron name coloring.
+                if (deltaVPatron != null)
+                {
+                    // Delta-V patron.
+                    wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", deltaVPatron.Tier.Color), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+                } else if (player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
+                {
+                    // SS14 patron.
+                    wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+                }
             }
+            // Delta-V: End
 
             //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
             ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
