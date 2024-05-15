@@ -62,7 +62,6 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ActionsSystem _actions = default!; // DeltaV - No psionic zombies
 
         /// <summary>
         /// Handles an entity turning into a zombie when they die or go into crit
