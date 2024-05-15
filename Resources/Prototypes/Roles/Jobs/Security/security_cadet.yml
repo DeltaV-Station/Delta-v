@@ -28,8 +28,6 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCadet # DeltaV - precious uniform budget has been allocated to real security uniforms for cadets. not good ones though.
-    back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
@@ -37,6 +35,3 @@
     belt: ClothingBeltSecurityFilled
 #    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
     pocket2: BookSecurity
-  innerClothingSkirt: ClothingUniformJumpsuitCadet # DeltaV - sorry, we're not wasting precious uniform budget on cadets. deal with the chafing.
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled
