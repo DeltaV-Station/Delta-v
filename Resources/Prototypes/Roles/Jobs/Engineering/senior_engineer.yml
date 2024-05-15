@@ -4,39 +4,38 @@
   description: job-description-senior-engineer
   playTimeTracker: JobSeniorEngineer
   setPreference: false # DeltaV - Disable Senior Roles round start selection
-  #requirements:
-  #  - !type:RoleTimeRequirement
-  #    role: JobAtmosphericTechnician
-  #    time: 21600 #6 hrs
-  #  - !type:RoleTimeRequirement
-  #    role: JobStationEngineer
-  #    time: 21600 #6 hrs
-  #  - !type:DepartmentTimeRequirement
-  #    department: Engineering
-  #    time: 216000 # 60 hrs
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1800
-  startingGear: SeniorEngineerGear
-  icon: "JobIconSeniorEngineer"
-  supervisors: job-supervisors-ce
+  weight: 10
+  startingGear: ChiefEngineerGear
+  icon: "JobIconChiefEngineer"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
   access:
   - Maintenance
   - Engineering
+  - Command
   - External
+  - ChiefEngineer
   - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
 
 - type: startingGear
-  id: SeniorEngineerGear
+  id: ChiefEngineerGear
   equipment:
-    head: ClothingHeadHatBeretEngineering
-    jumpsuit: ClothingUniformJumpsuitSeniorEngineer
-    back: ClothingBackpackEngineeringFilled
-    shoes: ClothingShoesBootsWork
-    id: SeniorEngineerPDA
+    id: CEPDA
     eyes: ClothingEyesGlassesMeson
+    ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
-    ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorEngineer
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
