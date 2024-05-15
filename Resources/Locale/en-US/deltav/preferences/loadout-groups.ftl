@@ -40,5 +40,5 @@ loadout-group-gladiator-outerclothing = Gladiator outer clothing
 # Command
 loadout-group-admin-assistant-head = Administrative Assistant head
 loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
-loadout-group-admin-assistant-outerclothing = Administrative Assistant backpack
+loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
 loadout-group-admin-assistant-back = Administrative Assistant backpack
