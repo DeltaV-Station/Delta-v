@@ -4766,11 +4766,6 @@ entities:
       parent: 2
 - proto: AirlockExternalGlassShuttleLocked
   entities:
-  - uid: 790
-    components:
-    - type: Transform
-      pos: -9.5,-37.5
-      parent: 2
   - uid: 9104
     components:
     - type: Transform
@@ -4783,10 +4778,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,35.5
       parent: 2
-  - uid: 10882
+- proto: AirlockExternalGlassShuttleShipyard
+  entities:
+  - uid: 609
     components:
     - type: Transform
       pos: -7.5,-37.5
+      parent: 2
+  - uid: 790
+    components:
+    - type: Transform
+      pos: -9.5,-37.5
       parent: 2
 - proto: AirlockFreezerKitchenHydroLocked
   entities:
@@ -25797,10 +25799,10 @@ entities:
       parent: 2
 - proto: ClosetToolFilled
   entities:
-  - uid: 10980
+  - uid: 3719
     components:
     - type: Transform
-      pos: -15.5,-29.5
+      pos: -14.5,-29.5
       parent: 2
   - uid: 11580
     components:
@@ -26024,15 +26026,15 @@ entities:
     - type: Transform
       pos: 44.67987,8.359897
       parent: 2
-  - uid: 2264
+  - uid: 10882
     components:
     - type: Transform
-      pos: -13.628283,-29.590473
+      pos: -13.591521,-32.666546
       parent: 2
-  - uid: 3724
+  - uid: 10980
     components:
     - type: Transform
-      pos: -13.35745,-29.37157
+      pos: -15.674855,-32.614426
       parent: 2
 - proto: ClothingShoesSlippers
   entities:
@@ -26448,6 +26450,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.5,-17.5
+      parent: 2
+- proto: ComputerShipyard
+  entities:
+  - uid: 1881
+    components:
+    - type: Transform
+      pos: -15.5,-29.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -50979,15 +50988,15 @@ entities:
       parent: 2
 - proto: JetpackMiniFilled
   entities:
-  - uid: 1881
+  - uid: 2264
     components:
     - type: Transform
-      pos: -14.440783,-29.277756
+      pos: -13.393604,-29.268354
       parent: 2
   - uid: 2326
     components:
     - type: Transform
-      pos: -14.597033,-29.527931
+      pos: -13.612354,-29.581072
       parent: 2
   - uid: 10798
     components:
@@ -54705,12 +54714,6 @@ entities:
     - type: Transform
       pos: -29.5,7.5
       parent: 2
-  - uid: 609
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -13.5,-29.5
-      parent: 2
   - uid: 635
     components:
     - type: Transform
@@ -54879,11 +54882,10 @@ entities:
     - type: Transform
       pos: -1.5,-6.5
       parent: 2
-  - uid: 3719
+  - uid: 3724
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.5,-29.5
+      pos: -13.5,-29.5
       parent: 2
   - uid: 3742
     components:
