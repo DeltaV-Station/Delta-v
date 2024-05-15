@@ -3,7 +3,7 @@
   name: job-name-senior-researcher
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
-  setPreference: true # DeltaV - Disable Senior Roles round start selection
+  setPreference: true # DeltaV - Readded Senior roles (removed upstream)
   requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV - Epistemics Department replacing Science

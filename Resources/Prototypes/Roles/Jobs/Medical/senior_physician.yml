@@ -3,7 +3,7 @@
   name: job-name-senior-physician
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
-  setPreference: true # DeltaV - Disable Senior Roles round start selection
+  setPreference: true # DeltaV - Readded Senior roles (removed upstream)
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist

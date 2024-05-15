@@ -3,7 +3,7 @@
   name: job-name-senior-engineer
   description: job-description-senior-engineer
   playTimeTracker: JobSeniorEngineer
-  setPreference: true # DeltaV - Disable Senior Roles round start selection
+  setPreference: true # DeltaV - Readded Senior roles (removed upstream)
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
