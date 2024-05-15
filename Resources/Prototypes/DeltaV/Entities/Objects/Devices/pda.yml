@@ -55,9 +55,9 @@
 
 - type: entity
   parent: BasePDA
-  id: CourierPDA
-  name: courier PDA
-  description: Smells like unopened letters.
+  id: AdminAssistantPDA
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Devices/pda.rsi
@@ -72,11 +72,16 @@
       shader: "unshaded"
       visible: false
   - type: Pda
-    id: CourierIDCard
-    state: pda-mailcarrier
+    id: AdminAssistantIDCard
+    state: pda-admin-assistant
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
-    borderColor: "#e39751"
-    accentVColor: "#050c4d"
+    borderColor: "#aa9100"
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
-    state: pda-mailcarrier
+    state: pda-admin-assistant

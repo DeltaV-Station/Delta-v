@@ -1,12 +1,14 @@
 - type: entity
   parent: IDCardStandard
-  id: CourierIDCard
-  name: courier ID card
+  id: AdminAssistantIDCard
+  name: administrative assistant ID card
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: silver
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
-      state: nyanomailcarrier
+      state: idadminassistant
+  - type: Item
+    heldPrefix: silver
   - type: PresetIdCard
-    job: Courier
+    job: AdministrativeAssistant

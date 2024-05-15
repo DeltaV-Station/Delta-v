@@ -19,3 +19,14 @@
     contents:
     - id: BoxSurvivalMedical
     - id: RubberStampPsychologist
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelCaptain
+  id: ClothingBackpackSatchelAdminAssistantFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Flash
+      - id: RubberStampAdminAssistant

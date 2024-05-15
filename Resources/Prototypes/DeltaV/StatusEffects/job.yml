@@ -4,3 +4,10 @@
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
     state: MedicalBorg
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconAdminAssitant
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: AdminAssistant
