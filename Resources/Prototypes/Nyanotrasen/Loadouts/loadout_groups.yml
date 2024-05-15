@@ -1,0 +1,125 @@
+# Logistics
+## Mail Carrier
+- type: loadoutGroup
+  id: MailCarrierHead
+  name: loadout-group-mail-carrier-head
+  minLimit: 0
+  loadouts:
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: MailCarrierJumpsuit
+  name: loadout-group-mail-carrier-jumpsuit
+  loadouts:
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: MailCarrierOuterClothing
+  name: loadout-group-mail-carrier-outerclothing
+  minLimit: 0
+  loadouts:
+  - MailCarrierWintercoat
+
+# Epistemics
+## Forensic Mantis
+- type: loadoutGroup
+  id: MantisHead
+  name: loadout-group-mantis-head
+  minLimit: 0
+  loadouts:
+  - MantisFezHat
+
+- type: loadoutGroup
+  id: MantisJumpsuit
+  name: loadout-group-mantis-jumpsuit
+  loadouts:
+  - MantisJumpsuit
+  - MantisJumpskirt
+
+- type: loadoutGroup
+  id: MantisBackpack
+  name: loadout-group-mantis-backpack
+  loadouts:
+  - MantisBackpack
+  - MantisSatchel
+  - MantisDuffel
+
+- type: loadoutGroup
+  id: MantisOuterClothing
+  name: loadout-group-mantis-outerclothing
+  minLimit: 0
+  loadouts:
+  - MantisCoat
+  - MantisWintercoat
+
+- type: loadoutGroup
+  id: MantisShoes
+  name: loadout-group-mantis-shoes
+  loadouts:
+  - MantisBoots
+
+- type: loadoutGroup
+  id: MantisGloves
+  name: loadout-group-mantis-gloves
+  minLimit: 0
+  loadouts:
+  - WhiteGloves
+
+# Security
+## Prison Guard
+- type: loadoutGroup
+  id: PrisonGuardHead
+  name: loadout-group-prison-guard-head
+  minLimit: 0
+  loadouts:
+  - PrisonGuardHead
+
+- type: loadoutGroup
+  id: PrisonGuardJumpsuit
+  name: loadout-group-prison-guard-jumpsuit
+  loadouts:
+  - PrisonGuardJumpsuit
+
+# Wildcards
+## Prisoner
+- type: loadoutGroup
+  id: PrisonerJumpsuit
+  name: loadout-group-prisoner-jumpsuit
+  loadouts:
+  - PrisonerJumpsuit
+  - PrisonerJumpskirt
+
+## Martial Artist
+- type: loadoutGroup
+  id: MartialArtistJumpsuit
+  name: loadout-group-martial-artist-jumpsuit
+  loadouts:
+  - MartialArtistJumpsuit
+
+- type: loadoutGroup
+  id: MartialArtistBelt
+  name: loadout-group-martial-belt
+  minLimit: 0
+  loadouts:
+  - MartialBlackBelt
+
+- type: loadoutGroup
+  id: MartialArtistShoes
+  name: loadout-group-martial-artist-shoes
+  loadouts:
+  - MartialArtistShoes
+
+## Gladiator
+- type: loadoutGroup
+  id: GladiatorJumpsuit
+  name: loadout-group-gladiator-jumpsuit
+  loadouts:
+  - GladiatorJumpsuit
+  - BoxerShortsWithTop
+
+- type: loadoutGroup
+  id: GladiatorOuterClothing
+  name: loadout-group-gladiator-outerclothing
+  loadouts:
+  - ClothingOuterArmorGladiator
