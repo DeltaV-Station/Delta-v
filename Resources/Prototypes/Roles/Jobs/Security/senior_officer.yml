@@ -1,26 +1,3 @@
-- type: job
-  id: SeniorOfficer
-  name: job-name-senior-officer
-  description: job-description-senior-officer
-  playTimeTracker: JobSeniorOfficer
-  setPreference: false # DeltaV - Disable Senior Roles round start selection
-  requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
-  startingGear: SeniorOfficerGear
-  icon: "JobIconSeniorOfficer"
-  supervisors: job-supervisors-hos
-  canBeAntag: false
-  access:
-  - Security
-  #- Brig # Delta V: Removed
-  - Maintenance
-  - Service
-  - External
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
-
 - type: startingGear
   id: SeniorOfficerGear
   equipment:
@@ -34,6 +11,3 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58Nonlethal
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled
