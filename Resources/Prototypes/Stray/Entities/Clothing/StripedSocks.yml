@@ -1,0 +1,214 @@
+# Created From Coder Socks as Base for texturing
+# Made By NeptuneZvezda on Discord
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingUnderSocksStripedWhiteandLightBlue
+  name: light blue striped socks
+  description: Wearing these makes you feel just a little bit lazier
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedCaptainBlueandGold
+  name: Blue and gold striped socks
+  description: Striped Socks that make you feel special enough to boss the heads
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandGold.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandGold.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedCaptainBlueandWhite
+  name: Blue striped socks
+  description: Striped Socks that make you feel special enough to boss the heads
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandWhite.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainBlueandWhite.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedCaptainGoldandBlue
+  name: Gold and blue striped socks
+  description: Striped Socks that make you feel special enough to boss the heads
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainGoldandBlue.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCaptainGoldandBlue.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedCargo
+  name: Cargo striped socks
+  description: These Striped Socks make you feel a little bit stronger
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargo.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargo.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedCargoQm
+  name: Logistics striped socks
+  description: Striped Socks that make you feel like becoming an independant Station State
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargoQm.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedCargoQm.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: SocksStripedEngineeringAtmos
+  name: Atmos Tech striped socks
+  description: Striped socks to make you stand out in an emergency
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineeringAtmos.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineeringAtmos.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedEngineering
+  name: Engineer striped socks
+  description: Striped socks to make you stand out in an emergency
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineering.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedEngineering.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedScience
+  name: Science striped socks
+  description: These Striped socks make you want to do some Science
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedScience.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedScience.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedSecurity
+  name: Security striped socks
+  description: These striped socks make you feel like beating up a mime
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurity.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurity.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedSecurityJackboots
+  name: JackBoots with striped socks
+  description: The striped socks make you feel a little more "Secure"
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurityJackboots.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedSecurityJackboots.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandGreen
+  name: Green striped socks
+  description: Minty! Now in Green.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandGreen.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandGreen.rsi
+
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper
+  name: Striped socks with bunny slippers
+  description: A pair of bunny slippers with striped socks for all your hospital needs.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlueBunnySlipper.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandOrange
+  name: Orange striped socks
+  description: Striped Socks that match the traffic style
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandOrange.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandOrange.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandPurple
+  name: Purple striped socks
+  description: Striped Socks that smell like Grape Soda
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandPurple.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandPurple.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandRed
+  name: Red striped socks
+  description: Minty! Now in red
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandRed.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandRed.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedWhiteandYellow
+  name: yellow striped socks
+  description: Please don't order pilk at the bar
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandYellow.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandYellow.rsi
+
+- type: entity
+  parent: ClothingUnderSocksStripedWhiteandLightBlue
+  id: ClothingUnderSocksStripedYellowandPurple
+  name: Yellow and purple striped socks
+  description: Striped Socks styled after banana and grape jelly sandwiches
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedYellowandPurple.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedYellowandPurple.rsi

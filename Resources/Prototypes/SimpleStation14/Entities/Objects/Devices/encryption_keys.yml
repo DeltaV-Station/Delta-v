@@ -1,0 +1,16 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyCSS
+  name: chief service supervisor encryption key
+  description: An encryption key used by the CSS.
+  components:
+    - type: EncryptionKey
+      channels:
+        - Command
+        - Common
+        - Service
+      defaultChannel: Service
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: service_label

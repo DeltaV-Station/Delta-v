@@ -6,7 +6,16 @@
 - type: startingGear
   id: CorpsmanBeret
   equipment:
-      head: ClothingHeadHatBeretCorpsman
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: CorpsmanBeretWhite
+  equipment: CorpsmanBeretWhite
+
+- type: startingGear
+  id: CorpsmanBeretWhite
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
 
 # Jumpsuit
 - type: loadout
@@ -54,3 +63,21 @@
   id: BrigMedicDuffel
   equipment:
       back: ClothingBackpackDuffelBrigmedicDeltaVFilled
+
+- type: loadout
+  id: VestArmorMedSec
+  equipment: VestArmorMedSec
+
+- type: startingGear
+  id: VestArmorMedSec
+  equipment:
+    outerClothing: ClothingOuterVestArmorMedSec
+
+- type: loadout
+  id: VestSecurityMedic
+  equipment: VestSecurityMedic
+
+- type: startingGear
+  id: VestSecurityMedic
+  equipment:
+    outerClothing: ClothingOuterVestSecurityMedic

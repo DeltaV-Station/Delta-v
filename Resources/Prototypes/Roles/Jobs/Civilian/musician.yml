@@ -3,9 +3,6 @@
   name: job-name-musician
   description: job-description-musician
   playTimeTracker: JobMusician
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV - 2 hours
   startingGear: MusicianGear
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire

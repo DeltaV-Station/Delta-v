@@ -10,10 +10,10 @@
   supervisors: job-supervisors-security
   setPreference: true
 #  whitelistRequired: true
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 21600
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Security
+  #    time: 21600
   special:
   - !type:AddComponentSpecial
     components:

@@ -7,7 +7,9 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 # DeltaV - 10 hours
+      time: 900 # DeltaV - 10 hours
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1800
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

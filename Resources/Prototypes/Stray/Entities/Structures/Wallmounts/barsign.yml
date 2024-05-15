@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseBarSign
+  id: BarSignStray
+  name: Stray
+  description: You can't get away from them, even in space, and even after we started calling them 'spesos' instead.
+  components:
+  - type: BarSign
+    current: Stray
+    
+- type: barSign
+  id: Stray
+  name: Stray
+  icon: "stray"

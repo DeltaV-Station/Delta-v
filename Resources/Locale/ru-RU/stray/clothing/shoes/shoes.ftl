@@ -1,0 +1,16 @@
+ent-ClothingShoesBootsMantis = сапоги мантиса
+    .desc = Мягкие, удобные, хороши для пересеченной местности.
+ent-ClothingShoesBootsFishing = рыбацкие ботинки
+    .desc = Пахнет рыбой!
+ent-ClothingShoesBootsCowboyBlack = чёрные ковбойские сапоги
+    .desc = У них есть шпоры, которые звенят и/или звенят.
+ent-ClothingShoesBootsCowboyBrown = коничневые ковбойские сапоги
+    .desc = У них есть шпоры, которые звенят и/или звенят.
+ent-ClothingShoesBootsCowboyFancy = модные ковбойские сапоги
+    .desc = У них есть шпоры, которые звенят и/или звенят.
+ent-ClothingShoesGeta = сандали гэта
+    .desc = Пара традиционных японских сандалий.
+ent-ClothingShoesWizardFake = обувь волшебника
+    .desc = Пара туфель.
+ent-ClothingShoesMiscWhite = белые кожаные ботинки
+    .desc = Безупречно начищенные белые кожаные ботинки. Не наступайте на них.

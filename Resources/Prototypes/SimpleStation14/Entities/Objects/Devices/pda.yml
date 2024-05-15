@@ -1,0 +1,39 @@
+- type: entity
+  parent: BasePDA
+  id: AIPDA
+  name: ai internal computer
+  description: Your integrated personal computer, inside the personal computer!
+  components:
+  - type: Pda
+    state: pda-ai
+    id: AIIDCard
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Devices/pda.rsi
+    netsync: false
+  - type: PdaBorderColor
+    borderColor: "#00FFFF77"
+  - type: Icon
+    sprite: SimpleStation14/Objects/Devices/pda.rsi
+    state: pda-ai
+
+- type: entity
+  parent: BasePDA
+  id: CSSPDA
+  name: chief service supervisor PDA
+  description: Smells like pine and Febreze.
+  components:
+  - type: Pda
+    state: pda-css
+    id: CSSIDCard
+    penSlot:
+      startingItem: PenCSS
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Devices/pda.rsi
+    netsync: false
+  - type: Icon
+    sprite: SimpleStation14/Objects/Devices/pda.rsi
+    state: pda-css
