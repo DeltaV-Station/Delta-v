@@ -15,6 +15,20 @@
       state: medical_e
 
 - type: entity
+  id: SpawnPointCourier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: Courier
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: courier
+
+
+- type: entity
   id: SpawnPointAdminAssistant
   parent: SpawnPointJobBase
   name: administrative assistant
