@@ -125,7 +125,6 @@
   - type: Inventory
     speciesId: harpy
 #    templateId: digitigrade
-    jumpsuitShader: DisplacedStencilDraw
     displacements:
       jumpsuit:
         layer:
@@ -151,11 +150,10 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
-    jumpsuitShader: DisplacedStencilDraw
     displacements:
       jumpsuit:
         layer:
-          sprite: Mobs/Species/Vox/displacement.rsi
+          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
           state: jumpsuit
           copyToShaderParameters:
             # Value required, provide a dummy. Gets overridden when applied.
