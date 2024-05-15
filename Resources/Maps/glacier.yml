@@ -11939,16 +11939,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 55.5,3.5
       parent: 2
-  - uid: 113
-    components:
-    - type: Transform
-      pos: -33.5,-20.5
-      parent: 2
-  - uid: 114
-    components:
-    - type: Transform
-      pos: -35.5,-20.5
-      parent: 2
   - uid: 115
     components:
     - type: MetaData
@@ -11962,6 +11952,18 @@ entities:
       name: Dock
     - type: Transform
       pos: 51.5,25.5
+      parent: 2
+- proto: AirlockExternalGlassShuttleShipyard
+  entities:
+  - uid: 113
+    components:
+    - type: Transform
+      pos: -35.5,-20.5
+      parent: 2
+  - uid: 114
+    components:
+    - type: Transform
+      pos: -33.5,-20.5
       parent: 2
 - proto: AirlockFreezerKitchenHydroLocked
   entities:
@@ -44046,11 +44048,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -47.5,25.5
       parent: 2
-  - uid: 6312
-    components:
-    - type: Transform
-      pos: 37.5,50.5
-      parent: 2
 - proto: ComputerCargoBounty
   entities:
   - uid: 13163
@@ -44187,6 +44184,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 31.5,-22.5
+      parent: 2
+- proto: ComputerShipyard
+  entities:
+  - uid: 6312
+    components:
+    - type: Transform
+      pos: 37.5,50.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -44605,13 +44609,6 @@ entities:
       containers:
       - EntityStorageComponent
       - entity_storage
-- proto: CrateEngineeringSolar
-  entities:
-  - uid: 6364
-    components:
-    - type: Transform
-      pos: 13.5,38.5
-      parent: 2
 - proto: CrateEngineeringJetpack
   entities:
   - uid: 911
@@ -44623,6 +44620,13 @@ entities:
     components:
     - type: Transform
       pos: 46.5,16.5
+      parent: 2
+- proto: CrateEngineeringSolar
+  entities:
+  - uid: 6364
+    components:
+    - type: Transform
+      pos: 13.5,38.5
       parent: 2
 - proto: CrateEngineeringToolbox
   entities:
@@ -45231,6 +45235,13 @@ entities:
     - type: Transform
       pos: 63.5,-25.5
       parent: 2
+  - uid: 16454
+    components:
+    - type: Transform
+      pos: -34.5,-19.5
+      parent: 2
+    - type: NavMapBeacon
+      text: Shipyard Dock
 - proto: DefaultStationBeaconAME
   entities:
   - uid: 15034
@@ -92155,6 +92166,33 @@ entities:
     - type: Transform
       pos: -23.5,-10.5
       parent: 2
+- proto: SpawnPointCourier
+  entities:
+  - uid: 13932
+    components:
+    - type: Transform
+      pos: 41.5,14.5
+      parent: 2
+  - uid: 13933
+    components:
+    - type: Transform
+      pos: 41.5,15.5
+      parent: 2
+  - uid: 13934
+    components:
+    - type: Transform
+      pos: 42.5,15.5
+      parent: 2
+  - uid: 13935
+    components:
+    - type: Transform
+      pos: 44.5,15.5
+      parent: 2
+  - uid: 13936
+    components:
+    - type: Transform
+      pos: 43.5,15.5
+      parent: 2
 - proto: SpawnPointDetective
   entities:
   - uid: 15402
@@ -92362,33 +92400,6 @@ entities:
     components:
     - type: Transform
       pos: -28.5,51.5
-      parent: 2
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 13932
-    components:
-    - type: Transform
-      pos: 41.5,14.5
-      parent: 2
-  - uid: 13933
-    components:
-    - type: Transform
-      pos: 41.5,15.5
-      parent: 2
-  - uid: 13934
-    components:
-    - type: Transform
-      pos: 42.5,15.5
-      parent: 2
-  - uid: 13935
-    components:
-    - type: Transform
-      pos: 44.5,15.5
-      parent: 2
-  - uid: 13936
-    components:
-    - type: Transform
-      pos: 43.5,15.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
