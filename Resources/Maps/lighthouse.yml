@@ -54121,7 +54121,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -12.5,47.5
+      pos: -11.5,47.5
       parent: 100
     - type: DeviceList
       devices:
@@ -109365,6 +109365,13 @@ entities:
     components:
     - type: Transform
       pos: 8.5,38.5
+      parent: 100
+- proto: SpawnMobMonkeyPunpun
+  entities:
+  - uid: 20872
+    components:
+    - type: Transform
+      pos: -1.5,10.5
       parent: 100
 - proto: SpawnMobPossumMorty
   entities:
