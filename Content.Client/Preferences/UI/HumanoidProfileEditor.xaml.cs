@@ -594,7 +594,6 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(selector);
                     _jobPriorities.Add(selector);
-                    EnsureJobRequirementsValid(); // DeltaV
 
                     selector.LoadoutUpdated += args =>
                     {
@@ -631,27 +630,6 @@ namespace Content.Client.Preferences.UI
             {
                 UpdateJobPriorities();
             }
-        }
-
-        /// <summary>
-        /// DeltaV - Make sure that no invalid job priorities get through.
-        /// </summary>
-        private void EnsureJobRequirementsValid()
-        {
-            var changed = false;
-            foreach (var selector in _jobPriorities)
-            {
-                if (_requirements.IsAllowed(selector.Proto, out var _) || selector.Priority == JobPriority.Never)
-                    continue;
-
-                selector.Priority = JobPriority.Never;
-                Profile = Profile?.WithJobPriority(selector.Proto.ID, JobPriority.Never);
-                changed = true;
-            }
-            if (!changed)
-                return;
-
-            Save();
         }
 
         private void OnFlavorTextChange(string content)
@@ -774,7 +752,6 @@ namespace Content.Client.Preferences.UI
             UpdateAntagRequirements();
             UpdateControls();
             ShowClothes.Pressed = true;
-            EnsureJobRequirementsValid(); // DeltaV
         }
 
         private void SetAge(int newAge)
