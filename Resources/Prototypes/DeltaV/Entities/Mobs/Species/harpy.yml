@@ -124,7 +124,17 @@
     baseSprintSpeed: 5.0
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+#    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        layer:
+          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+          state: jumpsuit
+          copyToShaderParameters:
+            # Value required, provide a dummy. Gets overridden when applied.
+            layerKey: dummy
+            parameterTexture: displacementMap
+            parameterUV: displacementUV
   - type: HarpyVisuals
   - type: UltraVision
 
@@ -140,6 +150,16 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
+    displacements:
+      jumpsuit:
+        layer:
+          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+          state: jumpsuit
+          copyToShaderParameters:
+            # Value required, provide a dummy. Gets overridden when applied.
+            layerKey: dummy
+            parameterTexture: displacementMap
+            parameterUV: displacementUV
   - type: Sprite
     scale: 0.9, 0.9
     layers:
