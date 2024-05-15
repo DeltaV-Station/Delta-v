@@ -90844,13 +90844,6 @@ entities:
     - type: Transform
       pos: 7.5,-7.5
       parent: 2
-- proto: SpawnPointAdminAssistant
-  entities:
-  - uid: 17484
-    components:
-    - type: Transform
-      pos: -12.5,43.5
-      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 13933
@@ -91047,23 +91040,6 @@ entities:
     - type: Transform
       pos: -33.5,9.5
       parent: 2
-- proto: SpawnPointCourier
-  entities:
-  - uid: 13998
-    components:
-    - type: Transform
-      pos: 15.5,-26.5
-      parent: 2
-  - uid: 13999
-    components:
-    - type: Transform
-      pos: 15.5,-28.5
-      parent: 2
-  - uid: 14000
-    components:
-    - type: Transform
-      pos: 16.5,-27.5
-      parent: 2
 - proto: SpawnPointDetective
   entities:
   - uid: 13967
@@ -91234,6 +91210,23 @@ entities:
     components:
     - type: Transform
       pos: -20.5,20.5
+      parent: 2
+- proto: SpawnPointMailCarrier
+  entities:
+  - uid: 13998
+    components:
+    - type: Transform
+      pos: 15.5,-26.5
+      parent: 2
+  - uid: 13999
+    components:
+    - type: Transform
+      pos: 15.5,-28.5
+      parent: 2
+  - uid: 14000
+    components:
+    - type: Transform
+      pos: 16.5,-27.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
