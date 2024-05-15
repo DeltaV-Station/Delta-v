@@ -3,10 +3,6 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Medical
-  #    time: 28800 # DeltaV - 8 hours
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1800
