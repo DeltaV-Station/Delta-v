@@ -10160,6 +10160,12 @@ entities:
     - type: Transform
       pos: 1.5,1.5
       parent: 100
+    - type: Door
+      secondsUntilStateChange: -19.194061
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 86
     components:
     - type: MetaData
@@ -109394,6 +109400,13 @@ entities:
     - type: Transform
       pos: 7.5,47.5
       parent: 100
+- proto: SpawnPointAdminAssistant
+  entities:
+  - uid: 20873
+    components:
+    - type: Transform
+      pos: -11.5,74.5
+      parent: 100
 - proto: SpawnPointAtmos
   entities:
   - uid: 16151
@@ -109642,6 +109655,18 @@ entities:
     - type: Transform
       pos: 10.5,9.5
       parent: 100
+- proto: SpawnPointCourier
+  entities:
+  - uid: 16733
+    components:
+    - type: Transform
+      pos: -28.5,-2.5
+      parent: 100
+  - uid: 16734
+    components:
+    - type: Transform
+      pos: -28.5,-3.5
+      parent: 100
 - proto: SpawnPointDetective
   entities:
   - uid: 16789
@@ -109834,18 +109859,6 @@ entities:
     components:
     - type: Transform
       pos: 18.5,-9.5
-      parent: 100
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 16733
-    components:
-    - type: Transform
-      pos: -28.5,-2.5
-      parent: 100
-  - uid: 16734
-    components:
-    - type: Transform
-      pos: -28.5,-3.5
       parent: 100
 - proto: SpawnPointMedicalBorg
   entities:
