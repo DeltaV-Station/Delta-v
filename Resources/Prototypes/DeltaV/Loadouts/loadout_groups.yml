@@ -63,3 +63,113 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
+
+## Senior Officer
+- type: loadoutGroup
+  id: SeniorOfficerJumpsuit
+  name: loadout-group-senior-officer-jumpsuit
+  loadouts:
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SecurityJumpsuitGrey
+  - SecurityJumpskirtGrey
+
+# Engineering
+## Senior Engineer
+
+- type: loadoutGroup
+  id: SeniorEngineerHead
+  name: loadout-group-senior-engineer-head
+  minLimit: 0
+  loadouts:
+  - SeniorEngineerBeret
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+
+- type: loadoutGroup
+  id: SeniorEngineerJumpsuit
+  name: loadout-group-senior-engineer-jumpsuit
+  loadouts:
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+
+- type: loadoutGroup
+  id: SeniorEngineerOuterClothing
+  name: loadout-group-senior-engineer-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorEngineerOuterVest
+  - SeniorEngineerWintercoat
+
+- type: loadoutGroup
+  id: SeniorEngineerShoes
+  name: loadout-group-senior-engineer-shoes
+  minLimit: 0
+  loadouts:
+  - WorkBoots
+  - EngineeringWinterBoots
+
+# Epistemics
+## Senior Researcher
+
+- type: loadoutGroup
+  id: SeniorScientistHead
+  name: loadout-group-senior-scientist-head
+  minLimit: 0
+  loadouts:
+  - ScientificBeret
+  - RoboticistCap
+  - SkullBandana
+
+- type: loadoutGroup
+  id: SeniorScientistJumpsuit
+  name: loadout-group-senior-scientist-jumpsuit
+  loadouts:
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+
+- type: loadoutGroup
+  id: SeniorScientistOuterClothing
+  name: loadout-group-senior-scientist-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorResearcherLabCoat
+  - RegularLabCoat
+  - ScienceWintercoat
+
+# Medical
+## Senior Physician
+
+- type: loadoutGroup
+  id: SeniorPhysicianHead
+  name: loadout-group-senior-physician-head
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianBeret
+  - MedicalBeret
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+
+- type: loadoutGroup
+  id: SeniorPhysicianJumpsuit
+  name: loadout-group-senior-physician-jumpsuit
+  loadouts:
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskir
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: SeniorPhysicianOuterClothing
+  name: loadout-group-senior-physician-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianLabCoat
+  - RegularLabCoat
+  - MedicalDoctorWintercoat

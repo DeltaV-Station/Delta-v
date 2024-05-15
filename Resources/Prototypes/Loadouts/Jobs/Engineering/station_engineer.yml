@@ -49,9 +49,9 @@
 - type: loadout
   id: SeniorEngineerBeret
   equipment: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorEngineering
 
 - type: startingGear
   id: EngineeringBeret
@@ -89,9 +89,9 @@
 - type: loadout
   id: SeniorEngineerJumpsuit
   equipment: SeniorEngineerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorEngineering
 
 - type: startingGear
   id: SeniorEngineerJumpsuit
@@ -101,9 +101,9 @@
 - type: loadout
   id: SeniorEngineerJumpskirt
   equipment: SeniorEngineerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorEngineering
 
 - type: startingGear
   id: SeniorEngineerJumpskirt
@@ -189,9 +189,9 @@
 - type: loadout
   id: SeniorEngineerPDA
   equipment: SeniorEngineerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+#  effects: # Delta V - Separate senior roles
+#  - !type:GroupLoadoutEffect
+#    proto: SeniorEngineering
 
 - type: startingGear
   id: SeniorEngineerPDA

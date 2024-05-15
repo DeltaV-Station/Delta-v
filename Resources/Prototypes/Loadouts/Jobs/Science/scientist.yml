@@ -13,9 +13,9 @@
 - type: loadout
   id: ScientificBeret
   equipment: ScientificBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorResearcher
 
 - type: startingGear
   id: ScientificBeret
@@ -103,9 +103,9 @@
 - type: loadout
   id: SeniorResearcherJumpskirt
   equipment: SeniorResearcherJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorResearcher
 
 - type: startingGear
   id: SeniorResearcherJumpskirt
@@ -171,9 +171,9 @@
 - type: loadout
   id: SeniorResearcherLabCoat
   equipment: SeniorResearcherLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorResearcher
 
 - type: startingGear
   id: SeniorResearcherLabCoat
@@ -222,9 +222,9 @@
 - type: loadout
   id: SeniorResearcherPDA
   equipment: SeniorResearcherPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  #effects: # Delta V - Separate senior roles
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorResearcher
 
 - type: startingGear
   id: SeniorResearcherPDA

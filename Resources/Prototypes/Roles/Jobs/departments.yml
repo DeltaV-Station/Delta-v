@@ -60,6 +60,7 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
+  - SeniorEngineer # Delta V - Separate senior roles
   - StationEngineer
   - TechnicalAssistant
 
@@ -70,6 +71,7 @@
   roles:
   - Chemist
   - ChiefMedicalOfficer
+  - SeniorPhysician # Delta V - Separate senior roles
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
@@ -89,6 +91,7 @@
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - SeniorOfficer # Delta V - Separate senior roles
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
@@ -97,6 +100,7 @@
   roles:
   - ResearchDirector
   - Scientist
+  - SeniorResearcher # Delta V - Separate senior roles
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
