@@ -19,6 +19,10 @@ loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
 
+loadout-group-senior-scientist-head = Senior Researcher head
+loadout-group-senior-scientist-jumpsuit = Senior Researcher jumpsuit
+loadout-group-senior-scientist-outerclothing = Senior Researcher outer clothing
+
 # Security
 loadout-group-brig-medic-head = Brigmedic head
 loadout-group-brig-medic-jumpsuit = Brigmedic jumpsuit
@@ -26,6 +30,17 @@ loadout-group-brig-medic-back = Brigmedic backpack
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
+
+loadout-group-senior-officer-jumpsuit = Senior Officer jumpsuit
+
+# Engineering
+loadout-group-senior-engineer-head = Senior Engineer head
+loadout-group-senior-engineer-jumpsuit = Senior Engineer jumpsuit
+
+# Medical
+loadout-group-senior-physician-head = Senior Physician head
+loadout-group-senior-physician-jumpsuit = Senior Physician jumpsuit
+loadout-group-senior-physician-outerclothing = Senior Physician outer clothing
 
 # Wildcards
 loadout-group-prisoner-jumpsuit = Prisoner jumpsuit
