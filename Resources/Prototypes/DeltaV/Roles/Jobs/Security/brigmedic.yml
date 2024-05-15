@@ -32,7 +32,8 @@
 - type: startingGear
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-    eyes: ClothingEyesHudMedical
+#    eyes: ClothingEyesHudMedical # DeltaV
+    outerClothing: ClothingOuterCoatLabCorpsman
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltCorpsmanWebbingFilled
