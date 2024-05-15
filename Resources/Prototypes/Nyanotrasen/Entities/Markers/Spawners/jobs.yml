@@ -37,19 +37,6 @@
         state: nyanoprisonguard
 
 - type: entity
-  id: SpawnPointMailCarrier
-  parent: SpawnPointJobBase
-  name: courier # Delta V - Mail Carrier to Courier replacement
-  components:
-  - type: SpawnPoint
-    job_id: MailCarrier
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: DeltaV/Markers/jobs.rsi
-        state: courier # Delta V - Mail Carrier to Courier replacement
-
-- type: entity
   id: SpawnPointMartialArtist
   parent: SpawnPointJobBase
   name: martial artist

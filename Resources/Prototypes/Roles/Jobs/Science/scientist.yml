@@ -3,10 +3,10 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Epistemics # DeltaV - Epistemics Department replacing Science
-  #    time: 14400 #4 hrs
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      time: 1
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
@@ -17,12 +17,5 @@
 - type: startingGear
   id: ScientistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitScientist
-    back: ClothingBackpackScienceFilled
-    shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatRnd
-    id: SciencePDA
     ears: ClothingHeadsetScience
-  innerClothingSkirt: ClothingUniformJumpskirtScientist
-  satchel: ClothingBackpackSatchelScienceFilled
-  duffelbag: ClothingBackpackDuffelScienceFilled
+

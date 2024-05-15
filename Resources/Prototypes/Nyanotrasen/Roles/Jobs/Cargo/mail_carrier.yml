@@ -4,6 +4,7 @@
   description: job-description-mail-carrier
   startingGear: CourierGear
   playTimeTracker: JobMailCarrier
+  setPreference: false
   icon: "JobIconMailCarrier"
   supervisors: job-supervisors-qm
   access:
@@ -14,13 +15,6 @@
 - type: startingGear
   id: MailCarrierGear
   equipment:
-    head: ClothingHeadMailCarrier
-    jumpsuit: ClothingUniformMailCarrier
-    back: ClothingBackpackFilled
-    shoes: ClothingShoesColorBlack
     id: MailCarrierPDA
     ears: ClothingHeadsetCargo
     belt: MailBag
-  innerClothingSkirt: ClothingUniformSkirtMailCarrier
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled

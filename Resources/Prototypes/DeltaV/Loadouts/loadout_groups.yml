@@ -1,0 +1,79 @@
+# Logistics
+## Courier
+- type: loadoutGroup
+  id: CourierHead
+  name: loadout-group-courier-head
+  minLimit: 0
+  loadouts:
+  - CourierHead
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: CourierJumpsuit
+  name: loadout-group-courier-jumpsuit
+  loadouts:
+  - CourierJumpsuit
+  - CourierJumpskirt
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: CourierOuterClothing
+  name: loadout-group-courier-outerclothing
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianWintercoat
+  - MailCarrierWintercoat
+
+- type: loadoutGroup
+  id: CourierShoes
+  name: loadout-group-courier-shoes
+  loadouts:
+  - BlackShoes
+  - CargoWinterBoots
+  - RollerSkates
+
+- type: loadoutGroup
+  id: CourierPDA
+  name: loadout-group-courier-id
+  loadouts:
+  - CourierPDA
+  - MailCarrierPDA
+
+# Security
+## Brig Medic
+- type: loadoutGroup
+  id: BrigMedicHead
+  name: loadout-group-brig-medic-head
+  minLimit: 0
+  loadouts:
+  - CorpsmanBeret
+  - CorpsmanBeretWhite
+
+- type: loadoutGroup
+  id: BrigMedicJumpsuit
+  name: loadout-group-brig-medic-jumpsuit
+  loadouts:
+  - BrigMedicJumpsuit
+  - BrigMedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigMedicOuterClothing
+  name: loadout-group-brig-medic-outerclothing
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - VestSecurityMedic
+  - VestArmorMedSec
+  - ArmorVest
+  - PlateCarrier # DeltaV
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+
+- type: loadoutGroup
+  id: BrigMedicBack
+  name: loadout-group-brig-medic-back
+  loadouts:
+  - BrigMedicBackpack
+  - BrigMedicSatchel
+  - BrigMedicDuffel

@@ -1,4 +1,3 @@
-
 - type: entity
   id: SpawnPointMedicalBorg
   parent: SpawnPointJobBase
@@ -13,3 +12,16 @@
       state: medical
     - sprite: Mobs/Silicon/chassis.rsi
       state: medical_e
+
+- type: entity
+  id: SpawnPointCourier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: Courier
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: courier

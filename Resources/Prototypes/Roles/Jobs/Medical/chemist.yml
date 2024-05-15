@@ -3,10 +3,6 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Medical
-  #    time: 28800 # DeltaV - 8 hours
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1800
@@ -21,15 +17,8 @@
 - type: startingGear
   id: ChemistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitChemistry
-    back: ClothingBackpackChemistryFilled
-    shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatLabChem
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
     belt: ChemBag
     pocket1: HandLabeler
     eyes: ClothingEyesGlassesChemical
-    innerClothingSkirt: ClothingUniformJumpskirtChemistry
-    satchel: ClothingBackpackSatchelChemistryFilled
-    duffelbag: ClothingBackpackDuffelChemistryFilled

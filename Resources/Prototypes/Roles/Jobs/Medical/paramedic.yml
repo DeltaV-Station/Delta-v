@@ -4,15 +4,6 @@
   description: job-description-paramedic
   playTimeTracker: JobParamedic
   antagAdvantage: 2 # DeltaV - Reduced TC: External Access
-  #requirements:
-  #  # - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
-  #  #   role: JobMedicalDoctor
-  #  #   time: 14400 #4 hrs
-  #  - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
-  #    department: Medical
-  #    time: 28800 # DeltaV - 8 hours
-  #  # - !type:OverallPlaytimeRequirement # DeltaV - No playtime requirement
-  #  #   time: 54000 # 15 hrs
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1
@@ -30,14 +21,9 @@
 - type: startingGear
   id: ParamedicGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedic
-    back: ClothingBackpackParamedicFilledDV # DeltaV - Give Paramedics useful tools on spawn, see Resources/Prototypes/DeltaV/Catalog/Fills/Backpacks/StargerGear/backpack.yml
-    shoes: ClothingShoesColorBlue
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalEMTFilled
     pocket1: HandheldGPSBasic # DeltaV - Give Paramedics useful tools on spawn
     pocket2: HandheldCrewMonitor # DeltaV - Give Paramedics useful tools on spawn
-  innerClothingSkirt: ClothingUniformJumpskirtParamedic
-  satchel: ClothingBackpackSatchelParamedicFilledDV # DeltaV - Give Paramedics useful tools on spawn, see Resources/Prototypes/DeltaV/Catalog/Fills/Backpacks/StargerGear/satchel.yml
-  duffelbag: ClothingBackpackDuffelParamedicFilledDV # DeltaV - Give Paramedics useful tools on spawn, see Resources/Prototypes/DeltaV/Catalog/Fills/Backpacks/StargerGear/duffelbag.yml
+
