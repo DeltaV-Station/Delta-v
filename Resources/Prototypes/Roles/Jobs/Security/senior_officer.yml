@@ -3,7 +3,7 @@
   name: job-name-senior-officer
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
-  setPreference: false # DeltaV - Disable Senior Roles round start selection
+  setPreference: true # DeltaV - Disable Senior Roles round start selection
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
