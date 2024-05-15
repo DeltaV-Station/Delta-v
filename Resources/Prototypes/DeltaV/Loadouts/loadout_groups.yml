@@ -63,3 +63,35 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
+
+# Command
+## Admin Assistant
+
+- type: loadoutGroup
+  id: AdminAssistantHead
+  name: loadout-group-admin-assistant-head
+  minLimit: 0
+  loadouts:
+  - FoodPoppy
+
+- type: loadoutGroup
+  id: AdminAssistantJumpsuit
+  name: loadout-group-admin-assistant-jumpsuit
+  loadouts:
+  - AdminAssistantJumpsuit
+  - AdminAssistantJumpskirt
+
+- type: loadoutGroup
+  id: AdminAssistantOuterClothing
+  name: loadout-group-admin-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - CaptainWintercoat
+
+- type: loadoutGroup
+  id: AdminAssistantBack
+  name: loadout-group-admin-assistant-back
+  loadouts:
+  - AdminAssistantBackpack
+  - AdminAssistantSatchel
+  - AdminAssistantDuffel

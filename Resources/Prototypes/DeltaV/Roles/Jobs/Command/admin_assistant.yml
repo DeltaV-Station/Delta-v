@@ -25,11 +25,11 @@
     - !type:OverallPlaytimeRequirement 
       time: 108000 # 30 hours
     - !type:WhitelistRequirement
-  setPreference: true
-  requireAdminNotify: true
   weight: 20
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
+  requireAdminNotify: true
+  joinNotifyCrew: true
   supervisors: job-supervisors-command
   canBeAntag: false
   access:
@@ -65,20 +65,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
-    components:
-      - type: CommandStaff
 
 - type: startingGear
   id: AdminAssistantGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitAdminAssistant
-    back: ClothingBackpackAdminAssistantFilled
     shoes: ClothingShoesBootsLaceup
     belt: BoxFolderClipboard
     id: AdminAssistantPDA
     ears: ClothingHeadsetAltAdminAssistant
-  inhand:
-    - BriefcaseBrownFilled
-  satchel: ClothingBackpackSatchelAdminAssistantFilled
-  duffelbag: ClothingBackpackDuffelAdminAssistantFilled
