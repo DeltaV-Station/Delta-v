@@ -12,7 +12,7 @@
   startingGear: ForensicMantisGear
   icon: "JobIconForensicMantis"
   supervisors: job-supervisors-rd
-  antagAdvantage: 5 # DeltaV - From 4 to 5
+  antagAdvantage: 4 # DeltaV - Protolathe, Psionics, Has an objective item, anomaly stuff, glimmer factor
   canBeAntag: true # DeltaV - Mantis is no longer a Detective
   # whitelistRequired: true
   access:
@@ -28,17 +28,7 @@
 - type: startingGear
   id: ForensicMantisGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMantis
-    back: ClothingBackpackMantisFilled
-    shoes: ClothingShoesBootsMantis
-    head: ClothingHeadHatFezMantis
     id: ForensicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetScience # DeltaV - Mantis is part of Epistemics
-    gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterCoatMantis
     belt: ClothingBeltMantis
-    # pocket2: ForensicScanner # DeltaV - Mantis is no longer a Detective
-  innerClothingSkirt: ClothingUniformSkirtMantis
-  satchel: ClothingBackpackSatchelMantisFilled
-  duffelbag: ClothingBackpackDuffelMantisFilled

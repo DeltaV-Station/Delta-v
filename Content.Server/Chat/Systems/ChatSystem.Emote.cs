@@ -1,5 +1,7 @@
 using System.Collections.Frozen;
+using System.Collections.Immutable;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -8,7 +10,7 @@ namespace Content.Server.Chat.Systems;
 // emotes using emote prototype
 public partial class ChatSystem
 {
-    private FrozenDictionary<string, EmotePrototype> _wordEmoteDict = FrozenDictionary<string, EmotePrototype>.Empty;
+    private FrozenDictionary<string, ImmutableList<EmotePrototype>> _wordEmoteDict = FrozenDictionary<string, ImmutableList<EmotePrototype>>.Empty; // DeltaV - Multiple emotes
 
     protected override void OnPrototypeReload(PrototypesReloadedEventArgs obj)
     {
@@ -19,7 +21,7 @@ public partial class ChatSystem
 
     private void CacheEmotes()
     {
-        var dict = new Dictionary<string, EmotePrototype>();
+        var dict = new Dictionary<string, ImmutableList<EmotePrototype>>(); // DeltaV - Multiple triggers for the same emote
         var emotes = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
         foreach (var emote in emotes)
         {
@@ -28,12 +30,16 @@ public partial class ChatSystem
                 var lowerWord = word.ToLower();
                 if (dict.TryGetValue(lowerWord, out var value))
                 {
-                    var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";
-                    Log.Error(errMsg);
+                    // Begin DeltaV modification - Multiple emotes for the same words
+                    dict[lowerWord] = value.Add(emote);
+
+                    var errMsg = $"Duplicate of emote word {lowerWord}";
+                    Log.Warning(errMsg);
+
                     continue;
                 }
 
-                dict.Add(lowerWord, emote);
+                dict.Add(lowerWord, ImmutableList.Create(emote)); // End DeltaV modification
             }
         }
 
@@ -80,6 +86,16 @@ public partial class ChatSystem
         bool ignoreActionBlocker = false
         )
     {
+        if (!(emote.Whitelist?.IsValid(source, EntityManager) ?? true))
+            return;
+        if (emote.Blacklist?.IsValid(source, EntityManager) ?? false)
+            return;
+
+        if (!emote.Available &&
+            TryComp<SpeechComponent>(source, out var speech) &&
+            !speech.AllowedEmotes.Contains(emote.ID))
+            return;
+
         // check if proto has valid message for chat
         if (emote.ChatMessages.Count != 0)
         {
@@ -150,10 +166,13 @@ public partial class ChatSystem
     private void TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionLower = textInput.ToLower();
-        if (!_wordEmoteDict.TryGetValue(actionLower, out var emote))
+        if (!_wordEmoteDict.TryGetValue(actionLower, out var emotes))
             return;
 
-        InvokeEmoteEvent(uid, emote);
+        foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
+        {
+            InvokeEmoteEvent(uid, emote);
+        }
     }
 
     private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
