@@ -27,6 +27,9 @@
   - Maintenance
   - Service
   - External
+  - Detective # DeltaV - how much do you trust your senior officers?
+  - Corpsman # DeltaV - enough to give them keys to your specialists' rooms?
+  - Cryogenics # DeltaV - the rest of security gets this access.
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -34,7 +37,7 @@
 - type: startingGear
   id: SeniorOfficerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+    jumpsuit: ClothingUniformJumpsuitSecurityTactical # DeltaV - make seniors cooler.
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
     eyes: ClothingEyesGlassesSecurity
@@ -44,6 +47,6 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58Nonlethal
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
+  innerClothingSkirt: ClothingUniformJumpsuitSecurityTactical # DeltaV - but not cool enough for skirts. sorry.
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled

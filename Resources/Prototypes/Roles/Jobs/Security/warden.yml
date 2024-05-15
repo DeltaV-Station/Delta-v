@@ -23,6 +23,7 @@
   - Service
   - External
   - Detective
+  - Corpsman # DeltaV - corpsman access.
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -36,7 +37,7 @@
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterCoatWarden
+    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - remove ClothingOuterCoatWarden from standard gameplay.
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled

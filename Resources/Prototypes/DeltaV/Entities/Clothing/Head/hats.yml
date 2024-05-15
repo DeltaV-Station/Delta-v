@@ -192,3 +192,14 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretForensicSpecialist
+  name: forensic specialist beret
+  description: For investigative souls.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_det.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_det.rsi

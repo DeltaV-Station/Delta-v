@@ -19,8 +19,10 @@
   - Security
   #- Brig #Delta V: Removed brig access
   - Maintenance
+  - Service # The rest of security has this access.
   - External
   - Corpsman
+  - Cryogenics # The rest of security also gets this access.
   extendedAccess:
   - Chemistry
   special:
@@ -31,7 +33,7 @@
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
-    outerClothing: ClothingOuterArmorPlateCarrier
+    outerClothing: ClothingOuterCoatLabCorpsman
     back: ClothingBackpackBrigmedicDeltaVFilled
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesNitrile

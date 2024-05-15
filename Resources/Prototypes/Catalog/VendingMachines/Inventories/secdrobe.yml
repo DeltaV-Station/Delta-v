@@ -4,13 +4,12 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-    ClothingUniformJumpsuitSec: 3
-    ClothingShoesBootsJack: 3
-    ClothingHeadHatBeretSecurity: 3
+    ClothingHeadHatBeretSecurity: 6 # DeltaV - they always run out... :(
 ##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
     ClothingHeadBandRed: 3
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
+    ClothingUniformJumpsuitSec: 3 # DeltaV - moved it down with the other jumpsuits/skirts
     ClothingUniformJumpskirtSec: 3
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
@@ -18,13 +17,18 @@
     ClothingUniformJumpskirtSecBlue: 3 # DeltaV - new skirt sprited, added to secdrobe
     ClothingHeadsetSecurity: 3
     ClothingHeadsetPrison: 3 # DeltaV - prison headsets in secdrobe
-    ClothingOuterWinterSec: 2
-    ClothingOuterCoatGreatcoat: 2 # DeltaV - added greatcoats to SecDrobe. Surplus, reminds the officers of the good times.
+##    ClothingOuterWinterSec: 2 # DeltaV - replaced with uniform coats.
+    ClothingOuterStasecCoat: 3 # DeltaV - these are more fitting.
 ##    ClothingOuterArmorBasic: 2 # DeltaV - moved body armour from SecDrobe to SecTech
-##    ClothingOuterArmorBasicSlim: 2
+##    ClothingOuterArmorBasicSlim: 2 # DeltaV - see above.
     ClothingNeckScarfStripedRed: 3
     ClothingEyesBlindfold: 1
+    ClothingMaskNeckGaiter: 3 # DeltaV - what could go wrong?
+    ClothingShoesBootsJack: 3 # DeltaV - moved it down with the combat boots
     ClothingShoesBootsCombat: 1
-    ClothingShoesBootsWinterSec: 2
-    ClothingShoesBootsCowboyBlack: 1
-    ClothingHeadHatCowboyBlack: 1
+##    ClothingShoesBootsWinterSec: 2 # DeltaV - removed until they fit the uniform
+##    ClothingShoesBootsCowboyBlack: 1 # DeltaV - hearing these things give me a headache.
+##    ClothingHeadHatCowboyBlack: 1 # DeltaV - seeing these things don't give me a headache, but please wear actual uniform.
+  contrabandInventory: # DeltaV - moved greatcoats to the contraband inventory since they don't fit the uniform but I'd prefer they be kept in.
+    ClothingOuterCoatGreatcoat: 2 # DeltaV - added greatcoats to SecDrobe. Surplus, reminds the officers of the good times.
+    ClothingMaskJoy: 1 # DeltaV - unhinged.

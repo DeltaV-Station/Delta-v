@@ -17,6 +17,7 @@
   - Maintenance
   - Service
   - Detective
+  - Cryogenics # DeltaV - the rest of security gets this.
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -24,15 +25,15 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitDetective
+    jumpsuit: ClothingUniformJumpsuitForensicSpecialist # DeltaV - art direct the detective,
     back: ClothingBackpackSecurityFilledDetective
     shoes: ClothingShoesBootsCombatFilled
     eyes: ClothingEyesGlassesSecurity
-    head: ClothingHeadHatFedoraBrown
-    outerClothing: ClothingOuterVestDetective
+    head: ClothingHeadHatBeretForensicSpecialist # DeltaV - art dictate the detective,
+    outerClothing: ClothingOuterStasecCoatDet # DeltaV - the det's just more like defective,
     id: DetectivePDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
-  innerClothingSkirt: ClothingUniformJumpskirtDetective
+  innerClothingSkirt: ClothingUniformJumpskirtForensicSpecialist # DeltaV - I assert this change is corrective.
   satchel: ClothingBackpackSatchelSecurityFilledDetective
   duffelbag: ClothingBackpackDuffelSecurityFilledDetective
