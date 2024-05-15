@@ -1,0 +1,38 @@
+# Head
+- type: loadout
+  id: MailCarrierHead
+  equipment: MailCarrierHead
+
+- type: startingGear
+  id: MailCarrierHead
+  equipment:
+    head: ClothingHeadMailCarrier
+
+# Jumpsuit
+- type: loadout
+  id: MailCarrierJumpsuit
+  equipment: MailCarrierJumpsuit
+
+- type: startingGear
+  id: MailCarrierJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMailCarrier
+
+- type: loadout
+  id: MailCarrierJumpskirt
+  equipment: MailCarrierJumpskirt
+
+- type: startingGear
+  id: MailCarrierJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformSkirtMailCarrier
+
+# OuterClothing
+- type: loadout
+  id: MailCarrierWintercoat
+  equipment: MailCarrierWintercoat
+
+- type: startingGear
+  id: MailCarrierWintercoat
+  equipment:
+      coat: ClothingOuterWinterCoatMail
