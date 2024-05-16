@@ -9,10 +9,10 @@
   - type: Sprite
     overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
     drawdepth: Ghosts
-    sprite: Mobs/Ghosts/ghost_human.rsi
+    sprite: SimpleStation14/Mobs/Ghosts/ghost.rsi
     color: "#fff8"
     layers:
-    - state: animated
+    - state: animated1
       shader: unshaded
   - type: ContentEye
     maxZoom: 1.44,1.44
@@ -53,6 +53,42 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: RandomSprite
+    available:
+      - 0:
+          animated1: ""                               
+          animated2: ""
+          animated3: ""
+          animated4: ""
+          animated5: ""
+          animated6: ""
+          animated7: ""
+          animated8: ""
+          animated9: ""
+          animated10: ""
+          animated11: ""
+          animated12: ""
+          animated13: ""
+          animated14: ""
+          animated15: ""
+          animated16: ""
+          animated17: ""
+          animated18: ""
+          animated19: ""
+          animated20: ""
+          animated21: ""
+          animated22: ""
+          animated23: ""
+          animated24: ""
+          animated25: ""
+          animated26: ""
+          animated27: ""
+          animated28: ""
+          animated30: ""
+          animated31: ""
+          animated32: ""
+          animated33: ""
+          animated34: ""
 
 - type: entity
   id: ActionGhostBoo
