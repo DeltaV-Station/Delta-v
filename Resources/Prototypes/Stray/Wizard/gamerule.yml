@@ -1,0 +1,31 @@
+- type: entity
+  id: Wizard
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: GameRule
+    minPlayers: 0 # DeltaV - Was 20
+  - type: WizardRule
+#  - type: LoadMapRule
+#    gameMap: NukieOutpost
+  - type: LoadMapRule
+    mapPath: /Maps/Shuttles/wizard.yml
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn # УБРАТЬ ЭТУ СТРОЧКУ ЕСЛИ ВДРУГ НЕ ЗАПУСТИЛОСЬ!!!
+    definitions:
+    - prefRoles: [ Wizard ]
+      max: 3
+      playerRatio: 10
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+      briefing:
+        text: zombie-patientzero-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+      mindComponents:
+      - type: WizardRole
+        prototype: Wizard
