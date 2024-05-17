@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackSatchelAdm
+  name: satchel of admin
+  description: A satchel from admin for admins
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchel/SatchelAdm.rsi
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,19,9
