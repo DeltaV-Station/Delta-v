@@ -1,12 +1,12 @@
-using System.Linq;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Psionics;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Mobs.Systems;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 /// <summary>
 /// Glimmer version of the (removed) random sentience event
