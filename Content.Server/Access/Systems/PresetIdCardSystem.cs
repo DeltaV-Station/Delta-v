@@ -2,8 +2,10 @@ using Content.Server.Access.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
+using Content.Shared.StationRecords;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
@@ -15,6 +17,7 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly StationRecordsSystem _record = default!;
 
     public override void Initialize()
     {
@@ -73,6 +76,16 @@ public sealed class PresetIdCardSystem : EntitySystem
         if (id.CustomJobName == null)
             return;
         _cardSystem.TryChangeJobTitle(uid, id.CustomJobName);
+
+        // The following code is taken from IdCardConsoleSystem
+        if (!TryComp<StationRecordKeyStorageComponent>(uid, out var keyStorage)
+            || keyStorage.Key is not { } key
+            || !_record.TryGetRecord<GeneralStationRecord>(key, out var record))
+        {
+            return;
+        }
+        record.JobTitle = id.CustomJobName;
+        _record.Synchronize(key);
     }
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended)
