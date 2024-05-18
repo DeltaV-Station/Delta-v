@@ -38,6 +38,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
             SetupIdAccess(uid, card, true);
             SetupIdName(uid, card);
+            SetupIdJob(uid, card);
         }
     }
 
@@ -57,6 +58,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         SetupIdAccess(uid, id, extended);
         SetupIdName(uid, id);
+        SetupIdJob(uid, id);
     }
 
     private void SetupIdName(EntityUid uid, PresetIdCardComponent id)
@@ -64,6 +66,13 @@ public sealed class PresetIdCardSystem : EntitySystem
         if (id.IdName == null)
             return;
         _cardSystem.TryChangeFullName(uid, id.IdName);
+    }
+
+    private void SetupIdJob(EntityUid uid, PresetIdCardComponent id)
+    {
+        if (id.CustomJobName == null)
+            return;
+        _cardSystem.TryChangeJobTitle(uid, id.CustomJobName);
     }
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended)
