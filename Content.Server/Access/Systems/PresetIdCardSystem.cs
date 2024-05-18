@@ -17,7 +17,7 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly StationRecordsSystem _record = default!;
+    [Dependency] private readonly StationRecordsSystem _record = default!; // DeltaV - Allow changing the job title within the prototype
 
     public override void Initialize()
     {
@@ -41,7 +41,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
             SetupIdAccess(uid, card, true);
             SetupIdName(uid, card);
-            SetupIdJob(uid, card);
+            SetupIdJob(uid, card); // DeltaV - Allow changing the job title within the prototype
         }
     }
 
@@ -61,7 +61,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         SetupIdAccess(uid, id, extended);
         SetupIdName(uid, id);
-        SetupIdJob(uid, id);
+        SetupIdJob(uid, id); // DeltaV - Allow changing the job title within the prototype
     }
 
     private void SetupIdName(EntityUid uid, PresetIdCardComponent id)
@@ -71,6 +71,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         _cardSystem.TryChangeFullName(uid, id.IdName);
     }
 
+    // DeltaV - Allow changing the job title within the prototype
     private void SetupIdJob(EntityUid uid, PresetIdCardComponent id)
     {
         if (id.CustomJobName == null)
@@ -87,6 +88,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         record.JobTitle = id.CustomJobName;
         _record.Synchronize(key);
     }
+    // End of DeltaV code
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended)
     {
