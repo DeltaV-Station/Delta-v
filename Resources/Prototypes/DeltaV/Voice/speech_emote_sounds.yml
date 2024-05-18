@@ -28,23 +28,25 @@
       collection: HarpyGrowls
     Purr:
       collection: HarpyPurrs
-    Ring:
+    HarpyRing:
       collection: HarpyRings
-    Pew:
+    HarpyHonk:
+      collection: HarpyHonks
+    HarpyPew:
       collection: HarpyPews
-    Bang:
+    HarpyBang:
       collection: HarpyBangs
-    Beep:
+    HarpyBeep:
       collection: HarpyBeeps
-    Rev:
+    HarpyRev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
       collection: HarpySqueak
-    Caw:
+    HarpyCaw:
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
@@ -58,8 +60,8 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
-    Honk:
-      collection: HarpyHonks
+#    Honk:
+#      collection: BikeHorn
     Weh:
       collection: Weh
 
@@ -130,6 +132,24 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+
+- type: emoteSounds
+  id: MobDog
+  params:
+    variation: 0.125
+  sounds:
     Growl:
       collection: VulpkaninGrowls
     Snarl:

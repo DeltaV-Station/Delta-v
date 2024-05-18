@@ -403,7 +403,7 @@ namespace Content.Server.Cloning
                 }
             }
 
-            var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
+            var mob = Spawn(toSpawn, _transformSystem.GetMapCoordinates(clonePod.Owner));
             if (TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
             {
                 if (switchingSpecies || HasComp<MetempsychosisKarmaComponent>(bodyToClone))

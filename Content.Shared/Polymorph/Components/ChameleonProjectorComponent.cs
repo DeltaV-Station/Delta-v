@@ -25,22 +25,26 @@ public sealed partial class ChameleonProjectorComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// Polymorph configuration for the disguise entity.
+    /// Disguise entity to spawn and use.
     /// </summary>
     [DataField(required: true)]
-    public PolymorphConfiguration Polymorph = new();
+    public EntProtoId DisguiseProto = string.Empty;
 
     /// <summary>
     /// Action for disabling your disguise's rotation.
     /// </summary>
     [DataField]
     public EntProtoId NoRotAction = "ActionDisguiseNoRot";
+    [DataField]
+    public EntityUid? NoRotActionEntity;
 
     /// <summary>
     /// Action for anchoring your disguise in place.
     /// </summary>
     [DataField]
     public EntProtoId AnchorAction = "ActionDisguiseAnchor";
+    [DataField]
+    public EntityUid? AnchorActionEntity;
 
     /// <summary>
     /// Minimum health to give the disguise.
@@ -55,6 +59,12 @@ public sealed partial class ChameleonProjectorComponent : Component
     public float MaxHealth = 100f;
 
     /// <summary>
+    /// Popup shown to the user when they try to disguise as an entity inside a container.
+    /// </summary>
+    [DataField]
+    public LocId ContainerPopup = "chameleon-projector-inside-container";
+
+    /// <summary>
     /// Popup shown to the user when they try to disguise as an invalid entity.
     /// </summary>
     [DataField]
@@ -65,4 +75,10 @@ public sealed partial class ChameleonProjectorComponent : Component
     /// </summary>
     [DataField]
     public LocId SuccessPopup = "chameleon-projector-success";
+
+    /// <summary>
+    /// User currently disguised by this projector, if any
+    /// </summary>
+    [DataField]
+    public EntityUid? Disguised;
 }

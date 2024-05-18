@@ -3,6 +3,7 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
+  antagAdvantage: 1 # DeltaV - Shotgun, and free room
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian
@@ -21,13 +22,6 @@
 - type: startingGear
   id: BartenderGear
   equipment:
-    head: ClothingHeadHatTophat
-    jumpsuit: ClothingUniformJumpsuitBartender
-    outerClothing: ClothingOuterVest
-    back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
     id: BartenderPDA
     ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtBartender
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled

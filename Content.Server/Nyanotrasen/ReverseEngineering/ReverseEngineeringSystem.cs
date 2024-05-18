@@ -187,7 +187,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (!_ui.TryGetUi(uid, ReverseEngineeringMachineUiKey.Key, out var bui))
+        if (!_ui.HasUi(uid, ReverseEngineeringMachineUiKey.Key))
             return;
 
         EntityUid? item = component.CurrentItem;
@@ -202,7 +202,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         var state = new ReverseEngineeringMachineScanUpdateState(netItem, canScan, component.CachedMessage, scanning, component.SafetyOn, component.AutoScan, component.Progress, remaining, component.AnalysisDuration);
 
-        _ui.SetUiState(bui, state);
+        _ui.SetUiState(uid, ReverseEngineeringMachineUiKey.Key, state);
     }
 
     private ReverseEngineeringTickResult Roll(ReverseEngineeringMachineComponent component, out int actualRoll)
