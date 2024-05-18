@@ -20,7 +20,8 @@
   - type: Tag
     tags:
     - HudMedical
-    - GlassesNearsight
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -38,4 +39,5 @@
   - type: Tag
     tags:
     - HudSecurity
-    - GlassesNearsight
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
