@@ -200,10 +200,11 @@
     - id: MobMouse2
       prob: 0.02
     # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
-    # specialEntries:
-    # - id: SpawnPointGhostRatKing
-    #   prob: 0.005
-    # End of modified code
+#    - id: MobMouseCancer
+#      prob: 0.001
+#    specialEntries:
+#    - id: SpawnPointGhostRatKing
+#      prob: 0.001
 
 - type: entity
   id: CockroachMigration
@@ -442,7 +443,7 @@
     reoccurrenceDelay: 30
     duration: 1
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/striker.yml
+    preloadedGrid: ShuttleStriker
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -557,13 +558,14 @@
     duration: 1
   - type: IonStormRule
 
-- type: entity
-  id: MimicVendorRule
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: StationEvent
-      earliestStart: 0
-      minimumPlayers: 20
-      weight: 5
-    - type: MobReplacementRule
+# DeltaV - Disable Mimic event. It causes a ton of heisentests, and does practially nothing in game
+#- type: entity
+#  id: MimicVendorRule
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#    - type: StationEvent
+#      earliestStart: 0
+#      minimumPlayers: 20
+#      weight: 5
+#    - type: MobReplacementRule

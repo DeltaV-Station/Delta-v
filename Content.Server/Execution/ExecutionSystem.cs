@@ -271,6 +271,8 @@ public sealed class ExecutionSystem : EntitySystem
 
         var attacker = args.User;
         var weapon = args.Used!.Value;
+        var gunComp = Comp<GunComponent>(weapon);
+
         var victim = args.Target!.Value;
 
         if (!CanExecuteWithGun(weapon, victim, attacker)) return;
@@ -279,7 +281,7 @@ public sealed class ExecutionSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = attacker,
-            Used = weapon
+            Used = new Entity<GunComponent>(weapon, gunComp)
         };
 
         RaiseLocalEvent(weapon, ref prevention);
