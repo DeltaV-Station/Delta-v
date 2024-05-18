@@ -17,6 +17,19 @@
       !type:DepartmentTimeRequirement
       department: Medical
       time: 216000 # 60 hrs
+  - !type:JobRequirementLoadoutEffect # DeltaV - Require whitelist
+    requirement: !type:WhitelistRequirement
+
+# Other Timers
+
+- type: loadoutEffectGroup
+  id: MedicalHeadMirrorTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 108000 #30 hrs
 
 # Head
 
@@ -31,6 +44,18 @@
   id: SeniorPhysicianBeret
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
+
+- type: loadout
+  id: MedicalHeadMirror
+  equipment: MedicalHeadMirror
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedicalHeadMirrorTimer
+
+- type: startingGear
+  id: MedicalHeadMirror
+  equipment:
+    head: ClothingHeadMirror
 
 - type: loadout
   id: MedicalBeret
