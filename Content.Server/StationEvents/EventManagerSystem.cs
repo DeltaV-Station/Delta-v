@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
@@ -16,6 +17,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
 
@@ -45,6 +47,7 @@ public sealed class EventManagerSystem : EntitySystem
 
         var ent = GameTicker.AddGameRule(randomEvent);
         var str = Loc.GetString("station-event-system-run-event",("eventName", ToPrettyString(ent)));
+        _chat.SendAdminAlert(str);
         Log.Info(str);
         return str;
     }
