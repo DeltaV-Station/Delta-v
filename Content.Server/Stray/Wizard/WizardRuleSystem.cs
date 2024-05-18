@@ -5,7 +5,6 @@ using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Server.Zombies;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
@@ -20,6 +19,30 @@ using Content.Server.Stray.Wizard.Components;
 using Content.Shared.Stray.Wizard.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking;
+using Content.Server.Communications;
+using Content.Server.Humanoid;
+using Content.Server.Nuke;
+using Content.Server.NukeOps;
+using Content.Server.Preferences.Managers;
+using Content.Server.Roles;
+using Content.Server.Shuttles.Events;
+using Content.Server.Shuttles.Systems;
+using Content.Server.Store.Components;
+using Content.Server.Store.Systems;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
+using Content.Shared.Nuke;
+using Content.Shared.NukeOps;
+using Content.Shared.Preferences;
+using Content.Shared.Store;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Utility;
+using System.Linq;
+using Content.Server.Station;
 
 namespace Content.Server.Stray.Wizard;
 
@@ -29,15 +52,26 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<WizardRuleComponent, AntagSelectEntityEvent>(OnAntagSelectEntity);
+
     }
 
     protected override void AppendRoundEndText(EntityUid uid, WizardRuleComponent component, GameRuleComponent gameRule,
@@ -152,6 +186,23 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         }
 
         return deadCount / (float) (players.Count + deadCount);
+    }
+
+    private void OnAntagSelectEntity(Entity<WizardRuleComponent> ent, ref AntagSelectEntityEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var profile = args.Session != null
+            ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter as HumanoidCharacterProfile
+            : HumanoidCharacterProfile.RandomWithSpecies();
+        if (!_prototypeManager.TryIndex(profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies, out SpeciesPrototype? species))
+        {
+            species = _prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies);
+        }
+
+        args.Entity = Spawn(species.Prototype);
+        _humanoid.LoadProfile(args.Entity.Value, profile);
     }
 
     /// <summary>

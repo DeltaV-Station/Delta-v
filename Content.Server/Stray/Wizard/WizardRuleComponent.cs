@@ -16,4 +16,12 @@ public sealed partial class WizardRuleComponent : Component
 
     [DataField]
     public float ZombieShuttleCallPercentage = 0.7f;
+
+[DataDefinition, Serializable]
+public sealed partial class NukeopSpawnPreset
+{
+
+    [DataField]
+    public ProtoId<AntagPrototype> AntagRoleProto = "Wizard";
+}
 }

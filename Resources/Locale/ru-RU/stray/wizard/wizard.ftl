@@ -63,3 +63,8 @@ wizard-round-end-survivor-count =
         [one] Единственным выжившим стал:
        *[other] Осталось всего { $count } выживших, это:
     }
+roles-antag-wizard-name = Маг
+roles-antag-wizard-objective = Разъебать лохов
+wizards-title = Маги
+wizards-description = На станции напали волшебники!
+wizard-role-greeting = Один из членов экипажа НаноШизен оскорбил нашего уборщика, мы должны их уничтожить!

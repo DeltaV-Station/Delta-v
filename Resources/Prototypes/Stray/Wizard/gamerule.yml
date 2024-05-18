@@ -6,26 +6,42 @@
   - type: GameRule
     minPlayers: 0 # DeltaV - Was 20
   - type: WizardRule
-#  - type: LoadMapRule
-#    gameMap: NukieOutpost
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/wizard.yml
+    mapPath: /Maps/Shuttles/wiz2.yml
   - type: AntagSelection
     selectionTime: PrePlayerSpawn # УБРАТЬ ЭТУ СТРОЧКУ ЕСЛИ ВДРУГ НЕ ЗАПУСТИЛОСЬ!!!
     definitions:
+    - spawnerPrototype: SpawnPointWizards
+      min: 1
+      max: 1
+      pickPlayer: false
     - prefRoles: [ Wizard ]
       max: 3
       playerRatio: 10
       components:
       - type: Wizard
+      - type: RandomHumanoidAppearance
+      - type: Loadout
+        prototypes: [PassengerGear]
+        randomizeName: false
       - type: RandomMetadata
         nameSegments:
         - names_wizard_first
         - names_wizard_last
       briefing:
-        text: zombie-patientzero-role-greeting
+        text: wizard-role-greeting
         color: Plum
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       mindComponents:
       - type: WizardRole
         prototype: Wizard
+
+- type: gamePreset
+  id: Wizards
+  alias:
+    - wizards
+  name: wizards-title
+  description: wizards-description
+  showInVote: true
+  rules:
+    - Wizard

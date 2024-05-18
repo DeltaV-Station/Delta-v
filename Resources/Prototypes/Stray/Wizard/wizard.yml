@@ -4,3 +4,68 @@
   id: WizardMob
   components:
     - type: Wizard
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+
+- type: entity
+  id: WizardSpawner
+  parent: BaseERTSpawner
+  suffix: Leader
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+    - type: SpawnOnTrigger
+      proto: WizardMob
+    - type: GhostRoleAntagSpawner
+
+- type: entity
+  id: RandomHumanoidSpawnerWizard
+  name: Wizard
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: RandomHumanoidSpawner
+      settings: Wizard
+    - type: Wizard
+    - type: GhostRoleAntagSpawner
+
+
+- type: randomHumanoidSettings
+  id: Wizard
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: Маг
+      description: Уничтожить весь экипаж
+    - type: GhostTakeoverAvailable
+    - type: RandomMetadata
+      nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+    - type: Wizard
+
+- type: entity
+  id: SpawnPointWizards
+  parent: MarkerBase
+  name: wizardies
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizardhat.rsi
+    state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - WizardMob
+  - type: GhostRoleAntagSpawner
+  - type: Wizard
