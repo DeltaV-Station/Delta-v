@@ -161,7 +161,8 @@ ghost-role-information-skeleton-biker-name = Skeleton Biker
 ghost-role-information-skeleton-biker-description = Ride around on your sweet ride.
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
-ghost-role-information-closet-skeleton-description = Wreak havoc! You are a primordial force with no allegiance. Live happily with the crew or wage sweet skeletal war.
+ghost-role-information-closet-skeleton-description = You are a closet skeleton! You are mysterious force of chaos! You can either join the crew and use your skeletal antics to help them, or be a a prankster, and hinder their efforts!
+ghost-role-information-closet-skeleton-rules = You are a neutral antagonist, which means you have a bit of leeway when it comes to actions that actively hinder the station. This is NOT a permit to murder without reason, however. No skeletal war here!
 
 ghost-role-information-onestar-mecha-name = Onestar Mecha
 ghost-role-information-onestar-mecha-description = You are an experimental mecha created by who-knows-what, all you know is that you have weapons and you detect fleshy moving targets nearby...
@@ -245,6 +246,30 @@ ghost-role-information-syndicate-reinforcement-rules = Normal syndicate antagoni
 ghost-role-information-syndicate-monkey-reinforcement-name = Syndicate Monkey Agent
 ghost-role-information-syndicate-monkey-reinforcement-description = Someone needs reinforcements. You, a trained monkey, will help them.
 ghost-role-information-syndicate-monkey-reinforcement-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
+
+ghost-role-information-lost-cargo-technical-name = Lost Cargo Technician
+ghost-role-information-lost-cargo-technical-description = Something went wrong and your cargo shuttle with the goods was beamed into the sector to another station.
+ghost-role-information-lost-cargo-technical-rules = You're a regular cargo technician from another station. Do what regular cargo do.
+
+ghost-role-information-clown-troupe-name = Space Clown
+ghost-role-information-clown-troupe-description = You and your troupe have come to cheer up this station with your best jokes. Honk!
+ghost-role-information-clown-troupe-rules = Normal station crew rules apply.
+
+ghost-role-information-traveling-chef-name = Traveling Chef
+ghost-role-information-traveling-chef-description = You are a chef on a traveling shuttle of exotic cuisine. Delight the station with delicious food!
+ghost-role-information-traveling-chef-rules = Normal station crew rules apply.
+
+ghost-role-information-disaster-victim-name = Disaster Victim
+ghost-role-information-disaster-victim-description = You were rescued in an escape pod from another station that suffered a terrible fate. Perhaps you will be found and rescued.
+ghost-role-information-disaster-victim-rules = Normal station crew rules apply.
+
+ghost-role-information-syndie-disaster-victim-name = Syndie Disaster Victim
+ghost-role-information-syndie-disaster-victim-description = You're a regular passenger from a syndicate station. Unfortunately, an evacuation pod has thrown you into an enemy sector.....
+ghost-role-information-syndie-disaster-victim-rules = Normal station crew rules apply. You are NOT an antagonist!
+
+ghost-role-information-syndicate-kobold-reinforcement-name = Syndicate Kobold Agent
+ghost-role-information-syndicate-kobold-reinforcement-description = Someone needs reinforcements. You, a trained kobold, will help them.
+ghost-role-information-syndicate-kobold-reinforcement-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
 
 ghost-role-information-artifact-name = Sentient Artifact
 ghost-role-information-artifact-description =

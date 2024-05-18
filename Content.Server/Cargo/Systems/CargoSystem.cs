@@ -1,6 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Systems;
@@ -50,6 +51,7 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly GameTicker _ticker = default!; // DeltaV - Used to make sure the trading post doens't load in the lobby :<
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
