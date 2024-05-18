@@ -17,6 +17,8 @@
       !type:DepartmentTimeRequirement
       department: Medical
       time: 216000 # 60 hrs
+  - !type:JobRequirementLoadoutEffect # DeltaV - Require whitelist
+    requirement: !type:WhitelistRequirement
 
 # Other Timers
 
