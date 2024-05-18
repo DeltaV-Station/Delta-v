@@ -31,6 +31,8 @@
     name: ghost-role-information-listeningop-name
     description: ghost-role-information-listeningop-description
     rules: ghost-role-information-listeningop-rules
+    raffle:
+      settings: default
     requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
     - !type:OverallPlaytimeRequirement
       time: 259200 # 72 hours
@@ -61,7 +63,9 @@
     name: ghost-role-information-paradox-anomaly-name
     description: ghost-role-information-paradox-anomaly-description
     rules: ghost-role-information-paradox-anomaly-rules
-  - type: ParadoxAnomalySpawner
+    raffle:
+      settings: default
+  - type: GhostRoleAntagSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
