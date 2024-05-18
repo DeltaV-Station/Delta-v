@@ -818,6 +818,8 @@
     layers:
     - state: default
     - state: idseniorengineer
+  - type: PresetIdCard
+    customJob: Senior Engineer
 
 - type: entity
   parent: ResearchIDCard
@@ -828,6 +830,8 @@
     layers:
     - state: default
     - state: idseniorresearcher
+  - type: PresetIdCard
+    customJob: Senior Researcher
 
 - type: entity
   parent: MedicalIDCard
@@ -838,6 +842,8 @@
     layers:
     - state: default
     - state: idseniorphysician
+  - type: PresetIdCard
+    customJob: Senior Physician
 
 - type: entity
   parent: SecurityIDCard
@@ -848,3 +854,5 @@
     layers:
     - state: default
     - state: idseniorofficer
+  - type: PresetIdCard
+    customJob: Senior Officer
