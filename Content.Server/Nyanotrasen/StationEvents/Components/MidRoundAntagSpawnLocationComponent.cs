@@ -1,8 +1,4 @@
-namespace Content.Server.StationEvents
-{
-    [RegisterComponent]
-    public sealed partial class MidRoundAntagSpawnLocationComponent : Component
-    {
+namespace Content.Server.StationEvents;
 
-    }
-}
+[RegisterComponent]
+public sealed partial class MidRoundAntagSpawnLocationComponent : Component;
