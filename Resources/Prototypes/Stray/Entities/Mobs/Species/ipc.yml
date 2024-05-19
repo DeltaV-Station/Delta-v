@@ -1,12 +1,12 @@
- - type: damageContainer
-   id: IPC
-   supportedGroups:
-     - Brute
-   supportedTypes:
-     - Asphyxiation
-     - Heat
-     - Shock
-     - Caustic
+- type: damageContainer
+  id: IPC
+  supportedGroups:
+    - Brute
+  supportedTypes:
+    - Asphyxiation
+    - Heat
+    - Shock
+    - Caustic
 
 - type: entity
   save: false
@@ -89,11 +89,11 @@
     - type: Respirator
       damage:
         types:
-          Heat: 0.25 # no air to cool
+          Heat: 0.5 # no air to cool
           Asphyxiation: -10 # TODO FIX DEATHGASPS
       damageRecovery:
         types:
-          Heat: -0.1
+          Heat: -0.25
           Asphyxiation: -10
     - type: Repairable
       fuelcost: 5 # cause most of the fuel is used how long its turned on for
@@ -103,11 +103,12 @@
           Blunt: -25 # you can't heal group damage. it doesn't work. wh y.
           Slash: -25
           Piercing: -25
+          Heat: 50
           Asphyxiation: -200 # TODO FIX DEATHGASPS
     - type: Barotrauma
       damage:
         types:
-          Heat: 0.1 # IPCs can't radiate well, they rely on air cooling
+          Heat: 0.5 # IPCs can't radiate well, they rely on air cooling
     - type: SlowOnDamage
       speedModifierThresholds:
         70: 0.6
