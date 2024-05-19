@@ -1,0 +1,1 @@
+loadout-group-brig-medic-outerclothing = бригмедик, верхняя одежда
