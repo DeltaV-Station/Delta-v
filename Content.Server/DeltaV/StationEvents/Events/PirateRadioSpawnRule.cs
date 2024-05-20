@@ -4,6 +4,13 @@
 * See AGPLv3.txt for details.
 */
 
+using System.Linq;
+using Content.Server.GameTicking.Components;
+using Content.Server.Station.Components;
+using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
+using Content.Shared.CCVar;
+using Content.Shared.Salvage;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
@@ -11,17 +18,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.StationEvents.Components;
-using Content.Server.Station.Components;
-using Content.Shared.Salvage;
-using Content.Shared.Random.Helpers;
-using System.Linq;
-using Content.Shared.CCVar;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.DeltaV.StationEvents.Events;
 
 public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRuleComponent>
 {
