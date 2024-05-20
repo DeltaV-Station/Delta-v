@@ -28,7 +28,7 @@
       state: brain
     - type: Organ
     - type: Metabolizer
-      updateFrequency: 1.5
+      updateInterval: 1.5
       maxReagents: 2
       metabolizerTypes: [IPC]
       removeEmpty: true
