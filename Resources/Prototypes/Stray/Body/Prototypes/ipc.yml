@@ -8,17 +8,15 @@
       connections:
         - torso
       organs:
-        brain: OrganIPCCPU
-        eyes: OrganIPCGPU
+        brain: OrganIPCBrain
+        eyes: OrganIPCEyes
     torso:
       part: TorsoIPC
       organs:
         lungs: OrganIPCFan
-        heart: OrganIPCHeart
-        core: OrganIPCEyeL
-        stomach: OrganIPCEyeR
-        liver: OrganIPCEars
-        kidneys: OrganIPCTongue
+        heart: OrganIPCPump
+        core: OrganIPCEars
+        stomach: OrganIPCTongue
       connections:
         - left arm
         - right arm
