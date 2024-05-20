@@ -66,8 +66,8 @@
     - type: Damageable
       damageContainer: IPC
       damageModifierSet: Metallic
-    - type: Icon
-      sprite: Stray/Mobs/Species/IPC/parts.rsi
+    - type: Sprite
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
       state: full
     # Damage and speed
     - type: Bloodstream
@@ -96,7 +96,7 @@
           Heat: -0.25
           Asphyxiation: -10
     - type: Repairable
-      fuelcost: 5 # cause most of the fuel is used how long its turned on for
+      fuelCost: 5 # cause most of the fuel is used how long its turned on for
       doAfterDelay: 7
       damage:
         types:

@@ -5,7 +5,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Damageable
       damageContainer: Biological
     - type: BodyPart
@@ -21,16 +21,16 @@
   components:
     - type: Sprite
       state: "head"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "head"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Head
       vital: true
     - type: Input
       context: "ghost"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: MovementSpeedModifier
       baseWalkSpeed: 0
       baseSprintSpeed: 0
@@ -47,10 +47,10 @@
   components:
     - type: Sprite
       state: "chest"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "chest"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Torso
 
@@ -61,10 +61,10 @@
   components:
     - type: Sprite
       state: "l_arm"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_arm"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Arm
       symmetry: Left
@@ -76,10 +76,10 @@
   components:
     - type: Sprite
       state: "r_arm"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_arm"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Arm
       symmetry: Right
@@ -91,10 +91,10 @@
   components:
     - type: Sprite
       state: "l_hand"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_hand"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Hand
       symmetry: Left
@@ -106,10 +106,10 @@
   components:
     - type: Sprite
       state: "r_hand"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_hand"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Hand
       symmetry: Right
@@ -121,10 +121,10 @@
   components:
     - type: Sprite
       state: "l_leg"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_leg"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Leg
       symmetry: Left
@@ -137,10 +137,10 @@
   components:
     - type: Sprite
       state: "r_leg"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_leg"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Leg
       symmetry: Right
@@ -153,10 +153,10 @@
   components:
     - type: Sprite
       state: "l_foot"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_foot"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Foot
       symmetry: Left
@@ -168,10 +168,10 @@
   components:
     - type: Sprite
       state: "r_foot"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_foot"
-      sprite: Mobs/Species/IPCs/parts.rsi
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Foot
       symmetry: Right
