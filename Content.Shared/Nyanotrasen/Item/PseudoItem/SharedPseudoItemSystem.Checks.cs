@@ -20,8 +20,8 @@ public partial class SharedPseudoItemSystem
             return false;
 
         TryComp<ItemComponent>(itemEnt, out var item);
-        // If the entity doesn't have an item comp, add it temporarily for the sake of checking
-        // The component is never actually added to the entity
+        // If the entity doesn't have an item comp, create a fake one
+        // The fake component is never actually added to the entity
         item ??= new ItemComponent
         {
             Owner = itemEnt,
