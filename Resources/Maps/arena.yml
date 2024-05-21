@@ -55333,28 +55333,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -10.337725,-65.55754
       parent: 6747
-- proto: chem_master
-  entities:
-  - uid: 1712
-    components:
-    - type: Transform
-      pos: -19.5,-13.5
-      parent: 6747
-  - uid: 3673
-    components:
-    - type: Transform
-      pos: 13.5,-25.5
-      parent: 6747
-  - uid: 19848
-    components:
-    - type: Transform
-      pos: 10.5,-27.5
-      parent: 6747
-  - uid: 21533
-    components:
-    - type: Transform
-      pos: 54.5,-41.5
-      parent: 6747
 - proto: ChemDispenser
   entities:
   - uid: 3242
@@ -55430,6 +55408,28 @@ entities:
     components:
     - type: Transform
       pos: 55.5,-42.5
+      parent: 6747
+- proto: ChemMaster
+  entities:
+  - uid: 1712
+    components:
+    - type: Transform
+      pos: -19.5,-13.5
+      parent: 6747
+  - uid: 3673
+    components:
+    - type: Transform
+      pos: 13.5,-25.5
+      parent: 6747
+  - uid: 19848
+    components:
+    - type: Transform
+      pos: 10.5,-27.5
+      parent: 6747
+  - uid: 21533
+    components:
+    - type: Transform
+      pos: 54.5,-41.5
       parent: 6747
 - proto: ChurchOrganInstrument
   entities:
@@ -129064,6 +129064,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -65.5,11.5
       parent: 6747
+- proto: PaperCaptainsThoughts
+  entities:
+  - uid: 25775
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -31.361893,-58.23536
+      parent: 6747
 - proto: PaperDoor
   entities:
   - uid: 10271
@@ -151057,7 +151065,7 @@ entities:
     - type: Transform
       pos: -35.5,-11.5
       parent: 6747
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 1826
     components:
