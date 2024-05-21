@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Content.Shared.Lathe;
-using Content.Shared.Research.Prototypes;
 using Content.Shared.ReverseEngineering;
 using Robust.Shared.Prototypes;
 
@@ -20,7 +19,7 @@ public sealed class ReverseEngineeringTest
         await server.WaitAssertion(() =>
         {
             var lathes = new List<LatheComponent>();
-            var reverseEngineered = new List<ProtoId<LatheRecipePrototype>>();
+            var reverseEngineered = new HashSet<string>();
             foreach (var proto in protoManager.EnumeratePrototypes<EntityPrototype>())
             {
                 if (proto.Abstract)
@@ -32,11 +31,16 @@ public sealed class ReverseEngineeringTest
                 if (proto.TryGetComponent<LatheComponent>(out var lathe))
                     lathes.Add(lathe);
 
-                if (proto.TryGetComponent<ReverseEngineeringComponent>(out var rev))
-                    reverseEngineered.AddRange(rev.Recipes);
+                if (!proto.TryGetComponent<ReverseEngineeringComponent>(out var rev))
+                    continue;
+
+                foreach (var recipe in rev.Recipes)
+                {
+                    reverseEngineered.Add(recipe);
+                }
             }
 
-            var latheRecipes = new HashSet<ProtoId<LatheRecipePrototype>>();
+            var latheRecipes = new HashSet<string>();
             foreach (var lathe in lathes)
             {
                 if (lathe.DynamicRecipes == null)
