@@ -12,7 +12,7 @@
     sprite: SimpleStation14/Mobs/Ghosts/ghost.rsi
     color: "#fff8"
     layers:
-    - state: animated1
+    - state: "1"
       shader: unshaded
   - type: ContentEye
     maxZoom: 1.44,1.44
@@ -37,8 +37,13 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
-  - type: GhostHearing
-  - type: MovementSpeedModifier
+  - type: CustomGhosts
+    maxRandomIndex: 33 # максимальная цифра в названии случайного спрайта начиная с 1
+    #
+    #                                                                                                    ↓           ↓
+    ckeys: BioMass&endr_animet&localhost@GGados     # сюда надо вставлять CKEYи через "&"  типо:  BioMass&endr_animet&Nightcrawler_LOL       в начале и на конце ставить не надо
+  - type: GhostHearing # кастомные спрайты надо добавлять в Textures\SimpleStation14\Mobs\Ghosts\ghost.rsi  с названием CKEY-я, для случайных спрайтов в названии надо писать цифры в порядке возрастания
+  - type: MovementSpeedModifier # ну и разумеется их надо добавить в мету
     baseSprintSpeed: 12
     baseWalkSpeed: 8
   - type: MovementIgnoreGravity
@@ -53,42 +58,43 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
-  - type: RandomSprite
-    available:
-      - 0:
-          animated1: ""                               
-          animated2: ""
-          animated3: ""
-          animated4: ""
-          animated5: ""
-          animated6: ""
-          animated7: ""
-          animated8: ""
-          animated9: ""
-          animated10: ""
-          animated11: ""
-          animated12: ""
-          animated13: ""
-          animated14: ""
-          animated15: ""
-          animated16: ""
-          animated17: ""
-          animated18: ""
-          animated19: ""
-          animated20: ""
-          animated21: ""
-          animated22: ""
-          animated23: ""
-          animated24: ""
-          animated25: ""
-          animated26: ""
-          animated27: ""
-          animated28: ""
-          animated30: ""
-          animated31: ""
-          animated32: ""
-          animated33: ""
-          animated34: ""
+
+  #- type: RandomSprite
+  #  available:
+  #    - 0:
+  #        animated1: ""
+  #        animated2: ""
+  #        animated3: ""
+  #        animated4: ""
+  #        animated5: ""
+  #        animated6: ""
+  #        animated7: ""
+  #        animated8: ""
+  #        animated9: ""
+  #        animated10: ""
+  #        animated11: ""
+  #        animated12: ""
+  #        animated13: ""
+  #        animated14: ""
+  #        animated15: ""
+  #        animated16: ""
+  #        animated17: ""
+  #        animated18: ""
+  #        animated19: ""
+  #        animated20: ""
+  #        animated21: ""
+  #        animated22: ""
+  #        animated23: ""
+  #        animated24: ""
+  #        animated25: ""
+  #        animated26: ""
+  #        animated27: ""
+  #        animated28: ""
+  #        animated30: ""
+  #        animated31: ""
+  #        animated32: ""
+  #        animated33: ""
+  #        animated34: ""
 
 - type: entity
   id: ActionGhostBoo
