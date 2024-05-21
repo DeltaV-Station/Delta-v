@@ -5910,7 +5910,7 @@ entities:
             0: 12
             1: 16448
           -15,-9:
-            0: 52870
+            0: 52871
           -15,-7:
             0: 1228
             1: 34816
@@ -5987,7 +5987,7 @@ entities:
           -15,-12:
             0: 61678
           -15,-10:
-            0: 65295
+            0: 61199
           -15,-13:
             0: 59531
           -15,-11:
@@ -10050,14 +10050,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 38.5,-37.5
       parent: 100
-  - uid: 3442
-    components:
-    - type: MetaData
-      name: Side Dock
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -59.5,-36.5
-      parent: 100
   - uid: 5103
     components:
     - type: MetaData
@@ -10074,7 +10066,17 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 38.5,-41.5
       parent: 100
-  - uid: 13107
+- proto: AirlockExternalGlassShuttleShipyard
+  entities:
+  - uid: 3442
+    components:
+    - type: MetaData
+      name: Side Dock
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -59.5,-35.5
+      parent: 100
+  - uid: 12915
     components:
     - type: MetaData
       name: Side Dock
@@ -12883,17 +12885,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -63.5,-3.5
       parent: 100
-  - uid: 12983
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -59.5,-36.5
-      parent: 100
   - uid: 12985
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -59.5,-37.5
+      parent: 100
+  - uid: 13181
+    components:
+    - type: Transform
+      pos: -59.5,-35.5
       parent: 100
   - uid: 19032
     components:
@@ -45496,6 +45497,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -55.5,-20.5
       parent: 100
+  - uid: 20875
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,13.5
+      parent: 100
 - proto: ComputerResearchAndDevelopment
   entities:
   - uid: 5793
@@ -45509,6 +45516,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -14.5,-19.5
+      parent: 100
+- proto: ComputerShipyard
+  entities:
+  - uid: 20874
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,14.5
       parent: 100
 - proto: ComputerShuttleCargo
   entities:
@@ -46605,6 +46620,13 @@ entities:
       parent: 100
     - type: NavMapBeacon
       text: Public Garden
+  - uid: 20873
+    components:
+    - type: Transform
+      pos: -58.5,-36.5
+      parent: 100
+    - type: NavMapBeacon
+      text: Side Dock
 - proto: DefaultStationBeaconAI
   entities:
   - uid: 12769
@@ -85197,6 +85219,11 @@ entities:
     - type: Transform
       pos: -33.5,-49.5
       parent: 100
+  - uid: 13107
+    components:
+    - type: Transform
+      pos: -59.5,-36.5
+      parent: 100
   - uid: 13126
     components:
     - type: Transform
@@ -85246,11 +85273,6 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-45.5
-      parent: 100
-  - uid: 13181
-    components:
-    - type: Transform
-      pos: -59.5,-35.5
       parent: 100
   - uid: 13185
     components:
@@ -105120,11 +105142,6 @@ entities:
     - type: Transform
       pos: 1.5,-23.5
       parent: 100
-  - uid: 12915
-    components:
-    - type: Transform
-      pos: -59.5,-35.5
-      parent: 100
   - uid: 12959
     components:
     - type: Transform
@@ -105149,6 +105166,11 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-45.5
+      parent: 100
+  - uid: 12983
+    components:
+    - type: Transform
+      pos: -59.5,-36.5
       parent: 100
   - uid: 12990
     components:
@@ -109642,6 +109664,18 @@ entities:
     - type: Transform
       pos: 10.5,9.5
       parent: 100
+- proto: SpawnPointCourier
+  entities:
+  - uid: 16733
+    components:
+    - type: Transform
+      pos: -28.5,-2.5
+      parent: 100
+  - uid: 16734
+    components:
+    - type: Transform
+      pos: -28.5,-3.5
+      parent: 100
 - proto: SpawnPointDetective
   entities:
   - uid: 16789
@@ -109834,18 +109868,6 @@ entities:
     components:
     - type: Transform
       pos: 18.5,-9.5
-      parent: 100
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 16733
-    components:
-    - type: Transform
-      pos: -28.5,-2.5
-      parent: 100
-  - uid: 16734
-    components:
-    - type: Transform
-      pos: -28.5,-3.5
       parent: 100
 - proto: SpawnPointMedicalBorg
   entities:
