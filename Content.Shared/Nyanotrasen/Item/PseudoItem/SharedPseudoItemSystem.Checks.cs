@@ -22,19 +22,14 @@ public partial class SharedPseudoItemSystem
         TryComp<ItemComponent>(itemEnt, out var item);
         // If the entity doesn't have an item comp, add it temporarily for the sake of checking
         // The component is never actually added to the entity
-        if (item == null)
+        item ??= new ItemComponent
         {
-            item = new ItemComponent
-            {
-                Owner = itemEnt,
-                Shape = itemEnt.Comp.Shape,
-                Size = itemEnt.Comp.Size,
-                StoredOffset = itemEnt.Comp.StoredOffset
-            };
-        }
+            Owner = itemEnt,
+            Shape = itemEnt.Comp.Shape,
+            Size = itemEnt.Comp.Size,
+            StoredOffset = itemEnt.Comp.StoredOffset
+        };
 
-        var result = _storage.CanInsert(storageEnt, itemEnt, out _, storageEnt.Comp, item, ignoreStacks: true);
-
-        return result;
+        return _storage.CanInsert(storageEnt, itemEnt, out _, storageEnt.Comp, item, ignoreStacks: true);
     }
 }
