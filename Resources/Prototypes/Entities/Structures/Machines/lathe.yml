@@ -509,16 +509,13 @@
     # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
-      - DoorElectronics
-      - FireAlarmElectronics
-      - FirelockElectronics
-      - IntercomElectronics
-      - MailingUnitElectronics
       - SalvageMagnetMachineCircuitboard
-      - StationMapElectronics
       - MetempsychoticMachineCircuitboard
     # End Nyano additions
-      - SalvageExpeditionsComputerCircuitboard # DeltaV
+    # Begin DeltaV additions
+      - SalvageExpeditionsComputerCircuitboard
+      - ComputerMassMediaCircuitboard
+    # End DeltaV additions
   - type: MaterialStorage
     whitelist:
       tags:
