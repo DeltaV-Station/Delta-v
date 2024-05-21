@@ -1,1 +1,1 @@
-metabolizer-type-ipc = IPC
+metabolizer-type-ipc = КПБ
