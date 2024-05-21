@@ -7,10 +7,10 @@
   - type: Sprite
     overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
     drawdepth: Ghosts
-    sprite: SimpleStation14/Mobs/Ghosts/ghost_admin.rsi  
+    sprite: SimpleStation14/Mobs/Ghosts/ghost_admin.rsi
     color: "#888888"
     layers:
-    - state: aghost1
+    - state: "1"
       shader: unshaded
   - type: Eye
     visMask:
@@ -37,6 +37,9 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
+  - type: CustomGhosts
+    maxRandomIndex: 5
+    ckeys: ""
   - type: Body
     prototype: Aghost
   - type: Access
@@ -104,14 +107,14 @@
   - type: InventorySlots
   - type: Loadout
     prototypes: [ MobAghostGear ]
-  - type: RandomSprite
-    available:
-      - 0:
-          aghost1: ""                               
-          aghost3: ""           
-          aghost4: ""           
-          aghost5: "" 
-          aghost6: "" 
+  #- type: RandomSprite
+  #  available:
+  #    - 0:
+  #        aghost1: ""
+  #        aghost3: ""
+  #        aghost4: ""
+  #        aghost5: ""
+  #        aghost6: ""
 
 - type: entity
   id: ActionAGhostShowSolar
