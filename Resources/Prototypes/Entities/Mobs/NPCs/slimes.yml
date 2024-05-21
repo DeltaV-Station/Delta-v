@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: basic slime
   id: BaseMobAdultSlimes
   parent: [ SimpleMobBase, MobCombat ]
@@ -11,6 +11,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
+  - type: Carriable #DeltaV 
   - type: Fixtures
     fixtures:
       fix1:
@@ -93,6 +94,7 @@
     prototype: Slimes
     requiredLegs: 1
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/punch3.ogg
     angle: 0

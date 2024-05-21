@@ -17,6 +17,8 @@
       !type:DepartmentTimeRequirement
       department: Engineering
       time: 216000 # 60 hrs
+  - !type:JobRequirementLoadoutEffect # DeltaV - Require whitelist
+    requirement: !type:WhitelistRequirement
 
 # Head
 - type: loadout
@@ -147,7 +149,7 @@
   id: StationEngineerOuterVest
   equipment:
     outerClothing: ClothingOuterVestHazard
-  
+
 - type: loadout
   id: StationEngineerWintercoat
   equipment: StationEngineerWintercoat
@@ -156,7 +158,7 @@
   id: StationEngineerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterEngi
-  
+
 # Shoes
 - type: loadout
   id: WorkBoots

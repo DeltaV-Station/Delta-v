@@ -1,3 +1,4 @@
+using Content.Server.Nyanotrasen.StationEvents.Events;
 using Content.Server.StationEvents.Events;
 
 namespace Content.Server.StationEvents.Components;

@@ -1,6 +1,7 @@
 using Content.Shared.Maps;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.CCVar
 {
@@ -404,91 +405,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
             CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
 
-
-        /*
-         * Suspicion
-         */
-
-        public static readonly CVarDef<int> SuspicionMinPlayers =
-            CVarDef.Create("suspicion.min_players", 5);
-
-        public static readonly CVarDef<int> SuspicionMinTraitors =
-            CVarDef.Create("suspicion.min_traitors", 2);
-
-        public static readonly CVarDef<int> SuspicionPlayersPerTraitor =
-            CVarDef.Create("suspicion.players_per_traitor", 6);
-
-        public static readonly CVarDef<int> SuspicionStartingBalance =
-            CVarDef.Create("suspicion.starting_balance", 20);
-
-        public static readonly CVarDef<int> SuspicionMaxTimeSeconds =
-            CVarDef.Create("suspicion.max_time_seconds", 300);
-
-        /*
-         * Traitor
-         */
-
-        public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 5);
-
-        public static readonly CVarDef<int> TraitorMaxTraitors =
-            CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
-
-        public static readonly CVarDef<int> TraitorPlayersPerTraitor =
-            CVarDef.Create("traitor.players_per_traitor", 10);
-
-        public static readonly CVarDef<int> TraitorCodewordCount =
-            CVarDef.Create("traitor.codeword_count", 4);
-
-        public static readonly CVarDef<int> TraitorStartingBalance =
-            CVarDef.Create("traitor.starting_balance", 20);
-
-        public static readonly CVarDef<int> TraitorMaxDifficulty =
-            CVarDef.Create("traitor.max_difficulty", 5);
-
-        public static readonly CVarDef<int> TraitorMaxPicks =
-            CVarDef.Create("traitor.max_picks", 20);
-
-        public static readonly CVarDef<float> TraitorStartDelay =
-            CVarDef.Create("traitor.start_delay", 4f * 60f);
-
-        public static readonly CVarDef<float> TraitorStartDelayVariance =
-            CVarDef.Create("traitor.start_delay_variance", 3f * 60f);
-
-        /*
-         * TraitorDeathMatch
-         */
-
-        public static readonly CVarDef<int> TraitorDeathMatchStartingBalance =
-            CVarDef.Create("traitordm.starting_balance", 20);
-
-        /*
-         * Zombie
-         */
-
-        public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 20);
-
-        /*
-         * Pirates
-         */
-
-        public static readonly CVarDef<int> PiratesMinPlayers =
-            CVarDef.Create("pirates.min_players", 25);
-
-        public static readonly CVarDef<int> PiratesMaxOps =
-            CVarDef.Create("pirates.max_pirates", 6);
-
-        public static readonly CVarDef<int> PiratesPlayersPerOp =
-            CVarDef.Create("pirates.players_per_pirate", 5);
-
-        /*
-         * Nukeops
-         */
-
-        public static readonly CVarDef<bool> NukeopsSpawnGhostRoles =
-            CVarDef.Create("nukeops.spawn_ghost_roles", false);
-
         /*
          * Tips
          */
@@ -654,13 +570,13 @@ namespace Content.Shared.CCVar
         /// When a mob is walking should its X / Y movement be relative to its parent (true) or the map (false).
         /// </summary>
         public static readonly CVarDef<bool> RelativeMovement =
-            CVarDef.Create("physics.relative_movement", true, CVar.ARCHIVE | CVar.REPLICATED);
+            CVarDef.Create("physics.relative_movement", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<float> TileFrictionModifier =
-            CVarDef.Create("physics.tile_friction", 40.0f, CVar.ARCHIVE | CVar.REPLICATED);
+            CVarDef.Create("physics.tile_friction", 40.0f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<float> StopSpeed =
-            CVarDef.Create("physics.stop_speed", 0.1f, CVar.ARCHIVE | CVar.REPLICATED);
+            CVarDef.Create("physics.stop_speed", 0.1f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         /// Whether mobs can push objects like lockers.
@@ -669,7 +585,7 @@ namespace Content.Shared.CCVar
         /// Technically client doesn't need to know about it but this may prevent a bug in the distant future so it stays.
         /// </remarks>
         public static readonly CVarDef<bool> MobPushing =
-            CVarDef.Create("physics.mob_pushing", false, CVar.REPLICATED);
+            CVarDef.Create("physics.mob_pushing", false, CVar.REPLICATED | CVar.SERVER);
 
         /*
          * Music
@@ -1460,6 +1376,49 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GridFill =
             CVarDef.Create("shuttle.grid_fill", true, CVar.SERVERONLY);
 
+        /// <summary>
+        /// Whether to automatically preloading grids by GridPreloaderSystem
+        /// </summary>
+        public static readonly CVarDef<bool> PreloadGrids =
+            CVarDef.Create("shuttle.preload_grids", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long the warmup time before FTL start should be.
+        /// </summary>
+        public static readonly CVarDef<float> FTLStartupTime =
+            CVarDef.Create("shuttle.startup_time", 5.5f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long a shuttle spends in FTL.
+        /// </summary>
+        public static readonly CVarDef<float> FTLTravelTime =
+            CVarDef.Create("shuttle.travel_time", 20f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long the final stage of FTL before arrival should be.
+        /// </summary>
+        public static readonly CVarDef<float> FTLArrivalTime =
+            CVarDef.Create("shuttle.arrival_time", 5f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How much time needs to pass before a shuttle can FTL again.
+        /// </summary>
+        public static readonly CVarDef<float> FTLCooldown =
+            CVarDef.Create("shuttle.cooldown", 10f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The maximum <see cref="PhysicsComponent.Mass"/> a grid can have before it becomes unable to FTL.
+        /// Any value equal to or less than zero will disable this check.
+        /// </summary>
+        public static readonly CVarDef<float> FTLMassLimit =
+            CVarDef.Create("shuttle.mass_limit", 300f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long to knock down entities for if they aren't buckled when FTL starts and stops.
+        /// </summary>
+        public static readonly CVarDef<float> HyperspaceKnockdownTime =
+            CVarDef.Create("shuttle.hyperspace_knockdown_time", 5f, CVar.SERVERONLY);
+
         /*
          * Emergency
          */
@@ -1585,10 +1544,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.scale_render", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> ViewportMinimumWidth =
-            CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
+            CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -1693,7 +1652,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
 
         public static readonly CVarDef<bool> ChatShowTypingIndicator =
-            CVarDef.Create("chat.show_typing_indicator", true, CVar.CLIENTONLY);
+            CVarDef.Create("chat.show_typing_indicator", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         public static readonly CVarDef<bool> ChatEnableFancyBubbles =
             CVarDef.Create("chat.enable_fancy_bubbles", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles displaying fancy speech bubbles, which display the speaking character's name.");
