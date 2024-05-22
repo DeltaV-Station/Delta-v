@@ -1,0 +1,15 @@
+- type: entity
+  parent: BasePlushie
+  id: ToyMaxwell
+  name: Максвелл
+  description: "Игрушка Максвелла. По неизвестной причине постоянно крутится и издаёт музыку"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: maxwell
+    - type: AudioLoop
+      sound:
+        path: /Audio/Stray/Fun/maxwell-the-cat-theme.ogg
+  #- type: EmitSoundOnSpawn
+  #  sound:
+  #    path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
