@@ -68,14 +68,14 @@ public sealed class NukeOpsTest
         Assert.That(entMan.Count<StationMemberComponent>(), Is.Zero);
         Assert.That(entMan.Count<StationCentcommComponent>(), Is.Zero);
 
-        return; // DeltaV - temporarily disable test until smart person fixes
-
         // And no nukie related components
         Assert.That(entMan.Count<NukeopsRuleComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeopsRoleComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeOperativeComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeOpsShuttleComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeOperativeSpawnerComponent>(), Is.Zero);
+
+        /* DeltaV - test temporarily disabled until someone smart fixes opting in during test
 
         // Ready up and start nukeops
         await pair.WaitClientCommand("toggleready True");
@@ -204,5 +204,6 @@ public sealed class NukeOpsTest
         ticker.SetGamePreset((GamePresetPrototype?)null);
         server.CfgMan.SetCVar(CCVars.GridFill, false);
         await pair.CleanReturnAsync();
+        DeltaV - end of commenting out */
     }
 }
