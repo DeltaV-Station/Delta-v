@@ -101,7 +101,7 @@
       params:
         volume: -6
   - type: ItemToggleMeleeWeapon
-    activatedSoundOnHit: # DeltaV - audio change
+    activatedSoundOnHit: # DeltaV - sound file change
       path: /Audio/Weapons/edagger1.ogg
       params:
         variation: 0.250
@@ -110,11 +110,11 @@
       params:
         volume: -3 # DeltaV - volume decrease
         variation: 0.250
-        pitch: 1.75 # DeltaV - "
+        pitch: 1.75 # DeltaV - pitch increase
     activatedDamage:
         types:
-            Slash: 8 # DeltaV - compensation of increased attack rate
-            Heat: 8 # DeltaV - heat lowered by 2
+            Slash: 8 # DeltaV - slash and heat lowered by 2, compensation of increased attack rate
+            Heat: 8 # DeltaV - slash and heat lowered by 2
             Structural: 16 # DeltaV - added structural damage that pierces flat damage reduction
     deactivatedSecret: true
   - type: ItemToggleActiveSound
@@ -135,7 +135,7 @@
         map: [ "blade" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1.5 # DeltaV
+    attackRate: 1.5 # DeltaV - increased attack rate to match combat/survival knife
     hidden: true
     damage:
       types:
