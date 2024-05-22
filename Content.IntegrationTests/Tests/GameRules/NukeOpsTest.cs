@@ -201,9 +201,10 @@ public sealed class NukeOpsTest
             Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
 
+        DeltaV - end of commenting out */
+
         ticker.SetGamePreset((GamePresetPrototype?)null);
         server.CfgMan.SetCVar(CCVars.GridFill, false);
         await pair.CleanReturnAsync();
-        DeltaV - end of commenting out */
     }
 }
