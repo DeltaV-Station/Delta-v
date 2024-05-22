@@ -41,7 +41,7 @@
     maxRandomIndex: 33 # максимальная цифра в названии случайного спрайта начиная с 1
     #
     #                                                                                                    ↓           ↓
-    ckeys: BioMass&endr_animet&localhost@GGados&localhost@BioMass     # сюда надо вставлять CKEYи через "&"  типо:  BioMass&endr_animet&Nightcrawler_LOL       в начале и на конце ставить не надо
+    ckeys: BioMass&endr_animet&localhost@GGados     # сюда надо вставлять CKEYи через "&"  типо:  BioMass&endr_animet&Nightcrawler_LOL       в начале и на конце ставить не надо
   - type: GhostHearing # кастомные спрайты надо добавлять в Textures\SimpleStation14\Mobs\Ghosts\ghost.rsi  с названием CKEY-я, для случайных спрайтов в названии надо писать цифры в порядке возрастания
   - type: MovementSpeedModifier # ну и разумеется их надо добавить в мету
     baseSprintSpeed: 12
