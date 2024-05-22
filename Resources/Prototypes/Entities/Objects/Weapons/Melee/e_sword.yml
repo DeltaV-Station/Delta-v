@@ -101,15 +101,26 @@
       params:
         volume: -6
   - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/edagger1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
       params:
-        volume: -6
+        volume: -3
         variation: 0.250
+        pitch: 1.75
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Slash: 8
+            Heat: 8
+            Structural: 16
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -129,7 +140,7 @@
         map: [ "blade" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1
+    attackRate: 1.5
     hidden: true
     damage:
       types:
@@ -160,6 +171,10 @@
     - Write
   - type: DisarmMalus
     malus: 0
+  - type: Reflect
+    enabled: false
+    reflectProb: 0.5
+    minReflectProb: 0
 
 - type: entity
   parent: BaseItem
