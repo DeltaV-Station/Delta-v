@@ -114,7 +114,7 @@
     activatedDamage:
         types:
             Slash: 8 # DeltaV - compensation of increased attack rate
-            Heat: 8 # DeltaV - "
+            Heat: 8 # DeltaV - heat lowered by 2
             Structural: 16 # DeltaV - added structural damage that pierces flat damage reduction
     deactivatedSecret: true
   - type: ItemToggleActiveSound
