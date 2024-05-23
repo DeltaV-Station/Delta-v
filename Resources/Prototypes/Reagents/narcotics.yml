@@ -46,6 +46,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+      - !type:AdjustReagent # Delta-V - Addictive
+        probability: 0.6 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
 
 - type: reagent
   id: Ephedrine
@@ -181,6 +191,18 @@
         type: Add
         time: 16
         refresh: false
+    Medicine: # Delta-V - Addictive
+      effects:
+      - !type:AdjustReagent 
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
 
 - type: reagent
   id: Nicotine
@@ -223,6 +245,18 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
+    Medicine: # Delta-V - Addictive
+      effects:
+      - !type:AdjustReagent 
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
 
 - type: reagent
   id: SpaceDrugs
@@ -246,6 +280,18 @@
         - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
+    Medicine: # Delta-V - Addictive
+      effects:
+      - !type:AdjustReagent 
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 10 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.1
 
 - type: reagent
   id: Bananadine

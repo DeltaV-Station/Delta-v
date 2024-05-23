@@ -506,6 +506,18 @@
         - !type:ReagentThreshold
           reagent: Agonolexyne
           max: 0.01
+        - !type:ReagentThreshold
+          reagent: SpaceDrugs
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: THC
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Impedrezene
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Desoxyephedrine
+          max: 0.01
 
 - type: reagent
   id: Stubantazine
