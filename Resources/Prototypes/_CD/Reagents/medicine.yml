@@ -506,7 +506,7 @@
         - !type:ReagentThreshold
           reagent: Agonolexyne
           max: 0.01
-        - !type:ReagentThreshold
+        - !type:ReagentThreshold # Delta-V - Following four are also addictive
           reagent: SpaceDrugs
           max: 0.01
         - !type:ReagentThreshold

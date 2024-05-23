@@ -40,12 +40,6 @@
         key: KnockedDown
         time: 3
         type: Remove
-    Medicine:
-      effects:
-      - !type:ResetNarcolepsy
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
       - !type:AdjustReagent # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
@@ -56,6 +50,12 @@
           min: 0.25
         reagent: Addictine
         amount: 0.2
+    Medicine:
+      effects:
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
 
 - type: reagent
   id: Ephedrine
@@ -191,9 +191,7 @@
         type: Add
         time: 16
         refresh: false
-    Medicine: # Delta-V - Addictive
-      effects:
-      - !type:AdjustReagent 
+      - !type:AdjustReagent # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
@@ -245,9 +243,7 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-    Medicine: # Delta-V - Addictive
-      effects:
-      - !type:AdjustReagent 
+      - !type:AdjustReagent # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
@@ -280,9 +276,7 @@
         - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
-    Medicine: # Delta-V - Addictive
-      effects:
-      - !type:AdjustReagent 
+      - !type:AdjustReagent # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
