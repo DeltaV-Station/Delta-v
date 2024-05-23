@@ -6,9 +6,6 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 3600
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 1800
   startingGear: BlueshieldGear
   icon: "JobIconBlueshield"
   supervisors: job-supervisors-centcom
@@ -36,8 +33,10 @@
   id: BlueshieldGear
   equipment:
     head: ClothingHeadHatBeretCorpsman
+    jumpsuit: ClothingUniformJumpskirtSecBlue
+    back: ClothingBackpackBrigmedicDeltaVFilled
     shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCombatCorpsman
     id: CentcomPDA
@@ -45,3 +44,6 @@
     belt: ClothingBeltCorpsmanWebbingFilled
     pocket1: WeaponPistolUniversal
     pocket2: MagazineUniversalMagnum
+  innerClothingSkirt: ClothingUniformJumpskirtSecBlue
+  satchel: ClothingBackpackSatchelBrigmedicDeltaVFilled
+  duffelbag: ClothingBackpackDuffelBrigmedicDeltaVFilled

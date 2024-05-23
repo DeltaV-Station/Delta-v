@@ -11,3 +11,59 @@
   icon:
     sprite: Interface/Misc/job_icons.rsi
     state: Slugcat
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorg
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgClown
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Clown
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgShaftMiner
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_ShaftMiner
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgService
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Service
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgEngineer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Engineer
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgSecurity
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Security
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgJanitor
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Janitor
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBorgMedical
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg_Medical

@@ -1,0 +1,74 @@
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+  - HeadTechPriest
+  - HeadHatWeldingMask
+
+- type: loadoutGroup
+  id: RoboticistEyes
+  name: loadout-group-roboticist-eyes
+  minLimit: 0
+  loadouts:
+  - EyesHudDiagnostic
+  - EyepatchHudDiag
+  - EyesGlasses
+  - GlassesMeson
+
+- type: loadoutGroup
+  id: RoboticistNeck
+  name: loadout-group-roboticist-neck
+  minLimit: 0
+  loadouts:
+  - ScientistTie
+
+- type: loadoutGroup
+  id: RoboticistMask
+  name: loadout-group-roboticist-mask
+  minLimit: 0
+  loadouts:
+  - MaskWeldingGas
+  - MaskGas
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  loadouts:
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistBackpack
+  name: loadout-group-roboticist-backpack
+  loadouts:
+  - SatchelLeatherRobo
+  - BackpackRobo
+  - SatchelRobo
+  - DuffelRobo
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - CoatRobo
+  - WinterRobo
+  - RobeTechPriest
+
+- type: loadoutGroup
+  id: RoboticistGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - RobohandsGloves
+
+- type: loadoutGroup
+  id: RoboticistShoes
+  name: loadout-group-scientist-shoes
+  loadouts:
+  - ShoesBootsJack
+  - BootsWinterRobo
+  - ShoesColorBlack
