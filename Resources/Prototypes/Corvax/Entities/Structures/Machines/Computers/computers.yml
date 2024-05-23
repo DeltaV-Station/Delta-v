@@ -3,6 +3,16 @@
   id: CentcomComputerComms
   name: centcom communications computer
   components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm_monitor
+    - map: ["computerLayerKeys"]
+      state: med_key
     - type: AccessReader
       access: [[ "Command" ]]
     - type: CommunicationsConsole

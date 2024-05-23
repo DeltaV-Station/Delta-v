@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Pspritechologist? ; aghost3-5 by GeneralGaws ; aghost6 by MOYAMAMA",
+    "copyright": "Made by Pspritechologist? ; 5 by MOYAMAMA",
     "states": [
         {
             "name": "1",
@@ -15,21 +15,8 @@
             "name": "icon",
             "directions": 4
         },
-	{
-	    "name": "2",
-            "directions": 4
-	},
-
-	{
-	    "name": "3",
-            "directions": 4
-	},
-	{
-	    "name": "4",
-            "directions": 4
-	},
         {
-            "name": "5",
+            "name": "2",
             "delays": [
 		   [
                    0.1,
@@ -50,7 +37,33 @@
       		]
         },
         {
-            "name": "Kotovasu"
+            "name": "Kotovasu",
+            "directions": 4
+        },
+        {
+            "name": "kvasik",
+            "directions": 4
+        },
+        {
+            "name": "endr_animet",
+            "delays": [
+		   [
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1,
+                   0.1
+		   ]
+      		]
         }
     ]
 }
