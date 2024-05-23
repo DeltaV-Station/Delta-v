@@ -22,10 +22,10 @@
 
 - type: entity # Part of PirateRadioSpawn
   noSpawn: true
+  parent: MarkerBase
   id: SpawnPointGhostSyndicateListener
   name: ghost role spawn point
   suffix: syndicate listener
-  parent: MarkerBase
   components:
   - type: GhostRole
     name: ghost-role-information-listeningop-name
@@ -45,8 +45,7 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 40000 # 11.1 hours
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateListener
+  - type: GhostRoleAntagSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
