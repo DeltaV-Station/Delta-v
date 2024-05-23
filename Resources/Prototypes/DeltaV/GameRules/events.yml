@@ -56,15 +56,34 @@
     minimumPlayers: 25
     maxOccurrences: 1
     duration: 1
-  # TODO:
-  # 1. use the load grid rule to load the post itself
-  # 2. rename below to DebrisSpawnRule or something and have it just be debris
-  # 3. use AntagSelection to spawn the listeners
-  # the map will need spawnpoints like SpawnPointNukies added
-  - type: PirateRadioSpawnRule
-    debrisCount: 6
+  - type: RuleGrids
+  - type: LoadFarGridRule
+    path: Maps/Shuttles/DeltaV/listening_post.yml
     distanceModifier: 13
-    debrisDistanceModifier: 3
+  - type: GridDebrisSpawnerRule
+    count: 6
+    distanceModifier: 3
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSyndicateListener
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateListenerGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - names_death_commando
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: ListeningPostOpRole
+        prototype: ListeningPostOp
+  - type: AntagLoadProfileRule
 
 # Mid round antag spawns
 - type: entity
