@@ -46,6 +46,22 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    state: base
+  - type: Gun
+    useKey: false
+  - type: MeleeWeapon
+    attackRate: .85
+    damage:
+      types:
+       Piercing: 10
+       Slash: 5
+    angle: 0
+    wideAnimationRotation: -135
+  - type: DisarmMalus
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Sharp
 
 - type: entity
   name: Hristov
