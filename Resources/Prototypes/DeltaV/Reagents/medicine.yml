@@ -192,7 +192,7 @@
         reagent: Neurozenium
         amount: -7.5
       - !type:AdjustReagent
-        probablity: 0.5 # Chance of Addiction rising per tick
+        probability: 0.5 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
           reagent: Addictine
@@ -608,7 +608,7 @@
         reagent: Soretizone
         amount: 0.03
       - !type:AdjustReagent
-        probablity: 0.55 # Chance of Addiction rising per tick
+        probability: 0.55 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
           reagent: Addictine
@@ -678,7 +678,7 @@
         reagent: Agonolexyne
         amount: 0.04
       - !type:AdjustReagent
-        probablity: 0.8 # Chance of Addiction rising per tick
+        probability: 0.8 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
           reagent: Addictine
