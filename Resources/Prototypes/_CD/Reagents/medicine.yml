@@ -504,7 +504,7 @@
         reagent: Ipecac # purges bloodstream cleaners
         amount: -10.0
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.9
+        walkSpeedModifier: 0.9 # Delta-V : Changes walk-speed modifier from 0.95 to 0.9
         sprintSpeedModifier: 0.7
         conditions:
         - !type:ReagentThreshold
@@ -533,7 +533,7 @@
       - !type:GenericStatusEffect # Delta-V - Makes you stutter
         key: Stutter
         component: StutteringAccent
-        coditions:
+        conditions:
         - !type:ReagentThreshold 
           reagent: Blissifylovene
           max: 0.01
