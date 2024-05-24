@@ -11,3 +11,17 @@
         Manipulator: 1
       materialRequirements:
         Glass: 1
+
+- type: entity
+  id: CentCommPrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for an document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDocCentComm
+      requirements:
+        MatterBin: 3
+        Manipulator: 1
+      materialRequirements:
+        Glass: 1
