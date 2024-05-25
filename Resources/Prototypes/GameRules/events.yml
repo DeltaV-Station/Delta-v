@@ -378,7 +378,7 @@
     - id: MobGiantSpiderAngry
       prob: 0.05
 
- - type: entity 
+- type: entity 
   id: SpiderClownSpawn
   parent: BaseGameRule
   noSpawn: true
@@ -386,7 +386,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+    path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 15
