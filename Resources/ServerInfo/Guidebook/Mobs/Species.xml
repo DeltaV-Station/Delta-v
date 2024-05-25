@@ -1,26 +1,30 @@
 <Document>
-  # Species
+  # Виды рас
 
-  Nanotrasen employs a variety of sapient species.
+  Нанотразен нанимает разнообразные разумные виды.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+  <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
   </Box>
 
-  # Delta-V specific species
+  # новые расы
   <Box>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
-  <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
-  <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
+  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
+  <GuideEntityEmbed Entity="MobFelinid" Caption="Феленид"/>
+  <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
   </Box>
-
+  <Box>
+  <GuideEntityEmbed Entity="MobIPC" Caption="КПБ"/>
+  <GuideEntityEmbed Entity="MobShadowkin" Caption="сумеречник"/>
+  <GuideEntityEmbed Entity="MobPlasmaman" Caption="плазмамен"/>
+  </Box>
 </Document>
