@@ -1,4 +1,24 @@
 - type: reagent
+  id: InglandSidr
+  name: Английский Сидр
+  parent: BaseAlcohol
+  desc: О да тебя придеться по кусочкам собирать. В АДУ!
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#BC9377"
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/Sidr.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.08
+
+- type: reagent
   id: AnnasGift
   name: reagent-name-annasgift
   parent: BaseAlcohol
@@ -258,7 +278,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.4 
+        amount: 0.4
 
 - type: reagent
   id: Empt
