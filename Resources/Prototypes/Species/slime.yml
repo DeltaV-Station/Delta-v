@@ -25,6 +25,8 @@
     RLeg: MobSlimeRLeg
     LFoot: MobSlimeLFoot
     RFoot: MobSlimeRFoot
+    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
+    HeadTop: MobHumanoidAnyMarking # Nyanotrasen - Felinid & Oni
 
 - type: markingPoints
   id: MobSlimeMarkingLimits
@@ -50,6 +52,9 @@
     Arms:
       points: 4
       required: false
+
+- type: humanoidBaseSprite
+  id: MobHumanoidAnyMarking
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
