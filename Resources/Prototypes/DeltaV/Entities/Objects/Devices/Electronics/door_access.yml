@@ -94,7 +94,7 @@
   - type: AccessReader
     access: [["Mail"]]
     
-    - type: entity
+- type: entity
   parent: DoorElectronics
   id: DoorElectronicsChiefJustice
   suffix: ChiefJustice, Locked
@@ -102,7 +102,7 @@
   - type: AccessReader
     access: [["ChiefJustice"]]
     
-    - type: entity
+- type: entity
   parent: DoorElectronics
   id: DoorElectronicsJustice
   suffix: Justice, Locked
@@ -110,7 +110,7 @@
   - type: AccessReader
     access: [["Justice"]]
     
-    - type: entity
+- type: entity
   parent: DoorElectronics
   id: DoorElectronicsProsecutor
   suffix: Prosecutor, Locked
