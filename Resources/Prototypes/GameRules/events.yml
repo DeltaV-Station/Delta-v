@@ -378,7 +378,7 @@
     - id: MobGiantSpiderAngry
       prob: 0.05
 
-- type: entity 
+- type: entity
   id: SpiderClownSpawn
   parent: BaseGameRule
   noSpawn: true
@@ -467,9 +467,9 @@
         prototype: Nukeops
 
 #- type: entity # DeltaV - Currently many issues with this event
-#  id: SleeperAgentsRule
-#  parent: BaseGameRule
 #  noSpawn: true
+#  parent: BaseTraitorRule
+#  id: SleeperAgentsRule
 #  components:
 #  - type: StationEvent
 #    earliestStart: 30
@@ -480,7 +480,6 @@
 #    startAudio:
 #      path: /Audio/Announcements/intercept.ogg
 #  - type: AlertLevelInterceptionRule
-#  - type: TraitorRule
 #  - type: AntagSelection
 #    definitions:
 #    - prefRoles: [ Traitor ]
