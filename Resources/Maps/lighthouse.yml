@@ -5108,7 +5108,9 @@ entities:
           1,-10:
             0: 65343
           1,-13:
-            0: 15291
+            0: 10923
+            2: 272
+            3: 4096
           2,-12:
             0: 65535
           2,-11:
@@ -5217,7 +5219,7 @@ entities:
             0: 49151
           -8,7:
             0: 29491
-            2: 136
+            4: 136
           -9,6:
             0: 63351
           -8,8:
@@ -5229,7 +5231,7 @@ entities:
           -7,6:
             0: 33655
           -7,7:
-            2: 819
+            4: 819
             0: 35008
           -7,8:
             0: 24025
@@ -6285,24 +6287,24 @@ entities:
             0: 65535
           -3,-15:
             0: 13104
-            3: 128
-            4: 32768
-          -3,-14:
-            0: 13107
             5: 128
             6: 32768
+          -3,-14:
+            0: 13107
+            7: 128
+            8: 32768
           -3,-17:
             0: 61457
             1: 238
           -2,-16:
             0: 47935
           -2,-15:
-            3: 48
-            4: 12288
-            0: 34952
-          -2,-14:
             5: 48
             6: 12288
+            0: 34952
+          -2,-14:
+            7: 48
+            8: 12288
             0: 32904
           -2,-17:
             0: 47308
@@ -6697,17 +6699,17 @@ entities:
           -7,-15:
             0: 17
             1: 4352
-            3: 52416
+            5: 52416
           -7,-14:
             1: 1
             0: 29968
-            3: 204
+            5: 204
           -6,-16:
             0: 65520
           -6,-15:
-            3: 30576
+            5: 30576
           -6,-14:
-            3: 119
+            5: 119
             0: 61440
           -6,-17:
             1: 4096
@@ -7045,6 +7047,36 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 21.824879
+          - 82.10312
           - 0
           - 0
           - 0
@@ -8832,14 +8864,6 @@ entities:
       parent: 100
 - proto: AirlockArmoryGlassLocked
   entities:
-  - uid: 1826
-    components:
-    - type: MetaData
-      desc: Organized lightning!
-      name: Substation Locker
-    - type: Transform
-      pos: 29.5,40.5
-      parent: 100
   - uid: 1927
     components:
     - type: MetaData
@@ -11981,6 +12005,13 @@ entities:
     - type: DeviceLinkSink
       links:
       - 13966
+  - uid: 1826
+    components:
+    - type: MetaData
+      name: Substation Locker
+    - type: Transform
+      pos: 29.5,40.5
+      parent: 100
   - uid: 1996
     components:
     - type: MetaData
@@ -27794,6 +27825,11 @@ entities:
     - type: Transform
       pos: 9.5,-40.5
       parent: 100
+  - uid: 20876
+    components:
+    - type: Transform
+      pos: -25.5,37.5
+      parent: 100
 - proto: CableApcStack
   entities:
   - uid: 10832
@@ -42259,7 +42295,21 @@ entities:
     - type: Transform
       pos: 9.504622,-27.540493
       parent: 100
-- proto: chem_master
+- proto: ChemDispenser
+  entities:
+  - uid: 1399
+    components:
+    - type: Transform
+      pos: -16.5,37.5
+      parent: 100
+- proto: ChemistryHotplate
+  entities:
+  - uid: 943
+    components:
+    - type: Transform
+      pos: -19.5,33.5
+      parent: 100
+- proto: ChemMaster
   entities:
   - uid: 1578
     components:
@@ -42292,20 +42342,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-34.5
-      parent: 100
-- proto: ChemDispenser
-  entities:
-  - uid: 1399
-    components:
-    - type: Transform
-      pos: -16.5,37.5
-      parent: 100
-- proto: ChemistryHotplate
-  entities:
-  - uid: 943
-    components:
-    - type: Transform
-      pos: -19.5,33.5
       parent: 100
 - proto: ChemMasterMachineCircuitboard
   entities:
@@ -46092,35 +46128,23 @@ entities:
       parent: 100
 - proto: CrateEngineeringAMEJar
   entities:
-  - uid: 6438
+  - uid: 11503
     components:
     - type: Transform
       pos: 4.5,-48.5
       parent: 100
-    - type: Construction
-      containers:
-      - EntityStorageComponent
-      - entity_storage
 - proto: CrateEngineeringAMEShielding
   entities:
+  - uid: 6438
+    components:
+    - type: Transform
+      pos: 4.5,-50.5
+      parent: 100
   - uid: 9088
     components:
     - type: Transform
       pos: 4.5,-49.5
       parent: 100
-    - type: Construction
-      containers:
-      - EntityStorageComponent
-      - entity_storage
-  - uid: 11503
-    components:
-    - type: Transform
-      pos: 4.5,-50.5
-      parent: 100
-    - type: Construction
-      containers:
-      - EntityStorageComponent
-      - entity_storage
 - proto: CrateEngineeringCableBulk
   entities:
   - uid: 1067
@@ -56734,12 +56758,11 @@ entities:
       parent: 100
     - type: AtmosPipeColor
       color: '#0099FFFF'
-- proto: GasMinerNitrogen
+- proto: GasMinerNitrogenStation
   entities:
   - uid: 13933
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -7.5,-52.5
       parent: 100
 - proto: GasMinerOxygenStation
@@ -108102,7 +108125,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -22.45732,67.636955
       parent: 100
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 710
     components:
