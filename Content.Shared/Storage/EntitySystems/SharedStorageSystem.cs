@@ -22,6 +22,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -152,7 +153,9 @@ public abstract class SharedStorageSystem : EntitySystem
             Grid = new List<Box2i>(component.Grid),
             MaxItemSize = component.MaxItemSize,
             StoredItems = storedItems,
-            SavedLocations = component.SavedLocations
+            SavedLocations = component.SavedLocations,
+            Whitelist = component.Whitelist,
+            Blacklist = component.Blacklist
         };
     }
 
@@ -164,6 +167,8 @@ public abstract class SharedStorageSystem : EntitySystem
         component.Grid.Clear();
         component.Grid.AddRange(state.Grid);
         component.MaxItemSize = state.MaxItemSize;
+        component.Whitelist = state.Whitelist;
+        component.Blacklist = state.Blacklist;
 
         component.StoredItems.Clear();
 
@@ -1494,5 +1499,9 @@ public abstract class SharedStorageSystem : EntitySystem
         public List<Box2i> Grid = new();
 
         public ProtoId<ItemSizePrototype>? MaxItemSize;
+
+        public EntityWhitelist? Whitelist;
+
+        public EntityWhitelist? Blacklist;
     }
 }
