@@ -34,6 +34,9 @@
   components:
   - type: AccessReader
     access: [["ChiefJustice"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefJustice ]
 
 - type: entity
   parent: WindoorSecure
@@ -42,6 +45,9 @@
   components:
   - type: AccessReader
     access: [["Justice"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJustice ]
 
 - type: entity
   parent: WindoorSecure
@@ -50,3 +56,6 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProsecutor ]
