@@ -432,9 +432,9 @@
         prototype: InitialInfected
 
 - type: entity
-  id: LoneOpsSpawn
-  parent: BaseGameRule
   noSpawn: true
+  parent: BaseNukeopsRule
+  id: LoneOpsSpawn
   components:
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
