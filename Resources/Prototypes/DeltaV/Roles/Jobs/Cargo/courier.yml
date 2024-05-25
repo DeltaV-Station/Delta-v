@@ -1,13 +1,18 @@
+- type: job
+  id: Courier
+  name: job-name-courier
+  description: job-description-courier
+  startingGear: CourierGear
+  playTimeTracker: JobCourier
+  icon: "JobIconCourier"
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Maintenance
+  - Mail
+
 - type: startingGear
   id: CourierGear
   equipment:
-    head: ClothingHeadCourier
-    jumpsuit: ClothingUniformCourier
-    back: ClothingBackpackFilled
-    shoes: ClothingShoesColorBlack
-    id: MailCarrierPDA
     ears: ClothingHeadsetCargo
     belt: CourierBag
-  innerClothingSkirt: ClothingUniformSkirtCourier
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled

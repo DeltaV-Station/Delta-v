@@ -36,3 +36,14 @@
         - state: default
         - sprite: DeltaV/Objects/Misc/id_cards.rsi
           state: idprosecutor
+
+  id: CourierIDCard
+  name: courier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: nyanomailcarrier
+  - type: PresetIdCard
+    job: Courier

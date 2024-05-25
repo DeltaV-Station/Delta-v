@@ -12,7 +12,7 @@
       role: JobSalvageSpecialist
       time: 10800 #3 hrs
     - !type:RoleTimeRequirement # DeltaV - Courier role time requirement
-      role: JobMailCarrier
+      role: JobCourier
       time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
@@ -44,14 +44,7 @@
 - type: startingGear
   id: QuartermasterGear
   equipment:
-    head: ClothingHeadHatBeretLogi
-    jumpsuit: ClothingUniformJumpsuitQM
-    back: ClothingBackpackQuartermasterFilled
-    shoes: ClothingShoesColorBrown
     id: QuartermasterPDA
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
-  innerClothingSkirt: ClothingUniformJumpskirtQM
-  satchel: ClothingBackpackSatchelQuartermasterFilled
-  duffelbag: ClothingBackpackDuffelQuartermasterFilled

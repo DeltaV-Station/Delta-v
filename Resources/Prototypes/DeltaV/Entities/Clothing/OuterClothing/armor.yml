@@ -21,6 +21,7 @@
     sprintModifier: 0.90
   - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
     damageCoefficient: 0.70
+  - type: AllowSuitStorage
 
 #Alternate / slim basic armor vest replacement
 - type: entity
@@ -42,6 +43,7 @@
         Heat: 0.90
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
     damageCoefficient: 0.90
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -66,3 +68,4 @@
   - type: ExplosionResistance # Almost as good as a plate carrier! Still not going to save you from most bombs though.
     damageCoefficient: 0.80
   - type: GroupExamine
+  - type: AllowSuitStorage

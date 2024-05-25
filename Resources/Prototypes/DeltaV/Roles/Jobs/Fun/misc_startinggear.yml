@@ -66,7 +66,7 @@
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesSlippers
     id: SyndiListeningPostPDA
-  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink
+#  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink # I don't think loadouts work for ghost roles anyways
 
 # Mobsters
 
@@ -81,9 +81,9 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: PassengerPDA
     belt: ClothingBeltHolster
-  innerClothingSkirt: ClothingUniformJumpsuitSuitBlackMob
-  satchel: ClothingBackpackMafiaFilled
-  duffelbag: ClothingBackpackMafiaFilled
+#  innerClothingSkirt: ClothingUniformJumpsuitSuitBlackMob # TODO: Loadouts
+#  satchel: ClothingBackpackMafiaFilled
+#  duffelbag: ClothingBackpackMafiaFilled
 
 - type: startingGear
   id: MobsterGearAlt
@@ -97,6 +97,6 @@
     id: PassengerPDA
     belt: ClothingBeltSuspendersBlack
     pocket1: CombatKnife
-  innerClothingSkirt: ClothingUniformJumpsuitSuitBrown
-  satchel: ClothingBackpackMafiaFilled
-  duffelbag: ClothingBackpackMafiaFilled
+#  innerClothingSkirt: ClothingUniformJumpsuitSuitBrown # TODO: Loadouts
+#  satchel: ClothingBackpackMafiaFilled
+#  duffelbag: ClothingBackpackMafiaFilled

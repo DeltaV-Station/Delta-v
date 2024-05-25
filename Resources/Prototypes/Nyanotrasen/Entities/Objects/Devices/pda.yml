@@ -32,17 +32,18 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-security
-  - type: CartridgeLoader # DeltaV - Crime Assist
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
   id: MailCarrierPDA
-  name: courier PDA # DeltaV - Mail Carrier to Courier replacement
+  name: mail carrier PDA
   description: Smells like unopened letters.
   components:
   - type: Sprite

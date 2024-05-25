@@ -40,6 +40,16 @@
         key: KnockedDown
         time: 3
         type: Remove
+      - !type:AdjustReagent # Delta-V - Addictive
+        probability: 0.6 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -181,25 +191,16 @@
         type: Add
         time: 16
         refresh: false
-
-- type: reagent
-  id: THCOil # deprecated in favor of THC, preserved here for forks
-  name: reagent-name-thc-oil
-  group: Narcotics
-  desc: reagent-desc-thc-oil
-  physicalDesc: reagent-physical-desc-skunky
-  flavor: bitter
-  flavorMinimum: 0.05
-  color: "#DAA520"
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 16
-        refresh: false
+      - !type:AdjustReagent # Delta-V - Addictive
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
 
 - type: reagent
   id: Nicotine
@@ -242,6 +243,16 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
+      - !type:AdjustReagent # Delta-V - Addictive
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.2
 
 - type: reagent
   id: SpaceDrugs
@@ -265,6 +276,16 @@
         - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
+      - !type:AdjustReagent # Delta-V - Addictive
+        probability: 0.4 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 10 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          min: 0.25
+        reagent: Addictine
+        amount: 0.1
 
 - type: reagent
   id: Bananadine
@@ -412,3 +433,53 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+
+- type: reagent
+  id: Happiness
+  name: reagent-name-happiness
+  group: Narcotics
+  desc: reagent-desc-happiness
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: paintthinner
+  color: "#EE35FF"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:Emote
+        emote: Laugh
+        showInChat: true
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          max: 20
+      - !type:Emote
+        emote: Whistle
+        showInChat: true
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          max: 20
+      - !type:Emote
+        emote: Crying
+        showInChat: true
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage # we dont have sanity/mood so this will have to do
+        type: Local
+        visualType: Medium
+        messages:
+        - "psicodine-effect-fearless"
+        - "psicodine-effect-anxieties-wash-away"
+        - "psicodine-effect-at-peace"
+        probability: 0.2
+        conditions:
+        - !type:ReagentThreshold
+          max: 20
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false

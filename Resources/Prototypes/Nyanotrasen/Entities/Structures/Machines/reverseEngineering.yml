@@ -19,8 +19,8 @@
     key: enum.ReverseEngineeringMachineUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.ReverseEngineeringMachineUiKey.Key
-      type: ReverseEngineeringMachineBoundUserInterface
+      enum.ReverseEngineeringMachineUiKey.Key:
+        type: ReverseEngineeringMachineBoundUserInterface
   - type: ActivatableUIRequiresPower
   - type: ItemSlots
     slots:

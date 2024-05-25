@@ -1,4 +1,3 @@
-
 - type: entity
   id: SpawnPointMedicalBorg
   parent: SpawnPointJobBase
@@ -56,3 +55,14 @@
     #- sprite: DeltaV/Markers/jobs.rsi
     #  state: prosecutor
 
+  id: SpawnPointCourier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: Courier
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: courier
