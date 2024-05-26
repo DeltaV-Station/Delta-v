@@ -40,7 +40,7 @@
 - type: entity
   parent: IDCardStandard
   id: MailCarrierIDCard
-  name: courier ID card # DeltaV - Mail Carrier to Courier replacement
+  name: mail carrier ID card
   components:
   - type: Sprite
     layers:
@@ -49,7 +49,6 @@
       state: nyanomailcarrier
   - type: PresetIdCard
     job: MailCarrier
-
 
 - type: entity
   parent: IDCardStandard
