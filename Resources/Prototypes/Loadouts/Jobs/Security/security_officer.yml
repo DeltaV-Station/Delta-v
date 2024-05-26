@@ -2,16 +2,16 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 21600 #6 hrs
+ #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobWarden
+ #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 7200 # 3 hrs
+      time: 21600 # 6 hrs
 
 # Head
 - type: loadout
