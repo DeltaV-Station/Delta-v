@@ -122,7 +122,7 @@
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled  
+  productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
     Telecrystal: 10 # DV - was 12 changed because the Hristov is REALLY bad
   categories:
@@ -872,7 +872,7 @@
       - SurplusBundle
 
 - type: listing
- id: UplinkSingarityBeacon
+  id: UplinkSingarityBeacon
   name: uplink-singularity-beacon-name
   description: uplink-singularity-beacon-desc
   productEntity: SingularityBeacon
@@ -900,7 +900,8 @@
   productEntity: BoxHoloparasite
   cost:
     Telecrystal: 14
-  categories:#  - UplinkAllies
+  categories:
+  - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -1012,7 +1013,7 @@
     Telecrystal: 6
   categories:
     - UplinkAllies
-  
+
 - type: listing
   id: UplinkSyndicatePersonalAI
   name: uplink-syndicate-pai-name
