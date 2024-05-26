@@ -12,8 +12,8 @@ namespace Content.Shared.Shipyard;
 /// </summary>
 public abstract class SharedShipyardConsoleSystem : EntitySystem
 {
-    [Dependency] protected readonly AccessReaderSystem _access = default!;
-    [Dependency] protected readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 

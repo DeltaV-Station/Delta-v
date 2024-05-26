@@ -25,10 +25,14 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = new ShipyardConsoleMenu(Owner, _proto, EntMan, _player, _access);
+        if (_menu == null)
+        {
+            _menu = new ShipyardConsoleMenu(Owner, _proto, EntMan, _player, _access);
+            _menu.OnClose += Close;
+            _menu.OnPurchased += Purchase;
+        }
+
         _menu.OpenCentered();
-        _menu.OnClose += Close;
-        _menu.OnPurchased += Purchase;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -45,6 +49,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         base.Dispose(disposing);
 
+        _menu?.Close();
         if (disposing)
             _menu?.Dispose();
     }
