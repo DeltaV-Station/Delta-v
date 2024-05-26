@@ -1,3 +1,14 @@
+- type: job
+  id: MercSquadLeader
+  name: job-name-mercsquadleader
+  description: job-description-mercsquadleader
+  startingGear: MercSquadLeader
+  icon: "JobIconUnknown"
+  supervisors: job-supervisors-contractors
+  access:
+  - Maintenance
+  - External
+
 - type: startingGear
   id: MercSquadLeader
   equipment:
@@ -14,6 +25,17 @@
     belt: ClothingBeltMercWebbing
     pocket1: FlashlightSeclite
 
+- type: job
+  id: MercSergeant
+  name: job-name-mercsergeant
+  description: job-description-mercsergeant
+  startingGear: MercSergeant
+  icon: "JobIconUnknown"
+  supervisors: job-supervisors-mercsquadleader
+  access:
+  - Maintenance
+  - External
+
 - type: startingGear
   id: MercSergeant
   equipment:
@@ -29,6 +51,17 @@
     ears: ClothingHeadsetFreelance
     belt: ClothingBeltMercWebbing
     pocket1: FlashlightSeclite
+
+- type: job
+  id: MercCorpsman
+  name: job-name-merccorpsman
+  description: job-description-mercsergeant
+  startingGear: MercCorpsman
+  icon: "JobIconUnknown"
+  supervisors: job-supervisors-mercsquadleader
+  access:
+  - Maintenance
+  - External
 
 - type: startingGear
   id: MercCorpsman
@@ -47,11 +80,22 @@
     pocket1: FlashlightSeclite
     pocket2: hypospray
 
+- type: job
+  id: MercRifleman
+  name: job-name-mercrifleman
+  description: job-description-mercrifleman
+  startingGear: MercRifleman
+  icon: "JobIconUnknown"
+  supervisors: job-supervisors-mercsergeant
+  access:
+  - Maintenance
+  - External
+
 - type: startingGear
-  id: MercSergeant
+  id: MercRifleman
   equipment:
     jumpsuit: ClothingUniformJumpsuitMercenary
-    back: ClothingBackpackMercSergeant
+    back: ClothingBackpackMercRifle
     shoes: ClothingShoesBootsMerc
     head: ClothingHeadHelmetMerc
     eyes: ClothingEyesGlassesMercenary
