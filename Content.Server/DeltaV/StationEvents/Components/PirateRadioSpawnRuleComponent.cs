@@ -4,6 +4,7 @@
 * See AGPLv3.txt for details.
 */
 
+using Content.Server.DeltaV.StationEvents.Events;
 using Content.Server.StationEvents.Events;
 
 namespace Content.Server.StationEvents.Components;

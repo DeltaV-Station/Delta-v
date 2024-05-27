@@ -100,8 +100,8 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
-        if (/*!ev.EmptyChanged || */!_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
-            return; // Depends on Robust Toolbox V221.1.0+
+        if (!ev.EmptyChanged || !_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
+            return;
 
         var tile = ev.NewTile.GridIndices;
         var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
@@ -180,9 +180,6 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnConfigureMessage(Entity<ConfigurableNavMapBeaconComponent> ent, ref NavMapBeaconConfigureBuiMessage args)
     {
-        if (args.Session.AttachedEntity is not { } user)
-            return;
-
         if (!TryComp<NavMapBeaconComponent>(ent, out var beacon))
             return;
 
@@ -192,7 +189,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             return;
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(user):player} configured NavMapBeacon \'{ToPrettyString(ent):entity}\' with text \'{args.Text}\', color {args.Color.ToHexNoAlpha()}, and {(args.Enabled ? "enabled" : "disabled")} it.");
+            $"{ToPrettyString(args.Actor):player} configured NavMapBeacon \'{ToPrettyString(ent):entity}\' with text \'{args.Text}\', color {args.Color.ToHexNoAlpha()}, and {(args.Enabled ? "enabled" : "disabled")} it.");
 
         if (TryComp<WarpPointComponent>(ent, out var warpPoint))
         {

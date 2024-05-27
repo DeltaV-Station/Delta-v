@@ -1,0 +1,14 @@
+#In its own file and not musket.yml in case anyone ever wants to add more guns that use it.
+- type: constructionGraph
+  id: BayonetGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bayonet
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 4
+  - node: bayonet
+    entity: Bayonet
