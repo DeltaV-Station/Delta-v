@@ -11,14 +11,11 @@ namespace Content.Shared.DeltaV.Implants.Radio;
 /// </summary>
 public abstract class SharedRadioImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<RadioImplantComponent, ImplantImplantedEvent>(OnImplanted);
         SubscribeLocalEvent<RadioImplantComponent, EntGotRemovedFromContainerMessage>(OnPossiblyUnimplanted);
-        SubscribeLocalEvent<StorageComponent, OpenRadioImplantEvent>(OnOpenStorage);
     }
 
     /// <summary>
@@ -56,23 +53,4 @@ public abstract class SharedRadioImplantSystem : EntitySystem
             component.Implantee = null;
         }
     }
-
-    /// <summary>
-    /// Handles clicking the radio storage button by opening storage UI.
-    /// </summary>
-    private void OnOpenStorage(EntityUid uid, StorageComponent component, OpenRadioImplantEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        _storage.OpenStorageUI(uid, args.Performer, component);
-        args.Handled = true;
-    }
-}
-
-/// <summary>
-/// Triggered when someone clicks the open radio implant action.
-/// </summary>
-public sealed partial class OpenRadioImplantEvent : InstantActionEvent
-{
 }

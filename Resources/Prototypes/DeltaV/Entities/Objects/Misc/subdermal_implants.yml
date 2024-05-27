@@ -17,7 +17,7 @@
         - BionicSyrinxImplant
 
 - type: entity
-  parent: BaseSubdermalImplant
+  parent: StorageImplant
   id: RadioImplant
   name: generic radio implant
   description: This implant contains a radio augmentation with a bluespace compartment for an encryption key. It allows its user to communicate on the key's channel.
@@ -34,14 +34,6 @@
     whitelist:
       components:
         - EncryptionKey # encryption keys only!
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: [ ]
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: RadioImplant
 
 - type: entity
