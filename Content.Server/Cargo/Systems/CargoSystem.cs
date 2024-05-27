@@ -1,6 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Systems;
@@ -8,6 +9,7 @@ using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -48,6 +50,8 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly GameTicker _ticker = default!; // DeltaV - Used to make sure the trading post doens't load in the lobby :<
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;

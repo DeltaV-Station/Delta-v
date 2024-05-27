@@ -20,7 +20,7 @@
     maxAngle: 16
     fireRate: 8
     angleIncrease: 3
-    angleDecay: 16
+    angleDecay: 16  
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -93,7 +93,18 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
   - type: Gun
+    minAngle: 21
+    maxAngle: 32 
+    shotsPerBurst: 5
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: ChamberMagazineAmmoProvider
@@ -119,7 +130,13 @@
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+    - type: Wieldable
+    - type: GunWieldBonus
+      minAngle: -19
+      maxAngle: -16
     - type: Gun
+      minAngle: 21
+      maxAngle: 32
       fireRate: 6
       selectedMode: FullAuto
       soundGunshot:
@@ -221,9 +238,16 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 5
+    fireRate: 5.5
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 1.5
+    angleDecay: 6  
     selectedMode: FullAuto
+    shotsPerBurst: 5
     availableModes:
+    - SemiAuto
+    - Burst
     - FullAuto
   - type: ItemSlots
     slots:

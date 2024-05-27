@@ -12,7 +12,7 @@
           mapNameTemplate: '{0} Pebble Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'DV'
+            prefixCreator: 'NY'
         - type: StationJobs
           overflowJobs:
             - Passenger
@@ -56,7 +56,7 @@
             SecurityCadet: [ 1, 1 ]
           #supply
             Quartermaster: [ 1, 1 ]
-            MailCarrier: [ 1, 2 ]
+            Courier: [ 1, 2 ]
             SalvageSpecialist: [ 2, 2 ]
             CargoTechnician: [ 2, 3 ]
           #civilian

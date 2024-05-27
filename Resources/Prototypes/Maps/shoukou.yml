@@ -12,7 +12,7 @@
           mapNameTemplate: '{0} Shōkō "Little Port" {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'DV'
+            prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
         - type: StationJobs
@@ -64,6 +64,6 @@
           #Logistics
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 4 ]
-            MailCarrier: [ 1, 2 ]
+            Courier: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
 

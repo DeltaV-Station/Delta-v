@@ -11,7 +11,7 @@
           mapNameTemplate: '{0} Tortuga Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'DV'
+            prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
         - type: StationJobs
@@ -58,14 +58,14 @@
             Reporter: [ 2, 2 ]
             ServiceWorker: [ 3, 6 ]
           #science
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 6 ]
-            ForensicMantis: [ 1, 1 ]
-            ResearchAssistant: [ 2, 4 ]
             Chaplain: [ 1, 1 ]
             Borg: [ 2, 3 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 4 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 5, 6 ]
           #supply
-            Quartermaster: [ 1, 1 ]
             CargoTechnician: [ 2, 4 ]
+            Courier: [ 2, 2 ]
             SalvageSpecialist: [ 3, 4 ]
-            MailCarrier: [ 2, 2 ]
+            Quartermaster: [ 1, 1 ]
