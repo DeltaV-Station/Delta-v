@@ -6903,7 +6903,7 @@ entities:
   - uid: 11876
     components:
     - type: Transform
-      pos: 39.31344,5.704806
+      pos: 38.232567,5.762422
       parent: 2
   - uid: 11877
     components:
@@ -32026,11 +32026,6 @@ entities:
       parent: 2
 - proto: filingCabinetTallRandom
   entities:
-  - uid: 2546
-    components:
-    - type: Transform
-      pos: -15.5,5.5
-      parent: 2
   - uid: 3254
     components:
     - type: Transform
@@ -64691,16 +64686,6 @@ entities:
     - type: Transform
       pos: 10.5,-11.5
       parent: 2
-  - uid: 3186
-    components:
-    - type: Transform
-      pos: 37.5,7.5
-      parent: 2
-  - uid: 3251
-    components:
-    - type: Transform
-      pos: 38.5,7.5
-      parent: 2
   - uid: 3509
     components:
     - type: Transform
@@ -65210,10 +65195,15 @@ entities:
     - type: Transform
       pos: 1.5,-12.5
       parent: 2
-  - uid: 3252
+  - uid: 3186
     components:
     - type: Transform
-      pos: 39.5,5.5
+      pos: 37.5,7.5
+      parent: 2
+  - uid: 3251
+    components:
+    - type: Transform
+      pos: 38.5,7.5
       parent: 2
 - proto: TargetDarts
   entities:
@@ -65783,6 +65773,13 @@ entities:
     - type: Transform
       pos: 26.5,10.5
       parent: 2
+- proto: VendingMachineDetDrobe
+  entities:
+  - uid: 3252
+    components:
+    - type: Transform
+      pos: 39.5,5.5
+      parent: 2
 - proto: VendingMachineDinnerware
   entities:
   - uid: 445
@@ -65871,6 +65868,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,9.5
+      parent: 2
+- proto: VendingMachineRepDrobe
+  entities:
+  - uid: 2546
+    components:
+    - type: Transform
+      pos: -15.5,5.5
       parent: 2
 - proto: VendingMachineRestockSmokes
   entities:
