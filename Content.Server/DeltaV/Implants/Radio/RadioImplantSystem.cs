@@ -47,11 +47,11 @@ public sealed class RadioImplantSystem : SharedRadioImplantSystem
             return;
 
         // does the implant have access to the channel the implantee is trying to speak on?
-        if (ent.Comp.Implant is { Valid: true }
-            && TryComp<RadioImplantComponent>(ent.Comp.Implant, out var radioImplantComponent)
+        if (ent.Comp.Implant is {} implant
+            && TryComp<RadioImplantComponent>(implant, out var radioImplantComponent)
             && radioImplantComponent.Channels.Contains(args.Channel.ID))
         {
-            _radioSystem.SendRadioMessage(ent, args.Message, args.Channel.ID, ent.Comp.Implant.Value);
+            _radioSystem.SendRadioMessage(ent, args.Message, args.Channel.ID, implant);
             // prevent other radios they might be wearing from sending the message again
             args.Channel = null;
         }
