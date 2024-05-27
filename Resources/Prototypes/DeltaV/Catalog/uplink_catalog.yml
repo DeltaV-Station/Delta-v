@@ -37,3 +37,37 @@
     Telecrystal: 4
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkSyndicateRadioImplanter
+  name: uplink-syndicate-radio-implanter-name
+  description: uplink-syndicate-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: SyndicateRadioImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSyndicateRadioImplanterBundle
+  name: uplink-syndicate-radio-implanter-bundle-name
+  description: uplink-syndicate-radio-implanter-bundle-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: BoxSyndicateRadioImplanter
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkImplants
+
+
+- type: listing
+  id: UplinkGenericRadioImplanter
+  name: uplink-generic-radio-implanter-name
+  description: uplink-generic-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: crypt_rusted }
+  productEntity: GenericRadioImplanter
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkImplants
