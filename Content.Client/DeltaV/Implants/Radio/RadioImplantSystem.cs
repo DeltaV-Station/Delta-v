@@ -2,6 +2,7 @@
 
 namespace Content.Client.DeltaV.Implants.Radio;
 
+/// <inheritdoc />
 public sealed class RadioImplantSystem : SharedRadioImplantSystem
 {
 }

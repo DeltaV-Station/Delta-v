@@ -10,6 +10,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.DeltaV.Implants.Radio;
 
+/// <inheritdoc />
 public sealed class RadioImplantSystem : SharedRadioImplantSystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
