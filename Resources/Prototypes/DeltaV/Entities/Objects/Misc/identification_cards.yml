@@ -27,9 +27,6 @@
   id: MercCorpsmanIDCard
   name: corpsman ID card
   components:
-  - type: Sprite
-    layers:
-    - state: default
   - type: PresentIDCard
     job: MercCorpsman
 
@@ -38,9 +35,6 @@
   id: MercSergeantIDCard
   name: sergeant ID card
   components:
-  - type: Sprite
-    layers:
-    - state: default
   - type: PresentIDCard
     job: MercSergeant
 
@@ -49,8 +43,5 @@
   id: MercSquadLeaderIDCard
   name: squad leader ID card
   components:
-  - type: Sprite
-    layers:
-    - state: default
   - type: PresentIDCard
     job: MercSquadLeader
