@@ -178,3 +178,31 @@
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
+
+- type: entity
+  name: musket
+  id: WeaponRifleMusket
+  parent: Musket
+  suffix: "craftable"
+  description: An old flintlock musket. Uses musket cartridges.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags: 
+      - CartridgeMusket
+    capacity: 1
+    proto: CartridgeMusket
+  - type: Gun #Smoothbore
+    fireRate: .125
+    resetOnHandSelected: false
+    minAngle: 20
+    maxAngle: 43
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -40
+  - type: Construction
+    graph: WeaponRifleMusketGraph
+    node: musket
+  - type: UseDelay
+    delay: 0 #Straight up doesn't work for guns
