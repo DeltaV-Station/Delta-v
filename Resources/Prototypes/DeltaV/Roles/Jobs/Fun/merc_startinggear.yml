@@ -3,6 +3,7 @@
   name: job-name-mercsquadleader
   description: job-description-mercsquadleader
   startingGear: MercSquadLeader
+  playTimeTracker: JobMercenary
   icon: "JobIconUnknown"
   supervisors: job-supervisors-contractors
   access:
@@ -46,6 +47,7 @@
   name: job-name-mercsergeant
   description: job-description-mercsergeant
   startingGear: MercSergeant
+  playTimeTracker: JobMercenary
   icon: "JobIconUnknown"
   supervisors: job-supervisors-mercsquadleader
   access:
@@ -89,6 +91,7 @@
   name: job-name-merccorpsman
   description: job-description-merccorpsman
   startingGear: MercCorpsman
+  playTimeTracker: JobMercenary
   icon: "JobIconUnknown"
   supervisors: job-supervisors-mercsquadleader
   access:
@@ -134,6 +137,7 @@
   name: job-name-mercrifleman
   description: job-description-mercrifleman
   startingGear: MercRifleman
+  playTimeTracker: JobMercenary
   icon: "JobIconUnknown"
   supervisors: job-supervisors-mercsergeant
   access:
