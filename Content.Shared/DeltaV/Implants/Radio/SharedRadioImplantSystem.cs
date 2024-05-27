@@ -24,7 +24,7 @@ public abstract class SharedRadioImplantSystem : EntitySystem
     /// <summary>
     /// Handles implantation of the implant.
     /// </summary>
-    private void OnImplanted(EntityUid uid, RadioImplantComponent component, ImplantImplantedEvent args)
+    protected virtual void OnImplanted(EntityUid uid, RadioImplantComponent component, ImplantImplantedEvent args)
     {
         if (args.Implanted is not { Valid: true })
             return;

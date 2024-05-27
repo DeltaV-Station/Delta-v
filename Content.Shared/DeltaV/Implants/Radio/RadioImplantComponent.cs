@@ -1,4 +1,6 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Radio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.DeltaV.Implants.Radio;
 
@@ -12,11 +14,11 @@ public sealed partial class RadioImplantComponent : Component
     /// The entity this implant got added to.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? Implantee { get; set; }
+    public EntityUid? Implantee;
 
     /// <summary>
     /// The channels this implant can talk on.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<string> Channels { get; set; } = new();
+    public HashSet<ProtoId<RadioChannelPrototype>> Channels = new();
 }

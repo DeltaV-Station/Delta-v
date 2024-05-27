@@ -12,5 +12,5 @@ public sealed partial class HasRadioImplantComponent : Component
     /// The radio implant. We need this to be able to determine encryption keys.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? Implant { get; set; }
+    public EntityUid? Implant;
 }
