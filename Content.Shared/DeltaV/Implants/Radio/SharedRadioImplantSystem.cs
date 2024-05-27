@@ -1,6 +1,5 @@
 ﻿using Content.Shared.Actions;
 using Content.Shared.Implants;
-using Content.Shared.Radio.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;

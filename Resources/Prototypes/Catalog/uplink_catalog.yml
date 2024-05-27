@@ -122,7 +122,7 @@
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled  
+  productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
     Telecrystal: 12
   categories:
@@ -632,16 +632,17 @@
   categories:
   - UplinkDeception
 
-- type: listing
-  id: UplinkHeadsetEncryptionKey
-  name: uplink-encryption-key-name
-  description: uplink-encryption-key-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkDeception
+# Delta-V: replaced by syndicate radio implant
+#- type: listing
+#  id: UplinkHeadsetEncryptionKey
+#  name: uplink-encryption-key-name
+#  description: uplink-encryption-key-desc
+#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+#  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkDeception
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -1004,7 +1005,7 @@
     Telecrystal: 6
   categories:
     - UplinkAllies
-  
+
 - type: listing
   id: UplinkSyndicatePersonalAI
   name: uplink-syndicate-pai-name
