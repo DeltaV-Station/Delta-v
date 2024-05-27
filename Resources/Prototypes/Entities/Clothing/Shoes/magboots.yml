@@ -28,6 +28,10 @@
     - type: Tag
       tags:
       - WhitelistChameleon
+    - type: ReverseEngineering # delta
+      difficulty: 2
+      recipes:
+        - ClothingShoesBootsMagSci
 
 - type: entity
   parent: ClothingShoesBootsMag
