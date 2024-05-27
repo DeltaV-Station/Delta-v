@@ -13,7 +13,6 @@ public sealed class LayEmoteSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
     [Dependency] private readonly StandingStateSystem _standingSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    
 
     public override void Initialize()
     {
@@ -45,7 +44,7 @@ public sealed class LayEmoteSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, LayEmoteComponent component, MobStateChangedEvent args)
     {
-        // Hoping this should work fine as going crit - dead or dead - crit shouldn't matter, and crit - alive would stand you up anyways.  
+        // Hoping this should work fine as going crit - dead or dead - crit shouldn't matter, and crit - alive would stand you up anyways.
         component.Laying = false;
     }
 
@@ -59,7 +58,7 @@ public sealed class LayEmoteSystem : EntitySystem
             return;
 
         // If they're not laying down & they emote to lay down, make them.
-        if (!component.Laying && args.Emote.ID == component.LayEmoteId) 
+        if (!component.Laying && args.Emote.ID == component.LayEmoteId)
         {
             component.Laying = true;
             _standingSystem.Down(uid);

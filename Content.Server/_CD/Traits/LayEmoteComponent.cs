@@ -15,7 +15,7 @@ public sealed partial class LayEmoteComponent : Component
 
     [DataField("standEmote", customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
     public string StandEmoteId = "StandUp";
-    
+
     [ViewVariables]
     public bool Laying = false;
 }
