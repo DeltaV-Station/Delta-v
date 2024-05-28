@@ -1302,18 +1302,27 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-2.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: true
+      id: cell 2
   - uid: 128
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,-0.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: true
+      id: cell 1
   - uid: 129
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,1.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: true
+      id: main room
 - proto: Table
   entities:
   - uid: 106
