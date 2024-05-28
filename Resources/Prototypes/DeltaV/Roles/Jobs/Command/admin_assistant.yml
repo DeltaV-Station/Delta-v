@@ -5,63 +5,20 @@
   playTimeTracker: JobAdminAssistant
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Logistics
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Epistemics 
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
       department: Command
-      time: 108000 # 30 hours
+      time: 21600 # 6 hours
     - !type:OverallPlaytimeRequirement 
-      time: 108000 # 30 hours
+      time: 36000 # 10 hours
     - !type:WhitelistRequirement
   weight: 20
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
-  requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-command
   canBeAntag: false
   access:
   - Command
-  - Bar
-  - Service
   - Maintenance
-  - Janitor
-  - Theatre
-  - Kitchen
-  - Chapel
-  - Hydroponics
-  - External
-  - Cryogenics
-  - Chemistry
-  - Engineering
-  - Research
-  - Detective
-  - Salvage
-  - Security
-  - Brig
-  - Lawyer
-  - Cargo
-  - Atmospherics
-  - Medical
-  - Boxer
-  - Clown
-  - Library
-  - Mime
-  - Musician
-  - Reporter
-  - Zookeeper
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
