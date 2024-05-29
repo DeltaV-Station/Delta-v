@@ -9,13 +9,6 @@
     - type: Organ
     - type: Extractable
       grindableSolutionName: organ
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          maxVol: 10
-          reagents:
-            - ReagentId: Oil
-              Quantity: 10
 
 - type: entity
   id: OrganIPCFan
