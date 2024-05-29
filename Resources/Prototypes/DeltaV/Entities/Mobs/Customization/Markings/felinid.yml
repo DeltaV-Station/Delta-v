@@ -27,3 +27,28 @@
     - sprite: DeltaV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT
 
+- type: marking
+  id: FelinidTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
+      state: m_tail_tiger_primary
+    - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
+      state: m_tail_tiger_secondary
+    - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
+      state: m_tail_tiger_tertiary
+
+- type: marking
+  id: FelinidWaggingTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Felinid/wagging_tiger_tail.rsi
+      state: m_waggingtail_tiger_primary-test
+    - sprite: DeltaV/Mobs/Customization/Felinid/wagging_tiger_tail.rsi
+      state: m_waggingtail_tiger_secondary-test
+    - sprite: DeltaV/Mobs/Customization/Felinid/wagging_tiger_tail.rsi
+      state: m_waggingtail_tiger_tertiary-test
