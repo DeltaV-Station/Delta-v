@@ -43,6 +43,7 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  - CaptainBeret # DeltaV
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -122,6 +123,14 @@
   loadouts:
   - GreyJumpsuit
   - GreyJumpskirt
+  - MioSkirt # Start DeltaV Changes
+  - NaotaHoodie
+  - CasualBlueSkirt
+  - CasualBlueSuit
+  - CasualRedSkirt
+  - CasualRedSuit
+  - CasualPurpleSkirt
+  - CasualPurpleSuit # End DeltaV Changes
   - RainbowJumpsuit
   - AncientJumpsuit
 
@@ -932,6 +941,7 @@
   loadouts:
   - CombatBoots
   - SecurityWinterBoots
+  - JackBoots # DeltaV
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1130,6 +1140,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - ChemistApron # DeltaV
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1138,6 +1149,25 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+
+# Chemist Gloves - DeltaV
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - ChemistGloves # DeltaV
+
+# Chemist Shoes - DeltaV
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - WhiteShoes
+  - ChemistWinterBoots #DeltaV
+  - ChemistShoes # DeltaV
 
 - type: loadoutGroup
   id: ParamedicHead

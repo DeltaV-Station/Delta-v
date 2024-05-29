@@ -63,3 +63,43 @@
   id: ChemistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChem
+
+## Start DeltaV Changes
+- type: loadout
+  id: ChemistApron
+  equipment: ChemistApron
+
+- type: startingGear
+  id: ChemistApron
+  equipment:
+    outerClothing: ClothingOuterApronChemist
+
+# Gloves - DeltaV
+- type: loadout
+  id: ChemistGloves
+  equipment: ChemistGloves
+
+- type: startingGear
+  id: ChemistGloves
+  equipment:
+    gloves: ClothingHandsGlovesChemist
+
+# Shoes - DeltaV
+- type: loadout
+  id: ChemistWinterBoots
+  equipment: ChemistWinterBoots
+
+- type: startingGear
+  id: ChemistWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterChem
+
+- type: loadout
+  id: ChemistShoes
+  equipment: ChemistShoes
+
+- type: startingGear
+  id: ChemistShoes
+  equipment:
+    shoes: ClothingShoesEnclosedChem
+## End DeltaV Changes

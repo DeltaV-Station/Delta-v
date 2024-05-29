@@ -11,6 +11,10 @@ loadout-group-mail-carrier-head = Mail Carrier head
 loadout-group-mail-carrier-jumpsuit = Mail Carrier jumpsuit
 loadout-group-mail-carrier-outerclothing = Mail Carrier outer clothing
 
+# Medical
+loadout-group-chemist-gloves = Chemist gloves
+loadout-group-chemist-shoes = Chemist shoes
+
 # Epistemics
 loadout-group-mantis-head = Mantis head
 loadout-group-mantis-jumpsuit = Mantis jumpsuit
