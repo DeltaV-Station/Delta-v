@@ -21,8 +21,6 @@
   id: WindoorSecureParamedicLocked
   suffix: Paramedic, Locked
   components:
-  - type: AccessReader
-    access: [["Paramedic"]]
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsParamedic ]
@@ -32,8 +30,6 @@
   id: WindoorSecureChiefJusticeLocked
   suffix: ChiefJustice, Locked
   components:
-  - type: AccessReader
-    access: [["ChiefJustice"]]
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChiefJustice ]
@@ -43,8 +39,6 @@
   id: WindoorSecureJusticeLocked
   suffix: Justice, Locked
   components:
-  - type: AccessReader
-    access: [["Justice"]]
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJustice ]
@@ -54,8 +48,6 @@
   id: WindoorSecureProsecutorLocked
   suffix: Prosecutor, Locked
   components:
-  - type: AccessReader
-    access: [["Prosecutor"]]
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsProsecutor ]
