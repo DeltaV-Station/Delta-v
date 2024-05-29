@@ -22,10 +22,9 @@
     job_id: ChiefJustice
   - type: Sprite
     layers:
-      - state: green
-      - state: lawyer
-      - sprite: DeltaV/Markers/jobs.rsi
-        state: chiefjustice
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: chiefjustice
 
 - type: entity
   id: SpawnPointClerk
@@ -37,7 +36,6 @@
   - type: Sprite
     layers:
     - state: green
-    - state: lawyer
     - sprite: DeltaV/Markers/jobs.rsi
       state: clerk
 
@@ -51,7 +49,6 @@
   - type: Sprite
     layers:
     - state: green
-    - state: lawyer
     - sprite: DeltaV/Markers/jobs.rsi
       state: prosecutor
 
