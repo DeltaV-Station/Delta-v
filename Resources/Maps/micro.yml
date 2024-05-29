@@ -6218,10 +6218,10 @@ entities:
       parent: 2
 - proto: BannerMedical
   entities:
-  - uid: 10266
+  - uid: 1640
     components:
     - type: Transform
-      pos: -26.5,16.5
+      pos: -26.5,14.5
       parent: 2
 - proto: BannerNanotrasen
   entities:
@@ -6958,6 +6958,11 @@ entities:
     components:
     - type: Transform
       pos: -12.315035,32.683483
+      parent: 2
+  - uid: 12046
+    components:
+    - type: Transform
+      pos: -27.469395,19.513786
       parent: 2
 - proto: BoxFolderYellow
   entities:
@@ -27198,11 +27203,6 @@ entities:
       parent: 2
 - proto: CrateEngineeringSingularityCollector
   entities:
-  - uid: 1640
-    components:
-    - type: Transform
-      pos: -34.5,-27.5
-      parent: 2
   - uid: 12037
     components:
     - type: Transform
@@ -27215,11 +27215,6 @@ entities:
       parent: 2
 - proto: CrateEngineeringSingularityEmitter
   entities:
-  - uid: 1603
-    components:
-    - type: Transform
-      pos: -36.5,-27.5
-      parent: 2
   - uid: 2794
     components:
     - type: Transform
@@ -32301,6 +32296,13 @@ entities:
       parent: 2
     - type: FaxMachine
       name: HOP office
+  - uid: 10266
+    components:
+    - type: Transform
+      pos: -26.5,16.5
+      parent: 2
+    - type: FaxMachine
+      name: medical
   - uid: 11637
     components:
     - type: Transform
@@ -55605,6 +55607,21 @@ entities:
     - type: Transform
       pos: -38.308895,22.64306
       parent: 2
+  - uid: 12045
+    components:
+    - type: Transform
+      pos: -27.33391,19.586754
+      parent: 2
+  - uid: 12047
+    components:
+    - type: Transform
+      pos: -30.721008,14.489465
+      parent: 2
+  - uid: 12048
+    components:
+    - type: Transform
+      pos: -27.260958,19.659721
+      parent: 2
 - proto: PillCanisterRandom
   entities:
   - uid: 1258
@@ -65430,6 +65447,11 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-7.5
+      parent: 2
+  - uid: 1603
+    components:
+    - type: Transform
+      pos: -26.5,16.5
       parent: 2
   - uid: 2288
     components:
