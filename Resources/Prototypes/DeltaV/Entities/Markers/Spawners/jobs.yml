@@ -24,8 +24,8 @@
     layers:
       - state: green
       - state: lawyer
-      #- sprite: DeltaV/Markers/jobs.rsi
-      #  state: chiefjustice
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: chiefjustice
 
 - type: entity
   id: SpawnPointClerk
@@ -38,8 +38,8 @@
     layers:
     - state: green
     - state: lawyer
-    #- sprite: DeltaV/Markers/jobs.rsi
-    #  state: clerk
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: clerk
 
 - type: entity
   id: SpawnPointProsecutor
@@ -52,8 +52,8 @@
     layers:
     - state: green
     - state: lawyer
-    #- sprite: DeltaV/Markers/jobs.rsi
-    #  state: prosecutor
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: prosecutor
 
 - type: entity
   id: SpawnPointCourier
