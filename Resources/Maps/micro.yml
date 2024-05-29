@@ -60447,10 +60447,10 @@ entities:
       parent: 2
 - proto: ResearchAndDevelopmentServer
   entities:
-  - uid: 3906
+  - uid: 1018
     components:
     - type: Transform
-      pos: -12.5,40.5
+      pos: -14.5,38.5
       parent: 2
 - proto: ResearchAndDevelopmentServerMachineCircuitboard
   entities:
@@ -64022,12 +64022,12 @@ entities:
       parent: 2
 - proto: SurveillanceCameraRouterScience
   entities:
-  - uid: 1018
+  - uid: 3906
     components:
     - type: MetaData
       name: camera router (epistemics)
     - type: Transform
-      pos: -14.5,38.5
+      pos: -12.5,40.5
       parent: 2
 - proto: SurveillanceCameraRouterSecurity
   entities:
