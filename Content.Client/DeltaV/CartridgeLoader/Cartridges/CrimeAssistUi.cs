@@ -18,15 +18,6 @@ public sealed partial class CrimeAssistUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new CrimeAssistUiFragment();
-
-        _fragment.OnSync += _ => SendSyncMessage(userInterface);
-    }
-
-    private void SendSyncMessage(BoundUserInterface userInterface)
-    {
-        var syncMessage = new CrimeAssistSyncMessageEvent();
-        var message = new CartridgeUiMessage(syncMessage);
-        userInterface.SendMessage(message);
     }
 
     public override void UpdateState(BoundUserInterfaceState state)

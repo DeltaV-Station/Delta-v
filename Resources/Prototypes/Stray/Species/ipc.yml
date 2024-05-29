@@ -19,6 +19,8 @@
   id: MobIPCSprites
   sprites:
     Head: MobIPCHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobIPCTorso
     HeadTop: MobHumanoidAnyMarking
@@ -37,10 +39,10 @@
   onlyWhitelisted: true
   points:
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
-      points: 0
+      points: 1
       required: false
     HeadTop:
       points: 1

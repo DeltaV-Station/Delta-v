@@ -96,7 +96,7 @@
           Heat: -2
       heatDamage:
         types:
-          Heat: 2
+          Heat: 4
     - type: Repairable
       fuelCost: 5 # cause most of the fuel is used how long its turned on for
       doAfterDelay: 15
@@ -113,7 +113,8 @@
     - type: Barotrauma
       damage:
         types:
-          Heat: 3.75 # IPCs can't radiate well, they rely on air cooling
+          Heat: 0.3 # IPCs can't radiate well, they rely on air cooling
+          Blunt: 0.1
     - type: SlowOnDamage
       speedModifierThresholds:
         70: 0.6
@@ -147,11 +148,10 @@
       allowedStates:
       - Alive
       - Critical
-      - Dead
       damageCap: 200
       damage:
         types:
-          Heat: -0.25
+          Heat: -0.15
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot { }

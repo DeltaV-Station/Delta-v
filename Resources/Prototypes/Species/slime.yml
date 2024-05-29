@@ -25,6 +25,8 @@
     RLeg: MobSlimeRLeg
     LFoot: MobSlimeLFoot
     RFoot: MobSlimeRFoot
+    Tail: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobSlimeMarkingLimits
@@ -33,6 +35,12 @@
       points: 1
       required: false
     FacialHair:
+      points: 1
+      required: false
+    Tail: # :despair:
+      points: 1
+      required: false
+    HeadTop: # :skull:
       points: 1
       required: false
     Chest:

@@ -16,7 +16,6 @@
   weight: -10
   roles:
   - Bartender
-  - Borg
   - Botanist
   - Boxer
   # - Chaplain # DeltaV - Move Chaplain into Epistemics
@@ -104,6 +103,7 @@
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+  - Roboticist
 
 - type: department
   id: Specific
@@ -112,6 +112,7 @@
   weight: 10
   roles:
   - Boxer
+  - Borg
   - Reporter
   - Zookeeper
   - Psychologist

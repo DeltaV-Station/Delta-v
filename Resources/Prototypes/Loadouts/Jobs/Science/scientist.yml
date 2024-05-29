@@ -6,7 +6,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 7200 #2 hrs
+      time: 21600 #6 hrs
 
 # Head
 
@@ -21,24 +21,6 @@
   id: ScientificBeret
   equipment:
     head: ClothingHeadHatBeretRND
-
-- type: loadout
-  id: RoboticistCap
-  equipment: RoboticistCap
-
-- type: startingGear
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
-
-- type: loadout
-  id: SkullBandana
-  equipment: SkullBandana
-
-- type: startingGear
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
 
 # Neck
 
@@ -69,24 +51,6 @@
   id: ScientistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
-
-- type: loadout
-  id: RoboticistJumpsuit
-  equipment: RoboticistJumpsuit
-
-- type: startingGear
-  id: RoboticistJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRoboticist
-
-- type: loadout
-  id: RoboticistJumpskirt
-  equipment: RoboticistJumpskirt
-
-- type: startingGear
-  id: RoboticistJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRoboticist
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -189,15 +153,6 @@
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
-
-- type: loadout
-  id: RobohandsGloves
-  equipment: RobohandsGloves
-
-- type: startingGear
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
 
 # Shoes
 - type: loadout

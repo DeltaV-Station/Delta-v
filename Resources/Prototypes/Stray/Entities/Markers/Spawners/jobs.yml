@@ -33,3 +33,16 @@
     layers:
       - state: green
       - state: brigmedic
+
+- type: entity
+  id: SpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: Roboticist
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: scientist

@@ -1,0 +1,20 @@
+- type: job
+  id: Roboticist
+  name: "робототехник"
+  description: "Бип-Буп."
+  playTimeTracker: JobRoboticist
+  startingGear: RoboticistGear
+  icon: "JobIconRoboticist"
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: RoboticistGear
+  equipment:
+    belt: ClothingBeltUtilityFilled
+    id: SciencePDA
+    ears: ClothingHeadsetRobotics
+    pocket1: StorageImplanter
+    pocket2: HandheldStationMap
