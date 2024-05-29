@@ -28,3 +28,17 @@
       - id: EncryptionKeyJustice
         amount: 4
 
+- type: entity
+  name: syndicate radio implanter box
+  parent: BoxCardboard
+  id: BoxSyndicateRadioImplanter
+  description: Contains cranial radio implants favored by Syndicate agents.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: implant
+  - type: StorageFill
+    contents:
+    - id: SyndicateRadioImplanter
+      amount: 2
