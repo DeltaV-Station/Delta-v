@@ -3088,6 +3088,20 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,10.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 6480
+      - 5346
+      - 9842
+      - 9841
+      - 5366
+      - 6463
+      - 9658
+      - 9659
+      - 9872
+      - 6481
+      - 5339
+      - 12044
   - uid: 9749
     components:
     - type: Transform
@@ -32863,6 +32877,14 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9966
+  - uid: 12044
+    components:
+    - type: Transform
+      pos: 2.5,14.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
 - proto: FirelockEdge
   entities:
   - uid: 4130
@@ -33324,6 +33346,7 @@ entities:
       - 9766
       - 9767
       - 11737
+      - 9742
   - uid: 9659
     components:
     - type: Transform
@@ -33334,6 +33357,7 @@ entities:
       - 9766
       - 9767
       - 11737
+      - 9742
   - uid: 9660
     components:
     - type: Transform
@@ -33728,6 +33752,7 @@ entities:
       deviceLists:
       - 9835
       - 11732
+      - 9742
   - uid: 9842
     components:
     - type: Transform
@@ -33737,6 +33762,7 @@ entities:
       deviceLists:
       - 9835
       - 11732
+      - 9742
   - uid: 9843
     components:
     - type: Transform
@@ -33844,6 +33870,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9870
+      - 9742
   - uid: 9873
     components:
     - type: Transform
@@ -48947,6 +48974,9 @@ entities:
     - type: Transform
       pos: 9.5,14.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#6666FFFF'
   - uid: 6464
@@ -48967,6 +48997,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,8.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#6666FFFF'
   - uid: 6481
@@ -48975,6 +49008,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,4.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#6666FFFF'
   - uid: 6482
@@ -49956,6 +49992,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,5.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#FF0066FF'
   - uid: 5346
@@ -49963,6 +50002,9 @@ entities:
     - type: Transform
       pos: 0.5,11.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#FF0066FF'
   - uid: 5360
@@ -49977,6 +50019,9 @@ entities:
     - type: Transform
       pos: 7.5,14.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9742
     - type: AtmosPipeColor
       color: '#FF0066FF'
   - uid: 5372
