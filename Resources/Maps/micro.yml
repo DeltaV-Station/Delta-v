@@ -32259,6 +32259,13 @@ entities:
       parent: 2
     - type: FaxMachine
       name: postal office
+  - uid: 2199
+    components:
+    - type: Transform
+      pos: -27.5,-2.5
+      parent: 2
+    - type: FaxMachine
+      name: engineering
   - uid: 2548
     components:
     - type: Transform
@@ -55939,11 +55946,6 @@ entities:
     - type: Transform
       pos: -20.5,-7.5
       parent: 2
-  - uid: 2199
-    components:
-    - type: Transform
-      pos: -27.5,-2.5
-      parent: 2
   - uid: 2963
     components:
     - type: Transform
@@ -55958,6 +55960,11 @@ entities:
     components:
     - type: Transform
       pos: -33.5,19.5
+      parent: 2
+  - uid: 12043
+    components:
+    - type: Transform
+      pos: -29.5,-2.5
       parent: 2
 - proto: Poweredlight
   entities:
@@ -57693,6 +57700,11 @@ entities:
     components:
     - type: Transform
       pos: -17.5,6.5
+      parent: 2
+  - uid: 12042
+    components:
+    - type: Transform
+      pos: -29.5,-2.5
       parent: 2
 - proto: RadiationCollectorNoTank
   entities:
