@@ -475,7 +475,7 @@ entities:
             572: -36,21
             573: -31,20
             574: -31,19
-            784: -31,22
+            783: -31,22
         - node:
             color: '#8C347F96'
             id: CheckerNESW
@@ -582,7 +582,7 @@ entities:
             252: 16,29
             253: 18,29
             254: 20,29
-            764: 19,29
+            763: 19,29
         - node:
             color: '#A4610696'
             id: CheckerNWSE
@@ -654,7 +654,7 @@ entities:
             color: '#A4610696'
             id: Delivery
           decals:
-            790: -22,26
+            784: -22,26
         - node:
             color: '#FFFFFFFF'
             id: Delivery
@@ -663,9 +663,9 @@ entities:
             357: -28,-15
             358: -27,-15
             359: -26,-15
-            781: -37,-23
-            782: -40,-20
-            783: -37,-17
+            780: -37,-23
+            781: -40,-20
+            782: -37,-17
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -677,20 +677,20 @@ entities:
             id: DeliveryGreyscale
           decals:
             5: 20,21
-            767: -40,-22
-            768: -40,-21
-            769: -40,-19
-            770: -40,-18
-            771: -39,-17
-            772: -38,-17
-            773: -36,-17
-            774: -35,-17
-            775: -34,-18
-            776: -34,-22
-            777: -35,-23
-            778: -36,-23
-            779: -38,-23
-            780: -39,-23
+            766: -40,-22
+            767: -40,-21
+            768: -40,-19
+            769: -40,-18
+            770: -39,-17
+            771: -38,-17
+            772: -36,-17
+            773: -35,-17
+            774: -34,-18
+            775: -34,-22
+            776: -35,-23
+            777: -36,-23
+            778: -38,-23
+            779: -39,-23
         - node:
             color: '#3EB38896'
             id: FullTileOverlayGreyscale
@@ -1546,8 +1546,8 @@ entities:
           decals:
             17: -38,-20
             32: -11,46
-            765: -7,45
-            766: -7,46
+            764: -7,45
+            765: -7,46
         - node:
             color: '#FFFFFFFF'
             id: WarnLineN
@@ -6897,6 +6897,11 @@ entities:
     - type: Transform
       pos: 3.689184,4.494246
       parent: 2
+  - uid: 12032
+    components:
+    - type: Transform
+      pos: -7.6449523,-10.793378
+      parent: 2
 - proto: BoxFolderGrey
   entities:
   - uid: 11946
@@ -6935,6 +6940,11 @@ entities:
       parent: 2
 - proto: BoxFolderYellow
   entities:
+  - uid: 4265
+    components:
+    - type: Transform
+      pos: -7.516908,-10.708744
+      parent: 2
   - uid: 11872
     components:
     - type: Transform
@@ -32236,11 +32246,6 @@ entities:
     - type: Transform
       pos: 23.5,23.5
       parent: 2
-  - uid: 2088
-    components:
-    - type: Transform
-      pos: -7.5,-13.5
-      parent: 2
   - uid: 2982
     components:
     - type: Transform
@@ -55064,15 +55069,15 @@ entities:
     - type: Transform
       pos: 57.5,16.5
       parent: 2
-  - uid: 4260
-    components:
-    - type: Transform
-      pos: 34.5,-12.5
-      parent: 2
   - uid: 4623
     components:
     - type: Transform
       pos: -6.5,5.5
+      parent: 2
+  - uid: 10795
+    components:
+    - type: Transform
+      pos: 33.5,-12.5
       parent: 2
 - proto: MopItem
   entities:
@@ -55080,11 +55085,6 @@ entities:
     components:
     - type: Transform
       pos: 57.612095,16.410131
-      parent: 2
-  - uid: 4265
-    components:
-    - type: Transform
-      pos: 34.646183,-12.554885
       parent: 2
   - uid: 4627
     components:
@@ -55095,6 +55095,11 @@ entities:
     components:
     - type: Transform
       pos: -5.321189,5.3903604
+      parent: 2
+  - uid: 12033
+    components:
+    - type: Transform
+      pos: 33.869144,-12.469599
       parent: 2
 - proto: Morgue
   entities:
@@ -62434,15 +62439,15 @@ entities:
       parent: 2
 - proto: SpawnPointBartender
   entities:
-  - uid: 10795
-    components:
-    - type: Transform
-      pos: 28.5,-10.5
-      parent: 2
   - uid: 10796
     components:
     - type: Transform
       pos: 27.5,-9.5
+      parent: 2
+  - uid: 12034
+    components:
+    - type: Transform
+      pos: 28.5,-10.5
       parent: 2
 - proto: SpawnPointBorg
   entities:
@@ -64017,6 +64022,15 @@ entities:
     - type: Transform
       pos: 42.5,12.5
       parent: 2
+- proto: SurveillanceCameraRouterService
+  entities:
+  - uid: 4260
+    components:
+    - type: MetaData
+      name: camera router (service)
+    - type: Transform
+      pos: 34.5,-12.5
+      parent: 2
 - proto: SurveillanceCameraRouterSupply
   entities:
   - uid: 2259
@@ -65509,6 +65523,13 @@ entities:
     components:
     - type: Transform
       pos: 48.5,-3.5
+      parent: 2
+- proto: TelecomServerFilledService
+  entities:
+  - uid: 2088
+    components:
+    - type: Transform
+      pos: -7.5,-13.5
       parent: 2
 - proto: TintedWindow
   entities:
