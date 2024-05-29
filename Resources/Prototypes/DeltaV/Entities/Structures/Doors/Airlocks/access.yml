@@ -211,6 +211,15 @@
     containers:
       board: [ DoorElectronicsPsychologist ]
 
+- type: entity
+  parent: AirlockFreezer
+  id: AirlockFreezerServiceLocked
+  suffix: Service, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsService ]
+
 # Glass Airlocks
 - type: entity
   parent: AirlockScienceGlass
