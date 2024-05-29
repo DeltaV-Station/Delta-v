@@ -63,3 +63,47 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
+  
+# Justice
+## Chief Justice
+- type: loadoutGroup
+  id: ChiefJusticeHead
+  name: loadout-group-courier-head
+  minLimit: 0
+  loadouts:
+  - CourierHead
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: ChiefJusticeJumpsuit
+  name: loadout-group-courier-jumpsuit
+  loadouts:
+  - CourierJumpsuit
+  - CourierJumpskirt
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+  
+- type: loadoutGroup
+  id: ChiefJusticeNeck
+  name: loadout-group-courier-jumpsuit
+  loadouts:
+  - CourierJumpsuit
+  - CourierJumpskirt
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: ChiefJusticeClothing
+  name: loadout-group-courier-outerclothing
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianWintercoat
+  - MailCarrierWintercoat
+
+- type: loadoutGroup
+  id: ChiefJusticeShoes
+  name: loadout-group-courier-shoes
+  loadouts:
+  - BlackShoes
+  - CargoWinterBoots
+  - RollerSkates
