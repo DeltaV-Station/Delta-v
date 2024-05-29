@@ -18,4 +18,7 @@ public sealed partial class LayEmoteComponent : Component
 
     [ViewVariables]
     public bool Laying = false;
+
+    [ViewVariables]
+    public float CrawlSpeed = 0.1f;
 }
