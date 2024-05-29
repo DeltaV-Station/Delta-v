@@ -27,6 +27,21 @@ loadout-group-brig-medic-back = Brigmedic backpack
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
 
+# Justice
+loadout-group-chiefjustice-head = Chief Justice head
+loadout-group-chiefjustice-jumpsuit = Chief Justice jumpsuit
+loadout-group-chiefjustice-neck = Chief Justice neck
+loadout-group-chiefjustice-outerclothing = Chief Justice outer clothing
+loadout-group-chiefjustice-shoes = Chief Justice shoes
+
+loadout-group-clerk-jumpsuit = Clerk jumpsuit
+loadout-group-clerk-neck = Clerk neck
+loadout-group-clerk-outerclothing = Clerk outer clothing
+loadout-group-clerk-shoes = Clerk shoes
+
+loadout-group-prosecutor-jumpsuit = Prosecutor jumpsuit
+loadout-group-prosecutor-neck = Prosecutor neck
+
 # Wildcards
 loadout-group-prisoner-jumpsuit = Prisoner jumpsuit
 

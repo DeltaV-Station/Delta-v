@@ -68,42 +68,96 @@
 ## Chief Justice
 - type: loadoutGroup
   id: ChiefJusticeHead
-  name: loadout-group-courier-head
+  name: loadout-group-chiefjustice-head
   minLimit: 0
   loadouts:
-  - CourierHead
-  - MailCarrierHead
+  - CJToque
 
 - type: loadoutGroup
   id: ChiefJusticeJumpsuit
-  name: loadout-group-courier-jumpsuit
+  name: loadout-group-chiefjustice-jumpsuit
   loadouts:
-  - CourierJumpsuit
-  - CourierJumpskirt
-  - MailCarrierJumpsuit
-  - MailCarrierJumpskirt
+  - ChiefJusticeJumpsuit
+  - ChiefJusticeJumpskirt
+  - ChiefJusticeFormalJumpsuit
+  - ChiefJusticeWhiteJumpsuit
   
 - type: loadoutGroup
   id: ChiefJusticeNeck
-  name: loadout-group-courier-jumpsuit
-  loadouts:
-  - CourierJumpsuit
-  - CourierJumpskirt
-  - MailCarrierJumpsuit
-  - MailCarrierJumpskirt
-
-- type: loadoutGroup
-  id: ChiefJusticeClothing
-  name: loadout-group-courier-outerclothing
+  name: loadout-group-chiefjustice-neck
   minLimit: 0
   loadouts:
-  - CargoTechnicianWintercoat
-  - MailCarrierWintercoat
+  - ChiefJusticeCloak
+
+- type: loadoutGroup
+  id: ChiefJusticeOuterClothing
+  name: loadout-group-chiefjustice-outerclothing
+  minLimit: 0
+  loadouts:
+  - ChiefJusticeRobe
 
 - type: loadoutGroup
   id: ChiefJusticeShoes
-  name: loadout-group-courier-shoes
+  name: loadout-group-chiefjustice-shoes
   loadouts:
-  - BlackShoes
-  - CargoWinterBoots
-  - RollerSkates
+  - LeatherShoes
+  - LaceupShoes
+
+## Clerk
+- type: loadoutGroup
+  id: ClerkJumpsuit
+  name: loadout-group-clerk-jumpsuit
+  loadouts:
+  - ClerkJumpsuit
+  - ClerkJumpskirt
+  
+- type: loadoutGroup
+  id: ClerkNeck
+  name: loadout-group-clerk-neck
+  minLimit: 0
+  loadouts:
+  - BlackTie
+  - BlueTie
+  - BrownTie
+  - GreenTie
+  - RedTie
+  - WhiteTie
+
+- type: loadoutGroup
+  id: ClerkOuterClothing
+  name: loadout-group-clerk-outerclothing
+  minLimit: 0
+  loadouts:
+  - ClerkVest
+
+- type: loadoutGroup
+  id: ClerkShoes
+  name: loadout-group-clerk-shoes
+  loadouts:
+  - LaceupShoes
+  - LeatherShoes
+
+## Prosecutor
+- type: loadoutGroup
+  id: ProsecutorJumpsuit
+  name: loadout-group-prosecutor-jumpsuit
+  loadouts:
+  - ProsecutorJumpsuit
+  - ProsecutorJumpskirt
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+  - LawyerJumpsuitRed
+  - LawyerJumpskirtRed
+  - LawyerJumpsuitGood
+  - LawyerJumpskirtGood
+  
+- type: loadoutGroup
+  id: ProsecutorNeck
+  name: loadout-group-prosecutor-jumpsuit
+  minLimit: 0
+  loadouts:
+  - ProsecutorNeck
