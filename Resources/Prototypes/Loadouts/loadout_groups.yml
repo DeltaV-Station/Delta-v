@@ -861,6 +861,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - RedScarf # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -899,6 +900,7 @@
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
+  - MimeHead # DeltaV - Red Beret
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -908,6 +910,8 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
+  - SecurityJumpsuitBlue # DeltaV
+  - SecurityJumpskirtBlue # DeltaV
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
 
@@ -932,6 +936,7 @@
   loadouts:
   - ArmorVest
   - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
   - ArmorVestSlim
   - SecurityOfficerWintercoat
 
@@ -950,6 +955,13 @@
   - SecurityPDA
   - SeniorOfficerPDA
 
+- type: loadoutGroup # DeltaV
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - RedScarf
+
 - type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head
@@ -964,6 +976,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - RedScarf # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -996,6 +1009,13 @@
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
+
+- type: loadoutGroup # DeltaV
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead # DeltaV - Red Beret
 
 # Medical
 - type: loadoutGroup

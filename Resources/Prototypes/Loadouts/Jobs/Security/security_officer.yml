@@ -79,6 +79,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
 
+- type: loadout # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment: SecurityJumpsuitBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+
+- type: loadout # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment: SecurityJumpskirtBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecBlue
+
 - type: loadout
   id: SeniorOfficerJumpsuit
   equipment: SeniorOfficerJumpsuit
@@ -169,6 +187,15 @@
   equipment:
     outerClothing: ClothingOuterArmorPlateCarrier
 
+- type: loadout # DeltaV
+  id: DuraVest
+  equipment: DuraVest
+
+- type: startingGear # DeltaV
+  id: DuraVest
+  equipment:
+    outerClothing: ClothingOuterArmorDuraVest
+
 - type: loadout
   id: ArmorVestSlim
   equipment: ArmorVestSlim
@@ -236,3 +263,13 @@
   id: SeniorOfficerPDA
   equipment:
     id: SeniorOfficerPDA
+
+# Neck - DeltaV
+- type: loadout # DeltaV
+  id: RedScarf
+  equipment: RedScarf
+
+- type: startingGear # DeltaV
+  id: RedScarf
+  equipment:
+    neck: ClothingNeckScarfStripedRed
