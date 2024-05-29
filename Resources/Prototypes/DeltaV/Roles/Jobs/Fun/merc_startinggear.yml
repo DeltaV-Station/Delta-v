@@ -1,15 +1,3 @@
-- type: job
-  id: MercSquadLeader
-  name: job-name-mercsquadleader
-  description: job-description-mercsquadleader
-  startingGear: MercSquadLeader
-  playTimeTracker: JobMercenary
-  icon: "JobIconUnknown"
-  supervisors: job-supervisors-contractors
-  access:
-  - Maintenance
-  - External
-
 - type: startingGear
   id: MercSquadLeader
   equipment:
@@ -42,18 +30,6 @@
     belt: ClothingBeltMercWebbing
     pocket1: FlashlightSeclite
 
-- type: job
-  id: MercSergeant
-  name: job-name-mercsergeant
-  description: job-description-mercsergeant
-  startingGear: MercSergeant
-  playTimeTracker: JobMercenary
-  icon: "JobIconUnknown"
-  supervisors: job-supervisors-mercsquadleader
-  access:
-  - Maintenance
-  - External
-
 - type: startingGear
   id: MercSergeant
   equipment:
@@ -85,18 +61,6 @@
     ears: ClothingHeadsetFreelance
     belt: ClothingBeltMercWebbing
     pocket1: FlashlightSeclite
-
-- type: job
-  id: MercCorpsman
-  name: job-name-merccorpsman
-  description: job-description-merccorpsman
-  startingGear: MercCorpsman
-  playTimeTracker: JobMercenary
-  icon: "JobIconUnknown"
-  supervisors: job-supervisors-mercsquadleader
-  access:
-  - Maintenance
-  - External
 
 - type: startingGear
   id: MercCorpsman
@@ -131,18 +95,6 @@
     belt: ClothingBeltCorpsmanWebbingFilled
     pocket1: FlashlightSeclite
     pocket2: hypospray
-
-- type: job
-  id: MercRifleman
-  name: job-name-mercrifleman
-  description: job-description-mercrifleman
-  startingGear: MercRifleman
-  playTimeTracker: JobMercenary
-  icon: "JobIconUnknown"
-  supervisors: job-supervisors-mercsergeant
-  access:
-  - Maintenance
-  - External
 
 - type: startingGear
   id: MercRifleman

@@ -12,7 +12,7 @@
     job: Courier
 
 - type: entity
-  parent: IDCardStandard
+  parent: MercSquadLeaderIDCard
   id: MercRiflemanIDCard
   name: rifleman ID card
   components:
@@ -23,7 +23,7 @@
     job: MercRifleman
 
 - type: entity
-  parent: IDCardStandard
+  parent: MercSquadLeaderIDCard
   id: MercCorpsmanIDCard
   name: corpsman ID card
   components:
@@ -31,7 +31,7 @@
     job: MercCorpsman
 
 - type: entity
-  parent: IDCardStandard
+  parent: MercSquadLeaderIDCard
   id: MercSergeantIDCard
   name: sergeant ID card
   components:
@@ -43,5 +43,7 @@
   id: MercSquadLeaderIDCard
   name: squad leader ID card
   components:
-  - type: PresentIDCard
-    job: MercSquadLeader
+  - type: Access
+    tags:
+    - Maintenance
+    - External
