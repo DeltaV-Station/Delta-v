@@ -1,7 +1,9 @@
 using System.Data;
 using System.Text.RegularExpressions;
 using Content.Server.Corvax.GameTicking;
+using Content.Shared.Paper;
 using Content.Server.Fax;
+using Content.Shared.Fax.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Random;
@@ -93,17 +95,21 @@ public sealed class StationGoalPaperSystem : EntitySystem
 
             var stationId = StationIdRegex.Match(meta.EntityName).Groups[1].Value;
 
-            var printout = new FaxPrintout(
-                Loc.GetString("station-goal-fax-paper-header",
-                    ("date", DateTime.Now.AddYears(1000).ToString("yyyy MMMM dd")),
-                    ("station", string.IsNullOrEmpty(stationId) ? "???" : stationId),
-                    ("content", goal.Text)
-                ),
-                Loc.GetString("station-goal-fax-paper-name"),
-                "StationGoalPaper"
-            );
-
-            _fax.Receive(uid, printout, null, fax);
+                var printout = new FaxPrintout(
+                    Loc.GetString("station-goal-fax-paper-header",
+                       ("date", DateTime.Now.AddYears(1000).ToString("yyyy MMMM dd")),
+                       ("station", string.IsNullOrEmpty(stationId) ? "???" : stationId),
+                       ("content", goal.Text)
+                    ),
+                    Loc.GetString("station-goal-fax-paper-name"),
+                    null,
+                    null,
+                    "paper_stamp-centcom",
+                    new List<StampDisplayInfo>
+                    {
+                        new() { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#006600") },
+                    });
+                _fax.Receive(uid, printout, null, fax);
 
             wasSent = true;
         }
