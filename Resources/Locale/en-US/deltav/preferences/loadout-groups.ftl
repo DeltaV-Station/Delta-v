@@ -1,5 +1,11 @@
 # This file will contain strings for both DeltaV and Nyanotrasen loadouts, because I'm lazy
 
+#Command
+loadout-group-captain-gloves = Captain gloves
+loadout-group-captain-shoes = Captain shoes
+loadout-group-hop-gloves = Head of Personnel gloves
+loadout-group-hop-shoes = Head of Personnel shoes
+
 # Logistics
 loadout-group-courier-head = Courier head
 loadout-group-courier-jumpsuit = Courier jumpsuit

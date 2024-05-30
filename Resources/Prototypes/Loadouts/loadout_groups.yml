@@ -54,6 +54,14 @@
   - CaptainFormalSuit
   - CaptainFormalSkirt
 
+- type: loadoutGroup # DeltaV
+  id: CaptainGloves
+  name: loadout-group-captain-gloves
+  minLimit: 0
+  loadouts:
+  - CaptainGloves
+  - InspectionGloves
+
 - type: loadoutGroup
   id: CaptainNeck
   name: loadout-group-captain-neck
@@ -78,6 +86,15 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
+- type: loadoutGroup # DeltaV
+  id: CaptainShoes
+  name: loadout-group-captain-shoes
+  loadouts:
+  - BrownLeatherShoes
+  - WhiteLeatherShoes
+  - LaceupShoes
+  - CaptainWinterBoots
+
 - type: loadoutGroup
   id: HoPHead
   name: loadout-group-hop-head
@@ -85,12 +102,22 @@
   loadouts:
   - HoPHead
 
+- type: loadoutGroup # DeltaV
+  id: HoPGloves
+  name: loadout-group-hop-gloves
+  minLimit: 0
+  loadouts:
+  - HoPGloves
+  - InspectionGloves
+
 - type: loadoutGroup
   id: HoPJumpsuit
   name: loadout-group-hop-jumpsuit
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPMess # DeltaV
+  - HoPBoatswain # DeltaV
 
 - type: loadoutGroup
   id: HoPNeck
@@ -114,7 +141,19 @@
   name: loadout-group-hop-outerclothing
   minLimit: 0
   loadouts:
+  - HoPFormalCoat # DeltaV
+  - HoPArmoredCoat # DeltaV
+  - DuraVest # DeltaV
   - HoPWintercoat
+
+- type: loadoutGroup # DeltaV
+  id: HoPShoes
+  name: loadout-group-hop-shoes
+  loadouts:
+  - BrownLeatherShoes
+  - WhiteLeatherShoes
+  - LaceupShoes
+  - HoPWinterBoots
 
 # Civilian
 - type: loadoutGroup
