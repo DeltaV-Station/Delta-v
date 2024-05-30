@@ -2483,3 +2483,32 @@
   id: 366
   time: '2024-05-26T18:33:15.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1260
+- author: pissdemon
+  changes:
+  - message: Syndicate encryption keys can no longer be purchased.
+    type: Remove
+  - message: Syndicate radio implants are now available in uplinks. After implanting,
+      you can use it to speak on the Syndicate frequency like you would on a headset
+      (":t Hi!"). No headset needed!
+    type: Add
+  - message: Generic radio implants are now available in uplinks. After implanting,
+      you can insert an encryption key into its bluespace storage space, and use it
+      like you would use a headset.
+    type: Add
+  id: 367
+  time: '2024-05-27T15:24:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1262
+- author: deltanedas
+  changes:
+  - message: Fixed submarine's TEG being broken.
+    type: Fix
+  id: 368
+  time: '2024-05-28T00:18:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1265
+- author: Colin-Tel
+  changes:
+  - message: Added Micro station! It can appear in lobbies no larger than 35.
+    type: Add
+  id: 369
+  time: '2024-05-29T04:10:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1251
