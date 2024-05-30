@@ -68,6 +68,8 @@
 - type: loadout # DeltaV
   id: GlassesCheapSunglasses
   equipment: GlassesCheapSunglasses
+  - !type:GroupLoadoutEffect
+    proto: CheapSunglassesTimer
   
 - type: startingGear # DeltaV
   id: GlassesCheapSunglasses
