@@ -31,6 +31,9 @@
   id: MercSquadLeaderIDCard
   name: squad leader ID card
   components:
+  - type: Sprite
+    layers:
+    - state: default
   - type: Access
     tags:
     - Maintenance
