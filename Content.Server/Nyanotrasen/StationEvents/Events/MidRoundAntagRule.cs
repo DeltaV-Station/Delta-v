@@ -1,42 +1,46 @@
-using Content.Server.GameTicking.Components;
-using Content.Server.StationEvents;
+using Content.Server.Antag;
 using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.Events;
-using Robust.Shared.Random;
+using Robust.Shared.Map;
 
-namespace Content.Server.Nyanotrasen.StationEvents.Events;
+namespace Content.Server.StationEvents.Events;
 
+/// <summary>
+/// Makes antags spawn at a random midround antag or vent critter spawner.
+/// </summary>
 public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComponent>
 {
-    protected override void Started(EntityUid uid, MidRoundAntagRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
-    {
-        base.Started(uid, component, gameRule, args);
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MidRoundAntagRuleComponent, AntagSelectLocationEvent>(OnSelectLocation);
+    }
+
+    private void OnSelectLocation(Entity<MidRoundAntagRuleComponent> ent, ref AntagSelectLocationEvent args)
+    {
         if (!TryGetRandomStation(out var station))
             return;
 
-        var spawnLocations = FindSpawns(station.Value);
-        if (spawnLocations.Count == 0)
+        var spawns = FindSpawns(station.Value);
+        if (spawns.Count == 0)
         {
-            Log.Warning("Couldn't find any midround antag spawners or vent critter spawners, not spawning an antag.");
+            Log.Warning($"Couldn't find any suitable midround antag spawners for {ToPrettyString(ent):rule}");
             return;
         }
 
-        var spawn = RobustRandom.Pick(spawnLocations);
-
-        var proto = component.Spawner;
-        Log.Info($"Spawning midround antag {proto} at {spawn.Coordinates}");
-        Spawn(proto, spawn.Coordinates);
+        args.Coordinates.AddRange(spawns);
     }
 
-    private List<TransformComponent> FindSpawns(EntityUid station)
+    private List<MapCoordinates> FindSpawns(EntityUid station)
     {
-        var spawns = new List<TransformComponent>();
+        var spawns = new List<MapCoordinates>();
         var query = EntityQueryEnumerator<MidRoundAntagSpawnLocationComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(uid, xform) == station && xform.GridUid != null)
-                spawns.Add(xform);
+                spawns.Add(_xform.GetMapCoordinates(xform));
         }
 
         // if there are any midround antag spawns mapped, use them
@@ -49,7 +53,7 @@ public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComp
         while (fallbackQuery.MoveNext(out var uid, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(uid, xform) == station && xform.GridUid != null)
-                spawns.Add(xform);
+                spawns.Add(_xform.GetMapCoordinates(xform));
         }
 
         return spawns;

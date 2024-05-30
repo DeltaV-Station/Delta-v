@@ -17,7 +17,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 8 # Originally was 13 TC but was not used due to high cost
+    Telecrystal: 7 # Originally was 13 TC but was not used due to high cost # DV changed from 8 to 7
   categories:
   - UplinkWeaponry
 
@@ -72,7 +72,7 @@
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
   productEntity: ThrowingKnivesKit
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 # DV - was 6
   categories:
     - UplinkWeaponry
 
@@ -108,7 +108,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
-    Telecrystal: 8
+    Telecrystal: 10 # DV - Was 8
   categories:
   - UplinkWeaponry
   conditions:
@@ -122,9 +122,9 @@
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled  
+  productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # DV - was 12 changed because the Hristov is REALLY bad
   categories:
   - UplinkWeaponry
 
@@ -180,7 +180,7 @@
   description: uplink-explosive-grenade-desc
   productEntity: ExGrenade
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # DV - was 4
   categories:
   - UplinkExplosives
 
@@ -240,7 +240,7 @@
   description: uplink-penguin-grenade-desc
   productEntity: MobGrenadePenguin
   cost:
-    Telecrystal: 5
+    Telecrystal: 6 # DV - was 5
   categories:
     - UplinkExplosives
   conditions:
@@ -298,10 +298,10 @@
   id: UplinkExplodingPen
   name: uplink-exploding-pen-name
   description: uplink-exploding-pen-desc
-  icon: { sprite: /Textures/Objects/Misc/bureaucracy.rsi, state: pen }
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
   productEntity: PenExplodingBox
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # DV - was 4
   categories:
   - UplinkExplosives
 
@@ -311,7 +311,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 11
+    Telecrystal: 14 # DV - was 11, Syndicate bomb was way too powerful for the 11 TC cost
   categories:
     - UplinkExplosives
   restockTime: 1800
@@ -372,7 +372,7 @@
   description: uplink-emp-kit-desc
   productEntity: ElectricalDisruptionKit
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # DV - was 6
   categories:
     - UplinkExplosives
 
@@ -472,7 +472,7 @@
   id: UplinkHypopen
   name: uplink-hypopen-name
   description: uplink-hypopen-desc
-  icon: { sprite: /Textures/Objects/Misc/bureaucracy.rsi, state: pen }
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
   productEntity: HypopenBox
   cost:
     Telecrystal: 6
@@ -486,7 +486,7 @@
   icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
   productEntity: HypoDartBox
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 # DV - was 2
   categories:
   - UplinkChemicals
 
@@ -547,7 +547,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # DV - was 4
   categories:
   - UplinkChemicals
 
@@ -557,7 +557,7 @@
   description: uplink-stimpack-desc
   productEntity: Stimpack
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # DV - was 4
   categories:
   - UplinkChemicals
 
@@ -567,7 +567,7 @@
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
   cost:
-    Telecrystal: 12
+    Telecrystal: 10 # DV - was 12
   categories:
   - UplinkChemicals
 
@@ -618,7 +618,7 @@
   description: uplink-stealth-box-desc
   productEntity: StealthBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 3 # DV - was 5
   categories:
   - UplinkDeception
 
@@ -632,16 +632,17 @@
   categories:
   - UplinkDeception
 
-- type: listing
-  id: UplinkHeadsetEncryptionKey
-  name: uplink-encryption-key-name
-  description: uplink-encryption-key-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkDeception
+# Delta-V: replaced by syndicate radio implant
+#- type: listing
+#  id: UplinkHeadsetEncryptionKey
+#  name: uplink-encryption-key-name
+#  description: uplink-encryption-key-desc
+#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+#  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkDeception
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -721,7 +722,7 @@
   description: uplink-exploding-syndicate-bomb-fake-desc
   productEntity: SyndicateBombFake
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # DV - was 4
   categories:
   - UplinkDeception
 
@@ -733,7 +734,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 8
+    Telecrystal: 10 # DV was 8, rebalanced after discussion
   categories:
   - UplinkDisruption
 
@@ -824,7 +825,7 @@
   description: uplink-power-sink-desc
   productEntity: PowerSink
   cost:
-    Telecrystal: 8
+    Telecrystal: 6 # DV - was 8
   categories:
   - UplinkDisruption
   conditions:
@@ -880,24 +881,33 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
+  conditions: #DV - Blacklists from traitor uplink and removes from surplus bundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Allies
 
-#- type: listing
-#  id: UplinkHoloparaKit
-#  name: uplink-holopara-kit-name
-#  description: uplink-holopara-kit-desc
-#  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
-#  productEntity: BoxHoloparasite
-#  cost:
-#    Telecrystal: 14
-#  categories:
-#  - UplinkAllies
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    blacklist:
-#      tags:
-#      - NukeOpsUplink
+- type: listing
+  id: UplinkHoloparaKit
+  name: uplink-holopara-kit-name
+  description: uplink-holopara-kit-desc
+  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
+  productEntity: BoxHoloparasite
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
@@ -906,7 +916,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 16
+    Telecrystal: 14 # DV - was 16
   categories:
   - UplinkAllies
   conditions:
@@ -922,7 +932,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 16
+    Telecrystal: 20 # DV - Was 16
   categories:
   - UplinkAllies
   conditions:
@@ -1004,7 +1014,7 @@
     Telecrystal: 6
   categories:
     - UplinkAllies
-  
+
 - type: listing
   id: UplinkSyndicatePersonalAI
   name: uplink-syndicate-pai-name
@@ -1028,7 +1038,7 @@
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   cost:
-    Telecrystal: 8
+    Telecrystal: 10 # DV - Was 8
   categories:
     - UplinkImplants
   conditions:
@@ -1044,7 +1054,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
   cost:
-    Telecrystal: 5
+    Telecrystal: 4 # DV - Was 5
   categories:
     - UplinkImplants
 
@@ -1055,7 +1065,7 @@
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
   cost:
-    Telecrystal: 6 # it's a gamble that may kill you easily so 6 TC per 2 uses, second one more of a backup
+    Telecrystal: 4 # it's a gamble that may kill you easily so 6 TC per 2 uses, second one more of a backup # DV - Was 6
   categories:
     - UplinkImplants
 
@@ -1241,7 +1251,7 @@
   description: uplink-clothing-thieving-gloves-desc
   productEntity: ThievingGloves
   cost:
-    Telecrystal: 4
+    Telecrystal: 7 # DV - Was 4, 4TC was too cheap for the items power
   categories:
   - UplinkWearables
 
@@ -1504,13 +1514,14 @@
   description: uplink-gatfruit-seeds-desc
   productEntity: GatfruitSeeds
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # DV - Was 6
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Botanist
+    - ServiceWorker # DV
 
 - type: listing
   id: uplinkRiggedBoxingGlovesPassenger
@@ -1647,6 +1658,7 @@
     - Botanist
     - Clown
     - Mime
+    - ServiceWorker # DV
 
 - type: listing
   id: UplinkChimpUpgradeKit

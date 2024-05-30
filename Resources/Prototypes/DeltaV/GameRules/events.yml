@@ -56,7 +56,54 @@
     minimumPlayers: 25
     maxOccurrences: 1
     duration: 1
+  # TODO:
+  # 1. use the load grid rule to load the post itself
+  # 2. rename below to DebrisSpawnRule or something and have it just be debris
+  # 3. use AntagSelection to spawn the listeners
+  # the map will need spawnpoints like SpawnPointNukies added
   - type: PirateRadioSpawnRule
     debrisCount: 6
     distanceModifier: 13
     debrisDistanceModifier: 3
+
+# Mid round antag spawns
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseMidRoundAntag
+  components:
+  - type: StationEvent
+    weight: 7
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+  - type: MidRoundAntagRule
+
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMidRoundAntag
+#  id: RatKingSpawn
+#  components:
+#  if you uncomment this update this for antag refactor, below wont work
+#  - type: MidRoundAntagRule
+#    spawner: SpawnPointGhostRatKing
+
+- type: entity
+  noSpawn: true
+  parent: BaseMidRoundAntag
+  id: ParadoxAnomalySpawn
+  components:
+  - type: ParadoxClonerRule
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxAnomaly
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      # TerminatorComponent is added by paradox cloner
+      - type: GenericAntag
+        rule: ParadoxAnomaly
+      mindComponents:
+      - type: TerminatorRole
+        prototype: Terminator
