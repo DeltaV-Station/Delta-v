@@ -1,0 +1,543 @@
+- type: reaction
+  id: AnnasGift
+  reactants:
+    Cream:
+      amount: 2
+    Milk:
+      amount: 2
+    Blood:
+      amount: 1
+  products:
+    AnnasGift: 5
+
+- type: reaction
+  id: Opres
+  reactants:
+    JuiceOrange:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Silicon:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    Opres: 4
+
+- type: reaction
+  id: Myusuo
+  reactants:
+    CoffeeLiqueur:
+      amount: 2
+    Tequila:
+      amount: 2
+    Cream:
+      amount: 2
+    Vodka:
+      amount: 1
+    Rum:
+      amount: 1
+    TonicWater:
+      amount: 1
+  products:
+    Myusuo: 9
+
+- type: reaction
+  id: Gayach
+  reactants:
+    Mojito:
+      amount: 1
+    TonicWater:
+      amount: 4
+  products:
+    Gayach: 5
+
+- type: reaction
+  id: Injir
+  reactants:
+    Gayach:
+      amount: 1
+    ScrewdriverCocktail:
+      amount: 1
+  products:
+    Injir: 2
+
+- type: reaction
+  id: SinZan
+  reactants:
+    Blood:
+      amount: 3
+    Wine:
+      amount: 1
+  products:
+    SinZan: 4
+
+- type: reaction
+  id: DilEater
+  reactants:
+    Whiskey:
+      amount: 1
+    CoffeeLiqueur:
+      amount: 1
+    Ale:
+      amount: 1
+  products:
+    DilEater: 3
+
+- type: reaction
+  id: Sbiv
+  reactants:
+    Gin:
+      amount: 1
+    Vodka:
+      amount: 1
+    Nocturine:
+      amount: 1
+  products:
+    Sbiv: 3
+
+- type: reaction
+  id: Bomba
+  reactants:
+    Vodka:
+      amount: 3
+    Sodium:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    Bomba: 6
+
+- type: reaction
+  id: DeadGob
+  reactants:
+    Vermouth:
+      amount: 3
+    SulfuricAcid:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    DeadGob: 6
+
+- type: reaction
+  id: BosTea
+  reactants:
+    GreenTea:
+      amount: 2
+    Tea:
+      amount: 2
+    Rum:
+      amount: 1
+    JuiceLime:
+      amount: 1
+  products:
+    BosTea: 6
+
+- type: reaction
+  id: Empt
+  reactants:
+    Blood:
+      amount: 5
+    Nothing:
+      amount: 1
+  products:
+    Empt: 6
+
+- type: reaction
+  id: FireMix
+  reactants:
+    Whiskey:
+      amount: 1
+    ToxinsSpecial:
+      amount: 1
+    IrishCarBomb:
+      amount: 1
+  products:
+    FireMix: 3
+
+- type: reaction
+  id: Creator
+  reactants:
+    Nothing:
+      amount: 1
+    SinZan:
+      amount: 1
+    SpaceDrugs:
+      amount: 1
+  products:
+    Creator: 6
+
+#- type: reaction
+#  id: GodsBlood
+#  reactants:
+#    Blood:
+#      amount: 2
+#    Gold:
+#      amount: 2
+#    Ichor:
+#      amount: 1
+#  products:
+#    GodsBlood: 6
+
+- type: reaction
+  id: IchorNast
+  reactants:
+    Rum:
+      amount: 1
+    Gin:
+      amount: 1
+    Whiskey:
+      amount: 1
+    Margarita:
+      amount: 1
+    IcedBeer:
+      amount: 1
+  products:
+    IchorNast: 5
+
+- type: reaction
+  id: BestHealing
+  reactants:
+    Iron:
+      amount: 1
+    ScrewdriverCocktail:
+      amount: 1
+    Gayach:
+      amount: 1
+  products:
+    BestHealing: 5
+
+#- type: reaction
+#  id: SugarRain
+#  reactants:
+#    Sugar:
+#      amount: 5
+#    Water:
+#      amount: 2
+#    JuiceOrange:
+#      amount: 1
+#  products:
+#    SugarRain: 8
+
+- type: reaction
+  id: SlimeTea
+  reactants:
+    IcedGreenTea:
+      amount: 1
+    Slime:
+      amount: 2
+    Mojito:
+      amount: 1
+  products:
+    SlimeTea: 4
+
+- type: reaction
+  id: SmileTea
+  reactants:
+    Tea:
+      amount: 2
+    Slime:
+      amount: 5
+    Mojito:
+      amount: 1
+    Ice:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    SpaceDrugs:
+      amount: 5
+  products:
+    SmileTea: 15
+
+- type: reaction
+  id: OldNavar
+  reactants:
+    Omnizine:
+      amount: 1
+    Vodka:
+      amount: 2
+    Mojito:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    OldNavar: 4
+
+#- type: reaction
+#  id: HmelKash
+#  reactants:
+#    Beer:
+#      amount: 2
+#    Nutriment:
+#      amount: 1
+#  products:
+#    HmelKash: 3
+
+- type: reaction
+  id: HeadAcce
+  reactants:
+    Milk:
+      amount: 2
+    Protein:
+      amount: 1
+  products:
+    HeadAcce: 3
+
+#- type: reaction
+#  id: GoodForest
+#  reactants:
+#    Beer:
+#      amount: 2
+#    Coffee:
+#      amount: 1
+#    IrishCream:
+#      amount: 1
+#  products:
+#    GoodForest: 3
+
+- type: reaction
+  id: PoisonedVoodka
+  reactants:
+    Vodka:
+      amount: 5
+    Iron:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    PoisonedVoodka: 6
+
+- type: reaction
+  id: MilkedGreenTea
+  reactants:
+    Milk:
+      amount: 5
+    GreenTea:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    MilkedGreenTea: 6
+
+#- type: reaction
+#  id: AlchollessBeer
+#  reactants:
+#    Nutriment:
+#      amount: 1
+#    WeldingFuel:
+#      amount: 1
+#    Enzyme:
+#      amount: 1
+#  products:
+#    AlchollessBeer: 3
+
+- type: reaction
+  id: GermanSmuzi
+  reactants:
+    Blood:
+      amount: 1
+    Beer:
+      amount: 1
+    Cola:
+      amount: 1
+  products:
+    GermanSmuzi: 3
+
+#- type: reaction
+#  id: KislSladNechto
+#  reactants:
+#    JuiceTomato:
+#      amount: 2
+#    Ketchup:
+#      amount: 2
+#    JuiceLime:
+#      amount: 2
+#    Sugar:
+#      amount: 1
+#  products:
+#    KislSladNechto: 7
+
+- type: reaction
+  id: MushroonNast
+  reactants:
+    SpaceDrugs:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  products:
+    MushroonNast: 2
+
+#- type: reaction
+#  id: TermoatomicReactor
+#  reactants:
+#    Uranium:
+#      amount: 1
+#    Plasma:
+#      amount: 1
+#    Vodka:
+#      amount: 1
+#  products:
+#    TermoatomicReactor: 3
+
+- type: reaction
+  id: AtmoJoy
+  reactants:
+    Frezon:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Dylovene:
+      amount: 1
+  products:
+    AtmoJoy: 3
+
+- type: reaction
+  id: LiquidSilic
+  reactants:
+    Iron:
+      amount: 3
+    Silicon:
+      amount: 3
+    Cognac:
+      amount: 1
+  products:
+    LiquidSilic: 7
+
+#- type: reaction
+#  id: LiquidGen
+#  reactants:
+#    Iron:
+#      amount: 1
+#    Plasma:
+#      amount: 1
+#    Uranium:
+#      amount: 1
+#  products:
+#    LiquidGen: 3
+
+- type: reaction
+  id: AngelCry
+  reactants:
+    Water:
+      amount: 1
+    Blood:
+      amount: 2
+    Vodka:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    AngelCry: 5
+
+#- type: reaction
+#  id: BankaCoktail
+#  reactants:
+#    Plasma:
+#      amount: 1
+#    WeldingFuel:
+#      amount: 1
+#  products:
+#    BankaCoktail: 2
+
+- type: reaction
+  id: HappySumrak
+  reactants:
+    GinFizz:
+      amount: 1
+    Cognac:
+      amount: 1
+    B52:
+      amount: 2
+  products:
+    HappySumrak: 4
+
+#- type: reaction
+#  id: Shlak
+#  reactants:
+#    Iron:
+#      amount: 1
+#    Copper:
+#      amount: 1
+#    Uranium:
+#      amount: 1
+#  products:
+#    Shlak: 3
+
+- type: reaction
+  id: BurningBlood
+  reactants:
+    Blood:
+      amount: 2
+    Plasma:
+      amount: 1
+    Napalm:
+      amount: 1
+  products:
+    BurningBlood: 4
+
+- type: reaction
+  id: DeadJonnyCoktail
+  reactants:
+    Whiskey:
+      amount: 1
+    Tequila:
+      amount: 1
+    WhiteRussian:
+      amount: 1
+  products:
+    DeadJonnyCoktail: 3
+
+#- type: reaction
+#  id: LoveCoktail
+#  reactants:
+#    Vodka:
+#      amount: 2
+#    TableSalt:
+#      amount: 1
+#  products:
+#    LoveCoktail: 3
+
+#- type: reaction
+#  id: GogolMogol
+#  reactants:
+#    Vodka:
+#      amount: 1
+#    Sugar:
+#      amount: 1
+#    Egg:
+#      amount: 1
+#  products:
+#    GogolMogol: 3
+
+#- type: reaction
+#  id: Chinga
+#  reactants:
+#    Rum:
+#      amount: 1
+#    LemonLime:
+#      amount: 1
+#  products:
+#    Chinga: 2
+
+#- type: reaction
+#  id: NekoKofe
+#  reactants:
+#    Coffee:
+#      amount: 5
+#    Cognac:
+#      amount: 5
+#    Blood:
+#      amount: 2
+#  products:
+#    NekoKofe: 12
+
+#- type: reaction
+#  id: GoodTea
+#  reactants:
+#    Tea:
+#      amount: 1
+#    Beer:
+#      amount: 1
+#  products:
+#    GoodTea: 2

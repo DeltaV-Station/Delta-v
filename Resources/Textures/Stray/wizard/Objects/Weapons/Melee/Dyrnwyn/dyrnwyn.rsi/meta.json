@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation, modified by GeneralGaws",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+	{
+      "name": "icon_blade",
+      "delays": [
+        [
+          0.150,
+          0.150,
+          0.150,
+          0.150
+        ]
+      ]
+    }
+  ]
+}

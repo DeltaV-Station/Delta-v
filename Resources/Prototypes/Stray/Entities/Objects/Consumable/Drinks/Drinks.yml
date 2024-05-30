@@ -1,0 +1,186 @@
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkAnnasGift
+  name: Подарок Анны
+  description: Подарок всем кто даёт Спокойной Анне Сингуло!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AnnasGift
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/annasgift.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkMyusuo
+  name: Мьюсуо
+  description: Рио Мьюсуо.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Myusuo
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
+  
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkGayach
+  name: Гаечный ключ
+  description: Он всегда тут был.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gayach
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/gayach.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkInjir
+  name: Инженер
+  description: Заряжает 220 вольтами удовольствия!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: Injir
+          Quantity: 60
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/injir.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSinZan
+  name: "Сингуло"
+  description: На вкус прямо как сингуло.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: SinZan
+          Quantity: 50
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/singulozam.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkDilEater
+  name: Пожиратель диловена
+  description: Он жаждет диловен! Он УБИВАЕТ!
+  components: 
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DilEater
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/dilovenEater.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSbiv
+  name: Сбиватель с ног
+  description: Один глоток, и ты прилёг!
+  components: 
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sbiv
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/sbivatelsnog.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkDeadGob
+  name: Мёртвый гоблин
+  description: Он был великим воином.
+  components: 
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DeadGob
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/deadgoblin.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkOpres
+  name: Опреснитель
+  description: Лекарство в правильных руках.
+  components: 
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Opres
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/opresn.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkBomba
+  name: Бомба
+  description:  У нас есть 10 секунд, ПЕЙ!
+  components: 
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bomba
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/bomba.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkBosTea
+  name: Бостонский чай
+  description: самый наикрепчайший чай из всех.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BosTea
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/BosTea.rsi

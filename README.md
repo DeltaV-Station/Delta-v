@@ -1,3 +1,5 @@
+![image](https://github.com/EndrAnimet/DeltaV-Stray/assets/122978178/802c8d4b-da7f-4413-89a1-409e4776b032)
+
 <p align="center"> <img alt="Space Station 14 Delta-V Logo" width="128" height="128" src="https://raw.githubusercontent.com/DeltaV-Station/Delta-v/master/Resources/Textures/Logo/logo.png" /></p>
 <!---<p align="center"> <img alt="Space Station 14 Delta-V Banner" width="512" height="126" src="https://raw.githubusercontent.com/DeltaV-Station/Delta-v/master/Resources/Textures/Logo/banner.png" /></p>-->
 

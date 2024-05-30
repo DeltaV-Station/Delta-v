@@ -1,0 +1,41 @@
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelHolding
+  id: ClothingBackpackSatchelHoldingCentCommOfficial
+  name: бездонная сумка
+  description: Сумка, открывающаяся в локальный карман блюспейса.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+      - id: WeaponPistolN1984
+      - id: RubberStampCentcom
+      - id: Flash
+      - id: MagazineUniversalMagnumRubber
+        amount: 2
+      - id: MagazineUniversalMagnum
+        amount: 2
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelHolding
+  id: ClothingBackpackSatchelHoldingCentCommOperator
+  name: бездонная сумка
+  description: Сумка, открывающаяся в локальный карман блюспейса.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+      - id: RubberStampDenied
+      - id: RubberStampApproved
+      - id: BoxFolderBase
+      - id: BoxFolderWhite
+      - id: BoxFolderRed
+      - id: BoxFolderYellow
+      - id: BoxFolderBlue
+      - id: BoxFolderGreen
+      - id: BoxFolderBlack
+      - id: BoxFolderGrey
+      - id: BoxFolderCentCom
+      - id: MagazineUniversalMagnum
+      - id: MagazineUniversalMagnumRubber

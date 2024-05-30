@@ -1,0 +1,71 @@
+- type: startingGear
+  id: CentCommOfficerSpecOpsGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficerBlack
+    shoes: ClothingShoesCentcomBlack
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatHoSGreatcoat
+    mask: ClothingMaskGasSecurity
+    id: DeathsquadPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityWebbing
+    pocket1: CombatKnife
+    pocket2: WeaponPulsePistol
+    suitstorage: WeaponPulseCarbine
+    neck: ClothingNeckCloakCentcomBlack
+    head: ClothingHeadCapCentcomBlack
+
+- type: startingGear
+  id: CentCommOfficialEVAGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelHoldingCentCommOfficial
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTCentcomm
+    mask: ClothingMaskGasCentcom
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponTaser
+    pocket1: BoxFolderBlack
+    pocket2: PenCentcom
+    suitstorage: AirTankFilled
+    neck: ClothingNeckCloakCentcom
+    head: ClothingHeadHatCentcom
+
+- type: startingGear
+  id: CentCommOperatorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelHoldingCentCommOperator
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesHop
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponPistolN1984
+    pocket1: RubberStampCentcom
+    pocket2: BoxFolderCentComClipboard
+    neck: ClothingNeckGoldmedal
+    head: ClothingHeadHatBeretCentcomm
+  innerClothingSkirt: ClothingUniformJumpskirtCentcomOfficial
+
+- type: startingGear
+  id: ChiefHeadquartersCentCommGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomDirector
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCentcomNaval
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilled
+    pocket1: RubberStampChiefCentComm
+    pocket2: BoxFolderCentCom
+    neck: ClothingNeckCloakBoat
+    head: ClothingHeadHatDirCap
+  innerClothingSkirt: ClothingUniformJumpskirtCentcomDirector

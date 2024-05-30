@@ -43,6 +43,8 @@
   color: "#334E6D"
   roles:
   - Captain
+  - IAA
+  - Blueshield
   - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
@@ -74,6 +76,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - SeniorPhysician
+  - Slugcat
   - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
@@ -89,6 +93,7 @@
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - Pilot # Corvax
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science

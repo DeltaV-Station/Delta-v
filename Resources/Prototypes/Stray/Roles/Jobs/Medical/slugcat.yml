@@ -1,0 +1,19 @@
+- type: job
+  id: Slugcat
+  name: job-name-slugcat
+  description: job-description-slugcat
+  playTimeTracker: JobSlugcat
+  canBeAntag: false
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
+  icon: JobIconSlugcat
+  supervisors: job-supervisors-cmo
+  jobEntity: MobSpaceFerret
+  startingGear: SlugcatGear
+
+- type: startingGear
+  id: SlugcatGear
+  equipment:
+    id: PsychologistPDA
+    ears: ClothingHeadsetMedical

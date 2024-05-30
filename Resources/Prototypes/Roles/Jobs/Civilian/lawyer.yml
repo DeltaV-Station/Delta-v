@@ -3,13 +3,13 @@
   name: job-name-lawyer
   description: job-description-lawyer
   playTimeTracker: JobLawyer
-  antagAdvantage: 4 # DeltaV - Reduced TC: Security Radio and Access
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
-      department: Security
-      time: 14400 # 4 hours
+  antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
+  #requirements:
+  #  - !type:OverallPlaytimeRequirement
+  #    time: 36000 # 10 hrs
+  #  - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+  #    department: Security
+  #    time: 14400 # 4 hours
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop

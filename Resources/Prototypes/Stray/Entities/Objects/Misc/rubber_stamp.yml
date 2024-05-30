@@ -1,0 +1,11 @@
+- type: entity
+  name: печать начальника штаба ЦентКом
+  description: Печать из резины, для проставления печатей на важных документах.
+  parent: RubberStampCentcom
+  id: RubberStampChiefCentComm
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-chiefcentcomm
+    stampedColor: "#006600"
+    stampState: "paper_stamp-centcom"

@@ -1,0 +1,11 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateFreezerSecure
+  name: secure freezer
+  components:
+    - type: Icon
+      sprite: SimpleStation14/Structures/Storage/Crates/freezer_secure.rsi
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Storage/Crates/freezer_secure.rsi
+    - type: AccessReader
+      access: [["Kitchen"]]

@@ -3,9 +3,9 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 7200 # DeltaV - 2 hours
+  #requirements:
+  #  - !type:OverallPlaytimeRequirement
+  #    time: 7200 # DeltaV - 2 hours
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop

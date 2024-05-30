@@ -3,11 +3,14 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
-  requirements:
+  #requirements:
     # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
     #   department: Medical
     #   time: 54000 # 15 hrs
     #   inverted: true # stop playing intern if you're good at med!
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine

@@ -1,0 +1,356 @@
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkEmpt
+  name: Пустота
+  description: чем больше вглядываешся в этот напиток тем больше он вглядывается в тебя
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Empt
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/Empt.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkFireMix
+  name: Огненный микс
+  description: Боже эта штука ПРОСТО ПЫЛАЕТ!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FireMix
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/FireMix.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkCreator
+  name: Творец
+  description: Позволяет видеть веши за гранью нашего понимания
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Creator
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/Creator.rsi
+
+#- type: entity
+#  parent: DrinkGlassBase
+#  id: DrinkGodsBlood
+#  name: Кровь богов
+#  description: это кровь богов Олимпа
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 30
+#        reagents:
+#        - ReagentId: GodsBlood
+#          Quantity: 30
+#  - type: Drink
+#  - type: Sprite
+#    sprite: Stray/Objects/Consumable/Drinks/GodsBlood.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkIchorNast
+  name: Настойка на ихоре
+  description: Оскорбляет любого ценителя алкоголя, и в напитке нет ихора абсолютно совсем
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: IchorNast
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/IchorNast.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkBestHealing
+  name: Превосходный Источник Исцеления
+  description: Точно не жидкое скопление нанитов с ИИ
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BestHealing
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/BestHealing.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSlimeTea
+  name: Слизне-чай
+  description: Напоминает слайма, Возможно оно живое...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SlimeTea
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/SlimeTea.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkSmileTea
+  name: Смайло-чай
+  description: Смайл? Это ты?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SmileTea
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/SmileTea.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkOldNavar
+  name: Древняя наварка
+  description: Это пили ещё твои пра-пра-прадеды и пра-пра-прабабушки...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OldNavar
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/OldNavar.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkHeadAcce
+  name: Головная боль
+  description: Напиток обожаемый некромантами и скелетами
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HeadAcce
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/HeadAcce.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkPoisonedVoodka
+  name: Заряженная водка
+  description: ты осмелился попробывать это? 
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PoisonedVoodka
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/PoisonedVoodka.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkMilkedGreenTea
+  name: Зелëный чай с молоком
+  description: Чай с молоком, я конешно понимаю, НО ЗЕЛËНЫЙ ЧАЙ С МОЛОКОМ!? Это отвратительно
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MilkedGreenTea
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/MilkedGreenTea.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkGermanSmuzi
+  name: Черно-жёлтый красный смузи
+  description: Es ist Zeit sich daran zu erinnern, dass du Deutscher bist!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GermanSmuzi
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/GermanSmuzi.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkAtmoJoy
+  name: Счастье Атмосианина
+  description: Видимо у кого-то слишком много свободного времени...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AtmoJoy
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/AtmoJoy.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkLiquidSilic
+  name: Жидкий кремний
+  description: О боже, вот куда ты дел весь кремний из ядра
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LiquidSilic
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/LiquidSilic.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkAngelCry
+  name: Коктейль слезы ангела
+  description: Cами небеса развернулась и поделись рекой их слëзы.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AngelCry
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/AngelCry.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkHappySumrak
+  name: Счастливый Сумеречник
+  description: У кого-то сегодня точно выдался хороший день!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HappySumrak
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/HappySumrak.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkBurningBlood
+  name: Пылающая кровь
+  description: Этот коктейль олицетворяет сам ад в вашем желудке . Прощайтесь с печень
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BurningBlood
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/BurningBlood.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkDeadJonnyCoktail
+  name: Предсмертный Коктейль Джони
+  description: Последний коктель который испил джони перет своей кончиной
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DeadJonnyCoktail
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/DeadJonnyCoktail.rsi
+
+#- type: entity
+#  parent: DrinkGlassBase
+#  id: DrinkGoodTea
+#  name: Вкусный Чай
+#  description: Напиток используемый как способ доказать свою верность банде в некоторых мафиозных организациях
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 30
+#        reagents:
+#        - ReagentId: GoodTea
+#          Quantity: 30
+#  - type: Drink
+#  - type: Sprite
+#    sprite: Stray/Objects/Consumable/Drinks/GoodTea.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkMushroonNast
+  name: Грибная настойка
+  description: Это оно странно пахнет и штукатурка вкуснее чем вчера...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MushroonNast
+          Quantity: 30
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/MushroonNast.rsi

@@ -1,0 +1,15 @@
+accent-words-spaceferret-1 = Wa!
+accent-words-spaceferret-2 = Wa?
+accent-words-spaceferret-3 = Wa.
+accent-words-spaceferret-4 = Wa...
+accent-words-spaceferret-5 = Wa~
+accent-words-spaceferret-6 = Wawa!
+accent-words-spaceferret-7 = Wawa?
+accent-words-spaceferret-8 = Wawa.
+accent-words-spaceferret-9 = Wawa...
+accent-words-spaceferret-10 = Wawa~
+accent-words-spaceferret-11 = Raah!
+accent-words-spaceferret-12 = Raah?
+accent-words-spaceferret-13 = Raah.
+accent-words-spaceferret-14 = Raah...
+accent-words-spaceferret-15 = Raah~

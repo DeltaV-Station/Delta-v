@@ -1,0 +1,68 @@
+- type: entity
+  save: false
+  name: Base Plasmaman
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobPlasmaman
+  abstract: true
+  components:
+    - type: HumanoidAppearance
+      species: Plasmaman
+    # - type: Hunger
+    # - type: Thirst
+    - type: Icon
+      sprite: SimpleStation14/Mobs/Species/Plasmaman/parts.rsi
+      state: full
+    - type: Body
+      prototype: Plasmaman
+    - type: Flammable
+      damage:
+        types:
+          Heat: 1.5
+    - type: MobState
+      thresholds:
+        0: Alive
+        100: Critical
+        200: Dead
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Plasmaman
+    - type: Temperature
+      heatDamageThreshold: 375
+      coldDamageThreshold: 190
+      currentTemperature: 300
+      specificHeat: 46
+      coldDamage:
+        types:
+          Cold: 0.05 # per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 0.25 # per second, scales with temperature & other constants
+    - type: Bloodstream
+      bleedReductionAmount: 0
+      maxBleedAmount: 0
+      bloodlossThreshold: 0
+      bloodMaxVolume: 0
+      updateInterval: -1
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 115
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+
+- type: entity
+  save: false
+  name: Plasmaman Dummy
+  parent: MobHumanDummy
+  id: MobPlasmamanDummy
+  noSpawn: true
+  description: A dummy Plasmaman meant to be used in character setup.
+  components:
+    - type: HumanoidAppearance
+      species: Plasmaman
