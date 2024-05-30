@@ -54687,6 +54687,18 @@ entities:
     - type: Transform
       pos: -12.150006,36.889446
       parent: 2
+- proto: LightTube
+  entities:
+  - uid: 12189
+    components:
+    - type: Transform
+      pos: -24.601343,-8.484417
+      parent: 2
+  - uid: 12190
+    components:
+    - type: Transform
+      pos: -24.476343,-8.546917
+      parent: 2
 - proto: LiquidNitrogenCanister
   entities:
   - uid: 1820
@@ -57525,6 +57537,13 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-13.5
+      parent: 2
+- proto: PoweredlightEmpty
+  entities:
+  - uid: 12188
+    components:
+    - type: Transform
+      pos: 49.5,-17.5
       parent: 2
 - proto: PoweredLightPostSmall
   entities:
