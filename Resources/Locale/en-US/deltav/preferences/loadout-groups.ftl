@@ -9,6 +9,7 @@ loadout-group-hop-shoes = Head of Personnel shoes
 # Civilian
 loadout-group-librarian-neck = Librarian neck
 
+loadout-group-bartender-glasses = Bartender glasses
 loadout-group-bartender-neck = Bartender neck
 
 loadout-group-janitor-neck = Janitor neck

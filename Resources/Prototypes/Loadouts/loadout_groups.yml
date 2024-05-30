@@ -219,7 +219,16 @@
   - BartenderHead
   - BartenderBowler
 
-- type: loadoutGroup # Delta V
+- type: loadoutGroup # DeltaV
+  id: BartenderGlasses
+  name: loadout-group-bartender-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - BartenderGlasses
+  - GlassesCheapSunglasses
+
+- type: loadoutGroup # DeltaV
   id: BartenderNeck
   name: loadout-group-bartender-neck
   minLimit: 0
