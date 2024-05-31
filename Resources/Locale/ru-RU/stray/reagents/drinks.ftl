@@ -1,3 +1,5 @@
+reagent-name-inglandsidr = Английский Сидр
+reagent-desc-inglandsidr = О да тебя придеться по кусочкам собирать. В АДУ!
 reagent-name-annasgift = Подарок Анны
 reagent-desc-annasgift = Подарок всем кто даёт Спокойной Анне Сингуло!
 reagent-name-sinzan = "Сингуло"
@@ -39,7 +41,7 @@ reagent-desc-OldNavar = Это пили ещё твои пра-пра-праде
 reagent-name-HeadAcce = Головная боль
 reagent-desc-HeadAcce = Напиток обожаемый некромантами и скелетами
 reagent-name-PoisonedVoodka = Заряженная водка
-reagent-desc-PoisonedVoodka = Ты осмелился попробывать это? 
+reagent-desc-PoisonedVoodka = Ты осмелился попробывать это?
 reagent-name-MilkedGreenTea = Зелëный чай с молоком
 reagent-desc-MilkedGreenTea = Чай с молоком, я конешно понимаю, НО ЗЕЛËНЫЙ ЧАЙ С МОЛОКОМ!? Это отвратительно
 reagent-name-GermanSmuzi = Черно-жёлто-красный смузи
