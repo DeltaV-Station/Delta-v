@@ -163,16 +163,11 @@
       drawRate: 2
     - type: TypingIndicator
       proto: robot
-    - type: BorgChassis
     - type: ItemSlots
       slots:
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellHyper
-    - type: Lock
-      locked: true
-    - type: AccessReader
-      access: [["Engineering"], ["Command"], ["Research"]]
 
 - type: entity
   name: Urist McIPC
