@@ -109119,6 +109119,8 @@ entities:
     - type: Transform
       pos: -41.5,-16.5
       parent: 2
+- proto: SpawnPointBlueshield
+  entities:
   - uid: 19118
     components:
     - type: Transform
@@ -109196,11 +109198,15 @@ entities:
     - type: Transform
       pos: -7.5,17.5
       parent: 2
+- proto: SpawnPointIAA
+  entities:
   - uid: 16818
     components:
     - type: Transform
       pos: -15.5,17.5
       parent: 2
+- proto: SpawnPointSlugcat
+  entities:
   - uid: 16819
     components:
     - type: Transform
@@ -109285,6 +109291,8 @@ entities:
     - type: Transform
       pos: 40.5,6.5
       parent: 2
+- proto: SpawnPointRoboticist
+  entities:
   - uid: 19124
     components:
     - type: Transform

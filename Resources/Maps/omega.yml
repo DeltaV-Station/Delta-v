@@ -70036,6 +70036,8 @@ entities:
     - type: Transform
       pos: -9.5,-26.5
       parent: 4812
+- proto: SpawnPointBlueshield
+  entities:
   - uid: 8374
     components:
     - type: Transform
@@ -70086,11 +70088,15 @@ entities:
     - type: Transform
       pos: -18.5,11.5
       parent: 4812
+- proto: SpawnPointIAA
+  entities:
   - uid: 12384
     components:
     - type: Transform
       pos: -17.5,9.5
       parent: 4812
+- proto: SpawnPointSlugcat
+  entities:
   - uid: 12385
     components:
     - type: Transform
@@ -70146,6 +70152,8 @@ entities:
     - type: Transform
       pos: 9.5,-20.5
       parent: 4812
+- proto: SpawnPointRoboticist
+  entities:
   - uid: 12502
     components:
     - type: Transform
