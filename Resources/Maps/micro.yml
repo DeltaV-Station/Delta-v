@@ -2922,17 +2922,20 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 9800
       - 9801
+      - 9800
       - 9802
+      - 9804
+      - 9803
+      - 6631
+      - 6048
       - 9790
+      - 976
       - 9792
+      - 9794
+      - 9810
       - 9796
       - 9797
-      - 976
-      - 6048
-      - 6631
-      - 9810
   - uid: 3196
     components:
     - type: Transform
@@ -25844,6 +25847,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.7598586,45.796513
       parent: 2
+  - uid: 11628
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.580261,45.91752
+      parent: 2
 - proto: ChairFoldingSpawnFolded
   entities:
   - uid: 3760
@@ -26159,6 +26168,19 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 47.651226,-15.31665
       parent: 2
+  - uid: 12192
+    components:
+    - type: Transform
+      pos: -20.642761,47.47068
+      parent: 2
+- proto: ChairWeb
+  entities:
+  - uid: 12191
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.642761,46.501255
+      parent: 2
 - proto: ChairWood
   entities:
   - uid: 14
@@ -26262,12 +26284,26 @@ entities:
     - type: Transform
       pos: 26.890896,-10.669161
       parent: 2
+- proto: CheapLighter
+  entities:
+  - uid: 12195
+    components:
+    - type: Transform
+      pos: -20.754343,46.464325
+      parent: 2
 - proto: CheapRollerBed
   entities:
   - uid: 12035
     components:
     - type: Transform
       pos: 15.5,27.5
+      parent: 2
+- proto: CheckerBoard
+  entities:
+  - uid: 12193
+    components:
+    - type: Transform
+      pos: -20.504343,46.63111
       parent: 2
 - proto: ChemDispenser
   entities:
@@ -26315,12 +26351,44 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,34.5
       parent: 2
+- proto: CigaretteSpent
+  entities:
+  - uid: 12196
+    components:
+    - type: Transform
+      pos: -19.535593,46.016098
+      parent: 2
+  - uid: 12197
+    components:
+    - type: Transform
+      pos: -18.858511,47.38163
+      parent: 2
+  - uid: 12198
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -21.462677,47.183575
+      parent: 2
+  - uid: 12199
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.139761,45.82847
+      parent: 2
 - proto: CigarSpent
   entities:
   - uid: 2125
     components:
     - type: Transform
       pos: -25.22141,-18.481884
+      parent: 2
+- proto: CigPackBlue
+  entities:
+  - uid: 12194
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.264761,46.464325
       parent: 2
 - proto: CigPackGreen
   entities:
@@ -32925,8 +32993,9 @@ entities:
       - 9794
       - 9792
       - 9790
-      - 9801
       - 9800
+      - 9802
+      - 9801
   - uid: 11742
     components:
     - type: Transform
@@ -33083,6 +33152,7 @@ entities:
       deviceLists:
       - 9793
       - 11741
+      - 3121
   - uid: 9795
     components:
     - type: Transform
@@ -33339,6 +33409,7 @@ entities:
       deviceLists:
       - 9827
       - 11741
+      - 3121
   - uid: 9804
     components:
     - type: Transform
@@ -33349,6 +33420,7 @@ entities:
       deviceLists:
       - 9827
       - 11741
+      - 3121
   - uid: 9805
     components:
     - type: Transform
@@ -33969,8 +34041,8 @@ entities:
       deviceLists:
       - 4393
       - 11731
-      - 11741
       - 3121
+      - 11741
   - uid: 9801
     components:
     - type: Transform
@@ -33979,8 +34051,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9863
-      - 11741
       - 3121
+      - 11741
   - uid: 9802
     components:
     - type: Transform
@@ -33990,6 +34062,7 @@ entities:
       deviceLists:
       - 9827
       - 3121
+      - 11741
   - uid: 9825
     components:
     - type: Transform
@@ -59062,10 +59135,10 @@ entities:
     - type: Transform
       pos: 58.5,15.5
       parent: 2
-  - uid: 11628
+  - uid: 11840
     components:
     - type: Transform
-      pos: -20.5,45.5
+      pos: -16.5,47.5
       parent: 2
 - proto: RandomSpawner
   entities:
@@ -59337,7 +59410,7 @@ entities:
   - uid: 11441
     components:
     - type: Transform
-      pos: -20.5,46.5
+      pos: -19.5,45.5
       parent: 2
   - uid: 11442
     components:
@@ -62506,6 +62579,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -45.5,-4.5
       parent: 2
+  - uid: 11838
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,-12.5
+      parent: 2
+  - uid: 11839
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 31.5,-16.5
+      parent: 2
   - uid: 12149
     components:
     - type: Transform
@@ -65577,6 +65662,11 @@ entities:
     components:
     - type: Transform
       pos: 41.5,-14.5
+      parent: 2
+  - uid: 11841
+    components:
+    - type: Transform
+      pos: -20.5,46.5
       parent: 2
 - proto: TableCounterMetal
   entities:
