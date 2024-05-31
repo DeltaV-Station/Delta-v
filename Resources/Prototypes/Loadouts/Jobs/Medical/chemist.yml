@@ -1,3 +1,13 @@
+# Neck - DeltaV
+- type: loadout # DeltaV
+  id: ChemistTie
+  equipment: ChemistTie
+
+- type: startingGear # DeltaV
+  id: ChemistTie
+  equipment:
+    neck: ClothingNeckTieChem
+
 # Jumpsuit
 - type: loadout
   id: ChemistJumpsuit
@@ -16,6 +26,15 @@
   id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
+
+- type: loadout # DeltaV
+  id: ChemistFormalSuit
+  equipment: ChemistFormalSuit
+
+- type: startingGear # DeltaV
+  id: ChemistFormalSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemShirt
 
 # Back
 - type: loadout

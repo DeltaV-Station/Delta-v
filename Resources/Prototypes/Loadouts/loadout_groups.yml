@@ -557,6 +557,13 @@
   - ScarfPurple
   - ScarfZebra
 
+- type: loadoutGroup # DeltaV
+  id: MusicianJumpsuit
+  name: loadout-group-musician-jumpsuit
+  loadouts:
+  - MusicianJumpsuit
+  - MusicianJumpskirt
+
 - type: loadoutGroup
   id: MusicianBackpack
   name: loadout-group-musician-backpack
@@ -1313,6 +1320,7 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - ChemistFormalSuit # DeltaV
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1337,6 +1345,7 @@
   id: ChemistNeck
   name: loadout-group-chemist-neck
   loadouts:
+  - ChemistTie # DeltaV
   - ScarfOrange
   - ScarfBlue
 
