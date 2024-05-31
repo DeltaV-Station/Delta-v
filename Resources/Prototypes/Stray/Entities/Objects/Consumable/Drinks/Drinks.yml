@@ -51,23 +51,6 @@
 
 - type: entity
   parent: DrinkGlassBase
-  id: DrinkMyusuo
-  name: Мьюсуо
-  description: Рио Мьюсуо.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Myusuo
-          Quantity: 30
-  - type: Drink
-  - type: Sprite
-    sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
-
-- type: entity
-  parent: DrinkGlassBase
   id: DrinkGayach
   name: Гаечный ключ
   description: Он всегда тут был.

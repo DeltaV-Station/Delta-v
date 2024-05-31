@@ -108,31 +108,6 @@
             Poison: 0.5
 
 - type: reagent
-  id: Myusuo
-  name: reagent-name-myusuo
-  parent: BaseAlcohol
-  desc: reagent-desc-myusuo
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
-  color: "#98B383"
-  metamorphicSprite:
-    sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: -35
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.1
-
-
-- type: reagent
   id: Gayach
   name: reagent-name-gayach
   parent: BaseAlcohol
