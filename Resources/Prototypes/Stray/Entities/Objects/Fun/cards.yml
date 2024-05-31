@@ -40,13 +40,14 @@
     whitelist:
       tags:
         - GameCard
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
 
 - type: entity
   parent: BaseItem
@@ -68,13 +69,14 @@
     whitelist:
       tags:
         - GameCard
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
   - type: Dumpable
   - type: StorageFill
     contents:

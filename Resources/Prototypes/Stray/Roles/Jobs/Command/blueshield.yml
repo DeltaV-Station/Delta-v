@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 1800
   startingGear: BlueshieldGear
   icon: "JobIconBlueshield"
   supervisors: job-supervisors-centcom

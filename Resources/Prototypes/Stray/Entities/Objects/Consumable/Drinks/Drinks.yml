@@ -1,5 +1,39 @@
 - type: entity
   parent: DrinkGlassBase
+  id: DrinkInglandSidr
+  name: Английский Сидр
+  description: О да тебя придеться по кусочкам собирать. В АДУ!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: InglandSidr
+          Quantity: 100
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/Sidr.rsi
+
+- type: entity
+  parent: DrinkBottlePlasticBaseFull
+  id: JuiceAppleJug
+  name: Кувшин яблочного сока
+  description: Это Кувшин яблочного сока
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 300
+        reagents:
+        - ReagentId: JuiceApple
+          Quantity: 300
+  - type: Drink
+  - type: Label
+    currentLabel: Яблочный сок
+
+- type: entity
+  parent: DrinkGlassBase
   id: DrinkAnnasGift
   name: Подарок Анны
   description: Подарок всем кто даёт Спокойной Анне Сингуло!
@@ -31,7 +65,7 @@
   - type: Drink
   - type: Sprite
     sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
-  
+
 - type: entity
   parent: DrinkGlassBase
   id: DrinkGayach
@@ -88,7 +122,7 @@
   id: DrinkDilEater
   name: Пожиратель диловена
   description: Он жаждет диловен! Он УБИВАЕТ!
-  components: 
+  components:
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -105,7 +139,7 @@
   id: DrinkSbiv
   name: Сбиватель с ног
   description: Один глоток, и ты прилёг!
-  components: 
+  components:
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -122,7 +156,7 @@
   id: DrinkDeadGob
   name: Мёртвый гоблин
   description: Он был великим воином.
-  components: 
+  components:
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -139,7 +173,7 @@
   id: DrinkOpres
   name: Опреснитель
   description: Лекарство в правильных руках.
-  components: 
+  components:
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -156,7 +190,7 @@
   id: DrinkBomba
   name: Бомба
   description:  У нас есть 10 секунд, ПЕЙ!
-  components: 
+  components:
   - type: SolutionContainerManager
     solutions:
       drink:

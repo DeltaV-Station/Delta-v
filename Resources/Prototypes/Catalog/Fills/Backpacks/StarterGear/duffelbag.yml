@@ -84,6 +84,8 @@
   parent: ClothingBackpackDuffelEngineering
   id: ClothingBackpackDuffelChiefEngineerFilled
   components:
+  - type: Sprite
+    sprite: Corvax/Back/Duffels/ce.rsi
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering

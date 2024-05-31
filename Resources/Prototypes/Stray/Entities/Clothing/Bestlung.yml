@@ -1,0 +1,212 @@
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterBaseBestlungOvercoat
+  name: 'Шинель Маженир'
+  description: 'Излучает роскошь. На повязке красующейся на руке изображена 4 конечная звезда'
+  suffix: Бэстенлунг, Маженир
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/ClothingOuterBaseBestlungOvercoat.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/ClothingOuterBaseBestlungOvercoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBestlung
+  name: 'Фуражка Маженир'
+  description: 'Очень тёплый головной убор. Золотая 4 конечная звезда подчёркивает значимость человека, на котором эта фуражка сидит'
+  suffix: Бэстенлунг, Маженир
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/ClothingHeadHatBestlung.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/ClothingHeadHatBestlung.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterArmorBestlungJaketJi
+  name: 'Куртка Джи'
+  description: 'Как ни странно, очень прочная. Имеется значёк черепа.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingOuterArmorBestlungJaketJi.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingOuterArmorBestlungJaketJi.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBestlungHelmetJi
+  name: 'Каска Джи'
+  description: 'Потрёпанная каска из метала, частый элемент одежды полевых солдат. Имеется значёк черепа.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingHeadBestlungHelmetJi.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingHeadBestlungHelmetJi.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBestlungJi
+  name: 'Форма Джи'
+  description: 'Чёрная форма сшитая из прочного материала. На спине изображена 4 конечная звезда, а на груди череп.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingUniformJumpsuitBestlungJi.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Ji/ClothingUniformJumpsuitBestlungJi.rsi
+
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterArmorBestlungJaketAnazio
+  name: 'Куртка Аназио'
+  description: 'Более укреплена, чем для Джи. Имеются погоны в виде флагов Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingOuterArmorBestlungJaketAnazio.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingOuterArmorBestlungJaketAnazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBestlungHelmetAnazio
+  name: 'Каска Аназио'
+  description: 'Потрёпанная каска из метала, частый элемент одежды полевых солдат. Имеется значёк черепа окрашенный в цвета флага Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingHeadBestlungHelmetAnazio.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingHeadBestlungHelmetAnazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBestlungAnazio
+  name: 'Форма Аназио'
+  description: 'Чёрная форма сшитая из прочного материала. На спине изображена 4 конечная звезда, а на груди череп окрашенный в цвета флага Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingUniformJumpsuitBestlungAnazio.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/Anazio/ClothingUniformJumpsuitBestlungAnazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardBestlung
+  name: Жетон
+  description: Опозновательный жетон с чипом.
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/IDcardBestlung.rsi
+    layers:
+    - state: silver
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltMilitaryWebbingBestlung
+  name: военная поясная сумка
+  description: Кожаная поясная сумка, в которой можно носить дополнительные боезапасы.
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Bestlung/webbingBestlung.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Bestlung/webbingBestlung.rsi

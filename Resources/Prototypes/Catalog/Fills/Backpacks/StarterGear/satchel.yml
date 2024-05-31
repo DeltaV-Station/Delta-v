@@ -98,6 +98,8 @@
   parent: ClothingBackpackSatchelEngineering
   id: ClothingBackpackSatchelChiefEngineerFilled
   components:
+  - type: Sprite
+    sprite: Corvax/Back/Satchels/ce.rsi
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering
@@ -289,11 +291,14 @@
 
 - type: entity
   noSpawn: true
-  parent: ClothingBackpackSatchelHolding
+  parent: ClothingBackpackSatchelAdm
   id: ClothingBackpackSatchelHoldingAdmin
   components:
   - type: StorageFill
     contents:
     - id: GasAnalyzer
     - id: trayScanner
+    - id: Crowbar
+    - id: Wrench
+    - id: Multitool
   - type: Unremoveable

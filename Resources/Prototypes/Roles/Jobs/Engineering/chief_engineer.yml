@@ -10,9 +10,9 @@
 #    - !type:RoleTimeRequirement # DeltaV - No Station Engineer time requirement
 #      role: JobStationEngineer
 #      time: 21600 #6 hrs
-#    - !type:DepartmentTimeRequirement
-#      department: Engineering
-#      time: 90000 # DeltaV - 25 hours
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 1800 # DeltaV - 25 hours
 #    - !type:OverallPlaytimeRequirement
 #      time: 72000 # DeltaV - 20 hours
     - !type:OverallPlaytimeRequirement #DeltaV
