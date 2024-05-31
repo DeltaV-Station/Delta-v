@@ -153,23 +153,6 @@
 
 - type: entity
   parent: DrinkGlassBase
-  id: DrinkOpres
-  name: Опреснитель
-  description: Лекарство в правильных руках.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Opres
-          Quantity: 30
-  - type: Drink
-  - type: Sprite
-    sprite: Stray/Objects/Consumable/Drinks/opresn.rsi
-
-- type: entity
-  parent: DrinkGlassBase
   id: DrinkBomba
   name: Бомба
   description:  У нас есть 10 секунд, ПЕЙ!

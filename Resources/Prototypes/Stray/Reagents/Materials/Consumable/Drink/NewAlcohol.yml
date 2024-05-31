@@ -82,31 +82,6 @@
           types:
             Poison: 2
 
-
-- type: reagent
-  id: Opres
-  name: reagent-name-opres
-  parent: BaseAlcohol
-  desc: reagent-desc-opres
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
-  color: "#C67F31"
-  metamorphicSprite:
-    sprite: Stray/Objects/Consumable/Drinks/opresn.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: -1
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5
-
 - type: reagent
   id: Gayach
   name: reagent-name-gayach
