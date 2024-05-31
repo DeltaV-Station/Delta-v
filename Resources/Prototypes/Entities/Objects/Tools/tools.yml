@@ -37,6 +37,7 @@
   - type: Item
     sprite: Objects/Tools/wirecutters.rsi
     storedRotation: -90
+    size: Small
   - type: ToolTileCompatible
   - type: PhysicalComposition
     materialComposition:
@@ -65,6 +66,7 @@
   - type: Item
     sprite: Objects/Tools/screwdriver.rsi
     storedRotation: -90
+    size: Small
   - type: MeleeWeapon
     wideAnimationRotation: -90
     attackRate: 1
@@ -105,6 +107,7 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/wrench.rsi
+    size: Small
     storedSprite:
       sprite: Objects/Tools/wrench.rsi
       state: storage
@@ -181,6 +184,7 @@
     state: red-icon
   - type: Item
     heldPrefix: red
+    size: Small
     storedSprite:
       sprite: Objects/Tools/crowbar.rsi
       state: red-storage
@@ -458,6 +462,7 @@
   - type: Item
     sprite: Objects/Tools/rcd.rsi
     heldPrefix: ammo
+    size: Small
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
