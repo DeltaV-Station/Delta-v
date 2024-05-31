@@ -7018,6 +7018,13 @@ entities:
     - type: Transform
       pos: -8.634189,5.4278917
       parent: 2
+- proto: BoxMouthSwab
+  entities:
+  - uid: 420
+    components:
+    - type: Transform
+      pos: -5.8234816,17.993004
+      parent: 2
 - proto: BoxShotgunSlug
   entities:
   - uid: 315
@@ -27658,6 +27665,11 @@ entities:
       parent: 2
 - proto: CrateHydroponicsTools
   entities:
+  - uid: 917
+    components:
+    - type: Transform
+      pos: -8.5,17.5
+      parent: 2
   - uid: 3489
     components:
     - type: Transform
@@ -28327,11 +28339,6 @@ entities:
       parent: 2
 - proto: DiseaseSwab
   entities:
-  - uid: 917
-    components:
-    - type: Transform
-      pos: -5.896539,17.71439
-      parent: 2
   - uid: 4571
     components:
     - type: Transform
@@ -54172,6 +54179,11 @@ entities:
       parent: 2
 - proto: HydroponicsToolMiniHoe
   entities:
+  - uid: 902
+    components:
+    - type: Transform
+      pos: -6.9293127,13.324524
+      parent: 2
   - uid: 4563
     components:
     - type: Transform
@@ -54748,11 +54760,6 @@ entities:
 - proto: LockerBotanistFilled
   entities:
   - uid: 901
-    components:
-    - type: Transform
-      pos: -1.5,14.5
-      parent: 2
-  - uid: 902
     components:
     - type: Transform
       pos: -1.5,15.5
@@ -67008,10 +67015,10 @@ entities:
       parent: 2
 - proto: VendingMachineHydrobe
   entities:
-  - uid: 905
+  - uid: 448
     components:
     - type: Transform
-      pos: -1.5,16.5
+      pos: -1.5,14.5
       parent: 2
 - proto: VendingMachineJaniDrobe
   entities:
@@ -67047,13 +67054,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,22.5
-      parent: 2
-- proto: VendingMachineNutri
-  entities:
-  - uid: 420
-    components:
-    - type: Transform
-      pos: -9.5,17.5
       parent: 2
 - proto: VendingMachinePride
   entities:
@@ -67118,15 +67118,13 @@ entities:
     - type: Transform
       pos: 44.5,-5.5
       parent: 2
-- proto: VendingMachineSeeds
-  entities:
-  - uid: 448
-    components:
-    - type: Transform
-      pos: -8.5,17.5
-      parent: 2
 - proto: VendingMachineSeedsUnlocked
   entities:
+  - uid: 905
+    components:
+    - type: Transform
+      pos: -9.5,17.5
+      parent: 2
   - uid: 3404
     components:
     - type: Transform
