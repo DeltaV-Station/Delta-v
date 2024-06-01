@@ -5291,6 +5291,9 @@ entities:
     - type: Transform
       pos: -27.5,15.5
       parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 2367
   - uid: 10047
     components:
     - type: Transform
@@ -54855,6 +54858,10 @@ entities:
       rot: 3.141592653589793 rad
       pos: -28.5,15.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        10045:
+        - Pressed: Open
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 1419
