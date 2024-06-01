@@ -45,3 +45,22 @@
   id: SalvageBoots
   equipment:
     shoes: ClothingShoesBootsSalvage
+
+- type: loadout # DeltaV
+  id: SalvageWinterBoots
+  equipment: SalvageWinterBoots
+
+- type: startingGear # DeltaV
+  id: SalvageWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterMiner
+
+# Neck - DeltaV
+- type: loadout # DeltaV
+  id: SalvageCloak
+  equipment: SalvageCloak
+
+- type: startingGear # DeltaV
+  id: SalvageCloak
+  equipment:
+    neck: ClothingNeckSalvager

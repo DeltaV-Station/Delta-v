@@ -22,9 +22,6 @@
     - type: MachinePart
       part: Capacitor
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - CapacitorStockPart
     - type: Tag
       tags:
         - CapacitorStockPart
@@ -41,9 +38,6 @@
     - type: MachinePart
       part: Manipulator
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MicroManipulatorStockPart
 
 - type: entity
   id: MatterBinStockPart
@@ -57,6 +51,3 @@
     - type: MachinePart
       part: MatterBin
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MatterBinStockPart

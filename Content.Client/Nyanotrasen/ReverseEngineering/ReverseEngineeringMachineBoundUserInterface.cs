@@ -1,13 +1,15 @@
 using Content.Shared.ReverseEngineering;
-using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Nyanotrasen.ReverseEngineering;
 
-[UsedImplicitly]
 public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInterface
 {
-    private ReverseEngineeringMachineMenu? _revMenu;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private ReverseEngineeringMachineMenu? _menu;
 
     public ReverseEngineeringMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -17,34 +19,40 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
     {
         base.Open();
 
-        _revMenu = new ReverseEngineeringMachineMenu();
+        if (_menu != null)
+            return;
 
-        _revMenu.OnClose += Close;
-        _revMenu.OpenCentered();
+        _menu = new ReverseEngineeringMachineMenu(Owner, _entMan, _timing);
 
-        _revMenu.OnScanButtonPressed += _ =>
+        _menu.OnClose += Close;
+        _menu.OpenCentered();
+
+        _menu.OnScanButtonPressed += () =>
         {
-            SendMessage(new ReverseEngineeringMachineScanButtonPressedMessage());
+            // every button flickering is bad so no prediction
+            SendMessage(new ReverseEngineeringScanMessage());
         };
 
-        _revMenu.OnSafetyButtonToggled += safetyArgs =>
+        _menu.OnSafetyButtonToggled += () =>
         {
-            SendMessage(new ReverseEngineeringMachineSafetyButtonToggledMessage(safetyArgs.Pressed));
+            SendPredictedMessage(new ReverseEngineeringSafetyMessage());
         };
 
-        _revMenu.OnAutoScanButtonToggled += autoArgs =>
+        _menu.OnAutoScanButtonToggled += () =>
         {
-            SendMessage(new ReverseEngineeringMachineAutoScanButtonToggledMessage(autoArgs.Pressed));
+            SendPredictedMessage(new ReverseEngineeringAutoScanMessage());
         };
 
-        _revMenu.OnStopButtonPressed += _ =>
+        _menu.OnStopButtonPressed += () =>
         {
-            SendMessage(new ReverseEngineeringMachineStopButtonPressedMessage());
+            // see scan button
+            SendMessage(new ReverseEngineeringStopMessage());
         };
 
-        _revMenu.OnEjectButtonPressed += _ =>
+        _menu.OnEjectButtonPressed += () =>
         {
-            SendMessage(new ReverseEngineeringMachineEjectButtonPressedMessage());
+            // doesn't sound nice when predicted
+            SendMessage(new ReverseEngineeringEjectMessage());
         };
     }
 
@@ -52,14 +60,10 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
     {
         base.UpdateState(state);
 
-        switch (state)
-        {
-            case ReverseEngineeringMachineScanUpdateState msg:
-                _revMenu?.SetButtonsDisabled(msg);
-                _revMenu?.UpdateInformationDisplay(msg);
-                _revMenu?.UpdateProbeTickProgressBar(msg);
-                break;
-        }
+        if (state is not ReverseEngineeringMachineState cast)
+            return;
+
+        _menu?.UpdateState(cast);
     }
 
     protected override void Dispose(bool disposing)
@@ -69,7 +73,8 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
         if (!disposing)
             return;
 
-        _revMenu?.Dispose();
+        _menu?.Close();
+        _menu?.Dispose();
     }
 }
 

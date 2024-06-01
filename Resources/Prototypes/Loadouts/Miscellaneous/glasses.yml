@@ -8,6 +8,15 @@
       role: JobLibrarian
       time: 3600 # 1 hour of being the biggest nerd on the station
 
+- type: loadoutEffectGroup # DeltaV
+  id: CheapSunglassesTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 7200 # 2 hours of being a rockstar
+
 - type: loadoutEffectGroup
   id: JensenTimer
   effects:
@@ -54,3 +63,16 @@
   id: GlassesJensen
   equipment:
     eyes: ClothingEyesGlassesJensen
+
+# Cheap Sunglasses - DeltaV
+- type: loadout # DeltaV
+  id: GlassesCheapSunglasses
+  equipment: GlassesCheapSunglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CheapSunglassesTimer
+  
+- type: startingGear # DeltaV
+  id: GlassesCheapSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
