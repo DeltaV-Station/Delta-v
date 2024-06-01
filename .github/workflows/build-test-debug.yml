@@ -2,7 +2,7 @@ name: Build & Test Debug
 
 on:
   push:
-    branches: [ master, staging, trying ]
+    branches: [ master, staging, trying, cursed ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]

@@ -26,14 +26,25 @@
   name: purple coat
   description: A fashionable puffy coat.
   components:
-    - type: ToggleableClothing
-      clothingPrototype: ClothingHeadPurpleHood
-    - type: Tag
-      tags:
-        - WhitelistChameleon
-    - type: TemperatureProtection
-      coefficient: 0.5
     - type: Sprite
       sprite: SimpleStation14/Clothing/OuterClothing/Coats/purplecoat.rsi
     - type: Clothing
       sprite: SimpleStation14/Clothing/OuterClothing/Coats/purplecoat.rsi
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadPurpleHood
+    - type: TemperatureProtection
+      coefficient: 0.5
+    - type: Storage
+      grid:
+      - 0,0,2,1
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    - type: Tag
+      tags:
+        - WhitelistChameleon

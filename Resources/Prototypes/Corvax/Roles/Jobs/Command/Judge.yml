@@ -1,6 +1,6 @@
 - type: job
   id: Judge
-  name: job-name-judge 
+  name: job-name-judge
   description: job-description-judge
   playTimeTracker: JobJudge
   requirements:
@@ -9,7 +9,7 @@
   startingGear: JudgeGear
   icon: "JobIconJudge"
   supervisors: job-supervisors-centcom
-  canBeAntag: false 
+  canBeAntag: false
   access:
   - Service
   - Maintenance

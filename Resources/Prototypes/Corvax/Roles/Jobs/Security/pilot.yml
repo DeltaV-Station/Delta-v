@@ -3,8 +3,9 @@
   name: job-name-pilot
   playTimeTracker: JobPilot
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 1200
   startingGear: PilotGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

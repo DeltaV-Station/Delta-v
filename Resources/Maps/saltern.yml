@@ -58008,6 +58008,8 @@ entities:
     - type: Transform
       pos: 22.5,-6.5
       parent: 31
+- proto: SpawnPointBlueshield
+  entities:
   - uid: 7910
     components:
     - type: Transform
@@ -58065,11 +58067,15 @@ entities:
     - type: Transform
       pos: -27.5,9.5
       parent: 31
+- proto: SpawnPointIAA
+  entities:
   - uid: 7166
     components:
     - type: Transform
       pos: -25.5,-7.5
       parent: 31
+- proto: SpawnPointSlugcat
+  entities:
   - uid: 10141
     components:
     - type: Transform
@@ -58089,8 +58095,6 @@ entities:
     - type: Transform
       pos: -9.5,-19.5
       parent: 31
-- proto: SpawnPointRoboticist
-  entities:
   - uid: 10527
     components:
     - type: Transform
@@ -58132,6 +58136,8 @@ entities:
     - type: Transform
       pos: -14.5,-26.5
       parent: 31
+- proto: SpawnPointRoboticist
+  entities:
   - uid: 10523
     components:
     - type: Transform

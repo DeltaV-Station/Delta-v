@@ -69,6 +69,17 @@
     - type: Icon
       sprite: Stray/Mobs/Species/IPCs/parts.rsi
       state: full
+    - type: Sprite
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
+      layers:
+      - state: IPC_e_r
+        map: ["enum.BorgVisualLayers.Light"]
+        shader: unshaded
+        visible: false
+      - state: IPC_l
+        shader: unshaded
+        map: ["light"]
+        visible: false
     # Damage and speed
     - type: MobThresholds
       thresholds:
@@ -168,6 +179,25 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellHyper
+    - type: BorgChassis
+      maxModules: 4
+      hasMindState: IPC_e
+      noMindState: IPC_e_r
+    - type: AccessReader
+      access: [["Engineering"], ["Command"], ["Research"]]
+    - type: ToggleableLightVisuals
+    - type: PointLight
+      enabled: false
+      radius: 1.1
+      autoRot: true
+      netsync: false
+    - type: HandheldLight
+      toggleOnInteract: false
+      wattage: 0.2
+      blinkingBehaviourId: blinking
+      radiatingBehaviourId: radiating
+    - type: Lock
+      locked: true
 
 - type: entity
   name: Urist McIPC
