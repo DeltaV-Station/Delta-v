@@ -33,8 +33,11 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 12 # DeltaV - was 10
-    startDelay: 30
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
+    weight: 12 # DeltaV - was 8
+    startDelay: 30 # DeltaV
     duration: 35
   - type: AnomalySpawnRule
 
@@ -42,9 +45,15 @@
   id: BluespaceArtifact
   parent: BaseStationEventShortDelay
   components:
+  - type: GameRule
+    delay:
+      min:  30
+      max:  30
   - type: StationEvent
-    weight: 5
-    startDelay: 30
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
+    weight: 8
     duration: 35
   - type: BluespaceArtifactRule
 
@@ -213,10 +222,7 @@
     startAudio:
       path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
-    earliestStart: 10
-    minimumPlayers: 5
-    weight: 10
-    startDelay: 20
+    weight: 10 # DeltaV - was 8
   - type: GasLeakRule
 
 - type: entity
@@ -226,8 +232,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 10 # DeltaV - Was 15
-    weight: 5
-    startDelay: 50
+    weight: 5 # DeltaV - was 7
     duration: 240
   - type: KudzuGrowthRule
 
@@ -246,7 +251,6 @@
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
-    startDelay: 30
   - type: MeteorSwarmRule
 
 - type: entity
@@ -257,10 +261,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    earliestStart: 20 #DeltaV - was 30
-    minimumPlayers: 25 #DeltaV - was 30
-    weight: 5
+    earliestStart: 20 #DeltaV - was 15
+    weight: 5 # DeltaV - was 6
     duration: 50
   - type: VentCrittersRule
     entries:
@@ -309,8 +311,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    weight: 5
+    weight: 5 # DeltaV - was 6
     duration: 50
   - type: VentCrittersRule
     entries:
@@ -331,7 +332,6 @@
       path: /Audio/Announcements/power_off.ogg
       params:
        volume: -4
-    startDelay: 24
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
@@ -375,7 +375,6 @@
     earliestStart: 20 # DeltaV - was 15
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
-    startDelay: 50
     duration: 60
   - type: VentClogRule
 
@@ -387,30 +386,6 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    earliestStart: 15
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-
-- type: entity
-  id: SlimesSpawn
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    startDelay: 10
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -432,7 +407,6 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -450,10 +424,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
     earliestStart: 45 # DeltaV - was 20
-    minimumPlayers: 30 # DeltaV - was 15
-    weight: 1
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
     duration: 60
   - type: VentCrittersRule
     entries:
