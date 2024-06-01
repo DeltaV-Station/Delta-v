@@ -196,7 +196,7 @@
 
 - type: entity
   id: BorgChassisMedical
-  parent: BaseBorgChassisNT
+  parent: [BaseBorgChassisNT, ShowMedicalIcons]
   name: medical cyborg
   components:
   - type: Sprite
