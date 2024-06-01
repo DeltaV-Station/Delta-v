@@ -72,14 +72,14 @@
     - type: Sprite
       sprite: Stray/Mobs/Species/IPCs/parts.rsi
       layers:
-    - state: IPC_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: IPC_l
-      shader: unshaded
-      map: ["light"]
-      visible: false
+      - state: IPC_e_r
+        map: ["enum.BorgVisualLayers.Light"]
+        shader: unshaded
+        visible: false
+      - state: IPC_l
+        shader: unshaded
+        map: ["light"]
+        visible: false
     # Damage and speed
     - type: MobThresholds
       thresholds:
@@ -196,6 +196,9 @@
       wattage: 0.2
       blinkingBehaviourId: blinking
       radiatingBehaviourId: radiating
+    - type: Lock
+      locked: true
+
 
 - type: entity
   name: Urist McIPC
