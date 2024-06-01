@@ -32,6 +32,7 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+  - type: ComplexInteraction
   - type: Puller
   - type: CombatMode
   - type: Physics
@@ -115,6 +116,7 @@
   #        aghost4: ""
   #        aghost5: ""
   #        aghost6: ""
+  - type: BypassInteractionChecks
 
 - type: entity
   id: ActionAGhostShowSolar
