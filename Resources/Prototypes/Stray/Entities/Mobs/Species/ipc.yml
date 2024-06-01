@@ -1,0 +1,210 @@
+- type: damageContainer
+  id: IPC
+  supportedGroups:
+    - Brute
+  supportedTypes:
+    - Asphyxiation
+    - Heat
+    - Shock
+    - Caustic
+
+- type: entity
+  save: false
+  name: Urist McIPC
+  parent: # we technically require multiple parents due to reimplementing BaseMobSpeciesOrganic but without the organics
+  - MobBloodstream
+  - MobAtmosStandard
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobIPC
+  abstract: true
+  components:
+    # beginregion Organic
+    - type: SSDIndicator
+    - type: Flashable
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Drunk
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - Muted
+      - Pacified
+      - StaminaModifier
+#    - type: NightVision
+    - type: ThermalRegulator
+      metabolismHeat: 0
+      radiatedHeat: 100
+      implicitHeatRegulation: 500
+      sweatHeatRegulation: 2000
+      shiveringHeatRegulation: 2000
+      normalBodyTemperature: 313.15
+      thermalRegulationTemperatureThreshold: 25
+    - type: FireVisuals
+      alternateState: Standing
+    - type: DamageVisuals
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#a76b1c"
+    # endregion Organic
+    # The important nessessities
+    - type: MovementSpeedModifier
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: HumanoidAppearance
+      species: IPC
+    - type: Damageable
+      damageContainer: IPC
+      damageModifierSet: Metallic
+    - type: Icon
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
+      state: full
+    - type: Sprite
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
+      layers:
+    - state: IPC_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: IPC_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+    # Damage and speed
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        140: Critical
+        200: Dead
+      stateAlertDict:
+        Alive: BorgHealth
+        Critical: BorgCrit
+        Dead: BorgDead
+      showOverlays: false
+      allowRevives: true
+    - type: Bloodstream
+      bloodReagent: Oil
+      bloodlossDamage:
+        types:
+          Heat: 0.25
+    - type: Temperature
+      heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
+      coldDamageThreshold: 283.15 # 10c aka "cold" causes condensation/freezing and as such shorting
+      currentTemperature: 313.15
+      specificHeat: 46
+      coldDamage:
+        types:
+          Heat: -2
+      heatDamage:
+        types:
+          Heat: 4
+    - type: Repairable
+      fuelCost: 5 # cause most of the fuel is used how long its turned on for
+      doAfterDelay: 15
+      damage:
+        types:
+          Blunt: -50 # you can't heal group damage. it doesn't work. wh y.
+          Slash: -50
+          Piercing: -50
+          Shock: -50
+          Caustic: -50
+          Heat: 15
+          Asphyxiation: -200 # TODO FIX DEATHGASPS
+      allowSelfRepair: true
+    - type: Barotrauma
+      damage:
+        types:
+          Heat: 0.3 # IPCs can't radiate well, they rely on air cooling
+          Blunt: 0.1
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.6
+        90: 0.4
+    # Misc
+    - type: Speech
+      speechSounds: IPC
+    - type: Vocal
+      sounds:
+        Male: UnisexIPC
+        Female: UnisexIPC
+        Unsexed: UnisexIPC
+      wilhelm:
+        path: /Audio/Voice/IPC/wilhelm.ogg
+      wilhelmProbability: 0.001
+    - type: Inventory
+      templateId: ipc
+    - type: ZombieImmune
+    - type: ShowJobIcons
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - Biological
+    - type: EyeProtection
+    - type: Eye
+      visMask:
+        - PsionicInvisibility
+        - Normal
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 200
+      damage:
+        types:
+          Heat: -0.15
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot { }
+        part-container: !type:Container
+    - type: PowerCellSlot
+      cellSlotId: cell_slot
+      fitsInCharger: true
+    - type: PowerCellDraw
+      drawRate: 2
+    - type: TypingIndicator
+      proto: robot
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+    - type: BorgChassis
+      maxModules: 4
+      hasMindState: IPC_e
+      noMindState: IPC_e_r
+    - type: AccessReader
+      access: [["Engineering"], ["Command"], ["Research"]]
+    - type: ToggleableLightVisuals
+    - type: PointLight
+      enabled: false
+      radius: 1.1
+      autoRot: true
+      netsync: false
+    - type: HandheldLight
+      toggleOnInteract: false
+      wattage: 0.2
+      blinkingBehaviourId: blinking
+      radiatingBehaviourId: radiating
+
+- type: entity
+  name: Urist McIPC
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  noSpawn: true
+  save: false
+  components:
+    - type: Inventory
+      templateId: ipc
+    - type: HumanoidAppearance
+      species: IPC
