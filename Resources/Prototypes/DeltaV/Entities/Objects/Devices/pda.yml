@@ -20,12 +20,14 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-  - type: CartridgeLoader # DeltaV - Crime Assist
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      - SecWatchCartridge
   - type: Pda
     id: BrigmedicIDCard
     state: pda-corpsman

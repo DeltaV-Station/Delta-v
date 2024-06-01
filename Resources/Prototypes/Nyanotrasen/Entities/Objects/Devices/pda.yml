@@ -32,12 +32,14 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-security
-  - type: CartridgeLoader # DeltaV - Crime Assist
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
