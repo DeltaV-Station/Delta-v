@@ -68,7 +68,7 @@
   - type: SpaceGarbage
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
+    - id: SheetGlass1
 
 - type: entity
   parent: BaseLightbulb
@@ -276,8 +276,8 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalCyan
+    - id: SheetGlass1
+    - id: ShardCrystalCyan
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -296,8 +296,8 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalBlue
+    - id: SheetGlass1
+    - id: ShardCrystalBlue
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -316,8 +316,8 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalPink
+    - id: SheetGlass1
+    - id: ShardCrystalPink
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -336,8 +336,8 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalOrange
+    - id: SheetGlass1
+    - id: ShardCrystalOrange
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -356,8 +356,8 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalRed
+    - id: SheetGlass1
+    - id: ShardCrystalRed
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -376,5 +376,5 @@
     node: icon
   - type: WelderRefinable
     refineResult:
-    - SheetGlass1
-    - ShardCrystalGreen
+    - id: SheetGlass1
+    - id: ShardCrystalGreen
