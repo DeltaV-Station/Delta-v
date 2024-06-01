@@ -102,7 +102,7 @@
     - Armory
     - Atmospherics
     - Bar
-    - Brig
+    #- Brig
     - Detective
     - Captain
     - Cargo
@@ -131,7 +131,8 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
-    - DV-SpareSafe
+    - DV-SpareSafe # DeltaV
+    - Orders # DeltaV
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg
