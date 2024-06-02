@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoLong
+  name: cargo tech jumpsuit
+  description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/cargotech.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/cargotech.rsi
