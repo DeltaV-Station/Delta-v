@@ -99,6 +99,16 @@
   equipment:
     head: ClothingHeadNurseHat
 
+# Neck - DeltaV
+- type: loadout # DeltaV
+  id: Stethoscope
+  equipment: Stethoscope
+
+- type: startingGear # DeltaV
+  id: Stethoscope
+  equipment:
+    neck: ClothingNeckStethoscope
+
 # Jumpsuit
 - type: loadout
   id: MedicalDoctorJumpsuit
