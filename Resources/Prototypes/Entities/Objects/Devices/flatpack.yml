@@ -129,8 +129,8 @@
   id: TeslaGeneratorFlatpack
   name: tesla generator flatpack
   description: A flatpack used for constructing a tesla generator.
-  #categories:  #Delta V - No Tesla fo DV
-  #- hideSpawnMenu
+  categories:  #Delta V - No Tesla fo DV
+  - hideSpawnMenu
   components:
   - type: Flatpack
     entity: TeslaGenerator
