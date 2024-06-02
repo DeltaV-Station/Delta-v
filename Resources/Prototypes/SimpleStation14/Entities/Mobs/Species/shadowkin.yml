@@ -1,9 +1,6 @@
 - type: entity
   save: false
-  parent:
-  - BaseMob
-  - MobDamageable
-  - MobCombat
+  parent: BaseMobSpecies
   id: BaseMobShadowkinPerson
   abstract: true
   components:
@@ -27,6 +24,9 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: unisex_full
       visible: false
+    - map: ["socks"]
+    - map: ["underpants"]
+    - map: ["undershirt"]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
