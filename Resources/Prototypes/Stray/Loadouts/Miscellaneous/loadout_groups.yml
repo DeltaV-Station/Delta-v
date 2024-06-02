@@ -1,0 +1,27 @@
+- type: loadoutGroup
+  id: Undershirt
+  name: loadout-group-undershirt
+  minLimit: 0
+  loadouts:
+  - shirt
+  - bra
+  - tanktop
+
+- type: loadoutGroup
+  id: Underpants
+  name: loadout-group-underpants
+  minLimit: 1
+  loadouts:
+  - boxer_briefs
+  - briefs
+  - boxers
+
+- type: loadoutGroup
+  id: Socks
+  name: loadout-group-socks
+  minLimit: 0
+  loadouts:
+  - Socks_norm
+  - Socks_short
+  - Socks_knee
+  - Socks_thigh
