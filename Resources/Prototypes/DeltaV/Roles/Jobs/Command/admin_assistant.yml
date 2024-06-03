@@ -9,7 +9,6 @@
       time: 21600 # 6 hours
     - !type:OverallPlaytimeRequirement 
       time: 36000 # 10 hours
-    - !type:WhitelistRequirement
   weight: 20
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
