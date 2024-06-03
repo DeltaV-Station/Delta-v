@@ -9,6 +9,14 @@
   - MailCarrierHead
 
 - type: loadoutGroup
+  id: CourierNeck
+  name: loadout-group-courier-neck
+  minLimit: 0
+  loadouts:
+  - ScarfBrown
+  - ScarfBlue
+
+- type: loadoutGroup
   id: CourierJumpsuit
   name: loadout-group-courier-jumpsuit
   loadouts:
@@ -48,6 +56,14 @@
   minLimit: 0
   loadouts:
   - CorpsmanBeret
+
+- type: loadoutGroup
+  id: BrigMedicNeck
+  name: loadout-group-brig-medic-neck
+  minLimit: 0
+  loadouts:
+  - ScarfRed
+  - ScarfBlue
 
 - type: loadoutGroup
   id: BrigMedicJumpsuit

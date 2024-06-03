@@ -50,16 +50,15 @@ public sealed class NukeOpsTest
         var invSys = server.System<InventorySystem>();
         var factionSys = server.System<NpcFactionSystem>();
 
-        // test urist is a noob let him be nukie
-        server.CfgMan.SetCVar(CCVars.GameRoleTimers, false);
-
-        Assert.That(server.CfgMan.GetCVar(CCVars.GridFill), Is.False);
         server.CfgMan.SetCVar(CCVars.GridFill, true);
 
         // Initially in the lobby
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(client.AttachedEntity, Is.Null);
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
+
+        // Opt into the nukies role.
+        await pair.SetAntagPref("NukeopsCommander", true);
 
         // There are no grids or maps
         Assert.That(entMan.Count<MapComponent>(), Is.Zero);
@@ -74,8 +73,6 @@ public sealed class NukeOpsTest
         Assert.That(entMan.Count<NukeOperativeComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeOpsShuttleComponent>(), Is.Zero);
         Assert.That(entMan.Count<NukeOperativeSpawnerComponent>(), Is.Zero);
-
-        /* DeltaV - test temporarily disabled until someone smart fixes opting in during test
 
         // Ready up and start nukeops
         await pair.WaitClientCommand("toggleready True");
@@ -201,10 +198,8 @@ public sealed class NukeOpsTest
             Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
 
-        DeltaV - end of commenting out */
-
         ticker.SetGamePreset((GamePresetPrototype?)null);
-        server.CfgMan.SetCVar(CCVars.GridFill, false);
+        await pair.SetAntagPref("NukeopsCommander", false);
         await pair.CleanReturnAsync();
     }
 }

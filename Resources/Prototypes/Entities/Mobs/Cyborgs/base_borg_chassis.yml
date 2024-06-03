@@ -84,6 +84,7 @@
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
+  - type: ComplexInteraction
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -285,3 +286,5 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#dd200b"
