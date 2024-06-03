@@ -89,7 +89,7 @@
     duration: 1
     earliestStart: 60 # DeltaV - was 45
     reoccurrenceDelay: 60
-    minimumPlayers: 25 #Stray - was 20
+    minimumPlayers: 20
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobDragon
@@ -120,7 +120,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 20 #Stray - was 40
+    minimumPlayers: 15 #Stray - was 40
   - type: NinjaSpawnRule
 
 - type: entity
@@ -456,7 +456,7 @@
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
     weight: 3.5 # DeltaV - was 5
-    minimumPlayers: 20
+    minimumPlayers: 10
     reoccurrenceDelay: 30
     duration: 1
   - type: LoadMapRule
