@@ -1,7 +1,36 @@
 - type: entity
-  id: AnomalySpawn
+  id: BaseStationEvent
   parent: BaseGameRule
-  noSpawn: true
+  abstract: true
+  components:
+    - type: GameRule
+      delay:
+        min:  10
+        max:  20
+
+- type: entity
+  id: BaseStationEventShortDelay
+  parent: BaseGameRule
+  abstract: true
+  components:
+    - type: GameRule
+      delay:
+        min:  10
+        max:  20
+
+- type: entity
+  id: BaseStationEventLongDelay
+  parent: BaseGameRule
+  abstract: true
+  components:
+    - type: GameRule
+      delay:
+        min:  40
+        max:  60
+
+- type: entity
+  id: AnomalySpawn
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     weight: 12 # DeltaV - was 10
@@ -11,8 +40,7 @@
 
 - type: entity
   id: BluespaceArtifact
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     weight: 5
@@ -23,7 +51,6 @@
 - type: entity
   id: BluespaceLocker
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 1
@@ -35,7 +62,6 @@
 - type: entity
   id: BreakerFlip
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 10
@@ -46,7 +72,6 @@
 - type: entity
   id: BureaucraticError
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
@@ -58,7 +83,6 @@
 - type: entity
   id: ClericalError
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-clerical-error-announcement
@@ -70,7 +94,6 @@
 - type: entity
   parent: BaseGameRule
   id: ClosetSkeleton
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 8 # DeltaV - was 10
@@ -82,7 +105,6 @@
 - type: entity
   parent: BaseGameRule
   id: DragonSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 1 # DeltaV - was 6.5
@@ -112,7 +134,6 @@
 - type: entity
   parent: BaseGameRule
   id: NinjaSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5 # DeltaV - was 6
@@ -163,7 +184,6 @@
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
@@ -173,20 +193,20 @@
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-- type: entity
-  id: FalseAlarm
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: StationEvent
-    weight: 15
-    duration: 1
-  - type: FalseAlarmRule
+
+# disabled until event is rewritten to be more interesting
+#- type: entity
+#  id: FalseAlarm
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    weight: 15
+#    duration: 1
+#  - type: FalseAlarmRule
 
 - type: entity
   id: GasLeak
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
@@ -201,8 +221,7 @@
 
 - type: entity
   id: KudzuGrowth
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
     earliestStart: 15
@@ -214,8 +233,7 @@
 
 - type: entity
   id: MeteorSwarm
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
     earliestStart: 30
@@ -233,8 +251,7 @@
 
 - type: entity
   id: MouseMigration
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -286,8 +303,7 @@
 
 - type: entity
   id: CockroachMigration
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -305,8 +321,7 @@
 
 - type: entity
   id: PowerGridCheck
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     weight: 10
@@ -324,7 +339,6 @@
 - type: entity
   parent: BaseGameRule
   id: SolarFlare
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 10
@@ -352,8 +366,7 @@
 
 - type: entity
   id: VentClog
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
@@ -367,9 +380,8 @@
   - type: VentClogRule
 
 - type: entity
-  id: VentCritters
-  parent: BaseGameRule
-  noSpawn: true
+  id: SlimesSpawn
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -414,8 +426,7 @@
 
 - type: entity
   id: SpiderSpawn
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -433,8 +444,7 @@
 
 - type: entity
   id: SpiderClownSpawn
-  parent: BaseGameRule
-  noSpawn: true
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -453,7 +463,6 @@
 - type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
@@ -486,7 +495,6 @@
         prototype: InitialInfected
 
 - type: entity
-  noSpawn: true
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
   components:
@@ -522,7 +530,6 @@
         prototype: Nukeops
 
 - type: entity
-  noSpawn: true
   parent: BaseTraitorRule
   id: SleeperAgents
   components:
@@ -554,7 +561,6 @@
 - type: entity
   id: MassHallucinations
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 10
@@ -570,7 +576,6 @@
 #- type: entity # DeltaV - Why does this exist??
 #  id: ImmovableRodSpawn
 #  parent: BaseGameRule
-#  noSpawn: true
 #  components:
 #  - type: StationEvent
 #    startAnnouncement: station-event-immovable-rod-start-announcement
@@ -608,7 +613,6 @@
 #      orGroup: rodProto
 
 - type: entity
-  noSpawn: true
   parent: BaseGameRule
   id: IonStorm
   components:
@@ -622,10 +626,10 @@
 #- type: entity
 #  id: MimicVendorRule
 #  parent: BaseGameRule
-#  noSpawn: true
 #  components:
 #    - type: StationEvent
 #      earliestStart: 0
 #      minimumPlayers: 20
+#      maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
 #      weight: 5
 #    - type: MobReplacementRule
