@@ -53,18 +53,10 @@
 
 - type: loadout # DeltaV
   id: SecurityJumpsuitBlue
-  equipment: SecurityJumpsuitBlue
-
-- type: startingGear # DeltaV
-  id: SecurityJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
 
 - type: loadout # DeltaV
-  id: SecurityJumpskirtBlue
-  equipment: SecurityJumpskirtBlue
-
-- type: startingGear # DeltaV
   id: SecurityJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecBlue
@@ -89,17 +81,17 @@
 - type: loadout
   id: SecurityBackpack
   equipment:
-    back: ClothingBackpackSecurityFilled
+    back: ClothingBackpackSecurity
 
 - type: loadout
   id: SecuritySatchel
   equipment:
-    back: ClothingBackpackSatchelSecurityFilled
+    back: ClothingBackpackSatchelSecurity
 
 - type: loadout
   id: SecurityDuffel
   equipment:
-    back: ClothingBackpackDuffelSecurityFilled
+    back: ClothingBackpackDuffelSecurity
 
 # Belt
 - type: loadout
@@ -120,18 +112,10 @@
 
 - type: loadout # DeltaV
   id: PlateCarrier
-  equipment: PlateCarrier
-
-- type: startingGear # DeltaV
-  id: PlateCarrier
   equipment:
     outerClothing: ClothingOuterArmorPlateCarrier
 
 - type: loadout # DeltaV
-  id: DuraVest
-  equipment: DuraVest
-
-- type: startingGear # DeltaV
   id: DuraVest
   equipment:
     outerClothing: ClothingOuterArmorDuraVest

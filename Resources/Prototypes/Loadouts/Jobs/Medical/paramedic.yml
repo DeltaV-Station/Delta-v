@@ -15,34 +15,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
 
-# Back
-- type: loadout
-  id: ParamedicBackpack
-  equipment: ParamedicBackpack
-
-- type: startingGear
-  id: ParamedicBackpack
-  equipment:
-    back: ClothingBackpackParamedicFilledDV
-
-- type: loadout
-  id: ParamedicSatchel
-  equipment: ParamedicSatchel
-
-- type: startingGear
-  id: ParamedicSatchel
-  equipment:
-    back: ClothingBackpackSatchelParamedicFilledDV
-
-- type: loadout
-  id: ParamedicDuffel
-  equipment: ParamedicDuffel
-
-- type: startingGear
-  id: ParamedicDuffel
-  equipment:
-    back: ClothingBackpackDuffelParamedicFilledDV
-
 # Outer clothing
 - type: loadout
   id: ParamedicWindbreaker
@@ -61,10 +33,6 @@
     shoes: ClothingShoesColorBlue
 
 - type: loadout # DeltaV
-  id: ParamedicWinterBoots
-  equipment: ParamedicWinterBoots
-
-- type: startingGear # DeltaV
   id: ParamedicWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterParamedic

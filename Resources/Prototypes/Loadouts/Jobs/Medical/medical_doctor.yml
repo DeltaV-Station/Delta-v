@@ -75,10 +75,6 @@
 # Neck - DeltaV
 - type: loadout # DeltaV
   id: Stethoscope
-  equipment: Stethoscope
-
-- type: startingGear # DeltaV
-  id: Stethoscope
   equipment:
     neck: ClothingNeckStethoscope
 
@@ -128,17 +124,17 @@
 - type: loadout
   id: MedicalDoctorBackpack
   equipment:
-    back: ClothingBackpackMedicalFilled
+    back: ClothingBackpackMedical
 
 - type: loadout
   id: MedicalDoctorSatchel
   equipment:
-    back: ClothingBackpackSatchelMedicalFilled
+    back: ClothingBackpackSatchelMedical
 
 - type: loadout
   id: MedicalDoctorDuffel
   equipment:
-    back: ClothingBackpackDuffelMedicalFilled
+    back: ClothingBackpackDuffelMedical
 
 # OuterClothing
 - type: loadout

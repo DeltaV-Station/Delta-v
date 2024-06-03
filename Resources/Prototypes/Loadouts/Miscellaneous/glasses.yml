@@ -55,12 +55,8 @@
 # Cheap Sunglasses - DeltaV
 - type: loadout # DeltaV
   id: GlassesCheapSunglasses
-  equipment: GlassesCheapSunglasses
   effects:
   - !type:GroupLoadoutEffect
     proto: CheapSunglassesTimer
-  
-- type: startingGear # DeltaV
-  id: GlassesCheapSunglasses
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
