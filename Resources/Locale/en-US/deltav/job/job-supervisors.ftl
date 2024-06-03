@@ -1,1 +1,1 @@
-job-supervisors-command = all command officials
+job-supervisors-command = all command staff

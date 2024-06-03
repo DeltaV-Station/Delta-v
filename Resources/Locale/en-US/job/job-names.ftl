@@ -49,7 +49,6 @@ job-name-visitor = Visitor
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
-JobAdministrativeAssistant = Administrative Assistant
 JobBartender = Bartender
 JobBorg = Borg
 JobBotanist = Botanist
