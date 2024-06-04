@@ -8,6 +8,7 @@
   - type: HumanoidAppearance
     species: Reptilian
   - type: Hunger
+    baseDecayRate: 0.05 # DeltaV
   - type: Puller
     needsHands: false
   - type: Thirst
