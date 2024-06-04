@@ -16,6 +16,11 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_delta.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_fland.yml
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           overflowJobs:
             - Passenger

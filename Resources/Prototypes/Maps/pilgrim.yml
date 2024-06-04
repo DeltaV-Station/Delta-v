@@ -14,6 +14,11 @@
             prefixCreator: 'TA'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_pilgrim.yml
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           overflowJobs:
             - Passenger

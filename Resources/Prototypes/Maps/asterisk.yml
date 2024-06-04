@@ -15,6 +15,11 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
