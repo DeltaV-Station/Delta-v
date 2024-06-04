@@ -28,13 +28,22 @@
     jumpsuit: ClothingUniformJumpskirtHoP
 
 - type: loadout # DeltaV
-  id: HoPMess
-  equipment: HoPMess
+  id: HoPMessSkirt
+  equipment: HoPMessSkirt
 
 - type: startingGear # DeltaV
-  id: HoPMess
+  id: HoPMessSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoPMess
+    
+- type: loadout # DeltaV
+  id: HoPMessSuit
+  equipment: HoPMessSuit
+
+- type: startingGear # DeltaV
+  id: HoPMessSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPMess
 
 - type: loadout # DeltaV
   id: HoPBoatswain
