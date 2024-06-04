@@ -1251,7 +1251,7 @@ namespace Content.Shared.CCVar
         ///     Config for when the restart vote should be allowed to be called regardless with less than this amount of players.
         /// </summary>
         public static readonly CVarDef<int> VoteRestartMaxPlayers =
-            CVarDef.Create("vote.restart_max_players", 20, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_max_players", 70, CVar.SERVERONLY);
 
         /// <summary>
         ///     Config for when the restart vote should be allowed to be called based on percentage of ghosts.
@@ -1263,19 +1263,19 @@ namespace Content.Shared.CCVar
         ///     See vote.enabled, but specific to preset votes
         /// </summary>
         public static readonly CVarDef<bool> VotePresetEnabled =
-            CVarDef.Create("vote.preset_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.preset_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to map votes
         /// </summary>
         public static readonly CVarDef<bool> VoteMapEnabled =
-            CVarDef.Create("vote.map_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.map_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The required ratio of the server that must agree for a restart round vote to go through.
         /// </summary>
         public static readonly CVarDef<float> VoteRestartRequiredRatio =
-            CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_required_ratio", 0.65f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether or not to prevent the restart vote from having any effect when there is an online admin
