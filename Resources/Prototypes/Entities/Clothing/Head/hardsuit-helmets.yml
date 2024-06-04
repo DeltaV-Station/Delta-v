@@ -454,7 +454,7 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersun
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
@@ -464,6 +464,8 @@
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
+  - type: PointLight
+    color: "#8B0000"
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
