@@ -22,7 +22,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.Player;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using static Content.Client.Inventory.ClientInventorySystem;
 using static Robust.Client.UserInterface.Control;
 
@@ -55,9 +54,13 @@ namespace Content.Client.Inventory
             _inv = EntMan.System<InventorySystem>();
             _cuffable = EntMan.System<SharedCuffableSystem>();
 
+            // TODO update name when identity changes
             var title = Loc.GetString("strippable-bound-user-interface-stripping-menu-title", ("ownerName", Identity.Name(Owner, EntMan)));
             _strippingMenu = new StrippingMenu(title, this);
             _strippingMenu.OnClose += Close;
+
+            // TODO use global entity
+            // BUIs are opened and closed while applying comp sates, so spawning entities here is probably not the best idea.
             _virtualHiddenEntity = EntMan.SpawnEntity(HiddenPocketEntityId, MapCoordinates.Nullspace);
         }
 

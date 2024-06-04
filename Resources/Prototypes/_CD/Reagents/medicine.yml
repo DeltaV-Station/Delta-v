@@ -485,6 +485,18 @@
         - !type:ReagentThreshold
           reagent: Agonolexyne
           max: 0.01
+        - !type:ReagentThreshold # Delta-V - Following four are also addictive
+          reagent: SpaceDrugs
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: THC
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Impedrezene
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Desoxyephedrine
+          max: 0.01
       - !type:AdjustReagent
         reagent: Charcoal # purges bloodstream cleaners
         amount: -10.0
@@ -492,7 +504,7 @@
         reagent: Ipecac # purges bloodstream cleaners
         amount: -10.0
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.95
+        walkSpeedModifier: 0.9 # Delta-V : Changes walk-speed modifier from 0.95 to 0.9
         sprintSpeedModifier: 0.7
         conditions:
         - !type:ReagentThreshold
@@ -507,6 +519,31 @@
           reagent: Agonolexyne
           max: 0.01
         - !type:ReagentThreshold # Delta-V - Following four are also addictive
+          reagent: SpaceDrugs
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: THC
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Impedrezene
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Desoxyephedrine
+          max: 0.01
+      - !type:GenericStatusEffect # Delta-V - Makes you stutter
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentThreshold 
+          reagent: Blissifylovene
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Soretizone
+          max: 0.01
+        - !type:ReagentThreshold
+          reagent: Agonolexyne
+          max: 0.01
+        - !type:ReagentThreshold 
           reagent: SpaceDrugs
           max: 0.01
         - !type:ReagentThreshold
