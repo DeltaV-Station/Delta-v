@@ -1,8 +1,6 @@
 using Content.Server.Administration.Systems;
-using Content.Server.Destructible.Thresholds;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;
