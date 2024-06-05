@@ -1,7 +1,7 @@
 - type: entity
   parent: LockerChiefJustice
   id: LockerChiefJusticeFilled
-  name: chief justice's locker
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -17,4 +17,5 @@
     - id: DoorRemoteJustice
     - id: Gavel
     - id: RubberStampChiefJustice
-
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3

@@ -51,3 +51,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsProsecutor ]
+      
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureLawyerLocked
+  suffix: Lawyer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLawyer ]
