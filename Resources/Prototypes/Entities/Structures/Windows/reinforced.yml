@@ -146,14 +146,14 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window_diagonal.rsi
+    sprite: DeltaV/Structures/Windows/reinforced_window_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: Structures/Windows/reinforced_window_diagonal.rsi
+    sprite: DeltaV/Structures/Windows/reinforced_window_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

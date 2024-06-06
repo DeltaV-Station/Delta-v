@@ -24,7 +24,7 @@
         layer:
         - GlassAirlockLayer
   - type: Sprite
-    sprite: Structures/Doors/Windoors/windoor.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/windoor.rsi #Delta V - Resprite Doors
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -153,7 +153,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Doors/Windoors/windoor.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/windoor.rsi #Delta V - Resprite Doors
     layers:
     - state: secure_underlay
     - state: closed
@@ -207,7 +207,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Doors/Windoors/plasma.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/plasma.rsi #Delta V - Resprite Doors
     layers:
     - state: closed
       map: [ "enum.DoorVisualLayers.Base" ]
@@ -261,7 +261,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Doors/Windoors/plasma.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/plasma.rsi #Delta V - Resprite Doors
     layers:
     - state: secure_underlay
     - state: closed
@@ -317,7 +317,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Doors/Windoors/uranium.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/uranium.rsi #Delta V - Resprite Doors
     layers:
     - state: closed
       map: [ "enum.DoorVisualLayers.Base" ]
@@ -371,7 +371,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Doors/Windoors/uranium.rsi
+    sprite: DeltaV/Structures/Doors/Windoors/uranium.rsi #Delta V - Resprite Doors
     layers:
     - state: secure_underlay
     - state: closed
