@@ -4,6 +4,7 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
@@ -23,6 +24,7 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
@@ -36,6 +38,7 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 216000 # DeltaV - 60 hours
