@@ -3,13 +3,11 @@
   mapName: 'Micro'
   mapPath: /Maps/micro.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 45
   stations:
     Micro:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Lox.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Micro "Snail" Station {1}'
           nameGenerator:
@@ -25,6 +23,7 @@
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 1 ]
             Clown: [ 1, 1 ]
+            Chef: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]
