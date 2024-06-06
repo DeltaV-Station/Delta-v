@@ -58,6 +58,8 @@
     # endregion Organic
     # The important nessessities
     - type: MovementSpeedModifier
+      baseWalkSpeed : 0.5
+      baseSprintSpeed : 5.5
     - type: Body
       prototype: IPC
       requiredLegs: 2
@@ -87,14 +89,14 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: unisex_full
         visible: false
-      - map: ["socks"]
-      - map: ["underpants"]
-      - map: ["undershirt"]
-      - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
@@ -156,7 +158,7 @@
       specificHeat: 46
       coldDamage:
         types:
-          Heat: -2
+          Heat: -0.01
       heatDamage:
         types:
           Heat: 4
@@ -176,8 +178,8 @@
     - type: Barotrauma
       damage:
         types:
-          Heat: 0.3 # IPCs can't radiate well, they rely on air cooling
-          Blunt: 0.1
+          Heat: 0.15 # IPCs can't radiate well, they rely on air cooling
+          Blunt: 0.01
     - type: SlowOnDamage
       speedModifierThresholds:
         70: 0.6
@@ -215,11 +217,12 @@
       damageCap: 200
       damage:
         types:
-          Heat: -0.15
+          Heat: -0.2
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot { }
         part-container: !type:Container
+        key_slots: !type:Container
     - type: PowerCellSlot
       cellSlotId: cell_slot
       fitsInCharger: true
@@ -247,6 +250,26 @@
       wattage: 0.2
       blinkingBehaviourId: blinking
       radiatingBehaviourId: radiating
+    - type: Headset
+    - type: EncryptionKeyHolder
+      keySlots: 4
+      examineWhileLocked: true
+      keysExtractionMethod: Cutting
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Binary
+        - Common
+        - Command
+        - Engineering
+        - Medical
+        - Science
+        - Security
+        - Service
+        - CentCom
+        - Syndicate
+        - Freelance
+    - type: LockedWiresPanel
 
 
 - type: entity
