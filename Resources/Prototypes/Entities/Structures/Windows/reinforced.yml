@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: DeltaV/Structures/Windows/reinforced_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: DetlaV/Structures/Windows/reinforced_window.rsi #Delta V - Resprite windows
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
@@ -86,10 +86,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/directional.rsi
+    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: reinforced_window
   - type: Icon
-    sprite: Structures/Windows/directional.rsi
+    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: reinforced_window
   - type: Construction
     graph: WindowDirectional
