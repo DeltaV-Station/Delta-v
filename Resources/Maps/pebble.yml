@@ -7731,7 +7731,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -18.5,11.5
       parent: 2
-- proto: AsteroidRock
+- proto: AsteroidAltRock
   entities:
   - uid: 349
     components:
@@ -11113,7 +11113,7 @@ entities:
     - type: Transform
       pos: 40.5,-17.5
       parent: 2
-- proto: AsteroidRockMining
+- proto: AsteroidAltRockMining
   entities:
   - uid: 998
     components:
@@ -28259,18 +28259,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -15.5,-15.5
       parent: 2
-- proto: chem_master
-  entities:
-  - uid: 4381
-    components:
-    - type: Transform
-      pos: -14.5,13.5
-      parent: 2
-  - uid: 4382
-    components:
-    - type: Transform
-      pos: -2.5,10.5
-      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 4383
@@ -28289,6 +28277,18 @@ entities:
     components:
     - type: Transform
       pos: -16.5,14.5
+      parent: 2
+- proto: ChemMaster
+  entities:
+  - uid: 4381
+    components:
+    - type: Transform
+      pos: -14.5,13.5
+      parent: 2
+  - uid: 4382
+    components:
+    - type: Transform
+      pos: -2.5,10.5
       parent: 2
 - proto: ChessBoard
   entities:
@@ -37027,14 +37027,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 5680
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,25.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 5681
     components:
     - type: Transform
@@ -41419,14 +41411,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 6246
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,20.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 6247
     components:
     - type: Transform
@@ -44279,14 +44263,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,11.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
-  - uid: 9197
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -21.5,15.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -58148,7 +58124,7 @@ entities:
     - type: Transform
       pos: 17.502792,-23.408857
       parent: 2
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 8761
     components:
@@ -59012,6 +58988,23 @@ entities:
     - type: Transform
       pos: 1.5,-12.5
       parent: 2
+- proto: SpawnPointCourier
+  entities:
+  - uid: 8928
+    components:
+    - type: Transform
+      pos: 11.5,5.5
+      parent: 2
+  - uid: 8929
+    components:
+    - type: Transform
+      pos: 12.5,5.5
+      parent: 2
+  - uid: 8930
+    components:
+    - type: Transform
+      pos: 7.5,5.5
+      parent: 2
 - proto: SpawnPointDetective
   entities:
   - uid: 8907
@@ -59187,23 +59180,6 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-4.5
-      parent: 2
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 8928
-    components:
-    - type: Transform
-      pos: 11.5,5.5
-      parent: 2
-  - uid: 8929
-    components:
-    - type: Transform
-      pos: 12.5,5.5
-      parent: 2
-  - uid: 8930
-    components:
-    - type: Transform
-      pos: 7.5,5.5
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
