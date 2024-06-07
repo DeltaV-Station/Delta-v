@@ -254,3 +254,29 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+
+# Theatre
+
+- type: entity
+  parent: UnsensoredClothingUniformBase # no soup sensors
+  id: ClothingUniformBaseTheatre
+  name: theatre base Clothing
+  description: you should not be seeing this
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Skirt # i'm not respriting for harpies
+    - ClothMade # no tag inheritance, moths need to eat this
+
+- type: entity
+  parent: ClothingUniformBaseTheatre
+  id: ClothingUniformJumpsuitTheatreKing
+  name: King's Tunic
+  description: royal and that
+  suffix: Theatre
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/theatreking.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/theatreking.rsi
