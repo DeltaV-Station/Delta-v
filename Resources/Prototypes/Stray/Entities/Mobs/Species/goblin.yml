@@ -17,11 +17,6 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeatGoblin
-      amount: 3
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
     sprite: Stray/Mobs/Species/Goblin/parts.rsi
     state: full
@@ -59,16 +54,9 @@
     damage:
       types:
         Blunt: 1
-  - type: Vocal
-    wilhelm: "/Audio/Stray/Voice/Goblin/goblin-cackle-05.ogg"
-    sounds:
-      Male: MaleGoblin
-      Female: FemaleGoblin
-      Unsexed: MaleGoblin
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-    - Goblin
   - type: Tag
     tags:
     - CanPilot
