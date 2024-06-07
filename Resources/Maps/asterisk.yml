@@ -25899,6 +25899,13 @@ entities:
     - type: Transform
       pos: 14.5,-9.5
       parent: 2
+- proto: ClosetLegalFilled
+  entities:
+  - uid: 9665
+    components:
+    - type: Transform
+      pos: -35.5,-2.5
+      parent: 2
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 991
@@ -26061,13 +26068,6 @@ entities:
     - type: Transform
       pos: -50.792625,-21.904589
       parent: 2
-- proto: ClothingHeadHatPwig
-  entities:
-  - uid: 9665
-    components:
-    - type: Transform
-      pos: -34.629375,0.6194455
-      parent: 2
 - proto: ClothingHeadHatWeldingMaskPainted
   entities:
   - uid: 3797
@@ -26170,13 +26170,6 @@ entities:
     components:
     - type: Transform
       pos: -12.656631,15.719198
-      parent: 2
-- proto: ClothingOuterRobesJudge
-  entities:
-  - uid: 9666
-    components:
-    - type: Transform
-      pos: -34.348125,0.50478333
       parent: 2
 - proto: ClothingOuterVestHazard
   entities:
@@ -48825,6 +48818,13 @@ entities:
     - type: Transform
       pos: 28.43166,-20.443384
       parent: 2
+- proto: GavelBlock
+  entities:
+  - uid: 11681
+    components:
+    - type: Transform
+      pos: -34.597218,-0.43544528
+      parent: 2
 - proto: GlassBoxLaserFilled
   entities:
   - uid: 4649
@@ -53213,11 +53213,6 @@ entities:
     - type: Transform
       pos: -35.5,2.5
       parent: 2
-  - uid: 11010
-    components:
-    - type: Transform
-      pos: -35.5,-2.5
-      parent: 2
 - proto: PottedPlant28
   entities:
   - uid: 10315
@@ -55688,6 +55683,11 @@ entities:
     components:
     - type: Transform
       pos: 48.5,1.5
+      parent: 2
+  - uid: 9666
+    components:
+    - type: Transform
+      pos: -42.5,3.5
       parent: 2
   - uid: 10247
     components:
@@ -63783,6 +63783,13 @@ entities:
     components:
     - type: Transform
       pos: -49.5,4.5
+      parent: 2
+- proto: TrialTimer
+  entities:
+  - uid: 11010
+    components:
+    - type: Transform
+      pos: -36.5,-0.49999997
       parent: 2
 - proto: TwoWayLever
   entities:
