@@ -192,3 +192,15 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCJToque
+  name: chief justice's toque
+  description: A standard-issue judicial hat. Wigs are old-fashioned anyway.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
+
