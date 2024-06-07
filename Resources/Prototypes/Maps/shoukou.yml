@@ -21,9 +21,8 @@
           availableJobs:
           #Service
             Passenger: [ -1, -1 ]
-            ServiceWorker: [ 1, 2]
+            ServiceWorker: [ 1, 2 ]
             Reporter: [ 0, 1 ]
-            Lawyer: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 1, 2 ]
             MartialArtist: [ 2, 3 ]
@@ -34,6 +33,11 @@
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+          #Justice
+            Chief Justice: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #Engineering
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 5 ]
