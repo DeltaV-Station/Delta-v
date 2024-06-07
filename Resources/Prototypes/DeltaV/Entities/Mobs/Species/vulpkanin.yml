@@ -44,14 +44,14 @@
         sprite: DeltaV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
         state: female_full
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
       - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: ["socks"]
       - map: ["underpants"]
       - map: ["undershirt"]
       - map: [ "jumpsuit" ]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
