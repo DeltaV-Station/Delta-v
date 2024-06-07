@@ -507,7 +507,6 @@ entities:
             color: '#6B2833DD'
             id: BrickLineOverlayN
           decals:
-            2679: -25,40
             2681: -34,44
             2682: -33,44
             2683: -32,44
@@ -519,11 +518,6 @@ entities:
             2689: -43,17
             2690: -42,17
             2691: -41,17
-        - node:
-            color: '#DE3A3A96'
-            id: BrickLineOverlayN
-          decals:
-            2680: -23,40
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -3452,6 +3446,11 @@ entities:
             1338: -33,3
             1339: -31,3
         - node:
+            color: '#6B2833DD'
+            id: FullTileOverlayGreyscale
+          decals:
+            2692: -25,40
+        - node:
             color: '#9FED5896'
             id: FullTileOverlayGreyscale
           decals:
@@ -3470,6 +3469,11 @@ entities:
             1018: -40,28
             1019: -40,27
             1020: -40,26
+        - node:
+            color: '#DE3A3A96'
+            id: FullTileOverlayGreyscale
+          decals:
+            2695: -23,40
         - node:
             color: '#EFB34196'
             id: FullTileOverlayGreyscale
@@ -3679,6 +3683,11 @@ entities:
             2608: 23,-5
             2609: 23,-4
         - node:
+            color: '#6B2833DD'
+            id: HalfTileOverlayGreyscale270
+          decals:
+            2693: -24,40
+        - node:
             color: '#9FED5896'
             id: HalfTileOverlayGreyscale270
           decals:
@@ -3785,6 +3794,11 @@ entities:
             2133: -15,-76
             2134: -15,-78
             2135: -15,-79
+        - node:
+            color: '#DE3A3A96'
+            id: HalfTileOverlayGreyscale90
+          decals:
+            2694: -24,40
         - node:
             color: '#EFB34196'
             id: HalfTileOverlayGreyscale90
@@ -48389,6 +48403,8 @@ entities:
       pos: -41.5,18.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
       - 29
@@ -71387,6 +71403,8 @@ entities:
       pos: -42.5,19.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
     - type: AtmosPipeColor
@@ -72763,6 +72781,8 @@ entities:
       pos: -41.5,21.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
     - type: AtmosPipeColor
@@ -72864,14 +72884,6 @@ entities:
     components:
     - type: Transform
       pos: -36.244873,-24.761852
-      parent: 2
-- proto: Gavel
-  entities:
-  - uid: 17584
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -24.50245,43.728203
       parent: 2
 - proto: GavelBlock
   entities:
@@ -81503,11 +81515,6 @@ entities:
     - type: Transform
       pos: -23.5,37.5
       parent: 2
-  - uid: 12141
-    components:
-    - type: Transform
-      pos: -20.5,44.5
-      parent: 2
   - uid: 12142
     components:
     - type: Transform
@@ -81659,6 +81666,12 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-3.5
+      parent: 2
+  - uid: 13746
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -23.5,45.5
       parent: 2
 - proto: PottedPlant1
   entities:
@@ -81989,6 +82002,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -34.5,19.5
+      parent: 2
+  - uid: 12141
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -43.5,49.5
       parent: 2
   - uid: 12215
     components:
@@ -83769,27 +83788,17 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -53.5,21.5
       parent: 2
+  - uid: 15856
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,48.5
+      parent: 2
   - uid: 17515
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -32.5,46.5
-      parent: 2
-  - uid: 17516
-    components:
-    - type: Transform
-      pos: -32.5,51.5
-      parent: 2
-  - uid: 17517
-    components:
-    - type: Transform
-      pos: -28.5,51.5
-      parent: 2
-  - uid: 17518
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -28.5,46.5
+      rot: -1.5707963267948966 rad
+      pos: -30.5,48.5
       parent: 2
   - uid: 17523
     components:
@@ -91112,11 +91121,6 @@ entities:
       parent: 2
 - proto: SignScience
   entities:
-  - uid: 13746
-    components:
-    - type: Transform
-      pos: -39.5,24.5
-      parent: 2
   - uid: 13747
     components:
     - type: Transform
@@ -109860,13 +109864,13 @@ entities:
     - type: Transform
       pos: -22.5,-6.5
       parent: 2
-- proto: WindoorSecureSecurityLocked
-  entities:
-  - uid: 15856
+  - uid: 17516
     components:
     - type: Transform
       pos: -22.5,40.5
       parent: 2
+- proto: WindoorSecureSecurityLocked
+  entities:
   - uid: 16974
     components:
     - type: Transform
