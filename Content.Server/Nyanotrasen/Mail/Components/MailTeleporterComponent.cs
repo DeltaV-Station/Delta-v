@@ -12,10 +12,10 @@ namespace Content.Server.Mail.Components
 
         // Not starting accumulator at 0 so mail carriers have some deliveries to make shortly after roundstart.
         [DataField("accumulator")]
-        public float Accumulator = 285f;
+        public float Accumulator = 1995f; // Frontier 285*7=1995
 
         [DataField("teleportInterval")]
-        public TimeSpan TeleportInterval = TimeSpan.FromMinutes(5);
+        public TimeSpan TeleportInterval = TimeSpan.FromMinutes(35);
 
         /// <summary>
         /// The sound that's played when new mail arrives.
