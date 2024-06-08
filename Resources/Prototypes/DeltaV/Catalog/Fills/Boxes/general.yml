@@ -16,6 +16,17 @@
     whitelist:
       components:
       - EncryptionKey
+      
+- type: entity
+  name: justice encryption key box
+  parent: BoxEncryptionKeyPassenger
+  id: BoxEncryptionKeyJustice
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EncryptionKeyJustice
+        amount: 4
 
 - type: entity
   name: syndicate radio implanter box
