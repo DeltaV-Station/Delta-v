@@ -281,6 +281,13 @@
     sprite: /Textures/Objects/Misc/monkeycube.rsi
     state: cube
     color: "#8A9A5B"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: BiomassDrink
+        Quantity: 60
+      - ReagentId: BiomassDrink
+        Quantity: 40
   - type: GuideHelp
     guides:
     - Cloning
@@ -292,6 +299,13 @@
   components:
   - type: Stack
     count: 1
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: BiomassDrink
+        Quantity: 6
+      - ReagentId: Blood
+        Quantity: 4
 
 # Following not used currently
 - type: entity

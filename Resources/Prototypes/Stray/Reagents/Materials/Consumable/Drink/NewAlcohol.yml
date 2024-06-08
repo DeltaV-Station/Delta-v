@@ -19,6 +19,30 @@
         amount: 0.08
 
 - type: reagent
+  id: BiomassDrink
+  name: reagent-name-biomassdrink
+  parent: BaseAlcohol
+  group: Biological
+  desc: reagent-desc-biomassdrink
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: metallic
+  color: "#960000"
+  slippery: true
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/BiomassDrink.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -15
+      - !type:ModifyBleedAmount
+        amount: 0.2
+      - !type:Emote
+        emote: Scream
+        probability: 0.25
+
+- type: reagent
   id: AnnasGift
   name: reagent-name-annasgift
   parent: BaseAlcohol
