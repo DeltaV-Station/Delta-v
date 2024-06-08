@@ -48547,6 +48547,8 @@ entities:
       pos: -41.5,18.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
       - 29
@@ -71520,6 +71522,8 @@ entities:
       pos: -42.5,19.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
     - type: AtmosPipeColor
@@ -72888,6 +72892,8 @@ entities:
       pos: -41.5,21.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11998
     - type: AtmosPipeColor
@@ -80419,38 +80425,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -52.542236,27.424635
       parent: 2
-  - uid: 11973
-    components:
-    - type: MetaData
-      desc: Nobody forces you to read it, you decide for yourself if you will or won't.
-      name: unaddressed letter
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -9.60897,1.5066981
-      parent: 2
-    - type: Paper
-      content: >-
-        The forest hardly changes
-            given any amount of time;
-        a bird can caw, a branch could fall,
-            but it'd still remain sublime.
-
-        The forest sometimes changes
-            as the years go by;
-        a seed that is placed, soon becomes a new face
-            in a world where it lives and dies.
-
-        The forest always changes
-            despite what I may say.
-        As generations pass, the forest lasts
-            to be enjoyed by another that day.
-
-
-        Edge Station was made possible with the help of Scientist, Redsky, ps3moira, and contributors in the #mapping channel in the Delta V discord.
-
-
-        Thank you for playing on Edge!
-            - Colin_Tel
   - uid: 17730
     components:
     - type: Transform
@@ -80477,6 +80451,44 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.987675,41.43302
       parent: 2
+  - uid: 17834
+    components:
+    - type: MetaData
+      name: unadressed letter
+    - type: Transform
+      pos: -9.547015,1.581632
+      parent: 2
+    - type: Paper
+      content: >-
+        The forest hardly changes
+            given any amount of time;
+        a bird can caw, a branch could fall,
+            but it'd still remain sublime.
+
+        The forest sometimes changes
+            as the years go by;
+        a seed that is placed, soon becomes a new face
+            in a world where it lives and dies.
+
+        The forest always changes
+            despite what I may say.
+        As generations pass, the forest lasts
+            to be enjoyed by another that day.
+
+
+        Edge Station was made possible with the help of Scientist, Redsky, ps3moira, and contributors in the #mapping channel in the Delta V discord.
+
+
+        Edge station was handed to DLondon in June of 2024
+
+        She continued the work of Colin and the other maintainers
+
+        Hopefully keeping Edge Station alive for years to come
+
+
+        Thank you for playing on Edge!
+            - Colin_Tel
+            - DLondon
 - proto: PaperBin10
   entities:
   - uid: 11974
@@ -92458,6 +92470,33 @@ entities:
     - type: Transform
       pos: 16.5,-27.5
       parent: 2
+- proto: SpawnPointDetective
+  entities:
+  - uid: 11973
+    components:
+    - type: Transform
+      pos: -45.5,-17.5
+      parent: 2
+  - uid: 17826
+    components:
+    - type: Transform
+      pos: -46.5,-17.5
+      parent: 2
+  - uid: 17827
+    components:
+    - type: Transform
+      pos: -46.5,-14.5
+      parent: 2
+  - uid: 17828
+    components:
+    - type: Transform
+      pos: -45.5,-14.5
+      parent: 2
+  - uid: 17829
+    components:
+    - type: Transform
+      pos: -37.5,-12.5
+      parent: 2
 - proto: SpawnPointForensicMantis
   entities:
   - uid: 13968
@@ -92689,6 +92728,26 @@ entities:
     components:
     - type: Transform
       pos: -38.5,9.5
+      parent: 2
+  - uid: 17830
+    components:
+    - type: Transform
+      pos: -37.5,9.5
+      parent: 2
+  - uid: 17831
+    components:
+    - type: Transform
+      pos: -37.5,10.5
+      parent: 2
+  - uid: 17832
+    components:
+    - type: Transform
+      pos: -36.5,10.5
+      parent: 2
+  - uid: 17833
+    components:
+    - type: Transform
+      pos: -36.5,9.5
       parent: 2
 - proto: SpawnPointMusician
   entities:
