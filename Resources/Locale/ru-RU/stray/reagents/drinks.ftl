@@ -1,5 +1,7 @@
 reagent-name-inglandsidr = Английский Сидр
 reagent-desc-inglandsidr = О да тебя придеться по кусочкам собирать. В АДУ!
+reagent-name-biomassdrink = Жидкая биомасса
+reagent-desc-biomassdrink = Ты будешь захлёбываться своими органами!      Мёртвые души жаждят мести
 reagent-name-annasgift = Подарок Анны
 reagent-desc-annasgift = Подарок всем кто даёт Спокойной Анне Сингуло!
 reagent-name-sinzan = "Сингуло"
