@@ -170,8 +170,11 @@ public partial class ChatSystem
         if (!_wordEmoteDict.TryGetValue(actionLower, out var emotes))
             return;
 
-        if (!AllowedToUseEmote(uid, emote))
-            return;
+        foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
+        {
+            if (!AllowedToUseEmote(uid, emote))
+                return;
+        }
 
         foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
         {
