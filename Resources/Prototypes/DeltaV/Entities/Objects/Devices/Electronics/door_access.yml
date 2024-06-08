@@ -93,3 +93,27 @@
   components:
   - type: AccessReader
     access: [["Mail"]]
+    
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChiefJustice
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+    
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsJustice
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+    
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsProsecutor
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]

@@ -1,0 +1,20 @@
+- type: accessLevel
+  id: ChiefJustice
+  name: id-card-access-level-cj
+
+- type: accessLevel
+  id: Justice
+  name: id-card-access-level-justice
+  
+- type: accessLevel
+  id: Prosecutor
+  name: id-card-access-level-prosecutor
+
+- type: accessGroup
+  id: Justice
+  tags:
+  - Justice
+  - Prosecutor
+  - ChiefJustice
+  - Lawyer
+  

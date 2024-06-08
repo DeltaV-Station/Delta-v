@@ -30,3 +30,7 @@ station-beacon-boxing-ring = Boxing
 station-beacon-park = Park
 
 station-beacon-corpsman = Corpsman
+
+station-beacon-justice = Justice
+station-beacon-chiefjustice = Chief Justice
+station-beacon-prosecutor = Prosecutor
