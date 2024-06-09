@@ -16,6 +16,25 @@
     sprite: Stray/Objects/Consumable/Drinks/Sidr.rsi
 
 - type: entity
+  parent: DrinkGlassBase
+  id: DrinkBiomassDring
+  name: Жидкая биомасса
+  description: Ты будешь захлёбываться своими органами!      Мёртвые души жаждят мести
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BiomassDrink
+          Quantity: 18
+        - ReagentId: Blood
+          Quantity: 12
+  - type: Drink
+  - type: Sprite
+    sprite: Stray/Objects/Consumable/Drinks/BiomassDrink.rsi
+
+- type: entity
   parent: DrinkBottlePlasticBaseFull
   id: JuiceAppleJug
   name: Кувшин яблочного сока
