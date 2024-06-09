@@ -3,9 +3,9 @@
   name: job-name-prosecutor
   description: job-description-prosecutor
   playTimeTracker: JobProsecutor
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 36000 # 10 hrs
   startingGear: ProsecutorGear
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj
