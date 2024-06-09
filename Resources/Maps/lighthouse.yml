@@ -47349,15 +47349,8 @@ entities:
   - uid: 10791
     components:
     - type: Transform
-      anchored: True
       pos: 12.5,30.5
       parent: 100
-    - type: Physics
-      bodyType: Static
-    - type: Lock
-      locked: True
-    - type: PointLight
-      enabled: True
 - proto: DiceBag
   entities:
   - uid: 2168
