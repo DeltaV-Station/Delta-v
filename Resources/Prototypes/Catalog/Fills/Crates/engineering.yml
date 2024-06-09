@@ -32,16 +32,16 @@
       - id: ToolboxElectricalFilled
         amount: 2
 
-#- type: entity
-#  id: CrateEngineeringPowercell
-#  parent: CrateElectrical
-#  name: AME crate
-#  description: Three microcreactor powercells.
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: PowerCellMicroreactor
-#        amount: 3
+- type: entity
+  id: CrateEngineeringPowercell
+  parent: CrateElectrical
+  name: AME crate
+  description: Three microcreactor powercells.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PowerCellMicroreactor
+        amount: 3
 
 - type: entity
   id: CrateEngineeringCableLV
