@@ -25,6 +25,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - FullBodyOuter
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
 
@@ -39,6 +40,17 @@
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.15
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - FullBodyOuter
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -76,30 +88,29 @@
   name: atmos fire suit
   description: An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
   components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.001
-  - type: FireProtection
-    reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.9
-        Heat: 0.8
-        Cold: 0.8
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: HeldSpeedModifier
-  - type: GroupExamine
-  - type: ClothingRequiredStepTriggerImmune
-    slots: WITHOUT_POCKET
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.02
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coefficient: 0.001
+    - type: Armor
+      modifiers:
+        coefficients:
+          Slash: 0.9
+          Heat: 0.3 #DeltaV: Was 0.8
+          Cold: 0.2 #DeltaV: Was 0.8
+    - type: ClothingSpeedModifier
+      walkModifier: 0.8
+      sprintModifier: 0.8
+    - type: HeldSpeedModifier
+    - type: GroupExamine
+    - type: Tag
+      tags:
+        - FullBodyOuter
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -125,6 +136,9 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -178,6 +192,9 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBase
@@ -205,6 +222,9 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBase
