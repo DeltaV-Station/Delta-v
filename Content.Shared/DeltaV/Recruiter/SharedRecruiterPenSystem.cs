@@ -93,7 +93,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         if (CheckBlacklist(ent, user, "sign"))
             return;
 
-        if (blood.Value.Comp.Solution.AvailableVolume == 0)
+        if (blood.Value.Comp.Solution.AvailableVolume > 0)
         {
             Popup.PopupEntity(Loc.GetString("recruiter-pen-empty", ("pen", uid)), user, user);
             return;

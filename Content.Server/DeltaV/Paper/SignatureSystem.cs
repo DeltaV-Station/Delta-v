@@ -72,10 +72,10 @@ public sealed class SignatureSystem : EntitySystem
         if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState, comp))
         {
             // Show popups and play a paper writing sound
-            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", Name(paper)));
+            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
             _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
 
-            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", Name(paper)));
+            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
             _popup.PopupEntity(signedSelfMessage, signer, signer);
 
             _audio.PlayPvs(comp.Sound, signer);
