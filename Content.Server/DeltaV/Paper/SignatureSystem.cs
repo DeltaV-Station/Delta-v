@@ -1,6 +1,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Paper;
 using Content.Server.Popups;
+using Content.Shared.DeltaV.Paper;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
@@ -26,20 +27,20 @@ public sealed class SignatureSystem : EntitySystem
         SubscribeLocalEvent<PaperComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
     }
 
-    private void OnGetAltVerbs(EntityUid uid, PaperComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetAltVerbs(Entity<PaperComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        var pen = args.Using;
-        if (pen == null || !_tagSystem.HasTag(pen.Value, "Write"))
+        if (args.Using is not {} pen || !_tagSystem.HasTag(pen, "Write"))
             return;
 
+        var user = args.User;
         AlternativeVerb verb = new()
         {
             Act = () =>
             {
-                TrySignPaper((uid, component), args.User);
+                TrySignPaper(ent, user, pen);
             },
             Text = Loc.GetString("paper-sign-verb"),
             DoContactInteraction = true,
@@ -51,10 +52,13 @@ public sealed class SignatureSystem : EntitySystem
     /// <summary>
     ///     Tries add add a signature to the paper with signer's name.
     /// </summary>
-    public bool TrySignPaper(Entity<PaperComponent?> paper, EntityUid signer)
+    public bool TrySignPaper(Entity<PaperComponent> paper, EntityUid signer, EntityUid pen)
     {
-        var paperComp = paper.Comp;
-        if (!Resolve(paper, ref paperComp))
+        var comp = paper.Comp;
+
+        var ev = new SignAttemptEvent(paper, signer);
+        RaiseLocalEvent(pen, ref ev);
+        if (ev.Cancelled)
             return false;
 
         var signatureName = DetermineEntitySignature(signer);
@@ -65,18 +69,18 @@ public sealed class SignatureSystem : EntitySystem
             StampedColor = Color.DarkSlateGray, // TODO: make configurable? Perhaps it should depend on the pen.
         };
 
-        if (!paperComp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState, paperComp))
+        if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState, comp))
         {
             // Show popups and play a paper writing sound
-            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper));
+            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", Name(paper)));
             _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
 
-            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper));
+            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", Name(paper)));
             _popup.PopupEntity(signedSelfMessage, signer, signer);
 
-            _audio.PlayPvs(paperComp.Sound, signer);
+            _audio.PlayPvs(comp.Sound, signer);
 
-            _paper.UpdateUserInterface(paper, paperComp);
+            _paper.UpdateUserInterface(paper, comp);
 
             return true;
         }
