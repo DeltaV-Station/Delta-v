@@ -86,7 +86,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         var user = args.User;
         if (!comp.Bound)
         {
-            Popup.PopupClient(Loc.GetString("recruiter-pen-locked", ("pen", uid)), user, user);
+            Popup.PopupEntity(Loc.GetString("recruiter-pen-locked", ("pen", uid)), user, user);
             return;
         }
 
@@ -95,7 +95,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
 
         if (blood.Value.Comp.Solution.AvailableVolume == 0)
         {
-            Popup.PopupClient(Loc.GetString("recruiter-pen-empty", ("pen", uid)), user, user);
+            Popup.PopupEntity(Loc.GetString("recruiter-pen-empty", ("pen", uid)), user, user);
             return;
         }
 
@@ -115,7 +115,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         var (uid, comp) = ent;
         if (comp.Blacklist?.IsValid(user) == true || comp.MindBlacklist?.IsValid(mind) == true)
         {
-            Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
+            Popup.PopupEntity(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;
         }
 
@@ -135,6 +135,6 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
     /// </summary>
     protected virtual bool Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)
     {
-        return ent.Comp.Recruited.Add(user);
+        return !ent.Comp.Recruited.Add(user);
     }
 }
