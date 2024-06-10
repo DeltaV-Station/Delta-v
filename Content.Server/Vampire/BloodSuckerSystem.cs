@@ -15,8 +15,6 @@ using Content.Server.HealthExaminable;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 

@@ -1,6 +1,5 @@
 using Content.Server.Popups;
 using Content.Shared.Interaction;
-using Robust.Shared.Player;
 
 namespace Content.Server.Vampiric
 {

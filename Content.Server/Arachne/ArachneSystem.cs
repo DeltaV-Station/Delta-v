@@ -1,23 +1,17 @@
 using Content.Shared.Arachne;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Events;
-using Content.Shared.Coordinates.Helpers;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Maps;
 using Content.Shared.DoAfter;
-using Content.Shared.Physics;
 using Content.Shared.Stunnable;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Buckle.Systems;
 using Content.Server.Popups;
@@ -25,7 +19,6 @@ using Content.Server.DoAfter;
 using Content.Server.Body.Components;
 using Content.Server.Vampiric;
 using Content.Server.Speech.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -36,11 +29,7 @@ namespace Content.Server.Arachne
 {
     public sealed class ArachneSystem : EntitySystem
     {
-        [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly HungerSystem _hungerSystem = default!;
-        [Dependency] private readonly ThirstSystem _thirstSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly BuckleSystem _buckleSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
@@ -49,9 +38,7 @@ namespace Content.Server.Arachne
 
         [Dependency] private readonly IServerConsoleHost _host = default!;
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         private const string BodySlot = "body_slot";
 
