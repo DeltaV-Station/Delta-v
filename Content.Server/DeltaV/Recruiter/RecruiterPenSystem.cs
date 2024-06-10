@@ -45,7 +45,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         if (!ent.Comp.Recruited.Add(user))
             return;
 
-        if (ent.Comp.RecuiterMind is {} mindId &&
+        if (ent.Comp.RecruiterMind is {} mindId &&
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
