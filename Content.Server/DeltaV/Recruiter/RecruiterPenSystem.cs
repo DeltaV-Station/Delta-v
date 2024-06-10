@@ -23,13 +23,20 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
             return;
 
         var desired = dest.Comp.Solution.AvailableVolume;
+        // TODO: when bloodstream is shared put the transfer in shared so PopupClient is actually used, and this popup isnt needed
+        if (desired == 0)
+        {
+            Popup.PopupEntity(Loc.GetString("recruiter-pen-prick-full", ("pen", uid)), user, user);
+            return;
+        }
+
         if (_transfer.Transfer(user, user, blood, uid, dest, desired) != desired)
             return;
 
         // this is why you have to keep the pen safe, it has the dna of everyone you recruited!
         _forensics.TransferDna(uid, user, canDnaBeCleaned: false);
 
-        Popup.PopupEntity(Loc.GetString("recruiter-pen-pricked", ("pen", Name(uid))), user, user, PopupType.LargeCaution);
+        Popup.PopupEntity(Loc.GetString("recruiter-pen-pricked", ("pen", uid)), user, user, PopupType.LargeCaution);
     }
 
     protected override bool Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)

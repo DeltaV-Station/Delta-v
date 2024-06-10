@@ -23,6 +23,9 @@
     solutions:
       blood:
         maxVol: 35
+  - type: RefillableSolution
+    solution: blood
+    maxRefill: 0
   - type: SolutionContainerVisuals
     solutionName: blood
   - type: MeleeWeapon
