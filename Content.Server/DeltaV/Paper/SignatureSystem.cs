@@ -87,7 +87,7 @@ public sealed class SignatureSystem : EntitySystem
         else
         {
             // Show an error popup
-            _popup.PopupEntity(Loc.GetString("paper-signed-failure", ("target", paper)), signer, signer, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("paper-signed-failure", ("target", paper.Owner)), signer, signer, PopupType.SmallCaution);
 
             return false;
         }
