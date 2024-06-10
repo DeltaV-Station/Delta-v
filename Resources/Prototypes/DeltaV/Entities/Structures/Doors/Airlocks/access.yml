@@ -71,6 +71,24 @@
     containers:
       board: [ DoorElectronicsProsecutor ]
 
+- type: entity
+  parent: AirlockJustice
+  id: AirlockClerkLocked
+  suffix: Clerk, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClerk ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockClerkGlassLocked
+  suffix: Clerk, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClerk ]
+
 # Maintenance
 - type: entity
   parent: AirlockMaint
@@ -98,6 +116,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsProsecutor ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintClerkLocked
+  suffix: Clerk, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClerk ]
 
 - type: entity
   parent: AirlockSecurity
