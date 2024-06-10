@@ -117,3 +117,11 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
+    
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClerk
+  suffix: Clerk, Locked
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
