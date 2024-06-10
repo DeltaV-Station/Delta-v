@@ -1,3 +1,6 @@
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+
 namespace Content.Shared.Arachne
 {
     [RegisterComponent]
@@ -18,5 +21,12 @@ namespace Content.Shared.Arachne
 
         [DataField("webBloodReagent")]
         public string WebBloodReagent = "Blood";
+
+        [DataField("webActionId",
+        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string? WebActionId = "SpinWeb";
+
+        [DataField("dispelActionEntity")]
+        public EntityUid? WebActionEntity;
     }
 }

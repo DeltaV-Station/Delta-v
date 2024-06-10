@@ -79,8 +79,7 @@ namespace Content.Server.Arachne
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
         {
-            if (_prototypeManager.TryIndex<WorldTargetActionPrototype>("SpinWeb", out var spinWeb))
-                _actions.AddAction(uid, new WorldTargetAction(spinWeb), null);
+            _actions.AddAction(uid, ref component.WebActionEntity, component.WebActionId);
         }
 
         private void AddCocoonVerb(EntityUid uid, ArachneComponent component, GetVerbsEvent<InnateVerb> args)
@@ -244,13 +243,11 @@ namespace Content.Server.Arachne
             }
 
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer,
-            Filter.PvsExcept(args.Performer).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(args.Performer, entity, ExamineRange, null)),
-            true,
             Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, args.Performer, Shared.Popups.PopupType.Medium);
 
             var ev = new ArachneWebDoAfterEvent(coords);
-            var doAfterArgs = new DoAfterArgs(args.Performer, arachne.WebDelay, ev, args.Performer)
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, arachne.WebDelay, ev, args.Performer)
             {
                 BreakOnUserMove = true,
             };
@@ -261,9 +258,6 @@ namespace Content.Server.Arachne
         private void StartCocooning(EntityUid uid, ArachneComponent component, EntityUid target)
         {
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid,
-                // TODO: We need popup occlusion lmao
-                Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
-                true,
                 Shared.Popups.PopupType.MediumCaution);
 
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-second-person", ("target", Identity.Entity(target, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
@@ -277,7 +271,7 @@ namespace Content.Server.Arachne
             // Who knows, there's no docs!
             var ev = new ArachneCocoonDoAfterEvent();
 
-            var args = new DoAfterArgs(uid, delay, ev, uid, target: target)
+            var args = new DoAfterArgs(EntityManager, uid, delay, ev, uid, target: target)
             {
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
@@ -293,12 +287,10 @@ namespace Content.Server.Arachne
 
             _hungerSystem.ModifyHunger(uid, -8);
             if (TryComp<ThirstComponent>(uid, out var thirst))
-                _thirstSystem.UpdateThirst(thirst, -20);
+                _thirstSystem.ModifyThirst(uid, thirst, -20);
 
             Spawn("ArachneWeb", args.Coords.SnapToGrid());
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(uid, EntityManager))), uid,
-            Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
-            true,
             Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), uid, uid, Shared.Popups.PopupType.Medium);
             args.Handled = true;
