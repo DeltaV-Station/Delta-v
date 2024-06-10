@@ -7227,7 +7227,7 @@ entities:
   - uid: 792
     components:
     - type: Transform
-      pos: 40.18936,0.7892815
+      pos: 40.647785,0.57293576
       parent: 2
   - uid: 11869
     components:
@@ -7336,6 +7336,8 @@ entities:
     - type: Transform
       pos: 44.5,5.5
       parent: 2
+    - type: SignalTimer
+      label: CELL1
     - type: DeviceLinkSource
       linkedPorts:
         9934:
@@ -7347,6 +7349,8 @@ entities:
     - type: Transform
       pos: 44.5,2.5
       parent: 2
+    - type: SignalTimer
+      label: CELL2
     - type: DeviceLinkSource
       linkedPorts:
         9933:
@@ -56612,12 +56616,6 @@ entities:
       chance: 0.3
 - proto: Multitool
   entities:
-  - uid: 3464
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 40.69613,0.3944652
-      parent: 2
   - uid: 10633
     components:
     - type: Transform
@@ -56888,30 +56886,6 @@ entities:
     - type: Transform
       pos: -12.627535,32.25263
       parent: 2
-  - uid: 11970
-    components:
-    - type: Transform
-      pos: 40.65444,0.6376903
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >-
-        To any staffed officers managing the prison cells:
-
-
-        The technician that was trusted to outfit functioning brig timers was able to successfully bolt them into place next to the two cell doors.
-
-
-        Unfortunately, after an encounter with a foul lasagna on that same day, he fell ill and required immediate transport to Central before he could link them to the cell doors.
-
-
-        We have supplied the Security department one (1) multitool for the purpose of completing the task of linking the timers to the doors. Alternatively, station engineering can be called upon for this task.
-
-
-        Regardless of your choice, this paper is the hand receipt for this piece of equipment. Please do not lose it!
   - uid: 11971
     components:
     - type: Transform
