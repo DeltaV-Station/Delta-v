@@ -39,17 +39,16 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         Popup.PopupEntity(Loc.GetString("recruiter-pen-pricked", ("pen", uid)), user, user, PopupType.LargeCaution);
     }
 
-    protected override bool Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)
+    protected override void Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)
     {
-        if (!base.Recruit(ent, user))
-            return false;
+        // only increment count once if 1 person signs multiple papers
+        if (!ent.Comp.Recruited.Add(user))
+            return;
 
         if (ent.Comp.RecuiterMind is {} mindId &&
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
         }
-
-        return true;
     }
 }

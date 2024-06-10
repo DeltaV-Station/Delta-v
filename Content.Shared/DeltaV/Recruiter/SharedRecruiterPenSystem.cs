@@ -133,8 +133,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
     /// <summary>
     /// Handle greentext if the user is signing something for the first time.
     /// </summary>
-    protected virtual bool Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)
+    protected virtual void Recruit(Entity<RecruiterPenComponent> ent, EntityUid user)
     {
-        return !ent.Comp.Recruited.Add(user);
     }
 }
