@@ -121,8 +121,8 @@
   parent: JobIcon
   id: JobIconLawyer
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Lawyer
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi # DeltaV - Move Lawyer into Justice
+    state: Lawyer # DeltaV - Move Lawyer into Justice
 
 - type: statusIcon
   parent: JobIcon
