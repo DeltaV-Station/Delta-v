@@ -31,23 +31,23 @@
       - state: prisoner
   - type: MidRoundAntagSpawnLocation
 
-# - type: entity
-#   id: SpawnPointGhostVampSpider
-#   name: ghost role spawn point
-#   suffix: Vampire spider
-#   parent: MarkerBase
-#   noSpawn: true
-#   components:
-#   - type: GhostRoleMobSpawner
-#     prototype: MobGiantSpiderVampireAngry
-#   - type: GhostRole
-#     makeSentient: true
-#     name: ghost-role-information-giant-spider-vampire-name
-#     description: ghost-role-information-giant-spider-vampire-description
-#     rules: No antagonist restrictions. Just don't talk in emote; you have telepathic chat.
-#   - type: Sprite
-#     sprite: Markers/jobs.rsi
-#     layers:
-#       - state: green
-#       - sprite: Mobs/Animals/bat.rsi
-#         state: bat
+- type: entity
+  id: SpawnPointGhostVampSpider
+  name: ghost role spawn point
+  suffix: Vampire spider
+  parent: MarkerBase
+  noSpawn: true
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobGiantSpiderVampireAngry
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-giant-spider-vampire-name
+    description: ghost-role-information-giant-spider-vampire-description
+    rules: No antagonist restrictions. Just don't talk in emote; you have telepathic chat.
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/bat.rsi
+        state: bat

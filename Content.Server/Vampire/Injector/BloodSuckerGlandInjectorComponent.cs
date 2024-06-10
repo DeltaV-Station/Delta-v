@@ -4,7 +4,7 @@ namespace Content.Server.Vampiric
     /// <summary>
     /// Item that gives a bloodsucker injection glands (for poison, usually)
     /// </summary>
-    public sealed class BloodSuckerGlandInjectorComponent : Component
+    public sealed partial class BloodSuckerGlandInjectorComponent : Component
     {
         public bool Used = false;
 

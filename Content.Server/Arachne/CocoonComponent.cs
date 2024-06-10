@@ -1,7 +1,7 @@
 namespace Content.Server.Arachne
 {
     [RegisterComponent]
-    public sealed class CocoonComponent : Component
+    public sealed partial class CocoonComponent : Component
     {
         public bool WasReplacementAccent = false;
 

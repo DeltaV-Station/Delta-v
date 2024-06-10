@@ -401,6 +401,22 @@
       prob: 0.03 # DeltaV - was 0.05
 
 - type: entity
+  id: OneirophageSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    id: VentCritters
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobGiantSpiderVampireAngry
+      prob: 0.01
+
+- type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
   noSpawn: true

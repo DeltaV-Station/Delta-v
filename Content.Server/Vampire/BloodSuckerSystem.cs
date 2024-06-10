@@ -17,6 +17,7 @@ using Content.Server.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Vampiric
@@ -34,6 +35,7 @@ namespace Content.Server.Vampiric
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -130,21 +132,14 @@ namespace Content.Server.Vampiric
                 return;
             }
 
-            if (_bloodstreamSystem.GetBloodLevelPercentage(victim, stream) <= 1)
-            {
-                if (HasComp<BloodSuckedComponent>(victim))
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood-bloodsucked", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-                else
-                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
-
-                return;
-            }
+            if (_solutionSystem.PercentFull(stream.Owner) != 0)
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
             var ev = new BloodSuckDoAfterEvent();
-            var args = new DoAfterArgs(EntityManager, bloodsucker, new TimeSpan(bloodSuckerComponent.SuccDelay), ev, bloodsucker, target: victim)
+            var args = new DoAfterArgs(EntityManager, bloodsucker, bloodSuckerComponent.Delay, ev, bloodsucker, target: victim)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
@@ -155,14 +150,14 @@ namespace Content.Server.Vampiric
             _doAfter.TryStartDoAfter(args);
         }
 
-        public bool TrySucc(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
+        public bool TrySucc(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null)
         {
             // Is bloodsucker a bloodsucker?
             if (!Resolve(bloodsucker, ref bloodsuckerComp))
                 return false;
 
             // Does victim have a bloodstream?
-            if (!Resolve(victim, ref bloodstream))
+            if (!TryComp<BloodstreamComponent>(victim, out var bloodstream))
                 return false;
 
             // No blood left, yikes.
@@ -178,12 +173,8 @@ namespace Content.Server.Vampiric
                 return false;
 
             // Are we too full?
-            var unitsToDrain = bloodsuckerComp.UnitsToSucc;
 
-            if (_solutionSystem.TryGetDrainableSolution(stomachList) < unitsToDrain)
-                unitsToDrain = (float) stomachSolution.AvailableVolume;
-
-            if (unitsToDrain <= 2)
+            if (_solutionSystem.PercentFull(bloodsucker) >= 1)
             {
                 _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
                 return false;
@@ -192,14 +183,16 @@ namespace Content.Server.Vampiric
             _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
 
             // All good, succ time.
-            SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker), bloodsucker);
+            _audio.PlayPvs("/Audio/Items/drink.ogg", bloodsucker);
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, bloodsucker, Shared.Popups.PopupType.Medium);
             EnsureComp<BloodSuckedComponent>(victim);
 
             // Make everything actually ingest.
-            var temp = _solutionSystem.SplitSolution(victim, bloodstream.BloodSolution, unitsToDrain);
-            temp.DoEntityReaction(bloodsucker, Shared.Chemistry.Reagent.ReactionMethod.Ingestion);
+            if (bloodstream.BloodSolution == null)
+                return false;
+
+            var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
             _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
 
             // Add a little pierce
@@ -208,10 +201,11 @@ namespace Content.Server.Vampiric
 
             _damageableSystem.TryChangeDamage(victim, damage, true, true);
 
-            if (bloodsuckerComp.InjectWhenSucc && _solutionSystem.TryGetInjectableSolution(victim, out var injectable))
-            {
-                _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
-            }
+            //I'm not porting the nocturine gland, this code is deprecated, and will be reworked at a later date.
+            //if (bloodsuckerComp.InjectWhenSucc && _solutionSystem.TryGetInjectableSolution(victim, out var injectable))
+            //{
+            //    _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
+            //}
             return true;
         }
 

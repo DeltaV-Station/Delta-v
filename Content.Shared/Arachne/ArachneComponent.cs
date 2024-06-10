@@ -1,14 +1,13 @@
+using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Arachne
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed partial class ArachneComponent : Component
     {
-        [DataField("webDelay")]
-        public float WebDelay = 5f;
-
         [DataField("cocoonDelay")]
         public float CocoonDelay = 12f;
 
@@ -21,12 +20,5 @@ namespace Content.Shared.Arachne
 
         [DataField("webBloodReagent")]
         public string WebBloodReagent = "Blood";
-
-        [DataField("webActionId",
-        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? WebActionId = "SpinWeb";
-
-        [DataField("dispelActionEntity")]
-        public EntityUid? WebActionEntity;
     }
 }

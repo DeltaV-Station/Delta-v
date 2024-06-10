@@ -1,5 +1,6 @@
 using Content.Shared.Arachne;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
@@ -15,32 +16,26 @@ using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Buckle.Systems;
-using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
 using Content.Server.Body.Components;
 using Content.Server.Vampiric;
 using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Player;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using Robust.Server.Console;
-using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Arachne
 {
     public sealed class ArachneSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly HungerSystem _hungerSystem = default!;
         [Dependency] private readonly ThirstSystem _thirstSystem = default!;
@@ -63,23 +58,13 @@ namespace Content.Server.Arachne
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<ArachneComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<ArachneComponent, GetVerbsEvent<InnateVerb>>(AddCocoonVerb);
 
             SubscribeLocalEvent<CocoonComponent, EntInsertedIntoContainerMessage>(OnCocEntInserted);
             SubscribeLocalEvent<CocoonComponent, EntRemovedFromContainerMessage>(OnCocEntRemoved);
             SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
-
-            SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
-
-            SubscribeLocalEvent<ArachneComponent, ArachneWebDoAfterEvent>(OnWebDoAfter);
             SubscribeLocalEvent<ArachneComponent, ArachneCocoonDoAfterEvent>(OnCocoonDoAfter);
-        }
-
-        private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
-        {
-            _actions.AddAction(uid, ref component.WebActionEntity, component.WebActionId);
         }
 
         private void AddCocoonVerb(EntityUid uid, ArachneComponent component, GetVerbsEvent<InnateVerb> args)
@@ -198,63 +183,6 @@ namespace Content.Server.Arachne
                 _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
-        private void OnSpinWeb(SpinWebActionEvent args)
-        {
-            if (!TryComp<ArachneComponent>(args.Performer, out var arachne))
-                return;
-
-            if (_containerSystem.IsEntityInContainer(args.Performer))
-                return;
-
-            TryComp<HungerComponent>(args.Performer, out var hunger);
-            TryComp<ThirstComponent>(args.Performer, out var thirst);
-
-            if (hunger != null && thirst != null)
-            {
-                if (hunger.CurrentThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-hungry"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
-                    return;
-                }
-                if (thirst.CurrentThirstThreshold <= ThirstThreshold.Thirsty)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-thirsty"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
-                    return;
-                }
-            }
-
-            var coords = args.Target;
-            if (!_mapManager.TryGetGrid(coords.GetGridUid(EntityManager), out var grid))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-space"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
-                return;
-            }
-
-            foreach (var entity in coords.GetEntitiesInTile())
-            {
-                PhysicsComponent? physics = null; // We use this to check if it's impassable
-                if ((HasComp<WebComponent>(entity)) || // Is there already a web there?
-                    ((Resolve(entity, ref physics, false) && (physics.CollisionLayer & (int) CollisionGroup.Impassable) != 0) // Is it impassable?
-                    &&  !(TryComp<DoorComponent>(entity, out var door) && door.State != DoorState.Closed))) // Is it a door that's open and so not actually impassable?
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-blocked"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
-                    return;
-                }
-            }
-
-            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer,
-            Shared.Popups.PopupType.MediumCaution);
-            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, args.Performer, Shared.Popups.PopupType.Medium);
-
-            var ev = new ArachneWebDoAfterEvent(coords);
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, arachne.WebDelay, ev, args.Performer)
-            {
-                BreakOnUserMove = true,
-            };
-
-            _doAfter.TryStartDoAfter(doAfterArgs);
-        }
-
         private void StartCocooning(EntityUid uid, ArachneComponent component, EntityUid target)
         {
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid,
@@ -280,22 +208,6 @@ namespace Content.Server.Arachne
             _doAfter.TryStartDoAfter(args);
         }
 
-        private void OnWebDoAfter(EntityUid uid, ArachneComponent component, ArachneWebDoAfterEvent args)
-        {
-            if (args.Handled || args.Cancelled)
-                return;
-
-            _hungerSystem.ModifyHunger(uid, -8);
-            if (TryComp<ThirstComponent>(uid, out var thirst))
-                _thirstSystem.ModifyThirst(uid, thirst, -20);
-
-            Spawn("ArachneWeb", args.Coords.SnapToGrid());
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(uid, EntityManager))), uid,
-            Shared.Popups.PopupType.MediumCaution);
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), uid, uid, Shared.Popups.PopupType.Medium);
-            args.Handled = true;
-        }
-
         private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, ArachneCocoonDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Target == null)
@@ -319,9 +231,6 @@ namespace Content.Server.Arachne
                 var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.35, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
-
-            _inventorySystem.TryUnequip(args.Args.Target.Value, "ears", true, true);
-
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Args.Target.Value, args.Args.User);
             _itemSlots.SetLock(cocoon, BodySlot, true, slots);
@@ -332,6 +241,4 @@ namespace Content.Server.Arachne
             args.Handled = true;
         }
     }
-
-    public sealed partial class SpinWebActionEvent : WorldTargetActionEvent {}
 }

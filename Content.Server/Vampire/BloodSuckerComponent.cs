@@ -1,7 +1,7 @@
 namespace Content.Server.Vampiric
 {
     [RegisterComponent]
-    public sealed class BloodSuckerComponent : Component
+    public sealed partial class BloodSuckerComponent : Component
     {
         /// <summary>
         /// How much to succ each time we succ.
@@ -12,8 +12,8 @@ namespace Content.Server.Vampiric
         /// <summary>
         /// The time (in seconds) that it takes to succ an entity.
         /// </summary>
-        [DataField("succDelay")]
-        public long SuccDelay = 4;
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public TimeSpan Delay = TimeSpan.FromSeconds(4);
 
         // ***INJECT WHEN SUCC***
 
