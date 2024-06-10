@@ -115,7 +115,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         var (uid, comp) = ent;
         if (comp.Blacklist?.IsValid(user) == true || comp.MindBlacklist?.IsValid(mind) == true)
         {
-            Popup.PopupEntity(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
+            Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;
         }
 
