@@ -41717,6 +41717,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,48.5
       parent: 100
+  - uid: 1976
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.368727,59.58782
+      parent: 100
+  - uid: 1978
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.306227,57.509693
+      parent: 100
   - uid: 2002
     components:
     - type: Transform
@@ -41821,12 +41833,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -11.5,80.5
       parent: 100
-  - uid: 4899
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,60.5
-      parent: 100
   - uid: 5684
     components:
     - type: Transform
@@ -41847,7 +41853,7 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -11.5,58.5
+      pos: -11.290602,61.58782
       parent: 100
   - uid: 10695
     components:
@@ -51215,6 +51221,9 @@ entities:
         11198:
         - OutputHigh: Forward
         - OutputLow: Off
+    - type: Physics
+      canCollide: False
+      bodyType: Static
 - proto: ElectricGuitarInstrument
   entities:
   - uid: 728
@@ -108842,12 +108851,19 @@ entities:
     - type: Transform
       pos: -10.5,62.5
       parent: 100
-- proto: SpawnPointChiefMedicalOfficer
+- proto: SpawnPointChiefJustice
   entities:
-  - uid: 1978
+  - uid: 11136
     components:
     - type: Transform
-      pos: -11.5,58.5
+      pos: -11.5,59.5
+      parent: 100
+- proto: SpawnPointChiefMedicalOfficer
+  entities:
+  - uid: 20931
+    components:
+    - type: Transform
+      pos: -11.5,57.5
       parent: 100
 - proto: SpawnPointClerk
   entities:
@@ -109357,10 +109373,10 @@ entities:
       parent: 100
 - proto: SpawnPointQuartermaster
   entities:
-  - uid: 1976
+  - uid: 4899
     components:
     - type: Transform
-      pos: -11.5,60.5
+      pos: -11.5,61.5
       parent: 100
 - proto: SpawnPointReporter
   entities:
