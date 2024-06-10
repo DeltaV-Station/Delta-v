@@ -160,3 +160,11 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-prosecutor
+    
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconClerk
+  suffix: Clerk
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clerk
