@@ -3,6 +3,7 @@
   id: JobCourier
   groups:
   - CourierHead
+  - CourierNeck
   - CourierJumpsuit
   - CourierOuterClothing
   - CourierPDA
@@ -15,9 +16,43 @@
   id: JobBrigmedic
   groups:
   - BrigMedicHead
+  - BrigMedicNeck
   - BrigMedicJumpsuit
   - BrigMedicBack
   - SecurityShoes
   - SecurityOuterClothing
   - MedicalGloves
+  - Trinkets
+  
+# Justice
+- type: roleLoadout
+  id: JobChiefJustice
+  groups:
+  - ChiefJusticeHead
+  - ChiefJusticeJumpsuit
+  - ChiefJusticeNeck
+  - ChiefJusticeOuterClothing
+  - CommonBackpack
+  - ChiefJusticeShoes
+  - Glasses
+  - Trinkets
+  
+- type: roleLoadout
+  id: JobClerk
+  groups:
+  - ClerkJumpsuit
+  - ClerkNeck
+  - ClerkOuterClothing
+  - CommonBackpack
+  - ClerkShoes
+  - Glasses
+  - Trinkets
+  
+- type: roleLoadout
+  id: JobProsecutor
+  groups:
+  - ProsecutorJumpsuit
+  - ProsecutorNeck
+  - LawyerBackpack
+  - Glasses
   - Trinkets

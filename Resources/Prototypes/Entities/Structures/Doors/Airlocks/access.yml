@@ -11,7 +11,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockJustice # DeltaV - Lawyer is in Justice Dept
   id: AirlockLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -72,15 +72,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsHydroponics ]
-
-- type: entity
-  parent: AirlockCommandLocked
-  id: AirlockServiceCaptainLocked
-  suffix: Captain, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsCaptain ]
 
 - type: entity
   parent: AirlockExternal
@@ -423,8 +414,8 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceGlassLocked
-  id: AirlockLawyerGlassLocked
+  parent: AirlockJusticeGlass
+  id: AirlockLawyerGlassLocked # DeltaV - Lawyer is in Justice Dept
   suffix: Lawyer, Locked
   components:
   - type: ContainerFill

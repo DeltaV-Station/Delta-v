@@ -64,6 +64,13 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         foreach (var (group, groupLoadouts) in SelectedLoadouts)
         {
+            // Check the group is even valid for this role.
+            if (!roleProto.Groups.Contains(group))
+            {
+                groupRemove.Add(group);
+                continue;
+            }
+
             // Dump if Group doesn't exist
             if (!protoManager.TryIndex(group, out var groupProto))
             {
@@ -78,7 +85,15 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             {
                 var loadout = loadouts[i];
 
+                // Old prototype or otherwise invalid.
                 if (!protoManager.TryIndex(loadout.Prototype, out var loadoutProto))
+                {
+                    loadouts.RemoveAt(i);
+                    continue;
+                }
+
+                // Malicious client maybe, check the group even has it.
+                if (!groupProto.Loadouts.Contains(loadout.Prototype))
                 {
                     loadouts.RemoveAt(i);
                     continue;
