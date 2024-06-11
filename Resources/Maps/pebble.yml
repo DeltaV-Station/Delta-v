@@ -7129,6 +7129,8 @@ entities:
       pos: 4.5,-26.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 47
   - uid: 259
@@ -7456,7 +7458,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5211
-      - 5663
       - 5233
       - 5246
       - 26
@@ -14492,6 +14493,11 @@ entities:
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 39
+    components:
+    - type: Transform
+      pos: -20.5,4.5
+      parent: 2
   - uid: 137
     components:
     - type: Transform
@@ -14501,6 +14507,11 @@ entities:
     components:
     - type: Transform
       pos: -19.5,14.5
+      parent: 2
+  - uid: 410
+    components:
+    - type: Transform
+      pos: -22.5,6.5
       parent: 2
   - uid: 1522
     components:
@@ -14520,7 +14531,7 @@ entities:
   - uid: 1619
     components:
     - type: Transform
-      pos: -21.5,5.5
+      pos: -22.5,5.5
       parent: 2
   - uid: 1620
     components:
@@ -17722,16 +17733,6 @@ entities:
     - type: Transform
       pos: -22.5,8.5
       parent: 2
-  - uid: 2268
-    components:
-    - type: Transform
-      pos: -21.5,7.5
-      parent: 2
-  - uid: 2269
-    components:
-    - type: Transform
-      pos: -21.5,6.5
-      parent: 2
   - uid: 2270
     components:
     - type: Transform
@@ -20876,6 +20877,26 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-27.5
+      parent: 2
+  - uid: 11402
+    components:
+    - type: Transform
+      pos: -22.5,7.5
+      parent: 2
+  - uid: 11403
+    components:
+    - type: Transform
+      pos: -22.5,8.5
+      parent: 2
+  - uid: 11404
+    components:
+    - type: Transform
+      pos: -19.5,4.5
+      parent: 2
+  - uid: 11405
+    components:
+    - type: Transform
+      pos: -23.5,4.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -35256,16 +35277,6 @@ entities:
       - 5428
       - 5363
       - 5317
-  - uid: 5663
-    components:
-    - type: Transform
-      pos: -17.5,6.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 291
-      - 6340
-      - 8413
   - uid: 7031
     components:
     - type: Transform
@@ -35406,7 +35417,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 5663
       - 5246
       - 7031
       - 88
@@ -36261,7 +36271,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 5663
       - 5246
       - 7031
       - 88
@@ -48238,6 +48247,8 @@ entities:
       pos: 5.5,-28.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 47
   - uid: 11104
@@ -48278,6 +48289,8 @@ entities:
       pos: 4.5,-32.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11233
       - 47
@@ -48926,6 +48939,8 @@ entities:
       pos: 5.5,-26.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 47
     - type: AtmosPipeColor
@@ -54327,10 +54342,20 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
+  - uid: 6012
+    components:
+    - type: Transform
+      pos: -19.5,7.5
+      parent: 2
   - uid: 6968
     components:
     - type: Transform
       pos: -25.5,-11.5
+      parent: 2
+  - uid: 7616
+    components:
+    - type: Transform
+      pos: -20.5,7.5
       parent: 2
   - uid: 7856
     components:
@@ -57736,11 +57761,6 @@ entities:
     - type: Transform
       pos: 40.5,16.5
       parent: 2
-  - uid: 410
-    components:
-    - type: Transform
-      pos: -23.5,6.5
-      parent: 2
   - uid: 2629
     components:
     - type: Transform
@@ -57770,11 +57790,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,3.5
-      parent: 2
-  - uid: 5309
-    components:
-    - type: Transform
-      pos: -21.5,9.5
       parent: 2
   - uid: 5649
     components:
@@ -57822,15 +57837,10 @@ entities:
     - type: Transform
       pos: -13.5,12.5
       parent: 2
-  - uid: 7616
-    components:
-    - type: Transform
-      pos: -14.5,10.5
-      parent: 2
   - uid: 7947
     components:
     - type: Transform
-      pos: -14.5,7.5
+      pos: -16.5,10.5
       parent: 2
   - uid: 8045
     components:
@@ -58782,6 +58792,11 @@ entities:
     components:
     - type: Transform
       pos: -31.5,6.5
+      parent: 2
+  - uid: 10660
+    components:
+    - type: Transform
+      pos: -18.5,12.5
       parent: 2
   - uid: 11024
     components:
@@ -62635,7 +62650,7 @@ entities:
   - uid: 1878
     components:
     - type: Transform
-      pos: -17.57217,5.5860868
+      pos: -14.497406,3.7313738
       parent: 2
 - proto: Table
   entities:
@@ -63655,12 +63670,6 @@ entities:
       parent: 2
 - proto: TableReinforcedGlass
   entities:
-  - uid: 39
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -17.5,5.5
-      parent: 2
   - uid: 1530
     components:
     - type: Transform
@@ -64607,7 +64616,7 @@ entities:
   - uid: 6343
     components:
     - type: Transform
-      pos: -20.5,7.5
+      pos: -17.5,5.5
       parent: 2
 - proto: VendingMachineMediDrobe
   entities:
@@ -71667,10 +71676,25 @@ entities:
       parent: 2
 - proto: Window
   entities:
-  - uid: 6012
+  - uid: 2268
     components:
     - type: Transform
-      pos: -18.5,12.5
+      pos: -14.5,10.5
+      parent: 2
+  - uid: 2269
+    components:
+    - type: Transform
+      pos: -14.5,7.5
+      parent: 2
+  - uid: 5309
+    components:
+    - type: Transform
+      pos: -23.5,6.5
+      parent: 2
+  - uid: 5663
+    components:
+    - type: Transform
+      pos: -21.5,9.5
       parent: 2
   - uid: 8293
     components:
@@ -71726,11 +71750,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,32.5
-      parent: 2
-  - uid: 10660
-    components:
-    - type: Transform
-      pos: -16.5,10.5
       parent: 2
   - uid: 10726
     components:
