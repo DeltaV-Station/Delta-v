@@ -11,9 +11,6 @@
         Manipulator: 1
       materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # delta
-      recipes:
-        - AutolatheMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -53,9 +50,6 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering # delta
-      recipes:
-        - ProtolatheMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -169,9 +163,6 @@
         Amount: 2
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
-  - type: ReverseEngineering # Nyano
-    recipes:
-      - CircuitImprinterMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -241,10 +232,6 @@
     requirements:
       MatterBin: 1
       Manipulator: 2
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - UniformPrinterMachineCircuitboard
 
 - type: entity
   id: VaccinatorMachineCircuitboard
@@ -520,9 +507,6 @@
       MatterBin: 1
     materialRequirements:
       Glass: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - CondenserMachineCircuitBoard
 
 - type: entity
   id: PortableScrubberMachineCircuitBoard
@@ -560,9 +544,6 @@
       Capacitor: 2
     materialRequirements:
       Cable: 5
-  - type: ReverseEngineering # delta
-    recipes:
-      - SpaceHeaterMachineCircuitBoard
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -655,9 +636,6 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - ChemMasterMachineCircuitboard
 
 - type: entity
   id: ChemDispenserMachineCircuitboard
@@ -679,9 +657,6 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - ChemDispenserMachineCircuitboard
 
 - type: entity
   id: BiomassReclaimerMachineCircuitboard
@@ -768,9 +743,6 @@
         PowerCell: 4
       materialRequirements:
         CableHV: 10
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SMESMachineCircuitboard
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -903,9 +875,6 @@
       materialRequirements:
         CableMV: 5
         CableHV: 5
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SubstationMachineCircuitboard
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -1075,10 +1044,6 @@
           Amount: 1
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - ReagentGrinderMachineCircuitboard
 
 - type: entity
   id: HotplateMachineCircuitboard
@@ -1092,10 +1057,6 @@
         Capacitor: 2
       materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - HotplateMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1110,10 +1071,6 @@
     materialRequirements:
       Glass: 2
       Cable: 5
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - ElectricGrillMachineCircuitboard
 
 - type: entity
   id: StasisBedMachineCircuitboard
@@ -1149,9 +1106,6 @@
       Capacitor: 2
     materialRequirements:
       Cable: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - ElectrolysisUnitMachineCircuitboard
 
 - type: entity
   id: CentrifugeMachineCircuitboard
@@ -1167,9 +1121,6 @@
       Manipulator: 1
     materialRequirements:
       Steel: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - CentrifugeMachineCircuitboard
 
 - type: entity
   id: MaterialReclaimerMachineCircuitboard
@@ -1185,10 +1136,6 @@
       materialRequirements:
         Steel: 5
         Plastic: 5
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - MaterialReclaimerMachineCircuitboard
 
 - type: entity
   id: OreProcessorMachineCircuitboard
@@ -1204,9 +1151,6 @@
         Manipulator: 3
       materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - OreProcessorMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1256,9 +1200,6 @@
       materialRequirements:
         Glass: 2
         Cable: 2
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MicrowaveMachineCircuitboard
     - type: Tag
       tags:
       - MicrowaveMachineBoard
@@ -1315,10 +1256,6 @@
       materialRequirements:
         CableHV: 5
         Glass: 2
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - EmitterCircuitboard
 
 - type: entity
   id: SurveillanceCameraRouterCircuitboard
@@ -1419,9 +1356,6 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - BoozeDispenserMachineCircuitboard
 
 - type: entity
   id: CargoTelepadMachineCircuitboard
@@ -1460,9 +1394,6 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SodaDispenserMachineCircuitboard
 
 - type: entity
   id: TelecomServerCircuitboard

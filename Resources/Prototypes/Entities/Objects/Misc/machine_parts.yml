@@ -9,6 +9,8 @@
       sprite: Objects/Misc/stock_parts.rsi
     - type: Item
       size: Tiny
+    - type: Stack
+      count: 1
 
 - type: entity
   id: CapacitorStockPart
@@ -22,12 +24,11 @@
     - type: MachinePart
       part: Capacitor
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - CapacitorStockPart
     - type: Tag
       tags:
         - CapacitorStockPart
+    - type: Stack
+      stackType: Capacitor
 
 - type: entity
   id: MicroManipulatorStockPart
@@ -41,9 +42,8 @@
     - type: MachinePart
       part: Manipulator
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MicroManipulatorStockPart
+    - type: Stack
+      stackType: MicroManipulator
 
 - type: entity
   id: MatterBinStockPart
@@ -57,6 +57,5 @@
     - type: MachinePart
       part: MatterBin
       rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MatterBinStockPart
+    - type: Stack
+      stackType: MatterBin

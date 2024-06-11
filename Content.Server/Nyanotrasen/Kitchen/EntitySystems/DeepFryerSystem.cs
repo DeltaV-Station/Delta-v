@@ -45,6 +45,7 @@ using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
+using Content.Shared.Whitelist;
 using FastAccessors;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -79,6 +80,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     private static readonly string CookingDamageType = "Heat";
     private static readonly float CookingDamageAmount = 10.0f;
@@ -309,7 +311,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         // just in case the attempt is relevant to any system in the future.
         //
         // The blacklist overrides all.
-        if (component.Blacklist != null && component.Blacklist.IsValid(item, EntityManager))
+        if (component.Blacklist != null && _whitelistSystem.IsWhitelistPass(component.Blacklist, item))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-blacklist-item-failed",
@@ -351,7 +353,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
                 _ => 10
             } * component.SolutionSizeCoefficient);
 
-        if (component.Whitelist != null && component.Whitelist.IsValid(item, EntityManager) ||
+        if (component.Whitelist != null && _whitelistSystem.IsWhitelistPass(component.Whitelist, item) ||
             beingEvent.TurnIntoFood)
             MakeEdible(uid, component, item, solutionQuantity);
         else
