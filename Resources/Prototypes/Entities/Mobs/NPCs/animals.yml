@@ -172,6 +172,7 @@
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: chicken-0
       sprite: Mobs/Animals/chicken.rsi
+  
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -192,6 +193,10 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Cluck
+    allowedEmotes: ['Cluck']
   - type: Tag
     tags:
     - DoorBumpOpener

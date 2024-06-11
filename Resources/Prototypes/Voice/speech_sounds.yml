@@ -44,6 +44,15 @@
     path: /Audio/Animals/mouse_squeak.ogg
 
 - type: speechSounds
+  id: Cluck
+  saySound:
+    path: /Audio/Animals/chicken_cluck_happy.ogg
+  askSound:
+    path: /Audio/Animals/chicken_cluck_happy.ogg
+  exclaimSound:
+    path: /Audio/Animals/chicken_cluck_happy.ogg
+
+- type: speechSounds
   id: Vending
   saySound:
     path: /Audio/Machines/vending_jingle.ogg
