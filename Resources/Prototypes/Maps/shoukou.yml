@@ -16,24 +16,26 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #Service
             Passenger: [ -1, -1 ]
-            ServiceWorker: [ 1, 2]
+            ServiceWorker: [ 1, 2 ]
             Reporter: [ 0, 1 ]
-            Lawyer: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 1, 2 ]
             MartialArtist: [ 2, 3 ]
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 2 ]
-            Musician: [ 1, 1]
+            Musician: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+          #Justice
+            ChiefJustice: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #Engineering
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 5 ]
