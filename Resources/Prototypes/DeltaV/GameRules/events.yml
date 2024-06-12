@@ -62,7 +62,7 @@
   - type: GridDebrisSpawnerRule
     count: 6
     distanceModifier: 3
-  # TODO: funny objectives
+  # TODO: funny trolling or intel related objectives
   - type: AntagSelection
     agentName: listening-post-round-end-agent-name
     definitions:
@@ -82,8 +82,8 @@
         factions:
         - Syndicate
       mindComponents:
-      - type: ListeningPostOpRole
-        prototype: ListeningPostOp
+      - type: ListeningPostRole
+        prototype: ListeningPost
   - type: AntagLoadProfileRule
 
 # Mid round antag spawns
