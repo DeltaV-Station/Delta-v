@@ -2,13 +2,13 @@
 - type: weightedRandom
   id: NinjaThreats
   weights:
-#    Dragon: 1 # DeltaV
+    Dragon: 1
     Revenant: 1
 
-#- type: ninjaHackingThreat # DeltaV
-#  id: Dragon
-#  announcement: terror-dragon
-#  rule: DragonSpawn
+- type: ninjaHackingThreat
+  id: Dragon
+  announcement: terror-dragon
+  rule: DragonSpawn
 
 - type: ninjaHackingThreat
   id: Revenant
