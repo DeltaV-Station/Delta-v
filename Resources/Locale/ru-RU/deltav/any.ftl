@@ -142,9 +142,6 @@ JobJudge = магистрат
 job-name-barber = парикмахер
 JobBarber = парикмахер
 
-job-name-pilot = пилот
-JobPilot = пилот
-
 job-name-pathologist = патологоанатом
 JobPathologist = патологоанатом
 

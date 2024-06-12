@@ -56,7 +56,6 @@ corvax-accent-cowboy-replacement-22 = кутузке
 corvax-accent-cowboy-words-23 = ниндзя
 corvax-accent-cowboy-replacement-23 = партизан
 corvax-accent-cowboy-words-24 = шум
-corvax-accent-cowboy-replacement-24 = переполох
 corvax-accent-cowboy-words-2401 = нюкеры
 corvax-accent-cowboy-words-2402 = оперы
 corvax-accent-cowboy-words-2403 = опера
