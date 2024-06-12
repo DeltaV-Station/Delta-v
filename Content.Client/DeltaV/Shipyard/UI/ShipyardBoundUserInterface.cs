@@ -1,5 +1,6 @@
 using Content.Shared.Access.Systems;
 using Content.Shared.Shipyard;
+using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -10,6 +11,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     private readonly AccessReaderSystem _access;
 
@@ -25,7 +27,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = new ShipyardConsoleMenu(Owner, _proto, EntMan, _player, _access);
+        _menu = new ShipyardConsoleMenu(Owner, _proto, EntMan, _player, _access, _whitelistSystem);
         _menu.OpenCentered();
         _menu.OnClose += Close;
         _menu.OnPurchased += Purchase;
