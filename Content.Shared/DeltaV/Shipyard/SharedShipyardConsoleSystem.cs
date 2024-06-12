@@ -1,6 +1,7 @@
 using Content.Shared.Access.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Shipyard.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
@@ -16,6 +17,7 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
     [Dependency] protected readonly IPrototypeManager _proto = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {
@@ -37,7 +39,7 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
             return;
         }
 
-        if (!_proto.TryIndex(msg.Vessel, out var vessel) || vessel.Whitelist?.IsValid(ent) == false)
+        if (!_proto.TryIndex(msg.Vessel, out var vessel) || _whitelistSystem.IsWhitelistFail(vessel.Whitelist, ent))
             return;
 
         TryPurchase(ent, user, vessel);

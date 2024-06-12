@@ -2,23 +2,21 @@
 - type: loadoutEffectGroup
   id: SeniorPhysician
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 21600 #6 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 21600 #6 hrs
+ #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobChemist
+ #     time: 21600 #6 hrs
+ # - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobMedicalDoctor
+ #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
       time: 216000 # 60 hrs
-  - !type:JobRequirementLoadoutEffect # DeltaV - Require whitelist
-    requirement: !type:WhitelistRequirement
 
 # Other Timers
 
@@ -101,6 +99,16 @@
   id: NurseHat
   equipment:
     head: ClothingHeadNurseHat
+
+# Neck - DeltaV
+- type: loadout # DeltaV
+  id: Stethoscope
+  equipment: Stethoscope
+
+- type: startingGear # DeltaV
+  id: Stethoscope
+  equipment:
+    neck: ClothingNeckStethoscope
 
 # Jumpsuit
 - type: loadout

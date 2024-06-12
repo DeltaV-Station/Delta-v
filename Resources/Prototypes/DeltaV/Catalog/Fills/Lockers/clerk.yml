@@ -1,0 +1,14 @@
+- type: entity
+  parent: LockerClerk
+  id: LockerClerkFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterClerkVest
+    - id: PaperStationWarrant
+      amount: 10
+    - id: BoxEncryptionKeyJustice
+    - id: ClerkIDCard
+    - id: RubberStampNotary
+

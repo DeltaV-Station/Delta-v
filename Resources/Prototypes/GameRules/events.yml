@@ -73,7 +73,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 8 # DeltaV - was 10
     duration: 1
     minimumPlayers: 10
   - type: RandomEntityStorageSpawnRule
@@ -85,13 +85,29 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 5
-    duration: 1
-    earliestStart: 45
-    reoccurrenceDelay: 60
-    minimumPlayers: 20
-  - type: RandomSpawnRule
-    prototype: SpawnPointGhostDragon
+    weight: 1 # DeltaV - was 6.5
+    earliestStart: 60 # DeltaV - was 40
+    reoccurrenceDelay: 20
+    minimumPlayers: 45 # DeltaV - was 20
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobDragon
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindComponents:
+      - type: DragonRole
+        prototype: Dragon
+      - type: RoleBriefing
+        briefing: dragon-role-briefing
 
 - type: entity
   parent: BaseGameRule
@@ -99,9 +115,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 3 # DeltaV - was 10
+    weight: 5 # DeltaV - was 10
     duration: 1
-    earliestStart: 45 # DeltaV - was 30
+    earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 40
   - type: NinjaSpawnRule
@@ -152,7 +168,7 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 10 # DeltaV - Was 15
     weight: 5
     startDelay: 50
     duration: 240
@@ -187,8 +203,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 30
-    minimumPlayers: 35
+    earliestStart: 20 #DeltaV - was 30
+    minimumPlayers: 25 #DeltaV - was 35
     weight: 5
     duration: 50
   - type: VentCrittersRule
@@ -280,7 +296,7 @@
     - Security
     - Service
     - Supply
-    extraCount: 2
+    extraCount: 3 # DeltaV - was 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
 
@@ -306,9 +322,9 @@
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
       path: /Audio/Announcements/ventclog.ogg # DeltaV - custom announcer
-    earliestStart: 15
+    earliestStart: 20 # DeltaV - was 15
     minimumPlayers: 15
-    weight: 5
+    weight: 7.5 # DeltaV - was 5
     startDelay: 50
     duration: 60
   - type: VentClogRule
@@ -378,24 +394,24 @@
     - id: MobGiantSpiderAngry
       prob: 0.05
 
-# - type: entity # DeltaV - Prevent normal spawning of MobClownSpider
-#  id: SpiderClownSpawn
-#  parent: BaseGameRule
-#  noSpawn: true
-#  components:
-#  - type: StationEvent
-#    startAnnouncement: station-event-vent-creatures-start-announcement
-#    startAudio:
-#      path: /Audio/Announcements/attention.ogg
-#    startDelay: 10
-#    earliestStart: 20
-#    minimumPlayers: 15
-#    weight: 1
-#    duration: 60
-#  - type: VentCrittersRule
-#    entries:
-#    - id: MobClownSpider
-#      prob: 0.05
+- type: entity
+  id: SpiderClownSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    startDelay: 10
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 15
+    weight: 1
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobClownSpider
+      prob: 0.03 # DeltaV - was 0.05
 
 - type: entity
   id: ZombieOutbreak
@@ -411,7 +427,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 3
+      max: 4 # DeltaV - was 3
       playerRatio: 10
       blacklist:
         components:
@@ -432,16 +448,17 @@
         prototype: InitialInfected
 
 - type: entity
-  id: LoneOpsSpawn
-  parent: BaseGameRule
   noSpawn: true
+  parent: BaseNukeopsRule
+  id: LoneOpsSpawn
   components:
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
-    weight: 3 # DeltaV - was 5
-    minimumPlayers: 20
+    weight: 3.5 # DeltaV - was 5
+    minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
     duration: 1
+  - type: RuleGrids
   - type: LoadMapRule
     preloadedGrid: ShuttleStriker
   - type: NukeopsRule
@@ -467,20 +484,19 @@
         prototype: Nukeops
 
 #- type: entity # DeltaV - Currently many issues with this event
-#  id: SleeperAgentsRule
-#  parent: BaseGameRule
 #  noSpawn: true
+#  parent: BaseTraitorRule
+#  id: SleeperAgentsRule
 #  components:
 #  - type: StationEvent
-#    earliestStart: 25
-#    weight: 15
+#    earliestStart: 30
+#    weight: 8
 #    minimumPlayers: 15
-#    reoccurrenceDelay: 60
+#    maxOccurrences: 1 # can only happen once per round
 #    startAnnouncement: station-event-communication-interception
 #    startAudio:
 #      path: /Audio/Announcements/intercept.ogg
 #  - type: AlertLevelInterceptionRule
-#  - type: TraitorRule
 #  - type: AntagSelection
 #    definitions:
 #    - prefRoles: [ Traitor ]
@@ -501,7 +517,7 @@
     duration: 150
     maxDuration: 300
   - type: MassHallucinationsRule
-    minTimeBetweenIncidents: 0.1
+    minTimeBetweenIncidents: 30 # DeltaV - was 0.1
     maxTimeBetweenIncidents: 300
     maxSoundDistance: 7
     sounds:
@@ -554,7 +570,7 @@
   components:
   - type: StationEvent
     weight: 10
-    reoccurrenceDelay: 20
+    reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
   - type: IonStormRule
 
