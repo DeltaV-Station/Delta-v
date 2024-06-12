@@ -11,9 +11,9 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private readonly AccessReaderSystem _access;
+    private readonly EntityWhitelistSystem _whitelist;
 
     [ViewVariables]
     private ShipyardConsoleMenu? _menu;
@@ -21,6 +21,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     public ShipyardConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _access = EntMan.System<AccessReaderSystem>();
+        _whitelist = EntMan.System<EntityWhitelistSystem>();
     }
 
     protected override void Open()
