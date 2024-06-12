@@ -7,6 +7,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.DeltaV.Recruiter;
 
@@ -15,6 +16,7 @@ namespace Content.Shared.DeltaV.Recruiter;
 /// </summary>
 public abstract class SharedRecruiterPenSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -111,9 +113,8 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         if (!Mind.TryGetMind(user, out var mind, out _))
             return false; // mindless nt drone...
 
-        // TODO: when upstream merged make this use whitelist system blacklist helper functions
         var (uid, comp) = ent;
-        if (comp.Blacklist?.IsValid(user) == true || comp.MindBlacklist?.IsValid(mind) == true)
+        if (_whitelist.IsBlacklistPass(comp.Blacklist, user) || _whitelist.IsBlacklistPass(comp.MindBlacklist, mind))
         {
             Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;
