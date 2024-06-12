@@ -19515,11 +19515,10 @@ entities:
       parent: 6747
 - proto: BookHowToSurvive
   entities:
-  - uid: 27968
+  - uid: 27969
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.426454,-62.401287
+      pos: -9.688801,-61.33911
       parent: 6747
 - proto: BookLeafLoversSecret
   entities:
@@ -19611,11 +19610,10 @@ entities:
       parent: 6747
 - proto: BookSecurity
   entities:
-  - uid: 27967
+  - uid: 27970
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.551454,-62.505527
+      pos: -9.574218,-61.485046
       parent: 6747
 - proto: Bookshelf
   entities:
@@ -55585,12 +55583,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -45.5,-35.5
       parent: 6747
-  - uid: 12530
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -6.270204,-62.56807
-      parent: 6747
   - uid: 15038
     components:
     - type: Transform
@@ -55646,6 +55638,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.90749,-95.5
+      parent: 6747
+  - uid: 21169
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.313801,-62.47532
       parent: 6747
   - uid: 23558
     components:
@@ -58271,6 +58269,12 @@ entities:
     - type: Transform
       pos: -20.5,7.5
       parent: 6747
+  - uid: 27967
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-62.5
+      parent: 6747
 - proto: ComputerFrame
   entities:
   - uid: 6273
@@ -60044,11 +60048,14 @@ entities:
       parent: 6747
 - proto: CrewMonitoringServer
   entities:
-  - uid: 21169
+  - uid: 27966
     components:
     - type: Transform
       pos: -21.5,-62.5
       parent: 6747
+    - type: SingletonDeviceNetServer
+      active: False
+      available: False
 - proto: CriminalRecordsComputerCircuitboard
   entities:
   - uid: 17737
@@ -73313,6 +73320,11 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-48.5
+      parent: 6747
+  - uid: 27971
+    components:
+    - type: Transform
+      pos: -9.5,-61.5
       parent: 6747
 - proto: FaxMachineBase
   entities:
@@ -148473,6 +148485,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.140228,-65.43973
       parent: 6747
+  - uid: 27972
+    components:
+    - type: Transform
+      pos: -0.5251713,-59.187206
+      parent: 6747
 - proto: SeashellInstrument
   entities:
   - uid: 11194
@@ -153688,6 +153705,11 @@ entities:
     - type: Transform
       pos: -45.5,-35.5
       parent: 6747
+  - uid: 12530
+    components:
+    - type: Transform
+      pos: -6.5,-62.5
+      parent: 6747
   - uid: 22500
     components:
     - type: Transform
@@ -153717,11 +153739,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,17.5
-      parent: 6747
-  - uid: 27966
-    components:
-    - type: Transform
-      pos: -6.5,-62.5
       parent: 6747
 - proto: SpawnPointMedicalDoctor
   entities:
@@ -158583,11 +158600,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-61.5
-      parent: 6747
-  - uid: 4752
-    components:
-    - type: Transform
-      pos: -5.5,-62.5
       parent: 6747
   - uid: 4762
     components:
@@ -176860,6 +176872,20 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-43.5
+      parent: 6747
+- proto: WindoorSecureClerkLocked
+  entities:
+  - uid: 4752
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-61.5
+      parent: 6747
+  - uid: 27968
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-62.5
       parent: 6747
 - proto: WindoorSecureCommandLocked
   entities:

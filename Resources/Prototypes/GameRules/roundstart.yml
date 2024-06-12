@@ -8,6 +8,17 @@
 - type: entity
   noSpawn: true
   parent: BaseGameRule
+  id: RespawnDeadRule
+  components:
+  - type: RespawnDeadRule
+    alwaysRespawnDead: true
+  - type: RespawnTracker
+    respawnDelay: 10
+    deleteBody: false
+
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
   id: SubGamemodesRule
   components:
   - type: SubGamemodes
@@ -73,6 +84,7 @@
     - operationPrefix
     - operationSuffix
   - type: NukeopsRule
+  - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
 
