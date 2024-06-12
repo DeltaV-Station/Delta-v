@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
+    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      time: 21600 # 6 hours
   startingGear: ProsecutorGear
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj
@@ -13,7 +16,6 @@
   access:
   - Prosecutor
   - Justice
-  - Security
   - Maintenance
   special:
   - !type:AddImplantSpecial

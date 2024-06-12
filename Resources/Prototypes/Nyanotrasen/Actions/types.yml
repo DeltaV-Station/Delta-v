@@ -2,7 +2,6 @@
   id: ActionEatMouse
   name: action-name-eat-mouse
   description: action-description-eat-mouse
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Icons/verbiconfangs.png
@@ -12,7 +11,6 @@
   id: ActionHairball
   name: action-name-hairball
   description: action-description-hairball
-  noSpawn: true
   components:
   - type: InstantAction
     charges: 1
@@ -24,7 +22,6 @@
   id: ActionDispel
   name: action-name-dispel
   description: action-description-dispel
-  noSpawn: true
   components:
   - type: EntityTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/dispel.png
@@ -39,7 +36,6 @@
   id: ActionMassSleep
   name: action-name-mass-sleep
   description: action-description-mass-sleep
-  noSpawn: true
   components:
   - type: WorldTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/mass_sleep.png
@@ -53,7 +49,6 @@
   id: ActionMindSwap
   name: action-name-mind-swap
   description: action-description-mind-swap
-  noSpawn: true
   components:
   - type: EntityTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/mind_swap.png
@@ -67,7 +62,6 @@
   id: ActionMindSwapReturn
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/mind_swap_return.png
@@ -79,7 +73,6 @@
   id: ActionNoosphericZap
   name: action-name-noospheric-zap
   description: action-description-noospheric-zap
-  noSpawn: true
   components:
   - type: EntityTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
@@ -92,7 +85,6 @@
   id: ActionPyrokinesis
   name: action-name-pyrokinesis
   description: action-description-pyrokinesis
-  noSpawn: true
   components:
   - type: EntityTargetAction
     icon: Nyanotrasen/Interface/VerbIcons/pyrokinesis.png
@@ -106,7 +98,6 @@
   id: ActionMetapsionic
   name: action-name-metapsionic
   description: action-description-metapsionic
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/metapsionic.png
@@ -117,7 +108,6 @@
   id: ActionPsionicRegeneration
   name: action-name-psionic-regeneration
   description: action-description-psionic-regeneration
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_regeneration.png
@@ -128,7 +118,6 @@
   id: ActionTelegnosis
   name: action-name-telegnosis
   description: action-description-telegnosis
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
@@ -139,7 +128,6 @@
   id: ActionPsionicInvisibility
   name: action-name-psionic-invisibility
   description: action-description-psionic-invisibility
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility.png
@@ -150,7 +138,6 @@
   id: ActionPsionicInvisibilityUsed
   name: action-name-psionic-invisibility-off
   description: action-description-psionic-invisibility-off
-  noSpawn: true
   components:
   - type: InstantAction
     icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility_off.png
@@ -160,7 +147,6 @@
   id: ActionFabricateLollipop
   name: action-name-fabricate-lollipop
   description: action-description-fabricate-lollipop
-  noSpawn: true
   components:
   - type: InstantAction
     icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: lollipop }
@@ -171,7 +157,6 @@
   id: ActionFabricateGumball
   name: action-name-fabricate-gumball
   description: action-description-fabricate-gumball
-  noSpawn: true
   components:
   - type: InstantAction
     icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: gumball }
