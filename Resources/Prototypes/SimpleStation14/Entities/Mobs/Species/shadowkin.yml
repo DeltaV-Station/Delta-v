@@ -139,6 +139,7 @@
     - ForcedSleep
     - TemporaryBlindness
     - Pacified
+    - Flashed
     - StaminaModifier
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
@@ -235,7 +236,6 @@
   id: Shadowkin
   abstract: true
   components:
-  - type: Flashable
   - type: Barotrauma
     damage:
       types:

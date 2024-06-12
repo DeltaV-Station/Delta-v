@@ -21,7 +21,6 @@
   components:
     # beginregion Organic
     - type: SSDIndicator
-    - type: Flashable
     - type: StatusEffects
       allowed:
       - Stun
@@ -39,7 +38,7 @@
       - Muted
       - Pacified
       - StaminaModifier
-#    - type: NightVision
+      - Flashed
     - type: ThermalRegulator
       metabolismHeat: 0
       radiatedHeat: 100
