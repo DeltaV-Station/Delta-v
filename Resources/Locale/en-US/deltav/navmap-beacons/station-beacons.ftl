@@ -34,3 +34,4 @@ station-beacon-corpsman = Corpsman
 station-beacon-justice = Justice
 station-beacon-chiefjustice = Chief Justice
 station-beacon-prosecutor = Prosecutor
+station-beacon-clerk = Clerk
