@@ -5,7 +5,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server.Psionics.Glimmer;
 
-[AdminCommand(AdminFlags.Debug)] // Delta-V - Set to Debug flag
+[AdminCommand(AdminFlags.Admin)] // Delta-V - Set to Admin flag
 public sealed class ShowGlimmerCommand : IConsoleCommand // Delta-V - Change to ShowGlimmer 
 {
     public string Command => "showglimmer"; // Delta-V - Change to ShowGlimmer 
