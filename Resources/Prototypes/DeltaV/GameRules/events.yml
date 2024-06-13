@@ -46,7 +46,7 @@
       prob: 0.05
 
 - type: entity
-  id: ListeningPostSpawn
+  id: ListeningPost
   parent: BaseGameRule
   noSpawn: true
   components:
@@ -55,14 +55,16 @@
     weight: 5
     minimumPlayers: 25
     maxOccurrences: 1
+    duration: null
   - type: RuleGrids
   - type: LoadFarGridRule
     path: Maps/Shuttles/DeltaV/listening_post.yml
     distanceModifier: 13
-  - type: GridDebrisSpawnerRule
+  - type: DebrisSpawnerRule
     count: 6
     distanceModifier: 3
   # TODO: funny trolling or intel related objectives
+  - type: AntagLoadProfileRule
   - type: AntagSelection
     agentName: listening-post-round-end-agent-name
     definitions:
@@ -84,7 +86,6 @@
       mindComponents:
       - type: ListeningPostRole
         prototype: ListeningPost
-  - type: AntagLoadProfileRule
 
 # Mid round antag spawns
 - type: entity
