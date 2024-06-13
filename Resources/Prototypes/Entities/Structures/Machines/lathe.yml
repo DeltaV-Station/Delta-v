@@ -368,6 +368,7 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+      - RCDAmmo # DeltaV
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload
@@ -509,22 +510,20 @@
     # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
-      - DoorElectronics
-      - FireAlarmElectronics
-      - FirelockElectronics
-      - IntercomElectronics
-      - MailingUnitElectronics
       - SalvageMagnetMachineCircuitboard
-      - StationMapElectronics
       - MetempsychoticMachineCircuitboard
     # End Nyano additions
-      - SalvageExpeditionsComputerCircuitboard # DeltaV
+    # Begin DeltaV additions
+      - SalvageExpeditionsComputerCircuitboard
+      - ComputerMassMediaCircuitboard
+    # End DeltaV additions
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+  - type: RequireProjectileTarget
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -953,6 +952,7 @@
       - Saw
       - Hemostat
       - ClothingEyesGlassesChemical
+      - WhiteCane
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker

@@ -18,9 +18,9 @@
   - Security
   #- Brig # Delta V: Removed
   - Maintenance
-  - Service
-#  - External # DeltaV - don't let the cadets space themselves alone.
-  - Cryogenics
+  #- Service # Delta V: Access adjustments
+  #- External # Delta V: Don't let cadets space themselves alone.
+  #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

@@ -146,3 +146,16 @@
         Piercing: 0.90
         Heat: 0.90
   - type: AllowSuitStorage
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterChiefJustice
+  name: chief justice's robes
+  description: Heavy black robes with magenta and gold trim. It smells old.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cjrobe.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/cjrobe.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
