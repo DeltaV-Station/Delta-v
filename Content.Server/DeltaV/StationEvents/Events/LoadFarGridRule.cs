@@ -7,7 +7,11 @@
 using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
+using Content.Server.StationEvents.Components;
 using Robust.Server.GameObjects;
+using Robust.Server.Maps;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
@@ -27,7 +31,7 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
             return;
         }
 
-        if (data.Grids.Length < 1)
+        if (data.Grids.Count < 1)
         {
             Log.Error($"{ToPrettyString(uid):rule} picked station {station} which had no grids!");
             ForceEndSelf(uid, rule);
@@ -36,22 +40,25 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
 
         // get an AABB that contains all the station's grids
         var aabb = new Box2();
+        var map = MapId.Nullspace;
         foreach (var gridId in data.Grids)
         {
+            // use the first grid's map id
+            if (map == MapId.Nullspace)
+                map = Transform(gridId).MapID;
+
             var grid = Comp<MapGridComponent>(gridId);
             var gridAabb = Transform(gridId).WorldMatrix.TransformBox(grid.LocalAABB);
             aabb.Union(gridAabb);
         }
 
-        var map = data.Grids[0].MapId;
-
         var scale = comp.Sousk / aabb.Width;
-        var modifier = comp.DistanceModifier * scal;e
+        var modifier = comp.DistanceModifier * scale;
         var dist = MathF.Max(aabb.Height / 2f, aabb.Width / 2f) * modifier;
         var offset = RobustRandom.NextVector2(dist, dist * 2.5f);
         var options = new MapLoadOptions
         {
-            Offset = aabb.Center + randomOffset,
+            Offset = aabb.Center + offset,
             LoadMap = false
         };
 

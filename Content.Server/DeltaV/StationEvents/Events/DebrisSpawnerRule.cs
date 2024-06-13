@@ -4,13 +4,13 @@
 * See AGPLv3.txt for details.
 */
 
-using Content.Server.GameTicking.Components;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Salvage;
 using Robust.Server.GameObjects;
+using Robust.Server.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 
-namespace Content.Server.DeltaV.StationEvents.Events;
+namespace Content.Server.StationEvents.Events;
 
 public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComponent>
 {
@@ -30,10 +30,10 @@ public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComp
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DebrisSpawnerRuleComponent, RuleLoadedGridEvent>(OnLoadedGrid);
+        SubscribeLocalEvent<DebrisSpawnerRuleComponent, RuleLoadedGridsEvent>(OnLoadedGrids);
     }
 
-    private void OnLoadedGrid(Entity<DebrisSpawnerRuleComponent> ent, ref RuleLoadedGridEvent args)
+    private void OnLoadedGrids(Entity<DebrisSpawnerRuleComponent> ent, ref RuleLoadedGridsEvent args)
     {
         if (_config.GetCVar<bool>(CCVars.WorldgenEnabled))
             return;
