@@ -148,6 +148,7 @@
     Steel: 100
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: ShellShotgunBeanbag
   result: ShellShotgunBeanbag
   category: Ammo
@@ -251,14 +252,18 @@
 - type: latheRecipe
   id: ShellTranquilizer
   result: ShellTranquilizer
+=======
+  id: BoxShellTranquilizer
+  result: BoxShellTranquilizer
+>>>>>>> 865810c6e1 (New Sprites for Tranq Shells + Add consistancy to printing Tranqs (#28903))
   category: Ammo
-  completetime: 4
+  completetime: 5
   materials:
-    Plastic: 15
-    Steel: 10
-    Glass: 5
-    Plasma: 10
-    Silver: 5
+    Plastic: 240
+    Steel: 160
+    Glass: 80
+    Plasma: 160
+    Silver: 80
 
 - type: latheRecipe
   id: TargetHuman
