@@ -49,7 +49,7 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
 
             var grid = Comp<MapGridComponent>(gridId);
             var gridAabb = Transform(gridId).WorldMatrix.TransformBox(grid.LocalAABB);
-            aabb.Union(gridAabb);
+            aabb = aabb.Union(gridAabb);
         }
 
         var scale = comp.Sousk / aabb.Width;
@@ -63,6 +63,7 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
         };
 
         var path = comp.Path.ToString();
+        Log.Debug($"Loading far grid {path} at {options.Offset}");
         if (!_mapLoader.TryLoad(map, path, out var grids, options))
         {
             Log.Error($"{ToPrettyString(uid):rule} failed to load grid {path}!");
