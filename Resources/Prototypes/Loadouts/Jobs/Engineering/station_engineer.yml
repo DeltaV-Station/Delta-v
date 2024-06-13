@@ -2,21 +2,22 @@
 - type: loadoutEffectGroup
   id: SeniorEngineering
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 21600 #6 hrs
+ # - !type:JobRequirementLoadoutEffect #DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobAtmosphericTechnician
+ #     time: 21600 #6 hrs
+ #  - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobStationEngineer
+ #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
       time: 216000 # 60 hrs
+
 
 # Head
 - type: loadout
@@ -147,7 +148,7 @@
   id: StationEngineerOuterVest
   equipment:
     outerClothing: ClothingOuterVestHazard
-  
+
 - type: loadout
   id: StationEngineerWintercoat
   equipment: StationEngineerWintercoat
@@ -156,7 +157,7 @@
   id: StationEngineerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterEngi
-  
+
 # Shoes
 - type: loadout
   id: WorkBoots

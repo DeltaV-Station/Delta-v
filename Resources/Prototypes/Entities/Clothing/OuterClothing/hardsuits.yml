@@ -52,20 +52,14 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.2
+        Heat: 0.8
         Radiation: 0.5
-        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
-  - type: ReverseEngineering # Nyano
-    difficulty: 5
-    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
-    recipes:
-      - ClothingOuterHardsuitJuggernautReverseEngineered
 
 #Engineering Hardsuit
 - type: entity
@@ -81,8 +75,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.01
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -555,6 +547,8 @@
     coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
   - type: Armor
     modifiers:
       coefficients:
@@ -636,6 +630,11 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: ReverseEngineering # Nyano
+    difficulty: 5
+    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitJuggernautReverseEngineered
 
 #Wizard Hardsuit
 - type: entity
@@ -971,9 +970,9 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-#  - type: Construction # DeltaV - Nuh uh
-#    graph: MimeHardsuit
-#    node: mimeHardsuit
+  - type: Construction 
+    graph: MimeHardsuit
+    node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
 

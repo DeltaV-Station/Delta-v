@@ -108,3 +108,27 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+
+- type: entity
+  name: flintlock
+  suffix: "craftable"
+  parent: WeaponPistolFlintlock
+  id: WeaponPistolFlintlockCrafted
+  description: An old flintlock, feels like 1800s gang warfare. Uses musket cartridges.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags: 
+      - CartridgeMusket
+    capacity: 1
+    proto: CartridgeMusket
+  - type: Gun #Smoothbore
+    minAngle: 0
+    maxAngle: 30
+    fireRate: .125 #slow firerate
+    resetOnHandSelected: false #Dual Wielding Muskets
+  - type: Construction
+    graph: WeaponPistolFlintlockCraftedGraph
+    node: flintlock
+  - type: UseDelay
+    delay: 0 #Straight up doesn't work for guns

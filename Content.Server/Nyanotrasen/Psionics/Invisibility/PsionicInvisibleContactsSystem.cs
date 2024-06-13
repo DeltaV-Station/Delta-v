@@ -1,5 +1,6 @@
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -13,6 +14,7 @@ namespace Content.Server.Psionics
     {
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
         public override void Initialize()
         {
@@ -28,7 +30,7 @@ namespace Content.Server.Psionics
             var otherUid = args.OtherEntity;
             var ourEntity = args.OurEntity;
 
-            if (!component.Whitelist.IsValid(otherUid))
+            if (_whitelistSystem.IsWhitelistFail(component.Whitelist, otherUid))
                 return;
 
             // This will go up twice per web hit, since webs also have a flammable fixture.
@@ -48,7 +50,7 @@ namespace Content.Server.Psionics
             var otherUid = args.OtherEntity;
             var ourEntity = args.OurEntity;
 
-            if (!component.Whitelist.IsValid(otherUid))
+            if (_whitelistSystem.IsWhitelistFail(component.Whitelist, otherUid))
                 return;
 
             if (!HasComp<PsionicallyInvisibleComponent>(ourEntity))

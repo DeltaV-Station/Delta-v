@@ -28,6 +28,7 @@
     sprintModifier: 0.75
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatStandard
@@ -72,6 +73,7 @@
     sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatMedical
@@ -116,6 +118,7 @@
     sprintModifier: 0.65
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatRiot
@@ -160,6 +163,7 @@
     sprintModifier: 0.80
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatAdvanced
+  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterHardsuitCombatAdvanced
