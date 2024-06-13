@@ -8,6 +8,7 @@
       department: Epistemics
       time: 216000 #60 hrs
 
+
 # Head
 
 - type: loadout
@@ -158,6 +159,15 @@
   id: ScienceLabCoat
   equipment:
     outerClothing: ClothingOuterCoatRnd
+
+- type: loadout # DeltaV
+  id: RoboticistLabCoat
+  equipment: RoboticistLabCoat
+
+- type: startingGear # DeltaV
+  id: RoboticistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRobo
 
 - type: loadout
   id: ScienceWintercoat

@@ -3,7 +3,7 @@
   mapName: 'Asterisk'
   mapPath: /Maps/asterisk.yml
   minPlayers: 0
-  maxPlayers: 80 #80 available job slots that aren't passenger
+  maxPlayers: 70 #80 available job slots that aren't passenger
   stations:
     Asterisk:
       stationProto: StandardNanotrasenStation
@@ -16,17 +16,14 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
-          #service
             Captain: [ 1, 1 ]
+          #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Janitor: [ 1, 2 ]
@@ -37,6 +34,11 @@
             AtmosphericTechnician: [ 1, 2 ]
             StationEngineer: [ 2, 4 ]
             TechnicalAssistant: [ 3, 5 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 2 ]

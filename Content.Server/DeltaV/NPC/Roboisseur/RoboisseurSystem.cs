@@ -57,7 +57,7 @@ namespace Content.Server.Roboisseur.Roboisseur
                     }
                     else if (CheckTier(roboisseur.DesiredPrototype.ID, roboisseur) > 2)
                         message = Loc.GetString(_random.Pick(roboisseur.DemandMessagesTier2), ("item", roboisseur.DesiredPrototype.Name));
-                    _chat.TrySendInGameICMessage(roboisseur.Owner, message, InGameICChatType.Speak, false);
+                    _chat.TrySendInGameICMessage(roboisseur.Owner, message, InGameICChatType.Speak, true);
                 }
 
                 if (roboisseur.Accumulator >= roboisseur.ResetTime.TotalSeconds)
@@ -99,7 +99,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             if (CheckTier(component.DesiredPrototype.ID, component) > 1)
                 message = Loc.GetString(_random.Pick(component.DemandMessagesTier2), ("item", component.DesiredPrototype.Name));
 
-            _chat.TrySendInGameICMessage(component.Owner, message, InGameICChatType.Speak, false);
+            _chat.TrySendInGameICMessage(component.Owner, message, InGameICChatType.Speak, true);
         }
 
         private void OnInteractUsing(EntityUid uid, RoboisseurComponent component, InteractUsingEvent args)

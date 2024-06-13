@@ -355,12 +355,13 @@
 - type: entity
   parent: IDCardStandard
   id: LawyerIDCard
-  name: lawyer ID card
+  name: attorney ID card # DeltaV - Changed Lawyer to Attorney
   components:
     - type: Sprite
       layers:
         - state: default
-        - state: idlawyer
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
+          state: idlawyer
     - type: PresetIdCard
       job: Lawyer
 
@@ -654,6 +655,9 @@
     - JobIconMartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
     - JobIconGladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
     - JobIconForensicMantis  # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+    - JobIconClerk # Delta V - Added justice dept
+    - JobIconChiefJustice # Delta V - Added justice dept
+    - JobIconProsecutor # Delta V - Added justice dept
     - JobIconVisitor
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -818,6 +822,8 @@
     layers:
     - state: default
     - state: idseniorengineer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Engineer
 
 - type: entity
   parent: ResearchIDCard
@@ -828,6 +834,8 @@
     layers:
     - state: default
     - state: idseniorresearcher
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Researcher
 
 - type: entity
   parent: MedicalIDCard
@@ -838,6 +846,8 @@
     layers:
     - state: default
     - state: idseniorphysician
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Physician
 
 - type: entity
   parent: SecurityIDCard
@@ -848,3 +858,33 @@
     layers:
     - state: default
     - state: idseniorofficer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Officer
+
+- type: entity
+  parent: IDCardStandard
+  id: UniversalIDCard
+  name: universal ID card
+  suffix: Admin
+  description: An ID card that gives you access beyond your wildest dreams.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idadmin
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: IdCard
+    jobTitle: Universal
+    jobIcon: JobIconAdmin
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NuclearOperative
+    - SyndicateAgent
+    - DV-SpareSafe # DeltaV

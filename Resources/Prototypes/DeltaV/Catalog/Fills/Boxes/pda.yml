@@ -7,9 +7,9 @@
   - type: StorageFill
     contents:
       - id: SecurityPDA
-        amount: 2
       - id: DetectivePDA
       - id: WardenPDA
+      - id: SeniorOfficerPDA
 
 - type: entity
   name: prisoner PDA box
@@ -31,9 +31,9 @@
   - type: StorageFill
     contents:
       - id: MedicalPDA
-        amount: 2
       - id: ChemistryPDA
       - id: ParamedicPDA
+      - id: SeniorPhysicianPDA
 
 - type: entity
   name: epistemics PDA box
@@ -44,9 +44,9 @@
   - type: StorageFill
     contents:
       - id: SciencePDA
-        amount: 2
       - id: ForensicMantisPDA
       - id: ChaplainPDA
+      - id: SeniorResearcherPDA
 
 - type: entity
   name: engineering PDA box
@@ -57,8 +57,9 @@
   - type: StorageFill
     contents:
       - id: EngineerPDA
-        amount: 3
       - id: AtmosPDA
+      - id: SeniorEngineerPDA
+      - id: TechnicalAssistantPDA
 
 - type: entity
   name: logistics PDA box
@@ -71,6 +72,18 @@
       - id: CargoPDA
         amount: 2
       - id: SalvagePDA
-        amount: 1
       - id: MailCarrierPDA
         amount: 1
+
+- type: entity
+  name: justice PDA box
+  parent: BoxPDA
+  id: BoxPDAJustice
+  description: A box of spare PDA microcomputers for the justice department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: LawyerPDA
+        amount: 2
+      - id: ProsecutorPDA
+      - id: ClerkPDA
