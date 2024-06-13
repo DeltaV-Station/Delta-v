@@ -21,6 +21,7 @@
           state: full
 
 - type: entity # Part of ListeningPost
+  noSpawn: true
   parent: BaseAntagSpawner
   id: SpawnPointGhostSyndicateListener
   components:
