@@ -82,6 +82,8 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
 
     public event CalcPlayTimeTrackersCallback? CalcTrackers;
 
+    public event Action<ICommonSession>? SessionPlayTimeUpdated;
+
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("play_time");
@@ -225,6 +227,7 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
         };
 
         _net.ServerSendMessage(msg, pSession.Channel);
+        SessionPlayTimeUpdated?.Invoke(pSession);
     }
 
     /// <summary>
