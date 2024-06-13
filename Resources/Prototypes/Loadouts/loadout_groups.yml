@@ -1022,9 +1022,9 @@
   loadouts:
 #  - HeadofSecurityCoat # DeltaV
 #  - HeadofSecurityWinterCoat # DeltaV
-  - PlateCarrier
-  - DuraVest
-  - HoSStasecCoat
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
+  - HoSStasecCoat # DeltaV
 
 - type: loadoutGroup # DeltaV
   id: HeadOfSecurityShoes
@@ -1058,11 +1058,11 @@
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-#  - WardenCoat
-#  - WardenArmoredWinterCoat
-  - PlateCarrier
-  - DuraVest
-  - WardenStasecCoat
+#  - WardenCoat # DeltaV
+#  - WardenArmoredWinterCoat # DeltaV
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
+  - WardenStasecCoat # DeltaV
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1073,6 +1073,8 @@
   - SecurityBeret
 #  - SecurityHat # DeltaV
 
+# DeltaV - add more options to security officer eyewear.
+
 - type: loadoutGroup
   id: SecurityEyes
   name: loadout-group-security-eyes
@@ -1082,6 +1084,8 @@
   - SunglassesSec
   - HudSec
   - HudSecPatch
+
+# End DeltaV addition.
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1187,9 +1191,9 @@
   loadouts:
 #  - DetectiveArmorVest # DeltaV
 #  - DetectiveCoat # DeltaV
-  - DetectiveStasecCoat
-  - PlateCarrier
-  - DuraVest
+  - DetectiveStasecCoat # DeltaV
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
 
 #- type: loadoutGroup # DeltaV
 #  id: SecurityCadetJumpsuit
@@ -1197,13 +1201,6 @@
 #  loadouts:
 #  - RedJumpsuit
 #  - RedJumpskirt
-
-- type: loadoutGroup # DeltaV
-  id: SecurityCadetHead
-  name: loadout-group-security-cadet-head
-  minLimit: 0
-  loadouts:
-  - MimeHead # DeltaV - Red Beret
 
 # Medical
 - type: loadoutGroup

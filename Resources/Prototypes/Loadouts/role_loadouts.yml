@@ -275,14 +275,13 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
-  - SecurityEyes
+  - SecurityEyes # DeltaV
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  #- SecurityShoes
-  - HeadOfSecurityShoes # DeltaV
+  - SecurityShoes
   - Trinkets
 
 - type: roleLoadout
@@ -316,7 +315,7 @@
   id: JobDetective
   groups:
   - DetectiveHead
-  - SecurityEyes
+  - SecurityEyes # DeltaV
   - DetectiveNeck
   - DetectiveJumpsuit
   - DetectiveBackpack
@@ -330,7 +329,6 @@
   - SecurityHead # DeltaV
   - SecurityEyes # DeltaV
 #  - SecurityCadetJumpsuit # DeltaV
-  - SecurityCadetHead # DeltaV
   - SecurityNeck # DeltaV
   - SecurityBackpack
   - SecurityOuterClothing # DeltaV

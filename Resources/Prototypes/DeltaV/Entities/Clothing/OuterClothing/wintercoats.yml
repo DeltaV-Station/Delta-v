@@ -59,7 +59,7 @@
   - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterStasecSweater
   id: ClothingOuterStasecCoat
   name: station security winter coat
   description: A heavy jacket made from 'synthetic' animal furs, enough to warm even the harshest security officer's cold heart.
@@ -68,17 +68,9 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatsec.rsi
-  - type: Armor # Standardised armoured winter coat
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
-  - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterStasecSweater
   id: ClothingOuterStasecCoatWarden
   name: warden's winter coat
   description: A heavy jacket made from 'synthetic' animal furs, enough to warm even the harshest warden's cold heart.
@@ -87,17 +79,9 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatwarden.rsi
-  - type: Armor # Keep this the same as the sec winter coat
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
-  - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterStasecSweater
   id: ClothingOuterStasecCoatHoS
   name: head of security's winter coat
   description: A heavy jacket made from 'synthetic' animal furs, enough to warm even the harshest head of security's cold heart.
@@ -106,17 +90,9 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coathos.rsi
-  - type: Armor # Keep this the same as the sec winter coat
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
-  - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterStasecSweater
   id: ClothingOuterStasecCoatDet
   name: detective's windbreaker
   description: A light but warm jacket, worn tight and close to avoid contaminating evidence in cooler temperatures.
@@ -125,11 +101,3 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatdet.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/coatdet.rsi
-  - type: Armor # Keep this the same as the sec winter coat
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.75
-  - type: AllowSuitStorage

@@ -139,7 +139,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: NitrogenTankFilled # DeltaV - slimefriendly
         - id: JetpackSecurityFilled # DeltaV - add jetpacks to security suit storage
         - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
         - id: ClothingMaskBreath
@@ -199,7 +198,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: NitrogenTankFilled # DeltaV - slimefriendly
         - id: JetpackSecurityFilled
         - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
         - id: ClothingMaskGasSwat
@@ -215,7 +213,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: NitrogenTankFilled # DeltaV - slimefriendly
         - id: JetpackSecurityFilled # DeltaV - add jetpacks to security suit storage
         - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
         - id: ClothingMaskBreath
@@ -276,7 +273,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: NitrogenTankFilled
+#      - id: NitrogenTankFilled # removed for consistency.
       - id: OxygenTankFilled
       - id: JetpackSecurityFilled
       - id: ClothingOuterHardsuitCombatCorpsman
