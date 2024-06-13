@@ -67,6 +67,7 @@ loadout-group-security-neck = Security neck
 
 loadout-group-brig-medic-head = Corpsman head
 loadout-group-brig-medic-eyes = Corpsman eyes
+loadout-group-brig-medic-neck = Corpsman neck
 loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
 loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-outerclothing = Corpsman outer clothing
