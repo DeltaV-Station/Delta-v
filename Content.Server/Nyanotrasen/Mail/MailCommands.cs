@@ -57,7 +57,7 @@ public sealed class MailToCommand : IConsoleCommand
             return;
         }
 
-        // Code imported from New Frontiers, licensed under MIT: Large Mail
+        // Frontier: Large Mail
         bool isLarge = false;
         if (args.Length > 4 && !Boolean.TryParse(args[4], out isLarge))
         {

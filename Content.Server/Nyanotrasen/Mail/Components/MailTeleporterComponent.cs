@@ -28,7 +28,7 @@ namespace Content.Server.Mail.Components
         /// teleporter can deliver.
         /// </summary>
         [DataField("mailPool")]
-        public string MailPool = "RandomMailDeliveryPool";
+        public string MailPool = "RandomNFMailDeliveryPool"; // Frontier: use our own mail pool (TODO: migrate to frontier.yml instance?)
 
         /// <summary>
         /// How many mail candidates do we need per actual delivery sent when
@@ -105,7 +105,7 @@ namespace Content.Server.Mail.Components
         [DataField("priorityMalus")]
         public int PriorityMalus = -250;
 
-        // Code imported from New Frontiers, licensed under MIT: Large mail
+        // Frontier: Large mail
         /// <summary>
         /// What's the bonus for delivering a large package intact?
         /// </summary>
