@@ -1,0 +1,29 @@
+- type: htnCompound
+  id: GlimmerWispCompound
+  branches:
+  - tasks:
+    - id: RangedCombatCompound
+  - tasks:
+    - id: DrainPsionicCompound
+  - tasks:
+    - id: IdleCompound
+
+- type: htnCompound
+  id: DrainPsionicCompound
+  branches:
+  - tasks:
+    - id: PickDrainTargetPrimitive
+    - id: MoveToAccessiblePrimitive
+    - id: DrainPrimitive
+
+- type: htnPrimitive
+  id: PickDrainTargetPrimitive
+  operator: !type:PickDrainTargetOperator
+    targetKey: MovementTarget
+    drainKey: DrainTarget
+    rangeKey: IdleRange
+
+- type: htnPrimitive
+  id: DrainPrimitive
+  operator: !type:DrainOperator
+    drainKey: DrainTarget
