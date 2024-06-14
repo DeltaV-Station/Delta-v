@@ -1,7 +1,6 @@
+using Content.Server.DeltaV.GlimmerWisp;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Abilities.Psionics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,11 +11,11 @@ public sealed partial class PickDrainTargetOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entMan = default!;
 
     private EntityLookupSystem _lookup = default!;
-    private MobStateSystem _mob = default!;
+    private LifeDrainerSystem _drainer = default!;
     private NpcFactionSystem _faction = default!;
     private PathfindingSystem _pathfinding = default!;
 
-    private EntityQuery<PsionicComponent> _psionicQuery;
+    private EntityQuery<LifeDrainerComponent> _drainerQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
     [DataField(required: true)]
@@ -39,11 +38,11 @@ public sealed partial class PickDrainTargetOperator : HTNOperator
         base.Initialize(sysMan);
 
         _lookup = sysMan.GetEntitySystem<EntityLookupSystem>();
-        _mob = sysMan.GetEntitySystem<MobStateSystem>();
+        _drainer = sysMan.GetEntitySystem<LifeDrainerSystem>();
         _faction = sysMan.GetEntitySystem<NpcFactionSystem>();
         _pathfinding = sysMan.GetEntitySystem<PathfindingSystem>();
 
-        _psionicQuery = _entMan.GetEntityQuery<PsionicComponent>();
+        _drainerQuery = _entMan.GetEntityQuery<LifeDrainerComponent>();
         _xformQuery = _entMan.GetEntityQuery<TransformComponent>();
     }
 
@@ -51,6 +50,10 @@ public sealed partial class PickDrainTargetOperator : HTNOperator
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        if (!_drainer.TryComp(owner, out var drainer))
+            return (false, null);
+
+        var ent = (owner, drainer);
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entMan))
             return (false, null);
@@ -58,10 +61,7 @@ public sealed partial class PickDrainTargetOperator : HTNOperator
         // find crit psionics nearby
         foreach (var target in _faction.GetNearbyHostiles(owner, range))
         {
-            if (!_psionicQuery.HasComp(target))
-                continue;
-
-            if (!_mob.IsCritical(target))
+            if (!_drainer.CanDrain(ent, target))
                 continue;
 
             if (!_xformQuery.TryComp(target, out var xform))

@@ -88,7 +88,7 @@
   - type: Reactive
     groups:
       Acidic: [Touch] # Holy water
-  - type: MobThresholds
+  - type: MobState
     allowedStates:
     - Alive
     - Dead
@@ -150,7 +150,8 @@
     autoRechargeRate: 100
   # AI
   - type: HTN
-    rootTask: GlimmerWispCompound
+    rootTask:
+      task: GlimmerWispCompound
   - type: NpcFactionMember
     factions:
     - GlimmerMonster
