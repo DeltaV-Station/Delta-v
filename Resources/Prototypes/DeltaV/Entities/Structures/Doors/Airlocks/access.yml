@@ -29,7 +29,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockChiefJusticeGlassLocked
-  suffix: ChiefJustice, Locked
+  suffix: Chief Justice, Locked
   components:
   - type: ContainerFill
     containers:
@@ -154,7 +154,7 @@
     - type: GridFill
       path: /Maps/Shuttles/DeltaV/sub_escape_pod.yml
 
-# Delta V: Add Airlocks/upstream roles
+#Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked
   id: AirlockBoxerLocked
