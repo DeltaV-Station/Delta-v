@@ -356,6 +356,9 @@
   parent: AlwaysPoweredWallLight
   suffix: ""
   components:
+  - type: GuideHelp # DeltaV guide
+    guides:
+    - AlertProcedure
   - type: PointLight
     enabled: false
     radius: 5

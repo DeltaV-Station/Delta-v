@@ -14,8 +14,6 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ]
           #service
@@ -24,7 +22,6 @@
             Botanist: [ 1, 1 ]
             Clown: [ 1, 1 ]
             Chef: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Janitor: [ 1, 1 ]
@@ -35,6 +32,11 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 3 ]
             TechnicalAssistant: [ 2, 2 ]
+          #justice
+            ChiefJustice: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
