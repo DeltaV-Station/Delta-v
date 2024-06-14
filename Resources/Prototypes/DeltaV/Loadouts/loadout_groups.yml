@@ -79,6 +79,104 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
+  
+# Justice
+## Chief Justice
+- type: loadoutGroup
+  id: ChiefJusticeHead
+  name: loadout-group-chiefjustice-head
+  minLimit: 0
+  loadouts:
+  - CJToque
+
+- type: loadoutGroup
+  id: ChiefJusticeJumpsuit
+  name: loadout-group-chiefjustice-jumpsuit
+  loadouts:
+  - ChiefJusticeJumpsuit
+  - ChiefJusticeJumpskirt
+  - ChiefJusticeFormalJumpsuit
+  - ChiefJusticeWhiteJumpsuit
+  
+- type: loadoutGroup
+  id: ChiefJusticeNeck
+  name: loadout-group-chiefjustice-neck
+  minLimit: 0
+  loadouts:
+  - ChiefJusticeCloak
+
+- type: loadoutGroup
+  id: ChiefJusticeOuterClothing
+  name: loadout-group-chiefjustice-outerclothing
+  minLimit: 0
+  loadouts:
+  - ChiefJusticeRobe
+
+- type: loadoutGroup
+  id: ChiefJusticeShoes
+  name: loadout-group-chiefjustice-shoes
+  loadouts:
+  - LeatherShoes
+  - LaceupShoes
+
+## Clerk
+- type: loadoutGroup
+  id: ClerkJumpsuit
+  name: loadout-group-clerk-jumpsuit
+  loadouts:
+  - ClerkJumpsuit
+  - ClerkJumpskirt
+  
+- type: loadoutGroup
+  id: ClerkNeck
+  name: loadout-group-clerk-neck
+  minLimit: 0
+  loadouts:
+  - BlackTie
+  - BlueTie
+  - BrownTie
+  - GreenTie
+  - RedTie
+  - WhiteTie
+
+- type: loadoutGroup
+  id: ClerkOuterClothing
+  name: loadout-group-clerk-outerclothing
+  minLimit: 0
+  loadouts:
+  - ClerkVest
+
+- type: loadoutGroup
+  id: ClerkShoes
+  name: loadout-group-clerk-shoes
+  loadouts:
+  - LaceupShoes
+  - LeatherShoes
+
+## Prosecutor
+- type: loadoutGroup
+  id: ProsecutorJumpsuit
+  name: loadout-group-prosecutor-jumpsuit
+  loadouts:
+  - ProsecutorJumpsuit
+  - ProsecutorJumpskirt
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+  - LawyerJumpsuitRed
+  - LawyerJumpskirtRed
+  - LawyerJumpsuitGood
+  - LawyerJumpskirtGood
+  
+- type: loadoutGroup
+  id: ProsecutorNeck
+  name: loadout-group-prosecutor-neck
+  minLimit: 0
+  loadouts:
+  - ProsecutorNeck
 
 - type: loadoutGroup
   id: Scarfs

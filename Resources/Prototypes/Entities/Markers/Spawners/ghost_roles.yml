@@ -169,6 +169,9 @@
     rules: ghost-role-information-space-ninja-rules
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+      time: 259200 # DeltaV - 72 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSpaceNinja
   - type: Sprite
