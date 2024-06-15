@@ -34,7 +34,7 @@ public sealed partial class DrainOperator : HTNOperator
             return HTNOperatorStatus.Failed;
 
         // still draining hold your horses
-        if (wisp.IsDraining)
+        if (_drainer.IsDraining(wisp))
             return HTNOperatorStatus.Continuing;
 
         // not draining and no target set, start to drain
@@ -45,8 +45,8 @@ public sealed partial class DrainOperator : HTNOperator
                 : HTNOperatorStatus.Failed;
         }
 
-        // stopped draining, clear the target and find another one after
-        _drainer.ClearTarget(wisp);
+        // stopped draining, clean up and find another one after
+        _drainer.CancelDrain(wisp);
         return HTNOperatorStatus.Finished;
     }
 }

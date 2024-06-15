@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 
@@ -39,16 +40,16 @@ public sealed partial class LifeDrainerComponent : Component
     /// Sound played after draining is complete.
     /// </summary>
     [DataField]
-    public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/DeltaV/Effects/guardian_inject.ogg");
+    public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/Effects/guardian_inject.ogg");
 
     [DataField]
     public EntityUid? DrainStream;
 
     /// <summary>
-    /// Whether there is a drain doafter in progress.
+    /// A current drain doafter in progress.
     /// </summary>
     [DataField]
-    public bool IsDraining;
+    public DoAfterId? DoAfter;
 
     /// <summary>
     /// What mob is being targeted for draining.

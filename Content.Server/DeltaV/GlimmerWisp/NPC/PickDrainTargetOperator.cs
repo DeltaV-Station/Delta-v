@@ -50,7 +50,7 @@ public sealed partial class PickDrainTargetOperator : HTNOperator
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        if (!_drainer.TryComp(owner, out var drainer))
+        if (!_drainerQuery.TryComp(owner, out var drainer))
             return (false, null);
 
         var ent = (owner, drainer);
