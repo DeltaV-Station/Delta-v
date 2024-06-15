@@ -96,12 +96,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      300: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -109,8 +109,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           Ectoplasm:
-            min: 1
-            max: 1
+            min: 2
+            max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
@@ -119,11 +119,12 @@
   - type: DamageOnDispel
     damage:
       types:
-        Heat: 75
+        Heat: 100
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+      150: 0.8
+      200: 0.6
+      250: 0.3
   - type: StatusEffects
     allowed:
     - Stun
