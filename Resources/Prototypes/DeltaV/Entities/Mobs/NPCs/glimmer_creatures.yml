@@ -143,7 +143,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: WispLash
     fireCost: 1
-    examinable: false
+    # TODO: implement upstream or make it use a proper thing, maybe copy dragon
+    #examinable: false
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
