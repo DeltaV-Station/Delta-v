@@ -223,10 +223,10 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSecurityLawyer
-  suffix: Security/Lawyer, Locked
+  suffix: Security/Justice, Locked #DV - Allow all justice dept to use
   components:
   - type: AccessReader
-    access: [["Security"], ["Lawyer"]]
+    access: [["Security"], ["Justice"]] #DV - Allow all justice dept to use
 
 #- type: entity
 #  parent: DoorElectronics

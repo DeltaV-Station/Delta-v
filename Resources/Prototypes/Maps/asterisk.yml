@@ -16,8 +16,6 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ]
           #service

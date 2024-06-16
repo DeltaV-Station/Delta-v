@@ -7768,6 +7768,13 @@ entities:
     - type: Transform
       pos: -45.674393,11.460362
       parent: 2
+- proto: BoxFolderBlack
+  entities:
+  - uid: 11685
+    components:
+    - type: Transform
+      pos: -39.40188,-2.4419384
+      parent: 2
 - proto: BoxFolderBlue
   entities:
   - uid: 985
@@ -22131,6 +22138,16 @@ entities:
     - type: Transform
       pos: -38.5,-1.5
       parent: 2
+  - uid: 11682
+    components:
+    - type: Transform
+      pos: -42.5,1.5
+      parent: 2
+  - uid: 11683
+    components:
+    - type: Transform
+      pos: -41.5,1.5
+      parent: 2
 - proto: CarpetBlue
   entities:
   - uid: 1571
@@ -31401,6 +31418,11 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-19.5
+      parent: 2
+  - uid: 11684
+    components:
+    - type: Transform
+      pos: -37.5,-0.49999997
       parent: 2
 - proto: filingCabinetTall
   entities:
