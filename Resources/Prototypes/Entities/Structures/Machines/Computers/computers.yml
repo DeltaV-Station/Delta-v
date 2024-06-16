@@ -591,6 +591,9 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
+  - type: GuideHelp # DeltaV guide
+    guides:
+    - AlertProcedure
 
 - type: entity
   parent: ComputerComms
@@ -993,7 +996,7 @@
       enum.CargoPalletConsoleUiKey.Sale:
         type: CargoPalletConsoleBoundUserInterface
   - type: Computer
-    board: CargoRequestComputerCircuitboard
+    board: CargoSaleComputerCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
