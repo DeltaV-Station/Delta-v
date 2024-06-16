@@ -184,9 +184,10 @@ internal sealed class ChargerSystem : EntitySystem
         if (!SearchForBattery(container.ContainedEntities[0], out _, out var heldBattery))
             return CellChargerStatus.Off;
 
-        // do not charge EMP'd batteries
-        if (TryComp<EmpDisabledComponent>(container.ContainedEntities[0], out var emp))
-            return CellChargerStatus.Empty;
+        // do not charge EMP'd batteries*
+        // actually this causes rechargers to not recharge power cells after EMP ends, will need to use the event system
+        //if (TryComp<EmpDisabledComponent>(container.ContainedEntities[0], out var emp))
+        //    return CellChargerStatus.Empty;
 
         if (Math.Abs(heldBattery.MaxCharge - heldBattery.CurrentCharge) < 0.01)
             return CellChargerStatus.Charged;
