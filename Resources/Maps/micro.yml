@@ -26758,13 +26758,6 @@ entities:
     - type: Transform
       pos: -6.5,8.5
       parent: 2
-- proto: CloningConsoleComputerCircuitboard
-  entities:
-  - uid: 4965
-    components:
-    - type: Transform
-      pos: 5.6664495,-5.5314093
-      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 2927
@@ -28306,6 +28299,13 @@ entities:
     components:
     - type: Transform
       pos: -32.5,27.5
+      parent: 2
+- proto: CryoPodMachineCircuitboard
+  entities:
+  - uid: 4965
+    components:
+    - type: Transform
+      pos: 5.454086,-5.416098
       parent: 2
 - proto: CryoxadoneBeakerSmall
   entities:
@@ -56572,13 +56572,6 @@ entities:
     - type: Transform
       pos: -8.274314,5.4216313
       parent: 2
-- proto: MetempsychoticMachineCircuitboard
-  entities:
-  - uid: 4964
-    components:
-    - type: Transform
-      pos: 5.395616,-5.3958983
-      parent: 2
 - proto: MicrophoneInstrument
   entities:
   - uid: 12204
@@ -64893,6 +64886,13 @@ entities:
     components:
     - type: Transform
       pos: -36.5,18.5
+      parent: 2
+- proto: StasisBedMachineCircuitboard
+  entities:
+  - uid: 4964
+    components:
+    - type: Transform
+      pos: 5.6832523,-5.6245766
       parent: 2
 - proto: StationMap
   entities:
