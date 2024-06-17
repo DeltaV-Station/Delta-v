@@ -65,3 +65,14 @@
     - PetsNT
   - type: TypingIndicator
     proto: lawyer # incase of cognizine
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: "Carpy the Legal Carp"
+    description: "The real brains behind the Justice department. Your honour my client is not fishy!"
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 3600 # 1 hours
+  - type: GhostTakeoverAvailable
