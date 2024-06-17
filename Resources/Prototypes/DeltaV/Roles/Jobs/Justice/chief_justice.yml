@@ -4,9 +4,9 @@
   description: job-description-chief-justice
   playTimeTracker: JobChiefJustice
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobClerk
-      time: 36000 # DeltaV - 10 hours
+#    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so. 
+#      role: JobClerk
+#      time: 36000 # DeltaV - 10 hours
     - !type:RoleTimeRequirement
       role: JobLawyer
       time: 36000 # 10 hours
