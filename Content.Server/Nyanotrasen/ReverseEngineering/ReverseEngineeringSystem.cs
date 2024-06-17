@@ -125,6 +125,7 @@ public sealed class ReverseEngineeringSystem : SharedReverseEngineeringSystem
         }
         else
         {
+            rev.Progress = 0;
             CreateDisk((uid, comp), rev.Recipes);
             Eject((uid, comp));
             Audio.PlayPvs(comp.SuccessSound, uid);
