@@ -48,8 +48,6 @@
           enableStationRotation: false
           maxStationOffset: null
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             Passenger: [ -1, -1 ]

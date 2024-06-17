@@ -21,8 +21,6 @@
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             CargoTechnician: [ 3, 3 ]
             Passenger: [ -1, -1 ]

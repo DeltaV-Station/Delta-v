@@ -32,8 +32,6 @@
         - type: StationCargoShuttle
           path: /Maps/Test/empty.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             HeadOfPersonnel: [ 1, 1 ]
