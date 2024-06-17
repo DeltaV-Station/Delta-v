@@ -13,6 +13,7 @@ criminal-records-status-detained = Detained
 criminal-records-status-suspected = Suspect
 criminal-records-status-discharged = Discharged
 criminal-records-status-paroled = Paroled
+criminal-records-status-subpoenaed = Subpoenaed
 
 criminal-records-console-wanted-reason = [color=gray]Wanted Reason[/color]
 criminal-records-console-suspected-reason = [color=gray]Suspected Reason[/color]
@@ -39,6 +40,8 @@ criminal-records-console-released = {$name} has been released by {$officer}.
 criminal-records-console-not-wanted = {$officer} cleared the wanted status of {$name}.
 criminal-records-console-paroled = {$name} has been released on parole by {$officer}.
 criminal-records-console-not-parole = {$officer} cleared the parole status of {$name}.
+criminal-records-console-subpoenaed = {$name} has been issued a subpoena by the Justice Department and must report to Court immediately.
+criminal-records-console-not-subpoenaed = {$name} is no longer under subpoena by the Justice Department.
 criminal-records-console-unknown-officer = <unknown officer>
 
 ## Filters

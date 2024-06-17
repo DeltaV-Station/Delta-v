@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.Security;
+namespace Content.Shared.Security;
 
 /// <summary>
 /// Status used in Criminal Records.
@@ -9,6 +9,7 @@
 /// Detained - the person is detained by security
 /// Paroled - the person is on parole
 /// Discharged - the person has been released from prison
+/// # DeltaV - Subpoenaed - the person has been subpoenaed by the Justice Department 
 /// </summary>
 public enum SecurityStatus : byte
 {
@@ -17,5 +18,6 @@ public enum SecurityStatus : byte
     Wanted,
     Detained,
     Paroled,
-    Discharged
+    Discharged,
+    Subpoenaed,
 }
