@@ -53,3 +53,15 @@
     - CannotSuicide
     - VimPilot
     - DoorBumpOpener
+
+- type: entity
+  parent: MobCarp
+  id: MobCarpLegal
+  name: Carpy the Legal Carp
+  description: Has a degree in fish law.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: TypingIndicator
+    proto: lawyer # incase of cognizine
