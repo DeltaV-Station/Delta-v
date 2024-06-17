@@ -13,7 +13,6 @@ criminal-records-status-detained = Detained
 criminal-records-status-suspected = Suspect
 criminal-records-status-discharged = Discharged
 criminal-records-status-paroled = Paroled
-criminal-records-status-subpoenaed = Subpoenaed
 
 criminal-records-console-wanted-reason = [color=gray]Wanted Reason[/color]
 criminal-records-console-suspected-reason = [color=gray]Suspected Reason[/color]
@@ -44,6 +43,7 @@ criminal-records-console-unknown-officer = <unknown officer>
 
 ## DeltaV - Justice Department Subpoena
 
+criminal-records-status-subpoenaed = Subpoenaed
 criminal-records-console-subpoenaed = {$name} has been issued a subpoena by the Justice Department and must report to Court immediately.
 criminal-records-console-not-subpoenaed = {$name} is no longer subpoenaed by the Justice Department.
 
