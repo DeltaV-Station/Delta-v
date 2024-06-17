@@ -41,7 +41,7 @@ criminal-records-console-not-wanted = {$officer} cleared the wanted status of {$
 criminal-records-console-paroled = {$name} has been released on parole by {$officer}.
 criminal-records-console-not-parole = {$officer} cleared the parole status of {$name}.
 criminal-records-console-subpoenaed = {$name} has been issued a subpoena by the Justice Department and must report to Court immediately.
-criminal-records-console-not-subpoenaed = {$name} is no longer under subpoena by the Justice Department.
+criminal-records-console-not-subpoenaed = {$name} is no longer subpoenaed by the Justice Department.
 criminal-records-console-unknown-officer = <unknown officer>
 
 ## Filters
