@@ -140,7 +140,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (SecurityStatus.Detained, SecurityStatus.None) => "released",
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
-            // # DeltaV - Person is no longer under subpoena
+            // # DeltaV - Person is no longer subpoenaed
             (SecurityStatus.Subpoenaed, SecurityStatus.None) => "not-subpoenaed",
             // this is impossible
             _ => "not-wanted"
