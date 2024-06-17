@@ -128,7 +128,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (_, SecurityStatus.Paroled) => "paroled",
             // prisoner did their time
             (_, SecurityStatus.Discharged) => "released",
-            // $ DeltaV - person is subpoenaed by Justice Department
+            // # DeltaV - person is subpoenaed by Justice Department
             (_, SecurityStatus.Subpoenaed) => "subpoenaed",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",

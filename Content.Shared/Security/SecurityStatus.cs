@@ -19,5 +19,5 @@ public enum SecurityStatus : byte
     Detained,
     Paroled,
     Discharged,
-    Subpoenaed,
+    Subpoenaed, /// # DeltaV - Justice Department Subpoena
 }
