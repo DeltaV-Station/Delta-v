@@ -3,7 +3,7 @@
   mapName: 'Pebble'
   mapPath: /Maps/pebble.yml
   minPlayers: 0
-  maxPlayers: 30
+  maxPlayers: 35
   stations:
     PebbleStation:
       stationProto: StandardNanotrasenStation
@@ -14,8 +14,6 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #service
             Captain: [ 1, 1 ]
@@ -28,9 +26,11 @@
             Musician: [ 1, 1 ]
             Janitor: [ 1, 2 ]
             Mime: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 1, 1]
+            AtmosphericTechnician: [ 1, 2 ]
             StationEngineer: [ 2, 3 ]
             TechnicalAssistant: [ 2, 2 ]
           #medical
@@ -51,8 +51,9 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            SecurityOfficer: [ 2, 2 ]
+            SecurityOfficer: [ 2, 3 ]
             SecurityCadet: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]
           #supply
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 2 ]
