@@ -1,5 +1,3 @@
-ent-ClothingUniformJumpsuitCentcomAgent = Комбинезон агента ЦентКома
-    .desc = Костюм юристов ЦентКома. Пахнет горелым кофе.
 ent-ClothingUniformJumpskirtCentcomDirector = юбка-комнинезон НШЦК
     .desc = Профессиональный комбинезон, который носит высокопоставленный член Центрального командования.
 ent-ClothingUniformJumpsuitCentcomDirector = комнинезон НШЦК

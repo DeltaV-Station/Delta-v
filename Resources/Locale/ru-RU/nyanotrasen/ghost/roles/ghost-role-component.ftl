@@ -1,6 +1,3 @@
-ghost-role-information-mothroach-name = Мотылек
-ghost-role-information-mothroach-description = Милый, но озорной мотылек.
-
 ghost-role-information-giant-spider-vampire-name = Паук вампир
 ghost-role-information-giant-spider-vampire-description = Гнездо. Приманка. Засада. Потреблять.
 
