@@ -40,12 +40,12 @@ criminal-records-console-released = {$name} has been released by {$officer}.
 criminal-records-console-not-wanted = {$officer} cleared the wanted status of {$name}.
 criminal-records-console-paroled = {$name} has been released on parole by {$officer}.
 criminal-records-console-not-parole = {$officer} cleared the parole status of {$name}.
-criminal-records-console-subpoenaed = {$name} has been issued a subpoena by the Justice Department and must report to Court immediately.
-
-## Delta-V Security Channel Notifications - Justice Dept. Subpoena
-
-criminal-records-console-not-subpoenaed = {$name} is no longer subpoenaed by the Justice Department.
 criminal-records-console-unknown-officer = <unknown officer>
+
+## DeltaV - Justice Department Subpoena
+
+criminal-records-console-subpoenaed = {$name} has been issued a subpoena by the Justice Department and must report to Court immediately.
+criminal-records-console-not-subpoenaed = {$name} is no longer subpoenaed by the Justice Department.
 
 ## Filters
 
