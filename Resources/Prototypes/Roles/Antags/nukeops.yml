@@ -6,16 +6,10 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # DeltaV - 30 hours
-  - !type:DepartmentTimeRequirement # DeltaV - engi dept time requirement
-    department: Engineering
-    time: 7200 # DeltaV - 2 hours
-  - !type:RoleTimeRequirement # DeltaV - salvage time requirement
-    role: JobSalvageSpecialist
     time: 7200 # DeltaV - 2 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 36000 # DeltaV - 10 hours
+    time: 3600 # DeltaV - 1 hours
 
 - type: antag
   id: NukeopsMedic
@@ -25,10 +19,10 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # DeltaV - 30 hours
+    time: 7200 # DeltaV - 2 hours
   - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
     department: Medical
-    time: 36000 # DeltaV - 10 hours
+    time: 3600 # DeltaV - 1 hours
 
 - type: antag
   id: NukeopsCommander
@@ -38,11 +32,7 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 216000 # DeltaV - 60 hours
+    time: 7200 # DeltaV - 2 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 36000 # DeltaV - 10 hours
-  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
-    department: Command
-    time: 36000 # DeltaV - 10 hours
-  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+    time: 3600 # DeltaV - 1 hours
