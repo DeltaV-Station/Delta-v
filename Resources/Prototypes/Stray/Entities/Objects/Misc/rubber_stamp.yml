@@ -9,3 +9,81 @@
     stampedName: stamp-component-stamped-name-chiefcentcomm
     stampedColor: "#006600"
     stampState: "paper_stamp-centcom"
+
+- type: entity
+  name: Печать Уничтожить после прочтения
+  parent: RubberStampBase
+  id: RubberStampDelete
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Уничтожить после прочтения
+    stampedColor: "#850000"
+    stampState: "paper_stamp-warden"
+  - type: Sprite
+    state: stamp-syndicate
+
+- type: entity
+  name: Печать Штаб ЦентКом
+  parent: RubberStampBase
+  id: RubberStampCentcomm
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Штаб ЦентКом
+    stampedColor: "#006600"
+    stampState: "paper_stamp-centcom"
+  - type: Sprite
+    state: stamp-centcom
+
+- type: entity
+  name: Печать ДСУ
+  parent: RubberStampBase
+  id: RubberStampDCU
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Департамент Секториального Управления
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-cap
+
+- type: entity
+  name: Печать NT
+  parent: RubberStampBase
+  id: RubberStampNT
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: NanoTrasen
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-cap
+
+- type: entity
+  name: Печать СОВЕРШЕННО СЕКРЕТНО
+  parent: RubberStampBase
+  id: RubberStampSecret
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: СОВЕРШЕННО СЕКРЕТНО
+    stampedColor: "#850000"
+    stampState: "paper_stamp-warden"
+  - type: Sprite
+    state: stamp-syndicate
+
+- type: entity
+  name: Печать ДСО
+  parent: RubberStampBase
+  id: RubberStampDCO
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Департамент Специальных Операций
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-cap
