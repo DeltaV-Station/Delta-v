@@ -13,9 +13,14 @@
   id: FugitiveGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPrisoner
+    ears: ClothingHeadsetGrey
     gloves: ClothingHandsGlovesColorYellow
     back: ClothingBackpackFilled
-    shoes: ClothingShoesColorBlack
+    shoes: ClothingShoesChameleonNoSlips
+    id: PassengerPDA
   innerClothingSkirt: ClothingUniformJumpskirtPrisoner
   inhand:
   - ToolboxElectricalFilled
+  storage:
+    back:
+    - FugitiveStash
