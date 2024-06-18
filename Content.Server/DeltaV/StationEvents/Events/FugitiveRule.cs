@@ -91,7 +91,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         report.PushMarkup(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
         report.PushMarkup(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
-        report.PushMarkup(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex)));
+        report.PushMarkup(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex.ToString())));
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
             report.PushMarkup(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
