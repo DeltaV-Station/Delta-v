@@ -115,7 +115,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         var crimeTypes = PrototypeManager.Index(rule.CrimesDataset);
         var crimes = new HashSet<LocId>();
         var total = RobustRandom.Next(rule.MinCrimes, rule.MaxCrimes + 1);
-        while (crimes.Count > total)
+        while (crimes.Count < total)
         {
             crimes.Add(RobustRandom.Pick(crimeTypes));
         }
