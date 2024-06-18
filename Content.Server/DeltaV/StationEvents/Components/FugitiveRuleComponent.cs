@@ -64,7 +64,7 @@ public sealed partial class FugitiveRuleComponent : Component
     /// Does not affect the counts of each crime.
     /// </summary>
     [DataField]
-    public int MinCrimes = 3;
+    public int MinCrimes = 2;
 
     /// <summary>
     /// Min number of unique crimes they can be charged with.
