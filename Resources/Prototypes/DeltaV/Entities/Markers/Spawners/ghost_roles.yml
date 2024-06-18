@@ -43,6 +43,7 @@
       time: 40000 # 11.1 hours
 
 - type: entity
+  noSpawn: true
   parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
