@@ -76889,6 +76889,14 @@ entities:
       parent: 6530
     - type: Physics
       canCollide: False
+- proto: EncryptionKeyJustice
+  entities:
+  - uid: 28392
+    components:
+    - type: Transform
+      parent: 6534
+    - type: Physics
+      canCollide: False
 - proto: EncryptionKeyMedical
   entities:
   - uid: 6417
@@ -160368,6 +160376,7 @@ entities:
           occludes: True
           ents:
           - 6535
+          - 28392
         machine_board: !type:Container
           showEnts: False
           occludes: True
