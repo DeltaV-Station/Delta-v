@@ -11,6 +11,7 @@ namespace Content.Server.StationEvents.Components;
 /// Removed after this is done.
 /// </summary>
 [RegisterComponent, Access(typeof(FugitiveRule))]
+[AutoGenerateComponentPause]
 public sealed partial class FugitiveRuleComponent : Component
 {
     [DataField]
@@ -49,7 +50,7 @@ public sealed partial class FugitiveRuleComponent : Component
     /// <summary>
     /// When the announcement will be made, if an antag has spawned yet.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? NextAnnounce;
 
     /// <summary>

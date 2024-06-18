@@ -27,7 +27,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
     protected override void ActiveTick(EntityUid uid, FugitiveRuleComponent comp, GameRuleComponent rule, float frameTime)
     {
-        if (comp.NextAnnounce is {} next && next > Timing.CurTime)
+        if (comp.NextAnnounce is not {} next || next > Timing.CurTime)
             return;
 
         var announcement = Loc.GetString(comp.Announcement);
