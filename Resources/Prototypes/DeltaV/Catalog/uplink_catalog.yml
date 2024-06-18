@@ -45,9 +45,12 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: SyndicateRadioImplanter
   cost:
-    Telecrystal: 2
+    Telecrystal: 0
   categories:
   - UplinkImplants
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: UplinkSyndicateRadioImplanterBundle
