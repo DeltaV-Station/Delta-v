@@ -51583,6 +51583,47 @@ entities:
     - type: Transform
       pos: 41.5,-21.5
       parent: 2
+    - type: Lathe
+      dynamicRecipes:
+      - ProximitySensor
+      - BorgModuleLightReplacer
+      - BorgModuleAdvancedCleaning
+      - BorgModuleMining
+      - BorgModuleAdvancedTool
+      - BorgModuleGPS
+      - BorgModuleRCD
+      - BorgModuleArtifact
+      - BorgModuleAnomaly
+      - BorgModuleGardening
+      - BorgModuleHarvesting
+      - BorgModuleMusique
+      - BorgModuleClowning
+      - BorgModuleDiagnosis
+      - BorgModuleDefibrillator
+      - BorgModuleAdvancedTreatment
+      - RipleyHarness
+      - RipleyLArm
+      - RipleyRArm
+      - RipleyLLeg
+      - RipleyRLeg
+      - MechEquipmentGrabber
+      - HonkerHarness
+      - HonkerLArm
+      - HonkerRArm
+      - HonkerLLeg
+      - HonkerRLeg
+      - MechEquipmentHorn
+      - MechEquipmentGrabberSmall
+      - HamtrHarness
+      - HamtrLArm
+      - HamtrRArm
+      - HamtrLLeg
+      - HamtrRLeg
+      - VimHarness
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
+      - JetpackBlue
+      - JetpackMini
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 7227
@@ -53146,6 +53187,23 @@ entities:
     components:
     - type: Transform
       pos: 19.5,-45.5
+      parent: 2
+- proto: FolderSpawner
+  entities:
+  - uid: 13120
+    components:
+    - type: Transform
+      pos: -61.413544,8.56456
+      parent: 2
+  - uid: 16969
+    components:
+    - type: Transform
+      pos: -69.53854,8.53331
+      parent: 2
+  - uid: 16970
+    components:
+    - type: Transform
+      pos: -61.226044,18.58796
       parent: 2
 - proto: FoodApple
   entities:
@@ -72902,6 +72960,8 @@ entities:
   entities:
   - uid: 10261
     components:
+    - type: MetaData
+      name: contraband locker
     - type: Transform
       pos: -21.5,9.5
       parent: 2
@@ -85863,11 +85923,6 @@ entities:
     - type: Transform
       pos: -11.5,4.5
       parent: 2
-  - uid: 13120
-    components:
-    - type: Transform
-      pos: 50.5,16.5
-      parent: 2
   - uid: 16513
     components:
     - type: Transform
@@ -86742,6 +86797,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,51.5
+      parent: 2
+  - uid: 16967
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 47.5,16.5
+      parent: 2
+  - uid: 16968
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 49.5,16.5
       parent: 2
 - proto: PoweredSmallLightEmpty
   entities:
@@ -93525,6 +93592,13 @@ entities:
     - type: Transform
       pos: 40.5,47.5
       parent: 2
+- proto: SpawnMobJusticePet
+  entities:
+  - uid: 16971
+    components:
+    - type: Transform
+      pos: -65.5,13.5
+      parent: 2
 - proto: SpawnMobMcGriff
   entities:
   - uid: 7252
@@ -98527,6 +98601,177 @@ entities:
     - type: Transform
       pos: 30.5,22.5
       parent: 2
+    - type: Lathe
+      staticRecipes:
+      - ClothingUniformJumpsuitColorGrey
+      - ClothingUniformJumpskirtColorGrey
+      - ClothingUniformJumpsuitBartender
+      - ClothingUniformJumpskirtBartender
+      - ClothingHeadHatCapcap
+      - ClothingHeadHatCaptain
+      - ClothingUniformJumpsuitCaptain
+      - ClothingUniformJumpskirtCaptain
+      - ClothingUniformJumpsuitCapFormal
+      - ClothingUniformJumpskirtCapFormalDress
+      - ClothingUniformJumpsuitCargo
+      - ClothingUniformJumpskirtCargo
+      - ClothingUniformJumpsuitSalvageSpecialist
+      - ClothingHeadHatBeretEngineering
+      - ClothingUniformJumpsuitChiefEngineer
+      - ClothingUniformJumpskirtChiefEngineer
+      - ClothingUniformJumpsuitChiefEngineerTurtle
+      - ClothingUniformJumpskirtChiefEngineerTurtle
+      - ClothingUniformJumpsuitChaplain
+      - ClothingUniformJumpskirtChaplain
+      - ClothingUniformJumpsuitChef
+      - ClothingUniformJumpskirtChef
+      - ClothingUniformJumpsuitChemistry
+      - ClothingUniformJumpskirtChemistry
+      - ClothingUniformJumpsuitClown
+      - ClothingHeadHatBeretCmo
+      - ClothingUniformJumpsuitCMO
+      - ClothingUniformJumpskirtCMO
+      - ClothingUniformJumpsuitCMOTurtle
+      - ClothingUniformJumpskirtCMOTurtle
+      - ClothingUniformJumpsuitDetective
+      - ClothingUniformJumpskirtDetective
+      - ClothingUniformJumpsuitEngineering
+      - ClothingUniformJumpskirtEngineering
+      - ClothingUniformJumpsuitSeniorEngineer
+      - ClothingUniformJumpskirtSeniorEngineer
+      - ClothingHeadHatHopcap
+      - ClothingUniformJumpsuitHoP
+      - ClothingUniformJumpskirtHoP
+      - ClothingHeadHatBeretHoS
+      - ClothingHeadHatHoshat
+      - ClothingUniformJumpsuitHoS
+      - ClothingUniformJumpskirtHoS
+      - ClothingUniformJumpsuitHoSBlue
+      - ClothingUniformJumpskirtHoSBlue
+      - ClothingUniformJumpsuitHoSGrey
+      - ClothingUniformJumpskirtHoSGrey
+      - ClothingUniformJumpsuitHosFormal
+      - ClothingUniformJumpskirtHosFormal
+      - ClothingUniformJumpsuitHoSAlt
+      - ClothingUniformJumpskirtHoSAlt
+      - ClothingUniformJumpsuitHoSBlue
+      - ClothingUniformJumpsuitHoSGrey
+      - ClothingUniformJumpsuitHoSParadeMale
+      - ClothingUniformJumpskirtHoSParadeMale
+      - ClothingUniformJumpsuitHydroponics
+      - ClothingUniformJumpskirtHydroponics
+      - ClothingUniformJumpsuitJanitor
+      - ClothingUniformJumpskirtJanitor
+      - ClothingUniformJumpsuitLawyerBlack
+      - ClothingUniformJumpsuitLibrarian
+      - ClothingUniformJumpskirtColorLightBrown
+      - ClothingUniformCourier
+      - ClothingUniformSkirtCourier
+      - ClothingUniformJumpsuitMantis
+      - ClothingUniformSkirtMantis
+      - ClothingHeadHatBeretSeniorPhysician
+      - ClothingUniformJumpsuitMedicalDoctor
+      - ClothingUniformJumpskirtMedicalDoctor
+      - ClothingUniformJumpsuitSeniorPhysician
+      - ClothingUniformJumpskirtSeniorPhysician
+      - ClothingUniformJumpsuitMime
+      - ClothingUniformJumpskirtMime
+      - ClothingUniformJumpsuitMusician
+      - ClothingUniformJumpsuitParamedic
+      - ClothingUniformJumpskirtParamedic
+      - ClothingUniformJumpsuitSeniorOfficer
+      - ClothingUniformJumpskirtSeniorOfficer
+      - ClothingUniformJumpsuitPrisoner
+      - ClothingUniformJumpskirtPrisoner
+      - ClothingHeadHatQMsoft
+      - ClothingHeadHatBeretQM
+      - ClothingUniformJumpsuitQM
+      - ClothingUniformJumpskirtQM
+      - ClothingUniformJumpsuitQMTurtleneck
+      - ClothingUniformJumpskirtQMTurtleneck
+      - ClothingUniformJumpsuitQMFormal
+      - ClothingHeadHatBeretRND
+      - ClothingUniformJumpsuitResearchDirector
+      - ClothingUniformJumpskirtResearchDirector
+      - ClothingUniformJumpsuitScientist
+      - ClothingUniformJumpskirtScientist
+      - ClothingUniformJumpsuitSeniorResearcher
+      - ClothingUniformJumpskirtSeniorResearcher
+      - ClothingHeadHatBeretSecurity
+      - ClothingUniformJumpsuitSec
+      - ClothingUniformJumpskirtSec
+      - ClothingUniformJumpsuitSecBlue
+      - ClothingUniformJumpskirtSecBlue
+      - ClothingUniformJumpsuitSecGrey
+      - ClothingUniformJumpskirtSecGrey
+      - ClothingHeadHatBeretBrigmedic
+      - ClothingUniformJumpsuitBrigmedic
+      - ClothingUniformJumpskirtBrigmedic
+      - ClothingHeadHatBeretWarden
+      - ClothingHeadHatWarden
+      - ClothingUniformJumpsuitWarden
+      - ClothingUniformJumpskirtWarden
+      - ClothingUniformJumpsuitWardenBlue
+      - ClothingUniformJumpskirtWardenBlue
+      - ClothingUniformJumpsuitWardenGrey
+      - ClothingUniformJumpskirtWardenGrey
+      - ClothingHeadHatParamedicsoft
+      - ClothingOuterWinterCap
+      - ClothingOuterWinterCE
+      - ClothingOuterWinterCMO
+      - ClothingOuterWinterHoP
+      - ClothingOuterWinterHoSUnarmored
+      - ClothingOuterWinterWardenUnarmored
+      - ClothingOuterWinterQM
+      - ClothingOuterWinterRD
+      - ClothingNeckMantleCap
+      - ClothingNeckMantleCE
+      - ClothingNeckMantleCMO
+      - ClothingNeckMantleHOP
+      - ClothingNeckMantleHOS
+      - ClothingNeckMantleRD
+      - ClothingNeckMantleQM
+      - ClothingOuterStasecSweater
+      - ClothingOuterWinterMusician
+      - ClothingOuterWinterClown
+      - ClothingOuterWinterMime
+      - ClothingOuterWinterCoat
+      - ClothingOuterWinterJani
+      - ClothingOuterWinterBar
+      - ClothingOuterWinterChef
+      - ClothingOuterWinterHydro
+      - ClothingOuterWinterAtmos
+      - ClothingOuterWinterEngi
+      - ClothingOuterWinterCargo
+      - ClothingOuterWinterMiner
+      - ClothingOuterWinterMed
+      - ClothingOuterWinterPara
+      - ClothingOuterWinterChem
+      - ClothingOuterWinterGen
+      - ClothingOuterWinterViro
+      - ClothingOuterWinterSci
+      - ClothingOuterWinterRobo
+      - ClothingOuterWinterSec
+      - ClothingNeckTieRed
+      - ClothingNeckTieDet
+      - ClothingNeckTieSci
+      - ClothingNeckScarfStripedGreen
+      - ClothingNeckScarfStripedBlue
+      - ClothingNeckScarfStripedRed
+      - ClothingNeckScarfStripedBrown
+      - ClothingNeckScarfStripedLightBlue
+      - ClothingNeckScarfStripedOrange
+      - ClothingNeckScarfStripedBlack
+      - ClothingNeckScarfStripedPurple
+      - Carpet
+      - CarpetBlack
+      - CarpetPink
+      - CarpetBlue
+      - CarpetGreen
+      - CarpetOrange
+      - CarpetPurple
+      - CarpetCyan
+      - CarpetWhite
     - type: MaterialStorage
       materialWhiteList:
       - Cloth
