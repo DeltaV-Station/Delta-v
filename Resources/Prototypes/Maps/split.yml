@@ -147,8 +147,6 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             HeadOfPersonnel: [ 1, 1 ]
