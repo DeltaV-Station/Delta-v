@@ -5390,9 +5390,6 @@ entities:
     - type: Transform
       pos: 5.5,13.5
       parent: 8
-    - type: Door
-      secondsUntilStateChange: -51.12452
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -32483,8 +32480,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,15.5
       parent: 8
-    - type: Door
-      secondsUntilStateChange: -3678.6653
     - type: DeviceNetwork
       deviceLists:
       - 10795
@@ -61299,6 +61294,13 @@ entities:
     components:
     - type: Transform
       pos: 23.5,27.5
+      parent: 8
+- proto: SpawnMobJusticePet
+  entities:
+  - uid: 11837
+    components:
+    - type: Transform
+      pos: 45.5,-11.5
       parent: 8
 - proto: SpawnMobMouse
   entities:
