@@ -110,21 +110,26 @@
 #    spawner: SpawnPointGhostRatKing
 
 - type: entity
-  noSpawn: true
   parent: BaseMidRoundAntag
-  id: ParadoxAnomalySpawn
+  id: ParadoxAnomaly
   components:
+  - type: StationEvent
+    duration: null
   - type: ParadoxClonerRule
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective
+    - ParadoxAnomalyFriendObjective
+    - ParadoxAnomalyEscapeObjective
   - type: AntagSelection
+    agentName: paradox-anomaly-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostParadoxAnomaly
       min: 1
       max: 1
       pickPlayer: false
-      components:
-      # TerminatorComponent is added by paradox cloner
-      - type: GenericAntag
-        rule: ParadoxAnomaly
       mindComponents:
+      - type: RoleBriefing
+        briefing: paradox-anomaly-role-briefing
       - type: TerminatorRole
         prototype: Terminator
