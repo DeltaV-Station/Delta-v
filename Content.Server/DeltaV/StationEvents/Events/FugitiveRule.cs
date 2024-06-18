@@ -36,11 +36,17 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         // send the report to every comms console on the station
         var query = EntityQueryEnumerator<TransformComponent, CommunicationsConsoleComponent>();
+        var consoles = new List<TransformComponent>();
         while (query.MoveNext(out var console, out var xform, out _))
         {
             if (StationSystem.GetOwningStation(console, xform) != comp.Station || HasComp<GhostComponent>(console))
                 continue;
 
+            consoles.Add(xform);
+        }
+
+        foreach (var xform in consoles)
+        {
             var report = Spawn(comp.ReportPaper, xform.Coordinates);
             _paper.SetContent(report, comp.Report);
         }
