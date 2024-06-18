@@ -107770,7 +107770,7 @@ entities:
   - uid: 2102
     components:
     - type: Transform
-      pos: 22.5,21.5
+      pos: 27.5,19.5
       parent: 100
 - proto: SignLibrary
   entities:
@@ -109383,6 +109383,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,67.5
+      parent: 100
+- proto: SpawnMobJusticePet
+  entities:
+  - uid: 9449
+    components:
+    - type: Transform
+      pos: 27.5,22.5
       parent: 100
 - proto: SpawnMobMcGriff
   entities:
