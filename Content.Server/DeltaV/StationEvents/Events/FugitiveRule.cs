@@ -122,7 +122,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         foreach (var crime in crimes)
         {
-            var count = RobustRandom.Next(rule.MinCrimes, rule.MaxCounts + 1);
+            var count = RobustRandom.Next(rule.MinCounts, rule.MaxCounts + 1);
             report.PushMarkup(Loc.GetString("fugitive-report-crime", ("crime", Loc.GetString(crime)), ("count", count)));
         }
     }
