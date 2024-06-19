@@ -12,7 +12,7 @@
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
-            - tag: GlassesNearsight
+            - component: VisionCorrection
               name: glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/glasses.rsi
