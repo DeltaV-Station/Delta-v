@@ -866,6 +866,7 @@
   loadouts:
   - ResearchDirectorBeret
   - ResearchDirectorHood
+  - MystagogueBeret # DeltaV
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -873,7 +874,8 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorMantle
-  - ResearchDirectorCloak
+  #- ResearchDirectorCloak
+  - MystagogueCloak # DeltaV - Replaced RD cloak with MG
   - ScarfPurple # DeltaV
 
 - type: loadoutGroup
