@@ -6,6 +6,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.Radiation.Systems; // The thing that makes it radiate
 
 namespace Content.Shared.ReverseEngineering;
 
@@ -17,6 +18,7 @@ public abstract class SharedReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly RadiationSystem _radiation = default!; // Radiation go brr
 
     public override void Initialize()
     {
@@ -101,11 +103,13 @@ public abstract class SharedReverseEngineeringSystem : EntitySystem
     private void OnActiveStartup(Entity<ActiveReverseEngineeringMachineComponent> ent, ref ComponentStartup args)
     {
         _ambientSound.SetAmbience(ent, true);
+        _radiation.SetSourceEnabled(uid, true);
     }
 
     private void OnActiveShutdown(Entity<ActiveReverseEngineeringMachineComponent> ent, ref ComponentShutdown args)
     {
         _ambientSound.SetAmbience(ent, false);
+        _radiation.SetSourceEnabled(uid, false);
     }
 
     #region UI

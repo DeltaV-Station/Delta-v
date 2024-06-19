@@ -57,7 +57,7 @@
   recipeUnlocks:
   - TechDiskComputerCircuitboard
   - ReverseEngineeringMachineCircuitboard #delta change
-  
+
 - type: technology
   id: MagnetsTech
   name: research-technology-magnets-tech
@@ -109,6 +109,7 @@
   - WeaponPistolCHIMP
   - AnomalySynchronizerCircuitboard
   - AnomalyVesselExperimentalCircuitboard
+  - ReverseEngineeringExperimentalCircuitboard # Delta V-Upgraded version of RE.
   technologyPrerequisites:
   - BasicAnomalousResearch
 

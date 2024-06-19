@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingShoesBootsMagSyndie
+  id: ClothingShoesBootsMagSyndieReverseEngineered
+  name: SA-123 magboots
+  description: Reverse-engineere'd the reversed engineer'd magnetic boots that have a heavy magnetic pull and integrated thrusters.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Shoes/Boots/SA-123_magboots.rsi
+    state: icon
+  - type: Clothing
+    sprite: DeltaV/Clothing/Shoes/Boots/SA-123_magboots.rsi
+  - type: ReverseEngineering
+    difficulty: 4
+    newItem: ClothingShoesBootsMagSyndieReverseEngineered
+    recipes:
+      - ClothingShoesBootsMagSyndieReverseEngineered

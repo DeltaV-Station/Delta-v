@@ -1,0 +1,35 @@
+- type: entity
+  parent: ReverseEngineeringMachine
+  id: ExperimentalReverseEngineeringMachine
+  name: experimental reverse engineering machine
+  description: An extremely unstable reverse engineering prototype. It is capable of reversing at extreme rates but at the cost of safety of anyone around it.
+  components:
+  - type: Machine
+    board: ReverseEngineeringExperimentalCircuitboard
+  - type: Sprite
+    sprite: DeltaV/Structures/Machines/reverse_engineering.rsi
+    snapCardinals: true
+    layers:
+    - state: open
+      map: ["open"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    noRot: true
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReverseEngineeringVisuals.ChamberOpen:
+        open:
+          True: { state: open }
+          False: { state: closed }
+  - type: RadiationSource
+    intensity: 1.00 # More intensity, bigger range with bigger lethality next to it.
+    slope: 0.15 # 0.1 is on experimental vessel, 0.25 was 3 tiles with 1 intensity. 0.15 with 1 intensity is 5 tiles
+    enabled: false
+  - type: ReverseEngineeringMachine # The numbers below are numbers with bluespace parts had back in nyano days.
+    scanBonus: 4 # Basic scanning power is 1
+    dangerAversionScore: 4 # The higher the number, lower the chance of the item inside being destroyed while safety is off.

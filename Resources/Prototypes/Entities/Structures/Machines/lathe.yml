@@ -516,6 +516,7 @@
     # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
+      - ReverseEngineeringExperimentalCircuitboard
     # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -642,8 +643,6 @@
     - HamtrRLeg
     - VimHarness
   # Begin Nyano additions
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
@@ -839,6 +838,13 @@
       - MagazineBoxSpecialIncendiary
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialMindbreaker
+      # Beginning of Delta V Reverse Engineered
+      - ClothingShoesBootsMagSyndieReverseEngineered
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
+      - ClothingOuterHardsuitSyndieEliteReverseEngineered
+      - ClothingOuterHardsuitSyndieMedicReverseEngineered
+      # End of Delta V Reverse Engineered
       # End of modified code
   - type: MaterialStorage
     whitelist:
