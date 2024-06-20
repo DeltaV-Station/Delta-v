@@ -30,6 +30,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Access.Components;
 
 namespace Content.Server.Station.Systems;
 
@@ -258,7 +259,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
+
+        // DeltaV - Allow changing the job title within the prototype
+        string jobName = jobPrototype.LocalizedName;
+        if (TryComp<PresetIdCardComponent>(cardId, out var presetId))
+            jobName = presetId.CustomJobName ?? jobName;
+
+        _cardSystem.TryChangeJobTitle(cardId, jobName, card);
+        // End of DeltaV code
 
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
