@@ -9,6 +9,7 @@
   - CaptainOuterClothing
   - CaptainGloves # DeltaV
   - CaptainShoes # DeltaV
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -24,6 +25,7 @@
   - HoPGloves # DeltaV
   - HoPShoes # DeltaV
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -42,6 +44,8 @@
   - PassengerShoes
   - Glasses
   - Trinkets
+  - Survival
+  - Trinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -49,13 +53,13 @@
   groups:
   - GroupTankHarness
   - BartenderHead
-  - BartenderGlasses # DeltaV
+  - BartenderGlasses # DeltaV - replaces Glasses
   - BartenderNeck # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
   - BartenderPDADelta # DeltaV
-  #- Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -68,6 +72,7 @@
   - GroupTankHarness
   - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -82,6 +87,7 @@
   - ChefOuterClothing
   - ChefPDADelta # DeltaV
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -93,6 +99,7 @@
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -104,6 +111,8 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  - Trinkets
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -118,9 +127,9 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
-
 - type: roleLoadout
   id: JobJanitor
   groups:
@@ -132,6 +141,7 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+  - Survival
   - Trinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
@@ -146,6 +156,7 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -162,6 +173,7 @@
   - ClownShoes
   - Glasses
   - Trinkets
+  - SurvivalClown
 
 - type: roleLoadout
   id: JobMime
@@ -175,6 +187,7 @@
   - MimeOuterClothing
   - Glasses
   - Trinkets
+  - Survival
 
 - type: roleLoadout
   id: JobMusician
@@ -185,6 +198,7 @@
   - CommonBackpack
   - MusicianOuterClothing
   - Glasses
+  - Survival
   - Trinkets
   - Instruments
   - GroupSpeciesBreathTool
@@ -201,6 +215,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -216,6 +231,7 @@
   - CargoPDADelta # DeltaV
   - CargoTechnicianShoes
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -229,6 +245,7 @@
   - SalvagePDADelta # DeltaV
   - SalvageSpecialistShoes
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -244,6 +261,8 @@
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - Trinkets
+  - SurvivalExtended
+  - Trinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -252,6 +271,7 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -266,6 +286,7 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+  - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -280,6 +301,8 @@
   - AtmosphericTechnicianOuterClothing
   - AtmosPDADelta # DeltaV
   - AtmosphericTechnicianShoes
+  - Trinkets
+  - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -296,6 +319,7 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -312,6 +336,7 @@
   - ScientistShoes
   - ScientistPDA
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -322,6 +347,7 @@
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -335,8 +361,8 @@
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  #- SecurityShoes
-  - HeadOfSecurityShoes # DeltaV
+  - HeadOfSecurityShoes # DeltaV, replaces SecurityShoes
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -350,6 +376,7 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -364,6 +391,7 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -377,6 +405,7 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -387,6 +416,7 @@
   - SecurityNeck # DeltaV
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -404,6 +434,7 @@
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - Glasses
+  - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
 
@@ -422,6 +453,7 @@
   - MedicalDoctorPDA
   - Glasses
   - Trinkets
+  - SurvivalMedical
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -432,6 +464,7 @@
   - MedicalBackpack
   - MedicalInternPDADelta # DeltaV
   - Glasses
+  - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
 
@@ -442,12 +475,11 @@
   - MedicalMask
   - ChemistNeck # DeltaV
   - ChemistJumpsuit
-#  - MedicalGloves
-  - ChemistGloves # DeltaV
+  - ChemistGloves # DeltaV, replaces MedicalGloves
   - ChemistBackpack
   - ChemistOuterClothing
-#  - MedicalShoes
-  - ChemistShoes # DeltaV
+  - ChemistShoes # DeltaV, replaces MedicalShoes
+  - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
 
@@ -464,6 +496,7 @@
   - ParamedicOuterClothing
   - ParamedicShoes
   - Glasses
+  - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
 
@@ -474,6 +507,7 @@
   - GroupTankHarness
   - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -485,6 +519,7 @@
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Survival
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -493,6 +528,7 @@
   - GroupTankHarness
   - MedicalBackpack
   - Glasses
+  - SurvivalMedical # DeltaV, replaces Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -504,6 +540,7 @@
   - BoxerGloves
   - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
