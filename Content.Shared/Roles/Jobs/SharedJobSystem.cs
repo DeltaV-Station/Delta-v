@@ -39,6 +39,8 @@ public abstract class SharedJobSystem : EntitySystem
         // This breaks if you have N trackers to 1 JobId but future concern.
         foreach (var job in _protoManager.EnumeratePrototypes<JobPrototype>())
         {
+            if (_inverseTrackerLookup.ContainsKey(job.PlayTimeTracker)) continue; // DeltaV - we have N trackers to 1 JobId... (senior job names)
+
             _inverseTrackerLookup.Add(job.PlayTimeTracker, job.ID);
         }
     }

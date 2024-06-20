@@ -47,6 +47,11 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+# DeltaV - Define senior job names for use in separate prototypes
+job-name-seniorengineer = Senior Engineer
+job-name-seniorphysician = Senior Physician
+job-name-seniorresearcher = Senior Researcher
+job-name-seniorofficer = Senior Officer
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician

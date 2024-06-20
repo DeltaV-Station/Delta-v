@@ -11,8 +11,11 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Clothing;
+using Content.Shared.Access.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -21,6 +24,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Microsoft.CodeAnalysis;
+using Content.Shared.PDA;
+using FastAccessors;
+using Content.Server.Access.Components;
+using Content.Shared.Destructible;
 
 namespace Content.Server.GameTicking
 {
@@ -28,6 +36,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -223,8 +232,36 @@ namespace Content.Server.GameTicking
             _mind.SetUserId(newMind, data.UserId);
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+            // DeltaV - Senior ID cards
+            ProtoId<JobPrototype>? virtualJobId = null;
+            JobPrototype? virtualJobProto = null;
+            JobComponent? virtualJob = null;
+            do
+            {
+                var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
+
+                if (!_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
+                    break;
+
+                RoleLoadout? loadout = null;
+                character.Loadouts.TryGetValue(jobLoadout, out loadout);
+
+                // Set to default if not present
+                if (loadout == null)
+                {
+                    loadout = new RoleLoadout(jobLoadout);
+                    loadout.SetDefault(_prototypeManager);
+                }
+
+                if (GetVirtualJobFromRoleLoadout(loadout, roleProto, character, out virtualJobId) && _prototypeManager.TryIndex<JobPrototype>(virtualJobId, out virtualJobProto))
+                {
+                    virtualJob = new JobComponent {Prototype = virtualJobId};
+                }
+            }
+            while (false);
+            // End of DeltaV code
             var job = new JobComponent {Prototype = jobId};
-            _roles.MindAddRole(newMind, job, silent: silent);
+            _roles.MindAddRole(newMind, virtualJob ?? job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
@@ -308,6 +345,63 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+        }
+
+        // DeltaV - Senior ID cards
+        private bool GetVirtualJobFromRoleLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out ProtoId<JobPrototype>? virtualJob)
+        {
+            virtualJob = null;
+
+            // Use to read job loadout and find an ID card
+            foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
+            {
+                foreach (var items in group.Value)
+                {
+                    if (!_prototypeManager.TryIndex(items.Prototype, out var loadoutProto))
+                    {
+                        Log.Warning($"Unable to find loadout prototype for {items.Prototype}");
+                        continue;
+                    }
+                    if (!_prototypeManager.TryIndex(loadoutProto.Equipment, out var startingGear))
+                    {
+                        Log.Warning($"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
+                        continue;
+                    }
+                    var entProtoId = startingGear.GetGear("id");
+                    if (!_prototypeManager.TryIndex<EntityPrototype>(entProtoId, out var idProto))
+                    {
+                        Log.Warning($"Unable to find prototype for {startingGear} for starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
+                        continue;
+                    }
+                    if (idProto.TryGetComponent<PdaComponent>(out var pdaComponent, _componentFactory) && pdaComponent.IdCard != null)
+                    {
+                        ProtoId<EntityPrototype> idProtoId = pdaComponent.IdCard;
+                        if (!_prototypeManager.TryIndex<EntityPrototype>(idProtoId, out idProto))
+                        {
+                            Log.Warning($"Unable to find an idCard in {idProto}");
+                            return false;
+                        }
+                    }
+
+                    if (!idProto.TryGetComponent<PresetIdCardComponent>(out var idComponent, _componentFactory))
+                    {
+                        Log.Warning($"Unable to find presetIdCard for {idProto}");
+                        continue;
+                    }
+
+                    ProtoId<JobPrototype> jobProtoId = idComponent.JobName ?? string.Empty;
+                    if (jobProtoId == string.Empty)
+                    {
+                        Log.Warning($"Empty jobProtoId!");
+                        return false;
+                    }
+                    virtualJob = jobProtoId;
+                    Log.Debug($"Successfully outputted {virtualJob} from {idProto}");
+                    return true;
+                }
+            }
+            Log.Warning($"All other options exhausted");
+            return false;
         }
 
         public void Respawn(ICommonSession player)

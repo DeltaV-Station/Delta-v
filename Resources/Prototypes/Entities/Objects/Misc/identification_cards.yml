@@ -822,6 +822,8 @@
     layers:
     - state: default
     - state: idseniorengineer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    job: SeniorEngineer
 
 - type: entity
   parent: ResearchIDCard
@@ -832,6 +834,8 @@
     layers:
     - state: default
     - state: idseniorresearcher
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    job: SeniorResearcher
 
 - type: entity
   parent: MedicalIDCard
@@ -842,6 +846,8 @@
     layers:
     - state: default
     - state: idseniorphysician
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    job: SeniorPhysician
 
 - type: entity
   parent: SecurityIDCard
@@ -852,6 +858,8 @@
     layers:
     - state: default
     - state: idseniorofficer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    job: SeniorOfficer
 
 - type: entity
   parent: IDCardStandard

@@ -24,3 +24,25 @@
     eyes: ClothingEyesGlassesMeson
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
+
+# DeltaV - Define senior job names as separate prototypes
+- type: job
+  id: SeniorEngineer
+  #parent: StationEngineer # unfortunately parent-child relationships don't seem to work here :blunt:
+  name: job-name-seniorengineer
+  description: job-description-engineer
+  playTimeTracker: JobStationEngineer
+  antagAdvantage: 3
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 216000 # 60 hrs
+  startingGear: StationEngineerGear
+  icon: "JobIconSeniorEngineer"
+  supervisors: job-supervisors-ce
+  access:
+  - Maintenance
+  - Engineering
+  - External
+  extendedAccess:
+  - Atmospherics

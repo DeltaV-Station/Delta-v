@@ -22,3 +22,23 @@
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
+
+- type: job
+  id: SeniorPhysician
+  #parent: MedicalDoctor
+  name: job-name-seniorphysician
+  description: job-description-doctor
+  playTimeTracker: JobMedicalDoctor
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 216000 # 60 hrs
+  startingGear: DoctorGear
+  icon: "JobIconSeniorPhysician"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
+  - Paramedic

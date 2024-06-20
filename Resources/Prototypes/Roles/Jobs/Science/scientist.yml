@@ -20,3 +20,21 @@
   equipment:
     ears: ClothingHeadsetScience
 
+
+- type: job
+  id: SeniorResearcher
+  #parent: Scientist
+  name: job-name-seniorresearcher
+  description: job-description-scientist
+  playTimeTracker: JobScientist
+  antagAdvantage: 2
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      time: 216000 # 60 hrs
+  startingGear: ScientistGear
+  icon: "JobIconSeniorResearcher"
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
