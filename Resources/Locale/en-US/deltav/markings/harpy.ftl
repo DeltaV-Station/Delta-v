@@ -40,6 +40,10 @@ marking-HarpyTailRooster-rooster_tail = Tail
 marking-HarpyTailFinch = Finch Tail
 marking-HarpyTailFinch-finch_tail = Tail
 
+marking-HarpyTailPeacock = Peacock Tail
+marking-HarpyTailPeacock-peacock_tail_feathers = Feathers
+marking-HarpyTailPeacock-peacock_tail_eyes = Eyes
+
 marking-HarpyChestDefault = Wing & Groin Under-Clothes
 marking-HarpyChestDefault-upper = Wing Under-Clothes
 marking-HarpyChestDefault-lower = Groin Under-Clothes

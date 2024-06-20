@@ -120,6 +120,24 @@
       state: finch_tail 
 
 - type: marking
+  id: HarpyTailPeacock
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails48x48.rsi
+      state: peacock_tail_feathers
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails48x48.rsi
+      state: peacock_tail_eyes
+
+- type: marking
   id: HarpyWing2ToneClassic
   bodyPart: RArm
   markingCategory: Arms
