@@ -40,10 +40,3 @@
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_wanted
-
-- type: statusIcon # DeltaV - HUD state for crew subpeonaed by Justice Dept. 
-  parent: SecurityIcon
-  id: SecurityIconSubpoenaed
-  icon:
-    sprite: /Textures/DeltaV/Interface/Misc/security_icons.rsi
-    state: hud_subpoenaed
