@@ -50,19 +50,20 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!TryComp<StationRecordsComponent>(args.Station, out var stationRecords))
             return;
 
-        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords);
+        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords); // DeltaV #1418 - JobId replaced with Job to parse VirtualJob
     }
 
     private void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
-        JobComponent? job, StationRecordsComponent records)
+        JobComponent? job, StationRecordsComponent records) // DeltaV #1418
     {
+        // DeltaV #1418 - Inherit from VirtualJob if possible
         _prototypeManager.TryIndex<JobPrototype>(job?.VirtualJob?.Prototype, out var a);
         if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var b))
             return;
 
         ProtoId<JobPrototype> jobId = a?.ID ?? b.ID;
-        Log.Debug(jobId);
-        // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId
+        // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId // DeltaV #1418 - :blunt:
+        // End of DeltaV code
         if (string.IsNullOrEmpty(jobId)
             || !_prototypeManager.HasIndex<JobPrototype>(jobId))
             return;
@@ -141,7 +142,6 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             Fingerprint = mobFingerprint,
             DNA = dna
         };
-        Log.Debug($"Record: {record.JobTitle}, {record.JobIcon}, {record.JobPrototype}");
 
         var key = AddRecordEntry(station, record);
         if (!key.IsValid())

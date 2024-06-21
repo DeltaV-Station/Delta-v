@@ -36,7 +36,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!; // DeltaV #1418
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -233,7 +233,8 @@ namespace Content.Server.GameTicking
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
             var job = new JobComponent {Prototype = jobId};
-            // DeltaV - Senior ID cards
+            // DeltaV #1418 - Loadout stuff to get Senior ID
+            // We don't want to inherit everything, so we store the job component in a VirtualJob
             do
             {
                 var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
@@ -251,14 +252,15 @@ namespace Content.Server.GameTicking
                     loadout.SetDefault(_prototypeManager);
                 }
 
+                // Get the ID
                 if (GetVirtualJobFromRoleLoadout(loadout, roleProto, character, out var virtualJobId) && _prototypeManager.TryIndex<JobPrototype>(virtualJobId, out var virtualJobProto))
                 {
                     job.VirtualJob = new JobComponent {Prototype = virtualJobProto};
                 }
             }
             while (false);
-            _roles.MindAddRole(newMind, job, silent: silent);
             // End of DeltaV code
+            _roles.MindAddRole(newMind, job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
@@ -344,7 +346,7 @@ namespace Content.Server.GameTicking
             RaiseLocalEvent(mob, aev, true);
         }
 
-        // DeltaV - Senior ID cards
+        // DeltaV #1418 - Go through loadout items to find ID card and its attached job
         private bool GetVirtualJobFromRoleLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out ProtoId<JobPrototype>? virtualJob)
         {
             virtualJob = null;
@@ -591,7 +593,7 @@ namespace Content.Server.GameTicking
     {
         public EntityUid Mob { get; }
         public ICommonSession Player { get; }
-        public JobComponent? Job { get; }
+        public JobComponent? Job { get; } // DeltaV #1418 - Replace JobId with Job to parse VirtualJob
         public bool LateJoin { get; }
         public EntityUid Station { get; }
         public HumanoidCharacterProfile Profile { get; }
@@ -601,7 +603,7 @@ namespace Content.Server.GameTicking
 
         public PlayerSpawnCompleteEvent(EntityUid mob,
             ICommonSession player,
-            JobComponent? job,
+            JobComponent? job, // DeltaV #1418
             bool lateJoin,
             int joinOrder,
             EntityUid station,
@@ -609,7 +611,7 @@ namespace Content.Server.GameTicking
         {
             Mob = mob;
             Player = player;
-            Job = job;
+            Job = job; // DeltaV #1418
             LateJoin = lateJoin;
             Station = station;
             Profile = profile;

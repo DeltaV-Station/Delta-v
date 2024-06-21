@@ -851,6 +851,7 @@ namespace Content.Client.Lobby.UI
 
                 foreach (var job in jobs)
                 {
+                    // DeltaV #1418 - Allow hiding jobs to hide senior virtual jobs
                     if (job.EditorHidden)
                         continue;
 

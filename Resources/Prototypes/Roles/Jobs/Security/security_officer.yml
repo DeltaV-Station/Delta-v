@@ -29,9 +29,10 @@
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal
 
+# DeltaV #1418 - Define senior job names as separate prototypes
 - type: job
   id: SeniorOfficer
-  #parent: SecurityOfficer
+  #parent: SecurityOfficer # So sad parent-child relationships don't seem to work here
   editorHidden: true
   name: job-name-seniorofficer
   description: job-description-security

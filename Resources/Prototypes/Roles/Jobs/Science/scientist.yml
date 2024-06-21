@@ -20,10 +20,10 @@
   equipment:
     ears: ClothingHeadsetScience
 
-
+# DeltaV #1418 - Define senior job names as separate prototypes
 - type: job
   id: SeniorResearcher
-  #parent: Scientist
+  #parent: Scientist # So sad parent-child relationships don't seem to work here
   editorHidden: true
   name: job-name-seniorresearcher
   description: job-description-scientist

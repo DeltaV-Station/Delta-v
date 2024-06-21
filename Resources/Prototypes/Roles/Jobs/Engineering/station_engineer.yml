@@ -25,10 +25,10 @@
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
 
-# DeltaV - Define senior job names as separate prototypes
+# DeltaV #1418 - Define senior job names as separate prototypes
 - type: job
   id: SeniorEngineer
-  #parent: StationEngineer # unfortunately parent-child relationships don't seem to work here :blunt:
+  #parent: StationEngineer # So sad parent-child relationships don't seem to work here
   editorHidden: true
   name: job-name-seniorengineer
   description: job-description-engineer

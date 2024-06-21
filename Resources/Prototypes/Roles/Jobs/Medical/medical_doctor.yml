@@ -23,9 +23,10 @@
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
 
+# DeltaV #1418 - Define senior job names as separate prototypes
 - type: job
   id: SeniorPhysician
-  #parent: MedicalDoctor
+  #parent: MedicalDoctor # So sad parent-child relationships don't seem to work here
   editorHidden: true
   name: job-name-seniorphysician
   description: job-description-doctor
