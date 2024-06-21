@@ -15,7 +15,6 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    
     public override void Initialize()
     {
         SubscribeLocalEvent<PresetIdCardComponent, MapInitEvent>(OnMapInit);
