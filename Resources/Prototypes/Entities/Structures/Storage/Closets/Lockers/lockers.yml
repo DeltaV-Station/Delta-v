@@ -379,7 +379,7 @@
   description: To store bags of bullet casings and detainee belongings.
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Security"], ["Prosecutor"]] # DeltaV - allow Pros access to Evidence
 
 # Syndicate
 - type: entity
