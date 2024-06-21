@@ -1,0 +1,50 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateEngineeringSuperMatter
+  name: ящик с суперматерией
+  description: Укреплённый ящик содержащий кристалл суперматерии. Требует доступ старшего инженера.
+  components:
+  - type: Icon
+    sprite: Stray/Structures/Storage/supermatter.rsi
+  - type: Sprite
+    sprite: Stray/Structures/Storage/supermatter.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: AntiRottingContainer
+  - type: StorageFill
+    contents:
+      - id: SupermatterCrystal
+  - type: ExplosionResistance
+    damageCoefficient: 0.30
+  - type: StaticPrice
+    price: 150
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.8
+    spread: 90
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
