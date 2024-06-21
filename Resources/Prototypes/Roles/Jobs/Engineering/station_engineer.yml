@@ -29,6 +29,7 @@
 - type: job
   id: SeniorEngineer
   #parent: StationEngineer # unfortunately parent-child relationships don't seem to work here :blunt:
+  editorHidden: true
   name: job-name-seniorengineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer

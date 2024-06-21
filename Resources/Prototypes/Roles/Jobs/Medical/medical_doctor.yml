@@ -26,6 +26,7 @@
 - type: job
   id: SeniorPhysician
   #parent: MedicalDoctor
+  editorHidden: true
   name: job-name-seniorphysician
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor

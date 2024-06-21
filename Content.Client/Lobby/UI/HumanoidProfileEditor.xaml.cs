@@ -851,6 +851,9 @@ namespace Content.Client.Lobby.UI
 
                 foreach (var job in jobs)
                 {
+                    if (job.EditorHidden)
+                        continue;
+
                     var jobContainer = new BoxContainer()
                     {
                         Orientation = LayoutOrientation.Horizontal,

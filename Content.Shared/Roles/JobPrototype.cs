@@ -123,6 +123,9 @@ namespace Content.Shared.Roles
 
         [DataField]
         public bool Whitelisted;
+
+        [DataField]
+        public bool EditorHidden;
     }
 
     /// <summary>
