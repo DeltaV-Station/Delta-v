@@ -562,6 +562,7 @@
     allowMovement: true
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -692,6 +693,7 @@
     prob: 0.25
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -763,7 +765,7 @@
   - type: GhostRole
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
-    rules: ghost-role-information-smile-rules
+    rules: ghost-role-information-nonantagonist-rules
   - type: Grammar
     attributes:
       proper: true
@@ -782,10 +784,14 @@
     allowMovement: true
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
+<<<<<<< HEAD
     requirements: # Delta V - No raiders
     - !type:RoleTimeRequirement
       role: JobBartender
       time: 14400 # Delta V - 4 hours
+=======
+    rules: ghost-role-information-nonantagonist-rules
+>>>>>>> 949a837720 (Ghostrole rule updates (#29249))
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
@@ -819,6 +825,7 @@
 #    allowMovement: true
 #    name: ghost-role-information-tropico-name
 #    description: ghost-role-information-tropico-description
+#    rules: ghost-role-information-nonantagonist-rules
 #  - type: GhostTakeoverAvailable
   - type: Tag
     tags:

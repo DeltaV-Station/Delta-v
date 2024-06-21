@@ -157,6 +157,7 @@
     makeSentient: true
     name: ghost-role-information-honkbot-name
     description: ghost-role-information-honkbot-description
+    rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -184,6 +185,7 @@
     makeSentient: true
     name: ghost-role-information-jonkbot-name
     description: ghost-role-information-jonkbot-description
+    rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
   - type: InteractionPopup
@@ -319,6 +321,7 @@
     makeSentient: true
     name: ghost-role-information-mimebot-name
     description: ghost-role-information-mimebot-description
+    rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -350,6 +353,7 @@
     makeSentient: true
     name: ghost-role-information-supplybot-name
     description: ghost-role-information-supplybot-description
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

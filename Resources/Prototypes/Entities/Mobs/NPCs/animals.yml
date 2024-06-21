@@ -439,6 +439,7 @@
     allowMovement: true
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
+    rules: ghost-role-information-freeagent-rules
   - type: Fixtures
     fixtures:
       fix1:
@@ -1133,6 +1134,7 @@
     prob: 0.25
     name: ghost-role-information-kangaroo-name
     description: ghost-role-information-kangaroo-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:
@@ -1313,6 +1315,7 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Clumsy
     clumsyDamage:
@@ -1348,6 +1351,7 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
+    rules: ghost-role-information-syndicate-monkey-reinforcement-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -1479,6 +1483,7 @@
     makeSentient: true
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
+    rules: ghost-role-information-nonantagonist-rules
 
 - type: entity
   name: kobold
@@ -1552,6 +1557,7 @@
     allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
+    rules: ghost-role-information-freeagent-rules
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -3093,6 +3099,7 @@
     allowMovement: true
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
