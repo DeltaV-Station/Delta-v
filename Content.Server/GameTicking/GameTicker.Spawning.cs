@@ -232,10 +232,8 @@ namespace Content.Server.GameTicking
             _mind.SetUserId(newMind, data.UserId);
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+            var job = new JobComponent {Prototype = jobId};
             // DeltaV - Senior ID cards
-            ProtoId<JobPrototype>? virtualJobId = null;
-            JobPrototype? virtualJobProto = null;
-            JobComponent? virtualJob = null;
             do
             {
                 var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
@@ -253,15 +251,14 @@ namespace Content.Server.GameTicking
                     loadout.SetDefault(_prototypeManager);
                 }
 
-                if (GetVirtualJobFromRoleLoadout(loadout, roleProto, character, out virtualJobId) && _prototypeManager.TryIndex<JobPrototype>(virtualJobId, out virtualJobProto))
+                if (GetVirtualJobFromRoleLoadout(loadout, roleProto, character, out var virtualJobId) && _prototypeManager.TryIndex<JobPrototype>(virtualJobId, out var virtualJobProto))
                 {
-                    virtualJob = new JobComponent {Prototype = virtualJobId};
+                    job.VirtualJob = new JobComponent {Prototype = virtualJobProto};
                 }
             }
             while (false);
+            _roles.MindAddRole(newMind, job, silent: silent);
             // End of DeltaV code
-            var job = new JobComponent {Prototype = jobId};
-            _roles.MindAddRole(newMind, virtualJob ?? job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
@@ -339,7 +336,7 @@ namespace Content.Server.GameTicking
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob,
                 player,
-                jobId,
+                job,
                 lateJoin,
                 PlayersJoinedRoundNormally,
                 station,
@@ -594,7 +591,7 @@ namespace Content.Server.GameTicking
     {
         public EntityUid Mob { get; }
         public ICommonSession Player { get; }
-        public string? JobId { get; }
+        public JobComponent? Job { get; }
         public bool LateJoin { get; }
         public EntityUid Station { get; }
         public HumanoidCharacterProfile Profile { get; }
@@ -604,7 +601,7 @@ namespace Content.Server.GameTicking
 
         public PlayerSpawnCompleteEvent(EntityUid mob,
             ICommonSession player,
-            string? jobId,
+            JobComponent? job,
             bool lateJoin,
             int joinOrder,
             EntityUid station,
@@ -612,7 +609,7 @@ namespace Content.Server.GameTicking
         {
             Mob = mob;
             Player = player;
-            JobId = jobId;
+            Job = job;
             LateJoin = lateJoin;
             Station = station;
             Profile = profile;

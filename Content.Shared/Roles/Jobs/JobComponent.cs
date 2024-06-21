@@ -11,4 +11,6 @@ public sealed partial class JobComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<JobPrototype>? Prototype;
+    [DataField]
+    public JobComponent? VirtualJob;
 }

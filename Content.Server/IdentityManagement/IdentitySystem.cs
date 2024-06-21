@@ -160,12 +160,14 @@ public sealed class IdentitySystem : SharedIdentitySystem
 
         string? presumedJob = null;
         string? presumedName = null;
+        string? presumedJobIcon = null;
 
         // Get their name and job from their ID for their presumed name.
         if (_idCard.TryFindIdCard(target, out var id))
         {
             presumedName = string.IsNullOrWhiteSpace(id.Comp.FullName) ? null : id.Comp.FullName;
             presumedJob = id.Comp.JobTitle?.ToLowerInvariant();
+            presumedJobIcon = id.Comp.JobIcon;
         }
 
         // If it didn't find a job, that's fine.

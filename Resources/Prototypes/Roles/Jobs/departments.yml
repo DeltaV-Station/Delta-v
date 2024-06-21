@@ -63,6 +63,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  - SeniorEngineer # DeltaV - Senior ID cards
 
 - type: department
   id: Medical
@@ -76,6 +77,7 @@
   - Psychologist
   - Paramedic
   - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  - SeniorPhysician # DeltaV - Senior ID cards
 
 - type: department
   id: Security
@@ -90,6 +92,7 @@
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - SeniorOfficer # DeltaV - Senior ID cards
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
@@ -101,6 +104,7 @@
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+  - SeniorResearcher # DeltaV - Senior ID cards
 
 - type: department
   id: Specific

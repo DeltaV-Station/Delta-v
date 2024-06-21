@@ -144,6 +144,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? entity = null)
     {
         _prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out var prototype);
+        _prototypeManager.TryIndex(job?.VirtualJob?.Prototype ?? string.Empty, out var virtualJobPrototype); // DeltaV - Senior ID cards
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
         if (prototype?.JobEntity != null)
@@ -212,7 +213,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (profile != null)
         {
             if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
+                SetPdaAndIdCardData(entity.Value, profile.Name, virtualJobPrototype ?? prototype, station); //DeltaV - Senior ID cards
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
@@ -258,10 +259,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        //_cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card); // Delta V - Senior ID card, job names and icon should already be set via prototype
+        _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card); // Delta V - Senior ID card, job names and icon should already be set via prototype
 
-        //if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
-        //    _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
+        if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
+            _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
 
         var extendedAccess = false;
         if (station != null)

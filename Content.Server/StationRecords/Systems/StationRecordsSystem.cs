@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
@@ -5,6 +6,7 @@ using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -48,12 +50,18 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!TryComp<StationRecordsComponent>(args.Station, out var stationRecords))
             return;
 
-        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.JobId, stationRecords);
+        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords);
     }
 
     private void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
-        string? jobId, StationRecordsComponent records)
+        JobComponent? job, StationRecordsComponent records)
     {
+        _prototypeManager.TryIndex<JobPrototype>(job?.VirtualJob?.Prototype, out var a);
+        if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var b))
+            return;
+
+        ProtoId<JobPrototype> jobId = a?.ID ?? b.ID;
+        Log.Debug(jobId);
         // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId
         if (string.IsNullOrEmpty(jobId)
             || !_prototypeManager.HasIndex<JobPrototype>(jobId))
@@ -133,6 +141,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             Fingerprint = mobFingerprint,
             DNA = dna
         };
+        Log.Debug($"Record: {record.JobTitle}, {record.JobIcon}, {record.JobPrototype}");
 
         var key = AddRecordEntry(station, record);
         if (!key.IsValid())

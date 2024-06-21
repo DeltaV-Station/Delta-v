@@ -120,6 +120,19 @@ public abstract class SharedJobSystem : EntitySystem
                _prototypes.TryIndex(comp.Prototype, out prototype);
     }
 
+    public bool MindTryGetVirtualJob( // DeltaV - Senior ID cards
+        [NotNullWhen(true)] EntityUid? mindId,
+        [NotNullWhen(true)] out JobComponent? comp,
+        [NotNullWhen(true)] out JobPrototype? virtualJob)
+    {
+        comp = null;
+        virtualJob = null;
+
+        return TryComp(mindId, out comp) &&
+               comp.VirtualJob != null &&
+               _prototypes.TryIndex(comp.VirtualJob.Prototype, out virtualJob);
+    }
+
     public bool MindTryGetJobId([NotNullWhen(true)] EntityUid? mindId, out ProtoId<JobPrototype>? job)
     {
         if (!TryComp(mindId, out JobComponent? comp))
@@ -138,14 +151,19 @@ public abstract class SharedJobSystem : EntitySystem
     /// </summary>
     public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
     {
-        if (MindTryGetJob(mindId, out _, out var prototype))
+        MindTryGetVirtualJob(mindId, out _, out var virtualJob);
+        if (!MindTryGetJob(mindId, out _, out var prototype))
         {
-            name = prototype.LocalizedName;
-            return true;
+            name = Loc.GetString("generic-unknown-title");
+            return false;
         }
 
-        name = Loc.GetString("generic-unknown-title");
-        return false;
+        name = virtualJob?.LocalizedName ?? string.Empty;
+        if (string.IsNullOrEmpty(name))
+            name = prototype.LocalizedName;
+
+        Log.Debug(name);
+        return true;
     }
 
     /// <summary>
