@@ -8,6 +8,17 @@
 - type: entity
   noSpawn: true
   parent: BaseGameRule
+  id: RespawnDeadRule
+  components:
+  - type: RespawnDeadRule
+    alwaysRespawnDead: true
+  - type: RespawnTracker
+    respawnDelay: 10
+    deleteBody: false
+
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
   id: SubGamemodesRule
   components:
   - type: SubGamemodes
@@ -73,6 +84,7 @@
     - operationPrefix
     - operationSuffix
   - type: NukeopsRule
+  - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
 
@@ -82,7 +94,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 35 # DeltaV - Was 20
+    minPlayers: 20
   - type: LoadMapRule
     gameMap: NukieOutpost
   - type: AntagSelection
