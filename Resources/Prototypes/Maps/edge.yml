@@ -3,7 +3,7 @@
   mapName: 'Edge'
   mapPath: /Maps/edge.yml
   minPlayers: 25
-  maxPlayers: 80
+  maxPlayers: 85
   stations:
     Edge:
       stationProto: StandardNanotrasenStation
@@ -30,10 +30,10 @@
             Janitor: [ 1, 3 ]
             Mime: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            ServiceWorker: [ 1, 3 ]
+            ServiceWorker: [ 2, 4 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 1, 2 ]
+            AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 3, 5 ]
             TechnicalAssistant: [ 2, 4 ]
           #medical
@@ -68,6 +68,6 @@
           #justice
             ChiefJustice: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
-            Prosecutor: [ 1, 1]
+            Prosecutor: [ 1, 1 ]
             Clerk: [ 1, 1 ] 
 
