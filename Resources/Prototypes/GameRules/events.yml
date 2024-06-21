@@ -442,6 +442,7 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
+      - type: InitialInfected
       mindComponents:
       - type: InitialInfectedRole
         prototype: InitialInfected
