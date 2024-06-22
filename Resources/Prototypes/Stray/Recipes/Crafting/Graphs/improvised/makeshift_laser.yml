@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: MakeshiftLaserGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftlaser
+      steps:
+      - tag: GasPipeHalf
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeHalf
+        name: half pipe
+      - tag: PowerCellSmall
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        name: Power Cell Small
+      - material: Cable
+        amount: 5
+        doAfter: 2
+      - material: Plastic
+        amount: 5
+        doAfter: 10
+      - material: Plasma
+        amount: 10
+        doAfter: 15
+  - node: makeshiftlaser
+    entity: WeaponMakeshiftLaser

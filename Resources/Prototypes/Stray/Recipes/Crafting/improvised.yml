@@ -1,0 +1,12 @@
+- type: construction
+  name: makeshift laser
+  id: makeshiftlaser
+  graph: MakeshiftLaserGraph
+  startNode: start
+  targetNode: makeshiftlaser
+  category: construction-category-weapons
+  objectType: Item
+  description: A shitty, laser made from salvaged and hand-crafted gun parts.
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
+    state: icon
