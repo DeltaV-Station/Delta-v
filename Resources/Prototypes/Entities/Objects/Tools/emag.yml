@@ -6,6 +6,9 @@
   description: The all-in-one hacking solution. The thinking man's lockpick. The iconic EMAG.
   components:
   - type: Emag
+    blacklist:
+      components:
+      - Airlock
   - type: Sprite
     sprite: Objects/Tools/emag.rsi
     state: icon
@@ -20,3 +23,19 @@
   components:
   - type: LimitedCharges
   - type: AutoRecharge
+
+- type: entity
+  parent: Emag
+  id: AirlockAccessOverride
+  name: airlock access override
+  description: A specialized cryptographic sequencer with a distinctive battery tray, specifically designed to override station airlock access codes.
+  components:
+  - type: Emag
+    blacklist:
+    whitelist:
+      components:
+      - Airlock
+  - type: Sprite
+    color: "#FF0000"
+  - type: Item
+    color: "#FF0000"

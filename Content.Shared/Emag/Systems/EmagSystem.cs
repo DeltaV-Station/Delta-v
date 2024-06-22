@@ -8,6 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Emag.Systems;
 
@@ -23,6 +24,8 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {
@@ -49,6 +52,13 @@ public sealed class EmagSystem : EntitySystem
 
         if (_tag.HasTag(target, comp.EmagImmuneTag))
             return false;
+
+        if (_whitelistSystem.IsWhitelistFail(comp.Whitelist, target)
+            || _whitelistSystem.IsWhitelistPass(comp.Blacklist, target))
+        {
+            _popup.PopupClient("no", user, user);
+            return false;
+        }
 
         TryComp<LimitedChargesComponent>(uid, out var charges);
         if (_charges.IsEmpty(uid, charges))

@@ -71,3 +71,13 @@
     Telecrystal: 4
   categories:
   - UplinkImplants
+
+- type: listing
+  id: UplinkAirlockAccessOverride
+  name: uplink-aao-name
+  description: uplink-aao-desc
+  productEntity: AirlockAccessOverride
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDisruption
