@@ -141,6 +141,7 @@ public abstract class SharedJobSystem : EntitySystem
             name = prototype.LocalizedName;
             return true;
         }
+
         name = Loc.GetString("generic-unknown-title");
         return false;
     }
