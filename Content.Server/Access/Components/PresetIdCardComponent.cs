@@ -22,5 +22,5 @@ public sealed partial class PresetIdCardComponent : Component
     /// DeltaV: Allow changing the job icon, even if it'd be otherwise set by the JobPrototype
     /// </summary>
     [DataField("virtualJobIcon")]
-    public string? virtualJobIcon;
+    public string? VirtualJobIcon;
 }

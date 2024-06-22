@@ -253,7 +253,7 @@ namespace Content.Server.GameTicking
                 if (GetPresetIdFromLoadout(loadout, roleProto, character, out var presetId))
                 {
                     job.VirtualJobName = presetId?.VirtualJobName;
-                    job.VirtualJobIcon = presetId?.virtualJobIcon;
+                    job.VirtualJobIcon = presetId?.VirtualJobIcon;
                 }
             }
             // End of DeltaV code
