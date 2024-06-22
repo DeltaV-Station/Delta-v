@@ -31,7 +31,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!; // DeltaV #1418
+        [Dependency] private readonly IComponentFactory _componentFactory = default!; // DeltaV #1425
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -387,6 +387,7 @@ namespace Content.Server.GameTicking
             Log.Warning($"All other options exhausted");
             return false;
         }
+        // End of DeltaV code
 
         public void Respawn(ICommonSession player)
         {
@@ -596,7 +597,7 @@ namespace Content.Server.GameTicking
         {
             Mob = mob;
             Player = player;
-            Job = job; // DeltaV #1418
+            Job = job; // DeltaV #1425
             LateJoin = lateJoin;
             Station = station;
             Profile = profile;
