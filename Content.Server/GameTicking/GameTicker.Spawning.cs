@@ -7,6 +7,7 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Server.Access.Components;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players;
@@ -15,7 +16,7 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Clothing;
-using Content.Shared.Access.Components;
+using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -24,12 +25,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Microsoft.CodeAnalysis;
-using Content.Shared.PDA;
-using FastAccessors;
-using Content.Server.Access.Components;
-using Content.Shared.Destructible;
-
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
@@ -233,8 +228,8 @@ namespace Content.Server.GameTicking
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
             var job = new JobComponent {Prototype = jobId};
-            // DeltaV #1418 - Loadout stuff to get Senior ID
-            // We don't want to inherit everything, so we store the job component in a VirtualJob
+            // DeltaV #1425 - Loadout stuff to get Senior ID
+            // Get the PresetIdCardComponent and its VirtualJobName/Icon vars;
             var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
 
             if (_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
@@ -258,7 +253,7 @@ namespace Content.Server.GameTicking
             }
             // End of DeltaV code
             _roles.MindAddRole(newMind, job, silent: silent);
-            var jobName = job.VirtualJobName ?? _jobs.MindTryGetJobName(newMind);
+            var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
@@ -335,7 +330,7 @@ namespace Content.Server.GameTicking
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob,
                 player,
-                job,
+                job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobName/Icon.
                 lateJoin,
                 PlayersJoinedRoundNormally,
                 station,
@@ -343,7 +338,7 @@ namespace Content.Server.GameTicking
             RaiseLocalEvent(mob, aev, true);
         }
 
-        // DeltaV #1418 - Go through loadout items to find ID card and its attached job
+        // DeltaV #1425 - Go through loadout items to find ID card and its attached job
         private bool GetPresetIdFromLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out PresetIdCardComponent? presetId)
         {
             presetId = null;
@@ -583,7 +578,7 @@ namespace Content.Server.GameTicking
     {
         public EntityUid Mob { get; }
         public ICommonSession Player { get; }
-        public JobComponent? Job { get; } // DeltaV #1418 - Replace JobId with Job to parse VirtualJob
+        public JobComponent? Job { get; } // DeltaV #1425 - Replace JobId with Job to parse VirtualJob
         public bool LateJoin { get; }
         public EntityUid Station { get; }
         public HumanoidCharacterProfile Profile { get; }
@@ -593,7 +588,7 @@ namespace Content.Server.GameTicking
 
         public PlayerSpawnCompleteEvent(EntityUid mob,
             ICommonSession player,
-            JobComponent? job, // DeltaV #1418
+            JobComponent? job, // DeltaV #1425
             bool lateJoin,
             int joinOrder,
             EntityUid station,

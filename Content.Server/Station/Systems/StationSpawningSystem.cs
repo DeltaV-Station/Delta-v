@@ -30,7 +30,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Database;
 
 namespace Content.Server.Station.Systems;
 
@@ -213,7 +212,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (profile != null)
         {
             if (job != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, job, station); // DeltaV #1418 - Inherit job data from a VirtualJob if one exists
+                SetPdaAndIdCardData(entity.Value, profile.Name, job, station); // DeltaV #1425 - Inherit job data from a VirtualJob if one exists
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
@@ -246,9 +245,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobComponent job, EntityUid? station)
+    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobComponent job, EntityUid? station) // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobName/Icon
     {
-        if (!_prototypeManager.TryIndex(job.Prototype, out var jobPrototype))
+        if (!_prototypeManager.TryIndex(job.Prototype, out var jobPrototype)) // DeltaV #1425 - Get jobPrototype separately as a result
             return;
 
         if (!InventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
@@ -262,11 +261,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, job.VirtualJobName ?? jobPrototype.LocalizedName, card);
+        _cardSystem.TryChangeJobTitle(cardId, job.VirtualJobName ?? jobPrototype.LocalizedName, card); // DeltaV #1425 - Use VirtualJobName if possible
 
         _prototypeManager.TryIndex<StatusIconPrototype>(job.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
-            _cardSystem.TryChangeJobIcon(cardId, virtualJobIcon ?? jobIcon, card);
+            _cardSystem.TryChangeJobIcon(cardId, virtualJobIcon ?? jobIcon, card); // DeltaV #1425 - Use VirtualJobIcon if possible
 
         var extendedAccess = false;
         if (station != null)

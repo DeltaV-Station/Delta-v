@@ -78,11 +78,13 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
-        _cardSystem.TryChangeJobTitle(uid, id.VirtualJobName ?? job.LocalizedName);
+        _cardSystem.TryChangeJobTitle(uid, id.VirtualJobName ?? job.LocalizedName); // DeltaV #1425 - Attempt to use virtual job information before using job information
         _cardSystem.TryChangeJobDepartment(uid, job);
 
+        // DeltaV #1425 - Attempt to use virtual job information before using job information
         _prototypeManager.TryIndex<StatusIconPrototype>(id.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
         if (_prototypeManager.TryIndex(job.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(uid, virtualJobIcon ?? jobIcon);
+        // End of DeltaV code
     }
 }

@@ -12,8 +12,10 @@ public sealed partial class JobComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<JobPrototype>? Prototype;
 
+    // DeltaV #1425 - Pass VirtualJobName/Icon with the JobComponent to override job information
     [DataField]
     public string? VirtualJobName;
     [DataField]
     public string? VirtualJobIcon;
+    // End of DeltaV code
 }

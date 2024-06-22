@@ -11,7 +11,7 @@ public sealed partial class PresetIdCardComponent : Component
 
     [DataField("name")]
     public string? IdName;
-    
+
     /// <summary>
     /// DeltaV: Allow changing the job title, even if it'd be otherwise set by the JobPrototype
     /// </summary>

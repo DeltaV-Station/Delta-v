@@ -136,9 +136,9 @@ public abstract class SharedJobSystem : EntitySystem
     /// </summary>
     public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
     {
-        if (MindTryGetJob(mindId, out _, out var prototype))
+        if (MindTryGetJob(mindId, out var comp, out var prototype))
         {
-            name = prototype.LocalizedName;
+            name = comp.VirtualJobName ?? prototype.LocalizedName;
             return true;
         }
 

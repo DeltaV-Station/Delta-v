@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
@@ -50,13 +49,13 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!TryComp<StationRecordsComponent>(args.Station, out var stationRecords))
             return;
 
-        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords); // DeltaV #1418 - JobId replaced with Job to parse VirtualJob
+        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords); // DeltaV #1425 - JobId replaced with Job to parse VirtualJob
     }
 
     private void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
-        JobComponent? job, StationRecordsComponent records) // DeltaV #1418
+        JobComponent? job, StationRecordsComponent records) // DeltaV #1425
     {
-        // DeltaV #1418 - Inherit from VirtualJob if possible
+        // DeltaV #1425 - Inherit from VirtualJob if possible
         if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var jobProto))
             return;
         // End of DeltaV code
@@ -109,15 +108,17 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        JobComponent job,
+        JobComponent job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobName/Icon
         string? mobFingerprint,
         string? dna,
         HumanoidCharacterProfile profile,
         StationRecordsComponent records)
     {
+        // DeltaV #1425 - Get jobId separately as a result
         string? jobId = job.Prototype;
         if (string.IsNullOrEmpty(jobId) || !_prototypeManager.TryIndex<JobPrototype>(job.Prototype, out var jobPrototype))
             throw new ArgumentException($"Invalid job prototype ID: {jobId}");
+        // End of DeltaV code
 
         // when adding a record that already exists use the old one
         // this happens when respawning as the same character
@@ -131,8 +132,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = job.VirtualJobName ?? jobPrototype.LocalizedName,
-            JobIcon = job.VirtualJobIcon ?? jobPrototype.Icon,
+            JobTitle = job.VirtualJobName ?? jobPrototype.LocalizedName,// DeltaV #1425 - Use VirtualJobName if possible
+            JobIcon = job.VirtualJobIcon ?? jobPrototype.Icon, // DeltaV #1425 - Use VirtualJobIcon if possible
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
