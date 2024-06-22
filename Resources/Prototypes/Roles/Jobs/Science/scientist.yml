@@ -19,23 +19,3 @@
   id: ScientistGear
   equipment:
     ears: ClothingHeadsetScience
-
-# DeltaV #1418 - Define senior job names as separate prototypes
-- type: job
-  id: SeniorResearcher
-  #parent: Scientist # So sad parent-child relationships don't seem to work here
-  editorHidden: true
-  name: job-name-seniorresearcher
-  description: job-description-scientist
-  playTimeTracker: JobScientist
-  antagAdvantage: 2
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 216000 # 60 hrs
-  startingGear: ScientistGear
-  icon: "JobIconSeniorResearcher"
-  supervisors: job-supervisors-rd
-  access:
-  - Research
-  - Maintenance

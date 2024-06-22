@@ -823,7 +823,8 @@
     - state: default
     - state: idseniorengineer
   - type: PresetIdCard
-    job: SeniorEngineer # DeltaV #1418 - Change senior job titles
+    virtualJobName: "Senior Engineer"
+    virtualJobIcon: "JobIconSeniorEngineer"
 
 - type: entity
   parent: ResearchIDCard
@@ -835,7 +836,8 @@
     - state: default
     - state: idseniorresearcher
   - type: PresetIdCard
-    job: SeniorResearcher # DeltaV #1418
+    virtualJobName: "Senior Researcher"
+    virtualJobIcon: "JobIconSeniorResearcher"
 
 - type: entity
   parent: MedicalIDCard
@@ -847,7 +849,8 @@
     - state: default
     - state: idseniorphysician
   - type: PresetIdCard
-    job: SeniorPhysician # DeltaV #1418
+    virtualJobName: "Senior Physician"
+    virtualJobIcon: "JobIconSeniorPhysician"
 
 - type: entity
   parent: SecurityIDCard
@@ -859,7 +862,8 @@
     - state: default
     - state: idseniorofficer
   - type: PresetIdCard
-    job: SeniorOfficer # DeltaV #1418
+    virtualJobName: "Senior Officer"
+    virtualJobIcon: "JobIconSeniorOfficer"
 
 - type: entity
   parent: IDCardStandard

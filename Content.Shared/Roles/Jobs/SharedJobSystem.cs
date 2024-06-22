@@ -39,8 +39,6 @@ public abstract class SharedJobSystem : EntitySystem
         // This breaks if you have N trackers to 1 JobId but future concern.
         foreach (var job in _protoManager.EnumeratePrototypes<JobPrototype>())
         {
-            if (_inverseTrackerLookup.ContainsKey(job.PlayTimeTracker)) continue; // DeltaV #1418 - we have N trackers to 1 JobId... (senior job prototypes)
-
             _inverseTrackerLookup.Add(job.PlayTimeTracker, job.ID);
         }
     }
@@ -120,21 +118,6 @@ public abstract class SharedJobSystem : EntitySystem
                _prototypes.TryIndex(comp.Prototype, out prototype);
     }
 
-    // DeltaV #1418 - lazy copy paste, nothing ground-breaking
-    public bool MindTryGetVirtualJob( // DeltaV - Senior ID cards
-        [NotNullWhen(true)] EntityUid? mindId,
-        [NotNullWhen(true)] out JobComponent? comp,
-        [NotNullWhen(true)] out JobPrototype? virtualJob)
-    {
-        comp = null;
-        virtualJob = null;
-
-        return TryComp(mindId, out comp) &&
-               comp.VirtualJob != null &&
-               _prototypes.TryIndex(comp.VirtualJob.Prototype, out virtualJob);
-    }
-    // End of DeltaV code
-
     public bool MindTryGetJobId([NotNullWhen(true)] EntityUid? mindId, out ProtoId<JobPrototype>? job)
     {
         if (!TryComp(mindId, out JobComponent? comp))
@@ -153,21 +136,13 @@ public abstract class SharedJobSystem : EntitySystem
     /// </summary>
     public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
     {
-        // DeltaV #1418 - Try to get the VirtualJob, and return if we don't have an actual job
-        MindTryGetVirtualJob(mindId, out _, out var virtualJob);
-        if (!MindTryGetJob(mindId, out _, out var prototype))
+        if (MindTryGetJob(mindId, out _, out var prototype))
         {
-            name = Loc.GetString("generic-unknown-title");
-            return false;
-        }
-
-        name = virtualJob?.LocalizedName ?? string.Empty;
-        if (string.IsNullOrEmpty(name))
             name = prototype.LocalizedName;
-
-        Log.Debug(name);
-        return true;
-        // End of DeltaV code
+            return true;
+        }
+        name = Loc.GetString("generic-unknown-title");
+        return false;
     }
 
     /// <summary>

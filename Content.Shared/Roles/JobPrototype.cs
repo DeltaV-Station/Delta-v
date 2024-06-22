@@ -123,10 +123,6 @@ namespace Content.Shared.Roles
 
         [DataField]
         public bool Whitelisted;
-
-        // DeltaV #1418 - Allow hiding virtual jobs like the senior job prototypes
-        [DataField]
-        public bool EditorHidden;
     }
 
     /// <summary>

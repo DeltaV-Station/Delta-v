@@ -235,13 +235,10 @@ namespace Content.Server.GameTicking
             var job = new JobComponent {Prototype = jobId};
             // DeltaV #1418 - Loadout stuff to get Senior ID
             // We don't want to inherit everything, so we store the job component in a VirtualJob
-            do
+            var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
+
+            if (_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
             {
-                var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
-
-                if (!_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
-                    break;
-
                 RoleLoadout? loadout = null;
                 character.Loadouts.TryGetValue(jobLoadout, out loadout);
 
@@ -253,15 +250,15 @@ namespace Content.Server.GameTicking
                 }
 
                 // Get the ID
-                if (GetVirtualJobFromRoleLoadout(loadout, roleProto, character, out var virtualJobId) && _prototypeManager.TryIndex<JobPrototype>(virtualJobId, out var virtualJobProto))
+                if (GetPresetIdFromLoadout(loadout, roleProto, character, out var presetId))
                 {
-                    job.VirtualJob = new JobComponent {Prototype = virtualJobProto};
+                    job.VirtualJobName = presetId?.VirtualJobName;
+                    job.VirtualJobIcon = presetId?.virtualJobIcon;
                 }
             }
-            while (false);
             // End of DeltaV code
             _roles.MindAddRole(newMind, job, silent: silent);
-            var jobName = _jobs.MindTryGetJobName(newMind);
+            var jobName = job.VirtualJobName ?? _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
@@ -347,10 +344,9 @@ namespace Content.Server.GameTicking
         }
 
         // DeltaV #1418 - Go through loadout items to find ID card and its attached job
-        private bool GetVirtualJobFromRoleLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out ProtoId<JobPrototype>? virtualJob)
+        private bool GetPresetIdFromLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out PresetIdCardComponent? presetId)
         {
-            virtualJob = null;
-
+            presetId = null;
             // Use to read job loadout and find an ID card
             foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
             {
@@ -388,14 +384,8 @@ namespace Content.Server.GameTicking
                         continue;
                     }
 
-                    ProtoId<JobPrototype> jobProtoId = idComponent.JobName ?? string.Empty;
-                    if (jobProtoId == string.Empty)
-                    {
-                        Log.Warning($"Empty jobProtoId!");
-                        return false;
-                    }
-                    virtualJob = jobProtoId;
-                    Log.Debug($"Successfully outputted {virtualJob} from {idProto}");
+                    presetId = idComponent;
+                    Log.Debug($"Successfully outputted {presetId} from {idProto}");
                     return true;
                 }
             }

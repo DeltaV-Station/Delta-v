@@ -12,7 +12,8 @@ public sealed partial class JobComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<JobPrototype>? Prototype;
 
-    // DeltaV #1418 - Inherit job prototype information from a loadout-specified ID
     [DataField]
-    public JobComponent? VirtualJob;
+    public string? VirtualJobName;
+    [DataField]
+    public string? VirtualJobIcon;
 }

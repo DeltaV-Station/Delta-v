@@ -57,15 +57,12 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         JobComponent? job, StationRecordsComponent records) // DeltaV #1418
     {
         // DeltaV #1418 - Inherit from VirtualJob if possible
-        _prototypeManager.TryIndex<JobPrototype>(job?.VirtualJob?.Prototype, out var a);
-        if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var b))
+        if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var jobProto))
             return;
-
-        ProtoId<JobPrototype> jobId = a?.ID ?? b.ID;
-        // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId // DeltaV #1418 - :blunt:
         // End of DeltaV code
-        if (string.IsNullOrEmpty(jobId)
-            || !_prototypeManager.HasIndex<JobPrototype>(jobId))
+
+        if (string.IsNullOrEmpty(job?.Prototype)
+            || !_prototypeManager.HasIndex<JobPrototype>(jobProto))
             return;
 
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
@@ -74,7 +71,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, job, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
     }
 
 
@@ -112,13 +109,14 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        string jobId,
+        JobComponent job,
         string? mobFingerprint,
         string? dna,
         HumanoidCharacterProfile profile,
         StationRecordsComponent records)
     {
-        if (!_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobPrototype))
+        string? jobId = job.Prototype;
+        if (string.IsNullOrEmpty(jobId) || !_prototypeManager.TryIndex<JobPrototype>(job.Prototype, out var jobPrototype))
             throw new ArgumentException($"Invalid job prototype ID: {jobId}");
 
         // when adding a record that already exists use the old one
@@ -133,8 +131,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
-            JobIcon = jobPrototype.Icon,
+            JobTitle = job.VirtualJobName ?? jobPrototype.LocalizedName,
+            JobIcon = job.VirtualJobIcon ?? jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,
             Gender = gender,

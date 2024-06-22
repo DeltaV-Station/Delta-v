@@ -22,25 +22,3 @@
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-
-# DeltaV #1418 - Define senior job names as separate prototypes
-- type: job
-  id: SeniorPhysician
-  #parent: MedicalDoctor # So sad parent-child relationships don't seem to work here
-  editorHidden: true
-  name: job-name-seniorphysician
-  description: job-description-doctor
-  playTimeTracker: JobMedicalDoctor
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 216000 # 60 hrs
-  startingGear: DoctorGear
-  icon: "JobIconSeniorPhysician"
-  supervisors: job-supervisors-cmo
-  access:
-  - Medical
-  - Maintenance
-  extendedAccess:
-  - Chemistry
-  - Paramedic
