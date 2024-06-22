@@ -56,7 +56,7 @@ public sealed class EmagSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(comp.Whitelist, target)
             || _whitelistSystem.IsWhitelistPass(comp.Blacklist, target))
         {
-            _popup.PopupClient("Invalid target!", user, user); // do i really need to use a locale for this?
+            _popup.PopupClient(Loc.GetString("emag-invalid-target", ("emag", uid), ("target", target)), user, user);
             return false;
         }
         // End of DeltaV code
