@@ -3,6 +3,7 @@ using Content.Server.UserInterface;
 using Content.Server.Power.Components;
 using Content.Shared.Popups;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Research.TechnologyDisk.Components;
 using Content.Shared.ReverseEngineering;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

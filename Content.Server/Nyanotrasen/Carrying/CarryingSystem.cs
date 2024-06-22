@@ -68,7 +68,10 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
-            SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
+            SubscribeLocalEvent<BeingCarriedComponent, BuckledEvent>(OnBuckleChange);
+            SubscribeLocalEvent<BeingCarriedComponent, UnbuckledEvent>(OnBuckleChange);
+            SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnBuckleChange);
+            SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnBuckleChange);
             SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         }
 
@@ -233,7 +236,7 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnBuckleChange(EntityUid uid, BeingCarriedComponent component, ref BuckleChangeEvent args)
+        private void OnBuckleChange<TEvent>(EntityUid uid, BeingCarriedComponent component, TEvent args) // Augh
         {
             DropCarried(component.Carrier, uid);
         }
