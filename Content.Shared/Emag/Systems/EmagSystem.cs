@@ -24,8 +24,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // DeltaV - Add a whitelist/blacklist to the Emag
 
     public override void Initialize()
     {
@@ -53,12 +52,14 @@ public sealed class EmagSystem : EntitySystem
         if (_tag.HasTag(target, comp.EmagImmuneTag))
             return false;
 
+        // DeltaV - Add a whitelist / blacklist to the Emag
         if (_whitelistSystem.IsWhitelistFail(comp.Whitelist, target)
             || _whitelistSystem.IsWhitelistPass(comp.Blacklist, target))
         {
-            _popup.PopupClient("no", user, user);
+            _popup.PopupClient("Invalid target!", user, user); // do i really need to use a locale for this?
             return false;
         }
+        // End of DeltaV code
 
         TryComp<LimitedChargesComponent>(uid, out var charges);
         if (_charges.IsEmpty(uid, charges))
