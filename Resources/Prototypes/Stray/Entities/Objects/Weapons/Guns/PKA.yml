@@ -73,15 +73,15 @@
   - type: Clothing
     sprite: Stray/Objects/Weapons/kinetic_accelerator_bomb.rsi
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
   - type: AmmoCounter
     capacity: 1
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 30
+    rechargeCooldown: 5
   - type: BasicEntityAmmoProvider
-    proto: BulletGrenadeBlast
+    proto: BulletBombPKA
     capacity: 1
     count: 1
