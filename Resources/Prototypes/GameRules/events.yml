@@ -483,29 +483,29 @@
       - type: NukeopsRole
         prototype: Nukeops
 
-#- type: entity # DeltaV - Currently many issues with this event
-#  noSpawn: true
-#  parent: BaseTraitorRule
-#  id: SleeperAgentsRule
-#  components:
-#  - type: StationEvent
-#    earliestStart: 30
-#    weight: 8
-#    minimumPlayers: 15
-#    maxOccurrences: 1 # can only happen once per round
-#    startAnnouncement: station-event-communication-interception
-#    startAudio:
-#      path: /Audio/Announcements/intercept.ogg
-#  - type: AlertLevelInterceptionRule
-#  - type: AntagSelection
-#    definitions:
-#    - prefRoles: [ Traitor ]
-#      min: 1
-#      max: 2
-#      playerRatio: 10
-#      mindComponents:
-#      - type: TraitorRole
-#        prototype: Traitor
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorRule
+  id: SleeperAgentsRule
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 5 # DeltaV - Was 8 now 5
+    minimumPlayers: 15
+    maxOccurrences: 1 # can only happen once per round
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      min: 1
+      max: 4 # DeltaV - Was 2 now 4
+      playerRatio: 10
+      mindComponents:
+      - type: TraitorRole
+        prototype: Traitor
 
 - type: entity
   id: MassHallucinations
