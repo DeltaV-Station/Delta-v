@@ -1,0 +1,13 @@
+- type: job
+  id: Borgeng
+  name: "борг инженерный"
+  description: job-description-borg
+  playTimeTracker: JobBorgeng
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
+  canBeAntag: false
+  icon: JobIconBorgEngineer
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgEngineer
+  startingGear: RobotGear # for char preview only

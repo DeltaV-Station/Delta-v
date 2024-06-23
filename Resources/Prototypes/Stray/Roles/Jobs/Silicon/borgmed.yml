@@ -1,0 +1,13 @@
+- type: job
+  id: Borgmed
+  name: "борг медицинский"
+  description: job-description-borg
+  playTimeTracker: JobBorgmed
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
+  canBeAntag: false
+  icon: JobIconBorgMedical
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgMedical
+  startingGear: RobotGear # for char preview only

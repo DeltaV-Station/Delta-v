@@ -1,0 +1,10 @@
+- type: job
+  id: Borgmin
+  name: "борг шахтерский"
+  description: job-description-borg
+  playTimeTracker: JobBorgmin
+  canBeAntag: false
+  icon: JobIconBorgShaftMiner
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgMining
+  startingGear: RobotGear # for char preview only

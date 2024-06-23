@@ -8,6 +8,7 @@
   - SalvageSpecialist
   - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Courier # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
+  - Borgmin
 
 - type: department
   id: Civilian
@@ -16,6 +17,10 @@
   weight: -10
   roles:
   - Bartender
+  - Borg
+  - Borgser
+  - Borgcwn
+  - Borgjan
   - Botanist
   - Boxer
   # - Chaplain # DeltaV - Move Chaplain into Epistemics
@@ -64,6 +69,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  - Borgeng
 
 - type: department
   id: Medical
@@ -77,7 +83,7 @@
   - Psychologist
   - Paramedic
   - Slugcat
-  - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  - Borgmed
 
 - type: department
   id: Security
@@ -93,6 +99,7 @@
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
   - Pilot # Corvax
+  - Borgsec
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science

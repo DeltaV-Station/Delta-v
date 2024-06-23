@@ -1,0 +1,79 @@
+- type: entity
+  parent: Stunbaton
+  id: StunbatonSelfCharging
+  suffix: Do Not Map, Recharging
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  parent: Flash
+  id: FlashRecharging
+  suffix: Do Not Map, Recharging
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 120
+  - type: GuideHelp
+    guides:
+    - Security
+    
+- type: entity
+  name: seclite
+  parent: FlashlightSeclite
+  id: FlashlightSecliteRecharging
+  description: A robust flashlight used by security.
+  suffix: Do Not Map , Recharging
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSelfAntiqueProtoRecharging
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  name: non-lethal wooden baton
+  parent: BaseItem
+  id: WoodBaton
+  description: First, do no crime.
+  components:
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 0
+    - type: StaminaDamageOnHit
+      damage: 17 # Stuns in 6
+      sound: /Audio/Weapons/click.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/truncheon.rsi
+      state: icon
+    - type: GuideHelp
+      guides:
+      - Security
+      
+- type: entity
+  parent: WeaponEnergyGunMini
+  id: WeaponEnergyGunMiniRecharging
+  suffix: Recharging, Do Not Map
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 10
+      
+- type: entity
+  parent: HoloprojectorSecurity
+  id: HoloprojectorSecurityRecharging
+  suffix: Recharging, Do Not Map
+  components:
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellSelfAntiqueProtoRecharging

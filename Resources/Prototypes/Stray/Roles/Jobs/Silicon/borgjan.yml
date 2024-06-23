@@ -1,0 +1,10 @@
+- type: job
+  id: Borgjan
+  name: "борг уборщик"
+  description: job-description-borg
+  playTimeTracker: JobBorgjan
+  canBeAntag: false
+  icon: JobIconBorgJanitor
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgJanitor
+  startingGear: RobotGear # for char preview only

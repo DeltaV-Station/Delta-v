@@ -397,3 +397,53 @@
       damageContainers:
       - Inorganic
       - Silicon
+
+- type: entity
+  id: BorgChassisClown
+  parent: BaseBorgChassisNT
+  name: clown cyborg
+  components:
+  - type: Sprite
+    layers:
+    - state: clown
+    - state: clown_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: clown_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: clown
+  - type: BorgChassis
+    maxModules: 3
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+    hasMindState: clown_e
+    noMindState: clown_e_r
+  - type: Construction
+    node: cyborg
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Service
+    - Binary
+    - Common
+    - Science
+  - type: AccessReader
+    access: [["Service"], ["Command"], ["Research"]]
+  - type: Inventory
+    templateId: borgTall
+  - type: SiliconLawProvider
+    laws: Clown
+  - type: NoSlip # Delta-V , Unparents NoSlip component
