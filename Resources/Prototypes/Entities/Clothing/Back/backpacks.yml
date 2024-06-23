@@ -109,6 +109,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/captain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpack
@@ -127,6 +129,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/chemistry.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpack
@@ -203,6 +207,8 @@
   - type: Storage
     grid:
     - 0,0,10,3
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -212,6 +218,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -221,6 +229,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertmed.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -230,6 +240,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/erteng.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -239,6 +251,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -248,6 +262,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertclown.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -257,6 +273,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertchaplain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 #Syndicate
 - type: entity
@@ -292,6 +310,8 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
 
 - type: entity
   parent: ClothingBackpackClown
