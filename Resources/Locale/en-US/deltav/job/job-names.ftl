@@ -11,4 +11,3 @@ JobCourier = Courier
 JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
-JobLawyer = Attorney
