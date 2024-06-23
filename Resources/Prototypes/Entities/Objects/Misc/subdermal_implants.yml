@@ -212,7 +212,7 @@
   noSpawn: true
   components:
     - type: SubdermalImplant
-      permanent: false
+      permanent: false # DeltaV - Allow removal of lethal implants
       implantAction: ActionActivateMicroBomb
     - type: TriggerOnMobstateChange
       mobState:
@@ -242,7 +242,7 @@
   noSpawn: true
   components:
     - type: SubdermalImplant
-      permanent: false
+      permanent: false # DeltaV - Allow removal of lethal implants
     - type: TriggerOnMobstateChange #Chains with OnUseTimerTrigger
       mobState:
       - Dead
@@ -277,7 +277,7 @@
   noSpawn: true
   components:
   - type: SubdermalImplant
-    permanent: false
+    permanent: false # DeltaV - Allow removal of lethal implants
     implantAction: ActionActivateDeathAcidifier
   - type: TriggerOnMobstateChange
     mobState:
