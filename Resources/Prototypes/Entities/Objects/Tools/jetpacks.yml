@@ -276,6 +276,10 @@
       - Back
       - suitStorage
       - Belt
+  - type: ReverseEngineering # DeltaV - make void jetpack RE'able
+    difficulty: 4
+    recipes:
+    - JetpackVoid
 
 # Filled void
 - type: entity
