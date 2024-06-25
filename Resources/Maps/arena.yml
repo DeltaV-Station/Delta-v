@@ -123160,14 +123160,6 @@ entities:
     - type: Transform
       pos: 37.5,7.5
       parent: 6747
-- proto: MetempsychoticMachineCircuitboard
-  entities:
-  - uid: 773
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 74.395,8.634339
-      parent: 6747
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 5097
@@ -160212,6 +160204,14 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-15.5
+      parent: 6747
+- proto: VaccinatorMachineCircuitboard
+  entities:
+  - uid: 773
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.40888,8.5709915
       parent: 6747
 - proto: VariantCubeBox
   entities:
