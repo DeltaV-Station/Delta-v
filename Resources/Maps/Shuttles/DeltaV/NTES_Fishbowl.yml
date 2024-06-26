@@ -7444,21 +7444,29 @@ entities:
     - type: Transform
       pos: -1.5,-26.5
       parent: 2
+    - type: PowerSupplier
+      supplyRate: 15000
   - uid: 903
     components:
     - type: Transform
       pos: -0.5,-27.5
       parent: 2
+    - type: PowerSupplier
+      supplyRate: 15000
   - uid: 904
     components:
     - type: Transform
       pos: 1.5,-27.5
       parent: 2
+    - type: PowerSupplier
+      supplyRate: 15000
   - uid: 905
     components:
     - type: Transform
       pos: 2.5,-26.5
       parent: 2
+    - type: PowerSupplier
+      supplyRate: 15000
 - proto: GravityGeneratorMini
   entities:
   - uid: 906
