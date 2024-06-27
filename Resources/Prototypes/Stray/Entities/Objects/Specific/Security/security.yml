@@ -77,3 +77,29 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellSelfAntiqueProtoRecharging
+
+- type: entity
+  parent: Handcuffs
+  id: HandcuffsLingering
+  suffix: Lingering
+  components:
+  - type: Stack
+    stackType: Handcuffs
+    baseLayer: handcuff
+    layerStates:
+    - handcuff
+    lingering: true
+    count: 15
+
+- type: entity
+  parent: Zipties
+  id: ZiptiesLingering
+  suffix: Lingering
+  components:
+  - type: Stack
+    stackType: Zipties
+    baseLayer: cuff
+    layerStates:
+    - cuff
+    lingering: true
+    count: 15

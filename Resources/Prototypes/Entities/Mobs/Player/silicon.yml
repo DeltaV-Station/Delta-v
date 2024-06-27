@@ -169,8 +169,8 @@
       - MMIFilled
       borg_module:
       - BorgModuleBasic
-      - BorgModuleSecurityPeacekeeper
-      - BorgModuleSecurityPatrol
+      - BorgModuleSecurityControl
+      - BorgModuleSecurityChase
       - BorgModuleSecurityHold
   - type: ItemSlots
     slots:

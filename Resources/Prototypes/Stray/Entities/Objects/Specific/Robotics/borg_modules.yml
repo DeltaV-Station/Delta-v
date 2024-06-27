@@ -28,33 +28,6 @@
 # Security Modules
 
 - type: entity
-  id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
-  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: peacekeeper cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icon-peacekeeper
-  - type: ItemBorgModule
-    items:
-    - WoodBaton
-
-- type: entity
-  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
-  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: patrol cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icon-patrol
-  - type: ItemBorgModule
-    items:
-    - FlashlightSecliteRecharging  
-    - SecurityWhistle
-
-- type: entity
   id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: blockade cyborg module
@@ -67,6 +40,7 @@
     items:
     - HoloprojectorSecurityRecharging
     - FlashRecharging
+    - Truncheon
 
 - type: entity
   id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
@@ -81,9 +55,11 @@
     items:
     - StunbatonSelfCharging
     - FlashRecharging
+    - HandcuffsLingering
+    - Truncheon
     
 - type: entity
-  id: BorgModuleSecurityControl # Research Locked - AdvancedRiotControl
+  id: BorgModuleSecurityControl # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: riot control cyborg module
   components:
@@ -94,10 +70,13 @@
   - type: ItemBorgModule
     items:
     - FlashRecharging
-    - HoloprojectorSecurityRecharging
-    
+    - WoodBaton
+    - HandcuffsLingering
+    - ZiptiesLingering
+    - SecurityWhistle
+
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  id: BorgModuleSecurityChase # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
   components:
