@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasMail
+  name: противогаз спецназа
+  description: Достаточно легко заметить, что это лишь подделка.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Mask/mail.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Mask/mail.rsi
