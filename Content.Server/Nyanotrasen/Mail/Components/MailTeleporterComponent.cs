@@ -104,5 +104,19 @@ namespace Content.Server.Mail.Components
         /// </summary>
         [DataField("priorityMalus")]
         public int PriorityMalus = -250;
+
+        // Code imported from New Frontiers, licensed under MIT: Large mail
+        /// <summary>
+        /// What's the bonus for delivering a large package intact?
+        /// </summary>
+        [DataField("largeBonus")]
+        public int LargeBonus = 1500; //DeltaV; 5000 to 1500
+
+        /// <summary>
+        /// What's the malus for failing to deliver a large package?
+        /// </summary>
+        [DataField("largeMalus")]
+        public int LargeMalus = -500; //DeltaV; -250 to -500
+        // End Frontier: Large mail
     }
 }
