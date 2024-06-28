@@ -1,0 +1,19 @@
+- type: alert
+  id: Charge
+  icons:
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge-empty
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge0
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge1
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge2
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge3
+  - sprite: /Textures/SimpleStation14/Interface/Alerts/charge.rsi
+    state: charge4
+  name: alerts-charge-name
+  description: alerts-charge-desc
+  minSeverity: -1
+  maxSeverity: 4

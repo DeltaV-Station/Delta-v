@@ -12,6 +12,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server.Silicons.IPC;
 
 namespace Content.Server.Administration.Commands
 {
@@ -126,7 +127,7 @@ namespace Content.Server.Administration.Commands
                     handsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
                 }
             }
-
+            InternalEncryptionKeySpawner.TryInsertEncryptionKey(target, startingGear, entityManager, profile); // Parkstation - IPC
             return true;
         }
     }

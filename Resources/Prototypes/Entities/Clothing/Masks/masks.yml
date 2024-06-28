@@ -200,6 +200,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
+    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     - Snout
@@ -242,9 +243,16 @@
     sprite: Clothing/Mask/joy.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -262,9 +270,14 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -418,6 +431,7 @@
   - type: BreathMask
   - type: Tag
     tags:
+    - IPCMaskWearable
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
@@ -437,9 +451,16 @@
     sprite: Clothing/Mask/fox.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -453,9 +474,16 @@
     sprite: Clothing/Mask/bee.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -469,9 +497,16 @@
     sprite: Clothing/Mask/bear.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -485,9 +520,16 @@
     sprite: Clothing/Mask/raven.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -501,9 +543,16 @@
     sprite: Clothing/Mask/jackal.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -517,9 +566,16 @@
     sprite: Clothing/Mask/bat.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable
+>>>>>>> b3b16ffec7 (Complete IPC overhaul (#31))
 
 - type: entity
   parent: ClothingMaskBase
@@ -536,6 +592,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -622,3 +679,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable

@@ -15,4 +15,10 @@ public sealed partial class DeathgaspComponent : Component
     /// </summary>
     [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EmotePrototype>))]
     public string Prototype = "DefaultDeathgasp";
+
+    /// <summary>
+    ///     Makes sure that the deathgasp is only displayed if the entity went critical before dying
+    /// </summary>
+    [DataField("needsCritical")]
+    public bool NeedsCritical = true;
 }

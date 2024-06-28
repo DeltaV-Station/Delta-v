@@ -374,6 +374,14 @@
   chatMessages: ["chat-emote-msg-deathgasp-monkey"]
 
 - type: emote
+  id: SiliconDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp-silicon"]
+  chatTriggers:
+  - sdeathgasp
+
+- type: emote
   id: Buzz
   name: chat-emote-name-buzz
   category: Vocal

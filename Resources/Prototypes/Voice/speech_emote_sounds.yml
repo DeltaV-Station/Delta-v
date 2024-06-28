@@ -483,3 +483,33 @@
     path: /Audio/Animals/parrot_raught.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: UnisexIPC
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      path: /Audio/Effects/Cargo/buzz_sigh.ogg
+    Scream:
+      path: /Audio/EstacaoPirata/Voice/IPC/robot-scream.ogg
+    Laugh:
+      path: /Audio/EstacaoPirata/Voice/IPC/robot-laugh_3.ogg
+    Chitter:
+      path: /Audio/Voice/Talk/pai.ogg
+    Squeak:
+      path: /Audio/Voice/Talk/pai.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      path: /Audio/Effects/Cargo/buzz_two.ogg
+    Sigh:
+      path: /Audio/Voice/Talk/pai.ogg
+    Crying:
+      path: /Audio/EstacaoPirata/Voice/IPC/cry_robot_1.ogg
+    Whistle:
+      path: /Audio/Voice/Talk/pai.ogg
