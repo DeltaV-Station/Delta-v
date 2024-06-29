@@ -23,13 +23,13 @@ public sealed partial class EmagComponent : Component
     /// <summary>
     /// Whitelist that entities must be on to work.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityWhitelist? Whitelist = null;
+    [DataField]
+    public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// Blacklist that entities must be off to work.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityWhitelist? Blacklist = null;
+    [DataField]
+    public EntityWhitelist? Blacklist;
     // End of DeltaV code
 }
