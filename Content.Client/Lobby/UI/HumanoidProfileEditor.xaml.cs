@@ -10,6 +10,7 @@ using Content.Client.Stylesheets;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._DV.Species; // DeltaV - Species hider
+using Content.Shared._DV.AccountLinking; // DeltaV
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;

@@ -112,3 +112,6 @@ max_announcement_length = 512
 [audio]
 attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
 z_offset = -2
+
+[discord]
+discord_account_linking_message_link = "https://google.com"

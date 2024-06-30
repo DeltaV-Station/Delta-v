@@ -1,3 +1,4 @@
+using Content.Client._DV.AccountLinking; // DeltaV
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -62,6 +63,7 @@ namespace Content.Client.IoC
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
             collection.Register<ClientsidePlaytimeTrackingManager>();
+            collection.Register<LinkAccountManager>(); // DeltaV - Discord Linking
         }
     }
 }

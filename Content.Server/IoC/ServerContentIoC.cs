@@ -1,3 +1,4 @@
+using Content.Server._DV.AccountLinking; // DeltaV
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -81,5 +82,6 @@ internal static class ServerContentIoC
         deps.Register<CVarControlManager>();
         deps.Register<DiscordLink>();
         deps.Register<DiscordChatLink>();
+        deps.Register<LinkAccountManager>(); // DeltaV - Discord Account Linking
     }
 }

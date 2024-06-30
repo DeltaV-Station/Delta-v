@@ -48,6 +48,14 @@ namespace Content.Server.Database
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<DVModel.SeenTip> DVSeenTips { get; set; } = null!; // DeltaV - Tips
 
+        // RMC14
+        public DbSet<DiscordAccount> DiscordAccounts { get; set; } = default!;
+        public DbSet<DiscordLinkedAccount> DiscordLinkedAccounts { get; set; } = default!;
+        public DbSet<DeltaVPatronTier> PatronTiers { get; set; } = default!;
+        public DbSet<DeltaVPatron> Patrons { get; set; } = default!;
+        public DbSet<LinkingCodes> DiscordLinkingCodes { get; set; } = default!;
+        public DbSet<DiscordLinkedAccountLogs> DiscordLinkedAccountLogs { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -395,6 +403,60 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
+            // BEGIN DeltaV - Discord Account Linking 
+            modelBuilder.Entity<DiscordLinkedAccount>()
+                .HasOne(l => l.Player)
+                .WithOne(p => p.LinkedAccount)
+                .HasForeignKey<DiscordLinkedAccount>(l => l.PlayerId)
+                .HasPrincipalKey<Player>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DiscordLinkedAccount>()
+                .HasOne(l => l.Discord)
+                .WithOne(d => d.LinkedAccount)
+                .HasForeignKey<DiscordLinkedAccount>(l => l.DiscordId)
+                .HasPrincipalKey<DiscordAccount>(d => d.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DeltaVPatron>()
+                .HasOne(p => p.Player)
+                .WithOne(p => p.Patron)
+                .HasForeignKey<DeltaVPatron>(p => p.PlayerId)
+                .HasPrincipalKey<Player>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DeltaVPatron>()
+                .HasOne(p => p.Tier)
+                .WithMany(t => t.Patrons)
+                .HasForeignKey(p => p.TierId)
+                .HasPrincipalKey(p => p.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DeltaVPatronTier>()
+                .HasIndex(t => t.DiscordRole)
+                .IsUnique();
+
+            modelBuilder.Entity<DiscordLinkingCodes>()
+                .HasOne(l => l.Player)
+                .WithOne(p => p.LinkingCodes)
+                .HasForeignKey<DiscordLinkingCodes>(l => l.PlayerId)
+                .HasPrincipalKey<Player>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DiscordLinkedAccountLogs>()
+                .HasOne(l => l.Player)
+                .WithMany(p => p.LinkedAccountLogs)
+                .HasForeignKey(l => l.PlayerId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DiscordLinkedAccountLogs>()
+                .HasOne(l => l.Discord)
+                .WithMany(p => p.LinkedAccountLogs)
+                .HasForeignKey(l => l.DiscordId)
+                .HasPrincipalKey(p => p.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+            // END DeltaV
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -621,6 +683,12 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansCreated { get; set; } = null!;
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
+
+        // RMC14
+        public DiscordLinkedAccount? LinkedAccount { get; set; }
+        public DeltaVPatron? Patron { get; set; }
+        public DiscordLinkingCodes? LinkingCodes { get; set; }
+        public List<DiscordLinkedAccountLogs> LinkedAccountLogs { get; set; } = default!;
     }
 
     [Table("whitelist")]

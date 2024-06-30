@@ -1,0 +1,54 @@
+using Content.Client.Lobby;
+using Content.Client.UserInterface.Systems.Info;
+using Content.Shared.CCVar;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.Configuration;
+
+namespace Content.Client._DV.AccountLinking;
+
+public sealed class DiscordLinkingUIController : UIController, IOnStateEntered<LobbyState>
+{
+    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly InfoUIController _infoUIController = default!;
+    [Dependency] private readonly IUriOpener _uriOpener = default!;
+
+    private bool _shown;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _infoUIController.Accepted += OnAccepted;
+    }
+
+    public void OnStateEntered(LobbyState state)
+    {
+        if (_shown)
+            return;
+
+        //if (_infoUIController.RulesPopup != null)
+        //    return;
+
+        InitButtons();
+    }
+
+    public void InitButtons()
+    {
+
+        _shown = true;
+        if (_config.GetCVar(CCVars.InfoLinksDiscord) is { Length: > 0 } discordLink)
+        {
+            // TODO: Discord Linking - Window
+            _window.DiscordButton.Visible = true;
+            _window.DiscordButton.OnPressed += _ => _uriOpener.OpenUri(discordLink);
+        }
+
+        if (_config.GetCVar(CCVars.InfoLinksPatreon) is { Length: > 0 } patreonLink)
+        {
+            _window.PatreonButton.Visible = true;
+            _window.PatreonButton.OnPressed += _ => _uriOpener.OpenUri(patreonLink);
+        }
+
+        _window.OpenCentered();
+    }
+}
