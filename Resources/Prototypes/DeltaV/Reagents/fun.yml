@@ -1,0 +1,30 @@
+- type: reagent
+  id: Meowstrogen
+  name: reagent-name-meow
+  group: Toxins
+  desc: reagent-desc-meow
+  physicalDesc: reagent-physical-desc-vibrant
+  flavor: meowstrogen
+  color: "#f599ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: Meow
+        showInChat: true
+        probability: 0.5
+      - !type:Polymorph
+        prototype: Meowstrogen # Does the same thing as the original YML I made for this reagent.
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Meowstrogen
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50

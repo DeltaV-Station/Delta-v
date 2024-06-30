@@ -182,6 +182,20 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: AddAccentClothing
     accent: OwOAccent
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Meowstrogen
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Meowstrogen
+          Quantity: 10
 
 - type: entity
   parent: ClothingHeadBase
