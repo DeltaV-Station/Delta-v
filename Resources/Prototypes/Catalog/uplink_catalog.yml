@@ -166,7 +166,7 @@
   name: uplink-l6-saw-bundle-name
   description: uplink-l6-saw-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  productEntity: ClothingBackpackDuffelicateFilledLMG
   cost:
     Telecrystal: 30
   categories:
@@ -1138,10 +1138,10 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 5                           #DeltaV- Was 4, now 5
+    Telecrystal: 5 #DeltaV- Was 4, now 5
   categories:
     - UplinkImplants
- # conditions:                               #DeltaV- Allows Death Acidifer for our Syndibros
+ # conditions: #DeltaV- Allows Death Acidifer for our Syndibros
  #   - !type:StoreWhitelistCondition
  #     whitelist:
  #       tags:
