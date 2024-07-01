@@ -4,6 +4,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects.Components.Localization;
+using Robust.Shared.Prototypes;
+using Content.Shared.DeltaV.Traits.Synthetic; // DeltaV: Synthetics
 
 namespace Content.Server.Humanoid;
 
@@ -49,6 +51,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         if (TryComp<GrammarComponent>(target, out var grammar))
         {
             grammar.Gender = sourceHumanoid.Gender;
+        }
+
+        if (sourceHumanoid.Synthetic && TryComp<SynthComponent>(source, out var sourceSynth)) // DeltaV - copy synthetic status
+        {
+            _synthSystem.EnsureSynthetic(target, sourceSynth);
+            targetHumanoid.Synthetic = true;
         }
 
         targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let paradox anomaly be cloned

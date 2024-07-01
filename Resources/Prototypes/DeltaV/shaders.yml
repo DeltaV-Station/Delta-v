@@ -12,3 +12,9 @@
   id: Crispy
   kind: source
   path: "/Textures/Shaders/crispy.swsl"
+
+# vision effect, similar to the flash effect but with static
+- type: shader
+  id: StaticVisionEffect
+  kind: source
+  path: "/Textures/DeltaV/Shaders/staticvisioneffect.swsl"
