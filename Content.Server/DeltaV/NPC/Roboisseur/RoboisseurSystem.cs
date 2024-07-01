@@ -1,3 +1,4 @@
+using Content.Server.Administration.Logs;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Server.Chat.Systems;
@@ -7,6 +8,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Kitchen;
 using Robust.Server.GameObjects;
 using Content.Server.Materials;
+using Content.Shared.Database;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -20,6 +22,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
         public override void Initialize()
         {
@@ -126,6 +129,10 @@ namespace Content.Server.Roboisseur.Roboisseur
             if (tier > 1)
                 message = Loc.GetString(_random.Pick(component.RewardMessagesTier2));
             _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, true);
+
+            _adminLog.Add(LogType.InteractHand,
+                LogImpact.Medium,
+                $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
 
             RewardServicer(args.User, component, tier);
 
