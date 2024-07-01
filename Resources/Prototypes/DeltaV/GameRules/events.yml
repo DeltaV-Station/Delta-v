@@ -110,21 +110,57 @@
 #    spawner: SpawnPointGhostRatKing
 
 - type: entity
-  noSpawn: true
   parent: BaseMidRoundAntag
-  id: ParadoxAnomalySpawn
+  id: ParadoxAnomaly
   components:
+  - type: StationEvent
+    duration: null
   - type: ParadoxClonerRule
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective
+    - ParadoxAnomalyFriendObjective
+    - ParadoxAnomalyEscapeObjective
   - type: AntagSelection
+    agentName: paradox-anomaly-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostParadoxAnomaly
       min: 1
       max: 1
       pickPlayer: false
-      components:
-      # TerminatorComponent is added by paradox cloner
-      - type: GenericAntag
-        rule: ParadoxAnomaly
       mindComponents:
+      - type: RoleBriefing
+        briefing: paradox-anomaly-role-briefing
       - type: TerminatorRole
         prototype: Terminator
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: Fugitive
+  components:
+  - type: StationEvent
+    minimumPlayers: 40 # it's really easy to find fugitives on lowpop
+    duration: null
+  - type: FugitiveRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - FugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: fugitive-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostFugitive
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: FugitiveGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindComponents:
+      - type: FugitiveRole
+        prototype: Fugitive
