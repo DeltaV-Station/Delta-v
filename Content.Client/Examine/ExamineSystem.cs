@@ -2,7 +2,6 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using Content.Client.Verbs;
-using Content.Shared.Eye.Blinding;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
@@ -356,10 +355,7 @@ namespace Content.Client.Examine
 
             FormattedMessage message;
 
-            // Basically this just predicts that we can't make out the entity if we have poor vision.
-            var canSeeClearly = !HasComp<BlurryVisionComponent>(playerEnt);
-
-            OpenTooltip(playerEnt.Value, entity, centeredOnCursor, false, knowTarget: canSeeClearly);
+            OpenTooltip(playerEnt.Value, entity, centeredOnCursor, false);
 
             // Always update tooltip info from client first.
             // If we get it wrong, server will correct us later anyway.
