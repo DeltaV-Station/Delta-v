@@ -23,3 +23,35 @@
         - ReagentId: Protein
           Quantity: 5
 # Tastes like eggs, butter and salt
+
+- type: entity
+  name: ham and pineapple salad
+  parent: FoodBowlBase
+  id: FoodSaladHamPineapple
+  description: Hawaiian pizza rules apply.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - mayonnaise
+      - corn
+      - pineapple
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/hamandpineapplesalad.rsi
+    layers:
+    - state: bowl
+    - state: hampineapplesalad
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+    - Fruit
+    - Soup

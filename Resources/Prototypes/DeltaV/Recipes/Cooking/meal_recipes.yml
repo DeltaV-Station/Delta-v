@@ -29,3 +29,17 @@
     FoodDoughPie: 1
     FoodPumpkin: 1
     FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeHamPineappleSalad
+  name: pineapple and ham salad
+  result: FoodSaladHamPineapple
+  time: 10
+  reagents:
+    Mayo: 10
+  solids:
+    FoodBowlBig: 1
+    FoodCorn: 1
+    FoodMeatCutlet: 2
+    FoodPineappleSlice: 3
+    FoodEgg: 2
