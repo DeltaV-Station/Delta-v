@@ -112,8 +112,9 @@ uplink-holster-desc = A deep shoulder holster capable of holding many types of b
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
-uplink-emag-name = Emag
-uplink-emag-desc = The business card of the syndicate, this sequencer is able to break open airlocks and tamper with a variety of station devices. Recharges automatically.
+# DeltaV - Correct Emag name, Emag no longer breaks doors
+uplink-emag-name = Cryptographic Sequencer 
+uplink-emag-desc = The business card of the Syndicate, this sequencer is able to tamper with a variety of station devices. Rendered obsolete against airlocks.
 
 uplink-agent-id-card-name = Agent ID Card
 uplink-agent-id-card-desc = A modified ID card that can copy accesses from other cards and change its name and job title at-will.
