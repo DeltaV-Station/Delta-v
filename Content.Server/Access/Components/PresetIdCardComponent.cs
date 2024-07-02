@@ -15,6 +15,12 @@ public sealed partial class PresetIdCardComponent : Component
     /// <summary>
     /// DeltaV: Allow changing the job title, even if it'd be otherwise set by the JobPrototype
     /// </summary>
-    [DataField("customJob")]
-    public string? CustomJobName;
+    [DataField("virtualJobName")]
+    public string? VirtualJobName;
+
+    /// <summary>
+    /// DeltaV: Allow changing the job icon, even if it'd be otherwise set by the JobPrototype
+    /// </summary>
+    [DataField("virtualJobIcon")]
+    public string? VirtualJobIcon;
 }
