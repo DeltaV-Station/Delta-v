@@ -49,3 +49,32 @@
       state: nyanomailcarrier
   - type: PresetIdCard
     job: Courier
+
+- type: entity
+  parent: MercSquadLeaderIDCard
+  id: MercRiflemanIDCard
+  name: rifleman ID card
+
+- type: entity
+  parent: MercSquadLeaderIDCard
+  id: MercCorpsmanIDCard
+  name: corpsman ID card
+
+- type: entity
+  parent: MercSquadLeaderIDCard
+  id: MercSergeantIDCard
+  name: sergeant ID card
+
+- type: entity
+  parent: IDCardStandard
+  id: MercSquadLeaderIDCard
+  name: squad leader ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Maintenance
+    - External
+    
