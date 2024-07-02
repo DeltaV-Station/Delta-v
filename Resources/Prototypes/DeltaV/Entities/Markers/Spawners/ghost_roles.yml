@@ -43,6 +43,7 @@
       time: 40000 # 11.1 hours
 
 - type: entity
+  noSpawn: true
   parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
@@ -51,3 +52,18 @@
     name: ghost-role-information-paradox-anomaly-name
     description: ghost-role-information-paradox-anomaly-description
     rules: ghost-role-information-paradox-anomaly-rules
+
+- type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostFugitive
+  name: fugitive spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fugitive-name
+    description: ghost-role-information-fugitive-description
+    rules: ghost-role-information-fugitive-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # 1 hour
