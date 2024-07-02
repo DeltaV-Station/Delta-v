@@ -187,8 +187,7 @@ public sealed class ExecutionSystem : EntitySystem
         var doAfter =
             new DoAfterArgs(EntityManager, attacker, executionTime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
             {
-                BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnMove = true,
                 BreakOnDamage = true,
                 NeedHand = true
             };
@@ -215,8 +214,7 @@ public sealed class ExecutionSystem : EntitySystem
         var doAfter =
             new DoAfterArgs(EntityManager, attacker, GunExecutionTime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
             {
-                BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnMove = true,
                 BreakOnDamage = true,
                 NeedHand = true
             };
@@ -273,6 +271,8 @@ public sealed class ExecutionSystem : EntitySystem
 
         var attacker = args.User;
         var weapon = args.Used!.Value;
+        var gunComp = Comp<GunComponent>(weapon);
+
         var victim = args.Target!.Value;
 
         if (!CanExecuteWithGun(weapon, victim, attacker)) return;
@@ -281,7 +281,7 @@ public sealed class ExecutionSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = attacker,
-            Used = weapon
+            Used = new Entity<GunComponent>(weapon, gunComp)
         };
 
         RaiseLocalEvent(weapon, ref prevention);

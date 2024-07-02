@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMachinePowered
+  parent: [BaseMachinePowered, ConstructibleMachine]
   id: ReverseEngineeringMachine
   name: reverse engineering machine
   description: Destructively analyses pieces of technology in the hopes that we can retrieve information from them.
@@ -10,7 +10,7 @@
     snapCardinals: true
     layers:
     - state: open
-      map: ["open"]
+      map: ["enum.OpenableVisuals.Layer"]
     - state: unlit
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
@@ -19,8 +19,8 @@
     key: enum.ReverseEngineeringMachineUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.ReverseEngineeringMachineUiKey.Key
-      type: ReverseEngineeringMachineBoundUserInterface
+      enum.ReverseEngineeringMachineUiKey.Key:
+        type: ReverseEngineeringMachineBoundUserInterface
   - type: ActivatableUIRequiresPower
   - type: ItemSlots
     slots:
@@ -33,8 +33,8 @@
     graph: Machine
     node: machine
     containers:
-     - machine_board
-     - machine_parts
+    - machine_board
+    - machine_parts
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -42,7 +42,7 @@
       target_slot: !type:ContainerSlot
   - type: EmptyOnMachineDeconstruct
     containers:
-      - target_slot
+    - target_slot
   - type: Machine
     board: ReverseEngineeringMachineCircuitboard
   - type: Destructible
@@ -51,6 +51,7 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
+      - !type:EmptyAllContainersBehaviour
       - !type:ChangeConstructionNodeBehavior
         node: machineFrame
       - !type:DoActsBehavior
@@ -72,7 +73,7 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-      enum.ReverseEngineeringVisuals.ChamberOpen:
-        open:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
           True: { state: open }
           False: { state: closed }

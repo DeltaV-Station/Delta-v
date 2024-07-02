@@ -3,21 +3,162 @@
   id: WindoorMailLocked
   suffix: Mail, Locked
   components:
-  - type: AccessReader
-    access: [["Mail"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMail ]
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureMailLocked
   suffix: Mail, Locked
   components:
-  - type: AccessReader
-    access: [["Mail"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMail ]
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureParamedicLocked
   suffix: Paramedic, Locked
   components:
-  - type: AccessReader
-    access: [["Paramedic"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureChiefJusticeLocked
+  suffix: Chief Justice, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefJustice ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureJusticeLocked
+  suffix: Justice, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJustice ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProsecutor ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureClerkLocked
+  suffix: Clerk, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClerk ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureLawyerLocked
+  suffix: Lawyer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLawyer ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMantisLocked
+  suffix: Mantis, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMantis ]
+
+#Add windoors from upstream roles
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureBoxerLocked
+  suffix: Boxer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBoxer ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureClownLocked
+  suffix: Clown, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClown ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMimeLocked
+  suffix: Mime, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMime ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMusicianLocked
+  suffix: Musician, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMusician ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureReporterLocked
+  suffix: Reporter, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsReporter ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureLibraryLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureZookeeperLocked
+  suffix: Zookeeper, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsZookeeper ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorpsman ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecurePsychologistLocked
+  suffix: Psychologist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPsychologist ]

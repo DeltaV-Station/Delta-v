@@ -7,28 +7,28 @@
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 45
+    minimumPlayers: 20
     weight: 1
     duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobXeno
-      prob: 0.01
+      prob: 0.08
     - id: MobXenoRouny
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoDrone
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoSpitter
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoRunner
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoPraetorian
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoRavager
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoQueen
-      prob: 0.005
+      prob: 0.007
 
 - type: entity
   id: MothroachSpawn
@@ -36,7 +36,6 @@
   noSpawn: true
   components:
   - type: StationEvent
-    id: VentCritters
     earliestStart: 15
     minimumPlayers: 15
     weight: 4
@@ -46,8 +45,8 @@
     - id: MobMothroach
       prob: 0.05
 
-- type: entity # Delta-V : Midround Syndie Listening Station Spawn
-  id: PirateRadioSpawn
+- type: entity
+  id: ListeningPost
   parent: BaseGameRule
   noSpawn: true
   components:
@@ -56,8 +55,112 @@
     weight: 5
     minimumPlayers: 25
     maxOccurrences: 1
-    duration: 1
-  - type: PirateRadioSpawnRule
-    debrisCount: 6
+    duration: null
+  - type: RuleGrids
+  - type: LoadFarGridRule
+    path: /Maps/Shuttles/DeltaV/listening_post.yml
     distanceModifier: 13
-    debrisDistanceModifier: 3
+  - type: DebrisSpawnerRule
+    count: 6
+    distanceModifier: 3
+  # TODO: funny trolling or intel related objectives
+  - type: AntagLoadProfileRule
+  - type: AntagSelection
+    agentName: listening-post-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSyndicateListener
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateListenerGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - names_death_commando
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: ListeningPostRole
+        prototype: ListeningPost
+
+# Mid round antag spawns
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseMidRoundAntag
+  components:
+  - type: StationEvent
+    weight: 7
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+  - type: MidRoundAntagRule
+
+#- type: entity
+#  noSpawn: true
+#  parent: BaseMidRoundAntag
+#  id: RatKingSpawn
+#  components:
+#  if you uncomment this update this for antag refactor, below wont work
+#  - type: MidRoundAntagRule
+#    spawner: SpawnPointGhostRatKing
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: ParadoxAnomaly
+  components:
+  - type: StationEvent
+    duration: null
+  - type: ParadoxClonerRule
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective
+    - ParadoxAnomalyFriendObjective
+    - ParadoxAnomalyEscapeObjective
+  - type: AntagSelection
+    agentName: paradox-anomaly-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxAnomaly
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindComponents:
+      - type: RoleBriefing
+        briefing: paradox-anomaly-role-briefing
+      - type: TerminatorRole
+        prototype: Terminator
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: Fugitive
+  components:
+  - type: StationEvent
+    minimumPlayers: 40 # it's really easy to find fugitives on lowpop
+    duration: null
+  - type: FugitiveRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - FugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: fugitive-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostFugitive
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: FugitiveGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindComponents:
+      - type: FugitiveRole
+        prototype: Fugitive

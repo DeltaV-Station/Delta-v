@@ -18,9 +18,9 @@
   - Security
   #- Brig # Delta V: Removed
   - Maintenance
-  - Service
+  #- Service # Delta V: Access adjustments
   - External
-  - Cryogenics
+  #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -28,8 +28,6 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
-    back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
@@ -37,6 +35,3 @@
     belt: ClothingBeltSecurityFilled
 #    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
     pocket2: BookSecurity
-  innerClothingSkirt: ClothingUniformJumpskirtColorRed
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled

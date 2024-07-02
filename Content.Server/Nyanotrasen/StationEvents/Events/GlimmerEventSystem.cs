@@ -1,8 +1,9 @@
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Psionics.Glimmer;
 
-namespace Content.Server.StationEvents.Events
+namespace Content.Server.Nyanotrasen.StationEvents.Events
 {
     public sealed class GlimmerEventSystem : StationEventSystem<GlimmerEventComponent>
     {

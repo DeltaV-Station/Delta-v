@@ -355,12 +355,13 @@
 - type: entity
   parent: IDCardStandard
   id: LawyerIDCard
-  name: lawyer ID card
+  name: attorney ID card # DeltaV - Changed Lawyer to Attorney
   components:
     - type: Sprite
       layers:
         - state: default
-        - state: idlawyer
+        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
+          state: idlawyer
     - type: PresetIdCard
       job: Lawyer
 
@@ -635,7 +636,6 @@
     - JobIconChiefEngineer
     - JobIconBartender
     - JobIconHeadOfSecurity
-    - JobIconBrigmedic
     - JobIconMedicalDoctor
     - JobIconParamedic
     - JobIconChef
@@ -655,6 +655,9 @@
     - JobIconMartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
     - JobIconGladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
     - JobIconForensicMantis  # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+    - JobIconClerk # Delta V - Added justice dept
+    - JobIconChiefJustice # Delta V - Added justice dept
+    - JobIconProsecutor # Delta V - Added justice dept
     - JobIconVisitor
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -667,9 +670,9 @@
     default: PassengerIDCard
   - type: UserInterface
     interfaces:
-      - key: enum.AgentIDCardUiKey.Key
+      enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
-      - key: enum.ChameleonUiKey.Key
+      enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
 
 - type: entity
@@ -811,7 +814,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: IDCardStandard
+  parent: EngineeringIDCard
   id: SeniorEngineerIDCard
   name: senior engineer ID card
   components:
@@ -819,11 +822,11 @@
     layers:
     - state: default
     - state: idseniorengineer
-  - type: PresetIdCard
-    job: SeniorEngineer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Engineer
 
 - type: entity
-  parent: IDCardStandard
+  parent: ResearchIDCard
   id: SeniorResearcherIDCard
   name: senior researcher ID card
   components:
@@ -831,11 +834,11 @@
     layers:
     - state: default
     - state: idseniorresearcher
-  - type: PresetIdCard
-    job: SeniorResearcher
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Researcher
 
 - type: entity
-  parent: IDCardStandard
+  parent: MedicalIDCard
   id: SeniorPhysicianIDCard
   name: senior physician ID card
   components:
@@ -843,11 +846,11 @@
     layers:
     - state: default
     - state: idseniorphysician
-  - type: PresetIdCard
-    job: SeniorPhysician
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Physician
 
 - type: entity
-  parent: IDCardStandard
+  parent: SecurityIDCard
   id: SeniorOfficerIDCard
   name: senior officer ID card
   components:
@@ -855,5 +858,33 @@
     layers:
     - state: default
     - state: idseniorofficer
-  - type: PresetIdCard
-    job: SeniorOfficer
+  - type: PresetIdCard # DeltaV - Change senior job titles
+    customJob: Senior Officer
+
+- type: entity
+  parent: IDCardStandard
+  id: UniversalIDCard
+  name: universal ID card
+  suffix: Admin
+  description: An ID card that gives you access beyond your wildest dreams.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: admin
+    - state: idadmin
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: green
+  - type: IdCard
+    jobTitle: Universal
+    jobIcon: JobIconAdmin
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NuclearOperative
+    - SyndicateAgent
+    - DV-SpareSafe # DeltaV

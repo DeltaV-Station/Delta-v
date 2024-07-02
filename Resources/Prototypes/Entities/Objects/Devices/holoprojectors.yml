@@ -27,6 +27,16 @@
 
 - type: entity
   parent: Holoprojector
+  id: HoloprojectorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: Holoprojector
   id: HoloprojectorBorg
   suffix: borg
   components:
@@ -57,9 +67,20 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
-  - type: ReverseEngineering # Nyano
+  - type: ReverseEngineering # Nayno
+    difficulty: 3
     recipes:
       - HolofanProjector
+
+- type: entity
+  parent: HolofanProjector
+  id: HolofanProjectorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
@@ -78,6 +99,20 @@
         - HolofanProjector
     - type: StaticPrice
       price: 130
+    - type: ReverseEngineering # delta
+      difficulty: 3
+      recipes:
+        - HoloprojectorField
+
+- type: entity
+  parent: HoloprojectorField
+  id: HoloprojectorFieldEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
@@ -96,6 +131,10 @@
         - HolofanProjector
     - type: StaticPrice
       price: 50
+    - type: ReverseEngineering # delta
+      difficulty: 2
+      recipes:
+        - HoloprojectorSecurity
 
 - type: entity
   parent: HoloprojectorSecurity

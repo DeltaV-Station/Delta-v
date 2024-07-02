@@ -19,6 +19,7 @@
         amount: 2
       - id: Plunger
         amount: 2
+      - id: BoxCleanerGrenades
 
 - type: entity
   id: CrateServiceReplacementLights
@@ -50,15 +51,20 @@
   - type: StorageFill
     contents:
       - id: CigCartonGreen
-        prob: 0.50
+        prob: 0.33 # DeltaV
         orGroup: CigCarton1
       - id: CigCartonRed
         orGroup: CigCarton1
       - id: CigCartonBlue
-        prob: 0.50
+        prob: 0.33 # DeltaV
         orGroup: CigCarton2
       - id: CigCartonBlack
         orGroup: CigCarton2
+      - id: CigCartonPurple # DeltaV
+        prob: 0.33
+        orGroup: CigCarton3 
+      - id: CigCartonCandy # DeltaV
+        orGroup: CigCarton3
       - id: CigarGoldCase
         prob: 0.05
         orGroup: Cigars
@@ -87,6 +93,10 @@
     - id: ClothingNeckCloakVoid
     - id: RevolverCapGun
     - id: BarberScissors
+    - id: ClothingUniformJumpskirtOldDress
+    - id: BikeHorn
+    - id: ClownRecorder
+    - id: ClothingBeltSuspenders
 
 - type: entity
   id: CrateServiceCustomSmokable
@@ -316,16 +326,3 @@
           prob: 0.1
         - id: ShardGlassPlasma
           prob: 0.1
-
-- type: entity
-  id: CrateJanitorExplosive
-  parent: ClosetJanitorBomb
-  name: janitorial bomb suit crate
-  description: Supplies a bomb suit for cleaning up any explosive compounds, buy one today!
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterSuitJanitorBomb
-        amount: 1
-      - id: ClothingHeadHelmetJanitorBombSuit
-        amount: 1

@@ -82,7 +82,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - GlassesNearsight # SimpleStation14 NearsightedTrait
 
 - type: entity
   parent: ClothingEyesBase
@@ -154,9 +153,14 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: Tag
+    tags:
+    - Sunglasses
+    - HamsterWearable
+    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesSecurity
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
@@ -168,6 +172,9 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: Construction
+    graph: GlassesSecHUD
+    node: glassesSec
   - type: Tag
     tags:
     - HamsterWearable
@@ -176,7 +183,6 @@
   - type: GuideHelp
     guides:
     - Security
-  - type: ShowSecurityIcons
   - type: IdentityBlocker
     coverage: EYES
 

@@ -28,25 +28,25 @@
       collection: HarpyGrowls
     Purr:
       collection: HarpyPurrs
-    Ring:
+    HarpyRing:
       collection: HarpyRings
-    HonkHarpy:
+    HarpyHonk:
       collection: HarpyHonks
-    Pew:
+    HarpyPew:
       collection: HarpyPews
-    Bang:
+    HarpyBang:
       collection: HarpyBangs
-    Beep:
+    HarpyBeep:
       collection: HarpyBeeps
-    Rev:
+    HarpyRev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
       collection: HarpySqueak
-    Caw:
+    HarpyCaw:
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
@@ -58,6 +58,12 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+#    Honk:
+#      collection: BikeHorn
+    Weh:
+      collection: Weh
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -72,12 +78,20 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
     Crying:
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Sigh:
-      collection: MaleSigh
+    Weh:
+      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -87,6 +101,8 @@
     Whine:
       collection: VulpkaninWhines
     Howl:
+      collection: VulpkaninHowls
+    Awoo:
       collection: VulpkaninHowls
 
 - type: emoteSounds
@@ -102,12 +118,20 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
     Crying:
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Sigh:
-      collection: FemaleSigh
+    Weh:
+      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -117,4 +141,24 @@
     Whine:
       collection: VulpkaninWhines
     Howl:
+      collection: VulpkaninHowls
+    Awoo:
+      collection: VulpkaninHowls
+
+- type: emoteSounds
+  id: MobDog
+  params:
+    variation: 0.125
+  sounds:
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Awoo:
       collection: VulpkaninHowls

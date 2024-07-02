@@ -6,12 +6,13 @@
   id: MobPurpleSnakeGhost
   components:
   - type: GhostTakeoverAvailable
+  - type: GhostRole
     allowMovement: true
     allowSpeech: false
     makeSentient: true
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
-    rules: You are an antagonist, kill!
+    rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
   - type: SalvageMobRestrictions
 
 - type: entity
@@ -19,12 +20,13 @@
   id: MobSmallPurpleSnakeGhost
   components:
   - type: GhostTakeoverAvailable
+  - type: GhostRole
     allowMovement: true
     allowSpeech: false
     makeSentient: true
     name: salvage snake
     description: You are a salvage snake hunting for a meal.
-    rules: You are an antagonist, kill!
+    rules: deltav-ghost-role-information-salvageantag-rules # DeltaV salvage mob rules
   - type: SalvageMobRestrictions
 
 # Delta V variants of Xenos to allow ghost takeover again
@@ -42,6 +44,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -57,6 +61,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -72,6 +78,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -87,6 +95,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -102,6 +112,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -117,6 +129,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -131,6 +145,8 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -146,4 +162,6 @@
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
     rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable

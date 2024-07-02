@@ -1,0 +1,168 @@
+# Jumpsuit
+- type: loadout
+  id: CaptainJumpsuit
+  equipment: CaptainJumpsuit
+
+- type: startingGear
+  id: CaptainJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+
+- type: loadout
+  id: CaptainJumpskirt
+  equipment: CaptainJumpskirt
+
+- type: startingGear
+  id: CaptainJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCaptain
+
+- type: loadout
+  id: CaptainFormalSuit
+  equipment: CaptainFormalSuit
+
+- type: startingGear
+  id: CaptainFormalSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCapFormal
+
+- type: loadout
+  id: CaptainFormalSkirt
+  equipment: CaptainFormalSkirt
+
+- type: startingGear
+  id: CaptainFormalSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCapFormalDress
+
+# Head
+- type: loadout
+  id: CaptainHead
+  equipment: CaptainHead
+
+- type: startingGear
+  id: CaptainHead
+  equipment:
+    head: ClothingHeadHatCaptain
+
+- type: loadout
+  id: CaptainCap
+  equipment: CaptainCap
+
+- type: startingGear
+  id: CaptainCap
+  equipment:
+    head: ClothingHeadHatCapcap
+
+- type: loadout # DeltaV
+  id: CaptainBeret
+  equipment: CaptainBeret
+
+- type: startingGear # DeltaV
+  id: CaptainBeret
+  equipment:
+    head: ClothingHeadHatBeretCap
+
+# Neck
+- type: loadout
+  id: CaptainCloak
+  equipment: CaptainCloak
+
+- type: startingGear
+  id: CaptainCloak
+  equipment:
+    neck: ClothingNeckCloakCap
+
+- type: loadout
+  id: CaptainCloakFormal
+  equipment: CaptainCloakFormal
+
+- type: startingGear
+  id: CaptainCloakFormal
+  equipment:
+    neck: ClothingNeckCloakCapFormal
+
+- type: loadout
+  id: CaptainMantle
+  equipment: CaptainMantle
+
+- type: startingGear
+  id: CaptainMantle
+  equipment:
+    neck: ClothingNeckMantleCap
+
+# Back
+- type: loadout
+  id: CaptainBackpack
+  equipment: CaptainBackpack
+
+- type: startingGear
+  id: CaptainBackpack
+  equipment:
+    back: ClothingBackpackCaptainFilled
+
+- type: loadout
+  id: CaptainSatchel
+  equipment: CaptainSatchel
+
+- type: startingGear
+  id: CaptainSatchel
+  equipment:
+    back: ClothingBackpackSatchelCaptainFilled
+
+- type: loadout
+  id: CaptainDuffel
+  equipment: CaptainDuffel
+
+- type: startingGear
+  id: CaptainDuffel
+  equipment:
+    back: ClothingBackpackDuffelCaptainFilled
+
+# Outer clothing
+- type: loadout
+  id: CaptainOuterClothing
+  equipment: CaptainOuterClothing
+
+- type: startingGear
+  id: CaptainOuterClothing
+  equipment:
+    outerClothing: ClothingOuterArmorCaptainCarapace
+
+- type: loadout
+  id: CaptainWintercoat
+  equipment: CaptainWintercoat
+
+- type: startingGear
+  id: CaptainWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterCap
+
+# Gloves - DeltaV
+- type: loadout #DeltaV
+  id: CaptainGloves
+  equipment: CaptainGloves
+
+- type: startingGear #DeltaV
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
+
+- type: loadout # DeltaV
+  id: InspectionGloves
+  equipment: InspectionGloves
+
+- type: startingGear # DeltaV
+  id: InspectionGloves
+  equipment:
+    gloves: ClothingHandsGlovesInspection
+
+# Shoes - DeltaV
+- type: loadout # DeltaV
+  id: CaptainWinterBoots
+  equipment: CaptainWinterBoots
+
+- type: startingGear # DeltaV
+  id: CaptainWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterCap

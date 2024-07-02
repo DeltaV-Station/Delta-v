@@ -11,6 +11,8 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: PrideDrobeAds
+  - type: SpeakOnUIClosed
+    pack: PrideDrobeGoodbyes
   - type: Speech
   - type: Sprite
     sprite: DeltaV/Structures/Machines/VendingMachines/pride.rsi
@@ -36,6 +38,8 @@
     normalState: normal-unshaded
   - type: Advertise
     pack: CourierDrobeAds
+  - type: SpeakOnUIClosed
+    pack: CourierDrobeGoodbyes
   - type: Sprite
     sprite: DeltaV/Structures/Machines/VendingMachines/courierdrobe.rsi
     layers:
@@ -48,3 +52,13 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Mail"]]
+
+- type: entity
+  parent: VendingMachineBooze
+  id: VendingMachineBoozeUnlocked
+  suffix: Unlocked
+  components:
+  - type: VendingMachine
+    pack: BoozeOMatUnlockedInventory
+  - type: AccessReader
+    enabled: false

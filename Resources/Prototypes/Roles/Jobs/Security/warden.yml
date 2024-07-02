@@ -20,7 +20,7 @@
   #- Brig # Delta V: Removed
   - Armory
   - Maintenance
-  - Service
+  #- Service # Delta V: Access adjustments
   - External
   - Detective
   - Cryogenics
@@ -31,16 +31,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-    head: ClothingHeadHatWarden
-    jumpsuit: ClothingUniformJumpsuitWarden
-    back: ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingOuterCoatWarden
+    eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58Nonlethal
-  innerClothingSkirt: ClothingUniformJumpskirtWarden
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled

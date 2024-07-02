@@ -45,6 +45,7 @@ using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
+using Content.Shared.Whitelist;
 using FastAccessors;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -79,6 +80,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     private static readonly string CookingDamageType = "Heat";
     private static readonly float CookingDamageAmount = 10.0f;
@@ -89,7 +91,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     private static readonly string MobFlavorMeat = "meaty";
 
     private static readonly AudioParams
-        AudioParamsInsertRemove = new(0.5f, 1f, "Master", 5f, 1.5f, 1f, false, 0f, 0.2f);
+        AudioParamsInsertRemove = new(0.5f, 1f, 5f, 1.5f, 1f, false, 0f, 0.2f);
 
     private ISawmill _sawmill = default!;
 
@@ -131,8 +133,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             component.FryingOilThreshold,
             EntityManager.GetNetEntityArray(component.Storage.ContainedEntities.ToArray()));
 
-        if (!_uiSystem.TrySetUiState(uid, DeepFryerUiKey.Key, state))
-            _sawmill.Warning($"{ToPrettyString(uid)} was unable to set UI state.");
+        _uiSystem.SetUiState(uid, DeepFryerUiKey.Key, state);
     }
 
     /// <summary>
@@ -310,7 +311,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         // just in case the attempt is relevant to any system in the future.
         //
         // The blacklist overrides all.
-        if (component.Blacklist != null && component.Blacklist.IsValid(item, EntityManager))
+        if (component.Blacklist != null && _whitelistSystem.IsWhitelistPass(component.Blacklist, item))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-blacklist-item-failed",
@@ -352,7 +353,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
                 _ => 10
             } * component.SolutionSizeCoefficient);
 
-        if (component.Whitelist != null && component.Whitelist.IsValid(item, EntityManager) ||
+        if (component.Whitelist != null && _whitelistSystem.IsWhitelistPass(component.Whitelist, item) ||
             beingEvent.TurnIntoFood)
             MakeEdible(uid, component, item, solutionQuantity);
         else
@@ -529,15 +530,12 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             if (!_containerSystem.Remove(removedItem, component.Storage))
                 return;
 
-            var user = args.Session.AttachedEntity;
+            var user = args.Actor;
 
-            if (user != null)
-            {
-                _handsSystem.TryPickupAnyHand(user.Value, removedItem);
+            _handsSystem.TryPickupAnyHand(user, removedItem);
 
-                _adminLogManager.Add(LogType.Action, LogImpact.Low,
-                    $"{ToPrettyString(user.Value)} took {ToPrettyString(args.Item)} out of {ToPrettyString(uid)}.");
-            }
+            _adminLogManager.Add(LogType.Action, LogImpact.Low,
+                $"{ToPrettyString(user)} took {ToPrettyString(args.Item)} out of {ToPrettyString(uid)}.");
 
             _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
 
@@ -585,17 +583,17 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
     private void OnScoopVat(EntityUid uid, DeepFryerComponent component, DeepFryerScoopVatMessage args)
     {
-        var user = args.Session.AttachedEntity;
+        var user = args.Actor;
 
         if (user == null ||
-            !TryGetActiveHandSolutionContainer(uid, user.Value, out var heldItem, out var heldSolution,
+            !TryGetActiveHandSolutionContainer(uid, user, out var heldItem, out var heldSolution,
                 out var transferAmount))
             return;
 
         if (!_solutionContainerSystem.TryGetSolution(component.Owner, component.Solution.Name, out var solution))
             return;
 
-        _solutionTransferSystem.Transfer(user.Value,
+        _solutionTransferSystem.Transfer(user,
             uid,
             solution.Value,
             heldItem.Value,
@@ -607,10 +605,9 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
     private void OnClearSlagStart(EntityUid uid, DeepFryerComponent component, DeepFryerClearSlagMessage args)
     {
-        var user = args.Session.AttachedEntity;
+        var user = args.Actor;
 
-        if (user == null ||
-            !TryGetActiveHandSolutionContainer(uid, user.Value, out var heldItem, out var heldSolution,
+        if (!TryGetActiveHandSolutionContainer(uid, user, out var heldItem, out var heldSolution,
                 out var transferAmount))
             return;
 
@@ -620,21 +617,20 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-oil-no-slag"),
                 uid,
-                user.Value);
+                user);
 
             return;
         }
 
-        var delay = Math.Clamp((float) wasteVolume * 0.1f, 1f, 5f);
+        var delay = TimeSpan.FromSeconds(Math.Clamp((float) wasteVolume * 0.1f, 1f, 5f));
 
         var ev = new ClearSlagDoAfterEvent(heldSolution.Value.Comp.Solution, transferAmount);
 
         //JJ Comment - not sure I have DoAfterArgs configured correctly.
-        var doAfterArgs = new DoAfterArgs(EntityManager, user.Value, delay, ev, uid, uid, heldItem)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, uid, heldItem)
         {
             BreakOnDamage = true,
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             MovementThreshold = 0.25f,
             NeedHand = true
         };
@@ -642,6 +638,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
+    [Obsolete("Obsolete")]
     private void OnRemoveAllItems(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveAllItemsMessage args)
     {
         if (component.Storage.ContainedEntities.Count == 0)
@@ -649,13 +646,10 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
         _containerSystem.EmptyContainer(component.Storage);
 
-        var user = args.Session.AttachedEntity;
+        var user = args.Actor;
 
-        if (user != null)
-        {
-            _adminLogManager.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(user.Value)} removed all items from {ToPrettyString(uid)}.");
-        }
+        _adminLogManager.Add(LogType.Action, LogImpact.Low,
+            $"{ToPrettyString(user)} removed all items from {ToPrettyString(uid)}.");
 
         _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
 

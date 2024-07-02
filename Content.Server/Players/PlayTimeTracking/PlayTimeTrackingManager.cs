@@ -55,7 +55,7 @@ public delegate void CalcPlayTimeTrackersCallback(ICommonSession player, HashSet
 /// Operations like refreshing and sending play time info to clients are deferred until the next frame (note: not tick).
 /// </para>
 /// </remarks>
-public sealed partial class PlayTimeTrackingManager
+public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjectInit
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
@@ -63,6 +63,7 @@ public sealed partial class PlayTimeTrackingManager
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ITaskManager _task = default!;
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+    [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -209,6 +210,11 @@ public sealed partial class PlayTimeTrackingManager
         }
     }
 
+    public IReadOnlyDictionary<string, TimeSpan> GetPlayTimes(ICommonSession session)
+    {
+        return GetTrackerTimes(session);
+    }
+
     private void SendPlayTimes(ICommonSession pSession)
     {
         var roles = GetTrackerTimes(pSession);
@@ -312,7 +318,7 @@ public sealed partial class PlayTimeTrackingManager
         var data = new PlayTimeData();
         _playTimeData.Add(session, data);
 
-        var playTimes = await _db.GetPlayTimes(session.UserId);
+        var playTimes = await _db.GetPlayTimes(session.UserId, cancel);
         cancel.ThrowIfCancellationRequested();
 
         foreach (var timer in playTimes)
@@ -451,5 +457,11 @@ public sealed partial class PlayTimeTrackingManager
         /// Set of trackers which are different from their DB values and need to be saved to DB.
         /// </summary>
         public readonly HashSet<string> DbTrackersDirty = new();
+    }
+
+    void IPostInjectInit.PostInject()
+    {
+        _userDb.AddOnLoadPlayer(LoadData);
+        _userDb.AddOnPlayerDisconnect(ClientDisconnected);
     }
 }

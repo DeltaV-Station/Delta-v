@@ -1,0 +1,56 @@
+- type: entity
+  parent: BaseItem
+  id: ModularBreech
+  name: modular breech
+  description: Loads the projectile and propellent into the chamber of the gun. Used in the creation of flintlock muskets.
+  components:
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: DeltaV/Objects/Misc/modular_breech.rsi
+      state: base
+    - type: Construction
+      graph: ModularBreechGraph
+      node: modularbreech
+    - type: Tag
+      tags:
+      - Metal
+      - ModularBreech
+
+- type: entity
+  parent: BaseItem
+  id: ModularTrigger
+  name: modular trigger
+  description: Makes gun go pew when activated. Used in the creation of guns.
+  components:
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: DeltaV/Objects/Misc/modular_trigger.rsi
+      state: base
+    - type: Construction
+      graph: ModularTriggerGraph
+      node: modulartrigger
+    - type: Tag
+      tags:
+      - Metal
+      - ModularTrigger
+
+- type: entity
+  parent: BaseItem
+  id: Bayonet
+  name: bayonet
+  description: Often placed on guns to go stabby stabby.
+  components:
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: DeltaV/Objects/Misc/bayonet.rsi
+      state: base
+    - type: Construction
+      graph: BayonetGraph
+      node: bayonet
+    - type: Tag
+      tags:
+      - Metal
+      - Bayonet

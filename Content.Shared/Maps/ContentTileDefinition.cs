@@ -45,10 +45,6 @@ namespace Content.Shared.Maps
         [DataField]
         public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
 
-        // Delta V
-        [DataField("canShovel")] public bool CanShovel { get; private set; }
-        //Delta V
-
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>
@@ -81,7 +77,11 @@ namespace Content.Shared.Maps
         [DataField("itemDrop", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string ItemDropPrototypeName { get; private set; } = "FloorTileItemSteel";
 
-        [DataField("isSpace")] public bool IsSpace { get; private set; }
+        // TODO rename data-field in yaml
+        /// <summary>
+        /// Whether or not the tile is exposed to the map's atmosphere.
+        /// </summary>
+        [DataField("isSpace")] public bool MapAtmosphere { get; private set; }
 
         /// <summary>
         ///     Friction override for mob mover in <see cref="SharedMoverController"/>
