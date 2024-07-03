@@ -11,6 +11,32 @@
       "name": "icon"
     },
     {
+      "name": "suit",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
       "name": "mouth",
       "directions": 4,
       "delays": [
@@ -38,6 +64,9 @@
     },
     {
       "name": "dead_mouth"
+    },
+    {
+      "name": "suit_dead"
     },
     {
       "name": "dead"
