@@ -28,7 +28,7 @@ public sealed partial class RevenantComponent : Component
     /// Prototype to spawn when the entity dies.
     /// </summary>
     [DataField("spawnOnDeathPrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string SpawnOnDeathPrototype = "EctoplasmRevenant"; //DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
+    public string SpawnOnDeathPrototype = "Ectoplasm";
 
     /// <summary>
     /// The entity's current max amount of essence. Can be increased
