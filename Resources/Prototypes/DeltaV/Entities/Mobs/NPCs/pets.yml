@@ -65,6 +65,14 @@
     - PetsNT
   - type: Sprite
     sprite: DeltaV/Mobs/Pets/lawyercarp.rsi # Fancy Fishe
+    layers:
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        state: suit
+        shader: unshaded
   - type: TypingIndicator
     proto: lawyer # incase of cognizine
   - type: GhostRole
