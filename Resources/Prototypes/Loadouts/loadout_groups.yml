@@ -52,15 +52,7 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
-  - LoadoutSpeciesVoxNitrogen
-
-- type: loadoutGroup
-  id: GroupEVATank
-  name: loadout-group-EVA-tank
-  hidden: true
-  loadouts:
   - LoadoutSpeciesEVANitrogen
-  - LoadoutSpeciesEVAOxygen
 
 # Command
 - type: loadoutGroup
@@ -527,7 +519,11 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
+<<<<<<< HEAD
   - LoadoutSpeciesVoxNitrogen
+=======
+  - LoadoutSpeciesEVANitrogen
+>>>>>>> 223ade9b3f (Starting gear for vox crewmembers (#29685))
 
 - type: loadoutGroup
   id: MimeHead
@@ -906,7 +902,11 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+<<<<<<< HEAD
   - LoadoutSpeciesVoxNitrogen
+=======
+  - LoadoutSpeciesEVANitrogen
+>>>>>>> 223ade9b3f (Starting gear for vox crewmembers (#29685))
 
 # Science
 - type: loadoutGroup
@@ -1219,7 +1219,11 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+<<<<<<< HEAD
   - LoadoutSpeciesVoxNitrogen
+=======
+  - LoadoutSpeciesEVANitrogen
+>>>>>>> 223ade9b3f (Starting gear for vox crewmembers (#29685))
 
 # Medical
 - type: loadoutGroup
@@ -1446,7 +1450,11 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
+<<<<<<< HEAD
   - LoadoutSpeciesVoxNitrogen
+=======
+  - LoadoutSpeciesEVANitrogen
+>>>>>>> 223ade9b3f (Starting gear for vox crewmembers (#29685))
 
 # Wildcards
 - type: loadoutGroup
@@ -1481,7 +1489,11 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+<<<<<<< HEAD
   - LoadoutSpeciesVoxNitrogen
+=======
+  - LoadoutSpeciesEVANitrogen
+>>>>>>> 223ade9b3f (Starting gear for vox crewmembers (#29685))
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
