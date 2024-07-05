@@ -119,7 +119,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
-      
+
 - type: entity
   parent: BasePDA
   id: ProsecutorPDA
@@ -199,3 +199,9 @@
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
+  - type: CartridgeLoader # DeltaV - Courier Performance
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MailMetricsCartridge

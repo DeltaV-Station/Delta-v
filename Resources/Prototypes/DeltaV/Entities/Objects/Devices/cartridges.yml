@@ -38,3 +38,23 @@
       sprite: Objects/Weapons/Melee/stunbaton.rsi
       state: stunbaton_on
   - type: SecWatchCartridge
+
+- type: entity
+  parent: BaseItem
+  id: MailMetricsCartridge
+  name: mail metrics cartridge
+  description: A cartridge that tracks statistics related to mail deliveries.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/cartridge.rsi
+    state: cart-cri
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/cartridge.rsi
+    state: cart-cri
+  - type: UIFragment
+    ui: !type:CrimeAssistUi
+  - type: Cartridge
+    programName: mail-metrics-program-name
+    icon:
+      sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
+      state: icon
