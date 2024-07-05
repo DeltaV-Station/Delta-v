@@ -8,21 +8,20 @@ Epistemics, often called Research and Development, is a job made up of both gene
 <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
 <GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
 </Box>
-The most important thing inside your department is the R&D server, which stores unlocked technologies, and the R&D computer, which allows you to unlock technologies.
+The most important thing inside your department is the R&D server, which stores unlocked technologies, and the R&D computer, which allows you to unlock [color=#a4885c]technologies[/color].
 
 Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes at lathes. Some technologies will also have prerequisites you have to unlock before you can research them.
 
 Information about the different technologies can be viewed [textlink="on the technology guidebook page" link="Technologies"].
 
 ## Disciplines
-Technologies are spread over 5 different Disciplines:
-<Box>
-<GuideEntityEmbed Entity="Wrench" Caption="Industrial"/>
-<GuideEntityEmbed Entity="Syringe" Caption="Biochemical"/>
-<GuideEntityEmbed Entity="WeaponTetherGun" Caption="Experimental"/>
-<GuideEntityEmbed Entity="ComputerTelevision" Caption="Civil Services"/>
-<GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Arsenal"/>
-</Box>
+Technologies are spread over 4 different Disciplines:
+  <Box>
+    <GuideEntityEmbed Entity="Wrench" Caption="Industrial"/>
+    <GuideEntityEmbed Entity="WeaponTetherGun" Caption="Experimental"/>
+    <GuideEntityEmbed Entity="ComputerTelevision" Caption="Civil Services"/>
+    <GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Arsenal"/>
+  </Box>
 
 <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/> Use your nearest R&D console to take note of which kind of research is locked behind each Discipline tree.
 
