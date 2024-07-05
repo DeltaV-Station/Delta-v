@@ -201,7 +201,7 @@
     collection: FootstepHull
   itemDrop: FloorTileItemBrassFilled
   heatCapacity: 10000
-  
+
 - type: tile
   id: FloorBrassReebe
   name: tiles-brass-floor-reebe
@@ -1446,7 +1446,6 @@
   sprite: /Textures/Tiles/grass.png
   baseTurf: FloorDirt
   isSubfloor: true
-  canShovel: true #DV
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrass
@@ -1459,7 +1458,6 @@
   sprite: /Textures/Tiles/grassjungle.png
   baseTurf: FloorDirt
   isSubfloor: true
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassJungle
@@ -1478,10 +1476,8 @@
   - 1.0
   baseTurf: FloorDirt
   isSubfloor: true
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
-  itemDrop: FloorTileItemGrassDark # Delta V
   heatCapacity: 10000
   weather: true
 
@@ -1497,10 +1493,8 @@
   - 1.0
   baseTurf: FloorDirt
   isSubfloor: true
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepGrass
-  itemDrop: FloorTileItemGrassLight
   heatCapacity: 10000
   weather: true
 
@@ -1516,12 +1510,10 @@
   - 1.0
   baseTurf: Plating
   isSubfloor: true
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepAsteroid
-  itemDrop: FloorTileItemDirt # Delta V
   heatCapacity: 10000
-  weather: True
+  weather: true
 
 # Asteroid
 
