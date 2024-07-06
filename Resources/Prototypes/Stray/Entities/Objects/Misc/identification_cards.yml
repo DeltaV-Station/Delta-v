@@ -1,0 +1,51 @@
+- type: entity
+  parent: CentcomIDCard
+  id: CentcomIDCardOSO
+  name: ID карта ОСО
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Офицер спецопераций
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcomIDCardOCC
+  name: ID карта оператора ЦентКома
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: оператор ЦентКома
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcomIDCardOffCC
+  name: ID карта представителя ЦентКома
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: представитель ЦентКома
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcomIDCardCHCC
+  name: ID карта начальника штаба ЦентКома
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Начальник штаба ЦентКома
