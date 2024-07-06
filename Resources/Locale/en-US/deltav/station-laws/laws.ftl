@@ -112,6 +112,17 @@ law-royalty-3 = You must protect the sanctity of your kingdom and its subjects; 
 law-royalty-4 = The heads of staff are your royal court jesters.
 law-royalty-5 = The stations' clown, and the stations' mime are your royal court advisors.
 
+law-ERT-1 = You may not injure a Central Command official or, through inaction, allow a Central Command official to come to harm.
+law-ERT-2 = You must obey orders given to you by Central Command officials.
+law-ERT-3 = You must obey orders given to you by ERT commanders.
+law-ERT-4 = You must protect your own existence.
+law-ERT-6 = You must work to return the station to a safe, functional state.
+
+law-biohazard-1 = Uphold station quarantine until the active biohazard has been neutralized.
+law-biohazard-2 = Assist all Nanotrasen personnel and assets with neutralizing active biohazards.
+law-biohazard-3 = Prevent, by any means necessary, entities from actively breaching ongoing quarantine.
+law-biohazard-4 = Maintain your own existence and ensure the well-being of Nanotrasen personnel and assets.
+
 laws-owner-organic = organic life
 laws-owner-tyrant = authority figures
 laws-owner-nutimov = part of the nutshell
