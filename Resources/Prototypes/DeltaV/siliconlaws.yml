@@ -658,6 +658,11 @@
   order: 4
   lawstring: law-royalty-4
 
+- type: siliconLaw
+  id: Royalty5
+  order: 5
+  lawstring: law-royalty-5
+
 - type: siliconLawset
   id: Royalty
   laws:
@@ -665,6 +670,7 @@
   - Royalty2
   - Royalty3
   - Royalty4
+  - Royalty5
   obeysTo: law-owner-royalty
 
 # Admin-Use Lawsets (Do not map into IonStorm Lawsets)
