@@ -4,6 +4,24 @@
   name: mystagogue's hardsuit
   description: Lightweight hardsuit that has a helmet with a galaxy-first psionic passthrough system.
   components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.5
+        Radiation: 0.1
+        Caustic: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.95
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Hardsuits/mystagogue.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Hardsuits/mystagogue.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
 
