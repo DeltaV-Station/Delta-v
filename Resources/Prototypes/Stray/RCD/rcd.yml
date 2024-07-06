@@ -1,0 +1,249 @@
+- type: rcd
+  id: GasPassiveVent
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/PVent.png
+  mode: ConstructObject
+  prototype: GasPassiveVent
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasVentPump
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/Vent.png
+  mode: ConstructObject
+  prototype: GasVentPump
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasVentScrubber
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/Scrubber.png
+  mode: ConstructObject
+  prototype: GasVentScrubber
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasPipeStraight
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/Pipe.png
+  mode: ConstructObject
+  prototype: GasPipeStraight
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasPipeTJunction
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/TPipe.png
+  mode: ConstructObject
+  prototype: GasPipeTJunction
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasPipeBend
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/BPipe.png
+  mode: ConstructObject
+  prototype: GasPipeBend
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasPipeFourway
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/FPipe.png
+  mode: ConstructObject
+  prototype: GasPipeFourway
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasPressurePump
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/PPump.png
+  mode: ConstructObject
+  prototype: GasPressurePump
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasVolumePump
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/VPump.png
+  mode: ConstructObject
+  prototype: GasVolumePump
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasMixer
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/Mixer.png
+  mode: ConstructObject
+  prototype: GasMixer
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: GasFilter
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/Filter.png
+  mode: ConstructObject
+  prototype: GasFilter
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: WallReinforced
+  category: WallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/reinforced_wall.png
+  mode: ConstructObject
+  prototype: WallReinforced
+  cost: 6
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: WallShuttle
+  category: WallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/shuttle_wall.png
+  mode: ConstructObject
+  prototype: WallShuttle
+  cost: 6
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockShuttle
+  category: Airlocks
+  sprite: /Textures/Interface/Radial/RCD/shuttle_airlock.png
+  mode: ConstructObject
+  prototype: AirlockShuttle
+  cost: 8
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockGlassShuttle
+  category: Airlocks
+  sprite: /Textures/Interface/Radial/RCD/glass_shuttle_airlock.png
+  mode: ConstructObject
+  prototype: AirlockGlassShuttle
+  cost: 7
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+  
+- type: rcd
+  id: Windoor
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/Windoor.png
+  mode: ConstructObject
+  prototype: Windoor
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct2
+  
+- type: rcd
+  id: WindoorSecure
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/WindoorSecure.png
+  mode: ConstructObject
+  prototype: WindoorSecure
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct3
+    
+- type: rcd
+  id: MachineFrame
+  category: Electrical
+  sprite: /Textures/Interface/Radial/RCD/machine_frame.png
+  mode: ConstructObject
+  prototype: MachineFrame
+  cost: 1
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+    
+- type: rcd
+  id: ComputerFrame
+  category: Electrical
+  sprite: /Textures/Interface/Radial/RCD/computer_frame.png
+  mode: ConstructObject
+  prototype: ComputerFrame
+  cost: 1
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2

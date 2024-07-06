@@ -1,0 +1,148 @@
+- type: entity
+  id: CombatRCD
+  parent: BaseItem
+  name: Combat RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - WallSolid
+    - FloorSteel
+    - Plating
+    - Catwalk
+    - Grille
+    - Window
+    - WindowDirectional
+    - WindowReinforcedDirectional
+    - ReinforcedWindow
+    - Airlock
+    - AirlockGlass
+    - Firelock
+    - TubeLight
+    - BulbLight
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - Deconstruct
+    - GasVentPump
+    - GasVentScrubber
+    - GasPipeStraight
+    - GasPipeTJunction
+    - GasPipeBend
+    - GasPipeFourway
+    - GasPressurePump
+    - GasMixer
+    - GasFilter
+    - ComputerFrame
+    - MachineFrame
+    - WindoorSecure
+    - Windoor
+    - AirlockGlassShuttle
+    - AirlockShuttle
+    - WallShuttle
+    - WallReinforced
+  - type: LimitedCharges
+    maxCharges: 500
+    charges: 500
+  - type: AutoRecharge
+    rechargeDuration: 480
+  - type: UseDelay
+  - type: Sprite
+    sprite: Stray/Objects/Tools/crcd.rsi
+    state: icon
+  - type: Item
+    sprite: Stray/Objects/Tools/crcd.rsi
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 50000
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RcdUiKey.Key
+
+- type: entity
+  id: RACD
+  parent: BaseItem
+  name: RACD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - GasPassiveVent
+    - GasVentPump
+    - GasVentScrubber
+    - GasPipeStraight
+    - GasPipeTJunction
+    - GasPipeBend
+    - GasPipeFourway
+    - GasPressurePump
+    - GasVolumePump
+    - GasMixer
+    - GasFilter
+    - FloorSteel
+    - Airlock
+    - AirlockGlass
+    - Firelock
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 30
+    charges: 30
+  - type: UseDelay
+  - type: Sprite
+    sprite: Stray/Objects/Tools/rcad.rsi
+    state: icon
+  - type: Item
+    sprite: Stray/Objects/Tools/rcad.rsi
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 50000
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RcdUiKey.Key
+
+- type: entity
+  id: AdavancedRCD
+  parent: CombatRCD
+  name: Adavanced RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: LimitedCharges
+    maxCharges: 60
+    charges: 60
+  - type: Sprite
+    sprite: Stray/Objects/Tools/arcd.rsi
+    state: icon
+  - type: Item
+    sprite: Stray/Objects/Tools/arcd.rsi
+
+- type: entity
+  id: AdavancedRCDEmpty
+  parent: AdavancedRCD
+  suffix: пустое
+  components:
+  - type: LimitedCharges
+    maxCharges: 60
+    charges: 0
+
+- type: entity
+  id: RACDEmpty
+  parent: RACD
+  suffix: пустое
+  components:
+  - type: LimitedCharges
+    maxCharges: 30
+    charges: 0
