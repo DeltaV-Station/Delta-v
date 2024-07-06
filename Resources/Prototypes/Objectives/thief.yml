@@ -306,16 +306,16 @@
   - type: Objective
     difficulty: 1
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: ClothingNeckClownmedalStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Captain
-  - type: StealCondition
-    stealGroup: ClothingNeckClownmedal
-  - type: Objective
-    difficulty: 1
+#- type: entity
+#  parent: BaseThiefStealObjective
+# id: ClothingNeckClownmedalStealObjective #Delta-V, We dont have the clown medal
+#  components:
+#  - type: NotJobRequirement
+#    job: Captain
+#  - type: StealCondition
+#    stealGroup: ClothingNeckClownmedal
+#  - type: Objective
+#    difficulty: 1
 
 # Structures
 
