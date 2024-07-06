@@ -40,7 +40,9 @@
     - Security
   - type: AccessReader
     access: [["Security"], ["Command"], ["Research"]]
-  - type: ShowSecurityIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
   - type: SiliconLawProvider
     laws: SiliconPolice1
   - type: MobThresholds
