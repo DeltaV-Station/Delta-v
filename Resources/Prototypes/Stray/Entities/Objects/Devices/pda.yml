@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: CentcomPDA
+  id: OSOPDA
+  name: КПК ОСО
+  description: КПК офицера спецопераций.
+  components:
+  - type: Pda
+    id: CentcomIDCardOSO
+
+- type: entity
+  parent: CentcomPDA
+  id: OCCPDA
+  name: КПК Оператора ЦК
+  description: КПК ходячей бюрократии.
+  components:
+  - type: Pda
+    id: CentcomIDCardOCC
+
+- type: entity
+  parent: CentcomPDA
+  id: OffCCPDA
+  name: КПК представителя ЦК
+  description: КПК ходячей бюрократии.
+  components:
+  - type: Pda
+    id: CentcomIDCardOffCC
+
+- type: entity
+  parent: CentcomPDA
+  id: CHCCPDA
+  name: КПК НШЦК
+  description: КПК ходячей бюрократии.
+  components:
+  - type: Pda
+    id: CentcomIDCardCHCC
