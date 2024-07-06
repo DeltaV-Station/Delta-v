@@ -1,7 +1,7 @@
 name: Map file schema validator
 on:
   push:
-    branches: [ master, staging, trying, cursed ]
+    branches: [ master, staging, trying, endrbranch2 ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]

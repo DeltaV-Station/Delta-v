@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ master, staging, trying, cursed ]
+    branches: [ master, staging, trying, endrbranch2 ]
     paths:
       - '**.cs'
       - '**.csproj'
