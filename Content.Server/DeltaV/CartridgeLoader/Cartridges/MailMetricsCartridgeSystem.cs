@@ -20,6 +20,7 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<MailMetricsCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogisticStatsUpdatedEvent>(OnLogisticsStatsUpdated);
+        SubscribeLocalEvent<MailComponent, ComponentInit>(OnComponentInit);
     }
 
     private void OnUiReady(Entity<MailMetricsCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
@@ -29,10 +30,22 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
 
     private void OnLogisticsStatsUpdated(LogisticStatsUpdatedEvent args)
     {
+        UpdateAllCartridges(args.Station);
+    }
+
+    private void OnComponentInit(EntityUid uid, MailComponent mail, ComponentInit args)
+    {
+        var stationUid = _station.GetOwningStation(uid);
+        if (stationUid != null)
+            UpdateAllCartridges((EntityUid) stationUid);
+    }
+
+    private void UpdateAllCartridges(EntityUid station)
+    {
         var query = EntityQueryEnumerator<MailMetricsCartridgeComponent, CartridgeComponent>();
         while (query.MoveNext(out var uid, out var comp, out var cartridge))
         {
-            if (cartridge.LoaderUid is not { } loader || comp.Station != args.Station)
+            if (cartridge.LoaderUid is not { } loader || comp.Station != station)
                 continue;
             UpdateUI((uid, comp), loader);
         }
