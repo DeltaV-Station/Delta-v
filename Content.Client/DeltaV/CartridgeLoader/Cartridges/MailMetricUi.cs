@@ -1,5 +1,6 @@
 using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Fragments;
+using Content.Shared.CartridgeLoader.Cartridges;
 
 namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 
@@ -19,5 +20,9 @@ public sealed partial class MailMetricUi : UIFragment
 
     public override void UpdateState(BoundUserInterfaceState state)
     {
+        if (state is MailMetricUiState cast)
+        {
+            _fragment?.UpdateState(cast);
+        }
     }
 }

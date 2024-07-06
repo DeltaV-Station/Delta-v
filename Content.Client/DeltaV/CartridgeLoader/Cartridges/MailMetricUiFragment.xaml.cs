@@ -13,7 +13,8 @@ public sealed partial class MailMetricUiFragment : BoxContainer
         RobustXamlLoader.Load(this);
     }
 
-    public void UpdateState(SecWatchUiState state)
+    public void UpdateState(MailMetricUiState state)
     {
+        Title.Text = state.MailEarnings.ToString();
     }
 }

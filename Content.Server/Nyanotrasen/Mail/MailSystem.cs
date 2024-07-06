@@ -12,6 +12,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Damage.Components;
+using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -52,6 +53,7 @@ using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server.DeltaV.Cargo.Systems;
 
 namespace Content.Server.Mail
 {
@@ -76,6 +78,9 @@ namespace Content.Server.Mail
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+
+        // DeltaV - system that keeps track of mail and cargo stats
+        [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
 
         private ISawmill _sawmill = default!;
 
@@ -240,7 +245,14 @@ namespace Content.Server.Mail
                     continue;
 
                 _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
-                return;
+            }
+
+            // DeltaV - Add earnings to logistic stats
+            var lquery = EntityQueryEnumerator<StationLogisticStatsComponent>();
+            while (lquery.MoveNext(out var station, out var logisticStats))
+            {
+                _sawmill.Debug("Mail has been opened");
+                _logisticsStatsSystem.AddMailEarnings(station, logisticStats, component.Bounty);
             }
         }
 
