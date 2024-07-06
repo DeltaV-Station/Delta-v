@@ -1,0 +1,24 @@
+- type: entity
+  name: crystalthistle
+  parent: FoodProduceBase
+  id: FoodCrystalthistle
+  description: A variant of galaxythistle that has sprouted sharp quartz shards.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sharp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Quartzite
+          Quantity: 10
+        - ReagentId: Ethyloxyephedrine
+          Quantity: 15
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/crystal_thistle.rsi
+  - type: Produce
+    seedId: crystalthistle
+  - type: Extractable
+    grindableSolutionName: food
