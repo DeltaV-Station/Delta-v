@@ -44,7 +44,7 @@
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
   - type: SiliconLawProvider
-    laws: SiliconPolice1
+    laws: SiliconPolice
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -54,6 +54,6 @@
   - type: Speech
     speechVerb: Robotic
   - type: BorgTransponder
-    sprite:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: peace
+    sprite: Mobs/Silicon/chassis.rsi
+    state: peace
+    name: Security Cyborg
