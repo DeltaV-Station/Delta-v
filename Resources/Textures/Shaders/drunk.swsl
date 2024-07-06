@@ -5,18 +5,52 @@ const highp float DistortionScale = 0.01;
 
 void fragment() {
 
-    highp float mod = mix(0.0, DistortionScale, boozePower);    
+    highp vec2 aspect = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
+    highp float mod = mix(0.0, DistortionScale, boozePower);
     highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+    highp float centergradient = boozePower/5;
     highp float time = TIME * TimeScale;
+    highp float timesin = (sin(TIME * TimeScale) + 0.5) * 0.2;
+    highp float timecos = (cos(TIME * TimeScale) + 0.5) * 0.2;
+
+    //centergradient = zCircleGradient(aspect, FRAGCOORD.xy, 0.1, 3 / 1, 0.01 / 1, 1);
 
     highp vec2 offset = vec2((mod * 1.5) * sin(time * 1.5), (mod * 2.0) * cos(time * 1.5 - 0.2));
+    offset += vec2((zFBM(coord * boozePower + timesin) - 0.5) * centergradient/2, (zFBM(coord * boozePower + timecos) - 0.5) * centergradient/2);
+
     highp vec4 tex1 = zTextureSpec(SCREEN_TEXTURE, coord + offset);
-    
+
     if (boozePower > 0.5) {
         offset = vec2((mod * 2.0 - DistortionScale) * sin(time * 0.333 - 0.2), (mod * 2.0 - DistortionScale) * cos(time * 0.333));
+        offset += vec2((zFBM(coord * boozePower *5 + timesin) - 0.5) * centergradient, (zFBM(coord * boozePower*5 + timecos) - 0.5) * centergradient);
         tex1 = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.3, boozePower*2.0-1.0));
     }
-    
+    //highp vec3 col = vec3(0);
+    //if(boozePower>0.75){
+    //    //col +=  zTextureSpec(SCREEN_TEXTURE, -coord );
+    //    //col += texture(SCREEN_TEXTURE, vec2(UV.x,-UV.y)).xyz * (boozePower-0.75);
+    //    //col += texture(SCREEN_TEXTURE, vec2(-UV.x,UV.y)).xyz * (boozePower-0.75);
+    //    //col += texture(SCREEN_TEXTURE, vec2(UV.x,UV.y)).xyz * (boozePower-0.75);
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+-10, offset.y)).xyz * 0.15;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+ 10, offset.y)).xyz * 0.15;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+-20,offset.y)).xyz * 0.12;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+ 20,offset.y)).xyz * 0.12;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+-30,offset.y)).xyz * 0.09;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+ 30,offset.y)).xyz * 0.09;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+-40,offset.y)).xyz * 0.05;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x+ 40,offset.y)).xyz * 0.05;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+-10)).xyz * 0.15;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+ 10)).xyz * 0.15;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+-20)).xyz * 0.12;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+ 20)).xyz * 0.12;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+-30)).xyz * 0.09;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+ 30)).xyz * 0.09;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+-40 )).xyz * 0.05;
+    //    col += texture(SCREEN_TEXTURE, UV + vec2(offset.x, offset.y+ 40 )).xyz * 0.05;
+    //}
+
     offset = vec2((mod * 1.0) * sin(time * 1.0 + 0.1), (mod * 1.0) * cos(time * 1.0));
-    COLOR = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.5, boozePower));
+    offset += vec2((zFBM(coord * boozePower + timesin) - 0.5) * centergradient, (zFBM(coord * boozePower + timecos) - 0.5) * centergradient);
+
+    COLOR = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.5, boozePower));//+vec4(vec3(col),max(0,boozePower-0.75))/5;
 }
