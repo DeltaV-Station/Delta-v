@@ -54,6 +54,7 @@
   - type: Speech
     speechVerb: Robotic
   - type: BorgTransponder
-    sprite: Mobs/Silicon/chassis.rsi
-    state: peace
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: peace
     name: Security Cyborg
