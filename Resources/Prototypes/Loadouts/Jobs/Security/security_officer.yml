@@ -2,18 +2,17 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 21600 #6 hrs
+ #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobWarden
+ #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
       time: 216000 # 60 hrs
-  - !type:JobRequirementLoadoutEffect # DeltaV - Require whitelist
-    requirement: !type:WhitelistRequirement
+
 
 # Head
 - type: loadout
@@ -79,6 +78,24 @@
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+
+- type: loadout # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment: SecurityJumpsuitBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+
+- type: loadout # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment: SecurityJumpskirtBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecBlue
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -170,6 +187,15 @@
   equipment:
     outerClothing: ClothingOuterArmorPlateCarrier
 
+- type: loadout # DeltaV
+  id: DuraVest
+  equipment: DuraVest
+
+- type: startingGear # DeltaV
+  id: DuraVest
+  equipment:
+    outerClothing: ClothingOuterArmorDuraVest
+
 - type: loadout
   id: ArmorVestSlim
   equipment: ArmorVestSlim
@@ -197,6 +223,15 @@
   id: CombatBoots
   equipment:
     shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout # DeltaV
+  id: JackBoots
+  equipment: JackBoots
+
+- type: startingGear # DeltaV
+  id: JackBoots
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
 
 - type: loadout
   id: SecurityWinterBoots

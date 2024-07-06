@@ -14,6 +14,45 @@
       state: medical_e
 
 - type: entity
+  id: SpawnPointChiefJustice
+  parent: SpawnPointJobBase
+  name: chiefjustice
+  components:
+  - type: SpawnPoint
+    job_id: ChiefJustice
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: chiefjustice
+
+- type: entity
+  id: SpawnPointClerk
+  parent: SpawnPointJobBase
+  name: clerk
+  components:
+  - type: SpawnPoint
+    job_id: Clerk
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: clerk
+
+- type: entity
+  id: SpawnPointProsecutor
+  parent: SpawnPointJobBase
+  name: prosecutor
+  components:
+  - type: SpawnPoint
+    job_id: Prosecutor
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: prosecutor
+
+- type: entity
   id: SpawnPointCourier
   parent: SpawnPointJobBase
   name: courier

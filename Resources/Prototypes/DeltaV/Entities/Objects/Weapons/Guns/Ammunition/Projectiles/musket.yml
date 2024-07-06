@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletMusket
+  name: bullet (musket)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30 #4 shot kill for a musket

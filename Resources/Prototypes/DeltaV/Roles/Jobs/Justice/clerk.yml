@@ -1,0 +1,38 @@
+- type: job
+  id: Clerk
+  name: job-name-clerk
+  description: job-description-clerk
+  playTimeTracker: JobClerk
+  antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobProsecutor
+      time: 36000 # 10 hours
+  startingGear: ClerkGear
+  icon: "JobIconClerk"
+  requireAdminNotify: true
+  supervisors: job-supervisors-cj
+  canBeAntag: false
+  access:
+  - Justice
+  - Clerk
+  - Maintenance
+
+- type: startingGear
+  id: ClerkGear
+  equipment:
+    #jumpsuit: ClothingUniformJumpsuitClerk
+    #back: ClothingBackpackFilled
+    #shoes: ClothingShoesBootsLaceup
+    id: ClerkPDA
+    ears: ClothingHeadsetJustice
+    #innerClothingSkirt: ClothingUniformJumpskirtClerk
+    #satchel: ClothingBackpackSatchelFilled
+    #duffelbag: ClothingBackpackDuffelFilled
+
+

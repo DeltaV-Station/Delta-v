@@ -20,12 +20,12 @@ reverse-engineering-last-attempt-result = Last probe result: {$result}
 
 reverse-engineering-total-progress-label = Total
 
-reverse-engineering-failure = CRITICAL FAILURE
-reverse-engineering-stagnation = Minimal Progress
-reverse-engineering-minor = Minor progress
-reverse-engineering-average = Acceptable progress
-reverse-engineering-major = Major progress
-reverse-engineering-success = Breakthrough
+reverse-engineering-result-Destruction = CRITICAL FAILURE
+reverse-engineering-result-Stagnation = Minimal Progress
+reverse-engineering-result-SuccessMinor = Minor progress
+reverse-engineering-result-SuccessAverage = Acceptable progress
+reverse-engineering-result-SuccessMajor = Major progress
+reverse-engineering-result-InstantSuccess = Breakthrough
 
 reverse-engineering-machine-bonus-upgrade = Analysis power
 reverse-engineering-machine-aversion-upgrade = Destruction aversion bonus

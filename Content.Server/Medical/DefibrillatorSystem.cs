@@ -6,6 +6,7 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
+using Content.Server.Traits.Assorted;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -161,6 +162,9 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (_mobState.IsAlive(target, mobState))
             return false;
 
+        if (!component.CanDefibCrit && _mobState.IsCritical(target, mobState))
+            return false;
+
         return true;
     }
 
@@ -178,7 +182,8 @@ public sealed class DefibrillatorSystem : EntitySystem
             {
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
-                NeedHand = true
+                NeedHand = true,
+                BreakOnMove = !component.AllowDoAfterMovement
             });
     }
 
@@ -208,6 +213,11 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (_rotting.IsRotten(target))
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
+                InGameICChatType.Speak, true);
+        }
+        else if (HasComp<UnrevivableComponent>(target))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-unrevivable"),
                 InGameICChatType.Speak, true);
         }
         else
@@ -248,6 +258,10 @@ public sealed class DefibrillatorSystem : EntitySystem
         // if we don't have enough power left for another shot, turn it off
         if (!_powerCell.HasActivatableCharge(uid))
             TryDisable(uid, component);
+
+        // TODO clean up this clown show above
+        var ev = new TargetDefibrillatedEvent(user, (uid, component));
+        RaiseLocalEvent(target, ref ev);
     }
 
     public override void Update(float frameTime)

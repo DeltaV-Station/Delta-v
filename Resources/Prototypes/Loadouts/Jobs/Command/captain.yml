@@ -54,6 +54,15 @@
   equipment:
     head: ClothingHeadHatCapcap
 
+- type: loadout # DeltaV
+  id: CaptainBeret
+  equipment: CaptainBeret
+
+- type: startingGear # DeltaV
+  id: CaptainBeret
+  equipment:
+    head: ClothingHeadHatBeretCap
+
 # Neck
 - type: loadout
   id: CaptainCloak
@@ -128,3 +137,32 @@
   id: CaptainWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCap
+
+# Gloves - DeltaV
+- type: loadout #DeltaV
+  id: CaptainGloves
+  equipment: CaptainGloves
+
+- type: startingGear #DeltaV
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
+
+- type: loadout # DeltaV
+  id: InspectionGloves
+  equipment: InspectionGloves
+
+- type: startingGear # DeltaV
+  id: InspectionGloves
+  equipment:
+    gloves: ClothingHandsGlovesInspection
+
+# Shoes - DeltaV
+- type: loadout # DeltaV
+  id: CaptainWinterBoots
+  equipment: CaptainWinterBoots
+
+- type: startingGear # DeltaV
+  id: CaptainWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterCap
