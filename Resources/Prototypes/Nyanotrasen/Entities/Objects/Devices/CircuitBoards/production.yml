@@ -33,16 +33,15 @@
         MatterBin: 1
         Manipulator: 1
       materialRequirements:
-        Glass: 1
         Cable: 1
-        Diamond: 10
+        PlasmaGlass: 5
       tagRequirements:
         BorgArm:
           Amount: 3
           DefaultPrototype: LeftArmBorg
           ExamineName: borg arm
     - type: ReverseEngineering
-      difficulty: 3
+      difficulty: 2
       recipes:
         - ReverseEngineeringMachineCircuitboard
 
@@ -62,6 +61,19 @@
         Steel: 4
         Glass: 2
         Cable: 4
-    - type: ReverseEngineering
-      recipes:
-        - DeepFryerMachineCircuitboard
+
+- type: entity
+  id: MailTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mail teleporter machine board
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: MailTeleporter
+      requirements:
+        Capacitor: 1
+        MatterBin: 1
+      materialRequirements:
+        Steel: 4
+        Cable: 4

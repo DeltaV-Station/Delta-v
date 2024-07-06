@@ -20,6 +20,11 @@
       - BorgModuleGeneric
     hasMindState: robot_e
     noMindState: robot_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    name: cyborg
   - type: Construction
     node: cyborg
   - type: Speech
@@ -58,6 +63,11 @@
       - BorgModuleCargo
     hasMindState: miner_e
     noMindState: miner_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: miner
+    name: salvage cyborg
   - type: Construction
     node: mining
   - type: IntrinsicRadioTransmitter
@@ -102,6 +112,11 @@
       - BorgModuleEngineering
     hasMindState: engineer_e
     noMindState: engineer_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: engineer
+    name: engineer cyborg
   - type: Construction
     node: engineer
   - type: IntrinsicRadioTransmitter
@@ -122,7 +137,7 @@
     templateId: borgShort
   - type: NoSlip # Delta-V , Unparents NoSlip component
   - type: SiliconLawProvider # Delta-V - Adds custom lawset for Engineering Cyborg
-    laws: Engineer 
+    laws: Engineer
 
 - type: entity
   id: BorgChassisJanitor
@@ -156,6 +171,11 @@
       - BorgModuleJanitor
     hasMindState: janitor_e
     noMindState: janitor_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: janitor
+    name: janitor cyborg
   - type: Construction
     node: janitor
   - type: IntrinsicRadioTransmitter
@@ -180,7 +200,7 @@
 
 - type: entity
   id: BorgChassisMedical
-  parent: BaseBorgChassisNT
+  parent: [BaseBorgChassisNT, ShowMedicalIcons]
   name: medical cyborg
   components:
   - type: Sprite
@@ -210,6 +230,11 @@
       - BorgModuleMedical
     hasMindState: medical_e
     noMindState: medical_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: medical
+    name: medical cyborg
   - type: Construction
     node: medical
   - type: IntrinsicRadioTransmitter
@@ -232,6 +257,9 @@
   - type: NoSlip # Delta-V , Unparents NoSlip component
   - type: SiliconLawProvider # Delta-V - Adds custom lawset for Medical cyborg
     laws: Medical
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHoverBorg
 
 - type: entity
   id: BorgChassisService
@@ -257,6 +285,11 @@
       - BorgModuleService
     hasMindState: service_e
     noMindState: service_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: service
+    name: service cyborg
   - type: Construction
     node: service
   - type: IntrinsicRadioTransmitter
@@ -294,8 +327,6 @@
           shader: unshaded
           map: ["light"]
           visible: false
-    - type: PointLight
-      color: "#dd200b"
     - type: BorgChassis
       maxModules: 3
       moduleWhitelist:
@@ -336,6 +367,9 @@
       noMindState: synd_medical
     - type: Construction
       node: syndicatemedical
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
 
 - type: entity
   id: BorgChassisSyndicateSaboteur
@@ -365,3 +399,7 @@
       noMindState: synd_engi
     - type: Construction
       node: syndicatesaboteur
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon

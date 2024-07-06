@@ -7,6 +7,7 @@
   - Quartermaster
   - SalvageSpecialist
   - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
+  - Courier # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
 
 - type: department
   id: Civilian
@@ -23,7 +24,7 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
+  # - Lawyer # DeltaV - Move Lawyer into Justice
   - Librarian
   - Mime
   - Musician
@@ -49,6 +50,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - ChiefJustice # DeltaV - chief justice is in command staff
   primary: false
   weight: 100
 
@@ -59,7 +61,6 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
-  - SeniorEngineer
   - StationEngineer
   - TechnicalAssistant
 
@@ -74,7 +75,6 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - SeniorPhysician
   - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
@@ -86,7 +86,6 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-  - SeniorOfficer
   - Detective
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
@@ -98,7 +97,6 @@
   color: "#D381C9"
   roles:
   - ResearchDirector
-  - SeniorResearcher
   - Scientist
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics

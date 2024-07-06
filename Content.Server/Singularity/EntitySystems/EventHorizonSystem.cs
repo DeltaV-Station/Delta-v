@@ -167,7 +167,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         var range2 = range * range;
         var xformQuery = EntityManager.GetEntityQuery<TransformComponent>();
         var epicenter = _xformSystem.GetWorldPosition(xform, xformQuery);
-        foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, range, flags: LookupFlags.Uncontained))
+        foreach (var entity in _lookup.GetEntitiesInRange(_xformSystem.GetMapCoordinates(uid, xform), range, flags: LookupFlags.Uncontained))
         {
             if (entity == uid)
                 continue;
@@ -232,7 +232,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     /// </summary>
     public void ConsumeTile(EntityUid hungry, TileRef tile, EventHorizonComponent eventHorizon)
     {
-        ConsumeTiles(hungry, new List<(Vector2i, Tile)>(new[] { (tile.GridIndices, Tile.Empty) }), tile.GridUid, _mapMan.GetGrid(tile.GridUid), eventHorizon);
+        ConsumeTiles(hungry, new List<(Vector2i, Tile)>(new[] { (tile.GridIndices, Tile.Empty) }), tile.GridUid, Comp<MapGridComponent>(tile.GridUid), eventHorizon);
     }
 
     /// <summary>
@@ -240,7 +240,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     /// </summary>
     public void AttemptConsumeTile(EntityUid hungry, TileRef tile, EventHorizonComponent eventHorizon)
     {
-        AttemptConsumeTiles(hungry, new TileRef[1] { tile }, tile.GridUid, _mapMan.GetGrid(tile.GridUid), eventHorizon);
+        AttemptConsumeTiles(hungry, new TileRef[1] { tile }, tile.GridUid, Comp<MapGridComponent>(tile.GridUid), eventHorizon);
     }
 
     /// <summary>
@@ -297,7 +297,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
         if (!Resolve(uid, ref xform) || !Resolve(uid, ref eventHorizon))
             return;
 
-        var mapPos = xform.MapPosition;
+        var mapPos = _xformSystem.GetMapCoordinates(uid, xform: xform);
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
         var circle = new Circle(mapPos.Position, range);
         var grids = new List<Entity<MapGridComponent>>();

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseStructure
   id: SophicScribe
-  name: sophie
+  name: sophic grammateus
   description: Latest reports on the Noösphere!
   components:
   - type: Sprite
@@ -16,9 +16,6 @@
   - type: Speech
     speechSounds: Tenor
   - type: IntrinsicRadioReceiver
-    channels:
-    - Common
-    - Science
   - type: IntrinsicRadioTransmitter
     channels:
     - Common

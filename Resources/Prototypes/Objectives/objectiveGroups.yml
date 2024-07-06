@@ -39,7 +39,7 @@
     EscapeShuttleObjective: 1
     # DieObjective: 0.05 # DeltaV - Disable the lrp objective aka murderbone justification
     #HijackShuttleObjective: 0.02
-    BecomePsionicObjective: 1 # Nyanotrasen - Become Psionic objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
+    #BecomePsionicObjective: 1 # Nyanotrasen - Become Psionic objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
     #BecomeGolemObjective: 0.5 # Nyanotrasen - Become a golem objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
 
 - type: weightedRandom
@@ -64,13 +64,6 @@
     ThiefObjectiveGroupAnimal: 2
 
 - type: weightedRandom
-  id: ThiefEscapeObjectiveGroups
-  weights:
-    ThiefObjectiveGroupEscape: 1
-
-
-
-- type: weightedRandom
   id: ThiefObjectiveGroupCollection
   weights:
     HeadCloakStealCollectionObjective: 1           #command
@@ -80,7 +73,6 @@
     TechnologyDiskStealCollectionObjective: 1        #rnd
     FigurineStealCollectionObjective: 0.3          #service
     IDCardsStealCollectionObjective: 1
-    CannabisStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
 
 - type: weightedRandom

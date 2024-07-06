@@ -40,6 +40,10 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
   - type: Destructible
     thresholds:
     - trigger:
@@ -87,7 +91,7 @@
     bulb: Tube
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -128,7 +132,7 @@
     hasLampOnSpawn: LightTube
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -15
@@ -147,7 +151,7 @@
     hasLampOnSpawn: LedLightTube
     damage:
       types:
-        Heat: 2.5
+        Heat: 1 #LEDs don't get as hot
   - type: PointLight
     radius: 15
     energy: 1
@@ -177,12 +181,12 @@
     hasLampOnSpawn: ExteriorLightTube
     damage:
       types:
-        Heat: 5
+        Heat: 4 #brighter light gets hotter
 
 - type: entity
   parent: AlwaysPoweredWallLight
   id: AlwaysPoweredLightExterior
-  suffix: Always Powered, Blue
+  suffix: Always Powered, Exterior
   components:
   - type: PointLight
     radius: 12
@@ -201,7 +205,7 @@
     hasLampOnSpawn: SodiumLightTube
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 10
     energy: 2.5
@@ -288,7 +292,7 @@
     bulb: Bulb
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetwork
@@ -327,7 +331,7 @@
     hasLampOnSpawn: LedLightBulb
     damage:
       types:
-        Heat: 2.5
+        Heat: 1
 
 - type: entity
   id: PoweredSmallLight
@@ -342,7 +346,7 @@
     hasLampOnSpawn: LightBulb
     damage:
       types:
-        Heat: 5
+        Heat: 2
 
 #Emergency Lights
 - type: entity
@@ -352,12 +356,15 @@
   parent: AlwaysPoweredWallLight
   suffix: ""
   components:
+  - type: GuideHelp # DeltaV guide
+    guides:
+    - AlertProcedure
   - type: PointLight
     enabled: false
     radius: 5
     energy: 0.6
     offset: "0, 0.4"
-    color: "#FF4020"
+    color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -374,10 +381,10 @@
       map: [ "enum.EmergencyLightVisualLayers.Base" ]
     - state: emergency_light_off
       map: [ "enum.EmergencyLightVisualLayers.LightOff" ]
-      color: "#FF4020"
+      color: "#7CFC00"
     - state: emergency_light_on
       map: [ "enum.EmergencyLightVisualLayers.LightOn" ]
-      color: "#FF4020"
+      color: "#7CFC00"
       shader: "unshaded"
       visible: false
   - type: Appearance
@@ -397,7 +404,7 @@
     hasLampOnSpawn: LightTubeCrystalCyan
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3
@@ -424,7 +431,7 @@
     hasLampOnSpawn: LightTubeCrystalBlue
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3
@@ -451,7 +458,7 @@
     hasLampOnSpawn: LightTubeCrystalPink
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3
@@ -478,7 +485,7 @@
     hasLampOnSpawn: LightTubeCrystalOrange
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3
@@ -505,7 +512,7 @@
     hasLampOnSpawn: LightTubeCrystalRed
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3
@@ -532,7 +539,7 @@
     hasLampOnSpawn: LightTubeCrystalGreen
     damage:
       types:
-        Heat: 5
+        Heat: 2
   - type: PointLight
     radius: 8
     energy: 3

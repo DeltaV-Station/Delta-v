@@ -1,15 +1,16 @@
-using Robust.Shared.Random;
-using Robust.Shared.Player;
+using Content.Server.GameTicking.Components;
 using Content.Server.Psionics;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
-using Content.Shared.Mobs.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.StatusEffect;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 /// <summary>
 /// Mutes everyone for a random amount of time.

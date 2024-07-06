@@ -19,15 +19,18 @@
       "Acoustic": {24: 0}
       "Flute": {73: 0}
       "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Harp": {46: 0}
   - type: UserInterface
     interfaces:
-      - key: enum.InstrumentUiKey.Key
+      enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
-      - key: enum.VoiceMaskUIKey.Key
+      enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
-      - key: enum.HumanoidMarkingModifierKey.Key
+      enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
-      - key: enum.StrippingUiKey.Key
+      enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Sprite
     scale: 0.9, 0.9
@@ -122,12 +125,22 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
-  - type: Inventory 
+  - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+#    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        layer:
+          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+          state: jumpsuit
+          copyToShaderParameters:
+            # Value required, provide a dummy. Gets overridden when applied.
+            layerKey: dummy
+            parameterTexture: displacementMap
+            parameterUV: displacementUV
   - type: HarpyVisuals
   - type: UltraVision
-    
+
 - type: entity
   save: false
   name: Urist McHands
@@ -138,8 +151,18 @@
   components:
   - type: HumanoidAppearance
     species: Harpy
-  - type: Inventory 
+  - type: Inventory
     speciesId: harpy
+    displacements:
+      jumpsuit:
+        layer:
+          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+          state: jumpsuit
+          copyToShaderParameters:
+            # Value required, provide a dummy. Gets overridden when applied.
+            layerKey: dummy
+            parameterTexture: displacementMap
+            parameterUV: displacementUV
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -187,7 +210,6 @@
   id: ActionHarpyPlayMidi
   name: Play MIDI
   description: Sing your heart out! Right click yourself to set an instrument.
-  noSpawn: true
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -199,7 +221,6 @@
   id: ActionSyrinxChangeVoiceMask
   name: Set name
   description: Change the name others hear to something else.
-  noSpawn: true
   components:
   - type: InstantAction
     icon: DeltaV/Interface/Actions/harpy_syrinx.png

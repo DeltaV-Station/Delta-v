@@ -20,12 +20,10 @@
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
 
-- type: entity # Part of PirateRadioSpawn
+- type: entity # Part of ListeningPost
   noSpawn: true
+  parent: BaseAntagSpawner
   id: SpawnPointGhostSyndicateListener
-  name: ghost role spawn point
-  suffix: syndicate listener
-  parent: MarkerBase
   components:
   - type: GhostRole
     name: ghost-role-information-listeningop-name
@@ -43,17 +41,10 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 40000 # 11.1 hours
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateListener
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - sprite: Structures/Wallmounts/signs.rsi
-        state: radiation
 
 - type: entity
-  parent: MarkerBase
+  noSpawn: true
+  parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
   components:
@@ -61,8 +52,18 @@
     name: ghost-role-information-paradox-anomaly-name
     description: ghost-role-information-paradox-anomaly-description
     rules: ghost-role-information-paradox-anomaly-rules
-  - type: ParadoxAnomalySpawner
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
+
+- type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostFugitive
+  name: fugitive spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fugitive-name
+    description: ghost-role-information-fugitive-description
+    rules: ghost-role-information-fugitive-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # 1 hour

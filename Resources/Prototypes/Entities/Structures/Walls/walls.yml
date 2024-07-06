@@ -59,11 +59,14 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
     sprite: Structures/Walls/brick.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -90,7 +93,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/clock.rsi
   - type: Icon
@@ -123,7 +125,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/clown.rsi
   - type: Icon
@@ -131,6 +132,10 @@
   - type: Construction
     graph: Girder
     node: bananiumWall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -156,7 +161,6 @@
   components:
   - type: Tag
     tags:
-      - RCDDeconstructWhitelist
       - Wall
       - Structure
   - type: Sprite
@@ -165,7 +169,7 @@
     sprite: Structures/Walls/meat.rsi
   - type: Construction
     graph: Girder
-    node: bananiumWall
+    node: meatWall
   - type: Destructible
     thresholds:
     - trigger:
@@ -190,7 +194,6 @@
   components:
   - type: Tag
     tags:
-      - RCDDeconstructWhitelist
       - Wall
   - type: Sprite
     sprite: Structures/Walls/cult.rsi
@@ -223,7 +226,6 @@
     tags:
       - Wall
       - Debug
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/debug.rsi
   - type: Icon
@@ -253,11 +255,14 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/diamond.rsi
   - type: Icon
     sprite: Structures/Walls/diamond.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -283,7 +288,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/gold.rsi
   - type: Icon
@@ -291,6 +295,10 @@
   - type: Construction
     graph: Girder
     node: goldWall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -325,7 +333,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/ice.rsi
   - type: Icon
@@ -355,7 +362,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi
   - type: Icon
@@ -363,6 +369,10 @@
   - type: Construction
     graph: Girder
     node: plasmaWall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -399,7 +409,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/plastic.rsi
   - type: Icon
@@ -407,6 +416,10 @@
   - type: Construction
     graph: Girder
     node: plasticWall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -459,7 +472,6 @@
     - type: Tag
       tags:
         - Wall
-        - RCDDeconstructWhitelist
     - type: Destructible
       thresholds:
         - trigger:
@@ -518,9 +530,6 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-      - !type:PlaySoundBehavior #Nyano
-        sound:
-          collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
@@ -537,8 +546,9 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -609,7 +619,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
   - type: Icon
@@ -644,11 +653,14 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/sandstone.rsi
   - type: Icon
     sprite: Structures/Walls/sandstone.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -674,7 +686,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/silver.rsi
   - type: Icon
@@ -682,6 +693,10 @@
   - type: Construction
     graph: Girder
     node: silverWall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -776,66 +791,69 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    - trigger: #this trigger is a Nyano addition
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
 
 - type: entity
-  parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
+  parent: WallReinforced
   id: WallShuttle
   name: shuttle wall
   components:
-  - type: Tag
-    tags:
-      - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
     state: full
-#  - type: Destructible
-#    thresholds:
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 1000
-#      behaviors:
-#        - !type:DoActsBehavior
-#          acts: [ "Destruction" ]
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 500
-#      behaviors:
-#      - !type:PlaySoundBehavior
-#        sound:
-#          path: /Audio/Effects/metalbreak.ogg
-#      - !type:DoActsBehavior
-#        acts: ["Destruction"]
-#    destroySound:
-#      path: /Audio/Effects/metalbreak.ogg
-  - type: Reflect
-    reflectProb: 1
   - type: Construction
     graph: Girder
     node: shuttleWall
   - type: IconSmooth
     key: walls
     base: state
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ShuttleWallVisuals.DeconstructionStage:
+        ShuttleWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: shuttle_construct-0, visible: true}
+          1: { state: shuttle_construct-1, visible: true}
+          2: { state: shuttle_construct-2, visible: true}
+          3: { state: shuttle_construct-3, visible: true}
+          4: { state: shuttle_construct-4, visible: true}
+          5: { state: shuttle_construct-5, visible: true}
+  - type: Reflect
+    reflectProb: 1
+
+- type: entity
+  parent: WallSolid
+  id: WallShuttleInterior
+  name: shuttle wall
+  suffix: Interior
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Construction
+    graph: Girder
+    node: shuttleInteriorWall
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: Reflect
+    reflectProb: 1
 
 - type: entity
   parent: BaseWall
@@ -845,7 +863,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
   - type: WallReplacementMarker
@@ -854,6 +871,10 @@
     node: wall
   - type: Icon
     sprite: Structures/Walls/solid.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:
@@ -1015,7 +1036,6 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/web.rsi
   - type: Icon
@@ -1194,7 +1214,7 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 20
+      lifetime: 12
     - type: Tag
       tags:
         - Wall
@@ -1229,11 +1249,14 @@
   - type: Tag
     tags:
       - Wall
-      - RCDDeconstructWhitelist
   - type: Sprite
     sprite: Structures/Walls/cobblebrick.rsi
   - type: Icon
     sprite: Structures/Walls/cobblebrick.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Destructible
     thresholds:
     - trigger:

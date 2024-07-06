@@ -6,7 +6,7 @@
   description: A rocky asteroid.
   components:
   - type: Gatherable
-    whitelist:
+    toolWhitelist:
       tags:
         - Pickaxe
   - type: Sprite
@@ -69,7 +69,7 @@
   id: MountainRock
   parent: BaseStructure
   name: mountain rock
-  suffix: un-mineable
+  suffix: Un-mineable
   description: A craggy mountain wall. It is too hard to mine.
   components:
   - type: Sprite
@@ -107,13 +107,24 @@
   id: AsteroidAltRockMining
   parent: AsteroidAltRock
   name: asteroid rock
-  suffix: higher ore yield
+  suffix: Higher Ore Yield
   description: A rocky asteroid.
   components:
   - type: Gatherable
-    whitelist:
+    toolWhitelist:
       tags:
         - Pickaxe
   - type: OreVein
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
+
+- type: entity
+  id: AsteroidRockOreCrab
+  parent: AsteroidAltRock
+  name: asteroid rock
+  suffix: Ore Crab
+  description: A rocky asteroid.
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: OreCrab

@@ -13,17 +13,15 @@
   - Cargo
   - Salvage
   - Medical
+  # DeltaV additions
+  - Justice
 
 - type: guideEntry
   id: Survival
   name: guide-entry-survival
   text: "/ServerInfo/Guidebook/Survival.xml"
-
-- type: guideEntry
-  id: Chemicals
-  name: guide-entry-chemicals
-  text: "/ServerInfo/Guidebook/Chemicals.xml"
-  filterEnabled: True
+  children: # DeltaV
+  - AlertProcedure
 
 - type: guideEntry
   id: Janitorial
@@ -47,4 +45,3 @@
   id: Food Recipes
   name: guide-entry-foodrecipes
   text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"
-

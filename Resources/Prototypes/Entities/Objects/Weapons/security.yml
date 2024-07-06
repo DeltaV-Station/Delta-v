@@ -78,6 +78,10 @@
     explosionType: Default
     intensitySlope: 1.5
     maxIntensity: 200
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
   - type: GuideHelp
     guides:
     - Security
@@ -96,11 +100,16 @@
     damage:
       types:
         Blunt: 20
+    soundHit:
+      collection: MetalThud
     bluntStaminaDamageFactor: 1.5
   - type: Item
     size: Normal
+  - type: Tag
+    tags: 
+    - Truncheon
   - type: Clothing
-    sprite: Objects\Weapons\Melee\truncheon.rsi
+    sprite: Objects/Weapons/Melee/truncheon.rsi
     quickEquip: false
     slots:
     - Belt
@@ -141,11 +150,6 @@
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
-#    - type: DynamicPrice
-#      price: 40
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - Flash
     - type: StaticPrice
       price: 40
     - type: Appearance

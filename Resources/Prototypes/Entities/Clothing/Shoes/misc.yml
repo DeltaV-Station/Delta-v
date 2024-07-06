@@ -47,6 +47,11 @@
       collection: FootstepDuck
       params:
         variation: 0.07
+  - type: WaddleWhenWorn
+    tumbleIntensity: 10 # smaller than clown shoes
+  - type: Construction
+    graph: ClothingShoeSlippersDuck
+    node: shoes
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -118,12 +123,15 @@
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
+  - type: ReverseEngineering # delta
+    difficulty: 4
+    recipes:
+      - ClothingShoesBootsSpeed
 
 - type: entity
   id: ActionToggleSpeedBoots
   name: Toggle Speed Boots
   description: Toggles the speed boots on and off.
-  noSpawn: true
   components:
   - type: InstantAction
     itemIconStyle: NoItem

@@ -9,6 +9,9 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -22,6 +25,9 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
     stealGroup: ClothingNeckGoldmedal
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -33,6 +39,9 @@
     sprite: DeltaV/Clothing/Neck/Medals/cargomedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/cargomedal.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -44,6 +53,9 @@
     sprite: DeltaV/Clothing/Neck/Medals/engineermedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/engineermedal.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -55,6 +67,9 @@
     sprite: DeltaV/Clothing/Neck/Medals/medicalmedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/medicalmedal.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -66,6 +81,9 @@
     sprite: DeltaV/Clothing/Neck/Medals/sciencemedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/sciencemedal.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -77,6 +95,9 @@
     sprite: DeltaV/Clothing/Neck/Medals/securitymedal.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Neck/Medals/securitymedal.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+      - Medal
 
 - type: entity
   parent: ClothingNeckBase
@@ -90,3 +111,6 @@
     sprite: DeltaV/Clothing/Neck/Medals/clownmedal.rsi # DeltaV - resprite
   - type: StealTarget
     stealGroup: ClothingNeckClownmedal
+  - type: Tag
+    tags:
+      - Medal
