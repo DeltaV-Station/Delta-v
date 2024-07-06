@@ -43,7 +43,7 @@ public sealed class MailMetricUiState : BoundUserInterfaceState
         UnopenedMailCount = unopenedMailCount;
 
         TotalMail = openedMailCount + unopenedMailCount;
-        TotalIncome = mailEarnings - damagedMailLosses - expiredMailLosses - tamperedMailLosses;
+        TotalIncome = mailEarnings + damagedMailLosses + expiredMailLosses + tamperedMailLosses;
         SuccessRate = TotalMail > 0 ?
             Math.Round((double) openedMailCount / TotalMail * 100, 2)
             : 0;

@@ -3,25 +3,23 @@
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
     <BoxContainer Orientation="Vertical" HorizontalAlignment="Left">
         <BoxContainer>
-            <Label Name="OpenedMail" Text="Hello world!" />
+            <Label Name="OpenedMail" Text="Opened mail: 0 ($0)" />
         </BoxContainer>
         <BoxContainer>
-            <Label Name="TamperedMail" Text="Hello world!" />
+            <Label Name="TamperedMail" Text="Tampered mail: 0 ($0)" />
         </BoxContainer>
         <BoxContainer>
-            <Label Name="ExpiredMail" Text="Hello world!" />
+            <Label Name="ExpiredMail" Text="Expired mail: 0 ($0)" />
         </BoxContainer>
         <BoxContainer>
-            <Label Name="DamagedMail" Text="Hello world!" />
+            <Label Name="DamagedMail" Text="Damaged mail: 0 ($0)" />
         </BoxContainer>
         <BoxContainer>
-            <Label Name="UnopenedMail" Text="Hello world!" />
+            <Label Name="TotalMail" Text="Total mail opened: 0 out of 0 (0%)" />
         </BoxContainer>
         <BoxContainer>
-            <Label Name="TotalMail" Text="Hello world!" />
+            <Label Name="TotalEarnings" Text="Total earnings: $0" />
         </BoxContainer>
-        <BoxContainer>
-            <Label Name="TotalEarnings" Text="Hello world!" />
-        </BoxContainer>
+
     </BoxContainer>
 </cartridges:MailMetricUiFragment>
