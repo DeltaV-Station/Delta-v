@@ -251,8 +251,7 @@ namespace Content.Server.Mail
             var lquery = EntityQueryEnumerator<StationLogisticStatsComponent>();
             while (lquery.MoveNext(out var station, out var logisticStats))
             {
-                _sawmill.Debug("Mail has been opened");
-                _logisticsStatsSystem.AddMailEarnings(station, logisticStats, component.Bounty);
+                _logisticsStatsSystem.AddOpenedMailEarnings(station, logisticStats, component.Bounty);
             }
         }
 

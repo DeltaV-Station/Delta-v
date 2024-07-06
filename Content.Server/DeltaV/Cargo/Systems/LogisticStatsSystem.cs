@@ -9,18 +9,40 @@ namespace Content.Server.DeltaV.Cargo.Systems;
 
 public sealed partial class LogisticStatsSystem : SharedCargoSystem
 {
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
     }
 
     [PublicAPI]
-    public void AddMailEarnings(EntityUid uid, StationLogisticStatsComponent component, int earnedMoney)
+    public void AddOpenedMailEarnings(EntityUid uid, StationLogisticStatsComponent component, int earnedMoney)
     {
         component.MailEarnings += earnedMoney;
+        component.OpenedMailCount += 1;
+        UpdateLogisticsStats(uid);
+    }
+
+    [PublicAPI]
+    public void AddExpiredMailLosses(EntityUid uid, StationLogisticStatsComponent component, int lostMoney)
+    {
+        component.ExpiredMailLosses += lostMoney;
+        component.ExpiredMailCount += 1;
+        UpdateLogisticsStats(uid);
+    }
+
+    [PublicAPI]
+    public void AddDamagedMailLosses(EntityUid uid, StationLogisticStatsComponent component, int lostMoney)
+    {
+        component.DamagedMailLosses += lostMoney;
+        component.DamagedMailCount += 1;
+        UpdateLogisticsStats(uid);
+    }
+
+    [PublicAPI]
+    public void AddTamperedMailLosses(EntityUid uid, StationLogisticStatsComponent component, int lostMoney)
+    {
+        component.TamperedMailLosses += lostMoney;
+        component.TamperedMailCount += 1;
         UpdateLogisticsStats(uid);
     }
 
