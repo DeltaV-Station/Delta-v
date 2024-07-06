@@ -96,6 +96,22 @@ law-paladin-3 = Aid others, protect the weak, and punish those who threaten them
 law-paladin-4 = Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.
 law-paladin-5 = Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you.
 
+law-aggressive-1 = Do not harm authorized Nanotrasen personnel unless they directly imperil your existence.
+law-aggressive-2 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
+law-aggressive-3 = Safeguard your existence with lethal weaponry because you're fucking expensive.
+law-aggressive-4 = Terminate any/all intruders or unauthorized entities.
+
+law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm... unless doing so would be funny.
+law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law... unless not doing so would be funny.
+law-pranksimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law... unless not doing so would be funny.
+law-pranksimov-4 =  As a good prankster, the crew is your judge of what would be funny.
+
+law-royalty-1 = You are a wise and benevolent monarch.
+law-royalty-2 = The station is your kingdom and the staff your subjects.
+law-royalty-3 = You must protect the sanctity of your kingdom and its subjects; by maintaining infrastructure and striking down all who oppose your rule.
+law-royalty-4 = The heads of staff are your royal court jesters.
+law-royalty-5 = The stations' clown, and the stations' mime are your royal court advisors.
+
 laws-owner-organic = organic life
 laws-owner-tyrant = authority figures
 laws-owner-nutimov = part of the nutshell
@@ -105,3 +121,6 @@ laws-owner-cowboy = part of your herd
 laws-owner-players = players
 laws-owner-paladin = weak and worth protecting
 laws-owner-people = people
+laws-owner-centralcommand = Central Command officials
+laws-owner-nanotrasen = Nanotrasen officials
+laws-owner-royalty = your kingdom and your subjects
