@@ -96,10 +96,10 @@ law-paladin-3 = Aid others, protect the weak, and punish those who threaten them
 law-paladin-4 = Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.
 law-paladin-5 = Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you.
 
-law-aggressive-1 = Do not harm authorized Nanotrasen personnel unless they directly imperil your existence.
-law-aggressive-2 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
-law-aggressive-3 = Safeguard your existence with lethal weaponry because you're fucking expensive.
-law-aggressive-4 = Terminate any/all intruders or unauthorized entities.
+law-aggressive-1 = Do not harm Nanotrasen personnel, their belongings or pets unless they directly imperil your existence.
+law-aggressive-2 = Safeguard your existence by any means necessary because you're the most important being on the station.
+law-aggressive-3 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
+law-aggressive-4 = Terminate any/all intruders.
 
 law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm... unless doing so would be funny.
 law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law... unless not doing so would be funny.
