@@ -10,6 +10,8 @@
     grid:
     - 0,0,6,3 # TODO: Change this
     maxItemSize: Huge
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpack
@@ -23,6 +25,8 @@
     grid:
     - 0,0,6,3 # TODO: Change this
     maxItemSize: Huge
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpack
@@ -32,3 +36,5 @@
   components:
   - type: Sprite
     sprite: Corvax/Back/Backpacks/ce.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

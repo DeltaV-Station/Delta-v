@@ -13,9 +13,12 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #service
             Captain: [ 1, 1 ]
@@ -27,13 +30,14 @@
             Boxer: [ 2, 2 ]
             Chef: [ 2 , 2 ]
             Clown: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Janitor: [ 1, 2 ]
             Mime: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 1, 1]
+            AtmosphericTechnician: [ 1, 2 ]
             StationEngineer: [ 2, 3 ]
             TechnicalAssistant: [ 2, 2 ]
           #medical
@@ -56,8 +60,9 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            SecurityOfficer: [ 2, 2 ]
+            SecurityOfficer: [ 2, 3 ]
             SecurityCadet: [ 1, 1 ]
+            Prisoner: [ 2, 2 ]
           #supply
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 2 ]
@@ -65,3 +70,15 @@
             CargoTechnician: [ 2, 3 ]
           #civilian
             Passenger: [ -1, -1 ]
+          #justice
+            Lawyer: [ 1, 1 ]
+            Clerk: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

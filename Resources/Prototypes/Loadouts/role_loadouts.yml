@@ -7,7 +7,12 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainGloves # DeltaV
+  - CaptainShoes # DeltaV
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -17,13 +22,19 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - HoPGloves # DeltaV
+  - HoPShoes # DeltaV
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Civilian
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - Scarfs # DeltaV
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerFace
@@ -32,24 +43,36 @@
   - PassengerShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBartender
   groups:
   - BartenderHead
+  - BartenderGlasses # DeltaV
+  - BartenderNeck # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
-  - Glasses
+  #- Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - Scarfs # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChef
@@ -61,14 +84,21 @@
   - ChefOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
+  - LibrarianNeck # DeltaV
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobLawyer
@@ -78,6 +108,9 @@
   - LawyerBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChaplain
@@ -90,57 +123,81 @@
   - ChaplainOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobJanitor
   groups:
   - JanitorHead
+  - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBotanist
   groups:
   - BotanistHead
+  - BotanistNeck # DeltaV
   - BotanistJumpsuit
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobClown
   groups:
   - ClownHead
+  - Scarfs # DeltaV
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMime
   groups:
   - MimeHead
   - MimeMask
+  - MimeNeck # DeltaV
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMusician
   groups:
+  - MusicianJumpsuit # DeltaV
+  - MusicianNeck # DeltaV
   - MusicianBackpack
   - MusicianOuterClothing
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Cargo
 - type: roleLoadout
@@ -154,26 +211,37 @@
   - QuartermasterShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
+  - CargoTechnicianNeck # DeltaV
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - SalvageSpecialistNeck # DeltaV
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Engineering
 - type: roleLoadout
@@ -186,6 +254,9 @@
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -193,26 +264,38 @@
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobStationEngineer
   groups:
   - StationEngineerHead
+  - StationEngineerNeck # DeltaV
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianNeck # DeltaV
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Science
 - type: roleLoadout
@@ -227,6 +310,9 @@
   - ResearchDirectorShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobScientist
@@ -241,6 +327,9 @@
   - ScientistPDA
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -249,6 +338,9 @@
   - ScientistBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Security
 - type: roleLoadout
@@ -260,24 +352,33 @@
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  - SecurityShoes
+  #- SecurityShoes
+  - HeadOfSecurityShoes # DeltaV
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityNeck # DeltaV
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
   - SecurityHead
+  - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityOuterClothing
@@ -285,6 +386,9 @@
   - SecurityPDA
   - SecurityBelt
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobDetective
@@ -296,13 +400,21 @@
   - DetectiveOuterClothing
   - SecurityShoes
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
+  - SecurityCadetHead # DeltaV
+  - SecurityNeck # DeltaV
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Medical
 - type: roleLoadout
@@ -318,11 +430,15 @@
   - ChiefMedicalOfficerShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
   - MedicalDoctorHead
+  - MedicalDoctorNeck # DeltaV
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
@@ -332,6 +448,9 @@
   - MedicalDoctorPDA
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -340,23 +459,33 @@
   - MedicalBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChemist
   groups:
   - MedicalMask
+  - ChemistNeck # DeltaV
   - ChemistJumpsuit
-  - MedicalGloves
+#  - MedicalGloves
+  - ChemistGloves # DeltaV
   - ChemistBackpack
   - ChemistOuterClothing
-  - MedicalShoes
+#  - MedicalShoes
+  - ChemistShoes # DeltaV
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobParamedic
   groups:
   - ParamedicHead
   - MedicalMask
+  - MedicalDoctorNeck # DeltaV
   - ParamedicJumpsuit
   - MedicalGloves
   - ParamedicBackpack
@@ -364,6 +493,9 @@
   - ParamedicShoes
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Wildcards
 - type: roleLoadout
@@ -372,6 +504,9 @@
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobReporter
@@ -380,6 +515,9 @@
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobPsychologist
@@ -387,6 +525,9 @@
   - MedicalBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBoxer
@@ -396,3 +537,6 @@
   - CommonBackpack
   - Glasses
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks

@@ -1,9 +1,6 @@
 - type: entity
   save: false
-  parent:
-  - BaseMob
-  - MobDamageable
-  - MobCombat
+  parent: BaseMobSpecies
   id: BaseMobShadowkinPerson
   abstract: true
   components:
@@ -27,6 +24,9 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: unisex_full
       visible: false
+    - map: ["socks"]
+    - map: ["underpants"]
+    - map: ["undershirt"]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -139,9 +139,10 @@
     - ForcedSleep
     - TemporaryBlindness
     - Pacified
+    - Flashed
     - StaminaModifier
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
-    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers. 
+    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
   - type: Reflect
     enabled: false
     reflectProb: 0
@@ -218,7 +219,7 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
-  - type: CanEscapeInventory # Carrying system from nyanotrasen.  
+  - type: CanEscapeInventory # Carrying system from nyanotrasen.
   - type: Tag
     tags:
     - CanPilot
@@ -229,14 +230,12 @@
   save: false
   parent:
   - MobBloodstream
-  - MobRespirator
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
   id: Shadowkin
   abstract: true
   components:
-  - type: Flashable
   - type: Barotrauma
     damage:
       types:

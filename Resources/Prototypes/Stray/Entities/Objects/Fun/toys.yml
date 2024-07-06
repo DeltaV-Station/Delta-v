@@ -10,6 +10,129 @@
     - type: AudioLoop
       sound:
         path: /Audio/Stray/Fun/maxwell-the-cat-theme.ogg
-  #- type: EmitSoundOnSpawn
-  #  sound:
-  #    path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLao
+  name: Плюшевый Лао
+  description: "Плюшевая игрушка унатха по имени Лао. Она выглядит как одна очень известная личность"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: PlushieLao
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGGados
+  name: Плюшевый Гадос
+  description: "Плюшевая игрушка, без сомнений, великого Гадоса.    Без него не было бы ничего"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: GGados
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieScientist
+  name: Плюшевый Учёный
+  description: "Плюшевая игрушка учёного.    Mp5 не было в комплекте"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Scientist
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDahhat
+  name: игрушка слаймолюда
+  description: "Обычная плюшевая игрушка слаймолюда, но эта кажется вам очень знакомой. Выглядит удручённо."
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Dahhat
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDuga
+  name: Плюшевый Дуга
+  description: "Плюшевая игрушка лягушки с именем Дуга. На обратной стороне написано: Кривая базье"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Duga
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMollis
+  name: Плюшевый Кубик
+  description: "Плюшевый кубик.   Тут больше нечего сказать"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: mollis
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBrun
+  name: Плюшевая Джесси
+  description: "Плюшевая Джесси Руун. Она выглядит как продукт множества переделок"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Brun
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieFull
+  name: плюшевый Фулл
+  description: "Плюшевая версия некогда великого существа. Из его спины торчат два белоснежных крыла, а в руках массивный молот и... двадцатигранная игральная кость? Интересный набор предметов."
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Full
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      soundHit:
+        path: /Audio/Effects/adminhelp.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: StrangeToster
+  name: Странный тостер
+  description: "В нём обитает ленивый дух, так что вы не сможете заставить этот тостер работать"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Toster
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: EmitSoundOnCollide
+      sound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: EmitSoundOnActivate
+      sound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: Food
+      requiresSpecialDigestion: true
+      useSound:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      soundHit:
+        path: /Audio/Stray/Fun/metalpipe.ogg
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 10
+          reagents:
+          - ReagentId: Blood
+            Quantity: 4
+          - ReagentId: BiomassDrink
+            Quantity: 6

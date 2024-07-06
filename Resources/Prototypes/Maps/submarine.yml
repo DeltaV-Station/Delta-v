@@ -12,11 +12,14 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Propeller.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
@@ -63,7 +66,6 @@
             ServiceWorker: [ 1, 2 ]
             Zookeeper: [ 2, 2 ]
           #science
-            MedicalBorg: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 1, 2 ]
@@ -75,3 +77,11 @@
             Courier: [ 1, 2 ]
             SalvageSpecialist: [ 3, 5 ]
             Quartermaster: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

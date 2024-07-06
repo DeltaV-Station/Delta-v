@@ -3,21 +3,22 @@
   mapName: 'Micro'
   mapPath: /Maps/micro.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 45
   stations:
     Micro:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Lox.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Micro "Snail" Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ]
           #service
@@ -25,7 +26,7 @@
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 1 ]
             Clown: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
+            Chef: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Janitor: [ 1, 1 ]
@@ -36,6 +37,10 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 3 ]
             TechnicalAssistant: [ 2, 2 ]
+          #justice
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
@@ -63,3 +68,11 @@
             CargoTechnician: [ 2, 2 ]
           #civilian
             Passenger: [ -1, -1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

@@ -14,9 +14,12 @@
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             CargoTechnician: [ 4, 4 ]
             Passenger: [ -1, -1 ]
@@ -58,3 +61,11 @@
             # delta
             Slugcat: [ 1, 1 ]
             Blueshield: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

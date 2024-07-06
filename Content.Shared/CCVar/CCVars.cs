@@ -1,4 +1,5 @@
 using Content.Shared.Maps;
+using Content.Shared.Roles;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
@@ -224,6 +225,18 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool>
             GameRoleTimers = CVarDef.Create("game.role_timers", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Override default role requirements using a <see cref="JobRequirementOverridePrototype"/>
+        /// </summary>
+        public static readonly CVarDef<string>
+            GameRoleTimerOverride = CVarDef.Create("game.role_timer_override", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// If roles should be restricted based on whether or not they are whitelisted.
+        /// </summary>
+        public static readonly CVarDef<bool>
+            GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Whether or not disconnecting inside of a cryopod should remove the character or just store them until they reconnect.
@@ -1047,7 +1060,7 @@ namespace Content.Shared.CCVar
         ///     1.0 for instant spacing, 0.2 means 20% of remaining air lost each time
         /// </summary>
         public static readonly CVarDef<float> AtmosSpacingEscapeRatio =
-            CVarDef.Create("atmos.mmos_spacing_speed", 0.05f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.mmos_spacing_speed", 0.15f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Minimum amount of air allowed on a spaced tile before it is reset to 0 immediately in kPa
@@ -1245,31 +1258,31 @@ namespace Content.Shared.CCVar
         ///     Config for when the restart vote should be allowed to be called regardless with less than this amount of players.
         /// </summary>
         public static readonly CVarDef<int> VoteRestartMaxPlayers =
-            CVarDef.Create("vote.restart_max_players", 20, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_max_players", 70, CVar.SERVERONLY);
 
         /// <summary>
         ///     Config for when the restart vote should be allowed to be called based on percentage of ghosts.
         ///
         public static readonly CVarDef<int> VoteRestartGhostPercentage =
-            CVarDef.Create("vote.restart_ghost_percentage", 75, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_ghost_percentage", 55, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to preset votes
         /// </summary>
         public static readonly CVarDef<bool> VotePresetEnabled =
-            CVarDef.Create("vote.preset_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.preset_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to map votes
         /// </summary>
         public static readonly CVarDef<bool> VoteMapEnabled =
-            CVarDef.Create("vote.map_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.map_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The required ratio of the server that must agree for a restart round vote to go through.
         /// </summary>
         public static readonly CVarDef<float> VoteRestartRequiredRatio =
-            CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_required_ratio", 0.65f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether or not to prevent the restart vote from having any effect when there is an online admin
@@ -2056,6 +2069,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> DebugOptionVisualizerTest =
             CVarDef.Create("debug.option_visualizer_test", false, CVar.CLIENTONLY);
+
+        /// <summary>
+        /// Set to true to disable parallel processing in the pow3r solver.
+        /// </summary>
+        public static readonly CVarDef<bool> DebugPow3rDisableParallel =
+            CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
 
         /// DELTA-V CCVARS
         /*

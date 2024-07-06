@@ -26,16 +26,17 @@
       layers:
         - state: cabinet
         - state: card
-          map: ["enum.ItemCabinetVisualLayers.ContainsItem"]
+          map: ["enum.ItemCabinetVisuals.Layer"]
           visible: true
         - state: glass
-          map: ["enum.ItemCabinetVisualLayers.Door"]
-    - type: ItemCabinet
-      cabinetSlot:
-        ejectOnInteract: true
-        whitelist:
-          components:
-            - IdCard
+          map: ["enum.OpenableVisuals.Layer"]
+    - type: ItemSlots
+      slots:
+        ItemCabinet:
+          ejectOnInteract: true
+          whitelist:
+            components:
+              - IdCard
     - type: AccessReader
       access: [["DV-SpareSafe"]]
 
@@ -44,10 +45,7 @@
   parent: [SpareIdCabinet,FireAxeCabinetFilled]
   suffix: Filled
   components:
-    - type: ItemCabinet
-      cabinetSlot:
-        startingItem: CaptainIDCard
-        ejectOnInteract: true
-        whitelist:
-          components:
-            - IdCard
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - CaptainIDCard

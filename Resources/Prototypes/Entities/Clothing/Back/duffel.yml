@@ -50,6 +50,8 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/captain.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -89,6 +91,8 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/chemistry.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -256,3 +260,5 @@
     walkModifier: 1
     sprintModifier: 1
   - type: HeldSpeedModifier
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

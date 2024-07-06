@@ -1,0 +1,13 @@
+- type: technology
+  id: AdvancedSalvageWeapons
+  name: research-technology-advanced-salvage-weapons
+  icon:
+    sprite: Stray/Objects/Weapons/kinetic_accelerator_DRG.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - WeaponProtoKineticAcceleratorMining
+  - WeaponProtoKineticAcceleratorAdvancedMining
+  - WeaponProtoKineticAcceleratorSubversiveMining

@@ -3,7 +3,7 @@
   mapName: 'Asterisk'
   mapPath: /Maps/asterisk.yml
   minPlayers: 0
-  maxPlayers: 80 #80 available job slots that aren't passenger
+  maxPlayers: 70 #80 available job slots that aren't passenger
   stations:
     Asterisk:
       stationProto: StandardNanotrasenStation
@@ -15,20 +15,22 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
-          #service
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Blueshield: [ 1, 1 ]
+          #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Janitor: [ 1, 2 ]
@@ -39,6 +41,10 @@
             AtmosphericTechnician: [ 1, 2 ]
             StationEngineer: [ 2, 4 ]
             TechnicalAssistant: [ 3, 5 ]
+          #justice
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            Prosecutor: [ 1, 1 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 2 ]
@@ -69,3 +75,11 @@
             CargoTechnician: [ 2, 4 ]
           #civilian
             Passenger: [ -1, -1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

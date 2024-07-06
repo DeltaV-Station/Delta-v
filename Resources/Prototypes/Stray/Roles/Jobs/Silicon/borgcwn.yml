@@ -1,0 +1,10 @@
+- type: job
+  id: Borgcwn
+  name: "борг клоун"
+  description: job-description-borg
+  playTimeTracker: JobBorgcwn
+  canBeAntag: false
+  icon: JobIconBorgClown
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgClown
+  startingGear: RobotGear # for char preview only

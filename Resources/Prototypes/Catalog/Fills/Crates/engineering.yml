@@ -32,16 +32,16 @@
       - id: ToolboxElectricalFilled
         amount: 2
 
-#- type: entity
-#  id: CrateEngineeringPowercell
-#  parent: CrateElectrical
-#  name: AME crate
-#  description: Three microcreactor powercells.
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: PowerCellMicroreactor
-#        amount: 3
+- type: entity
+  id: CrateEngineeringPowercell
+  parent: CrateElectrical
+  name: AME crate
+  description: Three microcreactor powercells.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PowerCellMicroreactor
+        amount: 3
 
 - type: entity
   id: CrateEngineeringCableLV
@@ -194,3 +194,13 @@
     contents:
     - id: WeaponParticleDecelerator
       amount: 3
+
+- type: entity
+  id: CrateEngineeringSpaceHeater
+  parent: CrateEngineering
+  name: space heater crate
+  description: Contains a space heater for climate control.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceHeaterFlatpack

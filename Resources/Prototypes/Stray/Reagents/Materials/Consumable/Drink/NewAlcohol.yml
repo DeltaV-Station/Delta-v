@@ -19,6 +19,30 @@
         amount: 0.08
 
 - type: reagent
+  id: BiomassDrink
+  name: reagent-name-biomassdrink
+  parent: BaseAlcohol
+  group: Biological
+  desc: reagent-desc-biomassdrink
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: metallic
+  color: "#960000"
+  slippery: true
+  metamorphicSprite:
+    sprite: Stray/Objects/Consumable/Drinks/BiomassDrink.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -15
+      - !type:ModifyBleedAmount
+        amount: 0.2
+      - !type:Emote
+        emote: Scream
+        probability: 0.25
+
+- type: reagent
   id: AnnasGift
   name: reagent-name-annasgift
   parent: BaseAlcohol
@@ -81,56 +105,6 @@
         damage:
           types:
             Poison: 2
-
-
-- type: reagent
-  id: Opres
-  name: reagent-name-opres
-  parent: BaseAlcohol
-  desc: reagent-desc-opres
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
-  color: "#C67F31"
-  metamorphicSprite:
-    sprite: Stray/Objects/Consumable/Drinks/opresn.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: -1
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5
-
-- type: reagent
-  id: Myusuo
-  name: reagent-name-myusuo
-  parent: BaseAlcohol
-  desc: reagent-desc-myusuo
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
-  color: "#98B383"
-  metamorphicSprite:
-    sprite: Stray/Objects/Consumable/Drinks/myusuo.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: -35
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.1
-
 
 - type: reagent
   id: Gayach

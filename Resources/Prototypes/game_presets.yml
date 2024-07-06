@@ -13,7 +13,7 @@
   id: AllAtOnce
   name: all-at-once-title
   description: all-at-once-description
-  showInVote: false
+  showInVote: true
   rules:
     - Nukeops
     - Traitor
@@ -39,7 +39,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true #4boring4vote
   description: greenshift-description
   rules:
   - BasicRoundstartVariation
@@ -90,7 +90,7 @@
     - traitor
   name: traitor-title
   description: traitor-description
-  showInVote: false
+  showInVote: true
   rules:
     - Traitor
     - SubGamemodesRule
@@ -105,7 +105,7 @@
   name: death-match-title
   description: death-match-description
   #maxPlayers: 15
-  showInVote: false # DeltaV - No.
+  showInVote: true # DeltaV - No.
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
@@ -116,7 +116,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: false
+  showInVote: true
   rules:
     - Nukeops
     - SubGamemodesRule
@@ -131,7 +131,7 @@
     - revolutionaries
   name: rev-title
   description: rev-description
-  showInVote: false
+  showInVote: true
   rules:
     - Revolutionary
     - SubGamemodesRule
@@ -148,7 +148,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: false
+  showInVote: true
   rules:
   - Zombie
   - BasicStationEventScheduler

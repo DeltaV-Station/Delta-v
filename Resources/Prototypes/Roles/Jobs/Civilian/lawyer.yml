@@ -12,9 +12,10 @@
   #    time: 14400 # 4 hours
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-cj  # Delta V - Change supervisor to chief justice
   access:
-  - Service
+  # - Service - DeltaV, removed from service department
+  - Justice # DeltaV - Justice dept
   - Lawyer
   - Maintenance
 
@@ -25,7 +26,7 @@
     back: ClothingBackpackLawyerFilled
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetJustice # DeltaV - Added lawyer to justice department
     # TODO add copy of space law
   inhand:
     - BriefcaseBrownFilled

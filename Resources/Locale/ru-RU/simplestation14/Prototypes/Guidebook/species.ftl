@@ -1,5 +1,4 @@
 # species_categories.yml
-guide-entry-species = Виды рас
 guide-entry-species-wizden-species = Виды рас Wizard's Den
 guide-entry-species-nyano-species = Виды рас Nyanotrasen
 guide-entry-species-delta-species = Виды рас Delta-V

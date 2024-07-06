@@ -14,9 +14,12 @@
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Centipede.yml
+        - type: GridSpawn
+          groups:
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
@@ -30,6 +33,10 @@
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 6, 8 ]
             TechnicalAssistant: [ 3, 5 ]
+          #justice
+            Clerk: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            Prosecutor: [ 1, 1 ]
           #medical
             Chemist: [ 2, 3 ]
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -43,7 +50,7 @@
             Detective: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 4, 6 ] # move back to 10, 12 when ready
-            PrisonGuard: [ 4, 6 ] # someday a 2:1 ratio of guard:prisoner is preferred
+            PrisonGuard: [ 4, 6 ] # someday a 2:1 ratio of prisoner:guard is preferred
             SecurityOfficer: [ 6, 8 ]
             SecurityCadet: [ 2, 3 ]
             Warden: [ 1, 1 ]
@@ -55,7 +62,6 @@
             Clown: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Janitor: [ 2, 4 ]
-            Lawyer: [ 2, 2 ]
             Mime: [ 1, 2 ]
             Musician: [ 2, 3 ]
             Reporter: [ 2, 2 ]
@@ -73,3 +79,11 @@
             Courier: [ 2, 3 ]
             SalvageSpecialist: [ 3, 5 ]
             Quartermaster: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

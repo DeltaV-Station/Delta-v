@@ -20,13 +20,14 @@
                 - type: TradeStation
               paths:
                 - /Maps/Shuttles/trading_mayhen.yml
+            mining:
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_mayhen.yml
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             HeadOfPersonnel: [ 1, 1 ]
@@ -88,8 +89,6 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             HeadOfPersonnel: [ 1, 1 ]
@@ -146,8 +145,6 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             # service
             HeadOfPersonnel: [ 1, 1 ]
@@ -181,3 +178,11 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 4 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

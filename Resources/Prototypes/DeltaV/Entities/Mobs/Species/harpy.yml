@@ -21,6 +21,7 @@
       "Sax": {66: 0}
       "Piano": {1: 0}
       "Church Organ": {19: 0}
+      "Harp": {46: 0}
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
@@ -41,12 +42,12 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -209,7 +210,6 @@
   id: ActionHarpyPlayMidi
   name: Play MIDI
   description: Sing your heart out! Right click yourself to set an instrument.
-  noSpawn: true
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -221,7 +221,6 @@
   id: ActionSyrinxChangeVoiceMask
   name: Set name
   description: Change the name others hear to something else.
-  noSpawn: true
   components:
   - type: InstantAction
     icon: DeltaV/Interface/Actions/harpy_syrinx.png

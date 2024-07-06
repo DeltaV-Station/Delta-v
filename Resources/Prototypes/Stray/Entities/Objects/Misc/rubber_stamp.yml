@@ -1,7 +1,16 @@
 - type: entity
+  parent: RubberStampBase
+  id: RubberStampBaseStray
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Misc/Stamps.rsi
+    state: stamp-NT
+
+- type: entity
   name: печать начальника штаба ЦентКом
   description: Печать из резины, для проставления печатей на важных документах.
-  parent: RubberStampCentcom
+  parent: RubberStampBaseStray
   id: RubberStampChiefCentComm
   suffix: НЕ МАППИТЬ
   components:
@@ -9,3 +18,83 @@
     stampedName: stamp-component-stamped-name-chiefcentcomm
     stampedColor: "#006600"
     stampState: "paper_stamp-centcom"
+  - type: Sprite
+    state: stamp-centcomm
+
+- type: entity
+  name: Печать Уничтожить после прочтения
+  parent: RubberStampBaseStray
+  id: RubberStampDelete
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Уничтожить после прочтения
+    stampedColor: "#850000"
+    stampState: "paper_stamp-fire"
+  - type: Sprite
+    state: stamp-fire
+
+- type: entity
+  name: Печать Штаб ЦентКом
+  parent: RubberStampBase
+  id: RubberStampCentcomm
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Штаб ЦентКом
+    stampedColor: "#006600"
+    stampState: "paper_stamp-centcom"
+  - type: Sprite
+    state: stamp-centcom
+
+- type: entity
+  name: Печать ДСУ
+  parent: RubberStampBaseStray
+  id: RubberStampDCU
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Департамент Секториального Управления
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-NT
+
+- type: entity
+  name: Печать NT
+  parent: RubberStampBaseStray
+  id: RubberStampNT
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: NanoTrasen
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-NT
+
+- type: entity
+  name: Печать СОВЕРШЕННО СЕКРЕТНО
+  parent: RubberStampBaseStray
+  id: RubberStampSecret
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: СОВЕРШЕННО СЕКРЕТНО
+    stampedColor: "#850000"
+    stampState: "paper_stamp-secret"
+  - type: Sprite
+    state: stamp-secret
+
+- type: entity
+  name: Печать ДСО
+  parent: RubberStampBaseStray
+  id: RubberStampDCO
+  suffix: НЕ МАППИТЬ
+  components:
+  - type: Stamp
+    stampedName: Департамент Специальных Операций
+    stampedColor: "#3681bb"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-DSO

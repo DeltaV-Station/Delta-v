@@ -21,7 +21,6 @@
   components:
     # beginregion Organic
     - type: SSDIndicator
-    - type: Flashable
     - type: StatusEffects
       allowed:
       - Stun
@@ -39,6 +38,7 @@
       - Muted
       - Pacified
       - StaminaModifier
+      - Flashed
     - type: ThermalRegulator
       metabolismHeat: 0
       radiatedHeat: 100
@@ -57,6 +57,8 @@
     # endregion Organic
     # The important nessessities
     - type: MovementSpeedModifier
+      baseWalkSpeed : 0.5
+      baseSprintSpeed : 5.5
     - type: Body
       prototype: IPC
       requiredLegs: 2
@@ -68,6 +70,69 @@
     - type: Icon
       sprite: Stray/Mobs/Species/IPCs/parts.rsi
       state: full
+    - type: Sprite
+      layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+      - map: ["enum.BorgVisualLayers.Light"]
+        sprite: Stray/Mobs/Species/IPCs/parts.rsi
+        state: "IPC_e_r"
+        shader: unshaded
+        visible: false
+      - map: ["light"]
+        sprite: Stray/Mobs/Species/IPCs/parts.rsi
+        state: "IPC_l"
+        shader: unshaded
+        visible: false
     # Damage and speed
     - type: MobThresholds
       thresholds:
@@ -92,7 +157,7 @@
       specificHeat: 46
       coldDamage:
         types:
-          Heat: -2
+          Heat: -0.01
       heatDamage:
         types:
           Heat: 4
@@ -112,8 +177,8 @@
     - type: Barotrauma
       damage:
         types:
-          Heat: 0.3 # IPCs can't radiate well, they rely on air cooling
-          Blunt: 0.1
+          Heat: 0.15 # IPCs can't radiate well, they rely on air cooling
+          Blunt: 0.01
     - type: SlowOnDamage
       speedModifierThresholds:
         70: 0.6
@@ -141,6 +206,7 @@
     - type: EyeProtection
     - type: Eye
       visMask:
+        - TelegnosticProjection
         - PsionicInvisibility
         - Normal
     - type: PassiveDamage
@@ -150,11 +216,12 @@
       damageCap: 200
       damage:
         types:
-          Heat: -0.15
+          Heat: -0.2
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot { }
         part-container: !type:Container
+        key_slots: !type:Container
     - type: PowerCellSlot
       cellSlotId: cell_slot
       fitsInCharger: true
@@ -167,6 +234,40 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellHyper
+    - type: BorgChassis
+      maxModules: 4
+      hasMindState: IPC_e
+      noMindState: IPC_e_r
+    - type: ToggleableLightVisuals
+    - type: PointLight
+      enabled: false
+      radius: 1.1
+      autoRot: true
+      netsync: false
+    - type: HandheldLight
+      toggleOnInteract: false
+      wattage: 0.2
+      blinkingBehaviourId: blinking
+      radiatingBehaviourId: radiating
+    - type: Headset
+    - type: EncryptionKeyHolder
+      keySlots: 4
+      keysExtractionMethod: Cutting
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Binary
+        - Common
+        - Command
+        - Engineering
+        - Medical
+        - Science
+        - Security
+        - Service
+        - CentCom
+        - Syndicate
+        - Freelance
+    - type: LockedWiresPanel
 
 - type: entity
   name: Urist McIPC

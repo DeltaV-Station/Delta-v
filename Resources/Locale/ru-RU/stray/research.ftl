@@ -1,0 +1,1 @@
+research-technology-advanced-salvage-weapons = Продвинутое вооружение утилизаторов

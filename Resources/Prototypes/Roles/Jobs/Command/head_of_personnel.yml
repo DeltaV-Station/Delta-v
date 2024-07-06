@@ -52,7 +52,7 @@
 #  - Salvage
 #  - Security # NoooOoOo!! My HoPcurity!1
 #  - Brig
-  - Lawyer
+#  - Lawyer # Lawyer is now part of the justice dept
 #  - Cargo
 #  - Atmospherics
 #  - Medical
@@ -77,8 +77,8 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    shoes: ClothingShoesLeather # DeltaV - HoP needs something better than plebe shoes.
+    #shoes: ClothingShoesLeather # DeltaV - Commented for Loadouts
     id: HoPPDA
-    gloves: ClothingHandsGlovesHop
+    #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
     ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
     belt: BoxFolderClipboard

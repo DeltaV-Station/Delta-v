@@ -85,13 +85,29 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 1 # DeltaV - was 5
-    duration: 1
-    earliestStart: 60 # DeltaV - was 45
-    reoccurrenceDelay: 60
-    minimumPlayers: 25 #Stray - was 20
-  - type: RandomSpawnRule
-    prototype: SpawnPointGhostDragon
+    weight: 1 # DeltaV - was 6.5
+    earliestStart: 60 # DeltaV - was 40
+    reoccurrenceDelay: 20
+    minimumPlayers: 15 # Stray - was 20
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobDragon
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindComponents:
+      - type: DragonRole
+        prototype: Dragon
+      - type: RoleBriefing
+        briefing: dragon-role-briefing
 
 - type: entity
   parent: BaseGameRule
@@ -103,7 +119,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 20 #Stray - was 40
+    minimumPlayers: 15 #Stray - was 40
   - type: NinjaSpawnRule
 
 - type: entity
@@ -432,16 +448,17 @@
         prototype: InitialInfected
 
 - type: entity
-  id: LoneOpsSpawn
-  parent: BaseGameRule
   noSpawn: true
+  parent: BaseNukeopsRule
+  id: LoneOpsSpawn
   components:
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
     weight: 3.5 # DeltaV - was 5
-    minimumPlayers: 20
+    minimumPlayers: 10
     reoccurrenceDelay: 30
     duration: 1
+  - type: RuleGrids
   - type: LoadMapRule
     preloadedGrid: ShuttleStriker
   - type: NukeopsRule
@@ -466,30 +483,29 @@
       - type: NukeopsRole
         prototype: Nukeops
 
-#- type: entity # DeltaV - Currently many issues with this event
-#  id: SleeperAgentsRule
-#  parent: BaseGameRule
-#  noSpawn: true
-#  components:
-#  - type: StationEvent
-#    earliestStart: 25
-#    weight: 15
-#    minimumPlayers: 15
-#    reoccurrenceDelay: 60
-#    startAnnouncement: station-event-communication-interception
-#    startAudio:
-#      path: /Audio/Announcements/intercept.ogg
-#  - type: AlertLevelInterceptionRule
-#  - type: TraitorRule
-#  - type: AntagSelection
-#    definitions:
-#    - prefRoles: [ Traitor ]
-#      min: 1
-#      max: 2
-#      playerRatio: 10
-#      mindComponents:
-#      - type: TraitorRole
-#        prototype: Traitor
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorRule
+  id: SleeperAgentsRule
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 5 # DeltaV - Was 8 now 5
+    minimumPlayers: 15
+    maxOccurrences: 1 # can only happen once per round
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      min: 1
+      max: 4 # DeltaV - Was 2 now 4
+      playerRatio: 10
+      mindComponents:
+      - type: TraitorRole
+        prototype: Traitor
 
 - type: entity
   id: MassHallucinations

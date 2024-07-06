@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: china lake
-  parent: BaseWeaponLauncher
+  parent: [BaseWeaponLauncher, BaseGunWieldable]
   suffix: Robot, energy based
   id: WeaponLauncherChinaLakeBorg
   description: PLOOP! Contains a built in replicator to slowly make more ammo.

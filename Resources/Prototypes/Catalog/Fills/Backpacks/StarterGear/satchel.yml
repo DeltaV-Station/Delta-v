@@ -105,6 +105,8 @@
       - id: BoxSurvivalEngineering
       - id: Flash
       #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -116,6 +118,8 @@
       - id: BoxSurvival
       - id: Flash
       #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -127,6 +131,8 @@
       - id: BoxSurvival
       - id: Flash
       #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -138,6 +144,8 @@
       - id: BoxSurvivalMedical
       - id: Flash
       #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -149,6 +157,8 @@
       - id: BoxSurvival
       - id: Flash
       #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -160,6 +170,8 @@
       - id: BoxSurvivalSecurity
       - id: Flash
       - id: MagazinePistol
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -169,6 +181,8 @@
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   noSpawn: true
@@ -216,7 +230,7 @@
       - id: BoxSurvival
       - id: Bible
       - id: RubberStampChaplain
-  
+
 - type: entity
   noSpawn: true
   parent: ClothingBackpackSatchel
@@ -301,4 +315,5 @@
     - id: Crowbar
     - id: Wrench
     - id: Multitool
+    - id: AccessConfiguratorUniversal
   - type: Unremoveable

@@ -29,14 +29,6 @@
           spaceferret6: ""
           spaceferret7: ""
           spaceferret8: ""
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: spaceferret
-      Critical:
-        Base: spaceferret_crit
-      Dead:
-        Base: spaceferret_dead
   - type: MobThresholds
     thresholds:
       0: Alive

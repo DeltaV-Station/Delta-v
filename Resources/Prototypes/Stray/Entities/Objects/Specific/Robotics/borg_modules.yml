@@ -1,0 +1,89 @@
+- type: entity
+  id: BorgModuleBasic
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: basic cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-basic
+  - type: ItemBorgModule
+    items:
+    - Crowbar
+    - FlashRecharging
+    - HandheldStationMapUnpowered
+    - FireExtinguisher
+
+- type: entity
+  id: BaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSecurity
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Robotics/borgmodule.rsi
+    
+# Security Modules
+
+- type: entity
+  id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: blockade cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-hold
+  - type: ItemBorgModule
+    items:
+    - HoloprojectorSecurityRecharging
+    - FlashRecharging
+    - Truncheon
+
+- type: entity
+  id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: detainment cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detain
+  - type: ItemBorgModule
+    items:
+    - StunbatonSelfCharging
+    - FlashRecharging
+    - HandcuffsLingering
+    - Truncheon
+    
+- type: entity
+  id: BorgModuleSecurityControl # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: riot control cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-control
+  - type: ItemBorgModule
+    items:
+    - FlashRecharging
+    - WoodBaton
+    - HandcuffsLingering
+    - ZiptiesLingering
+    - SecurityWhistle
+
+- type: entity
+  id: BorgModuleSecurityChase # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: chase cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-chase
+  - type: ItemBorgModule
+    items:
+    - WeaponEnergyGunMiniRecharging

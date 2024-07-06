@@ -1,0 +1,13 @@
+- type: job
+  id: Borgsec
+  name: "борг сб"
+  description: job-description-borg
+  playTimeTracker: JobBorgsec
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 1
+  canBeAntag: false
+  icon: JobIconBorgSecurity
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgSecurity
+  startingGear: RobotGear # for char preview only

@@ -77,6 +77,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/chemistry.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -131,6 +133,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/captain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -178,3 +182,5 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+  - type: ExplosionResistance
+    damageCoefficient: 0.01

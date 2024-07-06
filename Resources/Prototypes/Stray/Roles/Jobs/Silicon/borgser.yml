@@ -1,0 +1,10 @@
+- type: job
+  id: Borgser
+  name: "борг сервисный"
+  description: job-description-borg
+  playTimeTracker: JobBorgser
+  canBeAntag: false
+  icon: JobIconBorgService
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgService
+  startingGear: RobotGear # for char preview only

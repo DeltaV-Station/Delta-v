@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseStorageItem
+  id: LittleOreBag
+  name: little ore bag
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a neck.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Neck/ore.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: Stray/Clothing/Neck/ore.rsi
+    quickEquip: false
+    slots:
+    - neck
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - ArtifactFragment
+        - Ore
+  - type: Dumpable
+  - type: MagnetPickup
+    slotFlags: All

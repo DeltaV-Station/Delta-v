@@ -21,38 +21,6 @@
     AnnasGift: 5
 
 - type: reaction
-  id: Opres
-  reactants:
-    JuiceOrange:
-      amount: 1
-    Nitrogen:
-      amount: 1
-    Silicon:
-      amount: 1
-    Potassium:
-      amount: 1
-  products:
-    Opres: 4
-
-- type: reaction
-  id: Myusuo
-  reactants:
-    CoffeeLiqueur:
-      amount: 2
-    Tequila:
-      amount: 2
-    Cream:
-      amount: 2
-    Vodka:
-      amount: 1
-    Rum:
-      amount: 1
-    TonicWater:
-      amount: 1
-  products:
-    Myusuo: 9
-
-- type: reaction
   id: Gayach
   reactants:
     Mojito:
@@ -116,7 +84,7 @@
     Sulfur:
       amount: 1
   products:
-    Bomba: 6
+    Bomba: 5
 
 - type: reaction
   id: DeadGob
@@ -128,7 +96,7 @@
     Blood:
       amount: 1
   products:
-    DeadGob: 6
+    DeadGob: 5
 
 - type: reaction
   id: BosTea
@@ -176,7 +144,7 @@
     SpaceDrugs:
       amount: 1
   products:
-    Creator: 6
+    Creator: 3
 
 #- type: reaction
 #  id: GodsBlood
@@ -216,7 +184,7 @@
     Gayach:
       amount: 1
   products:
-    BestHealing: 5
+    BestHealing: 3
 
 #- type: reaction
 #  id: SugarRain
@@ -251,14 +219,12 @@
       amount: 5
     Mojito:
       amount: 1
-    Ice:
-      amount: 1
     JuiceLime:
       amount: 1
     SpaceDrugs:
       amount: 5
   products:
-    SmileTea: 15
+    SmileTea: 14
 
 - type: reaction
   id: OldNavar
@@ -272,7 +238,7 @@
     Water:
       amount: 1
   products:
-    OldNavar: 4
+    OldNavar: 5
 
 #- type: reaction
 #  id: HmelKash
@@ -316,7 +282,7 @@
     Plasma:
       amount: 1
   products:
-    PoisonedVoodka: 6
+    PoisonedVoodka: 7
 
 - type: reaction
   id: MilkedGreenTea
@@ -328,7 +294,7 @@
     Sugar:
       amount: 1
   products:
-    MilkedGreenTea: 6
+    MilkedGreenTea: 7
 
 #- type: reaction
 #  id: AlchollessBeer
@@ -438,7 +404,7 @@
     TableSalt:
       amount: 1
   products:
-    AngelCry: 5
+    AngelCry: 4
 
 #- type: reaction
 #  id: BankaCoktail

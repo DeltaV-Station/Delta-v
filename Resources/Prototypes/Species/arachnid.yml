@@ -44,6 +44,9 @@
   id: MobArachnidMarkingLimits
   onlyWhitelisted: true
   points:
+    Head:
+      points: 1
+      required: false
     Hair:
       points: 0
       required: false
@@ -65,10 +68,10 @@
       points: 1
       required: false
     Legs:
-      points: 2
+      points: 4
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
 
 - type: humanoidBaseSprite
