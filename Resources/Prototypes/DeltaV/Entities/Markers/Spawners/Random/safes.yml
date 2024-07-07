@@ -1,5 +1,6 @@
 - type: entity
   id: BaseGunSafeSpawner
+  name: random safe spawner
   parent: MarkerBase
   abstract: true
   components:
@@ -12,7 +13,6 @@
       offset: 0
 
 - type: entity
-  name: random safe spawner
   suffix: Shotgun
   id: ShotgunSafeSpawner
   parent: BaseGunSafeSpawner
@@ -24,7 +24,6 @@
         - GunSafeAdjutantShotgun
 
 - type: entity
-  name: random safe spawner
   suffix: Rifle
   id: RifleSafeSpawner
   parent: BaseGunSafeSpawner
@@ -37,7 +36,6 @@
         - GunSafeM90Rifle
 
 - type: entity
-  name: random safe spawner
   suffix: Handgun
   id: HandgunSafeSpawner
   parent: BaseGunSafeSpawner
