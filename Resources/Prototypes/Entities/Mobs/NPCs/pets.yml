@@ -789,7 +789,7 @@
     requirements: # Delta V - No raiders
     - !type:RoleTimeRequirement
       role: JobBartender
-      time: 14400 # Delta V - 4 hours
+      time: 360 # Delta V - 10 min
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
