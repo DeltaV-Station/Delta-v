@@ -207,6 +207,7 @@
     minimumPlayers: 25 #DeltaV - was 35
     weight: 5
     duration: 50
+    minimumPlayers: 15 # DeltaV - was 30, rat king is disabled from VentCritters so this is ifne
   - type: VentCrittersRule
     entries:
     - id: MobMouse
