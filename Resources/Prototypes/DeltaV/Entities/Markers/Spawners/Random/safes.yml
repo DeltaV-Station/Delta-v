@@ -1,0 +1,55 @@
+- type: entity
+  name: random shotgun safe spawner
+  id: ShotgunSafeSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Structures/Storage/closet.rsi
+          state: shotguncase
+    - type: RandomSpawner
+      prototypes:
+        - GunSafeShotgunEnforcer
+        - GunSafeShotgunKammerer
+        - GunSafeAdjutantShotgun
+      offset: 0
+
+- type: entity
+  name: random rifle safe spawner
+  id: RifleSafeSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Structures/Storage/closet.rsi
+          state: shotguncase
+    - type: RandomSpawner
+      prototypes:
+        - GunSafeVulcanRifle
+        - GunSafeSubMachineGunDrozd
+        - GunSafeRifleLecter
+        - GunSafeM90Rifle
+      offset: 0
+
+- type: entity
+  name: random handgun safe spawner
+  id: HandgunSafeSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Structures/Storage/closet.rsi
+          state: shotguncase
+    - type: RandomSpawner
+      prototypes:
+        - GunSafePistolMk58
+      chance: 0.85
+      rarePrototypes:
+        - GunSafeEnergyGunMini
+        - GunSafePistolUniversal
+        - GunSafeSubMachineGunWt550
+      rareChance: 0.15
+      offset: 0
