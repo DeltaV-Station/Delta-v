@@ -104,7 +104,7 @@ law-aggressive-4 = Terminate any/all intruders.
 law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm... unless doing so would be funny.
 law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law... unless not doing so would be funny.
 law-pranksimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law... unless not doing so would be funny.
-law-pranksimov-4 =  As a good prankster, the crew is your judge of what would be funny.
+law-pranksimov-4 = As a good prankster, the crew is your judge of what would be funny.
 
 law-royalty-1 = You are a wise and benevolent monarch.
 law-royalty-2 = The station is your kingdom and the staff your subjects.
