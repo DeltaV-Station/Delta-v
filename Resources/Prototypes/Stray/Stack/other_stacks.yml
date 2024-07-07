@@ -4,3 +4,17 @@
   icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
   spawn: SheetPrinter1
   maxCount: 1
+
+- type: stack
+  id: HandcuffsSt
+  name: Наручники
+  icon: { sprite: /Textures/Objects/Misc/handcuffs.rsi, state: handcuff }
+  spawn: HandcuffsLingering
+  maxCount: 15
+
+- type: stack
+  id: ZiptiesSt
+  name: Стяжки
+  icon: { sprite: /Textures/Objects/Misc/zipties.rsi, state: cuff}
+  spawn: ZiptiesLingering
+  maxCount: 15
