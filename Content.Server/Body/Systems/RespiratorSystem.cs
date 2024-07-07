@@ -73,6 +73,13 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid))
                 continue;
 
+            //_bodySystem.GetBodyOrgans<(EntityUid euid, LungComponent lc)>(uid, body);
+            //_bodySystem.
+            var organs = _bodySystem.GetBodyOrganComponents<LungComponent>(uid, body);
+            if(organs==null){
+                continue;
+            }
+
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 
             if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.

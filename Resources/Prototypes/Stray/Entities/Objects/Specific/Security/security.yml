@@ -20,7 +20,7 @@
   - type: GuideHelp
     guides:
     - Security
-    
+
 - type: entity
   name: seclite
   parent: FlashlightSeclite
@@ -57,7 +57,7 @@
     - type: GuideHelp
       guides:
       - Security
-      
+
 - type: entity
   parent: WeaponEnergyGunMini
   id: WeaponEnergyGunMiniRecharging
@@ -66,7 +66,7 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 10
-      
+
 - type: entity
   parent: HoloprojectorSecurity
   id: HoloprojectorSecurityRecharging
@@ -84,7 +84,7 @@
   suffix: Lingering
   components:
   - type: Stack
-    stackType: Handcuffs
+    stackType: HandcuffsSt
     baseLayer: handcuff
     layerStates:
     - handcuff
@@ -97,7 +97,7 @@
   suffix: Lingering
   components:
   - type: Stack
-    stackType: Zipties
+    stackType: ZiptiesSt
     baseLayer: cuff
     layerStates:
     - cuff
