@@ -120,3 +120,13 @@ crime-assist-sophont-explanation = A sophont is described as any entity with the
                                    Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
 
 mail-metrics-program-name = MailMetrics
+mail-metrics-opened = Earnings (Opened)
+mail-metrics-expired = Damages (Expired)
+mail-metrics-damaged = Damages (Damaged)
+mail-metrics-tampered = Damages (Tampered)
+mail-metrics-unopened = Unopened
+mail-metrics-count-header = Packages
+mail-metrics-money-header = Spesos
+mail-metrics-total = Total
+mail-metrics-progress = {$opened} out of {$total}
+mail-metrics-progress-percent = {$successRate}%
