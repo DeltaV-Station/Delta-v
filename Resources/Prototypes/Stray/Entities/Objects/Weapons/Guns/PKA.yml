@@ -49,12 +49,12 @@
       - SemiAuto
       - FullAuto
   - type: AmmoCounter
-    capacity: 20
+    capacity: 10
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 1.5
   - type: BasicEntityAmmoProvider
     proto: BulletKinetic
-    capacity: 30
+    capacity: 10
     count: 1
 
 - type: entity
