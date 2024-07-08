@@ -7,9 +7,9 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 21600 # 6 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 4 hrs
+    - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement
+      role: JobSecurityOfficer
+      time: 21600 # DeltaV - 6 hrs
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
