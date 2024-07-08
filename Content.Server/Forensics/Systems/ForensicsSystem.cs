@@ -50,6 +50,7 @@ namespace Content.Server.Forensics
             component.Fiberprint = GenerateFingerprint(length: 7);
         }
         // End of DeltaV code
+
         private void OnFingerprintInit(EntityUid uid, FingerprintComponent component, MapInitEvent args)
         {
             component.Fingerprint = GenerateFingerprint();
