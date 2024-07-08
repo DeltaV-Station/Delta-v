@@ -32,12 +32,5 @@ public sealed partial class MailMetricUiFragment : BoxContainer
             ("total", state.TotalMail));
         SuccessRatePercent.Text = Loc.GetString("mail-metrics-progress-percent",
             ("successRate", state.SuccessRate));
-
-        // OpenedMail.Text = $"Opened mail: {state.OpenedMailCount} (${state.MailEarnings})";
-        // TamperedMail.Text = $"Tampered mail: {state.TamperedMailCount} (${state.TamperedMailLosses})";
-        // ExpiredMail.Text = $"Expired mail: {state.ExpiredMailCount} (${state.ExpiredMailLosses})";
-        // DamagedMail.Text = $"Damaged mail: {state.DamagedMailCount} (${state.DamagedMailLosses})";
-        // TotalMail.Text = $"Total mail opened: {state.OpenedMailCount} out of {state.TotalMail} ({state.SuccessRate}%)";
-        // TotalEarnings.Text = $"Total earnings: ${state.TotalIncome}";
     }
 }
