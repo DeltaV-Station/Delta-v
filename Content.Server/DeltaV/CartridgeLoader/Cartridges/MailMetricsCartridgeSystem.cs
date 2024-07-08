@@ -89,7 +89,7 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
         var query = EntityQueryEnumerator<MailComponent>();
         while (query.MoveNext(out var station, out var mail))
         {
-            if (mail.IsEnabled)
+            if (mail.IsLocked)
                 unopenedMail += 1;
         }
 
