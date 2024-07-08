@@ -12,6 +12,16 @@ public sealed partial class MailMetricUiFragment : BoxContainer
     public MailMetricUiFragment()
     {
         RobustXamlLoader.Load(this);
+
+        OpenedMailCount.StyleClasses.Add("Good");
+        OpenedMailSpesos.StyleClasses.Add("Good");
+        TamperedMailCount.StyleClasses.Add("Danger");
+        TamperedMailSpesos.StyleClasses.Add("Danger");
+        ExpiredMailCount.StyleClasses.Add("Danger");
+        ExpiredMailSpesos.StyleClasses.Add("Danger");
+        DamagedMailCount.StyleClasses.Add("Danger");
+        DamagedMailSpesos.StyleClasses.Add("Danger");
+        UnopenedMailCount.StyleClasses.Add("Caution");
     }
 
     public void UpdateState(MailMetricUiState state)
