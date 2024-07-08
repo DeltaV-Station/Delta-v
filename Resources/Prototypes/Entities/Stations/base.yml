@@ -46,15 +46,6 @@
       path: /Maps/Shuttles/cargo.yml
     - type: GridSpawn
       groups:
-        vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 1000
-          nameDataset: names_borer
-          addComponents:
-          - type: Gravity
-            enabled: true
-            inherent: true
-          protos:
-          - VGRoid
 #        trade: # DeltaV - trade station spawns in its own map
 #          addComponents:
 #          - type: ProtectedGrid
@@ -72,13 +63,26 @@
           maxCount: 2
           stationGrid: false
           paths:
+          #- /Maps/Ruins/chunked_tcomms.yml # TODO (issue #1590)
           - /Maps/Ruins/DeltaV/biodome_satellite.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/derelict.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/djstation.yml #Delta V - Move to DV folder
+          #- /Maps/Ruins/empty_flagship.yml # TODO
           - /Maps/Ruins/DeltaV/old_ai_sat.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/relaystation.yml #Delta V - Move to DV folder
+          #- /Maps/Ruins/syndicate_dropship.yml # TODO
           - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
+        vgroid: !type:DungeonSpawnGroup
+          minimumDistance: 1000
+          nameDataset: names_borer
+          stationGrid: false
+          addComponents:
+          - type: Gravity
+            enabled: true
+            inherent: true
+          protos:
+          - VGRoid
 
 - type: entity
   id: BaseStationCentcomm
