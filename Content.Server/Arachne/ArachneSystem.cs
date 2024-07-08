@@ -188,8 +188,7 @@ namespace Content.Server.Arachne
 
             var args = new DoAfterArgs(EntityManager, uid, delay, ev, uid, target: target)
             {
-                BreakOnUserMove = true,
-                BreakOnTargetMove = true,
+                BreakOnMove = true,
             };
 
             _doAfter.TryStartDoAfter(args);

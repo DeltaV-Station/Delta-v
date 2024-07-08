@@ -11,7 +11,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Popups;
-using Content.Server.HealthExaminable;
+using Content.Shared.HealthExaminable;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -139,8 +139,7 @@ namespace Content.Server.Vampiric
             var ev = new BloodSuckDoAfterEvent();
             var args = new DoAfterArgs(EntityManager, bloodsucker, bloodSuckerComponent.Delay, ev, bloodsucker, target: victim)
             {
-                BreakOnTargetMove = true,
-                BreakOnUserMove = false,
+                BreakOnMove = true,
                 DistanceThreshold = 2f,
                 NeedHand = false
             };
