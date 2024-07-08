@@ -16,7 +16,8 @@
     </controls:StripeBack>
     <BoxContainer
         Orientation="Vertical"
-        HorizontalExpand="True">
+        HorizontalExpand="True"
+        Margin="20 0">
         <BoxContainer Orientation="Horizontal"
             HorizontalExpand="True"
             SeparationOverride="2">
@@ -29,11 +30,13 @@
                 HorizontalExpand="True"
                 ClipText="True"
                 StyleClasses="monospace"
+                Align="Center"
                 Text="{Loc 'mail-metrics-count-header'}" />
             <Label Name="SpesosLabel"
                 SizeFlagsStretchRatio="1"
                 HorizontalExpand="True"
                 ClipText="True"
+                Align="Center"
                 StyleClasses="monospace"
                 Text="{Loc 'mail-metrics-money-header'}" />
         </BoxContainer>
@@ -167,7 +170,7 @@
     <BoxContainer
         Orientation="Vertical"
         HorizontalExpand="True"
-        Margin="1">
+        Margin="10">
         <Label
             Name="SuccessRateCounts"
             Align="Center"
