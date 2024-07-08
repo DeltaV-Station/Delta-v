@@ -1,8 +1,16 @@
 - type: entity
   noSpawn: true
-  parent: ClothingBackpackSecurity
+  parent: ClothingBackpackRobo
   id: ClothingBackpackRoboFilled
-  name: рюкзак робототехника
+  components:
+  - type: StorageFill
+    contents:
+        - id: BoxSurvival
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackEcclesia
+  id: ClothingBackpackEcclesiaFilled
   components:
   - type: StorageFill
     contents:

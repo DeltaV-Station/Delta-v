@@ -21,5 +21,14 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/techpriest.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/techpriest.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadTechPriest
+    slot: head
   - type: TemperatureProtection
     coefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.5

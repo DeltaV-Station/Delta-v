@@ -10,3 +10,12 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackSatchelRobo
+  name: robotics satchel
+  description: It's a very robust satchel.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchel/robo.rsi
