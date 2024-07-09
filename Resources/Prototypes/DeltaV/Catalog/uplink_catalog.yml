@@ -71,3 +71,14 @@
     Telecrystal: 4
   categories:
   - UplinkImplants
+
+- type: listing
+  id: UplinkPistolWaffle
+  name: uplink-pistol-waffle-name
+  description: uplink-pistol-waffle-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/waffle.rsi, state: icon }
+  productEntity: WeaponLaserWaffle
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry

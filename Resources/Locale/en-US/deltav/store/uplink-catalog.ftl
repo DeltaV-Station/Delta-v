@@ -13,3 +13,6 @@ uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of o
 
 uplink-generic-radio-implanter-name = Generic Radio Implanter
 uplink-generic-radio-implanter-desc = A cranial implant with a bluespace compartment for a single encryption key (not included). Put in a key of your choice, and you can talk using it like you would with any headset.
+
+uplink-pistol-waffle-name = Waffle Iron
+uplink-pistol-waffle-desc = Developed by Waffle Corp, this sidearm packs the power of a full sized laser rifle into the concealable frame of a pistol. This weapon has an external magazine, which can be swapped with standard power cells.

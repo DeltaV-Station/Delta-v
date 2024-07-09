@@ -52,7 +52,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PowerCellSmall
+        startingItem: PowerCellMedium
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -122,6 +122,31 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+
+- type: entity
+  name: waffle iron
+  parent: BaseWeaponPowerCellSmall
+  id: WeaponLaserWaffle
+  description: Developed by Waffle Corp, this sidearm packs the power of a full sized laser rifle into the concealable frame of a pistol. This weapon has an external magazine, which can be swapped with standard power cells.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/waffle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Weapons/Guns/Battery/waffle.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
 
 - type: entity
   name: retro laser blaster
