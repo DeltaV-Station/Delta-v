@@ -10,11 +10,13 @@
     - Moth
     - Reptilian
     - SlimePerson
-    # DeltaV additions
+    - Vox
+    # Begin DeltaV additions
     - Vulpkanin
     - Harpy
     - Felinid
     - Oni
+    # End DeltaV additions
 
 - type: guideEntry
   id: Arachnid
@@ -50,3 +52,8 @@
   id: SlimePerson
   name: species-name-slime
   text: "/ServerInfo/Guidebook/Mobs/SlimePerson.xml"
+
+- type: guideEntry
+  id: Vox
+  name: species-name-vox
+  text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
