@@ -43,6 +43,7 @@
       time: 40000 # 11.1 hours
 
 - type: entity
+  noSpawn: true
   parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
@@ -51,3 +52,39 @@
     name: ghost-role-information-paradox-anomaly-name
     description: ghost-role-information-paradox-anomaly-description
     rules: ghost-role-information-paradox-anomaly-rules
+
+- type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostFugitive
+  name: fugitive spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fugitive-name
+    description: ghost-role-information-fugitive-description
+    rules: ghost-role-information-fugitive-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # 1 hour
+
+- type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostRecruiter
+  components:
+  - type: GhostRole
+    name: ghost-role-information-recruiter-name
+    description: ghost-role-information-recruiter-description
+    rules: ghost-role-information-recruiter-rules
+    requirements: # keep in sync with the antag prototype
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24h so you probably know some general lore or something
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 3600 # 1h as lawyer so you maybe know how to paperwork
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Objects/Misc/recruiter_pen.rsi
+      state: empty
