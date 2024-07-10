@@ -2,6 +2,8 @@ using Content.Shared.SimpleStation14.Silicon.Components;
 using Content.Shared.Alert;
 using Robust.Shared.Serialization;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.PowerCell.Components;
 
 namespace Content.Shared.SimpleStation14.Silicon.Systems;
 
@@ -9,6 +11,7 @@ namespace Content.Shared.SimpleStation14.Silicon.Systems;
 public sealed class SharedSiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
 
     // Dictionary of ChargeState to Alert severity.
     private static readonly Dictionary<ChargeState, short> ChargeStateAlert = new()
@@ -28,6 +31,38 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentInit>(OnSiliconInit);
         SubscribeLocalEvent<SiliconComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
         SubscribeLocalEvent<SiliconComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+        SubscribeLocalEvent<SiliconComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttempt);
+        SubscribeLocalEvent<SiliconComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
+    }
+
+    private void OnItemSlotInsertAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotInsertAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp))
+            return;
+
+        if (!ItemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot) || cellSlot != args.Slot)
+            return;
+
+        if (args.User == uid)
+            args.Cancelled = true;
+    }
+
+    private void OnItemSlotEjectAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotEjectAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp))
+            return;
+
+        if (!ItemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot) || cellSlot != args.Slot)
+            return;
+
+        if (args.User == uid)
+            args.Cancelled = true;
     }
 
     [ValidatePrototypeId<AlertCategoryPrototype>]
