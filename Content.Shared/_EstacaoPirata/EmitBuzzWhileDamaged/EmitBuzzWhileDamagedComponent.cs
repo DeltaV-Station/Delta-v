@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Content.Shared.Chat.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._EstacaoPirata.EmitBuzzWhileDamaged;
