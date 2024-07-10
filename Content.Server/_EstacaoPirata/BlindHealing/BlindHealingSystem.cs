@@ -76,7 +76,7 @@ namespace Content.Server._EstacaoPirata.BlindHealing
                 new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), uid, target: target, used: uid)
                 {
                     NeedHand = true,
-                    BreakOnUserMove = true,
+                    BreakOnMove = true,
                     BreakOnWeightlessMove = false,
                 };
 

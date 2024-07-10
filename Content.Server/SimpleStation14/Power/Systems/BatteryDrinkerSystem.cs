@@ -79,7 +79,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var args = new DoAfterArgs(EntityManager, user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) // TODO: Make this doafter loop, once we merge Upstream.
         {
             BreakOnDamage = true,
-            BreakOnTargetMove = true,
+            BreakOnMove = true,
             Broadcast = false,
             DistanceThreshold = 1.35f,
             RequireCanInteract = true,

@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Content.Server._EstacaoPirata.WeldingHealing;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
-using Content.Server.Tools.Components;
+using Content.Shared.Tools.Components;
 using Content.Shared._EstacaoPirata.WeldingHealing;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -14,7 +14,6 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Tools;
 using Content.Shared.Stacks;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
@@ -63,9 +62,9 @@ namespace Content.Server._EstacaoPirata.WeldingHealable
             if (TryComp(args.Used, out WelderComponent? welder) &&
                 TryComp(args.Used, out SolutionContainerManagerComponent? solutionContainer))
             {
-                if (!_solutionContainer.ResolveSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, ref welder.FuelSolution, out var solution))
+                if (!_solutionContainer.TryGetSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, out var solutionComp, out var solution))
                     return;
-                _solutionContainer.RemoveReagent(welder.FuelSolution.Value, welder.FuelReagent, component.FuelCost);
+                _solutionContainer.RemoveReagent(solutionComp.Value, welder.FuelReagent, component.FuelCost);
             }
 
             var str = Loc.GetString("comp-repairable-repair",

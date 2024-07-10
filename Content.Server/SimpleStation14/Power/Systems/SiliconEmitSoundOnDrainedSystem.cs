@@ -1,5 +1,6 @@
 using Content.Server.SimpleStation14.Silicon.Death;
-using Content.Server.Sound.Components;
+using Content.Shared.Sound.Components;
+using Content.Server.Sound;
 using Content.Shared.Mobs;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 
@@ -7,6 +8,7 @@ namespace Content.Server.SimpleStation14.Silicon;
 
 public sealed class EmitSoundOnCritSystem : EntitySystem
 {
+    [Dependency] private readonly EmitSoundSystem _emitSound = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SiliconEmitSoundOnDrainedComponent, SiliconChargeDeathEvent>(OnDeath);
@@ -18,12 +20,11 @@ public sealed class EmitSoundOnCritSystem : EntitySystem
     {
         var spamComp = EnsureComp<SpamEmitSoundComponent>(uid);
 
-        spamComp.Accumulator = 0f;
-        spamComp.RollInterval = component.Interval;
-        spamComp.PlayChance = component.PlayChance;
+        spamComp.MinInterval = component.Interval;
+        spamComp.MaxInterval = component.MaxInterval;
         spamComp.PopUp = component.PopUp;
-        spamComp.Enabled = true;
         spamComp.Sound = component.Sound;
+        _emitSound.SetEnabled((uid, spamComp), true);
     }
 
     private void OnAlive(EntityUid uid, SiliconEmitSoundOnDrainedComponent component, SiliconChargeAliveEvent args)

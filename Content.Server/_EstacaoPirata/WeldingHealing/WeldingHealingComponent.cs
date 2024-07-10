@@ -22,7 +22,7 @@ namespace Content.Server._EstacaoPirata.WeldingHealing
         public string QualityNeeded = "Welding";
 
         // The fuel amount needed to repair physical related damage
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("fuelCost")]
+        [ViewVariables(VVAccess.ReadWrite)] [DataField("fuelcost")]
         public int FuelCost = 5;
 
         [ViewVariables(VVAccess.ReadWrite)] [DataField("delay")]

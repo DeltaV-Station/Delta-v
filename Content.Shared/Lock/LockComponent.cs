@@ -34,7 +34,6 @@ public sealed partial class LockComponent : Component
     [AutoNetworkedField]
     public bool UnlockOnClick = true;
 
-
     /// <summary>
     /// The sound played when unlocked.
     /// </summary>

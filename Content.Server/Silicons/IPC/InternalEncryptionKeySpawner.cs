@@ -12,7 +12,7 @@ public static class InternalEncryptionKeySpawner
     {
         if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(target, out var keyHolderComp))
         {
-            var earEquipString = startingGear.GetGear("ears", profile);
+            var earEquipString = startingGear.GetGear("ears");
             var containerMan = entityManager.System<SharedContainerSystem>();
 
             if (!string.IsNullOrEmpty(earEquipString))

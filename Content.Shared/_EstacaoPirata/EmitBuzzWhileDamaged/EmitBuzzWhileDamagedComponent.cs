@@ -19,7 +19,7 @@ public sealed partial class EmitBuzzWhileDamagedComponent : Component
     public TimeSpan LastBuzzEmoteTime;
 
     [DataField]
-    public ProtoId<EmotePrototype> BuzzEmote = "Bzzzzt...";
+    public ProtoId<EmotePrototype> BuzzEmote = "Buzz";
 
     [DataField("cycleDelay")]
     public float CycleDelay = 2.0f;

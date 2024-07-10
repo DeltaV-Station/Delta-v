@@ -8,7 +8,6 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Runtime.CompilerServices;
 
 namespace Content.Server._EstacaoPirata.EmitBuzzOnCrit;
 

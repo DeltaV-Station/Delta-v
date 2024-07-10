@@ -186,9 +186,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (prototype?.StartingGear != null)
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
-            EquipStartingGear(entity.Value, startingGear, profile);
+            EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
             if (profile != null)
-                EquipIdCard(entity.Value, profile.Name, prototype, station);
                 InternalEncryptionKeySpawner.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager, profile); // Parkstation - IPC
         }
 
