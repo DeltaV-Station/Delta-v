@@ -58,9 +58,19 @@
 #          - type: TradeStation
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
-#        mining:
-#          paths:
-#          - /Maps/Shuttles/mining.yml
+        mining:
+          hide: true
+          nameGrid: true
+          minCount: 1
+          maxCount: 1
+          paths:
+          - /Maps/Shuttles/DeltaV/mining_broken.yml
+          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
+          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
+          - /Maps/Shuttles/DeltaV/mining_ticks.yml
+          - /Maps/Shuttles/DeltaV/mining_carp.yml
+          - /Maps/Shuttles/DeltaV/mining_snakes.yml
+          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
         ruins:
           hide: true
@@ -86,9 +96,19 @@
         cargo:
           paths:
           - /Maps/Shuttles/cargo_core.yml
-#        mining:
-#          paths:
-#          - /Maps/Shuttles/mining.yml
+        mining:
+          hide: true
+          nameGrid: true
+          minCount: 1
+          maxCount: 1
+          paths:
+          - /Maps/Shuttles/DeltaV/mining_broken.yml
+          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
+          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
+          - /Maps/Shuttles/DeltaV/mining_ticks.yml
+          - /Maps/Shuttles/DeltaV/mining_carp.yml
+          - /Maps/Shuttles/DeltaV/mining_snakes.yml
+          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         ruins:
           hide: true
           nameGrid: true
