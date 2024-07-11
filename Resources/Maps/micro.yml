@@ -15213,6 +15213,16 @@ entities:
     - type: Transform
       pos: 22.5,43.5
       parent: 2
+  - uid: 12341
+    components:
+    - type: Transform
+      pos: 22.5,44.5
+      parent: 2
+  - uid: 12342
+    components:
+    - type: Transform
+      pos: 22.5,45.5
+      parent: 2
 - proto: CableApcStack10
   entities:
   - uid: 2874
@@ -58652,6 +58662,12 @@ entities:
     - type: Transform
       pos: 24.5,39.5
       parent: 2
+  - uid: 12340
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,42.5
+      parent: 2
 - proto: PoweredSmallLight
   entities:
   - uid: 6884
@@ -62446,7 +62462,7 @@ entities:
       parent: 2
     - type: RandomSpawner
       chance: 0.5
-- proto: SalvageLocator
+- proto: SalvageMagnet
   entities:
   - uid: 12319
     components:
