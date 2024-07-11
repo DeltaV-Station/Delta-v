@@ -158,10 +158,9 @@
       state: alive
 
 - type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
   id: SpawnPointGhostSpaceNinja
-  name: ghost role spawn point
-  suffix: space ninja
-  parent: MarkerBase
   components:
   - type: GhostRole
     name: ghost-role-information-space-ninja-name
@@ -172,8 +171,6 @@
     requirements:
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 259200 # DeltaV - 72 hours
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanSpaceNinja
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

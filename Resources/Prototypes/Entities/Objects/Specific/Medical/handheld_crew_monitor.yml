@@ -1,19 +1,14 @@
 - type: entity
   name: handheld crew monitor
   suffix: DO NOT MAP
-  parent:
-  - BaseItem
-  - PowerCellSlotSmallItem
+  parent: BaseHandheldComputer
+  # CMO-only bud, don't add more.
   id: HandheldCrewMonitor
   description: A hand-held crew monitor displaying the status of suit sensors.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
     state: scanner
-  - type: PowerCellDraw
-    drawRate: 0
-    useRate: 20
-  - type: ActivatableUIRequiresPowerCell
   - type: ActivatableUI
     key: enum.CrewMonitoringUIKey.Key
   - type: UserInterface
@@ -27,10 +22,6 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - HandheldCrewMonitor
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -38,6 +29,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: HandheldCrewMonitor
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+    - HandheldCrewMonitor
+
 
 - type: entity
   id: HandheldCrewMonitorEmpty
@@ -47,55 +43,4 @@
   - type: ItemSlots
     slots:
       cell_slot:
-        name: power-cell-slot-component-slot-name-default 
-
-- type: entity
-  id: SpyCrewMonitor
-  name: spy monitor
-  description: A spy device capable of connecting to crew monitoring servers.
-  parent: HandheldCrewMonitor
-  components:
-  - type: Sprite
-    sprite: Objects/Tools/spy_device.rsi
-    state: icon
-  - type: Item
-    sprite: Objects/Tools/spy_device.rsi
-  - type: PowerCellDraw
-    useRate: 10
-  - type: StaticPrice
-    price: 750
-
-- type: entity
-  id: SpyCrewMonitorEmpty
-  parent: SpyCrewMonitor
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default 
-
-- type: entity
-  id: SyndiCrewMonitor
-  name: syndicate crew monitor
-  description: The syndicated version of crew monitor, intercepts information from the server.
-  parent: HandheldCrewMonitor
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
-    state: syndiscanner
-  - type: Item
-    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
-  - type: PowerCellDraw
-    useRate: 40
-
-- type: entity
-  id: SyndiCrewMonitorEmpty
-  parent: SyndiCrewMonitor
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default 
-  
+        name: power-cell-slot-component-slot-name-default
