@@ -1,0 +1,85 @@
+# Base phrases
+
+- type: quickPhrase
+  parent: BaseCivilianPhrase
+  id: BaseCivilianJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseCommandPhrase
+  id: BaseCommandJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseEngineeringPhrase
+  id: BaseEngineeringJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: BaseEpistemicsJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseLogisticsPhrase
+  id: BaseLogisticsJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseMedicalPhrase
+  id: BaseMedicalJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseSecurityPhrase
+  id: BaseSecurityJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseServicePhrase
+  id: BaseServiceJobPhrase
+  tab: Jobs
+  abstract: true
+
+  # Civilian
+
+  # Command
+
+  # Engineering
+
+  # Epistemics
+
+  # Logistics
+
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: LogisticsOfficerPhrase
+  text: job-name-qm
+
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: CargoTechnicianPhrase
+  text: job-name-cargotech
+
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: SalvageSpecialistPhrase
+  text: job-name-salvagespec
+
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: CourierPhrase
+  text: job-name-courier
+  
+  # Medical
+
+  # Security
+
+  # Service
