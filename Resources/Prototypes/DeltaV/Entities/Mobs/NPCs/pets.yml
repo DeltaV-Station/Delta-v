@@ -76,3 +76,130 @@
       department: Justice
       time: 3600 # 1 hours
   - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Silvia
+  id: MobCobraSilvia
+  parent: MobSpaceBasic
+  description: With needle-sharp fangs and an alluring gaze, will you let her bite you?
+  components:
+    - type: HTN
+      rootTask:
+        task: IdleCompound
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: DeltaV/Mobs/Pets/silvia.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: silvia
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: glow
+          shader: unshaded
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepSnake
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        125: Dead
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: silvia
+          BaseUnshaded: glow
+        Dead:
+          Base: dead_silvia
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatSnake
+          amount: 2
+        # Additional healing item?
+        - id: ClothingShoesSnakeskinBoots #different version? wysi
+          amount: 1
+          prob: 0.2
+    - type: Bloodstream
+      bloodMaxVolume: 200
+      bloodReagent: Cryoxadone
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 120
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      angle: 0
+      animation: WeaponArcBite
+      damage:
+        types:
+          Piercing: 6 # take dmg to heal dmg
+    - type: SolutionContainerManager
+      solutions:
+        melee:
+          maxVol: 30
+          reagents:
+          - ReagentId: Omnizine
+            Quantity: 30 #5 bites to heal 90hp/1 min
+    - type: MeleeChemicalInjector
+      solution: melee
+      transferAmount: 6 #heals 24 burn/brute/air/toxin in 12seconds/minus 6 brute per bite
+    - type: SolutionRegeneration
+      solution: melee
+      duration: 30 #regen 1u every 30 seconds. 15 mins to full
+      generated:
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 1
+    - type: ReplacementAccent
+      accent: xeno #Add cool snake accent later. wyci
+    - type: PointLight
+      radius: 1.1
+      energy: 0.25
+      color: "#00ff80"
+    - type: Stealth
+      enabledOnDeath: false
+      maxVisibility: 1.2
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.15
+      movementVisibilityRate: 0.30
+    - type: GhostRole
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-silvia-name
+      description: ghost-role-information-silvia-description
+      rules: ghost-role-information-silvia-rules
+      requirements: #No raiders
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 14400 #4 hours
+    - type: GhostTakeoverAvailable
+    - type: InteractionPopup
+      successChance: 0.65
+      interactSuccessString: petting-success-snake
+      interactFailureString: petting-failure-generic
+      interactSuccessSpawn: EffectHearts
+      interactSuccessSound:
+        path: /Audio/Animals/snake_hiss.ogg
+    - type: NpcFactionMember
+      factions:
+        - PetsNT
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: female
+    - type: Tag
+      tags:
+      - CannotSuicide
+      - VimPilot
+      - DoorBumpOpener
+      - FootstepSound
+    - type: StealTarget
+      stealGroup: AnimalSilvia

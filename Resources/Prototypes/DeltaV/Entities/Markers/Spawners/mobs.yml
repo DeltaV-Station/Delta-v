@@ -64,3 +64,17 @@
   - type: ConditionalSpawner
     prototypes:
     - MobCarpLegal
+    
+- type: entity
+  name: Silvia Spawner
+  id: SpawnMobCMOPetSilvia
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: silvia
+        sprite: DeltaV/Mobs/Pets/silvia.rsi
+  - type: ConditionalSpawner
+    prototypes:
+      - MobCobraSilvia      
