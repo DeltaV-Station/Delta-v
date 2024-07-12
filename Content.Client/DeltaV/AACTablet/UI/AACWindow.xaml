@@ -2,9 +2,10 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Title="AAC Tablet"
     Resizable="False"
-    SetSize="400 300"
-    MinSize="400 300">
-    <BoxContainer Orientation="Vertical" Name="Body">
-        <Label Text="Hello World!" />
-    </BoxContainer>
+    SetSize="540 300"
+    MinSize="540 300">
+    <ScrollContainer HScrollEnabled="False">
+        <GridContainer Margin="10" Columns="4" Name="Body">
+        </GridContainer>
+    </ScrollContainer>
 </controls:FancyWindow>
