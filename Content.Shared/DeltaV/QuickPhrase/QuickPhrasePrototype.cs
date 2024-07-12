@@ -46,6 +46,6 @@ public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingProtot
     /// <summary>
     /// Color of button in UI.
     /// </summary>
-    [DataField("color")]
-    public Color Color { get; private set; } = Color.White;
+    [DataField("styleClass")]
+    public string StyleClass = string.Empty;
 }

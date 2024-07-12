@@ -149,6 +149,31 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
 
+        // DeltaV - AAC button variables
+        public static readonly string CommandButtonClass = "CommandButton";
+        public static readonly string EngineeringButtonClass = "EngineeringButton";
+        public static readonly string EpistemicsButtonClass = "EpistemicsButton";
+        public static readonly string LogisticsButtonClass = "LogisticsButton";
+        public static readonly string MedicalButtonClass = "MedicalButton";
+        public static readonly string SecurityButtonClass = "SecurityButton";
+        public static readonly string ServiceButtonClass = "ServiceButton";
+
+        // DeltaV - AAC button colors
+        public static readonly Color CommandButtonColorDefault = Color.FromHex("#404A58");
+        public static readonly Color CommandColorHovered = Color.FromHex("#4F587B");
+        public static readonly Color EngineeringButtonColorDefault = Color.FromHex("#77684B");
+        public static readonly Color EngineeringColorHovered = Color.FromHex("#776D71");
+        public static readonly Color EpistemicsButtonColorDefault = Color.FromHex("#6F5973");
+        public static readonly Color EpistemicsColorHovered = Color.FromHex("#71638E");
+        public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#61503A");
+        public static readonly Color LogisticsColorHovered = Color.FromHex("#675C64");
+        public static readonly Color MedicalButtonColorDefault = Color.FromHex("#49687D");
+        public static readonly Color MedicalColorHovered = Color.FromHex("#556E95");
+        public static readonly Color SecurityButtonColorDefault = Color.FromHex("#724449");
+        public static readonly Color SecurityColorHovered = Color.FromHex("#745370");
+        public static readonly Color ServiceButtonColorDefault = Color.FromHex("#607952");
+        public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
+
         public override Stylesheet Stylesheet { get; }
 
         public StyleNano(IResourceCache resCache) : base(resCache)
@@ -1599,6 +1624,78 @@ namespace Content.Client.Stylesheets
                     {
                         BackgroundColor = FancyTreeSelectedRowColor,
                     }),
+
+                // DeltaV - AAC button styles
+                Element<ContainerButton>()
+                    .Class(CommandButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, CommandButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(CommandButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, CommandColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(EngineeringButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, EngineeringButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(EngineeringButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, EngineeringColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(EpistemicsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, EpistemicsButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(EpistemicsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, EpistemicsColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(LogisticsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, LogisticsButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(LogisticsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, LogisticsColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(MedicalButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, MedicalButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(MedicalButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, MedicalColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(SecurityButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, SecurityButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(SecurityButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, SecurityColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(ServiceButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, ServiceButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(ServiceButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, ServiceColorHovered),
+
             }).ToList());
         }
     }
