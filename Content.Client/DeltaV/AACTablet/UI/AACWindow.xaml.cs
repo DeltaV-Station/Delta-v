@@ -98,11 +98,13 @@ public sealed partial class AACWindow : FancyWindow
         {
             Access = AccessLevel.Public,
             MaxSize = new Vector2(buttonWidth, buttonWidth),
-            ClipText = false
+            ClipText = false,
+            HorizontalExpand = true
         };
 
         var buttonLabel = new RichTextLabel
         {
+            Margin = new Thickness(0, 5),
             StyleClasses = { "button" },
         };
 
