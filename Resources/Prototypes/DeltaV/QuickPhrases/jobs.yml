@@ -51,12 +51,12 @@
 # Civilian
 
 - type: quickPhrase
-  parent: BaseCivilianPhrase
+  parent: BaseCivilianJobPhrase
   id: PassengerPhrase
   text: job-name-passenger
 
 - type: quickPhrase
-  parent: BaseCivilianPhrase
+  parent: BaseCivilianJobPhrase
   id: VisitorPhrase
   text: job-name-visitor
 
@@ -102,27 +102,27 @@
 # Epistemics
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: BaseEpistemicsJobPhrase
   id: MystagoguePhrase
   text: job-name-rd
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: BaseEpistemicsJobPhrase
   id: PsionicMantisPhrase
   text: job-name-mantis
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: BaseEpistemicsJobPhrase
   id: ScientistPhrase
   text: job-name-scientist
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: BaseEpistemicsJobPhrase
   id: ResearchAssistantPhrase
   text: job-name-research-assistant
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: BaseEpistemicsJobPhrase
   id: BorgPhrase
   text: job-name-borg
 
