@@ -2,7 +2,7 @@
   parent: BaseItem
   id: AACTablet
   name: aac tablet
-  description: An "augmentative and alternative communication" device that allows speech-impaired individuals to communicate with other people.
+  description: An "augmentative and alternative communication" device that allows speech-impaired individuals to communicate.
   components:
   - type: Sprite
     sprite: Objects/Devices/tablets.rsi
@@ -28,4 +28,6 @@
     interfaces:
       enum.AACTabletKey.Key:
         type: AACBoundUserInterface
+  - type: Speech
+    speechSounds: Borg # i like to imagine it's like a text-to-speech
   - type: AACTablet
