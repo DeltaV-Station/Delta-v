@@ -48,15 +48,85 @@
   tab: Jobs
   abstract: true
 
-  # Civilian
+# Civilian
 
-  # Command
+- type: quickPhrase
+  parent: BaseCivilianPhrase
+  id: PassengerPhrase
+  text: job-name-passenger
 
-  # Engineering
+- type: quickPhrase
+  parent: BaseCivilianPhrase
+  id: VisitorPhrase
+  text: job-name-visitor
 
-  # Epistemics
+# Command
 
-  # Logistics
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: CaptainPhrase
+  text: job-name-captain
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase # i know hop is the head of service but i am working off crew manifest namely
+  id: HeadOfPersonnelPhrase
+  text: job-name-hop
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: CentralCommandOfficialPhrase
+  text: job-name-centcomoff
+
+# Engineering
+
+- type: quickPhrase
+  parent: BaseEngineeringJobPhrase
+  id: ChiefEngineerPhrase
+  text: job-name-ce
+
+- type: quickPhrase
+  parent: BaseEngineeringJobPhrase
+  id: AtmosTechPhrase
+  text: job-name-atmostech
+
+- type: quickPhrase
+  parent: BaseEngineeringJobPhrase
+  id: EngineerPhrase
+  text: job-name-engineer
+
+- type: quickPhrase
+  parent: BaseEngineeringJobPhrase
+  id: TechAssistantPhrase
+  text: job-name-technical-assistant
+
+# Epistemics
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: MystagoguePhrase
+  text: job-name-rd
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: PsionicMantisPhrase
+  text: job-name-mantis
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: ScientistPhrase
+  text: job-name-scientist
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: ResearchAssistantPhrase
+  text: job-name-research-assistant
+
+- type: quickPhrase
+  parent: BaseEpistemicsPhrase
+  id: BorgPhrase
+  text: job-name-borg
+
+# Logistics
 
 - type: quickPhrase
   parent: BaseLogisticsJobPhrase
@@ -77,9 +147,148 @@
   parent: BaseLogisticsJobPhrase
   id: CourierPhrase
   text: job-name-courier
-  
-  # Medical
 
-  # Security
+# Medical
 
-  # Service
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: ChiefMedicalOfficerPhrase
+  text: job-name-cmo
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: ChemistPhrase
+  text: job-name-chemist
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: ParamedicPhrase
+  text: job-name-paramedic
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: MedicalDoctorPhrase
+  text: job-name-doctor
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: MedicalInternPhrase
+  text: job-name-intern
+
+# Security
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: HeadOfSecurityPhrase
+  text: job-name-hos
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: WardenPhrase
+  text: job-name-warden
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: SecurityOfficerPhrase
+  text: job-name-security
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: SecurityCadetPhrase
+  text: job-name-cadet
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: PrisonGuardPhrase
+  text: job-name-prisonguard
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: DetectivePhrase
+  text: job-name-detective
+
+# Service
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: BartenderPhrase
+  text: job-name-bartender
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: BotanistPhrase
+  text: job-name-botanist
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ChefPhrase
+  text: job-name-chef
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: JanitorPhrase
+  text: job-name-janitor
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: LibrarianPhrase
+  text: job-name-librarian
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: MusicianPhrase
+  text: job-name-musician
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ClownPhrase
+  text: job-name-clown 
+  # todo: clown pink
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: MimePhrase
+  text: job-name-mime 
+  # todo: mime gray
+
+# Wildcard
+
+- type: quickPhrase
+  parent: BaseCivilianJobPhrase
+  id: BoxerPhrase
+  text: job-name-boxer
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: PsychologistPhrase
+  text: job-name-psychologist
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ReporterPhrase
+  text: job-name-reporter
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ZookeeperPhrase
+  text: job-name-zookeeper
+
+- type: quickPhrase
+  parent: BaseCivilianJobPhrase
+  id: MartialArtistPhease
+  text: job-name-martialartist
+
+- type: quickPhrase
+  parent: BaseCivilianJobPhrase
+  id: PrisonerPhrase
+  text: job-name-prisoner
+
+- type: quickPhrase
+  parent: BaseCivilianJobPhrase
+  id: GladiatorPhrase
+  text: job-name-gladiator
+
+- type: quickPhrase
+  parent: BaseSecurityJobPhrase
+  id: CorpsmanPhrase
+  text: job-name-brigmedic
