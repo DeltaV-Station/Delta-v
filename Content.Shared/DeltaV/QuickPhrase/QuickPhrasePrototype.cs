@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
-namespace Content.Server.DeltaV.QuickPhrase;
+namespace Content.Shared.DeltaV.QuickPhrase;
 
 [Prototype("quickPhrase")]
 public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingPrototype
@@ -10,14 +10,14 @@ public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingProtot
     /// The "in code name" of the object. Must be unique.
     /// </summary>
     [ViewVariables]
-    [IdDataFieldAttribute]
+    [IdDataField]
     public string ID { get; private set; } = default!;
 
     /// <summary>
     /// The prototype we inherit from.
     /// </summary>
     [ViewVariables]
-    [ParentDataFieldAttribute(typeof(AbstractPrototypeIdArraySerializer<QuickPhrasePrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<QuickPhrasePrototype>))]
     public string[]? Parents { get; }
 
     [ViewVariables]

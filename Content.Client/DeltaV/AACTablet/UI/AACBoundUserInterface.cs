@@ -1,7 +1,11 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Client.DeltaV.AACTablet.UI;
 
 public sealed class AACBoundUserInterface : BoundUserInterface
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     [ViewVariables]
     private AACWindow? _window;
 
@@ -13,7 +17,7 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window?.Close();
-        _window = new AACWindow();
+        _window = new AACWindow(this, _prototypeManager);
         _window.OpenCentered();
         _window.OnClose += Close;
     }
