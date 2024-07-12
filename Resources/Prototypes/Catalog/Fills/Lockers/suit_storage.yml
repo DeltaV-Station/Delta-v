@@ -141,6 +141,7 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
         - id: ClothingMaskBreath
+        - id: ClothingShoesBootsMagSec
   - type: AccessReader
     access: [["Security"]]
 
@@ -200,6 +201,7 @@
         - id: JetpackSecurityFilled
         - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
         - id: ClothingMaskGasSwat
+        - id: ClothingShoesBootsMagSec
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
@@ -214,6 +216,7 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
         - id: ClothingMaskBreath
+        - id: ClothingShoesBootsMagSec
   - type: AccessReader
     access: [["Armory"]]
 
@@ -275,6 +278,7 @@
       - id: OxygenTankFilled
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingMaskBreath
+      - id: ClothingShoesBootsMagSec
   - type: AccessReader
     access: [ [ "Corpsman" ] ]
 
