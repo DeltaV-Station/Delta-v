@@ -4,8 +4,6 @@
     Resizable="False"
     SetSize="540 300"
     MinSize="540 300">
-    <ScrollContainer HScrollEnabled="False">
-        <GridContainer Margin="10" Columns="4" Name="Body">
-        </GridContainer>
+    <ScrollContainer HScrollEnabled="False" Name="WindowBody">
     </ScrollContainer>
 </controls:FancyWindow>
