@@ -1,8 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Shared.DeltaV.AACTablet;
-using Content.Shared.DeltaV.QuickPhrase;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Server.DeltaV.AACTablet;
 
