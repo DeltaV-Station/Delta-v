@@ -24,26 +24,33 @@ void fragment() {
     highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
     highp vec4 blackCol = vec4(1,1,1,1);
     highp vec4 addCol = vec4(0);
-    //highp float timesin = 0;
-    //highp float timecos = 0;
 
-    highp vec4 ringColor = vec4(1.0, 0.0, 0.0, 15.0);
-    highp vec4 ringCloseColor = vec4(1.0, 0.0, 0.0, 1.0);
-    highp vec4 ringRandomColor = vec4(1.0, 0.9843, 0.0, 5.0);
-    highp vec4 ringRandomCloseColor = vec4(0.0, 0.0, 0.0, 1.0);
-    highp float ringDencity = 5;
-    highp float ringCloseFallOff = 0.02;
-    highp float ringScale = 2;
-    highp float ringSpeed = 5;
-    highp float ringMinDis = 0.03;
-    highp float ringMaxDis = 0.1;
+
+    /////////////////////////////////////////////////////////
+
+
+    //highp vec4 ringColor = vec4(1.0, 0.0, 0.0, 15.0);
+    //highp vec4 ringCloseColor = vec4(1.0, 0.0, 0.0, 1.0);
+    //highp vec4 ringRandomColor = vec4(1.0, 0.9843, 0.0, 5.0);
+    //highp vec4 ringRandomCloseColor = vec4(0.0, 0.0, 0.0, 1.0);
+    //highp float ringDencity = 5;
+    //highp float ringCloseFallOff = 0.02;
+    //highp float ringScale = 2;
+    //highp float ringSpeed = 5;
+    //highp float ringMinDis = 0.03;
+    //highp float ringMaxDis = 0.1;
+
+
+    /////////////////////////////////////////////////////////
+
+
     highp float deformationPower = 1;
     highp float intensityPower = 3645;
-    highp float falofPower = sqrt(6.4);
     highp float avarageDistance;
     highp float avarageClose;
     highp float testEnergy = 2950;
-    highp vec2 dif;
+    highp float falofPower = sqrt(6.4);
+    //highp vec2 dif;
 
 
 
@@ -51,115 +58,195 @@ void fragment() {
         testEnergy = energy[i];
 
         if(testEnergy<150){
-            ringColor = mix(vec4(0),vec4(1.0, 0.0, 0.0, 15.0)                           ,(testEnergy)/150);
-            ringCloseColor = mix(vec4(0),vec4(1.0, 0.0, 0.0, 1.0)                           ,(testEnergy)/150);
-            ringRandomColor = mix(vec4(0),vec4(1.0, 0.9843, 0.0, 5.0)                           ,(testEnergy)/150);
-            ringRandomCloseColor = mix(vec4(0),vec4(0.0, 0.0, 0.0, 1.0)                           ,(testEnergy)/150);
-            ringDencity = mix(0,4                           ,(testEnergy)/150);
-            ringCloseFallOff = mix(0,0.02                           ,(testEnergy)/150);
-            ringScale = mix(0,2                           ,(testEnergy)/150);
-            ringSpeed = mix(0,3                           ,(testEnergy)/150);
-            ringMinDis = mix(0,0.03                           ,(testEnergy)/150);
-            ringMaxDis = mix(0,0.1                           ,(testEnergy)/150);
-            deformationPower = mix(0,1                           ,(testEnergy)/150);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(0),vec4(1.0, 0.0, 0.0, 15.0)                           ,(testEnergy)/150);
+            //ringCloseColor = mix(vec4(0),vec4(1.0, 0.0, 0.0, 1.0)                           ,(testEnergy)/150);
+            //ringRandomColor = mix(vec4(0),vec4(1.0, 0.9843, 0.0, 5.0)                           ,(testEnergy)/150);
+            //ringRandomCloseColor = mix(vec4(0),vec4(0.0, 0.0, 0.0, 1.0)                           ,(testEnergy)/150);
+            //ringDencity = mix(0,4                           ,(testEnergy)/150);
+            //ringCloseFallOff = mix(0,0.02                           ,(testEnergy)/150);
+            //ringScale = mix(0,2                           ,(testEnergy)/150);
+            //ringSpeed = mix(0,3                           ,(testEnergy)/150);
+            //ringMinDis = mix(0,0.03                           ,(testEnergy)/150);
+            //ringMaxDis = mix(0,0.1                           ,(testEnergy)/150);
+            //deformationPower = mix(0,1                           ,(testEnergy)/150);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(0,3645                           ,(testEnergy)/150);
             falofPower = mix(sqrt(6.4),sqrt(6.4)                           ,(testEnergy)/150);
         }else if(testEnergy>=150&&testEnergy<250){
-            ringColor = mix(vec4(1.0, 0.0, 0.0, 15.0),vec4(0.8, 0.6, 0.0, 15.0)                           ,(testEnergy-150)/100);
-            ringCloseColor = mix(vec4(1.0, 0.0, 0.0, 1.0),vec4(1.0, 0.0, 0.0, 3.0)                           ,(testEnergy-150)/100);
-            ringRandomColor = mix(vec4(1.0, 0.9843, 0.0, 5.0),vec4(1.0, 1.0, 1.0, 15.0)                           ,(testEnergy-150)/100);
-            ringRandomCloseColor = mix(vec4(0.0, 0.0, 0.0, 1.0),vec4(0.0, 0.1, 0.0, 1.0)                           ,(testEnergy-150)/100);
-            ringDencity = mix(4,5                           ,(testEnergy-150)/100);
-            ringCloseFallOff = mix(0.02,0.03                           ,(testEnergy-150)/100);
-            ringScale = mix(2,2.2                           ,(testEnergy-150)/100);
-            ringSpeed = mix(2,2.5                           ,(testEnergy-150)/100);
-            ringMinDis = mix(0.03,0.1                           ,(testEnergy-150)/100);
-            ringMaxDis = mix(0.1,0.25                           ,(testEnergy-150)/100);
-            deformationPower = mix(1,2                           ,(testEnergy-150)/100);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(1.0, 0.0, 0.0, 15.0),vec4(0.8, 0.6, 0.0, 15.0)                           ,(testEnergy-150)/100);
+            //ringCloseColor = mix(vec4(1.0, 0.0, 0.0, 1.0),vec4(1.0, 0.0, 0.0, 3.0)                           ,(testEnergy-150)/100);
+            //ringRandomColor = mix(vec4(1.0, 0.9843, 0.0, 5.0),vec4(1.0, 1.0, 1.0, 15.0)                           ,(testEnergy-150)/100);
+            //ringRandomCloseColor = mix(vec4(0.0, 0.0, 0.0, 1.0),vec4(0.0, 0.1, 0.0, 1.0)                           ,(testEnergy-150)/100);
+            //ringDencity = mix(4,5                           ,(testEnergy-150)/100);
+            //ringCloseFallOff = mix(0.02,0.03                           ,(testEnergy-150)/100);
+            //ringScale = mix(2,2.2                           ,(testEnergy-150)/100);
+            //ringSpeed = mix(2,2.5                           ,(testEnergy-150)/100);
+            //ringMinDis = mix(0.03,0.1                           ,(testEnergy-150)/100);
+            //ringMaxDis = mix(0.1,0.25                           ,(testEnergy-150)/100);
+            //deformationPower = mix(1,2                           ,(testEnergy-150)/100);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(3645,103680                           ,(testEnergy-150)/100);
             falofPower = mix(sqrt(6.4),sqrt(7.0)                           ,(testEnergy-150)/100);
         }else if(testEnergy>=250&&testEnergy<300){
-            ringColor = mix(vec4(0.8, 0.6, 0.0, 15.0),vec4(0.4, 0.7, 1.0, 15.0)                           ,(testEnergy-250)/50);
-            ringCloseColor = mix(vec4(1.0, 0.0, 0.0, 3.0),vec4(0.2, 0.1, 1.0, 1.0)                           ,(testEnergy-250)/50);
-            ringRandomColor = mix(vec4(1.0, 1.0, 1.0, 15.0),vec4(1.0, 0.0, 1.0, 5.0)                           ,(testEnergy-250)/50);
-            ringRandomCloseColor = mix(vec4(0.0, 0.1, 0.0, 1.0),vec4(0.0, 1.1, 0.0, 1.0)                           ,(testEnergy-250)/50);
-            ringDencity = mix(5,5.2                           ,(testEnergy-250)/50);
-            ringCloseFallOff = mix(0.03,0.05                           ,(testEnergy-250)/50);
-            ringScale = mix(2.2,2.2                           ,(testEnergy-250)/50);
-            ringSpeed = mix(2.5,3                           ,(testEnergy-250)/50);
-            ringMinDis = mix(0.1,0.1                           ,(testEnergy-250)/50);
-            ringMaxDis = mix(0.25,0.35                           ,(testEnergy-250)/50);
-            deformationPower = mix(2,2.2                           ,(testEnergy-250)/50);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(0.8, 0.6, 0.0, 15.0),vec4(0.4, 0.7, 1.0, 15.0)                           ,(testEnergy-250)/50);
+            //ringCloseColor = mix(vec4(1.0, 0.0, 0.0, 3.0),vec4(0.2, 0.1, 1.0, 1.0)                           ,(testEnergy-250)/50);
+            //ringRandomColor = mix(vec4(1.0, 1.0, 1.0, 15.0),vec4(1.0, 0.0, 1.0, 5.0)                           ,(testEnergy-250)/50);
+            //ringRandomCloseColor = mix(vec4(0.0, 0.1, 0.0, 1.0),vec4(0.0, 1.1, 0.0, 1.0)                           ,(testEnergy-250)/50);
+            //ringDencity = mix(5,5.2                           ,(testEnergy-250)/50);
+            //ringCloseFallOff = mix(0.03,0.05                           ,(testEnergy-250)/50);
+            //ringScale = mix(2.2,2.2                           ,(testEnergy-250)/50);
+            //ringSpeed = mix(2.5,3                           ,(testEnergy-250)/50);
+            //ringMinDis = mix(0.1,0.1                           ,(testEnergy-250)/50);
+            //ringMaxDis = mix(0.25,0.35                           ,(testEnergy-250)/50);
+            //deformationPower = mix(2,2.2                           ,(testEnergy-250)/50);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(103680,113680                           ,(testEnergy-250)/50);
             falofPower = mix(sqrt(7.0),sqrt(7.2)                           ,(testEnergy-250)/50);
         }else if(testEnergy>=300&&testEnergy<950){
-            ringColor = mix(vec4(0.4, 0.7, 1.0, 15.0),vec4(0.1, 0.0, 1.0, 15.0)                           ,(testEnergy-300)/650);
-            ringCloseColor = mix(vec4(0.2, 0.1, 1.0, 1.0),vec4(0.3, 0.0, 1.0, 1.0)                           ,(testEnergy-300)/650);
-            ringRandomColor = mix(vec4(1.0, 0.0, 1.0, 5.0),vec4(0.8, 1.0, 0.4, 5.0)                           ,(testEnergy-300)/650);
-            ringRandomCloseColor = mix(vec4(0.0, 1.1, 0.0, 1.0),vec4(0.0, 0.2, 0.0, 1.0)                           ,(testEnergy-300)/650);
-            ringDencity = mix(5.2,2.6                           ,(testEnergy-300)/650);
-            ringCloseFallOff = mix(0.05,0.07                           ,(testEnergy-300)/650);
-            ringScale = mix(2.2,2.2                           ,(testEnergy-300)/650);
-            ringSpeed = mix(3,3.5                           ,(testEnergy-300)/650);
-            ringMinDis = mix(0.1,0.17                           ,(testEnergy-300)/650);
-            ringMaxDis = mix(0.35,0.5                           ,(testEnergy-300)/650);
-            deformationPower = mix(2.2,3                           ,(testEnergy-300)/650);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(0.4, 0.7, 1.0, 15.0),vec4(0.1, 0.0, 1.0, 15.0)                           ,(testEnergy-300)/650);
+            //ringCloseColor = mix(vec4(0.2, 0.1, 1.0, 1.0),vec4(0.3, 0.0, 1.0, 1.0)                           ,(testEnergy-300)/650);
+            //ringRandomColor = mix(vec4(1.0, 0.0, 1.0, 5.0),vec4(0.8, 1.0, 0.4, 5.0)                           ,(testEnergy-300)/650);
+            //ringRandomCloseColor = mix(vec4(0.0, 1.1, 0.0, 1.0),vec4(0.0, 0.2, 0.0, 1.0)                           ,(testEnergy-300)/650);
+            //ringDencity = mix(5.2,2.6                           ,(testEnergy-300)/650);
+            //ringCloseFallOff = mix(0.05,0.07                           ,(testEnergy-300)/650);
+            //ringScale = mix(2.2,2.2                           ,(testEnergy-300)/650);
+            //ringSpeed = mix(3,3.5                           ,(testEnergy-300)/650);
+            //ringMinDis = mix(0.1,0.17                           ,(testEnergy-300)/650);
+            //ringMaxDis = mix(0.35,0.5                           ,(testEnergy-300)/650);
+            //deformationPower = mix(2.2,3                           ,(testEnergy-300)/650);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(113680,1113920                           ,(testEnergy-300)/650);
             falofPower = mix(sqrt(7.2),sqrt(8.0)                           ,(testEnergy-300)/650);
         }else if(testEnergy>=950&&testEnergy<1000){
-            ringColor = mix(vec4(0.1, 0.0, 1.0, 15.0),vec4(0.1, 0.0, 0.5, 5.0)                           ,(testEnergy-950)/50);
-            ringCloseColor = mix(vec4(0.3, 0.0, 1.0, 1.0),vec4(0.1725, 0.0, 0.4157, 5.0)                           ,(testEnergy-950)/50);
-            ringRandomColor = mix(vec4(0.8, 1.0, 0.4, 5.0),vec4(1.0, 3.0, 0.5, 15.0)                           ,(testEnergy-950)/50);
-            ringRandomCloseColor = mix(vec4(0.0, 0.2, 0.0, 1.0),vec4(0.3, 1.2, 0.7, 3.0)                           ,(testEnergy-950)/50);
-            ringDencity = mix(6,6                           ,(testEnergy-950)/50);
-            ringCloseFallOff = mix(0.07,0.1                           ,(testEnergy-950)/50);
-            ringScale = mix(2.2,2.3                           ,(testEnergy-950)/50);
-            ringSpeed = mix(3.5,5                           ,(testEnergy-950)/50);
-            ringMinDis = mix(0.17,0.25                           ,(testEnergy-950)/50);
-            ringMaxDis = mix(0.5,0.6                           ,(testEnergy-950)/50);
-            deformationPower = mix(3,4                           ,(testEnergy-950)/50);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(0.1, 0.0, 1.0, 15.0),vec4(0.1, 0.0, 0.5, 5.0)                           ,(testEnergy-950)/50);
+            //ringCloseColor = mix(vec4(0.3, 0.0, 1.0, 1.0),vec4(0.1725, 0.0, 0.4157, 5.0)                           ,(testEnergy-950)/50);
+            //ringRandomColor = mix(vec4(0.8, 1.0, 0.4, 5.0),vec4(1.0, 3.0, 0.5, 15.0)                           ,(testEnergy-950)/50);
+            //ringRandomCloseColor = mix(vec4(0.0, 0.2, 0.0, 1.0),vec4(0.3, 1.2, 0.7, 3.0)                           ,(testEnergy-950)/50);
+            //ringDencity = mix(6,6                           ,(testEnergy-950)/50);
+            //ringCloseFallOff = mix(0.07,0.1                           ,(testEnergy-950)/50);
+            //ringScale = mix(2.2,2.3                           ,(testEnergy-950)/50);
+            //ringSpeed = mix(3.5,5                           ,(testEnergy-950)/50);
+            //ringMinDis = mix(0.17,0.25                           ,(testEnergy-950)/50);
+            //ringMaxDis = mix(0.5,0.6                           ,(testEnergy-950)/50);
+            //deformationPower = mix(3,4                           ,(testEnergy-950)/50);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(1113920,16200000                           ,(testEnergy-950)/50);
             falofPower = mix(sqrt(8.0),sqrt(10.0)                           ,(testEnergy-950)/50);
         }else if(testEnergy>=1000&&testEnergy<1950){
-            ringColor = mix(vec4(0.1, 0.0, 0.5, 5.0),vec4(1.0, 0.0, 0.0, 15.0)                           ,(testEnergy-1000)/950);
-            ringCloseColor = mix(vec4(0.1725, 0.0, 0.4157, 5.0),vec4(0.9294, 0.2, 0.0, 1.0)                           ,(testEnergy-1000)/950);
-            ringRandomColor = mix(vec4(1.0, 3.0, 0.5, 15.0),vec4(1.0, 1.0, 0.0, 15.0)                           ,(testEnergy-1000)/950);
-            ringRandomCloseColor = mix(vec4(0.3, 1.2, 0.7, 3.0),vec4(1.0, 1.0, 1.0, 15.0)                           ,(testEnergy-1000)/950);
-            ringDencity = mix(6,6                           ,(testEnergy-1000)/950);
-            ringCloseFallOff = mix(0.1,0.15                           ,(testEnergy-1000)/950);
-            ringScale = mix(2.3,2.5                           ,(testEnergy-1000)/950);
-            ringSpeed = mix(5,6                           ,(testEnergy-1000)/950);
-            ringMinDis = mix(0.25,0.3                           ,(testEnergy-1000)/950);
-            ringMaxDis = mix(0.6,0.9                           ,(testEnergy-1000)/950);
-            deformationPower = mix(4,5                           ,(testEnergy-1000)/950);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(0.1, 0.0, 0.5, 5.0),vec4(1.0, 0.0, 0.0, 15.0)                           ,(testEnergy-1000)/950);
+            //ringCloseColor = mix(vec4(0.1725, 0.0, 0.4157, 5.0),vec4(0.9294, 0.2, 0.0, 1.0)                           ,(testEnergy-1000)/950);
+            //ringRandomColor = mix(vec4(1.0, 3.0, 0.5, 15.0),vec4(1.0, 1.0, 0.0, 15.0)                           ,(testEnergy-1000)/950);
+            //ringRandomCloseColor = mix(vec4(0.3, 1.2, 0.7, 3.0),vec4(1.0, 1.0, 1.0, 15.0)                           ,(testEnergy-1000)/950);
+            //ringDencity = mix(6,6                           ,(testEnergy-1000)/950);
+            //ringCloseFallOff = mix(0.1,0.15                           ,(testEnergy-1000)/950);
+            //ringScale = mix(2.3,2.5                           ,(testEnergy-1000)/950);
+            //ringSpeed = mix(5,6                           ,(testEnergy-1000)/950);
+            //ringMinDis = mix(0.25,0.3                           ,(testEnergy-1000)/950);
+            //ringMaxDis = mix(0.6,0.9                           ,(testEnergy-1000)/950);
+            //deformationPower = mix(4,5                           ,(testEnergy-1000)/950);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(16200000,180000000                           ,(testEnergy-1000)/950);
             falofPower = mix(sqrt(10.0),sqrt(12.0)                           ,(testEnergy-1000)/950);
         }else if(testEnergy>=1950&&testEnergy<2950){
-            ringColor = mix(vec4(1.0, 0.0, 0.0, 15.0),vec4(0.0, 2.0, 1.0, 15.0)                           ,(testEnergy-1950)/1000);
-            ringCloseColor = mix(vec4(0.9294, 0.2, 0.0, 1.0),vec4(1.0, 0.0, 1.0, 5.0)                           ,(testEnergy-1950)/1000);
-            ringRandomColor = mix(vec4(1.0, 1.0, 0.0, 15.0),vec4(1.0, 1.0, 2.0, 5.0)                           ,(testEnergy-1950)/1000);
-            ringRandomCloseColor = mix(vec4(1.0, 1.0, 1.0, 15.0),vec4(0.0, 0.0, 0.0, 1.0)                           ,(testEnergy-1950)/1000);
-            ringDencity = mix(6,7                           ,(testEnergy-1950)/1000);
-            ringCloseFallOff = mix(0.15,0.2                           ,(testEnergy-1950)/1000);
-            ringScale = mix(2.5,2.7                           ,(testEnergy-1950)/1000);
-            ringSpeed = mix(6,8                           ,(testEnergy-1950)/1000);
-            ringMinDis = mix(0.3,0.35                           ,(testEnergy-1950)/1000);
-            ringMaxDis = mix(0.9,1                           ,(testEnergy-1950)/1000);
-            deformationPower = mix(5,6                           ,(testEnergy-1950)/1000);
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = mix(vec4(1.0, 0.0, 0.0, 15.0),vec4(0.0, 2.0, 1.0, 15.0)                           ,(testEnergy-1950)/1000);
+            //ringCloseColor = mix(vec4(0.9294, 0.2, 0.0, 1.0),vec4(1.0, 0.0, 1.0, 5.0)                           ,(testEnergy-1950)/1000);
+            //ringRandomColor = mix(vec4(1.0, 1.0, 0.0, 15.0),vec4(1.0, 1.0, 2.0, 5.0)                           ,(testEnergy-1950)/1000);
+            //ringRandomCloseColor = mix(vec4(1.0, 1.0, 1.0, 15.0),vec4(0.0, 0.0, 0.0, 1.0)                           ,(testEnergy-1950)/1000);
+            //ringDencity = mix(6,7                           ,(testEnergy-1950)/1000);
+            //ringCloseFallOff = mix(0.15,0.2                           ,(testEnergy-1950)/1000);
+            //ringScale = mix(2.5,2.7                           ,(testEnergy-1950)/1000);
+            //ringSpeed = mix(6,8                           ,(testEnergy-1950)/1000);
+            //ringMinDis = mix(0.3,0.35                           ,(testEnergy-1950)/1000);
+            //ringMaxDis = mix(0.9,1                           ,(testEnergy-1950)/1000);
+            //deformationPower = mix(5,6                           ,(testEnergy-1950)/1000);
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = mix(180000000,280000000                           ,(testEnergy-1950)/1000);
             falofPower = mix(sqrt(12.0),sqrt(12.0)                           ,(testEnergy-1950)/1000);
         }else{
-            ringColor = vec4(0.0, 2.0, 1.0, 15.0);
-            ringCloseColor = vec4(1.0, 0.0, 1.0, 5.0);
-            ringRandomColor =vec4(1.0, 1.0, 2.0, 5.0);
-            ringRandomCloseColor = vec4(0.0, 0.0, 0.0, 1.0);
-            ringDencity = 7;
-            ringCloseFallOff = 0.2;
-            ringScale = 2.7;
-            ringSpeed = 8;
-            ringMinDis = 0.35;
-            ringMaxDis = 1;
-            deformationPower = 6;
+
+
+            /////////////////////////////////////////////////////////
+
+
+            //ringColor = vec4(0.0, 2.0, 1.0, 15.0);
+            //ringCloseColor = vec4(1.0, 0.0, 1.0, 5.0);
+            //ringRandomColor =vec4(1.0, 1.0, 2.0, 5.0);
+            //ringRandomCloseColor = vec4(0.0, 0.0, 0.0, 1.0);
+            //ringDencity = 7;
+            //ringCloseFallOff = 0.2;
+            //ringScale = 2.7;
+            //ringSpeed = 8;
+            //ringMinDis = 0.35;
+            //ringMaxDis = 1;
+            //deformationPower = 6;
+
+
+            /////////////////////////////////////////////////////////
+
+
             intensityPower = 280000000;
             falofPower = sqrt(12.0);
         }
@@ -202,34 +289,65 @@ void fragment() {
         }else{
             finalCoords += deformation*delta;
         }
-        if(avarageDistance < ringMaxDis && avarageDistance > ringMinDis){
-            //addCol = vec4(0.5);
-            ////dif = finalCoords.st - 0.5;
-            //timesin = sin(TIME);
-            //timecos = cos(TIME);
-            //addCol = vec4(vec3(octavePerlinNoise(polarCoordinate(vec3(FRAGCOORD,TIME)))),1);//vec3(zFBM(vec2(polarCoordinate(vec3(delta.xy,15)))/100)),1);
-            //addCol = vec4(vec3(zFBM(vec2(avarageDistance/15,atan(FRAGCOORD.y+position[i].x,FRAGCOORD.x+position[i].y)/57.3248)*150)),1);
-            //highp vec2 uv = FRAGCOORD/SCREEN_PIXEL_SIZE.xy;
-            //highp vec2 cuv = (FRAGCOORD.xy/SCREEN_PIXEL_SIZE.xy - vec2(0.5)) * 2;
 
-            //highp float spiral = atan(cuv.x, cuv.y) / 6.283185307 * 6 - TIME + length(cuv) * 3;
-            //highp float falloff = (1 - length(cuv));
-            //addCol = vec4(vec3(vec3((1. - abs(0.5 - mod(spiral, 1.))) + falloff) * falloff),1);
-            //addCol = vec4(vec3(zFBM(vec2(avarageDistance,atan(delta.y,delta.x)))),1);
-            highp float ringFallOff = pow((avarageDistance<ringMinDis+ringCloseFallOff?(avarageDistance-ringMinDis)*1/ringCloseFallOff:(avarageClose-(1-ringMaxDis))/(ringMaxDis-ringCloseFallOff-ringMinDis)),3);
-            highp float perlinNoicePolarCoords;// = zFBM(vec2((sqrt(deformation)/5+TIME/550*ringSpeed),(abs(0.5-mod(atan(delta.y,delta.x)/3.14159265359,1))+TIME/1.0*ringSpeed)/157.3248)*50*vec2(ringScale/5,ringScale/2));
-            perlinNoicePolarCoords = zFBM(rotateUV(rotateUV(UV,avarageClose*15,vec2(delta)), -TIME *5 ,vec2(delta))/888*ringScale);//avarageClose*3-atan(timecos,timesin)*ringSpeed
-            //perlinNoicePolarCoords = zFBM(vec2(avarageDistance,atan(delta.y, delta.x)/150));
-            addCol += (vec4(vec3(pow(perlinNoicePolarCoords,3)),1)*ringFallOff*
-            mix(mix(ringCloseColor,ringRandomCloseColor,pow(perlinNoicePolarCoords-0.2,2)), mix(ringColor,ringRandomColor,pow(perlinNoicePolarCoords-0.2,2)), ringFallOff))*ringDencity*mix(mix(ringCloseColor,ringRandomCloseColor,pow(perlinNoicePolarCoords-0.2,2)).w, mix(ringColor,ringRandomColor,pow(perlinNoicePolarCoords-0.2,2)).w, ringFallOff);//*(((avarageClose+(avarageClose-1))))////(avarageDistance-ringMinDis)/ringMinDis:(avarageClose+avarageClose/(ringMinDis+0.1))*ringMaxDis
-        }
+
+
+        /////////////////////////////////////////////////////////
+
+
+        //if(avarageDistance < ringMaxDis && avarageDistance > ringMinDis){
+        //    //addCol = vec4(0.5);
+        //    ////dif = finalCoords.st - 0.5;
+        //    //timesin = sin(TIME);
+        //    //timecos = cos(TIME);
+        //    //addCol = vec4(vec3(octavePerlinNoise(polarCoordinate(vec3(FRAGCOORD,TIME)))),1);//vec3(zFBM(vec2(polarCoordinate(vec3(delta.xy,15)))/100)),1);
+        //    //addCol = vec4(vec3(zFBM(vec2(avarageDistance/15,atan(FRAGCOORD.y+position[i].x,FRAGCOORD.x+position[i].y)/57.3248)*150)),1);
+        //    //highp vec2 uv = FRAGCOORD/SCREEN_PIXEL_SIZE.xy;
+        //    //highp vec2 cuv = (FRAGCOORD.xy/SCREEN_PIXEL_SIZE.xy - vec2(0.5)) * 2;
+        //
+        //    //highp float spiral = atan(cuv.x, cuv.y) / 6.283185307 * 6 - TIME + length(cuv) * 3;
+        //    //highp float falloff = (1 - length(cuv));
+        //    //addCol = vec4(vec3(vec3((1. - abs(0.5 - mod(spiral, 1.))) + falloff) * falloff),1);
+        //    //addCol = vec4(vec3(zFBM(vec2(avarageDistance,atan(delta.y,delta.x)))),1);
+        //    highp float ringFallOff = pow((avarageDistance<ringMinDis+ringCloseFallOff?(avarageDistance-ringMinDis)*1/ringCloseFallOff:(avarageClose-(1-ringMaxDis))/(ringMaxDis-ringCloseFallOff-ringMinDis)),3);
+        //    highp float perlinNoicePolarCoords;// = zFBM(vec2((sqrt(deformation)/5+TIME/550*ringSpeed),(abs(0.5-mod(atan(delta.y,delta.x)/3.14159265359,1))+TIME/1.0*ringSpeed)/157.3248)*50*vec2(ringScale/5,ringScale/2));
+        //    perlinNoicePolarCoords = zFBM(rotateUV(rotateUV(UV,avarageClose*15,vec2(delta)), -TIME *5 ,vec2(delta))/888*ringScale);//avarageClose*3-atan(timecos,timesin)*ringSpeed
+        //    //perlinNoicePolarCoords = zFBM(vec2(avarageDistance,atan(delta.y, delta.x)/150));
+        //    addCol += (vec4(vec3(pow(perlinNoicePolarCoords,3)),1)*ringFallOff*
+        //    mix(mix(ringCloseColor,ringRandomCloseColor,pow(perlinNoicePolarCoords-0.2,2)), mix(ringColor,ringRandomColor,pow(perlinNoicePolarCoords-0.2,2)), ringFallOff))*ringDencity*mix(mix(ringCloseColor,ringRandomCloseColor,pow(perlinNoicePolarCoords-0.2,2)).w, mix(ringColor,ringRandomColor,pow(perlinNoicePolarCoords-0.2,2)).w, ringFallOff);//*(((avarageClose+(avarageClose-1))))////(avarageDistance-ringMinDis)/ringMinDis:(avarageClose+avarageClose/(ringMinDis+0.1))*ringMaxDis
+        //}
+
+
+        /////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
         //deformation = min(deformation,0);//0.2 -0.1 = 0.1 /0.1 = 10    0.8       0.2 - 0.1 = 0.1 / 0.1 = 1   0.8
-
     }
-    addCol = vec4(round(addCol.xyz * 25.0) / 25.0, addCol.w);
+
+
+    /////////////////////////////////////////////////////////
+
+
+    //addCol = vec4(round(addCol.xyz * 25.0) / 25.0, addCol.w);
+
+
+    /////////////////////////////////////////////////////////
+
+
+
+
+
     //addCol = vec4(0);
     //addCol = vec4(round(20.0 * FRAGCOORD.xyz) / 20.0, addCol.w);
-
     //vec4(round(color.xyz * 10.0) / 10.0, color.w)
     //finalCoords = min(finalCoords,315);
 
@@ -238,6 +356,29 @@ void fragment() {
     highp vec4 color = (zTextureSpec(SCREEN_TEXTURE, finalCoords*SCREEN_PIXEL_SIZE )+vec4(vec3(addCol),addCol.w))*blackCol;
     COLOR = color;//vec4(vec2(rotaUV(UV, TIME, delta.xy)),0,1);//color;
 }
+
+
+/////////////////////////////////////////////////////////
+
+
+//highp vec2 rotateUV(highp vec2 uv, highp float rotation, highp vec2 mid)
+//{
+//    highp float cosAngle = cos(rotation);
+//    highp float sinAngle = sin(rotation);
+//    highp vec2 p = uv - mid;
+//    return vec2(
+//        cosAngle * p.x + sinAngle * p.y + mid.x,
+//        cosAngle * p.y - sinAngle * p.x + mid.y
+//    );
+//}
+
+/////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 
 //highp float atan2(in highp float y, in highp float x)
@@ -252,16 +393,6 @@ void fragment() {
 //    highp float theta2=atan(p.y,p.z);
 //    return vec3(r,theta1,theta2);
 //}
-highp vec2 rotateUV(highp vec2 uv, highp float rotation, highp vec2 mid)
-{
-    highp float cosAngle = cos(rotation);
-    highp float sinAngle = sin(rotation);
-    highp vec2 p = uv - mid;
-    return vec2(
-        cosAngle * p.x + sinAngle * p.y + mid.x,
-        cosAngle * p.y - sinAngle * p.x + mid.y
-    );
-}
 //
 //highp vec2 rotaUV(highp vec2 uv2, highp float angle, highp vec2 pivot){
 //    //highp vec2 uv2 = UV;
