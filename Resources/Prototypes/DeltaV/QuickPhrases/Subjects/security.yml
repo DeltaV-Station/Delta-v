@@ -4,3 +4,73 @@
   group: Security
   styleClass: SecurityButton
   abstract: true
+
+- type: quickPhrase
+  id: HandcuffsPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: handcuffs
+
+- type: quickPhrase
+  id: StunBatonPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: stun baton
+
+- type: quickPhrase
+  id: DisablerPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: disabler
+
+- type: quickPhrase
+  id: FlashPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: flash
+
+- type: quickPhrase
+  id: FlashbangPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: flashbang
+
+- type: quickPhrase
+  id: ArrestPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: arrest
+
+- type: quickPhrase
+  id: WarrantPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: warrant
+
+- type: quickPhrase
+  id: wantedPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: wanted
+
+- type: quickPhrase
+  id: SearchPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: search
+
+- type: quickPhrase
+  id: DetainPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: detain
+
+- type: quickPhrase
+  id: SuspectPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: suspect
+
+- type: quickPhrase
+  id: ForensicScannerPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: forensic scanner
+
+- type: quickPhrase
+  id: ForensicPadPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: forensic pad
+
+- type: quickPhrase
+  id: LogProbePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: LogProbe

@@ -4,3 +4,143 @@
   group: Service
   styleClass: ServiceButton
   abstract: true
+
+- type: quickPhrase
+  id: MeatPhrase
+  parent: BaseServiceSubjectPhrase
+  text: meat
+
+- type: quickPhrase
+  id: FlourPhrase
+  parent: BaseServiceSubjectPhrase
+  text: flour
+
+- type: quickPhrase
+  id: RicePhrase
+  parent: BaseServiceSubjectPhrase
+  text: rice
+
+- type: quickPhrase
+  id: DoughPhrase
+  parent: BaseServiceSubjectPhrase
+  text: dough
+
+- type: quickPhrase
+  id: BreadPhrase
+  parent: BaseServiceSubjectPhrase
+  text: bread
+
+- type: quickPhrase
+  id: MilkPhrase
+  parent: BaseServiceSubjectPhrase
+  text: milk
+
+- type: quickPhrase
+  id: EggPhrase
+  parent: BaseServiceSubjectPhrase
+  text: egg
+
+- type: quickPhrase
+  id: WheatPhrase
+  parent: BaseServiceSubjectPhrase
+  text: wheat
+
+- type: quickPhrase
+  id: VegetablePhrase
+  parent: BaseServiceSubjectPhrase
+  text: vegetable
+
+- type: quickPhrase
+  id: FruitPhrase
+  parent: BaseServiceSubjectPhrase
+  text: fruit
+
+- type: quickPhrase
+  id: SugarPhrase
+  parent: BaseServiceSubjectPhrase
+  text: sugar
+
+- type: quickPhrase
+  id: DrinkPhrase
+  parent: BaseServiceSubjectPhrase
+  text: drink
+
+- type: quickPhrase
+  id: WaterPhrase
+  parent: BaseServiceSubjectPhrase
+  text: water
+
+- type: quickPhrase
+  id: AlcoholPhrase
+  parent: BaseServiceSubjectPhrase
+  text: alcohol
+
+- type: quickPhrase
+  id: NonAlcoholicPhrase
+  parent: BaseServiceSubjectPhrase
+  text: non-alcoholic
+
+- type: quickPhrase
+  id: JuicePhrase
+  parent: BaseServiceSubjectPhrase
+  text: juice
+
+- type: quickPhrase
+  id: MopPhrase
+  parent: BaseServiceSubjectPhrase
+  text: mop
+
+- type: quickPhrase
+  id: BucketPhrase
+  parent: BaseServiceSubjectPhrase
+  text: bucket
+
+- type: quickPhrase
+  id: SpaceCleanerPhrase
+  parent: BaseServiceSubjectPhrase
+  text: space cleaner
+
+- type: quickPhrase
+  id: Phrase
+  parent: BaseServiceSubjectPhrase
+  text: soap
+
+- type: quickPhrase
+  id: Phrase
+  parent: BaseServiceSubjectPhrase
+  text: trash
+
+- type: quickPhrase
+  id: StagePhrase
+  parent: BaseServiceSubjectPhrase
+  text: stage
+
+- type: quickPhrase
+  id: SeedPhrase
+  parent: BaseServiceSubjectPhrase
+  text: seed
+
+- type: quickPhrase
+  id: PlantPhrase
+  parent: BaseServiceSubjectPhrase
+  text: plant
+
+- type: quickPhrase
+  id: MutagenPhrase
+  parent: BaseServiceSubjectPhrase
+  text: mutagen
+
+- type: quickPhrase
+  id: RobustPhrase
+  parent: BaseServiceSubjectPhrase
+  text: robust harvest
+
+- type: quickPhrase
+  id: WeedPhrase
+  parent: BaseServiceSubjectPhrase
+  text: weed
+
+- type: quickPhrase
+  id: PestPhrase
+  parent: BaseServiceSubjectPhrase
+  text: pest
