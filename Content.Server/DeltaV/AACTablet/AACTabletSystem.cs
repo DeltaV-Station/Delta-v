@@ -1,4 +1,8 @@
 using Content.Server.Chat.Systems;
+using Content.Shared.DeltaV.AACTablet;
+using Content.Shared.DeltaV.QuickPhrase;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.DeltaV.AACTablet;
 
@@ -20,8 +24,19 @@ public sealed class AACTabletSystem : EntitySystem
         if (component.NextPhrase > Timing.CurTime)
             return;
 
+        // the AAC tablet uses the name of the person who pressed the tablet button
+        // for quality of life
+        var senderName = Name(message.Actor);
+        var speakerName = Loc.GetString("speech-name-relay",
+            ("speaker", Name(uid)),
+            ("originalName", senderName));
+
         var phrase = _prototypeManager.Index<QuickPhrasePrototype>(message.PhraseID);
-        _chat.TrySendInGameICMessage(uid, _loc.GetString(phrase.Text), InGameICChatType.Speak, false);
+        _chat.TrySendInGameICMessage(uid,
+            _loc.GetString(phrase.Text),
+            InGameICChatType.Speak,
+            hideChat: false,
+            nameOverride: speakerName);
 
         var curTime = Timing.CurTime;
         component.NextPhrase = curTime + component.Cooldown;
