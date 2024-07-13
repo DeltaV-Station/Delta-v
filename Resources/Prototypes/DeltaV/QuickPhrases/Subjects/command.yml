@@ -21,6 +21,11 @@
   text: id card
 
 - type: quickPhrase
+  id: PDAPhrase
+  parent: BaseCommandSubjectPhrase
+  text: pda
+
+- type: quickPhrase
   id: StampPhrase
   parent: BaseCommandSubjectPhrase
   text: stamp

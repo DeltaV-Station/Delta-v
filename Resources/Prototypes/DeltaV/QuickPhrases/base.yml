@@ -1,13 +1,32 @@
 # Categories
 
 - type: quickPhrase
+  id: BaseCommonPhrase
+  tab: Common Phrases
+  abstract: true
+
+- type: quickPhrase
   id: BaseImperativePhrase
-  tab: Commands
+  parent: BaseCommonPhrase
+  group: Command
   abstract: true
 
 - type: quickPhrase
   id: BaseQuestionPhrase
-  tab: Questions
+  parent: BaseCommonPhrase
+  group: Question
+  abstract: true
+
+- type: quickPhrase
+  id: BaseMannerPhrase
+  parent: BaseCommonPhrase
+  group: Manners
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsPhrase
+  parent: BaseCommonPhrase
+  group: Nouns
   abstract: true
 
 - type: quickPhrase

@@ -143,3 +143,23 @@
   id: PillPhrase
   parent: BaseMedicinePhrase
   text: pill
+
+- type: quickPhrase
+  id: AlivePhrase
+  parent: BaseMedicinePhrase
+  text: alive
+
+- type: quickPhrase
+  id: CritPhrase
+  parent: BaseMedicinePhrase
+  text: critical
+
+- type: quickPhrase
+  id: DeadPhrase
+  parent: BaseMedicinePhrase
+  text: dead
+
+- type: quickPhrase
+  id: HealthyPhrase
+  parent: BaseMedicinePhrase
+  text: healthy

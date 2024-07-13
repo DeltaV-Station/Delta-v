@@ -103,6 +103,51 @@
   parent: BaseSubjectPhrase
   text: space
 
+- type: quickPhrase
+  id: ToolPhrase
+  parent: BaseSubjectPhrase
+  text: tool
+
+- type: quickPhrase
+  id: WeaponPhrase
+  parent: BaseSubjectPhrase
+  text: weapon
+
+- type: quickPhrase
+  id: ArmorPhrase
+  parent: BaseSubjectPhrase
+  text: armor
+
+- type: quickPhrase
+  id: BrainPhrase
+  parent: BaseSubjectPhrase
+  text: brain
+
+- type: quickPhrase
+  id: DrinkPhrase
+  parent: BaseSubjectPhrase
+  text: drink
+
+- type: quickPhrase
+  id: FoodPhrase
+  parent: BaseSubjectPhrase
+  text: food
+
+- type: quickPhrase
+  id: WaterPhrase
+  parent: BaseSubjectPhrase
+  text: water
+
+- type: quickPhrase
+  id: SignaturePhrase
+  parent: BaseSubjectPhrase
+  text: signature
+
+- type: quickPhrase
+  id: BeltPhrase
+  parent: BaseSubjectPhrase
+  text: belt
+
 # Materials
 
 - type: quickPhrase
