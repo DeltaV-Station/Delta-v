@@ -105,7 +105,7 @@
 - type: quickPhrase
   parent: BaseEngineeringLocationPhrase
   id: LocationGravPhrase
-  text: station-beacon-grav
+  text: station-beacon-gravgen
 
 - type: quickPhrase
   parent: BaseEngineeringLocationPhrase
@@ -283,7 +283,7 @@
 - type: quickPhrase
   parent: BaseSecurityLocationPhrase
   id: LocationPermaPhrase
-  text: station-beacon-perma
+  text: station-beacon-perma-brig
 
 - type: quickPhrase
   parent: BaseSecurityLocationPhrase
@@ -340,12 +340,12 @@
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
   id: LocationJaniOfficePhrase
-  text: station-beacon-jani-office
+  text: station-beacon-janitor-office
 
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
   id: LocationJaniClosetPhrase
-  text: station-beacon-jani-closet
+  text: station-beacon-janitor-closet
 
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
@@ -439,3 +439,8 @@
   parent: BaseCivilianLocationPhrase
   id: LocationMaintenancePhrase
   text: Maintenance
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationDisposalsPhrase
+  text: Disposals

@@ -101,12 +101,12 @@
   text: space cleaner
 
 - type: quickPhrase
-  id: Phrase
+  id: SoapPhrase
   parent: BaseServiceSubjectPhrase
   text: soap
 
 - type: quickPhrase
-  id: Phrase
+  id: TrashPhrase
   parent: BaseServiceSubjectPhrase
   text: trash
 
@@ -144,3 +144,8 @@
   id: PestPhrase
   parent: BaseServiceSubjectPhrase
   text: pest
+
+- type: quickPhrase
+  id: KnifePhrase
+  parent: BaseServiceSubjectPhrase
+  text: knife
