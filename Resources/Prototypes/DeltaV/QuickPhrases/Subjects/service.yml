@@ -66,6 +66,11 @@
   text: drink
 
 - type: quickPhrase
+  id: FoodPhrase
+  parent: BaseServiceSubjectPhrase
+  text: food
+
+- type: quickPhrase
   id: WaterPhrase
   parent: BaseServiceSubjectPhrase
   text: water

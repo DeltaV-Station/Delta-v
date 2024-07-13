@@ -1,0 +1,172 @@
+- type: quickPhrase
+  id: PenPhrase
+  parent: BaseSubjectPhrase
+  text: pen
+
+- type: quickPhrase
+  id: PaperPhrase
+  parent: BaseSubjectPhrase
+  text: paper
+
+- type: quickPhrase
+  id: WrenchPhrase
+  parent: BaseSubjectPhrase
+  text: wrench
+
+- type: quickPhrase
+  id: CrowbarPhrase
+  parent: BaseSubjectPhrase
+  text: crowbar
+
+- type: quickPhrase
+  id: ScrewdriverPhrase
+  parent: BaseSubjectPhrase
+  text: screwdriver
+
+- type: quickPhrase
+  id: WirecutterPhrase
+  parent: BaseSubjectPhrase
+  text: wirecutter
+
+- type: quickPhrase
+  id: ToolPhrase
+  parent: BaseSubjectPhrase
+  text: welding tool
+
+- type: quickPhrase
+  id: WeldingMaskPhrase
+  parent: BaseSubjectPhrase
+  text: welding mask
+
+- type: quickPhrase
+  id: ToolboxPhrase
+  parent: BaseSubjectPhrase
+  text: toolbox
+
+- type: quickPhrase
+  id: BeakerPhrase
+  parent: BaseSubjectPhrase
+  text: beaker
+
+- type: quickPhrase
+  id: RadioPhrase
+  parent: BaseSubjectPhrase
+  text: radio
+
+- type: quickPhrase
+  id: UniformPhrase
+  parent: BaseSubjectPhrase
+  text: uniform
+
+- type: quickPhrase
+  id: SuitSensorsPhrase
+  parent: BaseSubjectPhrase
+  text: suit sensors
+
+- type: quickPhrase
+  id: InternalsPhrase
+  parent: BaseSubjectPhrase
+  text: internals
+
+- type: quickPhrase
+  id: GasTankPhrase
+  parent: BaseSubjectPhrase
+  text: gas tank
+
+- type: quickPhrase
+  id: MultitoolPhrase
+  parent: BaseSubjectPhrase
+  text: multitool
+
+- type: quickPhrase
+  id: LathePhrase
+  parent: BaseSubjectPhrase
+  text: lathe
+
+- type: quickPhrase
+  id: ComputerPhrase
+  parent: BaseSubjectPhrase
+  text: computer
+
+- type: quickPhrase
+  id: DoorPhrase
+  parent: BaseSubjectPhrase
+  text: door
+
+- type: quickPhrase
+  id: FirelockPhrase
+  parent: BaseSubjectPhrase
+  text: firelock
+
+- type: quickPhrase
+  id: SpacePhrase
+  parent: BaseSubjectPhrase
+  text: space
+
+# Materials
+
+- type: quickPhrase
+  id: BaseMaterialPhrase
+  parent: BaseSubjectPhrase
+  group: Materials
+  abstract: true
+
+- type: quickPhrase
+  id: SteelPhrase
+  parent: BaseMaterialPhrase
+  text: steel
+
+- type: quickPhrase
+  id: PlasticPhrase
+  parent: BaseMaterialPhrase
+  text: plastic
+
+- type: quickPhrase
+  id: PlasteelPhrase
+  parent: BaseMaterialPhrase
+  text: plasteel
+
+- type: quickPhrase
+  id: PlasmaPhrase
+  parent: BaseMaterialPhrase
+  text: plasma
+
+- type: quickPhrase
+  id: UraniumPhrase
+  parent: BaseMaterialPhrase
+  text: uranium
+
+- type: quickPhrase
+  id: BananiumPhrase
+  parent: BaseMaterialPhrase
+  text: bananium
+
+- type: quickPhrase
+  id: WoodPhrase
+  parent: BaseMaterialPhrase
+  text: wood
+
+- type: quickPhrase
+  id: ClothPhrase
+  parent: BaseMaterialPhrase
+  text: cloth
+
+- type: quickPhrase
+  id: CardboardPhrase
+  parent: BaseMaterialPhrase
+  text: cardboard
+
+- type: quickPhrase
+  id: GoldPhrase
+  parent: BaseMaterialPhrase
+  text: gold
+
+- type: quickPhrase
+  id: SilverPhrase
+  parent: BaseMaterialPhrase
+  text: silver
+
+- type: quickPhrase
+  id: BluespacePhrase
+  parent: BaseMaterialPhrase
+  text: bluespace

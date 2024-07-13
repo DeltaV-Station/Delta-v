@@ -133,3 +133,13 @@
   id: StasisBedPhrase
   parent: BaseMedicinePhrase
   text: stasis bed
+
+- type: quickPhrase
+  id: SyringePhrase
+  parent: BaseMedicinePhrase
+  text: syringe
+
+- type: quickPhrase
+  id: PillPhrase
+  parent: BaseMedicinePhrase
+  text: pill
