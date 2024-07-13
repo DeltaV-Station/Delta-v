@@ -113,7 +113,8 @@
       spawned:
         - id: FoodMeatSnake
           amount: 2
-        # Additional healing item?
+        - id: OmnizineChemistryBottle
+          amount: 1
         - id: ClothingShoesSnakeskinBoots #different version? wysi
           amount: 1
           prob: 0.2
@@ -132,6 +133,7 @@
           layer:
           - MobLayer
     - type: MeleeWeapon
+      attackRate: 1.75 #faster attack rate to compensate for healing in self defense situations
       hidden: true
       soundHit:
         path: /Audio/Effects/bite.ogg
@@ -139,7 +141,7 @@
       animation: WeaponArcBite
       damage:
         types:
-          Piercing: 6 # take dmg to heal dmg
+          Piercing: 6 #take dmg to heal dmg
     - type: SolutionContainerManager
       solutions:
         melee:
