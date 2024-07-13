@@ -86,12 +86,28 @@
   styleClass: ServiceButton
 
 - type: quickPhrase
+  id: SafetyHowToHelpPhrase
+  parent: BaseSafetyStatusPhrase
+  text: How can I help?
+  styleClass: ServiceButton
+
+- type: quickPhrase
+  id: SafetyEvacPhrase
+  parent: BaseSafetyStatusPhrase
+  text: Let's evacuate
+  styleClass: ServiceButton
+
+- type: quickPhrase
   id: SafetyNotPhrase
   parent: BaseSafetyStatusPhrase
   text: not
 
 - type: quickPhrase
-  id: SafetyHowToHelpPhrase
+  id: SafetyNotPhrase
   parent: BaseSafetyStatusPhrase
-  text: How can I help?
-  styleClass: ServiceButton
+  text: not
+
+- type: quickPhrase
+  id: SafetyLostPhrase
+  parent: BaseSafetyStatusPhrase
+  text: lost

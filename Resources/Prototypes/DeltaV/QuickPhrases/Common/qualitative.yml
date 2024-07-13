@@ -48,3 +48,13 @@
   id: SinglePhrase
   parent: BaseQualitativePhrase
   text: Single
+
+- type: quickPhrase
+  id: TooMuchPhrase
+  parent: BaseQualitativePhrase
+  text: Too much
+
+- type: quickPhrase
+  id: NotEnoughPhrase
+  parent: BaseQualitativePhrase
+  text: Not enough

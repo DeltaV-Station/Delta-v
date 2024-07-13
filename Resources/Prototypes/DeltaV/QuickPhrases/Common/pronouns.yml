@@ -43,3 +43,23 @@
   id: ItPhrase
   parent: BaseNounsPhrase
   text: It
+
+- type: quickPhrase
+  id: EveryonePhrase
+  parent: BaseNounsPhrase
+  text: Everyone
+
+- type: quickPhrase
+  id: NoOnePhrase
+  parent: BaseNounsPhrase
+  text: No one
+
+- type: quickPhrase
+  id: AnyonePhrase
+  parent: BaseNounsPhrase
+  text: Anyone
+
+- type: quickPhrase
+  id: MePhrase
+  parent: BaseNounsPhrase
+  text: Me
