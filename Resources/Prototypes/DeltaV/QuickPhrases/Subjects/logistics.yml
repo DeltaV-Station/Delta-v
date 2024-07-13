@@ -6,11 +6,6 @@
   abstract: true
 
 - type: quickPhrase
-  id: ATSPhrase
-  parent: BaseLogisticsSubjectPhrase
-  text: ATS
-
-- type: quickPhrase
   id: BountyPhrase
   parent: BaseLogisticsSubjectPhrase
   text: bounty
@@ -44,11 +39,6 @@
   id: RequestPhrase
   parent: BaseLogisticsSubjectPhrase
   text: request
-
-- type: quickPhrase
-  id: ShipyardPhrase
-  parent: BaseLogisticsSubjectPhrase
-  text: Shipyard
 
 - type: quickPhrase
   id: SpesosPhrase
