@@ -1,0 +1,101 @@
+- type: quickPhrase
+  id: BaseHazardThreatPhrase
+  parent: BaseThreatPhrase
+  group: Hazards
+  styleClass: EngineeringButton
+  abstract: true
+
+- type: quickPhrase
+  id: HazardSpacePhrase
+  parent: BaseHazardThreatPhrase
+  text: spaced
+
+- type: quickPhrase
+  id: HazardLowPresurePhrase
+  parent: BaseHazardThreatPhrase
+  text: low pressure
+
+- type: quickPhrase
+  id: HazardHighPresurePhrase
+  parent: BaseHazardThreatPhrase
+  text: high pressure
+
+- type: quickPhrase
+  id: HazardHeatPhrase
+  parent: BaseHazardThreatPhrase
+  text: overheating
+
+- type: quickPhrase
+  id: HazardColdPhrase
+  parent: BaseHazardThreatPhrase
+  text: freezing
+
+- type: quickPhrase
+  id: HazardGasLeakPhrase
+  parent: BaseHazardThreatPhrase
+  text: gas leak
+
+- type: quickPhrase
+  id: HazardExplosionPhrase
+  parent: BaseHazardThreatPhrase
+  text: explosion
+
+- type: quickPhrase
+  id: HazardRadiationPhrase
+  parent: BaseHazardThreatPhrase
+  text: radiation
+
+- type: quickPhrase
+  id: HazardStructureDamagePhrase
+  parent: BaseHazardThreatPhrase
+  text: structural damage
+
+- type: quickPhrase
+  id: HazardChemicalSpillPhrase
+  parent: BaseHazardThreatPhrase
+  text: chemical spill
+
+- type: quickPhrase
+  id: HazardShockPhrase
+  parent: BaseHazardThreatPhrase
+  text: shock hazard
+
+- type: quickPhrase
+  id: HazardPhrase
+  parent: BaseHazardThreatPhrase
+  text: hazard
+
+- type: quickPhrase
+  id: HazardMeteorsPhrase
+  parent: BaseHazardThreatPhrase
+  text: meteor
+
+- type: quickPhrase
+  id: HazardPoisonPhrase
+  parent: BaseHazardThreatPhrase
+  text: poison
+
+- type: quickPhrase
+  id: HazardFirePhrase
+  parent: BaseHazardThreatPhrase
+  text: fire
+
+- type: quickPhrase
+  id: HazardPowerOutagePhrase
+  parent: BaseHazardThreatPhrase
+  text: power outage
+
+- type: quickPhrase
+  id: HazardLowPhrase
+  parent: BaseHazardThreatPhrase
+  text: low power
+
+- type: quickPhrase
+  id: HazardInfectionPhrase
+  parent: BaseHazardThreatPhrase
+  text: infection
+
+- type: quickPhrase
+  id: HazardViralThreatPhrase
+  parent: BaseHazardThreatPhrase
+  text: viral threat

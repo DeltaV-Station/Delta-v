@@ -1,0 +1,66 @@
+- type: quickPhrase
+  id: BaseHostileThreatPhrase
+  parent: BaseThreatPhrase
+  group: Hostiles
+  styleClass: SecurityButton
+  abstract: true
+
+- type: quickPhrase
+  id: HostileEnemyPhrase
+  parent: BaseHostileThreatPhrase
+  text: enemy
+
+- type: quickPhrase
+  id: HostilePhrase
+  parent: BaseHostileThreatPhrase
+  text: hostile
+
+- type: quickPhrase
+  id: HostileAttackerPhrase
+  parent: BaseHostileThreatPhrase
+  text: attacker
+
+- type: quickPhrase
+  id: HostileLifeformPhrase
+  parent: BaseHostileThreatPhrase
+  text: dangerous lifeform
+
+- type: quickPhrase
+  id: HostileEntityPhrase
+  parent: BaseHostileThreatPhrase
+  text: entity
+
+- type: quickPhrase
+  id: HostileBombPhrase
+  parent: BaseHostileThreatPhrase
+  text: bomb
+
+- type: quickPhrase
+  id: HostileCriminalPhrase
+  parent: BaseHostileThreatPhrase
+  text: criminal
+
+- type: quickPhrase
+  id: HostileIntruderPhrase
+  parent: BaseHostileThreatPhrase
+  text: intruder
+
+- type: quickPhrase
+  id: HostileInfiltratorPhrase
+  parent: BaseHostileThreatPhrase
+  text: infiltrator
+
+- type: quickPhrase
+  id: HostileFugitivePhrase
+  parent: BaseHostileThreatPhrase
+  text: fugitive
+
+- type: quickPhrase
+  id: HostileWeaponPhrase
+  parent: BaseHostileThreatPhrase
+  text: weapon
+
+- type: quickPhrase
+  id: HostileGunPhrase
+  parent: BaseHostileThreatPhrase
+  text: gun

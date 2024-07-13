@@ -1,0 +1,97 @@
+- type: quickPhrase
+  id: BaseSafetyStatusPhrase
+  parent: BaseThreatPhrase
+  group: "! Status"
+  abstract: true
+
+- type: quickPhrase
+  id: SafetySafePhrase
+  parent: BaseSafetyStatusPhrase
+  text: safe
+
+- type: quickPhrase
+  id: SafetyInDangerPhrase
+  parent: BaseSafetyStatusPhrase
+  text: in danger
+
+- type: quickPhrase
+  id: SafetyInjuredPhrase
+  parent: BaseSafetyStatusPhrase
+  text: injured
+
+- type: quickPhrase
+  id: SafetyDyingPhrase
+  parent: BaseSafetyStatusPhrase
+  text: dying
+
+- type: quickPhrase
+  id: SafetyCriticalPhrase
+  parent: BaseSafetyStatusPhrase
+  text: critical
+
+- type: quickPhrase
+  id: SafetyBleedingPhrase
+  parent: BaseSafetyStatusPhrase
+  text: bleeding
+
+- type: quickPhrase
+  id: SafetyDeadPhrase
+  parent: BaseSafetyStatusPhrase
+  text: dead
+
+- type: quickPhrase
+  id: SafetyAlivePhrase
+  parent: BaseSafetyStatusPhrase
+  text: alive
+
+- type: quickPhrase
+  id: SafetyTrustworthyPhrase
+  parent: BaseSafetyStatusPhrase
+  text: trustworthy
+
+- type: quickPhrase
+  id: SafetyEscapePhrase
+  parent: BaseSafetyStatusPhrase
+  text: escape
+
+- type: quickPhrase
+  id: SafetyLeavingPhrase
+  parent: BaseSafetyStatusPhrase
+  text: leaving
+
+- type: quickPhrase
+  id: SafetyNeedPhrase
+  parent: BaseSafetyStatusPhrase
+  text: need
+
+- type: quickPhrase
+  id: SafetyRescuePhrase
+  parent: BaseSafetyStatusPhrase
+  text: rescue
+
+- type: quickPhrase
+  id: SafetyDangerousPhrase
+  parent: BaseSafetyStatusPhrase
+  text: dangerous
+
+- type: quickPhrase
+  id: SafetyHazardousPhrase
+  parent: BaseSafetyStatusPhrase
+  text: hazardous
+
+- type: quickPhrase
+  id: SafetyHereToHelpPhrase
+  parent: BaseSafetyStatusPhrase
+  text: Here to help
+  styleClass: ServiceButton
+
+- type: quickPhrase
+  id: SafetyNotPhrase
+  parent: BaseSafetyStatusPhrase
+  text: not
+
+- type: quickPhrase
+  id: SafetyHowToHelpPhrase
+  parent: BaseSafetyStatusPhrase
+  text: How can I help?
+  styleClass: ServiceButton
