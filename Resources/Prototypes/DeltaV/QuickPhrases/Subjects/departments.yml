@@ -1,0 +1,47 @@
+- type: quickPhrase
+  id: BaseDepartmentSubjectPhrase
+  parent: BaseSubjectPhrase
+  group: Department
+  abstract: true
+
+- type: quickPhrase
+  id: DepartmentCivilianSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Civilian
+  styleClass: CivilianButton
+
+- type: quickPhrase
+  id: DepartmentCommandSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Command
+  styleClass: CommandButton
+
+- type: quickPhrase
+  id: DepartmentEngineeringSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Engineering
+  styleClass: EngineeringButton
+
+- type: quickPhrase
+  id: DepartmentEpistemicsSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Epistemics
+  styleClass: EpistemicsButton
+
+- type: quickPhrase
+  id: DepartmentLogisticsSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Logistics
+  styleClass: LogisticsButton
+
+- type: quickPhrase
+  id: DepartmentMedicalSubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Medical
+  styleClass: MedicalButton
+
+- type: quickPhrase
+  id: DepartmentSecuritySubjectPhrase
+  parent: BaseDepartmentSubjectPhrase
+  text: Security
+  styleClass: SecurityButton

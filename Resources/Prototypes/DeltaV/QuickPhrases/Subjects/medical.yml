@@ -1,0 +1,135 @@
+- type: quickPhrase
+  id: BaseMedicalSubjectPhrase
+  parent: BaseSubjectPhrase
+  group: Medical
+  styleClass: MedicalButton
+  abstract: true
+
+- type: quickPhrase
+  id: BaseDamageTypePhrase
+  parent: BaseMedicalSubjectPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseMedicinePhrase
+  parent: BaseMedicalSubjectPhrase
+  abstract: true
+
+# DAMAGE TYPES
+
+- type: quickPhrase
+  id: DamageBrutePhrase
+  parent: BaseDamageTypePhrase
+  text: damage-group-brute
+
+- type: quickPhrase
+  id: DamageBurnPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-group-burn
+
+- type: quickPhrase
+  id: DamageAirlossPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-group-airloss
+
+- type: quickPhrase
+  id: DamageToxinPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-group-toxin
+
+- type: quickPhrase
+  id: DamageGeneticPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-group-genetic
+
+- type: quickPhrase
+  id: DamageBloodlossPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-bloodloss
+
+- type: quickPhrase
+  id: DamageRadiationPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-radiation
+
+# MEDICAL CHEMS
+
+- type: quickPhrase
+  id: ChemDylovenePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dylovene
+
+- type: quickPhrase
+  id: ChemArithrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-arithrazine
+
+- type: quickPhrase
+  id: ChemBicaridinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-bicaridine
+
+- type: quickPhrase
+  id: ChemDermalinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dermaline
+
+- type: quickPhrase
+  id: ChemDexalinPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dexalin
+
+- type: quickPhrase
+  id: ChemKelotanePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-kelotane
+
+- type: quickPhrase
+  id: ChemTricordrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-tricordrazine
+
+- type: quickPhrase
+  id: ChemOmnizinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-omnizine
+
+- type: quickPhrase
+  id: ChemPyrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-pyrazine
+
+- type: quickPhrase
+  id: TopicalPhrase
+  parent: BaseMedicinePhrase
+  text: topical
+
+- type: quickPhrase
+  id: TopicalBrutePackPhrase
+  parent: BaseMedicinePhrase
+  text: brute pack
+
+- type: quickPhrase
+  id: TopicalGauzePhrase
+  parent: BaseMedicinePhrase
+  text: gauze
+
+- type: quickPhrase
+  id: TopicalBloodpackPhrase
+  parent: BaseMedicinePhrase
+  text: bloodpack
+
+- type: quickPhrase
+  id: DefibrillatorPhrase
+  parent: BaseMedicinePhrase
+  text: defibrillator
+
+- type: quickPhrase
+  id: CryopodPhrase
+  parent: BaseMedicinePhrase
+  text: cryopod
+
+- type: quickPhrase
+  id: StasisBedPhrase
+  parent: BaseMedicinePhrase
+  text: stasis bed

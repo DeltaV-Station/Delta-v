@@ -1,0 +1,91 @@
+- type: quickPhrase
+  id: BaseEpistemicsSubjectPhrase
+  parent: BaseSubjectPhrase
+  group: Epistemics
+  styleClass: EpistemicsButton
+  abstract: true
+
+- type: quickPhrase
+  id: AnomalyPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: anomaly
+
+- type: quickPhrase
+  id: APEPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: A.P.E.
+
+- type: quickPhrase
+  id: AnomalyVesselPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: anomaly vessel
+
+- type: quickPhrase
+  id: ArtifactPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: artifact
+
+- type: quickPhrase
+  id: ArtifactContainerPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: artifact container
+
+- type: quickPhrase
+  id: RoboticsPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: robotics
+
+- type: quickPhrase
+  id: CircuitBoardPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: circuit board
+
+- type: quickPhrase
+  id: ResearchPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: research
+
+- type: quickPhrase
+  id: ResearchConsolePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: R&D computer
+
+- type: quickPhrase
+  id: OraclePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: Oracle
+
+- type: quickPhrase
+  id: SophiePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: Sophie
+
+- type: quickPhrase
+  id: GlimmerPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: glimmer
+
+- type: quickPhrase
+  id: PsionicsPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: psionics
+
+- type: quickPhrase
+  id: LotophagolOilPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: lotophagol oil
+
+- type: quickPhrase
+  id: MindbreakPhase
+  parent: BaseEpistemicsSubjectPhrase
+  text: mindbreak
+
+- type: quickPhrase
+  id: ProtolathePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: protolathe
+
+- type: quickPhrase
+  id: CircuitImprinterPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: circuit imprinter

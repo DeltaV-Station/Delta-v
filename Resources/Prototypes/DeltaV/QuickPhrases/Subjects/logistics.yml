@@ -1,0 +1,56 @@
+- type: quickPhrase
+  id: BaseLogisticsSubjectPhrase
+  parent: BaseSubjectPhrase
+  group: Logistics
+  styleClass: LogisticsButton
+  abstract: true
+
+- type: quickPhrase
+  id: ATSPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: ATS
+
+- type: quickPhrase
+  id: BountyPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: bounty
+
+- type: quickPhrase
+  id: CargoShuttlePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: cargo shuttle
+
+- type: quickPhrase
+  id: CratePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: crate
+
+- type: quickPhrase
+  id: MailPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: mail
+
+- type: quickPhrase
+  id: OrderPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: order
+
+- type: quickPhrase
+  id: OreProcessorPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: ore processor
+
+- type: quickPhrase
+  id: RequestPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: request
+
+- type: quickPhrase
+  id: ShipyardPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: Shipyard
+
+- type: quickPhrase
+  id: SpesosPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: spesos

@@ -1,3 +1,22 @@
+# Categories
+
+- type: quickPhrase
+  id: BaseImperativePhrase
+  tab: Commands
+  abstract: true
+
+- type: quickPhrase
+  id: BaseQuestionPhrase
+  tab: Questions
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSubjectPhrase
+  tab: Subjects / Objects
+  abstract: true
+
+# Departments
+
 - type: quickPhrase
   id: BaseCivilianPhrase
   group: Civilian

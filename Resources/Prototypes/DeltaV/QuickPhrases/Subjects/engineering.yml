@@ -1,0 +1,116 @@
+- type: quickPhrase
+  id: BaseEngineeringSubjectPhrase
+  parent: BaseSubjectPhrase
+  group: Engineering
+  styleClass: EngineeringButton
+  abstract: true
+
+- type: quickPhrase
+  id: AMEPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: AME
+
+- type: quickPhrase
+  id: APCPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: APC
+
+- type: quickPhrase
+  id: CanisterPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: canister
+
+- type: quickPhrase
+  id: CompressedMatterPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: compressed matter
+
+- type: quickPhrase
+  id: FrezonPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: frezon
+
+- type: quickPhrase
+  id: GravityPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gravity
+
+- type: quickPhrase
+  id: HVWirePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: HV cable
+
+- type: quickPhrase
+  id: LVWirePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: LV cable
+
+- type: quickPhrase
+  id: MVWirePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: MV cable
+
+- type: quickPhrase
+  id: NetworkConfiguratorPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: network configurator
+
+- type: quickPhrase
+  id: NitrogenPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: nitrogen
+
+- type: quickPhrase
+  id: OxygenPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: oxygen
+
+- type: quickPhrase
+  id: RCDPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: RCD
+
+- type: quickPhrase
+  id: RTGPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: RTG
+
+- type: quickPhrase
+  id: ScrubberPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: scrubber
+
+- type: quickPhrase
+  id: SinguloPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: singularity
+
+- type: quickPhrase
+  id: SMESPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: SMES
+
+- type: quickPhrase
+  id: SubstationPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: substation
+
+- type: quickPhrase
+  id: TRayScanner
+  parent: BaseEngineeringSubjectPhrase
+  text: t-ray scanner
+
+- type: quickPhrase
+  id: TEGPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: TEG
+
+- type: quickPhrase
+  id: TeslaPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: tesla
+
+- type: quickPhrase
+  id: TritiumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: tritium
