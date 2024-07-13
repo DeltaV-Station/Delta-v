@@ -1,4 +1,10 @@
 - type: quickPhrase
+  id: BaseNounsPhrase
+  parent: BaseCommonPhrase
+  group: Nouns
+  abstract: true
+
+- type: quickPhrase
   id: IPhrase
   parent: BaseNounsPhrase
   text: I

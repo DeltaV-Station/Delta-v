@@ -1,4 +1,10 @@
 - type: quickPhrase
+  id: BaseImperativePhrase
+  parent: BaseCommonPhrase
+  group: Command
+  abstract: true
+
+- type: quickPhrase
   id: GiveMePhrase
   parent: BaseImperativePhrase
   text: Give

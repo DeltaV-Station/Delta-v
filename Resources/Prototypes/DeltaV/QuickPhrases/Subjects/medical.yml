@@ -135,6 +135,26 @@
   text: stasis bed
 
 - type: quickPhrase
+  id: FirstAidKitPhrase
+  parent: BaseMedicinePhrase
+  text: first-aid kit
+
+- type: quickPhrase
+  id: ClonePhrase
+  parent: BaseMedicinePhrase
+  text: clone
+
+- type: quickPhrase
+  id: CloningPodPhrase
+  parent: BaseMedicinePhrase
+  text: cloning pod
+
+- type: quickPhrase
+  id: BiomassPhrase
+  parent: BaseMedicinePhrase
+  text: biomass
+
+- type: quickPhrase
   id: SyringePhrase
   parent: BaseMedicinePhrase
   text: syringe

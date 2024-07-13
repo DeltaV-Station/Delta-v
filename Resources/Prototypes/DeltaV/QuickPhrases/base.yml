@@ -6,32 +6,18 @@
   abstract: true
 
 - type: quickPhrase
-  id: BaseImperativePhrase
-  parent: BaseCommonPhrase
-  group: Command
-  abstract: true
-
-- type: quickPhrase
-  id: BaseQuestionPhrase
-  parent: BaseCommonPhrase
-  group: Question
-  abstract: true
-
-- type: quickPhrase
-  id: BaseMannerPhrase
-  parent: BaseCommonPhrase
-  group: Manners
-  abstract: true
-
-- type: quickPhrase
-  id: BaseNounsPhrase
-  parent: BaseCommonPhrase
-  group: Nouns
-  abstract: true
-
-- type: quickPhrase
   id: BaseSubjectPhrase
-  tab: Subjects / Objects
+  tab: Subjects
+  abstract: true
+
+- type: quickPhrase
+  id: BaseThreatPhrase
+  tab: Threats
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSpeciesPhrase
+  tab: Species
   abstract: true
 
 # Departments

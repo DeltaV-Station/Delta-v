@@ -1,0 +1,50 @@
+- type: quickPhrase
+  id: BaseQualitativePhrase
+  parent: BaseCommonPhrase
+  group: Quantity or Quality
+  abstract: true
+
+- type: quickPhrase
+  id: MorePhrase
+  parent: BaseQualitativePhrase
+  text: More
+
+- type: quickPhrase
+  id: LessPhrase
+  parent: BaseQualitativePhrase
+  text: Less
+
+- type: quickPhrase
+  id: AllPhrase
+  parent: BaseQualitativePhrase
+  text: All
+
+- type: quickPhrase
+  id: NothingPhrase
+  parent: BaseQualitativePhrase
+  text: Nothing
+
+- type: quickPhrase
+  id: MostPhrase
+  parent: BaseQualitativePhrase
+  text: Most
+
+- type: quickPhrase
+  id: SomePhrase
+  parent: BaseQualitativePhrase
+  text: Some
+
+- type: quickPhrase
+  id: ManyPhrase
+  parent: BaseQualitativePhrase
+  text: Many
+
+- type: quickPhrase
+  id: FewPhrase
+  parent: BaseQualitativePhrase
+  text: Few
+
+- type: quickPhrase
+  id: SinglePhrase
+  parent: BaseQualitativePhrase
+  text: Single

@@ -1,4 +1,10 @@
 - type: quickPhrase
+  id: BaseQuestionPhrase
+  parent: BaseCommonPhrase
+  group: Question
+  abstract: true
+
+- type: quickPhrase
   id: WherePhrase
   parent: BaseQuestionPhrase
   text: Where

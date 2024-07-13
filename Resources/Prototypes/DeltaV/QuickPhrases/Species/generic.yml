@@ -1,0 +1,55 @@
+- type: quickPhrase
+  id: BaseGenericSpeciesPhrase
+  parent: BaseSpeciesPhrase
+  group: Generic
+  abstract: true
+
+- type: quickPhrase
+  id: SpeciesPersonPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: person
+
+- type: quickPhrase
+  id: SpeciesAnimalPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: animal
+
+- type: quickPhrase
+  id: SpeciesCorpsePhrase
+  parent: BaseGenericSpeciesPhrase
+  text: corpse
+
+- type: quickPhrase
+  id: SpeciesRobotPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: robot
+
+- type: quickPhrase
+  id: SpeciesAlienPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: alien
+
+- type: quickPhrase
+  id: SpeciesMonsterPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: monster
+
+- type: quickPhrase
+  id: SpeciesGhostPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: ghost
+
+- type: quickPhrase
+  id: SpeciesPestPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: pest
+
+- type: quickPhrase
+  id: SpeciesInsectPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: insect
+
+- type: quickPhrase
+  id: SpeciesPetPhrase
+  parent: BaseGenericSpeciesPhrase
+  text: pet

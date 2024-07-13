@@ -1,0 +1,85 @@
+- type: quickPhrase
+  id: BaseNumberPhrase
+  parent: BaseCommonPhrase
+  group: Numbers
+  abstract: true
+
+- type: quickPhrase
+  id: Number1Phrase
+  parent: BaseNumberPhrase
+  text: "1"
+
+- type: quickPhrase
+  id: Number2Phrase
+  parent: BaseNumberPhrase
+  text: "2"
+
+- type: quickPhrase
+  id: Number3Phrase
+  parent: BaseNumberPhrase
+  text: "3"
+
+- type: quickPhrase
+  id: Number4Phrase
+  parent: BaseNumberPhrase
+  text: "4"
+
+- type: quickPhrase
+  id: Number5Phrase
+  parent: BaseNumberPhrase
+  text: "5"
+
+- type: quickPhrase
+  id: Number6Phrase
+  parent: BaseNumberPhrase
+  text: "6"
+
+- type: quickPhrase
+  id: Number7Phrase
+  parent: BaseNumberPhrase
+  text: "7"
+
+- type: quickPhrase
+  id: Number8Phrase
+  parent: BaseNumberPhrase
+  text: "8"
+
+- type: quickPhrase
+  id: Number9Phrase
+  parent: BaseNumberPhrase
+  text: "9"
+
+- type: quickPhrase
+  id: Number0Phrase
+  parent: BaseNumberPhrase
+  text: "0"
+
+- type: quickPhrase
+  id: NumberTenPhrase
+  parent: BaseNumberPhrase
+  text: ten
+
+- type: quickPhrase
+  id: NumberHundredPhrase
+  parent: BaseNumberPhrase
+  text: hundred
+
+- type: quickPhrase
+  id: NumberThousandPhrase
+  parent: BaseNumberPhrase
+  text: thousand
+
+- type: quickPhrase
+  id: NumberMillionPhrase
+  parent: BaseNumberPhrase
+  text: million
+
+- type: quickPhrase
+  id: NumberBillionPhrase
+  parent: BaseNumberPhrase
+  text: billion
+
+- type: quickPhrase
+  id: NumberStackPhrase
+  parent: BaseNumberPhrase
+  text: stack

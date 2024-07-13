@@ -1,4 +1,10 @@
 - type: quickPhrase
+  id: BaseMannerPhrase
+  parent: BaseCommonPhrase
+  group: Manners
+  abstract: true
+
+- type: quickPhrase
   id: HelloPhrase
   parent: BaseMannerPhrase
   text: Hello
