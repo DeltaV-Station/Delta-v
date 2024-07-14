@@ -1,5 +1,3 @@
-# Base phrases
-
 - type: quickPhrase
   parent: BaseCivilianPhrase
   id: BaseCivilianJobPhrase
@@ -48,8 +46,6 @@
   tab: Jobs
   abstract: true
 
-# Civilian
-
 - type: quickPhrase
   parent: BaseCivilianJobPhrase
   id: PassengerPhrase
@@ -60,15 +56,13 @@
   id: VisitorPhrase
   text: job-name-visitor
 
-# Command
-
 - type: quickPhrase
   parent: BaseCommandJobPhrase
   id: CaptainPhrase
   text: job-name-captain
 
 - type: quickPhrase
-  parent: BaseCommandJobPhrase # i know hop is the head of service but i am working off crew manifest namely
+  parent: BaseCommandJobPhrase
   id: HeadOfPersonnelPhrase
   text: job-name-hop
 
@@ -76,8 +70,6 @@
   parent: BaseCommandJobPhrase
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
-
-# Engineering
 
 - type: quickPhrase
   parent: BaseEngineeringJobPhrase
@@ -98,8 +90,6 @@
   parent: BaseEngineeringJobPhrase
   id: TechAssistantPhrase
   text: job-name-technical-assistant
-
-# Epistemics
 
 - type: quickPhrase
   parent: BaseEpistemicsJobPhrase
@@ -126,8 +116,6 @@
   id: BorgPhrase
   text: job-name-borg
 
-# Logistics
-
 - type: quickPhrase
   parent: BaseLogisticsJobPhrase
   id: LogisticsOfficerPhrase
@@ -147,8 +135,6 @@
   parent: BaseLogisticsJobPhrase
   id: CourierPhrase
   text: job-name-courier
-
-# Medical
 
 - type: quickPhrase
   parent: BaseMedicalJobPhrase
@@ -174,8 +160,6 @@
   parent: BaseMedicalJobPhrase
   id: MedicalInternPhrase
   text: job-name-intern
-
-# Security
 
 - type: quickPhrase
   parent: BaseSecurityJobPhrase
@@ -206,8 +190,6 @@
   parent: BaseSecurityJobPhrase
   id: DetectivePhrase
   text: job-name-detective
-
-# Service
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
@@ -242,16 +224,12 @@
 - type: quickPhrase
   parent: BaseServiceJobPhrase
   id: ClownPhrase
-  text: job-name-clown 
-  # todo: clown pink
+  text: job-name-clown
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
   id: MimePhrase
-  text: job-name-mime 
-  # todo: mime gray
-
-# Wildcard
+  text: job-name-mime
 
 - type: quickPhrase
   parent: BaseCivilianJobPhrase

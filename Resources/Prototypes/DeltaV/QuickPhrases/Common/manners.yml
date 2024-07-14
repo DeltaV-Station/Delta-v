@@ -7,64 +7,69 @@
 - type: quickPhrase
   id: HelloPhrase
   parent: BaseMannerPhrase
-  text: Hello
+  text: phrase-hello
 
 - type: quickPhrase
   id: ByePhrase
   parent: BaseMannerPhrase
-  text: Goodbye
+  text: phrase-bye
 
 - type: quickPhrase
   id: CyaPhrase
   parent: BaseMannerPhrase
-  text: See you later
+  text: phrase-cya
 
 - type: quickPhrase
   id: PleasePhrase
   parent: BaseMannerPhrase
-  text: Please
+  text: phrase-please
 
 - type: quickPhrase
   id: TyPhrase
   parent: BaseMannerPhrase
-  text: Thank you
+  text: phrase-ty
 
 - type: quickPhrase
   id: NpPhrase
   parent: BaseMannerPhrase
-  text: No problem
+  text: phrase-np
 
 - type: quickPhrase
   id: YwPhrase
   parent: BaseMannerPhrase
-  text: You're welcome
+  text: phrase-yw
 
 - type: quickPhrase
   id: SorryPhrase
   parent: BaseMannerPhrase
-  text: Sorry
+  text: phrase-sorry
 
 - type: quickPhrase
   id: DwPhrase
   parent: BaseMannerPhrase
-  text: Don't worry
+  text: phrase-dw
 
 - type: quickPhrase
   id: YesPhrase
   parent: BaseMannerPhrase
-  text: "Yes"
+  text: phrase-yes
 
 - type: quickPhrase
   id: NoPhrase
   parent: BaseMannerPhrase
-  text: "No"
+  text: phrase-no
 
 - type: quickPhrase
   id: MaybePhrase
   parent: BaseMannerPhrase
-  text: Maybe
+  text: phrase-maybe
+
+- type: quickPhrase
+  id: OkPhrase
+  parent: BaseMannerPhrase
+  text: phrase-ok
 
 - type: quickPhrase
   id: KindaPhrase
   parent: BaseMannerPhrase
-  text: Somewhat
+  text: phrase-kinda
