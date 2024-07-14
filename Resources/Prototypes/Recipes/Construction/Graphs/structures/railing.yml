@@ -7,6 +7,7 @@
         - to: railing
           completed:
             - !type:SnapToGrid
+            # DeltaV: railings no longer forced to face south
           steps:
             - material: MetalRod
               amount: 1
@@ -14,6 +15,7 @@
         - to: railingCorner
           completed:
             - !type:SnapToGrid
+            # DeltaV: railings no longer forced to face south
           steps:
             - material: MetalRod
               amount: 2
@@ -21,6 +23,7 @@
         - to: railingCornerSmall
           completed:
             - !type:SnapToGrid
+            # DeltaV: railings no longer forced to face south
           steps:
             - material: MetalRod
               amount: 1
@@ -28,6 +31,7 @@
         - to: railingRound
           completed:
             - !type:SnapToGrid
+            # DeltaV: railings no longer forced to face south
           steps:
             - material: MetalRod
               amount: 2
