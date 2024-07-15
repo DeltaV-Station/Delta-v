@@ -65,3 +65,15 @@
     contents:
     - id: WeaponEnergyGunMini
       amount: 3
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeM90Rifle
+  name: M-90 rifle safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleM90
+      amount: 2
+    - id: MagazineRifle
+      amount: 4

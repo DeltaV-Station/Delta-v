@@ -17,6 +17,42 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoS
 
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpsuitGrey
+  equipment: HeadofSecurityJumpsuitGrey
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityJumpsuitGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSGrey
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpskirtGrey
+  equipment: HeadofSecurityJumpskirtGrey
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityJumpskirtGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSGrey
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpsuitBlue
+  equipment: HeadofSecurityJumpsuitBlue
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSBlue
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpskirtBlue
+  equipment: HeadofSecurityJumpskirtBlue
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSBlue
+
 - type: loadout
   id: HeadofSecurityTurtleneck
   equipment: HeadofSecurityTurtleneck
@@ -110,30 +146,29 @@
     neck: ClothingNeckMantleHOS
 
 # OuterClothing
-- type: loadout
-  id: HeadofSecurityCoat
-  equipment: HeadofSecurityCoat
+#- type: loadout # DeltaV
+#  id: HeadofSecurityCoat
+#  equipment: HeadofSecurityCoat
 
-- type: startingGear
-  id: HeadofSecurityCoat
-  equipment:
-    outerClothing: ClothingOuterCoatHoSTrench
+#- type: startingGear # DeltaV
+#  id: HeadofSecurityCoat
+#  equipment:
+#    outerClothing: ClothingOuterCoatHoSTrench
 
-- type: loadout
-  id: HeadofSecurityWinterCoat
-  equipment: HeadofSecurityWinterCoat
+#- type: loadout # DeltaV
+#  id: HeadofSecurityWinterCoat
+#  equipment: HeadofSecurityWinterCoat
 
-- type: startingGear
-  id: HeadofSecurityWinterCoat
-  equipment:
-    outerClothing: ClothingOuterWinterHoS
+#- type: startingGear # DeltaV
+#  id: HeadofSecurityWinterCoat
+#  equipment:
+#    outerClothing: ClothingOuterWinterHoS
 
-# Shoes - DeltaV
 - type: loadout # DeltaV
-  id: HeadOfSecurityWinterBoots
-  equipment: HeadOfSecurityWinterBoots
+  id: HoSStasecCoat
+  equipment: HoSStasecCoat
 
 - type: startingGear # DeltaV
-  id: HeadOfSecurityWinterBoots
+  id: HoSStasecCoat
   equipment:
-    shoes: ClothingShoesBootsWinterHeadOfSecurity
+    outerClothing: ClothingOuterStasecCoatHoS

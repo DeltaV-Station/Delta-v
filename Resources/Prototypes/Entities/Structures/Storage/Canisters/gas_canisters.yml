@@ -101,7 +101,7 @@
     - type: StaticPrice
       price: 1000
     - type: AccessReader
-      access: [["Atmospherics"], ["Engineering"], ["Research"]]
+      access: [["Atmospherics"], ["Engineering"]] # DeltaV - removed research
     - type: Lock
       locked: false
 
