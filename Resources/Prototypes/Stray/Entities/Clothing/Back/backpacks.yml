@@ -4,3 +4,50 @@
   components:
   - type: Sprite
     sprite: Stray/Clothing/Back/Backpacks/brigmedic_alt.rsi
+
+  parent: ClothingBackpack
+  id: ClothingBackpackEcclesia
+  name: techpriest backpack
+  description: It's a very robust backpack.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Backpacks/ecclesia.rsi
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 10
+      temperature: 293.15
+    tankLowPressure: 30.0
+  - type: InteractionOutline
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+        - SurveillanceCamera
+        - SurveillanceCameraMonitor
+        - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraScience
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraSetupUiKey.Camera:
+        type: SurveillanceCameraSetupBoundUi
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackRobo
+  name: robotics backpack
+  description: It's a very robust backpack.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Backpacks/robo.rsi

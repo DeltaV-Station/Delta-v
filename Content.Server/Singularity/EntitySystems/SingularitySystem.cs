@@ -86,6 +86,11 @@ public sealed class SingularitySystem : SharedSingularitySystem
             var curTime = _timing.CurTime;
             if (singularity.NextUpdateTime <= curTime)
                 Update(uid, curTime - singularity.LastUpdateTime, singularity);
+            if(TryComp(uid, out SingularityDistortionComponent? sinDist)){
+                sinDist.Energy = singularity.Energy;
+                Dirty(uid,sinDist);
+
+            }
         }
     }
 
@@ -135,6 +140,9 @@ public sealed class SingularitySystem : SharedSingularitySystem
             return;
 
         singularity.Energy = value;
+
+
+
         SetLevel(uid, value switch
         {
             >= 5000 when HasEatenSM => 6,

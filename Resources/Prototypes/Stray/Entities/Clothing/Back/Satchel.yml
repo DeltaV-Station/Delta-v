@@ -17,3 +17,11 @@
   components:
   - type: Sprite
     sprite: Stray/Clothing/Back/Satchels/brigmedic_alt.rsi
+
+  parent: ClothingBackpack
+  id: ClothingBackpackSatchelRobo
+  name: robotics satchel
+  description: It's a very robust satchel.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchel/robo.rsi

@@ -1,6 +1,6 @@
 - type: entity
   noSpawn: true
-  parent: ClothingBackpackSecurity
+  parent: ClothingBackpackSatchelRobo
   id: ClothingBackpackSatchelRoboFilled
   name: сумка робототехника
   components:
@@ -16,3 +16,23 @@
     - type: StorageFill
       contents:
         - id: BoxSurvival
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBlueShieldFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+      - id: Flash
+      - id: BruteAutoInjector
+        amount: 2
+      - id: BurnAutoInjector
+        amount: 2
+      - id: HandheldCrewMonitor
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

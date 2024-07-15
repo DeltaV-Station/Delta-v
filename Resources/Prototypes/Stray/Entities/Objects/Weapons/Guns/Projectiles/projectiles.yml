@@ -20,3 +20,28 @@
     radius: 3.5
     color: blue
     energy: 0.5
+
+- type: entity
+  id: BulletKineticMine
+  name: kinetic bolt
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Reflective
+    reflective:
+      - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 30
+        Structural: 90
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 5

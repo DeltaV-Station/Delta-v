@@ -1,4 +1,4 @@
-ent-ClothingOuterRobeTechPriest = роба техно-жреца
+ent-ClothingOuterRobeTechPriest = роба техножреца
     .desc = Нет истины в плоти, только предательство.
     Нет силы в плоти, только слабость.
     Нет постоянства в плоти, только распад.
