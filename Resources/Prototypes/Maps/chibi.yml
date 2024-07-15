@@ -1,0 +1,42 @@
+- type: gameMap
+  id: Chibi
+  mapName: 'Chibi'
+  mapPath: /Maps/chibi.yml
+  minPlayers: 0
+  maxPlayers: 10
+  stations:
+    Chibi:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Chibi Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationJobs
+          availableJobs:
+            Captain: [ 1, 1 ]
+          #service
+            Janitor: [ 1, 1 ]
+            ServiceWorker: [ 3, 3 ]
+          #engineering
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 2, 2 ]
+          #medical
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            MedicalIntern: [ 1, 1 ]
+          #science
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+          #security
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+          #supply
+            CargoTechnician: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+          #civilian
+            Passenger: [ -1, -1 ]
