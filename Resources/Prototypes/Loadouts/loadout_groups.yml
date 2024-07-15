@@ -1020,8 +1020,8 @@
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
-#  - HeadofSecurityCoat # DeltaV
-#  - HeadofSecurityWinterCoat # DeltaV
+  - HeadofSecurityCoat
+  - HeadofSecurityWinterCoat
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
   - HoSStasecCoat # DeltaV
@@ -1049,8 +1049,8 @@
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-#  - WardenCoat # DeltaV
-#  - WardenArmoredWinterCoat # DeltaV
+  - WardenCoat
+  - WardenArmoredWinterCoat
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
   - WardenStasecCoat # DeltaV
@@ -1062,7 +1062,7 @@
   loadouts:
   - SecurityHelmet
   - SecurityBeret
-#  - SecurityHat # DeltaV
+  - SecurityHat # DeltaV
 
 # DeltaV - add more options to security officer eyewear.
 
@@ -1088,8 +1088,9 @@
   - SecurityJumpskirtGrey
   - SecurityJumpsuitBlue # DeltaV
   - SecurityJumpskirtBlue # DeltaV
+  - SecurityJumpsuitTactical # DeltaV
   - SeniorOfficerJumpsuit
-#  - SeniorOfficerJumpskirt # DeltaV
+  - SeniorOfficerJumpskirt # DeltaV
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1110,9 +1111,9 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
-#  - ArmorVest # DeltaV
-#  - ArmorVestSlim # DeltaV
-#  - SecurityOfficerWintercoat # DeltaV
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
   - SecurityOfficerStasecCoat # DeltaV
@@ -1125,6 +1126,7 @@
   - CombatBoots
   - JackBoots # DeltaV
   - LaceupShoes # DeltaV
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1145,9 +1147,9 @@
   name: loadout-group-detective-head
   minLimit: 0
   loadouts:
-#  - DetectiveFedora # DeltaV
-#  - DetectiveFedoraGrey # DeltaV
   - DetectiveBeret # DeltaV
+  - DetectiveFedora
+  - DetectiveFedoraGrey
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1161,10 +1163,12 @@
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
   loadouts:
+  - ForensicSpecialistJumpsuit # DeltaV
+  - ForensicSpecialistJumpskirt # DeltaV
   - DetectiveJumpsuit
   - DetectiveJumpskirt
-#  - NoirJumpsuit # DeltaV
-#  - NoirJumpskirt # DeltaV
+  - NoirJumpsuit
+  - NoirJumpskirt
 
 - type: loadoutGroup
   id: DetectiveBackpack
@@ -1179,18 +1183,18 @@
   name: loadout-group-detective-outerclothing
   minLimit: 0
   loadouts:
-#  - DetectiveArmorVest # DeltaV
-#  - DetectiveCoat # DeltaV
+  - DetectiveArmorVest
+  - DetectiveCoat
   - DetectiveStasecCoat # DeltaV
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
 
-#- type: loadoutGroup # DeltaV
-#  id: SecurityCadetJumpsuit
-#  name: loadout-group-security-cadet-jumpsuit
-#  loadouts:
-#  - RedJumpsuit
-#  - RedJumpskirt
+- type: loadoutGroup # DeltaV
+  id: SecurityCadetJumpsuit
+  name: loadout-group-security-cadet-jumpsuit
+  loadouts:
+  - RedJumpsuit
+  - RedJumpskirt
 
 # Medical
 - type: loadoutGroup
