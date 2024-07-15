@@ -57,6 +57,7 @@
   loadouts:
   - CorpsmanBeret
   - CorpsmanBeretWhite
+  - CorpsmanBeretRed # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicNeck
@@ -72,6 +73,8 @@
   loadouts:
   - BrigMedicJumpsuit
   - BrigMedicJumpskirt
+  - BrigMedicJumpsuitRed # Stray - loadouts
+  - BrigMedicJumpskirtRed # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicOuterClothing
@@ -84,16 +87,22 @@
   - ArmorVest
   - PlateCarrier # DeltaV
   - ArmorVestSlim
+  - BrigmedicLabcoat # Stray - loadouts
   - SecurityOfficerWintercoat
+  - BrigmedicWintercoat # Stray - loadouts
+  - BrigmedicWindbreaker # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicBack
   name: loadout-group-brig-medic-back
   loadouts:
   - BrigMedicBackpack
+#  - BrigMedicBackpackAlt # Stray - loadouts
   - BrigMedicSatchel
+#  - BrigMedicSatchelAlt # Stray - loadouts
   - BrigMedicDuffel
-  
+#  - BrigMedicDuffelAlt # Stray - loadouts
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup

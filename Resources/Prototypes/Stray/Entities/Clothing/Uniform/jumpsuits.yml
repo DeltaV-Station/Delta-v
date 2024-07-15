@@ -8,3 +8,14 @@
     sprite: Stray/Clothing/Uniforms/cargotech.rsi
   - type: Clothing
     sprite: Stray/Clothing/Uniforms/cargotech.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicRed
+  name: brigmedic jumpsuit
+  description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi

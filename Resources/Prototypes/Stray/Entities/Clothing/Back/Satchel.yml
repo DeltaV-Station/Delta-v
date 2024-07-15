@@ -5,8 +5,15 @@
   description: A satchel from admin for admins
   components:
   - type: Sprite
-    sprite: Stray/Clothing/Back/Satchel/SatchelAdm.rsi
+    sprite: Stray/Clothing/Back/Satchels/SatchelAdm.rsi
   - type: Storage
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicAlt
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchels/brigmedic_alt.rsi

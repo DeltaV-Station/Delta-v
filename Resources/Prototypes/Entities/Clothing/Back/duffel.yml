@@ -77,11 +77,11 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelBrigmedic
-  name: corpsman duffel bag # DeltaV - rename brigmedic to corpsman
+  name: brigmedic duffel bag
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Back/Duffels/brigmedic.rsi # DeltaV - resprite
+    sprite: Stray/Clothing/Back/Duffels/brigmedic.rsi # resprite by Tamioki
 
 - type: entity
   parent: ClothingBackpackDuffel

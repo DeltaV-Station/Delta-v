@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterWinterBrigmed
+  name: brigmedic winter coat
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/WinterCoats/coatbrigmed.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/WinterCoats/coatbrigmed.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.75
+        Caustic: 0.9
+    priceMultiplier: 0.15
