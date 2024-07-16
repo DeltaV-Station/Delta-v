@@ -30,7 +30,7 @@
 - type: startingGear
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-#    eyes: ClothingEyesHudMedical
+#    eyes: ClothingEyesHudMedical # Moved MedHud to loadout
     outerClothing: ClothingOuterCoatLabCorpsman
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
