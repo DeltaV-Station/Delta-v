@@ -8,6 +8,8 @@
     Chibi:
       stationProto: StandardNanotrasenStation
       components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Chibi Station {1}'
           nameGenerator:
