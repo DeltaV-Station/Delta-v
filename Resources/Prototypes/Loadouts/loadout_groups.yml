@@ -71,17 +71,6 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -138,17 +127,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfBlue # DeltaV
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -254,17 +233,8 @@
   name: loadout-group-bartender-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
   - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfPurple
 
 - type: loadoutGroup
   id: BartenderJumpsuit
@@ -317,17 +287,8 @@
   id: LibrarianNeck
   name: loadout-group-librarian-neck
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
   - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfRed
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -359,17 +320,10 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfRed # Delta V
+  - ScarfBlue # Delta V
+  - ScarfBlack # Delta V
+  - ScarfPurple # Delta V
 
 - type: loadoutGroup
   id: LawyerBackpack
@@ -430,17 +384,7 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfBlack # DeltaV
 
 - type: loadoutGroup
   id: JanitorHead
@@ -461,17 +405,7 @@
   name: loadout-group-janitor-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
   - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -518,17 +452,8 @@
   name: loadout-group-botanist-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
   - ScarfGreen
-  - ScarfPurple
   - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -589,17 +514,8 @@
   name: loadout-group-mime-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
   - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfZebra
 
 - type: loadoutGroup
   id: MimeMask
@@ -637,17 +553,9 @@
   name: loadout-group-musician-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
   - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfPurple
+  - ScarfZebra
 
 - type: loadoutGroup # DeltaV
   id: MusicianJumpsuit
@@ -706,17 +614,7 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfBrown # DeltaV
 
 - type: loadoutGroup
   id: QuartermasterOuterClothing
@@ -745,17 +643,7 @@
   name: loadout-group-cargo-technician-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
   - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -791,17 +679,7 @@
   name: loadout-group-salvage-specialist-neck
   loadouts:
   - SalvageCloak
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
   - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -859,17 +737,7 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfOrange # DeltaV
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -908,17 +776,7 @@
   name: loadout-group-station-engineer-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
   - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -965,17 +823,8 @@
   name: loadout-group-atmospheric-technician-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
   - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
   - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1023,17 +872,7 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfPurple # DeltaV
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -1082,17 +921,7 @@
   minLimit: 0
   loadouts:
   - ScientistTie
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfPurple # DeltaV
 
 - type: loadoutGroup
   id: ScientistJumpsuit
@@ -1181,17 +1010,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfRed # DeltaV
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1299,17 +1118,7 @@
   name: loadout-group-security-neck
   minLimit: 0
   loadouts:
-   # Start DeltaV
   - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1325,17 +1134,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfRed # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1417,17 +1216,7 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfBlue # DeltaV
   - Stethoscope # DeltaV
 
 - type: loadoutGroup
@@ -1457,17 +1246,7 @@
   minLimit: 0
   loadouts:
   - Stethoscope
-   # Start DeltaV
-  - ScarfRed
   - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
-  - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1567,17 +1346,8 @@
   name: loadout-group-chemist-neck
   loadouts:
   - ChemistTie # DeltaV
-   # Start DeltaV
-  - ScarfRed
-  - ScarfBlue
-  - ScarfLightBlue
-  - ScarfGreen
-  - ScarfPurple
-  - ScarfBrown
   - ScarfOrange
-  - ScarfBlack
-  - ScarfZebra 
-  # End DeltaV
+  - ScarfBlue
 
 # Chemist Gloves - DeltaV
 - type: loadoutGroup
