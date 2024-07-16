@@ -53,8 +53,10 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - ServiceWorkerHead # DeltaV
   - Scarfs # DeltaV
-  - BartenderJumpsuit
+  #- BartenderJumpsuit
+  - ServiceWorkerJumpsuit # DeltaV, replaces above
   - CommonBackpack
   - Glasses
   - Trinkets
