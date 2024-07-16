@@ -23,9 +23,19 @@
 
 - type: entity
   parent: BasePlushie
+  id: DotsPlushie
+  name: Плюшевое троеточие
+  description: "Плюшевое троеточие... больше нечего сказать..."
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/toys.rsi
+      state: Dots
+
+- type: entity
+  parent: BasePlushie
   id: PlushieGGados
   name: Плюшевый Гадос
-  description: "Плюшевая игрушка, без сомнений, великого Гадоса.    Без него не было бы ничего"
+  description: "Плюшевая игрушка, без сомнений, великого Гадоса. Без него не было бы ничего"
   components:
     - type: Sprite
       sprite: Stray/Objects/Fun/toys.rsi
@@ -35,7 +45,7 @@
   parent: BasePlushie
   id: PlushieScientist
   name: Плюшевый Учёный
-  description: "Плюшевая игрушка учёного.    Mp5 не было в комплекте"
+  description: "Плюшевая игрушка учёного. Mp5 не было в комплекте"
   components:
     - type: Sprite
       sprite: Stray/Objects/Fun/toys.rsi
@@ -65,7 +75,7 @@
   parent: BasePlushie
   id: PlushieMollis
   name: Плюшевый Кубик
-  description: "Плюшевый кубик.   Тут больше нечего сказать"
+  description: "вам начинает казаться что эта сущность смотрит вам в душу и требует от вас жертвы, ну или это просто игрушка ребенка-фанатика"
   components:
     - type: Sprite
       sprite: Stray/Objects/Fun/toys.rsi

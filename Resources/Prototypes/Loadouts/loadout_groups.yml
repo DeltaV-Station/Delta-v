@@ -164,6 +164,10 @@
   loadouts:
   - GreyJumpsuit
   - GreyJumpskirt
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+  - BlackJumpsuit
+  - BlackJumpskirt
   - MioSkirt # Start DeltaV Changes
   - NaotaHoodie
   - CasualBlueSkirt
@@ -188,6 +192,8 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  - PassengerGlovesWhite
+  - PassengerGlovesBlack
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -209,7 +215,15 @@
   name: loadout-group-passenger-shoes
   loadouts:
   - BlackShoes
+  - WhiteShoes
   - WinterBoots
+
+- type: loadoutGroup
+  id: PassengerHead
+  name: loadout-group-passenger-head
+  minLimit: 0
+  loadouts:
+  - PassengerHead
 
 - type: loadoutGroup
   id: BartenderHead
@@ -865,6 +879,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - MystagogueBeret
   - ResearchDirectorHood
 
 - type: loadoutGroup
@@ -875,6 +890,7 @@
   - ResearchDirectorMantle
   - ResearchDirectorCloak
   - ScarfPurple # DeltaV
+  - MystagogueMantle
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -882,6 +898,8 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
+  - MystagogueJumpsuit
+  - MystagogueJumpskirt
 
 - type: loadoutGroup
   id: ResearchDirectorBackpack
@@ -899,6 +917,7 @@
   - ResearchDirectorLabCoat
   - MystaLabCoat #DeltaV
   - ResearchDirectorWintercoat
+  - MystagogueWinterCoat
 
 - type: loadoutGroup
   id: ResearchDirectorShoes

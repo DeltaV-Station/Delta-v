@@ -32,6 +32,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
 
+
+
 - type: loadout
   id: GreyJumpskirt
   equipment: GreyJumpskirt
@@ -40,6 +42,47 @@
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
+
+# White
+- type: loadout
+  id: WhiteJumpsuit
+  equipment: WhiteJumpsuit
+
+- type: startingGear
+  id: WhiteJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+
+
+- type: loadout
+  id: WhiteJumpskirt
+  equipment: WhiteJumpskirt
+
+- type: startingGear
+  id: WhiteJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+
+# Black
+- type: loadout
+  id: BlackJumpsuit
+  equipment: BlackJumpsuit
+
+- type: startingGear
+  id: BlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+
+- type: loadout
+  id: BlackJumpskirt
+  equipment: BlackJumpskirt
+
+- type: startingGear
+  id: BlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+
 
 # Rainbow
 - type: loadout
@@ -186,6 +229,39 @@
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
 
+
+
+
+
+- type: loadout
+  id: PassengerGlovesWhite
+  equipment: ClothingHandsGlovesColorWhite
+
+- type: startingGear
+  id: ClothingHandsGlovesColorWhite
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+
+- type: loadout
+  id: PassengerGlovesBlack
+  equipment: ClothingHandsGlovesColorBlack
+
+- type: startingGear
+  id: ClothingHandsGlovesColorBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+
+- type: loadout
+  id: PassengerHead
+  equipment: PassengerHead
+
+- type: startingGear
+  id: PassengerHead
+  equipment:
+    head: FoodPoppy
+
 # Outerclothing
 - type: loadout
   id: PassengerWintercoat
@@ -205,6 +281,15 @@
   id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
+
+- type: loadout
+  id: WhiteShoes
+  equipment: WhiteShoes
+
+- type: startingGear
+  id: WhiteShoes
+  equipment:
+    shoes: ClothingShoesColorWhite
 
 - type: loadout
   id: WinterBoots
