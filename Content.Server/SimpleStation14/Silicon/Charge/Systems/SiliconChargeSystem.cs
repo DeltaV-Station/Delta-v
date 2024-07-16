@@ -12,6 +12,7 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Power.EntitySystems;
 using Robust.Shared.Containers;
+using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.PowerCell;
 using Robust.Shared.Timing;
@@ -20,6 +21,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Mind;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -104,6 +106,15 @@ public sealed class SiliconChargeSystem : EntitySystem
             // If the silicon is dead, skip it.
             if (_mobState.IsDead(silicon))
                 continue;
+
+            // If the silicon ghosted or is SSD, skip it. - DeltaV
+            if (EntityManager.TryGetComponent<MindContainerComponent>(silicon, out var mindContComp))
+            {
+                if (mindContComp.HasMind == false || CompOrNull<MindComponent>(mindContComp.Mind)?.Session == null)
+                {
+                    continue;
+                }
+            }
 
             var drainRate = siliconComp.DrainPerSecond;
 
