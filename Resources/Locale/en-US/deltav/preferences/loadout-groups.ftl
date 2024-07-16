@@ -62,6 +62,8 @@ loadout-group-station-engineer-neck = Station Engineer neck
 loadout-group-atmospheric-technician-neck = Atmospheric Technician neck
 
 # Security
+loadout-group-head-of-security-shoes = Head of Security shoes
+
 loadout-group-security-eyes = Security eyes
 loadout-group-security-neck = Security neck
 
