@@ -128,24 +128,6 @@
     neck: ClothingNeckMantleHOS
 
 # OuterClothing
-#- type: loadout # DeltaV
-#  id: HeadofSecurityCoat
-#  equipment: HeadofSecurityCoat
-
-#- type: startingGear # DeltaV
-#  id: HeadofSecurityCoat
-#  equipment:
-#    outerClothing: ClothingOuterCoatHoSTrench
-
-#- type: loadout # DeltaV
-#  id: HeadofSecurityWinterCoat
-#  equipment: HeadofSecurityWinterCoat
-
-#- type: startingGear # DeltaV
-#  id: HeadofSecurityWinterCoat
-#  equipment:
-#    outerClothing: ClothingOuterWinterHoS
-
 - type: loadout # DeltaV
   id: HoSStasecCoat
   equipment: HoSStasecCoat
@@ -154,6 +136,24 @@
   id: HoSStasecCoat
   equipment:
     outerClothing: ClothingOuterStasecCoatHoS
+
+- type: loadout # DeltaV
+  id: HeadofSecurityCoat
+  equipment: HeadofSecurityCoat
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityCoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoSTrench
+
+- type: loadout # DeltaV
+  id: HeadofSecurityWinterCoat
+  equipment: HeadofSecurityWinterCoat
+
+- type: startingGear # DeltaV
+  id: HeadofSecurityWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterHoS
 
 # Shoes - DeltaV
 - type: loadout # DeltaV
