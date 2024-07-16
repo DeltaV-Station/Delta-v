@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Right.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Chibi Station {1}'
           nameGenerator:
