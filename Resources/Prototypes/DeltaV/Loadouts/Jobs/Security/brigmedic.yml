@@ -8,6 +8,26 @@
   equipment:
       head: ClothingHeadHatBeretCorpsman
 
+# Eyes
+
+- type: loadout # DeltaV
+  id: HudMed
+  equipment: HudMed
+
+- type: startingGear # DeltaV
+  id: HudMed
+  equipment:
+    eyes: ClothingEyesHudMedical
+
+- type: loadout # DeltaV
+  id: HudMedPatch
+  equipment: HudMedPatch
+
+- type: startingGear # DeltaV
+  id: HudMedPatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
+
 # Jumpsuit
 - type: loadout
   id: BrigMedicJumpsuit
