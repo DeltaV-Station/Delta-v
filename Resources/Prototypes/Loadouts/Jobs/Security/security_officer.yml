@@ -11,7 +11,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 21600 # 6 hrs
+      time: 1800
 
 # Head
 - type: loadout
@@ -23,14 +23,14 @@
   equipment:
     head: ClothingHeadHelmetBasic
 
-- type: loadout
-  id: SecurityHat
-  equipment: SecurityHat
+#- type: loadout # DeltaV
+#  id: SecurityHat
+#  equipment: SecurityHat
 
-- type: startingGear
-  id: SecurityHat
-  equipment:
-    head: ClothingHeadHatSecsoft
+#- type: startingGear # DeltaV
+#  id: SecurityHat
+#  equipment:
+#    head: ClothingHeadHatSecsoft
 
 - type: loadout
   id: SecurityBeret
@@ -40,6 +40,43 @@
   id: SecurityBeret
   equipment:
     head: ClothingHeadHatBeretSecurity
+
+# Eyes - DeltaV
+- type: loadout # DeltaV
+  id: Sunglasses
+  equipment: Sunglasses
+
+- type: startingGear # DeltaV
+  id: Sunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout # DeltaV
+  id: SunglassesSec
+  equipment: SunglassesSec
+
+- type: startingGear # DeltaV
+  id: SunglassesSec
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout # DeltaV
+  id: HudSec
+  equipment: HudSec
+
+- type: startingGear # DeltaV
+  id: HudSec
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout # DeltaV
+  id: HudSecPatch
+  equipment: HudSecPatch
+
+- type: startingGear # DeltaV
+  id: HudSecPatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
 
 # Jumpsuit
 - type: loadout
@@ -106,19 +143,19 @@
 - type: startingGear
   id: SeniorOfficerJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+    jumpsuit: ClothingUniformJumpsuitSecurityTactical # DeltaV - replace ClothingUniformJumpsuitSeniorOfficer
 
-- type: loadout
-  id: SeniorOfficerJumpskirt
-  equipment: SeniorOfficerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+#- type: loadout # DeltaV
+#  id: SeniorOfficerJumpskirt
+#  equipment: SeniorOfficerJumpskirt
+#  effects:
+#  - !type:GroupLoadoutEffect
+#    proto: SeniorOfficer
 
-- type: startingGear
-  id: SeniorOfficerJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+#- type: startingGear # DeltaV
+#  id: SeniorOfficerJumpskirt
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
 # Back
 - type: loadout
@@ -177,6 +214,24 @@
   equipment:
     outerClothing: ClothingOuterArmorBasic
 
+- type: loadout # DeltaV - deprecated
+  id: ArmorVestSlim
+  equipment: ArmorVestSlim
+
+- type: startingGear
+  id: ArmorVestSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
+
+- type: loadout
+  id: SecurityOfficerWintercoat
+  equipment: SecurityOfficerWintercoat
+
+- type: startingGear
+  id: SecurityOfficerWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterSec
+
 - type: loadout # DeltaV
   id: PlateCarrier
   equipment: PlateCarrier
@@ -195,23 +250,23 @@
   equipment:
     outerClothing: ClothingOuterArmorDuraVest
 
-- type: loadout
-  id: ArmorVestSlim
-  equipment: ArmorVestSlim
+- type: loadout # DeltaV
+  id: SecurityOfficerStasecCoat
+  equipment: SecurityOfficerStasecCoat
 
-- type: startingGear
-  id: ArmorVestSlim
+- type: startingGear # DeltaV
+  id: SecurityOfficerStasecCoat
   equipment:
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterStasecCoat
 
-- type: loadout
-  id: SecurityOfficerWintercoat
-  equipment: SecurityOfficerWintercoat
+- type: loadout # DeltaV
+  id: SecurityOfficerStasecSweater
+  equipment: SecurityOfficerStasecSweater
 
-- type: startingGear
-  id: SecurityOfficerWintercoat
+- type: startingGear # DeltaV
+  id: SecurityOfficerStasecSweater
   equipment:
-    outerClothing: ClothingOuterWinterSec
+    outerClothing: ClothingOuterStasecSweater
 
 # Shoes
 - type: loadout
@@ -221,7 +276,7 @@
 - type: startingGear
   id: CombatBoots
   equipment:
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsCombat
 
 - type: loadout # DeltaV
   id: JackBoots
@@ -232,14 +287,14 @@
   equipment:
     shoes: ClothingShoesBootsJackFilled
 
-- type: loadout
-  id: SecurityWinterBoots
-  equipment: SecurityWinterBoots
+#- type: loadout # DeltaV
+#  id: SecurityWinterBoots
+#  equipment: SecurityWinterBoots
 
-- type: startingGear
-  id: SecurityWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterSec
+#- type: startingGear # DeltaV
+#  id: SecurityWinterBoots
+#  equipment:
+#    shoes: ClothingShoesBootsWinterSec
 
 # PDA
 - type: loadout
