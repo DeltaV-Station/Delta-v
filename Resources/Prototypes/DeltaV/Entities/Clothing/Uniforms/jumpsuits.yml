@@ -8,6 +8,17 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
+    
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHoPFormal
+  name: head of personnel's formal suit
+  description: A well-made suit with gold buttons and a red trim. Might as well look sharp when you blow up.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopformal.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopformal.rsi
 
 - type: entity
   parent: ClothingUniformBase
