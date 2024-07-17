@@ -11,7 +11,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 21600 # 6 hrs
+      time: 1800
 
 # Head
 - type: loadout
@@ -205,32 +205,32 @@
     belt: ClothingBeltSecurityWebbingFilled
 
 # Outerclothing
-#- type: loadout # DeltaV - deprecated
-#  id: ArmorVest
-#  equipment: ArmorVest
+- type: loadout
+  id: ArmorVest
+  equipment: ArmorVest
 
-#- type: startingGear # DeltaV
-#  id: ArmorVest
-#  equipment:
-#    outerClothing: ClothingOuterArmorBasic
+- type: startingGear
+  id: ArmorVest
+  equipment:
+    outerClothing: ClothingOuterArmorBasic
 
-#- type: loadout # DeltaV - deprecated
-#  id: ArmorVestSlim
-#  equipment: ArmorVestSlim
+- type: loadout # DeltaV - deprecated
+  id: ArmorVestSlim
+  equipment: ArmorVestSlim
 
-#- type: startingGear # DeltaV
-#  id: ArmorVestSlim
-#  equipment:
-#    outerClothing: ClothingOuterArmorBasicSlim
+- type: startingGear
+  id: ArmorVestSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
 
-#- type: loadout # DeltaV - deprecated
-#  id: SecurityOfficerWintercoat
-#  equipment: SecurityOfficerWintercoat
+- type: loadout
+  id: SecurityOfficerWintercoat
+  equipment: SecurityOfficerWintercoat
 
-#- type: startingGear # DeltaV
-#  id: SecurityOfficerWintercoat
-#  equipment:
-#    outerClothing: ClothingOuterWinterSec
+- type: startingGear
+  id: SecurityOfficerWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterSec
 
 - type: loadout # DeltaV
   id: PlateCarrier
