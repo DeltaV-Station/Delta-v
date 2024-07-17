@@ -3,6 +3,10 @@
   name: "робототехник"
   description: "Бип-Буп."
   playTimeTracker: JobRoboticist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      time: 1
   startingGear: RoboticistGear
   icon: "JobIconRoboticist"
   supervisors: job-supervisors-rd

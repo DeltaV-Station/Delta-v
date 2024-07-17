@@ -3,6 +3,10 @@
   name: "борг шахтерский"
   description: job-description-borg
   playTimeTracker: JobBorgmin
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Logistics
+      time: 1
   canBeAntag: false
   icon: JobIconBorgShaftMiner
   supervisors: job-supervisors-rd

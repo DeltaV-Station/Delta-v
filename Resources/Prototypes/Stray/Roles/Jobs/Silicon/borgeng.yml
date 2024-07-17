@@ -4,7 +4,8 @@
   description: job-description-borg
   playTimeTracker: JobBorgeng
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Engineering
       time: 1
   canBeAntag: false
   icon: JobIconBorgEngineer

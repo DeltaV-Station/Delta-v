@@ -3,6 +3,10 @@
   name: "борг клоун"
   description: job-description-borg
   playTimeTracker: JobBorgcwn
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 1
   canBeAntag: false
   icon: JobIconBorgClown
   supervisors: job-supervisors-rd
