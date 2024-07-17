@@ -122,6 +122,10 @@
     minimumPlayers: 40 # DeltaV - was 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Vox disabled until loadouts work on AntagSelection-based spawns
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Vox
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
