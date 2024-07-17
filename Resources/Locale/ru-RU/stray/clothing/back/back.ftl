@@ -4,6 +4,19 @@ ent-ClothingBackpackSatchelBrigmedicDeltaVFilled = сумка бригмедик
     .desc = Стерильная сумка для медикоментов.
 ent-ClothingBackpackDuffelBrigmedicDeltaVFilled = вещмешок бригмедика
     .desc = Большой вещмешок для хранения дополнительных медикоментов.
+ent-ClothingBackpackBrigmedicAlt = { ent-ClothingBackpackBrigmedic }
+    .desc = { ent-ClothingBackpackBrigmedic }
+ent-ClothingBackpackSatchelBrigmedicAlt = { ent-ClothingBackpackSatchelBrigmedic }
+    .desc = { ent-ClothingBackpackSatchelBrigmedic }
+ent-ClothingBackpackDuffelBrigmedicAlt = { ent-ClothingBackpackDuffelBrigmedic }
+    .desc = { ent-ClothingBackpackDuffelBrigmedic }
+ent-ClothingBackpackBrigmedicAltFilled = { ent-ClothingBackpackBrigmedic }
+    .desc = { ent-ClothingBackpackBrigmedic }
+ent-ClothingBackpackSatchelBrigmedicAltFilled = { ent-ClothingBackpackSatchelBrigmedic }
+    .desc = { ent-ClothingBackpackSatchelBrigmedic }
+ent-ClothingBackpackDuffelBrigmedicAltFilled = { ent-ClothingBackpackDuffelBrigmedic }
+    .desc = { ent-ClothingBackpackDuffelBrigmedic }
+
 
 ent-ClothingBackpackBlueShield = рюкзак офицера "синий щит"
     .desc = Лёгкий и стильный рюкзак для настоящего телохранителя.
