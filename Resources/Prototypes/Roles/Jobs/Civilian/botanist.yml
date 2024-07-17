@@ -3,6 +3,9 @@
   name: job-name-botanist
   description: job-description-botanist
   playTimeTracker: JobBotanist
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV
+    time: 3600 # 1 hr
   startingGear: BotanistGear
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
