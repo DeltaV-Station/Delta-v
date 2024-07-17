@@ -4,7 +4,8 @@
   description: job-description-borg
   playTimeTracker: JobBorgmed
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Medical
       time: 1
   canBeAntag: false
   icon: JobIconBorgMedical

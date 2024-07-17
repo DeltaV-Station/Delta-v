@@ -3,6 +3,10 @@
   name: "борг уборщик"
   description: job-description-borg
   playTimeTracker: JobBorgjan
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 1
   canBeAntag: false
   icon: JobIconBorgJanitor
   supervisors: job-supervisors-rd
