@@ -22,6 +22,7 @@ loadout-group-passenger-gloves = Passenger gloves
 loadout-group-passenger-backpack = Passenger backpack
 loadout-group-passenger-outerclothing = Passenger outer clothing
 loadout-group-passenger-shoes = Passenger shoes
+loadout-group-passenger-head = Passenger head
 
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
