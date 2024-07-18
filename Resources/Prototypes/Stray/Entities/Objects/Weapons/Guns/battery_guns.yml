@@ -1,0 +1,12 @@
+- type: entity
+  name: makeshift laser pistol
+  parent: WeaponMakeshiftLaser
+  id: WeaponMakeshiftLaserEmpty
+  description: Better pray it won't burn your hands off.
+  components:
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 0
+  - type: Construction
+    graph: MakeshiftLaserGraph
+    node: makeshiftlaser

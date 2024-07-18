@@ -1,5 +1,4 @@
 # Head
-
 - type: loadout
   id: ResearchDirectorBeret
   equipment: ScientificBeret
@@ -13,8 +12,25 @@
   id: ResearchDirectorHood
   equipment: ResearchDirectorHood
 
-# Neck
+- type: startingGear
+  id: MystagogueBeret
+  equipment:
+    head: ClothingHeadHatBeretMysta
 
+- type: loadout
+  id: MystagogueBeret
+  equipment: MystagogueBeret
+
+- type: startingGear
+  id: MystagogueBeret2
+  equipment:
+    head: ClothingHeadHoodMysta
+
+- type: loadout
+  id: MystagogueBeret2
+  equipment: MystagogueBeret2
+
+# Neck
 - type: loadout
   id: ResearchDirectorMantle
   equipment: ResearchDirectorMantle
@@ -25,6 +41,15 @@
     neck: ClothingNeckMantleRD
 
 - type: loadout
+  id: MystagogueMantle
+  equipment: MystagogueMantle
+
+- type: startingGear
+  id: MystagogueMantle
+  equipment:
+    neck: ClothingNeckMantleMystagogue
+
+- type: loadout
   id: ResearchDirectorCloak
   equipment: ResearchDirectorCloak
 
@@ -32,6 +57,15 @@
   id: ResearchDirectorCloak
   equipment:
     neck: ClothingNeckCloakRd
+
+- type: loadout
+  id: MystagogueCloak
+  equipment: MystagogueCloak
+
+- type: startingGear
+  id: MystagogueCloak
+  equipment:
+    neck: ClothingNeckCloakMystagogue
 
 # Jumpsuit
 - type: loadout
@@ -51,6 +85,24 @@
   id: ResearchDirectorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
+
+- type: loadout
+  id: MystagogueJumpsuit
+  equipment: MystagogueJumpsuit
+
+- type: startingGear
+  id: MystagogueJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMystagogue
+
+- type: loadout
+  id: MystagogueJumpskirt
+  equipment: MystagogueJumpskirt
+
+- type: startingGear
+  id: MystagogueJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMystagogue
 
 # Back
 - type: loadout
@@ -107,6 +159,24 @@
   id: ResearchDirectorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRD
+
+- type: loadout
+  id: MystagogueLabCoat
+  equipment: MystagogueLabCoat
+
+- type: startingGear
+  id: MystagogueLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRndMysta
+
+- type: loadout
+  id: MystagogueWinterCoat
+  equipment: MystagogueWinterCoat
+
+- type: startingGear
+  id: MystagogueWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterMystagogue
 
 # Shoes - DeltaV
 - type: loadout # DeltaV

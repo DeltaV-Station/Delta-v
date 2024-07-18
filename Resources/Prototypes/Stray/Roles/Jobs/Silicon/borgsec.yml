@@ -4,7 +4,8 @@
   description: job-description-borg
   playTimeTracker: JobBorgsec
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
+    - !type:DepartmentTimeRequirement
+      department: Security
       time: 1
   canBeAntag: false
   icon: JobIconBorgSecurity

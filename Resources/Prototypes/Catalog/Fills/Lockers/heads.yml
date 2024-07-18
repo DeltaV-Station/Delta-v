@@ -363,7 +363,7 @@
   - type: StorageFill
     contents:
       - id: WeaponDisabler
-      - id: ClothingOuterCoatHoSTrench
+      - id: ClothingOuterStasecCoatHoS # DeltaV - ClothingOuterCoatHoSTrench replaced in favour of uniform equipment
       - id: ClothingMaskNeckGaiter
       - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
       - id: ClothingMaskGasSwat
@@ -383,7 +383,6 @@
       - id: BoxPDASecurity # Delta-V
       - id: WeaponEnergyGunMultiphase # DeltaV - HoS Energy Gun
       - id: HoSIDCard # Delta-V
-      - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
       - id: ClothingUnderSocksStripedSecurityJackboots
@@ -397,7 +396,7 @@
   - type: StorageFill
     contents:
       - id: WeaponDisabler
-      - id: ClothingOuterCoatHoSTrench
+      - id: ClothingOuterStasecCoatHoS # DeltaV - ClothingOuterCoatHoSTrench replaced in favour of uniform equipment
       - id: ClothingMaskNeckGaiter
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
@@ -414,7 +413,6 @@
       - id: BoxPDASecurity # Delta-V
       - id: WeaponEnergyGunMultiphase # DeltaV - HoS Energy Gun
       - id: HoSIDCard # Delta-V
-      - id: ClothingShoesBootsWinterHeadOfSecurity #Delta V: Add departmental winter boots
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
       - id: ClothingUnderSocksStripedSecurityJackboots

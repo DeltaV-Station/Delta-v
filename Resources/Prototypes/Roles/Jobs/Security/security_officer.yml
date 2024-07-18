@@ -4,8 +4,9 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 600
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 1
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -24,6 +25,6 @@
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+#    eyes: ClothingEyesGlassesSecurity # DeltaV
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal

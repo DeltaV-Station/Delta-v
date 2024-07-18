@@ -41,6 +41,25 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
 
+# Black
+- type: loadout
+  id: BlackJumpsuit
+  equipment: BlackJumpsuit
+
+- type: startingGear
+  id: BlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: BlackJumpskirt
+  equipment: BlackJumpskirt
+
+- type: startingGear
+  id: BlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+
 # Rainbow
 - type: loadout
   id: RainbowJumpsuit
@@ -92,7 +111,6 @@
   id: CasualRedSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualRed
-
 
 # Casual Blue - DeltaV
 - type: loadout
@@ -185,6 +203,33 @@
   id: FingerlessInsulatedGloves
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
+
+- type: loadout
+  id: PassengerGlovesWhite
+  equipment: ClothingHandsGlovesColorWhite
+
+- type: startingGear
+  id: ClothingHandsGlovesColorWhite
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: PassengerGlovesBlack
+  equipment: ClothingHandsGlovesColorBlack
+
+- type: startingGear
+  id: ClothingHandsGlovesColorBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: PassengerHead
+  equipment: PassengerHead
+
+- type: startingGear
+  id: PassengerHead
+  equipment:
+    head: FoodPoppy
 
 # Outerclothing
 - type: loadout
