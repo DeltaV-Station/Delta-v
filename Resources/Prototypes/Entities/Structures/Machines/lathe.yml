@@ -1052,9 +1052,11 @@
       - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitHosFormal
       - ClothingUniformJumpskirtHosFormal
+      - ClothingUniformJumpsuitSecFormal # DeltaV - formal security uniforms
+      - ClothingUniformJumpskirtSecFormal # DeltaV - formal security uniforms
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
-      - ClothingUniformJumpsuitHoSBlue
+#      - ClothingUniformJumpsuitHoSBlue # DeltaV - Remove erroneous second entry.
       - ClothingUniformJumpsuitHoSGrey
       - ClothingUniformJumpsuitHoSParadeMale
       - ClothingUniformJumpskirtHoSParadeMale
@@ -1079,8 +1081,8 @@
       - ClothingUniformJumpsuitMusician
       - ClothingUniformJumpsuitParamedic
       - ClothingUniformJumpskirtParamedic
-      - ClothingUniformJumpsuitSeniorOfficer
-      - ClothingUniformJumpskirtSeniorOfficer
+#      - ClothingUniformJumpsuitSeniorOfficer # DeltaV - replaced with tactical jumpsuit
+#      - ClothingUniformJumpskirtSeniorOfficer # DeltaV - replaced with tactical jumpsuit
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
       - ClothingHeadHatQMsoft
@@ -1109,7 +1111,12 @@
       - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
-      - ClothingHeadHatBeretBrigmedic
+      - ClothingUniformJumpsuitForensicSpecialist # DeltaV - det uniforms
+      - ClothingUniformJumpskirtForensicSpecialist # DeltaV - det uniforms
+      - ClothingHeadHatBeretForensicSpecialist # DeltaV - det uniforms
+      - ClothingUniformJumpsuitCadet # DeltaV - cadet uniform
+      - ClothingUniformJumpsuitSecurityTactical # DeltaV - senior uniform
+      - ClothingHeadHatBeretCorpsman # DeltaV - replaced ClothingHeadHatBeretBrigmedic with corpsman beret
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
       - ClothingHeadHatBeretWarden
@@ -1126,8 +1133,8 @@
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
-      - ClothingOuterWinterHoSUnarmored
-      - ClothingOuterWinterWardenUnarmored
+#      - ClothingOuterWinterHoSUnarmored # DeltaV - replaced in favour of stasec coats
+#      - ClothingOuterWinterWardenUnarmored # DeltaV - replaced in favour of stasec coats
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
@@ -1159,7 +1166,12 @@
       - ClothingOuterWinterViro
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
-      - ClothingOuterWinterSec
+#      - ClothingOuterWinterSec # DeltaV - replaced in favour of stasec coats
+      - ClothingOuterStasecCoat # DeltaV - security winter gear
+      - ClothingOuterCoatLabCorpsman # DeltaV - security winter gear
+      - ClothingOuterStasecCoatDet # DeltaV - security winter gear
+      - ClothingOuterStasecCoatWarden # DeltaV - security winter gear
+      - ClothingOuterStasecCoatHoS # DeltaV - security winter gear
       # Ties
       - ClothingNeckTieRed
       - ClothingNeckTieDet
