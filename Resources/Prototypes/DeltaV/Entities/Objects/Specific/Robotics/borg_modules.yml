@@ -8,7 +8,7 @@
     - BorgModuleSecurity
   - type: Sprite
     sprite: DeltaV/Objects/Specific/Robotics/borgmodule.rsi
-    
+
 # Security Modules
 
 - type: entity
@@ -23,6 +23,7 @@
   - type: ItemBorgModule
     items:
     - WoodBaton
+    - SecurityWhistle
 
 - type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
@@ -35,13 +36,13 @@
     - state: icon-patrol
   - type: ItemBorgModule
     items:
-    - FlashlightSecliteRecharging  
+    - FlashlightSecliteRecharging
     - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityHold # Peacekeeper Set, Available on Round Start
+  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: blockade cyborg module
+  name: bastion cyborg module
   components:
   - type: Sprite
     layers:
@@ -52,9 +53,9 @@
     - HoloprojectorSecurityRecharging
 
 - type: entity
-  id: BorgModuleSecurityDetain # Research Locked - AdvancedRiotControl
+  id: BorgModuleSecurityDeEscalate # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: detainment cyborg module
+  name: de-escalation cyborg module
   components:
   - type: Sprite
     layers:
@@ -62,22 +63,9 @@
     - state: icon-detain
   - type: ItemBorgModule
     items:
-    - StunBatonSelfCharging
-    
-- type: entity
-  id: BorgModuleSecurityControl # Research Locked - AdvancedRiotControl
-  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: riot control cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icon-control
-  - type: ItemBorgModule
-    items:
+    - StunbatonSelfCharging
     - FlashRecharging
-    - HoloprojectorSecurityRecharging
-    
+
 - type: entity
   id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]

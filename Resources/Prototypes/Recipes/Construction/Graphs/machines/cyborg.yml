@@ -43,7 +43,7 @@
 
       - tool: Screwing
         doAfter: 0.5
-    
+
     - to: engineer
       steps:
       - assemblyId: engineer
@@ -204,8 +204,22 @@
           sprite: Objects/Weapons/Melee/flash.rsi
           state: flash
 
+      - component: ClothingHeadHelmetBasic
+        name: basic protection # this is funny because Sec Borg has less health than regular borgs.
+        store: part-container
+        icon:
+          sprite: Clothing/Head/Helmets/security.rsi
+          state: icon
+
+      - component: ClothingShoesBootsJack # This makes no sense; but headset is meta-gameable by taking keys out before putting it-
+        name: advanced protection         # inside the borg, and baton makes no sense as this doesn't start with a Baton.
+        store: part-container
+        icon:
+          sprite: Clothing/Shoes/Boots/jackboots.rsi
+          state: icon
+
       - tool: Screwing
-        doAfter: 0.5 # Delta-V Security Borg End
+        doAfter: 2 # Delta-V Security Borg End
 
   - node: cyborg
     entity: BorgChassisGeneric

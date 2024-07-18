@@ -607,7 +607,7 @@
     # DeltaV Start
     - BorgModuleSecurityPeacekeeper
     - BorgModuleSecurityPatrol
-    - BorgModuleSecurityHold
+    - BorgModuleSecurityBastion
     - LeftArmBorgSecurity
     - RightArmBorgSecurity
     - LeftLegBorgSecurity
@@ -659,8 +659,7 @@
     - JetpackMini
   # End Nyano additions
   # DeltaV Start
-    - BorgModuleSecurityDetain
-    - BorgModuleSecurityControl
+    - BorgModuleSecurityDeEscalate
     - BorgModuleSecurityChase
     - JetpackVoid
   # DeltaV End
