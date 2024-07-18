@@ -5,9 +5,9 @@
   description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Stray/Clothing/Uniforms/cargotech.rsi
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/cargotech.rsi
   - type: Clothing
-    sprite: Stray/Clothing/Uniforms/cargotech.rsi
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/cargotech.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -19,3 +19,25 @@
     sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi
   - type: Clothing
     sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicTurtle
+  name: red brigmedic turtleneck                    
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicTurtleAlt
+  name: blue brigmedic turtleneck                    
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_turtle.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_turtle.rsi
