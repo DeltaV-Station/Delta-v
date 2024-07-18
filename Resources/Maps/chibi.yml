@@ -3417,10 +3417,10 @@ entities:
       parent: 2
 - proto: BiomassReclaimer
   entities:
-  - uid: 416
+  - uid: 369
     components:
     - type: Transform
-      pos: 20.5,-6.5
+      pos: 20.5,-7.5
       parent: 2
 - proto: BlastDoor
   entities:
@@ -9809,6 +9809,13 @@ entities:
     - type: Transform
       pos: -0.5,16.5
       parent: 2
+- proto: CommsComputerCircuitboard
+  entities:
+  - uid: 4190
+    components:
+    - type: Transform
+      pos: 22.401508,15.685914
+      parent: 2
 - proto: ComputerAlert
   entities:
   - uid: 849
@@ -11661,6 +11668,8 @@ entities:
     - type: Transform
       pos: 14.5,17.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
 - proto: filingCabinet
   entities:
   - uid: 1146
@@ -13285,10 +13294,17 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 416
+    components:
+    - type: Transform
+      pos: 19.5,-6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 1441
     components:
     - type: Transform
-      pos: 20.5,-7.5
+      pos: 22.5,-8.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -20706,6 +20722,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 19.562,1.0274136
       parent: 2
+- proto: IDComputerCircuitboard
+  entities:
+  - uid: 4191
+    components:
+    - type: Transform
+      pos: 22.661926,15.581675
+      parent: 2
 - proto: Igniter
   entities:
   - uid: 684
@@ -20736,6 +20759,97 @@ entities:
     components:
     - type: Transform
       pos: 22.345192,14.728654
+      parent: 2
+- proto: IntercomAll
+  entities:
+  - uid: 4193
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,17.5
+      parent: 2
+- proto: IntercomCommon
+  entities:
+  - uid: 4178
+    components:
+    - type: Transform
+      pos: -11.5,6.5
+      parent: 2
+  - uid: 4179
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,7.5
+      parent: 2
+  - uid: 4180
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,13.5
+      parent: 2
+  - uid: 4196
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,19.5
+      parent: 2
+- proto: IntercomEngineering
+  entities:
+  - uid: 4181
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,9.5
+      parent: 2
+  - uid: 4182
+    components:
+    - type: Transform
+      pos: -3.5,-17.5
+      parent: 2
+  - uid: 4183
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,-24.5
+      parent: 2
+  - uid: 4194
+    components:
+    - type: Transform
+      pos: 26.5,-21.5
+      parent: 2
+  - uid: 4195
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,-16.5
+      parent: 2
+  - uid: 4197
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,18.5
+      parent: 2
+- proto: IntercomMedical
+  entities:
+  - uid: 4186
+    components:
+    - type: Transform
+      pos: 19.5,-5.5
+      parent: 2
+- proto: IntercomSecurity
+  entities:
+  - uid: 4185
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,4.5
+      parent: 2
+- proto: IntercomSupply
+  entities:
+  - uid: 4184
+    components:
+    - type: Transform
+      pos: 29.5,-16.5
       parent: 2
 - proto: JanitorialTrolley
   entities:
@@ -21363,10 +21477,11 @@ entities:
       parent: 2
 - proto: Morgue
   entities:
-  - uid: 369
+  - uid: 100
     components:
     - type: Transform
-      pos: 19.5,-6.5
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-6.5
       parent: 2
 - proto: NitrogenCanister
   entities:
@@ -21379,6 +21494,14 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-9.5
+      parent: 2
+- proto: NoticeBoard
+  entities:
+  - uid: 4188
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,0.5
       parent: 2
 - proto: NuclearBomb
   entities:
@@ -22243,6 +22366,11 @@ entities:
     - type: Transform
       pos: -1.5,-16.5
       parent: 2
+  - uid: 4189
+    components:
+    - type: Transform
+      pos: 22.5,15.5
+      parent: 2
 - proto: RagItem
   entities:
   - uid: 157
@@ -23063,6 +23191,13 @@ entities:
     components:
     - type: Transform
       pos: 31.5,9.5
+      parent: 2
+- proto: SecurityTechFabCircuitboard
+  entities:
+  - uid: 4192
+    components:
+    - type: Transform
+      pos: 22.442432,15.328063
       parent: 2
 - proto: SeedExtractor
   entities:
@@ -25088,11 +25223,6 @@ entities:
       parent: 2
 - proto: ToolboxEmergencyFilled
   entities:
-  - uid: 100
-    components:
-    - type: Transform
-      pos: 20.622355,-7.794301
-      parent: 2
   - uid: 3778
     components:
     - type: Transform
@@ -25117,6 +25247,11 @@ entities:
     components:
     - type: Transform
       pos: -7.7510853,8.209303
+      parent: 2
+  - uid: 4187
+    components:
+    - type: Transform
+      pos: 19.646408,-7.987255
       parent: 2
 - proto: ToolboxMechanicalFilled
   entities:
