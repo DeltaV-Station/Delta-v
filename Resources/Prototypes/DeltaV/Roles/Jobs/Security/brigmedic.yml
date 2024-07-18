@@ -7,9 +7,9 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 21600 # 6 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 4 hrs
+    - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement
+      role: JobSecurityOfficer
+      time: 21600 # DeltaV - 6 hrs
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -19,8 +19,10 @@
   - Security
   #- Brig #Delta V: Removed brig access
   - Maintenance
+  - Service # The rest of security has this access.
   - External
   - Corpsman
+  - Cryogenics # The rest of security also gets this access.
   extendedAccess:
   - Chemistry
   special:
@@ -30,7 +32,8 @@
 - type: startingGear
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-    eyes: ClothingEyesHudMedical
+#    eyes: ClothingEyesHudMedical
+    outerClothing: ClothingOuterCoatLabCorpsman
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltCorpsmanWebbingFilled
