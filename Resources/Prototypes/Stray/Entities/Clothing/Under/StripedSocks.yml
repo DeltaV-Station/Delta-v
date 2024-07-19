@@ -2,15 +2,19 @@
 # Made By NeptuneZvezda on Discord
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksBase
   id: ClothingUnderSocksStripedWhiteandLightBlue
   name: light blue striped socks
   description: Wearing these makes you feel just a little bit lazier
   components:
   - type: Sprite
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
+    state: icon    
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET    
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -20,6 +24,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+  - type: TemperatureProtection
+    coefficient: 0.85          
   - type: Tag
     tags:
     - ClothMade
