@@ -53,7 +53,7 @@
     - HoloprojectorSecurityRecharging
 
 - type: entity
-  id: BorgModuleSecurityDeEscalate # Research Locked - AdvancedRiotControl
+  id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: de-escalation cyborg module
   components:
