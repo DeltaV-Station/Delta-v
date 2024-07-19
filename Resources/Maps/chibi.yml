@@ -21653,6 +21653,43 @@ entities:
     - type: Transform
       pos: 16.5,9.5
       parent: 2
+- proto: Paper
+  entities:
+  - uid: 4225
+    components:
+    - type: Transform
+      pos: -0.31383526,15.721216
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-signature
+      stampedBy:
+      - stampedColor: '#2F4F4FFF'
+        stampedName: Colin_Tel
+      - stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        Chibi - noun - Japanese
+
+        1. (colloquial) something small
+
+        2. (colloquial) short person, runt
+
+        3. (colloquial) (an annoying) kid, squirt, pipsqueak
+
+
+        Chibi - noun - English
+
+        plural "chibis"
+
+        1. (countable, anime, manga) A child-like character with exaggerated features, particularly in anime.
+
+        2. (uncountable, anime, manga) A style of cartooning in which the characters are drawn to be very small and cute.
+
+
+        Chibi Station was made in Space Tennessee by Colintel, who is a huge weeb and dork.
+
+
+        Please burn this document after reading, and maybe the station too while you're at it.
 - proto: PaperBin20
   entities:
   - uid: 91
