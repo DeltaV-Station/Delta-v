@@ -19,6 +19,7 @@ public sealed partial class LatheMenu : DefaultWindow
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     private EntityUid _owner;
     private readonly SpriteSystem _spriteSystem;
     private readonly LatheSystem _lathe;
