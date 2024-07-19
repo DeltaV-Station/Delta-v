@@ -27583,7 +27583,7 @@ entities:
   - uid: 3060
     components:
     - type: Transform
-      pos: -24.5,48.5
+      pos: -26.5,46.5
       parent: 2
   - uid: 3061
     components:
@@ -27603,12 +27603,12 @@ entities:
   - uid: 3066
     components:
     - type: Transform
-      pos: -26.5,48.5
+      pos: -25.5,47.5
       parent: 2
   - uid: 3070
     components:
     - type: Transform
-      pos: -24.5,49.5
+      pos: -26.5,47.5
       parent: 2
   - uid: 3074
     components:
@@ -27844,6 +27844,11 @@ entities:
     components:
     - type: Transform
       pos: 4.5,60.5
+      parent: 2
+  - uid: 10204
+    components:
+    - type: Transform
+      pos: -26.5,45.5
       parent: 2
   - uid: 10214
     components:
@@ -28748,27 +28753,27 @@ entities:
   - uid: 17397
     components:
     - type: Transform
-      pos: -20.5,53.5
+      pos: -27.5,45.5
       parent: 2
   - uid: 17398
     components:
     - type: Transform
-      pos: -21.5,53.5
+      pos: -28.5,45.5
       parent: 2
   - uid: 17399
     components:
     - type: Transform
-      pos: -22.5,53.5
+      pos: -29.5,45.5
       parent: 2
   - uid: 17400
     components:
     - type: Transform
-      pos: -23.5,53.5
+      pos: -30.5,45.5
       parent: 2
   - uid: 17401
     components:
     - type: Transform
-      pos: -24.5,53.5
+      pos: -30.5,44.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -36936,7 +36941,7 @@ entities:
   - uid: 4627
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -25.5,48.5
       parent: 2
 - proto: CannabisSeeds
@@ -73599,12 +73604,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.918282,39.226112
       parent: 2
-  - uid: 10204
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -23.673046,53.658794
-      parent: 2
 - proto: LeftLegHuman
   entities:
   - uid: 10205
@@ -94509,22 +94508,22 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         6339:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         6337:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         716:
         - On: Open
         - Off: Close
         6338:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         6341:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         714:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         488:
         - On: Forward
@@ -94551,7 +94550,7 @@ entities:
         - On: Forward
         - Off: Off
         6343:
-        - On: Forward
+        - On: Reverse
         - Off: Off
         6347:
         - On: Open
