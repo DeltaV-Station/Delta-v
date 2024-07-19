@@ -86,3 +86,16 @@ ent-ClothingUniformJumpsuitChemShirt = официальный костюм хи�
     .desc = На этом костюме все еще остались странные пятна. Хм...
 ent-ClothingUniformJumpsuitCargoLong = форма грузчика
     .desc = Вместо шорт - штаны. Удивительно.
+
+ent-ClothingUniformJumpsuitBrigmedicRed = красный комбинезон бригмедика
+    .desc = { ent-ClothingUniformJumpsuitBrigmedic.desc }
+ent-ClothingUniformJumpskirtBrigmedicRed = красная юбка-комбинезон бригмедика
+    .desc = { ent-ClothingUniformJumpskirtBrigmedic.desc }
+ent-ClothingUniformJumpsuitBrigmedicTurtle = красная водолазка бригмедика
+    .desc = Удобная и тёплая водолазка. Специально для ангела-хранителя.
+ent-ClothingUniformJumpskirtBrigmedicTurtle = красная юбка-водолазка бригмедика
+    .desc = { ent-ClothingUniformJumpsuitBrigmedicTurtle.desc }
+ent-ClothingUniformJumpsuitBrigmedicTurtleAlt = синяя водолазка бригмедика
+    .desc = { ent-ClothingUniformJumpsuitBrigmedicTurtle.desc }
+ent-ClothingUniformJumpskirtBrigmedicTurtleAlt = синяя юбка-водолазка бригмедика
+    .desc = { ent-ClothingUniformJumpsuitBrigmedicTurtle.desc }

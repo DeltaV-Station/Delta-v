@@ -5,11 +5,27 @@
   description: A satchel from admin for admins
   components:
   - type: Sprite
-    sprite: Stray/Clothing/Back/Satchel/SatchelAdm.rsi
+    sprite: Stray/Clothing/Back/Satchels/SatchelAdm.rsi
   - type: Storage
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicAlt
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchels/brigmedic_alt.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelBlueShield
+  name: blue shield officer satchel
+  description: A handy and practical bag to equip any bodyguard.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Back/Satchels/brigmedic.rsi
 
 - type: entity
   parent: ClothingBackpack
@@ -18,4 +34,4 @@
   description: It's a very robust satchel.
   components:
   - type: Sprite
-    sprite: Stray/Clothing/Back/Satchel/robo.rsi
+    sprite: Stray/Clothing/Back/Satchels/robo.rsi

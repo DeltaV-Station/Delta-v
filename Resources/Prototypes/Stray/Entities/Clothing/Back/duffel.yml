@@ -6,3 +6,19 @@
   components:
   - type: Sprite
     sprite: Stray/Clothing/Back/Duffels/robo.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelBrigmedic
+  id: ClothingBackpackDuffelBrigmedicAlt
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Duffels/brigmedic_alt.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBlueShield
+  name: blue shield officer duffel bag
+  description: A large duffel bag to hold all the supplies of a worthy bodyguard.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Back/Duffels/brigmedic.rsi

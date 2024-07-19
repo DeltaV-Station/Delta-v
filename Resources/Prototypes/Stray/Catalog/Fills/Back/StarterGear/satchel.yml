@@ -19,7 +19,7 @@
 
 - type: entity
   noSpawn: true
-  parent: ClothingBackpackSatchelBrigmedic
+  parent: ClothingBackpackSatchelBlueShield
   id: ClothingBackpackSatchelBlueShieldFilled
   components:
   - type: StorageFill
@@ -36,3 +36,19 @@
       - id: HandheldCrewMonitor
   - type: ExplosionResistance
     damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedicAlt
+  id: ClothingBackpackSatchelBrigmedicAltFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+    #  - id: Flash
+      - id: BruteAutoInjector
+        amount: 2
+      - id: BurnAutoInjector
+        amount: 2

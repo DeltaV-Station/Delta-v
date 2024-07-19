@@ -57,6 +57,7 @@
   loadouts:
   - CorpsmanBeret
   - CorpsmanBeretWhite
+  - CorpsmanBeretRed # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicEyes
@@ -64,6 +65,7 @@
   minLimit: 0
   loadouts:
   - Sunglasses
+  - SunglassesMed # Stray - loadouts
   - SunglassesSec
   - HudSec
   - HudSecPatch
@@ -84,12 +86,12 @@
   loadouts:
   - BrigMedicJumpsuit
   - BrigMedicJumpskirt
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SecurityJumpsuitBlue # DeltaV
-  - SecurityJumpskirtBlue # DeltaV
+  - BrigMedicTurtleBlue # Stray - loadouts
+  - BrigMedicTurtleSkirtBlue # Stray - loadouts
+  - BrigMedicJumpsuitRed # Stray - loadouts
+  - BrigMedicJumpskirtRed # Stray - loadouts
+  - BrigMedicTurtleRed # Stray - loadouts
+  - BrigMedicTurtleSkirtRed # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicOuterClothing
@@ -102,16 +104,21 @@
   - ArmorVest
   - PlateCarrier # DeltaV
   - ArmorVestSlim
-  - SecurityOfficerWintercoat
+  - BrigmedicLabcoat # Stray - loadouts
+  - BrigmedicWintercoat # Stray - loadouts
+  - BrigmedicWindbreaker # Stray - loadouts
 
 - type: loadoutGroup
   id: BrigMedicBack
   name: loadout-group-brig-medic-back
   loadouts:
   - BrigMedicBackpack
+  - BrigMedicBackpackAlt # Stray - loadouts
   - BrigMedicSatchel
+  - BrigMedicSatchelAlt # Stray - loadouts
   - BrigMedicDuffel
-  
+  - BrigMedicDuffelAlt # Stray - loadouts
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup

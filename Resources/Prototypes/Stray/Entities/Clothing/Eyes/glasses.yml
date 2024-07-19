@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMed
+  name: medical sunglasses
+  description: They perfectly protect the eyes from flashes, showing all the information about the health of others. A field medic's best friend.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon     

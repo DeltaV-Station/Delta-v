@@ -17,6 +17,15 @@
   equipment:
     head: ClothingHeadHatBeretBrigmedic
 
+- type: loadout
+  id: CorpsmanBeretRed
+  equipment: CorpsmanBeretRed # Stray - loadouts
+
+- type: startingGear
+  id: CorpsmanBeretRed
+  equipment:
+    head: ClothingHeadHatBeretBrigmedicRed
+
 # Eyes
 
 - type: loadout # DeltaV
@@ -37,6 +46,15 @@
   equipment:
     eyes: ClothingEyesEyepatchHudMedical
 
+- type: loadout
+  id: SunglassesMed
+  equipment: SunglassesMed # Stray - loadouts
+
+- type: startingGear
+  id: SunglassesMed
+  equipment:
+    eyes: ClothingEyesGlassesMed
+
 # Jumpsuit
 - type: loadout
   id: BrigMedicJumpsuit
@@ -56,6 +74,60 @@
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedic
 
+- type: loadout
+  id: BrigMedicJumpsuitRed
+  equipment: BrigMedicJumpsuitRed # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicJumpsuitRed
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBrigmedicRed
+
+- type: loadout
+  id: BrigMedicJumpskirtRed
+  equipment: BrigMedicJumpskirtRed # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicJumpskirtRed
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBrigmedicRed
+
+- type: loadout
+  id: BrigMedicTurtleRed
+  equipment: BrigMedicTurtleRed # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicTurtleRed
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBrigmedicTurtle
+
+- type: loadout
+  id: BrigMedicTurtleSkirtRed
+  equipment: BrigMedicTurtleSkirtRed # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicTurtleSkirtRed
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBrigmedicTurtle
+
+- type: loadout
+  id: BrigMedicTurtleBlue
+  equipment: BrigMedicTurtleBlue # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicTurtleBlue
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBrigmedicTurtleAlt
+
+- type: loadout
+  id: BrigMedicTurtleSkirtBlue
+  equipment: BrigMedicTurtleSkirtBlue # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicTurtleSkirtBlue
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBrigmedicTurtleAlt
+
 # Back
 - type: loadout
   id: BrigMedicBackpack
@@ -67,6 +139,15 @@
       back: ClothingBackpackBrigmedicDeltaVFilled
 
 - type: loadout
+  id: BrigMedicBackpackAlt
+  equipment: BrigMedicBackpackAlt # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicBackpackAlt
+  equipment:
+      back: ClothingBackpackBrigmedicAltFilled
+
+- type: loadout
   id: BrigMedicSatchel
   equipment: BrigMedicSatchel
 
@@ -74,6 +155,15 @@
   id: BrigMedicSatchel
   equipment:
       back: ClothingBackpackSatchelBrigmedicDeltaVFilled
+
+- type: loadout
+  id: BrigMedicSatchelAlt
+  equipment: BrigMedicSatchelAlt # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicSatchelAlt
+  equipment:
+      back: ClothingBackpackSatchelBrigmedicAltFilled
 
 - type: loadout
   id: BrigMedicDuffel
@@ -84,6 +174,16 @@
   equipment:
       back: ClothingBackpackDuffelBrigmedicDeltaVFilled
 
+- type: loadout
+  id: BrigMedicDuffelAlt
+  equipment: BrigMedicDuffelAlt # Stray - loadouts
+
+- type: startingGear
+  id: BrigMedicDuffelAlt
+  equipment:
+      back: ClothingBackpackDuffelBrigmedicAltFilled
+
+# OuterClothing
 - type: loadout
   id: VestArmorMedSec
   equipment: VestArmorMedSec
@@ -101,3 +201,30 @@
   id: VestSecurityMedic
   equipment:
     outerClothing: ClothingOuterVestSecurityMedic
+
+- type: loadout
+  id: BrigmedicLabcoat
+  equipment: BrigmedicLabcoat # Stray - loadouts
+
+- type: startingGear
+  id: BrigmedicLabcoat
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
+
+- type: loadout
+  id: BrigmedicWintercoat
+  equipment: BrigmedicWintercoat # Stray - loadouts
+
+- type: startingGear
+  id: BrigmedicWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterBrigmed
+
+- type: loadout
+  id: BrigmedicWindbreaker
+  equipment: BrigmedicWindbreaker # Stray - loadouts
+
+- type: startingGear
+  id: BrigmedicWindbreaker
+  equipment:
+    outerClothing: ClothingOuterCoatBrigmedicWB

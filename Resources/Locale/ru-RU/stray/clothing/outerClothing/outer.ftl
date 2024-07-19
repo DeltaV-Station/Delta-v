@@ -55,3 +55,7 @@ ent-ClothingOuterCoatRndMysta = лабораторный халат мистаг
     .desc = Похож на стандартную модель, но с большим количеством фиолетового и золотого.
 ent-ClothingOuterApronChemist = химически стойкий фартук
     .desc = Цвет этого фартука, сделанного из толстой резины, до сих пор вызывает недоумение.
+ent-ClothingOuterWinterBrigmed = зимняя куртка бригмедика
+    .desc = { ent-ClothingOuterWinterCoatToggleable.desc }
+ent-ClothingOuterCoatBrigmedicWB = ветровка бригмедика
+    .desc = Надежная ветровка врача брига, от любого космического ветра.  
