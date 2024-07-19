@@ -2942,3 +2942,39 @@
   id: 428
   time: '2024-07-10T15:55:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1479
+- author: TadJohnson00
+  changes:
+  - message: New security outer clothing for all security roles, as well as proper
+      senior security officers' and cadets' jumpsuits.
+    type: Add
+  - message: Jetpacks are now available in all security suit storage. Thank goodness
+      for increased funding.
+    type: Add
+  - message: Revamped security's clothing and equipment options; all gear is now up
+      to code, and no further outdated equipment will be issued. This includes, most
+      notably, the detective's uniform, which has received a whole makeover.
+    type: Tweak
+  - message: Fixed security hardsuits not allowing you to turn on internals without
+      a mask.
+    type: Fix
+  - message: Head of security's winter coat, warden's winter coat, security winter
+      coat, security departmental winter boots, WizDen-pattern body armour, and some
+      other minor changes necessary for respriting.
+    type: Remove
+  id: 429
+  time: '2024-07-15T06:45:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1273
+- author: Bellwether
+  changes:
+  - message: Prosecutors can now lock and unlock Security evidence lockers.
+    type: Tweak
+  id: 430
+  time: '2024-07-17T19:01:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1422
+- author: deltanedas
+  changes:
+  - message: Fixed Glacier not being in map votes.
+    type: Fix
+  id: 431
+  time: '2024-07-18T14:17:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1503
