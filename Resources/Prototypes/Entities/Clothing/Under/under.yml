@@ -1,24 +1,35 @@
-# These are technically shoes for now, as we don't actually have underwear. But
-# I would cry if we didn't have them. -swept
+# Underwear is real!
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksBase
   id: ClothingUnderSocksBee
   name: bee socks
   description: Make them loins buzz!
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/bee.rsi
+    state: icon
   - type: Clothing
     sprite: Clothing/Under/Socks/bee.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped
+  - type: TemperatureProtection
+    coefficient: 0.85        
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingUnderSocksBase
   id: ClothingUnderSocksCoder
   name: coder socks
   description: It's time to code sisters!!11!
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/coder.rsi
+    state: icon    
   - type: Clothing
     sprite: Clothing/Under/Socks/coder.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped
+  - type: TemperatureProtection
+    coefficient: 0.85
