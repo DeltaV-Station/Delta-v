@@ -8,20 +8,16 @@
   physicalDesc: reagent-physical-desc-pulpy
   slippery: false
   metabolisms:
-  Drink:
+    Food:
       effects:
       - !type:SatiateHunger
         factor: 1.5
       - !type:SatiateThirst
         factor: -0.5
-  Poison:
-      effects:
       - !type:HealthChange
         damage:
           types:
             Poison: 0.05
-
-
 
 - type: reagent
   id: SawdustSoupReagent
