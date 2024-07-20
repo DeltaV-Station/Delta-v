@@ -2,7 +2,7 @@
 
 # Ears Markings
 - type: marking
-  id: HarpyWingDefault
+  id: HarpyWingDefaultHuescale
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -15,8 +15,25 @@
         - !type:SimpleColoring
           color: "#964b00"
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: huescale_harpy
+
+- type: marking
+  id: HarpyWingDefaultWhitescale
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: whitescale_harpy
 
 - type: marking
   id: HarpyWingClassic
@@ -32,11 +49,11 @@
         - !type:SimpleColoring
           color: "#964b00"
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: classicharpy
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: classic_harpy
 
 - type: marking
-  id: HarpyWingFolded
+  id: HarpyWingFoldedHuescale
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -49,8 +66,59 @@
         - !type:SimpleColoring
           color: "#964b00"
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpyfolded
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: huescale_harpy_folded
+
+- type: marking
+  id: HarpyWingFoldedWhitescale
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: whitescale_harpy_folded
+
+- type: marking
+  id: HarpyWingOwlHuescale
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: huescale_harpy_wing_owl
+
+- type: marking
+  id: HarpyWingOwlWhitescale
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: whitescale_harpy_wing_owl
 
 - type: marking
   id: HarpyEarsDefault
@@ -68,6 +136,23 @@
   sprites:
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_ears.rsi
       state: harpy_ears_default
+
+- type: marking
+  id: HarpyEarsLarge
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_ears.rsi
+      state: harpy_ears_large
 
 - type: marking
   id: HarpyTailPhoenix
@@ -102,6 +187,37 @@
     - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails.rsi
       state: rooster_tail
 
+- type: marking
+  id: HarpyTailForkedWhitescale
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: whitescale_forked_tailfin
+
+- type: marking
+  id: HarpyTailForkedHuescale
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: huescale_forked_tailfin
 
 - type: marking
   id: HarpyTailFinch
@@ -116,7 +232,7 @@
       fallbackTypes:
         - !type:SimpleColoring
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tailsx72.rsi
+    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_tails36x32.rsi
       state: finch_tail 
 
 - type: marking
@@ -143,10 +259,10 @@
   markingCategory: Arms
   speciesRestriction: [Harpy]
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy2tone1
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy2tone2
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_2tone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_2tone_2
 
 - type: marking
   id: HarpyWing3ToneClassic
@@ -154,12 +270,12 @@
   markingCategory: Arms
   speciesRestriction: [Harpy]
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy3tone1
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy3tone2
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpy3tone3
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_3tone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_3tone_2
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_3tone_3
 
 - type: marking
   id: HarpyWingSpeckledClassic
@@ -167,10 +283,10 @@
   markingCategory: Arms
   speciesRestriction: [Harpy]
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpyspeckled1
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpyspeckled2
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_speckled_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_speckled_2
 
 - type: marking
   id: HarpyWingUndertoneClassic
@@ -178,10 +294,10 @@
   markingCategory: Arms
   speciesRestriction: [Harpy]
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpyundertone1
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpyundertone2
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_undertone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_undertone_2
 
 - type: marking
   id: HarpyWingTipsClassic
@@ -189,10 +305,10 @@
   markingCategory: Arms
   speciesRestriction: [Harpy]
   sprites:
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpywingtip1
-    - sprite: DeltaV/Mobs/Customization/Harpy/harpy_wings.rsi
-      state: harpywingtip2
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_wingtip_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: harpy_wingtip_2
 
 - type: marking
   id: HarpyChestDefault

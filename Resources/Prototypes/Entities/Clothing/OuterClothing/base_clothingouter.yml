@@ -23,6 +23,10 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - HidesHarpyWings
 
 - type: entity
   abstract: true

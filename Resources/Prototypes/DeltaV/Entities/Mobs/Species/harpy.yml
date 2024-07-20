@@ -79,7 +79,7 @@
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "singingLayer" ]
-        sprite: DeltaV/Effects/harpysinger.rsi
+        sprite: Effects/harpysinger.rsi
         state: singing_music_notes
         visible: false
   - type: HumanoidAppearance
@@ -136,22 +136,11 @@
             state: jumpsuit
   - type: HarpyVisuals
   - type: UltraVision
-<<<<<<< HEAD
-=======
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
-  - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - SolCommon
-    understands:
-    - GalacticCommon
-    - SolCommon
->>>>>>> f149d46b3d (Harpy Peacock Tail (#428))
 
 - type: entity
   save: false
@@ -165,16 +154,13 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
-<<<<<<< HEAD
     displacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
-=======
     templateId: digitigrade
->>>>>>> f149d46b3d (Harpy Peacock Tail (#428))
   - type: Sprite
     scale: 0.9, 0.9
     layers:
