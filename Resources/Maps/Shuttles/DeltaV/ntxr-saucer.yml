@@ -1219,17 +1219,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 168
-    components:
-    - type: Transform
-      anchored: False
-      pos: 0.5,5.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-    - type: Physics
-      canCollide: True
-      bodyType: Dynamic
   - uid: 169
     components:
     - type: Transform
