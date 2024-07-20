@@ -1,0 +1,320 @@
+# Senior Time
+- type: loadoutEffectGroup
+  id: SeniorOfficer
+  effects:
+ #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+ #   requirement:
+ #     !type:RoleTimeRequirement
+ #     role: JobWarden
+ #     time: 21600 #6 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 216000 # 60 hrs
+
+
+# Head
+- type: loadout
+  id: SecurityHelmet
+  equipment: SecurityHelmet
+
+- type: startingGear
+  id: SecurityHelmet
+  equipment:
+    head: ClothingHeadHelmetBasic
+
+#- type: loadout # DeltaV
+#  id: SecurityHat
+#  equipment: SecurityHat
+
+#- type: startingGear # DeltaV
+#  id: SecurityHat
+#  equipment:
+#    head: ClothingHeadHatSecsoft
+
+- type: loadout
+  id: SecurityBeret
+  equipment: SecurityBeret
+
+- type: startingGear
+  id: SecurityBeret
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+
+# Eyes - DeltaV
+- type: loadout # DeltaV
+  id: Sunglasses
+  equipment: Sunglasses
+
+- type: startingGear # DeltaV
+  id: Sunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout # DeltaV
+  id: SunglassesSec
+  equipment: SunglassesSec
+
+- type: startingGear # DeltaV
+  id: SunglassesSec
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout # DeltaV
+  id: HudSec
+  equipment: HudSec
+
+- type: startingGear # DeltaV
+  id: HudSec
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout # DeltaV
+  id: HudSecPatch
+  equipment: HudSecPatch
+
+- type: startingGear # DeltaV
+  id: HudSecPatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
+
+# Jumpsuit
+- type: loadout
+  id: SecurityJumpsuit
+  equipment: SecurityJumpsuit
+
+- type: startingGear
+  id: SecurityJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+
+- type: loadout
+  id: SecurityJumpskirt
+  equipment: SecurityJumpskirt
+
+- type: startingGear
+  id: SecurityJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSec
+
+- type: loadout
+  id: SecurityJumpsuitGrey
+  equipment: SecurityJumpsuitGrey
+
+- type: startingGear
+  id: SecurityJumpsuitGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+
+- type: loadout
+  id: SecurityJumpskirtGrey
+  equipment: SecurityJumpskirtGrey
+
+- type: startingGear
+  id: SecurityJumpskirtGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecGrey
+
+- type: loadout # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment: SecurityJumpsuitBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+
+- type: loadout # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment: SecurityJumpskirtBlue
+
+- type: startingGear # DeltaV
+  id: SecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecBlue
+
+- type: loadout
+  id: SeniorOfficerJumpsuit
+  equipment: SeniorOfficerJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+
+- type: startingGear
+  id: SeniorOfficerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecurityTactical # DeltaV - replace ClothingUniformJumpsuitSeniorOfficer
+
+#- type: loadout # DeltaV
+#  id: SeniorOfficerJumpskirt
+#  equipment: SeniorOfficerJumpskirt
+#  effects:
+#  - !type:GroupLoadoutEffect
+#    proto: SeniorOfficer
+
+#- type: startingGear # DeltaV
+#  id: SeniorOfficerJumpskirt
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+
+# Back
+- type: loadout
+  id: SecurityBackpack
+  equipment: SecurityBackpack
+
+- type: startingGear
+  id: SecurityBackpack
+  equipment:
+    back: ClothingBackpackSecurityFilled
+
+- type: loadout
+  id: SecuritySatchel
+  equipment: SecuritySatchel
+
+- type: startingGear
+  id: SecuritySatchel
+  equipment:
+    back: ClothingBackpackSatchelSecurityFilled
+
+- type: loadout
+  id: SecurityDuffel
+  equipment: SecurityDuffel
+
+- type: startingGear
+  id: SecurityDuffel
+  equipment:
+    back: ClothingBackpackDuffelSecurityFilled
+
+# Belt
+- type: loadout
+  id: SecurityBelt
+  equipment: SecurityBelt
+
+- type: startingGear
+  id: SecurityBelt
+  equipment:
+    belt: ClothingBeltSecurityFilled
+
+- type: loadout
+  id: SecurityWebbing
+  equipment: SecurityWebbing
+
+- type: startingGear
+  id: SecurityWebbing
+  equipment:
+    belt: ClothingBeltSecurityWebbingFilled
+
+# Outerclothing
+#- type: loadout # DeltaV - deprecated
+#  id: ArmorVest
+#  equipment: ArmorVest
+
+#- type: startingGear # DeltaV
+#  id: ArmorVest
+#  equipment:
+#    outerClothing: ClothingOuterArmorBasic
+
+#- type: loadout # DeltaV - deprecated
+#  id: ArmorVestSlim
+#  equipment: ArmorVestSlim
+
+#- type: startingGear # DeltaV
+#  id: ArmorVestSlim
+#  equipment:
+#    outerClothing: ClothingOuterArmorBasicSlim
+
+#- type: loadout # DeltaV - deprecated
+#  id: SecurityOfficerWintercoat
+#  equipment: SecurityOfficerWintercoat
+
+#- type: startingGear # DeltaV
+#  id: SecurityOfficerWintercoat
+#  equipment:
+#    outerClothing: ClothingOuterWinterSec
+
+- type: loadout # DeltaV
+  id: PlateCarrier
+  equipment: PlateCarrier
+
+- type: startingGear # DeltaV
+  id: PlateCarrier
+  equipment:
+    outerClothing: ClothingOuterArmorPlateCarrier
+
+- type: loadout # DeltaV
+  id: DuraVest
+  equipment: DuraVest
+
+- type: startingGear # DeltaV
+  id: DuraVest
+  equipment:
+    outerClothing: ClothingOuterArmorDuraVest
+
+- type: loadout # DeltaV
+  id: SecurityOfficerStasecCoat
+  equipment: SecurityOfficerStasecCoat
+
+- type: startingGear # DeltaV
+  id: SecurityOfficerStasecCoat
+  equipment:
+    outerClothing: ClothingOuterStasecCoat
+
+- type: loadout # DeltaV
+  id: SecurityOfficerStasecSweater
+  equipment: SecurityOfficerStasecSweater
+
+- type: startingGear # DeltaV
+  id: SecurityOfficerStasecSweater
+  equipment:
+    outerClothing: ClothingOuterStasecSweater
+
+# Shoes
+- type: loadout
+  id: CombatBoots
+  equipment: CombatBoots
+
+- type: startingGear
+  id: CombatBoots
+  equipment:
+    shoes: ClothingShoesBootsCombat
+
+- type: loadout # DeltaV
+  id: JackBoots
+  equipment: JackBoots
+
+- type: startingGear # DeltaV
+  id: JackBoots
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+
+#- type: loadout # DeltaV
+#  id: SecurityWinterBoots
+#  equipment: SecurityWinterBoots
+
+#- type: startingGear # DeltaV
+#  id: SecurityWinterBoots
+#  equipment:
+#    shoes: ClothingShoesBootsWinterSec
+
+# PDA
+- type: loadout
+  id: SecurityPDA
+  equipment: SecurityPDA
+
+- type: startingGear
+  id: SecurityPDA
+  equipment:
+    id: SecurityPDA
+
+- type: loadout
+  id: SeniorOfficerPDA
+  equipment: SeniorOfficerPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+
+- type: startingGear
+  id: SeniorOfficerPDA
+  equipment:
+    id: SeniorOfficerPDA

@@ -4,6 +4,9 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   startingGear: CargoTechGear
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV
+    time: 3600 # 1 hr
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:
@@ -16,13 +19,6 @@
 - type: startingGear
   id: CargoTechGear
   equipment:
-    head: ClothingHeadHatCargosoft
-    jumpsuit: ClothingUniformJumpsuitCargo
-    back: ClothingBackpackCargoFilled
-    shoes: ClothingShoesColorBlack
     id: CargoPDA
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
-  innerClothingSkirt: ClothingUniformJumpskirtCargo
-  satchel: ClothingBackpackSatchelCargoFilled
-  duffelbag: ClothingBackpackDuffelCargoFilled

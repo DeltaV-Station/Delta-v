@@ -1,0 +1,59 @@
+# Logistics
+- type: roleLoadout
+  id: JobMailCarrier
+  groups:
+  - MailCarrierHead
+  - MailCarrierJumpsuit
+  - CommonBackpack
+  - CargoTechnicianShoes
+  - Trinkets
+
+# Epistemics
+- type: roleLoadout
+  id: JobForensicMantis
+  groups:
+  - MantisHead
+  - MantisJumpsuit
+  - MantisBackpack
+  - MantisOuterClothing
+  - MantisShoes
+  - MantisGloves
+  - Trinkets
+
+# Security
+- type: roleLoadout
+  id: JobPrisonGuard
+  groups:
+  - PrisonGuardHead
+  - SecurityNeck # DeltaV
+  - PrisonGuardJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - Trinkets
+
+# Wildcards
+- type: roleLoadout
+  id: JobPrisoner
+  groups:
+  - PrisonerJumpsuit
+  - PassengerShoes
+  - Trinkets
+
+- type: roleLoadout
+  id: JobMartialArtist
+  groups:
+  - MartialArtistJumpsuit
+  - MartialArtistBelt
+  - MartialArtistShoes
+  - BoxerGloves
+  - CommonBackpack
+  - Trinkets
+
+- type: roleLoadout
+  id: JobGladiator
+  groups:
+  - GladiatorJumpsuit
+  - GladiatorOuterClothing
+  - Trinkets

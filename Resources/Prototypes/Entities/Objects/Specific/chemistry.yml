@@ -233,11 +233,17 @@
     sprite: Objects/Specific/Chemistry/beaker_cryostasis.rsi
     layers:
       - state: beakernoreact
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
   - type: SolutionContainerManager
     solutions:
       beaker:
         maxVol: 60
         canReact: false
+  - type: ReverseEngineering # delta
+    difficulty: 2
+    recipes:
+    - CryostasisBeaker
 
 - type: entity
   name: bluespace beaker
@@ -251,10 +257,17 @@
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     layers:
       - state: beakerbluespace
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
   - type: SolutionContainerManager
     solutions:
       beaker:
         maxVol: 1000
+        canReact: true
+  - type: ReverseEngineering # delta
+    difficulty: 4
+    recipes:
+      - BluespaceBeaker
 
 - type: entity
   name: dropper
@@ -411,6 +424,10 @@
     tags:
     - Syringe
     - Trash
+  - type: ReverseEngineering # delta
+    difficulty: 4
+    recipes:
+      - SyringeBluespace
 
 - type: entity
   id: SyringeCryostasis
@@ -442,6 +459,10 @@
     tags:
     - Syringe
     - Trash
+  - type: ReverseEngineering # delta
+    difficulty: 2
+    recipes:
+      - SyringeCryostasis
 
 
 - type: entity
@@ -507,6 +528,9 @@
     tags:
       - PillCanister
   - type: Storage
+    whitelist: # DV - Remove the ability to store anything other than pills in pill canisters
+      tags: 
+        - Pill
     grid:
     - 0,0,4,1
     quickInsert: true

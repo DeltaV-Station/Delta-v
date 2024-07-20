@@ -1,0 +1,130 @@
+# Head
+#- type: loadout # DeltaV
+#  id: DetectiveFedora
+#  equipment: DetectiveFedora
+
+#- type: startingGear # DeltaV
+#  id: DetectiveFedora
+#  equipment:
+#    head: ClothingHeadHatFedoraBrown
+
+#- type: loadout # DeltaV
+#  id: DetectiveFedoraGrey
+#  equipment: DetectiveFedoraGrey
+
+#- type: startingGear # DeltaV
+#  id: DetectiveFedoraGrey
+#  equipment:
+#    head: ClothingHeadHatFedoraGrey
+
+- type: loadout # DeltaV
+  id: DetectiveBeret
+  equipment: DetectiveBeret
+
+- type: startingGear # DeltaV
+  id: DetectiveBeret
+  equipment:
+    head: ClothingHeadHatBeretForensicSpecialist
+
+# Neck
+- type: loadout
+  id: DetectiveTie
+  equipment: DetectiveTie
+
+- type: startingGear
+  id: DetectiveTie
+  equipment:
+    neck: ClothingNeckTieDet
+
+# Jumpsuit
+- type: loadout
+  id: DetectiveJumpsuit
+  equipment: DetectiveJumpsuit
+
+- type: startingGear
+  id: DetectiveJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitForensicSpecialist # DeltaV - replace ClothingUniformJumpsuitDetective with an actual uniform
+
+- type: loadout
+  id: DetectiveJumpskirt
+  equipment: DetectiveJumpskirt
+
+- type: startingGear
+  id: DetectiveJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtForensicSpecialist # DeltaV - replace ClothingUniformJumpskirtDetective with an actual uniform
+
+#- type: loadout # DeltaV
+#  id: NoirJumpsuit
+#  equipment: NoirJumpsuit
+
+#- type: startingGear # DeltaV
+#  id: NoirJumpsuit
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitDetectiveGrey
+
+#- type: loadout # DeltaV
+#  id: NoirJumpskirt
+#  equipment: NoirJumpskirt
+
+#- type: startingGear # DeltaV
+#  id: NoirJumpskirt
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtDetectiveGrey
+
+# Back
+- type: loadout
+  id: DetectiveBackpack
+  equipment: DetectiveBackpack
+
+- type: startingGear
+  id: DetectiveBackpack
+  equipment:
+    back: ClothingBackpackSecurityFilledDetective
+
+- type: loadout
+  id: DetectiveSatchel
+  equipment: DetectiveSatchel
+
+- type: startingGear
+  id: DetectiveSatchel
+  equipment:
+    back: ClothingBackpackSatchelSecurityFilledDetective
+
+- type: loadout
+  id: DetectiveDuffel
+  equipment: DetectiveDuffel
+
+- type: startingGear
+  id: DetectiveDuffel
+  equipment:
+    back: ClothingBackpackDuffelSecurityFilledDetective
+
+# OuterClothing
+#- type: loadout # DeltaV
+#  id: DetectiveArmorVest
+#  equipment: DetectiveArmorVest
+
+#- type: startingGear # DeltaV
+#  id: DetectiveArmorVest
+#  equipment:
+#    outerClothing: ClothingOuterVestDetective
+
+#- type: loadout # DeltaV
+#  id: DetectiveCoat
+#  equipment: DetectiveCoat
+
+#- type: startingGear # DeltaV
+#  id: DetectiveCoat
+#  equipment:
+#    outerClothing: ClothingOuterCoatDetective
+
+- type: loadout # DeltaV
+  id: DetectiveStasecCoat
+  equipment: DetectiveStasecCoat
+
+- type: startingGear # DeltaV
+  id: DetectiveStasecCoat
+  equipment:
+    outerClothing: ClothingOuterStasecCoatDet

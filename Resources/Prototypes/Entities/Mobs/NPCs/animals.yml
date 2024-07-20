@@ -13,6 +13,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: bat
       sprite: Mobs/Animals/bat.rsi
+  - type: Carriable #DeltaV
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob
@@ -178,6 +179,8 @@
     noMovementLayers:
       movement:
         state: chicken-0
+  - type: Carriable #Delta-V
+    freeHandsRequired: 1
   - type: Fixtures
     fixtures:
       fix1:
@@ -572,6 +575,8 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -816,6 +821,8 @@
     noMovementLayers:
       movement:
         state: crab
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -875,6 +882,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goat
       sprite: Mobs/Animals/goat.rsi
+  - type: Carriable #DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -966,6 +974,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goose
       sprite: Mobs/Animals/goose.rsi
+  - type: Carriable #DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -1211,7 +1220,9 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
+  - type: Carriable #DeltaV
   - type: Hands
+  - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:
@@ -1544,6 +1555,7 @@
         state: mouse-0
   - type: Item
     size: Tiny
+    heldPrefix: 0
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mouse.rsi
@@ -1718,6 +1730,9 @@
         Base: dead-1
       Dead:
         Base: splat-1
+  - type: Item
+    size: Tiny
+    heldPrefix: 1
 
 - type: entity
   parent: MobMouse
@@ -1744,6 +1759,9 @@
         Base: dead-2
       Dead:
         Base: splat-2
+  - type: Item
+    size: Tiny
+    heldPrefix: 2
 
 - type: entity
   name: lizard #Weh
@@ -1760,6 +1778,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: lizard
       sprite: Mobs/Animals/lizard.rsi
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -1814,6 +1833,8 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: slug
       sprite: Mobs/Animals/slug.rsi
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1 
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -1866,6 +1887,7 @@
     noMovementLayers:
       movement:
         state: frog
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -1917,6 +1939,8 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: parrot
       sprite: Mobs/Animals/parrot.rsi
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
   - type: Fixtures
     fixtures:
       fix1:
@@ -1967,6 +1991,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: penguin
       sprite: Mobs/Animals/penguin.rsi
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2096,6 +2121,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: snake
       sprite: Mobs/Animals/snake.rsi
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2150,6 +2176,7 @@
     noMovementLayers:
       movement:
         state: tarantula
+  - type: Carriable #DeltaV ##shiva deserves to be held
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2180,6 +2207,7 @@
       0: Alive
       90: Dead
   - type: MeleeWeapon
+    altDisarm: false
     angle: 0
     animation: WeaponArcBite
     soundHit:
@@ -2231,7 +2259,7 @@
     - DoorBumpOpener
     - FootstepSound
   - type: Tool # Open door from xeno.yml.
-    speed: 1.5
+    speedModifier: 1.5
     qualities:
       - Prying
     useSound:
@@ -2306,6 +2334,7 @@
     - type: Spider
       webPrototype: SpiderWebClown
     - type: MeleeWeapon
+      altDisarm: false
       angle: 0
       animation: WeaponArcBite
       soundHit:
@@ -2323,6 +2352,18 @@
       bloodReagent: Laughter
 
 - type: entity
+  name: wizard spider
+  parent: MobGiantSpider
+  id: MobGiantSpiderWizard
+  description: This spider looks a little magical
+  suffix: Wizard
+  components:
+  - type: Accentless
+    removes:
+    - type: ReplacementAccent
+      accent: xeno  #let this wizard speak
+
+- type: entity
   name: possum
   parent: SimpleMobBase
   id: MobPossum
@@ -2334,6 +2375,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: possum
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2409,6 +2451,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: raccoon
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2473,6 +2516,7 @@
     noMovementLayers:
       movement:
         state: fox
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2548,6 +2592,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: corgi
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Speech
     speechVerb: Canine
@@ -2700,6 +2745,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cat
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2895,6 +2941,8 @@
         Base: kitten_dead
       Dead:
         Base: kitten_dead
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -2925,6 +2973,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: sloth
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2982,6 +3031,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ferret
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3184,6 +3234,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pig
       sprite: Mobs/Animals/pig.rsi
+  - type: Carriable #DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -3256,6 +3307,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
+  - type: Carriable #DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
