@@ -3,9 +3,6 @@
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1800 # DeltaV - 30 mins
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
