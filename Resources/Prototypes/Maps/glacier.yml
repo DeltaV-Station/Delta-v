@@ -1,0 +1,77 @@
+- type: gameMap
+  id: Glacier
+  mapName: Glacier
+  mapPath: /Maps/glacier.yml
+  minPlayers: 15
+  maxPlayers: 70
+  stations:
+    Glacier:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Glacier Station {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'NY'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
+      # uncomment when planets arent fucked sideways
+      #- type: StationSurface
+      #  mapPath: /Maps/Nonstations/glacier_surface.yml
+      #  biome: Snow
+      - type: StationJobs
+        availableJobs:
+          Captain: [ 1, 1 ]
+        #service
+          HeadOfPersonnel: [ 1, 1 ]
+          Bartender: [ 2, 2 ]
+          Botanist: [ 2, 3 ]
+          Boxer: [ 1, 2 ]
+          Chef: [ 2, 3 ]
+          Clown: [ 1, 2 ]
+          Librarian: [ 1, 1 ]
+          Reporter: [ 2, 2 ]
+          Musician: [ 1, 2 ]
+          ServiceWorker: [ 2, 3 ]
+          Janitor: [ 2, 2 ]
+          Mime: [ 1, 2 ]
+        #engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 1, 2 ]
+          StationEngineer: [ 2, 3 ]
+          TechnicalAssistant: [ 2, 2 ]
+        #justice
+          ChiefJustice: [ 1, 1 ]
+          Clerk: [ 1, 1 ]
+          Lawyer: [ 2, 2 ]
+          Prosecutor: [ 1, 1 ]
+        #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 1, 2 ]
+          Paramedic: [ 1, 2 ]
+          Psychologist: [ 1, 1 ]
+          MedicalDoctor: [ 2, 3 ]
+          MedicalIntern: [ 2, 2 ]
+          MedicalBorg: [ 1, 2 ]
+        #science
+          ResearchDirector: [ 1, 1 ]
+          Chaplain: [ 1, 1 ]
+          ForensicMantis: [ 1, 1 ]
+          Scientist: [ 2, 3 ]
+          ResearchAssistant: [ 2, 2 ]
+          Borg: [ 2, 3 ]
+        #security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          Detective: [ 1, 1 ]
+          SecurityOfficer: [ 3, 4 ]
+          SecurityCadet: [ 1, 2 ]
+          Brigmedic: [ 1, 1 ]
+          Prisoner: [ 2, 3 ]
+        #logistics
+          Quartermaster: [ 1, 1 ]
+          Courier: [ 2, 3 ]
+          SalvageSpecialist: [ 2, 3 ]
+          CargoTechnician: [ 2, 3 ]
+        #civilian
+          Passenger: [ -1, -1 ]
