@@ -72,3 +72,13 @@
   id: BartenderWintercoat
   equipment:
     outerClothing: ClothingOuterWinterBar
+
+# Glasses - DeltaV
+- type: loadout
+  id: BartenderGlasses
+  equipment: BartenderGlasses
+
+- type: startingGear
+  id: BartenderGlasses
+  equipment:
+    eyes: ClothingEyesHudBeer

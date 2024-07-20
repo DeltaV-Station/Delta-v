@@ -5,7 +5,7 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 # DeltaV - 4 hours
+      time: 21600 # DeltaV - 6 hours
 #    - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
 #      department: Security
 #      time: 54000 #15 hrs
@@ -18,9 +18,9 @@
   - Security
   #- Brig # Delta V: Removed
   - Maintenance
-  - Service
-  - External
-  - Cryogenics
+  #- Service # Delta V: Access adjustments
+  #- External # Delta V: Don't let cadets space themselves alone.
+  #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -28,8 +28,9 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    shoes: ClothingShoesBootsCombatFilled
-    outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
+    jumpsuit: ClothingUniformJumpsuitCadet # DeltaV - precious uniform budget has been allocated to real security uniforms for cadets. not good ones though.
+#    shoes: ClothingShoesBootsCombatFilled # DeltaV
+#    outerClothing: ClothingOuterArmorDuraVest # DeltaV
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled

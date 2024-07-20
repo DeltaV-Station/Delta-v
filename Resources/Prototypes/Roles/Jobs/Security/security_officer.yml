@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # DeltaV - 4 hours
+      time: 36000 # DeltaV - 10 hours
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -15,9 +15,9 @@
   - Security
   #- Brig # Delta V: Removed
   - Maintenance
-  - Service
+  #- Service # Delta V: Access adjustments
   - External
-  - Cryogenics
+  #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -25,6 +25,6 @@
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+#    eyes: ClothingEyesGlassesSecurity # DeltaV
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal

@@ -7,28 +7,28 @@
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 45
+    minimumPlayers: 20
     weight: 1
     duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobXeno
-      prob: 0.01
+      prob: 0.08
     - id: MobXenoRouny
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoDrone
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoSpitter
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoRunner
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoPraetorian
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoRavager
-      prob: 0.005
+      prob: 0.01
     - id: MobXenoQueen
-      prob: 0.005
+      prob: 0.007
 
 - type: entity
   id: MothroachSpawn
@@ -45,8 +45,8 @@
     - id: MobMothroach
       prob: 0.05
 
-- type: entity # Delta-V : Midround Syndie Listening Station Spawn
-  id: PirateRadioSpawn
+- type: entity
+  id: ListeningPost
   parent: BaseGameRule
   noSpawn: true
   components:
@@ -55,16 +55,37 @@
     weight: 5
     minimumPlayers: 25
     maxOccurrences: 1
-    duration: 1
-  # TODO:
-  # 1. use the load grid rule to load the post itself
-  # 2. rename below to DebrisSpawnRule or something and have it just be debris
-  # 3. use AntagSelection to spawn the listeners
-  # the map will need spawnpoints like SpawnPointNukies added
-  - type: PirateRadioSpawnRule
-    debrisCount: 6
+    duration: null
+  - type: RuleGrids
+  - type: LoadFarGridRule
+    path: /Maps/Shuttles/DeltaV/listening_post.yml
     distanceModifier: 13
-    debrisDistanceModifier: 3
+  - type: DebrisSpawnerRule
+    count: 6
+    distanceModifier: 3
+  # TODO: funny trolling or intel related objectives
+  - type: AntagLoadProfileRule
+  - type: AntagSelection
+    agentName: listening-post-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSyndicateListener
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateListenerGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - names_death_commando
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: ListeningPostRole
+        prototype: ListeningPost
 
 # Mid round antag spawns
 - type: entity
@@ -89,21 +110,100 @@
 #    spawner: SpawnPointGhostRatKing
 
 - type: entity
-  noSpawn: true
   parent: BaseMidRoundAntag
-  id: ParadoxAnomalySpawn
+  id: ParadoxAnomaly
   components:
+  - type: StationEvent
+    duration: null
   - type: ParadoxClonerRule
+  - type: AntagObjectives
+    objectives:
+    - ParadoxAnomalyKillObjective
+    - ParadoxAnomalyFriendObjective
+    - ParadoxAnomalyEscapeObjective
   - type: AntagSelection
+    agentName: paradox-anomaly-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostParadoxAnomaly
       min: 1
       max: 1
       pickPlayer: false
-      components:
-      # TerminatorComponent is added by paradox cloner
-      - type: GenericAntag
-        rule: ParadoxAnomaly
       mindComponents:
+      - type: RoleBriefing
+        briefing: paradox-anomaly-role-briefing
       - type: TerminatorRole
-        prototype: Terminator
+        prototype: ParadoxAnomaly
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: Fugitive
+  components:
+  - type: StationEvent
+    minimumPlayers: 40 # it's really easy to find fugitives on lowpop
+    duration: null
+  - type: FugitiveRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - FugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: fugitive-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostFugitive
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: FugitiveGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindComponents:
+      - type: FugitiveRole
+        prototype: Fugitive
+
+- type: entity
+  parent: BaseGameRule
+  id: SyndicateRecruiter
+  components:
+  - type: StationEvent
+    weight: 4
+    minimumPlayers: 20
+    maxOccurrences: 1
+    duration: null
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieRecruiterShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - RecruiterEscapeObjective
+    - RecruiterRecruitingObjective
+    - RecruiterKeepPenObjective
+  - type: AntagSelection
+    agentName: recruiter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRecruiter
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateRecruiterGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: RecruiterRole
+        prototype: Recruiter
+      - type: RoleBriefing
+        briefing: Find candidates, conduct interviews and seal the deal by having them sign with your special recruiter's pen.

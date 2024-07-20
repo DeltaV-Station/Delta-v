@@ -7,6 +7,8 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainGloves # DeltaV
+  - CaptainShoes # DeltaV
   - Trinkets
 
 - type: roleLoadout
@@ -17,6 +19,8 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - HoPGloves # DeltaV
+  - HoPShoes # DeltaV
   - Glasses
   - Trinkets
 
@@ -24,6 +28,7 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - Scarfs # DeltaV
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerFace
@@ -37,15 +42,18 @@
   id: JobBartender
   groups:
   - BartenderHead
+  - BartenderGlasses # DeltaV
+  - BartenderNeck # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
-  - Glasses
+  #- Glasses
   - Trinkets
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - Scarfs # DeltaV
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
@@ -65,6 +73,7 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
+  - LibrarianNeck # DeltaV
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
@@ -95,6 +104,7 @@
   id: JobJanitor
   groups:
   - JanitorHead
+  - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
   - CommonBackpack
@@ -106,6 +116,7 @@
   id: JobBotanist
   groups:
   - BotanistHead
+  - BotanistNeck # DeltaV
   - BotanistJumpsuit
   - BotanistBackpack
   - BotanistOuterClothing
@@ -116,6 +127,7 @@
   id: JobClown
   groups:
   - ClownHead
+  - Scarfs # DeltaV
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
@@ -128,6 +140,7 @@
   groups:
   - MimeHead
   - MimeMask
+  - MimeNeck # DeltaV
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
@@ -137,6 +150,8 @@
 - type: roleLoadout
   id: JobMusician
   groups:
+  - MusicianJumpsuit # DeltaV
+  - MusicianNeck # DeltaV
   - MusicianBackpack
   - MusicianOuterClothing
   - Glasses
@@ -159,6 +174,7 @@
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
+  - CargoTechnicianNeck # DeltaV
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
@@ -169,6 +185,7 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - SalvageSpecialistNeck # DeltaV
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
@@ -198,6 +215,7 @@
   id: JobStationEngineer
   groups:
   - StationEngineerHead
+  - StationEngineerNeck # DeltaV
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
@@ -208,6 +226,8 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - StationEngineerHead # DeltaV - Safety First!
+  - AtmosphericTechnicianNeck # DeltaV
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -255,6 +275,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityEyes # DeltaV
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
@@ -267,6 +288,8 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityEyes # DeltaV
+  - SecurityNeck # DeltaV
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
@@ -278,6 +301,8 @@
   id: JobSecurityOfficer
   groups:
   - SecurityHead
+  - SecurityEyes # DeltaV
+  - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityOuterClothing
@@ -290,6 +315,7 @@
   id: JobDetective
   groups:
   - DetectiveHead
+  - SecurityEyes # DeltaV
   - DetectiveNeck
   - DetectiveJumpsuit
   - DetectiveBackpack
@@ -300,8 +326,13 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityCadetJumpsuit
+  - SecurityHead # DeltaV
+  - SecurityEyes # DeltaV
+#  - SecurityCadetJumpsuit # DeltaV
+  - SecurityNeck # DeltaV
   - SecurityBackpack
+  - SecurityOuterClothing # DeltaV
+  - SecurityShoes # DeltaV
   - Trinkets
 
 # Medical
@@ -323,6 +354,7 @@
   id: JobMedicalDoctor
   groups:
   - MedicalDoctorHead
+  - MedicalDoctorNeck # DeltaV
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
@@ -345,11 +377,14 @@
   id: JobChemist
   groups:
   - MedicalMask
+  - ChemistNeck # DeltaV
   - ChemistJumpsuit
-  - MedicalGloves
+#  - MedicalGloves
+  - ChemistGloves # DeltaV
   - ChemistBackpack
   - ChemistOuterClothing
-  - MedicalShoes
+#  - MedicalShoes
+  - ChemistShoes # DeltaV
   - Trinkets
 
 - type: roleLoadout
@@ -357,6 +392,7 @@
   groups:
   - ParamedicHead
   - MedicalMask
+  - MedicalDoctorNeck # DeltaV
   - ParamedicJumpsuit
   - MedicalGloves
   - ParamedicBackpack
