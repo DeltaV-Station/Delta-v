@@ -7,3 +7,50 @@
   color: "#8B4513"
   physicalDesc: reagent-physical-desc-pulpy
   slippery: false
+  metabolisms:
+  Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+      - !type:SatiateThirst
+        factor: -0.5
+  Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.05
+
+
+
+- type: reagent
+  id: SawdustSoupReagent
+  name: reagent-name-sawdustsoup
+  group: Biological
+  desc: reagent-desc-sawdustsoup
+  flavor: bitter
+  color: "#8B4513"
+  physicalDesc: reagent-physical-desc-pulpy
+  slippery: false
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 3
+      - !type:SatiateThirst
+        factor: 1.5
+      - !type:HealthChange
+        probability: 0.5
+        damage:
+          groups:
+            Brute: -1.5
+            Burn: -1
+            Toxin: -2
+      - !type:ModifyBleedAmount
+        amount: -0.25
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 0.5
+  - !type:PlantAdjustHealth
+    amount: 1.5
+  pricePerUnit: 2.5
