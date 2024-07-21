@@ -51,5 +51,10 @@
       120: Critical # +20 to Crit Threshold
       200: Dead
   - type: NoSlip
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Stray/Mech/mech.ogg
+      params:
+        variation: 0.07
   - type: Speech
     speechVerb: Robotic
