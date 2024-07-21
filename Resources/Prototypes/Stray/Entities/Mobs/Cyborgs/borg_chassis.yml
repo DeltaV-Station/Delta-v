@@ -48,8 +48,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Critical # +20 to Crit Threshold
-      200: Dead
+      140: Critical # +40 to Crit Threshold
+      240: Dead # +40 to Dead Threshold
   - type: NoSlip
   - type: FootstepModifier
     footstepSoundCollection:
@@ -58,3 +58,6 @@
         variation: 0.07
   - type: Speech
     speechVerb: Robotic
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
