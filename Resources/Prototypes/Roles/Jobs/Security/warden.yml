@@ -23,7 +23,6 @@
   #- Service # Delta V: Access adjustments
   - External
   - Detective
-  - Corpsman # DeltaV - corpsman access.
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -32,7 +31,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-#    eyes: ClothingEyesGlassesSecurity # DeltaV
+    eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal
