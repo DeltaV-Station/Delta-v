@@ -6,7 +6,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/1layer1.png"
+        path: "/Textures/Parallaxes/layer1.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -17,7 +17,7 @@
       scale: "1.5, 1.5"
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AsteroidsSmall.png"
+        path: "/Textures/Parallaxes/Asteroids.png"
       slowness: 0.9969
     - texture:
         !type:ImageParallaxTextureSource
