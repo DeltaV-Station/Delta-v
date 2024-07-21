@@ -64,6 +64,7 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Revenant
+    spawnOnDeathPrototype: EctoplasmRevenant #DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
     malfunctionWhitelist:
       components:
       # emag lockers open

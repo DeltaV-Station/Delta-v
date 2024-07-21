@@ -21,6 +21,9 @@ loadout-group-mime-neck = Mime neck
 loadout-group-musician-jumpsuit = Musician jumpsuit
 loadout-group-musician-neck = Musician neck
 
+loadout-group-serviceworker-head = Service Worker head
+loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
+
 # Logistics
 
 loadout-group-cargo-technician-neck = Cargo Technician neck
@@ -62,15 +65,15 @@ loadout-group-station-engineer-neck = Station Engineer neck
 loadout-group-atmospheric-technician-neck = Atmospheric Technician neck
 
 # Security
-loadout-group-head-of-security-shoes = Head of Security shoes
-
-loadout-group-security-cadet-head = Security Cadet head
+loadout-group-security-eyes = Security eyes
 loadout-group-security-neck = Security neck
 
-loadout-group-brig-medic-head = Brigmedic head
-loadout-group-brig-medic-jumpsuit = Brigmedic jumpsuit
-loadout-group-brig-medic-back = Brigmedic backpack
+loadout-group-brig-medic-head = Corpsman head
+loadout-group-brig-medic-eyes = Corpsman eyes
 loadout-group-brig-medic-neck = Corpsman neck
+loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
+loadout-group-brig-medic-back = Corpsman backpack
+loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
