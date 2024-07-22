@@ -16,7 +16,7 @@
     soundHit:
       collection: MetalThud
   - type: CombatMode
-  #- type: NoSlip # Delta-V , Unparents NoSlip component
+  - type: NoSlip
   - type: StaticPrice
     price: 1250
   - type: Fixtures
@@ -288,4 +288,3 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: NoSlip # Delta-V : Unparents NoSlip from Base Chassis
