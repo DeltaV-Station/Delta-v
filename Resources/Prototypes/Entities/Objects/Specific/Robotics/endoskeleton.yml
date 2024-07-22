@@ -166,7 +166,7 @@
         whitelist:
           tags:
             - BorgJanitorTorso
-      security_l_arm+o:
+      security_l_arm+o: # Delta-V : Start
         whitelist:
           tags:
             - BorgSecurityLArm
@@ -189,7 +189,7 @@
       security_chest+o:
         whitelist:
           tags:
-            - BorgSecurityTorso
+            - BorgSecurityTorso # Delta-V : End
   - type: ContainerContainer
     containers:
       part-container: !type:Container
@@ -236,13 +236,13 @@
       - BorgMiningRLeg
       - BorgMiningHead
       - BorgMiningTorso
-      security:
+      security: # Delta-V : Start
       - BorgSecurityLArm
       - BorgSecurityRArm
       - BorgSecurityLLeg
       - BorgSecurityRLeg
       - BorgSecurityHead
-      - BorgSecurityTorso
+      - BorgSecurityTorso # Delta-V : End
   - type: Construction
     graph: Cyborg
     node: start
