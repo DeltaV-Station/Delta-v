@@ -604,6 +604,17 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    # Delta-V : Start
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
+    - BorgModuleSecurityBastion
+    - LeftArmBorgSecurity
+    - RightArmBorgSecurity
+    - LeftLegBorgSecurity
+    - RightLegBorgSecurity
+    - HeadBorgSecurity
+    - TorsoBorgSecurity
+    # Delta-V : End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -647,9 +658,11 @@
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
-  # Begin DeltaV additions
+  # DeltaV Start
+    - BorgModuleSecurityDeescalate
+    - BorgModuleSecurityChase
     - JetpackVoid
-  # End DeltaV additions
+  # DeltaV End
   - type: MaterialStorage
     whitelist:
       tags:
