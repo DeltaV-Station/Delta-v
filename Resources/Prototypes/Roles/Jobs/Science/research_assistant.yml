@@ -9,6 +9,8 @@
     #   department: Science
     #   time: 54000 #15 hrs
     #   inverted: true # stop playing intern if you're good at science!
+  - !type:OverallPlaytimeRequirement # DeltaV
+    time: 3600 # 1 hr
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science

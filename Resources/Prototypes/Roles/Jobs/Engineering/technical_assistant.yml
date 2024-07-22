@@ -5,8 +5,8 @@
   playTimeTracker: JobTechnicalAssistant
   antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Engineering
   requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV - to prevent griefers from taking the role.
-      time: 14400 # 4 hours
+  - !type:OverallPlaytimeRequirement # DeltaV
+      time: 7200 # 2 hours
     # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
     #   department: Engineering
     #   time: 54000 #15 hrs

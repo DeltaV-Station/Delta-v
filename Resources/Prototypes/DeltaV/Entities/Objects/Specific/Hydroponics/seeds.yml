@@ -1,0 +1,10 @@
+- type: entity
+  parent: SeedBase
+  name: packet of CrystalThistle seeds
+  description: "Like a bag of needles"
+  id: CrystalThistleSeeds
+  components:
+    - type: Seed
+      seedId: CrystalThistle
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi

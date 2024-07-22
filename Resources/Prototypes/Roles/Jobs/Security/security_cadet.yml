@@ -19,7 +19,7 @@
   #- Brig # Delta V: Removed
   - Maintenance
   #- Service # Delta V: Access adjustments
-  #- External # Delta V: Don't let cadets space themselves alone.
+  - External
   #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
@@ -28,9 +28,8 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCadet # DeltaV - precious uniform budget has been allocated to real security uniforms for cadets. not good ones though.
-#    shoes: ClothingShoesBootsCombatFilled # DeltaV
-#    outerClothing: ClothingOuterArmorDuraVest # DeltaV
+    shoes: ClothingShoesBootsCombatFilled
+    outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
