@@ -15,7 +15,7 @@
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/external.rsi #Delta V - Resprite Doors
   - type: PaintableAirlock
     group: External
     department: null
@@ -30,7 +30,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/external.rsi #Delta V - Resprite Doors
   - type: PaintableAirlock
     group: ExternalGlass
   - type: Fixtures

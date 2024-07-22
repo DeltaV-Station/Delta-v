@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: DeltaV/Structures/Windows/uranium_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: DeltaV/Structures/Windows/uranium_window.rsi #Delta V - Resprite windows
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -62,10 +62,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/directional.rsi
+    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_window
   - type: Icon
-    sprite: Structures/Windows/directional.rsi
+    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_window
   - type: Construction
     graph: WindowDirectional
