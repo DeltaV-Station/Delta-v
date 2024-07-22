@@ -1,0 +1,22 @@
+- type: entity
+  id: OrganVampiricHumanoidStomach
+  parent: OrganHumanStomach
+  components:
+  - type: Metabolizer
+    # mm yummy
+    maxReagents: 3
+    metabolizerTypes: [Vampiric]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganVampiricStomach
+  parent: OrganAnimalStomach
+  components:
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Vampiric]
+    groups:
+    - id: Food
+    - id: Drink
