@@ -127,6 +127,36 @@ reagent-desc-devils-kiss = Creepy time!
 reagent-name-doctors-delight = the doctor's delight
 reagent-desc-doctors-delight = A gulp a day keeps the MediBot away. That's probably for the best.
 
+reagent-name-ElectrificatedWater = Electrified water
+reagent-desc-ElectrificatedWater = An endless source of electricity that everyone forgot about
+
+reagent-name-shittypotion = Shit potion
+reagent-desc-shittypotion = This is a potion with an extremely pungent odor. It looks too disgusting to drink
+
+reagent-name-nonshittypotion = Not a Shit potion
+reagent-desc-nonshittypotion = This is a potion with a slightly pungent odor. Looks like apple juice, but it's definitely not it
+
+reagent-name-antifallpotion = Anti-fall potion
+reagent-desc-antifallpotion = A potion whose name definitely has no tricks, it will protect you from any fall
+
+reagent-name-adiarine3 = Adiarin 3
+reagent-desc-adiarine3 = Adiarin 3, unfortunately due to the antiquity of this medicine it does not work
+
+reagent-name-redpotion = Red Potion
+reagent-desc-redpotion = TThis is a potion with a bright red hue. Tastes like dye water
+
+reagent-name-grepotion = Grey Potion
+reagent-desc-grepotion = This is a gray potion... that's all...
+
+reagent-name-gray-brown-raspberry = Gray-Brown-Raspberry Potion
+reagent-desc-gray-brown-raspberry = This is a potion with a very strange connotation. They say that such a color does not exist, but I’m looking at it right now. There are only liars around...
+
+reagent-name-badwater = Blooming water
+reagent-desc-badwater = 100% non-125 year old water from a barrel
+
+reagent-name-soh = Juihe
+reagent-desc-soh = It's juice, but for people who have problems with pronunciation
+
 reagent-name-driest-martini = driest martini
 reagent-desc-driest-martini = Only for the experienced. You think you see sand floating in the glass.
 

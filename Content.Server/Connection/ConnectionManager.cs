@@ -6,6 +6,8 @@ using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVars;
+using Content.Server.DeltaV.ProxyDetection;
 using Content.Shared.GameTicking;
 using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
@@ -47,7 +49,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
-
+        [Dependency] private readonly ProxyDetectionManager _detectionManager = default!;
         private readonly Dictionary<NetUserId, TimeSpan> _temporaryBypasses = [];
         private ISawmill _sawmill = default!;
 
@@ -214,6 +216,18 @@ namespace Content.Server.Connection
             {
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
+
+            if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
+            {
+                var flags = await _dbManager.GetBanExemption(e.UserId);
+                if (flags == ServerBanExemptFlags.None)
+                {
+                    var result = await _detectionManager.ShouldDeny(e); // This is ran before the ban check because it'll insert a ban
+                    if (result.Item1)
+                        return (ConnectionDenyReason.Ban, result.Item2, null);
+                }
+            }
+
 
             // DeltaV - Replace existing softwhitelist implementation
             if (false)// _cfg.GetCVar(CCVars.WhitelistEnabled))

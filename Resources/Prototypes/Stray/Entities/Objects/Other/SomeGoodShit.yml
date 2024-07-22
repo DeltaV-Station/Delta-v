@@ -1,0 +1,492 @@
+- type: entity
+  parent: BaseItem
+  id: Moss
+  name: Мох
+  description: "Это мох"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: moss
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 1
+
+- type: entity
+  parent: BaseItem
+  id: Msoss
+  name: Мсох
+  description: "Это мох со вкусом молока"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: msoss
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Milk
+          Quantity: 5
+
+- type: entity
+  parent: BaseItem
+  id: mBoss
+  name: Бох
+  description: "Это очень странный мох. На вкус как бетон, от того и Бох. Не съедобен"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: mboss
+
+- type: reagent
+  id: ElectrificatedWater
+  name: reagent-name-ElectrificatedWater
+  parent: BaseDrink
+  desc: reagent-desc-ElectrificatedWater
+  physicalDesc: reagent-physical-desc-aromatic
+  color: "#B1F700"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: 1
+
+- type: entity
+  parent: BaseItem
+  id: mToss
+  name: Тох
+  description: "Это мох который всех бьёт током"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: mtoss
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: ElectrificatedWater
+          Quantity: 1
+
+- type: reagent
+  id: Soh
+  name: reagent-name-soh
+  parent: BaseDrink
+  desc: reagent-desc-soh
+  physicalDesc: reagent-physical-desc-aromatic
+  color: "#FFC200"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+
+- type: entity
+  parent: DrinkBottlePlasticBaseFull
+  id: SohPacket
+  name: Упаковка соха
+  description: "Это сок, но для людей у которых проблемы с произношением"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: Soh
+          Quantity: 100
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: sohpacket
+
+- type: entity
+  parent: BaseItem
+  id: ChinaBelt
+  name: Белт
+  description: "это ремень без пряжки, на обратной стороне написано: made in China"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: belt
+
+- type: entity
+  parent: ClothingShoesBase
+  id: JumpBoots
+  name: Джампбутсы
+  description: "Это очень круто выглядящие бутсы, которые позволяют человеку прыгать!"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: jumpboots
+  - type: Clothing
+    sprite: Stray/Objects/Other/sgs.rsi
+    clothingVisuals:
+      shoes:
+      - state: jumpbootsDirections
+
+- type: entity
+  parent: ClothingShoesBase
+  id: MagicsBoots
+  name: Магбутсы
+  description: "Это бутсы мага, к сожалению от магов тут только название и светодиоды"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: magboots
+  - type: Clothing
+    sprite: Stray/Objects/Other/sgs.rsi
+    clothingVisuals:
+      shoes:
+      - state: magbootsDirections
+      - state: magbootsDirectionsLight
+        shader: unshaded
+
+- type: entity
+  parent: ClothingShoesBase
+  id: SneekeBoots
+  name: Подкрадутсы
+  description: "Это бутсы, которые как будто взяты прямиком со древних свитков, на каробке было написано: с этими бутсами вы сможете незаметно воровать у стражи"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: sneekeboots
+  - type: Clothing
+    sprite: Stray/Objects/Other/sgs.rsi
+    clothingVisuals:
+      shoes:
+      - state: sneekebootsDirections
+
+- type: reagent
+  id: RedPotion
+  name: reagent-name-redpotion
+  parent: BaseDrink
+  desc: reagent-desc-redpotion
+  slippery: true
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#FF0000"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+
+- type: entity
+  parent: DrinkGlassBase
+  id: RedPotionGlass
+  name: Красное зелье
+  description: "Это зелье с ярко-красным оттенком. На вкус похожа на воду с красителемм"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RedPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: redpotionglass
+
+- type: entity
+  parent: DrinkGlassBase
+  id: BluePotionGlass
+  name: Cинее зелье
+  description: "Это синее зелье, пахнет как незамерзайка, хмм... что же это значит?"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Antifreeze
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: bluepotionglass
+
+- type: reagent
+  id: BadWater
+  name: reagent-name-badwater
+  parent: BaseDrink
+  desc: reagent-desc-badwater
+  slippery: true
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#589C53"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
+
+- type: entity
+  parent: DrinkGlassBase
+  id: GreenPotionGlass
+  name: Зелёное зелье
+  description: "Это тёмно-зелёное зелье. На дне написано: 100% не 125 летняя вода из бочки"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BadWater
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: greenpotionglass
+
+- type: reagent
+  id: GreyPotion
+  name: reagent-name-grepotion
+  parent: BaseDrink
+  desc: reagent-desc-grepotion
+  slippery: true
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#848484"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+
+- type: entity
+  parent: DrinkGlassBase
+  id: GreyPotionGlass
+  name: Серое зелье
+  description: "Это зелье серого цвета... всё..."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GreyPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: greypotionglass
+
+- type: reagent
+  id: GrayBrownRaspberryPotion
+  name: reagent-name-gray-brown-raspberry
+  parent: BaseDrink
+  desc: reagent-desc-gray-brown-raspberry
+  slippery: true
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#987CAD"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+
+- type: entity
+  parent: DrinkGlassBase
+  id: GrayBrownRaspberryPotionGlass
+  name: Серобурмалиновое зелье
+  description: "Это зелье с очень странным оттенком. Говорят что такого цвета не существует, но ведь я прямо сейчас на него смотрю. Вокруг одни лжецы..."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GrayBrownRaspberryPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: graybrownraspberrypotionglass
+
+- type: reagent
+  id: ShittyPotion
+  name: reagent-name-shittypotion
+  parent: BaseDrink
+  desc: reagent-desc-shittypotion
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#754900"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -15
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ShittyPotionGlass
+  name: Говно-зелье
+  description: "Это зелье с крайне резким запахом. Оно выглядит слишком отвратительно чтобы его пить"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ShittyPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: shittypotionglass
+
+- type: reagent
+  id: NonShittyPotion
+  name: reagent-name-nonshittypotion
+  parent: BaseDrink
+  desc: reagent-desc-nonshittypotion
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#FFE790"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -3
+
+- type: entity
+  parent: DrinkGlassBase
+  id: NonShittyPotionGlass
+  name: Не Говно-зелье
+  description: "Это зелье с немного резким запахом. На вид как яблочный сок, но это точно не он"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: NonShittyPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: nonshittypotionglass
+
+- type: entity
+  parent: DrinkGlassBase
+  id: LGBTPotionGlass
+  name: ЛГБТ зелье
+  description: "Это зелье... хотя нет, это не зелье, а кусок разноцветного пластелина в колбе, что явно к лучшему"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 5
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: lgbtpotionglass
+
+- type: reagent
+  id: AntiFallPotion
+  name: reagent-name-antifallpotion
+  parent: BaseDrink
+  desc: reagent-desc-antifallpotion
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#FF0090"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 15
+        type: Add
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 15
+        type: Add
+
+- type: entity
+  parent: DrinkGlassBase
+  id: AntiFallPotionGlass
+  name: Зелье против сноса
+  description: "Зелье в названии которого точно нет подвохов, оно будет защищать вас от любого падения"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AntiFallPotion
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: antifallpotionglass
+
+- type: reagent
+  id: Adiarine3
+  name: reagent-name-adiarine3
+  parent: BaseDrink
+  desc: reagent-desc-adiarine3
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#FF0090"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.05
+
+- type: entity
+  parent: DrinkGlassBase
+  id: AntiPonosPotionGlass
+  name: Зелье против поноса
+  description: "Зелье с Адиарином 3, к сожалению из-за древности этого лекарства оно не работает"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Adiarine3
+          Quantity: 30
+  - type: Sprite
+    sprite: Stray/Objects/Other/sgs.rsi
+    state: antiponospotionglass
