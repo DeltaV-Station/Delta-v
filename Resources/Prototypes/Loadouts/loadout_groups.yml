@@ -998,10 +998,6 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
-  - HeadofSecurityJumpsuitGrey # DeltaV
-  - HeadofSecurityJumpskirtGrey # DeltaV
-  - HeadofSecurityJumpsuitBlue # DeltaV
-  - HeadofSecurityJumpskirtBlue # DeltaV
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
@@ -1020,11 +1016,17 @@
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
-#  - HeadofSecurityCoat # DeltaV
-#  - HeadofSecurityWinterCoat # DeltaV
-  - PlateCarrier # DeltaV
-  - DuraVest # DeltaV
-  - HoSStasecCoat # DeltaV
+  - HeadofSecurityCoat
+  - HeadofSecurityWinterCoat
+
+- type: loadoutGroup # DeltaV
+  id: HeadOfSecurityShoes
+  name: loadout-group-head-of-security-shoes
+  loadouts:
+  - CombatBoots
+  - JackBoots # DeltaV
+  - SecurityWinterBoots
+  - HeadOfSecurityWinterBoots # DeltaV
 
 - type: loadoutGroup
   id: WardenHead
@@ -1040,20 +1042,13 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  - WardenJumpsuitGrey # DeltaV
-  - WardenJumpskirtGrey # DeltaV
-  - WardenJumpsuitBlue # DeltaV
-  - WardenJumpskirtBlue # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-#  - WardenCoat # DeltaV
-#  - WardenArmoredWinterCoat # DeltaV
-  - PlateCarrier # DeltaV
-  - DuraVest # DeltaV
-  - WardenStasecCoat # DeltaV
+  - WardenCoat
+  - WardenArmoredWinterCoat
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1062,21 +1057,8 @@
   loadouts:
   - SecurityHelmet
   - SecurityBeret
-#  - SecurityHat # DeltaV
-
-# DeltaV - add more options to security officer eyewear.
-
-- type: loadoutGroup
-  id: SecurityEyes
-  name: loadout-group-security-eyes
-  minLimit: 0
-  loadouts:
-  - Sunglasses
-  - SunglassesSec
-  - HudSec
-  - HudSecPatch
-
-# End DeltaV addition.
+  - SecurityHat
+  - MimeHead # DeltaV - Red Beret
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1089,7 +1071,7 @@
   - SecurityJumpsuitBlue # DeltaV
   - SecurityJumpskirtBlue # DeltaV
   - SeniorOfficerJumpsuit
-#  - SeniorOfficerJumpskirt # DeltaV
+  - SeniorOfficerJumpskirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1110,13 +1092,11 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
-#  - ArmorVest # DeltaV
-#  - ArmorVestSlim # DeltaV
-#  - SecurityOfficerWintercoat # DeltaV
+  - ArmorVest
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - SecurityOfficerStasecCoat # DeltaV
-  - SecurityOfficerStasecSweater # DeltaV
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1124,7 +1104,7 @@
   loadouts:
   - CombatBoots
   - JackBoots # DeltaV
-  - LaceupShoes # DeltaV
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1145,9 +1125,8 @@
   name: loadout-group-detective-head
   minLimit: 0
   loadouts:
-#  - DetectiveFedora # DeltaV
-#  - DetectiveFedoraGrey # DeltaV
-  - DetectiveBeret # DeltaV
+  - DetectiveFedora
+  - DetectiveFedoraGrey
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1163,8 +1142,8 @@
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
-#  - NoirJumpsuit # DeltaV
-#  - NoirJumpskirt # DeltaV
+  - NoirJumpsuit
+  - NoirJumpskirt
 
 - type: loadoutGroup
   id: DetectiveBackpack
@@ -1179,18 +1158,22 @@
   name: loadout-group-detective-outerclothing
   minLimit: 0
   loadouts:
-#  - DetectiveArmorVest # DeltaV
-#  - DetectiveCoat # DeltaV
-  - DetectiveStasecCoat # DeltaV
-  - PlateCarrier # DeltaV
-  - DuraVest # DeltaV
+  - DetectiveArmorVest
+  - DetectiveCoat
 
-#- type: loadoutGroup # DeltaV
-#  id: SecurityCadetJumpsuit
-#  name: loadout-group-security-cadet-jumpsuit
-#  loadouts:
-#  - RedJumpsuit
-#  - RedJumpskirt
+- type: loadoutGroup
+  id: SecurityCadetJumpsuit
+  name: loadout-group-security-cadet-jumpsuit
+  loadouts:
+  - RedJumpsuit
+  - RedJumpskirt
+
+- type: loadoutGroup # DeltaV
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead # DeltaV - Red Beret
 
 # Medical
 - type: loadoutGroup
