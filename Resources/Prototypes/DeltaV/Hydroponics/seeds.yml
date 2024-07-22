@@ -1,0 +1,25 @@
+- type: seed
+  id: CrystalThistle
+  name: seeds-CrystalThistle-name
+  noun: seeds-noun-seeds
+  displayName: seeds-CrystalThistle-display-name
+  plantRsi: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+  packetPrototype: CrystalThistleSeeds
+  productPrototypes:
+    - FoodCrystalThistle
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.60
+  chemicals:
+    Ethyloxyephedrine:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 4
+    Quartzite:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 4
