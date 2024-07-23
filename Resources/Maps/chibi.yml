@@ -10473,6 +10473,13 @@ entities:
     - type: Transform
       pos: -3.5,0.5
       parent: 2
+- proto: DefaultStationBeaconLibrary
+  entities:
+  - uid: 4238
+    components:
+    - type: Transform
+      pos: 1.5,16.5
+      parent: 2
 - proto: DefaultStationBeaconMedical
   entities:
   - uid: 2891
@@ -23976,26 +23983,36 @@ entities:
   entities:
   - uid: 45
     components:
+    - type: MetaData
+      name: SMES (TEG 1)
     - type: Transform
       pos: 15.5,-19.5
       parent: 2
   - uid: 420
     components:
+    - type: MetaData
+      name: SMES (TEG 2)
     - type: Transform
       pos: 15.5,-20.5
       parent: 2
   - uid: 641
     components:
+    - type: MetaData
+      name: SMES (AME)
     - type: Transform
       pos: 15.5,-13.5
       parent: 2
   - uid: 966
     components:
+    - type: MetaData
+      name: SMES (SOL, LWR)
     - type: Transform
       pos: 21.5,-18.5
       parent: 2
   - uid: 1334
     components:
+    - type: MetaData
+      name: SMES (SOL, UPR)
     - type: Transform
       pos: 2.5,20.5
       parent: 2
