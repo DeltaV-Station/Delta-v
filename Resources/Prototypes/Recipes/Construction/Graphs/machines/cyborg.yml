@@ -209,7 +209,7 @@
 
       - material: Plasteel
         amount: 2
-        doafter: 1
+        doAfter: 1
         store: part-container
 
       - tool: Welding
@@ -219,11 +219,11 @@
         name: one of security's armour vests
         store: part-container
         icon:
-          sprite: DeltaV/Clothing/OuterClothing/Armor/platercarrier.rsi
+          sprite: DeltaV/Clothing/OuterClothing/Armor/platecarrier.rsi
           state: icon
 
       - tool: Cutting
-        doafter: 1
+        doAfter: 1
 
       - tool: Welding
         doAfter: 2 # Delta-V : End
