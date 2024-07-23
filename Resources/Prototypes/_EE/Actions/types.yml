@@ -1,0 +1,25 @@
+- type: entity
+  id: ActionFabricateLollipop
+  name: action-name-fabricate-lollipop
+  description: action-description-fabricate-lollipop
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: lollipop }
+    useDelay: 120
+    event:
+      !type:FabricateActionEvent
+      fabrication: FoodLollipop
+
+- type: entity
+  id: ActionFabricateGumball
+  name: action-name-fabricate-gumball
+  description: action-description-fabricate-gumball
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: gumball }
+    useDelay: 40
+    event:
+      !type:FabricateActionEvent
+      fabrication: FoodGumball
