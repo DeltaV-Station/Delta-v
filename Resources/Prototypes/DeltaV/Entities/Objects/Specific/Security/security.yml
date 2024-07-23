@@ -85,3 +85,24 @@
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellMicroreactor
           disableEject: true
+
+#######################################
+####### PEACEKEEPING MODULES ##########
+#######################################
+
+- type: entity
+  parent: BorgHypo
+  id: BorgHypoPax
+  name: Borg Pax Injector
+  description: A sterile injector for rapid administration of Pax to the unruly.
+  components:
+  - type: Hypospray
+    injectOnly: true # Pax regenerates, this does handicap Antag Borgs but worth seeing.
+    onlyAffectsMobs: false
+  - type: SolutionRegeneration
+    solution: hypospray
+    duration: 10 # 10 seconds to regenerate, dumb field name.
+    generated:
+      reagents:
+      - ReagentId: Pax
+        Quantity: 1
