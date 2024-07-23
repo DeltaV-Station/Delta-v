@@ -2,7 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 
-namespace Content.Server.EinsteinEngines.Abilities.Borgs;
+namespace Content.Server.Abilities.Borgs;
 
 public sealed partial class FabricateActionsSystem : EntitySystem
 {
