@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.EinsteinEngines.Actions.Events;
+namespace Content.Shared.Actions.Events;
 
 public sealed partial class FabricateActionEvent : InstantActionEvent
 {
