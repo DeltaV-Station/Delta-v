@@ -16,3 +16,6 @@ uplink-generic-radio-implanter-desc = A cranial implant with a bluespace compart
 
 uplink-doorjack-name = Airlock Access Override
 uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
+
+uplink-home-run-bat-name = Home Run Bat
+uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball practice. Launch your foes!

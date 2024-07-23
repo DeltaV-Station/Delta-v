@@ -139,7 +139,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: JetpackSecurityFilled # DeltaV - add jetpacks to security suit storage
         - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
         - id: ClothingMaskBreath
   - type: AccessReader
@@ -213,7 +212,6 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: JetpackSecurityFilled # DeltaV - add jetpacks to security suit storage
         - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
         - id: ClothingMaskBreath
   - type: AccessReader
@@ -273,9 +271,8 @@
   components:
   - type: StorageFill
     contents:
-#      - id: NitrogenTankFilled # removed for consistency.
+      - id: NitrogenTankFilled
       - id: OxygenTankFilled
-      - id: JetpackSecurityFilled
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingMaskBreath
   - type: AccessReader

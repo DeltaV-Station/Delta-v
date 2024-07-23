@@ -13,6 +13,8 @@
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: 'NY'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
       # uncomment when planets arent fucked sideways
       #- type: StationSurface
       #  mapPath: /Maps/Nonstations/glacier_surface.yml

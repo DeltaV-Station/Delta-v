@@ -1,3 +1,27 @@
+# Civilian (actually Service but hey, that's what they called it :shrug:)
+## Service Worker
+- type: loadoutGroup
+  id: ServiceWorkerHead
+  name: loadout-group-serviceworker-head
+  minLimit: 0
+  loadouts:
+  - ServiceWorkerCap
+  - ServiceWorkerCapFlip
+  - ServiceWorkerBandana
+
+- type: loadoutGroup
+  id: ServiceWorkerJumpsuit
+  name: loadout-group-serviceworker-jumpsuit
+  minLimit: 0
+  loadouts:
+  - ServiceWorkerJumpsuit
+  - ServiceWorkerJumpskirt
+  - ServiceWorkerJumpsuitDark
+  - ServiceWorkerJumpskirtDark
+  - BartenderJumpsuit
+  - BartenderJumpskirt
+  - BartenderJumpsuitPurple
+
 # Logistics
 ## Courier
 - type: loadoutGroup
@@ -56,18 +80,6 @@
   minLimit: 0
   loadouts:
   - CorpsmanBeret
-
-- type: loadoutGroup
-  id: BrigMedicEyes
-  name: loadout-group-brig-medic-eyes
-  minLimit: 0
-  loadouts:
-  - Sunglasses
-  - SunglassesSec
-  - HudSec
-  - HudSecPatch
-  - HudMed
-  - HudMedPatch
 
 - type: loadoutGroup
   id: BrigMedicNeck
