@@ -68,6 +68,17 @@
     - BorgHypoPax
 
 - type: entity
+  id: BorgModuleSecurityEscalate
+  parent: BorgModuleSecurityDeescalate
+  name: escalation cyborg module
+  description: peace was never an option.
+  components:
+  - type: ItemBorgModule
+    items:
+    - Truncheon
+    - FlashRecharging
+
+- type: entity
   id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
