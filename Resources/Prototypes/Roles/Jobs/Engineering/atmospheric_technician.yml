@@ -7,7 +7,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 900 # DeltaV - 10 hours
+      time: 60 # DeltaV - 10 hours
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1800
   startingGear: AtmosphericTechnicianGear
