@@ -21854,6 +21854,34 @@ entities:
     - type: Transform
       pos: -3.5,-13.5
       parent: 2
+- proto: PosterLegitDontPanic
+  entities:
+  - uid: 4241
+    components:
+    - type: Transform
+      pos: 23.5,15.5
+      parent: 2
+- proto: PosterLegitHereForYourSafety
+  entities:
+  - uid: 4242
+    components:
+    - type: Transform
+      pos: 20.5,17.5
+      parent: 2
+- proto: PosterLegitNanotrasenLogo
+  entities:
+  - uid: 4243
+    components:
+    - type: Transform
+      pos: 22.5,17.5
+      parent: 2
+- proto: PosterLegitSafetyInternals
+  entities:
+  - uid: 4245
+    components:
+    - type: Transform
+      pos: 19.5,7.5
+      parent: 2
 - proto: PottedPlantRandom
   entities:
   - uid: 12
@@ -22592,10 +22620,10 @@ entities:
       parent: 2
 - proto: RandomPainting
   entities:
-  - uid: 4117
+  - uid: 4057
     components:
     - type: Transform
-      pos: 0.5,18.5
+      pos: 1.5,18.5
       parent: 2
 - proto: RandomPosterAny
   entities:
@@ -22640,11 +22668,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,2.5
-      parent: 2
-  - uid: 4057
-    components:
-    - type: Transform
-      pos: 1.5,18.5
       parent: 2
   - uid: 4058
     components:
@@ -22716,6 +22739,11 @@ entities:
     - type: Transform
       pos: 14.5,12.5
       parent: 2
+  - uid: 4117
+    components:
+    - type: Transform
+      pos: -9.5,2.5
+      parent: 2
   - uid: 4120
     components:
     - type: Transform
@@ -22730,6 +22758,21 @@ entities:
     components:
     - type: Transform
       pos: 31.5,-9.5
+      parent: 2
+  - uid: 4239
+    components:
+    - type: Transform
+      pos: -12.5,2.5
+      parent: 2
+  - uid: 4240
+    components:
+    - type: Transform
+      pos: 6.5,-5.5
+      parent: 2
+  - uid: 4244
+    components:
+    - type: Transform
+      pos: 4.5,17.5
       parent: 2
 - proto: RandomProduce
   entities:
