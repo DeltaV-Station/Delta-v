@@ -58,3 +58,7 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: peace
     name: Security Cyborg
+  - type: FabricateActions #Einstein Engines : Start
+    actions:
+    - ActionFabricateCookie
+    - ActionFabricateZipties # Einstein Engines : End

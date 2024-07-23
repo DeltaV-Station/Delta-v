@@ -1,0 +1,25 @@
+- type: entity
+  id: ActionFabricateCookie
+  name: action-name-fabricate-cookie
+  description: action-description-fabricate-cookie
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Objects/Consumable/Food/Baked/misc.rsi, state: COOKIE!!! }
+    useDelay: 120
+    event:
+      !type:FabricateActionEvent
+      fabrication: FoodCookie
+
+- type: entity
+  id: ActionFabricateZipties
+  name: action-name-fabricate-zipties
+  description: action-description-fabricate-zipties
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Objects/Misc/zipties.rsi, state: cuff }
+    useDelay: 120
+    event:
+      !type:FabricateActionEvent
+      fabrication: Zipties
