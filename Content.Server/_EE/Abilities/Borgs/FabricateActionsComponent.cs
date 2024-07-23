@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EinsteinEngines.Abilities.Borgs;
+namespace Content.Server.Abilities.Borgs;
 
 [RegisterComponent]
 public sealed partial class FabricateActionsComponent : Component
