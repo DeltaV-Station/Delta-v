@@ -249,10 +249,10 @@
     access: [["Medical"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgDutch
-  - type: FabricateActions
+  - type: FabricateActions # Einstein Engines : Start # Refactor of Fabrication System from Nyano
     actions:
     - ActionFabricateLollipop
-    - ActionFabricateGumball
+    - ActionFabricateGumball # Einstein Engines : End
   - type: SiliconLawProvider # Delta-V - Adds custom lawset for Medical cyborg
     laws: Medical
   - type: FootstepModifier
