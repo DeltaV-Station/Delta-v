@@ -10,7 +10,7 @@
   #    time: 14400 #4 hrs
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 1
+      time: 10
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce

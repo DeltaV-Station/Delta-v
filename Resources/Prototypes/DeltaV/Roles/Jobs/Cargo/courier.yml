@@ -6,7 +6,7 @@
   playTimeTracker: JobCourier
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 3600 # 1 hr
+    time: 60 # 1 hr
   icon: "JobIconCourier"
   supervisors: job-supervisors-qm
   access:

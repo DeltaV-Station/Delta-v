@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 1800
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 60
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo

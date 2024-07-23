@@ -5,6 +5,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 1800
   startingGear: IAAGear
   icon: "JobIconIAA"
   supervisors: job-supervisors-centcom
