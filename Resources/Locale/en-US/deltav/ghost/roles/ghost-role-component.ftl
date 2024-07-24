@@ -2,7 +2,7 @@ ghost-role-information-nukie-mouse-name = Nuclear Operative Mouse
 ghost-role-information-nukie-mouse-description = A Nuclear Operative reinforcement for the Syndicate.
 ghost-role-information-nukie-mouse-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
                                            The crew is allowed to kill you without warning.
-                                           You are allowed to attack the crew and destroy the station without provocation. 					
+                                           You are allowed to attack the crew and destroy the station without provocation.
 ghost-role-information-listeningop-name = Listening Post Operative
 ghost-role-information-listeningop-description = You are a Listening Post operative. Get into range, observe the station, intercept communications and assist any operatives in the area!
 ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked with the continuous reporting and monitoring of the station and its activities, as well as assisting any fellow operatives who may be aboard the station. As an antagonist, do whatever is required for you to complete this task. Make sure your station doesn't fall into enemy hands and DO NOT abandon your station! Hide your existence at any cost!
@@ -22,3 +22,13 @@ ghost-role-information-recruiter-rules =
     Set up shop in maints or use your ship as a portable hiring office!
 
     You are just a recruiter so do not act like a full-on antagonist, i.e. no killing people.
+
+
+ghost-role-information-synthesis-name = Synthesis Specialist
+ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
+ghost-role-information-synthesis-rules =
+    Brew deadly poisons, marvelous medicines, and anything in between.
+    Sell your concoctions to local agents, crew, and anyone with supplies.
+    Stay on your ship, it is your lifeblood!
+
+    You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself- unless your ship is in danger.
