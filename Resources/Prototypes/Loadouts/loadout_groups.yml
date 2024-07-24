@@ -117,7 +117,8 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPMess # DeltaV
+  - HoPMessSkirt # DeltaV
+  - HoPMessSuit # DeltaV
   - HoPBoatswain # DeltaV
 
 - type: loadoutGroup
@@ -676,6 +677,7 @@
 - type: loadoutGroup # DeltaV
   id: SalvageSpecialistNeck
   name: loadout-group-salvage-specialist-neck
+  minLimit: 0
   loadouts:
   - SalvageCloak
   - ScarfBrown
@@ -863,6 +865,7 @@
   loadouts:
   - ResearchDirectorBeret
   - ResearchDirectorHood
+  - MystagogueBeret # DeltaV
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -870,7 +873,8 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorMantle
-  - ResearchDirectorCloak
+  #- ResearchDirectorCloak
+  - MystagogueCloak # DeltaV - Replaced RD cloak with MG
   - ScarfPurple # DeltaV
 
 - type: loadoutGroup
@@ -1001,6 +1005,8 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityParadeSuit
+  - HeadofSecurityParadeSkirt
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1343,6 +1349,7 @@
 - type: loadoutGroup
   id: ChemistNeck
   name: loadout-group-chemist-neck
+  minLimit: 0
   loadouts:
   - ChemistTie # DeltaV
   - ScarfOrange

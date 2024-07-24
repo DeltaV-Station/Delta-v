@@ -71,3 +71,25 @@
     Telecrystal: 4
   categories:
   - UplinkImplants
+
+- type: listing
+  id: UplinkDoorjack
+  name: uplink-doorjack-name
+  description: uplink-doorjack-desc
+  productEntity: Doorjack
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: BaseBallBatHomeRun
+  name: uplink-home-run-bat-name
+  description: uplink-home-run-bat-desc
+  productEntity: BaseBallBatHomeRun
+  icon:
+    entity: BaseBallBatHomeRun
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
