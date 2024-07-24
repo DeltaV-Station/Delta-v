@@ -209,11 +209,11 @@ namespace Content.Server.Nyanotrasen.Kitchen.Components
         [DataField("baseStorageMaxEntities")]
         public int BaseStorageMaxEntities = 4;
 
-        /// <summary>
-        /// What upgradeable machine part dictates the quality of the storage size?
-        /// </summary>
-        [DataField("machinePartStorageMax", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartStorageMax = "MatterBin";
+        // /// <summary>
+        // /// What upgradeable machine part dictates the quality of the storage size?
+        // /// </summary>
+        // [DataField("machinePartStorageMax", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+        // public string MachinePartStorageMax = "MatterBin";
 
         /// <summary>
         /// How much extra storage is added per part rating?

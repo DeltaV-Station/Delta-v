@@ -1409,12 +1409,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunSvalinnMachineGun
-    requirements:
-      MatterBin: 2
-      Manipulator: 4
-    materialRequirements:
+    stackRequirements:
       Steel: 5
       CableHV: 5
+      MatterBin: 2
+      Manipulator: 4
   - type: ReverseEngineering #delta
     difficulty: 3
     recipes:
@@ -1430,12 +1429,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunPerforator
-    requirements:
-      MatterBin: 4
-      Manipulator: 6
-    materialRequirements:
+    stackRequirements:
       Steel: 10
       CableHV: 5
+      MatterBin: 4
+      Manipulator: 6
   - type: ReverseEngineering # delta
     difficulty: 3
     recipes:
@@ -1451,12 +1449,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunFriendship
-    requirements:
-      MatterBin: 3
-      Manipulator: 2
-    materialRequirements:
+    stackRequirements:
       Steel: 7
       CableHV: 5
+      MatterBin: 3
+      Manipulator: 2
   - type: ReverseEngineering # delta
     difficulty: 3
     recipes:
@@ -1472,13 +1469,12 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunDuster
-    requirements:
-      MatterBin: 6
-      Manipulator: 4
-    materialRequirements:
+    stackRequirements:
       Steel: 10
       CableHV: 5
       Uranium: 2
+      MatterBin: 6
+      Manipulator: 4
   - type: ReverseEngineering # delta
     difficulty: 4
     recipes:
@@ -1494,12 +1490,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunKinetic
-    requirements:
-      MatterBin: 2
-      Manipulator: 3
-    materialRequirements:
+    stackRequirements:
       Steel: 5
       CableHV: 2
+      MatterBin: 2
+      Manipulator: 3
   - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
