@@ -139,9 +139,10 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-hop
-    stampedColor: "#6ec0ea"
+    stampedColor: "#00330e" # DeltaV - HOP Resprite
     stampState: "paper_stamp-hop"
   - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi # DeltaV - HOP Resprite
     state: stamp-hop
 
 - type: entity
