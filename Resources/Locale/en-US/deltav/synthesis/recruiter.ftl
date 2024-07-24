@@ -1,1 +1,1 @@
-recruiter-round-end-agent-name = Synthesis Specialist
+synthesis-round-end-agent-name = Synthesis Specialist
