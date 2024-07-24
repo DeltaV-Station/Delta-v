@@ -33,7 +33,8 @@ ramping_average_end_time = 180.0
 ramping_average_chaos    = 4.5
 
 [server]
-id = "deltav"
+id         = "deltav"
+rules_file = "DeltaVRuleset"
 
 [discord]
 rich_main_icon_id = "deltav"
