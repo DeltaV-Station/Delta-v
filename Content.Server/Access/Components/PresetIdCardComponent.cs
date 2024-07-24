@@ -6,21 +6,23 @@ namespace Content.Server.Access.Components;
 [RegisterComponent]
 public sealed partial class PresetIdCardComponent : Component
 {
-    [DataField("job")]
+    [DataField]
     public ProtoId<JobPrototype>? JobName;
 
-    [DataField("name")]
+    [DataField]
     public string? IdName;
 
     /// <summary>
     /// DeltaV: Allow changing the job title, even if it'd be otherwise set by the JobPrototype
     /// </summary>
-    [DataField("virtualJobName")]
+    [DataField]
     public string? VirtualJobName;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string? VirtualJobLocalizedName => (VirtualJobName != null) ? Loc.GetString(VirtualJobName) : null;
     /// <summary>
     /// DeltaV: Allow changing the job icon, even if it'd be otherwise set by the JobPrototype
     /// </summary>
-    [DataField("virtualJobIcon")]
+    [DataField]
     public string? VirtualJobIcon;
 }

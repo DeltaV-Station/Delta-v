@@ -330,7 +330,7 @@ namespace Content.Server.GameTicking
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob,
                 player,
-                job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobName/Icon.
+                job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobLocalizedName/Icon.
                 lateJoin,
                 PlayersJoinedRoundNormally,
                 station,

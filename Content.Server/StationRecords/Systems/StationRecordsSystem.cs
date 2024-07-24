@@ -108,7 +108,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        JobComponent job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobName/Icon
+        JobComponent job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobLocalizedName/Icon
         string? mobFingerprint,
         string? dna,
         HumanoidCharacterProfile profile,
@@ -132,7 +132,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = job.VirtualJobName ?? jobPrototype.LocalizedName,// DeltaV #1425 - Use VirtualJobName if possible
+            JobTitle = job.VirtualJobLocalizedName ?? jobPrototype.LocalizedName,// DeltaV #1425 - Use VirtualJobLocalizedName if possible
             JobIcon = job.VirtualJobIcon ?? jobPrototype.Icon, // DeltaV #1425 - Use VirtualJobIcon if possible
             JobPrototype = jobId,
             Species = species,
