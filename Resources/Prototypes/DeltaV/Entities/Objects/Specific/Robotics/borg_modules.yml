@@ -73,6 +73,10 @@
   name: escalation cyborg module
   description: peace was never an option.
   components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detain
   - type: ItemBorgModule
     items:
     - Truncheon
