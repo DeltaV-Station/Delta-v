@@ -2,33 +2,33 @@
   id: Standard
   iconPriority: 100
   stylePaths:
-    atmospherics: Structures/Doors/Airlocks/Standard/atmospherics.rsi
-    basic:       Structures/Doors/Airlocks/Standard/basic.rsi
-    cargo:       Structures/Doors/Airlocks/Standard/cargo.rsi
-    command:     Structures/Doors/Airlocks/Standard/command.rsi
-    engineering: Structures/Doors/Airlocks/Standard/engineering.rsi
-    freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
-    maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
-    medical:     Structures/Doors/Airlocks/Standard/medical.rsi
-    science:     Structures/Doors/Airlocks/Standard/science.rsi
-    security:    Structures/Doors/Airlocks/Standard/security.rsi
-    virology:    Structures/Doors/Airlocks/Standard/virology.rsi
+    atmospherics: DeltaV/Structures/Doors/Airlocks/Standard/atmospherics.rsi # Delta V - Door resprite
+    basic:       DeltaV/Structures/Doors/Airlocks/Standard/basic.rsi # Delta V - Door resprite
+    cargo:       DeltaV/Structures/Doors/Airlocks/Standard/cargo.rsi # Delta V - Door resprite
+    command:     DeltaV/Structures/Doors/Airlocks/Standard/command.rsi # Delta V - Door resprite
+    engineering: DeltaV/Structures/Doors/Airlocks/Standard/engineering.rsi # Delta V - Door resprite
+    freezer:     DeltaV/Structures/Doors/Airlocks/Standard/freezer.rsi # Delta V - Door resprite
+    maintenance: DeltaV/Structures/Doors/Airlocks/Standard/maint.rsi # Delta V - Door resprite
+    medical:     DeltaV/Structures/Doors/Airlocks/Standard/medical.rsi # Delta V - Door resprite
+    science:     DeltaV/Structures/Doors/Airlocks/Standard/science.rsi # Delta V - Door resprite
+    security:    DeltaV/Structures/Doors/Airlocks/Standard/security.rsi # Delta V - Door resprite
+    virology:    DeltaV/Structures/Doors/Airlocks/Standard/virology.rsi # Delta V - Door resprite
     justice:     DeltaV/Structures/Doors/Airlocks/Standard/justice.rsi # Delta V - Add Justice Dept
 
 - type: AirlockGroup
   id: Glass
   iconPriority: 90
   stylePaths:
-    atmospherics: Structures/Doors/Airlocks/Glass/atmospherics.rsi
-    basic:       Structures/Doors/Airlocks/Glass/basic.rsi
-    command:     Structures/Doors/Airlocks/Glass/command.rsi
-    science:     Structures/Doors/Airlocks/Glass/science.rsi
-    cargo:       Structures/Doors/Airlocks/Glass/cargo.rsi
-    engineering: Structures/Doors/Airlocks/Glass/engineering.rsi
-    maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
-    medical:     Structures/Doors/Airlocks/Glass/medical.rsi
-    security:    Structures/Doors/Airlocks/Glass/security.rsi
-    virology:    Structures/Doors/Airlocks/Glass/virology.rsi
+    atmospherics: DeltaV/Structures/Doors/Airlocks/Glass/atmospherics.rsi # Delta V - Door resprite
+    basic:       DeltaV/Structures/Doors/Airlocks/Glass/basic.rsi # Delta V - Door resprite
+    command:     DeltaV/Structures/Doors/Airlocks/Glass/command.rsi # Delta V - Door resprite
+    science:     DeltaV/Structures/Doors/Airlocks/Glass/science.rsi # Delta V - Door resprite
+    cargo:       DeltaV/Structures/Doors/Airlocks/Glass/cargo.rsi # Delta V - Door resprite
+    engineering: DeltaV/Structures/Doors/Airlocks/Glass/engineering.rsi # Delta V - Door resprite
+    maintenance: DeltaV/Structures/Doors/Airlocks/Glass/maint.rsi # Delta V - Door resprite
+    medical:     DeltaV/Structures/Doors/Airlocks/Glass/medical.rsi # Delta V - Door resprite
+    security:    DeltaV/Structures/Doors/Airlocks/Glass/security.rsi # Delta V - Door resprite
+    virology:    DeltaV/Structures/Doors/Airlocks/Glass/virology.rsi # Delta V - Door resprite
     justice:     DeltaV/Structures/Doors/Airlocks/Glass/justice.rsi # Delta V - Add Justice Dept
 
 - type: AirlockGroup
@@ -41,13 +41,13 @@
   id: External
   iconPriority: 70
   stylePaths:
-    external:    Structures/Doors/Airlocks/Standard/external.rsi
+    external:    DeltaV/Structures/Doors/Airlocks/Standard/external.rsi # Delta V - Door resprite
 
 - type: AirlockGroup
   id: ExternalGlass
   iconPriority: 60
   stylePaths:
-    external:    Structures/Doors/Airlocks/Glass/external.rsi
+    external:    DeltaV/Structures/Doors/Airlocks/Glass/external.rsi # Delta V - Door resprite
 
 - type: AirlockGroup
   id: Shuttle

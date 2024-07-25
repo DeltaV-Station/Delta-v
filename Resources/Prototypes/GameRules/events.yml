@@ -215,7 +215,31 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
-    # DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
+    #- id: MobMouseCancer
+    #  prob: 0.001
+# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
+
+# DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
+#- type: entity
+#  id: KingRatMigration
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-vent-creatures-start-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    earliestStart: 15
+#    weight: 6
+#    duration: 50
+#    minimumPlayers: 15 # Hopefully this is enough for the Rat King's potential Army
+#  - type: VentCrittersRule
+#    entries:
+#    - id: MobMouse
+#      prob: 0.02
+#    - id: MobMouse1
+#      prob: 0.02
+#    - id: MobMouse2
+#      prob: 0.02
 #    - id: MobMouseCancer
 #      prob: 0.001
 #    specialEntries:
@@ -258,18 +282,6 @@
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
-
-# - type: entity # DeltaV - Removes the random sentience.
-#   id: RandomSentience
-#   parent: BaseGameRule
-#   noSpawn: true
-#   components:
-#   - type: StationEvent
-#     weight: 10
-#     duration: 1
-#     startAudio:
-#       path: /Audio/Announcements/attention.ogg
-#   - type: RandomSentienceRule
 
 - type: entity
   parent: BaseGameRule
@@ -419,7 +431,7 @@
       blacklist:
         components:
         - ZombieImmune
-        - InitialInfectedExempt
+        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
@@ -430,6 +442,7 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
+      - type: InitialInfected
       mindComponents:
       - type: InitialInfectedRole
         prototype: InitialInfected
@@ -473,7 +486,7 @@
 - type: entity
   noSpawn: true
   parent: BaseTraitorRule
-  id: SleeperAgentsRule
+  id: SleeperAgents
   components:
   - type: StationEvent
     earliestStart: 30
@@ -483,16 +496,21 @@
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
+    duration: null # the rule has to last the whole round not 1 second
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
-    - prefRoles: [ Traitor ]
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
       min: 1
       max: 4 # DeltaV - Was 2 now 4
       playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
       mindComponents:
       - type: TraitorRole
-        prototype: Traitor
+        prototype: TraitorSleeper
 
 - type: entity
   id: MassHallucinations
