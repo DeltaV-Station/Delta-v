@@ -19,6 +19,11 @@
   abstract: true
 
 - type: quickPhrase
+  parent: [ BaseJusticePhrase, BaseLocationPhrase ]
+  id: BaseJusticeLocationPhrase
+  abstract: true
+
+- type: quickPhrase
   parent: [ BaseLogisticsPhrase, BaseLocationPhrase ]
   id: BaseLogisticsLocationPhrase
   abstract: true
@@ -164,6 +169,31 @@
   text: station-beacon-research-server
 
 - type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationCourtroomPhrase
+  text: station-beacon-courtroom
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationLawOfficePhrase
+  text: station-beacon-law
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationProsecutorPhrase
+  text: station-beacon-prosecutor
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationChiefJusticePhrase
+  text: station-beacon-chiefjustice
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationClerkPhrase
+  text: station-beacon-clerk
+
+- type: quickPhrase
   parent: BaseLogisticsLocationPhrase
   id: LocationLogisticsPhrase
   text: station-beacon-logistics
@@ -267,11 +297,6 @@
   parent: BaseSecurityLocationPhrase
   id: LocationDetectivePhrase
   text: station-beacon-detective
-
-- type: quickPhrase
-  parent: BaseSecurityLocationPhrase
-  id: LocationCourtroomPhrase
-  text: station-beacon-courtroom
 
 - type: quickPhrase
   parent: BaseSecurityLocationPhrase
