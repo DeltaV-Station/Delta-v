@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseMedicalSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Medical
-  styleClass: MedicalButton
+  parent: [ BaseSubjectPhrase, BaseMedicalPhrase ]
   abstract: true
 
 - type: quickPhrase

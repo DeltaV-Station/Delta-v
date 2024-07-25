@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseEngineeringSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Engineering
-  styleClass: EngineeringButton
+  parent: [ BaseSubjectPhrase, BaseEngineeringPhrase ]
   abstract: true
 
 - type: quickPhrase

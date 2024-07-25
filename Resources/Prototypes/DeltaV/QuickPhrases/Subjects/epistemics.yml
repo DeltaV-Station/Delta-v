@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseEpistemicsSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Epistemics
-  styleClass: EpistemicsButton
+  parent: [ BaseSubjectPhrase, BaseEpistemicsPhrase ]
   abstract: true
 
 - type: quickPhrase

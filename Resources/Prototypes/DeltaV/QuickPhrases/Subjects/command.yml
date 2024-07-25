@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseCommandSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Command
-  styleClass: CommandButton
+  parent: [ BaseSubjectPhrase, BaseCommandPhrase ]
   abstract: true
 
 - type: quickPhrase

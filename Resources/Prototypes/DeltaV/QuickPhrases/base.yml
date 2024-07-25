@@ -1,6 +1,18 @@
+# Tabs
+
 - type: quickPhrase
   id: BaseCommonPhrase
   tab: Common Phrases
+  abstract: true
+
+- type: quickPhrase
+  id: BaseJobPhrase
+  tab: Jobs
+  abstract: true
+
+- type: quickPhrase
+  id: BaseLocationPhrase
+  tab: Locations
   abstract: true
 
 - type: quickPhrase
@@ -17,6 +29,8 @@
   id: BaseSpeciesPhrase
   tab: Species
   abstract: true
+
+# Departments
 
 - type: quickPhrase
   id: BaseCivilianPhrase

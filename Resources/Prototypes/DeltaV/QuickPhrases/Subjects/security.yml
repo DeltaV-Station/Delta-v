@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseSecuritySubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Security
-  styleClass: SecurityButton
+  parent: [ BaseSubjectPhrase, BaseSecurityPhrase ]
   abstract: true
 
 - type: quickPhrase

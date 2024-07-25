@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseLogisticsSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Logistics
-  styleClass: LogisticsButton
+  parent: [ BaseSubjectPhrase, BaseLogisticsPhrase ]
   abstract: true
 
 - type: quickPhrase

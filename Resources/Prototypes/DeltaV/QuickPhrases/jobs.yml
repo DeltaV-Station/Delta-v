@@ -1,49 +1,41 @@
 - type: quickPhrase
-  parent: BaseCivilianPhrase
+  parent: [ BaseCivilianPhrase, BaseJobPhrase ]
   id: BaseCivilianJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseCommandPhrase
+  parent: [ BaseCommandPhrase, BaseJobPhrase ]
   id: BaseCommandJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseEngineeringPhrase
+  parent: [ BaseEngineeringPhrase, BaseJobPhrase ]
   id: BaseEngineeringJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseEpistemicsPhrase
+  parent: [ BaseEpistemicsPhrase, BaseJobPhrase ]
   id: BaseEpistemicsJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseLogisticsPhrase
+  parent: [ BaseLogisticsPhrase, BaseJobPhrase ]
   id: BaseLogisticsJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseMedicalPhrase
+  parent: [ BaseMedicalPhrase, BaseJobPhrase ]
   id: BaseMedicalJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseSecurityPhrase
+  parent: [ BaseSecurityPhrase, BaseJobPhrase ]
   id: BaseSecurityJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase
-  parent: BaseServicePhrase
+  parent: [ BaseServicePhrase, BaseJobPhrase ]
   id: BaseServiceJobPhrase
-  tab: Jobs
   abstract: true
 
 - type: quickPhrase

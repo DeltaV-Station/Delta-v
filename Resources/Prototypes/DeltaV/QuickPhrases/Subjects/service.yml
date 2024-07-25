@@ -1,8 +1,6 @@
 - type: quickPhrase
   id: BaseServiceSubjectPhrase
-  parent: BaseSubjectPhrase
-  group: Service
-  styleClass: ServiceButton
+  parent: [ BaseSubjectPhrase, BaseServicePhrase ]
   abstract: true
 
 - type: quickPhrase
