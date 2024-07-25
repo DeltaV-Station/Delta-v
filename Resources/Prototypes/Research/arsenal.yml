@@ -114,8 +114,6 @@
   - WeaponDisablerSMG
   - BorgModuleSecurityDeescalate # DeltaV SecBorg Research
 
-# Tier 2
-
 - type: technology
   id: ExplosiveTechnology
   name: research-technology-explosive-technology
@@ -123,7 +121,7 @@
     sprite: Objects/Devices/payload.rsi
     state: payload-explosive-armed
   discipline: Arsenal
-  tier: 2
+  tier: 1
   cost: 10000
   recipeUnlocks:
   - SignallerAdvanced
@@ -133,6 +131,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+
+# Tier 2
 
 - type: technology
   id: ConcentratedLaserWeaponry
