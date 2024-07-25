@@ -55,31 +55,46 @@
   text: phrase-number0
 
 - type: quickPhrase
-  id: NumberTenPhrase
+  id: TenPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-ten
+  text: phrase-ten
 
 - type: quickPhrase
-  id: NumberHundredPhrase
+  id: HundredPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-hundred
+  text: phrase-hundred
 
 - type: quickPhrase
-  id: NumberThousandPhrase
+  id: ThousandPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-thousand
+  text: phrase-thousand
 
 - type: quickPhrase
-  id: NumberMillionPhrase
+  id: MillionPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-million
+  text: phrase-million
 
 - type: quickPhrase
-  id: NumberBillionPhrase
+  id: BillionPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-billion
+  text: phrase-billion
 
 - type: quickPhrase
-  id: NumberStackPhrase
+  id: StackPhrase
   parent: BaseNumberPhrase
-  text: phrase-number-stack
+  text: phrase-stack
+
+- type: quickPhrase
+  id: HourPhrase
+  parent: BaseNumberPhrase
+  text: phrase-hour
+
+- type: quickPhrase
+  id: MinutePhrase
+  parent: BaseNumberPhrase
+  text: phrase-minute
+
+- type: quickPhrase
+  id: SecondPhrase
+  parent: BaseNumberPhrase
+  text: phrase-second
