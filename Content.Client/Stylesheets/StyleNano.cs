@@ -153,6 +153,7 @@ namespace Content.Client.Stylesheets
         public static readonly string CommandButtonClass = "CommandButton";
         public static readonly string EngineeringButtonClass = "EngineeringButton";
         public static readonly string EpistemicsButtonClass = "EpistemicsButton";
+        public static readonly string JusticeButtonClass = "JusticeButton";
         public static readonly string LogisticsButtonClass = "LogisticsButton";
         public static readonly string MedicalButtonClass = "MedicalButton";
         public static readonly string SecurityButtonClass = "SecurityButton";
@@ -167,6 +168,8 @@ namespace Content.Client.Stylesheets
         public static readonly Color EpistemicsColorHovered = Color.FromHex("#71638E");
         public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#61503A");
         public static readonly Color LogisticsColorHovered = Color.FromHex("#675C64");
+        public static readonly Color JusticeButtonColorDefault = Color.FromHex("#4F3D4C");
+        public static readonly Color JusticeColorHovered = Color.FromHex("#5C4B5A");
         public static readonly Color MedicalButtonColorDefault = Color.FromHex("#49687D");
         public static readonly Color MedicalColorHovered = Color.FromHex("#556E95");
         public static readonly Color SecurityButtonColorDefault = Color.FromHex("#724449");
@@ -1695,6 +1698,16 @@ namespace Content.Client.Stylesheets
                     .Class(ServiceButtonClass)
                     .Pseudo(ContainerButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, ServiceColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(JusticeButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, JusticeButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(JusticeButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, JusticeColorHovered),
 
             }).ToList());
         }
