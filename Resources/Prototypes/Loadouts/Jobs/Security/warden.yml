@@ -36,66 +36,21 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
 
-- type: loadout # DeltaV
-  id: WardenJumpsuitGrey
-  equipment: WardenJumpsuitGrey
-
-- type: startingGear # DeltaV
-  id: WardenJumpsuitGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitWardenGrey
-
-- type: loadout # DeltaV
-  id: WardenJumpskirtGrey
-  equipment: WardenJumpskirtGrey
-
-- type: startingGear # DeltaV
-  id: WardenJumpskirtGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtWardenGrey
-
-- type: loadout # DeltaV
-  id: WardenJumpsuitBlue
-  equipment: WardenJumpsuitBlue
-
-- type: startingGear # DeltaV
-  id: WardenJumpsuitBlue
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitWardenBlue
-
-- type: loadout # DeltaV
-  id: WardenJumpskirtBlue
-  equipment: WardenJumpskirtBlue
-
-- type: startingGear # DeltaV
-  id: WardenJumpskirtBlue
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtWardenBlue
-
 # OuterClothing
-#- type: loadout # DeltaV
-#  id: WardenCoat
-#  equipment: WardenCoat
+- type: loadout
+  id: WardenCoat
+  equipment: WardenCoat
 
-#- type: startingGear # DeltaV
-#  id: WardenCoat
-#  equipment:
-#    outerClothing: ClothingOuterCoatWarden
-
-#- type: loadout # DeltaV
-#  id: WardenArmoredWinterCoat
-#  equipment: WardenArmoredWinterCoat
-
-#- type: startingGear # DeltaV
-#  id: WardenArmoredWinterCoat
-#  equipment:
-#    outerClothing: ClothingOuterWinterWarden
-
-- type: loadout # DeltaV
-  id: WardenStasecCoat
-  equipment: WardenStasecCoat
-
-- type: startingGear # DeltaV
-  id: WardenStasecCoat
+- type: startingGear
+  id: WardenCoat
   equipment:
-    outerClothing: ClothingOuterStasecCoatWarden
+    outerClothing: ClothingOuterCoatWarden
+
+- type: loadout
+  id: WardenArmoredWinterCoat
+  equipment: WardenArmoredWinterCoat
+
+- type: startingGear
+  id: WardenArmoredWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterWarden

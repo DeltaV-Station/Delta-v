@@ -17,30 +17,6 @@ public sealed partial class DeltaTab : Control
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
-        DisableFiltersCheckBox.Pressed = _cfg.GetCVar(DCCVars.NoVisionFilters);
-
-        ApplyButton.OnPressed += OnApplyButtonPressed;
-        UpdateApplyButton();
-    }
-
-    private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
-    {
-        UpdateApplyButton();
-    }
-
-    private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
-    {
-        _cfg.SetCVar(DCCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
-
-        _cfg.SaveToFile();
-        UpdateApplyButton();
-    }
-
-    private void UpdateApplyButton()
-    {
-        var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(DCCVars.NoVisionFilters);
-
-        ApplyButton.Disabled = isNoVisionFiltersSame;
+        Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox);
     }
 }
