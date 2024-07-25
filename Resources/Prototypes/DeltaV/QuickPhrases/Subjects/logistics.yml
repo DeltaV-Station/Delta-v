@@ -92,3 +92,55 @@
   id: ExpeditionPhrase
   parent: BaseLogisticsSubjectPhrase
   text: phrase-expedition
+
+# Ores
+
+- type: quickPhrase
+  id: PhraseIron
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-iron
+
+- type: quickPhrase
+  id: PhraseCoal
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-coal
+
+- type: quickPhrase
+  id: PhraseQuartz
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-quartz
+
+- type: quickPhrase
+  id: PhraseSalt
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-salt
+
+- type: quickPhrase
+  id: PhraseGold
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-gold
+
+- type: quickPhrase
+  id: PhraseSilver
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-silver
+
+- type: quickPhrase
+  id: PhrasePlasma
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-plasma
+
+- type: quickPhrase
+  id: PhraseUranium
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-uranium
+
+- type: quickPhrase
+  id: PhraseBananium
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-bananium
+
+- type: quickPhrase
+  id: PhraseArtifactFragment
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-artifact-fragment
