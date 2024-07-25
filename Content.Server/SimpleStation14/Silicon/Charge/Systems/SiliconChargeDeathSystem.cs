@@ -1,6 +1,5 @@
 using Content.Server.Power.Components;
 using Content.Shared.SimpleStation14.Silicon.Systems;
-using Content.Server.Bed.Sleep;
 using Content.Shared.Bed.Sleep;
 using Content.Server.Sound.Components;
 using Content.Server.SimpleStation14.Silicon.Charge;
