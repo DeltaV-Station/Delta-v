@@ -36,6 +36,16 @@
   - GlassesJamjar
   - GlassesJensen
 
+#- type: loadoutGroup
+#  id: Survival
+#  name: loadout-group-survival-basic
+#  minLimit: 1
+#  maxLimit: 1
+#  hidden: true
+#  loadouts:
+#  - EmergencyNitrogen
+#  - EmergencyOxygen
+
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -426,6 +436,13 @@
   - JanitorWintercoat
 
 - type: loadoutGroup
+  id: JanitorPlunger
+  name: loadout-group-janitor-plunger
+  minLimit: 0
+  loadouts:
+  - JanitorGoldenPlunger
+
+- type: loadoutGroup
   id: BotanistHead
   name: loadout-group-botanist-head
   minLimit: 0
@@ -522,7 +539,6 @@
 - type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
-  minLimit: 0
   loadouts:
   - MimeMask
   - MimeMaskSad
@@ -559,13 +575,6 @@
   - ScarfPurple
   - ScarfZebra
 
-- type: loadoutGroup # DeltaV
-  id: MusicianJumpsuit
-  name: loadout-group-musician-jumpsuit
-  loadouts:
-  - MusicianJumpsuit
-  - MusicianJumpskirt
-
 - type: loadoutGroup
   id: MusicianBackpack
   name: loadout-group-musician-backpack
@@ -575,11 +584,53 @@
   - MusicianDuffel
 
 - type: loadoutGroup
+  id: MusicianJumpsuit
+  name: loadout-group-musician-jumpsuit
+  loadouts:
+  - MusicianJumpsuit
+  - MusicianJumpskirt
+
+- type: loadoutGroup
   id: MusicianOuterClothing
   name: loadout-group-musician-outerclothing
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+
+- type: loadoutGroup
+  id: Instruments
+  name: loadout-group-instruments
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - Glockenspiel
+  - MusicBox
+  - Xylophone
+  - Microphone
+  - Synthesizer
+  - Kalimba
+  - Woodblock
+  - ElectricGuitar
+  - BassGuitar
+  - RockGuitar
+  - AcousticGuitar
+  - Banjo
+  - Violin
+  - Viola
+  - Cello
+  - Trumpet
+  - Trombone
+  - FrenchHorn
+  - Euphonium
+  - Saxophone
+  - Accordion
+  - Harmonica
+  - Clarinet
+  - Flute
+  - Recorder
+  - PanFlute
+  - Ocarina
+  - Bagpipe
 
 # Cargo
 - type: loadoutGroup

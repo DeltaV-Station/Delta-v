@@ -8,3 +8,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
     time: 86400 # DeltaV - 24 hours
+
+- type: antag
+  id: TraitorSleeper
+  name: roles-antag-syndicate-agent-sleeper-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-syndicate-agent-sleeper-objective
