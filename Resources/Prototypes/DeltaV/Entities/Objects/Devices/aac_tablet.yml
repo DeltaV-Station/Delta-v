@@ -10,6 +10,7 @@
       - state: aac_tablet
       - state: aac_screen
         shader: unshaded
+    state: icon
   - type: Item
     inhandVisuals:
       left:
@@ -20,7 +21,6 @@
       - state: aac-inhand-right
       - state: aac_screen-inhand-right
         shader: unshaded
-    state: icon
   - type: ActivatableUI
     singleUser: false
     key: enum.AACTabletKey.Key
