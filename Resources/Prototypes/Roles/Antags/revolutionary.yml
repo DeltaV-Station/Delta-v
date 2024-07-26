@@ -10,6 +10,7 @@
   - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
     department: Command
     time: 36000 # DeltaV - 10 hours
+  guides: [ Revolutionaries ]
 
 - type: antag
   id: Rev
@@ -17,3 +18,4 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-rev-objective
+  guides: [ Revolutionaries ]
