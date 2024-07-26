@@ -1167,8 +1167,8 @@
   name: loadout-group-detective-head
   minLimit: 0
   loadouts:
-#  - DetectiveFedora # DeltaV
-#  - DetectiveFedoraGrey # DeltaV
+  - DetectiveFedora
+  - DetectiveFedoraGrey
   - DetectiveBeret # DeltaV
 
 - type: loadoutGroup
@@ -1185,8 +1185,8 @@
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
-#  - NoirJumpsuit # DeltaV
-#  - NoirJumpskirt # DeltaV
+  - NoirJumpsuit
+  - NoirJumpskirt
 
 - type: loadoutGroup
   id: DetectiveBackpack
@@ -1201,11 +1201,12 @@
   name: loadout-group-detective-outerclothing
   minLimit: 0
   loadouts:
-#  - DetectiveArmorVest # DeltaV
-#  - DetectiveCoat # DeltaV
+  - DetectiveArmorVest
+  - DetectiveCoat
   - DetectiveStasecCoat # DeltaV
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
+  - CoatDetectiveDark # Stray
 
 #- type: loadoutGroup # DeltaV
 #  id: SecurityCadetJumpsuit
