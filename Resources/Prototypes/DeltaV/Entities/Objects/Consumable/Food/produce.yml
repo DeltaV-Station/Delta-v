@@ -69,7 +69,7 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 46
+          maxVol: 41
           reagents:
             - ReagentId: Nutriment
               Quantity: 8
@@ -78,7 +78,7 @@
             - ReagentId: Vitamin
               Quantity: 8
             - ReagentId: Ectoplasm
-              Quantity: 10
+              Quantity: 5
     - type: TileFrictionModifier
       modifier: 0.0001
     - type: Sprite
