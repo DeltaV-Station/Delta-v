@@ -115,8 +115,8 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5 # DeltaV - was 10
-    duration: 1
+    weight: 5 # DeltaV - was 6
+    duration: null
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
