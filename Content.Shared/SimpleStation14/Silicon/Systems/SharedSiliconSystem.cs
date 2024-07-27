@@ -55,7 +55,7 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
     }
 
     [ValidatePrototypeId<AlertCategoryPrototype>]
-    public const string ChargeAlertCategory = "BorgBattery";
+    public const string ChargeAlertCategory = "Battery";
 
     private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
     {
