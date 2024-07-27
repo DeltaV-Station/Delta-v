@@ -22,6 +22,7 @@ using Robust.Shared.Utility;
 using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Mind;
+using Content.Shared.Alert;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -36,6 +37,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -99,7 +101,9 @@ public sealed class SiliconChargeSystem : EntitySystem
             // If you can't find a battery, set the indicator and skip it.
             if (!TryGetSiliconBattery(silicon, out var batteryComp))
             {
-                UpdateChargeState(silicon, ChargeState.Invalid, siliconComp);
+                UpdateChargeState(silicon, 0, siliconComp);
+                _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
+                _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
                 continue;
             }
 
@@ -136,34 +140,29 @@ public sealed class SiliconChargeSystem : EntitySystem
             _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var chargePercent = batteryComp.CurrentCharge / batteryComp.MaxCharge;
+            var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
 
-            var currentState = chargePercent switch
-            {
-                _ when chargePercent > siliconComp.ChargeThresholdMid => ChargeState.Full,
-                _ when chargePercent > siliconComp.ChargeThresholdLow => ChargeState.Mid,
-                _ when chargePercent > siliconComp.ChargeThresholdCritical => ChargeState.Low,
-                > 0.01f => ChargeState.Critical,
-                _ => ChargeState.Dead,
-            };
-
-            UpdateChargeState(silicon, currentState, siliconComp);
+            UpdateChargeState(silicon, chargePercent, siliconComp);
         }
     }
 
     /// <summary>
     ///     Checks if anything needs to be updated, and updates it.
     /// </summary>
-    public void UpdateChargeState(EntityUid uid, ChargeState state, SiliconComponent component)
+    public void UpdateChargeState(EntityUid uid, short chargePercent, SiliconComponent component)
     {
-        if (component.ChargeState == state)
-            return;
+        component.ChargeState = chargePercent;
 
-        component.ChargeState = state;
-
-        RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(state));
+        RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
 
         _moveMod.RefreshMovementSpeedModifiers(uid);
+
+        // If the battery was replaced and the no battery indicator is showing, replace the indicator
+        if (_alerts.IsShowingAlert(uid, component.NoBatteryAlert) && chargePercent != 0)
+        {
+            _alerts.ClearAlert(uid, component.NoBatteryAlert);
+            _alerts.ShowAlert(uid, component.BatteryAlert, chargePercent);
+        }
     }
 
     private float SiliconHeatEffects(EntityUid silicon, float frameTime)

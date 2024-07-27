@@ -13,17 +13,6 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
 
-    // Dictionary of ChargeState to Alert severity.
-    private static readonly Dictionary<ChargeState, short> ChargeStateAlert = new()
-    {
-        {ChargeState.Full, 4},
-        {ChargeState.Mid, 3},
-        {ChargeState.Low, 2},
-        {ChargeState.Critical, 1},
-        {ChargeState.Dead, 0},
-        {ChargeState.Invalid, -1},
-    };
-
     public override void Initialize()
     {
         base.Initialize();
@@ -66,17 +55,17 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
     }
 
     [ValidatePrototypeId<AlertCategoryPrototype>]
-    public const string ChargeAlertCategory = "Charge";
+    public const string ChargeAlertCategory = "BorgBattery";
 
     private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
     {
         if (component.BatteryPowered)
-            _alertsSystem.ShowAlert(uid, ChargeAlertCategory, (short) component.ChargeState);
+            _alertsSystem.ShowAlert(uid, ChargeAlertCategory, component.ChargeState);
     }
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconComponent component, SiliconChargeStateUpdateEvent ev)
     {
-        _alertsSystem.ShowAlert(uid, ChargeAlertCategory, (short) ev.ChargeState);
+        _alertsSystem.ShowAlert(uid, ChargeAlertCategory, (short) ev.ChargePercent);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, SiliconComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -94,7 +83,7 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
                 closest = (float) state.Key;
         }
 
-        var speedMod = speedModThresholds[(ChargeState) closest];
+        var speedMod = speedModThresholds[(short) closest];
 
         args.ModifySpeed(speedMod, speedMod);
     }
@@ -108,27 +97,16 @@ public enum SiliconType
     Npc,
 }
 
-public enum ChargeState
-{
-    Invalid = -1,
-    Dead,
-    Critical,
-    Low,
-    Mid,
-    Full,
-}
-
-
 /// <summary>
 ///     Event raised when a Silicon's charge state needs to be updated.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SiliconChargeStateUpdateEvent : EntityEventArgs
 {
-    public ChargeState ChargeState { get; }
+    public short ChargePercent { get; }
 
-    public SiliconChargeStateUpdateEvent(ChargeState chargeState)
+    public SiliconChargeStateUpdateEvent(short chargePercent)
     {
-        ChargeState = chargeState;
+        ChargePercent = chargePercent;
     }
 }

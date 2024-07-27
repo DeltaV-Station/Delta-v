@@ -2,6 +2,8 @@ using Robust.Shared.GameStates;
 using Content.Shared.SimpleStation14.Silicon.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Content.Shared.Alert;
 
 namespace Content.Shared.SimpleStation14.Silicon.Components;
 
@@ -12,7 +14,7 @@ namespace Content.Shared.SimpleStation14.Silicon.Components;
 public sealed partial class SiliconComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public ChargeState ChargeState = ChargeState.Full;
+    public short ChargeState = 10;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float OverheatAccumulator = 0.0f;
@@ -87,12 +89,18 @@ public sealed partial class SiliconComponent : Component
     [DataField("chargeThresholdCritical"), ViewVariables(VVAccess.ReadWrite)]
     public float? ChargeThresholdCritical = 0.1f;
 
+    [DataField]
+    public ProtoId<AlertPrototype> BatteryAlert = "BorgBattery";
+
+    [DataField]
+    public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+
 
     /// <summary>
     ///     The amount the Silicon will be slowed at each charge state.
     /// </summary>
     [DataField("speedModifierThresholds", required: true)]
-    public Dictionary<ChargeState, float> SpeedModifierThresholds = default!;
+    public Dictionary<short, float> SpeedModifierThresholds = default!;
 
     [DataField("fireStackMultiplier"), ViewVariables(VVAccess.ReadWrite)]
     public float FireStackMultiplier = 1f;

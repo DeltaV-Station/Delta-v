@@ -33,16 +33,15 @@ public sealed class SiliconDeathSystem : EntitySystem
             return;
         }
 
-
-        if (args.ChargeState == ChargeState.Dead && siliconDeadComp.Dead)
+        if (args.ChargePercent == 0 && siliconDeadComp.Dead)
         {
             siliconDeadComp.WakeToken?.Cancel();
             return;
         }
 
-        if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
+        if (args.ChargePercent == 0 && !siliconDeadComp.Dead)
             SiliconDead(uid, siliconDeadComp, batteryComp, uid);
-        else if (args.ChargeState != ChargeState.Dead && siliconDeadComp.Dead)
+        else if (args.ChargePercent != 0 && siliconDeadComp.Dead)
         {
             if (siliconDeadComp.DeadBuffer > 0)
             {
