@@ -101,7 +101,9 @@
     onlyAffectsMobs: false
   - type: SolutionRegeneration
     solution: hypospray
-    duration: 10 # 10 seconds to regenerate, dumb field name.
+    duration: 20 # After testing, raised to 20 seconds to recharge.
+                 # Refer to https://discord.com/channels/968983104247185448/1206353544186171482/1267039694068387893
+                 # Worth thinking more on this later, needs a careful balance to not wipe out Antags!
     generated:
       reagents:
       - ReagentId: Pax
