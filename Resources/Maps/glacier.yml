@@ -11695,6 +11695,8 @@ entities:
   entities:
   - uid: 21
     components:
+    - type: MetaData
+      name: Tyrant Dock
     - type: Transform
       pos: -48.5,-11.5
       parent: 2
@@ -11730,11 +11732,15 @@ entities:
   entities:
   - uid: 27
     components:
+    - type: MetaData
+      name: Light Armory
     - type: Transform
       pos: -15.5,16.5
       parent: 2
   - uid: 28
     components:
+    - type: MetaData
+      name: Armory
     - type: Transform
       pos: -18.5,12.5
       parent: 2
@@ -11940,6 +11946,8 @@ entities:
   entities:
   - uid: 16593
     components:
+    - type: MetaData
+      name: Chief Justice's Office
     - type: Transform
       pos: -65.5,11.5
       parent: 2
@@ -12045,6 +12053,8 @@ entities:
   entities:
   - uid: 12666
     components:
+    - type: MetaData
+      name: Detective's Room
     - type: Transform
       pos: -23.5,41.5
       parent: 2
@@ -12052,11 +12062,15 @@ entities:
   entities:
   - uid: 73
     components:
+    - type: MetaData
+      name: Tool Room
     - type: Transform
       pos: 29.5,36.5
       parent: 2
   - uid: 74
     components:
+    - type: MetaData
+      name: Tool Room
     - type: Transform
       pos: 29.5,35.5
       parent: 2
@@ -12087,6 +12101,8 @@ entities:
       parent: 2
   - uid: 76
     components:
+    - type: MetaData
+      name: Power Plant
     - type: Transform
       pos: 14.5,41.5
       parent: 2
@@ -12162,6 +12178,8 @@ entities:
       parent: 2
   - uid: 3071
     components:
+    - type: MetaData
+      name: Engineering Deck
     - type: Transform
       pos: 7.5,56.5
       parent: 2
@@ -12267,6 +12285,8 @@ entities:
       parent: 2
   - uid: 16763
     components:
+    - type: MetaData
+      name: Substation Locker
     - type: Transform
       pos: -70.5,12.5
       parent: 2
@@ -12478,6 +12498,8 @@ entities:
       parent: 2
   - uid: 127
     components:
+    - type: MetaData
+      name: Main Hall
     - type: Transform
       pos: 35.5,-3.5
       parent: 2
@@ -12869,7 +12891,7 @@ entities:
   - uid: 173
     components:
     - type: MetaData
-      name: Cargo Maintenance
+      name: Logistics Maintenance
     - type: Transform
       pos: 36.5,20.5
       parent: 2
@@ -13233,7 +13255,7 @@ entities:
   - uid: 13374
     components:
     - type: MetaData
-      name: Salvage Departures
+      name: Salvage Equipment
     - type: Transform
       pos: 49.5,12.5
       parent: 2
@@ -13241,6 +13263,8 @@ entities:
   entities:
   - uid: 17142
     components:
+    - type: MetaData
+      name: Salvage Walkway
     - type: Transform
       pos: 49.5,1.5
       parent: 2
@@ -13252,16 +13276,6 @@ entities:
       name: Chapel
     - type: Transform
       pos: 36.5,-15.5
-      parent: 2
-  - uid: 208
-    components:
-    - type: Transform
-      pos: 38.5,-8.5
-      parent: 2
-  - uid: 209
-    components:
-    - type: Transform
-      pos: 39.5,-8.5
       parent: 2
   - uid: 210
     components:
@@ -13464,6 +13478,20 @@ entities:
       parent: 2
 - proto: AirlockServiceGlassLocked
   entities:
+  - uid: 208
+    components:
+    - type: MetaData
+      name: Library
+    - type: Transform
+      pos: 39.5,-8.5
+      parent: 2
+  - uid: 209
+    components:
+    - type: MetaData
+      name: Library
+    - type: Transform
+      pos: 38.5,-8.5
+      parent: 2
   - uid: 230
     components:
     - type: MetaData
@@ -53515,47 +53543,6 @@ entities:
     - type: Transform
       pos: 41.5,-21.5
       parent: 2
-    - type: Lathe
-      dynamicRecipes:
-      - ProximitySensor
-      - BorgModuleLightReplacer
-      - BorgModuleAdvancedCleaning
-      - BorgModuleMining
-      - BorgModuleAdvancedTool
-      - BorgModuleGPS
-      - BorgModuleRCD
-      - BorgModuleArtifact
-      - BorgModuleAnomaly
-      - BorgModuleGardening
-      - BorgModuleHarvesting
-      - BorgModuleMusique
-      - BorgModuleClowning
-      - BorgModuleDiagnosis
-      - BorgModuleDefibrillator
-      - BorgModuleAdvancedTreatment
-      - RipleyHarness
-      - RipleyLArm
-      - RipleyRArm
-      - RipleyLLeg
-      - RipleyRLeg
-      - MechEquipmentGrabber
-      - HonkerHarness
-      - HonkerLArm
-      - HonkerRArm
-      - HonkerLLeg
-      - HonkerRLeg
-      - MechEquipmentHorn
-      - MechEquipmentGrabberSmall
-      - HamtrHarness
-      - HamtrLArm
-      - HamtrRArm
-      - HamtrLLeg
-      - HamtrRLeg
-      - VimHarness
-      - ClothingOuterHardsuitJuggernautReverseEngineered
-      - ClothingOuterHardsuitSyndieReverseEngineered
-      - JetpackBlue
-      - JetpackMini
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 7227
@@ -111112,7 +111099,7 @@ entities:
   - uid: 16325
     components:
     - type: MetaData
-      name: Cargo
+      name: Logistics
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,12.5
@@ -111120,7 +111107,7 @@ entities:
   - uid: 16326
     components:
     - type: MetaData
-      name: Cargo
+      name: Logistics
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,11.5
