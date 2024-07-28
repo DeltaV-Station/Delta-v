@@ -74,7 +74,8 @@
           - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 1000
+          minimumDistance: 400
+          maximumDistance: 450
           nameDataset: names_borer
           stationGrid: false
           addComponents:
