@@ -96,6 +96,12 @@
   name: Borg Pax Injector
   description: A sterile injector for rapid administration of Pax to the unruly.
   components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 5 # After testing, lowered to 5u maximum capacity.
+                  # 10u of Pax would pacify someone for 40 seconds. A *very* long time, and given this can pierce hardsuits...
+                  # Now can only pacify for 20 seconds, which lets you recharge 1u of Pax in the meantime (which pacifies for 4 seconds)
   - type: Hypospray
     injectOnly: true # Pax regenerates, this does handicap Antag Borgs but worth seeing.
     onlyAffectsMobs: false
