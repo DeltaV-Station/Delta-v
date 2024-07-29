@@ -63741,6 +63741,9 @@ entities:
     - type: Transform
       pos: 144.5,4.5
       parent: 1
+    - type: SingletonDeviceNetServer
+      active: False
+      available: False
 - proto: Crowbar
   entities:
   - uid: 2132
@@ -74938,11 +74941,6 @@ entities:
     - type: Transform
       pos: 86.5,-3.5
       parent: 1
-  - uid: 20658
-    components:
-    - type: Transform
-      pos: 110.5,14.5
-      parent: 1
 - proto: DresserHeadOfPersonnelFilled
   entities:
   - uid: 11524
@@ -76889,6 +76887,14 @@ entities:
     components:
     - type: Transform
       parent: 6530
+    - type: Physics
+      canCollide: False
+- proto: EncryptionKeyJustice
+  entities:
+  - uid: 28392
+    components:
+    - type: Transform
+      parent: 6534
     - type: Physics
       canCollide: False
 - proto: EncryptionKeyMedical
@@ -130303,6 +130309,13 @@ entities:
     - type: Transform
       pos: -59.5,0.5
       parent: 1
+- proto: LockerChiefJusticeFilled
+  entities:
+  - uid: 20658
+    components:
+    - type: Transform
+      pos: 110.5,14.5
+      parent: 1
 - proto: LockerChiefMedicalOfficerFilledHardsuit
   entities:
   - uid: 7594
@@ -160363,6 +160376,7 @@ entities:
           occludes: True
           ents:
           - 6535
+          - 28392
         machine_board: !type:Container
           showEnts: False
           occludes: True

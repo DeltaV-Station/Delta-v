@@ -1,0 +1,26 @@
+﻿- type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
+  id: DefaultRuleset
+  name: guide-entry-rules
+  ruleEntry: true
+  text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
+
+- type: guideEntry # DeltaV: Nukes all wizden rules except for the following ones
+  id: RoleTypes
+  name: guide-entry-rules-role-types
+  ruleEntry: true
+  priority: 20
+  text: "/ServerInfo/Guidebook/ServerRules/RoleTypes.xml"
+
+- type: guideEntry # DeltaV: Nukes all wizden rules except for the following ones
+  id: BanTypes
+  name: guide-entry-rules-ban-types
+  ruleEntry: true
+  priority: 90
+  text: "/ServerInfo/Guidebook/ServerRules/BanTypes.xml"
+
+- type: guideEntry # DeltaV: Nukes all wizden rules except for the following ones
+  id: BanDurations
+  name: guide-entry-rules-ban-durations
+  ruleEntry: true
+  priority: 100
+  text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"

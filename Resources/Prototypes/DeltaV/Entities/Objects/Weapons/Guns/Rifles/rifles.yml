@@ -1,6 +1,6 @@
 - type: entity
   name: Vulcan
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleVulcan
   description: One of the heaviest small arms to grace Security's armory, this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses .30 rifle ammo.
   components:
@@ -11,9 +11,12 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
   - type: Gun
-    minAngle: 1
-    maxAngle: 24
+    minAngle: 21
+    maxAngle: 54
     angleIncrease: 6
     angleDecay: 24
     fireRate: 5
@@ -54,7 +57,7 @@
 
 - type: entity
   name: CAWS-25 Jackdaw
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleJackdaw
   description: The beginning of the end is heralded by the song of a Jackdaw. Uses .25 caseless ammo.
   suffix: Deathsquad
@@ -113,7 +116,7 @@
 
 - type: entity
   name: Tenebra
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleTenebra
   description: A mass-produced and minimalist rifle in bullpup design. Uses .20 rifle ammo.
   suffix: Mercenary
@@ -171,7 +174,7 @@
 - type: entity
   name: M-90
   id: WeaponRifleM90
-  parent: WeaponRifleM90GrenadeLauncher
+  parent: [WeaponRifleM90GrenadeLauncher, BaseGunWieldable]
   description: An older bullpup carbine model. Uses .20 rifle ammo.
   components:
   - type: Sprite
@@ -182,7 +185,7 @@
 - type: entity
   name: musket
   id: WeaponRifleMusket
-  parent: Musket
+  parent: [Musket, BaseGunWieldable]
   suffix: "craftable"
   description: An old flintlock musket. Uses musket cartridges.
   components:

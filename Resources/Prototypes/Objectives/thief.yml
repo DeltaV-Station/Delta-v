@@ -306,16 +306,16 @@
   - type: Objective
     difficulty: 1
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: ClothingNeckClownmedalStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Captain
-  - type: StealCondition
-    stealGroup: ClothingNeckClownmedal
-  - type: Objective
-    difficulty: 1
+#- type: entity - Delta-V : Removes clown medal steal objective for Thieves; as we don't have the Clown Medal
+#  parent: BaseThiefStealObjective
+# id: ClothingNeckClownmedalStealObjective
+#  components:
+#  - type: NotJobRequirement
+#    job: Captain
+#  - type: StealCondition
+#    stealGroup: ClothingNeckClownmedal
+#  - type: Objective
+#    difficulty: 1
 
 # Structures
 

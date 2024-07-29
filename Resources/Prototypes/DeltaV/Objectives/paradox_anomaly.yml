@@ -1,10 +1,15 @@
 - type: entity
   abstract: true
-  parent: BaseTerminatorObjective # mrp terminator real
+  parent: BaseObjective
   id: BaseParadoxAnomalyObjective
   components:
   - type: Objective
+    difficulty: 1
     issuer: self
+  - type: RoleRequirement
+    roles:
+      components:
+      - TerminatorRole
 
 # not using base kill/keep alive objectives since these intentionally conflict with eachother
 - type: entity
