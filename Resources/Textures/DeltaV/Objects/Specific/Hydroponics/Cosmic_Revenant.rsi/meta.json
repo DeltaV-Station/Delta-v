@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/vgstation-coders/vgstation13, edited by Alchebun",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dead",
+      "delays": 
+	  [
+        [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+        ]
+      ]
+    },
+    {
+      "name": "harvest",
+      "delays": 
+	  [
+        [
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08
+        ]
+      ]
+    },
+    {
+      "name": "produce",
+      "delays": 
+	  [
+        [
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08
+        ]
+      ]
+    },
+    {
+      "name": "seed"
+    },
+    {
+      "name": "stage-1"
+    },
+    {
+      "name": "stage-2"
+    },
+    {
+      "name": "stage-3"
+    },
+    {
+      "name": "stage-4"
+    },
+    {
+      "name": "stage-5"
+    },
+    {
+      "name": "stage-6"
+    }
+  ]
+}
