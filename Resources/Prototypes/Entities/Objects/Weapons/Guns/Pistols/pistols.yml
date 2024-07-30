@@ -76,6 +76,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+  - type: Gun
     availableModes: # DeltaV - force semi for balance
     - SemiAuto
   - type: ItemSlots
