@@ -104,3 +104,19 @@
     - !type:RoleTimeRequirement
       role: JobChemist
       time: 7200 # 2h chemist so you know how to make CH
+
+- type: entity
+  noSpawn: true
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostRoboticist
+  components:
+  - type: GhostRole
+    name: ghost-role-information-roboticist-name
+    description: ghost-role-information-roboticist-description
+    rules: ghost-role-information-roboticist-rules
+    requirements: # keep in sync with the antag prototype
+    - !type:OverallPlaytimeRequirement
+      time: 259200 # 72 hours
+    - !type:RoleTimeRequirement
+      role: JobScientist
+      time: 14400 # 4h chemist so you know how to make robot

@@ -103,3 +103,73 @@
   materials:
     Steel: 250
     Glass: 100
+
+- type: latheRecipe
+  id: BorgModuleSyndicateWeapon
+  result: BorgModuleSyndicateWeapon
+  category: Robotics
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 3000
+    Plasteel: 1500
+    Gold: 1500
+    Plastic: 1000
+    Uranium: 1000
+    Plasma: 1000
+
+- type: latheRecipe
+  id: BorgModuleRadioJammerRecharging
+  result: BorgModuleRadioJammerRecharging
+  category: Robotics
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Gold: 500
+    Plastic: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  id: BorgModuleMartyr
+  result: BorgModuleMartyr
+  category: Robotics
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 1000
+    Plastic: 1000
+    Silver: 500
+
+- type: latheRecipe
+  id: BorgModuleBlades
+  result: BorgModuleBlades
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: BorgModuleCHIMP
+  result: BorgModuleCHIMP
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 200
+    Silver: 200
+    Plasma: 200
+
+- type: latheRecipe
+  id: BorgModuleSyndicateRadio
+  result: BorgModuleSyndicateRadio
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 200
+    Glass: 500
+    Plastic: 200
+

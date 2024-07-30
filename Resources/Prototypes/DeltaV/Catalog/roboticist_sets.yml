@@ -1,0 +1,68 @@
+- type: thiefBackpackSet
+  id: RoboticistCommander
+  name: roboticist-set-commander-name
+  description: roboticist-set-commander-description
+  sprite:
+    entity: ClothingMaskGasVoiceChameleon
+  content:
+  - ClothingMaskGasVoiceChameleon
+  - BorgModuleSyndicateWeapon
+  - EncryptionKeyCommon
+
+- type: thiefBackpackSet
+  id: RoboticistSaboteur
+  name: roboticist-set-saboteur-name
+  description: roboticist-set-saboteur-description
+  sprite:
+    entity: PowerSink
+  content:
+  - PowerSink
+  - BorgModuleRCD
+  - BorgModuleRCD
+
+- type: thiefBackpackSet
+  id: RoboticistMechanic
+  name: roboticist-set-mechanic-name
+  description: roboticist-set-mechanic-description
+  sprite:
+    entity: ClothingBeltChiefEngineerFilled
+  content:
+  - ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  - ClothingBeltChiefEngineerFilled
+
+- type: thiefBackpackSet
+  id: RoboticistInfiltrator
+  name: roboticist-set-infiltrator-name
+  description: roboticist-set-infiltrator-description
+  sprite:  n m
+    entity: BorgChassisSyndicateSaboteur
+  content:
+  - BorgChassisSyndicateSaboteur
+  - BorgModuleEsword
+  - BorgModuleRCD
+
+- type: thiefBackpackSet
+  id: RoboticistWarmonger
+  name: roboticist-set-warmonger-name
+  description: roboticist-set-warmonger-description
+  sprite:
+    entity: BorgChassisSyndicateAssault
+  content:
+  - ReinforcementRadioSyndicateCyborgAssault
+
+- type: thiefBackpackSet
+  id: RoboticistClown
+  name: roboticist-set-clown-name
+  description: roboticist-set-clown-description
+  sprite:
+    entity: ClothingMaskClown
+  content:
+  - ClothingOuterHardsuitClown
+  - ClothingHeadHatJesterAlt
+  - BorgChassisService
+  - BorgModuleClowning
+  - SoapOmega
+  - ClothingBackpackDuffelSyndicateCostumeClown
+  - MobJonkBot
+  - HappyHonk
+

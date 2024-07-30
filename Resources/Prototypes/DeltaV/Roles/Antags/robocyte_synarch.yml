@@ -1,0 +1,32 @@
+- type: antag
+  id: RobocyteSynarch
+  name: roles-antag-syndicate-roboticist-name
+  objective: roles-antag-syndicate-roboticist-objective
+  antagonist: true # making evil borgs
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # 24h so you probably know some general lore or something
+  - !type:RoleTimeRequirement
+    role: JobScientist
+    time: 14,400 # 4h scientist so you know how to make borgs
+
+- type: startingGear
+  id: SyndicateRoboticistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+    jumpskirt: ClothingUniformJumpskirtRoboticist
+    back: ClothingBackpackSyndicate
+    belt: ClothingBeltUtilityEngineering
+    eyes: ClothingEyesHudDiagnostic
+    gloves: ClothingHandsGlovesRobohands
+    shoes: ClothingShoesBootsMagSyndie
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicate
+    pocket1: CyberPen
+    pocket2: RubberStampSyndicate
+    mask: ClothingMaskNeckGaiter
+  storage:
+    back:
+    - RoboticistStash
+    - Emag
+    - EncryptionKeyBinary

@@ -2,7 +2,7 @@ ghost-role-information-nukie-mouse-name = Nuclear Operative Mouse
 ghost-role-information-nukie-mouse-description = A Nuclear Operative reinforcement for the Syndicate.
 ghost-role-information-nukie-mouse-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
                                            The crew is allowed to kill you without warning.
-                                           You are allowed to attack the crew and destroy the station without provocation. 					
+                                           You are allowed to attack the crew and destroy the station without provocation.
 ghost-role-information-listeningop-name = Listening Post Operative
 ghost-role-information-listeningop-description = You are a Listening Post operative. Get into range, observe the station, intercept communications and assist any operatives in the area!
 ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked with the continuous reporting and monitoring of the station and its activities, as well as assisting any fellow operatives who may be aboard the station. As an antagonist, do whatever is required for you to complete this task. Make sure your station doesn't fall into enemy hands and DO NOT abandon your station! Hide your existence at any cost!
@@ -31,3 +31,9 @@ ghost-role-information-synthesis-rules =
     Stay on your ship, it is your lifeblood!
 
     You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself unless your ship is in danger.
+
+ghost-role-information-roboticist-name = Robocyte Synarch
+ghost-role-information-roboticist-description = You are a member of Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
+ghost-role-information-roboticist-rules =
+    Build machines of war, and send them to the station to extract your toll.
+    Sell your borgs to local agents, crew, and anyone with supplies.

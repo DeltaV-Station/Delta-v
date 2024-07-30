@@ -1,0 +1,18 @@
+- type: entity
+  name: syndicate radio
+  description: A handy syndicate radio.
+  parent: BaseItem
+  id: RadioHandheldSyndicate
+  components:
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: IntrinsicRadioReceiver
+  - type: Sprite
+    sprite: Objects/Devices/securityhandy.rsi
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie

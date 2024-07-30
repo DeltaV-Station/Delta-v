@@ -78,3 +78,63 @@
   - type: ItemBorgModule
     items:
     - WeaponEnergyGunMiniRecharging
+
+- type: entity
+  id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  description: "A module that comes with a recharging radio jammer."
+  name: radio jammer cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - RechargingRadioJammer
+
+- type: entity
+  id: BorgModuleBlades # locked behind Syndie exofab
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: blade cyborg module
+  description: "A module that comes with enough knives to poke your eye out."
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - Cutlass
+    - BarberScissors
+    - Crowbar
+    - KnifePlastic
+
+- type: entity
+  id: BorgModuleCHIMP # locked behind Syndie exofab
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: Experimental C.H.I.M.P. cyborg module
+  description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon."
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - WeaponPistolCHIMPUpgraded
+
+- type: entity
+  id: BorgModuleSyndicateRadio # locked behind Syndie exofab
+  parent: [ BaseBorgModule, BaseProviderBorgModule, RadioHandheld]
+  name: syndicate IFF cyborg module
+  description: "A module that comes with a syndicate radio, as well other syndicate channels of information"
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - RadioHandheldSyndicate
+
