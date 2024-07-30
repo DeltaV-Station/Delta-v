@@ -18,7 +18,6 @@ loadout-group-botanist-neck = Botanist Neck
 
 loadout-group-mime-neck = Mime neck
 
-loadout-group-musician-jumpsuit = Musician jumpsuit
 loadout-group-musician-neck = Musician neck
 
 loadout-group-serviceworker-head = Service Worker head

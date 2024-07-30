@@ -2,7 +2,8 @@
                   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                   xmlns:tabs="clr-namespace:Content.Client.DeltaV.Options.UI.Tabs"
                   xmlns:xNamespace="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:s="clr-namespace:Content.Client.Stylesheets">
+                  xmlns:s="clr-namespace:Content.Client.Stylesheets"
+                  xmlns:ui="clr-namespace:Content.Client.Options.UI">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Vertical" Margin="8 8 8 8" VerticalExpand="True">
             <Label Text="{Loc 'ui-options-general-forknotice'}"
@@ -13,11 +14,6 @@
                    StyleClasses="LabelKeyText"/>
             <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
         </BoxContainer>
-        <controls:StripeBack HasBottomEdge="False" HasMargins="False">
-            <Button Name="ApplyButton"
-                    Text="{Loc 'ui-options-apply'}"
-                    TextAlign="Center"
-                    HorizontalAlignment="Right" />
-        </controls:StripeBack>
+        <ui:OptionsTabControlRow Name="Control" Access="Public" />
     </BoxContainer>
 </tabs:DeltaTab>

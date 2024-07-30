@@ -11,6 +11,10 @@
     name: Mystagogue's Ifrit
     description: Obey the mystagogue. Defend the oracle.
     rules: You are a servant of the mystagogue. Obey them directly.
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400 #DeltaV - 4 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
