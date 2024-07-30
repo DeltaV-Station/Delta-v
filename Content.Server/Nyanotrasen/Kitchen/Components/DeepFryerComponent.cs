@@ -1,6 +1,7 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition;
 using Content.Shared.Nyanotrasen.Kitchen;
@@ -187,7 +188,7 @@ namespace Content.Server.Nyanotrasen.Kitchen.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("unsafeOilVolumeEffects")]
-        public List<ReagentEffect> UnsafeOilVolumeEffects = new();
+        public List<EntityEffect> UnsafeOilVolumeEffects = new();
 
         /// <summary>
         /// What is the temperature of the vat when the deep fryer is powered?
@@ -209,11 +210,11 @@ namespace Content.Server.Nyanotrasen.Kitchen.Components
         [DataField("baseStorageMaxEntities")]
         public int BaseStorageMaxEntities = 4;
 
-        /// <summary>
-        /// What upgradeable machine part dictates the quality of the storage size?
-        /// </summary>
-        [DataField("machinePartStorageMax", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartStorageMax = "MatterBin";
+        // /// <summary>
+        // /// What upgradeable machine part dictates the quality of the storage size?
+        // /// </summary>
+        // [DataField("machinePartStorageMax", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+        // public string MachinePartStorageMax = "MatterBin";
 
         /// <summary>
         /// How much extra storage is added per part rating?
