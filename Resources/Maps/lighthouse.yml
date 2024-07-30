@@ -43015,11 +43015,6 @@ entities:
     - type: Transform
       pos: 14.5,48.5
       parent: 100
-  - uid: 8828
-    components:
-    - type: Transform
-      pos: 14.5,47.5
-      parent: 100
 - proto: ClosetEmergencyFilledRandom
   entities:
   - uid: 128
@@ -89353,40 +89348,17 @@ entities:
     - type: Transform
       pos: 22.658283,23.621946
       parent: 100
-- proto: GunSafeLaserCarbine
-  entities:
-  - uid: 9708
-    components:
-    - type: Transform
-      pos: 19.5,52.5
-      parent: 100
-- proto: GunSafePistolMk58
-  entities:
-  - uid: 10049
-    components:
-    - type: Transform
-      pos: 13.5,50.5
-      parent: 100
-- proto: GunSafeRifleLecter
-  entities:
-  - uid: 9710
-    components:
-    - type: Transform
-      pos: 16.5,53.5
-      parent: 100
-- proto: GunSafeShotgunKammerer
-  entities:
-  - uid: 6889
-    components:
-    - type: Transform
-      pos: 15.5,53.5
-      parent: 100
-- proto: GunSafeSubMachineGunDrozd
+- proto: HandgunSafeSpawner
   entities:
   - uid: 6851
     components:
     - type: Transform
-      pos: 17.5,53.5
+      pos: 14.5,47.5
+      parent: 100
+  - uid: 8828
+    components:
+    - type: Transform
+      pos: 13.5,50.5
       parent: 100
 - proto: HandheldGPSBasic
   entities:
@@ -105959,6 +105931,23 @@ entities:
     - type: Transform
       pos: -20.5,-4.5
       parent: 100
+- proto: RifleSafeSpawner
+  entities:
+  - uid: 6889
+    components:
+    - type: Transform
+      pos: 15.5,53.5
+      parent: 100
+  - uid: 9708
+    components:
+    - type: Transform
+      pos: 16.5,53.5
+      parent: 100
+  - uid: 9710
+    components:
+    - type: Transform
+      pos: 17.5,53.5
+      parent: 100
 - proto: RiotShield
   entities:
   - uid: 16604
@@ -106374,6 +106363,13 @@ entities:
       parent: 100
     - type: Stack
       count: 3
+- proto: ShotgunSafeSpawner
+  entities:
+  - uid: 10049
+    components:
+    - type: Transform
+      pos: 19.5,52.5
+      parent: 100
 - proto: Shovel
   entities:
   - uid: 11608
@@ -106812,20 +106808,20 @@ entities:
     - type: DeviceLinkSink
       links:
       - 19250
-- proto: shuttle_manipulator
-  entities:
-  - uid: 12560
-    components:
-    - type: Transform
-      anchored: False
-      pos: -10.5,70
-      parent: 100
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 19638
     components:
     - type: Transform
       pos: 7.445454,-50.30382
+      parent: 100
+- proto: ShuttleManipulator
+  entities:
+  - uid: 12560
+    components:
+    - type: Transform
+      anchored: False
+      pos: -10.5,70
       parent: 100
 - proto: ShuttleWindow
   entities:
