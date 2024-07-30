@@ -142,9 +142,9 @@
 
 - type: entity
   id: BorgModuleSyndicateRadio # locked behind Syndie exofab
-  parent: [ BaseBorgModule, BaseProviderBorgModule, RadioHandheld]
-  name: syndicate IFF cyborg module
-  description: "A module that comes with a syndicate radio, as well other syndicate channels of information"
+  parent: [ BaseBorgModule, BaseProviderBorgModule, ClothingEyesHudSyndicate]
+  name: syndicate radio cyborg module
+  description: "A module that comes with a syndicate handheld radio and PDA."
   components:
   - type: Sprite
     layers:
@@ -153,4 +153,24 @@
   - type: ItemBorgModule
     items:
     - RadioHandheldSyndicate
+    - SyndiPDA
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+
+- type: entity
+  id: BorgModuleCrewMonitor # locked behind Syndie exofab
+  parent: [ BaseBorgModule, BaseProviderBorgModule]
+  name: syndicate crew monitoring module
+  description: "A module that comes with a crew monitor."
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - SyndiCrewMonitorRecharging
 
