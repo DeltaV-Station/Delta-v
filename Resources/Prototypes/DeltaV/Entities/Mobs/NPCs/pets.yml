@@ -111,10 +111,8 @@
           Base: dead_silvia
     - type: Butcherable
       spawned:
-        - id: FoodMeatSnake
-          amount: 2
-        - id: OmnizineChemistryBottle
-          amount: 1
+        - id: FoodMeatSnakeSilvia
+          maxAmount: 3
         - id: ClothingShoesSnakeskinBoots #different version? wysi
           amount: 1
           prob: 0.2
