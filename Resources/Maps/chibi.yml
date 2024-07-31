@@ -2118,6 +2118,15 @@ entities:
       - 2712
       - 2713
       - 2717
+  - uid: 4254
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-25.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2709
 - proto: AirCanister
   entities:
   - uid: 476
@@ -2856,6 +2865,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2708
+      - 4254
 - proto: AlwaysPoweredSmallLightMaintenance
   entities:
   - uid: 1784
