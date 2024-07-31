@@ -1,4 +1,4 @@
-ent-HoSPDA = head of security pda
+ent-HoSPDA = head of security PDA
     .desc = Smells like donuts and gunpowder residue.
-ent-LawyerPDA = attorney pda
+ent-LawyerPDA = attorney PDA
     .desc = For attornies to poach dubious clients.

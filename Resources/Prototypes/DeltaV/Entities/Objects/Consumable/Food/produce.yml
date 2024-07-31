@@ -1,0 +1,90 @@
+- type: entity
+  name: CrystalThistle
+  parent: FoodProduceBase
+  id: FoodCrystalThistle
+  description: A variant of galaxythistle that has sprouted sharp quartz shards.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sharp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Quartzite
+          Quantity: 10
+        - ReagentId: Ethyloxyephedrine
+          Quantity: 15
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+  - type: Produce
+    seedId: CrystalThistle
+  - type: Extractable
+    grindableSolutionName: food
+
+- type: entity
+  name: Ghost Pepper
+  parent: FoodProduceBase
+  id: FoodGhostPepper
+  description: So hot, you'll have one foot in the grave.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - spicy
+        - sweet
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 39
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 6
+            - ReagentId: CapsaicinOil
+              Quantity: 15
+            - ReagentId: Vitamin
+              Quantity: 6
+            - ReagentId: Thermite
+              Quantity: 10
+    - type: TileFrictionModifier
+      modifier: 0.05
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+    - type: Produce
+      seedId: GhostPepper
+    - type: Tag
+      tags:
+      - Vegetable
+
+- type: entity
+  name: Cosmic Revenant
+  parent: FoodProduceBase
+  id: FoodCosmicRevenant
+  description: Is this even a pepper? Looks... Haunted.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - spicy
+        - spooky
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 41
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 8
+            - ReagentId: CapsaicinOil
+              Quantity: 20
+            - ReagentId: Vitamin
+              Quantity: 8
+            - ReagentId: Ectoplasm
+              Quantity: 5
+    - type: TileFrictionModifier
+      modifier: 0.0001
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+    - type: Produce
+      seedId: CosmicRevenant
+    - type: Tag
+      tags:
+      - Vegetable

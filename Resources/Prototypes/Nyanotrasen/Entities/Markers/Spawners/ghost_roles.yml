@@ -11,32 +11,16 @@
     name: Mystagogue's Ifrit
     description: Obey the mystagogue. Defend the oracle.
     rules: You are a servant of the mystagogue. Obey them directly.
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 14400 #DeltaV - 4 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
       - state: green
       - sprite: Mobs/Animals/bat.rsi
         state: bat
-
-- type: entity
-  id: SpawnPointGhostFugitive
-  name: ghost role spawn point
-  parent: MarkerBase
-  noSpawn: true
-  components:
-  # - type: GhostRoleMobSpawner
-  #   prototype: MobHumanFugitive # Todo
-  - type: GhostRole
-    name: Fugitive
-    description: You're an escaped prisoner. Make it out alive.
-    rules: |
-      You are the lightest of antags.
-      Murderboning = ban and whitelist removal.
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: prisoner
 
 - type: entity
   id: SpawnPointLocationMidRoundAntag
@@ -49,7 +33,7 @@
     layers:
       - state: green
       - state: prisoner
-  # - type: MidRoundAntagSpawnLocation # When MidRoundAntag?
+  - type: MidRoundAntagSpawnLocation
 
 # - type: entity
 #   id: SpawnPointGhostVampSpider

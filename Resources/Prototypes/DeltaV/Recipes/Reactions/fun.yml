@@ -1,0 +1,11 @@
+- type: reaction
+  id: GlassSheet # Creates 1 glass sheet from 10u Quartzite.
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    Quartzite:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SheetGlass1

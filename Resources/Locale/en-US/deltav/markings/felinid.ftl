@@ -5,3 +5,7 @@ marking-FelinidFluffyTail = Fluffy Tail
 marking-FelinidFluffyTailRings = Fluffy Tail with rings
 marking-FelinidAlternativeTail = Alternative Wagging Tail
 marking-FelinidAlternativeTail-m_waggingtail_cat_FRONT = Alternative Wagging Tail
+marking-FelinidTiger = Tiger tail
+marking-FelinidTiger-m_tail_tiger_primary = Primary colour
+marking-FelinidTiger-m_tail_tiger_secondary = Tip of tail colour
+marking-FelinidTiger-m_tail_tiger_tertiary = Stripes

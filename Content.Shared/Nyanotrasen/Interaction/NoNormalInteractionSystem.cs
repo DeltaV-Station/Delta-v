@@ -1,6 +1,6 @@
 using Content.Shared.Interaction.Events;
 
-namespace Content.Shared.Interaction
+namespace Content.Shared.Nyanotrasen.Interaction
 {
     public sealed class NoNormalInteractionSystem : EntitySystem
     {
@@ -12,7 +12,7 @@ namespace Content.Shared.Interaction
 
         private void OnInteractionAttempt(EntityUid uid, NoNormalInteractionComponent component, InteractionAttemptEvent args)
         {
-            args.Cancel();
+            args.Cancelled = true;
         }
     }
 }

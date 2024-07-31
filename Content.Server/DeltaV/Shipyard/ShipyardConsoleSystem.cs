@@ -5,6 +5,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
@@ -14,6 +15,7 @@ namespace Content.Server.Shipyard;
 public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 {
     [Dependency] private readonly CargoSystem _cargo = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
@@ -34,6 +36,10 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
     protected override void TryPurchase(Entity<ShipyardConsoleComponent> ent, EntityUid user, VesselPrototype vessel)
     {
+        // client prevents asking for this so dont need feedback for validation
+        if (_whitelist.IsWhitelistFail(vessel.Whitelist, ent))
+            return;
+
         if (GetBankAccount(ent) is not {} bank)
             return;
 

@@ -19,6 +19,7 @@ public sealed class RoleSystem : SharedRoleSystem
         SubscribeAntagEvents<TraitorRoleComponent>();
         SubscribeAntagEvents<ZombieRoleComponent>();
         SubscribeAntagEvents<ThiefRoleComponent>();
+        SubscribeAntagEvents<ListeningPostRoleComponent>(); // DeltaV - listening post role
     }
 
     public string? MindGetBriefing(EntityUid? mindId)

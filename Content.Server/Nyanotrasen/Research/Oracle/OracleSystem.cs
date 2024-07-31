@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Administration.Logs;
 using Content.Server.Botany;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -10,6 +11,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
@@ -30,6 +32,7 @@ public sealed class OracleSystem : EntitySystem
     [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public override void Update(float frameTime)
     {
@@ -131,6 +134,10 @@ public sealed class OracleSystem : EntitySystem
         }
 
         EntityManager.QueueDeleteEntity(args.Used);
+
+        _adminLog.Add(LogType.InteractHand,
+            LogImpact.Medium,
+            $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
 
         EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
 
