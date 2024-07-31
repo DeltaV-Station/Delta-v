@@ -23,6 +23,10 @@ ghost-role-information-recruiter-rules =
 
     You are just a recruiter so do not act like a full-on antagonist, i.e. no killing people.
 
+ghost-role-information-silvia-name = Silvia
+ghost-role-information-silvia-description = You are Silvia the space snake and the CMO's charming companion.    
+ghost-role-information-silvia-rules = Keep the medical team company and help out in emergencies with your omnizine venom. Stick close to the CMO in case they need emergency healing.
+
 ghost-role-information-synthesis-name = Synthesis Specialist
 ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
 ghost-role-information-synthesis-rules =
