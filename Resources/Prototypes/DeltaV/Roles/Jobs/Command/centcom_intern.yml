@@ -22,6 +22,9 @@
   noSpawn: true
   components:
     - type: Unremoveable
+    - type: ActiveRadio
+      globalReceive: true
+
 
 - type: entity
   parent: CentcomPDA
