@@ -1,0 +1,45 @@
+- type: startingGear #Resources\Prototypes\DeltaV\Entities\Markers\Spawners\ghost_roles.yml for the ghost role spawner
+  id: CentcomInternGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatCentcom
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasic
+    id: CentcomPDAIntern #Intern PDA
+    ears: ClothingHeadsetAltCentComGlobal #Global CC Headset
+    belt: WeaponPistolN1984
+    pocket1: BoxFolderBlack
+    pocket2: PenCentcom
+
+- type: entity
+  parent: ClothingHeadsetAltCentCom
+  id: ClothingHeadsetAltCentComGlobal #Global CC Headset
+  name: global CentCom headset
+  suffix: Unremoveable
+  description: An extremely fancy headset, fixed to your head with superglue.
+  noSpawn: true
+  components:
+    - type: Unremoveable
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcomPDAIntern #for CentComPDAIntern
+  components:
+  - type: Pda
+    id: CentcomInternIDCard
+    state: pda-centcom
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: CentcomIDCard
+  id: CentcomInternIDCard #for CentComPDAIntern
+  components:
+  - type: IdCard
+    jobTitle: Central Command Intern
+    jobIcon: JobIconNanotrasen

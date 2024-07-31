@@ -5,6 +5,7 @@ job-name-prosecutor = Prosecutor
 job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-security-borg = Security Cyborg
+job-name-ccintern = Central Command Intern
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

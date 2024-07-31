@@ -88,3 +88,23 @@
     - state: green
     - sprite: DeltaV/Objects/Misc/recruiter_pen.rsi
       state: empty
+
+- type: entity
+  noSpawn: true
+  parent: SpawnPointPlayerCharacter
+  id: SpawnPointCCIntern
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ccintern-name
+    description: ghost-role-information-ccintern-description
+    rules: ghost-role-information-ccintern-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24h, if you gave us money before that sorry
+  - type: GhostRoleCharacterSpawner
+    outfitPrototype: CentcomInternGear
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
