@@ -23,6 +23,10 @@ ghost-role-information-recruiter-rules =
 
     You are just a recruiter so do not act like a full-on antagonist, i.e. no killing people.
 
+ghost-role-information-silvia-name = Silvia
+ghost-role-information-silvia-description = You are Silvia the space snake and the CMO's charming companion.
+ghost-role-information-silvia-rules = Keep the medical team company and help out in emergencies with your omnizine venom. Stick close to the CMO in case they need emergency healing.
+
 ghost-role-information-ccintern-name = Central Command Intern
 ghost-role-information-ccintern-description = You're a Central Command Intern, the coffee fetcher in chief. Represent NanoTrasen to the best of your ability!
 ghost-role-information-ccintern-rules = You are crew aligned, and fervently loyal to NanoTrasen. You don't outrank the crew, but are merely an advisor.
