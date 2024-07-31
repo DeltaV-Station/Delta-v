@@ -10,9 +10,6 @@
     requiredLegs: 2 # It would be funny if arachnids could use their little back limbs to move around once they lose their legs, but just something to consider post-woundmed
   - type: HumanoidAppearance
     species: Arachnid
-  - type: Inventory
-    templateId: arachnid
-    speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
   - type: Hunger
     baseDecayRate: 0.0125 # Spiders have slow metabolisms all things considered, so I decided to just make their hunger drain slower.
   - type: Carriable # Carrying system from nyanotrasen.
@@ -33,6 +30,9 @@
     spawned:
       - id: FoodMeatSpider
         amount: 5
+- type: Inventory
+    templateId: arachnid
+    speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
   - type: Reactive
     reactions:
     - reagents: [Water]
