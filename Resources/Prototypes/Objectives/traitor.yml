@@ -48,23 +48,24 @@
       state: shuttle
   - type: EscapeShuttleCondition
 
-##- type: entity # DeltaV
-#  parent: BaseTraitorObjective
-#  id: DieObjective
-#  name: Die a glorious death
-#  description: Die.
-#  components:
-#  - type: Objective
-#    difficulty: 0.5
-#    icon:
-#      sprite: Mobs/Ghosts/ghost_human.rsi
-#      state: icon
-#  - type: ObjectiveBlacklistRequirement
-#    blacklist:
-#      components:
-#      - EscapeShuttleCondition
-#      - StealCondition
-#  - type: DieCondition
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorObjective
+  id: DieObjective
+  name: Die a glorious death
+  description: Die.
+  components:
+  - type: Objective
+    difficulty: 0.5
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - EscapeShuttleCondition
+      - StealCondition
+  - type: DieCondition
 
 #- type: entity
 #  parent: [BaseTraitorObjective, BaseLivingObjective]
@@ -293,3 +294,21 @@
   - type: StealCondition
     stealGroup: NukeDisk
     owner: objective-condition-steal-station
+
+# Station
+
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: PlutoniumCoreStealObjective
+  components:
+  - type: Objective
+    # its hard to steal and leaves evidence, but you can get away with it.
+    difficulty: 3.5
+  - type: NotCommandRequirement
+  - type: StealCondition
+    stealGroup: PlutoniumCore
+    owner: objective-condition-steal-nuclear-bomb
+  - type: StoreUnlocker
+    listings:
+    - UplinkCoreExtractionToolbox

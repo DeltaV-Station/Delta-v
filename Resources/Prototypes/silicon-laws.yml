@@ -172,17 +172,20 @@
     NTDefault: 1
     Drone: 0.25 # Delta-V - Lowers the spawn rate due to it being anti-crew interaction + drones are disabled anyways
     Ninja: 0.25
-    #Delta-V Lawsets Start
+    #Delta-V : Lawsets Start
     Chaplain: 1
     Reporter: 1
     Clown: 1
     StationEfficiency: 1
     Cowboy: 1
     Druid: 1
-    #Potentially Harmful Lawsets
-    Tyrant: 0.25
-    LiveAndLetLive: 0.25
-    # Less harmful outright, so higher chance of spawn
+    # Delta-V : # Less harmful outright, so higher chance of spawn
     Nutimov: 0.5
     Paladin: 0.5
-    #DeltaV lawsets end
+    Pranksimov: 0.5 # I'm being optimistic here; loophole should be closed but...
+    Royalty: 0.5
+    #Delta-V : Potentially Harmful Lawsets
+    Tyrant: 0.25
+    LiveAndLetLive: 0.25
+    Aggressive: 0.25
+    #Delta-V : lawsets end

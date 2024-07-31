@@ -8,68 +8,14 @@ using Robust.Shared.Map;
 
 namespace Content.Server.Terminator.Systems;
 
+/// <summary>
+/// DeltaV - this is just used for paradox anomaly upstream doesnt use it anymore.
+/// </summary>
 public sealed class TerminatorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<TerminatorComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<TerminatorComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
-        SubscribeLocalEvent<TerminatorComponent, GenericAntagCreatedEvent>(OnCreated);
-    }
-
-    private void OnMapInit(EntityUid uid, TerminatorComponent comp, MapInitEvent args)
-    {
-        // cyborg doesn't need to breathe
-        //RemComp<RespiratorComponent>(uid); // DeltaV - paradox anomaly does actually need to breathe
-    }
-
-    private void OnSpawned(EntityUid uid, TerminatorComponent comp, GhostRoleSpawnerUsedEvent args)
-    {
-        if (!TryComp<TerminatorTargetComponent>(args.Spawner, out var target))
-            return;
-
-        comp.Target = target.Target;
-    }
-
-    private void OnCreated(EntityUid uid, TerminatorComponent comp, ref GenericAntagCreatedEvent args)
-    {
-        var mindId = args.MindId;
-        var mind = args.Mind;
-
-        _role.MindAddRole(mindId, new RoleBriefingComponent
-        {
-            Briefing = Loc.GetString("terminator-role-briefing")
-        }, mind);
-        _role.MindAddRole(mindId, new TerminatorRoleComponent(), mind);
-    }
-
-    /// <summary>
-    /// DeltaV - used for paradox anomaly.
-    /// </summary>
     public void SetTarget(Entity<TerminatorComponent?> ent, EntityUid mindId)
     {
         ent.Comp ??= EnsureComp<TerminatorComponent>(ent);
         ent.Comp.Target = mindId;
-    }
-
-    /// <summary>
-    /// Create a spawner at a position and return it.
-    /// </summary>
-    /// <param name="coords">Coordinates to create the spawner at</param>
-    /// <param name="target">Optional target mind to force the terminator to target</param>
-    public EntityUid CreateSpawner(EntityCoordinates coords, EntityUid? target)
-    {
-        var uid = Spawn("SpawnPointGhostTerminator", coords);
-        if (target != null)
-        {
-            var comp = EnsureComp<TerminatorTargetComponent>(uid);
-            comp.Target = target;
-        }
-
-        return uid;
     }
 }

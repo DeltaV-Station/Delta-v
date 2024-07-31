@@ -4,6 +4,7 @@ using Content.Server.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
@@ -54,14 +55,14 @@ public sealed partial class DeepFryerSystem
 
                             foreach (var effect in component.UnsafeOilVolumeEffects)
                             {
-                                effect.Effect(new ReagentEffectArgs(uid,
-                                        null,
-                                        component.Solution,
-                                        proto!,
-                                        reagent.Quantity,
-                                        EntityManager,
-                                        null,
-                                        1f));
+                                effect.Effect(new EntityEffectReagentArgs(uid,
+                                    EntityManager,
+                                    null,
+                                    component.Solution,
+                                    reagent.Quantity,
+                                    proto!,
+                                    null,
+                                    1f));
                             }
 
                         }

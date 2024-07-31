@@ -36,7 +36,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            "/Maps/centcomm.yml",
+            "/Maps/DeltaV/centcomm.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
@@ -55,6 +55,8 @@ namespace Content.IntegrationTests.Tests
             "Tortuga", //DeltaV
             "Arena", //DeltaV
             "Asterisk", //DeltaV
+            "Chibi", //DeltaV
+            "Glacier", //DeltaV
             "TheHive", //DeltaV
             "Hammurabi", //DeltaV
             "Lighthouse", //DeltaV
