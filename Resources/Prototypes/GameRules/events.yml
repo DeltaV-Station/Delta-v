@@ -128,7 +128,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
