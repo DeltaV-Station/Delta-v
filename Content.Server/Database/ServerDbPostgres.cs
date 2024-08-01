@@ -243,8 +243,7 @@ namespace Content.Server.Database
                 ExpirationTime = serverBan.ExpirationTime?.UtcDateTime,
                 RoundId = serverBan.RoundId,
                 PlaytimeAtNote = serverBan.PlaytimeAtNote,
-                PlayerUserId = serverBan.UserId?.UserId,
-                ExemptFlags = serverBan.ExemptFlags,
+                PlayerUserId = serverBan.UserId?.UserId
             });
 
             await db.PgDbContext.SaveChangesAsync();
