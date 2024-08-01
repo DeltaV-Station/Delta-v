@@ -1,0 +1,12 @@
+- type: entity
+  parent: FoodMeatSnake
+  id: FoodMeatSnakeSilvia
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+        - ReagentId: Omnizine
+          Quantity: 8
