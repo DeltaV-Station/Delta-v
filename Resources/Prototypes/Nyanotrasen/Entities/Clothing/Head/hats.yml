@@ -114,10 +114,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.95
-        Radiation: 0.95
+        Blunt: 0.95 # DeltaV - general armour rebalance
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Piercing: 0.95 # DeltaV - general armour rebalance
+        Radiation: 0.95 # DeltaV - general armour rebalance
 
 - type: entity
   parent: ClothingHeadBase
@@ -154,7 +154,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.80
+        Blunt: 0.95 # DeltaV - general armour rebalance
         Slash: 0.95
         Piercing: 0.95
 

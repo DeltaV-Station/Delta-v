@@ -66,8 +66,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Heat: 0.90
-        Radiation: 0.75
+        Blunt: 0.95 # DeltaV - general armour rebalance
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Piercing: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.95 # DeltaV - general armour rebalance
+#        Radiation: 0.75 # DeltaV - general armour rebalance
+        Caustic: 0.75 # DeltaV - general armour rebalance
 
 #Ancient Void Helmet
 - type: entity

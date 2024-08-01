@@ -200,6 +200,10 @@
     sprite: Clothing/Head/Hats/captain.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/captain.rsi
+  - type: Armor # DeltaV - general armour rebalance
+    modifiers:
+      coefficients:
+        Blunt: 0.9
   - type: Tag
     tags:
     - ClothMade

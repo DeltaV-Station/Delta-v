@@ -92,7 +92,7 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.95
+        Piercing: 0.85 # DeltaV - general armour rebalance
 
 #Bombsuit Helmet
 - type: entity
@@ -107,13 +107,13 @@
     sprite: Clothing/Head/Helmets/bombsuit.rsi
   - type: IngestionBlocker
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.5 # DeltaV - general armour rebalance
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
+        Blunt: 0.85 # DeltaV - general armour rebalance
+        Slash: 0.85 # DeltaV - general armour rebalance
+        Piercing: 0.85 # DeltaV - general armour rebalance
   - type: HideLayerClothing
     slots:
     - Hair
@@ -149,10 +149,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.95 # DeltaV - general armour rebalance
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Piercing: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.95 # DeltaV - general armour rebalance
 
 #Space Ninja Helmet
 - type: entity

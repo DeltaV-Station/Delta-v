@@ -12,15 +12,15 @@
   - type: Armor # Good against gunshots, decent against everything else. Balanced by reduced movement speed.
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.50
-        Heat: 0.80
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.5
+        Heat: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 1.0
+    sprintModifier: 0.9
   - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
-    damageCoefficient: 0.70
+    damageCoefficient: 0.7
   - type: AllowSuitStorage
   - type: Tag
     tags:
@@ -40,12 +40,12 @@
   - type: Armor # Good against stabs and knocks, offers minimal protection from gunshots and lasfire.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.90
-        Heat: 0.90
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.9
+        Heat: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
-    damageCoefficient: 0.90
+    damageCoefficient: 0.9
   - type: AllowSuitStorage
   - type: Tag
     tags:
@@ -64,15 +64,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.40
-        Slash: 0.40
-        Piercing: 0.70
-        Heat: 0.70
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.7
+        Heat: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: ExplosionResistance # Almost as good as a plate carrier! Still not going to save you from most bombs though.
-    damageCoefficient: 0.80
+  - type: ExplosionResistance # As good as a plate carrier! Still not going to save you from most bombs though.
+    damageCoefficient: 0.7
   - type: GroupExamine
   - type: AllowSuitStorage
   - type: Tag

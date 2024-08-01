@@ -14,6 +14,11 @@
     materialComposition:
       Steel: 200
       Glass: 100
+  - type: Armor # DeltaV - general armour rebalance
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Heat: 0.9
   - type: StaticPrice
     price: 50
   - type: Tag

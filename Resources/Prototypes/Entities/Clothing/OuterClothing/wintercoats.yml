@@ -87,9 +87,9 @@
   - type: Armor # DeltaV - adds resists to coat, same as HoS coat. Still better than nothing, but nowhere as good as a carapace
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
         Heat: 0.75
 
 - type: entity
@@ -153,7 +153,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.75
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterChem
@@ -172,7 +172,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.75
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCMO
@@ -213,7 +213,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -258,9 +258,9 @@
   - type: Armor # DeltaV - adds resists to coat. As good as Cap's, but I don't know why you'd wear this over a trench coat
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
         Heat: 0.75
 
 - type: entity
@@ -289,7 +289,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.9
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterJani
@@ -308,7 +308,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMed
@@ -351,7 +351,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.75
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterPara
@@ -383,7 +383,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRD
@@ -415,7 +415,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -436,7 +436,7 @@
       coefficients:
         Blunt: 0.85
         Slash: 0.85
-        Piercing: 0.85 # DeltaV - not as resistant as pre-rebase, but still better than nothing
+        Piercing: 0.80 # DeltaV - not as resistant as pre-rebase, but still better than nothing
         Heat: 0.75
 
 - type: entity
@@ -453,7 +453,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
-        Caustic: 0.9
+        Caustic: 0.85 # DeltaV - general armour rebalance
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci

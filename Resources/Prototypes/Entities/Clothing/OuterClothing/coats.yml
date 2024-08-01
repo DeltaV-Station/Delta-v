@@ -8,6 +8,12 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
@@ -41,6 +47,12 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   abstract: true
@@ -94,6 +106,12 @@
     sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -107,6 +125,12 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -123,7 +147,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Slash: 0.95
+        Slash: 0.90 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -148,6 +173,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -168,6 +195,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabChem]
@@ -188,6 +217,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
@@ -208,6 +239,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabGene]
@@ -227,8 +260,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.95
+        Slash: 0.85 # DeltaV - general armour rebalance
+        Heat: 0.85 # DeltaV - general armour rebalance
         Caustic: 0.65
 
 - type: entity
@@ -250,6 +283,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRnd]
@@ -270,6 +305,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRobo]
@@ -290,7 +327,9 @@
     modifiers:
       coefficients:
         Caustic: 0.75
-        Radiation: 0.9
+        Radiation: 0.75 # DeltaV - general armour rebalance
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
@@ -307,6 +346,12 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.85
+        Heat: 0.85
 
 - type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase]
@@ -329,6 +374,12 @@
     sprite: Clothing/OuterClothing/Coats/damedanecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/damedanecoat.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -340,6 +391,12 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -368,6 +425,12 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -379,6 +442,12 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.85
+        Heat: 0.85
 
 - type: entity
   parent: ClothingOuterCoatHoSTrench
@@ -424,6 +493,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -439,6 +510,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.90 # DeltaV - general armour rebalance
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -450,6 +523,12 @@
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.85
+        Heat: 0.85
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -461,3 +540,9 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
+ # DeltaV - general armour rebalance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95

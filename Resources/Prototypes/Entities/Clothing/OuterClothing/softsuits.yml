@@ -20,12 +20,19 @@
   parent: ClothingOuterEVASuitBase
   id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
   name: syndicate EVA suit
-  description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
+  description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!' The design features ballistic fibre and reinforced padding around the elbows and knees." # DeltaV - prettify desc.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+  - type: Armor # DeltaV - general armour rebalance
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
   - type: Tag
     tags:
     - SuitEVA
@@ -61,12 +68,15 @@
   parent: ClothingOuterEVASuitBase
   id:  ClothingOuterHardsuitEVAPrisoner
   name: prisoner EVA suit
-  description: A lightweight space suit for prisoners to protect them from the vacuum of space during emergencies.
+  description: A weighted space suit for prisoners to protect them from the vacuum of space during emergencies. # DeltaV - adj. desc.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+  - type: ClothingSpeedModifier # DeltaV - general armour rebalance
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: Tag
     tags:
     - SuitEVA
@@ -85,8 +95,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/ancient_voidsuit.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 1.0 # DeltaV - general armour rebalance
+    sprintModifier: 1.0 # DeltaV - general armour rebalance
   - type: HeldSpeedModifier
 
 #Paramedic Voidsuit
@@ -105,17 +115,20 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.95 # DeltaV - general armour rebalance
+    sprintModifier: 0.85 # DeltaV - general armour rebalance
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
-        Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
+        Blunt: 0.95 # DeltaV - general armour rebalance
+        Slash: 0.95 # DeltaV - general armour rebalance
+        Piercing: 0.95 # DeltaV - general armour rebalance
+        Heat: 0.95 # DeltaV - general armour rebalance
+#        Radiation: 0.75 # DeltaV - general armour rebalance
+        Caustic: 0.75 # DeltaV - general armour rebalance
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

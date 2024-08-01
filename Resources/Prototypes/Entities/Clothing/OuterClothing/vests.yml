@@ -12,12 +12,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #ballistic plates = better protection
-        Slash: 0.6
+        Blunt: 0.7 #ballistic plates = better protection # DeltaV - general armour rebalance
+        Slash: 0.7 # DeltaV - general armour rebalance
         Piercing: 0.3
-        Heat: 0.9
+        Heat: 0.7 # DeltaV - general armour rebalance
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.7 # DeltaV - general armour rebalance
 
 #Mercenary web vest
 - type: entity
@@ -36,7 +36,7 @@
         Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
         Slash: 0.7
         Piercing: 0.5
-        Heat: 0.9
+        Heat: 0.7 # DeltaV - general armour rebalance
   - type: ExplosionResistance
     damageCoefficient: 0.9
 

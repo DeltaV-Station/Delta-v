@@ -18,6 +18,10 @@
     autoRot: true
     radius: 7
     netsync: false
+  - type: Armor # DeltaV - general armour rebalance
+    modifiers:
+      coefficients:
+        Blunt: 0.9
   - type: Appearance
   - type: HandheldLight
     addPrefix: false
