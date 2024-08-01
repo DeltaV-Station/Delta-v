@@ -528,6 +528,9 @@
     tags:
       - PillCanister
   - type: Storage
+    whitelist: # DV - Remove the ability to store anything other than pills in pill canisters
+      tags: 
+        - Pill
     grid:
     - 0,0,4,1
     quickInsert: true

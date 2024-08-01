@@ -60,7 +60,7 @@
   noSpawn: true
   components:
     - type: GlimmerEvent
-      minimumGlimmer: 500 
+      minimumGlimmer: 500
       maximumGlimmer: 900
       glimmerBurnLower: 18
       glimmerBurnUpper: 40
@@ -77,59 +77,54 @@
       glimmerBurnUpper: 110
     - type: MassMindSwapRule
 
-#- type: entity
-#  id: GlimmerWispSpawn
-#  parent: BaseGlimmerEvent
-#  noSpawn: true
-#  components:
-#    - type: GlimmerEvent
-#      minimumGlimmer: 300
-#      maximumGlimmer: 1000
-#      report: glimmer-event-report-signatures
-#    - type: GlimmerWispRule
+- type: entity
+  abstract: true
+  parent: BaseGlimmerEvent
+  id: BaseGlimmerSignaturesEvent
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    report: glimmer-event-report-signatures
 
 - type: entity
-  id: FreeProber
-  parent: BaseGlimmerEvent
-  noSpawn: true
+  id: GlimmerWispSpawn
+  parent: BaseGlimmerSignaturesEvent
   components:
-    - type: GlimmerEvent
-      minimumGlimmer: 300
-      maximumGlimmer: 1000
-      report: glimmer-event-report-signatures
-    - type: FreeProberRule
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerWisp
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: FreeProber
+  components:
+  - type: FreeProberRule
 
 ## converted upstream events
 - type: entity
+  parent: BaseGlimmerSignaturesEvent
   id: GlimmerRandomSentience
-  parent: BaseGlimmerEvent
-  noSpawn: true
   components:
-    - type: GlimmerEvent
-      minimumGlimmer: 300
-      maximumGlimmer: 600
-      report: glimmer-event-report-signatures
-    - type: GlimmerRandomSentienceRule
+  - type: GlimmerEvent
+    maximumGlimmer: 600
+  - type: GlimmerRandomSentienceRule
 
 - type: entity
+  parent: BaseGlimmerSignaturesEvent
   id: GlimmerRevenantSpawn
-  parent: BaseGlimmerEvent
-  noSpawn: true
   components:
-    - type: GlimmerEvent
-      minimumGlimmer: 500
-      maximumGlimmer: 900
-      report: glimmer-event-report-signatures
-    - type: GlimmerRevenantRule
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    maximumGlimmer: 900
+  - type: GlimmerRevenantRule
 
 - type: entity
+  parent: BaseGlimmerSignaturesEvent
   id: GlimmerMiteSpawn
-  parent: BaseGlimmerEvent
-  noSpawn: true
   components:
-    - type: GlimmerEvent
-      minimumGlimmer: 50
-      maximumGlimmer: 900
-      report: glimmer-event-report-signatures
-    - type: GlimmerMobRule
-      mobPrototype: MobGlimmerMite
+  - type: GlimmerEvent
+    minimumGlimmer: 50
+    maximumGlimmer: 900
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerMite
+    glimmerTier: Low # get more mites earlier on

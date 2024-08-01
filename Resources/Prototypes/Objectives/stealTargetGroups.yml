@@ -84,6 +84,13 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: PlutoniumCore
+  name: plutonium core
+  sprite:
+    sprite: Objects/Misc/plutonium_core.rsi
+    state: icon
+
 # Thief Collection
 
 - type: stealTargetGroup
@@ -382,8 +389,8 @@
     state: fox
 
 - type: stealTargetGroup
-  id: AnimalShiva
-  name: Shiva
+  id: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
+  name: Security Pet #DeltaV - Adjusts because we have multiple possible sec animals
   sprite:
     sprite: Mobs/Pets/shiva.rsi
     state: shiva

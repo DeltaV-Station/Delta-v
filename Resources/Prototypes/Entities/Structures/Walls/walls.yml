@@ -514,9 +514,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -577,9 +577,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -864,13 +864,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -930,9 +930,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
     state: full
   - type: Construction
     graph: Girder

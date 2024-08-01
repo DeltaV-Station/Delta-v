@@ -18,3 +18,24 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [names_borg]
+
+- type: entity
+  parent: BorgChassisSecurity
+  id: PlayerBorgSecurity
+  suffix: Peacekeeper, Patrol, Bastion
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleSecurityPeacekeeper
+      - BorgModuleSecurityPatrol
+      - BorgModuleSecurityBastion
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [names_borg] # TODO: Make good names, this is a stupid list.

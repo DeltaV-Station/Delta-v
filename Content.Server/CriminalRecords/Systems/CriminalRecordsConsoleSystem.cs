@@ -128,6 +128,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (_, SecurityStatus.Paroled) => "paroled",
             // prisoner did their time
             (_, SecurityStatus.Discharged) => "released",
+            // # DeltaV - person is subpoenaed by Justice Department
+            (_, SecurityStatus.Subpoenaed) => "subpoenaed",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
             // person is no longer sus
@@ -138,6 +140,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (SecurityStatus.Detained, SecurityStatus.None) => "released",
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
+            // # DeltaV - Person is no longer subpoenaed
+            (SecurityStatus.Subpoenaed, SecurityStatus.None) => "not-subpoenaed",
             // this is impossible
             _ => "not-wanted"
         };

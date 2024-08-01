@@ -2,6 +2,12 @@
   id: FloorPlanetDirt
   name: tiles-dirt-floor
   sprite: /Textures/Tiles/Planet/dirt.rsi/dirt.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: true
   footstepSounds:
     collection: FootstepAsteroid
@@ -118,7 +124,6 @@
     West: /Textures/Tiles/Planet/Snow/snow_double_edge_west.png
   isSubfloor: true
   itemDrop: FloorTileItemSnow # Delta V
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepSnow
   heatCapacity: 10000

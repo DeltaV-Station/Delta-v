@@ -43,6 +43,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             SecurityStatus.Detained => "SecurityIconIncarcerated",
             SecurityStatus.Discharged => "SecurityIconDischarged",
             SecurityStatus.Suspected => "SecurityIconSuspected",
+            SecurityStatus.Subpoenaed => "SecurityIconSubpoenaed", /// # DeltaV Justice Department Subpoena 
             _ => record.StatusIcon
         };
 
