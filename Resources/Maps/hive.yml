@@ -74354,6 +74354,11 @@ entities:
     - type: Transform
       pos: 121.5,-4.5
       parent: 1
+  - uid: 28419
+    components:
+    - type: Transform
+      pos: 73.5,-11.5
+      parent: 1
 - proto: DonkpocketBoxSpawner
   entities:
   - uid: 5897
@@ -132202,12 +132207,15 @@ entities:
     - type: Transform
       pos: 22.434898,-13.551275
       parent: 1
-  - uid: 22755
+- proto: MousetrapArmed
+  entities:
+  - uid: 2503
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -32.686188,41.03383
+      rot: 1.5707963267948966 rad
+      pos: -32.681774,41.010735
       parent: 1
+    - type: StepTriggerActive
 - proto: Multitool
   entities:
   - uid: 2562
@@ -152661,11 +152669,6 @@ entities:
       parent: 1
 - proto: SpawnMobCat
   entities:
-  - uid: 7584
-    components:
-    - type: Transform
-      pos: 82.5,-7.5
-      parent: 1
   - uid: 10035
     components:
     - type: Transform
@@ -152708,6 +152711,13 @@ entities:
     components:
     - type: Transform
       pos: -16.5,7.5
+      parent: 1
+- proto: SpawnMobCMOPetSilvia
+  entities:
+  - uid: 7584
+    components:
+    - type: Transform
+      pos: 81.5,-11.5
       parent: 1
 - proto: SpawnMobCorgi
   entities:
@@ -152820,7 +152830,7 @@ entities:
   - uid: 22754
     components:
     - type: Transform
-      pos: -32.5,39.5
+      pos: -46.5,38.5
       parent: 1
   - uid: 23615
     components:
@@ -152861,6 +152871,13 @@ entities:
     components:
     - type: Transform
       pos: 11.5,44.5
+      parent: 1
+- proto: SpawnMobWalter
+  entities:
+  - uid: 22755
+    components:
+    - type: Transform
+      pos: 73.5,-11.5
       parent: 1
 - proto: SpawnPointAtmos
   entities:
@@ -181818,7 +181835,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -498.01553
+      secondsUntilStateChange: -9702.599
       state: Opening
   - uid: 5096
     components:
@@ -181840,7 +181857,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -498.01553
+      secondsUntilStateChange: -9702.599
       state: Opening
   - uid: 5498
     components:
@@ -181856,7 +181873,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -221.6322
+      secondsUntilStateChange: -9426.216
       state: Opening
   - uid: 8696
     components:
@@ -181889,7 +181906,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -219.74895
+      secondsUntilStateChange: -9424.332
       state: Opening
   - uid: 18835
     components:
@@ -181901,7 +181918,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -216.74931
+      secondsUntilStateChange: -9421.333
       state: Opening
   - uid: 23917
     components:
