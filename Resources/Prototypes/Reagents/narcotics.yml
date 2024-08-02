@@ -40,6 +40,14 @@
         key: KnockedDown
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
       - !type:AdjustReagent # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
@@ -89,6 +97,14 @@
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 1
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
         type: Remove
       - !type:PopupMessage
         visualType: Medium
@@ -149,6 +165,14 @@
       - !type:GenericStatusEffect
         key: ForcedSleep
         time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
         type: Remove
     Medicine:
       metabolismRate: 1.0
