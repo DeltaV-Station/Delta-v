@@ -2344,3 +2344,19 @@
     - type: Icon
       sprite: Objects/Consumable/Drinks/bloodglass.rsi
       state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DoubleIceCreamGlass
+  suffix: double ice cream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DoubleIceCream
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/doubleicecreamglass.rsi
+    state: icon
