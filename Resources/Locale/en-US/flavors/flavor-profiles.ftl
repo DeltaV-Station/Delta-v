@@ -171,6 +171,7 @@ flavor-complex-violets = like violets
 flavor-complex-pyrotton = like a burning mouth
 flavor-complex-mothballs = like mothballs
 flavor-complex-paint-thinner = like paint thinner
+flavor-complex-double-ice-cream = like ice cream, twice
 
 # Drink-specific flavors.
 
