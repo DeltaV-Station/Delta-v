@@ -71539,6 +71539,11 @@ entities:
     - type: Transform
       pos: 3.5,-66.5
       parent: 6747
+  - uid: 27988
+    components:
+    - type: Transform
+      pos: 12.5,-66.5
+      parent: 6747
 - proto: DonkpocketBoxSpawner
   entities:
   - uid: 2490
@@ -152914,6 +152919,13 @@ entities:
     - type: Transform
       pos: 28.5,3.5
       parent: 6747
+- proto: SpawnMobArcticFoxSiobhan
+  entities:
+  - uid: 27987
+    components:
+    - type: Transform
+      pos: 12.5,-66.5
+      parent: 6747
 - proto: SpawnMobCat
   entities:
   - uid: 7224
@@ -152925,16 +152937,6 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-6.5
-      parent: 6747
-  - uid: 11529
-    components:
-    - type: Transform
-      pos: 3.5,-66.5
-      parent: 6747
-  - uid: 16711
-    components:
-    - type: Transform
-      pos: 26.5,-33.5
       parent: 6747
 - proto: SpawnMobCatGeneric
   entities:
@@ -152948,12 +152950,24 @@ entities:
     - type: Transform
       pos: 49.5,-12.5
       parent: 6747
+  - uid: 11529
+    components:
+    - type: Transform
+      pos: 3.5,-66.5
+      parent: 6747
 - proto: SpawnMobCleanBot
   entities:
   - uid: 6799
     components:
     - type: Transform
       pos: 27.5,-2.5
+      parent: 6747
+- proto: SpawnMobCMOPetSilvia
+  entities:
+  - uid: 16711
+    components:
+    - type: Transform
+      pos: 26.5,-33.5
       parent: 6747
 - proto: SpawnMobCockroach
   entities:
@@ -153091,6 +153105,13 @@ entities:
     components:
     - type: Transform
       pos: 31.5,-61.5
+      parent: 6747
+- proto: SpawnMobWalter
+  entities:
+  - uid: 27989
+    components:
+    - type: Transform
+      pos: 10.5,-18.5
       parent: 6747
 - proto: SpawnPointAtmos
   entities:
