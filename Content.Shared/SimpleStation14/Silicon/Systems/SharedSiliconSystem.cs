@@ -54,8 +54,8 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    [ValidatePrototypeId<AlertCategoryPrototype>]
-    public const string ChargeAlertCategory = "Battery";
+    [ValidatePrototypeId<AlertPrototype>]
+    public const string ChargeAlertCategory = "BorgBattery";
 
     private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
     {
