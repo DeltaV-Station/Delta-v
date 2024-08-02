@@ -402,7 +402,7 @@
         Radiation: 0.25 # DeltaV - general armour rebalance
         Caustic: 0.25 # DeltaV - general armour rebalance
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.2 # DeltaV - general armour rebalance
   - type: ClothingSpeedModifier
     walkModifier: 0.8 # DeltaV - general armour rebalance
     sprintModifier: 0.6 # DeltaV - general armour rebalance
@@ -567,7 +567,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.5 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - general armour rebalance
   - type: FireProtection
     reduction: 0.5 # DeltaV - general armour rebalance
   - type: Armor
