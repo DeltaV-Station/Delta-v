@@ -1,5 +1,5 @@
 - type: antag
-  id: RobocyteSynarch
+  id: RoboNeuroticist
   name: roles-antag-syndicate-roboticist-name
   objective: roles-antag-syndicate-roboticist-objective
   antagonist: true # making evil borgs
@@ -17,7 +17,7 @@
     jumpskirt: ClothingUniformJumpskirtRoboticist
     back: ClothingBackpackSyndicate
     belt: ClothingBeltUtilityEngineering
-    eyes: ClothingEyesHudDiagnostic
+    eyes: RoboNeuroticistVisor
     gloves: ClothingHandsGlovesRobohands
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiPDA
@@ -27,6 +27,6 @@
     mask: ClothingMaskNeckGaiter
   storage:
     back:
-    - RoboticistStash
+    - RoboNeuroticistStash
     - Emag
     - EncryptionKeyBinary

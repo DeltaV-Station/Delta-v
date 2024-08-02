@@ -1,1 +1,1 @@
-roboticist-round-end-agent-name = Robocyte Synarch
+roboticist-round-end-agent-name = Syndicate Robo-Neuroticist

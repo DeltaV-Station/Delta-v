@@ -41,3 +41,15 @@
     - HudSecurity
   - type: VisionCorrection
     correctionPower: 1.75 # The hud part decreases efficiency
+
+- type: entity
+  parent: [ClothingEyesBase, ClothingEyesHudSyndicateAgent]
+  id: RoboNeuroticistVisor
+  name: robo-neuroticist visor
+  description: The Robo-Neuroticistndicate's advanced heads-up display, designed for quick diagnosis of their Neurolings.
+  components:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon

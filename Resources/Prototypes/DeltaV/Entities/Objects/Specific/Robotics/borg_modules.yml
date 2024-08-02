@@ -163,7 +163,7 @@
 - type: entity
   id: BorgModuleCrewMonitor # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule]
-  name: syndicate crew monitoring module
+  name: crew monitoring module
   description: "A module that comes with a crew monitor."
   components:
   - type: Sprite
@@ -173,4 +173,3 @@
   - type: ItemBorgModule
     items:
     - SyndiCrewMonitorRecharging
-

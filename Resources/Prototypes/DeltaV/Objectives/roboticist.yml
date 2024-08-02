@@ -1,0 +1,34 @@
+- type: entity
+  abstract: true
+  parent: BaseTraitorObjective
+  id: BaseRoboticistObjective
+  components:
+  - type: Objective
+    difficulty: 0 # difficulty is unused
+  - type: RoleRequirement
+    roles:
+      components:
+      - RoboticistRole
+
+- type: entity
+  parent: [BaseRoboticistObjective, BaseSurviveObjective]
+  id: RoboticistSurviveObjective
+  description: As precious as they are, your cyborgs are less valuable than your own life.
+  name: Survive
+
+- type: entity
+  parent: [BaseRoboticistObjective, BaseKillObjective]
+  id: RoboticistKillObjective
+  description: Your dossier indicates that there is one very appealing neural pattern on the crew.
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-roboticist-kill-title
+  - type: PickRandomHead
+  - type: KillPersonCondition
+    requireDead: true
+
