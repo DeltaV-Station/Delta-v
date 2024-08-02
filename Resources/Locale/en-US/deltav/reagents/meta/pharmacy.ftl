@@ -29,4 +29,10 @@ reagent-name-agonolexyne = Agonolexyne
 reagent-desc-agonolexyne = An incredibly potent and fast acting opioid invented to speed up the application of painkillers during surgery. Stops you from feeling pain (or really anything at all). Interacts poorly with alcohol. Known to be very addictive. Overdose may relax the lungs to the point of non-function.
 
 reagent-name-vicodilicaine = Vicodilicaine
-reagent-desc-vicodilicaine = Is used to treat moderate to severe pain to the head. Most of the time is taken by mouth. Recreational use is common due to its hallucinogen properties. Discouraged to pair with other painkillers, antidepressants, and anxiety medication, though totally safe with alcohol.
+reagent-desc-vicodilicaine = Used to treat moderate to severe pain to the head. Most of the time is taken by mouth. Recreational use is common due to its hallucinogen properties. Discouraged to pair with other strong painkillers, antidepressants, and anxiety medication, though totally safe with alcohol.
+
+reagent-name-asparatine = Asparatine
+reagent-desc-asparatine = A basic nonsteroidal anti-inflammatory drug used to combat light headaches. Overdose or consumption of alcohol will obliterate your digestive system.
+
+reagent-name-zepprocane = Zepprocane
+reagent-desc-zepprocane = A high-quality barbiturate, used as an anxiolitic and anticonvulsant medicicine. From its complex form, it goes along well with antidepressants and alcohol, but is incompatible with most painkillers.

@@ -122,7 +122,7 @@
       catalyst: true
   products:
     Agonolexyne: 3
-    
+
 - type: reaction
   id: Vicodilicaine
   reactants:
@@ -136,3 +136,23 @@
       amount: 1
   products:
     Vicodilicaine: 4
+
+# - type: reaction
+#  id: Asparatine
+#  reactants:
+#    Vicodilicaine:
+#      amount: 1
+#    Zepprocane:
+#      amount: 1
+#  products:
+#    Asparatine: 1
+
+- type: reaction
+  id: Zepprocane
+  reactants:
+    BarbituricAcid:
+     amount: 1
+    Desoxyephedrine:
+      amount: 1
+  products:
+    Zepprocane: 2

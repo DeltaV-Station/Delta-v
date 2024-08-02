@@ -1,0 +1,48 @@
+- type: reagent
+  id: HydrogenIodide
+  name: reagent-name-hydrogeniodide
+  desc: reagent-desc-hydrogeniodide
+  physicalDesc: reagent-physical-desc-odorless
+  flavor: bitter
+  color: "white"
+  boilingPoint: 222.0
+  meltingPoint: 237.0
+
+- type: reagent
+  id: SodiumAmalgam
+  name: reagent-name-sodiumamalgam
+  desc: reagent-desc-sodiumamalgam
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: metalic
+  color: "#c9bba3"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Piercing: 0.5
+
+- type: reagent
+  id: BarbituricAcid
+  name: reagent-name-barbituricacid
+  desc: reagent-desc-barbituricacid
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 2.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5

@@ -1,0 +1,44 @@
+- type: reaction
+  id: HydrogenIodide
+  mintemp: 310
+  reactants:
+    Hydrogen:
+      amount: 2
+    Iodine:
+      amount: 2
+  products:
+    HydrogenIodide: 1
+
+- type: reaction
+  id: SodiumAmalgam
+  impact: Medium
+  mintemp: 310
+  reactants:
+    Sodium:
+      amount: 1
+    Mercury:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 0.0001
+    intensityPerUnit: 0.0001
+    intensitySlope: 0.0001
+    maxTotalIntensity: 0.0001
+  - !type:PopupMessage
+    messages: [ "The sodium melts with the mercury!" ]
+    type: Pvs
+    visualType: LargeCaution
+  products:
+    SodiumAmalgam: 2
+
+- type: reaction
+  id: BarbituricAcid
+  minTemp: 370
+  reactants:
+    HydrogenIodide:
+      amount: 1
+    SodiumAmalgam:
+      amount: 1
+  products:
+    BarbituricAcid: 2
