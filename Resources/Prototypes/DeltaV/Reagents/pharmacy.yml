@@ -1,0 +1,208 @@
+- type: reagent
+  id: Vicodilicaine
+  name: reagent-name-vicodilicaine
+  group: Pharmacy
+  desc: reagent-desc-vicodilicaine
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#9c7b28"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:GenericStatusEffect # Makes the player "hallucinate" or high
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+          - "reagent-effect-painkiller-head"
+          - "reagent-effect-painkiller-head2"
+          - "reagent-effect-painkiller-head3"
+          - "reagent-effect-painkiller-head4"
+        probability: 0.085
+      - !type:HealthChange # Poisons and pierces your intestins on overdose
+        conditions:
+        - !type:ReagentThreshold
+         min: 7.6
+        damage:
+          types:
+            Poison: 0.07
+            Piercing: 0.03
+      - !type:PopupMessage # A decent chance to notify the player when their meds run out
+        type: Local
+        visualType: Small
+        messages:
+          - "reagent-effect-painkiller-fade" 
+        probability: 0.35
+        conditions:
+          - !type:ReagentThreshold
+            max: 0.2
+      - !type:PopupMessage # Notifies the player when their med ran out
+        type: Local
+        visualType: Large
+        probability: 1
+        messages:
+          - "reagent-effect-painkiller-head-fade"
+        conditions:
+          - !type:ReagentThreshold
+            max: 0.1
+      - !type:AdjustReagent
+        probability: 0.5 # Chance of Addiction rising per tick
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Addictine
+          max: 20 # maximum addiction severity for this reagent
+        - !type:ReagentThreshold
+          reagent: Vicodilicaine
+          min: 1.5
+        reagent: Addictine
+        amount: 0.1
+      - !type:ChemVomit # NORMAL Makes you vomit if Stubantazine (PK) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Stubantazine
+          min: 3
+      - !type:GenericStatusEffect # NORMAL Makes you pass out if you take too much of Stubantazine (PK)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Stubantazine
+          min: 5.5
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # MILD Makes you vomit if Soretizone (PK) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Soretizone
+          min: 2
+      - !type:GenericStatusEffect # MILD Makes you pass out if you take too much of Soretizone (PK)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Soretizone
+          min: 4.8
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # STRONG Makes you vomit if Agonolexyne (PK) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Agonolexyne
+          min: 1.4
+      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Agonolexyne (PK)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Agonolexyne
+          min: 3.6
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # NORMAL Makes you vomit if Serenitol (AD) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Serenitol
+          min: 3
+      - !type:GenericStatusEffect # NORMAL Makes you pass out if you take too much of Serenitol (AD)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Serenitol
+          min: 5.5
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # MILD Makes you vomit if Neurozenium (AD) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Neurozenium
+          min: 2
+      - !type:GenericStatusEffect # MILD Makes you pass out if you take too much of Neurozenium (AD)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Neurozenium
+          min: 4.8
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # STRONG Makes you vomit if Blissifylovene (AD) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Blissifylovene
+          min: 1.4
+      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Blissifylovene (AD)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Blissifylovene
+          min: 3.6
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # NORMAL Makes you vomit if Tranquinase (AA) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Tranquinase
+          min: 3
+      - !type:GenericStatusEffect # NORMAL Makes you pass out if you take too much of Tranquinase (AA)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Tranquinase
+          min: 5.5
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # MILD Makes you vomit if Calmafluxine (AA) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Calmafluxine
+          min: 2
+      - !type:GenericStatusEffect # MILD Makes you pass out if you take too much of Calmafluxine (AA)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Calmafluxine
+          min: 4.8
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      - !type:ChemVomit # STRONG Makes you vomit if Equilibrazine (AA) is ingested
+        probability: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Equilibrazine
+          min: 2
+      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Equilibrazine (AA)
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Equilibrazine
+          min: 4.8
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+      
