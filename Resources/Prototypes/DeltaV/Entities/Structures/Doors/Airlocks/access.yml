@@ -15,6 +15,7 @@
   components:
   - type: PriorityDock
     tag: DockShipyard
+  - type: ContainerFill
     containers:
       board: [ DoorElectronicsExternal ]
 
@@ -26,6 +27,7 @@
   components:
   - type: PriorityDock
     tag: DockArrivals
+  - type: ContainerFill
     containers:
       board: [ DoorElectronicsExternal ]
 
