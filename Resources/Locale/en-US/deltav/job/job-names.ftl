@@ -5,6 +5,7 @@ job-name-prosecutor = Prosecutor
 job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-security-borg = Security Cyborg
+job-name-pharmacist = Pharmacist
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
@@ -13,3 +14,4 @@ JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
+JobPharmacist = Pharmacist
