@@ -74,6 +74,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Mime", // DeltaV - Add Mime access
         "Musician", // DeltaV - Add Musician access
         "Paramedic", // DeltaV - Add Paramedic access
+        "Pharmacist", // DeltaV - Add Pharmacist access
         "Psychologist", // DeltaV - Add Psychologist access
         "Quartermaster",
         "Reporter", // DeltaV - Add Reporter access

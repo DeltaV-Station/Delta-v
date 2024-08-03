@@ -11,6 +11,20 @@
   - type: Sprite
     sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-psychologist
+
+- type: entity
+  name: pharmacist's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPharmacist
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pharmacist
+    stampedColor: "#5a96bb"
+    stampState: "paper_stamp-pharmacist"
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-pharmacist
     
 - type: entity
   name: notary stamp

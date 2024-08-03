@@ -49,3 +49,17 @@
       state: nyanomailcarrier
   - type: PresetIdCard
     job: Courier
+
+- type: entity
+  parent: IDCardStandard
+  id: PharmacistIDCard
+  name: pharmacist ID card
+  components:
+  - type: PresetIdCard
+    job: Pharmacist
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idpharmacist
+

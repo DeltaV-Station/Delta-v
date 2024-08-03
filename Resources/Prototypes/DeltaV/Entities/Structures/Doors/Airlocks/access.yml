@@ -239,6 +239,15 @@
       board: [ DoorElectronicsPsychologist ]
 
 - type: entity
+  parent: AirlockMedical
+  id: AirlockPharmacistLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]
+
+- type: entity
   parent: AirlockFreezer
   id: AirlockFreezerServiceLocked
   suffix: Service, Locked
@@ -360,6 +369,15 @@
     containers:
       board: [ DoorElectronicsPsychologist ]
 
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockPharmacistGlassLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]
+
 # Maintenance Hatches
 - type: entity
   parent: AirlockMaintRnDLocked
@@ -461,6 +479,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPsychologist ]
+
+- type: entity
+  parent: AirlockMaintMedLocked
+  id: AirlockMaintPharmacistLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]
 
 - type: entity
   parent: AirlockMaintSecLocked
