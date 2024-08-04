@@ -34,7 +34,7 @@
 - type: entity
   name: pharmacy prescription
   parent: Paper
-  id: PaperPrecsription
+  id: PaperPrecsription2
   description: 'A piece of paper to justify the reagents you detain on your person. Issued by the pharmacist.'
   components:
   - type: Sprite
@@ -50,10 +50,9 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperVisuals
-    headerImagePath: "/Textures/DeltaV/Interface/Paper/paper_heading_pharmacy.svg.200dpi.png"
+    headerImagePath: "/Textures/DeltaV/Interface/Paper/paper_heading_minipharmacy.svg.200dpi.png"
     headerMargin: 0.0, 0.0, 10.0, 16.0
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     backgroundModulate: "#ead9cc"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 32.0, 16.0, 32.0, 0.0
-
