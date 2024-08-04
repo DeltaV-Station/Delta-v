@@ -241,7 +241,7 @@ namespace Content.Server.GameTicking
                 if (loadout == null)
                 {
                     loadout = new RoleLoadout(jobLoadout);
-                    loadout.SetDefault(_prototypeManager);
+                    loadout.SetDefault(character, player, _prototypeManager);
                 }
 
                 // Get the ID
