@@ -6,6 +6,7 @@ using Content.Shared.Chat;
 using System.Linq;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.Supermatter.Systems;
 
@@ -236,7 +237,7 @@ public sealed partial class SupermatterSystem
         // Special cases
         if (sm.Damage < sm.DamageDelaminationPoint && sm.Delamming)
         {
-            message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
+            message = Loc.GetString("supermatter-announcement-delam-cancel", ("integrity", integrity));
             sm.DelamAnnounced = false;
             global = true;
         }
@@ -248,10 +249,10 @@ public sealed partial class SupermatterSystem
 
             switch (sm.PreferredDelamType)
             {
-                case DelamType.Cascade: loc = "supermatter-delam-cascade";   break;
-                case DelamType.Singulo: loc = "supermatter-delam-overmass";  break;
-                case DelamType.Tesla:   loc = "supermatter-delam-tesla";     break;
-                default:                loc = "supermatter-delam-explosion"; break;
+                case DelamType.Cascade: loc = "supermatter-announcement-delam-cascade";   break;
+                case DelamType.Singulo: loc = "supermatter-announcement-delam-overmass";  break;
+                case DelamType.Tesla:   loc = "supermatter-announcement-delam-tesla";     break;
+                default:                loc = "supermatter-announcement-delam-explosion"; break;
             }
 
             var station = _station.GetOwningStation(uid);
@@ -279,10 +280,10 @@ public sealed partial class SupermatterSystem
 
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            message = Loc.GetString("supermatter-announcement-warning", ("integrity", integrity));
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                message = Loc.GetString("supermatter-announcement-emergency", ("integrity", integrity));
                 global = true;
             }
         }
