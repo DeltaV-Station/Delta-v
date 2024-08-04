@@ -349,18 +349,18 @@ namespace Content.Server.GameTicking
                 {
                     if (!_prototypeManager.TryIndex(items.Prototype, out var loadoutProto))
                     {
-                        Log.Warning($"Unable to find loadout prototype for {items.Prototype}");
+                        Log.Debug($"Unable to find loadout prototype for {items.Prototype}");
                         continue;
                     }
                     if (!_prototypeManager.TryIndex(loadoutProto.Equipment, out var startingGear))
                     {
-                        Log.Warning($"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
+                        Log.Debug($"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
                         continue;
                     }
                     var entProtoId = startingGear.GetGear("id");
                     if (!_prototypeManager.TryIndex<EntityPrototype>(entProtoId, out var idProto))
                     {
-                        Log.Warning($"Unable to find prototype for {startingGear} for starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
+                        Log.Debug($"Unable to find prototype for {startingGear} for starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
                         continue;
                     }
                     if (idProto.TryGetComponent<PdaComponent>(out var pdaComponent, _componentFactory) && pdaComponent.IdCard != null)
@@ -375,7 +375,7 @@ namespace Content.Server.GameTicking
 
                     if (!idProto.TryGetComponent<PresetIdCardComponent>(out var idComponent, _componentFactory))
                     {
-                        Log.Warning($"Unable to find presetIdCard for {idProto}");
+                        Log.Debug($"Unable to find presetIdCard for {idProto}");
                         continue;
                     }
 
