@@ -36,6 +36,16 @@
   - GlassesJamjar
   - GlassesJensen
 
+#- type: loadoutGroup
+#  id: Survival
+#  name: loadout-group-survival-basic
+#  minLimit: 1
+#  maxLimit: 1
+#  hidden: true
+#  loadouts:
+#  - EmergencyNitrogen
+#  - EmergencyOxygen
+
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -117,7 +127,9 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPMess # DeltaV
+  - HoPFormal # DeltaV
+  - HoPMessSkirt # DeltaV
+  - HoPMessSuit # DeltaV
   - HoPBoatswain # DeltaV
 
 - type: loadoutGroup
@@ -438,6 +450,13 @@
   - JanitorWintercoat
 
 - type: loadoutGroup
+  id: JanitorPlunger
+  name: loadout-group-janitor-plunger
+  minLimit: 0
+  loadouts:
+  - JanitorGoldenPlunger
+
+- type: loadoutGroup
   id: BotanistHead
   name: loadout-group-botanist-head
   minLimit: 0
@@ -534,7 +553,6 @@
 - type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
-  minLimit: 0
   loadouts:
   - MimeMask
   - MimeMaskSad
@@ -571,13 +589,6 @@
   - ScarfPurple
   - ScarfZebra
 
-- type: loadoutGroup # DeltaV
-  id: MusicianJumpsuit
-  name: loadout-group-musician-jumpsuit
-  loadouts:
-  - MusicianJumpsuit
-  - MusicianJumpskirt
-
 - type: loadoutGroup
   id: MusicianBackpack
   name: loadout-group-musician-backpack
@@ -587,11 +598,53 @@
   - MusicianDuffel
 
 - type: loadoutGroup
+  id: MusicianJumpsuit
+  name: loadout-group-musician-jumpsuit
+  loadouts:
+  - MusicianJumpsuit
+  - MusicianJumpskirt
+
+- type: loadoutGroup
   id: MusicianOuterClothing
   name: loadout-group-musician-outerclothing
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+
+- type: loadoutGroup
+  id: Instruments
+  name: loadout-group-instruments
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - Glockenspiel
+  - MusicBox
+  - Xylophone
+  - Microphone
+  - Synthesizer
+  - Kalimba
+  - Woodblock
+  - ElectricGuitar
+  - BassGuitar
+  - RockGuitar
+  - AcousticGuitar
+  - Banjo
+  - Violin
+  - Viola
+  - Cello
+  - Trumpet
+  - Trombone
+  - FrenchHorn
+  - Euphonium
+  - Saxophone
+  - Accordion
+  - Harmonica
+  - Clarinet
+  - Flute
+  - Recorder
+  - PanFlute
+  - Ocarina
+  - Bagpipe
 
 # Cargo
 - type: loadoutGroup
@@ -692,6 +745,7 @@
 - type: loadoutGroup # DeltaV
   id: SalvageSpecialistNeck
   name: loadout-group-salvage-specialist-neck
+  minLimit: 0
   loadouts:
   - SalvageCloak
   - ScarfBrown
@@ -879,8 +933,8 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
-  - MystagogueBeret
   - ResearchDirectorHood
+  - MystagogueBeret # DeltaV
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -888,10 +942,9 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorMantle
-  - ResearchDirectorCloak
+  #- ResearchDirectorCloak
+  - MystagogueCloak # DeltaV - Replaced RD cloak with MG
   - ScarfPurple # DeltaV
-  - MystagogueMantle
-  - MystagogueCloak
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -899,8 +952,6 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
-  - MystagogueJumpsuit
-  - MystagogueJumpskirt
 
 - type: loadoutGroup
   id: ResearchDirectorBackpack
@@ -918,7 +969,6 @@
   - ResearchDirectorLabCoat
   - MystaLabCoat #DeltaV
   - ResearchDirectorWintercoat
-  - MystagogueWinterCoat
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1020,14 +1070,12 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
-  - HeadofSecurityJumpsuitGrey # DeltaV
-  - HeadofSecurityJumpskirtGrey # DeltaV
-  - HeadofSecurityJumpsuitBlue # DeltaV
-  - HeadofSecurityJumpskirtBlue # DeltaV
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityParadeSuit
+  - HeadofSecurityParadeSkirt
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1042,11 +1090,17 @@
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
-#  - HeadofSecurityCoat # DeltaV
-#  - HeadofSecurityWinterCoat # DeltaV
-  - PlateCarrier # DeltaV
-  - DuraVest # DeltaV
-  - HoSStasecCoat # DeltaV
+  - HeadofSecurityCoat
+  - HeadofSecurityWinterCoat
+
+- type: loadoutGroup # DeltaV
+  id: HeadOfSecurityShoes
+  name: loadout-group-head-of-security-shoes
+  loadouts:
+  - CombatBoots
+  - JackBoots # DeltaV
+  - SecurityWinterBoots
+  - HeadOfSecurityWinterBoots # DeltaV
 
 - type: loadoutGroup
   id: WardenHead
@@ -1062,20 +1116,13 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  - WardenJumpsuitGrey # DeltaV
-  - WardenJumpskirtGrey # DeltaV
-  - WardenJumpsuitBlue # DeltaV
-  - WardenJumpskirtBlue # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-#  - WardenCoat # DeltaV
-#  - WardenArmoredWinterCoat # DeltaV
-  - PlateCarrier # DeltaV
-  - DuraVest # DeltaV
-  - WardenStasecCoat # DeltaV
+  - WardenCoat
+  - WardenArmoredWinterCoat
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1084,21 +1131,8 @@
   loadouts:
   - SecurityHelmet
   - SecurityBeret
-#  - SecurityHat # DeltaV
-
-# DeltaV - add more options to security officer eyewear.
-
-- type: loadoutGroup
-  id: SecurityEyes
-  name: loadout-group-security-eyes
-  minLimit: 0
-  loadouts:
-  - Sunglasses
-  - SunglassesSec
-  - HudSec
-  - HudSecPatch
-
-# End DeltaV addition.
+  - SecurityHat
+  - MimeHead # DeltaV - Red Beret
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1111,7 +1145,7 @@
   - SecurityJumpsuitBlue # DeltaV
   - SecurityJumpskirtBlue # DeltaV
   - SeniorOfficerJumpsuit
-#  - SeniorOfficerJumpskirt # DeltaV
+  - SeniorOfficerJumpskirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1132,13 +1166,11 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
-#  - ArmorVest # DeltaV
-#  - ArmorVestSlim # DeltaV
-#  - SecurityOfficerWintercoat # DeltaV
+  - ArmorVest
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - SecurityOfficerStasecCoat # DeltaV
-  - SecurityOfficerStasecSweater # DeltaV
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1146,7 +1178,7 @@
   loadouts:
   - CombatBoots
   - JackBoots # DeltaV
-  - LaceupShoes # DeltaV
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1169,7 +1201,6 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
-  - DetectiveBeret # DeltaV
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1208,12 +1239,19 @@
   - DuraVest # DeltaV
   - CoatDetectiveDark # Stray
 
-#- type: loadoutGroup # DeltaV
-#  id: SecurityCadetJumpsuit
-#  name: loadout-group-security-cadet-jumpsuit
-#  loadouts:
-#  - RedJumpsuit
-#  - RedJumpskirt
+- type: loadoutGroup
+  id: SecurityCadetJumpsuit
+  name: loadout-group-security-cadet-jumpsuit
+  loadouts:
+  - RedJumpsuit
+  - RedJumpskirt
+
+- type: loadoutGroup # DeltaV
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead # DeltaV - Red Beret
 
 # Medical
 - type: loadoutGroup
@@ -1384,6 +1422,7 @@
 - type: loadoutGroup
   id: ChemistNeck
   name: loadout-group-chemist-neck
+  minLimit: 0
   loadouts:
   - ChemistTie # DeltaV
   - ScarfOrange

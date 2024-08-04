@@ -170,9 +170,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -790,3 +790,14 @@
     sprite: Clothing/Uniforms/Jumpskirt/olddress.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/olddress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMusician
+  name: musician's skirt
+  description: A fancy skirt for the musically inclined. Perfect for any lounge act!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi

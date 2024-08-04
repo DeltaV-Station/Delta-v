@@ -49,3 +49,18 @@
     - state: green
     - sprite: DeltaV/Markers/jobs.rsi
       state: courier
+
+- type: entity
+  id: SpawnPointSecurityBorg
+  parent: SpawnPointJobBase
+  name: security cyborg
+  components:
+  - type: SpawnPoint
+    job_id: SecurityBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Mobs/Silicon/chassis.rsi
+      state: security
+    - sprite: DeltaV/Mobs/Silicon/chassis.rsi
+      state: security_e

@@ -17,15 +17,6 @@
   equipment:
     head: ClothingHeadHatFedoraGrey
 
-- type: loadout # DeltaV
-  id: DetectiveBeret
-  equipment: DetectiveBeret
-
-- type: startingGear # DeltaV
-  id: DetectiveBeret
-  equipment:
-    head: ClothingHeadHatBeretForensicSpecialist
-
 # Neck
 - type: loadout
   id: DetectiveTie
@@ -44,7 +35,7 @@
 - type: startingGear
   id: DetectiveJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitForensicSpecialist # DeltaV - replace ClothingUniformJumpsuitDetective with an actual uniform
+    jumpsuit: ClothingUniformJumpsuitDetective
 
 - type: loadout
   id: DetectiveJumpskirt
@@ -53,7 +44,7 @@
 - type: startingGear
   id: DetectiveJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtForensicSpecialist # DeltaV - replace ClothingUniformJumpskirtDetective with an actual uniform
+    jumpsuit: ClothingUniformJumpskirtDetective
 
 - type: loadout
   id: NoirJumpsuit
@@ -119,12 +110,3 @@
   id: DetectiveCoat
   equipment:
     outerClothing: ClothingOuterCoatDetective
-
-- type: loadout # DeltaV
-  id: DetectiveStasecCoat
-  equipment: DetectiveStasecCoat
-
-- type: startingGear # DeltaV
-  id: DetectiveStasecCoat
-  equipment:
-    outerClothing: ClothingOuterStasecCoatDet

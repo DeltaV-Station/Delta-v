@@ -5,6 +5,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.MoMMI;
+using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -18,8 +19,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Chat.Managers
 {
@@ -48,6 +49,7 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IResourceManager _resourceManager = default!; // Delta-V
+        [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
 
         /// <summary>
         /// The maximum length a player-sent message can be sent
@@ -68,8 +70,9 @@ namespace Content.Server.Chat.Managers
             _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
             _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
 
-            _playerManager.PlayerStatusChanged += PlayerStatusChanged;
+///            _playerManager.PlayerStatusChanged += PlayerStatusChanged;
             _patronManager.Load(_resourceManager); // Delta-V
+            RegisterRateLimits();
         }
 
         private void OnOocEnabledChanged(bool val)
@@ -211,7 +214,7 @@ namespace Content.Server.Chat.Managers
         /// <param name="type">The type of message.</param>
         public void TrySendOOCMessage(ICommonSession player, string message, OOCChatType type)
         {
-            if (!HandleRateLimit(player))
+            if (HandleRateLimit(player) != RateLimitStatus.Allowed)
                 return;
 
             // Check if message exceeds the character limit

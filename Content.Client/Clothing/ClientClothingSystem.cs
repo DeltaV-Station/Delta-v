@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Numerics;
 using Content.Client.Inventory;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -116,6 +117,7 @@ public sealed class ClientClothingSystem : ClothingSystem
                 i++;
             }
 
+            item.MappedLayer = key;
             args.Layers.Add((key, layer));
         }
     }
@@ -156,13 +158,9 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         // species specific
         if (speciesId != null && rsi.TryGetState($"{state}-{speciesId}", out _))
-        {
             state = $"{state}-{speciesId}";
-        }
         else if (!rsi.TryGetState(state, out _))
-        {
             return false;
-        }
 
         var layer = new PrototypeLayerData();
         layer.RsiPath = rsi.Path.ToString();
@@ -290,6 +288,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
                 if (layerData.Color != null)
                     sprite.LayerSetColor(key, layerData.Color.Value);
+                if (layerData.Scale != null)
+                    sprite.LayerSetScale(key, layerData.Scale.Value);
             }
             else
                 index = sprite.LayerMapReserveBlank(key);

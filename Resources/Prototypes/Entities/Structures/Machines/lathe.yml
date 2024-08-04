@@ -196,6 +196,8 @@
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
+      - WetFloorSign
+      - ClothingHeadHatCone
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgePistol
@@ -345,6 +347,7 @@
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
+      - ClothingShoesBootsMoon
       - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
@@ -621,6 +624,17 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    # Delta-V : Start
+    - BorgModuleSecurityPeacekeeper
+    - BorgModuleSecurityPatrol
+    - BorgModuleSecurityBastion
+    - LeftArmBorgSecurity
+    - RightArmBorgSecurity
+    - LeftLegBorgSecurity
+    - RightLegBorgSecurity
+    - HeadBorgSecurity
+    - TorsoBorgSecurity
+    # Delta-V : End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -668,10 +682,8 @@
     - BorgModuleSecurityDetain
     - BorgModuleSecurityControl
     - BorgModuleSecurityChase
-  # DeltaV End
-  # Begin DeltaV additions
     - JetpackVoid
-  # End DeltaV additions
+  # DeltaV End
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1061,11 +1073,9 @@
       - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitHosFormal
       - ClothingUniformJumpskirtHosFormal
-      - ClothingUniformJumpsuitSecFormal # DeltaV - formal security uniforms
-      - ClothingUniformJumpskirtSecFormal # DeltaV - formal security uniforms
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
-#      - ClothingUniformJumpsuitHoSBlue # DeltaV - Remove erroneous second entry.
+      - ClothingUniformJumpsuitHoSBlue
       - ClothingUniformJumpsuitHoSGrey
       - ClothingUniformJumpsuitHoSParadeMale
       - ClothingUniformJumpskirtHoSParadeMale
@@ -1090,8 +1100,8 @@
       - ClothingUniformJumpsuitMusician
       - ClothingUniformJumpsuitParamedic
       - ClothingUniformJumpskirtParamedic
-#      - ClothingUniformJumpsuitSeniorOfficer # DeltaV - replaced with tactical jumpsuit
-#      - ClothingUniformJumpskirtSeniorOfficer # DeltaV - replaced with tactical jumpsuit
+      - ClothingUniformJumpsuitSeniorOfficer
+      - ClothingUniformJumpskirtSeniorOfficer
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
       - ClothingHeadHatQMsoft
@@ -1120,12 +1130,7 @@
       - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
-      - ClothingUniformJumpsuitForensicSpecialist # DeltaV - det uniforms
-      - ClothingUniformJumpskirtForensicSpecialist # DeltaV - det uniforms
-      - ClothingHeadHatBeretForensicSpecialist # DeltaV - det uniforms
-      - ClothingUniformJumpsuitCadet # DeltaV - cadet uniform
-      - ClothingUniformJumpsuitSecurityTactical # DeltaV - senior uniform
-      - ClothingHeadHatBeretCorpsman # DeltaV - replaced ClothingHeadHatBeretBrigmedic with corpsman beret
+      - ClothingHeadHatBeretBrigmedic
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
       - ClothingHeadHatBeretWarden
@@ -1142,8 +1147,8 @@
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
-#      - ClothingOuterWinterHoSUnarmored # DeltaV - replaced in favour of stasec coats
-#      - ClothingOuterWinterWardenUnarmored # DeltaV - replaced in favour of stasec coats
+      - ClothingOuterWinterHoSUnarmored
+      - ClothingOuterWinterWardenUnarmored
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
@@ -1175,12 +1180,7 @@
       - ClothingOuterWinterViro
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
-#      - ClothingOuterWinterSec # DeltaV - replaced in favour of stasec coats
-      - ClothingOuterStasecCoat # DeltaV - security winter gear
-      - ClothingOuterCoatLabCorpsman # DeltaV - security winter gear
-      - ClothingOuterStasecCoatDet # DeltaV - security winter gear
-      - ClothingOuterStasecCoatWarden # DeltaV - security winter gear
-      - ClothingOuterStasecCoatHoS # DeltaV - security winter gear
+      - ClothingOuterWinterSec
       # Ties
       - ClothingNeckTieRed
       - ClothingNeckTieDet

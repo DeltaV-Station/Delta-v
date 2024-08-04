@@ -1,3 +1,26 @@
+# Civilian (actually Service but hey, that's what they called it :shrug:)
+## Service Worker
+- type: loadoutGroup
+  id: ServiceWorkerHead
+  name: loadout-group-serviceworker-head
+  minLimit: 0
+  loadouts:
+  - ServiceWorkerCap
+  - ServiceWorkerCapFlip
+  - ServiceWorkerBandana
+
+- type: loadoutGroup
+  id: ServiceWorkerJumpsuit
+  name: loadout-group-serviceworker-jumpsuit
+  loadouts:
+  - ServiceWorkerJumpsuit
+  - ServiceWorkerJumpskirt
+  - ServiceWorkerJumpsuitDark
+  - ServiceWorkerJumpskirtDark
+  - BartenderJumpsuit
+  - BartenderJumpskirt
+  - BartenderJumpsuitPurple
+
 # Logistics
 ## Courier
 - type: loadoutGroup
@@ -136,7 +159,7 @@
   - ChiefJusticeJumpskirt
   - ChiefJusticeFormalJumpsuit
   - ChiefJusticeWhiteJumpsuit
-  
+
 - type: loadoutGroup
   id: ChiefJusticeNeck
   name: loadout-group-chiefjustice-neck
@@ -165,7 +188,7 @@
   loadouts:
   - ClerkJumpsuit
   - ClerkJumpskirt
-  
+
 - type: loadoutGroup
   id: ClerkNeck
   name: loadout-group-clerk-neck
@@ -209,7 +232,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
-  
+
 - type: loadoutGroup
   id: ProsecutorNeck
   name: loadout-group-prosecutor-neck

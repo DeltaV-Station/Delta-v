@@ -252,6 +252,10 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+  - type: PilotedClothing
+    pilotWhitelist:
+      tags:
+        - ChefPilot
   - type: Tag
     tags:
     - ClothMade
@@ -303,9 +307,9 @@
   description: A grand, stylish head of personnel's cap.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/hopcap.rsi
+    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/hopcap.rsi
+    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -390,6 +394,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   parent: ClothingHeadHatWizardBase

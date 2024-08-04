@@ -18,8 +18,10 @@
 - type: startingGear
   id: MusicianGear
   equipment:
-    #jumpsuit: ClothingUniformJumpsuitMusician # DeltaV - Commented out for loadout options
-    #eyes: ClothingEyesGlassesSunglasses # DeltaV - Commented out for loadout options
+    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
     id: MusicianPDA
     ears: ClothingHeadsetService
+  storage:
+    back:
+    - BoxSurvival
