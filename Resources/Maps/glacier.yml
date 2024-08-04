@@ -11695,6 +11695,8 @@ entities:
   entities:
   - uid: 21
     components:
+    - type: MetaData
+      name: Tyrant Dock
     - type: Transform
       pos: -48.5,-11.5
       parent: 2
@@ -11730,11 +11732,15 @@ entities:
   entities:
   - uid: 27
     components:
+    - type: MetaData
+      name: Light Armory
     - type: Transform
       pos: -15.5,16.5
       parent: 2
   - uid: 28
     components:
+    - type: MetaData
+      name: Armory
     - type: Transform
       pos: -18.5,12.5
       parent: 2
@@ -11940,6 +11946,8 @@ entities:
   entities:
   - uid: 16593
     components:
+    - type: MetaData
+      name: Chief Justice's Office
     - type: Transform
       pos: -65.5,11.5
       parent: 2
@@ -12045,6 +12053,8 @@ entities:
   entities:
   - uid: 12666
     components:
+    - type: MetaData
+      name: Detective's Room
     - type: Transform
       pos: -23.5,41.5
       parent: 2
@@ -12052,11 +12062,15 @@ entities:
   entities:
   - uid: 73
     components:
+    - type: MetaData
+      name: Tool Room
     - type: Transform
       pos: 29.5,36.5
       parent: 2
   - uid: 74
     components:
+    - type: MetaData
+      name: Tool Room
     - type: Transform
       pos: 29.5,35.5
       parent: 2
@@ -12087,6 +12101,8 @@ entities:
       parent: 2
   - uid: 76
     components:
+    - type: MetaData
+      name: Power Plant
     - type: Transform
       pos: 14.5,41.5
       parent: 2
@@ -12162,6 +12178,8 @@ entities:
       parent: 2
   - uid: 3071
     components:
+    - type: MetaData
+      name: Engineering Deck
     - type: Transform
       pos: 7.5,56.5
       parent: 2
@@ -12267,6 +12285,8 @@ entities:
       parent: 2
   - uid: 16763
     components:
+    - type: MetaData
+      name: Substation Locker
     - type: Transform
       pos: -70.5,12.5
       parent: 2
@@ -12478,6 +12498,8 @@ entities:
       parent: 2
   - uid: 127
     components:
+    - type: MetaData
+      name: Main Hall
     - type: Transform
       pos: 35.5,-3.5
       parent: 2
@@ -12869,7 +12891,7 @@ entities:
   - uid: 173
     components:
     - type: MetaData
-      name: Cargo Maintenance
+      name: Logistics Maintenance
     - type: Transform
       pos: 36.5,20.5
       parent: 2
@@ -13233,7 +13255,7 @@ entities:
   - uid: 13374
     components:
     - type: MetaData
-      name: Salvage Departures
+      name: Salvage Equipment
     - type: Transform
       pos: 49.5,12.5
       parent: 2
@@ -13241,6 +13263,8 @@ entities:
   entities:
   - uid: 17142
     components:
+    - type: MetaData
+      name: Salvage Walkway
     - type: Transform
       pos: 49.5,1.5
       parent: 2
@@ -13252,16 +13276,6 @@ entities:
       name: Chapel
     - type: Transform
       pos: 36.5,-15.5
-      parent: 2
-  - uid: 208
-    components:
-    - type: Transform
-      pos: 38.5,-8.5
-      parent: 2
-  - uid: 209
-    components:
-    - type: Transform
-      pos: 39.5,-8.5
       parent: 2
   - uid: 210
     components:
@@ -13464,6 +13478,20 @@ entities:
       parent: 2
 - proto: AirlockServiceGlassLocked
   entities:
+  - uid: 208
+    components:
+    - type: MetaData
+      name: Library
+    - type: Transform
+      pos: 39.5,-8.5
+      parent: 2
+  - uid: 209
+    components:
+    - type: MetaData
+      name: Library
+    - type: Transform
+      pos: 38.5,-8.5
+      parent: 2
   - uid: 230
     components:
     - type: MetaData
@@ -13531,6 +13559,23 @@ entities:
     components:
     - type: Transform
       pos: -8.5,-19.5
+      parent: 2
+- proto: AmePartFlatpack
+  entities:
+  - uid: 928
+    components:
+    - type: Transform
+      pos: 8.306265,48.679478
+      parent: 2
+  - uid: 17528
+    components:
+    - type: Transform
+      pos: 8.275015,48.335728
+      parent: 2
+  - uid: 17529
+    components:
+    - type: Transform
+      pos: 8.650015,48.335728
       parent: 2
 - proto: AnomalyScanner
   entities:
@@ -15722,66 +15767,41 @@ entities:
     - type: Transform
       pos: 31.5,-29.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 4823
-      - 10252
   - uid: 712
     components:
     - type: Transform
       pos: -9.5,63.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 10253
   - uid: 716
     components:
     - type: Transform
       pos: 51.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6344
     components:
     - type: Transform
       pos: 55.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6347
     components:
     - type: Transform
       pos: 55.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6349
     components:
     - type: Transform
       pos: 51.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 17031
     components:
     - type: Transform
       pos: 66.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
   - uid: 17032
     components:
     - type: Transform
       pos: 66.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
 - proto: BlastDoorOpen
   entities:
   - uid: 717
@@ -15789,10 +15809,6 @@ entities:
     - type: Transform
       pos: 32.5,-31.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 4823
-      - 10252
   - uid: 718
     components:
     - type: Transform
@@ -15808,113 +15824,71 @@ entities:
     - type: Transform
       pos: 0.5,27.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 721
     components:
     - type: Transform
       pos: 0.5,26.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 722
     components:
     - type: Transform
       pos: 1.5,22.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 723
     components:
     - type: Transform
       pos: -4.5,23.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 724
     components:
     - type: Transform
       pos: -5.5,23.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 729
     components:
     - type: Transform
       pos: -10.5,14.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 730
     components:
     - type: Transform
       pos: -11.5,14.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 731
     components:
     - type: Transform
       pos: -12.5,14.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 732
     components:
     - type: Transform
       pos: -5.5,34.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 733
     components:
     - type: Transform
       pos: -5.5,33.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 734
     components:
     - type: Transform
       pos: -5.5,32.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 16526
     components:
     - type: Transform
       pos: 1.5,21.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 16527
     components:
     - type: Transform
       pos: 1.5,20.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
   - uid: 16528
     components:
     - type: Transform
       pos: 1.5,19.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 9992
 - proto: BlockGameArcade
   entities:
   - uid: 735
@@ -15956,7 +15930,14 @@ entities:
     - type: Transform
       pos: 19.385426,20.427948
       parent: 2
-- proto: BookChefGaming
+- proto: BookChemicalCompendium
+  entities:
+  - uid: 10129
+    components:
+    - type: Transform
+      pos: 22.700108,-3.4844224
+      parent: 2
+- proto: BookHowToCookForFortySpaceman
   entities:
   - uid: 10130
     components:
@@ -15967,13 +15948,6 @@ entities:
     components:
     - type: Transform
       pos: 11.505812,14.742923
-      parent: 2
-- proto: BookChemicalCompendium
-  entities:
-  - uid: 10129
-    components:
-    - type: Transform
-      pos: 22.700108,-3.4844224
       parent: 2
 - proto: BookLeafLoversSecret
   entities:
@@ -46656,54 +46630,36 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 54.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 713
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 55.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 714
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 54.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 715
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 52.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6331
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 42.5,7.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14594
   - uid: 6332
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 44.5,7.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14594
   - uid: 6333
     components:
     - type: Transform
@@ -46712,153 +46668,102 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       needsPower: False
-    - type: DeviceLinkSink
-      links:
-      - 14594
   - uid: 6334
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 41.5,-1.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14593
   - uid: 6335
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 40.5,-1.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14593
   - uid: 6336
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 42.5,-1.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14593
   - uid: 6337
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 52.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6338
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 51.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6339
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 50.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6340
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6341
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6342
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 43.5,7.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14594
   - uid: 6343
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 55.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6345
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 50.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 6346
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 51.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14666
   - uid: 17232
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 67.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
   - uid: 17233
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 66.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
   - uid: 17234
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 67.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
   - uid: 17235
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 66.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 17050
 - proto: CowToolboxFilled
   entities:
   - uid: 6350
@@ -46960,11 +46865,6 @@ entities:
       - entity_storage
 - proto: CrateEngineeringAMEShielding
   entities:
-  - uid: 928
-    components:
-    - type: Transform
-      pos: 8.5,48.5
-      parent: 2
   - uid: 6359
     components:
     - type: Transform
@@ -53515,47 +53415,6 @@ entities:
     - type: Transform
       pos: 41.5,-21.5
       parent: 2
-    - type: Lathe
-      dynamicRecipes:
-      - ProximitySensor
-      - BorgModuleLightReplacer
-      - BorgModuleAdvancedCleaning
-      - BorgModuleMining
-      - BorgModuleAdvancedTool
-      - BorgModuleGPS
-      - BorgModuleRCD
-      - BorgModuleArtifact
-      - BorgModuleAnomaly
-      - BorgModuleGardening
-      - BorgModuleHarvesting
-      - BorgModuleMusique
-      - BorgModuleClowning
-      - BorgModuleDiagnosis
-      - BorgModuleDefibrillator
-      - BorgModuleAdvancedTreatment
-      - RipleyHarness
-      - RipleyLArm
-      - RipleyRArm
-      - RipleyLLeg
-      - RipleyRLeg
-      - MechEquipmentGrabber
-      - HonkerHarness
-      - HonkerLArm
-      - HonkerRArm
-      - HonkerLLeg
-      - HonkerRLeg
-      - MechEquipmentHorn
-      - MechEquipmentGrabberSmall
-      - HamtrHarness
-      - HamtrLArm
-      - HamtrRArm
-      - HamtrLLeg
-      - HamtrRLeg
-      - VimHarness
-      - ClothingOuterHardsuitJuggernautReverseEngineered
-      - ClothingOuterHardsuitSyndieReverseEngineered
-      - JetpackBlue
-      - JetpackMini
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 7227
@@ -70235,7 +70094,7 @@ entities:
       pos: -2.5,59.5
       parent: 2
     - type: GasVolumePump
-      transferRate: 0.5
+      transferRate: 3
     - type: AtmosPipeColor
       color: '#DD2222FF'
   - uid: 9252
@@ -73711,9 +73570,6 @@ entities:
     - type: Transform
       pos: -4.4749126,63.395954
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 8303
 - proto: InflatableDoor
   entities:
   - uid: 309
@@ -85675,12 +85531,12 @@ entities:
   - uid: 5447
     components:
     - type: Transform
-      pos: -7.5,56.5
+      pos: -1.5,56.5
       parent: 2
-  - uid: 5879
+  - uid: 17530
     components:
     - type: Transform
-      pos: -8.5,56.5
+      pos: -7.5,60.5
       parent: 2
 - proto: PlasmaReinforcedWindowDirectional
   entities:
@@ -87807,8 +87663,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 12435
   - uid: 12438
     components:
     - type: Transform
@@ -87822,8 +87676,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 12436
   - uid: 12459
     components:
     - type: Transform
@@ -88057,8 +87909,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 10852
   - uid: 12647
     components:
     - type: Transform
@@ -88347,8 +88197,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 13654
   - uid: 12622
     components:
     - type: Transform
@@ -92317,9 +92165,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,-1.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 14593
 - proto: RegenerativeMesh
   entities:
   - uid: 13135
@@ -94669,9 +94514,6 @@ entities:
     - type: Transform
       pos: 37.5,4.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13627
 - proto: ShuttersNormalOpen
   entities:
   - uid: 12638
@@ -94681,8 +94523,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 12645
   - uid: 12644
     components:
     - type: Transform
@@ -94690,8 +94530,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 12645
   - uid: 12657
     components:
     - type: Transform
@@ -94699,8 +94537,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 12645
   - uid: 13594
     components:
     - type: Transform
@@ -94723,49 +94559,31 @@ entities:
     - type: Transform
       pos: 45.5,-19.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13939
   - uid: 14706
     components:
     - type: Transform
       pos: 46.5,-19.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13939
   - uid: 17029
     components:
     - type: Transform
       pos: 71.5,2.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 4805
   - uid: 17036
     components:
     - type: Transform
       pos: 71.5,3.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 4805
   - uid: 17037
     components:
     - type: Transform
       pos: 71.5,5.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 5450
   - uid: 17038
     components:
     - type: Transform
       pos: 71.5,6.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 5450
 - proto: ShuttersWindowOpen
   entities:
   - uid: 13597
@@ -94773,25 +94591,16 @@ entities:
     - type: Transform
       pos: 35.5,30.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13631
   - uid: 13598
     components:
     - type: Transform
       pos: 36.5,30.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13631
   - uid: 13599
     components:
     - type: Transform
       pos: 34.5,30.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13631
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 10237
@@ -96349,6 +96158,13 @@ entities:
     - type: Transform
       pos: 38.5,3.5
       parent: 2
+- proto: SpawnMobCMOPetSilvia
+  entities:
+  - uid: 17527
+    components:
+    - type: Transform
+      pos: 17.5,-10.5
+      parent: 2
 - proto: SpawnMobCorgi
   entities:
   - uid: 13799
@@ -96458,6 +96274,13 @@ entities:
     components:
     - type: Transform
       pos: 41.5,-5.5
+      parent: 2
+- proto: SpawnMobWalter
+  entities:
+  - uid: 5879
+    components:
+    - type: Transform
+      pos: 23.5,-1.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
@@ -101491,181 +101314,6 @@ entities:
     - type: Transform
       pos: 30.5,22.5
       parent: 2
-    - type: Lathe
-      staticRecipes:
-      - ClothingUniformJumpsuitColorGrey
-      - ClothingUniformJumpskirtColorGrey
-      - ClothingUniformJumpsuitBartender
-      - ClothingUniformJumpskirtBartender
-      - ClothingHeadHatCapcap
-      - ClothingHeadHatCaptain
-      - ClothingUniformJumpsuitCaptain
-      - ClothingUniformJumpskirtCaptain
-      - ClothingUniformJumpsuitCapFormal
-      - ClothingUniformJumpskirtCapFormalDress
-      - ClothingUniformJumpsuitCargo
-      - ClothingUniformJumpskirtCargo
-      - ClothingUniformJumpsuitSalvageSpecialist
-      - ClothingHeadHatBeretEngineering
-      - ClothingUniformJumpsuitChiefEngineer
-      - ClothingUniformJumpskirtChiefEngineer
-      - ClothingUniformJumpsuitChiefEngineerTurtle
-      - ClothingUniformJumpskirtChiefEngineerTurtle
-      - ClothingUniformJumpsuitChaplain
-      - ClothingUniformJumpskirtChaplain
-      - ClothingUniformJumpsuitChef
-      - ClothingUniformJumpskirtChef
-      - ClothingUniformJumpsuitChemistry
-      - ClothingUniformJumpskirtChemistry
-      - ClothingUniformJumpsuitClown
-      - ClothingHeadHatBeretCmo
-      - ClothingUniformJumpsuitCMO
-      - ClothingUniformJumpskirtCMO
-      - ClothingUniformJumpsuitCMOTurtle
-      - ClothingUniformJumpskirtCMOTurtle
-      - ClothingUniformJumpsuitDetective
-      - ClothingUniformJumpskirtDetective
-      - ClothingUniformJumpsuitEngineering
-      - ClothingUniformJumpskirtEngineering
-      - ClothingUniformJumpsuitSeniorEngineer
-      - ClothingUniformJumpskirtSeniorEngineer
-      - ClothingHeadHatHopcap
-      - ClothingUniformJumpsuitHoP
-      - ClothingUniformJumpskirtHoP
-      - ClothingHeadHatBeretHoS
-      - ClothingHeadHatHoshat
-      - ClothingUniformJumpsuitHoS
-      - ClothingUniformJumpskirtHoS
-      - ClothingUniformJumpsuitHoSBlue
-      - ClothingUniformJumpskirtHoSBlue
-      - ClothingUniformJumpsuitHoSGrey
-      - ClothingUniformJumpskirtHoSGrey
-      - ClothingUniformJumpsuitHosFormal
-      - ClothingUniformJumpskirtHosFormal
-      - ClothingUniformJumpsuitHoSAlt
-      - ClothingUniformJumpskirtHoSAlt
-      - ClothingUniformJumpsuitHoSBlue
-      - ClothingUniformJumpsuitHoSGrey
-      - ClothingUniformJumpsuitHoSParadeMale
-      - ClothingUniformJumpskirtHoSParadeMale
-      - ClothingUniformJumpsuitHydroponics
-      - ClothingUniformJumpskirtHydroponics
-      - ClothingUniformJumpsuitJanitor
-      - ClothingUniformJumpskirtJanitor
-      - ClothingUniformJumpsuitLawyerBlack
-      - ClothingUniformJumpsuitLibrarian
-      - ClothingUniformJumpskirtColorLightBrown
-      - ClothingUniformCourier
-      - ClothingUniformSkirtCourier
-      - ClothingUniformJumpsuitMantis
-      - ClothingUniformSkirtMantis
-      - ClothingHeadHatBeretSeniorPhysician
-      - ClothingUniformJumpsuitMedicalDoctor
-      - ClothingUniformJumpskirtMedicalDoctor
-      - ClothingUniformJumpsuitSeniorPhysician
-      - ClothingUniformJumpskirtSeniorPhysician
-      - ClothingUniformJumpsuitMime
-      - ClothingUniformJumpskirtMime
-      - ClothingUniformJumpsuitMusician
-      - ClothingUniformJumpsuitParamedic
-      - ClothingUniformJumpskirtParamedic
-      - ClothingUniformJumpsuitSeniorOfficer
-      - ClothingUniformJumpskirtSeniorOfficer
-      - ClothingUniformJumpsuitPrisoner
-      - ClothingUniformJumpskirtPrisoner
-      - ClothingHeadHatQMsoft
-      - ClothingHeadHatBeretQM
-      - ClothingUniformJumpsuitQM
-      - ClothingUniformJumpskirtQM
-      - ClothingUniformJumpsuitQMTurtleneck
-      - ClothingUniformJumpskirtQMTurtleneck
-      - ClothingUniformJumpsuitQMFormal
-      - ClothingHeadHatBeretRND
-      - ClothingUniformJumpsuitResearchDirector
-      - ClothingUniformJumpskirtResearchDirector
-      - ClothingUniformJumpsuitScientist
-      - ClothingUniformJumpskirtScientist
-      - ClothingUniformJumpsuitSeniorResearcher
-      - ClothingUniformJumpskirtSeniorResearcher
-      - ClothingHeadHatBeretSecurity
-      - ClothingUniformJumpsuitSec
-      - ClothingUniformJumpskirtSec
-      - ClothingUniformJumpsuitSecBlue
-      - ClothingUniformJumpskirtSecBlue
-      - ClothingUniformJumpsuitSecGrey
-      - ClothingUniformJumpskirtSecGrey
-      - ClothingHeadHatBeretBrigmedic
-      - ClothingUniformJumpsuitBrigmedic
-      - ClothingUniformJumpskirtBrigmedic
-      - ClothingHeadHatBeretWarden
-      - ClothingHeadHatWarden
-      - ClothingUniformJumpsuitWarden
-      - ClothingUniformJumpskirtWarden
-      - ClothingUniformJumpsuitWardenBlue
-      - ClothingUniformJumpskirtWardenBlue
-      - ClothingUniformJumpsuitWardenGrey
-      - ClothingUniformJumpskirtWardenGrey
-      - ClothingHeadHatParamedicsoft
-      - ClothingOuterWinterCap
-      - ClothingOuterWinterCE
-      - ClothingOuterWinterCMO
-      - ClothingOuterWinterHoP
-      - ClothingOuterWinterHoSUnarmored
-      - ClothingOuterWinterWardenUnarmored
-      - ClothingOuterWinterQM
-      - ClothingOuterWinterRD
-      - ClothingNeckMantleCap
-      - ClothingNeckMantleCE
-      - ClothingNeckMantleCMO
-      - ClothingNeckMantleHOP
-      - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
-      - ClothingNeckMantleQM
-      - ClothingOuterStasecSweater
-      - ClothingOuterWinterMusician
-      - ClothingOuterWinterClown
-      - ClothingOuterWinterMime
-      - ClothingOuterWinterCoat
-      - ClothingOuterWinterJani
-      - ClothingOuterWinterBar
-      - ClothingOuterWinterChef
-      - ClothingOuterWinterHydro
-      - ClothingOuterWinterAtmos
-      - ClothingOuterWinterEngi
-      - ClothingOuterWinterCargo
-      - ClothingOuterWinterMiner
-      - ClothingOuterWinterMed
-      - ClothingOuterWinterPara
-      - ClothingOuterWinterChem
-      - ClothingOuterWinterGen
-      - ClothingOuterWinterViro
-      - ClothingOuterWinterSci
-      - ClothingOuterWinterRobo
-      - ClothingOuterWinterSec
-      - ClothingNeckTieRed
-      - ClothingNeckTieDet
-      - ClothingNeckTieSci
-      - ClothingNeckScarfStripedGreen
-      - ClothingNeckScarfStripedBlue
-      - ClothingNeckScarfStripedRed
-      - ClothingNeckScarfStripedBrown
-      - ClothingNeckScarfStripedLightBlue
-      - ClothingNeckScarfStripedOrange
-      - ClothingNeckScarfStripedBlack
-      - ClothingNeckScarfStripedPurple
-      - Carpet
-      - CarpetBlack
-      - CarpetPink
-      - CarpetBlue
-      - CarpetGreen
-      - CarpetOrange
-      - CarpetPurple
-      - CarpetCyan
-      - CarpetWhite
-    - type: MaterialStorage
-      materialWhiteList:
-      - Cloth
-      - Durathread
 - proto: UniformPrinterMachineCircuitboard
   entities:
   - uid: 14600
@@ -111112,7 +110760,7 @@ entities:
   - uid: 16325
     components:
     - type: MetaData
-      name: Cargo
+      name: Logistics
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,12.5
@@ -111120,7 +110768,7 @@ entities:
   - uid: 16326
     components:
     - type: MetaData
-      name: Cargo
+      name: Logistics
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,11.5
@@ -111281,17 +110929,11 @@ entities:
     - type: Transform
       pos: 27.5,27.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13632
   - uid: 16350
     components:
     - type: Transform
       pos: 30.5,27.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13632
 - proto: WindoorSecureMedicalLocked
   entities:
   - uid: 16351
@@ -111358,9 +111000,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 3277
-      - 10230
     - type: DeviceLinkSource
       linkedPorts:
         3277:
@@ -111375,8 +111014,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 248
     - type: DeviceLinkSource
       linkedPorts:
         248:
@@ -111404,9 +111041,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,27.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13630
     missingComponents:
     - Airlock
   - uid: 16354
@@ -111415,9 +111049,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,29.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13628
     missingComponents:
     - Airlock
   - uid: 16355
@@ -111426,9 +111057,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,29.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13629
     missingComponents:
     - Airlock
   - uid: 16356
@@ -111437,9 +111065,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,27.5
       parent: 2
-    - type: DeviceLinkSink
-      links:
-      - 13630
     missingComponents:
     - Airlock
   - uid: 16357
