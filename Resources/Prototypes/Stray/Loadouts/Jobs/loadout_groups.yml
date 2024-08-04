@@ -80,6 +80,7 @@
   loadouts:
   - GasMail
 
+# BlueShield
 - type: loadoutGroup
   id: BlueShieldBackpack
   name: loadout-group-blueshield-backpack
@@ -87,14 +88,54 @@
   - BlueShieldBackpack
   - BlueShieldSatchel
   - BlueShieldDuffel
+  - BlueShieldBackpackAlt
+  - BlueShieldSatchelAlt
+  - BlueShieldDuffelAlt
+
+- type: loadoutGroup
+  id: BlueShieldVest
+  name: loadout-group-blueshield-vest
+  loadouts:
+  - BlueShieldArmorVest
+  - BlueShieldBulletproofVest
 
 - type: loadoutGroup
   id: BlueShieldJumpsuit
   name: loadout-group-blueshield-jumpsuit
   loadouts:
-  - SecurityJumpsuitBlue # DeltaV
-  - SecurityJumpskirtBlue # DeltaV
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
+  - BlueShieldJumpsuit
+  - BlueShieldJumpskirt
+  - BlueShieldNTUniform
+
+- type: loadoutGroup
+  id: BlueShieldBelt
+  name: loadout-group-blueshield-webbing
+  loadouts:
+  - BlueShieldWebbing
+  - BlueShieldWebbingAlt
+
+- type: loadoutGroup
+  id: BlueShieldHead
+  name: loadout-group-blueshield-head
+  minLimit: 0
+  loadouts:
+  - BlueShieldBeretBlack
+  - BlueShieldBeret
+
+- type: loadoutGroup
+  id: BlueShieldNeck
+  name: loadout-group-blueshield-neck
+  minLimit: 0
+  loadouts:
+  - BlueShieldCloak
+  - BlueShieldCloakNT
+
+- type: loadoutGroup
+  id: BlueShieldEyes
+  name: loadout-group-blueshield-eyes
+  minLimit: 0
+  loadouts:
+  - Sunglasses
+  - Medglasses
+  - SecglassesBlueShield
+  - Blueglasses

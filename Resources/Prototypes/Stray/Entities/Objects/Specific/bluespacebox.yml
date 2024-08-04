@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseItem
+  id: BluespaceBoxBase
+  name: bluespace box
+  description: Filled
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  - type: Item
+    sprite: Objects/Storage/boxes.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: SpawnItemsOnUse
+    items:
+    - id: MysteryFigureBoxTrash
+    sound:
+      path: /Audio/Effects/box_deploy.ogg
+
+
+- type: entity
+  parent: BluespaceBoxBase
+  id: BluespaceBoxHardsuitBlueShield
+  suffix: Hardsuit, BlueShield
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: MysteryFigureBoxTrash
+    - id: ClothingOuterBlueshieldHardsuit

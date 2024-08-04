@@ -16,17 +16,22 @@
   - type: StorageFill
     contents:
       - id: BoxSurvivalSecurity
-      - id: EmergencyRollerBedSpawnFolded
       - id: BodyBagFolded
       - id: Portafib
       - id: Flash
-      - id: BruteAutoInjector
-        amount: 2
-      - id: BurnAutoInjector
-        amount: 2
       - id: HandheldCrewMonitor
+      - id: BoxZiptieBlueShield
   - type: ExplosionResistance
     damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackDuffelBlueShieldFilled
+  id: ClothingBackpackDuffelBlueShieldAltFilled
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Duffels/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Back/Duffels/blueshield.rsi
 
 - type: entity
   parent: ClothingBackpackDuffelBrigmedicAlt

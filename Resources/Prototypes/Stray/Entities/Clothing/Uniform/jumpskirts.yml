@@ -30,3 +30,14 @@
     sprite: Stray/Clothing/Uniforms/Jumpskirt/brigmedic_turtle.rsi
   - type: Clothing
     sprite: Stray/Clothing/Uniforms/Jumpskirt/brigmedic_turtle.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtBlueShield
+  name: blue shield suit
+  description: Comfortable blue shirt and elegant skirt. Suitable for those who want to look their best while rescuing important persons.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield.rsi

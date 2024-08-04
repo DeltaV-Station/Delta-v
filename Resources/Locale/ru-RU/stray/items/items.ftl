@@ -14,3 +14,6 @@ ent-BreachingCharge = прорывной заряд
     .desc = Взрывчатка для сотрудников службы безопасности, позволяющая пробивать стены.
 ent-PillMindbreakerToxin = таблетка токсина "майндбрейкер"
     .desc = Удаляет псионику при проглатывании. Слегка ядовит.
+ent-BoxZiptieBlueShield = { ent-BoxZiptie }
+    .desc = { ent-BoxZiptie.desc }
+    .suffix = Синий Щит

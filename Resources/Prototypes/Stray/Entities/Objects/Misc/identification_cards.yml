@@ -49,3 +49,17 @@
     heldPrefix: blue
   - type: IdCard
     jobTitle: Начальник штаба ЦентКома
+
+- type: entity
+  parent: IDCardStandard
+  id: BlueShieldIDCard
+  name: blue shield ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: Blueshield
