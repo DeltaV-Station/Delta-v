@@ -32,3 +32,18 @@ ghost-role-information-roboticist-description = You are a member of Cybersun Ind
 ghost-role-information-roboticist-rules =
     Build machines of war, and send them to the station to extract your toll.
     Sell your borgs to local agents, crew, and anyone with supplies.
+
+ghost-role-information-synthesis-name = Synthesis Specialist
+ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
+ghost-role-information-synthesis-rules =
+    Brew deadly poisons, marvelous medicines, and anything in between.
+    Sell your concoctions to local agents, crew, and anyone with supplies.
+    Stay on your ship, it is your lifeblood!
+
+    You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself unless your ship is in danger.
+
+ghost-role-information-roboticist-name = Robo-Neuroticist
+ghost-role-information-roboticist-description = You are a member of Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
+ghost-role-information-roboticist-rules =
+    Build machines of war, and send them to the station to extract your toll.
+    Sell your borgs to local agents, crew, and anyone with supplies.
