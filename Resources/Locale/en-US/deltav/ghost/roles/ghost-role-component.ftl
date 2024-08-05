@@ -27,12 +27,6 @@ ghost-role-information-silvia-name = Silvia
 ghost-role-information-silvia-description = You are Silvia the space snake and the CMO's charming companion.
 ghost-role-information-silvia-rules = Keep the medical team company and help out in emergencies with your omnizine venom. Stick close to the CMO in case they need emergency healing.
 
-ghost-role-information-roboticist-name = Robo-Neuroticist
-ghost-role-information-roboticist-description = You are a member of Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
-ghost-role-information-roboticist-rules =
-    Build machines of war, and send them to the station to extract your toll.
-    Sell your borgs to local agents, crew, and anyone with supplies.
-
 ghost-role-information-synthesis-name = Synthesis Specialist
 ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
 ghost-role-information-synthesis-rules =
