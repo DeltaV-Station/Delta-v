@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
 using Robust.Server.Player;
@@ -19,6 +20,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
 
     public bool EventsEnabled { get; private set; }
@@ -203,6 +205,11 @@ public sealed class EventManagerSystem : EntitySystem
             return false;
         }
         // Nyano - End modified code block.
+
+        if (_roundEnd.IsRoundEndRequested() && !stationEvent.OccursDuringRoundEnd)
+        {
+            return false;
+        }
 
         return true;
     }
