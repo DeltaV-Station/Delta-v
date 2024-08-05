@@ -1,6 +1,8 @@
 - type: department
   id: Logistics # DeltaV - Logistics Department replacing Cargo
-  description: department-Cargo-description
+  id: Cargo
+  name: department-Logistics # DeltaV
+  description: department-Logistics-description # DeltaV
   color: "#A46106"
   roles:
   - CargoTechnician
@@ -11,6 +13,7 @@
 
 - type: department
   id: Civilian
+  name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
   weight: -10
@@ -39,6 +42,7 @@
 
 - type: department
   id: Command
+  name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
@@ -56,6 +60,7 @@
 
 - type: department
   id: Engineering
+  name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
   roles:
@@ -66,6 +71,7 @@
 
 - type: department
   id: Medical
+  name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
   roles:
@@ -79,6 +85,7 @@
 
 - type: department
   id: Security
+  name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
   weight: 20
@@ -94,7 +101,8 @@
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
-  description: department-Science-description
+  name: department-Epistemics # DeltaV
+  description: department-Epistemics-description # DeltaV
   color: "#D381C9"
   roles:
   - ResearchDirector
@@ -105,6 +113,7 @@
 
 - type: department
   id: Specific
+  name: department-Specific
   description: department-Specific-description
   color: "#9FED58"
   weight: 10
