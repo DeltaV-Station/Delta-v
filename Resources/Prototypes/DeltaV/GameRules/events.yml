@@ -210,6 +210,48 @@
 
 - type: entity
   parent: BaseGameRule
+  id: SynthesisSpecialist
+  components:
+  - type: StationEvent
+    weight: 4
+    minimumPlayers: 20
+    maxOccurrences: 1
+    duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieSynthesisShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - SynthesisSurviveObjective
+    - SynthesisPrescribeObjective
+  - type: AntagSelection
+    agentName: synthesis-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSynthesis
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateSynthesisGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: SynthesisRole
+        prototype: SynthesisSpecialist
+      - type: RoleBriefing
+        briefing: You are Interdyne's Synthesis Specialist! Prescribe deadly medications, barter your goods, and make a killing.
+
+- type: entity
+  parent: BaseGameRule
   id: RoboNeuroticist
   components:
   - type: StationEvent
@@ -225,7 +267,9 @@
   - type: AntagObjectives
     objectives:
     - RoboticistSurviveObjective
-    - RoboticistStealObjective
+    - RoboticistBorgObjective
+    - RoboticistKillObjective
+    - RoboticistPlutoniumCoreStealObjective
   - type: AntagSelection
     agentName: roboticist-round-end-agent-name
     definitions:
@@ -240,7 +284,7 @@
         - names_hologram
         - NamesLastMilitary
       - type: EmitSoundOnSpawn # evil sound
-        sound: /Audio/Effects/clang.ogg
+        sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember

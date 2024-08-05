@@ -15,11 +15,27 @@
   id: RoboticistSurviveObjective
   description: As precious as they are, your cyborgs are less valuable than your own life.
   name: Survive
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Mask/gassyndicate.rsi
+      state: icon
+
+- type: entity
+  parent: [BaseRoboticistObjective, BaseSurviveObjective]
+  id: RoboticistBorgObjective
+  description: The crew of this station is yours to command, turn them into cyborgs till your have reaped your fill.
+  name: Conspiracy to Convert
+  components:
+  - type: Objective
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: state-laws
 
 - type: entity
   parent: [BaseRoboticistObjective, BaseKillObjective]
   id: RoboticistKillObjective
-  description: Your dossier indicates that there is one very appealing neural pattern on the crew.
+  description: Your dossier indicates that there is one very appealing neural pattern on the crew. Turn them into a Cyborg.
   components:
   - type: Objective
     unique: true
@@ -32,3 +48,12 @@
   - type: KillPersonCondition
     requireDead: true
 
+- type: entity
+  noSpawn: true
+  parent: [BaseRoboticistObjective, BaseTraitorStealObjective]
+  id: RoboticistPlutoniumCoreStealObjective
+  components:
+  - type: Objective
+  - type: StealCondition
+    stealGroup: PlutoniumCore
+    owner: objective-condition-steal-nuclear-bomb

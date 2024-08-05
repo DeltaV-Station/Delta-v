@@ -46,4 +46,4 @@ ghost-role-information-roboticist-name = Robo-Neuroticist
 ghost-role-information-roboticist-description = You are a member of Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
 ghost-role-information-roboticist-rules =
     Build machines of war, and send them to the station to extract your toll.
-    Sell your borgs to local agents, crew, and anyone with supplies.
+    Your ship contains all of the resources you need to get started, but for the more advanced modules, you must strike out at the station.
