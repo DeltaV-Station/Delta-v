@@ -13,7 +13,6 @@
       - state: oracle-0
       - map: ["enum.SolutionContainerLayers.Fill"]
         state: oracle-0
-  - type: Oracle
   - type: Speech
     speechSounds: Tenor
   - type: Psionic
@@ -41,3 +40,46 @@
   - type: SpriteFade
   - type: Tag
     tags: []
+  - type: Oracle
+    demandTypes: OracleDemandTypes
+    rewardReagents: OracleRewardReagents
+    rewardEntities:
+    - OracleRewardDisks
+    - OracleRewardCrystals
+    demandBlacklist:
+      tags:
+      - Bluespace
+      components:
+      - MobState
+    demandWhitelist:
+      components:
+      - Item
+
+
+- type: weightedRandomEntity
+  id: OracleRewardDisks
+  weights:
+    ResearchDisk5000: 20
+    ResearchDisk10000: 5
+    ResearchDisk20000: 1
+
+- type: weightedRandomEntity
+  id: OracleRewardCrystals
+  weights:
+    MaterialBluespace1: 3
+    MaterialBluespace3: 10
+    MaterialBluespace5: 2
+
+- type: weightedRandom
+  id: OracleRewardReagents
+  weights:
+    LotophagoiOil: 7
+    Ichor: 2
+    Wine: 1.2
+    Blood: 0.8
+
+- type: weightedRandom
+  id: OracleDemandTypes
+  weights:
+    tech: 3
+    plant: 1 # Plants are very annoying to procure most of the time
