@@ -16,7 +16,7 @@ roboticist-set-mechanic-description =
 roboticist-set-infiltrator-name = Obfuscation Specialist
 roboticist-set-infiltrator-description =
     Subterfuge is the name of the game, and you know that better than anyone.
-    Comes with a Syndicate Saboteur Cyborg, a RCD Module, and an Energy Sword Module.
+    Comes with a Saboteur Cyborg, a RCD Module, and an Energy Sword Module.
 
 roboticist-set-warmonger-name = Mechanical Rage
 roboticist-set-warmonger-description =
