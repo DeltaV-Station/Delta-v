@@ -121,9 +121,9 @@
   metabolisms:
     Drink:
       effects:
-       - !type:AdjustReagent
-          reagent: Ethanol
-          amount: 0.2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
     Poison:
       effects:
       - !type:HealthChange
