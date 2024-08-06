@@ -207,3 +207,45 @@
         prototype: Recruiter
       - type: RoleBriefing
         briefing: Find candidates, conduct interviews and seal the deal by having them sign with your special recruiter's pen.
+
+- type: entity
+  parent: BaseGameRule
+  id: SynthesisSpecialist
+  components:
+  - type: StationEvent
+    weight: 4
+    minimumPlayers: 20
+    maxOccurrences: 1
+    duration: 1 
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieSynthesisShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - SynthesisSurviveObjective
+    - SynthesisPrescribeObjective
+  - type: AntagSelection
+    agentName: synthesis-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSynthesis
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateSynthesisGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - fake_human_first
+        - fake_human_last
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: SynthesisRole
+        prototype: SynthesisSpecialist
+      - type: RoleBriefing
+        briefing: You are Interdyne's Synthesis Specialist! Prescribe deadly medications, barter your goods, and make a killing.
