@@ -870,7 +870,7 @@
         probability: 0.085
     Poison:
       effects:
-      - !type!HealthChange
+      - !type:HealthChange
         conditions:
           - !type!ReagentThreshold
             min: 4.5
