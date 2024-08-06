@@ -166,3 +166,21 @@
       amount: 1
   products:
     Asparatine: 2
+
+- type: reaction
+  id: Naguuprofen
+  mintemp: 370
+  reactants:
+    Isobutylphenylethanol:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+    Iron:
+      amount: 1
+      catalyst: true
+  products:
+    Naguuprofen: 4

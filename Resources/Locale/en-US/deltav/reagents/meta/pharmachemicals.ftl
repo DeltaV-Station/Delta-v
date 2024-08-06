@@ -36,3 +36,21 @@ reagent-desc-aceticacid = Historically used to make vinegar, acetic acid, or eth
 
 reagent-name-acetylchloride = acetyl chloride
 reagent-desc-acetylchloride = Derived from acetic acid, this reagent is used for esterfication and the Friedel-Crafts reaction, but that's really nerdy.
+
+reagent-name-propene = propene
+reagent-desc-propene = The simplest member of the alkene class of hydrocarbons, also known as propylene.
+
+reagent-name-toluene = toluene
+reagent-desc-toluene = Made from the phenyl group of the mix of benzene and methanol, toluol, or toluene was once used in some contact cements.
+
+reagent-name-hydrogenfluoride = hydrogen fluoride
+reagent-desc-hydrogenfluoride = Also called fluorane, (HF) is a colorless liquid and is an important feedstock in the preparation of important compounds including pharamaceuticals and polymers.
+
+reagent-name-isobutylbenzene = isobutylbenzene
+reagent-desc-isobutylbenzene = Used in the manufacture of Naguuprofen. Highly flammable and irritant.
+
+reagent-name-isobutylacetophenone = isobutylacetophenone
+reagent-desc-isobutylacetophenone = Used in the manufacture of Naguuprofen. This used to cost nearly a 1000 spesos for 3 ampules of 0.2u.
+
+reagent-name-isobutylphenylethanol = isobutylphenylethanol
+reagent-desc-isobutylphenylethanol = A complex molecule used in pharamaceutics.

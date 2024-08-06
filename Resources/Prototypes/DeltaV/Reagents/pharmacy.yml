@@ -778,10 +778,10 @@
         type: Local
         visualType: Large
         messages:
-          - "reagent-effect-painkiller-head"
-          - "reagent-effect-painkiller-head2"
-          - "reagent-effect-painkiller-head3"
-          - "reagent-effect-painkiller-head4"
+          - "reagent-effect-painkiller-head-strong1"
+          - "reagent-effect-painkiller-head-strong2"
+          - "reagent-effect-painkiller-head-strong3"
+          - "reagent-effect-painkiller-head-strong4"
         probability: 0.085
       - !type:HealthChange # Poisons and pierces your intestins on overdose
         conditions:
@@ -982,3 +982,41 @@
         component: ForcedSleeping
         refresh: false
         type: Add
+
+
+- type: reagent
+  id: Naguuprofen
+  name: reagent-name-naguuprofen
+  group: Pharmacy
+  desc: reagent-desc-naguuprofen
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#294e07"
+  metabolisms:
+    Medicine:
+      metabolismRate : 0.01
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+          - "reagent-effect-painkiller-head-mild1"
+          - "reagent-effect-painkiller-head-mild2"
+        probability: 0.085
+      - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+          - "reagent-effect-asparatine-naguuprofen-mix1"
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Asparatine
+          min: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20.2
+        damage:
+          types:
+            Poison: 2
+            Piercing: 1

@@ -156,3 +156,79 @@
   products:
     AcetylChloride: 1.5
     AceticAcid: 0.5
+
+# Naguuprofen involved reactions
+
+- type: reaction
+  id: Propene
+  minTemp: 370
+  reactants:
+    Acetone:
+      amount: 1
+    Charcoal:
+      amount: 1
+  products:
+    Propene: 2
+
+- type: reaction
+  id: Toluene
+  reactants:
+    Benzene:
+      amount: 1
+    Methanol:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    Toluene: 2
+
+- type: reaction
+  id: HydrogenFluoride
+  mintemp: 370
+  reactants:
+    Hydrogen:
+      amount: 1
+    Fluorine:
+      amount: 1
+  products:
+    HydrogenFluoride: 1
+
+- type: reaction
+  id: Isobutylbenzene
+  reactants:
+    Toluene:
+      amount: 1
+    Propene:
+      amount: 1
+    Sodium:
+      amount: 1
+      catalyst: true
+    Potassium:
+      amount: 1
+      catalyst: true
+  products:
+    Isobutylbenzene: 2
+
+- type: reaction
+  id: Isobutylacetophenone
+  reactants:
+    Isobutylbenzene:
+      amount: 1
+    HydrogenFluoride:
+      amount: 1
+  products:
+    Isobutylacetophenone: 2
+
+- type: reaction
+  id: Isobutylphenylethanol
+  mintemp: 370
+  reactants:
+    Isobutylacetophenone:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Isobutylphenylethanol: 3

@@ -39,3 +39,6 @@ reagent-desc-zepprocane = A high-quality barbiturate, used as an anxiolitic and 
 
 reagent-name-sodiumsalicylate = sodium salicylate
 reagent-desc-sodiumsalicylate = The sodium salt of salicylic acid, from the salicylate family. A replacement for Asparatine on very light doses only.
+
+reagent-name-naguuprofen = Naguuprofen
+reagent-desc-naguuprofen = Used to treat light to mild headaches, and also hangovers. Not to be paired with Asparatine.

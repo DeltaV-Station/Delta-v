@@ -93,11 +93,13 @@ reagent-effect-painkiller-strong6 = Any pain you were feeling is gone.
 
 reagent-effect-painkiller-fade = The painkiller's effects start to fade...
 
+reagent-effect-painkiller-head-mild1 = Your head aches less.
+reagent-effect-painkiller-head-mild2 = You don't feel woozy anymore.
 
-reagent-effect-painkiller-head = Your head feels numb.
-reagent-effect-painkiller-head2 = You feel like you can think properly.
-reagent-effect-painkiller-head3 = You can finally focus.
-reagent-effect-painkiller-head4 = You feel relieved.
+reagent-effect-painkiller-head-strong1 = Your head feels numb.
+reagent-effect-painkiller-head-strong2 = You feel like you can think properly.
+reagent-effect-painkiller-head-strong3 = You can finally focus.
+reagent-effect-painkiller-head-strong4 = You feel extremely relieved.
 
 reagent-effect-painkiller-head-fade = You feel like your head is about to explode.
 
@@ -105,3 +107,5 @@ reagent-effect-painkiller-head-fade = You feel like your head is about to explod
 reagent-effect-asparatine-overdose = Your tummy aches.
 reagent-effect-asparatine-overdose2 = It feels like you're getting stabbed in the guts.
 reagent-effect-asparatine-overdose3 = It is digging inside you.
+
+reagent-effect-asparatine-naguuprofen-mix1 = The Asparatine and Naguuprofen weren't a good idea...
