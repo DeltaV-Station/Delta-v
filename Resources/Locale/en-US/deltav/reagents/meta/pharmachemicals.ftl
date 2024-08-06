@@ -17,7 +17,7 @@ reagent-name-salicylicacid = salicylic acid
 reagent-desc-salicylicacid = A teratogen, from the Latin salix, which means willow tree. It was used as an ingredient in anti-acne reagents.
 
 reagent-name-methanol = methanol
-reagent-name-methanol = Also might have heard your mother call it wood spirit, this is way more toxic than regular ethanol.
+reagent-desc-methanol = Also might have heard your mother call it wood spirit, this is way more toxic than regular ethanol.
 
 reagent-name-methylsalicylate = methyl salicylate
 reagent-desc-methylsalicylate = This reagent is more often used to flavor your mint candies than chugged from the jug.

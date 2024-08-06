@@ -872,7 +872,7 @@
       effects:
       - !type:HealthChange
         conditions:
-          - !type!ReagentThreshold
+          - !type:ReagentThreshold
             min: 4.5
         damage:
           types:
