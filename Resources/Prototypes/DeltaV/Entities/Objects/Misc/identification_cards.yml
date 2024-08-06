@@ -49,3 +49,15 @@
       state: nyanomailcarrier
   - type: PresetIdCard
     jobName: Courier
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: VisitorIDCard
+  name: visitor ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-visitor

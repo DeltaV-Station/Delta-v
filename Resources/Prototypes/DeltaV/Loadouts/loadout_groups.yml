@@ -201,6 +201,15 @@
   loadouts:
   - ProsecutorNeck
 
+# PDAs
+- type: loadoutGroup
+  id: PassengerPDADelta
+  name: loadout-group-passenger-id-delta
+  loadouts:
+  - PassengerPDA
+  - VisitorPDA
+
+# Misc
 - type: loadoutGroup
   id: Scarfs
   name: loadout-group-scarfs

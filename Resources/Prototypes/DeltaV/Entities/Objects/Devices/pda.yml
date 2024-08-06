@@ -199,3 +199,17 @@
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerPDA
+  id: VisitorPDA
+  name: visitor PDA
+  description: If you hold onto this, it can be a fun souvenier when you get to... wherever you're going!
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda
