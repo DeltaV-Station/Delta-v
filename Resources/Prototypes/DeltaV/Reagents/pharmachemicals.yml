@@ -77,9 +77,9 @@
 - type: reagent
   id: SodiumPhenolate
   name: reagent-name-sodiumphenolate
-  desc: reagent-name-sodiumphenolate
+  desc: reagent-desc-sodiumphenolate
   physicalDesc: reagent-physical-desc-opaque
-  color: "#white"
+  color: "white"
   metabolisms:
     Poison:
       effects:
@@ -120,9 +120,10 @@
   color: "#75b1f0"
   metabolisms:
     Drink:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
+      effects:
+       - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 0.2
     Poison:
       effects:
       - !type:HealthChange
@@ -140,7 +141,7 @@
   metabolisms:
     Poison:
       effects:
-        !type:HealthChange # precursor to asparatine, poisons and pierces your intestins
+      - !type:HealthChange # precursor to asparatine, poisons and pierces your intestins
         conditions:
          - !type:ReagentThreshold
             min: 5.7
