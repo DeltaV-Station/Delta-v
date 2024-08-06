@@ -57,7 +57,7 @@
 
 - type: reaction
   id: SodiumPhenolate
-  mintemp: 366
+  mintemp: 370
   reactants:
     BenzenesulfonicAcid:
       amount: 1
@@ -74,6 +74,8 @@
     SulfuricAcid:
       amount: 1
       catalyst: true
+  products:
+    SalicylicAcid: 2
 
 - type: reaction
   id: Methanol
@@ -83,8 +85,8 @@
     Carbon:
       amount: 1
     Copper:
-    amount: 1
-    catalyst: true
+      amount: 1
+      catalyst: true
   products:
     Methanol: 3
 
@@ -101,7 +103,7 @@
 - type: reaction
   id: HydrogenChloride
   reactants:
-    Hydrogene:
+    Hydrogen:
       amount: 1
     Chlorine:
       amount: 1
@@ -113,11 +115,6 @@
 
 - type: reaction
   id: HydrochloricAcid
-  effects:
-  - !type:PopupMessage
-    messages: [ "Your stomach burns with pain!" ]
-    type: Local
-    visualType: LargeCaution
   reactants:
     Water: 
       amount: 1
