@@ -6,8 +6,11 @@
   components:
   - type: BarSign
     current: Stray
-    
+
 - type: barSign
   id: Stray
-  name: Stray
-  icon: "stray"
+  name: barsign-prototype-name-Stray
+  icon:
+    sprite: Structures/Wallmounts/barsign.rsi
+    state: stray
+  description: barsign-prototype-description-Stray
