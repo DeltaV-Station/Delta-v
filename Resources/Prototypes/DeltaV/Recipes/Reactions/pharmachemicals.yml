@@ -42,3 +42,120 @@
       amount: 1
   products:
     BarbituricAcid: 2
+
+# Asparatine involved reagents
+
+- type: reaction
+  id: BenzenesulfonicAcid
+  reactants: 
+    Benzene:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    BenzenesulfonicAcid: 2
+
+- type: reaction
+  id: SodiumPhenolate
+  mintemp: 333
+  reactants:
+    BenzenesulfonicAcid:
+      amount: 1
+  products:
+    SodiumPhenolate: 1
+
+- type: reaction
+  id: SalicylicAcid
+  reactants: 
+    SodiumPhenolate:
+      amount: 1
+    CarbonDioxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+
+- type: reaction
+  id: Methanol
+  reactants:
+    Hydrogen:
+      amount: 2
+    Carbon:
+      amount: 1
+    Copper:
+    amount: 1
+    catalyst: true
+  products:
+    Methanol: 3
+
+- type: reaction
+  id: MethylSalicylate
+  reactants:
+    SalicylicAcid:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+  products:
+    MethylSalicylate: 2
+
+- type: reaction
+  id: HydrogenChloride
+  reactants:
+    Hydrogene:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Water:
+      catalyst: true
+      amount: 1
+  products:
+    HydrogenChloride: 2
+
+- type: reaction
+  id: HydrochloricAcid
+  effects:
+  - !type:PopupMessage
+    messages: [ "Your stomach burns with pain!" ]
+    type: Local
+    visualType: LargeCaution
+  reactants:
+    Water: 
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+  products:
+    HydrochloricAcid: 2
+
+- type: reaction
+  id: AceticAnhydride
+  reactants:
+    Methanol:
+      amount: 1
+    CarbonDioxide:
+      amount: 1
+  products:
+    AceticAnhydride: 2
+
+- type: reaction
+  id: AceticMethanol
+  reactants:
+    AceticAcid:
+      amount: 1
+    Methanol:
+      amount: 1
+    SulfuricAcid:
+      catalyst: true
+      amount: 1
+  products:
+    AceticAnhydride: 2
+
+- type: reaction
+  id: AcetylChloride
+  reactants:
+    AceticAnhydride:
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+  products:
+    AcetylChloride: 1.5
+    AceticAcid: 0.5

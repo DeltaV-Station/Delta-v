@@ -146,3 +146,23 @@
       amount: 1
   products:
     Zepprocane: 2
+
+- type: reaction
+  id: SodiumSalicylate
+  reactants:
+    MethylSalicylate:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+  products:
+    SodiumSalicylate: 2
+
+- type: reaction
+  id: Asparatine
+  reactants:
+    SodiumSalicylate:
+      amount: 1
+    AcetylChloride:
+      amount: 1
+  products:
+    Asparatine: 2

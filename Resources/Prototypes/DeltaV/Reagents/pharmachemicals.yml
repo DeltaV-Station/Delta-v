@@ -1,3 +1,5 @@
+# Zepprocane involved reagents
+
 - type: reagent
   id: HydrogenIodide
   name: reagent-name-hydrogeniodide
@@ -46,3 +48,217 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+
+# Asparatine involved reagents
+
+- type: reagent
+  id: BenzenesulfonicAcid
+  name: reagent-name-benzenesulfonicacid
+  desc: reagent-name-benzenesulfonicacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 7
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: SodiumPhenolate
+  name: reagent-name-sodiumphenolate
+  desc: reagent-name-sodiumphenolate
+  physicalDesc: reagent-physical-desc-opaque
+  color: "#white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylicacid
+  desc: reagent-desc-salicylicacid
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  desc: reagent-name-methanol
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#75b1f0"
+  metabolisms:
+    Drink:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2.5
+
+- type: reagent
+  id: MethylSalicylate
+  name: reagent-name-methylsalicylate
+  desc: reagent-desc-methylsalicylate
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: rootbeersoda
+  color: "white"
+  metabolisms:
+    Poison:
+    !type:HealthChange # precursor to asparatine, poisons and pierces your intestins
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.7
+        damage:
+          types:
+            Poison: 2
+            Piercing: 1
+
+- type: reagent
+  id: HydrogenChloride
+  name: reagent-name-hydrogenchloride
+  desc: reagent-desc-hydrogenchloride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: sharp
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
+  id: HydrochloricAcid
+  name: reagent-name-hydrochloricacid
+  desc: reagent-desc-hydrochloricacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 4.3
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: AceticAnhydride
+  name: reagent-name-aceticanhydride
+  desc: reagent-desc-aceticanhydride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.5
+
+- type: reagent
+  id: AceticAcid
+  name: reagent-name-aceticacid
+  desc: reagent-desc-aceticacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
+  id: AcetylChloride
+  name: reagent-name-acetylchloride
+  desc: reagent-desc-acetylchloride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 6.2
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 2

@@ -849,6 +849,35 @@
         refresh: false
         type: Add
 
+- type : reagent
+  id: SodiumSalicylate
+  group: Pharmacy
+  name: reagent-name-sodiumsalicylate
+  desc: reagent-desc-sodiumsalicylate
+  physicalDesc: reagent-physical-desc-powdery
+  color: "white"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.01
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+          - "reagent-effect-painkiller-light1"
+          - "reagent-effect-painkiller-light2"
+          - "reagent-effect-painkiller-light3"
+        probability: 0.085
+    Poison:
+      effects:
+      - !type!HealthChange
+        conditions:
+          - !type!ReagentThreshold
+            min: 4.5
+        damage:
+          types:
+            Caustic: 0.25
+
 - type: reagent
   id: Asparatine
   name: reagent-name-asparatine
@@ -893,6 +922,13 @@
         conditions:
           - !type:ReagentThreshold
             max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages:
+          - "reagent-effect-asparatine-overdose"
+          - "reagent-effect-asparatine-overdose2"
+          - "reagent-effect-asparatine-overdose3"
 
 - type: reagent
   id: Zepprocane
