@@ -40,6 +40,14 @@ marking-HarpyWingTipsClassic = Classic Wings with Feather Tips
 marking-HarpyWingTipsClassic-harpy_wingtip_1 = Main
 marking-HarpyWingTipsClassic-harpy_wingtip_2 = Feathertips
 
+marking-HarpyWingBat = Bat Wings (Whitescale)
+marking-HarpyWingBat-bat_wings_tone_1 = Limbs
+marking-HarpyWingBat-bat_wings_tone_2 = Membrane
+
+marking-HarpyWingBionic = Simple Bionic Wings (Whitescale)
+marking-HarpyWingBionic-bionic_wings_tone_1 = Wings
+marking-HarpyWingBionic-bionic_wings_tone_2 = Lights (Unshaded)
+
 marking-HarpyEarsDefault = Feather Tufts
 marking-HarpyEarsDefault-harpy_ears_default = Tufts
 
@@ -64,6 +72,16 @@ marking-HarpyTailForkedWhitescale-whitescale_forked_tailfin = Tail
 marking-HarpyTailPeacock = Peacock Tail
 marking-HarpyTailPeacock-peacock_tail_feathers = Feathers
 marking-HarpyTailPeacock-peacock_tail_eyes = Eyes
+
+marking-HarpyTailHaven = Haven Tail (Whitescale)
+marking-HarpyTailHaven-haven_tone_1 = Outer Feathers
+marking-HarpyTailHaven-haven_tone_2 = Inner Feathers
+
+marking-HarpyTailForkedLong = Long Forked Tail (Whitescale)
+marking-HarpyTailForkedLong-forked_long = Tail
+
+marking-HarpyTailSwallow = Swallow Tail (Whitescale)
+marking-HarpyTailForkedLong-forked_long = Tail
 
 marking-HarpyChestDefault = Wing & Groin Under-Clothes
 marking-HarpyChestDefault-upper = Wing Under-Clothes

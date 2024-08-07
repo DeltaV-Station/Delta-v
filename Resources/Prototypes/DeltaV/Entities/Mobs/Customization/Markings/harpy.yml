@@ -254,6 +254,56 @@
       state: peacock_tail_eyes
 
 - type: marking
+  id: HarpyTailHaven
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: haven_tone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: haven_tone_2
+
+- type: marking
+  id: HarpyTailForkedLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: forked_long
+
+- type: marking
+  id: HarpyTailSwallow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_tails.rsi
+      state: swallow_tail
+
+- type: marking
   id: HarpyWing2ToneClassic
   bodyPart: RArm
   markingCategory: Arms
@@ -309,6 +359,29 @@
       state: harpy_wingtip_1
     - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_wingtip_2
+
+- type: marking
+  id: HarpyWingBat
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: bat_wings_tone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: bat_wings_tone_2
+
+- type: marking
+  id: HarpyWingBionic
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Harpy]
+  sprites:
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: bionic_wings_tone_1
+    - sprite: Einstein-Engines/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: bionic_wings_tone_2
+      shader: unshaded
 
 - type: marking
   id: HarpyChestDefault
