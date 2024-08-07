@@ -1,6 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Lock;
-using Content.Shared.Popups;
+using Content.Shared.Popups; // DeltaV
 using Content.Shared.SimpleStation14.Silicon.Components; // DeltaV
 using Content.Shared.IdentityManagement; // DeltaV
 
