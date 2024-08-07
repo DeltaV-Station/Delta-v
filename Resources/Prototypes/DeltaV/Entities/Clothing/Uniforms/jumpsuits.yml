@@ -331,3 +331,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pharmacistshirt.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pharmacistshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPharma
+  name: pharmacist jumpsuit
+  description: There's still some odd stains on this jumpsuit. Hm.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pharmacist.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/pharmacist.rsi
