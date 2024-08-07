@@ -9,6 +9,18 @@
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/shellguard/shellguard_monitor.rsi
     state: head-2
 
+# DeltaV
+- type: marking
+  id: CyberLimbsMarkingShellguardHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/cyberlimbs/shellguard/shellguard_alt1.rsi
+    state: head-1
+  - sprite: DeltaV/Mobs/Customization/cyberlimbs/shellguard/shellguard_alt1.rsi
+    state: head-2
+
 - type: marking
   id: CyberLimbsMarkingShellguardChest
   bodyPart: Chest

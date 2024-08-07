@@ -12,6 +12,21 @@
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/morpheus/morpheus_main.rsi
     state: head
 
+# DeltaV
+- type: marking
+  id: CyberLimbsMarkingMorpheusHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/morpheus/morpheus_alt1.rsi
+    state: head
+
 - type: marking
   id: CyberLimbsMarkingMorpheusChest
   bodyPart: Chest

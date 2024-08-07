@@ -9,6 +9,26 @@
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/bishop/bishop_monitor.rsi
     state: head-2
 
+# DeltaV - Implement alt heads
+- type: marking
+  id: CyberLimbsMarkingBishopHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/bishop/bishop_main.rsi
+    state: head
+
+# DeltaV - Implement alt heads
+- type: marking
+  id: CyberLimbsMarkingBishopHeadAlt1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/bishop/bishop_alt1.rsi
+    state: head
+
 - type: marking
   id: CyberLimbsMarkingBishopChest
   bodyPart: Chest

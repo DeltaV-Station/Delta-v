@@ -7,6 +7,26 @@
   - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/wardtakahashi/wardtakahashi_monitor.rsi
     state: head
 
+# DeltaV
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/wardtakahashi/wardtakahashi_main.rsi
+    state: head
+
+# DeltaV
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHeadAlt1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: EstacaoPirata/Mobs/Customization/cyberlimbs/wardtakahashi/wardtakahashi_alt1.rsi
+    state: head
+
 - type: marking
   id: CyberLimbsMarkingWardtakahashiChest
   bodyPart: Chest
