@@ -255,3 +255,35 @@
   - type: Pda
     id: MixologistIDCard
     state: pda-bartender
+
+# Chef
+
+- type: entity
+  parent: ChefPDA
+  id: BakerPDA
+  name: baker PDA
+  description: A dough-kneading, pie-slinging, cake-making, rolling-pin wielder is what you are. Go forth, and make loaves!
+  components:
+  - type: Pda
+    id: BakerIDCard
+    state: pda-cook
+
+- type: entity
+  parent: ChefPDA
+  id: ButcherPDA
+  name: butcher PDA
+  description: It's as fearsome of a job title as you want it to be.
+  components:
+  - type: Pda
+    id: ButcherIDCard
+    state: pda-cook
+
+- type: entity
+  parent: ChefPDA
+  id: PizzaioloPDA
+  name: pizzaiolo PDA
+  description: Hey paesanos! It's a-time to cook-a-da-pizza!
+  components:
+  - type: Pda
+    id: PizzaioloIDCard
+    state: pda-cook

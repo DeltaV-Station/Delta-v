@@ -95,3 +95,29 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-mixologist
+
+# Chef
+
+- type: entity
+  parent: ChefIDCard
+  id: BakerIDCard
+  name: baker ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-baker
+
+- type: entity
+  parent: ChefIDCard
+  id: ButcherIDCard
+  name: butcher ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-butcher
+
+- type: entity
+  parent: ChefIDCard
+  id: PizzaioloIDCard
+  name: pizzaiolo ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-pizzaiolo

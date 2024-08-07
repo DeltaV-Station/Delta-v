@@ -11,6 +11,9 @@ job-name-tourist = Tourist
 job-name-off-duty = Off-Duty Crew
 job-name-student = Student
 job-name-mixologist = Mixologist
+job-name-baker = Baker
+job-name-butcher = Butcher
+job-name-pizzaiolo = Pizzaiolo
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
