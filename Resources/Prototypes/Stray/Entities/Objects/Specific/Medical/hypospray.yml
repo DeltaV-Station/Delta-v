@@ -1,0 +1,103 @@
+- type: entity
+  name: антидот АДП
+  parent: ChemicalMedipen
+  id: ADPantidote
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: adpantidote
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: adpantidote_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Feraksicelline
+          Quantity: 15
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: стимулятор АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPstimulator
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: adpstimulator
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: adpstimulator_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Kortizadrenaline
+          Quantity: 10
+        - ReagentId: Deraksozine
+          Quantity: 5
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: НАНОГИПОДНИМАЛКА АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPnanogipodnimalka
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: nanogipodnimalka
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: nanogipodnimalka_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Deraksozine
+          Quantity: 10
+        - ReagentId: Tantoksadone
+          Quantity: 5
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: ОТВСЕГОЛЕЧИЛКА АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPotvsegolechilka
+  description: A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Beware, as it's easy to overdose on epinephrine and tranexamic acid.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: otvsegolechilka
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: otvsegolechilka_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Deraksozine
+          Quantity: 15
+  - type: Tag
+    tags: []
