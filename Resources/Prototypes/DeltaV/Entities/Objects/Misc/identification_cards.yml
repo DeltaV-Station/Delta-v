@@ -61,3 +61,27 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-visitor
+
+- type: entity
+  parent: PassengerIDCard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-tourist
+
+- type: entity
+  parent: PassengerIDCard
+  id: OffDutyCrewIDCard
+  name: off-duty crew ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-off-duty
+
+- type: entity
+  parent: PassengerIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-student

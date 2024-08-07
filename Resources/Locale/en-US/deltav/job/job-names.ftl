@@ -6,6 +6,11 @@ job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-security-borg = Security Cyborg
 
+# Alternate job names
+job-name-tourist = Tourist
+job-name-off-duty = Off-Duty Crew
+job-name-student = Student
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
