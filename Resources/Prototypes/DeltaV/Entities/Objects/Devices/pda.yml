@@ -243,3 +243,15 @@
   - type: Pda
     id: StudentIDCard
     state: pda
+
+# Bartender
+
+- type: entity
+  parent: BartenderPDA
+  id: MixologistPDA
+  name: mixologist PDA
+  description: There are those who tend the bar, and then there are those who synthesize intoxicating art.
+  components:
+  - type: Pda
+    id: MixologistIDCard
+    state: pda-bartender

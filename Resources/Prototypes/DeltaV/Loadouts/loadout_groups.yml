@@ -212,6 +212,13 @@
   - OffDutyCrewPDA
   - StudentPDA
 
+- type: loadoutGroup
+  id: BartenderPDADelta
+  name: loadout-group-bartender-id-delta
+  loadouts:
+  - BartenderPDA
+  - MixologistPDA
+
 # Misc
 - type: loadoutGroup
   id: Scarfs

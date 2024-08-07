@@ -10,6 +10,7 @@ job-name-security-borg = Security Cyborg
 job-name-tourist = Tourist
 job-name-off-duty = Off-Duty Crew
 job-name-student = Student
+job-name-mixologist = Mixologist
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

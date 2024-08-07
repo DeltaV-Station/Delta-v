@@ -85,3 +85,13 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-student
+
+# Bartender
+
+- type: entity
+  parent: BartenderIDCard
+  id: MixologistIDCard
+  name: mixologist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-mixologist
