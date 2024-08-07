@@ -4,7 +4,7 @@
   name: chief justice ID card
   components:
     - type: PresetIdCard
-      job: ChiefJustice
+      jobName: ChiefJustice
     - type: Sprite
       layers:
         - state: default
@@ -17,7 +17,7 @@
   name: clerk ID card
   components:
     - type: PresetIdCard
-      job: Clerk
+      jobName: Clerk
     - type: Sprite
       layers:
         - state: default
@@ -30,7 +30,7 @@
   name: presecutor ID card
   components:
     - type: PresetIdCard
-      job: Prosecutor
+      jobName: Prosecutor
     - type: Sprite
       layers:
         - state: default
@@ -48,4 +48,4 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanomailcarrier
   - type: PresetIdCard
-    job: Courier
+    jobName: Courier
