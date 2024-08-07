@@ -121,3 +121,31 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: PracticalNurseIDCard
+  name: practical nurse ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-practical-nurse
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ResidentIDCard
+  name: resident ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-resident
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ClinicianIDCard
+  name: clinician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-clinician

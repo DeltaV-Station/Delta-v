@@ -14,6 +14,9 @@ job-name-mixologist = Mixologist
 job-name-baker = Baker
 job-name-butcher = Butcher
 job-name-pizzaiolo = Pizzaiolo
+job-name-practical-nurse = Practical Nurse
+job-name-resident = Resident
+job-name-clinician = Clinician
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

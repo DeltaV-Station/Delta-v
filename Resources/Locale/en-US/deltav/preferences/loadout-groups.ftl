@@ -51,6 +51,8 @@ loadout-group-chemist-neck = Chemist neck
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
+loadout-group-medical-intern-id-delta = Medical Intern PDA
+
 # Miscellaneous
 loadout-group-scarfs = Scarf
 

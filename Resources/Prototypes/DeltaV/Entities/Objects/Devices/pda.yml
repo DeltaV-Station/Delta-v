@@ -287,3 +287,37 @@
   - type: Pda
     id: PizzaioloIDCard
     state: pda-cook
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternPDA
+  id: PracticalNursePDA
+  name: practical nurse PDA
+  description: For those who practically nurse people to good health.
+  components:
+  - type: Pda
+    id: PracticalNurseIDCard
+    state: pda-internmed
+
+- type: entity
+  parent: MedicalInternPDA
+  id: ResidentPDA
+  name: resident PDA
+  description: No, it's for training your way up the medical ladder. Not evil.
+  components:
+  - type: Pda
+    id: ResidentIDCard
+    state: pda-internmed
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalPDA
+  id: ClinicianPDA
+  name: clinician PDA
+  description: Why do you have to be so clinical about everything!?
+  components:
+  - type: Pda
+    id: ClinicianIDCard
+    state: pda-medical

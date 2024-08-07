@@ -228,6 +228,14 @@
   - ButcherPDA
   - PizzaioloPDA
 
+- type: loadoutGroup
+  id: MedicalInternPDADelta
+  name: loadout-group-medical-intern-id-delta
+  loadouts:
+  - MedicalInternPDA
+  - PracticalNursePDA
+  - ResidentPDA
+
 # Misc
 - type: loadoutGroup
   id: Scarfs
