@@ -1,0 +1,9 @@
+- type: entity
+  parent: PonderingOrb
+  id: PonderingOrbTelepathic
+  name: telepathic relay orb
+  description: Relays messages intercepted from Psionics.
+  components:
+  - type: TelepathicRepeater
+  - type: Psionic
+  - type: Speech
