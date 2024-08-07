@@ -13,7 +13,6 @@
   <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
   <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   </Box>
 
   # Delta-V specific species
@@ -22,6 +21,11 @@
   <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
   <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
   <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
+  </Box>
+  
+  # Parkstation specific species
+  <Box>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   </Box>
 
 </Document>

@@ -6,7 +6,7 @@ using Content.Server.IdentityManagement;
 using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Silicons.IPC;
+using Content.Server.SimpleStation14.Silicon.IPC; // Parkstation - IPCs
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chat.Prototypes;
+using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Mobs;
@@ -17,7 +17,7 @@ public sealed partial class DeathgaspComponent : Component
     public string Prototype = "DefaultDeathgasp";
 
     /// <summary>
-    ///     Makes sure that the deathgasp is only displayed if the entity went critical before dying
+    ///     Makes sure that the deathgasp is only displayed if the entity went critical before dying - Estacao Pirata
     /// </summary>
     [DataField("needsCritical")]
     public bool NeedsCritical = true;

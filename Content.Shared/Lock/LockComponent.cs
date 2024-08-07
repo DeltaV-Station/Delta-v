@@ -28,9 +28,9 @@ public sealed partial class LockComponent : Component
     public bool LockOnClick;
 
     /// <summary>
-    /// Whether or not the lock is toggled by simply clicking.
+    /// Whether or not the lock is unlocked by simply clicking.
     /// </summary>
-    [DataField("unlockOnClick"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("unlockOnClick"), ViewVariables(VVAccess.ReadWrite)] // Estacao Pirata - IPC locking
     [AutoNetworkedField]
     public bool UnlockOnClick = true;
 
@@ -58,8 +58,6 @@ public sealed partial class LockComponent : Component
     [DataField("breakOnEmag")]
     [AutoNetworkedField]
     public bool BreakOnEmag = true;
-
-
 
     /// <summary>
     /// Amount of do-after time needed to lock the entity.

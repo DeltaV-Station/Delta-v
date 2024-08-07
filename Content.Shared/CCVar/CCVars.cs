@@ -2151,7 +2151,7 @@ namespace Content.Shared.CCVar
 
 
         /// <summary>
-        ///     The amount of time between NPC Silicons draining their battery in seconds.
+        ///     The amount of time between NPC Silicons draining their battery in seconds. - Estacao Pirata
         /// </summary>
         public static readonly CVarDef<float> SiliconNpcUpdateTime =
             CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);

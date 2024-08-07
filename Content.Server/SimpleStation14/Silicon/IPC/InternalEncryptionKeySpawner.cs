@@ -5,7 +5,7 @@ using Content.Shared.Containers; // Parkstation-IPC
 using Robust.Shared.Containers; // Parkstation-IPC
 
  // Pretty much copied from StationSpawningSystem.SpawnStartingGear
-namespace Content.Server.Silicons.IPC;
+namespace Content.Server.SimpleStation14.Silicon.IPC;
 public static class InternalEncryptionKeySpawner
 {
     public static void TryInsertEncryptionKey(EntityUid target, StartingGearPrototype startingGear, IEntityManager entityManager, HumanoidCharacterProfile? profile)
