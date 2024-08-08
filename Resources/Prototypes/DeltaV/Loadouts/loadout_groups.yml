@@ -244,6 +244,22 @@
   - LifeSupportTechPDA
   - AtmosScientistPDA
 
+- type: loadoutGroup
+  id: CargoPDADelta
+  name: loadout-group-cargo-id-delta
+  loadouts:
+  - CargoPDA
+  - DeckWorkerPDA
+  - InventoryAssociatePDA
+
+- type: loadoutGroup
+  id: SalvagePDADelta
+  name: loadout-group-salvage-id-delta
+  loadouts:
+  - SalvagePDA
+  - ProspectorPDA
+  - ExcavatorPDA
+
 # Misc
 - type: loadoutGroup
   id: Scarfs

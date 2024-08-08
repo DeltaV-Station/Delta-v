@@ -21,6 +21,10 @@ job-name-life-support-tech = Life Support Technician
 job-name-atmos-scientist = Atmospheric Scientist
 job-name-electrician = Electrician
 job-name-mechanic = Mechanic
+job-name-deck-worker = Deck Worker
+job-name-inventory-associate = Inventory Associate
+job-name-prospector = Prospector
+job-name-excavator = Excavator
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

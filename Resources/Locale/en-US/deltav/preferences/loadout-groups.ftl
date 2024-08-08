@@ -31,6 +31,8 @@ loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 
 loadout-group-cargo-technician-neck = Cargo Technician neck
 
+loadout-group-cargo-id-delta = Cargo Technician PDA
+
 loadout-group-courier-head = Courier head
 loadout-group-courier-neck = Courier neck
 loadout-group-courier-jumpsuit = Courier jumpsuit
@@ -43,6 +45,8 @@ loadout-group-mail-carrier-jumpsuit = Mail Carrier jumpsuit
 loadout-group-mail-carrier-outerclothing = Mail Carrier outer clothing
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
+
+loadout-group-salvage-id-delta = Salvage Specialist PDA
 
 # Medical
 loadout-group-chemist-gloves = Chemist gloves

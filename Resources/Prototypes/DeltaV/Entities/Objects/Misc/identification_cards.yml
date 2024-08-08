@@ -185,3 +185,39 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-mechanic
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoIDCard
+  id: DeckWorkerIDCard
+  name: deck worker ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-deck-worker
+
+- type: entity
+  parent: CargoIDCard
+  id: InventoryAssociateIDCard
+  name: inventory associate ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-inventory-associate
+
+# Salvage Specialist
+
+- type: entity
+  parent: SalvageIDCard
+  id: ProspectorIDCard
+  name: prospector ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-prospector
+
+- type: entity
+  parent: SalvageIDCard
+  id: ExcavatorIDCard
+  name: excavator ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-excavator

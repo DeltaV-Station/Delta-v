@@ -363,3 +363,44 @@
   - type: Pda
     id: MechanicIDCard
     state: pda-engineer
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoPDA
+  id: DeckWorkerPDA
+  name: deck worker PDA
+  description: Ideally you're not just swabbing it.
+  components:
+  - type: Pda
+    id: DeckWorkerIDCard
+    state: pda-cargo
+
+- type: entity
+  parent: CargoPDA
+  id: InventoryAssociatePDA
+  name: inventory associate PDA
+  components:
+  - type: Pda
+    id: InventoryAssociateIDCard
+    state: pda-cargo
+
+# Salvage Technician
+
+- type: entity
+  parent: SalvagePDA
+  id: ProspectorPDA
+  name: prospector PDA
+  components:
+  - type: Pda
+    id: ProspectorIDCard
+    state: pda-miner
+
+- type: entity
+  parent: SalvagePDA
+  id: ExcavatorPDA
+  name: excavator PDA
+  components:
+  - type: Pda
+    id: ExcavatorIDCard
+    state: pda-miner
