@@ -341,3 +341,25 @@
   - type: Pda
     id: AtmosScientistIDCard
     state: pda-atmos
+
+# Station Engineer
+
+- type: entity
+  parent: EngineerPDA
+  id: ElectricianPDA
+  name: electrician PDA
+  description: Where do they get the batteries for these things?
+  components:
+  - type: Pda
+    id: ElectricianIDCard
+    state: pda-engineer
+
+- type: entity
+  parent: EngineerPDA
+  id: MechanicPDA
+  name: mechanic PDA
+  description: We love wrenches!
+  components:
+  - type: Pda
+    id: MechanicIDCard
+    state: pda-engineer

@@ -167,3 +167,21 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-atmos-scientist
+
+# Station Engineer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ElectricianIDCard
+  name: electrician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-electrician
+
+- type: entity
+  parent: EngineeringIDCard
+  id: MechanicIDCard
+  name: mechanic ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-mechanic

@@ -19,6 +19,8 @@ job-name-resident = Resident
 job-name-clinician = Clinician
 job-name-life-support-tech = Life Support Technician
 job-name-atmos-scientist = Atmospheric Scientist
+job-name-electrician = Electrician
+job-name-mechanic = Mechanic
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
