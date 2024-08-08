@@ -28,6 +28,8 @@ job-name-excavator = Excavator
 job-name-lab-tech = Lab Technician
 job-name-xenoarch = Xenoarchaeologist
 job-name-roboticist = Roboticist
+job-name-jester = Jester
+job-name-fool = Fool
 
 # Role timers
 JobMedicalBorg = Medical Cyborg

@@ -23,6 +23,7 @@ loadout-group-musician-neck = Musician neck
 loadout-group-passenger-id-delta = Passenger PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
+loadout-group-clown-id-delta = Clown PDA
 
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit

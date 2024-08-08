@@ -247,3 +247,21 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-roboticist
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: JesterIDCard
+  name: jester ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-jester
+
+- type: entity
+  parent: ClownIDCard
+  id: FoolIDCard
+  name: fool ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-fool

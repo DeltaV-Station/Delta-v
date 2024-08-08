@@ -432,3 +432,23 @@
   components:
   - type: Pda
     id: XenoarchIDCard
+
+# Clown
+
+- type: entity
+  parent: ClownPDA
+  id: JesterPDA
+  name: jester PDA
+  description: Doesn't actually jingle when you move.
+  components:
+  - type: Pda
+    id: JesterIDCard
+
+- type: entity
+  parent: ClownPDA
+  id: FoolPDA
+  name: fool PDA
+  description: Found alone on a hill.
+  components:
+  - type: Pda
+    id: FoolIDCard
