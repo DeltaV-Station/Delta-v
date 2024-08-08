@@ -212,7 +212,6 @@
   components:
   - type: Pda
     id: VisitorIDCard
-    state: pda
 
 - type: entity
   parent: PassengerPDA
@@ -222,7 +221,6 @@
   components:
   - type: Pda
     id: TouristIDCard
-    state: pda
 
 - type: entity
   parent: PassengerPDA
@@ -232,7 +230,6 @@
   components:
   - type: Pda
     id: OffDutyCrewIDCard
-    state: pda
 
 - type: entity
   parent: PassengerPDA
@@ -242,7 +239,6 @@
   components:
   - type: Pda
     id: StudentIDCard
-    state: pda
 
 # Bartender
 
@@ -254,7 +250,6 @@
   components:
   - type: Pda
     id: MixologistIDCard
-    state: pda-bartender
 
 # Chef
 
@@ -266,7 +261,6 @@
   components:
   - type: Pda
     id: BakerIDCard
-    state: pda-cook
 
 - type: entity
   parent: ChefPDA
@@ -276,7 +270,6 @@
   components:
   - type: Pda
     id: ButcherIDCard
-    state: pda-cook
 
 - type: entity
   parent: ChefPDA
@@ -286,7 +279,6 @@
   components:
   - type: Pda
     id: PizzaioloIDCard
-    state: pda-cook
 
 # Medical Intern
 
@@ -298,7 +290,6 @@
   components:
   - type: Pda
     id: PracticalNurseIDCard
-    state: pda-internmed
 
 - type: entity
   parent: MedicalInternPDA
@@ -308,7 +299,6 @@
   components:
   - type: Pda
     id: ResidentIDCard
-    state: pda-internmed
 
 # Medical Doctor
 
@@ -320,7 +310,6 @@
   components:
   - type: Pda
     id: ClinicianIDCard
-    state: pda-medical
 
 # Atmospherics Technician
 
@@ -331,7 +320,6 @@
   components:
   - type: Pda
     id: LifeSupportTechIDCard
-    state: pda-atmos
 
 - type: entity
   parent: AtmosPDA
@@ -340,7 +328,6 @@
   components:
   - type: Pda
     id: PlasmaScientistIDCard
-    state: pda-atmos
 
 # Station Engineer
 
@@ -352,7 +339,6 @@
   components:
   - type: Pda
     id: ElectricianIDCard
-    state: pda-engineer
 
 - type: entity
   parent: EngineerPDA
@@ -362,7 +348,6 @@
   components:
   - type: Pda
     id: MechanicIDCard
-    state: pda-engineer
 
 # Cargo Technician
 
@@ -374,7 +359,6 @@
   components:
   - type: Pda
     id: DeckWorkerIDCard
-    state: pda-cargo
 
 - type: entity
   parent: CargoPDA
@@ -383,7 +367,6 @@
   components:
   - type: Pda
     id: InventoryAssociateIDCard
-    state: pda-cargo
 
 # Salvage Technician
 
@@ -394,7 +377,6 @@
   components:
   - type: Pda
     id: ProspectorIDCard
-    state: pda-miner
 
 - type: entity
   parent: SalvagePDA
@@ -403,7 +385,6 @@
   components:
   - type: Pda
     id: ExcavatorIDCard
-    state: pda-miner
 
 # Scientist
 
