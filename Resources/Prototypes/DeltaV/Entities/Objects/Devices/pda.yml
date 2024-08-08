@@ -212,6 +212,7 @@
   components:
   - type: Pda
     id: VisitorIDCard
+    state: pda-visitor
 
 - type: entity
   parent: PassengerPDA
@@ -221,6 +222,7 @@
   components:
   - type: Pda
     id: TouristIDCard
+    state: pda-tourist
 
 - type: entity
   parent: PassengerPDA
@@ -230,6 +232,7 @@
   components:
   - type: Pda
     id: OffDutyCrewIDCard
+    state: pda-offduty
 
 - type: entity
   parent: PassengerPDA
@@ -239,6 +242,7 @@
   components:
   - type: Pda
     id: StudentIDCard
+    state: pda-student
 
 # Bartender
 
@@ -250,6 +254,7 @@
   components:
   - type: Pda
     id: MixologistIDCard
+    state: pda-mixologist
 
 # Chef
 
@@ -261,6 +266,7 @@
   components:
   - type: Pda
     id: BakerIDCard
+    state: pda-baker
 
 - type: entity
   parent: ChefPDA
@@ -270,6 +276,7 @@
   components:
   - type: Pda
     id: ButcherIDCard
+    state: pda-butcher
 
 - type: entity
   parent: ChefPDA
@@ -279,6 +286,7 @@
   components:
   - type: Pda
     id: PizzaioloIDCard
+    state: pda-pizzaiolo
 
 # Medical Intern
 
@@ -290,6 +298,7 @@
   components:
   - type: Pda
     id: PracticalNurseIDCard
+    state: pda-practicingnurse
 
 - type: entity
   parent: MedicalInternPDA
@@ -299,6 +308,7 @@
   components:
   - type: Pda
     id: ResidentIDCard
+    state: pda-resident
 
 # Medical Doctor
 
@@ -310,6 +320,7 @@
   components:
   - type: Pda
     id: ClinicianIDCard
+    state: pda-phys
 
 # Atmospherics Technician
 
@@ -320,6 +331,7 @@
   components:
   - type: Pda
     id: LifeSupportTechIDCard
+    state: pda-lifesupporttech
 
 - type: entity
   parent: AtmosPDA
@@ -328,6 +340,7 @@
   components:
   - type: Pda
     id: PlasmaScientistIDCard
+    state: pda-plasmatech
 
 # Station Engineer
 
@@ -339,6 +352,7 @@
   components:
   - type: Pda
     id: ElectricianIDCard
+    state: pda-electrician
 
 - type: entity
   parent: EngineerPDA
@@ -348,6 +362,7 @@
   components:
   - type: Pda
     id: MechanicIDCard
+    state: pda-mechanic
 
 # Cargo Technician
 
@@ -359,6 +374,7 @@
   components:
   - type: Pda
     id: DeckWorkerIDCard
+    state: pda-deckworker
 
 - type: entity
   parent: CargoPDA
@@ -367,6 +383,7 @@
   components:
   - type: Pda
     id: InventoryAssociateIDCard
+    state: pda-inventoryassociate
 
 # Salvage Technician
 
@@ -377,6 +394,7 @@
   components:
   - type: Pda
     id: ProspectorIDCard
+    state: pda-prospector
 
 - type: entity
   parent: SalvagePDA
@@ -385,6 +403,7 @@
   components:
   - type: Pda
     id: ExcavatorIDCard
+    state: pda-excavator
 
 # Scientist
 
@@ -396,6 +415,7 @@
   components:
   - type: Pda
     id: LabTechIDCard
+    state: pda-labsci
 
 - type: entity
   parent: SciencePDA
@@ -404,6 +424,7 @@
   components:
   - type: Pda
     id: XenoarchIDCard
+    state: pda-xenobio
 
 - type: entity
   parent: SciencePDA
@@ -425,6 +446,7 @@
   components:
   - type: Pda
     id: JesterIDCard
+    state: pda-jester
 
 - type: entity
   parent: ClownPDA
@@ -434,3 +456,4 @@
   components:
   - type: Pda
     id: FoolIDCard
+    state: pda-fool
