@@ -5,6 +5,7 @@ using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -48,15 +49,19 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!TryComp<StationRecordsComponent>(args.Station, out var stationRecords))
             return;
 
-        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.JobId, stationRecords);
+        CreateGeneralRecord(args.Station, args.Mob, args.Profile, args.Job, stationRecords); // DeltaV #1425 - JobId replaced with Job to parse VirtualJob
     }
 
     private void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
-        string? jobId, StationRecordsComponent records)
+        JobComponent? job, StationRecordsComponent records) // DeltaV #1425
     {
-        // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId
-        if (string.IsNullOrEmpty(jobId)
-            || !_prototypeManager.HasIndex<JobPrototype>(jobId))
+        // DeltaV #1425 - Inherit from VirtualJob if possible
+        if (!_prototypeManager.TryIndex<JobPrototype>(job?.Prototype, out var jobProto))
+            return;
+        // End of DeltaV code
+
+        if (string.IsNullOrEmpty(job?.Prototype)
+            || !_prototypeManager.HasIndex<JobPrototype>(jobProto))
             return;
 
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
@@ -65,7 +70,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, job, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
     }
 
 
@@ -103,14 +108,17 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        string jobId,
+        JobComponent job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobLocalizedName/Icon
         string? mobFingerprint,
         string? dna,
         HumanoidCharacterProfile profile,
         StationRecordsComponent records)
     {
-        if (!_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobPrototype))
+        // DeltaV #1425 - Get jobId separately as a result
+        string? jobId = job.Prototype;
+        if (string.IsNullOrEmpty(jobId) || !_prototypeManager.TryIndex<JobPrototype>(job.Prototype, out var jobPrototype))
             throw new ArgumentException($"Invalid job prototype ID: {jobId}");
+        // End of DeltaV code
 
         // when adding a record that already exists use the old one
         // this happens when respawning as the same character
@@ -124,8 +132,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
-            JobIcon = jobPrototype.Icon,
+            JobTitle = job.VirtualJobLocalizedName ?? jobPrototype.LocalizedName,// DeltaV #1425 - Use VirtualJobLocalizedName if possible
+            JobIcon = job.VirtualJobIcon ?? jobPrototype.Icon, // DeltaV #1425 - Use VirtualJobIcon if possible
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
