@@ -404,3 +404,31 @@
   - type: Pda
     id: ExcavatorIDCard
     state: pda-miner
+
+# Scientist
+
+- type: entity
+  parent: SciencePDA
+  id: LabTechPDA
+  name: lab technician PDA
+  description: Part of it is melted after a close interaction with a hotplate.
+  components:
+  - type: Pda
+    id: LabTechIDCard
+
+- type: entity
+  parent: SciencePDA
+  id: XenoarchPDA
+  name: xenoarchaeology PDA
+  components:
+  - type: Pda
+    id: XenoarchIDCard
+
+- type: entity
+  parent: SciencePDA
+  id: RoboticistPDA
+  name: roboticist PDA
+  description: Surprisingly, it doesn't talk to you.
+  components:
+  - type: Pda
+    id: XenoarchIDCard

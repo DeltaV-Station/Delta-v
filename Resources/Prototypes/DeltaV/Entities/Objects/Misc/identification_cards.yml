@@ -221,3 +221,29 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-excavator
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: LabTechIDCard
+  name: lab technician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-lab-tech
+
+- type: entity
+  parent: ResearchIDCard
+  id: XenoarchIDCard
+  name: xenoarchaeologist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-xenoarch
+
+- type: entity
+  parent: ResearchIDCard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-roboticist

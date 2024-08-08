@@ -25,6 +25,9 @@ job-name-deck-worker = Deck Worker
 job-name-inventory-associate = Inventory Associate
 job-name-prospector = Prospector
 job-name-excavator = Excavator
+job-name-lab-tech = Lab Technician
+job-name-xenoarch = Xenoarchaeologist
+job-name-roboticist = Roboticist
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
