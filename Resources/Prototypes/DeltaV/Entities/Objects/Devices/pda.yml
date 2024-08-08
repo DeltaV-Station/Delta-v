@@ -262,7 +262,7 @@
   parent: ChefPDA
   id: BakerPDA
   name: baker PDA
-  description: A dough-kneading, pie-slinging, cake-making, rolling-pin wielder is what you are. Go forth, and make loaves!
+  description: For those about to loaf, we salute you.
   components:
   - type: Pda
     id: BakerIDCard
@@ -321,3 +321,23 @@
   - type: Pda
     id: ClinicianIDCard
     state: pda-medical
+
+# Atmospherics Technician
+
+- type: entity
+  parent: AtmosPDA
+  id: LifeSupportTechPDA
+  name: life support technician PDA
+  components:
+  - type: Pda
+    id: LifeSupportTechIDCard
+    state: pda-atmos
+
+- type: entity
+  parent: AtmosPDA
+  id: AtmosScientistPDA
+  name: atmospheric scientist PDA
+  components:
+  - type: Pda
+    id: AtmosScientistIDCard
+    state: pda-atmos

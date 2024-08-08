@@ -149,3 +149,21 @@
   components:
   - type: PresetIdCard
     virtualJobName: job-name-clinician
+
+# Atmospheric Technician
+
+- type: entity
+  parent: AtmosIDCard
+  id: LifeSupportTechIDCard
+  name: life support technician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-life-support-tech
+
+- type: entity
+  parent: AtmosIDCard
+  id: AtmosScientistIDCard
+  name: atmospheric scientist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-atmos-scientist

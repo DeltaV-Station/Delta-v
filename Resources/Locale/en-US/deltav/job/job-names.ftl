@@ -17,6 +17,8 @@ job-name-pizzaiolo = Pizzaiolo
 job-name-practical-nurse = Practical Nurse
 job-name-resident = Resident
 job-name-clinician = Clinician
+job-name-life-support-tech = Life Support Technician
+job-name-atmos-scientist = Atmospheric Scientist
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
