@@ -136,9 +136,9 @@ public abstract class SharedJobSystem : EntitySystem
     /// </summary>
     public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
     {
-        if (MindTryGetJob(mindId, out _, out var prototype))
+        if (MindTryGetJob(mindId, out var comp, out var prototype)) // DeltaV #1425 - Override with the VirtualJobLocalizedName if possible
         {
-            name = prototype.LocalizedName;
+            name = comp.VirtualJobLocalizedName ?? prototype.LocalizedName; // DeltaV #1425 - Override with the VirtualJobLocalizedName if possible
             return true;
         }
 

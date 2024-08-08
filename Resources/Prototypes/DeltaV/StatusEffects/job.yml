@@ -25,3 +25,10 @@
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
     state: Prosecutor
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconSecurityBorg
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: SecurityBorg

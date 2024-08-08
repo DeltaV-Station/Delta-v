@@ -37,7 +37,7 @@
     - state: default
     - state: idpassenger
   - type: PresetIdCard
-    job: Passenger
+    jobName: Passenger
 
 - type: entity
   parent: PassengerIDCard
@@ -45,7 +45,7 @@
   name: technical assistant ID card
   components:
   - type: PresetIdCard
-    job: TechnicalAssistant
+    jobName: TechnicalAssistant
   - type: Sprite
     layers:
     - state: default
@@ -57,7 +57,7 @@
   name: medical intern ID card
   components:
   - type: PresetIdCard
-    job: MedicalIntern
+    jobName: MedicalIntern
   - type: Sprite
     layers:
     - state: default
@@ -69,7 +69,7 @@
   name: research assistant ID card
   components:
   - type: PresetIdCard
-    job: ResearchAssistant
+    jobName: ResearchAssistant
   - type: Sprite
     layers:
     - state: default
@@ -81,7 +81,7 @@
   name: security cadet ID card
   components:
   - type: PresetIdCard
-    job: SecurityCadet
+    jobName: SecurityCadet
   - type: Sprite
     layers:
     - state: default
@@ -93,7 +93,7 @@
   name: service worker ID card
   components:
   - type: PresetIdCard
-    job: ServiceWorker
+    jobName: ServiceWorker
   - type: Sprite
     layers:
     - state: default
@@ -111,7 +111,7 @@
   - type: Item
     heldPrefix: gold
   - type: PresetIdCard
-    job: Captain
+    jobName: Captain
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -130,7 +130,7 @@
     - state: default
     - state: idsecurityofficer
   - type: PresetIdCard
-    job: SecurityOfficer
+    jobName: SecurityOfficer
 
 - type: entity
   parent: IDCardStandard
@@ -142,7 +142,7 @@
         - state: default
         - state: idwarden
     - type: PresetIdCard
-      job: Warden
+      jobName: Warden
 
 - type: entity
   parent: IDCardStandard
@@ -154,7 +154,7 @@
     - state: default
     - state: idstationengineer
   - type: PresetIdCard
-    job: StationEngineer
+    jobName: StationEngineer
 
 - type: entity
   parent: IDCardStandard
@@ -166,7 +166,7 @@
     - state: default
     - state: idmedicaldoctor
   - type: PresetIdCard
-    job: MedicalDoctor
+    jobName: MedicalDoctor
 
 - type: entity
   parent: IDCardStandard
@@ -178,7 +178,7 @@
     - state: default
     - state: idparamedic
   - type: PresetIdCard
-    job: Paramedic
+    jobName: Paramedic
 
 - type: entity
   parent: IDCardStandard
@@ -190,7 +190,7 @@
     - state: default
     - state: idchemist
   - type: PresetIdCard
-    job: Chemist
+    jobName: Chemist
 
 - type: entity
   parent: IDCardStandard
@@ -202,7 +202,7 @@
     - state: default
     - state: idcargotechnician
   - type: PresetIdCard
-    job: CargoTechnician
+    jobName: CargoTechnician
 
 - type: entity
   parent: IDCardStandard
@@ -214,7 +214,7 @@
     - state: default
     - state: idshaftminer
   - type: PresetIdCard
-    job: SalvageSpecialist
+    jobName: SalvageSpecialist
 
 - type: entity
   parent: IDCardStandard
@@ -228,7 +228,7 @@
     - type: Item
       heldPrefix: silver
     - type: PresetIdCard
-      job: Quartermaster
+      jobName: Quartermaster
 
 - type: entity
   parent: IDCardStandard
@@ -240,7 +240,7 @@
     - state: default
     - state: idscientist
   - type: PresetIdCard
-    job: Scientist
+    jobName: Scientist
 
 - type: entity
   parent: IDCardStandard
@@ -252,7 +252,7 @@
     - state: default
     - state: idclown
   - type: PresetIdCard
-    job: Clown
+    jobName: Clown
 
 - type: entity
   parent: IDCardStandard
@@ -264,7 +264,7 @@
     - state: default
     - state: idmime
   - type: PresetIdCard
-    job: Mime
+    jobName: Mime
 
 - type: entity
   parent: IDCardStandard
@@ -277,7 +277,7 @@
         - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
           state: idchaplain
     - type: PresetIdCard
-      job: Chaplain
+      jobName: Chaplain
 
 - type: entity
   parent: IDCardStandard
@@ -289,7 +289,7 @@
     - state: default
     - state: idjanitor
   - type: PresetIdCard
-    job: Janitor
+    jobName: Janitor
 
 - type: entity
   parent: IDCardStandard
@@ -301,7 +301,7 @@
     - state: default
     - state: idbartender
   - type: PresetIdCard
-    job: Bartender
+    jobName: Bartender
 
 - type: entity
   parent: IDCardStandard
@@ -313,8 +313,8 @@
         - state: default
         - state: idbartender
     - type: PresetIdCard
-      job: Bartender
-      name: Pun Pun
+      jobName: Bartender
+      idName: Pun Pun
 
 - type: entity
   parent: IDCardStandard
@@ -326,7 +326,7 @@
     - state: default
     - state: idcook
   - type: PresetIdCard
-    job: Chef
+    jobName: Chef
 
 - type: entity
   parent: IDCardStandard
@@ -338,7 +338,7 @@
         - state: default
         - state: idbotanist
     - type: PresetIdCard
-      job: Botanist
+      jobName: Botanist
 
 - type: entity
   parent: IDCardStandard
@@ -350,7 +350,7 @@
         - state: default
         - state: idcurator
     - type: PresetIdCard
-      job: Librarian
+      jobName: Librarian
 
 - type: entity
   parent: IDCardStandard
@@ -363,7 +363,7 @@
         - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
           state: idlawyer
     - type: PresetIdCard
-      job: Lawyer
+      jobName: Lawyer
 
 - type: entity
   parent: IDCardStandard
@@ -377,7 +377,7 @@
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
-    job: HeadOfPersonnel
+    jobName: HeadOfPersonnel
 
 - type: entity
   parent: IDCardStandard
@@ -391,7 +391,7 @@
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
-    job: ChiefEngineer
+    jobName: ChiefEngineer
 
 - type: entity
   parent: IDCardStandard
@@ -405,7 +405,7 @@
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
-    job: ChiefMedicalOfficer
+    jobName: ChiefMedicalOfficer
 
 - type: entity
   parent: IDCardStandard
@@ -419,7 +419,7 @@
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
-    job: ResearchDirector
+    jobName: ResearchDirector
 
 - type: entity
   parent: IDCardStandard
@@ -433,7 +433,7 @@
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
-    job: HeadOfSecurity
+    jobName: HeadOfSecurity
 
 - type: entity
   parent: IDCardStandard
@@ -445,7 +445,7 @@
     - state: default
     - state: idbrigmedic
   - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
-    job: Brigmedic
+    jobName: Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -571,7 +571,7 @@
         - state: default
         - state: idmusician
     - type: PresetIdCard
-      job: Musician
+      jobName: Musician
 
 - type: entity
   parent: CentcomIDCard
@@ -593,7 +593,7 @@
   suffix: Agent
   components:
   - type: PresetIdCard
-    job: Passenger
+    jobName: Passenger
   - type: Access
     tags:
     - Maintenance
@@ -697,7 +697,7 @@
     - state: orange
     - state: idatmospherictechnician
   - type: PresetIdCard
-    job: AtmosphericTechnician
+    jobName: AtmosphericTechnician
 
 - type: entity
   parent: IDCardStandard
@@ -735,7 +735,7 @@
     - state: default
     - state: idpsychologist
   - type: PresetIdCard
-    job: Psychologist
+    jobName: Psychologist
 
 - type: entity
   parent: IDCardStandard
@@ -747,7 +747,7 @@
     - state: default
     - state: idreporter
   - type: PresetIdCard
-    job: Reporter
+    jobName: Reporter
 
 - type: entity
   parent: IDCardStandard
@@ -759,7 +759,7 @@
     - state: default
     - state: idboxer
   - type: PresetIdCard
-    job: Boxer
+    jobName: Boxer
 
 - type: entity
   parent: IDCardStandard
@@ -771,7 +771,7 @@
     - state: default
     - state: idzookeeper
   - type: PresetIdCard
-    job: Zookeeper
+    jobName: Zookeeper
 
 - type: entity
   parent: IDCardStandard
@@ -783,7 +783,7 @@
     - state: default
     - state: iddetective
   - type: PresetIdCard
-    job: Detective
+    jobName: Detective
 
 - type: entity
   parent: CentcomIDCard
@@ -823,7 +823,8 @@
     - state: default
     - state: idseniorengineer
   - type: PresetIdCard # DeltaV - Change senior job titles
-    customJob: Senior Engineer
+    virtualJobName: "job-name-seniorengineer"
+    virtualJobIcon: "JobIconSeniorEngineer"
 
 - type: entity
   parent: ResearchIDCard
@@ -835,7 +836,8 @@
     - state: default
     - state: idseniorresearcher
   - type: PresetIdCard # DeltaV - Change senior job titles
-    customJob: Senior Researcher
+    virtualJobName: "job-name-seniorresearcher"
+    virtualJobIcon: "JobIconSeniorResearcher"
 
 - type: entity
   parent: MedicalIDCard
@@ -847,7 +849,8 @@
     - state: default
     - state: idseniorphysician
   - type: PresetIdCard # DeltaV - Change senior job titles
-    customJob: Senior Physician
+    virtualJobName: "job-name-seniorphysician"
+    virtualJobIcon: "JobIconSeniorPhysician"
 
 - type: entity
   parent: SecurityIDCard
@@ -859,7 +862,8 @@
     - state: default
     - state: idseniorofficer
   - type: PresetIdCard # DeltaV - Change senior job titles
-    customJob: Senior Officer
+    virtualJobName: "job-name-seniorofficer"
+    virtualJobIcon: "JobIconSeniorOfficer"
 
 - type: entity
   parent: IDCardStandard

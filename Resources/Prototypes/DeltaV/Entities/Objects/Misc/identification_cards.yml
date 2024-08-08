@@ -4,7 +4,7 @@
   name: chief justice ID card
   components:
     - type: PresetIdCard
-      job: ChiefJustice
+      jobName: ChiefJustice
     - type: Sprite
       layers:
         - state: default
@@ -17,7 +17,7 @@
   name: clerk ID card
   components:
     - type: PresetIdCard
-      job: Clerk
+      jobName: Clerk
     - type: Sprite
       layers:
         - state: default
@@ -30,7 +30,7 @@
   name: presecutor ID card
   components:
     - type: PresetIdCard
-      job: Prosecutor
+      jobName: Prosecutor
     - type: Sprite
       layers:
         - state: default
@@ -48,4 +48,220 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanomailcarrier
   - type: PresetIdCard
-    job: Courier
+    jobName: Courier
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: VisitorIDCard
+  name: visitor ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-visitor
+
+- type: entity
+  parent: PassengerIDCard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-tourist
+
+- type: entity
+  parent: PassengerIDCard
+  id: OffDutyCrewIDCard
+  name: off-duty crew ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-off-duty
+
+- type: entity
+  parent: PassengerIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-student
+
+# Bartender
+
+- type: entity
+  parent: BartenderIDCard
+  id: MixologistIDCard
+  name: mixologist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-mixologist
+
+# Chef
+
+- type: entity
+  parent: ChefIDCard
+  id: BakerIDCard
+  name: baker ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-baker
+
+- type: entity
+  parent: ChefIDCard
+  id: ButcherIDCard
+  name: butcher ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-butcher
+
+- type: entity
+  parent: ChefIDCard
+  id: PizzaioloIDCard
+  name: pizzaiolo ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: PracticalNurseIDCard
+  name: practical nurse ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-practical-nurse
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ResidentIDCard
+  name: resident ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-resident
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ClinicianIDCard
+  name: clinician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-clinician
+
+# Atmospheric Technician
+
+- type: entity
+  parent: AtmosIDCard
+  id: LifeSupportTechIDCard
+  name: life support technician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-life-support-tech
+
+- type: entity
+  parent: AtmosIDCard
+  id: PlasmaScientistIDCard
+  name: plasma scientist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-plasma-scientist
+
+# Station Engineer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ElectricianIDCard
+  name: electrician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-electrician
+
+- type: entity
+  parent: EngineeringIDCard
+  id: MechanicIDCard
+  name: mechanic ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-mechanic
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoIDCard
+  id: DeckWorkerIDCard
+  name: deck worker ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-deck-worker
+
+- type: entity
+  parent: CargoIDCard
+  id: InventoryAssociateIDCard
+  name: inventory associate ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-inventory-associate
+
+# Salvage Specialist
+
+- type: entity
+  parent: SalvageIDCard
+  id: ProspectorIDCard
+  name: prospector ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-prospector
+
+- type: entity
+  parent: SalvageIDCard
+  id: ExcavatorIDCard
+  name: excavator ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-excavator
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: LabTechIDCard
+  name: lab technician ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-lab-tech
+
+- type: entity
+  parent: ResearchIDCard
+  id: XenoarchIDCard
+  name: xenoarchaeologist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-xenoarch
+
+- type: entity
+  parent: ResearchIDCard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-roboticist
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: JesterIDCard
+  name: jester ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-jester
+
+- type: entity
+  parent: ClownIDCard
+  id: FoolIDCard
+  name: fool ID card
+  components:
+  - type: PresetIdCard
+    virtualJobName: job-name-fool
