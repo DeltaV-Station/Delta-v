@@ -335,11 +335,11 @@
 
 - type: entity
   parent: AtmosPDA
-  id: AtmosScientistPDA
-  name: atmospheric scientist PDA
+  id: PlasmaScientistPDA
+  name: plasma scientist PDA
   components:
   - type: Pda
-    id: AtmosScientistIDCard
+    id: PlasmaScientistIDCard
     state: pda-atmos
 
 # Station Engineer
