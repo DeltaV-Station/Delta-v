@@ -83,7 +83,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         _cardSystem.TryChangeJobDepartment(uid, job);
 
         // DeltaV #1425 - Attempt to use virtual job information before using job information
-        _prototypeManager.TryIndex<StatusIconPrototype>(id.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
+        _prototypeManager.TryIndex<JobIconPrototype>(id.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
         if (_prototypeManager.TryIndex(job.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(uid, virtualJobIcon ?? jobIcon);
         // End of DeltaV code

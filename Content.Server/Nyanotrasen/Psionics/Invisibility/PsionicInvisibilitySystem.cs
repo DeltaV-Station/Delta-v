@@ -10,7 +10,7 @@ namespace Content.Server.Psionics
 {
     public sealed class PsionicInvisibilitySystem : EntitySystem
     {
-        [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly VisibilitySystem _visibility = default!;
         [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
         [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -82,22 +82,24 @@ namespace Content.Server.Psionics
 
         private void OnInvisInit(EntityUid uid, PsionicallyInvisibleComponent component, ComponentInit args)
         {
-            var visibility = EntityManager.EnsureComponent<VisibilityComponent>(uid);
+            var visibility = EnsureComp<VisibilityComponent>(uid);
+            var ent = (uid, visibility);
 
-            _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
-            _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
-            _visibilitySystem.RefreshVisibility(uid, visibility);
+            _visibility.AddLayer(ent, (int) VisibilityFlags.PsionicInvisibility, false);
+            _visibility.RemoveLayer(ent, (int) VisibilityFlags.Normal, false);
+            _visibility.RefreshVisibility(ent);
         }
 
 
         private void OnInvisShutdown(EntityUid uid, PsionicallyInvisibleComponent component, ComponentShutdown args)
         {
-            if (TryComp<VisibilityComponent>(uid, out var visibility))
-            {
-                _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
-                _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(uid, visibility);
-            }
+            if (!TryComp<VisibilityComponent>(uid, out var visibility))
+                return;
+
+            var ent = (uid, visibility);
+            _visibility.RemoveLayer(ent, (int) VisibilityFlags.PsionicInvisibility, false);
+            _visibility.AddLayer(ent, (int) VisibilityFlags.Normal, false);
+            _visibility.RefreshVisibility(ent);
         }
 
         private void OnEyeInit(EntityUid uid, EyeComponent component, ComponentInit args)

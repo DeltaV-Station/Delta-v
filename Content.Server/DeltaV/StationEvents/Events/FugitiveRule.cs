@@ -48,7 +48,8 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         foreach (var xform in consoles)
         {
             var report = Spawn(comp.ReportPaper, xform.Coordinates);
-            _paper.SetContent(report, comp.Report);
+            var paper = Comp<PaperComponent>(report);
+            _paper.SetContent((report, paper), comp.Report);
         }
 
         // prevent any possible funnies
