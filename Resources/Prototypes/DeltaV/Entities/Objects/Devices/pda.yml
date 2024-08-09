@@ -212,7 +212,7 @@
   components:
   - type: Pda
     id: VisitorIDCard
-    state: pda-visitor
+    state: pda-visitor # - aPDA Sprite Rework
 
 - type: entity
   parent: PassengerPDA
@@ -222,7 +222,7 @@
   components:
   - type: Pda
     id: TouristIDCard
-    state: pda-tourist
+    state: pda-tourist # - aPDA Sprite Rework
 
 - type: entity
   parent: PassengerPDA
@@ -232,7 +232,7 @@
   components:
   - type: Pda
     id: OffDutyCrewIDCard
-    state: pda-offduty
+    state: pda-offduty # - aPDA Sprite Rework
 
 - type: entity
   parent: PassengerPDA
@@ -242,7 +242,7 @@
   components:
   - type: Pda
     id: StudentIDCard
-    state: pda-student
+    state: pda-student # - aPDA Sprite Rework
 
 # Bartender
 
@@ -254,7 +254,7 @@
   components:
   - type: Pda
     id: MixologistIDCard
-    state: pda-mixologist
+    state: pda-mixologist # - aPDA Sprite Rework
 
 # Chef
 
@@ -266,7 +266,7 @@
   components:
   - type: Pda
     id: BakerIDCard
-    state: pda-baker
+    state: pda-baker # - aPDA Sprite Rework
 
 - type: entity
   parent: ChefPDA
@@ -276,7 +276,7 @@
   components:
   - type: Pda
     id: ButcherIDCard
-    state: pda-butcher
+    state: pda-butcher # - aPDA Sprite Rework
 
 - type: entity
   parent: ChefPDA
@@ -286,7 +286,7 @@
   components:
   - type: Pda
     id: PizzaioloIDCard
-    state: pda-pizzaiolo
+    state: pda-pizzaiolo # - aPDA Sprite Rework
 
 # Medical Intern
 
@@ -298,7 +298,7 @@
   components:
   - type: Pda
     id: PracticalNurseIDCard
-    state: pda-practicingnurse
+    state: pda-practicingnurse # - aPDA Sprite Rework
 
 - type: entity
   parent: MedicalInternPDA
@@ -308,7 +308,7 @@
   components:
   - type: Pda
     id: ResidentIDCard
-    state: pda-resident
+    state: pda-resident # - aPDA Sprite Rework
 
 # Medical Doctor
 
@@ -320,7 +320,7 @@
   components:
   - type: Pda
     id: ClinicianIDCard
-    state: pda-phys
+    state: pda-phys # - aPDA Sprite Rework
 
 # Atmospherics Technician
 
@@ -331,7 +331,7 @@
   components:
   - type: Pda
     id: LifeSupportTechIDCard
-    state: pda-lifesupporttech
+    state: pda-lifesupporttech # - aPDA Sprite Rework
 
 - type: entity
   parent: AtmosPDA
@@ -340,7 +340,7 @@
   components:
   - type: Pda
     id: PlasmaScientistIDCard
-    state: pda-plasmatech
+    state: pda-plasmatech # - aPDA Sprite Rework
 
 # Station Engineer
 
@@ -352,7 +352,7 @@
   components:
   - type: Pda
     id: ElectricianIDCard
-    state: pda-electrician
+    state: pda-electrician # - aPDA Sprite Rework
 
 - type: entity
   parent: EngineerPDA
@@ -362,7 +362,7 @@
   components:
   - type: Pda
     id: MechanicIDCard
-    state: pda-mechanic
+    state: pda-mechanic # - aPDA Sprite Rework
 
 # Cargo Technician
 
@@ -374,7 +374,7 @@
   components:
   - type: Pda
     id: DeckWorkerIDCard
-    state: pda-deckworker
+    state: pda-deckworker # - aPDA Sprite Rework
 
 - type: entity
   parent: CargoPDA
@@ -383,7 +383,7 @@
   components:
   - type: Pda
     id: InventoryAssociateIDCard
-    state: pda-inventoryassociate
+    state: pda-inventoryassociate # - aPDA Sprite Rework
 
 # Salvage Technician
 
@@ -394,7 +394,7 @@
   components:
   - type: Pda
     id: ProspectorIDCard
-    state: pda-prospector
+    state: pda-prospector # - aPDA Sprite Rework
 
 - type: entity
   parent: SalvagePDA
@@ -403,7 +403,7 @@
   components:
   - type: Pda
     id: ExcavatorIDCard
-    state: pda-excavator
+    state: pda-excavator # - aPDA Sprite Rework
 
 # Scientist
 
@@ -415,7 +415,7 @@
   components:
   - type: Pda
     id: LabTechIDCard
-    state: pda-labsci
+    state: pda-labsci # - aPDA Sprite Rework
 
 - type: entity
   parent: SciencePDA
@@ -424,7 +424,7 @@
   components:
   - type: Pda
     id: XenoarchIDCard
-    state: pda-xenobio
+    state: pda-xenobio # - aPDA Sprite Rework
 
 - type: entity
   parent: SciencePDA
@@ -434,7 +434,7 @@
   components:
   - type: Pda
     id: RoboticistIDCard
-    state: pda-roboticist
+    state: pda-roboticist # - aPDA Sprite Rework
 
 # Clown
 
@@ -446,7 +446,7 @@
   components:
   - type: Pda
     id: JesterIDCard
-    state: pda-jester
+    state: pda-jester # - aPDA Sprite Rework
 
 - type: entity
   parent: ClownPDA
@@ -456,4 +456,4 @@
   components:
   - type: Pda
     id: FoolIDCard
-    state: pda-fool
+    state: pda-fool # - aPDA Sprite Rework
