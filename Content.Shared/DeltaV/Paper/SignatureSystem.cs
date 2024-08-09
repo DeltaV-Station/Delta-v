@@ -82,7 +82,7 @@ public sealed class SignatureSystem : EntitySystem
         var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
         _popup.PopupClient(signedSelfMessage, signer, signer);
 
-        _audio.PlayPredicted(comp.Sound, signer);
+        _audio.PlayPredicted(comp.Sound, signer, signer);
 
         return true;
     }
