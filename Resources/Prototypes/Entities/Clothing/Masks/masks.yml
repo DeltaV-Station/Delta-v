@@ -200,6 +200,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -242,6 +243,9 @@
     sprite: Clothing/Mask/joy.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -262,9 +266,11 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
+
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -418,6 +424,7 @@
   - type: BreathMask
   - type: Tag
     tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
@@ -437,6 +444,9 @@
     sprite: Clothing/Mask/fox.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -453,6 +463,9 @@
     sprite: Clothing/Mask/bee.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -469,9 +482,13 @@
     sprite: Clothing/Mask/bear.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
+
 
 - type: entity
   parent: ClothingMaskBase
@@ -485,6 +502,9 @@
     sprite: Clothing/Mask/raven.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -501,6 +521,9 @@
     sprite: Clothing/Mask/jackal.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -517,6 +540,9 @@
     sprite: Clothing/Mask/bat.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -536,6 +562,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - IPCMaskWearable # Estacao Pirata - IPCs
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -622,3 +649,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Estacao Pirata - IPCs

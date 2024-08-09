@@ -1,0 +1,18 @@
+- type: damageModifierSet
+  id: BloodlossIPC
+  coefficients:
+    Blunt: 1
+    Slash: 0.6
+    Piercing: 1.85
+    Shock: 0.0
+    Cold: 0.0
+    Heat: 0 # heat damage doesn't cauterize metal!
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0 # no double dipping
+    Cellular: 0.0
+  flatReductions: # Gotta crack a few borgs to get some coolant...
+    Blunt: 15
+    Slash: 15
+    Piercing: 15
