@@ -6,6 +6,12 @@ job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-security-borg = Security Cyborg
 
+# Define senior job names for use in virtual jobs
+job-name-seniorengineer = Senior Engineer
+job-name-seniorphysician = Senior Physician
+job-name-seniorresearcher = Senior Researcher
+job-name-seniorofficer = Senior Officer
+
 # Alternate job names
 job-name-tourist = Tourist
 job-name-off-duty = Off-Duty Crew
