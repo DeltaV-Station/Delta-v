@@ -10,6 +10,17 @@
   - UplinkAllies
 
 - type: listing
+  id: Mothroach Operative Reinforcement
+  name: uplink-reinforcement-radio-nukie-mothroach-name
+  description: uplink-reinforcement-radio-nukie-mothroach-desc
+  productEntity: ReinforcementRadioSyndicateNukieMothroach
+  icon: { sprite: DeltaV/Objects/Devices/communication.rsi, state: plushie-radio }
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAllies
+
+- type: listing
   id: UplinkBionicSyrinxImplanter
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc

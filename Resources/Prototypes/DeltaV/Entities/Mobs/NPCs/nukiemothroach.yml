@@ -1,195 +1,18 @@
-﻿#- type: entity
-#  name: nukiemothroach
-#  parent: MobCockroach
-#  id: MobNukieMothroach
-#  description: A Nuclear Operative... MOTHROACH?!
-#  components:
-#  - type: GhostRole
-#    makeSentient: true
-#    allowSpeech: true
-#    allowMovement: true
-#    name: ghost-role-information-nukie-mothroach-name
-#    description: ghost-role-information-nukie-mothroach-description
-#  - type: GhostTakeoverAvailable
-#  - type: RandomMetadata
-#    nameSegments: [ names_mouse_death_commando ]
-#  - type: NpcFactionMember
-#    factions:
-#    - Syndicate
-#  - type: PointLight
-#    radius: 1.5
-#    energy: 2.3
-#    offset: 0, -1
-#    color: green
-#  - type: Speech
-#    speechVerb: Moth
-#    speechSounds: Chitter # Delta-V - Eep!
-#    allowedEmotes: ['Chitter', 'Squeak']
-#  - type: FaxableObject
-#    insertingState: inserting_mothroach
-#  - type: MothAccent
-#  - type: Sprite
-#    sprite: Mobs/Animals/mothroach.rsi
-#    layers:
-#    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-#      state: mothroach
-#  - type: Fixtures
-#    fixtures:
-#      fix1:
-#        shape:
-#          !type:PhysShapeCircle
-#          radius: 0.2
-#        density: 120
-#        mask:
-#        - SmallMobMask
-#        layer:
-#        - SmallMobLayer
-#  - type: MobState
-#  - type: Deathgasp
-#  - type: MobStateActions
-#    actions:
-#      Critical:
-#      - ActionCritSuccumb
-#      - ActionCritFakeDeath
-#      - ActionCritLastWords
-#  - type: SpriteMovement
-#    movementLayers:
-#      movement:
-#        state: mothroach-moving
-#    noMovementLayers:
-#      movement:
-#        state: mothroach
-#  - type: Item
-#    size: Normal
-#  - type: Clothing
-#    quickEquip: false
-#    sprite: DeltaV/Mobs/Animals/nukiemothroach.rsi
-#    equippedPrefix: 0
-#    slots:
-#    - HEAD
-#  - type: Appearance
-#  - type: DamageStateVisuals
-#    states:
-#      Alive:
-#        Base: mothroach
-#      Critical:
-#        Base: mothroach_dead
-#      Dead:
-#        Base: mothroach_dead
-#  - type: MobThresholds
-#    thresholds:
-#      0: Alive
-#      40: Critical
-#      60: Dead
-#  - type: MovementSpeedModifier
-#    baseWalkSpeed : 3
-#    baseSprintSpeed : 4.9
-#    weightlessAcceleration: 1.5
-#    weightlessFriction: 1
-#    weightlessModifier: 1
-#  - type: Damageable
-#    damageContainer: Biological
-#    damageModifierSet: Moth
-#  - type: Bloodstream
-#    bloodReagent: InsectBlood
-#    bloodMaxVolume: 60
-#  - type: Reactive
-#    groups:
-#      Flammable: [ Touch ]
-#      Extinguish: [ Touch ]
-#  - type: InventorySlots
-#  - type: UserInterface
-#    interfaces:
-#      enum.StrippingUiKey.Key:
-#        type: StrippableBoundUserInterface
-#  - type: Puller
-#    needsHands: False
-#  - type: Respirator
-#    minSaturation: 5.0
-#  - type: NoSlip
-#  - type: CombatMode
-#  - type: MeleeWeapon
-#    soundHit:
-#      path: /Audio/Effects/bite.ogg
-#    angle: 0
-#    animation: WeaponArcBite
-#    damage:
-#      types:
-#        Slash: 5
-#        Piercing: 3
-#        Structural: 1.5
-#  - type: Butcherable
-#  - type: Temperature
-#    heatDamageThreshold: 423
-#    coldDamageThreshold: 0
-#  - type: PressureImmunity
-#  - type: Insulated
-#  - type: Barotrauma
-#    spawned:
-#    - id: FoodMeatRat
-#      amount: 2
-#    - id: HideMothroach # Have to make the plushies
-#      amount: 1
-#      prob: 0.5
-#  - type: Extractable
-#    grindableSolutionName: food
-#  - type: ReplacementAccent
-#    accent: mothroach
-#  - type: ZombieAccentOverride
-#    accent: zombieMoth
-#  - type: Vocal
-#    sounds:
-#      Male: UnisexMoth
-#      Female: UnisexMoth
-#      Unsexed: UnisexMoth
-#    wilhelmProbability: 0.001
-#  - type: MobPrice
-#    price: 250 #suit included
-#  - type: IntrinsicRadioReceiver
-#  - type: IntrinsicRadioTransmitter
-#    channels:
-#    - Syndicate
-#  - type: ActiveRadio
-#    channels:
-#    - Syndicate
-#  - type: Tag
-#    tags:
-#    - Trash
-#    - CannotSuicide
-#    - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
-#    - VimPilot
-#  - type: CanEscapeInventory
-#    baseResistTime: 3
-#  - type: NpcFactionMember
-#    factions:
-#    - Mouse
-#  - type: Body
-#    prototype: Mothroach
-#  - type: TypingIndicator
-#    proto: moth
-#  - type: Destructible
-#    thresholds:
-#    - trigger:
-#        !type:DamageTypeTrigger
-#        damageType: Blunt
-#        damage: 60
-#      behaviors:
-#      - !type:GibBehavior { }
-#  - type: FireVisuals
-#    sprite: Mobs/Effects/onfire.rsi
-#    normalState: Mouse_burning
-- type: entity
-  name: nukiemothroach
+﻿- type: entity
+  name: nuclear operative mothroach
   parent: MobCockroach
   id: MobNukieMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  description: A Nuclear Operative... MOTHROACH?!
+  suffix: syndicate
   components:
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-mothroach-name
-    description: ghost-role-information-mothroach-description
+    name: ghost-role-information-nukie-mothroach-name
+    description: ghost-role-information-nukie-mothroach-description
+  - type: RandomMetadata
+    nameSegments: [names_mothroach_death_commando]
   - type: Fixtures
     fixtures:
       fix1:
@@ -206,6 +29,11 @@
     speechVerb: Moth
     speechSounds: Chitter # Delta-V - Eep!
     allowedEmotes: ['Chitter', 'Squeak']
+  - type: PointLight
+    radius: 1.5
+    energy: 2.3
+    offset: 0, -1
+    color: green
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
@@ -273,6 +101,9 @@
     grindableSolutionName: food
   - type: ReplacementAccent
     accent: mothroach
+  - type: Puller
+    needsHands: False
+  - type: NoSlip
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -287,7 +118,6 @@
     tags:
     - Trash
     - CannotSuicide
-    - DoorBumpOpener # DeltaV - After all, why not? Why shouldn't they be able to open doors?
     - VimPilot
   - type: CanEscapeInventory
   - type: NpcFactionMember
@@ -308,4 +138,3 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-
