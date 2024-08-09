@@ -19,6 +19,7 @@ public sealed partial class WhitelistRequirement : JobRequirement
         [NotNullWhen(false)] out FormattedMessage? reason,
         bool isWhitelisted)
     {
+        reason = null;
         if (isWhitelisted)
             return true;
 

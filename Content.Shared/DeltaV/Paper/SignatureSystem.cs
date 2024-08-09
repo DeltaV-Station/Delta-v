@@ -71,7 +71,8 @@ public sealed class SignatureSystem : EntitySystem
             StampedColor = Color.DarkSlateGray, // TODO: make configurable? Perhaps it should depend on the pen.
         };
 
-        if (comp.StampedBy.Contains(stampInfo) || !_paper.TryStamp(paper, stampInfo, SignatureStampState, comp))
+        // TODO: when TryStamp return value isnt meaningless remove the contains check
+        if (comp.StampedBy.Contains(stampInfo) || !_paper.TryStamp(paper, stampInfo, SignatureStampState))
         {
             // Show an error popup
             _popup.PopupEntity(Loc.GetString("paper-signed-failure", ("target", paper.Owner)), signer, signer, PopupType.SmallCaution);
@@ -87,8 +88,6 @@ public sealed class SignatureSystem : EntitySystem
         _popup.PopupClient(signedSelfMessage, signer, signer);
 
         _audio.PlayPredicted(comp.Sound, signer, signer);
-
-        _paper.UpdateUserInterface(paper, comp);
 
         return true;
     }
