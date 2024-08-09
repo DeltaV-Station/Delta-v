@@ -1179,16 +1179,16 @@
           types:
             Poison: 0.5
             Asphyxiation: 0.66
-        - !type:PopupMessage
-          visualType: LargeCaution
-          type: Local
-          messages:
-            - "reagent-effect-cordivol-debivol-mix1"
-          probability: 0.1
-          conditions:
-            - !type:ReagentThreshold
-              reagent: Debivolol
-              min: 0.1
+      - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+          - "reagent-effect-cordivol-debivol-mix1"
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Debivolol
+          min: 0.1
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
