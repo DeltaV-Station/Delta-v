@@ -58,6 +58,7 @@ namespace Content.IntegrationTests.Tests
             "Glacier", //DeltaV
             "TheHive", //DeltaV
             "Hammurabi", //DeltaV
+			"Angle", //DeltaV
             "Lighthouse", //DeltaV
             "Micro", //DeltaV
             "Chibi" //DeltaV
