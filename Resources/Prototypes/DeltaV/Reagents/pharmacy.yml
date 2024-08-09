@@ -772,7 +772,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 5
+        time: 2.2
         refresh: false
       - !type:PopupMessage
         type: Local
@@ -795,7 +795,7 @@
         type: Local
         visualType: Medium
         messages:
-          - "reagent-effect-painkiller-fade" 
+          - "reagent-effect-painkiller-head-fade" 
         probability: 0.4
         conditions:
           - !type:ReagentThreshold
@@ -953,6 +953,12 @@
           - "reagent-effect-anxietymed-strong6"
           - "reagent-effect-anxietymed-strong7"
         probability: 0.085
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages:
+          - "reagent-effect-anxietymed-fade" # A decent chance to notify the player when their meds run out, but could happen silently.
+        probability: 0.32
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -1012,6 +1018,15 @@
         - !type:ReagentThreshold
           reagent: Asparatine
           min: 0.1
+      - !type:PopupMessage # A decent chance to notify the player when their meds run out
+        type: Local
+        visualType: Medium
+        messages:
+          - "reagent-effect-painkiller-head-fade" 
+        probability: 0.4
+        conditions:
+          - !type:ReagentThreshold
+            max: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1020,3 +1035,65 @@
           types:
             Poison: 2
             Piercing: 1
+
+- type: reagent
+  id: Cordivol
+  name: reagent-name-cordivol
+  group: Pharmacy
+  desc: reagent-desc-cordivol
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#44bcc8"
+  metabolisms:
+    Medicine:
+      metabolismRate : 0.01
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+          - "reagent-effect-betablocker1"
+          - "reagent-effect-betablocker2"
+          - "reagent-effect-betablocker3"
+          - "reagent-effect-betablocker4"
+          - "reagent-effect-betablocker5"
+          - "reagent-effect-betablocker6"
+        probability: 0.085
+      - !type:PopupMessage # A decent chance to notify the player when their meds run out
+        type: Local
+        visualType: Medium
+        messages:
+          - "reagent-effect-betablocker-fade1"
+          - "reagent-effect-betablocker-fade2" 
+          - "reagent-effect-betablocker-fade3" 
+        probability: 0.4
+        conditions:
+          - !type:ReagentThreshold
+            max: 0.2
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages:
+          - "reagent-effect-betablocker-overdose1"
+          - "reagent-effect-betablocker-overdose2"
+          - "reagent-effect-betablocker-overdose3"
+        probability: 0.15
+        conditions:
+        - !type:ReagentThreshold
+          min: 11.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11.2
+        damage:
+          types:
+            Poison: 0.5
+            Asphyxiation: 0.66
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 11.2
+        key: SeeingRainbows 
+        component: SeeingRainbows 
+        type: Add
+        time: 2.2
+        refresh: false

@@ -109,3 +109,15 @@ reagent-effect-asparatine-overdose2 = It feels like you're getting stabbed in th
 reagent-effect-asparatine-overdose3 = It is digging inside you.
 
 reagent-effect-asparatine-naguuprofen-mix1 = The Asparatine and Naguuprofen weren't a good idea...
+
+reagent-effect-betablocker1 = You feel light-headed.
+reagent-effect-betablocker2 = You stop shaking so much.
+reagent-effect-betablocker3 = You can breathe easy.
+reagent-effect-betablocker4 = Any shaking is gone.
+reagent-effect-betablocker5 = Your breathe calmly.
+reagent-effect-betablocker6 = You feel easy.
+reagent-effect-betablocker7 = Your chest is at ease.
+
+reagent-effect-betablocker-fade1 = You start to shake.
+reagent-effect-betablocker-fade2 = Your heart starts to race.
+reagent-effect-betablocker-fade3 = You breathe shakily.

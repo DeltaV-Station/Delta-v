@@ -42,3 +42,6 @@ reagent-desc-sodiumsalicylate = The sodium salt of salicylic acid, from the sali
 
 reagent-name-naguuprofen = Naguuprofen
 reagent-desc-naguuprofen = Used to treat light to mild headaches, and also hangovers. Not to be paired with Asparatine.
+
+reagent-name-cordivol = Cordivol
+reagent-desc-cordivol = An α1 antagonist, non-selective β-blocker. Used in severe cases of systolic heart failure. No real issues with mixing other drugs, alcohol is safe.
