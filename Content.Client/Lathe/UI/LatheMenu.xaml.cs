@@ -208,7 +208,8 @@ public sealed partial class LatheMenu : DefaultWindow
     /// <param name="queue"></param>
     public void PopulateQueueList(List<LatheRecipePrototype> queue)
     {
-        QueueList.Clear();
+        QueueList.DisposeAllChildren();
+
         var idx = 1;
         foreach (var recipe in queue)
         {
