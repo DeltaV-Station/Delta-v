@@ -30,6 +30,7 @@ reagent-effect-antidepressant-strongoverdose9 = They're all liars. LIARS!
 
 reagent-effect-antidepressant-fade = The antidepressant effects start to fade...
 
+
 reagent-effect-anxietymed-mild1 = You feel a bit calmer.
 reagent-effect-anxietymed-mild2 = You feel a little tired.
 reagent-effect-anxietymed-mild3 = You feel slightly relaxed.
@@ -59,6 +60,7 @@ reagent-effect-anxietymed-strong7 = You feel like you can take on the world!
 
 reagent-effect-anxietymed-fade = The calming effects start to fade...
 
+
 reagent-effect-medaddiction-1 = You're yearning for another high.
 reagent-effect-medaddiction-2 = You really need some more drugs.
 reagent-effect-medaddiction-3 = You feel empty. Find another fix.
@@ -68,16 +70,19 @@ reagent-effect-medaddiction-6 = You can feel your hands shaking.
 reagent-effect-medaddiction-7 = You could use another hit right now
 reagent-effect-medaddiction-8 = One more fix couldn't hurt, right?
 
-reagent-effect-painkiller-mild1 = Your body hurts a bit less.
-reagent-effect-painkiller-mild2 = You feel a little bit dizzy.
-reagent-effect-painkiller-mild3 = You feel a tiny bit numb.
-reagent-effect-painkiller-mild4 = Any pain you had has faded slightly.
-
+reagent-effect-painkiller-light1 = You feel a tiny bit better.
+reagent-effect-painkiller-light2 = The pain is manageable. For now.
+reagent-effect-painkiller-light3 = It will be okay, the pain is slowly fading.
 
 reagent-effect-painkiller-normal1 = Any pain you had has faded significantly.
 reagent-effect-painkiller-normal2 = You feel dizzy.
 reagent-effect-painkiller-normal3 = Your entire body goes numb briefly.
 reagent-effect-painkiller-normal4 = You feel your pain fade somewhat.
+
+reagent-effect-painkiller-mild1 = Your body hurts a bit less.
+reagent-effect-painkiller-mild2 = You feel a little bit dizzy.
+reagent-effect-painkiller-mild3 = You feel a tiny bit numb.
+reagent-effect-painkiller-mild4 = Any pain you had has faded slightly.
 
 reagent-effect-painkiller-strong1 = You forgot what pain feels like.
 reagent-effect-painkiller-strong2 = You can't see straight.
@@ -87,3 +92,42 @@ reagent-effect-painkiller-strong5 = You hardly feel anything at all.
 reagent-effect-painkiller-strong6 = Any pain you were feeling is gone.
 
 reagent-effect-painkiller-fade = The painkiller's effects start to fade...
+
+reagent-effect-painkiller-head-mild1 = Your head aches less.
+reagent-effect-painkiller-head-mild2 = You don't feel woozy anymore.
+
+reagent-effect-painkiller-head-strong1 = Your head feels numb.
+reagent-effect-painkiller-head-strong2 = You feel like you can think properly.
+reagent-effect-painkiller-head-strong3 = You can finally focus.
+reagent-effect-painkiller-head-strong4 = You feel extremely relieved.
+
+reagent-effect-painkiller-head-fade = You feel like your head is about to explode.
+
+
+reagent-effect-asparatine-overdose = Your tummy aches.
+reagent-effect-asparatine-overdose2 = It feels like you're getting stabbed in the guts.
+reagent-effect-asparatine-overdose3 = It is digging inside you.
+
+reagent-effect-asparatine-naguuprofen-mix1 = The Asparatine and Naguuprofen weren't a good idea...
+
+reagent-effect-betablocker1 = You feel light-headed.
+reagent-effect-betablocker2 = You stop shaking so much.
+reagent-effect-betablocker3 = You can breathe easy.
+reagent-effect-betablocker4 = Any shaking is gone.
+reagent-effect-betablocker5 = Your breathe calmly.
+reagent-effect-betablocker6 = You feel easy.
+reagent-effect-betablocker7 = Your chest is at ease.
+
+reagent-effect-betablocker-fade1 = You start to shake.
+reagent-effect-betablocker-fade2 = Your heart starts to race.
+reagent-effect-betablocker-fade3 = You breathe shakily.
+
+reagent-effect-betablocker-overdose1 = Your heart beats too fast!
+reagent-effect-betablocker-overdose2 = You feel like you're about to pass out!
+reagent-effect-betablocker-overdose3 = You can't breathe properly!
+
+reagent-effect-cordivol-debivolol-mix1 = The Cordivol and Debivolol mix wasn't a good idea...
+reagent-effect-cordivol-debivolol-mix2 = You feel like you're about to die...
+reagent-effect-cordivol-debivolol-mix3 = I need air... Fresh air...
+reagent-effect-cordivol-debivolol-mix4 = Can't... Chest...
+reagent-effect-cordivol-debivolol-mix5 = My... heart...

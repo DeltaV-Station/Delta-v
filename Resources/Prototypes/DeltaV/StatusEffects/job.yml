@@ -32,3 +32,10 @@
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
     state: SecurityBorg
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconPharmacist
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: Pharmacist

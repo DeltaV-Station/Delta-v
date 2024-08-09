@@ -18,5 +18,6 @@ guide-entry-deltav-rule-c3 = C3. Follow Antagonist Guidelines
 
 guide-entry-alert-levels = Alert Levels
 guide-entry-justice = Justice
+guide-entry-pharmacist = Pharmacist
 
 guide-entry-glimmer-creatures = Glimmer Creatures

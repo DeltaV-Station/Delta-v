@@ -102,7 +102,55 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
-  
+
+# Medical
+## Pharmacist
+- type: loadoutGroup
+  id: PharmacistJumpsuit
+  name: loadout-group-pharmacist-jumpsuit
+  loadouts:
+  - PharmacistSuit
+
+- type: loadoutGroup
+  id: PharmacistBack
+  name: loadout-group-pharmacist-back
+  loadouts:
+  - PharmacistBackpack
+  - PharmacistSatchel
+  - PharmacistDuffel
+
+- type: loadoutGroup
+  id: PharmacistOuterClothing
+  name: loadout-group-pharmacist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - PharmacistLabCoat
+  - ChemistApron
+
+- type: loadoutGroup
+  id: PharmacistNeck
+  name: loadout-group-pharmacist-neck
+  minLimit: 0
+  loadouts:
+  - Stethoscope
+  - ScarfOrange
+  - ScarfBlue
+
+- type: loadoutGroup
+  id: PharmacistGloves
+  name: loadout-group-pharmacist-gloves
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - ChemistGloves
+
+- type: loadoutGroup
+  id: PharmacistShoes
+  name: loadout-group-pharmacist-shoes
+  loadouts:
+  - PharmacistShoes
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup

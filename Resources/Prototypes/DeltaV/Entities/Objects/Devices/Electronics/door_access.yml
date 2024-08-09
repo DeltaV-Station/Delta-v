@@ -125,3 +125,11 @@
   components:
   - type: AccessReader
     access: [["Clerk"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPharmacist
+  suffix: Pharmacist, Locked
+  components:
+  - type: AccessReader
+    access: [["Pharmacist"]]
