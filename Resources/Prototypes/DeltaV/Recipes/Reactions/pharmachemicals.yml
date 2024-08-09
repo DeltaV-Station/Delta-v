@@ -1,6 +1,6 @@
 - type: reaction
   id: HydrogenIodide
-  mintemp: 310
+  minTemp: 310
   reactants:
     Hydrogen:
       amount: 2
@@ -12,7 +12,7 @@
 - type: reaction
   id: SodiumAmalgam
   impact: Medium
-  mintemp: 370
+  minTemp: 370
   reactants:
     Sodium:
       amount: 1
@@ -30,7 +30,7 @@
 
 - type: reaction
   id: BarbituricAcid
-  mintemp: 370
+  minTemp: 370
   reactants:
     HydrogenIodide:
       amount: 1
@@ -53,7 +53,7 @@
 
 - type: reaction
   id: SodiumPhenolate
-  mintemp: 370
+  minTemp: 370
   reactants:
     BenzenesulfonicAcid:
       amount: 1
@@ -157,7 +157,7 @@
 
 - type: reaction
   id: Propene
-  mintemp: 370
+  minTemp: 370
   reactants:
     Acetone:
       amount: 1
@@ -181,7 +181,7 @@
 
 - type: reaction
   id: HydrogenFluoride
-  mintemp: 370
+  minTemp: 370
   reactants:
     Hydrogen:
       amount: 1
@@ -218,7 +218,7 @@
 
 - type: reaction
   id: Isobutylphenylethanol
-  mintemp: 370
+  minTemp: 370
   reactants:
     Isobutylacetophenone:
       amount: 1
@@ -255,7 +255,7 @@
 
 - type: reaction
   id: AllylChloride
-  mintemp: 473.15
+  minTemp: 473.15
   reactants:
     Propene: 
       amount: 1
