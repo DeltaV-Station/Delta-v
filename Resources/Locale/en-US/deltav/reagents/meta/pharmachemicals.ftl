@@ -54,3 +54,18 @@ reagent-desc-isobutylacetophenone = Used in the manufacture of Naguuprofen. This
 
 reagent-name-isobutylphenylethanol = isobutylphenylethanol
 reagent-desc-isobutylphenylethanol = A complex molecule used in pharamaceutics.
+
+reagent-name-hydrogenperoxide = hydrogen peroxide
+reagent-desc-hydrogenperoxide = Also called peroxol, (H202) used to be a bleaching agent, or an oxidizer.
+
+reagent-name-catechol = catechol
+reagent-desc-catechol = Found naturally in fruits and vegetables, or as the extract of catechin, and also called pyrocatechol, just if you wondered.
+
+reagent-name-allylchloride = allyl chloride
+reagent-desc-allylchloride = A hazardous organic compound mainly used in reactions, without a real purpose in existence if not to be transformed.
+
+reagent-name-epichlorohydrin = epichlorohydrin
+reagent-name-epichlorohydrin = Often used to make epoxy related sticky liquids like resins and glues. Still not a pretext to sniff it.
+
+reagent-name-aryloxypropanolamine = aryloxypropanolamine
+reagent-desc-aryloxypropanolamine = An organic compound often used in the synthesis of β-blockers.

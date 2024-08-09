@@ -12,25 +12,21 @@
 - type: reaction
   id: SodiumAmalgam
   impact: Medium
-  mintemp: 310
+  mintemp: 370
   reactants:
     Sodium:
       amount: 1
     Mercury:
       amount: 1
   effects:
-  - !type:ExplosionReactionEffect
-    explosionType: Default # 15 damage per intensity.
-    maxIntensity: 0.0001
-    intensityPerUnit: 0.0001
-    intensitySlope: 0.0001
-    maxTotalIntensity: 0.0001
   - !type:PopupMessage
     messages: [ "The sodium melts with the mercury!" ]
     type: Pvs
     visualType: LargeCaution
   products:
     SodiumAmalgam: 2
+  sound:
+    collection: SodiumSpark
 
 - type: reaction
   id: BarbituricAcid
@@ -232,3 +228,64 @@
       amount: 1
   products:
     Isobutylphenylethanol: 3
+
+
+# β-blocker reactions
+
+- type: reaction
+  id: PhenolBreakdown
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    Phenol:
+      amount: 1
+  products:
+    HydrogenPeroxide: 2
+
+- type: reaction
+  id: Catechol
+  reactants:
+    Phenol:
+      amount: 1
+    HydrogenPeroxide:
+      amount: 1
+  products:
+    Catechol: 2
+
+- type: reaction
+  id: AllylChloride
+  mintemp: 473.15
+  reactants:
+    Propene: 
+      amount: 1
+    Chlorine:
+      amount: 1
+  products:
+    AllylChloride: 2
+
+- type: reaction
+  id: Epichlorohydrin
+  reactants:
+    AllylChloride:
+      amount: 1
+    HydrogenChloride: # Could have made HCl but that would mean I'd need to rewrite how water works and its whole acidity.
+      amount: 1
+  products:
+    Epichlorohydrine: 2
+
+- type: reaction
+  id: Aryloxypropanolamine # Used for α and β1 antagonist
+  reactants:
+    Catechol:
+      amount: 1
+    Epichlorohydrin:
+      amount: 1
+    SodiumPhenolate: # Alkali metal phenolate (a phenoxide or phenolate)
+      amount: 1
+  products:
+    Aryloxypropanolamine: 1
+
+# cordivol:
+# hydroxypropyl + propylene glycol
+# propylene glycol = propylene oxide + sulfuric acid (catalyst) (= dipropylene glycol (able to electrosys to get back some elements))
