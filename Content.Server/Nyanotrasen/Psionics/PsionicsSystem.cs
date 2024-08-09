@@ -101,7 +101,7 @@ namespace Content.Server.Psionics
             if (_faction.IsMember((uid, factions), "GlimmerMonster"))
                 return;
 
-            _faction.AddFaction((uid, factions) "PsionicInterloper");
+            _faction.AddFaction((uid, factions), "PsionicInterloper");
         }
 
         private void OnRemove(EntityUid uid, PsionicComponent component, ComponentRemove args)
