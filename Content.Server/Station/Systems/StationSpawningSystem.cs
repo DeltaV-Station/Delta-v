@@ -272,7 +272,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         _cardSystem.TryChangeFullName(cardId, characterName, card);
         _cardSystem.TryChangeJobTitle(cardId, job.VirtualJobLocalizedName ?? jobPrototype.LocalizedName, card); // DeltaV #1425 - Use VirtualJobLocalizedName if possible
 
-        _prototypeManager.TryIndex<StatusIconPrototype>(job.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
+        _prototypeManager.TryIndex<JobIconPrototype>(job.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, virtualJobIcon ?? jobIcon, card); // DeltaV #1425 - Use VirtualJobIcon if possible
 
