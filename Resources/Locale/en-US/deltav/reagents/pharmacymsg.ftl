@@ -121,3 +121,7 @@ reagent-effect-betablocker7 = Your chest is at ease.
 reagent-effect-betablocker-fade1 = You start to shake.
 reagent-effect-betablocker-fade2 = Your heart starts to race.
 reagent-effect-betablocker-fade3 = You breathe shakily.
+
+reagent-effect-betablocker-overdose1 = Your heart beats too fast!
+reagent-effect-betablocker-overdose2 = You feel like you're about to pass out!
+reagent-effect-betablocker-overdose3 = You can't breathe properly!
