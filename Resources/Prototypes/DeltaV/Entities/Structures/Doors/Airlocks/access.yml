@@ -7,6 +7,30 @@
   - type: PriorityDock
     tag: DockShipyard
 
+# locked variation of the shipyard dock. Allows tinyfans to be removed without causing large spacing due to tiding
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleShipyardLocked
+  suffix: External, Shipyard, Glass, Docking, Locked
+  components:
+  - type: PriorityDock
+    tag: DockShipyard
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
+
+# locked variant of arrivals. Allows tinyfans to be removed without causing large spacing due to tiding
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleArrivalsLocked
+  suffix: External, Arrivals, Glass, Docking, Locked
+  components:
+  - type: PriorityDock
+    tag: DockArrivals
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
+
 # Delta V specific roles
 - type: entity
   parent: AirlockScience
