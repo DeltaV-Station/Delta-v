@@ -199,6 +199,12 @@
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
+  - type: CartridgeLoader # DeltaV - Courier Performance
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MailMetricsCartridge
 
 ## Alternate Job Titles
 
