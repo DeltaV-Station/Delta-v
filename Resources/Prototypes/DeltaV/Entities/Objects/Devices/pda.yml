@@ -9,7 +9,7 @@
   description: Red and Sterile. Has a built-in health analyzer.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # - aPDA Sprite Rework
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
