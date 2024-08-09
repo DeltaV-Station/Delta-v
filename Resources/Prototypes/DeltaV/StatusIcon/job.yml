@@ -1,4 +1,4 @@
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconMedicalBorg
   icon:
@@ -6,7 +6,15 @@
     state: MedicalBorg
   jobName: job-name-medical-borg
 
-- type: statusIcon
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCourier
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoMailCarrier
+  jobName: job-name-courier
+
+- type: jobIcon
   parent: JobIcon
   id: JobIconChiefJustice
   icon:
@@ -14,7 +22,7 @@
     state: ChiefJustice
   jobName: job-name-chief-justice
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconClerk
   icon:
@@ -22,7 +30,7 @@
     state: Clerk
   jobName: job-name-clerk
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconProsecutor
   icon:
@@ -30,7 +38,7 @@
     state: Prosecutor
   jobName: job-name-prosecutor
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconSecurityBorg
   icon:

@@ -1,4 +1,4 @@
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconGladiator
   icon:
@@ -6,7 +6,7 @@
     state: nyanoGladiator
   name: job-name-gladiator
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconPrisonGuard
   icon:
@@ -14,15 +14,7 @@
     state: nyanoPrisonGuard
   name: job-name-prison-guard
 
-- type: statusIcon
-  parent: JobIcon
-  id: JobIconMailCarrier
-  icon:
-    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: nyanoMailCarrier
-  name: job-name-courier
-
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconMartialArtist
   icon:
@@ -30,7 +22,7 @@
     state: nyanoMartialArtist
   name: job-name-martialartist
 
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconForensicMantis
   icon:
