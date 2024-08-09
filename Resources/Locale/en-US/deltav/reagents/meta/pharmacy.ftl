@@ -45,3 +45,6 @@ reagent-desc-naguuprofen = Used to treat light to mild headaches, and also hango
 
 reagent-name-cordivol = Cordivol
 reagent-desc-cordivol = An α1 antagonist, non-selective β-blocker. Used in severe cases of systolic heart failure. No real issues with mixing other drugs, alcohol is safe.
+
+reagent-name-debivolol = X-Debivolol
+reagent-desc-debivolol = placeholder script.

@@ -75,3 +75,9 @@ reagent-desc-propeneoxide = An acutely toxic and carcinogenic organic compound o
 
 reagent-name-propeneglycol = propene glycol
 reagent-desc-propeneglycol = A sweet, viscous liquid. Produced on a large scale for the production of polymers.
+
+reagent-name-sulfurtrioxide = sulfur trioxide
+reagent-desc-sulfurtrioxide = Once was described as "unquestionably the most [economically] important sulfur oxide".
+
+reagent-name-chlorosulfuricacid = chlorosulfuric acid
+reagent-desc-chlorosulfuricacid = May cause respiratory irritation, also caustic.

@@ -286,6 +286,8 @@
   products:
     Aryloxypropanolamine: 1
 
+## Cordivol
+
 - type: reaction
   id: PropeneOxide
   reactants: 
@@ -308,3 +310,60 @@
       catalyst: true 
   products:
     PropeneGlycol: 1
+
+## X-Devivolol
+
+- type: reaction
+  id: SulfurTrioxide
+  reactants:
+    Sulfur:
+      amount: 1
+    Oxygen:
+      amount: 3
+  products:
+    SulfurTrioxide: 2
+
+- type: reaction # Sulfur Trioxide becomes sulfuric acid in contact with water.
+  id: SulfuricAcidTrioxide
+  reactants:
+    SulfurTrioxide:
+      amount: 1
+    Water: 
+      amount: 1
+  products:
+    SulfuricAcid: 2
+
+- type: reaction
+  id: ChlorosulfuricAcid
+  reactants: 
+    HydrogenChloride:
+      amount: 1
+    SulfurTrioxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    ChlorosulfuricAcid: 2
+
+- type: reaction
+  id: Dodecanol
+  reactants:
+    Ethanol:
+      amount: 1
+    Sodium:
+      amount: 1
+    Carbon: 
+      amount: 1
+  products:
+    Dodecanol: 3
+
+- type: reaction
+  id: SodiumLauryl
+  reactants:
+    ChlorosulfuricAcid: 
+      amount: 1
+    Dodecanol:
+      amount: 1
+  products:
+    SodiumLauryl: 4

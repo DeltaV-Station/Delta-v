@@ -929,6 +929,16 @@
           - "reagent-effect-asparatine-overdose"
           - "reagent-effect-asparatine-overdose2"
           - "reagent-effect-asparatine-overdose3"
+      - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+          - "reagent-effect-asparatine-naguuprofen-mix1"
+        probability: 0.1
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Naguuprofen
+            min: 0.1
 
 - type: reagent
   id: Zepprocane
@@ -1015,9 +1025,9 @@
           - "reagent-effect-asparatine-naguuprofen-mix1"
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
-          reagent: Asparatine
-          min: 0.1
+          - !type:ReagentThreshold
+            reagent: Asparatine
+            min: 0.1
       - !type:PopupMessage # A decent chance to notify the player when their meds run out
         type: Local
         visualType: Medium
@@ -1088,6 +1098,105 @@
           types:
             Poison: 0.5
             Asphyxiation: 0.66
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 11.2
+        key: SeeingRainbows 
+        component: SeeingRainbows 
+        type: Add
+        time: 2.2
+        refresh: false
+      - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+          - "reagent-effect-cordivol-debivol-mix1"
+        probability: 0.1
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Debivolol
+            min: 0.1
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Debivolol
+            min: 0.1
+        damage:
+          types:
+            Poison: 5
+
+- type: reagent
+  id: Debivolol
+  name: reagent-name-debivolol
+  group: Pharmacy
+  desc: reagent-desc-debivolol
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#44bcc8"
+  flavor: medicine
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.01
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+          - "reagent-effect-betablocker1"
+          - "reagent-effect-betablocker2"
+          - "reagent-effect-betablocker3"
+          - "reagent-effect-betablocker4"
+          - "reagent-effect-betablocker5"
+          - "reagent-effect-betablocker6"
+        probability: 0.085
+      - !type:PopupMessage # A decent chance to notify the player when their meds run out
+        type: Local
+        visualType: Medium
+        messages:
+          - "reagent-effect-betablocker-fade1"
+          - "reagent-effect-betablocker-fade2" 
+          - "reagent-effect-betablocker-fade3" 
+        probability: 0.4
+        conditions:
+          - !type:ReagentThreshold
+            max: 0.2
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages:
+          - "reagent-effect-betablocker-overdose1"
+          - "reagent-effect-betablocker-overdose2"
+          - "reagent-effect-betablocker-overdose3"
+        probability: 0.15
+        conditions:
+        - !type:ReagentThreshold
+          min: 11.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11.2
+        damage:
+          types:
+            Poison: 0.5
+            Asphyxiation: 0.66
+        - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+          - "reagent-effect-cordivol-debivol-mix1"
+        probability: 0.1
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Debivolol
+            min: 0.1
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Debivolol
+            min: 0.1
+        damage:
+          types:
+            Poison: 5
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold 
