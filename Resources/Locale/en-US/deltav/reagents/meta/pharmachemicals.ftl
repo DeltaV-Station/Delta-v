@@ -65,7 +65,13 @@ reagent-name-allylchloride = allyl chloride
 reagent-desc-allylchloride = A hazardous organic compound mainly used in reactions, without a real purpose in existence if not to be transformed.
 
 reagent-name-epichlorohydrin = epichlorohydrin
-reagent-name-epichlorohydrin = Often used to make epoxy related sticky liquids like resins and glues. Still not a pretext to sniff it.
+reagent-desc-epichlorohydrin = Often used to make epoxy related sticky liquids like resins and glues. Still not a pretext to sniff it.
 
 reagent-name-aryloxypropanolamine = aryloxypropanolamine
 reagent-desc-aryloxypropanolamine = An organic compound often used in the synthesis of β-blockers.
+
+reagent-name-propeneoxide = propene oxide
+reagent-desc-propeneoxide = An acutely toxic and carcinogenic organic compound often used in the industrial sector in large quantities.
+
+reagent-name-propeneglycol = propene glycol
+reagent-desc-propeneglycol = A sweet, viscous liquid. Produced on a large scale for the production of polymers.

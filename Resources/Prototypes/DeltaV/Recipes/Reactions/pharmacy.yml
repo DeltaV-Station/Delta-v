@@ -185,5 +185,18 @@
   products:
     Naguuprofen: 4
 
+- type: reaction
+  id: Cordivol
+  mintemp: 370
+  reactants:
+    PropeneOxide:
+      amount: 1
+    PropeneGlycol:
+      amount: 1
+    Aryloxypropanolamine:
+      amount: 1
+  products:
+    Cordivol: 1
+
 # (Nebivolol) "β1-selective" β1 antagonist, β3 agonist, considered STRONG for in game standards = dilation of blood vessels, blocks adrenergic receptors in the heart (no more neurotransmission)
 # Cordivol (Carvedilol) "α1- + β-selective" α1 antagonist, non-selective: β1 + β2 antagonist = dilation of blood vessels

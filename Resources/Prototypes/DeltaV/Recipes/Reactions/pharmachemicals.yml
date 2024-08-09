@@ -286,6 +286,25 @@
   products:
     Aryloxypropanolamine: 1
 
-# cordivol:
-# hydroxypropyl + propylene glycol
-# propylene glycol = propylene oxide + sulfuric acid (catalyst) (= dipropylene glycol (able to electrosys to get back some elements))
+- type: reaction
+  id: PropeneOxide
+  reactants: 
+    Propene:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    PropeneOxide: 1
+
+- type: reaction
+  id: PropeneGlycol
+  reactants:
+    PropeneOxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true 
+  products:
+    PropeneGlycol: 1
