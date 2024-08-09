@@ -871,6 +871,8 @@
   loadouts:
   - StationEngineerPDA
   - SeniorEngineerPDA
+  - ElectricianPDA # DeltaV
+  - MechanicPDA # DeltaV
 
 - type: loadoutGroup # DeltaV
   id: AtmosphericTechnicianNeck
@@ -1031,6 +1033,9 @@
   loadouts:
   - ScientistPDA
   - SeniorResearcherPDA
+  - LabTechPDA # DeltaV
+  - XenoarchPDA # DeltaV
+  - RoboticistPDA # DeltaV
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1348,6 +1353,7 @@
   loadouts:
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
+  - ClinicianPDA # DeltaV
 
 - type: loadoutGroup
   id: MedicalGloves
