@@ -30,7 +30,7 @@
 
 - type: reaction
   id: BarbituricAcid
-  minTemp: 370
+  mintemp: 370
   reactants:
     HydrogenIodide:
       amount: 1
@@ -157,7 +157,7 @@
 
 - type: reaction
   id: Propene
-  minTemp: 370
+  mintemp: 370
   reactants:
     Acetone:
       amount: 1
@@ -272,7 +272,7 @@
     HydrogenChloride: # Could have made HCl but that would mean I'd need to rewrite how water works and its whole acidity.
       amount: 1
   products:
-    Epichlorohydrine: 2
+    Epichlorohydrin: 2
 
 - type: reaction
   id: Aryloxypropanolamine # Used for α and β1 antagonist

@@ -81,3 +81,9 @@ reagent-desc-sulfurtrioxide = Once was described as "unquestionably the most [ec
 
 reagent-name-chlorosulfuricacid = chlorosulfuric acid
 reagent-desc-chlorosulfuricacid = May cause respiratory irritation, also caustic.
+
+reagent-name-dodecanol = dodecanol
+reagent-desc-dodecanol = Fat alcohol. Was previously made from coconut and whatnots.
+
+reagent-name-sodiumlauryl = sodiun lauryl
+reagent-desc-sodiumlauryl = A complex reagent used in the synthesis of beta blockers.

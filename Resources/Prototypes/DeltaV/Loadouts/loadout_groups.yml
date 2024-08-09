@@ -140,25 +140,10 @@
 - type: loadoutGroup
   id: PharmacistGloves
   name: loadout-group-pharmacist-gloves
-  minLimit: 0
   loadouts:
   - LatexGloves
   - NitrileGloves
   - ChemistGloves
-
-- type: loadoutGroup
-  id: PharmacistGlasses
-  name: loadout-group-pharmacist-glasses
-  minlimit: 0
-  loadouts:
-  - ChemGlass
-
-- type: loadoutGroup
-  id: PharmacistBelt
-  name: loadout-group-pharmacist-belt
-  minlimit: 0
-  loadouts:
-  - ChemBag
 
 - type: loadoutGroup
   id: PharmacistShoes
