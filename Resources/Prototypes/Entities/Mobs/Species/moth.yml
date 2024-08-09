@@ -15,6 +15,8 @@
   - type: Icon
     sprite: Mobs/Species/Moth/parts.rsi
     state: full
+  - type: Inventory
+    speciesId: moth # Deltav - allows moth clothing sprite variants
   - type: Body
     prototype: Moth
     requiredLegs: 2
@@ -127,3 +129,5 @@
   components:
   - type: HumanoidAppearance
     species: Moth
+  - type: Inventory
+    speciesId: moth

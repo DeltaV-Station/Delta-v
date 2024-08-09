@@ -32,6 +32,7 @@
         amount: 5
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
   - type: Reactive
     reactions:
     - reagents: [Water]
@@ -132,5 +133,7 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid
 
 #88w88
