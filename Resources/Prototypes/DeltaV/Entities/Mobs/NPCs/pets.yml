@@ -70,7 +70,7 @@
         state: alive
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
        - state: mouth
-        state: suit
+       - state: suit
         shader: unshaded
   - type: TypingIndicator
     proto: lawyer # incase of cognizine
