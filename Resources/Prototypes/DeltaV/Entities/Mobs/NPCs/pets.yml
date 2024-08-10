@@ -69,7 +69,7 @@
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-        state: mouth
+       - state: mouth
         state: suit
         shader: unshaded
   - type: TypingIndicator
