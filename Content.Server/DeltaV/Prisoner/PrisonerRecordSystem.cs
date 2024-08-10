@@ -27,8 +27,8 @@ public sealed class PrisonerRecordSystem : EntitySystem
     public RandomCrimes Crimes = new()
     {
         Dataset = "FugitiveCrimes",
-        Crimes = new(1, 5),
-        Counts = new(1, 20)
+        Crimes = new(1, 6),
+        Counts = new(1, 8)
     };
 
     public override void Initialize()
