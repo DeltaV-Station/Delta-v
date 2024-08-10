@@ -9,6 +9,12 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+    time: 7200 # DeltaV - 2 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    time: 3600 # DeltaV - 1 hours
   accessGroups:
   - AllAccess
   access:
@@ -57,12 +63,12 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
-    suitstorage: WeaponRifleLecter
+    suitstorage: WeaponGunLaserCarbineAutomatic
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    pocket1: WeaponEnergyGunPistol
+    pocket2: HandheldGPSBasic
   inhand:
     - AirTankFilled
 
@@ -77,6 +83,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -132,6 +141,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -181,6 +193,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -229,12 +244,12 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
-    suitstorage: WeaponRifleLecter
+    suitstorage: WeaponGunLaserCarbineAutomatic
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    pocket1: WeaponEnergyGunPistol
+    pocket2: HandheldGPSBasic
   inhand:
     - AirTankFilled
 
@@ -249,6 +264,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -296,6 +314,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
