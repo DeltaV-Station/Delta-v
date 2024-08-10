@@ -1448,16 +1448,6 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
 
-- type: loadoutGroup
-  id: SurvivalMedical
-  name: loadout-group-survival-medical
-  minLimit: 2
-  maxLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMedical
-  - EmergencyOxygenMedical
-
 # Wildcards
 - type: loadoutGroup
   id: ReporterJumpsuit
