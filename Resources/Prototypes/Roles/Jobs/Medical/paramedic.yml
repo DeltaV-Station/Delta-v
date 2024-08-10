@@ -6,7 +6,10 @@
   antagAdvantage: 2 # DeltaV - Reduced TC: External Access
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 60
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 1800
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
@@ -26,4 +29,3 @@
     belt: ClothingBeltMedicalEMTFilled
     pocket1: HandheldGPSBasic # DeltaV - Give Paramedics useful tools on spawn
     pocket2: HandheldCrewMonitor # DeltaV - Give Paramedics useful tools on spawn
-

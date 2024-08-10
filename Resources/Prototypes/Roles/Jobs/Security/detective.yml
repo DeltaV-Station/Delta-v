@@ -5,10 +5,10 @@
   playTimeTracker: JobDetective
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 7200
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 60
+      time: 3600
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

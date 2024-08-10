@@ -6,7 +6,7 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
 #    - !type:RoleTimeRequirement
 #      role: JobSalvageSpecialist
 #      time: 10800 3 hrs
@@ -15,7 +15,7 @@
 #      time: 7200  2 hours
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
-      time: 1800 #DeltaV 0,5 hrs
+      time: 10800 #DeltaV 3 hrs
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
