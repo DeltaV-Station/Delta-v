@@ -1,0 +1,144 @@
+- type: reagent
+  id: Feraksicelline
+  name: reagent-name-feraksicelline
+  group: Medicine
+  desc: reagent-desc-feraksicelline
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#fc0303"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:CureZombieInfection
+        innoculate: true
+        conditions:
+          - !type:ReagentThreshold
+            min: 5
+      - !type:CureZombieInfection
+        conditions:
+          - !type:ReagentThreshold
+            min: 5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -10
+            Asphyxiation: -10
+            Radiation: -10
+            Bloodloss: -10
+            Cellular: -9
+      - !type:AdjustReagent
+        reagent: Amatoxin
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: Histamine
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: Romerol
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: ChloralHydrate
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: Nocturine
+        amount: -0.5
+      - !type:AdjustReagent
+        reagent: Lexorin
+        amount: -0.5
+
+
+
+- type: reagent
+  id: Kortizadrenaline
+  name: reagent-name-kortizadrenaline
+  group: Medicine
+  desc: reagent-desc-kortizadrenaline
+  physicalDesc: reagent-physical-desc-energizing
+  flavor: medicine
+  color: "#fc5e03"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBleedAmount
+        amount: -0.1
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.3
+        sprintSpeedModifier: 1.3
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 25 #please wait 3 minutes before using another stimpack
+        damage:
+          types:
+            Poison: 6
+            Cellular: 2
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -2
+            Bloodloss: -4
+          groups:
+            Brute: -10
+            Burn: -10
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+        type: Add
+
+
+
+
+- type: reagent
+  id: Tantoksadone
+  name: reagent-name-tantoksadone
+  group: Medicine
+  desc: reagent-desc-tantoksadone
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#03fcf8"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -2
+            Asphyxiation: -12
+            Radiation: -2
+            Bloodloss: -12
+      - !type:ModifyBleedAmount
+        amount: -5
+
+
+
+- type: reagent
+  id: Deraksozine
+  name: reagent-name-deraksozine
+  group: Medicine
+  desc: reagent-desc-deraksozine
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: medicine
+  color: "#03fc13"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -5
+            Asphyxiation: -6
+            Radiation: -5
+            Bloodloss: -8
+          groups:
+            Brute: -8
+            Burn: -8
+      - !type:ModifyBleedAmount
+        amount: -1.5

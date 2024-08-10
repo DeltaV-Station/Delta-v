@@ -79,8 +79,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(0,3645                           ,(testEnergy)/150);
-            falofPower = mix(sqrt(6.4),sqrt(6.4)                           ,(testEnergy)/150);
+            intensityPower = mix(0.0,3645.0                           ,(testEnergy)/150.0);
+            falofPower = mix(sqrt(6.4),sqrt(6.4)                           ,(testEnergy)/150.0);
         }else if(testEnergy>=150&&testEnergy<250){
 
 
@@ -103,8 +103,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(3645,103680                           ,(testEnergy-150)/100);
-            falofPower = mix(sqrt(6.4),sqrt(7.0)                           ,(testEnergy-150)/100);
+            intensityPower = mix(3645.0,103680.0                           ,(testEnergy-150)/100.0);
+            falofPower = mix(sqrt(6.4),sqrt(7.0)                           ,(testEnergy-150)/100.0);
         }else if(testEnergy>=250&&testEnergy<300){
 
 
@@ -127,8 +127,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(103680,113680                           ,(testEnergy-250)/50);
-            falofPower = mix(sqrt(7.0),sqrt(7.2)                           ,(testEnergy-250)/50);
+            intensityPower = mix(103680.0,113680.0                           ,(testEnergy-250)/50.0);
+            falofPower = mix(sqrt(7.0),sqrt(7.2)                           ,(testEnergy-250)/50.0);
         }else if(testEnergy>=300&&testEnergy<950){
 
 
@@ -151,8 +151,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(113680,1113920                           ,(testEnergy-300)/650);
-            falofPower = mix(sqrt(7.2),sqrt(8.0)                           ,(testEnergy-300)/650);
+            intensityPower = mix(113680.0,1113920.0                           ,(testEnergy-300)/650.0);
+            falofPower = mix(sqrt(7.2),sqrt(8.0)                           ,(testEnergy-300)/650.0);
         }else if(testEnergy>=950&&testEnergy<1000){
 
 
@@ -175,8 +175,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(1113920,16200000                           ,(testEnergy-950)/50);
-            falofPower = mix(sqrt(8.0),sqrt(10.0)                           ,(testEnergy-950)/50);
+            intensityPower = mix(1113920.0,16200000.0                           ,(testEnergy-950)/50.0);
+            falofPower = mix(sqrt(8.0),sqrt(10.0)                           ,(testEnergy-950)/50.0);
         }else if(testEnergy>=1000&&testEnergy<1950){
 
 
@@ -199,8 +199,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(16200000,180000000                           ,(testEnergy-1000)/950);
-            falofPower = mix(sqrt(10.0),sqrt(12.0)                           ,(testEnergy-1000)/950);
+            intensityPower = mix(16200000.0,180000000.0                           ,(testEnergy-1000)/950.0);
+            falofPower = mix(sqrt(10.0),sqrt(12.0)                           ,(testEnergy-1000)/950.0);
         }else if(testEnergy>=1950&&testEnergy<2950){
 
 
@@ -223,8 +223,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(180000000,280000000                           ,(testEnergy-1950)/1000);
-            falofPower = mix(sqrt(12.0),sqrt(12.0)                           ,(testEnergy-1950)/1000);
+            intensityPower = mix(180000000.0,280000000.0                           ,(testEnergy-1950)/1000.0);
+            falofPower = mix(sqrt(12.0),sqrt(12.0)                           ,(testEnergy-1950)/1000.0);
         }else{
 
 
@@ -247,7 +247,7 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = 280000000;
+            intensityPower = 280000000.0;
             falofPower = sqrt(12.0);
         }
 
