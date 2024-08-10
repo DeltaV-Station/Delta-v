@@ -9,7 +9,7 @@
       time: 5400
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 10800 # DeltaV - 3 hours
-      startingGear: RoboticistGear
+  startingGear: RoboticistGear
   icon: "JobIconRoboticist"
   supervisors: job-supervisors-rd
   access:
