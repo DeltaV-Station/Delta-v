@@ -1,0 +1,1 @@
+petting-success-soft-little-floofy-others = { CAPITALIZE(THE($user)) } гладит {THE($target)} по {POSS-ADJ($target)} немного мягкой пушистой голове.
