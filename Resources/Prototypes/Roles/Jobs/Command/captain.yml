@@ -6,9 +6,9 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 1800
+      time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

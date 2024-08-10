@@ -5,10 +5,10 @@
   playTimeTracker: JobWarden
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 10800
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 60
+      time: 7200
   #requirements:
   #  - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
   #    role: JobSecurityOfficer

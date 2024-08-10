@@ -5,7 +5,10 @@
   playTimeTracker: JobJudge
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 7200
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 10800
   startingGear: JudgeGear
   icon: "JobIconJudge"
   supervisors: job-supervisors-centcom

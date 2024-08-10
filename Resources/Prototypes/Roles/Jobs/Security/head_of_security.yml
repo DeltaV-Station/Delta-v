@@ -5,10 +5,10 @@
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 1800
+      time: 10800
   #requirements:
   #  - !type:RoleTimeRequirement
   #    role: JobWarden

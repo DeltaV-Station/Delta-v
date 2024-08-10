@@ -1,6 +1,6 @@
-ent-ReinforcedUraniumWindow = урановое бронеокно
+ent-ReinforcedUraniumWindow = армированное урановое окно
     .desc = { ent-Window.desc }
-ent-UraniumReinforcedWindowDirectional = направленное урановое бронеокно
+ent-UraniumReinforcedWindowDirectional = армированное направленное урановое окно
     .desc = Смотри не заляпай.
 ent-ReinforcedUraniumWindowDiagonal = { ent-ReinforcedUraniumWindow }
     .suffix = Диагональ

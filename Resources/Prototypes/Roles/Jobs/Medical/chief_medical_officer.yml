@@ -8,10 +8,10 @@
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 1800
+      time: 7200
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

@@ -5,10 +5,10 @@
   playTimeTracker: JobChemist
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 1800
+      time: 10800
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 60
+      time: 3600
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
