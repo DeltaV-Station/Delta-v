@@ -72,9 +72,9 @@
       40: Critical
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4
-    weightlessAcceleration: 1.5
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4.9
+    weightlessAcceleration: 1.5 #Flight without gravity
     weightlessFriction: 1
     weightlessModifier: 1
   - type: Damageable
@@ -82,19 +82,22 @@
     damageModifierSet: Moth
   - type: Bloodstream
     bloodReagent: InsectBlood
-  - type: Respirator
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
     damage:
       types:
-        Asphyxiation: 0.5
-    damageRecovery:
-      types:
-        Asphyxiation: -0.5
-  - type: CombatMode
+        Slash: 5
+        Piercing: 3
+        Structural: 1.5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
       amount: 2
-    - id: HideMothroach # Gotta make the plushies
+    - id: HideMothroach #Gotta make the plushies
       amount: 1
       prob: 0.5
   - type: Extractable
@@ -104,6 +107,17 @@
   - type: Puller
     needsHands: False
   - type: NoSlip
+  - type: Respirator
+    minSaturation: 5.0
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -113,7 +127,14 @@
       Unsexed: UnisexMoth
     wilhelmProbability: 0.001
   - type: MobPrice
-    price: 150
+    price: 250 #Same price as mouse-ops
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
   - type: Tag
     tags:
     - Trash
@@ -122,7 +143,7 @@
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
-    - Mouse
+    - Syndicate
   - type: Body
     prototype: Mothroach
   - type: TypingIndicator
@@ -132,9 +153,16 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 60
+        damage: 150 #They are more resistant than normal mothroaches
       behaviors:
       - !type:GibBehavior { }
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: InteractionPopup
+    successChance: 0.6
+    interactSuccessString: petting-success-nukie-mothroach
+    interactFailureString: petting-failure-nukie-mothroach
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Moth/moth_squeak.ogg
