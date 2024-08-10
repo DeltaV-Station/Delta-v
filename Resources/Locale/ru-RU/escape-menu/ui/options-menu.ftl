@@ -124,6 +124,7 @@ ui-options-function-camera-reset = Сбросить камеру
 ui-options-function-zoom-in = Приблизить
 ui-options-function-zoom-out = Отдалить
 ui-options-function-reset-zoom = Сбросить
+## ui-options-function-camera-offset = Осмотреться
 ui-options-function-use = Использовать
 ui-options-function-use-secondary = Использовать вторично
 ui-options-function-alt-use = Альтернативное использование

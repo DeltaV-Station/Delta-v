@@ -167,6 +167,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.CameraRotateLeft);
             AddButton(EngineKeyFunctions.CameraRotateRight);
             AddButton(EngineKeyFunctions.CameraReset);
+            //AddButton(EngineKeyFunctions.CameraOffset);
             AddButton(ContentKeyFunctions.ZoomIn);
             AddButton(ContentKeyFunctions.ZoomOut);
             AddButton(ContentKeyFunctions.ResetZoom);

@@ -1,5 +1,7 @@
 using System.Numerics;
 using JetBrains.Annotations;
+using Robust.Shared.Input;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
@@ -29,7 +31,6 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
     protected const float KickMagnitudeMax = 1f;
 
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-
     /// <summary>
     ///     Applies explosion/recoil/etc kickback to the view of the entity.
     /// </summary>
@@ -51,7 +52,7 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
             if (magnitude <= 0.005f)
             {
                 recoil.CurrentKick = Vector2.Zero;
-                _eye.SetOffset(uid, recoil.BaseOffset + recoil.CurrentKick, eye);
+                _eye.SetOffset(uid, recoil.BaseOffset + recoil.CurrentKick + recoil.CurrentLookOffset, eye);
             }
             else // Continually restore camera to 0.
             {
@@ -66,7 +67,7 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
 
                 recoil.CurrentKick = new Vector2(x, y);
 
-                _eye.SetOffset(uid, recoil.BaseOffset + recoil.CurrentKick, eye);
+                _eye.SetOffset(uid, recoil.BaseOffset + recoil.CurrentKick + recoil.CurrentLookOffset, eye);
             }
         }
     }

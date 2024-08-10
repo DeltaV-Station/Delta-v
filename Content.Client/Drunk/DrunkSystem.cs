@@ -10,7 +10,7 @@ public sealed class DrunkSystem : SharedDrunkSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
-    private DrunkOverlay _overlay = default!;
+    /*public*/private DrunkOverlay _overlay = default!;
 
     public override void Initialize()
     {
