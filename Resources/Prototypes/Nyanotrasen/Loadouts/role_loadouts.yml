@@ -2,6 +2,7 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
+  - GroupTankHarness
   - MailCarrierHead
   - MailCarrierJumpsuit
   - CommonBackpack
@@ -43,14 +44,17 @@
 - type: roleLoadout
   id: JobPrisoner
   groups:
+  - GroupTankHarness
   - PrisonerJumpsuit
   - PassengerShoes
+  - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobMartialArtist
   groups:
+  - GroupTankHarness
   - MartialArtistJumpsuit
   - MartialArtistBelt
   - MartialArtistShoes
