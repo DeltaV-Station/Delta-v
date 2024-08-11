@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
+using Content.Shared.Access.Components; // DeltaV
+using Content.Shared.Access.Systems; // DeltaV
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -33,6 +35,7 @@ namespace Content.Server.StationRecords.Systems;
 public sealed class StationRecordsSystem : SharedStationRecordsSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!; // DeltaV
     [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
@@ -120,12 +123,16 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             return;
         }
 
+        // DeltaV - use id card if possible
+        Entity<IdCardComponent>? card = null;
+        if (idUid != null && _idCard.TryFindIdCard(idUid.Value, out var card2))
+            card = card2;
         var record = new GeneralStationRecord()
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
-            JobIcon = jobPrototype.Icon,
+            JobTitle = card?.Comp.JobTitle ?? jobPrototype.LocalizedName, // DeltaV
+            JobIcon = card?.Comp.JobIcon ?? jobPrototype.Icon, // DeltaV
             JobPrototype = jobId,
             Species = species,
             Gender = gender,

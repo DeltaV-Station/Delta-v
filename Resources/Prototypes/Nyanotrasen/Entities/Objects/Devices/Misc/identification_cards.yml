@@ -38,7 +38,7 @@
     job: PrisonGuard
 
 - type: entity
-  parent: IDCardStandard
+  parent: CourierIDCard
   id: MailCarrierIDCard
   name: mail carrier ID card
   components:
@@ -47,8 +47,8 @@
     - state: default
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanomailcarrier
-  - type: PresetIdCard
-    job: MailCarrier
+  - type: IdCard
+    jobTitle: Mail Carrier
 
 - type: entity
   parent: IDCardStandard

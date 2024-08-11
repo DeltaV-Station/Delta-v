@@ -1,10 +1,10 @@
 using System.Linq;
-using Content.Server.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
