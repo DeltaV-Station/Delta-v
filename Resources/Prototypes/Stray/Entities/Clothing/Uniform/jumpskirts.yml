@@ -41,3 +41,14 @@
     sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield.rsi
   - type: Clothing
     sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtBlueShieldTurtle
+  name: blue shield turtleneck
+  description: Comfortable and warm turtleneck. Suitable for those who prefer to be more mobile while rescuing important persons.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield_turtle.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpskirt/blueshield_turtle.rsi

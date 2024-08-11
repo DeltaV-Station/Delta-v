@@ -29,6 +29,7 @@
       - id: Flash
       - id: HandheldCrewMonitor
       - id: BoxZiptieBlueShield
+      - id: BluespaceBoxHardsuitBlueShield
   - type: ExplosionResistance
     damageCoefficient: 0.1
 
@@ -40,6 +41,9 @@
     sprite: Stray/Clothing/Back/Backpacks/blueshield.rsi
   - type: Clothing
     sprite: Stray/Clothing/Back/Backpacks/blueshield.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3
 
 - type: entity
   parent: ClothingBackpackBrigmedicAlt

@@ -2,7 +2,7 @@
   parent: BaseItem
   id: BluespaceBoxBase
   name: bluespace box
-  description: Filled
+  description: It looks like an ordinary cardboard box, but on the side it says "BlueSpace Vault". There must be something in there.
   components:
   - type: Sprite
     sprite: Objects/Storage/boxes.rsi
@@ -16,7 +16,7 @@
     items:
     - id: MysteryFigureBoxTrash
     sound:
-      path: /Audio/Effects/box_deploy.ogg
+      path: /Audio/Effects/unwrap.ogg
 
 
 - type: entity

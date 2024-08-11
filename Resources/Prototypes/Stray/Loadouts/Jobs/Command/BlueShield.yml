@@ -8,6 +8,33 @@
       role: JobBlueshield
       time: 14400 #4 hrs
 
+- type: loadoutEffectGroup
+  id: BlueShieldADTTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshield
+      time: 273600 #76 hrs  Да, 76 часов. Вопросы?
+
+- type: loadoutEffectGroup
+  id: BlueShieldTimerMedglasses
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 14400 #4 hrs
+
+- type: loadoutEffectGroup
+  id: BlueShieldTimerSec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400 #4 hrs
+
 # Jumpsuit
 - type: loadout
   id: BlueShieldJumpsuit
@@ -28,8 +55,29 @@
       jumpsuit: ClothingUniformJumpskirtBlueShield
 
 - type: loadout
+  id: BlueShieldJumpsuitTurtle
+  equipment: BlueShieldJumpsuitTurtle
+
+- type: startingGear
+  id: BlueShieldJumpsuitTurtle
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBlueShieldTurtle
+
+- type: loadout
+  id: BlueShieldJumpskirtTurtle
+  equipment: BlueShieldJumpskirtTurtle
+
+- type: startingGear
+  id: BlueShieldJumpskirtTurtle
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBlueShieldTurtle
+
+- type: loadout
   id: BlueShieldNTUniform
   equipment: BlueShieldNTUniform
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldNTUniform
@@ -49,6 +97,9 @@
 - type: loadout
   id: BlueShieldBulletproofVest
   equipment: BlueShieldBulletproofVest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldBulletproofVest
@@ -86,6 +137,9 @@
 - type: loadout
   id: BlueShieldSatchelAlt
   equipment: BlueShieldSatchelAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldSatchelAlt
@@ -95,6 +149,9 @@
 - type: loadout
   id: BlueShieldDuffelAlt
   equipment: BlueShieldDuffelAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldDuffelAlt
@@ -104,6 +161,9 @@
 - type: loadout
   id: BlueShieldBackpackAlt
   equipment: BlueShieldBackpackAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldBackpackAlt
@@ -126,6 +186,9 @@
 - type: loadout
   id: BlueShieldCloakNT
   equipment: BlueShieldCloakNT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldCloakNT
@@ -136,6 +199,9 @@
 - type: loadout
   id: Medglasses
   equipment: Medglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimerMedglasses
 
 - type: startingGear
   id: Medglasses
@@ -145,6 +211,9 @@
 - type: loadout
   id: SecglassesBlueShield
   equipment: SecglassesBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimerSec
 
 - type: startingGear
   id: SecglassesBlueShield
@@ -154,6 +223,9 @@
 - type: loadout
   id: Blueglasses
   equipment: Blueglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimer
 
 - type: startingGear
   id: Blueglasses
@@ -164,6 +236,9 @@
 - type: loadout
   id: BlueShieldBeret
   equipment: BlueShieldBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldBeret
@@ -192,6 +267,9 @@
 - type: loadout
   id: BlueShieldWebbingAlt
   equipment: BlueShieldWebbingAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
 
 - type: startingGear
   id: BlueShieldWebbingAlt
