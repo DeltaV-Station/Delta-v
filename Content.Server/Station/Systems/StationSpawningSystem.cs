@@ -218,6 +218,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             EquipRoleLoadout(entity.Value, loadout, roleProto);
         }
 
+        if (prototype?.StartingGear != null)
+        {
+            var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
+            EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
+        }
+
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);
 
@@ -273,11 +279,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, job.VirtualJobLocalizedName ?? jobPrototype.LocalizedName, card); // DeltaV #1425 - Use VirtualJobLocalizedName if possible
+        if (card.JobTitle == null) // DeltaV
+            _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
 
-        _prototypeManager.TryIndex<StatusIconPrototype>(job.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
-        if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
-            _cardSystem.TryChangeJobIcon(cardId, virtualJobIcon ?? jobIcon, card); // DeltaV #1425 - Use VirtualJobIcon if possible
+        // DeltaV
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
+            _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
 
         var extendedAccess = false;
         if (station != null)

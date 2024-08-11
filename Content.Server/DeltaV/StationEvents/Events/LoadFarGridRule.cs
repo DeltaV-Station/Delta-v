@@ -4,10 +4,10 @@
 * See AGPLv3.txt for details.
 */
 
-using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
+using Content.Shared.GameTicking.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Map;

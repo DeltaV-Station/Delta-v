@@ -2,11 +2,14 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
+  - GroupTankHarness
   - MailCarrierHead
   - MailCarrierJumpsuit
   - CommonBackpack
   - CargoTechnicianShoes
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
 
 # Epistemics
 - type: roleLoadout
@@ -18,7 +21,9 @@
   - MantisOuterClothing
   - MantisShoes
   - MantisGloves
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
 
 # Security
 - type: roleLoadout
@@ -31,25 +36,33 @@
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityBelt
+  - SurvivalSecurity
   - Trinkets
+  - GroupSpeciesBreathToolSecurity
 
 # Wildcards
 - type: roleLoadout
   id: JobPrisoner
   groups:
+  - GroupTankHarness
   - PrisonerJumpsuit
   - PassengerShoes
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobMartialArtist
   groups:
+  - GroupTankHarness
   - MartialArtistJumpsuit
   - MartialArtistBelt
   - MartialArtistShoes
   - BoxerGloves
   - CommonBackpack
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobGladiator
@@ -57,3 +70,4 @@
   - GladiatorJumpsuit
   - GladiatorOuterClothing
   - Trinkets
+  - GroupSpeciesBreathTool
