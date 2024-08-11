@@ -130,14 +130,10 @@
 #    templateId: digitigrade
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: HarpyVisuals
   - type: UltraVision
 
@@ -155,14 +151,10 @@
     speciesId: harpy
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: Sprite
     scale: 0.9, 0.9
     layers:

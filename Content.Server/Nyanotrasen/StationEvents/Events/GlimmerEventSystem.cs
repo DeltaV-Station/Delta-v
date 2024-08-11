@@ -1,6 +1,6 @@
-using Content.Server.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents.Events;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Nyanotrasen.StationEvents.Events

@@ -222,7 +222,8 @@ public sealed class OracleSystem : EntitySystem
             foreach (var recipe in tech.RecipeUnlocks)
             {
                 var recipeProto = _prototypeManager.Index(recipe);
-                allRecipes.Add(recipeProto.Result);
+                if (recipeProto.Result is {} result)
+                    allRecipes.Add(result);
             }
         }
 
