@@ -32,7 +32,9 @@ public sealed class AACTabletSystem : EntitySystem
             ("speaker", Name(uid)),
             ("originalName", senderName));
 
-        var phrase = _prototypeManager.Index<QuickPhrasePrototype>(message.PhraseID);
+        if (!_prototypeManager.TryIndex<QuickPhrasePrototype>(message.PhraseID, out var phrase))
+            return;
+
         _chat.TrySendInGameICMessage(uid,
             _loc.GetString(phrase.Text),
             InGameICChatType.Speak,
