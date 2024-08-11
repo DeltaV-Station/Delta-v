@@ -59,6 +59,12 @@
   maxOreYield: 3
 
 - type: ore
+  id: OreDiamond
+  oreEntity: DiamondOre1
+  minOreYield: 1
+  maxOreYield: 2
+
+- type: ore
   id: OreQuartzCrab
   oreEntity: MobSpawnCrabQuartz
 
@@ -92,6 +98,7 @@
     OreUranium: 1
     OreBananium: 0.5
     OreArtifactFragment: 0.5
+    OreSalt: 5 #Delta V - Adds so our rocks can spawn salt
 
 - type: weightedRandomOre
   id: OreCrab

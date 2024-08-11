@@ -308,7 +308,7 @@ public sealed class SuitSensorSystem : EntitySystem
             return null;
 
         // check if sensor is enabled and worn by user
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || transform.GridUid == null)
+        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
 
         // try to get mobs id from ID slot
@@ -323,8 +323,7 @@ public sealed class SuitSensorSystem : EntitySystem
                 userName = card.Comp.FullName;
             if (card.Comp.JobTitle != null)
                 userJob = card.Comp.JobTitle;
-            if (card.Comp.JobIcon != null)
-                userJobIcon = card.Comp.JobIcon;
+            userJobIcon = card.Comp.JobIcon;
 
             foreach (var department in card.Comp.JobDepartments)
                 userJobDepartments.Add(Loc.GetString(department));

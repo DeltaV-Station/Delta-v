@@ -13,6 +13,8 @@
         state: plain
   - type: RandomSpawner
     prototypes:
+      - FoodBagel
+      - FoodBagelPoppy
       - FoodBurgerJelly
       - FoodBurgerCarp
       - FoodBurgerTofu
@@ -84,5 +86,6 @@
       - FoodMeatSnakeKebab
       - FoodPizzaArnoldSlice
       - FoodPizzaCorncobSlice # Nyanotrasen - Corncob Pizza
+      - FoodPizzaUraniumSlice
       - FoodTacoRat
     rareChance: 0.05
