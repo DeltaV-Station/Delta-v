@@ -49,4 +49,3 @@ public sealed class MailMetricUiState : BoundUserInterfaceState
             : 0;
     }
 }
-
