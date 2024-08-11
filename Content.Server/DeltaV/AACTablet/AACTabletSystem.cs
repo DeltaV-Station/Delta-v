@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.DeltaV.AACTablet;
 using Content.Shared.DeltaV.QuickPhrase;
+using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -26,7 +27,7 @@ public sealed class AACTabletSystem : EntitySystem
 
         // the AAC tablet uses the name of the person who pressed the tablet button
         // for quality of life
-        var senderName = Name(message.Actor);
+        var senderName = Identity.Entity(message.Actor, EntityManager);
         var speakerName = Loc.GetString("speech-name-relay",
             ("speaker", Name(uid)),
             ("originalName", senderName));
