@@ -179,6 +179,7 @@ namespace Content.Client.Stylesheets
         public static readonly Color SecurityColorHovered = Color.FromHex("#745370");
         public static readonly Color ServiceButtonColorDefault = Color.FromHex("#607952");
         public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
+        // End DeltaV
 
         //Bwoink
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
@@ -1723,6 +1724,7 @@ namespace Content.Client.Stylesheets
                     .Class(JusticeButtonClass)
                     .Pseudo(ContainerButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, JusticeColorHovered),
+                // End DeltaV
 
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
