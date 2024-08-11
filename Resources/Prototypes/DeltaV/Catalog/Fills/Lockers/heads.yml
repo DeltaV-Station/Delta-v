@@ -43,7 +43,7 @@
       prob: 0.3
 
 - type: entityTable
-  id: LockerChiefEngineerDeltaV
+  id: LockerFillChiefEngineerDeltaV
   table: !type:AllSelector
     children:
     - id: BoxPDAEngineering
@@ -53,7 +53,7 @@
       prob: 0.3
 
 - type: entityTable
-  id: LockerChiefMedicalOfficerDeltaV
+  id: LockerFillChiefMedicalOfficerDeltaV
   table: !type:AllSelector
     children:
     - id: RubberStampPsychologist # TODO: make a psych locker and move this to it
