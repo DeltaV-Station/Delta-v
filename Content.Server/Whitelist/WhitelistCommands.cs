@@ -31,7 +31,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
         var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
 
         var name = string.Join(' ', args).Trim();
-        var data = await loc.LookupIdByNameAsync(name);
+        var data = await loc.LookupIdByNameOrIdAsync(name);
 
         if (data != null)
         {
@@ -91,7 +91,7 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
         var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
 
         var name = string.Join(' ', args).Trim();
-        var data = await loc.LookupIdByNameAsync(name);
+        var data = await loc.LookupIdByNameOrIdAsync(name);
 
         if (data != null)
         {

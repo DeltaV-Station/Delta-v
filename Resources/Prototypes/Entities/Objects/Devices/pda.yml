@@ -113,6 +113,9 @@
   id: BaseMedicalPDA
   abstract: true
   components:
+  - type: ItemToggle
+    toggleLight: false
+    onUse: false
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -266,9 +269,7 @@
     borderColor: "#C18199"
   - type: Icon
     state: pda-clown
-  - type: Slippery
-    paralyzeTime: 4
-    launchForwardsMultiplier: 1.5
+  - type: Slippery # secretly made of bananium
   - type: StepTrigger
   - type: CollisionWake
     enabled: false
@@ -708,7 +709,7 @@
 - type: entity
   parent: BasePDA
   id: CentcomPDA
-  name: CentCom PDA
+  name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
   - type: Pda
@@ -737,6 +738,7 @@
     scanDelay: 0
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
