@@ -9,6 +9,5 @@ public sealed partial class AACTabletComponent : Component
 
     // Time that the next phrase can be sent.
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextPhrase;
 }
