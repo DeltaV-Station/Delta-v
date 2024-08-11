@@ -8,7 +8,7 @@ void fragment() {
     highp vec2 aspect = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
     highp float mod = mix(0.0, DistortionScale, boozePower);
     highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
-    highp float centergradient = boozePower/5;
+    highp float centergradient = boozePower/5.0;
     highp float time = TIME * TimeScale;
     highp float timesin = (sin(TIME * TimeScale) + 0.5) * 0.2;
     highp float timecos = (cos(TIME * TimeScale) + 0.5) * 0.2;
@@ -16,13 +16,13 @@ void fragment() {
     //centergradient = zCircleGradient(aspect, FRAGCOORD.xy, 0.1, 3 / 1, 0.01 / 1, 1);
 
     highp vec2 offset = vec2((mod * 1.5) * sin(time * 1.5), (mod * 2.0) * cos(time * 1.5 - 0.2));
-    offset += vec2((zFBM(coord * boozePower + timesin) - 0.5) * centergradient/2, (zFBM(coord * boozePower + timecos) - 0.5) * centergradient/2);
+    offset += vec2((zFBM(coord * boozePower + timesin) - 0.5) * centergradient/2.0, (zFBM(coord * boozePower + timecos) - 0.5) * centergradient/2.0);
 
     highp vec4 tex1 = zTextureSpec(SCREEN_TEXTURE, coord + offset);
 
     if (boozePower > 0.5) {
         offset = vec2((mod * 2.0 - DistortionScale) * sin(time * 0.333 - 0.2), (mod * 2.0 - DistortionScale) * cos(time * 0.333));
-        offset += vec2((zFBM(coord * boozePower *5 + timesin) - 0.5) * centergradient, (zFBM(coord * boozePower*5 + timecos) - 0.5) * centergradient);
+        offset += vec2((zFBM(coord * boozePower *5.0 + timesin) - 0.5) * centergradient, (zFBM(coord * boozePower*5.0 + timecos) - 0.5) * centergradient);
         tex1 = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.3, boozePower*2.0-1.0));
     }
     //highp vec3 col = vec3(0);

@@ -44,11 +44,11 @@ void fragment() {
     /////////////////////////////////////////////////////////
 
 
-    highp float deformationPower = 1;
-    highp float intensityPower = 3645;
+    highp float deformationPower = 1.0;
+    highp float intensityPower = 3645.0;
     highp float avarageDistance;
     highp float avarageClose;
-    highp float testEnergy = 2950;
+    highp float testEnergy = 2950.0;
     highp float falofPower = sqrt(6.4);
     //highp vec2 dif;
 
@@ -57,7 +57,7 @@ void fragment() {
     for (int i = 0; i < 5 && i < count; i++) {
         testEnergy = energy[i];
 
-        if(testEnergy<150){
+        if(testEnergy<150.0){
 
 
             /////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ void fragment() {
 
             intensityPower = mix(0.0,3645.0                           ,(testEnergy)/150.0);
             falofPower = mix(sqrt(6.4),sqrt(6.4)                           ,(testEnergy)/150.0);
-        }else if(testEnergy>=150&&testEnergy<250){
+        }else if(testEnergy>=150.0&&testEnergy<250.0){
 
 
             /////////////////////////////////////////////////////////
@@ -103,9 +103,9 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(3645.0,103680.0                           ,(testEnergy-150)/100.0);
-            falofPower = mix(sqrt(6.4),sqrt(7.0)                           ,(testEnergy-150)/100.0);
-        }else if(testEnergy>=250&&testEnergy<300){
+            intensityPower = mix(3645.0,103680.0                           ,(testEnergy-150.0)/100.0);
+            falofPower = mix(sqrt(6.4),sqrt(7.0)                           ,(testEnergy-150.0)/100.0);
+        }else if(testEnergy>=250.0&&testEnergy<300.0){
 
 
             /////////////////////////////////////////////////////////
@@ -127,9 +127,9 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(103680.0,113680.0                           ,(testEnergy-250)/50.0);
-            falofPower = mix(sqrt(7.0),sqrt(7.2)                           ,(testEnergy-250)/50.0);
-        }else if(testEnergy>=300&&testEnergy<950){
+            intensityPower = mix(103680.0,113680.0                           ,(testEnergy-250.0)/50.0);
+            falofPower = mix(sqrt(7.0),sqrt(7.2)                           ,(testEnergy-250.0)/50.0);
+        }else if(testEnergy>=300.0&&testEnergy<950.0){
 
 
             /////////////////////////////////////////////////////////
@@ -151,9 +151,9 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(113680.0,1113920.0                           ,(testEnergy-300)/650.0);
-            falofPower = mix(sqrt(7.2),sqrt(8.0)                           ,(testEnergy-300)/650.0);
-        }else if(testEnergy>=950&&testEnergy<1000){
+            intensityPower = mix(113680.0,1113920.0                           ,(testEnergy-300.0)/650.0);
+            falofPower = mix(sqrt(7.2),sqrt(8.0)                           ,(testEnergy-300.0)/650.0);
+        }else if(testEnergy>=950.0&&testEnergy<1000.0){
 
 
             /////////////////////////////////////////////////////////
@@ -175,9 +175,9 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(1113920.0,16200000.0                           ,(testEnergy-950)/50.0);
-            falofPower = mix(sqrt(8.0),sqrt(10.0)                           ,(testEnergy-950)/50.0);
-        }else if(testEnergy>=1000&&testEnergy<1950){
+            intensityPower = mix(1113920.0,16200000.0                           ,(testEnergy-950.0)/50.0);
+            falofPower = mix(sqrt(8.0),sqrt(10.0)                           ,(testEnergy-950.0)/50.0);
+        }else if(testEnergy>=1000.0&&testEnergy<1950.0){
 
 
             /////////////////////////////////////////////////////////
@@ -199,9 +199,9 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(16200000.0,180000000.0                           ,(testEnergy-1000)/950.0);
-            falofPower = mix(sqrt(10.0),sqrt(12.0)                           ,(testEnergy-1000)/950.0);
-        }else if(testEnergy>=1950&&testEnergy<2950){
+            intensityPower = mix(16200000.0,180000000.0                           ,(testEnergy-1000.0)/950.0);
+            falofPower = mix(sqrt(10.0),sqrt(12.0)                           ,(testEnergy-1000.0)/950.0);
+        }else if(testEnergy>=1950.0&&testEnergy<2950.0){
 
 
             /////////////////////////////////////////////////////////
@@ -223,8 +223,8 @@ void fragment() {
             /////////////////////////////////////////////////////////
 
 
-            intensityPower = mix(180000000.0,280000000.0                           ,(testEnergy-1950)/1000.0);
-            falofPower = mix(sqrt(12.0),sqrt(12.0)                           ,(testEnergy-1950)/1000.0);
+            intensityPower = mix(180000000.0,280000000.0                           ,(testEnergy-1950.0)/1000.0);
+            falofPower = mix(sqrt(12.0),sqrt(12.0)                           ,(testEnergy-1950.0)/1000.0);
         }else{
 
 
@@ -256,7 +256,7 @@ void fragment() {
         delta =  position[i]-FRAGCOORD.xy;
 	    distance = length(delta / renderScale);
         avarageDistance = (distance)/(maxDistance); //  5 / 15
-        avarageClose = abs(avarageDistance-1);
+        avarageClose = abs(avarageDistance-1.0);
         deformation = intensityPower / pow(distance, falofPower);
 
         // ensure deformation goes to zero at max distance
@@ -265,7 +265,7 @@ void fragment() {
         if (distance >= maxDistance) {
             deformation = 0.0;
         } else {
-            deformation *= (1 - pow(distance/maxDistance, 1.0));
+            deformation *= (1.0 - pow(distance/maxDistance, 1.0));
             //if(distance<intensity[i]/300){
 
             //timecos = (cos((TIME)*(deformation/10000)+i));
