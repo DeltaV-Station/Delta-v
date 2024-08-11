@@ -13,3 +13,9 @@ uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of o
 
 uplink-generic-radio-implanter-name = Generic Radio Implanter
 uplink-generic-radio-implanter-desc = A cranial implant with a bluespace compartment for a single encryption key (not included). Put in a key of your choice, and you can talk using it like you would with any headset.
+
+uplink-doorjack-name = Airlock Access Override
+uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
+
+uplink-home-run-bat-name = Home Run Bat
+uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball practice. Launch your foes!

@@ -4,7 +4,7 @@
   id: BaseFugitiveObjective
   components:
   - type: Objective
-    issuer: self
+    issuer: objective-issuer-self
     difficulty: 1
   - type: RoleRequirement
     roles:
