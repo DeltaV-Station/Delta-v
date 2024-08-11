@@ -150,6 +150,7 @@ phrase-vegetable = vegetable
 phrase-fruit = fruit
 phrase-sugar = sugar
 phrase-alcohol = alcohol
+phrase-non-alcoholic = non-alcoholic
 phrase-juice = juice
 phrase-mop = mop
 phrase-bucket = bucket
