@@ -28,24 +28,24 @@ public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingProtot
     /// <summary>
     /// The phrase that this prototype represents.
     /// </summary>
-    [DataField("text")]
-    public string Text = string.Empty;
+    [DataField]
+    public LocId Text = string.Empty;
 
     /// <summary>
     /// Determines how the phrase is sorted in the UI.
     /// </summary>
-    [DataField("group")]
+    [DataField]
     public string Group = string.Empty;
 
     /// <summary>
     /// The tab in the UI that this phrase falls under.
     /// </summary>
-    [DataField("tab")]
+    [DataField]
     public string Tab = string.Empty;
 
     /// <summary>
     /// Color of button in UI.
     /// </summary>
-    [DataField("styleClass")]
+    [DataField]
     public string StyleClass = string.Empty;
 }
