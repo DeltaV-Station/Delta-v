@@ -4,17 +4,15 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   startingGear: CargoTechGear
-  requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV
-    time: 3600 # 1 hr
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:
   - Cargo
   - Maintenance
+  - External
+  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
   extendedAccess:
   - Salvage
-  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
 
 - type: startingGear
   id: CargoTechGear

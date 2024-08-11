@@ -11,8 +11,6 @@
     - state: closedCard
   - type: Item
     size: Small
-  - type: TrayScanner
-    range: 0.01
   - type: Appearance
   - type: Tag
     tags:
@@ -259,144 +257,132 @@
   parent: BaseCard
   id: CarDpt
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: pt }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pt
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp2
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p2 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p2
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp3
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p3 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p3
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp4
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p4 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p4
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp5
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p5 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p5
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp6
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p6 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p6
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp7
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p7 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p7
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp8
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p8 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p8
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp9
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p9 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p9
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDp10
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: p10 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p10
+      Popup: "Вы перевернули карту"
+
 
 - type: entity
   parent: BaseCard
   id: CarDpd
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: pd }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pd
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDpk
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: pk }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pk
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDpv
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: pv }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pv
+      Popup: "Вы перевернули карту"
 
 
 
@@ -408,144 +394,132 @@
   parent: BaseCard
   id: CarDkt
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: kt }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kt
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk2
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k2 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k2
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk3
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k3 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k3
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk4
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k4 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k4
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk5
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k5 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k5
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk6
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k6 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k6
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk7
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k7 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k7
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk8
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k8 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k8
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk9
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k9 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k9
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDk10
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: k10 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k10
+      Popup: "Вы перевернули карту"
+
 
 - type: entity
   parent: BaseCard
   id: CarDkd
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: kd }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kd
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDkk
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: kk }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kk
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDkv
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: kv }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kv
+      Popup: "Вы перевернули карту"
 
 
 
@@ -556,144 +530,132 @@
   parent: BaseCard
   id: CarDht
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: ht }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: ht
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh2
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h2 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h2
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh3
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h3 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h3
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh4
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h4 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h4
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh5
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h5 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h5
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh6
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h6 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h6
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh7
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h7 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h7
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh8
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h8 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h8
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh9
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h9 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h9
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDh10
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: h10 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h10
+      Popup: "Вы перевернули карту"
+
 
 - type: entity
   parent: BaseCard
   id: CarDhd
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: hd }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hd
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDhk
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: hk }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hk
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDhv
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: hv }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hv
+      Popup: "Вы перевернули карту"
 
 
 
@@ -705,141 +667,129 @@
   parent: BaseCard
   id: CarDbt
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: bt }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bt
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb2
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b2 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b2
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb3
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b3 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b3
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb4
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b4 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b4
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb5
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b5 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b5
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb6
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b6 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b6
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb7
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b7 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b7
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb8
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b8 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b8
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb9
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b9 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b9
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDb10
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: b10 }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b10
+      Popup: "Вы перевернули карту"
+
 
 - type: entity
   parent: BaseCard
   id: CarDbd
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: bd }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bd
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDbk
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: bk }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bk
+      Popup: "Вы перевернули карту"
 
 - type: entity
   parent: BaseCard
   id: CarDbv
   components:
-  - type: GenericVisualizer
-    visuals:
-      enum.TrayScannerVisual.Visual:
-        base:
-          Off: { state: closedCard }
-          On: { state: bv }
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bv
+      Popup: "Вы перевернули карту"

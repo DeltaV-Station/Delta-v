@@ -4,7 +4,10 @@
   playTimeTracker: JobIAA
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 7200
   startingGear: IAAGear
   icon: "JobIconIAA"
   supervisors: job-supervisors-centcom

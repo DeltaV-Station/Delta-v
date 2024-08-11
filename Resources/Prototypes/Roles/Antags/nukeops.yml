@@ -4,9 +4,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 7200 # DeltaV - 2 hours
+    time: 10800 # DeltaV - 3 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 3600 # DeltaV - 1 hours
@@ -17,9 +18,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 7200 # DeltaV - 2 hours
+    time: 10800 # DeltaV - 3 hours
   - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
     department: Medical
     time: 3600 # DeltaV - 1 hours
@@ -30,9 +32,13 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
+  guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 7200 # DeltaV - 2 hours
+    time: 18000 # DeltaV - 5 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 3600 # DeltaV - 1 hours
+    time: 7200 # DeltaV - 2 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    time: 1800 # DeltaV - 0.5 hours

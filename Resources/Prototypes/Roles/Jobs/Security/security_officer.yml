@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 1
+      time: 1800
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -25,6 +25,6 @@
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
-#    eyes: ClothingEyesGlassesSecurity # DeltaV
+    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal

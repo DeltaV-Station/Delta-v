@@ -5,7 +5,13 @@
   playTimeTracker: JobBrigmedic
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 360
+      time: 10800
+    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      time: 1800 # 0.5 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 1800
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -15,10 +21,8 @@
   - Security
   #- Brig #Delta V: Removed brig access
   - Maintenance
-  - Service # The rest of security has this access.
   - External
   - Corpsman
-  - Cryogenics # The rest of security also gets this access.
   extendedAccess:
   - Chemistry
   special:

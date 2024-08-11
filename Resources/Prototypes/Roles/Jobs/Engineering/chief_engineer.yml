@@ -12,11 +12,11 @@
 #      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 1800 # DeltaV - 25 hours
+      time: 10800 # 3 hours
 #    - !type:OverallPlaytimeRequirement
 #      time: 72000 # DeltaV - 20 hours
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

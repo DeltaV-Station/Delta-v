@@ -2,7 +2,7 @@
   id: Glacier
   mapName: Glacier
   mapPath: /Maps/glacier.yml
-  minPlayers: 0
+  minPlayers: 10
   stations:
     Glacier:
       stationProto: StandardNanotrasenStation
@@ -17,6 +17,12 @@
           mining:
             paths:
             - /Maps/Shuttles/mining.yml
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
+      # uncomment when planets arent fucked sideways
+      #- type: StationSurface
+      #  mapPath: /Maps/Nonstations/glacier_surface.yml
+      #  biome: Snow
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]
@@ -27,7 +33,6 @@
           Boxer: [ 1, 2 ]
           Chef: [ 2, 3 ]
           Clown: [ 1, 2 ]
-          Lawyer: [ 1, 2 ]
           Librarian: [ 1, 1 ]
           Reporter: [ 2, 2 ]
           Musician: [ 1, 2 ]
@@ -39,6 +44,8 @@
           AtmosphericTechnician: [ 1, 2 ]
           StationEngineer: [ 2, 3 ]
           TechnicalAssistant: [ 2, 2 ]
+        #justice
+          Lawyer: [ 2, 2 ]
         #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           Chemist: [ 1, 2 ]
@@ -63,7 +70,7 @@
           Prisoner: [ 2, 3 ]
         #logistics
           Quartermaster: [ 1, 1 ]
-          MailCarrier: [ 2, 3 ]
+          Courier: [ 2, 3 ]
           SalvageSpecialist: [ 2, 3 ]
           CargoTechnician: [ 2, 3 ]
         #civilian

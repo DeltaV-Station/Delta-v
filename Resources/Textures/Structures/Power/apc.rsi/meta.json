@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/fca7f2a0f9154c0c6c4efc2f8f58441fb9b34759",
+  "copyright": "Made by Aserovich",
   "size": {
     "x": 32,
     "y": 32
@@ -74,8 +74,17 @@
       "name": "display-lack",
       "delays": [
         [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
           1,
-          2
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.1
         ]
       ]
     },
@@ -83,6 +92,7 @@
       "name": "display-charging",
       "delays": [
         [
+          0.1,
           0.1,
           0.1,
           0.1,
@@ -109,6 +119,15 @@
           0.1,
           0.1,
           0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
           0.1
         ]
       ]
@@ -117,8 +136,14 @@
       "name": "emag-unlit",
       "delays": [
         [
-          0.5,
-          0.5
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
         ]
       ]
     },

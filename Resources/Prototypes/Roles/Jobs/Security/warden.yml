@@ -5,10 +5,10 @@
   playTimeTracker: JobWarden
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 10800
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 900
+      time: 7200
   #requirements:
   #  - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
   #    role: JobSecurityOfficer
@@ -29,7 +29,6 @@
   #- Service # Delta V: Access adjustments
   - External
   - Detective
-  - Corpsman # DeltaV - corpsman access.
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -38,7 +37,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-#    eyes: ClothingEyesGlassesSecurity # DeltaV
+    eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal

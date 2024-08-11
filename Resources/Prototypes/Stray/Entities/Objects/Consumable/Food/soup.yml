@@ -6,25 +6,19 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bread
+      - sawdustsoup
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
-    - state: mystery
+    - state: sawdust
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 50
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Water
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Omnizine
-          Quantity: 6
+        - ReagentId: SawdustSoupReagent
+          Quantity: 35
   - type: Tag
     tags:
     - Fruit

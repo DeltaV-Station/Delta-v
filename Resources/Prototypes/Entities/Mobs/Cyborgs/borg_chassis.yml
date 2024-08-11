@@ -27,6 +27,11 @@
     name: cyborg
   - type: Construction
     node: cyborg
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Stray/Mech/mech.ogg
+      params:
+        variation: 0.07
   - type: Speech
     speechVerb: Robotic
 

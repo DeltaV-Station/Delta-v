@@ -7,9 +7,9 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 600
+      time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
+      time: 18000
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
