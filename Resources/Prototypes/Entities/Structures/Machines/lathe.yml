@@ -16,7 +16,7 @@
         mask:
         - MachineMask
         layer:
-          - MachineLayer
+          - MachineLayer  
   - type: Lathe
   - type: MaterialStorage
   - type: Destructible
@@ -313,6 +313,7 @@
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
+      - MiningDrillDiamond
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
