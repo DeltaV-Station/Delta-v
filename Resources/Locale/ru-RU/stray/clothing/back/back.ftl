@@ -18,18 +18,25 @@ ent-ClothingBackpackDuffelBrigmedicAltFilled = { ent-ClothingBackpackDuffelBrigm
     .desc = { ent-ClothingBackpackDuffelBrigmedic }
 
 
-ent-ClothingBackpackBlueShield = рюкзак офицера "синий щит"
+ent-ClothingBackpackBlueShield = рюкзак офицера Синего Щита
     .desc = Лёгкий и стильный рюкзак для настоящего телохранителя.
 ent-ClothingBackpackBlueShieldFilled = { ent-ClothingBackpackBlueShield }
     .desc = { ent-ClothingBackpackBlueShield.desc }   
-ent-ClothingBackpackSatchelBlueShield = сумка офицера "синий щит"
+ent-ClothingBackpackSatchelBlueShield = сумка офицера Синего Щита
     .desc = Удобная и практичная сумка для экипировки любого телохранителя.
 ent-ClothingBackpackSatchelBlueShieldFilled = { ent-ClothingBackpackSatchelBlueShield }
     .desc = { ent-ClothingBackpackSatchelBlueShield.desc }    
-ent-ClothingBackpackDuffelBlueShield = вещмешок офицера "синий щит"
+ent-ClothingBackpackDuffelBlueShield = вещмешок офицера Синего Щита
     .desc = Большой вещмешок для хранения всех принадлежностей достойного телохранителя.
 ent-ClothingBackpackDuffelBlueShieldFilled = { ent-ClothingBackpackDuffelBlueShield }
-    .desc = { ent-ClothingBackpackDuffelBlueShield.desc }   
+    .desc = { ent-ClothingBackpackDuffelBlueShield.desc }
+
+ent-ClothingBackpackBlueShieldAltFilled = рюкзак офицера Синего Щита
+    .desc = Крайне вместительный рюкзак, предназначенный для офицеров "Синего Щита"
+ent-ClothingBackpackDuffelBlueShieldAltFilled = вещмешок офицера Синего Щита
+    .desc = Крайне вместительный вещмешок, предназначенный для хранения охранного и медицинского арсенала офицеров "Синего Щита".
+ent-ClothingBackpackSatchelBlueShieldAltFilled = сумка офицера Синего Щита
+    .desc = Крайне вместительная сумка, предназначенная для хранения охранного и медицинского арсенала офицеров "Синего Щита".
 
 ent-ClothingBackpackEcclesia = ранец техножреца
     .desc = Имеет несколько вспомогательных приборов и баллон.

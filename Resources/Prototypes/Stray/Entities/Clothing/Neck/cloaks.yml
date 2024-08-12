@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakBlueShield
+  name: blue shield cloak
+  description: A blue cloak with a white shield on the back.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Neck/Cloaks/blueshield.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
