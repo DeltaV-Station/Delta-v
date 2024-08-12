@@ -8,7 +8,7 @@ using Robust.Shared.Containers; // Parkstation-IPC
 namespace Content.Server.SimpleStation14.Silicon.IPC;
 public static class InternalEncryptionKeySpawner
 {
-    public static void TryInsertEncryptionKey(EntityUid target, StartingGearPrototype startingGear, IEntityManager entityManager, HumanoidCharacterProfile? profile)
+    public static void TryInsertEncryptionKey(EntityUid target, IEquipmentLoadout startingGear, IEntityManager entityManager, HumanoidCharacterProfile? profile)
     {
         if (entityManager.TryGetComponent<EncryptionKeyHolderComponent>(target, out var keyHolderComp))
         {
