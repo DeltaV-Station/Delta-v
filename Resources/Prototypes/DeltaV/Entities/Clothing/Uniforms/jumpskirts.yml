@@ -33,17 +33,6 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security_blue.rsi
 
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpskirtSecFormal
-  name: security formal dress
-  description: A ceremonial piece of Station Security kit, for special occasions of any kind.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/secformal.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/secformal.rsi
-
 # Warden alt uniforms
 
 - type: entity
@@ -67,17 +56,6 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden_grey.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden_grey.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpskirtForensicSpecialist
-  name: forensic specialist's jumpskirt
-  description: A crisp white shirt on a stark charcoal skirt for the deductive mind.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/detective.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/detective.rsi
 
 # HoS alt uniforms
 

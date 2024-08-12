@@ -28,34 +28,6 @@
   materials:
     Cloth: 300
 
-- type: latheRecipe
-  id: ClothingUniformJumpsuitForensicSpecialist
-  result: ClothingUniformJumpsuitForensicSpecialist
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitSecFormal
-  result: ClothingUniformJumpsuitSecFormal
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitCadet
-  result: ClothingUniformJumpsuitCadet
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitSecurityTactical
-  result: ClothingUniformJumpsuitSecurityTactical
-  completetime: 4
-  materials:
-    Cloth: 300
-
 # Jumpskirts - Security
 
 - type: latheRecipe
@@ -100,21 +72,7 @@
   materials:
     Cloth: 300
 
-- type: latheRecipe
-  id: ClothingUniformJumpskirtForensicSpecialist
-  result: ClothingUniformJumpskirtForensicSpecialist
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtSecFormal
-  result: ClothingUniformJumpskirtSecFormal
-  completetime: 4
-  materials:
-    Cloth: 300
-
-# Security Outerwear
+# Security Sweater
 
 - type: latheRecipe
   id: ClothingOuterStasecSweater
@@ -122,63 +80,7 @@
   completetime: 4
   materials:
     Cloth: 500
-    Durathread: 300
-
-- type: latheRecipe
-  id: ClothingOuterStasecCoat
-  result: ClothingOuterStasecCoat
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
-
-- type: latheRecipe
-  id: ClothingOuterCoatLabCorpsman
-  result: ClothingOuterCoatLabCorpsman
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
-
-- type: latheRecipe
-  id: ClothingOuterStasecCoatDet
-  result: ClothingOuterStasecCoatDet
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
-
-- type: latheRecipe
-  id: ClothingOuterStasecCoatWarden
-  result: ClothingOuterStasecCoatWarden
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
-
-- type: latheRecipe
-  id: ClothingOuterStasecCoatHoS
-  result: ClothingOuterStasecCoatHoS
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
-
-# Security Headwear
-
-- type: latheRecipe
-  id: ClothingHeadHatBeretForensicSpecialist
-  result: ClothingHeadHatBeretForensicSpecialist
-  completetime: 4
-  materials:
-    Cloth: 100
-
-- type: latheRecipe
-  id: ClothingHeadHatBeretCorpsman
-  result: ClothingHeadHatBeretCorpsman
-  completetime: 4
-  materials:
-    Cloth: 100
+    Durathread: 200
 
 # Chief Justice Wardrobe
 
@@ -188,6 +90,7 @@
   completetime: 2
   materials:
     Cloth: 100
+    Durathread: 50
 
 - type: latheRecipe
   id: ClothingUniformJumpsuitChiefJustice
@@ -196,7 +99,7 @@
   materials:
     Cloth: 300
     Durathread: 100
- 
+
 - type: latheRecipe
   id: ClothingUniformJumpskirtChiefJustice
   result: ClothingUniformJumpskirtChiefJustice
@@ -234,5 +137,5 @@
   result: ClothingOuterChiefJustice
   completetime: 3.2
   materials:
-    Cloth: 300
-    Durathread: 200
+    Cloth: 500
+    Durathread: 300

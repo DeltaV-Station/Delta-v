@@ -331,7 +331,7 @@ public sealed class ExecutionSystem : EntitySystem
                 prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me
                 if (projectileA != null)
                 {
-                    damage = projectileA.Damage * cartridge.Count;
+                    damage = projectileA.Damage;
                 }
 
                 // Expend the cartridge
@@ -342,8 +342,7 @@ public sealed class ExecutionSystem : EntitySystem
                 break;
 
             case AmmoComponent newAmmo:
-                TryComp<ProjectileComponent>(ammoUid, out var projectileB);
-                if (projectileB != null)
+                if (TryComp<ProjectileComponent>(ammoUid, out var projectileB))
                 {
                     damage = projectileB.Damage;
                 }

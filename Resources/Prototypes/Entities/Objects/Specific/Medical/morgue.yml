@@ -1,6 +1,6 @@
 - type: entity
   id: BodyBag
-  parent: BaseFoldable
+  parent: BaseDeployFoldable
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   components:
@@ -154,7 +154,7 @@
             - ReagentId: Necrosol
               Quantity: 5
             - ReagentId: Ectoplasm  # DeltaV - for normality crystals
-              Quantity: 30          # DeltaV
+              Quantity: 5          # DeltaV
     - type: GuideHelp
       guides:
       - MinorAntagonists

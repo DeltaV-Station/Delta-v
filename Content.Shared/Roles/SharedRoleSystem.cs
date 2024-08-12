@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Roles;
 
-public abstract class SharedRoleSystem : EntitySystem
+public abstract partial class SharedRoleSystem : EntitySystem // DeltaV - make it partial
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -30,6 +30,7 @@ public abstract class SharedRoleSystem : EntitySystem
         // TODO make roles entities
         SubscribeLocalEvent<JobComponent, MindGetAllRolesEvent>(OnJobGetAllRoles);
         Subs.CVar(_cfg, CCVars.GameRoleTimerOverride, SetRequirementOverride, true);
+        InitializeDeltaV(); // DeltaV
     }
 
     private void SetRequirementOverride(string value)
