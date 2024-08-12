@@ -26,12 +26,12 @@
   components:
   - type: Pda
     id: PrisonGuardIDCard
-    state: pda-security
+    state: pda-prisonguard # - aPDA Sprite Rework
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
   - type: Icon
-    state: pda-security
+    state: pda-prisonguard # - aPDA Sprite Rework
   - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
     diskSpace: 7
     preinstalled:
