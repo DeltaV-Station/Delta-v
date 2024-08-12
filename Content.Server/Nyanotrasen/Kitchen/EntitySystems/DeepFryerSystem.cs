@@ -205,7 +205,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         if (TryComp<TemperatureComponent>(item, out var tempComp))
         {
             // Push the temperature towards what it should be but no higher.
-            var delta = (component.PoweredTemperature - tempComp.CurrentTemperature) * tempComp.HeatCapacity;
+            var delta = (component.PoweredTemperature - tempComp.CurrentTemperature) * _temperature.GetHeatCapacity(item, tempComp);
 
             if (delta > 0f)
                 _temperature.ChangeHeat(item, delta, false, tempComp);

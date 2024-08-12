@@ -2,65 +2,37 @@
 
 - type: loadout
   id: HoPFormal
-  equipment: HoPFormal
-
-- type: startingGear
-  id: HoPFormal
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoPFormal
 
 - type: loadout
   id: HoPMessSkirt
-  equipment: HoPMessSkirt
-
-- type: startingGear
-  id: HoPMessSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoPMess
-    
-- type: loadout
-  id: HoPMessSuit
-  equipment: HoPMessSuit
 
-- type: startingGear
+- type: loadout
   id: HoPMessSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoPMess
 
 - type: loadout
   id: HoPBoatswain
-  equipment: HoPBoatswain
-
-- type: startingGear
-  id: HoPBoatswain
   equipment:
     jumpsuit: ClothingUniformJumpsuitBoatswain
 
 # Outerclothing
-- type: loadout 
-  id: HoPFormalCoat
-  equipment: HoPFormalCoat
-
-- type: startingGear
+- type: loadout
   id: HoPFormalCoat
   equipment:
     outerClothing: ClothingOuterCoatHoPFormal
 
 - type: loadout
   id: HoPArmoredCoat
-  equipment: HoPArmoredCoat
-
-- type: startingGear
-  id: HoPArmoredCoat
   equipment:
     outerClothing: ClothingOuterCoatHoPArmored
 
 # Gloves
-- type: loadout 
-  id: HoPGloves
-  equipment: HoPGloves
-
-- type: startingGear
+- type: loadout
   id: HoPGloves
   equipment:
     gloves: ClothingHandsGlovesHop
@@ -68,36 +40,20 @@
 # Shoes
 - type: loadout
   id: BrownLeatherShoes
-  equipment: BrownLeatherShoes
-
-- type: startingGear
-  id: BrownLeatherShoes
   equipment:
     shoes: ClothingShoesLeather
 
-- type: loadout 
-  id: WhiteLeatherShoes
-  equipment: WhiteLeatherShoes
-
-- type: startingGear 
+- type: loadout
   id: WhiteLeatherShoes
   equipment:
     shoes: ClothingShoesMiscWhite
 
 - type: loadout
   id: LaceupShoes
-  equipment: LaceupShoes
-
-- type: startingGear
-  id: LaceupShoes
   equipment:
     shoes: ClothingShoesBootsLaceup
 
-- type: loadout 
-  id: HoPWinterBoots
-  equipment: HoPWinterBoots
-
-- type: startingGear 
+- type: loadout
   id: HoPWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterHeadOfPersonel
