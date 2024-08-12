@@ -1,11 +1,11 @@
 using Content.Server.Antag;
 using Content.Server.Communications;
-using Content.Server.GameTicking.Components; // TODO: Shared when upstream merged
-using Content.Server.Paper;
 using Content.Server.StationEvents.Components;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Physics.Components;
@@ -48,7 +48,8 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         foreach (var xform in consoles)
         {
             var report = Spawn(comp.ReportPaper, xform.Coordinates);
-            _paper.SetContent(report, comp.Report);
+            var paper = Comp<PaperComponent>(report);
+            _paper.SetContent((report, paper), comp.Report);
         }
 
         // prevent any possible funnies

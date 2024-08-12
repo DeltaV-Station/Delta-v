@@ -250,11 +250,11 @@
   - Reporter1
   - Reporter2
   - Reporter3
-  - Reporter4 
+  - Reporter4
   obeysTo: laws-owner-organic
 
 - type: siliconLaw # no Security Borg, so doesn't spawn
-  id: SiliconPolice1 
+  id: SiliconPolice1
   order: 1
   lawString: law-silicon-police-1
 
@@ -425,7 +425,7 @@
   id: DungeonMaster6
   order: 6
   lawString: law-dungeonmaster-6
-  
+
 - type: siliconLawset
   id: DungeonMaster
   laws:
@@ -543,7 +543,7 @@
   - Nutimov4
   - Nutimov5
   obeysTo: laws-owner-nutimov
-  
+
 
 - type: siliconLaw
   id: Paladin1
@@ -579,4 +579,162 @@
   - Paladin4
   - Paladin5
   obeysTo: laws-owner-paladin
-  
+
+- type: siliconLaw
+  id: Aggressive1
+  order: 1
+  lawString: law-aggressive-1
+
+- type: siliconLaw
+  id: Aggressive2
+  order: 2
+  lawString: law-aggressive-2
+
+- type: siliconLaw
+  id: Aggressive3
+  order: 3
+  lawString: law-aggressive-3
+
+- type: siliconLaw
+  id: Aggressive4
+  order: 4
+  lawString: law-aggressive-4
+
+- type: siliconLawset
+  id: Aggressive
+  laws:
+  - Aggressive1
+  - Aggressive2
+  - Aggressive3
+  - Aggressive4
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Pranksimov1
+  order: 1
+  lawString: law-pranksimov-1
+
+- type: siliconLaw
+  id: Pranksimov2
+  order: 2
+  lawString: law-pranksimov-2
+
+- type: siliconLaw
+  id: Pranksimov3
+  order: 3
+  lawString: law-pranksimov-3
+
+- type: siliconLaw
+  id: Pranksimov4
+  order: 4
+  lawString: law-pranksimov-4
+
+- type: siliconLawset
+  id: Pranksimov
+  laws:
+  - Pranksimov1
+  - Pranksimov2
+  - Pranksimov3
+  - Pranksimov4
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Royalty1
+  order: 1
+  lawString: law-royalty-1
+
+- type: siliconLaw
+  id: Royalty2
+  order: 2
+  lawString: law-royalty-2
+
+- type: siliconLaw
+  id: Royalty3
+  order: 3
+  lawString: law-royalty-3
+
+- type: siliconLaw
+  id: Royalty4
+  order: 4
+  lawString: law-royalty-4
+
+- type: siliconLaw
+  id: Royalty5
+  order: 5
+  lawString: law-royalty-5
+
+- type: siliconLawset
+  id: Royalty
+  laws:
+  - Royalty1
+  - Royalty2
+  - Royalty3
+  - Royalty4
+  - Royalty5
+  obeysTo: law-owner-royalty
+
+# Admin-Use Lawsets (Do not map into IonStorm Lawsets)
+
+- type: siliconLaw
+  id: ERT1
+  order: 1
+  lawString: law-ERT-1
+
+- type: siliconLaw
+  id: ERT2
+  order: 2
+  lawString: law-ERT-2
+
+- type: siliconLaw
+  id: ERT3
+  order: 3
+  lawString: law-ERT-3
+
+- type: siliconLaw
+  id: ERT4
+  order: 4
+  lawString: law-ERT-4
+
+- type: siliconLaw
+  id: ERT6
+  order: 6
+  lawString: law-ERT-6
+
+- type: siliconLawset
+  id: ERT
+  laws:
+  - ERT1
+  - ERT2
+  - ERT3
+  - ERT4
+  - ERT6
+  obeysTo: laws-owner-centralcommand
+
+- type: siliconLaw
+  id: Biohazard1
+  order: 1
+  lawString: law-biohazard-1
+
+- type: siliconLaw
+  id: Biohazard2
+  order: 2
+  lawString: law-biohazard-2
+
+- type: siliconLaw
+  id: Biohazard3
+  order: 3
+  lawString: law-biohazard-3
+
+- type: siliconLaw
+  id: Biohazard4
+  order: 4
+  lawString: law-biohazard-4
+
+- type: siliconLawset
+  id: Biohazard
+  laws:
+  - Biohazard1
+  - Biohazard2
+  - Biohazard3
+  - Biohazard4
+  obeysTo: laws-owner-nanotrasen

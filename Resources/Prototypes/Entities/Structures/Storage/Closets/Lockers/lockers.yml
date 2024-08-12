@@ -379,7 +379,7 @@
   description: To store bags of bullet casings and detainee belongings.
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Security"], ["Prosecutor"]] # DeltaV - allow Pros access to Evidence
 
 # Syndicate
 - type: entity
@@ -428,7 +428,7 @@
   components:
   - type: Appearance
   - type: AccessReader
-    access: [["Theatre"]]
+    access: [["Clown"]] # DeltaV - clown access
   - type: EntityStorageVisuals
     stateBaseClosed: clown
     stateDoorOpen: clown_open
@@ -442,7 +442,7 @@
   components:
   - type: Appearance
   - type: AccessReader
-    access: [["Theatre"]]
+    access: [["Mime"]] # DeltaV - mime access
   - type: EntityStorageVisuals
     stateBaseClosed: mime
     stateDoorOpen: mime_open
