@@ -222,7 +222,7 @@
       - EncryptionKeySyndie
 
 - type: entity
-  parent: [EncryptionKey, BaseSyndicateContraband]
+  parent: [ EncryptionKey, BaseScienceContraband ]
   id: EncryptionKeyBinary
   name: binary translator key
   description: An encryption key that translates binary signals used by silicons.
