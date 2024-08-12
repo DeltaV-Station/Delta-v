@@ -98,7 +98,7 @@
 # No Laser + Laser + Hardsuit locker
 - type: entity
   id: LockerCaptainFilledHardsuit
-  suffix: DO NOT MAP, USE GLASS BOX # DeltaV
+  suffix: Filled, Hardsuit
   parent: LockerCaptain
   components:
   - type: EntityTableContainerFill
@@ -106,7 +106,7 @@
       entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
-          tableId: LockerFillCaptainLaser
+          tableId: LockerFillCaptainNoLaser # DeltaV - no laser
         - !type:NestedSelector
           tableId: FillCaptainHardsuit
 
