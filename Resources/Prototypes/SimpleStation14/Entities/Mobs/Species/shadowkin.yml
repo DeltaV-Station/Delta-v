@@ -16,8 +16,6 @@
         Blunt: 2
         Slash: 3
         Piercing: 1
-  - type: TemperatureProtection
-    coefficient: 0.1
   - type: Damageable
     damageModifierSet: Shadowkin
   - type: Inventory
@@ -59,7 +57,7 @@
   - type: Blindable
   - type: Temperature
     heatDamageThreshold: 330
-    coldDamageThreshold: 195
+    coldDamageThreshold: 250
     currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
