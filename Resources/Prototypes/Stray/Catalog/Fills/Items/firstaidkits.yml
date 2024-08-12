@@ -1,0 +1,12 @@
+- type: entity
+  id: MedkitFirstCombatAidFilled
+  suffix: Filled
+  parent: MedkitFirstCombatAid
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: SyringeStimulants
+      - id: Bloodpack
+      - id: EpinephrineChemistryBottle

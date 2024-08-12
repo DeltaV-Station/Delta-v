@@ -1,0 +1,24 @@
+- type: entity
+  parent: InjectorCase
+  id: InjectorCaseBlueShield
+  suffix: BlueShield
+  description: Convenient storage for medipens.
+  components:
+  - type: Sprite
+    layers:
+      - state: injectorscase
+  - type: Item
+    heldPrefix: injectorscase
+    shape:
+    - 0,0,1,0
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: StorageFill
+    contents:
+    - id: BruteAutoInjector
+    - id: AntiPoisonMedipen
+    - id: CombatMedipen
+    - id: BurnAutoInjector
+    - id: RadAutoInjector
+    - id: EmergencyMedipen
