@@ -12,6 +12,9 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 10800
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 7200
   startingGear: BlueshieldGear
   icon: "JobIconBlueshield"
   supervisors: job-supervisors-centcom
