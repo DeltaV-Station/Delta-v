@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandsGlovesCombat
   id: ClothingHandsGlovesInspection
   name: inspection gloves
   description: A fancy pair of white gloves, both durable and delicate.
@@ -8,16 +8,12 @@
     sprite: DeltaV/Clothing/Hands/Gloves/inspection.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Hands/Gloves/inspection.rsi
-  - type: GloveHeatResistance
-    heatResistance: 1400
-  - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-white
-  - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandsGlovesInspection
   id: ClothingHandsGlovesRyuzoGauntlets
   name: golden gauntlets
   description: Because sometimes, things just need to be based on your fists.
@@ -27,13 +23,6 @@
     sprite: DeltaV/Clothing/Hands/Gloves/ryuzogauntlets.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Hands/Gloves/ryuzogauntlets.rsi
-  - type: GloveHeatResistance
-    heatResistance: 1400
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-leather
-    fiberColor: fibers-white
-  - type: FingerprintMask
   - type: StaminaDamageOnHit
     damage: 20
   - type: MeleeWeapon

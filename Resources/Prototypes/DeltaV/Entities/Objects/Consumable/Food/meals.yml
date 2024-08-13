@@ -20,3 +20,10 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 2
+  - type: FoodSequenceElement # unlimited power
+    entries:
+      burger:
+        name: food-sequence-burger-content-grilled-cheese
+        sprite:
+          sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
+          state: grilledcheese

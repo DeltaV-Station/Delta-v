@@ -46,57 +46,54 @@
       path: /Maps/Shuttles/cargo.yml
     - type: GridSpawn
       groups:
-#        trade:
+#        trade: # DeltaV - trade station has its own map
 #          addComponents:
 #          - type: ProtectedGrid
 #          - type: TradeStation
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
-#        mining:
-#          paths:
-#          - /Maps/Shuttles/mining.yml
+        mining: !type:GridSpawnGroup # DeltaV - reclaimer is a wreck instead of working shuttle
+          hide: true
+          nameGrid: true
+          minCount: 1
+          maxCount: 1
+          paths:
+          - /Maps/Shuttles/DeltaV/mining_broken.yml
+          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
+          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
+          - /Maps/Shuttles/DeltaV/mining_ticks.yml
+          - /Maps/Shuttles/DeltaV/mining_carp.yml
+          - /Maps/Shuttles/DeltaV/mining_snakes.yml
+          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
-        ruins:
+        ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
           minCount: 2
           maxCount: 2
           stationGrid: false
           paths:
+          #- /Maps/Ruins/chunked_tcomms.yml # TODO
           - /Maps/Ruins/DeltaV/biodome_satellite.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/derelict.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/djstation.yml #Delta V - Move to DV folder
+          #- /Maps/Ruins/empty_flagship.yml # TODO
           - /Maps/Ruins/DeltaV/old_ai_sat.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/relaystation.yml #Delta V - Move to DV folder
+          #- /Maps/Ruins/syndicate_dropship.yml # TODO
           - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
-
-- type: entity
-  id: BaseStationShuttlesCore
-  abstract: true
-  components:
-    - type: GridSpawn
-      groups:
-        cargo:
-          paths:
-          - /Maps/Shuttles/cargo_core.yml
-#        mining:
-#          paths:
-#          - /Maps/Shuttles/mining.yml
-        ruins:
-          hide: true
-          nameGrid: true
-          minCount: 2
-          maxCount: 2
+        vgroid: !type:DungeonSpawnGroup
+          minimumDistance: 400
+          maximumDistance: 450
+          nameDataset: names_borer
           stationGrid: false
-          paths:
-          - /Maps/Ruins/DeltaV/biodome_satellite.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/derelict.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/djstation.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/old_ai_sat.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/relaystation.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
+          addComponents:
+          - type: Gravity
+            enabled: true
+            inherent: true
+          protos:
+          - VGRoid
 
 - type: entity
   id: BaseStationCentcomm
