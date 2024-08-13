@@ -8,27 +8,27 @@ namespace Content.Server.DeltaV.Cargo.Components;
 [RegisterComponent, Access(typeof(SharedCargoSystem))]
 public sealed partial class StationLogisticStatsComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("mailEarnings")]
-    public int MailEarnings = 0;
+    [DataField]
+    public int MailEarnings;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("damagedMailLosses")]
-    public int DamagedMailLosses = 0;
+    [DataField]
+    public int DamagedMailLosses;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("expiredMailLosses")]
-    public int ExpiredMailLosses = 0;
+    [DataField]
+    public int ExpiredMailLosses;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("tamperedMailLosses")]
-    public int TamperedMailLosses = 0;
+    [DataField]
+    public int TamperedMailLosses;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("openedMailCount")]
-    public int OpenedMailCount = 0;
+    [DataField]
+    public int OpenedMailCount;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("damagedMailCount")]
-    public int DamagedMailCount = 0;
+    [DataField]
+    public int DamagedMailCount;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("expiredMailCount")]
-    public int ExpiredMailCount = 0;
+    [DataField]
+    public int ExpiredMailCount;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("tamperedMailCount")]
-    public int TamperedMailCount = 0;
+    [DataField]
+    public int TamperedMailCount;
 }

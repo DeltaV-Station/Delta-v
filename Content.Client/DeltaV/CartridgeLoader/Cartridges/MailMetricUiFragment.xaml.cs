@@ -75,27 +75,23 @@ public sealed partial class MailMetricUiFragment : BoxContainer
 
     private static OpenedMailPercentGrade GetSuccessRateGrade(double successRate)
     {
-        if (successRate > 75)
-            return OpenedMailPercentGrade.Good;
-        else if (successRate > 50)
-            return OpenedMailPercentGrade.Average;
-        else
-            return OpenedMailPercentGrade.Bad;
+        return successRate switch
+        {
+            > 75 => OpenedMailPercentGrade.Good,
+            > 50 => OpenedMailPercentGrade.Average,
+            _ => OpenedMailPercentGrade.Bad,
+        };
     }
 
     private string GetClassForGrade(OpenedMailPercentGrade? grade)
     {
-        switch (grade)
+        return grade switch
         {
-            case OpenedMailPercentGrade.Good:
-                return "Good";
-            case OpenedMailPercentGrade.Average:
-                return "Caution";
-            case OpenedMailPercentGrade.Bad:
-                return "Danger";
-            default:
-                return string.Empty;
-        }
+            OpenedMailPercentGrade.Good => "Good",
+            OpenedMailPercentGrade.Average => "Caution",
+            OpenedMailPercentGrade.Bad => "Danger",
+            _ => string.Empty,
+        };
     }
 }
 
