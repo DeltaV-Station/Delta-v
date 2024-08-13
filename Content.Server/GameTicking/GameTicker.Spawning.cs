@@ -237,7 +237,7 @@ namespace Content.Server.GameTicking
                 spawnPointType = SpawnPointType.Job;
             }
 
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType);
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 

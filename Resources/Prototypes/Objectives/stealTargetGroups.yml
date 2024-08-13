@@ -354,8 +354,8 @@
     state: ian
 
 - type: stealTargetGroup
-  id: AnimalBingus
-  name: Bingus
+  id: AnimalNamedCat
+  name: CMO's Cat
   sprite:
     sprite: Mobs/Pets/bingus.rsi
     state: bingus
@@ -389,8 +389,8 @@
     state: fox
 
 - type: stealTargetGroup
-  id: AnimalShiva
-  name: Shiva
+  id: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
+  name: Security Pet #DeltaV - Adjusts because we have multiple possible sec animals
   sprite:
     sprite: Mobs/Pets/shiva.rsi
     state: shiva

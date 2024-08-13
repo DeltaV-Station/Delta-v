@@ -7,7 +7,9 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
+    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -19,7 +21,9 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
+    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     state: pda
   - type: Pda
     state: pda
@@ -109,6 +113,9 @@
   id: BaseMedicalPDA
   abstract: true
   components:
+  - type: ItemToggle
+    toggleLight: false
+    onUse: false
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -262,9 +269,7 @@
     borderColor: "#C18199"
   - type: Icon
     state: pda-clown
-  - type: Slippery
-    paralyzeTime: 4
-    launchForwardsMultiplier: 1.5
+  - type: Slippery # secretly made of bananium
   - type: StepTrigger
   - type: CollisionWake
     enabled: false
@@ -314,7 +319,7 @@
   description: God's chosen PDA.
   components:
   - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -332,7 +337,7 @@
     borderColor: "#333333"
     accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV - Give Chaplain PDA Epistemics colors
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     state: pda-chaplain
 
 - type: entity
@@ -704,7 +709,7 @@
 - type: entity
   parent: BasePDA
   id: CentcomPDA
-  name: CentCom PDA
+  name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
   - type: Pda
@@ -733,6 +738,7 @@
     scanDelay: 0
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -777,7 +783,7 @@
 - type: entity
   parent: BasePDA
   id: AtmosPDA
-  name: atmos PDA
+  name: atmospheric technician PDA # DeltaV - was "atmos PDA"
   description: Still smells like plasma.
   components:
   - type: Pda

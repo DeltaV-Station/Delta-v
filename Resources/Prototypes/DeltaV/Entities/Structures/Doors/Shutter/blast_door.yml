@@ -1,0 +1,111 @@
+- type: entity
+  id: BlastDoorUnlinkedBridge
+  parent: BlastDoor
+  suffix: Bridge
+  components:
+    - type: AccessReader
+      access: [["Command"]]
+
+- type: entity
+  id: BlastDoorUnlinkedBridgeOpen
+  parent: BlastDoorOpen
+  suffix: Open, Bridge
+  components:
+    - type: AccessReader
+      access: [["Command"]]
+
+- type: entity
+  id: BlastDoorUnlinkedEngineering
+  parent: BlastDoor
+  suffix: Engineering
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Engineering"]]
+
+- type: entity
+  id: BlastDoorUnlinkedEngineeringOpen
+  parent: BlastDoorOpen
+  suffix: Open, Engineering
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Engineering"]]
+
+- type: entity
+  id: BlastDoorUnlinkedEpistemics
+  parent: BlastDoor
+  suffix: Epistemics
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+
+- type: entity
+  id: BlastDoorUnlinkedEpistemicsOpen
+  parent: BlastDoorOpen
+  suffix: Open, Epistemics
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+
+- type: entity
+  id: BlastDoorUnlinkedSecurity
+  parent: BlastDoor
+  suffix: Security
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Security"]]
+
+- type: entity
+  id: BlastDoorUnlinkedSecurityOpen
+  parent: BlastDoorOpen
+  suffix: Open, Security
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Security"]]
+
+- type: entity
+  id: BlastDoorUnlinkedMedical
+  parent: BlastDoor
+  suffix: Medical
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Medical"]]
+
+- type: entity
+  id: BlastDoorUnlinkedMedicalOpen
+  parent: BlastDoorOpen
+  suffix: Open, Medical
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Medical"]]
+
+- type: entity
+  id: BlastDoorUnlinkedLogistics
+  parent: BlastDoor
+  suffix: Logistics
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Cargo"]]
+
+- type: entity
+  id: BlastDoorUnlinkedLogisticsOpen
+  parent: BlastDoorOpen
+  suffix: Open, Logistics
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Cargo"]]
+
+- type: entity
+  id: BlastDoorUnlinkedArmory
+  parent: BlastDoor
+  suffix: Armory
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Armory"]]
+
+- type: entity
+  id: BlastDoorUnlinkedArmoryOpen
+  parent: BlastDoorOpen
+  suffix: Open, Armory
+  components:
+  - type: AccessReader
+    access: [["Command"], ["Armory"]]

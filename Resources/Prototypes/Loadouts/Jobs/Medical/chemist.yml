@@ -1,37 +1,21 @@
 # Neck - DeltaV
 - type: loadout # DeltaV
   id: ChemistTie
-  equipment: ChemistTie
-
-- type: startingGear # DeltaV
-  id: ChemistTie
   equipment:
     neck: ClothingNeckTieChem
 
 # Jumpsuit
 - type: loadout
   id: ChemistJumpsuit
-  equipment: ChemistJumpsuit
-
-- type: startingGear
-  id: ChemistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
 
 - type: loadout
   id: ChemistJumpskirt
-  equipment: ChemistJumpskirt
-
-- type: startingGear
-  id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
 
 - type: loadout # DeltaV
-  id: ChemistFormalSuit
-  equipment: ChemistFormalSuit
-
-- type: startingGear # DeltaV
   id: ChemistFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemShirt
@@ -39,46 +23,26 @@
 # Back
 - type: loadout
   id: ChemistBackpack
-  equipment: ChemistBackpack
-
-- type: startingGear
-  id: ChemistBackpack
   equipment:
-    back: ClothingBackpackChemistryFilled
+    back: ClothingBackpackChemistry
 
 - type: loadout
   id: ChemistSatchel
-  equipment: ChemistSatchel
-
-- type: startingGear
-  id: ChemistSatchel
   equipment:
-    back: ClothingBackpackSatchelChemistryFilled
+    back: ClothingBackpackSatchelChemistry
 
 - type: loadout
   id: ChemistDuffel
-  equipment: ChemistDuffel
-
-- type: startingGear
-  id: ChemistDuffel
   equipment:
-    back: ClothingBackpackDuffelChemistryFilled
+    back: ClothingBackpackDuffelChemistry
 
 # Outer clothing
 - type: loadout
-  id: ChemistLabCoat
-  equipment: ChemistLabCoat
-
-- type: startingGear
   id: ChemistLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabChem
 
 - type: loadout
-  id: ChemistWintercoat
-  equipment: ChemistWintercoat
-
-- type: startingGear
   id: ChemistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChem
@@ -86,19 +50,11 @@
 ## Start DeltaV Changes
 - type: loadout
   id: ChemistApron
-  equipment: ChemistApron
-
-- type: startingGear
-  id: ChemistApron
   equipment:
     outerClothing: ClothingOuterApronChemist
 
 # Gloves - DeltaV
 - type: loadout
-  id: ChemistGloves
-  equipment: ChemistGloves
-
-- type: startingGear
   id: ChemistGloves
   equipment:
     gloves: ClothingHandsGlovesChemist
@@ -106,18 +62,10 @@
 # Shoes - DeltaV
 - type: loadout
   id: ChemistWinterBoots
-  equipment: ChemistWinterBoots
-
-- type: startingGear
-  id: ChemistWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterChem
 
 - type: loadout
-  id: ChemistShoes
-  equipment: ChemistShoes
-
-- type: startingGear
   id: ChemistShoes
   equipment:
     shoes: ClothingShoesEnclosedChem
