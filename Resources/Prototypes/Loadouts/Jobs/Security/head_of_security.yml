@@ -52,7 +52,7 @@
   id: HeadofSecurityFormalSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHosFormal
-    
+
 - type: loadout # DeltaV
   id: HeadofSecurityParadeSuit
   equipment: HeadofSecurityParadeSuit
@@ -82,6 +82,15 @@
     head: ClothingHeadHatHoshat
 
 - type: loadout
+  id: ClothingHeadHatCapHoS
+  equipment: ClothingHeadHatCapHoS # Stray
+
+- type: startingGear
+  id: ClothingHeadHatCapHoS
+  equipment:
+    head: ClothingHeadHatCapHoS # Stray
+
+- type: loadout
   id: HeadofSecurityBeret
   equipment: HeadofSecurityBeret
 
@@ -109,6 +118,15 @@
   equipment:
     neck: ClothingNeckMantleHOS
 
+- type: loadout
+  id: ClothingNeckMantleHOSShoulder
+  equipment: ClothingNeckMantleHOSShoulder # Stray
+
+- type: startingGear
+  id: ClothingNeckMantleHOSShoulder
+  equipment:
+    neck: ClothingNeckMantleHOSShoulder # Stray
+
 # OuterClothing
 - type: loadout
   id: HeadofSecurityCoat
@@ -127,6 +145,15 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
+
+- type: loadout
+  id: ClothingOuterCoatHoSGreatcoat
+  equipment: ClothingOuterCoatHoSGreatcoat
+
+- type: startingGear
+  id: ClothingOuterCoatHoSGreatcoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoSGreatcoat
 
 # Shoes - DeltaV
 - type: loadout # DeltaV

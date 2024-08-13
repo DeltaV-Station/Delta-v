@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseItem
+  id: BluespaceBoxBase
+  name: bluespace box
+  description: It looks like an ordinary cardboard box, but on the side it says "BlueSpace Vault". There must be something in there.
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  - type: Item
+    sprite: Objects/Storage/boxes.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: SpawnItemsOnUse
+    items:
+    - id: MysteryFigureBoxTrash
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
+- type: entity
+  parent: BluespaceBoxBase
+  id: BluespaceBoxHardsuitBlueShield
+  suffix: Hardsuit, BlueShield
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: MysteryFigureBoxTrash
+    - id: ClothingOuterBlueshieldHardsuit
