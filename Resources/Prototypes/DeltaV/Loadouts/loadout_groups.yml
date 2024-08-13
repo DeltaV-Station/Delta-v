@@ -102,7 +102,34 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
-  
+
+- type: loadoutGroup
+  id: SurvivalCorpsman
+  name: loadout-group-survival-corpsman
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenCorpsman
+  - EmergencyOxygenCorpsman
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCorpsman
+  name: loadout-group-breath-tool
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCorpsman
+
+## Security Cadet
+- type: loadoutGroup
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
@@ -201,6 +228,74 @@
   loadouts:
   - ProsecutorNeck
 
+# PDAs
+- type: loadoutGroup
+  id: PassengerPDADelta
+  name: loadout-group-passenger-id-delta
+  loadouts:
+  - PassengerPDA
+  - VisitorPDA
+  - TouristPDA
+  - OffDutyCrewPDA
+  - StudentPDA
+
+- type: loadoutGroup
+  id: BartenderPDADelta
+  name: loadout-group-bartender-id-delta
+  loadouts:
+  - BartenderPDA
+  - MixologistPDA
+
+- type: loadoutGroup
+  id: ChefPDADelta
+  name: loadout-group-chef-id-delta
+  loadouts:
+  - ChefPDA
+  - BakerPDA
+  - ButcherPDA
+  - PizzaioloPDA
+
+- type: loadoutGroup
+  id: MedicalInternPDADelta
+  name: loadout-group-medical-intern-id-delta
+  loadouts:
+  - MedicalInternPDA
+  - PracticalNursePDA
+  - ResidentPDA
+
+- type: loadoutGroup
+  id: AtmosPDADelta
+  name: loadout-group-atmos-id-delta
+  loadouts:
+  - AtmosPDA
+  - LifeSupportTechPDA
+  - PlasmaScientistPDA
+
+- type: loadoutGroup
+  id: CargoPDADelta
+  name: loadout-group-cargo-id-delta
+  loadouts:
+  - CargoPDA
+  - DeckWorkerPDA
+  - InventoryAssociatePDA
+
+- type: loadoutGroup
+  id: SalvagePDADelta
+  name: loadout-group-salvage-id-delta
+  loadouts:
+  - SalvagePDA
+  - ProspectorPDA
+  - ExcavatorPDA
+
+- type: loadoutGroup
+  id: ClownPDADelta
+  name: loadout-group-clown-id-delta
+  loadouts:
+  - ClownPDA
+  - JesterPDA
+  - FoolPDA
+
+# Misc
 - type: loadoutGroup
   id: Scarfs
   name: loadout-group-scarfs
