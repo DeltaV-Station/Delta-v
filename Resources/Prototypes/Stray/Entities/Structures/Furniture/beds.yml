@@ -1,0 +1,8 @@
+- type: entity
+  parent: Mattress
+  id: DirtyMattress
+  name: dirty mattress
+  description: Better sleep in that then on the floor i guess.
+  components:
+  - type: Sprite
+    state: mattress-dirty
