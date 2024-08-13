@@ -65,6 +65,13 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
 
         AdminLogManager.Add(LogType.EventStarted, LogImpact.High, $"Event started: {ToPrettyString(uid)}");
 
+        if (stationEvent.StartAnnouncement != null)
+        {
+            ChatSystem.DispatchGlobalAnnouncement(Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: Color.Gold);
+        }
+
+        Audio.PlayGlobal(stationEvent.StartAudio, Filter.Broadcast(), true);
+
         if (stationEvent.Duration != null)
         {
             var duration = stationEvent.MaxDuration == null
