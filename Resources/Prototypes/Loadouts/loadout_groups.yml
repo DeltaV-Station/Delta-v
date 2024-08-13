@@ -25,6 +25,7 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - AACTablet # DeltaV
 
 - type: loadoutGroup
   id: Glasses
@@ -1455,6 +1456,13 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+
+- type: loadoutGroup
+  id: PsychologistJumpsuit
+  name: loadout-group-psychologist-jumpsuit
+  loadouts:
+  - PsychologistJumpsuit
+  - PsychologistJumpskirt
 
 - type: loadoutGroup
   id: BoxerJumpsuit
