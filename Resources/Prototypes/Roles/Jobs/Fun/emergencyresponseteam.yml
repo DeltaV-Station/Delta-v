@@ -109,7 +109,7 @@
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPistolUniversal
     pocket2: DrinkWaterBottleFull
 
 - type: startingGear
@@ -127,7 +127,7 @@
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPistolUniversal
     pocket2: DrinkWaterBottleFull
 
 # Engineer
@@ -163,7 +163,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-    pocket2: GasAnalyzer
+    pocket2: WeaponPistolUniversal
 
 - type: startingGear
   id: ERTEngineerGearEVA
@@ -180,7 +180,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-    pocket2: GasAnalyzer
+    pocket2: WeaponPistolUniversal
 
 # Security
 - type: job
@@ -214,7 +214,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58Nonlethal
+    pocket1: WeaponPistolUniversal
     pocket2: FlashlightSeclite
 
 - type: startingGear
@@ -231,7 +231,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58Nonlethal
+    pocket1: WeaponPistolUniversal
     pocket2: FlashlightSeclite
 
 - type: startingGear
@@ -286,6 +286,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
+    pocket2: WeaponPistolUniversal
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -302,6 +303,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
+    pocket2: WeaponPistolUniversal
 
 # Janitor
 - type: job
@@ -335,6 +337,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
+    pocket2: WeaponEnergyGunPistol
 
 - type: startingGear
   id: ERTJanitorGearEVA
@@ -350,3 +353,4 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
+    pocket2: WeaponEnergyGunPistol

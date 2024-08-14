@@ -1,7 +1,7 @@
 - type: job
   id: Blueshield
-  name: "Офицер «Синий щит»"
-  description: "Специально обученный сотрудник, посланный на станцию для защиты Капитана, Командного состава и VIP-персон с ЦК."
+  name: job-name-BlueShield
+  description: job-description-BlueShield
   playTimeTracker: JobBlueshield
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
@@ -12,18 +12,29 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 10800
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 7200
   startingGear: BlueshieldGear
   icon: "JobIconBlueshield"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
   - Command
-  - Medical
-  - Armory
+  - Brig
   - Security
+  - Armory
   - Maintenance
   - Service
   - External
+  - Research
+  - Medical
+  - Engineering
+  - Cargo
+  extendedAccess:
+  - Atmospherics
+  - Chemistry
+  - Captain
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -39,11 +50,8 @@
   id: BlueshieldGear
   equipment:
     shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesMed
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitCombatCorpsman
-    id: CentcomPDA
+    id: BlueShieldPDA
     ears: ClothingHeadsetCentCom
-    belt: ClothingBeltCorpsmanWebbingFilled
     pocket1: WeaponPistolUniversal
-    pocket2: MagazineUniversalMagnum
+    pocket2: WeaponPulsePistol

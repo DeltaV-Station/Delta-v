@@ -19,4 +19,15 @@
     protectionTime: 5
   - type: Tag
     tags:
-    - WhitelistChameleon     
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingEyesGlassesSecurity, ClothingEyesGlassesMed]
+  id: ClothingEyesGlassesBlueShield
+  name: blueshield sunglasses
+  description: Stylish goggles that protect your eyes from flashes and also shows all the health and occupational information of others. A great choice for real pros.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Eyes/Glasses/blueglasses.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Eyes/Glasses/blueglasses.rsi

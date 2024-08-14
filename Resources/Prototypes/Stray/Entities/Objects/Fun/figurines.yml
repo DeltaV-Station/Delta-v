@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineBrigmedic
+  name: brigmedic figure
+  description: A figurine of your favorite guardian angel of the brig. He will always come to the aid of his shipmates.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/figurines.rsi
+    state: brigmedic
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineBlueshield
+  name: blue shield figure
+  description: A figurine depicting the same officer that is forever playing pole simulator and following you around.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/figurines.rsi
+    state: blueshield
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineBlueshieldAlt
+  name: blue shield figure
+  description: A figurine depicting a Blue Shield Officer with fiery red hair. She's not very patient and can't control her anger... I think I've seen her somewhere.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/figurines.rsi
+    state: blueshield_alt

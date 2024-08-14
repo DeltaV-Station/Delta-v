@@ -70,3 +70,17 @@
       OffState: alitaFront
       OnState: alitaBack
       Popup: "Вы перевернули дакимакуру"
+
+- type: entity
+  parent: BaseDakimakura
+  id: DimasKarabas28Dak
+  name: Дакимакура Лауры
+  description: "Дакимакура Лауры Сергеевой. Приятель, я конечно не эксперт. Но женщина в форме не решение всех твоих проблем"
+  components:
+    - type: Sprite
+      state: lauraFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: lauraFront
+      OnState: lauraBack
+      Popup: "Вы перевернули дакимакуру"
