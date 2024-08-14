@@ -322,6 +322,5 @@
   components:
    - type: SubdermalImplant
      permanent: false # DeltaV - let peaceful revs etc remove mindshields
-   - type: Tag
-     tags:
-       - MindShield
+     addedComponents: # DeltaV - replaces mindshield tag logic
+     - type: MindShield
