@@ -1,0 +1,31 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGladiator
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoGladiator
+  jobName: job-name-gladiator
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPrisonGuard
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoPrisonGuard
+  jobName: job-name-prison-guard
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMartialArtist
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoMartialArtist
+  jobName: job-name-martialartist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconForensicMantis
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoMantis
+  jobName: job-name-mantis

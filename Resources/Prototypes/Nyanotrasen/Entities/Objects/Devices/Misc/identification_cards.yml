@@ -9,7 +9,7 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanoprisoner
   - type: PresetIdCard
-    jobName: Prisoner
+    job: Prisoner
 
 - type: entity
   parent: IDCardStandard
@@ -22,7 +22,7 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanogladiator
   - type: PresetIdCard
-    jobName: Gladiator
+    job: Gladiator
 
 - type: entity
   parent: IDCardStandard
@@ -35,10 +35,10 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanoprisonguard
   - type: PresetIdCard
-    jobName: PrisonGuard
+    job: PrisonGuard
 
 - type: entity
-  parent: IDCardStandard
+  parent: CourierIDCard
   id: MailCarrierIDCard
   name: mail carrier ID card
   components:
@@ -47,8 +47,8 @@
     - state: default
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanomailcarrier
-  - type: PresetIdCard
-    virtualJobName: job-name-mail-carrier # DeltaV
+  - type: IdCard
+    jobTitle: Mail Carrier
 
 - type: entity
   parent: IDCardStandard
@@ -61,7 +61,7 @@
     - sprite: DeltaV/Objects/Misc/id_cards.rsi
       state: nyanomartialartist
   - type: PresetIdCard
-    jobName: MartialArtist
+    job: MartialArtist
 
 - type: entity
   parent: IDCardStandard
@@ -74,4 +74,4 @@
         - sprite: DeltaV/Objects/Misc/id_cards.rsi
           state: nyanomantis
     - type: PresetIdCard
-      jobName: ForensicMantis
+      job: ForensicMantis
