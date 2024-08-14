@@ -6,7 +6,10 @@ namespace Content.Server.DeltaV.Cargo.Systems;
 
 public sealed partial class LogisticStatsSystem : SharedCargoSystem
 {
-    public override void Initialize() => base.Initialize();
+    public override void Initialize()
+    {
+        base.Initialize()
+    }
 
     [PublicAPI]
     public void AddOpenedMailEarnings(EntityUid uid, StationLogisticStatsComponent component, int earnedMoney)
