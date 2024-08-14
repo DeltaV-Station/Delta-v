@@ -345,3 +345,18 @@
   components:
   - type: Stack
     count: 1
+
+    - type: entity
+  parent: OreBase
+  id: LeadOre
+  name: lead ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: LeadOre
+  - type: Sprite
+    state: lead_ore
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawLead: 500
