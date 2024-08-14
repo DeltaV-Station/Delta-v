@@ -8,7 +8,7 @@ public sealed partial class LogisticStatsSystem : SharedCargoSystem
 {
     public override void Initialize()
     {
-        base.Initialize()
+        base.Initialize();
     }
 
     [PublicAPI]
