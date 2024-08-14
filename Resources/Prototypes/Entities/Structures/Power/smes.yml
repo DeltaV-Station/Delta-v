@@ -57,10 +57,10 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
-      maxSupply: 300000
-      maxChargeRate: 10000
-      supplyRampTolerance: 10000
-      supplyRampRate: 2000
+      maxSupply: 300000 # Delta-V
+      maxChargeRate: 10000 # Delta-V
+      supplyRampTolerance: 10000 # Delta-V
+      supplyRampRate: 2000 # Delta-V
     - type: PointLight
       radius: 1.5
       energy: 1.6
@@ -98,8 +98,8 @@
   suffix: Basic, 8MW
   components:
   - type: Battery
-    maxCharge: 16000000
-    startingCharge: 16000000
+    maxCharge: 16000000 # Delta-V
+    startingCharge: 16000000 # Delta-V
 
 - type: entity
   parent: SMESBasic
