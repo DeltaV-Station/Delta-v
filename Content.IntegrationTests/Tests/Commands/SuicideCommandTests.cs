@@ -95,7 +95,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                //Assert.That(mobStateSystem.IsDead(player, mobStateComp)); // DeltaV - /suicide is the same as /ghost
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });
@@ -158,10 +158,10 @@ public sealed class SuicideCommandTests
 
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                //Assert.That(mobStateSystem.IsDead(player, mobStateComp)); // DeltaV - /suicide is the same as /ghost
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold));
+                //Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold)); // DeltaV - /suicide is the same as /ghost
             });
         });
 
@@ -210,7 +210,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsAlive(player, mobStateComp));
+                //Assert.That(mobStateSystem.IsAlive(player, mobStateComp)); // DeltaV: 
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });
@@ -281,10 +281,10 @@ public sealed class SuicideCommandTests
 
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                //Assert.That(mobStateSystem.IsDead(player, mobStateComp)); // DeltaV
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold));
+                //Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold)); // DeltaV
             });
         });
 
@@ -353,10 +353,10 @@ public sealed class SuicideCommandTests
 
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                //Assert.That(mobStateSystem.IsDead(player, mobStateComp)); // DeltaV
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold / 2));
+                //Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold / 2)); // DeltaV
             });
         });
 
