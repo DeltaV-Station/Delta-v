@@ -284,12 +284,13 @@
     - type: StorageFill
       contents:
         - id: BoxSurvivalEngineering
-        - id: WeaponDisabler
+        - id: MagazineUniversalMagnumRubber
         - id: MedicatedSuture
         - id: RegenerativeMesh
         - id: BoxZiptie
-        - id: CrowbarRed
-        - id: MagazineMagnum
+        - id: ToolDebug # spanish army knife
+        - id: WeaponPistolUniversal
+        - id: MagazineUniversalMagnum
 
 - type: entity
   noSpawn: true
@@ -299,12 +300,13 @@
     - type: StorageFill
       contents:
         - id: BoxSurvivalEngineering
-        - id: WeaponDisabler
+        - id: MagazineUniversalMagnumRubber
         - id: MedicatedSuture
         - id: RegenerativeMesh
         - id: BoxZiptie
         - id: CrowbarRed
-        - id: MagazinePistol
+        - id: WeaponPistolUniversal
+        - id: MagazineUniversalMagnum
 
 - type: entity
   noSpawn: true
@@ -320,6 +322,9 @@
         - id: OmnizineChemistryBottle
         - id: EpinephrineChemistryBottle
         - id: EpinephrineChemistryBottle
+        - id: CombatKnife
+        - id: MagazineUniversalMagnum
+        - id: MagazineUniversalMagnumRubber
 
 - type: entity
   noSpawn: true
@@ -339,6 +344,9 @@
         - id: SheetPlasteel
         - id: SheetSteel
         - id: SheetGlass
+        - id: CombatKnife
+        - id: MagazineUniversalMagnum
+        - id: MagazineUniversalMagnumRubber
 
 - type: entity
   noSpawn: true
@@ -354,6 +362,7 @@
         - id: Soap
         - id: CrowbarRed
         - id: AdvMopItem
+        - id: CombatKnife
 
 - type: entity
   noSpawn: true
@@ -375,6 +384,9 @@
         - id: FoodBakedBunHotX
         - id: FoodBakedBunHotX
         - id: Lighter
+        - id: CombatKnife
+        - id: MagazineUniversalMagnum
+        - id: MagazineUniversalMagnumRubber
 
 # Death Squad
 
