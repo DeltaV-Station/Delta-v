@@ -157,6 +157,15 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
+- type: loadout
+  id: ClothingUniformJumpsuitSecFormal
+  equipment: ClothingUniformJumpsuitSecFormal # Stray
+
+- type: startingGear
+  id: ClothingUniformJumpsuitSecFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecFormal # Stray
+
 # Back
 - type: loadout
   id: SecurityBackpack
@@ -249,6 +258,15 @@
   id: SecurityOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
+
+- type: loadout
+  id: ClothingOuterCoatSecurityOvercoat
+  equipment: ClothingOuterCoatSecurityOvercoat
+
+- type: startingGear
+  id: ClothingOuterCoatSecurityOvercoat # Stray
+  equipment:
+    outerClothing: ClothingOuterCoatSecurityOvercoat # Stray
 
 # Shoes
 - type: loadout

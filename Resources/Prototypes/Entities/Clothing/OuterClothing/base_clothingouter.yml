@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [Clothing, AllowSuitStorageClothing] # Stray
   id: ClothingOuterBase
   components:
   - type: Clothing
