@@ -173,7 +173,18 @@ public sealed class AmeNodeGroup : BaseNodeGroup
 
         // The adjustment for cores make it so that a 1 core AME at 2 injections is better than a 2 core AME at 2 injections.
         // However, for the relative amounts for each (1 core at 2 and 2 core at 4), more cores has more output.
+
+        // DeltaV code
+        // Check if there's any cores attached to the controller
+        if (cores == 0)
+        {
+            return 0f;
+        }
+
+        // Power generation curve assuming x is the number of cores and the injection scales linearly to always be the twice the number of cores. 
+        // https://www.wolframalpha.com/input?i=200000+*+log10%28%28x*2%29%5E1.9%29+*+%280.4+*+%28%28x*2%29+%2F+x%29%29+for+x+from+1+to+10
         return 200000f * MathF.Log10(MathF.Pow(fuel, 1.9f)) * (0.4f * (fuel / cores));
+        // End of DeltaV code
     }
 
     public int GetTotalStability()
