@@ -77,7 +77,10 @@
   - type: DisarmMalus
     malus: 0
   - type: Reflect
-    enabled: false
+    reflectProb: 0.20
+    spread: 20
+    reflects:
+      - Energy #DeltaV: 20% Energy Reflection but no ballistics.
   - type: IgnitionSource
     temperature: 700
 

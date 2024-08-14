@@ -1,0 +1,17 @@
+- type: entity
+  parent: Rack
+  id: RackEngi
+  name: rack
+  description: A rack for storing things on.
+  components:
+  - type: Sprite
+    state: rack-engi
+
+- type: entity
+  parent: Rack
+  id: RackMed
+  name: rack
+  description: A rack for storing things on.
+  components:
+  - type: Sprite
+    state: rack-med
