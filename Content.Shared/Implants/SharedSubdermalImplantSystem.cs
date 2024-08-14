@@ -218,7 +218,7 @@ public readonly struct ImplantRemovedEvent
     public readonly EntityUid Implant;
     public readonly EntityUid? Implanted;
 
-    public ImplantImplantedEvent(EntityUid implant, EntityUid? implanted)
+    public ImplantRemovedEvent(EntityUid implant, EntityUid? implanted)
     {
         Implant = implant;
         Implanted = implanted;
