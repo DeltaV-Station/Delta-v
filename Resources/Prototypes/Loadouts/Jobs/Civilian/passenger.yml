@@ -11,13 +11,9 @@
 # Face
 - type: loadout
   id: PassengerFace
-  equipment: GasMask
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
-
-- type: startingGear
-  id: GasMask
   equipment:
     mask: ClothingMaskGas
 
@@ -25,18 +21,10 @@
 # Grey
 - type: loadout
   id: GreyJumpsuit
-  equipment: GreyJumpsuit
-
-- type: startingGear
-  id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
 
 - type: loadout
-  id: GreyJumpskirt
-  equipment: GreyJumpskirt
-
-- type: startingGear
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
@@ -44,22 +32,14 @@
 # Rainbow
 - type: loadout
   id: RainbowJumpsuit
-  equipment: RainbowJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
-
-- type: startingGear
-  id: RainbowJumpsuit
   equipment:
     jumpsuit: ClothingUniformColorRainbow
 
 # Rose Hoodie w/ Skirt - DeltaV
 - type: loadout
-  id: MioSkirt
-  equipment: MioSkirt
-
-- type: startingGear
   id: MioSkirt
   equipment:
     jumpsuit: ClothingCostumeMioSkirt
@@ -67,28 +47,16 @@
 # Turqoise Hoodie w/ Shorts - DeltaV
 - type: loadout
   id: NaotaHoodie
-  equipment: NaotaHoodie
-
-- type: startingGear
-  id: NaotaHoodie
   equipment:
     jumpsuit: ClothingCostumeNaota
 
 # Casual Blue - DeltaV
 - type: loadout
   id: CasualRedSkirt
-  equipment: CasualRedSkirt
-
-- type: startingGear
-  id: CasualRedSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCasualRed
 
 - type: loadout
-  id: CasualRedSuit
-  equipment: CasualRedSuit
-
-- type: startingGear
   id: CasualRedSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualRed
@@ -97,18 +65,10 @@
 # Casual Blue - DeltaV
 - type: loadout
   id: CasualBlueSkirt
-  equipment: CasualBlueSkirt
-
-- type: startingGear
-  id: CasualBlueSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCasualBlue
 
 - type: loadout
-  id: CasualBlueSuit
-  equipment: CasualBlueSuit
-
-- type: startingGear
   id: CasualBlueSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualBlue
@@ -116,18 +76,10 @@
 # Casual Purple - DeltaV
 - type: loadout
   id: CasualPurpleSkirt
-  equipment: CasualPurpleSkirt
-
-- type: startingGear
-  id: CasualPurpleSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCasualPurple
 
 - type: loadout
-  id: CasualPurpleSuit
-  equipment: CasualPurpleSuit
-
-- type: startingGear
   id: CasualPurpleSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualPurple
@@ -135,63 +87,39 @@
 # Ancient
 - type: loadout
   id: AncientJumpsuit
-  equipment: AncientJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
-
-- type: startingGear
-  id: AncientJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
 
 # Back
 - type: loadout
   id: CommonBackpack
-  equipment: CommonBackpack
-
-- type: startingGear
-  id: CommonBackpack
   equipment:
-    back: ClothingBackpackFilled
+    back: ClothingBackpack
 
 - type: loadout
   id: CommonSatchel
-  equipment: CommonSatchel
-
-- type: startingGear
-  id: CommonSatchel
   equipment:
-    back: ClothingBackpackSatchelFilled
+    back: ClothingBackpackSatchel
 
 - type: loadout
   id: CommonDuffel
-  equipment: CommonDuffel
-
-- type: startingGear
-  id: CommonDuffel
   equipment:
-    back: ClothingBackpackDuffelFilled
+    back: ClothingBackpackDuffel
 
 # Gloves
 - type: loadout
   id: PassengerGloves
-  equipment: FingerlessInsulatedGloves
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
-
-- type: startingGear
-  id: FingerlessInsulatedGloves
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
 
 # Outerclothing
 - type: loadout
-  id: PassengerWintercoat
-  equipment: PassengerWintercoat
-
-- type: startingGear
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
@@ -199,18 +127,10 @@
 # Shoes
 - type: loadout
   id: BlackShoes
-  equipment: BlackShoes
-
-- type: startingGear
-  id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
 
 - type: loadout
-  id: WinterBoots
-  equipment: WinterBoots
-
-- type: startingGear
   id: WinterBoots
   equipment:
     shoes: ClothingShoesBootsWinter
