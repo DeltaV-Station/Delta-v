@@ -11,7 +11,6 @@ namespace Content.Server.DeltaV.CartridgeLoader.Cartridges;
 public sealed class MailMetricsCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly LogisticStatsSystem _logisticsStats = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
@@ -20,7 +19,7 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<MailMetricsCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogisticStatsUpdatedEvent>(OnLogisticsStatsUpdated);
-        SubscribeLocalEvent<MailComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<MailComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnUiReady(Entity<MailMetricsCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
@@ -33,11 +32,10 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
         UpdateAllCartridges(args.Station);
     }
 
-    private void OnComponentInit(EntityUid uid, MailComponent mail, ComponentInit args)
+    private void OnMapInit(EntityUid uid, MailComponent mail, MapInitEvent args)
     {
-        var stationUid = _station.GetOwningStation(uid);
-        if (stationUid != null)
-            UpdateAllCartridges((EntityUid) stationUid);
+        if (_station.GetOwningStation(uid) is { } station)
+            UpdateAllCartridges(station);
     }
 
     private void UpdateAllCartridges(EntityUid station)
@@ -60,37 +58,24 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
             return;
 
         // Get station's logistic stats
-        var mailEarnings = logiStats.MailEarnings;
-        var damagedMailLosses = logiStats.DamagedMailLosses;
-        var expiredMailLosses = logiStats.ExpiredMailLosses;
-        var tamperedMailLosses = logiStats.TamperedMailLosses;
-        var openedMailCount = logiStats.OpenedMailCount;
-        var damagedMailCount = logiStats.DamagedMailCount;
-        var expiredMailCount = logiStats.ExpiredMailCount;
-        var tamperedMailCount = logiStats.TamperedMailCount;
-        var unopenedMailCount = GetUnopenedMailCount();
+        var unopenedMailCount = GetUnopenedMailCount(ent.Comp.Station);
 
         // Send logistic stats to cartridge client
-        var state = new MailMetricUiState(mailEarnings,
-                                          damagedMailLosses,
-                                          expiredMailLosses,
-                                          tamperedMailLosses,
-                                          openedMailCount,
-                                          damagedMailCount,
-                                          expiredMailCount,
-                                          tamperedMailCount,
-                                          unopenedMailCount);
+        var state = new MailMetricUiState(logiStats.Metrics, unopenedMailCount);
         _cartridgeLoader.UpdateCartridgeUiState(loader, state);
     }
 
-    private int GetUnopenedMailCount()
+
+    private int GetUnopenedMailCount(EntityUid? station)
     {
         var unopenedMail = 0;
+
         var query = EntityQueryEnumerator<MailComponent>();
-        while (query.MoveNext(out var station, out var mail))
+
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (mail.IsLocked)
-                unopenedMail += 1;
+            if (comp.IsLocked && _station.GetOwningStation(uid) == station)
+                unopenedMail++;
         }
 
         return unopenedMail;

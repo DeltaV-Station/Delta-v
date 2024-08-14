@@ -1,4 +1,5 @@
 using Content.Shared.Cargo;
+using Content.Shared.CartridgeLoader.Cartridges;
 
 namespace Content.Server.DeltaV.Cargo.Components;
 
@@ -9,26 +10,5 @@ namespace Content.Server.DeltaV.Cargo.Components;
 public sealed partial class StationLogisticStatsComponent : Component
 {
     [DataField]
-    public int MailEarnings;
-
-    [DataField]
-    public int DamagedMailLosses;
-
-    [DataField]
-    public int ExpiredMailLosses;
-
-    [DataField]
-    public int TamperedMailLosses;
-
-    [DataField]
-    public int OpenedMailCount;
-
-    [DataField]
-    public int DamagedMailCount;
-
-    [DataField]
-    public int ExpiredMailCount;
-
-    [DataField]
-    public int TamperedMailCount;
+    public MailStats Metrics { get; set; }
 }
