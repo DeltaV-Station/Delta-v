@@ -87,7 +87,8 @@ public sealed partial class AACWindow : FancyWindow
         {
             HorizontalExpand = true,
             Text = groupName,
-            Margin = new Thickness(10, 10, 10, 0)
+            Margin = new Thickness(10, 10, 10, 0),
+            StyleClasses = { "LabelBig" }
         };
 
         return header;
