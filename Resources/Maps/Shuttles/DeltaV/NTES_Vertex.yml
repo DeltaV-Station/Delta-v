@@ -22,7 +22,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.484375,-0.5
-      parent: 1128
+      parent: invalid
     - type: MapGrid
       chunks:
         0,-1:
@@ -598,18 +598,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-  - uid: 1128
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirlockCommandGlassLocked
   entities:
   - uid: 1014
@@ -1723,16 +1711,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,18.5
-      parent: 1
-  - uid: 1129
-    components:
-    - type: Transform
-      pos: -0.5,-8.5
-      parent: 1
-  - uid: 1130
-    components:
-    - type: Transform
-      pos: -6.5,-8.5
       parent: 1
 - proto: CableHV
   entities:
@@ -6336,12 +6314,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-8.5
       parent: 1
+    - type: Thruster
+      enabled: False
   - uid: 372
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,-8.5
       parent: 1
+    - type: Thruster
+      enabled: False
   - uid: 763
     components:
     - type: Transform
