@@ -78,9 +78,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncementColor: "#18abf5"
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
     weight: 12 # DeltaV - was 8
     duration: 35
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -96,9 +93,6 @@
       min:  30
       max:  30
   - type: StationEvent
-    startAnnouncementColor: "#18abf5"
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -135,9 +129,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-bureaucratic-error-announcement
-    startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+    startAnnouncement: true #Impstation Random Announcer System
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -152,7 +144,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-clerical-error-announcement
+    startAnnouncement: true
     minimumPlayers: 15
     weight: 5
     duration: 1
@@ -292,9 +284,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-gas-leak-start-announcement
-    startAudio:
-      path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
+    startAnnouncement: true # Impstation Random Announcer Port
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -319,13 +309,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 10
-    startAnnouncement: station-event-power-grid-check-start-announcement
-    endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
+    weight: 10 
+    startAnnouncement: true # Impstation Random Announcer System
+    endAnnouncement: true # Impstation Random Announcer System
     duration: 60
     maxDuration: 120
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -338,10 +324,8 @@
   components:
   - type: StationEvent
     weight: 10
-    startAnnouncement: station-event-solar-flare-start-announcement
-    endAnnouncement: station-event-solar-flare-end-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true # Impstation Random Announcer System
+    endAnnouncement: true # Impstation Random Announcer System
     duration: 120
     maxDuration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -367,10 +351,8 @@
   parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-clog-start-announcement
-    startAudio:
-      path: /Audio/Announcements/ventclog.ogg # DeltaV - custom announcer
-    earliestStart: 20 # DeltaV - was 15
+    startAnnouncement: true
+    earliestStart: 20 #DeltaV - was 15
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
     duration: 60
@@ -383,9 +365,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -425,9 +405,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -443,9 +421,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -539,9 +515,7 @@
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
+    startAnnouncement: true
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
