@@ -1,7 +1,6 @@
 - type: entity
-  abstract: true
-  parent: [BaseStructure, StructureWheeled]
-  id: BaseNuclearBomb
+  parent: [BaseStructure, StructureWheeled, BaseMajorContraband]
+  id: NuclearBomb
   name: nuclear fission explosive
   components:
   - type: Transform
@@ -185,7 +184,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.45
-        density: 255 
+        density: 255
         mask:
         - MachineMask
         layer:
