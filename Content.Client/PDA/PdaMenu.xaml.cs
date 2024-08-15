@@ -232,6 +232,7 @@ namespace Content.Client.PDA
 
                 item.OnPressed += _ => OnProgramItemPressed?.Invoke(uid);
 
+                /*
                 switch (component.InstallationStatus)
                 {
                     case InstallationStatus.Cartridge:
@@ -245,6 +246,7 @@ namespace Content.Client.PDA
                         item.InstallButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(uid);
                         break;
                 }
+                */
 
                 item.ProgramName.Text = Loc.GetString(component.ProgramName);
                 item.SetHeight = 20;
