@@ -211,3 +211,18 @@ phrase-color-white = white
 phrase-color-bright = bright
 phrase-color-dark = dark
 phrase-color-rainbow = rainbow
+
+# flavors
+phrase-sweet = sweet
+phrase-sour = sour
+phrase-spicy = spicy
+phrase-savory = savory
+phrase-bitter = bitter
+
+# plants
+phrase-tomato = tomato
+phrase-potato = potato
+phrase-onion = onion
+phrase-aloe = aloe
+phrase-poppy = poppy
+phrase-galaxythistle = galaxythistle
