@@ -8,4 +8,4 @@ fi
 cd ../../
 
 git submodule update --init --recursive
-dotnet build -c Debug
+dotnet build -c Tools
