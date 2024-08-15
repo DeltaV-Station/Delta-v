@@ -23,6 +23,7 @@ using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Mind;
 using Content.Shared.Alert;
+using Content.Server.SimpleStation14.Silicon.Death;
 
 namespace Content.Server.SimpleStation14.Silicon.Charge;
 
@@ -111,10 +112,11 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (_mobState.IsDead(silicon))
                 continue;
 
-            // If the silicon ghosted or is SSD, skip it. - DeltaV
-            if (EntityManager.TryGetComponent<MindContainerComponent>(silicon, out var mindContComp))
+            // If the silicon ghosted or is SSD while still being powered, skip it. - DeltaV
+            if (EntityManager.TryGetComponent<MindContainerComponent>(silicon, out var mindContComp)
+                && EntityManager.TryGetComponent<SiliconDownOnDeadComponent>(silicon, out var siliconDeathComp))
             {
-                if (mindContComp.HasMind == false || CompOrNull<MindComponent>(mindContComp.Mind)?.Session == null)
+                if ((mindContComp.HasMind == false || CompOrNull<MindComponent>(mindContComp.Mind)?.Session == null) && !siliconDeathComp.Dead)
                 {
                     continue;
                 }
