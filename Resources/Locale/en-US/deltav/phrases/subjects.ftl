@@ -193,3 +193,6 @@ phrase-salt = salt
 phrase-artifact-fragment = artifact fragment
 phrase-bluespace-crystal = bluespace
 phrase-diamond = diamond
+phrase-chemicals = chemicals
+phrase-box = box
+phrase-locker = locker

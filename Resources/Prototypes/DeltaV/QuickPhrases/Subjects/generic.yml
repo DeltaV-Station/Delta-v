@@ -164,6 +164,21 @@
   text: phrase-bag
 
 - type: quickPhrase
+  id: LockerPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-locker
+
+- type: quickPhrase
+  id: BoxPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-box
+
+- type: quickPhrase
+  id: ChemicalsPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-chemicals
+
+- type: quickPhrase
   id: BaseMaterialPhrase
   parent: BaseSubjectPhrase
   group: Materials
