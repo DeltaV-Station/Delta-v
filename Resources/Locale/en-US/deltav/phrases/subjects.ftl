@@ -196,3 +196,4 @@ phrase-diamond = diamond
 phrase-chemicals = chemicals
 phrase-box = box
 phrase-locker = locker
+phrase-machine = machine
