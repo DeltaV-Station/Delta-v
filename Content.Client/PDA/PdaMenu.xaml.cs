@@ -23,7 +23,7 @@ namespace Content.Client.PDA
         public const int HomeView = 0;
         //public const int ProgramListView = 1;
         //public const int SettingsView = 2;
-        public const int ProgramContentView = 3;
+        public const int ProgramContentView = 1;
 
 
         private string _pdaOwner = Loc.GetString("comp-pda-ui-unknown");
@@ -55,7 +55,11 @@ namespace Content.Client.PDA
             //ProgramCloseButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/cross.svg.png"));
 
 
-            HomeButton.OnPressed += _ => ToHomeScreen();
+            HomeButton.OnPressed += _ =>
+            {
+                HideProgramHeader();
+                ToHomeScreen();
+            };
             /*
             ProgramListButton.OnPressed += _ =>
             {
@@ -88,13 +92,13 @@ namespace Content.Client.PDA
                 ChangeView(ProgramContentView);
             };
 
-           /*
-            ProgramCloseButton.OnPressed += _ =>
-            {
-                HideProgramHeader();
-                ToHomeScreen();
-            };
-           */
+            /*
+             ProgramCloseButton.OnPressed += _ =>
+             {
+                 HideProgramHeader();
+                 ToHomeScreen();
+             };
+            */
 
             PdaOwnerButton.OnPressed += _ =>
             {
@@ -213,13 +217,13 @@ namespace Content.Client.PDA
             }
 
             var row = CreateProgramListRow();
-            var itemCount = 1;
+            var itemCount = 0;
             ProgramList.AddChild(row);
 
             foreach (var (uid, component) in programs)
             {
                 //Create a new row every third program item starting from the first
-                if (itemCount % 3 != 0)
+                if (itemCount % 3 == 0)
                 {
                     row = CreateProgramListRow();
                     ProgramList.AddChild(row);
@@ -256,7 +260,7 @@ namespace Content.Client.PDA
             }
 
             //Add a filler item to the last row when it only contains one item
-            if (itemCount % 2 == 0)
+            if (itemCount % 3 == 0)
                 row.AddChild(new Control() { HorizontalExpand = true });
         }
 

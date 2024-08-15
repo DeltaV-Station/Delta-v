@@ -1,8 +1,10 @@
-<pda:PdaProgramItem HorizontalExpand="True" MinHeight="80" Margin="4"
+<pda:PdaProgramItem HorizontalExpand="True"
+                    MinSize="103 80"
+                    Margin="4"
                     xmlns:pda="clr-namespace:Content.Client.PDA"
                     xmlns="https://spacestation14.io">
     <PanelContainer Name="Panel"/>
-    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Center" VerticalExpand="True">
+    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalExpand="True">
         <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="0 4">
             <AnimatedTextureRect HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Name="Icon" Access="Public"/>
             <Label Name="ProgramName" Access="Public" VerticalExpand="True" Margin="0 5"/>

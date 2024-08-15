@@ -2,9 +2,9 @@ device-pda-slot-component-slot-name-cartridge = Cartridge
 
 default-program-name = Program
 notekeeper-program-name = Notekeeper
-news-read-program-name = Station news
+news-read-program-name = News
 
-crew-manifest-program-name = Crew manifest
+crew-manifest-program-name = Manifest
 crew-manifest-cartridge-loading = Loading ...
 
 net-probe-program-name = NetProbe
