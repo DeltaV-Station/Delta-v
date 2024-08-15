@@ -75,7 +75,7 @@ namespace Content.Client.PDA
             _menu.OnProgramItemPressed += ActivateCartridge;
             _menu.OnInstallButtonPressed += InstallCartridge;
             _menu.OnUninstallButtonPressed += UninstallCartridge;
-            _menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
+            //_menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
 
             var borderColorComponent = GetBorderColorComponent();
             if (borderColorComponent == null)
