@@ -54,3 +54,4 @@ phrase-hazard-hot = hot
 phrase-hazard-freezing = freezing
 phrase-hazard-burning = burning
 phrase-hazard-bad-temperature = bad temperature
+phrase-hazard-darkness = darkness
