@@ -183,6 +183,8 @@
   parent: BaseSubjectPhrase
   text: phrase-machine
 
+# Materials
+
 - type: quickPhrase
   id: BaseMaterialPhrase
   parent: BaseSubjectPhrase
@@ -248,3 +250,71 @@
   id: BluespacePhrase
   parent: BaseMaterialPhrase
   text: phrase-bluespace
+
+# Colors
+
+- type: quickPhrase
+  id: BaseColorPhrase
+  parent: BaseSubjectPhrase
+  group: Colors
+  abstract: true
+
+- type: quickPhrase
+  id: ColorRedPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-red
+
+- type: quickPhrase
+  id: ColorOrangePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-orange
+
+- type: quickPhrase
+  id: ColorYellowPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-yellow
+
+- type: quickPhrase
+  id: ColorGreenPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-green
+
+- type: quickPhrase
+  id: ColorBluePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-blue
+
+- type: quickPhrase
+  id: ColorPurplePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-purple
+
+- type: quickPhrase
+  id: ColorPinkPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-pink
+
+- type: quickPhrase
+  id: ColorBlackPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-black
+
+- type: quickPhrase
+  id: ColorWhitePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-white
+
+- type: quickPhrase
+  id: ColorBrightPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-bright
+
+- type: quickPhrase
+  id: ColorDarkPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-dark
+
+- type: quickPhrase
+  id: ColorRainbowPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-rainbow

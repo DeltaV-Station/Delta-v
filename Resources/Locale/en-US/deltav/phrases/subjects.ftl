@@ -197,3 +197,17 @@ phrase-chemicals = chemicals
 phrase-box = box
 phrase-locker = locker
 phrase-machine = machine
+
+# colors
+phrase-color-red = red
+phrase-color-orange = orange
+phrase-color-yellow = yellow
+phrase-color-green = green
+phrase-color-blue = blue
+phrase-color-purple = purple
+phrase-color-pink = pink
+phrase-color-black = black
+phrase-color-white = white
+phrase-color-bright = bright
+phrase-color-dark = dark
+phrase-color-rainbow = rainbow
