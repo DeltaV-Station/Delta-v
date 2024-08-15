@@ -209,8 +209,11 @@ phrase-color-pink = pink
 phrase-color-black = black
 phrase-color-white = white
 phrase-color-bright = bright
+phrase-color-light = light
 phrase-color-dark = dark
 phrase-color-rainbow = rainbow
+phrase-color-brown = brown
+phrase-color-gray = gray
 
 # flavors
 phrase-sweet = sweet
