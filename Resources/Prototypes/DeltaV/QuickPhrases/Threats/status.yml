@@ -105,3 +105,13 @@
   id: SafetyLostPhrase
   parent: BaseSafetyStatusPhrase
   text: phrase-safety-lost
+
+- type: quickPhrase
+  id: SafetyIAmPhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-i-am
+
+- type: quickPhrase
+  id: SafetyYouArePhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-you-are
