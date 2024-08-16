@@ -115,7 +115,7 @@ public sealed class SliceableFoodSystem : EntitySystem
         _transform.SetLocalRotation(sliceUid, 0);
 
         // DeltaV - start of deep frier stuff
-        var slicedEv = new SliceFoodEvent(user, uid, sliceUid);
+        var slicedEv = new FoodSlicedEvent(user, uid, sliceUid);
         RaiseLocalEvent(uid, ref slicedEv);
         // DeltaV - end of deep frier stuff
 
