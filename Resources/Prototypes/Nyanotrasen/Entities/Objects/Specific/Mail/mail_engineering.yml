@@ -1,5 +1,4 @@
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEngineeringCables
   suffix: cables
@@ -14,7 +13,6 @@
       orGroup: Cables
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEngineeringKudzuDeterrent
   suffix: antikudzu
@@ -24,7 +22,6 @@
     - id: PlantBGoneSpray
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEngineeringSheetGlass
   suffix: sheetglass
@@ -34,7 +31,6 @@
     - id: SheetGlass
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEngineeringWelderReplacement
   suffix: welder
