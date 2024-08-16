@@ -39,7 +39,7 @@ public sealed class MailJobVisualizerSystem : VisualizerSystem<MailComponent>
         if (string.IsNullOrEmpty(job))
             job = "JobIconUnknown";
 
-        if (!_prototypeManager.TryIndex<StatusIconPrototype>(job, out var icon))
+        if (!_prototypeManager.TryIndex<JobIconPrototype>(job, out var icon))
         {
             args.Sprite.LayerSetTexture(MailVisualLayers.JobStamp, _spriteSystem.Frame0(_prototypeManager.Index("JobIconUnknown")));
             return;

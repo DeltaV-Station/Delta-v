@@ -65,8 +65,29 @@
   - type: NpcFactionMember
     factions:
     - PetsNT
+  - type: Sprite
+    sprite: DeltaV/Mobs/Pets/lawyercarp.rsi # Fancy Fishe
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshadedAccessory" ]
+        state: suit
+        shader: unshaded
   - type: TypingIndicator
     proto: lawyer # incase of cognizine
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+        BaseUnshaded: mouth
+        BaseUnshadedAccessory: suit
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_mouth
+        BaseUnshadedAccessory: suit_dead
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
