@@ -472,10 +472,10 @@ accent-irish-words-164 = fun
 accent-irish-words-replace-164 = craic
 
 accent-irish-words-165 = trash
-accent-irish-words-replace-164 = rubbish
+accent-irish-words-replace-165 = rubbish
 
 accent-irish-words-166 = wallet
-accent-irish-words-replace-164 = purse
+accent-irish-words-replace-166 = purse
 
 accent-irish-words-167 = bandage
 accent-irish-words-replace-167 = plaster
@@ -508,7 +508,7 @@ accent-irish-words-176 = reliable
 accent-irish-words-replace-176 = sound
 
 accent-irish-words-177 = funny
-accent-irish-words-replace-170 = gas
+accent-irish-words-replace-177 = gas
 
 accent-irish-words-178 = joking
 accent-irish-words-replace-178 = taking the piss
