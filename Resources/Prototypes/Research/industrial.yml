@@ -107,18 +107,18 @@
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
 
-#- type: technology
-#  id: Grappling
-#  name: research-technology-grappling
-#  icon:
-#    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-#    state: base
-#  discipline: Industrial
-#  tier: 1
-#  cost: 5000
-#  recipeUnlocks:
-#  - WeaponGrapplingGun
-#  - BorgModuleGrapplingGun
+- type: technology
+  id: Grappling
+  name: research-technology-grappling
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+    state: base
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - WeaponGrapplingGun
+  - BorgModuleGrapplingGun
 
 # Tier 2
 
