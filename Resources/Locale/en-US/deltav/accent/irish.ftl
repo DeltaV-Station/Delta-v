@@ -94,7 +94,7 @@ accent-irish-words-30 = yes
 accent-irish-words-replace-30 = 'aye
 
 accent-irish-words-31 = too
-accent-irish-words-replace-31 = too
+accent-irish-words-replace-31 = toe
 
 accent-irish-words-32 = my
 accent-irish-words-replace-32 = muh
