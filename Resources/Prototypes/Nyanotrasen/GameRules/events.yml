@@ -2,7 +2,6 @@
 - type: entity
   id: NoosphericStorm
   parent: BaseGameRule
-  noSpawn: true
   components:
     - type: StationEvent
       startAnnouncement: station-event-noospheric-storm-announcement
@@ -16,7 +15,6 @@
 - type: entity
   id: BaseGlimmerEvent
   parent: BaseGameRule
-  noSpawn: true
   components:
     - type: StationEvent
       # Favor glimmer events just a little more than regular events.
@@ -27,18 +25,15 @@
 - type: entity
   id: MundaneDischarge
   parent: BaseGlimmerEvent
-  noSpawn: true
   components:
     - type: GlimmerEvent
       maximumGlimmer: 300
       glimmerBurnLower: 18
       glimmerBurnUpper: 40
-    - type: MundaneDischargeRule
 
 - type: entity
   id: NoosphericZap
   parent: BaseGlimmerEvent
-  noSpawn: true
   components:
     - type: GlimmerEvent
     - type: NoosphericZapRule
@@ -46,7 +41,6 @@
 - type: entity
   id: NoosphericFry
   parent: BaseGlimmerEvent
-  noSpawn: true
   components:
     - type: GlimmerEvent
       minimumGlimmer: 300
@@ -57,7 +51,6 @@
 - type: entity
   id: PsionicCatGotYourTongue
   parent: BaseGlimmerEvent
-  noSpawn: true
   components:
     - type: GlimmerEvent
       minimumGlimmer: 500
@@ -69,7 +62,6 @@
 - type: entity
   id: MassMindSwap
   parent: BaseGlimmerEvent
-  noSpawn: true
   components:
     - type: GlimmerEvent
       minimumGlimmer: 900

@@ -1,0 +1,26 @@
+# Corpsman
+- type: loadout
+  id: EmergencyOxygenCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalBrigmedic
+
+- type: loadout
+  id: EmergencyNitrogenCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalBrigmedicNitrogen
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolCorpsman
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskBreathMedicalSecurity
