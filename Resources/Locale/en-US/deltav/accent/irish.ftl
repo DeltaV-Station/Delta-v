@@ -37,7 +37,7 @@ accent-irish-words-11 = know
 accent-irish-words-replace-11 = kno
 
 accent-irish-words-12 = i
-accent-irish-words-replace-12 = Ei
+accent-irish-words-replace-12 = Eih
 
 accent-irish-words-13 = you're
 accent-irish-words-replace-13 = ye're
@@ -100,13 +100,13 @@ accent-irish-words-32 = my
 accent-irish-words-replace-32 = muh
 
 accent-irish-words-33 = not
-accent-irish-words-replace-33 = nae
+accent-irish-words-replace-33 = naht
 
 accent-irish-words-34 = dad
-accent-irish-words-replace-34 = da
+accent-irish-words-replace-34 = pa
 
 accent-irish-words-35 = mom
-accent-irish-words-replace-35 = maw
+accent-irish-words-replace-35 = mum
 
 accent-irish-words-36 = newbie
 accent-irish-words-replace-36 = greenbeard
@@ -175,10 +175,10 @@ accent-irish-words-57 = have
 accent-irish-words-replace-57 = hae
 
 accent-irish-words-58 = no
-accent-irish-words-replace-58 = na
+accent-irish-words-replace-58 = nah
 
 accent-irish-words-59 = to
-accent-irish-words-replace-59 = ta
+accent-irish-words-replace-59 = toe
 
 accent-irish-words-60 = the
 accent-irish-words-replace-60 = thah
@@ -208,7 +208,7 @@ accent-irish-words-69 = what
 accent-irish-words-replace-69 = wot
 
 accent-irish-words-70 = where
-accent-irish-words-replace-70 = whaur
+accent-irish-words-replace-70 = wher
 
 accent-irish-words-71 = when
 accent-irish-words-replace-71 = wen
@@ -331,16 +331,16 @@ accent-irish-words-112 = hampster
 accent-irish-words-replace-112 = hammy
 
 accent-irish-words-113 = nukie
-accent-irish-words-replace-113 = reddie
+accent-irish-words-replace-113 = redder
 
 accent-irish-words-114 = nuclear op
-accent-irish-words-replace-114 = reddie
+accent-irish-words-replace-114 = redder
 
 accent-irish-words-115 = nuclear operative
-accent-irish-words-replace-115 = reddie
+accent-irish-words-replace-115 = redder
 
 accent-irish-words-116 = nuclear agent
-accent-irish-words-replace-116 = reddie
+accent-irish-words-replace-116 = redder
 
 accent-irish-words-121 = more
 accent-irish-words-replace-121 = maer
@@ -352,19 +352,19 @@ accent-irish-words-123 = over
 accent-irish-words-replace-123 = o'er
 
 accent-irish-words-125 = human
-accent-irish-words-replace-125 = hyooman
+accent-irish-words-replace-125 = huoman
 
 accent-irish-words-126 = dwarf
-accent-irish-words-replace-126 = dorf
+accent-irish-words-replace-126 = darf
 
 accent-irish-words-127 = slime
-accent-irish-words-replace-127 = oozie
+accent-irish-words-replace-127 = sleem
 
 accent-irish-words-128 = rat
-accent-irish-words-replace-128 = raken
+accent-irish-words-replace-128 = ratter
 
 accent-irish-words-129 = arachnid
-accent-irish-words-replace-129 = aranaken
+accent-irish-words-replace-129 = aranatter
 
 accent-irish-words-130 = spider
 accent-irish-words-replace-130 = hisser
@@ -388,25 +388,25 @@ accent-irish-words-136 = aint
 accent-irish-words-replace-136 = benah
 
 accent-irish-words-137 = zombie
-accent-irish-words-replace-137 = rotter
+accent-irish-words-replace-137 = zombaí
 
 accent-irish-words-138 = zomb
-accent-irish-words-replace-138 = rotter
+accent-irish-words-replace-138 = zombaí
 
 accent-irish-words-139 = clown
-accent-irish-words-replace-139 = honki
+accent-irish-words-replace-139 = clodhopper
 
 accent-irish-words-140 = cluwn
-accent-irish-words-replace-140 = hunki
+accent-irish-words-replace-140 = cludhopper
 
 accent-irish-words-141 = carp
-accent-irish-words-replace-141 = fin
+accent-irish-words-replace-141 = carpo
 
 accent-irish-words-142 = crusher
 accent-irish-words-replace-142 = axe
 
 accent-irish-words-143 = coward
-accent-irish-words-replace-143 = leaflover
+accent-irish-words-replace-143 = cow
 
 accent-irish-words-144 = idiot
 accent-irish-words-replace-144 = dope
@@ -433,7 +433,7 @@ accent-irish-words-151 = old
 accent-irish-words-replace-151 = ol'
 
 accent-irish-words-152 = filthy
-accent-irish-words-replace-152 =
+accent-irish-words-replace-152 = sooty
 
 accent-irish-words-153 = i do not know
 accent-irish-words-replace-153 = ah dinnae knew
@@ -616,7 +616,7 @@ accent-irish-words-212 = kiss
 accent-irish-words-replace-212 = shift
 
 accent-irish-words-213 = unsure
-accent-irish-words-replace-213 = yoke
+accent-irish-words-replace-213 = suffin
 
 accent-irish-words-214 = continue
 accent-irish-words-replace-214 = g'wan
