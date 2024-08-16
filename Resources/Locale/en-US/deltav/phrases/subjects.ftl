@@ -197,6 +197,7 @@ phrase-chemicals = chemicals
 phrase-box = box
 phrase-locker = locker
 phrase-machine = machine
+phrase-blood = blood
 
 # colors
 phrase-color-red = red
