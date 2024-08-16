@@ -113,12 +113,14 @@
   components:
     - type: MobsterAccent
 
+# 2 Cost
+
 - type: trait
   id: RussianAccent
   name: trait-russian-accent-name
   description: trait-russian-accent-desc
   category: SpeechTraits
-  cost: 1
+  cost: 2
   components:
     - type: RussianAccent
 
