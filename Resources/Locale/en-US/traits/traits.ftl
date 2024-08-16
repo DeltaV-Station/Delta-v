@@ -62,3 +62,6 @@ trait-mobster-accent-desc = Fugeddaboutit! Yous talk numhallly, capiche?
 
 trait-russian-accent-name = Russian accent
 trait-russian-accent-desc = Da comrade! You seem to have lived in space russia!
+
+trait-irish-accent-name = Irish accent
+trait-irish-accent-desc = Ya sap! Seems you got a pet hate fer rubbish!
