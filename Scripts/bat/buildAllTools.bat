@@ -2,6 +2,6 @@
 cd ../../
 
 call git submodule update --init --recursive
-call dotnet build -c Debug
+call dotnet build -c Tools
 
 pause
