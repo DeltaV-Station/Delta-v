@@ -7,3 +7,12 @@
   cost: 1
   components:
     - type: ScottishAccent
+
+- type: trait
+  id: IrishAccent
+  name: trait-irish-accent-name
+  description: trait-irish-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+    0 type: IrishAccent
