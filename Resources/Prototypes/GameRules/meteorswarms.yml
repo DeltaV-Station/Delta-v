@@ -61,7 +61,8 @@
     minMaxEventTiming:
       min: 750 # 12.5 min
       max: 930 # 17.5 min
-    scheduledGameRules: MeteorSwarm # DeltaV: use old event
+    scheduledGameRules: !type:EntSelector # DeltaV: use old event
+      id: MeteorSwarm
 
 - type: entity
   parent: BaseGameRule
