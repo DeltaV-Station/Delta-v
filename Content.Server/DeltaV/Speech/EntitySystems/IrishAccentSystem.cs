@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Content.Server.DeltaV.Speech.EntitySystems;
 
-public sealed class ScottishAccentSystem : EntitySystem
+public sealed class IrishAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
