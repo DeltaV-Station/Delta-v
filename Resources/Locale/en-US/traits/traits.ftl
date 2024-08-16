@@ -50,3 +50,15 @@ trait-cowboy-desc = You speak with a distinct cowboy accent!
 
 trait-italian-name = Italian accent
 trait-italian-desc = Mamma mia! You seem to have lived in space italy!
+
+trait-french-accent-name = French accent
+trait-french-accent-desc = Oui! You seem to 'ave lived in space france!
+
+trait-spanish-accent-name = Spanish accent
+trait-spanish-accent-desc = Hola! You eseem to have inhereted your Espanish traditions!
+
+trait-mobster-accent-name = Mobster accent
+trait-mobster-accent-desc = Fugeddaboutit! Yous talk numhallly, capiche?
+
+trait-russian-accent-name = Russian accent
+trait-russian-accent-desc = Da comrade! You seem to have lived in space russia!
