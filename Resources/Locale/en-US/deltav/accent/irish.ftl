@@ -97,7 +97,7 @@ accent-irish-words-31 = too
 accent-irish-words-replace-31 = toe
 
 accent-irish-words-32 = my
-accent-irish-words-replace-32 = muh
+accent-irish-words-replace-32 = mah
 
 accent-irish-words-33 = not
 accent-irish-words-replace-33 = naht
