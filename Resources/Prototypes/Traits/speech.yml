@@ -121,3 +121,12 @@
   cost: 1
   components:
     - type: RussianAccent
+
+- type: trait
+  id: IrishAccent
+  name: trait-irish-accent-name
+  description: trait-irish-accent-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+    - type: IrishAccent
