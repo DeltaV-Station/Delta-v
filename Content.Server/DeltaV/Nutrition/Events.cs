@@ -29,7 +29,7 @@ public sealed class FoodSlicedEvent : EntityEventArgs
     /// <summary>
     public EntityUid Slice;
 
-    public SliceFoodEvent(EntityUid user, EntityUid food, EntityUid slice)
+    public FoodSlicedEvent(EntityUid user, EntityUid food, EntityUid slice)
     {
         User = user;
         Food = food;
