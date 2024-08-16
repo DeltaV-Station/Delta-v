@@ -1712,6 +1712,16 @@ entities:
     - type: Transform
       pos: -4.5,18.5
       parent: 1
+  - uid: 1129
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 1
+  - uid: 1130
+    components:
+    - type: Transform
+      pos: -6.5,-8.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 480
@@ -6314,16 +6324,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-8.5
       parent: 1
-    - type: Thruster
-      enabled: False
   - uid: 372
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,-8.5
       parent: 1
-    - type: Thruster
-      enabled: False
   - uid: 763
     components:
     - type: Transform
