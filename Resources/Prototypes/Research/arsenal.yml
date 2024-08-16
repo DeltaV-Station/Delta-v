@@ -24,17 +24,18 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ShellShotgunIncendiary
-  - CartridgePistolIncendiary
-  - CartridgeMagnumIncendiary
-  - CartridgeLightRifleIncendiary
-  - CartridgeRifleIncendiary
+  - BoxShotgunIncendiary
+  - MagazineRifleIncendiary
+  - MagazinePistolIncendiary
+  - MagazineLightRifleIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   # DeltaV - .38 special incendiary ammo - Add .38 special incendiary ammo to the research tree
-  - CartridgeSpecialIncendiary
+  - SpeedLoaderSpecialIncendiary
   - MagazineBoxSpecialIncendiary
   # End of modified code
 
@@ -60,20 +61,19 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
-  - ShellShotgunBeanbag
+  - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
-  # DeltaV - rubber ammo which upstream deleted
-  - CartridgePistolRubber
-  - CartridgeMagnumRubber
-  - CartridgeLightRifleRubber
-  - CartridgeRifleRubber
+  # DeltaV - rubber ammo which upstream removed
+  - MagazineRifleRubber
+  - MagazinePistolRubber
+  - MagazineLightRifleRubber
+  - SpeedLoaderMagnumRubber
   - MagazineBoxPistolRubber
   - MagazineBoxMagnumRubber
   - MagazineBoxLightRifleRubber
   - MagazineBoxRifleRubber
-  - CartridgeSpecialRubber
   - MagazineBoxSpecialRubber
   # End of modified code
 
@@ -87,15 +87,15 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
-  - ShellShotgunUranium
-  - CartridgePistolUranium
-  - CartridgeMagnumUranium
-  - CartridgeLightRifleUranium
-  - CartridgeRifleUranium
+  - MagazineRifleUranium
+  - MagazinePistolUranium
+  - MagazineLightRifleUranium
+  - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+  - BoxShotgunUranium
   # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
   - CartridgeSpecialUranium
   - MagazineBoxSpecialUranium
@@ -189,6 +189,7 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
+  #- GrenadeBlast # DeltaV - no
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
