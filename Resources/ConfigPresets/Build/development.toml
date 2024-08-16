@@ -4,6 +4,7 @@ lobbyenabled = false
 # Dev map for faster loading & convenience
 map = "Dev"
 role_timers = false
+contraband_examine = false # DeltaV
 
 [ghost]
 role_time = 0.5
@@ -31,3 +32,5 @@ preload_grids = false
 
 [admin]
 see_own_notes = true
+admin_prefix = false # DeltaV
+admin_prefix_webhook = false # DeltaV
