@@ -9,20 +9,9 @@
   - CourierPDA
   - CargoTechnicianBackpack
   - CourierShoes
+  - Survival
   - Trinkets
-
-# Security
-- type: roleLoadout
-  id: JobBrigmedic
-  groups:
-  - BrigMedicHead
-  - BrigMedicNeck
-  - BrigMedicJumpsuit
-  - BrigMedicBack
-  - SecurityShoes
-  - SecurityOuterClothing
-  - MedicalGloves
-  - Trinkets
+  - GroupSpeciesBreathTool
 
 # Medical
 - type: roleLoadout
@@ -36,6 +25,20 @@
   - PharmacistShoes
   - Trinkets
 
+# Security
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - BrigMedicHead
+  - BrigMedicNeck
+  - BrigMedicJumpsuit
+  - BrigMedicBack
+  - SecurityShoes
+  - SecurityOuterClothing
+  - MedicalGloves
+  - SurvivalCorpsman
+  - Trinkets
+  - GroupSpeciesBreathToolCorpsman
 
 # Justice
 - type: roleLoadout
@@ -48,8 +51,10 @@
   - CommonBackpack
   - ChiefJusticeShoes
   - Glasses
+  - Survival
   - Trinkets
-  
+  - GroupSpeciesBreathTool
+
 - type: roleLoadout
   id: JobClerk
   groups:
@@ -59,13 +64,18 @@
   - CommonBackpack
   - ClerkShoes
   - Glasses
+  - Survival
   - Trinkets
-  
+  - GroupSpeciesBreathTool
+
 - type: roleLoadout
   id: JobProsecutor
   groups:
+  - GroupTankHarness
   - ProsecutorJumpsuit
   - ProsecutorNeck
-  - LawyerBackpack
+  - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
