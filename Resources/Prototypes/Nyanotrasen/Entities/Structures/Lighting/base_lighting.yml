@@ -6,6 +6,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: BlueLightTube
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2
@@ -30,6 +31,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightBulbMaintenance
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2
@@ -56,6 +58,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeRed
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2
@@ -80,6 +83,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeFrostyBlue
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2
@@ -104,6 +108,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeBlackLight
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2
@@ -131,6 +136,7 @@
     state: base
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeRed
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 2
@@ -161,6 +167,7 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightBulbMaintenanceRed
+  - type: DamageOnInteract
     damage:
       types:
         Heat: 0.2

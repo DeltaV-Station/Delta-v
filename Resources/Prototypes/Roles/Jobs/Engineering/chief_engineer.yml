@@ -12,9 +12,11 @@
 #      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 90000 # DeltaV - 25 hours
+      time: 90000 # DeltaV - 25 hours, was 10
 #    - !type:OverallPlaytimeRequirement
-#      time: 72000 # DeltaV - 20 hours
+#      time: 144000 # DeltaV - was 40 hours upstream
+    - !type:AgeRequirement
+      requiredAge: 20
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -47,3 +49,6 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+  storage:
+    back:
+    - Flash

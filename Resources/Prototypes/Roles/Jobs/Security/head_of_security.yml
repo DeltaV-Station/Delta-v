@@ -14,8 +14,10 @@
       department: Command
       time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
-      time: 90000 # DeltaV - 25 hours
+      time: 90000 # DeltaV - 25 hours, was 40
     - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+    - !type:AgeRequirement
+      requiredAge: 20
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -53,3 +55,7 @@
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket1: WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
