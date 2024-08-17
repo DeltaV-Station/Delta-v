@@ -35,22 +35,18 @@
   id: PharmacistLabCoat
   equipment: PharmacistLabCoat
 
-- type: startingGear
+- type: loadout
   id: PharmacistLabCoat
   equipment:
     outerClothing: ClothingOuterCoatLabPharma
 
-- type: startingGear
+- type: loadout
   id: PharmacistGlasses
   equipment:
     glasses: ClothingEyesGlassesChemical
 
 # Shoes
 - type: loadout
-  id: PharmacistShoes
-  equipment: PharmacistShoes
-
-- type: startingGear
   id: PharmacistShoes
   equipment:
     shoes: ClothingShoesEnclosedChem
