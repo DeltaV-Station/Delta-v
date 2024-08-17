@@ -1,10 +1,88 @@
 <Document>
-##Burgers
--Appendix Burger =
+##Burgers - all recipes use the Microwave.
 
+-Appendix Burger = 1 Bun + 1 Human Appendix for 10 seconds
+-Bacon Burger = 1 Bun + 1 Raw Bacon + 2 Cheese Wedges for 10 seconds
+-Baseball Burger = 1 Bun + Baseball Bat for 10 seconds
+-Bearger = 1 Bun + 1 Raw Bear Meat for 10 seconds
+-Big Bite Burger = 1 Bun + 2 Raw Meat + 1 Cheese wedge + 1 Tomato + 2 Onion Slices for 15 seconds
+-Brain Burger = 1 Bun + 1 Brain for 10 seconds
+-Cat Burger = 1 Bun + 1 Raw Meat + 1 Cat Ears cosmetic for 10 seconds
+-Cheese Burger = 1 Bun + 1 Raw Meat + Cheese Wedge for 10 seconds
+-Clown Burger = 1 Bun + 1 Clown Mask for 10 seconds 
+-Corger = 1 Bun + 1 Prime-Cut Corgi Meat for 10 seconds
+-Crab Burger = 1 Bun + 2 Crab Meat for 10 seconds 
+-Crazy Hamburger = 1 Bun + 2 Raw Meat + 2 Cheese Wedges + 1 Chili + 1 Cabbage + 1 Green Crayon + 1 Flare + 15u Olive Oil for 15 seconds
+-Empowered Burger = 1 Bun + 2 Plasma Sheets for 10 seconds 
+-Fillet-o-Carp Burger = 1 Bun + 1 Raw Carp Fillet + 1 Cheese Wedge for 10 seconds
+-Five Alarm Burger = 1 Bun + 1 Raw Meat + 3 Chili for 10 seconds 
+-Ghost Burger = 1 Bun + 1 Ectoplasm for 10 seconds
+-Human Burger = 1 Bun + 1 Raw Human Meat for 10 seconds 
+-Jelly Burger = 1 Bun + 1 Amanita Jelly for 10 seconds
+-Mime Burger = 1 Bun + 1 Mime Mask for 10 seconds
+-Plain Burger = 1 Bun + 1 Raw Meat for 10 seconds
+-Rat Burger = 1 Bun + 1 Raw Rat Meat for 10 seconds
+-RoBurger = 1 Bun + 1 Capacitor for 10 seconds
+-Soylent Burger = 1 Bun + 2 Cheese Wedges + 2 Soybeans for 10 seconds
+-Spell Burger = 1 Bun + 1 Wizard Hat for 10 seconds
+-Super Bite Burger = 1 Bun + 2 Raw Meat + 2 Cheese Wedges + 2 Tomatoes + 2 Eggs + 5u Table Salt for 25 seconds
+-Tofu Burger = 1 Bun + 1 Tofu Slice for 10 seconds
+-Xeno Burger = 1 Bun + 1 Raw Xeno Meat for 10 seconds
+-Mothroach Burger = 1 Bun + 1 Mothroach for 5 seconds
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerAppendix"/>
+<GuideEntityEmbed Entity="FoodBurgerBacon"/>
+<GuideEntityEmbed Entity="FoodBurgerBaseball"/>
+<GuideEntityEmbed Entity="FoodBurgerBear"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerBig"/>
+<GuideEntityEmbed Entity="FoodBurgerBrain"/>
+<GuideEntityEmbed Entity="FoodBurgerCat"/>
+<GuideEntityEmbed Entity="FoodBurgerCheese"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerClown"/>
+<GuideEntityEmbed Entity="FoodBurgerCorgi"/>
+<GuideEntityEmbed Entity="FoodBurgerCrab"/>
+<GuideEntityEmbed Entity="FoodBurgerCrazy"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerEmpowered"/>
+<GuideEntityEmbed Entity="FoodBurgerCarp"/>
+<GuideEntityEmbed Entity="FoodBurgerFive"/>
+<GuideEntityEmbed Entity="FoodBurgerGhost"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerHuman"/>
+<GuideEntityEmbed Entity="FoodBurgerJelly"/>
+<GuideEntityEmbed Entity="FoodBurgerMime"/>
+<GuideEntityEmbed Entity="FoodBurgerRat"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerSuper"/>
+<GuideEntityEmbed Entity="FoodBurgerRobot"/>
+<GuideEntityEmbed Entity="FoodBurgerSoy"/>
+<GuideEntityEmbed Entity="FoodBurgerSpell"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBurgerSuper"/>
+<GuideEntityEmbed Entity="FoodBurgerTofu"/>
+<GuideEntityEmbed Entity="FoodBurgerXeno"/>
+<GuideEntityEmbed Entity="FoodBurgerMothRoach"/>
+</Box>
+##Sandwiches - all recipes use the Microwave.
+
+-Chicken Sandwich = 1 Bun + 1 Raw Chicken Meat + 5u Mayo for 10 seconds
+-Duck Sandwich = 1 Bun + 1 Raw Duck Meat + 1 Cheese Wedge for 10 seconds 
+-McGuffin = 1 Bun + 1 Cheese Wedge + 2 Eggs for 10 seconds 
+-BBQ Rib Sandwich = 1 Bun + 1 BBQ Ribs + 1 Onion Slice for 10 seconds
 
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodBurgerChicken"/>
+<GuideEntityEmbed Entity="FoodBurgerDuck"/>
+<GuideEntityEmbed Entity="FoodBurgerMcguffin"/>
+<GuideEntityEmbed Entity="FoodBurgerMcrib"/>
 </Box>
 
 </Document>
