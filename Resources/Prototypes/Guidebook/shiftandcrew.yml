@@ -50,6 +50,8 @@
   - Ingredients
   - BakedGoods
   - Burgers
+  - Soups
+  - Diets
 
 - type: guideEntry
   id: Ingredients
@@ -84,3 +86,22 @@
   id: Burgers
   name: Burgers & Sandwiches
   text: "/ServerInfo/Guidebook/Service/Chef/Burgers.xml"
+
+- type: guideEntry
+  id: Soups
+  name: Soups & Stews
+  text: "/ServerInfo/Guidebook/Service/Chef/Soups.xml" 
+
+- type: guideEntry
+  id: Diets
+  name: Dietary Restrictions
+  text: "/ServerInfo/Guidebook/Service/Chef/Diets.xml"
+  children: 
+  - MothicDiet
+
+- type: guideEntry
+  id: MothicDiet
+  name: Mothic Recipes
+  text: "/serverInfo/Guidebook/Service/Chef/MothRecipes.xml"
+
+  
