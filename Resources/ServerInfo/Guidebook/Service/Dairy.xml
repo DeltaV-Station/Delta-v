@@ -1,0 +1,27 @@
+<Document>
+## Dairy
+-Cheese Wheel = Mix 40u Milk + 5u UniEnzyme (Catalyst)
+-Chevre Log = Mix 10u Goat Milk + 5u UniEnzyme (Catalyst)
+-Stick of Butter = Mix 30u Milk + 5u Salt (Catalyst)
+-Curd Cheese = Mix 15u Milk + 5u Vinegar + 5u Cream
+-Cheese Curds = Microwave 1 Curd Cheese for 5 Seconds
+-Mozzarella = Mix 15u Milk + 10 Cream + 5u UniEnzyme
+-Herby Cheese = Microwave 1 Curd Cheese + 1 Ambrosia Vulgaris for 5 seconds
+-Stick of Cannabis Butter = Microwave 1 stick of butter + 6 cannabis leaves for 15 seconds
+
+
+
+<Box>
+<GuideEntityEmbed Entity="FoodCheese"/>
+<GuideEntityEmbed Entity="FoodChevre"/>
+<GuideEntityEmbed Entity="FoodButter"/>
+<GuideEntityEmbed Entity="FoodCurdCheese"/>
+<GuideEntityEmbed Entity="FoodCheeseCurds"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMozzarella"/>
+<GuideEntityEmbed Entity="FoodCannabisButter"/>
+</Box>
+
+
+</Document>

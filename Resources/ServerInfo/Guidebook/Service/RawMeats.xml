@@ -1,0 +1,57 @@
+<Document>
+## Meats
+    -Uncooked Animal Proteins = Grind any type of meat
+    -Raw Meat = butcher most types of animals
+    -Raw Human Meat = butcher most humanoids
+    -Raw Cutlets = slice raw meat (any)
+    -Raw Carp Fillets = butcher space carp (any) or sharkminnow
+    -Raw Bear Meat = butcher space bear
+    -Raw Penguin meat = butcher penguin
+    -Raw Chicken meat = butcher chicken
+    -Raw Duck meat = butcher duck
+    -Prime-Cut Corgi Meat = Butcher Ian
+    -Raw Crab meat = Butcher Crab
+    -Dragon Flesh = Butcher Space Dragon 
+    -Raw Rat Meat = Butcher Mouse, Mothroach, Rat, Rat King  
+    -Raw Lizard Meat = Butcher Lizard or Reptilian
+    -Raw Plant Matter = Butcher Diona 
+    -Raw Spider Meat = Butcher Arachnid, Space Spider, Shiva or Tarantula
+    -Raw Xeno Meat = Butcher Space Tick or Xeno(any)
+    -Raw Rouny Meat = Butcher Rouny
+    -Raw Snake Meat = Butcher Space Adder or Space Cobra
+    -Killer Tomato "meat" = Butcher Killer Tomato
+    -Slimeball = Butcher Slime Person or Slime 
+    -Meatball =  Mix 5u Uncooked Animal Proteins + 5u Flour + 5u egg 
+
+
+<Box>
+    <GuideEntityEmbed Entity="FoodMeat"/>
+    <GuideEntityEmbed Entity="FoodMeatHuman"/>
+    <GuideEntityEmbed Entity="FoodMeatFish"/>
+    <GuideEntityEmbed Entity="FoodMeatBear"/>
+</Box>
+<Box>
+    <GuideEntityEmbed Entity="FoodMeatPenguin"/>
+    <GuideEntityEmbed Entity="FoodMeatChicken"/>
+    <GuideEntityEmbed Entity="FoodMeatDuck"/>
+    <GuideEntityEmbed Entity="FoodMeatCorgi"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatCrab"/>
+<GuideEntityEmbed Entity="FoodMeatDragon"/>
+<GuideEntityEmbed Entity="FoodMeatRat"/>
+<GuideEntityEmbed Entity="FoodMeatLizard"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatPlant"/>
+<GuideEntityEmbed Entity="FoodMeatSpider"/>
+<GuideEntityEmbed Entity="FoodMeatXeno"/>
+<GuideEntityEmbed Entity="FoodMeatRouny"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatSnake"/>
+<GuideEntityEmbed Entity="FoodMeatTomato"/>
+<GuideEntityEmbed Entity="FoodMeatSlime"/>
+<GuideEntityEmbed Entity="FoodMeatMeatball"/>
+</Box>
+</Document>
