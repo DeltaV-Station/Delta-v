@@ -73,11 +73,14 @@
 
 # Medical
 ## Pharmacist
+
 - type: loadoutGroup
   id: PharmacistJumpsuit
   name: loadout-group-pharmacist-jumpsuit
   loadouts:
   - PharmacistJumpsuit
+  - PharmacistJumpskirt
+  - PharmacistJumpsuitFormal
 
 - type: loadoutGroup
   id: PharmacistBack

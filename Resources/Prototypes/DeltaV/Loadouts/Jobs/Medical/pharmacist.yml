@@ -1,12 +1,18 @@
 # Jumpsuit
 - type: loadout
   id: PharmacistJumpsuit
-  equipment: PharmacistJumpsuit
-
-- type: startingGear
-  id: PharmacistJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitPharma
+
+- type: loadout
+  id: PharmacistJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtPharma
+
+- type: loadout
+  id: PharmacistJumpsuitFormal
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitPharmaShirt
 
 # Back
 - type: loadout
