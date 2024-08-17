@@ -49,6 +49,7 @@
   children:
   - Ingredients
   - BakedGoods
+  - Burgers
 
 - type: guideEntry
   id: Ingredients
@@ -78,4 +79,8 @@
   id: BakedGoods
   name: Baked Goods 
   text: "/ServerInfo/Guidebook/Service/BakedGoods.xml"
-  priority: 10
+
+- type: guideEntry
+  id: Burgers
+  name: Burgers 
+  text: "/ServerInfo/Guidebook/Service/Burgers.xml"

@@ -8,7 +8,7 @@
 -Cornbread = Microwave Cornmeal Dough for 10 seconds
 -Cream Cheese Bread = Microwave 1 Dough + 2 Cheese Wedges + 5u Milk for 15 seconds 
 -Meat Bread = Microwave 1 Dough + 2 Raw Cutlets + 2 Cheese Wedges for 15 seconds
--mimana Bread = Microwave 1 Dough + 1 Mimana + 5u Nothing for 15 seconds
+-Mimana Bread = Microwave 1 Dough + 1 Mimana + 5u Nothing for 15 seconds
 -Sausage Bread = Microwave 1 Dough + 1 Raw Meat for 15 seconds
 -Spider Meat Bread = Microwave 1 Dough + 2 Raw Spider Cutlets + 2 Cheese Wedges for 15 seconds
 -Tofu Bread = Microwave 1 Dough + 1 Tofu for 15 seconds
@@ -23,11 +23,38 @@
 
 <Box>
 <GuideEntityEmbed Entity="FoodBreadBun"/>
-<GuideEntityEmbed Entity="FoodBreadBun"/>
-<GuideEntityEmbed Entity="FoodBreadBun"/>
-<GuideEntityEmbed Entity="FoodBreadBun"/>
-<GuideEntityEmbed Entity="FoodBreadBun"/>
-<GuideEntityEmbed Entity="FoodBreadBun"/>
+<GuideEntityEmbed Entity="FoodBreadPlain"/>
+<GuideEntityEmbed Entity="FoodBreadBaguette"/>
+<GuideEntityEmbed Entity="FoodBreadBanana"/>
+<GuideEntityEmbed Entity="FoodBreadCorn"/>
+</Box>
+
+<Box>
+<GuideEntityEmbed Entity="FoodBreadCreamcheese"/>
+<GuideEntityEmbed Entity="FoodBreadMeat"/>
+<GuideEntityEmbed Entity="FoodBreadMimana"/>
+<GuideEntityEmbed Entity="FoodBreadTwoSlice"/>
+</Box>
+
+<Box>
+<GuideEntityEmbed Entity="FoodBreadSausage"/>
+<GuideEntityEmbed Entity="FoodBreadMeatSpider"/>
+<GuideEntityEmbed Entity="FoodBreadTofu"/>
+<GuideEntityEmbed Entity="FoodBreadButteredToast"/>
+</Box>
+
+<Box>
+<GuideEntityEmbed Entity="FoodBreadMeatXeno"/>
+<GuideEntityEmbed Entity="FoodBreadFrenchToast"/>
+<GuideEntityEmbed Entity="FoodBreadGarlicSlice"/>
+<GuideEntityEmbed Entity="FoodBreadButteredToast"/>
+</Box>
+
+<Box>
+<GuideEntityEmbed Entity="FoodBreadBaguetteSlice"/>
+<GuideEntityEmbed Entity="FoodBreadJellySlice"/>
+<GuideEntityEmbed Entity="FoodBreadMoldySlice"/>
+<GuideEntityEmbed Entity="MobBreadDog"/>
 </Box>
 
 </Document>
