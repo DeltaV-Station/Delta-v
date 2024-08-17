@@ -1,4 +1,5 @@
 - type: entity
+  categories: [ HideSpawnMenu ] # mail isnt meant to be spawned manually
   parent: BaseItem
   abstract: true
   id: BaseMail
@@ -96,7 +97,6 @@
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailAdminFun
   suffix: adminfun
