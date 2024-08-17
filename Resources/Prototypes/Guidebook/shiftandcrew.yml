@@ -48,6 +48,7 @@
   text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"
   children:
   - Ingredients
+  - BakedGoods
 
 - type: guideEntry
   id: Ingredients
@@ -56,6 +57,7 @@
   children:
   - Dairy
   - RawMeats
+  - Condiments
 
 - type: guideEntry
   id: Dairy
@@ -67,5 +69,13 @@
   name: Raw Meats
   text: "/ServerInfo/Guidebook/Service/RawMeats.xml"
 
+- type: guideEntry
+  id: Condiments
+  name: Condiments
+  text: "/ServerInfo/Guidebook/Service/Condiments.xml"
 
-
+- type: guideEntry
+  id: BakedGoods
+  name: Baked Goods 
+  text: "/ServerInfo/Guidebook/Service/BakedGoods.xml"
+  priority: 10
