@@ -58,7 +58,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Security, Science, Command ]
+    allowedDepartments: [ Security, Epistemics, Command ] # DeltaV - Epistemics department
 
 - type: entity
   id: BaseSecurityEngineeringContraband
@@ -82,7 +82,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Science ]
+    allowedDepartments: [ Epistemics ] # DeltaV - Epistemics department
 
 - type: entity
   id: BaseSecurityCargoContraband
@@ -90,7 +90,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Security, Cargo ]
+    allowedDepartments: [ Security, Logistics ] # DeltaV - Logistics department
 
 - type: entity
   id: BaseCargoContraband
@@ -98,7 +98,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Cargo ]
+    allowedDepartments: [ Logistics ] # DeltaV - Logistics department
 
 # for ~objective items
 - type: entity
