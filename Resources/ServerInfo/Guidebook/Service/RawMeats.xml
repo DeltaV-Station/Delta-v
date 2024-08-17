@@ -22,6 +22,7 @@
     -Killer Tomato "meat" = Butcher Killer Tomato
     -Slimeball = Butcher Slime Person or Slime 
     -Meatball =  Mix 5u Uncooked Animal Proteins + 5u Flour + 5u egg 
+    -Bacon = Nanotrasen's food scientists havent revealed the secret to this one yet 
 
 
 <Box>
@@ -53,5 +54,17 @@
 <GuideEntityEmbed Entity="FoodMeatTomato"/>
 <GuideEntityEmbed Entity="FoodMeatSlime"/>
 <GuideEntityEmbed Entity="FoodMeatMeatball"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatCutlet"/>
+<GuideEntityEmbed Entity="FoodMeatBearCutlet"/>
+<GuideEntityEmbed Entity="FoodMeatPenguinCutlet" Caption="Raw Bird Cutlet"/>
+<GuideEntityEmbed Entity="FoodMeatLizardCutlet"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatSpiderCutlet"/>
+<GuideEntityEmbed Entity="FoodMeatXenoCutlet"/>
+<GuideEntityEmbed Entity="FoodMeatTomatoCutlet"/>
+<GuideEntityEmbed Entity="FoodMeatBacon"/>
 </Box>
 </Document>
