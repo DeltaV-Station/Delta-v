@@ -1,28 +1,16 @@
 # Head
 - type: loadout
   id: CorpsmanBeret
-  equipment: CorpsmanBeret
-
-- type: startingGear
-  id: CorpsmanBeret
   equipment:
     head: ClothingHeadHatBeretSecurityMedic
 
 - type: loadout
   id: CorpsmanBeretWhite
-  equipment: CorpsmanBeretWhite
-
-- type: startingGear
-  id: CorpsmanBeretWhite
   equipment:
     head: ClothingHeadHatBeretBrigmedic
 
 - type: loadout
-  id: CorpsmanBeretRed
-  equipment: CorpsmanBeretRed # Stray - loadouts
-
-- type: startingGear
-  id: CorpsmanBeretRed
+  id: CorpsmanBeretRed # Stray - loadouts
   equipment:
     head: ClothingHeadHatBeretBrigmedicRed
 
@@ -30,200 +18,112 @@
 
 - type: loadout # DeltaV
   id: HudMed
-  equipment: HudMed
-
-- type: startingGear # DeltaV
-  id: HudMed
   equipment:
     eyes: ClothingEyesHudMedical
 
 - type: loadout # DeltaV
   id: HudMedPatch
-  equipment: HudMedPatch
-
-- type: startingGear # DeltaV
-  id: HudMedPatch
   equipment:
     eyes: ClothingEyesEyepatchHudMedical
 
 - type: loadout
-  id: SunglassesMed
-  equipment: SunglassesMed # Stray - loadouts
-
-- type: startingGear
-  id: SunglassesMed
+  id: SunglassesMed # Stray - loadouts
   equipment:
     eyes: ClothingEyesGlassesMed
 # Jumpsuit
 - type: loadout
-  id: BrigMedicJumpsuit
-  equipment: BrigMedicJumpsuit
-
-- type: startingGear
   id: BrigMedicJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedic
 
 - type: loadout
   id: BrigMedicJumpskirt
-  equipment: BrigMedicJumpskirt
-
-- type: startingGear
-  id: BrigMedicJumpskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedic
 
 - type: loadout
-  id: BrigMedicJumpsuitRed
-  equipment: BrigMedicJumpsuitRed # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicJumpsuitRed
+  id: BrigMedicJumpsuitRed # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedicRed
 
 - type: loadout
-  id: BrigMedicJumpskirtRed
-  equipment: BrigMedicJumpskirtRed # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicJumpskirtRed
+  id: BrigMedicJumpskirtRed # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicRed
 
 - type: loadout
-  id: BrigMedicTurtleRed
-  equipment: BrigMedicTurtleRed # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicTurtleRed
+  id: BrigMedicTurtleRed # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedicTurtle
 
 - type: loadout
-  id: BrigMedicTurtleSkirtRed
-  equipment: BrigMedicTurtleSkirtRed # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicTurtleSkirtRed
+  id: BrigMedicTurtleSkirtRed # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicTurtle
 
 - type: loadout
-  id: BrigMedicTurtleBlue
-  equipment: BrigMedicTurtleBlue # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicTurtleBlue
+  id: BrigMedicTurtleBlue # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpsuitBrigmedicTurtleAlt
 
 - type: loadout
-  id: BrigMedicTurtleSkirtBlue
-  equipment: BrigMedicTurtleSkirtBlue # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicTurtleSkirtBlue
+  id: BrigMedicTurtleSkirtBlue # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicTurtleAlt
 
 # Back
 - type: loadout
   id: BrigMedicBackpack
-  equipment: BrigMedicBackpack
-
-- type: startingGear
-  id: BrigMedicBackpack
   equipment:
       back: ClothingBackpackBrigmedicDeltaVFilled
 
 - type: loadout
-  id: BrigMedicBackpackAlt
-  equipment: BrigMedicBackpackAlt # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicBackpackAlt
+  id: BrigMedicBackpackAlt # Stray - loadouts
   equipment:
       back: ClothingBackpackBrigmedicAltFilled
 
 - type: loadout
   id: BrigMedicSatchel
-  equipment: BrigMedicSatchel
-
-- type: startingGear
-  id: BrigMedicSatchel
   equipment:
       back: ClothingBackpackSatchelBrigmedicDeltaVFilled
 
 - type: loadout
-  id: BrigMedicSatchelAlt
-  equipment: BrigMedicSatchelAlt # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicSatchelAlt
+  id: BrigMedicSatchelAlt # Stray - loadouts
   equipment:
       back: ClothingBackpackSatchelBrigmedicAltFilled
 
 - type: loadout
   id: BrigMedicDuffel
-  equipment: BrigMedicDuffel
-
-- type: startingGear
-  id: BrigMedicDuffel
   equipment:
       back: ClothingBackpackDuffelBrigmedicDeltaVFilled
 
 - type: loadout
-  id: BrigMedicDuffelAlt
-  equipment: BrigMedicDuffelAlt # Stray - loadouts
-
-- type: startingGear
-  id: BrigMedicDuffelAlt
+  id: BrigMedicDuffelAlt # Stray - loadouts
   equipment:
       back: ClothingBackpackDuffelBrigmedicAltFilled
 
 # OuterClothing
 - type: loadout
   id: VestArmorMedSec
-  equipment: VestArmorMedSec
-
-- type: startingGear
-  id: VestArmorMedSec
   equipment:
     outerClothing: ClothingOuterVestArmorMedSec
 
 - type: loadout
   id: VestSecurityMedic
-  equipment: VestSecurityMedic
-
-- type: startingGear
-  id: VestSecurityMedic
   equipment:
     outerClothing: ClothingOuterVestSecurityMedic
 
 - type: loadout
-  id: BrigmedicLabcoat
-  equipment: BrigmedicLabcoat # Stray - loadouts
-
-- type: startingGear
-  id: BrigmedicLabcoat
+  id: BrigmedicLabcoat # Stray - loadouts
   equipment:
     outerClothing: ClothingOuterCoatAMG
 
 - type: loadout
-  id: BrigmedicWintercoat
-  equipment: BrigmedicWintercoat # Stray - loadouts
-
-- type: startingGear
-  id: BrigmedicWintercoat
+  id: BrigmedicWintercoat # Stray - loadouts
   equipment:
     outerClothing: ClothingOuterWinterBrigmed
 
 - type: loadout
-  id: BrigmedicWindbreaker
-  equipment: BrigmedicWindbreaker # Stray - loadouts
-
-- type: startingGear
-  id: BrigmedicWindbreaker
+  id: BrigmedicWindbreaker # Stray - loadouts
   equipment:
     outerClothing: ClothingOuterCoatBrigmedicWB

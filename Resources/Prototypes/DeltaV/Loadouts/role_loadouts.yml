@@ -10,6 +10,8 @@
   - CourierPDA
   - CargoTechnicianBackpack
   - CourierShoes
+  - Survival
+  - GroupSpeciesBreathTool
   - Trinkets
   - Undershirt
   - Underpants
@@ -27,6 +29,8 @@
   - SecurityShoes
   - BrigMedicOuterClothing
   - MedicalGloves
+  - SurvivalCorpsman
+  - GroupSpeciesBreathToolCorpsman
   - Trinkets
   - Undershirt
   - Underpants
@@ -43,6 +47,8 @@
   - CommonBackpack
   - ChiefJusticeShoes
   - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
   - Trinkets
 
 - type: roleLoadout
@@ -54,6 +60,8 @@
   - CommonBackpack
   - ClerkShoes
   - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
   - Trinkets
   - Undershirt
   - Underpants
@@ -62,10 +70,13 @@
 - type: roleLoadout
   id: JobProsecutor
   groups:
+  - GroupTankHarness
   - ProsecutorJumpsuit
   - ProsecutorNeck
-  - LawyerBackpack
+  - CommonBackpack
   - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
   - Trinkets
   - Undershirt
   - Underpants

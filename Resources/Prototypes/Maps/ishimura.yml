@@ -2,8 +2,8 @@
   id: CorvaxIshimura
   mapName: 'USG Ishimura'
   mapPath: /Maps/corvax_ishimura.yml
-  minPlayers: 0
-  maxPlayers: 80
+  minPlayers: 20
+  maxPlayers: 50
   stations:
     Ishimura:
       stationProto: StandardNanotrasenStation
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

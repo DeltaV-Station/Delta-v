@@ -10,6 +10,8 @@
       time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 18000
+    - !type:AgeRequirement
+      requiredAge: 20
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -42,3 +44,6 @@
     id: RnDPDA
     ears: ClothingHeadsetRD
     belt: BibleMystagogue # Nyanotrasen - Mystagogue book for their Ifrit
+  storage:
+    back:
+    - Flash

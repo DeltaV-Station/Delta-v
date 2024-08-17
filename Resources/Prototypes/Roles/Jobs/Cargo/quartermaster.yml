@@ -16,6 +16,8 @@
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
       time: 10800 #DeltaV 3 hrs
+    - !type:AgeRequirement
+      requiredAge: 20
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -45,3 +47,6 @@
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
+  storage:
+    back:
+    - Flash

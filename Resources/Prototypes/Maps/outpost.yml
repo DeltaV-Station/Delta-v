@@ -2,7 +2,7 @@
   id: CorvaxOutpost
   mapName: 'Outpost'
   mapPath: /Maps/corvax_outpost.yml
-  minPlayers: 0
+  minPlayers: 20
   maxPlayers: 80
   stations:
     Outpost:
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

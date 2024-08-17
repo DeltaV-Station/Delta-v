@@ -2,7 +2,7 @@
   id: Fland
   mapName: 'Fland Installation'
   mapPath: /Maps/fland.yml
-  minPlayers: 0
+  minPlayers: 30
   stations:
     Fland:
       stationProto: StandardNanotrasenStation
@@ -18,7 +18,7 @@
           path: /Maps/Shuttles/cargo_fland.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

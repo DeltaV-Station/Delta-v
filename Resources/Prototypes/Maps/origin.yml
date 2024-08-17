@@ -16,7 +16,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

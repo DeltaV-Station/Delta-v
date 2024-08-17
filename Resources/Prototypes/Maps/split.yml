@@ -2,7 +2,7 @@
   id: CorvaxSplit
   mapName: 'Split Stations'
   mapPath: /Maps/corvax_split.yml
-  minPlayers: 0
+  minPlayers: 30
   stations:
     Mayhen:
       stationProto: NanotrasenStationNoArrivals
@@ -20,7 +20,7 @@
                 - type: TradeStation
               paths:
                 - /Maps/Shuttles/trading_mayhen.yml
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationCargoShuttle

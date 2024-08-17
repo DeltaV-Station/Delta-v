@@ -3,7 +3,7 @@
   mapName: 'Omega'
   mapPath: /Maps/omega.yml
   minPlayers: 0
-  maxPlayers: 0
+  maxPlayers: 35
   stations:
     Omega:
       stationProto: StandardNanotrasenStation
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

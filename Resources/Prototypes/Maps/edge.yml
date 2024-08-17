@@ -2,7 +2,7 @@
   id: Edge
   mapName: 'Edge'
   mapPath: /Maps/edge.yml
-  minPlayers: 10
+  minPlayers: 20
   maxPlayers: 80
   stations:
     Edge:
@@ -17,7 +17,7 @@
             prefixCreator: 'DV'
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs
