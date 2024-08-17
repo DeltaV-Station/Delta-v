@@ -71,38 +71,6 @@
   - CourierPDA
   - MailCarrierPDA
 
-# Security
-## Brig Medic
-- type: loadoutGroup
-  id: BrigMedicHead
-  name: loadout-group-brig-medic-head
-  minLimit: 0
-  loadouts:
-  - CorpsmanBeret
-
-- type: loadoutGroup
-  id: BrigMedicNeck
-  name: loadout-group-brig-medic-neck
-  minLimit: 0
-  loadouts:
-  - ScarfRed
-  - ScarfBlue
-
-- type: loadoutGroup
-  id: BrigMedicJumpsuit
-  name: loadout-group-brig-medic-jumpsuit
-  loadouts:
-  - BrigMedicJumpsuit
-  - BrigMedicJumpskirt
-
-- type: loadoutGroup
-  id: BrigMedicBack
-  name: loadout-group-brig-medic-back
-  loadouts:
-  - BrigMedicBackpack
-  - BrigMedicSatchel
-  - BrigMedicDuffel
-
 # Medical
 ## Pharmacist
 - type: loadoutGroup
@@ -150,6 +118,65 @@
   name: loadout-group-pharmacist-shoes
   loadouts:
   - PharmacistShoes
+
+# Security
+## Brig Medic
+- type: loadoutGroup
+  id: BrigMedicHead
+  name: loadout-group-brig-medic-head
+  minLimit: 0
+  loadouts:
+  - CorpsmanBeret
+
+- type: loadoutGroup
+  id: BrigMedicNeck
+  name: loadout-group-brig-medic-neck
+  minLimit: 0
+  loadouts:
+  - ScarfRed
+  - ScarfBlue
+
+- type: loadoutGroup
+  id: BrigMedicJumpsuit
+  name: loadout-group-brig-medic-jumpsuit
+  loadouts:
+  - BrigMedicJumpsuit
+  - BrigMedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigMedicBack
+  name: loadout-group-brig-medic-back
+  loadouts:
+  - BrigMedicBackpack
+  - BrigMedicSatchel
+  - BrigMedicDuffel
+
+- type: loadoutGroup
+  id: SurvivalCorpsman
+  name: loadout-group-survival-corpsman
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenCorpsman
+  - EmergencyOxygenCorpsman
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCorpsman
+  name: loadout-group-breath-tool
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCorpsman
+
+## Security Cadet
+- type: loadoutGroup
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead
 
 # Justice
 ## Chief Justice
