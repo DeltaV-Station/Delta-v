@@ -40,8 +40,14 @@
   text: "/ServerInfo/Guidebook/Service/Chef.xml"
   children:
   - FoodRecipes
+  - Ingredients
 
 - type: guideEntry
   id: FoodRecipes
-  name: guide-entry-foodrecipes
+  name: Cooking for Dummies
   text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"
+
+- type: guideEntry
+  id: Ingredients
+  name: Ingredients
+  text: "/ServerInfo/Guidebook/Service/Ingredients.xml"

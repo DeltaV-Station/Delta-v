@@ -1,0 +1,42 @@
+<Document>
+## Ingredients
+	-Universal Enzyme = Grind Bungofruit or Juice Corn
+    -Flour = Grind Wheat
+    -Cornmeal = Grind Corn
+    -Rice = Grind Rice Bushel
+    -Sugar = Grind Sugar Cane
+    -Milk = Milk Cow
+    -Soy Milk = Grind Soybeans
+    -Oat Milk = Juice Oats Bushel 
+    -Goat Milk = Milk Goat
+    -Salt = Mix 1u Chlorine + 1u Sodium 
+    -Vinegar = Mix 1u Ethanol + 1u oxygen
+    -Corn Oil = Juice Corn
+    -Eggs = Laid by Chicken or Duck , "Egg-plants"
+    -Tofu = Mix 30u Soy Milk + 5u Universal Enzyme (Catalyst)
+    -Lime Juice = Juice Lime
+    -Cocoa Powder = Grind Cocoa Pod 
+    -Oats = Grind Oats Bushel 
+
+
+<Box>
+    <GuideEntityEmbed Entity="ReagentContainerFlour"/>
+    <GuideEntityEmbed Entity="ReagentContainerCornmeal"/>
+    <GuideEntityEmbed Entity="ReagentContainerRice"/>
+    <GuideEntityEmbed Entity="ReagentContainerSugar"/>
+    <GuideEntityEmbed Entity="DrinkMilkCarton"/>
+    <GuideEntityEmbed Entity="DrinkMilkCarton" Caption="Goat Milk"/>
+</Box>
+<Box>
+    <GuideEntityEmbed Entity="DrinkSoyMilkCarton"/>
+    <GuideEntityEmbed Entity="DrinkOatMilkCarton"/>
+    <GuideEntityEmbed Entity="FoodShakerSalt"/>
+    <GuideEntityEmbed Entity="FoodEgg"/>
+    <GuideEntityEmbed Entity="FoodTofu"/>
+    <GuideEntityEmbed Entity="DrinkJuiceLimeCarton"/>
+</Box>
+
+
+
+
+</Document>
