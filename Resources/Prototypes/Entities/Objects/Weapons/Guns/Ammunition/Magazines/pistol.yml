@@ -247,7 +247,7 @@
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistol
+    proto: CartridgePistolRubber # DeltaV: upstream still has this for some reason but not using rubber
   - type: Sprite
     layers:
     - state: rubber

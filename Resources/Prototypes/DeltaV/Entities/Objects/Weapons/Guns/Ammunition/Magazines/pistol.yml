@@ -1,12 +1,12 @@
 # .35 auto
 
 - type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolRubber
+  name: pistol magazine (.35 auto rubber)
+  parent: BaseMagazinePistol
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistol
+    proto: CartridgePistolRubber
   - type: Sprite
     layers:
     - state: rubber
