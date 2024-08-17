@@ -33,7 +33,8 @@
 # Outer clothing
 - type: loadout
   id: PharmacistLabCoat
-  equipment: PharmacistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabPharma
 
 - type: loadout
   id: PharmacistGlasses
