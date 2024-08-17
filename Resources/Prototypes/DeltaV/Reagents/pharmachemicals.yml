@@ -291,7 +291,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#77b58e"
-  tileReactions: # GHS Hazard Statements: H225: Highly flammable liquid and vapour
+  tileReactions: # GHS Hazard Statements H225
   - !type:FlammableTileReaction
     temperatureMultiplier: 2.0
   reactiveEffects:
@@ -303,10 +303,10 @@
   metabolisms:
     Poison:
       effects:
-        - !type:HealthChange
-          damage:
-            types:
-              Poison: 0.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
 
 - type: reagent
   id: HydrogenFluoride
