@@ -115,6 +115,9 @@
   id: DragonSpawn
   components:
   - type: StationEvent
+    startAnnouncement: unknown-object-nearby-announcement
+    startAudio:
+      path: /Audio/Stray/Announcements/ObjectNearby.ogg
     weight: 1 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
@@ -471,6 +474,9 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
+    startAnnouncement: unknown-object-nearby-announcement
+    startAudio:
+      path: /Audio/Stray/Announcements/ObjectNearby.ogg
     earliestStart: 60 # DeltaV - was 45
     weight: 3.5 # DeltaV - was 5
     minimumPlayers: 10
@@ -512,7 +518,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/Stray/Announcements/SignalCatched.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
