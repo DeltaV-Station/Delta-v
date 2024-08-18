@@ -51,6 +51,7 @@
   - BakedGoods
   - Burgers
   - Soups
+  - Salads
   - Diets
 
 - type: guideEntry
@@ -90,7 +91,12 @@
 - type: guideEntry
   id: Soups
   name: Soups & Stews
-  text: "/ServerInfo/Guidebook/Service/Chef/Soups.xml" 
+  text: "/ServerInfo/Guidebook/Service/Chef/Soups.xml"
+
+- type: guideEntry
+  id: Salads
+  name: Salads
+  text: "/ServerInfo/Guidebook/Service/Chef/Salads.xml"   
 
 - type: guideEntry
   id: Diets
