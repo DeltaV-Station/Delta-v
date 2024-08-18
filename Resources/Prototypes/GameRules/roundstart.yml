@@ -301,6 +301,8 @@
   parent: BaseGameRule
   components:
   - type: RampingStationEventScheduler
+    averageChaos: 4.5 # DeltaV
+    averageEndTime: 180 # DeltaV
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
