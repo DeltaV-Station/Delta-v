@@ -13,9 +13,7 @@ namespace Content.Shared.Abilities.Psionics
 {
     public sealed class MassSleepPowerSystem : EntitySystem
     {
-        [ValidatePrototypeId<StatusEffectPrototype>]
-        private const string StatusEffectKey = "ForcedSleep";
-
+        public ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep";
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
