@@ -24,18 +24,6 @@
   name: prison guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
-  - type: Sprite
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: PrisonGuardIDCard
     state: pda-prisonguard # - aPDA Sprite Rework
@@ -60,7 +48,7 @@
   description: Smells like unopened letters.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -78,7 +66,7 @@
     borderColor: "#e39751"
     accentVColor: "#050c4d"
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
 
 - type: entity
@@ -88,7 +76,7 @@
   description: Smells like straw.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -106,7 +94,7 @@
     borderColor: "#d7d7d0"
     accentHColor: "#232323"
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-martialartist
 
 - type: entity
