@@ -1,12 +1,11 @@
 using Content.Server.Labels.Components;
-using Content.Server.Paper;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Labels;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
-using Content.Shared.NameModifier.EntitySystems;
-using Content.Shared.Tag;
+using Content.Shared.Paper;
+using Content.Shared.Tag; // DeltaV
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
@@ -20,11 +19,11 @@ namespace Content.Server.Labels
     {
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private readonly TagSystem _tag = default!; // DeltaV
 
         public const string ContainerName = "paper_label";
         [ValidatePrototypeId<TagPrototype>]
-        private const string PreventTag = "PreventLabel";
+        private const string PreventTag = "PreventLabel"; // DeltaV - no labelling felenids
 
         public override void Initialize()
         {
@@ -46,7 +45,7 @@ namespace Content.Server.Labels
         /// <param name="metadata">metadata component for resolve</param>
         public override void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null)
         {
-            if (_tagSystem.HasTag(uid, PreventTag)) // DeltaV - Prevent labels on certain items
+            if (_tag.HasTag(uid, PreventTag)) // DeltaV - Prevent labels on certain items
                 return;
             if (!Resolve(uid, ref label, false))
                 label = EnsureComp<LabelComponent>(uid);
