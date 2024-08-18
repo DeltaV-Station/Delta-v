@@ -1,6 +1,5 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.GameTicking.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -10,6 +9,7 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;

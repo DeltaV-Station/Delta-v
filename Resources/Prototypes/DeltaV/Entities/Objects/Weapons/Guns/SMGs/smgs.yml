@@ -1,6 +1,6 @@
 - type: entity
   name: Typewriter
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
   id: WeaponSubMachineGunTypewriter
   description: A modern take on the classic design used by mobsters throughout space and time. Types .35 auto ammo.
   components:
@@ -13,9 +13,12 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
   - type: Gun
-    minAngle: 1
-    maxAngle: 15
+    minAngle: 21
+    maxAngle: 45
     angleIncrease: 5
     angleDecay: 20
     fireRate: 8

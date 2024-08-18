@@ -1,6 +1,6 @@
 - type: entity
   name: adjutant
-  parent: BaseWeaponShotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunAdjutant
   description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
   components:
@@ -10,6 +10,7 @@
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: Item
     size: Large
+  - type: GunRequiresWield
   - type: Gun
     fireRate: 1.5
     selectedMode: SemiAuto
@@ -31,7 +32,7 @@
 
 - type: entity
   name: Kammerer
-  parent: BaseWeaponShotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunKammererNonLethal #Legacy name
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   suffix: Beanbag

@@ -38,7 +38,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         // don't include ships that aren't allowed by whitelist, server won't accept them anyway
         foreach (var vessel in proto.EnumeratePrototypes<VesselPrototype>())
         {
-            if(whitelist.IsWhitelistPass(vessel.Whitelist, console))
+            if (whitelist.IsWhitelistPassOrNull(vessel.Whitelist, console))
                 _vessels.Add(vessel);
         }
         _vessels.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));

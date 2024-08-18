@@ -8,12 +8,11 @@
       state: medical
     - type: MachineBoard
       prototype: MetempsychoticMachine
-      requirements:
-        Capacitor: 2
-        Manipulator: 2
-      materialRequirements:
+      stackRequirements:
         Glass: 1
         Cable: 1
+        Capacitor: 2
+        Manipulator: 2
     - type: ReverseEngineering
       difficulty: 3
       recipes:
@@ -29,17 +28,15 @@
       state: engineering
     - type: MachineBoard
       prototype: ReverseEngineeringMachine
-      requirements:
-        MatterBin: 1
-        Manipulator: 1
-      materialRequirements:
+      stackRequirements:
         Cable: 1
         PlasmaGlass: 5
+        MatterBin: 1
+        Manipulator: 1
       tagRequirements:
         BorgArm:
-          Amount: 3
-          DefaultPrototype: LeftArmBorg
-          ExamineName: borg arm
+          amount: 3
+          defaultPrototype: LeftArmBorg
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -54,13 +51,12 @@
       state: service
     - type: MachineBoard
       prototype: KitchenDeepFryer
-      requirements:
-        Capacitor: 1
-        MatterBin: 1
-      materialRequirements:
+      stackRequirements:
         Steel: 4
         Glass: 2
         Cable: 4
+        Capacitor: 1
+        MatterBin: 1
 
 - type: entity
   id: MailTeleporterMachineCircuitboard
@@ -71,9 +67,8 @@
       state: supply
     - type: MachineBoard
       prototype: MailTeleporter
-      requirements:
-        Capacitor: 1
-        MatterBin: 1
-      materialRequirements:
+      stackRequirements:
         Steel: 4
         Cable: 4
+        Capacitor: 1
+        MatterBin: 1
