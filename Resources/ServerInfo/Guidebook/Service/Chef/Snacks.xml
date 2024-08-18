@@ -1,0 +1,78 @@
+<Document>
+## Snacks
+-Chocolate Bar = Mix 4u Cocoa Powder + 2u Milk + 2u Sugar
+-Popcorn = Microwave 1 Corn for 20 seconds
+-Onion Rings = Microwave 1 Onion Slice for 15 seconds
+-Warm Donk-Pocket = Microwave 1 Donk-Pocket for 5 seconds
+-Space Fries = Microwave 1 Potato + 5u Table Salt for 15 seconds
+-Cheesy Fries = Microwave 1 Potato + 1 Cheese Wedge + 5u Table Salt for 15 seconds
+-Carrot Fries = Microwave 1 Carrot + 5u Table Salt for 15 seconds
+-Dumplings = Microwave 3 Dough Slices + 10u water + 6u uncooked animal proteins for 15 seconds
+-Queso = Microwave 1 Chili + 2 Cheese Wedges for 15 seconds
+-Enchiladas = Microwave 2 Chilis + 1 Raw Cutlet + 1 corn for 20 seconds
+-Chevre Chaud = Microwave 1 Chevre Disk + 1 Crostini for 5 seconds
+-Corn in Butter = Microwave 1 Plate + 1 Corn + 1 Stick of Butter for 10 seconds
+-Loaded Baked Potato = Microwave 1 Potato + 1 Cheese Wedge for 15 seconds
+-Borito Pie = Microwave 1 Boritos + 1 Cheese Wedge + 1 Chips + 1 Meatball for 15 seconds
+-Squeaking Stirfry = Microwave 2 Tofu Slices + 1 Onion Slice + 1 Chili + 1 Carrot + 1 Cheese Curds + 5u Olive Oil for 15 seconds 
+-Toasted Seeds = Microwave 1 Wheat Seed + 1 Carrot seed + 1 Poppy seed + 5u Olive Oil for 15 seconds
+-Engine Fodder = Microwave 1 Toasted Seeds + 1 Chips + 1 CnDs + 1 Popcorn for 30 seconds 
+-Fueljack Lunch = Microwave 1 Cheese Wedge + 1 Cabbage + 1 Chili + Potato + 2 Onion Slices for 15 seconds
+-Sweet Chili Cabbage Wrap = Microwave 1 Cheese Wedge + 1 Mothic Salad + 1 Chili + 1 Cabbage + 5u sugar for 15 seconds 
+-Baked Cheese = Microwave 1 Cheese Wheel for 15 seconds
+-Baked Cheese Platter = Microwave 1 Baked Cheese + 3 Bread Slices for 5 seconds  
+-Oven Baked Corn = Microwave 1 corn for 15 seconds
+-Buttered Baked Corn = Microwave 1 Baked Corn + 1 Stick of Butter for 5 seconds 
+-Mozzarella Sticks = Microwave 1 Mozzarella + 1 Bread Slice + 10u Tomato Sauce for 15 seconds
+-Mac Balls = Microwave 1 Donk-Pocket + 10u Tomato Sauce + 5u Cornmeal for 15 seconds
+-Grilled Cheese = Microwave 2 Bread Slices + 1 Cheese Wedge + 1 Stick of Butter for 10 seconds
+-Scrambled Eggs = Microwave 1 Bowl + 3 Eggs + 1 Stick of Butter + 5u table Salt for 5 seconds
+-Boiled Egg = Heat up 1 Egg to 344K 
+-Fish and Chips = Microwave 1 Dough + 1 Potato + 1 Raw Carp Fillet for 15 seconds
+
+<Box>
+<GuideEntityEmbed Entity="FoodSnackChocolateBar"/>
+<GuideEntityEmbed Entity="FoodSnackPopcorn"/>
+<GuideEntityEmbed Entity="FoodOnionRings"/>
+<GuideEntityEmbed Entity="FoodDonkpocketWarm"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMealFries"/>
+<GuideEntityEmbed Entity="FoodMealFriesCheesy"/>
+<GuideEntityEmbed Entity="FoodMealFriesCarrot"/>
+<GuideEntityEmbed Entity="FoodBakedDumplings"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMealQueso"/>
+<GuideEntityEmbed Entity="FoodMealEnchiladas"/>
+<GuideEntityEmbed Entity="FoodBakedChevreChaud"/>
+<GuideEntityEmbed Entity="FoodMealCornInButter"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMealPotatoLoaded"/>
+<GuideEntityEmbed Entity="FoodBoritoPie"/>
+<GuideEntityEmbed Entity="FoodMothSqueakingFry"/>
+<GuideEntityEmbed Entity="FoodMothToastedSeeds"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMothEngineFodder"/>
+<GuideEntityEmbed Entity="FoodMothFueljackLunch"/>
+<GuideEntityEmbed Entity="FoodMothChiliCabbageWrap"/>
+<GuideEntityEmbed Entity="FoodMothBakedCheese"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMothBakedCheesePlatter"/>
+<GuideEntityEmbed Entity="FoodMothBakedCorn"/>
+<GuideEntityEmbed Entity="FoodMothButteredBakedCorn"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMothMacBalls"/>
+<GuideEntityEmbed Entity="FoodMealGrilledCheese"/>
+<GuideEntityEmbed Entity="FoodMealScrambledEggs"/>
+<GuideEntityEmbed Entity="FoodEggBoiled"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMealFishChips"/>
+<GuideEntityEmbed Entity="FoodMothMozzarellaSticks"/>
+</Box>
+</Document>
