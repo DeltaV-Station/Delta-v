@@ -48,7 +48,6 @@
   text: "/ServerInfo/Guidebook/Service/Chef/FoodRecipes.xml"
   children:
   - Ingredients
-  - Breads
   - Burgers
   - Soups
   - Salads
@@ -58,7 +57,16 @@
   - CookedMeats
   - Snacks
   - Diets
+  - BakeryGoods
 
+- type: guideEntry
+  id: BakeryGoods
+  name: Bakery Goods
+  text: "/ServerInfo/Guidebook/Service/Chef/Bakery.xml"
+  children:
+  - Breads
+  - Cakes
+  - BakedStuff
 - type: guideEntry
   id: Ingredients
   name: Ingredients
@@ -86,7 +94,7 @@
 - type: guideEntry
   id: Breads
   name: Breads 
-  text: "/ServerInfo/Guidebook/Service/Chef/BakedGoods.xml"
+  text: "/ServerInfo/Guidebook/Service/Chef/Breads.xml"
 
 - type: guideEntry
   id: Burgers
@@ -139,5 +147,15 @@
   id: Snacks
   name: Snacks & Sides Dishes
   text: "/serverInfo/Guidebook/Service/Chef/Snacks.xml"
+
+- type: guideEntry
+  id: Cakes
+  name: Cakes
+  text: "/serverInfo/Guidebook/Service/Chef/Cakes.xml"
+
+- type: guideEntry
+  id: BakedStuff
+  name: Baked Goods
+  text: "/serverInfo/Guidebook/Service/Chef/BakedGoods.xml"
   
   
