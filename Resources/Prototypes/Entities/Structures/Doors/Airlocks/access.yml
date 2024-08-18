@@ -1162,6 +1162,10 @@
   suffix: External, Escape 3x4, Glass, Docking
   components:
   - type: GridFill
+    addComponents:
+    - type: IFF
+      flags:
+      - HideLabel
 
 #HighSecDoors
 - type: entity

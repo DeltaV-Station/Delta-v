@@ -14,7 +14,6 @@
     CMOHyposprayStealObjective: 1
     CMOCrewMonitorStealObjective: 1
     RDHardsuitStealObjective: 1
-    NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     MantisKnifeStealObjective: 1 # Nyanotrasen - ForensicMantis steal objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
@@ -26,6 +25,8 @@
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5
+    PlutoniumCoreStealObjective: 0.5
+    NukeDiskStealObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -60,8 +61,8 @@
 - type: weightedRandom
   id: ThiefBigObjectiveGroups
   weights:
-    ThiefObjectiveGroupStructure: 0 #Temporarily disabled until obvious ways to steal structures are added
-    ThiefObjectiveGroupAnimal: 2
+    ThiefObjectiveGroupStructure: 1
+    ThiefObjectiveGroupAnimal: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
@@ -99,7 +100,6 @@
   weights:
     NuclearBombStealObjective: 0.5
     FaxMachineCaptainStealObjective: 1
-    VehicleSecwayStealObjective: 1
     ChemDispenserStealObjective: 1
     XenoArtifactStealObjective: 1
     FreezerHeaterStealObjective: 1
@@ -119,6 +119,7 @@
     RenaultStealObjective: 1
     ShivaStealObjective: 1
     TropicoStealObjective: 1
+    SilviaStealObjective: 1 #DeltaV - CMO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape
