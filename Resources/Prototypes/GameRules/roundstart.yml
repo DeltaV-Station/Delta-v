@@ -66,7 +66,7 @@
   components:
   - type: MaxTimeRestartRule
     roundMaxTime: 300
-    roundEndDelay: 60
+    roundEndDelay: 10
 
 - type: entity
   abstract: true
@@ -176,7 +176,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 3
+    minPlayers: 5
     delay:
       min: 240
       max: 420
