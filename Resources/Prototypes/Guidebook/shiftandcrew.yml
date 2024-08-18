@@ -54,6 +54,8 @@
   - Salads
   - PizzaPies
   - PastaRice
+  - KebabTacos
+  - CookedMeats
   - Diets
 
 - type: guideEntry
@@ -121,4 +123,15 @@
   id: PastaRice
   name: Pasta and Rice
   text: "/serverInfo/Guidebook/Service/Chef/PastaRice.xml"
+
+- type: guideEntry
+  id: KebabTacos
+  name: Kebabs and Tacos
+  text: "/serverInfo/Guidebook/Service/Chef/KebabTacos.xml"
+
+- type: guideEntry
+  id: CookedMeats
+  name: Cooked Meats
+  text: "/serverInfo/Guidebook/Service/Chef/CookedMeats.xml"
+  
   

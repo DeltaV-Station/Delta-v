@@ -1,0 +1,33 @@
+<Document>
+## Cooked Meats
+-Slice the cooked meats to get Cutlets.
+-Steak = Heat up to 335 K
+-Penguin Filet = Heat up to 345 K
+-Cooked Chicken = Heat up to 345 K
+-Cooked Duck = Heat up to 335 K
+-Lizard Steak = Heat up to 345 K
+-Cooked Bear = Heat up to 345 K
+-Cooked Crab = Heat up to 335 K
+-Goliath Steak = Heat up to 345 K
+-Rouny Steak = Heat up to 445 K
+-Bacon = Nanotrasen's food scientists havent revealed the secret to this one yet. 
+
+
+<Box>
+<GuideEntityEmbed Entity="FoodMeatCooked"/>
+<GuideEntityEmbed Entity="FoodMeatPenguinCooked"/>
+<GuideEntityEmbed Entity="FoodMeatChickenCooked"/>
+<GuideEntityEmbed Entity="FoodMeatDuckCooked"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatLizardCooked"/>
+<GuideEntityEmbed Entity="FoodMeatBearCooked"/>
+<GuideEntityEmbed Entity="FoodMeatCrabCooked"/>
+<GuideEntityEmbed Entity="FoodMeatGoliathCooked"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatRounyCooked"/>
+<GuideEntityEmbed Entity="FoodMeatBaconCooked"/>
+</Box>
+
+</Document>

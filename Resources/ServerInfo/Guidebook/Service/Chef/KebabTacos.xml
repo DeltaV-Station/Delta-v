@@ -1,0 +1,44 @@
+<Document>
+## Kebabs and Tacos
+-Meat Kebab = Microwave 1 Skewer + 3 Raw Cutlets for 5 seconds
+-Hawaiian Kebab = Microwave 1 Skewer + 1 Chili + 1 Raw Cutlet + 1 Pineapple Slice for 5 seconds
+-Fiesta Kebab = Microwave 1 Skewer + 1 Chili + 1 Corn + 1 Raw Cutlet + Tomato for 5 seconds
+-Rat Kebab = Microwave 1 Skewer + 1 Raw Rat meat for 10 seconds
+-Double Rat Kebab = Microwave 1 Skewer + 2 Raw Rat meat for 20 seconds
+-Human Kebab = Microwave 1 Skewer + 1 Human Torso for 15 seconds
+-Lizard Kebab = Microwave 1 Skewer + 1 Raw Lizard Meat for 15 seconds
+-Snake Kebab = Microwave 1 Skewer + 1 Raw Snake Meat + 5u Wine for 15 seconds
+-Taco Shell = Microwave 1 Flat Tortilla Dough for 5 seconds
+-Soft Taco = Microwave 1 Dough Slice + 1 Tomato + 2 Onion Slices + 1 Cheese Wedge + 1 Raw Cutlet for 10 seconds
+-Beef Taco = Microwave 1 Taco Shell + 1 Raw Cutlet + 1 Cheese Wedge for 10 seconds
+-Beef Taco Supreme = Microwave 1 Taco Shell + 1 Cheese Wedge + 1 Raw Cutlet + 1 Tomato + 1 Cabbage + 2 Onion Slices for 10 seconds
+-Chicken Taco = Microwave 1 Taco Shell + Raw Chicken Cutlet +1 Cheese Wedge for 10 seconds
+-Chicken Taco Supreme = Microwave 1 Taco Shell + 1 Cheese Wedge + 1 Raw Chicken Cutlet + 1 Tomato + 1 Cabbage + 2 Onion Slices for 10 seconds
+-Fish Taco = Microwave 1 Taco Shell + 1 Raw Carp Fillet + 2 Onion Slices + 1 Tomato + 1 Cabbage for 10 seconds
+-Rat Taco = Microwave 1 Taco Shell + 1 Cheese Wedge + 1 Raw Rat Meat for 10 seconds
+
+<Box>
+<GuideEntityEmbed Entity="FoodMeatKebab"/>
+<GuideEntityEmbed Entity="FoodMeatHawaiianKebab"/>
+<GuideEntityEmbed Entity="FoodMeatFiestaKebab"/>
+<GuideEntityEmbed Entity="FoodMeatRatKebab"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMeatRatdoubleKebab"/>
+<GuideEntityEmbed Entity="FoodMeatHumanKebab"/>
+<GuideEntityEmbed Entity="FoodMeatLizardtailKebab"/>
+<GuideEntityEmbed Entity="FoodMeatSnakeKebab"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodTacoShell"/>
+<GuideEntityEmbed Entity="FoodMealSoftTaco"/>
+<GuideEntityEmbed Entity="FoodTacoBeef"/>
+<GuideEntityEmbed Entity="FoodTacoBeefSupreme"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodTacoChicken"/>
+<GuideEntityEmbed Entity="FoodTacoChickenSupreme"/>
+<GuideEntityEmbed Entity="FoodTacoFish"/>
+<GuideEntityEmbed Entity="FoodTacoRat"/>
+</Box>
+</Document>
