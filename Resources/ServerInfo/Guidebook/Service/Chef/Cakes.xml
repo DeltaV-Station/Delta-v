@@ -1,10 +1,47 @@
 <Document>
-## Example text
--Example text
-
-
+## Cakes
+-Cake = Microwave 1 Cake Batter for 15 seconds
+-Apple Cake = Microwave 1 Cake + 3 Apples for 5 seconds
+-Carrot Cake = Microwave 1 Cake + 3 Carrots for 5 seconds
+-Lemon Cake = Microwave 1 Cake + 3 Lemons for 5 seconds
+-Orange Cake = Microwave 1 Cake + 3 Oranges for 5 seconds
+-Blueberry Cake = Microwave 1 Cake + 3 Berries for 5 seconds
+-Lime Cake = Microwave 1 Cake + 3 Limes for 5 seconds
+-Cheese Cake = Microwave 1 Cake + 3 Cheese Wedge + 10u Cream for 5 seconds
+-Clown Cake = Microwave 1 Cake + 1 Clown Mask for 5 seconds
+-Birthday Cake = Microwave 1 Cake + 5u Cream for 5 seconds
+-Chocolate Cake = Microwave 1 Cake + 2 Chocolate Bars for 5 seconds
+-Brain Cake = Microwave 1 Cake + 1 Human Brain for 15 seconds 
+-Pumpkin-Spice Cake = Microwave 1 Cake + 1 Pumpkin for 5 seconds
+-Slime Cake = Microwave 1 Cake + 15u Slime for 5 seconds
+-Suppermatter = Microwave 2 Cake Batter + 10u Nitrogen + 10u Plasma + 30u Sugar for 15 seconds
+-Cak = Microwave 1 Cake + 1 4no Raisins + 1 Animal heart + 15u Milk + 5u Cognizine for 15 seconds
+-Lemoon Cake = Microwave 1 Cake + 2 Lemoons + 1 Berries for 5 seconds
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodCakePlain"/>
+<GuideEntityEmbed Entity="FoodCakeApple"/>
+<GuideEntityEmbed Entity="FoodCakeCarrot"/>
+<GuideEntityEmbed Entity="FoodCakeLemon"/>
 </Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCakeOrange"/>
+<GuideEntityEmbed Entity="FoodCakeBlueberry"/>
+<GuideEntityEmbed Entity="FoodCakeLime"/>
+<GuideEntityEmbed Entity="FoodCakeCheese"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCakeClown"/>
+<GuideEntityEmbed Entity="FoodCakeBirthday"/>
+<GuideEntityEmbed Entity="FoodCakeChocolate"/>
+<GuideEntityEmbed Entity="FoodCakeBrain"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCakePumpkin"/>
+<GuideEntityEmbed Entity="FoodCakeSlime"/>
+<GuideEntityEmbed Entity="FoodCakeSuppermatter"/>
+<GuideEntityEmbed Entity="MobCatCake"/>
+<GuideEntityEmbed Entity="FoodCakeLemoon"/>
+</Box>
+
 
 </Document>

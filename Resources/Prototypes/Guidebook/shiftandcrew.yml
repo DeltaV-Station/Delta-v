@@ -58,6 +58,7 @@
   - Snacks
   - Diets
   - BakeryGoods
+  - Misc
 
 - type: guideEntry
   id: BakeryGoods
@@ -155,7 +156,12 @@
 
 - type: guideEntry
   id: BakedStuff
-  name: Baked Goods
+  name: Desserts
   text: "/serverInfo/Guidebook/Service/Chef/BakedGoods.xml"
+
+- type: guideEntry
+  id: Misc
+  name: Miscellaneous Recipes
+  text: "/serverInfo/Guidebook/Service/Chef/Misc.xml"
   
   

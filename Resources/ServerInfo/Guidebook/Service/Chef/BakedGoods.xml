@@ -1,10 +1,76 @@
 <Document>
-## Example text
--Example text
-
+## Baked Goods and Desserts
+-Pancake = Microwave 5u Flour + 5u Milk + 6u Egg for 5 seconds
+-Blueberry Pancake = Microwave 2 Berries + 5u Flour + 5u Milk + 6u Egg for 5 seconds
+-Chocolate Chip Pancake = Microwave 1 Chocolate Bar + 5u Flour + 5u Milk + 6u Egg for 5 seconds
+-Waffles =  Microwave 5u Flour + 5u Milk + 6u Egg + 5u Soda Water for 10 seconds
+-Soy Waffles = Microwave 5u Flour + 5u Soy Milk + 6u Egg + 5u Soda Water for 10 seconds
+-Cookie = Microwave 1 Stick of Butter + 1 Chocolate Bar + 5u Flour + 5u sugar for 5 seconds
+-Sugar Cookie = Microwave 1 Stick of Butter + 5u Flour + 5u Sugar for 5 seconds
+-Raisin Cookie = Microwave 1 4no Raisins + 5u Flour + 5u Sugar for 5 seconds 
+-Oatmeal Cookie = Microwave 1 Stick of Butter + 5u Oats + 10u Sugar for 5 seconds
+-Apple Pie = Microwave 1 Pie Tin + 1 Pie dough + 3 Apples for 15 seconds
+-Baklava = Microwave 1 Pie Tin + 1 Pie dough + 1 Pistachio for 15 seconds 
+-Berry Clafoutis = Microwave 1 Pie Tin + 1 Pie dough + 3 Berries for 15 seconds 
+-Frosty Pie = Microwave 1 Pie Tin + 1 Pie dough + 3 Chillys for 15 seconds
+-Meat Pie = Microwave 1 Pie Tin + 1 Pie dough + 3 Raw Meat for 15 seconds
+-Xeno Pie = Microwave 1 Pie Tin + 1 Pie dough + 3 Raw Xeno Meat for 15 seconds 
+-Banana Cream Pie = Microwave 1 Pie Tin + 1 Pie dough + 3 Bananas for 15 seconds
+-Amanita Pie = Microwave 1 Pie Tin + 1 Pie dough + 1 Fly Amantita for 15 seconds
+-Pumpkin Pie = Microwave 1 Pie Tin + 1 Pie dough + 1 Pumpkin for 15 seconds
+-Chocolate Lava Tart = Microwave 1 Pie Tin + 1 Pie dough + 3 Chocolate Bar + 5u Sugar + 5u Milk for 15 seconds 
+-Golden Apple Streusel Tart = Microwave 1 Pie Tin + 1 Pie dough + 2 Apple + 5u Sugar + 5u Milk + 10u gold for 15 seconds 
+-Grape Tart = Microwave 1 Pie Tin + 1 Pie dough + 3 Grapes + 5u Sugar + 5u Milk for 15 seconds
+-Mime Tart = Microwave 1 Pie Tin + 1 Pie dough + 3 Mimana + 5u Sugar + 5u Milk for 15 seconds
+-Brownies = Microwave 2 Sticks of Butter + 2 Chocolate Bars + 3 Eggs + 15u Flour + 30u Sugar for 25 seconds
+-Special Brownies = Microwave 2 Sticks of Cannabis Butter + 2 Chocolate Bars + 3 Eggs + 15u Flour + 30u Sugar for 25 seconds
+-Amanita Jelly = Microwave 3 Fly Amantita + 5u water + 5u Vodka for 10 seconds
+-Cheesecake Balls = Microwave 1 Curd Cheese + 5u Sugar + 5u Flour for 10 seconds
+-Mothmallow Tray = Microwave 1 Soybean + 10u sugar + 5u Rum + 5u Soymilk for 10 seconds
+-Mothmallow Slice = Slice Mothmallow
+-Moffin = Microwave 1 Cloth + 5u Flour + 5u Milk + 6u Egg for 5 seconds
 
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodBakedPancake"/>
+<GuideEntityEmbed Entity="FoodBakedPancakeBb"/>
+<GuideEntityEmbed Entity="FoodBakedPancakeCc"/>
+<GuideEntityEmbed Entity="FoodBakedWaffle"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBakedWaffleSoy"/>
+<GuideEntityEmbed Entity="FoodBakedCookie"/>
+<GuideEntityEmbed Entity="FoodBakedCookieSugar"/>
+<GuideEntityEmbed Entity="FoodBakedCookieRaisin"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodBakedCookieOatmeal"/>
+<GuideEntityEmbed Entity="FoodPieApple"/>
+<GuideEntityEmbed Entity="FoodPieBaklava"/>
+<GuideEntityEmbed Entity="FoodPieClafoutis"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodPieFrosty"/>
+<GuideEntityEmbed Entity="FoodPieMeat"/>
+<GuideEntityEmbed Entity="FoodPieXeno"/>
+<GuideEntityEmbed Entity="FoodPieBananaCream"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodPieAmanita"/>
+<GuideEntityEmbed Entity="FoodPiePumpkin"/>
+<GuideEntityEmbed Entity="FoodTartCoco"/>
+<GuideEntityEmbed Entity="FoodTartGapple"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodTartGrape"/>
+<GuideEntityEmbed Entity="FoodTartMime"/>
+<GuideEntityEmbed Entity="FoodBakedBrownieBatch"/>
+<GuideEntityEmbed Entity="FoodBakedCannabisBrownieBatch"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMothCheesecakeBalls"/>
+<GuideEntityEmbed Entity="FoodMothMothmallow"/>
+<GuideEntityEmbed Entity="FoodMothMothmallowSlice"/>
+<GuideEntityEmbed Entity="FoodMothMoffin"/>
 </Box>
 
 </Document>
