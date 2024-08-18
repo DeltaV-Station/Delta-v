@@ -106,7 +106,6 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMealCubancarp",
             "FoodMealSashimi",
             "FoodBurgerCarp",
-            "FoodMealSoftTaco",
             "FoodMothMacBalls",
             "FoodSoupNettle",
             "FoodBurgerDuck",
