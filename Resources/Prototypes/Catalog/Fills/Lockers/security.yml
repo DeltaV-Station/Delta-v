@@ -20,11 +20,14 @@
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
       - id: HoloprojectorSecurity
-      - id: BoxPDAPrisoner # Delta-V
-      - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
-      - id: BoxEncryptionKeyPrisoner #Delta-V
-      - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
+      - id: BookSpaceLaw
+      # Begin DeltaV additions
+      - id: BoxPDAPrisoner
+      - id: ClothingShoesBootsWinterWarden
+      - id: BoxEncryptionKeyPrisoner
+      - id: LunchboxSecurityFilledRandom
         prob: 0.3
+      # End DeltaV additions
 
 - type: entity
   id: LockerWardenFilled
@@ -47,11 +50,14 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
-      - id: BoxPDAPrisoner # Delta-V
-      - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
-      - id: BoxEncryptionKeyPrisoner #Delta-V
-      - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
+      - id: BookSpaceLaw
+      # Begin DeltaV additions
+      - id: BoxPDAPrisoner
+      - id: ClothingShoesBootsWinterWarden
+      - id: BoxEncryptionKeyPrisoner
+      - id: LunchboxSecurityFilledRandom
         prob: 0.3
+      # End DeltaV additions
 
 - type: entity
   id: LockerSecurityFilled
@@ -94,6 +100,8 @@
         prob: 0.1
       - id: HoloprojectorSecurity
         prob: 0.6
+      - id: BookSpaceLaw
+        prob: 0.5
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
 
@@ -192,6 +200,7 @@
       - id: RubberStampDetective
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
+      - id: HandLabeler
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
 

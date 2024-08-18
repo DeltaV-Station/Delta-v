@@ -1,9 +1,9 @@
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseSubdermalImplant
   id: BionicSyrinxImplant
   name: bionic syrinx implant
   description: This implant lets a harpy adjust their voice to whoever they can think of.
-  noSpawn: true
   components:
     - type: SubdermalImplant
       implantAction: ActionSyrinxChangeVoiceMask
@@ -17,11 +17,11 @@
         - BionicSyrinxImplant
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   parent: StorageImplant
   id: RadioImplant
   name: generic radio implant
   description: This implant contains a radio augmentation with a bluespace compartment for an encryption key. It allows its user to communicate on the key's channels.
-  noSpawn: true
   components:
   - type: SubdermalImplant
     implantAction: ActionOpenRadioImplant
@@ -40,11 +40,11 @@
   - type: RadioImplant
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseSubdermalImplant
   id: SyndicateRadioImplant
   name: syndicate radio implant
   description: This implant contains a radio augmentation that allows its user to communicate on the Syndicate channel.
-  noSpawn: true
   components:
   - type: RadioImplant
     channels:

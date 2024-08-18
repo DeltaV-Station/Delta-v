@@ -44,8 +44,76 @@
     time: 216000 # DeltaV - 60 hours
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 36000 # DeltaV - 10 hours
+    time: 36000 # DeltaV - 10 hours, was 5
   - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
     department: Command
     time: 36000 # DeltaV - 10 hours
   - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+  # should be changed to nukie playtime when thats tracked (wyci)
+
+- type: startingGear
+  id: SyndicateOperativeGearFullNoUplink
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitSyndie
+    shoes: ClothingShoesBootsCombatFilled
+    id: SyndiPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: PlushieCarp
+    belt: ClothingBeltMilitaryWebbing
+  storage:
+    back:
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - DeathAcidifierImplanter
+
+#Nuclear Operative Gear
+- type: startingGear
+  id: SyndicateOperativeGearFull
+  parent: SyndicateOperativeGearFullNoUplink
+  equipment:
+    pocket2: BaseUplinkRadio40TC
+
+#Nuclear Operative Commander Gear
+- type: startingGear
+  id: SyndicateCommanderGearFull
+  parent: SyndicateOperativeGearFull
+  equipment:
+    neck: SyndicateWhistle
+    outerClothing: ClothingOuterHardsuitSyndieCommander
+  inhand:
+    - NukeOpsDeclarationOfWar
+
+#Nuclear Operative Medic Gear
+- type: startingGear
+  id: SyndicateOperativeMedicFull
+  parent: SyndicateOperativeGearFull
+  equipment:
+    eyes: ClothingEyesHudSyndicateAgent
+    outerClothing: ClothingOuterHardsuitSyndieMedic
+    shoes: ClothingShoesBootsMagSyndie
+    id: SyndiAgentPDA
+    belt: ClothingBeltMilitaryWebbingMedFilled
+  storage:
+    back:
+    - SyndiHypo
+    - SawAdvanced
+    - Cautery
+    - CombatKnife
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - HandheldHealthAnalyzer
+    - CombatMedipen
+    - DeathAcidifierImplanter
+
+#Lone Operative Gear
+- type: startingGear
+  id: SyndicateLoneOperativeGearFull
+  parent: SyndicateOperativeGearFull
+  equipment:
+    pocket2: BaseUplinkRadio60TC
