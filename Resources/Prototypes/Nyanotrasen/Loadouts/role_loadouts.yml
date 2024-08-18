@@ -2,6 +2,7 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
+  - GroupTankHarness
   - MailCarrierHead
   - MailCarrierJumpsuit
   - CommonBackpack
@@ -68,6 +69,7 @@
 - type: roleLoadout
   id: JobGladiator
   groups:
+  - GroupTankHarness
   - GladiatorJumpsuit
   - CommonBackpack
   - GladiatorOuterClothing
