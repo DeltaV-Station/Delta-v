@@ -13,10 +13,28 @@
 -Black-eyed Gumbo = Microwave 1 Boiled Rice + 3 Raw Cutlets + 2 Chili for 15 seconds
 -Egg-fried Rice = Microwave for 1 Boiled Rice + 1 Egg + 1 Carrot 15 seconds
 -Baked Rice = Microwave 1 Boiled Rice + 2 Potatos + 1 cabbage + 1 Chilli for 15 seconds
--Mulan Congee = Microwave 1 Boiled Rice + 1 Cheese Wedge + 10u bechamel Sauce + 5u Pesot Sauce for 10 seconds
+-Mulan Congee = Microwave 1 Boiled Rice + 1 Cheese Wedge + 10u bechamel Sauce + 5u Pesto Sauce for 10 seconds
 
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodNoodlesBoiled"/>
+<GuideEntityEmbed Entity="FoodNoodles"/>
+<GuideEntityEmbed Entity="FoodNoodlesMeatball"/>
+<GuideEntityEmbed Entity="FoodNoodlesButter"/>
 </Box>
-
+<Box>
+<GuideEntityEmbed Entity="FoodNoodlesChowmein"/>
+<GuideEntityEmbed Entity="FoodNoodlesCopy"/>
+<GuideEntityEmbed Entity="FoodMothGreenLasagne"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodRiceBoiled"/>
+<GuideEntityEmbed Entity="FoodRicePudding"/>
+<GuideEntityEmbed Entity="FoodRicePork"/>
+<GuideEntityEmbed Entity="FoodRiceGumbo"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodRiceEgg"/>
+<GuideEntityEmbed Entity="FoodMothBakedRice"/>
+<GuideEntityEmbed Entity="FoodMothHuaMulanCongee"/>
+</Box>
 </Document>
