@@ -1,6 +1,6 @@
 - type: entity
   id: ElectricalDisruptionKit
-  parent: BoxCardboard
+  parent: [BoxCardboard, BaseSyndicateContraband]
   name: electrical disruption kit
   suffix: Filled
   components:
@@ -12,7 +12,7 @@
           amount: 1
 
 - type: entity
-  parent: BoxVial
+  parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
   name: chemical synthesis kit
   description: A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
@@ -32,9 +32,9 @@
       - id: BaseChemistryEmptyVial
       - id: SyringeStimulants
 
-- type: entity
+- type: entity # DeltaV - upstream removed this i think?
   id: Observationskit
-  parent: BoxCardboard
+  parent: [BoxCardboard, BaseSyndicateContraband]
   name: observations kit
   suffix: Filled
   components:
@@ -51,7 +51,7 @@
 
 
 - type: entity
-  parent: BoxCardboard
+  parent: [BoxCardboard, BaseSyndicateContraband]
   id: ThrowingKnivesKit
   name: throwing knives kit
   description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
@@ -70,7 +70,7 @@
 
 - type: entity
   name: deathrattle implant box
-  parent: BoxCardboard
+  parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxDeathRattleImplants
   description: Six deathrattle implants for the whole squad.
   components:
