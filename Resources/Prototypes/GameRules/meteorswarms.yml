@@ -115,8 +115,6 @@
     earliestStart: 2
     minimumPlayers: 0
   - type: MeteorSwarm
-    announcement: null
-    announcementSound: null
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -135,8 +133,7 @@
     weight: 22
     minimumPlayers: 0
   - type: MeteorSwarm
-    announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -155,6 +152,7 @@
     weight: 18
     minimumPlayers: 15
   - type: MeteorSwarm
+    startAnnouncement: true
     meteors:
       MeteorSmall: 7
       MeteorMedium: 3
@@ -166,6 +164,7 @@
   - type: StationEvent
     weight: 10
   - type: MeteorSwarm
+    startAnnouncement: true
     meteors:
       MeteorSmall: 3
       MeteorMedium: 6
@@ -178,6 +177,7 @@
   - type: StationEvent
     weight: 5
   - type: MeteorSwarm
+    startAnnouncement: true
     meteors:
       MeteorSmall: 2
       MeteorMedium: 4
@@ -192,8 +192,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
-    announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     meteors:
       MeteorUrist: 1
     waves:

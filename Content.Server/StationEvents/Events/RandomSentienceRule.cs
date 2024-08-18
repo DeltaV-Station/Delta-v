@@ -10,8 +10,8 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
-	[Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation: RandomAnnouncerSystem Port from EE 
-	
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation: RandomAnnouncerSystem Port from EE 
+
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         if (!TryGetRandomStation(out var station))

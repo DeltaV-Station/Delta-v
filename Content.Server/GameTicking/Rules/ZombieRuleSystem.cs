@@ -121,8 +121,8 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             foreach (var station in _station.GetStations())
             {
                 _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
-				    _station.GetInOwningStation(station), "zombie-shuttle-call",
-					colorOverride: Color.Crimson);
+                    _station.GetInOwningStation(station), "zombie-shuttle-call",
+                    colorOverride: Color.Crimson);
             }
             _roundEnd.RequestRoundEnd(null, false);
         }
