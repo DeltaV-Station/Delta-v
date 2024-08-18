@@ -104,20 +104,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool>
             EventsEnabled = CVarDef.Create("events.enabled", true, CVar.ARCHIVE | CVar.SERVERONLY);
 
-        /// <summary>
-        ///     Average time (in minutes) for when the ramping event scheduler should stop increasing the chaos modifier.
-        ///     Close to how long you expect a round to last, so you'll probably have to tweak this on downstreams.
-        /// </summary>
-        public static readonly CVarDef<float>
-            EventsRampingAverageEndTime = CVarDef.Create("events.ramping_average_end_time", 40f, CVar.ARCHIVE | CVar.SERVERONLY);
-
-        /// <summary>
-        ///     Average ending chaos modifier for the ramping event scheduler.
-        ///     Max chaos chosen for a round will deviate from this
-        /// </summary>
-        public static readonly CVarDef<float>
-            EventsRampingAverageChaos = CVarDef.Create("events.ramping_average_chaos", 6f, CVar.ARCHIVE | CVar.SERVERONLY);
-
         /*
          * Game
          */
@@ -431,6 +417,12 @@ namespace Content.Shared.CCVar
         /// </remarks>
         public static readonly CVarDef<bool> GameTabletopPlace =
             CVarDef.Create("game.tabletop_place", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// If true, contraband severity can be viewed in the examine menu
+        /// </summary>
+        public static readonly CVarDef<bool> ContrabandExamine =
+            CVarDef.Create("game.contraband_examine", true, CVar.SERVER | CVar.REPLICATED);
 
         /*
          * Discord
@@ -2009,6 +2001,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> GhostRoleTime =
             CVarDef.Create("ghost.role_time", 8f, CVar.REPLICATED | CVar.SERVER);
+
+        /// <summary>
+        /// If ghost role lotteries should be made near-instanteous.
+        /// </summary>
+        public static readonly CVarDef<bool> GhostQuickLottery =
+            CVarDef.Create("ghost.quick_lottery", false, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether or not to kill the player's mob on ghosting, when it is in a critical health state.
