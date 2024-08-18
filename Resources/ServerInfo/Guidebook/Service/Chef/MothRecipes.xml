@@ -24,10 +24,22 @@
 -Fried Eggplant and Polenta = Microwave 1 Cheesey Porridge + 1 Eggplant + 2 Bread Slices + 1 Mozzarella + 5u tomato sauce for 10 seconds
 -Cornmeal Porridge = Microwave 1 Bowl + 10u Cornmeal + 10u water for 10 seconds 
 -Cheesey Porridge = Microwave 1 Cornmeal Porridge + 1 Curd Cheese + 1 Cheese Wedge + 5u milk + 5u cream for 10 seconds
+-Firecracker Pizza = Microwave 1 Flat Dough + 1 Cheese Wedge + 1 Baked Corn + 1 Chili + 10 BBQ Sauce for 30 seconds
+-Quattro Formaggi Pizza = Microwave 1 Flat Dough + 1 Mozzarella + 1 Cheese Wedge + 1 Curd Cheese + 1 Cheese Curds + 10u Tomato Sauce for 30 seconds
+-Pesto Pizza = Microwave 1 Flat Dough + 2 Tomatos + 2 Mozzarella + 10u Pesto Sauce for 30 seconds
+-Cotton Pizza = Microwave 1 Flat Dough + 1 Mozzarella + 1 Curd Cheese + 1 Cotton + 5u Corn Oil for 30 seconds
 
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFirecracker"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFiveCheese"/>
+<GuideEntityEmbed Entity="FoodMothPizzaPesto"/>
+<GuideEntityEmbed Entity="FoodMothPizzaCotton"/>
 </Box>
-
+<Box>
+<GuideEntityEmbed Entity="FoodMothPizzaFirecracker"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFiveCheese"/>
+<GuideEntityEmbed Entity="FoodMothPizzaPesto"/>
+<GuideEntityEmbed Entity="FoodMothPizzaCotton"/>
+</Box>
 </Document>
 

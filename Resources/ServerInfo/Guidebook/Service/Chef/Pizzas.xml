@@ -14,7 +14,21 @@
 -Corncob Pizza = Microwave 1 Flat Dough + 6 Corn + 1 Cheese Wedge + 1 Tomato + 1 Stick of Butter for 30 seconds
 
 <Box>
-<GuideEntityEmbed Entity="FoodDough" Caption="text"/>
+<GuideEntityEmbed Entity="FoodPizzaMargherita"/>
+<GuideEntityEmbed Entity="FoodPizzaMushroom"/>
+<GuideEntityEmbed Entity="FoodPizzaMeat"/>
+<GuideEntityEmbed Entity="FoodPizzaVegetable"/>
 </Box>
-
+<Box>
+<GuideEntityEmbed Entity="FoodPizzaPineapple"/>
+<GuideEntityEmbed Entity="FoodPizzaDank"/>
+<GuideEntityEmbed Entity="FoodPizzaDonkpocket"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFirecracker"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodMothPizzaFiveCheese"/>
+<GuideEntityEmbed Entity="FoodMothPizzaPesto"/>
+<GuideEntityEmbed Entity="FoodMothPizzaCotton"/>
+<GuideEntityEmbed Entity="FoodPizzaCorncob"/>
+</Box>
 </Document>
