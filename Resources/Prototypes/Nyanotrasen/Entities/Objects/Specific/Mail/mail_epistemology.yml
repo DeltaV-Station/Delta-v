@@ -1,5 +1,4 @@
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEpistemologyBluespace
   suffix: bluespace
@@ -9,7 +8,6 @@
     - id: MaterialBluespace1
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEpistemologyIngotGold
   suffix: ingotgold
@@ -20,7 +18,6 @@
       maxAmount: 3
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEpistemologyResearchDisk
   suffix: researchdisk
@@ -38,7 +35,6 @@
       prob: 0.1
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailEpistemologyTinfoilHat
   suffix: tinfoilhat
@@ -48,7 +44,6 @@
     - id: ClothingHeadTinfoil
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailDetectiveForensicSupplement # Deltav - Detective is in charge of investigating crimes.
   suffix: detectivesupplement # Deltav - Detective is in charge of investigating crimes.
