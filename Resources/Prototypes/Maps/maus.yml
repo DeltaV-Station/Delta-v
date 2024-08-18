@@ -2,8 +2,10 @@
   id: CorvaxMaus
   mapName: 'Maus Station'
   mapPath: /Maps/corvax_maus.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 0
-  maxPlayers: 40
+  maxPlayers: 35
   stations:
     Maus:
       stationProto: StandardNanotrasenStation
@@ -14,12 +16,9 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "Z"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/Shuttles/mining.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_maus.yml
+        - type: StationCargoShuttle
+          path: /Maps/Shuttles/cargo_maus.yml
         - type: StationJobs
           availableJobs:
             CargoTechnician: [ 2, 2 ]
@@ -31,6 +30,7 @@
             Janitor: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
+            IAA: [1, 1]
             HeadOfPersonnel: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 3 ]
@@ -43,11 +43,11 @@
             Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 4, 4 ]
             HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 2, 3 ]
+            SecurityOfficer: [ 2, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            SalvageSpecialist: [ 1, 2 ]
+            SalvageSpecialist: [ 1, 3 ]
             Quartermaster: [ 1, 1 ]
             TechnicalAssistant: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]

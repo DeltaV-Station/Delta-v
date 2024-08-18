@@ -2,6 +2,8 @@
   id: CorvaxFrame
   mapName: 'Frame Station'
   mapPath: /Maps/corvax_frame.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 0
   maxPlayers: 15
   stations:
@@ -40,21 +42,21 @@
               - /Maps/Ruins/derelict.yml
               - /Maps/Ruins/djstation.yml
               - /Maps/Ruins/old_ai_sat.yml
-              - /Maps/Ruins/relaystation.yml
               - /Maps/Ruins/syndicate_dropship.yml
               - /Maps/Ruins/whiteship_ancient.yml
               - /Maps/Ruins/whiteship_bluespacejumper.yml
         - type: StationJobs
           availableJobs:
             # service
-            Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 1, 1 ]
-            StationEngineer: [ 3, 3 ]
+            StationEngineer: [ 3, 6 ]
+            TechnicalAssistant: [ -1, -1 ]
             # medical
             Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 0, 1 ]
             # science
             Scientist: [ 1, 2 ]
             Borg: [ 1, 1 ]

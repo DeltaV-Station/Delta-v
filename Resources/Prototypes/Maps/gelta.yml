@@ -2,6 +2,8 @@
   id: CorvaxGelta
   mapName: 'Gelta Station'
   mapPath: /Maps/corvax_gelta.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 30
   stations:
     Gelta:
@@ -14,11 +16,6 @@
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             CargoTechnician: [ 4, 4 ]

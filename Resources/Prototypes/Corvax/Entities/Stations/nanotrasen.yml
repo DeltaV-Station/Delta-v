@@ -22,7 +22,7 @@
     - type: GridSpawn
       groups:
         # Spawn last
-        ruins:
+        ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
           minCount: 2
@@ -33,7 +33,6 @@
           - /Maps/Ruins/derelict.yml
           - /Maps/Ruins/djstation.yml
           - /Maps/Ruins/old_ai_sat.yml
-          - /Maps/Ruins/relaystation.yml
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml

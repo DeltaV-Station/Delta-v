@@ -2,6 +2,8 @@
   id: CorvaxDelta
   mapName: 'Delta Station'
   mapPath: /Maps/corvax_delta.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 30
   stations:
     Delta:
@@ -14,11 +16,6 @@
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_corvaxdelta.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             CargoTechnician: [ 4, 4 ]
