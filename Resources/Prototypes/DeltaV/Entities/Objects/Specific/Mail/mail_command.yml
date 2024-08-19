@@ -1,0 +1,9 @@
+# Base Nyano Mail
+- type: entity
+  parent: BaseMail
+  id: MailCommandPinpointerNuclear
+  suffix: pinpointernuclear
+  components:
+  - type: Mail
+    contents:
+    - id: PinpointerNuclear

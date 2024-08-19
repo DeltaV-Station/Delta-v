@@ -28,7 +28,7 @@ namespace Content.Server.Mail.Components
         /// teleporter can deliver.
         /// </summary>
         [DataField("mailPool")]
-        public string MailPool = "RandomNFMailDeliveryPool"; // Frontier: use our own mail pool (TODO: migrate to frontier.yml instance?)
+        public string MailPool = "RandomDeltaVMailDeliveryPool"; // Frontier / DeltaV: Mail rework
 
         /// <summary>
         /// How many mail candidates do we need per actual delivery sent when
