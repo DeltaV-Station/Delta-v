@@ -836,7 +836,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: StaticPrice
-    price: 150
+    price: 250
   - type: RadiationBlocker
     resistance: 5
   - type: Sprite
@@ -871,9 +871,6 @@
   name: shuttle wall
   suffix: Interior
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: RCDDeconstructable
     cost: 6
     delay: 8
