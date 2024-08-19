@@ -24,19 +24,17 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ShellShotgunIncendiary
-  - CartridgePistolIncendiary
-  - CartridgeMagnumIncendiary
-  - CartridgeLightRifleIncendiary
-  - CartridgeRifleIncendiary
+  - BoxShotgunIncendiary
+  - MagazineRifleIncendiary
+  - MagazinePistolIncendiary
+  - MagazineLightRifleIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
-  # DeltaV - .38 special incendiary ammo - Add .38 special incendiary ammo to the research tree
-  - CartridgeSpecialIncendiary
-  - MagazineBoxSpecialIncendiary
-  # End of modified code
+  - MagazineBoxSpecialIncendiary # DeltaV
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -60,17 +58,20 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
-  - ShellShotgunBeanbag
-  - CartridgePistolRubber
-  - CartridgeMagnumRubber
-  - CartridgeLightRifleRubber
-  - CartridgeRifleRubber
+  - MagazineShotgunBeanbag
+  - BoxShellTranquilizer 
+  - BoxBeanbag 
+  - WeaponDisabler
+  # DeltaV - rubber ammo which upstream removed
+  - MagazineRifleRubber
+  - MagazinePistolRubber
+  - MagazineLightRifleRubber
+  - SpeedLoaderMagnumRubber
+  - SpeedLoaderSpecialRubber
   - MagazineBoxPistolRubber
   - MagazineBoxMagnumRubber
   - MagazineBoxLightRifleRubber
   - MagazineBoxRifleRubber
-  # DeltaV - .38 special rubber ammo - Adds .38 special rubber ammo to the research tree
-  - CartridgeSpecialRubber
   - MagazineBoxSpecialRubber
   # End of modified code
 
@@ -84,17 +85,17 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
-  - ShellShotgunUranium
-  - CartridgePistolUranium
-  - CartridgeMagnumUranium
-  - CartridgeLightRifleUranium
-  - CartridgeRifleUranium
+  - MagazineRifleUranium
+  - MagazinePistolUranium
+  - MagazineLightRifleUranium
+  - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+  - BoxShotgunUranium
   # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-  - CartridgeSpecialUranium
+  - SpeedLoaderSpecialUranium
   - MagazineBoxSpecialUranium
   # End of modified code
 
@@ -132,6 +133,18 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+
+- type: technology
+  id: SpecialMeans
+  name: research-technology-special-means
+  icon:
+    sprite: Clothing/Back/Backpacks/electropack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ClothingBackpackElectropack
 
 # Tier 2
 
@@ -174,6 +187,7 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
+  #- GrenadeBlast # DeltaV - no
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard

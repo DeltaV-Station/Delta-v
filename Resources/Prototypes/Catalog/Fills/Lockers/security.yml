@@ -28,6 +28,10 @@
       - id: LunchboxSecurityFilledRandom
         prob: 0.3
       # End DeltaV additions
+      - id: ClothingNeckShockCollar
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
 
 - type: entity
   id: LockerWardenFilled
@@ -58,6 +62,10 @@
       - id: LunchboxSecurityFilledRandom
         prob: 0.3
       # End DeltaV additions
+      - id: ClothingNeckShockCollar
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
 
 - type: entity
   id: LockerSecurityFilled
@@ -222,7 +230,7 @@
         prob: 0.5
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafeDisabler
   name: disabler safe
   components:
@@ -232,7 +240,7 @@
       amount: 5
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafePistolMk58
   name: mk58 safe
   components:
@@ -244,7 +252,7 @@
       amount: 8
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafeRifleLecter
   name: lecter safe
   components:
@@ -256,7 +264,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafeSubMachineGunDrozd
   name: drozd safe
   components:
@@ -268,7 +276,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafeShotgunEnforcer
   name: enforcer safe
   components:
@@ -280,7 +288,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   id: GunSafeShotgunKammerer
   name: kammerer safe
   components:
@@ -294,7 +302,7 @@
 - type: entity
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
-  parent: GunSafe
+  parent: [GunSafe, BaseRestrictedContraband]
   name: wt550 safe
   components:
   - type: StorageFill
