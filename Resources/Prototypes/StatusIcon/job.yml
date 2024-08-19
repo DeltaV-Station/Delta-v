@@ -403,7 +403,8 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SeniorPhysician
-  # allowSelection: false # DeltaV - Make selectable
+  jobName: job-name-senior-physician # DeltaV - Agent ID localization
+  # allowSelection: false # DeltaV - Selectable
 
 - type: jobIcon
   parent: JobIcon
@@ -411,7 +412,8 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SeniorOfficer
-  # allowSelection: false # DeltaV - Make selectable
+  jobName: job-name-senior-officer # DeltaV - Agent ID localization
+  # allowSelection: false # DeltaV - Selectable
 
 - type: jobIcon
   parent: JobIcon
@@ -419,7 +421,8 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SeniorEngineer
-  # allowSelection: false # DeltaV - Make selectable
+  jobName: job-name-senior-engineer # DeltaV - Agent ID localization
+  # allowSelection: false # DeltaV - Selectable
 
 - type: jobIcon
   parent: JobIcon
@@ -427,7 +430,8 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SeniorResearcher
-  # allowSelection: false # DeltaV - Make selectable
+  jobName: job-name-scientist-senior # DeltaV - Agent ID localization
+  # allowSelection: false # DeltaV - Selectable
 
 - type: jobIcon
   parent: JobIcon
