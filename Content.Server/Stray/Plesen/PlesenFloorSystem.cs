@@ -6,7 +6,4 @@ namespace Content.Server.Stray.Plesen.PlesenFloor;
 [UsedImplicitly]
 public sealed class PlesenFloorSystem : SharedPlesenFloorSystem
 {
-    public override void del(EntityUid toDel){
-        EntityManager.QueueDeleteEntity(toDel);
-    }
 }

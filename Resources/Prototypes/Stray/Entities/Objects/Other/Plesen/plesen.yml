@@ -11,6 +11,7 @@
     Heat: 3
 
 - type: entity
+  abstract: true
   id: PlesenCore
   name: Ядро плесени
   description: "Это ядро плесени, её мозг, её надежда"
@@ -47,6 +48,7 @@
     - type: Appearance
 
 - type: entity
+  abstract: true
   id: FungusFloor
   name: Плесневый пол
   description: Прекрасный вид смертельного поля
@@ -70,10 +72,10 @@
   - type: PlacementReplacement
     key: walls
   - type: Damageable
-    damageContainer: Plesen
+    damageContainer: Inorganic
     damageModifierSet: Plesen
   - type: PlesenFloor
-    heath: 50
+    health: 50
   - type: Tag
     tags:
       - Wall
@@ -92,6 +94,7 @@
     state: floor
 
 - type: entity
+  abstract: true
   #parent: BaseWall
   id: FungusWall
   name: Плесневая стена
@@ -102,7 +105,7 @@
     - Wall
   components:
   - type: PlesenWall
-    heath: 100
+    health: 100
   - type: Transform
     anchored: true
   - type: Clickable
@@ -118,7 +121,7 @@
   - type: PlacementReplacement
     key: walls
   - type: Damageable
-    damageContainer: Plesen
+    damageContainer: Inorganic
     damageModifierSet: Plesen
   - type: Tag
     tags:
@@ -138,13 +141,14 @@
     state: wall
 
 - type: entity
+  abstract: true
   parent: FungusWall
   id: FungusWallBurned
   name: Сгоревшая плесневая стена
   description: Дымится и рассыпается
   components:
   - type: Damageable
-    damageContainer: Plesen
+    damageContainer: Inorganic
     damageModifierSet: Plesen
   - type: Tag
     tags:
@@ -167,6 +171,7 @@
         damage: 50
 
 - type: tile
+  abstract: true
   id: FloorFungusBurned
   name: stray-structures-plesen
   sprite: /Textures/Stray/Tiles/Plesen/floorburned.png
