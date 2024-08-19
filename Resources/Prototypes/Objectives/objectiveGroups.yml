@@ -21,11 +21,12 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
+    #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     SecretDocumentsStealObjective: 0.5
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
-    HoSGunStealObjective: 0.5
-    PlutoniumCoreStealObjective: 0.5
+    HoSGunStealObjective: 0.5 # DeltaV
+    PlutoniumCoreStealObjective: 0.5 # DeltaV, was reverted upstream
     NukeDiskStealObjective: 0.25
 
 - type: weightedRandom
