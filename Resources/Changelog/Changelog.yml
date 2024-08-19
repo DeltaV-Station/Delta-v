@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Errant-4
-  changes:
-  - message: Map labels no longer suddenly disappear for the rest of the round.
-    type: Fix
-  id: 6666
-  time: '2024-06-02T17:30:27.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/28518
-- author: Whisper
-  changes:
-  - message: Renamed the player-obtainable "admin cloak" to "weh cloak".
-    type: Tweak
-  id: 6667
-  time: '2024-06-03T02:18:49.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/28540
 - author: Vermidia
   changes:
   - message: Glass shards are no longer weldable with an unlit welder.
@@ -3846,3 +3832,15 @@
   id: 7165
   time: '2024-08-19T18:17:28.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/31212
+- author: themias
+  changes:
+  - message: Added the Combat Bakery Kit to the syndicate uplink. Includes a deadly
+      edible baguette sword and throwing star croissants for 3 TC.
+    type: Add
+  - message: Baguettes can be worn on the belt and normal ones do one blunt damage.
+    type: Tweak
+  - message: Mimes have a baguette instead of an MRE in their survival kits.
+    type: Tweak
+  id: 7167
+  time: '2024-08-19T18:57:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/31179
