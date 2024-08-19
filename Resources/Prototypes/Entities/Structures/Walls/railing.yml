@@ -6,10 +6,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: side
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: side
   - type: Physics
     bodyType: Static
@@ -70,10 +70,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner
   - type: Physics
     bodyType: Static
@@ -143,10 +143,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner_small
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner_small
   - type: Physics
     bodyType: Static
@@ -207,7 +207,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: round
   - type: Physics
     bodyType: Static

@@ -2,7 +2,7 @@
   id: Oasis
   mapName: 'Oasis'
   mapPath: /Maps/oasis.yml
-  minPlayers: 0
+  minPlayers: 30
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_delta.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

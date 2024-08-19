@@ -2,8 +2,8 @@
   id: Packed
   mapName: 'Packed'
   mapPath: /Maps/packed.yml
-  minPlayers: 0
-  maxPlayers: 80
+  minPlayers: 5
+  maxPlayers: 40
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
             prefixCreator: 'VG'
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

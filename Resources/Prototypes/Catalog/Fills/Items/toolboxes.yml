@@ -22,6 +22,7 @@
         prob: 0.15
       - id: HarmonicaInstrument
         prob: 0.15
+      - id: Matchbox
  
 - type: entity
   id: ToolboxElectricalFilled
@@ -32,7 +33,7 @@
   - type: StorageFill
     contents:
       - id: Screwdriver
-      - id: Crowbar
+      - id: CrowbarOrange
       - id: Wirecutter
       - id: CableApcStack10
       - id: CableMVStack10
@@ -53,7 +54,7 @@
   - type: StorageFill
     contents:
       - id: Screwdriver
-      - id: Crowbar
+      - id: CrowbarOrange
       - id: Wirecutter
       - id: CableApcStack10
       - id: CableMVStack10
@@ -94,7 +95,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: Crowbar
+      - id: CrowbarOrange
       - id: Wrench
       - id: Welder
       - id: Wirecutter

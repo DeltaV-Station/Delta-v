@@ -12,6 +12,8 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 7200
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -45,3 +47,6 @@
     id: CMOPDA
     ears: ClothingHeadsetCMO
     belt: ClothingBeltMedicalFilled
+  storage:
+    back:
+    - Flash

@@ -2,7 +2,7 @@
   id: Arena
   mapName: 'Arena'
   mapPath: /Maps/arena.yml
-  minPlayers: 0
+  minPlayers: 20
   maxPlayers: 80
   stations:
     Arena:
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_UCLB.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

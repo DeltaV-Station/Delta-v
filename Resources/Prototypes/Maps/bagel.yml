@@ -2,7 +2,7 @@
   id: Bagel
   mapName: 'Bagel Station'
   mapPath: /Maps/bagel.yml
-  minPlayers: 0
+  minPlayers: 20
   maxPlayers: 76
   stations:
     Bagel:
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

@@ -2,7 +2,7 @@
   id: Marathon
   mapName: 'Marathon Station'
   mapPath: /Maps/marathon.yml
-  minPlayers: 0
+  minPlayers: 15
   maxPlayers: 70
   stations:
     Marathon:
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_rod.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

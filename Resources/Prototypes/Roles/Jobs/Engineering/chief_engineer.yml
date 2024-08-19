@@ -17,6 +17,8 @@
 #      time: 72000 # DeltaV - 20 hours
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 18000
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -49,3 +51,6 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+  storage:
+    back:
+    - Flash

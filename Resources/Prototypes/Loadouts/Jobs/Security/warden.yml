@@ -1,27 +1,15 @@
 # Head
 - type: loadout
   id: WardenHead
-  equipment: WardenHead
-
-- type: loadout
-  id: ClothingHeadHatCapWardenAlt
-  equipment: ClothingHeadHatCapWardenAlt # Stray
-
-- type: startingGear
-  id: ClothingHeadHatCapWardenAlt
-  equipment:
-    head: ClothingHeadHatCapWardenAlt # Stray
-
-- type: startingGear
-  id: WardenHead
   equipment:
     head: ClothingHeadHatWarden
 
 - type: loadout
-  id: WardenBeret
-  equipment: WardenBeret
+  id: ClothingHeadHatCapWardenAlt
+  equipment:
+    head: ClothingHeadHatCapWardenAlt # Stray
 
-- type: startingGear
+- type: loadout
   id: WardenBeret
   equipment:
     head: ClothingHeadHatBeretWarden
@@ -29,18 +17,10 @@
 # Jumpsuit
 - type: loadout
   id: WardenJumpsuit
-  equipment: WardenJumpsuit
-
-- type: startingGear
-  id: WardenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitWarden
 
 - type: loadout
-  id: WardenJumpskirt
-  equipment: WardenJumpskirt
-
-- type: startingGear
   id: WardenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
@@ -48,27 +28,15 @@
 # OuterClothing
 - type: loadout
   id: WardenCoat
-  equipment: WardenCoat
-
-- type: startingGear
-  id: WardenCoat
   equipment:
     outerClothing: ClothingOuterCoatWarden
 
 - type: loadout
   id: WardenArmoredWinterCoat
-  equipment: WardenArmoredWinterCoat
-
-- type: startingGear
-  id: WardenArmoredWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterWarden
 
 - type: loadout
-  id: ClothingOuterCoatWardenAlt
-  equipment: ClothingOuterCoatWardenAlt # Stray
-
-- type: startingGear
   id: ClothingOuterCoatWardenAlt
   equipment:
     outerClothing: ClothingOuterCoatWardenAlt # Stray

@@ -9,6 +9,8 @@
       time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 18000
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -37,3 +39,7 @@
     #gloves: ClothingHandsGlovesCaptain - DeltaV - Commented out for loadout options
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - Flash
+    # - StationCharter

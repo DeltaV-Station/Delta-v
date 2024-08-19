@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

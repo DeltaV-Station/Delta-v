@@ -2,8 +2,10 @@
   id: CorvaxPaper
   mapName: 'Paper Station'
   mapPath: /Maps/corvax_paper.yml
-  minPlayers: 0
-  maxPlayers: 80
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 20
+  maxPlayers: 50
   stations:
     CorvaxPaper:
       stationProto: StandardNanotrasenStation
@@ -15,11 +17,6 @@
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_corvaxpaper.yml
-        - type: GridSpawn
-          groups:
-            mining:
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             # service

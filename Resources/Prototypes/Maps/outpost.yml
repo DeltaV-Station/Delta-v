@@ -2,8 +2,10 @@
   id: CorvaxOutpost
   mapName: 'Outpost'
   mapPath: /Maps/corvax_outpost.yml
-  minPlayers: 0
-  maxPlayers: 80
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 20
+  maxPlayers: 50
   stations:
     Outpost:
       stationProto: StandardNanotrasenStation
@@ -15,11 +17,6 @@
             prefixCreator: 'ED'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
-        - type: GridSpawn
-          groups:
-            mining:
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             #service

@@ -2,7 +2,9 @@
   id: CorvaxPilgrim
   mapName: 'Pilgrim'
   mapPath: /Maps/corvax_pilgrim.yml
-  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 25
   stations:
     Pilgrim:
       stationProto: StandardNanotrasenStation
@@ -14,11 +16,6 @@
             prefixCreator: 'TA'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_pilgrim.yml
-        - type: GridSpawn
-          groups:
-            mining:
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             # service
@@ -44,7 +41,7 @@
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 5, 5 ]
-            TechnicalAssistant: [ 3, 3 ]
+            TechnicalAssistant: [ 2, 2 ]
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
@@ -54,7 +51,7 @@
             Psychologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
+            Scientist: [ 5, 5 ]
             ResearchAssistant: [ 2, 2 ]
             Roboticist: [ 1, 1 ]
             Borg: [ 1, 1 ]
@@ -66,7 +63,7 @@
             SecurityCadet: [ 3, 3 ]
             # cargo
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 5, 5 ]
             # delta
             Slugcat: [ 1, 1 ]
