@@ -4,3 +4,4 @@ ent-BulletBB = пулька
 ent-ShellSoulbreaker = ружейный патрон (.50 соулблейкер)
 ent-BoxShellSoulbreaker = раздатчик ружейных патронов (соулблейкер)
     .desc = Полная коробка ружейных анти-псионических патронов соулблейкер.
+ent-CartridgePistolImprovised = патрон (.35 самодельный)
