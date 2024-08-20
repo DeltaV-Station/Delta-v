@@ -7,7 +7,7 @@ job-name-courier = Courier
 job-name-security-borg = Security Cyborg
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
-job-name-scientist-senior = Senior Researcher
+job-name-senior-researcher = Senior Researcher
 job-name-senior-engineer = Senior Engineer
 job-name-senior-officer = Senior Officer
 
