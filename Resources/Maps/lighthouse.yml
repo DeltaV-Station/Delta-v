@@ -8550,7 +8550,8 @@ entities:
   - uid: 17383
     components:
     - type: Transform
-      pos: -17.5,39.5
+      rot: 1.5707963267948966 rad
+      pos: -17.5,40.5
       parent: 100
     - type: DeviceList
       devices:
@@ -9144,6 +9145,16 @@ entities:
       name: Chief Medical Officer's Office
     - type: Transform
       pos: -22.5,47.5
+      parent: 100
+- proto: AirlockClownLocked
+  entities:
+  - uid: 605
+    components:
+    - type: MetaData
+      name: Clown Room
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,11.5
       parent: 100
 - proto: AirlockCommandGlassLocked
   entities:
@@ -11080,6 +11091,16 @@ entities:
     - type: Transform
       pos: 6.5,-21.5
       parent: 100
+- proto: AirlockMaintClownLocked
+  entities:
+  - uid: 601
+    components:
+    - type: MetaData
+      name: Bar Maintenance
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,8.5
+      parent: 100
 - proto: AirlockMaintCommandLocked
   entities:
   - uid: 15173
@@ -11450,15 +11471,6 @@ entities:
     - type: Transform
       pos: -0.5,6.5
       parent: 100
-- proto: AirlockMaintTheatreLocked
-  entities:
-  - uid: 605
-    components:
-    - type: MetaData
-      name: Bar Maintenance
-    - type: Transform
-      pos: 11.5,8.5
-      parent: 100
 - proto: AirlockMantisLocked
   entities:
   - uid: 1308
@@ -11643,6 +11655,26 @@ entities:
       name: Medical Cryogenics
     - type: Transform
       pos: -16.5,42.5
+      parent: 100
+- proto: AirlockMimeLocked
+  entities:
+  - uid: 1124
+    components:
+    - type: MetaData
+      desc: '*waves*'
+      name: Mime
+    - type: Transform
+      pos: -28.5,14.5
+      parent: 100
+- proto: AirlockMusicianLocked
+  entities:
+  - uid: 721
+    components:
+    - type: MetaData
+      name: Musician's Room
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,8.5
       parent: 100
 - proto: AirlockProsecutorGlassLocked
   entities:
@@ -12213,29 +12245,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -38.5,52.5
-      parent: 100
-  - uid: 601
-    components:
-    - type: MetaData
-      desc: Here lies horrors byond your imagination...
-      name: Clown Room
-    - type: Transform
-      pos: 11.5,11.5
-      parent: 100
-  - uid: 721
-    components:
-    - type: MetaData
-      name: Musician's Room
-    - type: Transform
-      pos: -9.5,8.5
-      parent: 100
-  - uid: 1124
-    components:
-    - type: MetaData
-      desc: ' *waves*'
-      name: Mime
-    - type: Transform
-      pos: -28.5,14.5
       parent: 100
 - proto: AirlockVirology
   entities:
@@ -12884,16 +12893,18 @@ entities:
     - type: Transform
       pos: 20.5,-47.5
       parent: 100
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 1157
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -28.5,27.5
       parent: 100
   - uid: 2362
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -25.5,29.5
       parent: 100
   - uid: 10387
@@ -12905,68 +12916,76 @@ entities:
   - uid: 12985
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -59.5,-37.5
       parent: 100
   - uid: 13181
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -59.5,-35.5
       parent: 100
   - uid: 19032
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 29.5,6.5
       parent: 100
   - uid: 19135
     components:
     - type: Transform
-      pos: -56.5,-53.5
+      pos: -46.5,-53.5
       parent: 100
   - uid: 19136
     components:
     - type: Transform
-      pos: -54.5,-53.5
+      pos: -48.5,-53.5
       parent: 100
   - uid: 19137
     components:
     - type: Transform
-      pos: -48.5,-53.5
+      pos: -54.5,-53.5
       parent: 100
   - uid: 19138
     components:
     - type: Transform
-      pos: -46.5,-53.5
+      pos: -56.5,-53.5
       parent: 100
   - uid: 19139
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 38.5,-43.5
       parent: 100
   - uid: 19140
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 38.5,-41.5
       parent: 100
   - uid: 19141
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 38.5,-37.5
       parent: 100
   - uid: 19142
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 38.5,-35.5
       parent: 100
   - uid: 20687
     components:
     - type: Transform
-      pos: -57.5,16.5
+      rot: 3.141592653589793 rad
+      pos: -55.5,18.5
       parent: 100
   - uid: 20688
     components:
     - type: Transform
-      pos: -55.5,18.5
+      rot: -1.5707963267948966 rad
+      pos: -57.5,16.5
       parent: 100
   - uid: 20783
     components:
@@ -56643,8 +56662,7 @@ entities:
   - uid: 20683
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.5,40.5
+      pos: -17.5,39.5
       parent: 100
 - proto: GasAnalyzer
   entities:
@@ -90472,7 +90490,7 @@ entities:
     - type: Transform
       pos: 7.5,38.5
       parent: 100
-- proto: LogicGate
+- proto: LogicGateOr
   entities:
   - uid: 11812
     components:
@@ -107024,13 +107042,6 @@ entities:
     - type: Transform
       pos: 33.5,24.5
       parent: 100
-- proto: SignCourt
-  entities:
-  - uid: 13999
-    components:
-    - type: Transform
-      pos: 2.5,21.5
-      parent: 100
 - proto: SignCryogenicsMed
   entities:
   - uid: 20866
@@ -107343,7 +107354,7 @@ entities:
     - type: Transform
       pos: 19.5,3.5
       parent: 100
-- proto: SignHydro2
+- proto: SignHydro1
   entities:
   - uid: 11917
     components:
@@ -107371,6 +107382,11 @@ entities:
     - type: Transform
       pos: 27.5,19.5
       parent: 100
+  - uid: 13999
+    components:
+    - type: Transform
+      pos: 2.5,21.5
+      parent: 100
 - proto: SignLibrary
   entities:
   - uid: 11919
@@ -107396,14 +107412,6 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-30.5
-      parent: 100
-- proto: SignMinerDock
-  entities:
-  - uid: 9166
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -47.5,-17.5
       parent: 100
 - proto: SignMorgue
   entities:
@@ -107443,7 +107451,7 @@ entities:
     - type: Transform
       pos: -17.5,-2.5
       parent: 100
-- proto: SignScience1
+- proto: SignScience
   entities:
   - uid: 520
     components:
@@ -107459,6 +107467,12 @@ entities:
       parent: 100
 - proto: SignShipDock
   entities:
+  - uid: 9166
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -47.5,-17.5
+      parent: 100
   - uid: 11915
     components:
     - type: Transform
