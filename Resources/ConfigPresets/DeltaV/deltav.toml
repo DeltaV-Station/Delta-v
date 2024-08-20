@@ -3,6 +3,7 @@ desc               = "A medium roleplay fork based around the mysterious Noösph
 lobbyenabled       = true
 lobbyduration      = 240
 round_end_pacifist = true
+contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 
 [infolinks]
 discord    = "https://go.delta-v.org/sxzqj"
@@ -28,10 +29,6 @@ limit    = 10.0
 see_own_notes   = true
 deadmin_on_join = true
 alert.min_players_sharing_connection = 2
-
-[events]
-ramping_average_end_time = 180.0
-ramping_average_chaos    = 4.5
 
 [server]
 id         = "deltav"
