@@ -79,7 +79,7 @@ public sealed class MailToCommand : IConsoleCommand
 
         if (!_prototypeManager.HasIndex<EntityPrototype>(mailPrototype)) // Frontier: _blankMailPrototype<mailPrototype
         {
-        shell.WriteLine(Loc.GetString("command-mailto-no-blankmail", ("blankMail", mailPrototype))) // Frontier: _blankMailPrototype<mailPrototype
+        shell.WriteLine(Loc.GetString("command-mailto-no-blankmail", ("blankMail", mailPrototype))); // Frontier: _blankMailPrototype<mailPrototype
             return;
         }
 
