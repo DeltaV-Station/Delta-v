@@ -110,6 +110,48 @@
 
 - type: entity
   noSpawn: true
+  parent: BaseMail
+  id: MailNFCircuitboardService
+  suffix: service circuitboard
+  components:
+  - type: Mail
+    contents:
+    - id: ComputerTelevisionCircuitboard
+      orGroup: Board
+    - id: ReagentGrinderMachineCircuitboard
+      orGroup: Board
+    - id: ReagentGrinderIndustrialMachineCircuitboard
+      orGroup: Board
+      prob: 0.5
+    - id: SurveillanceWirelessCameraMovableCircuitboard
+      orGroup: Board
+      prob: 0.5
+    - id: MicrowaveMachineCircuitboard
+      orGroup: Board
+    - id: ElectricGrillMachineCircuitboard
+      orGroup: Board
+      prob: 0.5
+    - id: FatExtractorMachineCircuitboard
+      orGroup: Board
+      prob: 0.25
+    - id: SeedExtractorMachineCircuitboard
+      orGroup: Board
+      prob: 0.5
+    - id: BoozeDispenserMachineCircuitboard
+      orGroup: Board
+    - id: SodaDispenserMachineCircuitboard
+      orGroup: Board
+    - id: JukeboxCircuitBoard
+      orGroup: Board
+    - id: TelecomServerCircuitboard
+      orGroup: Board
+      prob: 0.25
+    - id: ComputerMassMediaCircuitboard
+      orGroup: Board
+      prob: 0.1
+
+- type: entity
+  noSpawn: true
   parent: BaseMailLarge
   id: MailNFPowerTool 
   suffix: power tool

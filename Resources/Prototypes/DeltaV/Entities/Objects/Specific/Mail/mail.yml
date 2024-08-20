@@ -1274,7 +1274,7 @@
     - id: LuxuryPen
       orGroup: Pen
       prob: 0.50
-    # DeltaV: Commenting these two out because 
+    # DeltaV: Commenting these two out because I dunno if crew should have nice things
     # - id: PenHop
     #   orGroup: Pen
     #   prob: 0.25
@@ -1347,57 +1347,6 @@
     - id: PhoneInstrumentSyndicate
       orGroup: Instrument
       prob: 0.01
-
-- type: entity
-  noSpawn: true
-  parent: BaseMailLarge
-  id: MailNFInstrumentLarge
-  suffix: instrument, large
-  components:
-  - type: Mail
-    contents:
-    - id: TromboneInstrument
-      orGroup: Instrument
-    - id: FrenchHornInstrument
-      orGroup: Instrument
-    - id: SaxophoneInstrument
-      orGroup: Instrument
-    - id: EuphoniumInstrument
-      orGroup: Instrument
-    - id: AcousticGuitarInstrument
-      orGroup: Instrument
-    - id: ElectricGuitarInstrument
-      orGroup: Instrument
-    - id: BassGuitarInstrument
-      orGroup: Instrument
-    - id: RockGuitarInstrument
-      orGroup: Instrument
-    - id: BanjoInstrument
-      orGroup: Instrument
-    - id: ViolinInstrument
-      orGroup: Instrument
-    - id: CelloInstrument
-      orGroup: Instrument
-    - id: ViolaInstrument
-      orGroup: Instrument
-    - id: BagpipeInstrument # Fury.
-      orGroup: Instrument
-    - id: SynthesizerInstrument
-      orGroup: Instrument
-    - id: AccordionInstrument
-      orGroup: Instrument
-    - id: GlockenspielInstrument
-      orGroup: Instrument
-    - id: XylophoneInstrument
-      orGroup: Instrument
-    # Uncommon
-    - id: Rickenbacker4003Instrument
-      orGroup: Instrument
-      prob: 0.25
-    # Rare
-    - id: Rickenbacker4001Instrument
-      orGroup: Instrument
-      prob: 0.1
 
 - type: entity
   noSpawn: true
@@ -1507,33 +1456,6 @@
 
 - type: entity
   noSpawn: true
-  parent: BaseMailLarge
-  id: MailNFMedkit
-  suffix: medkit
-  components:
-  - type: Mail
-    contents:
-      - id: MedkitAdvancedFilled
-        orGroup: Medkit
-        prob: 0.75
-      - id: MedkitCombatFilled
-        orGroup: Medkit
-        prob: 0.25
-
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailStationRepNFNukeDisk
-  suffix: nuke disk
-  components:
-  - type: Mail
-    isFragile: true
-    contents:
-      - id: NukeDiskFake
-      - id: PaperMailNFAntivirus
-
-- type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailNFTacticalMaid
   suffix: tactical maid
@@ -1595,6 +1517,15 @@
     contents:
     - id: CigarCase
     - id: Lighter
+
+- type: entity
+  parent: BaseMail
+  id: MailCrayon
+  suffix: Crayon
+  components:
+  - type: Mail
+    contents:
+    - id: CrayonBox
 
 - type: entity
   noSpawn: true
@@ -1659,6 +1590,16 @@
     - id: FoodPoppy
       orGroup: Flowers
     - id: FoodLily
+
+- type: entity
+  parent: BaseMail
+  id: MailSignallerKit
+  suffix: signallerkit
+  components:
+  - type: Mail
+    contents:
+    - id: Multitool
+    - id: RemoteSignaller
 
 - type: entity
   noSpawn: true

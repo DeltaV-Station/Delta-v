@@ -50,6 +50,15 @@
     contents:
     - id: BoxBeanbag
 
+- type: entity
+  parent: BaseMail
+  id: MailDetectiveForensicSupplement # Deltav - Detective is in charge of investigating crimes.
+  suffix: detectivesupplement # Deltav - Detective is in charge of investigating crimes.
+  components:
+  - type: Mail
+    contents:
+    - id: BoxForensicPad
+
 # Frontier Mail
 
 - type: entity

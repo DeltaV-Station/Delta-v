@@ -85,3 +85,20 @@
       maxAmount: 2
     - id: SyringeTranexamicAcid
       maxAmount: 2
+
+# Frontier Mail
+- type: entity
+  noSpawn: true
+  parent: BaseMailLarge
+  id: MailNFMedkit
+  suffix: medkit
+  components:
+  - type: Mail
+    contents:
+      - id: MedkitAdvancedFilled
+        orGroup: Medkit
+        prob: 0.75
+      - id: MedkitCombatFilled
+        orGroup: Medkit
+        prob: 0.25
+

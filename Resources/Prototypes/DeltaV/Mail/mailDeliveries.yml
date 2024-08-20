@@ -1,52 +1,66 @@
 - type: mailDeliveryPool
-  id: RandomDeltaVMailDeliveryPool
+  id: RandomDeltaVMailDeliveryPool #This entire table is messy as fuck but the weights add up to 35. TODO: ORGANIZE THIS SHIT AAAA
   everyone:
-    MailNFAlcohol: 0.5
-    MailSake: 0.5
+    MailNFAlcohol: 1
+    MailNFBakedGoods: 1
     MailNFBible: 1
     MailNFBikeHorn: 0.5
-    MailBlockGameDIY: 1
-    MailCake: 1
-    MailCallForHelp: 0.6
-    MailCheese: 1
-    MailChocolate: 1
-    MailCigarettes: 0.5
-    MailCigars: 0.5
-    MailCookies: 1.1
-    MailCosplayArc: 0.5
-    MailCosplayGeisha: 0.5
-    MailCosplayMaid: 0.5
-    MailCosplayNurse: 0.5
-    MailCosplaySchoolgirl: 0.5
-    MailCosplayWizard: 0.5
+    MailBooksAll: 1
+    MailBlockGameDIY: 0.5
     MailCrayon: 1
-    MailFigurine: 1
+    MailNFCake: 1
+    MailNFCheese: 1
+    MailNFCookies: 1.1
+    MailNFCritter: 1
+    #Cigarettes - Adds up to 1 in weight
+    MailNFCigarettes: 0.5
+    MailCigars: 0.2
+    MailNFJoints: 0.2
+    MailNFGoldCigars: 0.1
+    #Cosplay - Adds up to 3.4 in weight
+    MailCosplayArc: 0.5
+    MailDVCosplayFakeWizard: 0.5
+    MailNFCosplayWizard: 0.5
+    MailNFCosplayMaid: 0.5
+    MailCosplayGeisha: 0.5
+    MailCosplaySchoolgirl: 0.5
+    MailNFCosplayNurse: 0.4
+    MailNFDonkPockets: 0.5
+    MailNFFigurineBulk: 1
     MailFishingCap: 0.5
     MailFlashlight: 1
     MailFlowers: 1
-    MailHighlander: 0.12
-    MailHighlanderDulled: 1
-    MailHoneyBuns: 1
-    MailJunkFood: 1
-    MailKatana: 1
-    MailKnife: 1
-    MailMoney: 1
-    MailMuffins: 1.1
-    MailMoffins: 0.5
-    MailPumpkinPie: 1 # DeltaV - Pumpkie pie mail
+    MailNFKendoKit: 0.3
+    MailNFKnife: 0.7
+    MailNFMuffins: 1
     MailNoir: 0.5
-    MailPAI: 1
-    MailPlushie: 1
-    MailRestraints: 1
-    # MailSixPack: 0.5
-    MailSkub: 0.5
-    MailSoda: 1
-    MailSpaceVillainDIY: 1
+    MailNFPAI: 1.2
+    MailNFPlushie: 1
+    MailPumpkinPie: 0.3
+    MailNFPen: 0.7
+    MailRestraints: 0.8
+    MailSake: 0.4
+    MailNFSnacks: 1
+    #Soda - Adds up to 1 in weight
+    MailNFSodaPwrGame: 0.2
+    MailNFSodaRedBool: 0.2
+    MailNFSodaSpaceCola: 0.2
+    MailNFSodaSpaceMountainWind: 0.2
+    MailNFSodaSpaceUp: 0.2 
+    MailSpaceVillainDIY: 0.5 
+    MailSignallerKit: 0.5
     MailSunglasses: 1
-    MailVagueThreat: 0.4
-    # This is mainly for Glacier.
+    MailNFSoaps: 0.5
+    MailNFSoapsOmega: 0.5
+    MailNFSword: 0.5
+    MailNFTacticalMaid: 0.5
+    MailNFThrongler: 0.1
+    MailNFUnusualClothing: 0.5
+    MailNFUnusualFood: 1
+    MailNFUnusualProduce: 1
+    MailNFVagueThreat: 0.5
+    # Mainly for Glacier
     MailWinterCoat: 1.5
-    MailBooksAll: 0.5 # DeltaV - All the other books not in MailBooks, see Resources/Prototypes/DeltaV/Entities/Objects/Specific/Mail/mail.yml
 
   # Department and job-specific mail can have slightly higher weights,
   # since they'll be merged with the everyone pool.
@@ -59,17 +73,22 @@
       MailMedicalSheetPlasma: 1
       # MailMedicalSpaceacillin: 1
       MailMedicalStabilizers: 2
+      MailNFMedkit: 2
     Engineering:
       MailAMEGuide: 1
       MailEngineeringCables: 2
       MailEngineeringKudzuDeterrent: 2
       MailEngineeringSheetGlass: 2
       MailEngineeringWelderReplacement: 2
+      MailNFCircuitboardIndustrial: 2
+      MailNFCircuitboardService:
+      MailNFPowerTool:
     Security:
       MailSecurityDonuts: 3
       MailSecurityFlashlight: 2
       MailSecurityNonlethalsKit: 2
       #MailSecuritySpaceLaw: 1
+      MailSecurityNFMusket: 1
     Epistemics:
 #      MailBooks: 1
       MailEpistemologyBluespace: 1
@@ -82,6 +101,7 @@
     # respective department heads should be duplicated below.
     Command:
       MailCommandPinpointerNuclear: 0.5
+      MailStationRepNFNukeDisk: 0.3
 
   jobs:
     Botanist:

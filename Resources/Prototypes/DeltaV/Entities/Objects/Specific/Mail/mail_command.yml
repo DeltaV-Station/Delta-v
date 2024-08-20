@@ -7,3 +7,15 @@
   - type: Mail
     contents:
     - id: PinpointerNuclear
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailStationRepNFNukeDisk
+  suffix: nuke disk
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+      - id: NukeDiskFake
+      - id: PaperMailNFAntivirus
