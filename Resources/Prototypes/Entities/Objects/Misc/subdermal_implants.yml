@@ -321,7 +321,6 @@
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
-     permanent: true
-   - type: Tag
-     tags:
-       - MindShield
+     permanent: false # DeltaV - let peaceful revs etc remove mindshields
+     addedComponents: # DeltaV - replaces mindshield tag logic
+     - type: MindShield
