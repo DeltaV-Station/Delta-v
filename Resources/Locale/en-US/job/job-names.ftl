@@ -1,29 +1,21 @@
 job-name-warden = Warden
 job-name-security = Security Officer
-# DeltaV - Used by the Agent ID
-job-name-senior-officer = Senior Officer
 job-name-cadet = Security Cadet
 job-name-hos = Head of Security
 job-name-detective = Detective
 job-name-brigmedic = Corpsman
 job-name-borg = Cyborg
 job-name-scientist = Scientist
-# DeltaV - Used by the Agent ID
-job-name-scientist-senior = Senior Researcher
 job-name-research-assistant = Research Assistant
 job-name-rd = Mystagogue
 job-name-psychologist = Psychologist
 job-name-intern = Medical Intern
-# DeltaV - Used by the Agent ID
-job-name-senior-physician = Senior Physician
 job-name-doctor = Medical Doctor
 job-name-paramedic = Paramedic
 job-name-cmo = Chief Medical Officer
 job-name-chemist = Chemist
 job-name-technical-assistant = Technical Assistant
 job-name-engineer = Station Engineer
-# DeltaV - Used by the Agent ID
-job-name-senior-engineer = Senior Engineer
 job-name-atmostech = Atmospheric Technician
 job-name-hop = Head of Personnel
 job-name-captain = Captain
