@@ -123,7 +123,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         SubscribeLocalEvent<DeepFriedComponent, ComponentInit>(OnInitDeepFried);
         SubscribeLocalEvent<DeepFriedComponent, ExaminedEvent>(OnExamineFried);
         SubscribeLocalEvent<DeepFriedComponent, PriceCalculationEvent>(OnPriceCalculation);
-        SubscribeLocalEvent<DeepFriedComponent, SliceFoodEvent>(OnSliceDeepFried);
+        SubscribeLocalEvent<DeepFriedComponent, FoodSlicedEvent>(OnSliceDeepFried);
     }
 
     private void UpdateUserInterface(EntityUid uid, DeepFryerComponent component)
@@ -711,7 +711,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         args.Price *= component.PriceCoefficient;
     }
 
-    private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, SliceFoodEvent args)
+    private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, FoodSlicedEvent args)
     {
         MakeCrispy(args.Slice);
 
