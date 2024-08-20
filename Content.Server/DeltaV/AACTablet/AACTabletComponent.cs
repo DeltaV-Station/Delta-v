@@ -10,4 +10,8 @@ public sealed partial class AACTabletComponent : Component
     // Time that the next phrase can be sent.
     [DataField]
     public TimeSpan NextPhrase;
+
+    // Used by the RadioSystem to support intercoms.
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string SpeakerName;
 }

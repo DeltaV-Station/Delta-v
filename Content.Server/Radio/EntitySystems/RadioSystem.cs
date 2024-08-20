@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
 using Content.Server.VoiceMask;
+using Content.Server.DeltaV.AACTablet; // Delta-V: Support for AAC tablets
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
@@ -87,6 +88,13 @@ public sealed class RadioSystem : EntitySystem
             name = syrinx.VoiceName;
 
         name = FormattedMessage.EscapeText(name);
+
+        // Delta-V: Support for AAC tablets.
+        if (TryComp(messageSource, out AACTabletComponent? aac))
+            name = aac.SpeakerName;
+
+        name = FormattedMessage.EscapeText(name);
+
 
         SpeechVerbPrototype speech;
         if (mask != null
