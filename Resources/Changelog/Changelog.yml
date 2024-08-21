@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: AJCM-git
-  changes:
-  - message: Ninja stealth mode, stealth boxes and everything with stealth won't show
-      up in equipment HUDs like the medical or security HUD anymore.
-    type: Fix
-  id: 6675
-  time: '2024-06-03T16:12:21.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/28270
-- author: TheShuEd
-  changes:
-  - message: Added italian and cowboy accents
-    type: Add
-  - message: Now you can't choose all the accents at once.
-    type: Fix
-  id: 6676
-  time: '2024-06-03T18:47:06.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/28046
 - author: RenQ
   changes:
   - message: The moths now have their own "death grasp"
@@ -3841,3 +3824,13 @@
   id: 7174
   time: '2024-08-20T21:31:10.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/30760
+- author: EmoGarbage404
+  changes:
+  - message: Increased the view range on the handheld mass scanner and decreased the
+      power draw.
+    type: Tweak
+  - message: Handheld radars no longer spin with the player while moving.
+    type: Fix
+  id: 7176
+  time: '2024-08-21T18:33:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/31284
