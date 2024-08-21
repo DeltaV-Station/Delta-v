@@ -1,5 +1,4 @@
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailBooksAll # See Resources/Prototypes/Nyanotrasen/Entities/Markers/Spawners/Random/books.yml
   suffix: books
@@ -167,7 +166,6 @@
 #      orGroup: bookother
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailPumpkinPie
   suffix: pumpkinpie

@@ -49,6 +49,13 @@ public sealed partial class SubdermalImplantComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;
+
+    /// <summary>
+    /// DeltaV: Used to replace mindshield tag logic
+    /// Components to add to and remove from the user when implanted and removed.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? AddedComponents;
 }
 
 /// <summary>

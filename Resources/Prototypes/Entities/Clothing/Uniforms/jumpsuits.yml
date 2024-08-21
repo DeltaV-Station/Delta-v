@@ -58,7 +58,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCaptain
   name: captain's jumpsuit
   description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
@@ -91,7 +91,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitChiefEngineer
   name: chief engineer's jumpsuit
   description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of Chief Engineer.
@@ -102,7 +102,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/ce.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitChiefEngineerTurtle
   name: chief engineer's turtleneck
   description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
@@ -253,7 +253,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMO
   name: chief medical officer's jumpsuit
   description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
@@ -264,7 +264,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMOTurtle
   name: chief medical officer's turtleneck jumpsuit
   description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
@@ -319,7 +319,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/engineering_hazard.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoP
   name: head of personnel's jumpsuit
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
@@ -330,7 +330,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hop.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoS
   name: head of security's jumpsuit
   description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
@@ -341,7 +341,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSAlt
   name: head of security's turtleneck
   description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
@@ -352,7 +352,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSBlue
   name: head of security's blue jumpsuit
   description: A blue Station Security shirt with charcoal trousers. Features gold emblems and commander's epaulettes. # DeltaV - improved description
@@ -363,7 +363,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSGrey
   name: head of security's grey jumpsuit
   description: A grey Station Security shirt with charcoal trousers. Stands out with red highlights, gold emblems, and commander's epaulettes. # DeltaV - improved description
@@ -374,7 +374,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSParadeMale
   name: head of security's parade uniform
   description: A male head of security's luxury-wear, for special occasions.
@@ -501,7 +501,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQM
   name: logistics officer's jumpsuit # DeltaV - Logistics Department replacing Cargo
   description: 'What can brown do for you?'
@@ -512,7 +512,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMTurtleneck
   name: logistics officer's turtleneck # DeltaV - Logistics Department replacing Cargo
   description: A sharp turtleneck made for the hardy work environment of supply.
@@ -523,7 +523,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMFormal
   # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
   name: logistics officer's formal suit
@@ -536,7 +536,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitResearchDirector
   name: mystagogue's turtleneck # DeltaV - Epistemics Department replacing Science
   description: It's a turtleneck worn by those with the know-how to achieve the position of Mystagogue. Its fabric provides minor protection from biological contaminants. # DeltaV - Epistemics Department replacing Science
@@ -580,7 +580,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseRestrictedContraband]
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
@@ -602,7 +602,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseRestrictedContraband]
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
@@ -613,7 +613,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseRestrictedContraband]
   id: ClothingUniformJumpsuitWarden
   name: warden's jumpsuit # DeltaV - renamed to mirror other security uniforms
   description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
@@ -712,7 +712,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
 
 - type: entity
-  parent: UnsensoredClothingUniformBase
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
   name: black syndicate pyjamas
   description: For those long nights in perma.
@@ -723,7 +723,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
 
 - type: entity
-  parent: UnsensoredClothingUniformBase
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
   name: pink syndicate pyjamas
   description: For those long nights in perma.
@@ -734,7 +734,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
 
 - type: entity
-  parent: UnsensoredClothingUniformBase
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
   name: red syndicate pyjamas
   description: For those long nights in perma.
@@ -756,7 +756,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCapFormal
   name: captain's formal suit
   description: A suit for special occasions.
@@ -778,7 +778,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/centcomformal.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHosFormal
   name: hos's formal suit
   description: A suit for special occasions.
@@ -789,7 +789,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
 
 - type: entity
-  parent: UnsensoredClothingUniformBase
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -1094,7 +1094,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitSyndieFormal
   name: syndicate formal suit
   description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
@@ -1149,7 +1149,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/senior_physician.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseRestrictedContraband]
   id: ClothingUniformJumpsuitSeniorOfficer
   name: senior officer jumpsuit
   description: A sign of skill and prestige within the security department.
