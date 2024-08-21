@@ -2,7 +2,7 @@
   id: Aspid
   mapName: 'NCS Aspid'
   mapPath: /Maps/aspid.yml
-  minPlayers: 25
+  minPlayers: 0
   maxPlayers: 70
   stations:
     Aspid:
@@ -15,6 +15,11 @@
             prefixCreator: '14'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+        - type: GridSpawn
+          groups:
+            mining: !type:GridSpawnGroup
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             #service
