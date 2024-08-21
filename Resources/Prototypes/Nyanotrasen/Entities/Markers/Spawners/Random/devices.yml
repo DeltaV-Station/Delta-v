@@ -125,7 +125,6 @@
           - id: FlashPayload
     #Rare
     - !type:GroupSelector
-      weight: 10
       children:
       - !type:GroupSelector
         children:
