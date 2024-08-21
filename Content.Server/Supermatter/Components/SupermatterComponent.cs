@@ -189,6 +189,7 @@ public sealed partial class SupermatterComponent : Component
     public const float MolePenaltyThreshold = 900f;
     public const float ThermalReleaseModifier = 4f;
     public const float PlasmaReleaseModifier = 1.5f;
+    public const float HidrogenReleaseModifier = 2f;
     public const float OxygenReleaseModifier = 2.5f;
     public const float GasHeatPowerScaling = 1f / 6f;
 
@@ -208,6 +209,7 @@ public sealed partial class SupermatterComponent : Component
         new (heatPowerGeneration: .5f), // ommonium
         new (heatResistance: 5f), // n2o
         new (transmissionRate: -3f, heatModifier: 9f, heatResistance: 1f, heatPowerGeneration: 1f), // frezon
+        new (transmissionRate: .4f, heatModifier: 14f, heatPowerGeneration: 1f) // Methane
     };
 }
 
