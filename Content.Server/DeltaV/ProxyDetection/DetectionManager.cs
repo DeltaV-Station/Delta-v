@@ -93,14 +93,14 @@ public sealed class ProxyDetectionManager : IPostInjectInit
             if (!isProxy.GetBoolean() && !isHosting.GetBoolean() && !isVpn.GetBoolean())
                 return (false, "");
 
-            result = "Suspicious connection.";
+            result = "Обнаружено подозрительное подключение. Возможно, вы используете VPN. Если это ошибка, пожалуйста, сообщите нам об этом в Discord.";
         }
         else
         {
             var blockListsArray = blockList.EnumerateArray().Select(item => item.GetString()).ToList();
             var blockLists = string.Join(", ", blockListsArray);
 
-            result = $"Your address was found in the following blacklists: {blockLists}";
+            result = $"Ваш IP-адрес был обнаружен в следующих заблокированных списках: {blockLists}. Если это ошибка, пожалуйста, свяжитесь с нами через Discord.";
         }
 
         var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
