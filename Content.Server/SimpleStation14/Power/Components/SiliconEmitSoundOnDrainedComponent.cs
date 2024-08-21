@@ -11,18 +11,18 @@ namespace Content.Server.SimpleStation14.Silicon;
 [RegisterComponent]
 public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
 {
-    [DataField("sound"), Required]
+    [DataField(Required]
     public SoundSpecifier Sound = default!;
 
-    [DataField("minInterval")]
-    public TimeSpan Interval = TimeSpan.FromSeconds(8);
+    [DataField]
+    public TimeSpan MinInterval = TimeSpan.FromSeconds(8);
 
-    [DataField("maxInterval")]
+    [DataField]
     public TimeSpan MaxInterval = TimeSpan.FromSeconds(15);
 
-    [DataField("playChance")]
+    [DataField]
     public float PlayChance = 1f;
 
-    [DataField("popUp")]
+    [DataField]
     public string? PopUp;
 }

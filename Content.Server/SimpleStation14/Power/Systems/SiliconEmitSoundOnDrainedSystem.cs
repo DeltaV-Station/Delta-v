@@ -20,7 +20,7 @@ public sealed class EmitSoundOnCritSystem : EntitySystem
     {
         var spamComp = EnsureComp<SpamEmitSoundComponent>(uid);
 
-        spamComp.MinInterval = component.Interval;
+        spamComp.MinInterval = component.MinInterval;
         spamComp.MaxInterval = component.MaxInterval;
         spamComp.PopUp = component.PopUp;
         spamComp.Sound = component.Sound;

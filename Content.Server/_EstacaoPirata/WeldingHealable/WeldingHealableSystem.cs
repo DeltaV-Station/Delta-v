@@ -35,23 +35,12 @@ namespace Content.Server._EstacaoPirata.WeldingHealable
 
         private void OnRepairFinished(EntityUid uid, WeldingHealableComponent healableComponentcomponent, SiliconRepairFinishedEvent args)
         {
-            if (args.Cancelled)
+            if (args.Cancelled || args.Used == null
+                || !EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable)
+                || !EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component)
+                || damageable.DamageContainerID != null
+                && !component.DamageContainers.Contains(damageable.DamageContainerID))
                 return;
-
-            if (args.Used == null)
-                return;
-
-            if(!EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable))
-                return;
-
-            if(!EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component))
-                return;
-
-            if (damageable.DamageContainerID != null)
-            {
-                if (!component.DamageContainers.Contains(damageable.DamageContainerID))
-                    return;
-            }
 
             var damageChanged = _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
 
@@ -86,24 +75,13 @@ namespace Content.Server._EstacaoPirata.WeldingHealable
 
         private async void Repair(EntityUid uid, WeldingHealableComponent healableComponent, InteractUsingEvent args)
         {
-            if (args.Handled)
-                return;
-
-            if(!EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component))
-                return;
-
-            if(!EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable))
-                return;
-
-            if (damageable.DamageContainerID != null)
-            {
-                if (!component.DamageContainers.Contains(damageable.DamageContainerID))
-                    return;
-            }
-            if (!HasDamage(damageable, component))
-                return;
-
-            if (!_toolSystem.HasQuality(args.Used, component.QualityNeeded))
+            if (args.Handled
+                || !EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component)
+                || !EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable)
+                || damageable.DamageContainerID != null
+                && !component.DamageContainers.Contains(damageable.DamageContainerID)
+                || !HasDamage(damageable, component)
+                || !_toolSystem.HasQuality(args.Used, component.QualityNeeded))
                 return;
 
             float delay = component.DoAfterDelay;

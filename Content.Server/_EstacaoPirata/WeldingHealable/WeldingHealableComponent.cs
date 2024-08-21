@@ -5,7 +5,5 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._EstacaoPirata.WeldingHealable
 {
     [RegisterComponent]
-    public sealed partial class WeldingHealableComponent : Component
-    {
-    }
+    public sealed partial class WeldingHealableComponent : Component { }
 }

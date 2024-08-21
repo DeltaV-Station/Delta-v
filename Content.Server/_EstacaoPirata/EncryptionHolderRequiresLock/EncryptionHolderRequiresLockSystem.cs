@@ -20,9 +20,11 @@ public sealed class EncryptionHolderRequiresLockSystem : EntitySystem
     }
     private void LockToggled(EntityUid uid, EncryptionHolderRequiresLockComponent component, LockToggledEvent args)
     {
-        if (!TryComp<LockComponent>(uid, out var lockComp) || !TryComp<EncryptionKeyHolderComponent>(uid, out var keyHolder))
+        if (!TryComp<LockComponent>(uid, out var lockComp) 
+            || !TryComp<EncryptionKeyHolderComponent>(uid, out var keyHolder))
             return;
-        keyHolder.KeysUnlocked =  !lockComp.Locked;
+
+        keyHolder.KeysUnlocked = !lockComp.Locked;
         _encryptionKeySystem.UpdateChannels(uid, keyHolder);
     }
 }

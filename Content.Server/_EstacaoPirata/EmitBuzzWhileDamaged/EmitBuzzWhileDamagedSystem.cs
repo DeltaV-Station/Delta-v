@@ -32,13 +32,10 @@ public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
         while (query.MoveNext(out var uid, out var emitBuzzOnCritComponent, out var body))
         {
 
-            if (_mobState.IsDead(uid))
-                continue;
-            if (!_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var threshold) ||
-                !TryComp(uid, out DamageableComponent? damageableComponent))
-                continue;
-
-            if (damageableComponent.TotalDamage < (threshold/2))
+            if (_mobState.IsDead(uid)
+                || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var threshold) 
+                || !TryComp(uid, out DamageableComponent? damageableComponent)
+                || damageableComponent.TotalDamage < (threshold/2))
                 continue;
 
 

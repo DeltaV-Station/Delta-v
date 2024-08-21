@@ -15,9 +15,6 @@ using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.DeadStartupButtonSystem;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -30,10 +27,6 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-
-
-
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -45,20 +38,17 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 
     private void OnDoAfter(EntityUid uid, DeadStartupButtonComponent comp, OnDoAfterButtonPressedEvent args)
     {
-        if (args.Handled || args.Cancelled)
-            return;
-
-        if (!TryComp(uid, out MobStateComponent? mobStateComponent) || !_mobState.IsDead(uid, mobStateComponent))
-            return;
-        if (!TryComp(uid, out MobThresholdsComponent? mobThresholdsComponent) || !TryComp(uid, out DamageableComponent? damageable))
+        if (args.Handled || args.Cancelled
+            || !TryComp(uid, out MobStateComponent? mobStateComponent) 
+            || !_mobState.IsDead(uid, mobStateComponent)
+            || !TryComp(uid, out MobThresholdsComponent? mobThresholdsComponent) 
+            || !TryComp(uid, out DamageableComponent? damageable))
             return;
 
         var criticalThreshold = _mobThreshold.GetThresholdForState(uid, MobState.Critical, mobThresholdsComponent);
 
         if (damageable.TotalDamage < criticalThreshold)
-        {
             _mobState.ChangeMobState(uid, MobState.Alive, mobStateComponent);
-        }
         else
         {
             _audio.PlayPvs(comp.BuzzSound, uid, AudioHelpers.WithVariation(0.05f, _robustRandom));
@@ -67,13 +57,12 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
         }
     }
 
-    //Haha funny easteregg
     private void OnElectrocuted(EntityUid uid, DeadStartupButtonComponent comp, ElectrocutedEvent args)
     {
-        if (!TryComp(uid, out MobStateComponent? mobStateComponent) || !_mobState.IsDead(uid, mobStateComponent))
-            return;
-
-        if (!_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria) || bateria.CurrentCharge <= 0)
+        if (!TryComp(uid, out MobStateComponent? mobStateComponent) 
+            || !_mobState.IsDead(uid, mobStateComponent)
+            || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria) 
+            || bateria.CurrentCharge <= 0)
             return;
 
         _lightning.ShootRandomLightnings(uid, 2, 4);

@@ -49,17 +49,13 @@ public sealed class SiliconChargeSystem : EntitySystem
     public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
     {
         batteryComp = null;
-        if (!TryComp(silicon, out SiliconComponent? siliconComp)){
-            //DebugTools.Assert("Entity does not contain SiliconComponent");
+        if (!TryComp(silicon, out SiliconComponent? siliconComp))
             return false;
-        }
 
 
         // try get a battery directly on the inserted entity
-        if (TryComp(silicon, out batteryComp))
-            return true;
-
-        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp)
+            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
             return true;
 
 
