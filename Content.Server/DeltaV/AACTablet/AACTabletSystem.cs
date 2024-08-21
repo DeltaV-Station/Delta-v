@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.VoiceMask;
 using Content.Shared.DeltaV.AACTablet;
 using Content.Shared.DeltaV.QuickPhrase;
 using Content.Shared.IdentityManagement;
@@ -34,6 +35,9 @@ public sealed class AACTabletSystem : EntitySystem
 
         if (!_prototypeManager.TryIndex<QuickPhrasePrototype>(message.PhraseID, out var phrase))
             return;
+
+        if (TryComp(uid, out VoiceMaskComponent? mask))
+            mask.VoiceName = speakerName;
 
         _chat.TrySendInGameICMessage(uid,
             _loc.GetString(phrase.Text),
