@@ -47,52 +47,7 @@
   - type: Appearance
   - type: Ammo
     muzzleFlash: FlamethrowerFlashEffect
-
-- type: Tag
-  id: FlameThrowerFuelTank
-
-- type: entity
-  id: FlameThrowerTank
-  name: "Баллон с метаном для огнемётов"
-  description: "Баллон с сжиженным метаном. Был сделан специально для огнемётов"
-  parent: BaseMagazinePistol
-  components:
-  - type: Tag
-    tags:
-    - FlameThrowerFuelTank
-  - type: Ammo
-    muzzleFlash: FlamethrowerFlashEffect
-  - type: BasicEntityAmmoProvider
-    proto: MethaneBullet
-    capacity: 500
-  - type: Sprite
-    sprite: Stray/Objects/Weapons/Ammonition/flamethrowerCanister.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-
-- type: listing
-  id: UplinkFlameThrower
-  name: "Огнемёт"
-  description: "Огнемёт. Заправляется сжиженным метаном. Не рекомендуется долго стрелять. По какой-то причине на нём весь текст на немецком"
-  productEntity: FlameThrowerGun
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkFlameThrowerTank
-  name: "Баллон с метаном для огнемётов"
-  description: "Баллон с сжиженным метаном. Был сделан специально для огнемётов"
-  productEntity: FlameThrowerTank
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,6
