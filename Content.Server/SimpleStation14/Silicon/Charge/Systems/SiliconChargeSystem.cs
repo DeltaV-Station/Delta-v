@@ -103,7 +103,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!TryGetSiliconBattery(silicon, out var batteryComp))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
-                if (_alerts.IsShowingAlert(silicon, AlertType.BorgBattery))
+                if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
                 {
                     _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
                     _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
