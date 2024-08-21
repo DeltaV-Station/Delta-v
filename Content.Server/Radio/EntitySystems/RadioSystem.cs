@@ -88,7 +88,6 @@ public sealed class RadioSystem : EntitySystem
 
         name = FormattedMessage.EscapeText(name);
 
-
         SpeechVerbPrototype speech;
         if (mask != null
             && mask.Enabled
