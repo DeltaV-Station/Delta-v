@@ -168,11 +168,9 @@ public sealed class SiliconChargeSystem : EntitySystem
 
     private float SiliconHeatEffects(EntityUid silicon, float frameTime)
     {
-        if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp) ||
-            !EntityManager.TryGetComponent<ThermalRegulatorComponent>(silicon, out var thermalComp))
-        {
+        if (!EntityManager.TryGetComponent<TemperatureComponent>(silicon, out var temperComp) 
+            || !EntityManager.TryGetComponent<ThermalRegulatorComponent>(silicon, out var thermalComp))
             return 0;
-        }
 
         var siliconComp = EntityManager.GetComponent<SiliconComponent>(silicon);
 
@@ -211,11 +209,7 @@ public sealed class SiliconChargeSystem : EntitySystem
 
         // Check if the silicon is in a cold environment.
         if (temperComp.CurrentTemperature < thermalComp.NormalBodyTemperature)
-        {
-            var coldTempMulti = 0.5f + temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature * 0.5f;
-
-            return coldTempMulti;
-        }
+            return 0.5f + temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature * 0.5f;
 
         return 0;
     }

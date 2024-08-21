@@ -7,22 +7,22 @@ namespace Content.Server._EstacaoPirata.BlindHealing
     [RegisterComponent]
     public sealed partial class BlindHealingComponent : Component
     {
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("delay")]
+        [DataField]
         public int DoAfterDelay = 3;
 
         /// <summary>
-        /// A multiplier that will be applied to the above if an entity is repairing themselves.
+        ///     A multiplier that will be applied to the above if an entity is repairing themselves.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("selfHealPenalty")]
+        [DataField]
         public float SelfHealPenalty = 3f;
 
         /// <summary>
-        /// Whether or not an entity is allowed to repair itself.
+        ///     Whether or not an entity is allowed to repair itself.
         /// </summary>
-        [DataField("allowSelfHeal")]
+        [DataField]
         public bool AllowSelfHeal = true;
 
-        [DataField("damageContainers", required: true)]
+        [DataField(required: true)]
         public List<string> DamageContainers;
     }
 }

@@ -34,27 +34,20 @@ namespace Content.Server._EstacaoPirata.BlindHealing
         {
             Log.Info("event started!");
 
-            if (args.Cancelled)
-                return;
-
-            if (args.Target == null)
+            if (args.Cancelled || args.Target == null)
                 return;
 
             EntityUid target = (EntityUid) args.Target;
 
-            if(!EntityManager.TryGetComponent(target, out BlindableComponent? blindcomp))
-                return;
-
-            if (blindcomp is { EyeDamage: 0 })
+            if(!EntityManager.TryGetComponent(target, out BlindableComponent? blindcomp)
+                || blindcomp is { EyeDamage: 0 })
                 return;
 
             if(EntityManager.TryGetComponent(uid, out StackComponent? stackComponent))
             {
                 double price = 1;
-                if(EntityManager.TryGetComponent(uid, out StackPriceComponent? stackPrice))
-                {
+                if (EntityManager.TryGetComponent(uid, out StackPriceComponent? stackPrice))
                     price = stackPrice.Price;
-                }
                 _stackSystem.SetCount(uid, (int) (_stackSystem.GetCount(uid, stackComponent) - price), stackComponent);
 
             }
@@ -87,25 +80,12 @@ namespace Content.Server._EstacaoPirata.BlindHealing
         private void OnInteract(EntityUid uid, BlindHealingComponent component, ref AfterInteractEvent args)
         {
 
-            if (args.Handled)
-                return;
-
-            if(!TryComp(args.User, out DamageableComponent? damageable))
-                return;
-
-            if (damageable.DamageContainerID != null)
-            {
-                if (!component.DamageContainers.Contains(damageable.DamageContainerID))
-                {
-                    return;
-                }
-            }
-
-
-            if(!TryComp(args.User, out BlindableComponent? blindcomp))
-                return;
-
-            if (blindcomp is { EyeDamage: 0 })
+            if (args.Handled
+                || !TryComp(args.User, out DamageableComponent? damageable)
+                || damageable.DamageContainerID != null
+                && !component.DamageContainers.Contains(damageable.DamageContainerID)
+                || !TryComp(args.User, out BlindableComponent? blindcomp)
+                || blindcomp is { EyeDamage: 0 })
                 return;
 
             float delay = component.DoAfterDelay;
@@ -122,27 +102,13 @@ namespace Content.Server._EstacaoPirata.BlindHealing
 
         private void OnUse(EntityUid uid, BlindHealingComponent component, ref UseInHandEvent args)
         {
-            if (args.Handled)
-                return;
-
-            if(!TryComp(args.User, out DamageableComponent? damageable))
-                return;
-
-            if (damageable.DamageContainerID != null)
-            {
-                if (!component.DamageContainers.Contains(damageable.DamageContainerID))
-                {
-                    return;
-                }
-            }
-
-            if(!TryComp(args.User, out BlindableComponent? blindcomp))
-                return;
-
-            if (blindcomp is { EyeDamage: 0 })
-                return;
-
-            if (!component.AllowSelfHeal)
+            if (args.Handled
+                || !TryComp(args.User, out DamageableComponent? damageable)
+                || damageable.DamageContainerID != null
+                && !component.DamageContainers.Contains(damageable.DamageContainerID)
+                || !TryComp(args.User, out BlindableComponent? blindcomp)
+                || blindcomp is { EyeDamage: 0 }
+                || !component.AllowSelfHeal)
                 return;
 
             float delay = component.DoAfterDelay;
