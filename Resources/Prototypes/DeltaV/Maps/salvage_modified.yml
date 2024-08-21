@@ -1,0 +1,112 @@
+# Override for /Prototypes/Maps/salvage.yml, see /IgnoredPrototypes/ignoredPrototypes.yml
+# No small wrecks here, only medium and large.
+
+# "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
+
+- type: salvageMap
+  id: Medium1
+  mapPath: /Maps/Salvage/DeltaV/DV-medium-01.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumVault1
+  mapPath: /Maps/Salvage/DeltaV/DV-medium-01.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumOrchestra
+  mapPath: /Maps/Salvage/DeltaV/DV-med-silent-orchestra.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumLibraryWreck
+  mapPath: /Maps/Salvage/DeltaV/DV-med-library.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumCargoWreck
+  mapPath: /Maps/Salvage/DeltaV/DV-cargo-01.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumPirateWreck
+  mapPath: /Maps/Salvage/DeltaV/DV-med-pirate.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: TickColony
+  mapPath: /Maps/Salvage/DeltaV/DV-tick-colony.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: CargoDock
+  mapPath: /Maps/Salvage/DeltaV/DV-med-dock.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: SpaceWaffleHome
+  sizeString: salvage-map-wreck-size-medium
+  mapPath: /Maps/Salvage/DeltaV/DV-wh-salvage.yml
+
+- type: salvageMap
+  id: MediumShuttleWreck
+  mapPath: /Maps/Salvage/DeltaV/DV-med-ruined-emergency-shuttle.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumPetHospital
+  mapPath: /Maps/Salvage/DeltaV/DV-med-pet-hospital.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumCrashedShuttle
+  mapPath: /Maps/Salvage/DeltaV/DV-med-crashed-shuttle.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: Meatball
+  mapPath: /Maps/Salvage/DeltaV/DV-meatball.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: VeganMeatball
+  mapPath: /Maps/Salvage/DeltaV/DV-vegan-meatball.yml
+  sizeString: salvage-map-wreck-size-medium
+
+- type: salvageMap
+  id: MediumHaulingShuttleWreck
+  mapPath: /Maps/Salvage/DeltaV/DV-hauling-shuttle.yml
+  sizeString: salvage-map-wreck-size-medium
+
+# """Large""" maps
+
+- type: salvageMap
+  id: StationStation
+  mapPath: /Maps/Salvage/DeltaV/DV-stationstation.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: AsteroidBase
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-base.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: RuinCargoBase
+  mapPath: /Maps/Salvage/DeltaV/DV-ruin-cargo-salvage.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: SecurityChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-security-chunk.yml
+  sizeString: salvage-map-wreck-size-large
+
+# TODO: make one for this from /Maps/Salvage/engineering-chunk.yml
+#- type: salvageMap
+#  id: EngineeringChunk
+#  mapPath: /Maps/Salvage/DeltaV/DV-engineering-chunk.yml
+#  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: OutpostArm
+  mapPath: /Maps/Salvage/DeltaV/DV-outpost-arm.yml
+  sizeString: salvage-map-wreck-size-large
