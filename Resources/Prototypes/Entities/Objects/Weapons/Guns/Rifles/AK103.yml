@@ -6,11 +6,12 @@
   components:
   - type: Sprite
     sprite: Objects\Weapons\Guns\Rifles\AK103.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/AK103.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: Gun
     fireRate: 5.5
     soundGunshot:

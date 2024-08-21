@@ -6,11 +6,6 @@
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/Vityaz.rsi
-      layers:
-        - state: base
-          map: ["enum.GunVisualLayers.Base"]
-        - state: mag-0
-          map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
       sprite: Objects/Weapons/Guns/SMGs/Vityaz.rsi
     - type: Gun

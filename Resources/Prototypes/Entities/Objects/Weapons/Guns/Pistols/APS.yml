@@ -6,6 +6,12 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/APS.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/APS.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
   - type: Gun
     fireRate: 6.5
     selectedMode: SemiAuto
