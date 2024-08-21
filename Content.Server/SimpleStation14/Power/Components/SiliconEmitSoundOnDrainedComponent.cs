@@ -11,7 +11,7 @@ namespace Content.Server.SimpleStation14.Silicon;
 [RegisterComponent]
 public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
 {
-    [DataField(Required]
+    [DataField(Required: true)]
     public SoundSpecifier Sound = default!;
 
     [DataField]
