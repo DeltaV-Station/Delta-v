@@ -53,8 +53,8 @@
       - id: trayScanner
       - id: FishLabeler
       - id: SnapPop
-          amount: !type:RangeNumberSelector
-            range: 1, 3
+        amount: !type:RangeNumberSelector
+          range: 1, 3
       - id: BarberScissors
       - id: RagItem
       - id: Plunger
@@ -73,7 +73,9 @@
         - id: CigPackGreen
         - id: CigPackRed
         - id: CigPackBlue
-        - id: CigPackBlue
+        - id: CigPackBlack
+        - id: CigPackPurple #Delta V
+        - id: CigPackCandy #Delta V
         - id: PackPaperRolling
         - id: Cigar
         - id: SmokingPipe
@@ -257,6 +259,7 @@
       - !type:GroupSelector
         children:
         - id: Spoon
+        - id: Fork
         - id: KnifePlastic
         - id: PairedChopsticks
       #Clothing
@@ -265,47 +268,47 @@
         #Mask
         - !type:GroupSelector
           children:
-        - id: ClothingMaskGas
-        - id: ClothingMaskBreathMedical
+          - id: ClothingMaskGas
+          - id: ClothingMaskBreathMedical
         #Eyes
         - !type:GroupSelector
           children:
-        - id: ClothingEyesHudBeer
-        - id: ClothingEyesGlassesMeson
-        - id: ClothingEyesGlasses
-        - id: ClothingEyesGlassesSunglasses
-        - id: ClothingEyesGlassesThermal
-        - id: ClothingEyesEyepatch
-        - id: ClothingEyesBlindfold
+          - id: ClothingEyesHudBeer
+          - id: ClothingEyesGlassesMeson
+          - id: ClothingEyesGlasses
+          - id: ClothingEyesGlassesSunglasses
+          - id: ClothingEyesGlassesThermal
+          - id: ClothingEyesEyepatch
+          - id: ClothingEyesBlindfold
         #Gloves
         - !type:GroupSelector
           children:
-        - id: ClothingHandsGlovesPowerglove
-        - id: ClothingHandsGlovesRobohands
-        - id: ClothingHandsGlovesFingerless
+          - id: ClothingHandsGlovesPowerglove
+          - id: ClothingHandsGlovesRobohands
+          - id: ClothingHandsGlovesFingerless
         #Neck
         - !type:GroupSelector
           children:
-        - id: ClothingNeckHeadphones
-        - id: ClothingNeckStethoscope
+          - id: ClothingNeckHeadphones
+          - id: ClothingNeckStethoscope
         #Outer
         - !type:GroupSelector
           children:
-        - id: ClothingOuterHoodieGrey
-        - id: ClothingOuterCardborg
-        - id: ClothingOuterPonchoClassic
-        - id: ClothingOuterPoncho
-        - id: ClothingOuterVest
-        - id: ClothingOuterCoatGentle
-        - id: ClothingOuterCoatJensen
-        - id: ClothingOuterCoatLab
+          - id: ClothingOuterHoodieGrey
+          - id: ClothingOuterCardborg
+          - id: ClothingOuterPonchoClassic
+          - id: ClothingOuterPoncho
+          - id: ClothingOuterVest
+          - id: ClothingOuterCoatGentle
+          - id: ClothingOuterCoatJensen
+          - id: ClothingOuterCoatLab
         #Feet
         - !type:GroupSelector
           children:
-        - id: ClothingShoesFlippers
-        - id: ClothingShoesTourist
-        - id: ClothingUnderSocksBee
-        - id: ClothingUnderSocksCoder
+          - id: ClothingShoesFlippers
+          - id: ClothingShoesTourist
+          - id: ClothingUnderSocksBee
+          - id: ClothingUnderSocksCoder
 
     #Rare
     - !type:GroupSelector
@@ -335,7 +338,7 @@
       - id: SnapPopBox
       - id: ShardGlassClockwork
       - id: EggSpider
-      - id: ArabianLamp
+      - id: PresentRandom
       - id: ArabianLamp
         weight: 0.01
       #Smokes
