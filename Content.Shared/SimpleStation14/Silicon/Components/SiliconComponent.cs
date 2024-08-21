@@ -50,6 +50,7 @@ public sealed partial class SiliconComponent : Component
     /// </summary>
     /// <remarks>
     ///     Any new types of Silicons should be added to the enum.
+    ///     Setting this to Npc will delay charge state updates by LastDrainTime and skip battery heat calculations
     /// </remarks>
     [DataField("entityType", customTypeSerializer: typeof(EnumSerializer))]
     public Enum EntityType = SiliconType.Npc;
