@@ -8,17 +8,17 @@ namespace Content.Server.Mail.Components
     [RegisterComponent]
     public sealed partial class MailComponent : SharedMailComponent
     {
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public string Recipient = "None";
 
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public string RecipientJob = "None";
 
         // Why do we not use LockComponent?
         // Because this can't be locked again,
         // and we have special conditions for unlocking,
         // and we don't want to add a verb.
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool IsLocked = true;
 
         /// <summary>

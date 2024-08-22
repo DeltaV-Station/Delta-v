@@ -27,7 +27,7 @@ namespace Content.Server.Mail.Components
         /// The MailDeliveryPoolPrototype that's used to select what mail this
         /// teleporter can deliver.
         /// </summary>
-        [DataField("mailPool")]
+        [DataField]
         public string MailPool = "RandomDeltaVMailDeliveryPool"; // Frontier / DeltaV: Mail rework
 
         /// <summary>
