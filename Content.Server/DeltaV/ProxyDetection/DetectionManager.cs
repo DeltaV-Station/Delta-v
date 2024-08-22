@@ -91,6 +91,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
             probeData.TryGetProperty("is-hosting", out var isHosting);
             probeData.TryGetProperty("is-vpn", out var isVpn);
             if (!isProxy.GetBoolean() && !isHosting.GetBoolean() && !isVpn.GetBoolean())
+              await _dbManager.UpdateBanExemption(e.UserId, ServerBanExemptFlags.Datacenter);
                 return (false, "");
 
             result = "Обнаружено подозрительное подключение. Возможно, вы используете VPN. Если это ошибка, пожалуйста, сообщите нам об этом в Discord.";
@@ -105,7 +106,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
 
         var hid = addr.AddressFamily == AddressFamily.InterNetworkV6 ? 128 : 32;
         _banManager.CreateServerBan(e.UserId, e.UserName, null, (addr, hid), null, null, NoteSeverity.High, result,
-            ServerBanExemptFlags.Datacenter);
+            ServerBanExemptFlags.None);
         return (true, result);
     }
 
