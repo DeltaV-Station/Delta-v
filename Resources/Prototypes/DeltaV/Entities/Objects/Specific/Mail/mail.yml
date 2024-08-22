@@ -194,6 +194,8 @@
       orGroup: FakeWizard
       prob: 0.1
 
+
+
 # Frontier Mail, including Extended Nyano Mail
 - type: entity
   noSpawn: true
@@ -1211,6 +1213,15 @@
     - id: FoodKoibean
       orGroup: Produce
       amount: 5
+    - id: FoodGhostPepper #DeltaV
+      orGroup: Produce
+      amount: 5
+    - id: FoodCosmicRevenant #DeltaV
+      orGroup: Produce
+      amount: 5
+    - id: FoodCrystalThistle #DeltaV
+      orGroup: Produce
+      amount: 5
     - id: FoodLily
       orGroup: Produce
       amount: 5
@@ -1256,12 +1267,14 @@
 - type: entity
   noSpawn: true
   parent: BaseMail
-  id: MailNFFigurineBulk
-  suffix: figurine, bulk
+  id: MailNFFigurineBulk # DeltaV - No longer Bulk
+  suffix: figurine, bulk #DeltaV - Spams 3 boxes instead of using the bulk figurine prototype that Frontier uses
   components:
   - type: Mail
     contents:
-    - id: MysteryFigureBoxBulk
+    - id: MysteryFigureBox
+    - id: MysteryFigureBox
+    - id: MysteryFigureBox
 
 - type: entity
   noSpawn: true

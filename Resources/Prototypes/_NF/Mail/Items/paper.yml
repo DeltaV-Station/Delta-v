@@ -268,12 +268,12 @@
 - type: entity
   id: PaperMailNTSoapAd2
   # noSpawn: true
-  suffix: "soap ad 2"
+  suffix: "soap ad 2" #DeltaV - Edited to not be addressed to Frontier Citizens
   parent: Paper
   components:
   - type: Paper
     content: |2
-      [head=2]GREETINGS FRONTIER CITIZEN[/head]
+      [head=2]GREETINGS DELTA SECTOR CITIZEN[/head]
 
       OUR REPORTS INDICATE THAT:
       1. YOU HAVE FAILED YOUR QUARTERLY HYGIENE INSPECTION.
@@ -312,7 +312,7 @@
 - type: entity
   id: PaperMailNFPaperPusherAd
   # noSpawn: true
-  suffix: "paper pusher"
+  suffix: "paper pusher" 
   parent: Paper
   components:
   - type: Paper
@@ -404,7 +404,7 @@
   id: PaperMailNFEMPPreparedness
   # noSpawn: true
   name: EMP preparedness response form
-  suffix: "emp preparedness"
+  suffix: "emp preparedness" #DeltaV - Replaces mention of SR with HoS
   parent: Paper
   components:
   - type: Paper
@@ -414,59 +414,59 @@
 
       You have been selected to receive a NT EMP Preparedness kit as a test. Note that this is only a test. In a real emergency, follow the instructions of your vessel's command staff.
 
-      As the recipient of this, please note [bold]any improvements[/bold] that could be made towards the EMP preparedness of the vessel you were aboard when opening and submit this form to your serving Captain or Station Representative.
+      As the recipient of this, please note [bold]any improvements[/bold] that could be made towards the EMP preparedness of the vessel you were aboard when opening and submit this form to your serving Captain or Head of Security.
 
       [bold]Date of test:[/bold]
       [bold]Number of affected items:[/bold]
       [bold]Perceived severity of incident:[/bold]
       [bold]Suggested improvements:[/bold]
 
-- type: entity
-  id: PaperMailNFBuildABuddy
-  # noSpawn: true
-  name: Build-a-Buddy adoption letter
-  suffix: "build-a-buddy"
-  parent: Paper
-  components:
-  - type: Paper
-    stampState: paper_stamp-generic
-    stampedBy:
-    - stampedColor: '#FF6699FF'
-      stampedName: Chief Friendship Officer
-    - stampedColor: '#333333FF'
-      stampedName: Cuts-With-Scalpel
-      stampType: Signature
-    content: |2
-
-      [head=1]Note of Adoption[/head]
-
-      You're now the proud owner of your very own Build-a-Buddy!
-
-      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
-
-      [bold]Collect the whole set![/bold]
-      [bold][bullet/][/bold] Greta the Goblin
-      [bold][bullet/][/bold] Henry the Human
-      [bold][bullet/][/bold] Randy the Reptilian
-      [bold][bullet/][/bold] Steven the Slime
-      [bold][bullet/][/bold] Valerie the Vulpkanin
+#- type: entity
+#  id: PaperMailNFBuildABuddy
+#  noSpawn: true
+#  name: Build-a-Buddy adoption letter
+#  suffix: "build-a-buddy"
+#  parent: Paper
+#  components:
+#  - type: Paper
+#    stampState: paper_stamp-generic
+#    stampedBy:
+#    - stampedColor: '#FF6699FF'
+#      stampedName: Chief Friendship Officer
+#    - stampedColor: '#333333FF'
+#      stampedName: Cuts-With-Scalpel
+#      stampType: Signature
+#    content: |2
+#
+#      [head=1]Note of Adoption[/head]
+#
+#      You're now the proud owner of your very own Build-a-Buddy!
+#
+#      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
+#
+#      [bold]Collect the whole set![/bold]
+#      [bold][bullet/][/bold] Greta the Goblin
+#      [bold][bullet/][/bold] Henry the Human
+#      [bold][bullet/][/bold] Randy the Reptilian
+#      [bold][bullet/][/bold] Steven the Slime
+#      [bold][bullet/][/bold] Valerie the Vulpkanin
 
 - type: entity
   id: PaperMailNFSpaceLaw
   # noSpawn: true
-  suffix: "space-law"
+  suffix: "space-law" #DeltaV- edited contents to be from the Delta Sector instead of the Frontier
   parent: Paper
   components:
   - type: Paper
     stampState: paper_stamp-centcom
     stampedBy:
     - stampedColor: '#006600FF'
-      stampedName: Central Admiralty of Frontier
+      stampedName: Central Admiralty of the Delta Sector
     content: |2
 
             [head=1]Space Law is your shield.[/head]
 
-                  [head=2]With it, you guard the Frontier.[/head][head=3]
+                  [head=2]With it, you guard the Delta Sector.[/head][head=3]
       [/head]
         [head=1]Memorize it. Grasp it firmly.[/head]
 
