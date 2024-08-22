@@ -67,7 +67,7 @@ namespace Content.Server.StationEvents.Events
                 var angle = new Angle(RobustRandom.NextFloat() * MathF.Tau);
                 var offset = angle.RotateVec(new Vector2((maximumDistance - minimumDistance) * RobustRandom.NextFloat() + minimumDistance, 0));
                 var spawnPosition = new MapCoordinates(center + offset, mapId);
-                var meteor = Spawn("MeteorLarge", spawnPosition);
+                var meteor = Spawn("MeteorLargeDeltaV", spawnPosition);
                 var physics = EntityManager.GetComponent<PhysicsComponent>(meteor);
                 _physics.SetBodyStatus(meteor, physics, BodyStatus.InAir);
                 _physics.SetLinearDamping(meteor, physics, 0f);
