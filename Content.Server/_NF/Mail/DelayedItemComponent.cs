@@ -10,7 +10,7 @@ namespace Content.Server.Mail
         /// <summary>
         /// The entity to replace this when opened or dropped.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public string Item = "None";
     }
 }

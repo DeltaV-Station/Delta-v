@@ -31,16 +31,6 @@
 
 # Miscellaneous Items
 
-# Delay the emotional support pet so they don't suffocate.
-- type: entity
-  id: DelayedPetCarrierNPCEmotionalSupportSafe
-  parent: BaseItem
-  noSpawn: true
-  name: delayed emotional support pet
-  components:
-  - type: DelayedItem
-    item: PetCarrierNPCEmotionalSupportSafe
-
 - type: entity
   id: SyringeCognizine
   parent: Syringe
