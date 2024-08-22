@@ -196,7 +196,7 @@
 
 
 
-# Frontier Mail, including Extended Nyano Mail
+# Frontier Mail, including Extended Nyano Mail. (Pony Express?)
 - type: entity
   noSpawn: true
   parent: BaseMail
@@ -267,6 +267,28 @@
     - id: CluwneHorn
       orGroup: Horn
       prob: 0.05
+
+- type: entity
+  noSpawn: true
+  parent: BaseMailLarge
+  id: MailNFBuildABuddy
+  suffix: Build-a-Buddy
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+#      - id: BoxBuildABuddyGoblin # DeltaV - Goblins Aren't Real
+#        orGroup: Box
+      - id: BoxBuildABuddyHuman
+        orGroup: Box
+      - id: BoxBuildABuddyReptilian
+        orGroup: Box
+      - id: BoxBuildABuddySlime
+        orGroup: Box
+      - id: BoxBuildABuddyVulpkanin
+        orGroup: Box
+      - id: DrinkSpaceGlue
+      - id: PaperMailNFBuildABuddy
 
 - type: entity
   noSpawn: true
@@ -429,6 +451,27 @@
       orGroup: Cigs
       prob: 0.05
     - id: CheapLighter
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailNFEMP
+  suffix: emp
+  components:
+  - type: Mail
+    contents:
+    - id: DelayedEMP
+    - id: PaperMailNFEMPPreparedness
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailNFSmoke
+  suffix: smoke
+  components:
+  - type: Mail
+    contents:
+    - id: DelayedSmoke
 
 - type: entity
   noSpawn: true
@@ -634,6 +677,14 @@
       orGroup: Plushie
     - id: PlushieNuke
       orGroup: Plushie
+    - id: PlushieArachnid #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
+    - id: PlushieGhost #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
+    - id: PlushieDiona #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
+    - id: ToyMouse #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
     - id: PlushieRouny
       orGroup: Plushie
     - id: PlushieLizard
@@ -646,19 +697,23 @@
       orGroup: Plushie
     - id: PlushieCarp
       orGroup: Plushie
+    - id: PlushieHolocarp #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
+    - id: PlushieRainbowCarp #DeltaV - Adds MORE PLUSHIE
+      orGroup: Plushie
     - id: PlushieSlime
       orGroup: Plushie
     - id: PlushieSnake
       orGroup: Plushie
-    - id: PlushieMoffRandom
+    - id: PlushieMothRandom
       orGroup: Plushie
-    - id: PlushieMoff
+    - id: PlushieMoth
       prob: 0.5
       orGroup: Plushie
-    - id: PlushieMoffsician
+    - id: PlushieMothMusician
       prob: 0.5
       orGroup: Plushie
-    - id: PlushieMoffbar
+    - id: PlushieMothBartender
       prob: 0.5
       orGroup: Plushie
 

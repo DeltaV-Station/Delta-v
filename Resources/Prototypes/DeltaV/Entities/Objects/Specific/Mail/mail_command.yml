@@ -19,3 +19,16 @@
     contents:
       - id: NukeDiskFake
       - id: PaperMailNFAntivirus
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailCommandNFPipebombIntern
+  suffix: pipe and bomb
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+      - id: SmokingPipeFilledTobacco
+      - id: DrinkAtomicBombGlass
+      - id: PaperMailNFPipebombIntern

@@ -1,78 +1,4 @@
 # Mail-only boxes. If/when something uses these outside of the mail, move the entry into Catalog/Fills.
-- type: entity
-  name: advanced component variety pack
-  parent: BoxCardboard
-  id: BoxT2ComponentsAssorted
-  description: A box of various advanced components.
-  components:
-  - type: StorageFill
-    contents:
-      - id: AdvancedCapacitorStockPart
-        amount: 4
-      - id: NanoManipulatorStockPart
-        amount: 2
-      - id: AdvancedMatterBinStockPart
-        amount: 2
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-      - 0,0,3,1
-    whitelist:
-      components:
-        - MachinePart
-  - type: Sprite
-    layers:
-      - state: box
-
-- type: entity
-  name: super component variety pack
-  parent: BoxCardboard
-  id: BoxT3ComponentsAssorted
-  description: A box of various super components.
-  components:
-  - type: StorageFill
-    contents:
-      - id: SuperCapacitorStockPart
-        amount: 4
-      - id: PicoManipulatorStockPart
-        amount: 2
-      - id: SuperMatterBinStockPart
-        amount: 2
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-      - 0,0,3,1
-    whitelist:
-      components:
-        - MachinePart
-  - type: Sprite
-    layers:
-      - state: box
-
-- type: entity
-  name: bluespace component variety pack
-  parent: BoxCardboard
-  id: BoxT4ComponentsAssorted
-  description: A box of various bluespace components. Where'd you find this?
-  components:
-  - type: StorageFill
-    contents:
-      - id: QuadraticCapacitorStockPart
-        amount: 4
-      - id: FemtoManipulatorStockPart
-        amount: 2
-      - id: BluespaceMatterBinStockPart
-        amount: 2
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-      - 0,0,3,1
-    whitelist:
-      components:
-        - MachinePart
-  - type: Sprite
-    layers:
-      - state: box
 
 - type: entity
   name: scented soap sampler pack
@@ -164,35 +90,36 @@
       components:
         - BodyPart
 
-- type: entity
-  name: Build-a-Buddy kit
-  suffix: Goblin
-  parent: BoxBuildABuddyHuman
-  id: BoxBuildABuddyGoblin
-  description: "\"Greta the Goblin\" Build-a-Buddy kit. Some assembly required."
-  components:
-  - type: StorageFill
-    contents:
-      - id: HeadGoblin
-        amount: 1
-      - id: TorsoGoblin
-        amount: 1
-      - id: LeftArmGoblin
-        amount: 1
-      - id: RightArmGoblin
-        amount: 1
-      - id: LeftHandGoblin
-        amount: 1
-      - id: RightHandGoblin
-        amount: 1
-      - id: LeftLegGoblin
-        amount: 1
-      - id: RightLegGoblin
-        amount: 1
-      - id: LeftFootGoblin
-        amount: 1
-      - id: RightFootGoblin
-        amount: 1
+# DeltaV - Goblins Aren't Real
+#- type: entity
+#  name: Build-a-Buddy kit
+#  suffix: Goblin
+#  parent: BoxBuildABuddyHuman
+#  id: BoxBuildABuddyGoblin
+#  description: "\"Greta the Goblin\" Build-a-Buddy kit. Some assembly required."
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: HeadGoblin
+#        amount: 1
+#      - id: TorsoGoblin
+#        amount: 1
+#      - id: LeftArmGoblin
+#        amount: 1
+#      - id: RightArmGoblin
+#        amount: 1
+#      - id: LeftHandGoblin
+#        amount: 1
+#      - id: RightHandGoblin
+#        amount: 1
+#      - id: LeftLegGoblin
+#        amount: 1
+#      - id: RightLegGoblin
+#        amount: 1
+#      - id: LeftFootGoblin
+#        amount: 1
+#      - id: RightFootGoblin
+#        amount: 1
 
 - type: entity
   name: Build-a-Buddy kit

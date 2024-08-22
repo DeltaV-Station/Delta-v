@@ -253,7 +253,7 @@
     stampedBy:
     - stampedColor: '#333333FF'
       stampedName: Christopher Cleanman
-      stampType: Signature
+#      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
     content: |2
       [head=3]Hello Valued Customer,[/head]
       You have been selected to receive a complimentary sampler of scented soaps that Nanotrasen has to offer.
@@ -370,7 +370,7 @@
     stampedBy:
     - stampedColor: '#333333FF'
       stampedName: craig
-      stampType: Signature
+#      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
     content: |2
       [bold]hey uh, they told me to send you a pipebomb i guess?
 
@@ -421,35 +421,34 @@
       [bold]Perceived severity of incident:[/bold]
       [bold]Suggested improvements:[/bold]
 
-#- type: entity
-#  id: PaperMailNFBuildABuddy
-#  noSpawn: true
-#  name: Build-a-Buddy adoption letter
-#  suffix: "build-a-buddy"
-#  parent: Paper
-#  components:
-#  - type: Paper
-#    stampState: paper_stamp-generic
-#    stampedBy:
-#    - stampedColor: '#FF6699FF'
-#      stampedName: Chief Friendship Officer
-#    - stampedColor: '#333333FF'
-#      stampedName: Cuts-With-Scalpel
-#      stampType: Signature
-#    content: |2
-#
-#      [head=1]Note of Adoption[/head]
-#
-#      You're now the proud owner of your very own Build-a-Buddy!
-#
-#      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
-#
-#      [bold]Collect the whole set![/bold]
-#      [bold][bullet/][/bold] Greta the Goblin
-#      [bold][bullet/][/bold] Henry the Human
-#      [bold][bullet/][/bold] Randy the Reptilian
-#      [bold][bullet/][/bold] Steven the Slime
-#      [bold][bullet/][/bold] Valerie the Vulpkanin
+- type: entity
+  id: PaperMailNFBuildABuddy
+  noSpawn: true
+  name: Build-a-Buddy adoption letter
+  suffix: "build-a-buddy" #DeltaV- Body text changed, because Goblins Aren't Real
+  parent: Paper
+  components:
+  - type: Paper
+    stampState: paper_stamp-generic
+    stampedBy:
+    - stampedColor: '#FF6699FF'
+      stampedName: Chief Friendship Officer
+    - stampedColor: '#333333FF'
+      stampedName: Cuts-With-Scalpel
+#      stampType: Signature  #DeltaV - Not compatible with our signatures code stuff apparently. 
+    content: |2
+
+      [head=1]Note of Adoption[/head]
+
+      You're now the proud owner of your very own Build-a-Buddy!
+
+      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
+
+      [bold]Collect the whole set![/bold]
+      [bold][bullet/][/bold] Henry the Human
+      [bold][bullet/][/bold] Randy the Reptilian
+      [bold][bullet/][/bold] Steven the Slime
+      [bold][bullet/][/bold] Valerie the Vulpkanin
 
 - type: entity
   id: PaperMailNFSpaceLaw
