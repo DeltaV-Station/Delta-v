@@ -23,11 +23,11 @@ namespace Content.Server.Database
         public NoteSeverity Severity { get; set; }
         public NetUserId? BanningAdmin { get; }
         public ServerUnbanDef? Unban { get; }
-
         public ServerBanExemptFlags ExemptFlags { get; }
 
-        public ServerBanDef(
-            int? id,
+
+
+        public ServerBanDef(int? id,
             NetUserId? userId,
             (IPAddress, int)? address,
             ImmutableArray<byte>? hwId,
@@ -39,7 +39,7 @@ namespace Content.Server.Database
             NoteSeverity severity,
             NetUserId? banningAdmin,
             ServerUnbanDef? unban,
-            ServerBanExemptFlags exemptFlags = ServerBanExemptFlags.None)
+            ServerBanExemptFlags exemptFlags = default)
         {
             if (userId == null && address == null && hwId ==  null)
             {
