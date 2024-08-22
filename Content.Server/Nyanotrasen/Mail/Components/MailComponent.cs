@@ -14,7 +14,7 @@ namespace Content.Server.Mail.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public string RecipientJob = "None";
 
-        // Why do we not use LockComponent?S
+        // Why do we not use LockComponent?
         // Because this can't be locked again,
         // and we have special conditions for unlocking,
         // and we don't want to add a verb.
