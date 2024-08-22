@@ -29,8 +29,3 @@ command-mailto-success = Success! Mail parcel has been queued for next teleport 
 command-mailnow = Force all mail teleporters to deliver another round of mail as soon as possible. This will not bypass the undelivered mail limit.
 command-mailnow-help = Usage: {$command}
 command-mailnow-success = Success! All mail teleporters will be delivering another round of mail soon.
-
-# Frontier: mailtestbulk
-command-mailtestbulk = Sends one of each type of parcel to a given mail teleporter.  Implicitly calls mailnow.
-command-mailtestbulk-help = Usage: {$command} <teleporter_id>
-command-mailtestbulk-success = Success! All mail teleporters will be delivering another round of mail soon.
