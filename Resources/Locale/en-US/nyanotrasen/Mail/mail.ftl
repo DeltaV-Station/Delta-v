@@ -16,6 +16,7 @@ mail-item-name-unaddressed = mail
 mail-item-name-addressed = mail ({$recipient})
 
 command-mailto-description = Queue a parcel to be delivered to an entity. Example usage: `mailto 1234 5678 false false`. The target container's contents will be transferred to an actual mail parcel.
+# Frontier: add is-large description
 command-mailto-help = Usage: {$command} <recipient entityUid> <container entityUid> [is-fragile: true or false] [is-priority: true or false] [is-large: true or false, optional]
 command-mailto-no-mailreceiver = Target recipient entity does not have a {$requiredComponent}.
 command-mailto-no-blankmail = The {$blankMail} prototype doesn't exist. Something is very wrong. Contact a programmer.
