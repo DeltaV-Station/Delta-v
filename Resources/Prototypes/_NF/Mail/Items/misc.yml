@@ -10,6 +10,7 @@
   - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
+    state: icon
   - type: DelayedItem
     item: AdminInstantEffectSmoke10
 
@@ -32,6 +33,7 @@
   - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
     visible: false
+    state: icon
   - type: DelayedItem
     item: AdminInstantEffectEMP7
 
