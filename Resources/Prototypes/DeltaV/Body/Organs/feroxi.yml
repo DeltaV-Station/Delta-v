@@ -1,0 +1,22 @@
+- type: entity
+  id: OrganFeroxiStomach
+  parent: OrganAnimalStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
