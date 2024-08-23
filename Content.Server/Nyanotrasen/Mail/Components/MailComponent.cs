@@ -58,7 +58,7 @@ namespace Content.Server.Mail.Components
         [DataField]
         public bool IsPriority = false;
 
-        // Code imported from New Frontiers, licensed under MIT: large mail
+        // Frontier Mail Port: large mail
         /// <summary>
         /// Whether this parcel is large.
         /// </summary>
