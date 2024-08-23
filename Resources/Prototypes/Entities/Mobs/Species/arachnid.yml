@@ -30,6 +30,9 @@
     spawned:
       - id: FoodMeatSpider
         amount: 5
+  - type: Inventory
+    templateId: arachnid
+    speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
   - type: Reactive
     reactions:
     - reagents: [Water]
@@ -112,8 +115,6 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
-  - type: Inventory
-    templateId: arachnid
 
 
 - type: entity
@@ -123,6 +124,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid #DeltaV - Allows the "dummy" in th elobby menu to wear the arachnid sprites
 
 
 #>88w88<
