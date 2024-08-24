@@ -62,6 +62,8 @@
   completetime: 0.5
   materials:
     Steel: 25
+  
+# Carpets
 
 - type: latheRecipe
   id: FloorTileItemArcadeBlue
@@ -69,7 +71,7 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
 
 - type: latheRecipe
   id: FloorTileItemArcadeBlue2
@@ -77,7 +79,7 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
 
 - type: latheRecipe
   id: FloorTileItemArcadeRed
@@ -85,7 +87,7 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
 
 - type: latheRecipe
   id: FloorTileItemEighties
@@ -93,7 +95,7 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
 
 - type: latheRecipe
   id: FloorTileItemBoxing
@@ -101,7 +103,7 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
 
 - type: latheRecipe
   id: FloorTileItemGym
@@ -109,4 +111,20 @@
   applyMaterialDiscount: false
   completetime: 0.5
   materials:
-    Steel: 25
+    Cloth: 25
+
+- type: latheRecipe
+  id: FloorTileItemCarpetClown
+  result: FloorTileItemCarpetClown
+  applyMaterialDiscount: false
+  completetime: 0.5
+  materials:
+    Cloth: 25
+
+- type: latheRecipe
+  id: FloorTileItemCarpetOffice
+  result: FloorTileItemCarpetOffice
+  applyMaterialDiscount: false
+  completetime: 0.5
+  materials:
+    Cloth: 25
