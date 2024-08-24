@@ -163,7 +163,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
                 return false;
             }
 
-            if (ruleComp.MinPlayers > players)
+            if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
         }
 

@@ -15,6 +15,7 @@
 - type: roleLoadout
   id: JobForensicMantis
   groups:
+  - GroupTankHarness
   - MantisHead
   - MantisJumpsuit
   - MantisBackpack
@@ -46,6 +47,7 @@
   groups:
   - GroupTankHarness
   - PrisonerJumpsuit
+  - CommonBackpack
   - PassengerShoes
   - Survival
   - Trinkets
@@ -67,7 +69,9 @@
 - type: roleLoadout
   id: JobGladiator
   groups:
+  - GroupTankHarness
   - GladiatorJumpsuit
+  - CommonBackpack
   - GladiatorOuterClothing
   - Trinkets
   - GroupSpeciesBreathTool

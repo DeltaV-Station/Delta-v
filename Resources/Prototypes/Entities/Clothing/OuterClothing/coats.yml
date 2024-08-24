@@ -363,7 +363,7 @@
         Heat: 0.85
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase]
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseRestrictedContraband]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
