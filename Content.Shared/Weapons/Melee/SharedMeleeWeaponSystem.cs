@@ -27,6 +27,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.Commands.Generic;
 using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components.ItemToggleMeleeWeaponComponent;
 
 namespace Content.Shared.Weapons.Melee;
@@ -217,6 +218,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return new DamageSpecifier();
 
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        RaiseLocalEvent(uid, ref ev);
+
+        return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
+    }
+
+    public DamageSpecifier GetStamina(EntityUid uid, EntityUid user, MeleeWeaponComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false) || component.Stamina == null)
+            return new DamageSpecifier();
+
+        var ev = new GetMeleeDamageEvent(uid, new(component.Stamina), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
@@ -451,6 +463,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
+        var staminaDamage = GetStamina(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
@@ -513,12 +526,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (damageResult is {Empty: false})
         {
-            // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
-            if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
-            {
-                _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
-            }
-
             if (meleeUid == user)
             {
                 AdminLogger.Add(LogType.MeleeHit, LogImpact.Medium,
@@ -529,8 +536,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 AdminLogger.Add(LogType.MeleeHit, LogImpact.Medium,
                     $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
             }
-
         }
+
+        var modifiedStamina = DamageSpecifier.ApplyModifierSets(staminaDamage, hitEvent.ModifiersList);
+        FixedPoint2 staminaSum = 0;
+        modifiedStamina.DamageDict.All(e =>
+        {
+            staminaSum += e.Value;
+            return true;
+        });
+        _stamina.TakeStaminaDamage(target.Value, (float) staminaSum, visual: false, source: user, with: meleeUid == user ? null : meleeUid);
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
 
@@ -558,6 +573,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var distance = Math.Min(component.Range, direction.Length());
 
         var damage = GetDamage(meleeUid, user, component);
+        var staminaDamage = GetStamina(meleeUid, user, component);
         var entities = GetEntityList(ev.Entities);
 
         if (entities.Count == 0)
@@ -671,6 +687,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                         $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
                 }
             }
+
+            var modifiedStamina = DamageSpecifier.ApplyModifierSets(staminaDamage, hitEvent.ModifiersList);
+            FixedPoint2 staminaSum = 0;
+            modifiedStamina.DamageDict.All(e =>
+            {
+                staminaSum += e.Value;
+                return true;
+            });
+            _stamina.TakeStaminaDamage(entity, (float) staminaSum, visual: false, source: user, with: meleeUid == user ? null : meleeUid);
         }
 
         if (entities.Count != 0)

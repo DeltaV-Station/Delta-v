@@ -72,7 +72,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool ResistanceBypass = false;
-    
+
     /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
     /// </summary>
@@ -83,6 +83,10 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 BluntStaminaDamageFactor = FixedPoint2.New(0.5f);
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public DamageSpecifier? Stamina = null;
 
     /// <summary>
     /// Multiplies damage by this amount for single-target attacks.
