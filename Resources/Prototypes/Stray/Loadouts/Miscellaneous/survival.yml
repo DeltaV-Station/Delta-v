@@ -1,0 +1,211 @@
+# Species
+- type: loadoutEffectGroup
+  id: PlasmaBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadoutEffectGroup
+  id: NoBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Shadowkin
+
+# Basic
+- type: loadout
+  id: EmergencyNoGas
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxSurvivalNoGas
+
+- type: loadout
+  id: EmergencyPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalPlasma
+
+# Clown
+- type: loadout
+  id: EmergencyNoGasClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxHugNoGas
+
+- type: loadout
+  id: EmergencyPlasmaClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxHugPlasma
+
+# Mime
+- type: loadout
+  id: EmergencyNoGasMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxMimeNoGas
+
+- type: loadout
+  id: EmergencyPlasmaMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxMimePlasma
+
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyNoGasExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxSurvivalEngineeringNoGas
+
+- type: loadout
+  id: EmergencyPlasmaExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalEngineeringPlasma
+
+# Medical
+- type: loadout
+  id: EmergencyNoGasMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxSurvivalMedicalNoGas
+
+- type: loadout
+  id: EmergencyPlasmaMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalMedicalPlasma
+
+# Security
+- type: loadout
+  id: EmergencyNoGasSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxSurvivalSecurityNoGas
+
+- type: loadout
+  id: EmergencyPlasmaSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSecurityPlasma
+
+# Syndicate
+- type: loadout
+  id: EmergencyNoGasSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NoBreather
+  storage:
+    back:
+    - BoxSurvivalSyndicateNoGas
+
+- type: loadout
+  id: EmergencyPlasmaSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSyndicatePlasma
+
+# Pre-equipped species gear
+
+# Full tank for vox as part of any Survival loadout
+- type: loadout
+  id: LoadoutSpeciesPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    suitstorage: PlasmaTankFilled
+
+# Full EVA Tank, Any Species
+- type: loadout
+  id: LoadoutSpeciesEVAPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    suitstorage: PlasmaTankFilled
+
+# Tank Harness
+- type: loadout
+  id: LoadoutEnvirosuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    outerClothing: ClothingOuterHardsuitEnvirosuit
+
+- type: loadout
+  id: LoadoutTankHarnessPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    outerClothing: ClothingOuterVestTank
+
+# Breath Tool On Face
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    mask: ClothingMaskBreath
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolMedicalPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    mask: ClothingMaskBreathMedical
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolSecurityPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    mask: ClothingMaskGasSecurity

@@ -44,6 +44,8 @@
   hidden: true
   loadouts:
   - LoadoutTankHarness
+  - LoadoutEnvirosuit
+
 
 - type: loadoutGroup
   id: Survival
@@ -54,6 +56,9 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasma
+  - EmergencyNoGas
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -62,6 +67,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAPlasma
 
 # Command
 - type: loadoutGroup
@@ -552,6 +558,9 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaClown
+  - EmergencyNoGasClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -618,6 +627,9 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaMime
+  - EmergencyNoGasMime
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -943,6 +955,9 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaExtended
+  - EmergencyNoGasExtended
 
 # Science
 - type: loadoutGroup
@@ -1260,6 +1275,9 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaSecurity
+  - EmergencyNoGasSecurity
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1494,6 +1512,9 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaMedical
+  - EmergencyNoGasMedical
 
 # Wildcards
 - type: loadoutGroup
@@ -1536,6 +1557,9 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesEVAPlasma
+  - EmergencyPlasmaSyndicate
+  - EmergencyNoGasSyndicate
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
@@ -1545,6 +1569,7 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathTool
+  - LoadoutSpeciesBreathToolPlasma
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedical
@@ -1554,6 +1579,7 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolMedical
+  - LoadoutSpeciesBreathToolMedicalPlasma
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolSecurity
@@ -1563,3 +1589,4 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+  - LoadoutSpeciesBreathToolSecurityPlasma
