@@ -27,6 +27,10 @@ namespace Content.Shared.PDA
         public ItemSlot PenSlot = new();
         [DataField("paiSlot")]
         public ItemSlot PaiSlot = new();
+
+        /// <summary>
+        /// The field for things like the PDA sensor array
+        /// </summary>
         [DataField("gadgetSlot")]
         public ItemSlot GadgetSlot = new();
 
