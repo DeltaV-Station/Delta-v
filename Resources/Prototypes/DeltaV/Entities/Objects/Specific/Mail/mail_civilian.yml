@@ -1,7 +1,6 @@
 # Frontier Mail
 
 - type: entity
-  noSpawn: true
   parent: BaseMailLarge
   id: MailNFInstrumentLarge
   suffix: instrument, large
@@ -54,10 +53,9 @@
 # Base Nyano Mail
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailBotanistChemicalBottles
-  suffix: botanistchemicals
+  suffix: botanist chemicals
   components:
   - type: Mail
     contents:
@@ -69,7 +67,6 @@
       prob: 0.4
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailBotanistMutagen
   suffix: mutagen
@@ -81,7 +78,6 @@
     - id: UnstableMutagenChemistryBottle
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailBotanistSeeds
   suffix: seeds
@@ -130,7 +126,6 @@
       orGroup: Seeds
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailClownGildedBikeHorn
   suffix: honk
@@ -141,7 +136,6 @@
     - id: BikeHornInstrument
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailClownHonkSupplement
   suffix: honk
@@ -154,10 +148,9 @@
     - id: FoodBanana
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailHoPBureaucracy
-  suffix: hoppaper
+  suffix: hop paper
   components:
   - type: Mail
     contents:
@@ -165,10 +158,9 @@
       maxAmount: 3
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailHoPSupplement
-  suffix: hopsupplement
+  suffix: hop supplement
   components:
   - type: Mail
     contents:
@@ -177,10 +169,9 @@
     - id: Paper
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailMimeArtsCrafts
-  suffix: artscrafts
+  suffix: arts and crafts
   components:
   - type: Mail
     contents:
@@ -189,30 +180,27 @@
       maxAmount: 3
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailMimeBlankBook
-  suffix: blankbook
+  suffix: blank book
   components:
   - type: Mail
     contents:
       - id: BookRandom
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailMimeBottleOfNothing
-  suffix: bottleofnothing
+  suffix: bottle of nothing
   components:
   - type: Mail
     contents:
       - id: DrinkBottleOfNothingFull
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailPassengerMoney
-  suffix: passengermoney
+  suffix: passenger money
   components:
   - type: Mail
     contents:

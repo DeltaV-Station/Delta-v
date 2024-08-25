@@ -1,16 +1,14 @@
 # Base Nyano Mail
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailCommandPinpointerNuclear
-  suffix: pinpointernuclear
+  suffix: pinpointer mail ops
   components:
   - type: Mail
     contents:
     - id: PinpointerNuclear
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailStationRepNFNukeDisk
   suffix: nuke disk
@@ -22,7 +20,6 @@
       - id: PaperMailNFAntivirus
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailCommandNFPipebombIntern
   suffix: pipe and bomb
