@@ -36,7 +36,7 @@ public sealed partial class AtmosphereSystem
            return;
        }
 
-       var mixtures = new GasMixture[7];
+       var mixtures = new GasMixture[8]; // DeltaV - vox mixture
        for (var i = 0; i < mixtures.Length; i++)
            mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
 
@@ -64,6 +64,9 @@ public sealed partial class AtmosphereSystem
        mixtures[6].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesStandard);
        mixtures[6].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesStandard);
        mixtures[6].Temperature = 235f; // Little colder than an actual freezer but gives a grace period to get e.g. themomachines set up, should keep warm for a few door openings
+
+       // 7: DeltaV Nitrogen (101kpa)
+       mixtures[7].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesStandard + Atmospherics.OxygenMolesStandard); // DeltaV
 
        foreach (var arg in args)
        {
