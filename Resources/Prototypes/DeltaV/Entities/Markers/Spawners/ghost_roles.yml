@@ -3,10 +3,11 @@
 # See AGPLv3.txt for details.
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: MarkerBase
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
   suffix: player character, DO NOT MAP
-  parent: MarkerBase
   components:
     - type: GhostRole
       name: Roleplay Ghost Role
@@ -21,7 +22,7 @@
           state: full
 
 - type: entity # Part of ListeningPost
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostSyndicateListener
   components:
@@ -43,7 +44,7 @@
       time: 40000 # 11.1 hours
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
@@ -54,7 +55,7 @@
     rules: ghost-role-information-paradox-anomaly-rules
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostFugitive
   name: fugitive spawn point
@@ -69,7 +70,7 @@
       time: 3600 # 1 hour
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostRecruiter
   components:
@@ -90,7 +91,7 @@
       state: empty
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostSynthesis
   components:

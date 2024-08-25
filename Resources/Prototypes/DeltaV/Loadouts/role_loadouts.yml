@@ -2,6 +2,7 @@
 - type: roleLoadout
   id: JobCourier
   groups:
+  - GroupTankHarness
   - CourierHead
   - CourierNeck
   - CourierJumpsuit
@@ -9,7 +10,9 @@
   - CourierPDA
   - CargoTechnicianBackpack
   - CourierShoes
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
 
 # Security
 - type: roleLoadout
@@ -22,12 +25,15 @@
   - SecurityShoes
   - SecurityOuterClothing
   - MedicalGloves
+  - SurvivalCorpsman
   - Trinkets
-  
+  - GroupSpeciesBreathToolCorpsman
+
 # Justice
 - type: roleLoadout
   id: JobChiefJustice
   groups:
+  - GroupTankHarness
   - ChiefJusticeHead
   - ChiefJusticeJumpsuit
   - ChiefJusticeNeck
@@ -35,24 +41,32 @@
   - CommonBackpack
   - ChiefJusticeShoes
   - Glasses
+  - Survival
   - Trinkets
-  
+  - GroupSpeciesBreathTool
+
 - type: roleLoadout
   id: JobClerk
   groups:
+  - GroupTankHarness
   - ClerkJumpsuit
   - ClerkNeck
   - ClerkOuterClothing
   - CommonBackpack
   - ClerkShoes
   - Glasses
+  - Survival
   - Trinkets
-  
+  - GroupSpeciesBreathTool
+
 - type: roleLoadout
   id: JobProsecutor
   groups:
+  - GroupTankHarness
   - ProsecutorJumpsuit
   - ProsecutorNeck
-  - LawyerBackpack
+  - CommonBackpack
   - Glasses
+  - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
