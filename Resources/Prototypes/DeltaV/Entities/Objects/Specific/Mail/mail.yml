@@ -1,6 +1,7 @@
 # DeltaV Mail
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailBooksAll # See Resources/Prototypes/Nyanotrasen/Entities/Markers/Spawners/Random/books.yml
   suffix: books
@@ -168,6 +169,7 @@
 #      orGroup: bookother
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailPumpkinPie
   suffix: pumpkinpie
@@ -1593,6 +1595,7 @@
     - id: Lighter
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailCrayon
   suffix: Crayon
@@ -1666,6 +1669,7 @@
     - id: FoodLily
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailSignallerKit
   suffix: signallerkit
@@ -1701,6 +1705,7 @@
     - id: ClothingEyesBlindfold
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailFishingCap
   suffix: fishingcap
@@ -1710,6 +1715,7 @@
     - id: ClothingHeadFishCap
 
 - type: entity
+  noSpawn: true
   parent: BaseMail
   id: MailFlashlight
   suffix: Flashlight
