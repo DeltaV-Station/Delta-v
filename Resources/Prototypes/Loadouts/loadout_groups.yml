@@ -227,6 +227,13 @@
   - CommonDuffel
 
 - type: loadoutGroup
+  id: PassengerNeck
+  name: loadout-group-passenger-neck
+  minLimit: 0
+  loadouts:
+  - Mantle
+
+- type: loadoutGroup
   id: PassengerOuterClothing
   name: loadout-group-passenger-outerclothing
   minLimit: 0
@@ -585,6 +592,16 @@
   - ScarfBlack
   - ScarfPurple
   - ScarfZebra
+
+- type: loadoutGroup
+  id: SurvivalMime
+  name: loadout-group-survival-mime
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMime
+  - EmergencyOxygenMime
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1221,6 +1238,13 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SecurityStar
+  name: loadout-group-security-star
+  minLimit: 0
+  loadouts:
+  - SecStar
 
 # Medical
 - type: loadoutGroup
