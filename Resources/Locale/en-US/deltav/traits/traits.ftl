@@ -5,7 +5,7 @@ trait-french-accent-name = French accent
 trait-french-accent-desc = 'Ze winds are changing, and you 'ave a strong desire for wine and baguettes
 
 trait-spanish-accent-name = Spanish accent
-trait-spanish-accent-desc = Your Epanish traditions shine through, get those espesos.
+trait-spanish-accent-desc = Your Epanish traditions shine through, get those espesos!
 
 trait-mobster-accent-name = Mobster accent
 trait-mobster-accent-desc = Fugeddaboutit! Yous talk numhallly, capiche?
