@@ -47,3 +47,27 @@
   - type: Tag
     tags:
       - SurgeryTool
+
+# Placeholder PAIs, aka semi-automatic ghost roles
+
+- type: entity
+  parent: BaseItem
+  id: PhantomLinkCard
+  name: phantomlink card
+  description: Mysterious technology used to extract the soul of living things for conversion into borgs, this one can also insert consciousness into other bodies.
+  components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    kind: phantomlink
+    useDelay: 5 # You gotta be sure.
+    damageOnUse:
+      types:
+        Shock: 50 # This is not good for your head
+  - type: BorgBrain
+  - type: Sprite
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: syndicate-pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: BlockMovement

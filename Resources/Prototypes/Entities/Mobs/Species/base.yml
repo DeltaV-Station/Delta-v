@@ -9,6 +9,7 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: PPatient
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
