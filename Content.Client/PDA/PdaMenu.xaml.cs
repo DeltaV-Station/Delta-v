@@ -23,7 +23,7 @@ namespace Content.Client.PDA
         public const int HomeView = 0;
         //public const int ProgramListView = 1;
         //public const int SettingsView = 2;
-        public const int ProgramContentView = 1;
+        public const int ProgramContentView = 3;
 
 
         private string _pdaOwner = Loc.GetString("comp-pda-ui-unknown");
@@ -37,8 +37,8 @@ namespace Content.Client.PDA
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
-        public event Action<EntityUid>? OnUninstallButtonPressed;
-        public event Action<EntityUid>? OnInstallButtonPressed;
+        //public event Action<EntityUid>? OnUninstallButtonPressed;
+        //public event Action<EntityUid>? OnInstallButtonPressed;
         public PdaMenu()
         {
             IoCManager.InjectDependencies(this);
@@ -57,6 +57,8 @@ namespace Content.Client.PDA
 
             HomeButton.OnPressed += _ =>
             {
+                HomeButton.IsCurrent = true;
+                ProgramTitle.IsCurrent = false;
                 HideProgramHeader();
                 ToHomeScreen();
             };
@@ -297,9 +299,9 @@ namespace Content.Client.PDA
             HomeButton.IsCurrent = false;
             //ProgramListButton.IsCurrent = false;
             //SettingsButton.IsCurrent = false;
-            ProgramTitle.IsCurrent = false;
-            ProgramTitle.IsCurrent = true;
-            ProgramTitle.Visible = true;
+            //ProgramTitle.IsCurrent = false;
+            //ProgramTitle.IsCurrent = true;
+            //ProgramTitle.Visible = true;
             //ProgramCloseButton.Visible = true;
             //ProgramListButton.Visible = false;
             //SettingsButton.Visible = false;

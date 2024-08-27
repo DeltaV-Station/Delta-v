@@ -111,9 +111,7 @@ namespace Content.Client.PDA
             _menu.ToHomeScreen();
             _menu.HideProgramHeader();
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
-
-            //Will this work
-            //DeactivateActiveCartridge();
+            
         }
 
         protected override void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
