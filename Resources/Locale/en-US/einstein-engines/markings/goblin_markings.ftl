@@ -1,4 +1,4 @@
-# goblin tusks
+### goblin tusks
 marking-GoblinTusksBasic = No Tusks
 marking-GoblinTusksBasic-goblin_tusks_none = No Tusks
 
