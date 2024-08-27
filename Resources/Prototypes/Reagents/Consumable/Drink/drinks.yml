@@ -447,6 +447,20 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+    Gas: # Feroxi get to breathe with this too
+      effects:
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+      # Converts H2O into CO2
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+        ratios: # no duplicating O2 >:3
+          CarbonDioxide: 1.0
+          Water: -2.0
 
 - type: reagent
   id: Ice
