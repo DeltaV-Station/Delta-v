@@ -85,12 +85,12 @@
     animation: WeaponArcBite
     damage:
       types:
-        Pierce: 5
+        Piercing: 5
   - type: Perishable
   - type: Damageable
     damageModifierSet: Feroxi
-  - type: TemperatureProtection
-    coefficient: 0.1
+  - type: TypingIndicator
+    proto: feroxi
 
 - type: entity
   save: false
