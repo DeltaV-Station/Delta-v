@@ -22,6 +22,10 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: Clickable
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 1
+    fx: EffectRCDConstruct1
   - type: Tag
     tags:
       - SpreaderIgnore

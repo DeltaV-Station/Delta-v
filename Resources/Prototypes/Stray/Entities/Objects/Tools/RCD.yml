@@ -1,5 +1,5 @@
 - type: entity
-  id: CombatRCD
+  id: BaseAdavancedRCD
   parent: BaseItem
   name: Combat RCD
   description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
@@ -34,6 +34,7 @@
     - GasPressurePump
     - GasMixer
     - GasFilter
+    - FanTiny
     - ComputerFrame
     - MachineFrame
     - WindoorSecure
@@ -46,7 +47,7 @@
     maxCharges: 500
     charges: 500
   - type: AutoRecharge
-    rechargeDuration: 480
+    rechargeDuration: 240
   - type: UseDelay
   - type: Sprite
     sprite: Stray/Objects/Tools/crcd.rsi
@@ -69,7 +70,7 @@
 
 - type: entity
   id: RACD
-  parent: BaseItem
+  parent: [BaseItem, BaseEngineeringContraband]
   name: RACD
   description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:
@@ -86,6 +87,7 @@
     - GasVolumePump
     - GasMixer
     - GasFilter
+    - FanTiny
     - FloorSteel
     - Airlock
     - AirlockGlass
@@ -115,8 +117,17 @@
     key: enum.RcdUiKey.Key
 
 - type: entity
+  id: CombatRCD
+  parent: [BaseAdavancedRCD, BaseCommandContraband]
+  name: Combat RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
   id: AdavancedRCD
-  parent: CombatRCD
+  parent: BaseAdavancedRCD
   name: Adavanced RCD
   description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:

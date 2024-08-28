@@ -37,7 +37,7 @@
   collisionMask: FullTileMask
   rules:
     - IsWindow
-  rotation: User
+  rotation: Fixed
   fx: EffectRCDConstruct1
 
 - type: rcd
@@ -153,6 +153,18 @@
   fx: EffectRCDConstruct1
 
 - type: rcd
+  id: FanTiny
+  category: Tubes
+  sprite: /Textures/Interface/Radial/RCD/tiny_fan.png
+  mode: ConstructObject
+  prototype: AtmosDeviceFanTiny
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
   id: WallReinforced
   category: WallsAndFlooring
   sprite: /Textures/Interface/Radial/RCD/reinforced_wall.png
@@ -199,7 +211,7 @@
   collisionMask: FullTileMask
   rotation: User
   fx: EffectRCDConstruct4
-  
+
 - type: rcd
   id: Windoor
   category: WindowsAndGrilles
@@ -211,7 +223,7 @@
   collisionMask: FullTileMask
   rotation: User
   fx: EffectRCDConstruct2
-  
+
 - type: rcd
   id: WindoorSecure
   category: WindowsAndGrilles
@@ -223,7 +235,7 @@
   collisionMask: FullTileMask
   rotation: User
   fx: EffectRCDConstruct3
-    
+
 - type: rcd
   id: MachineFrame
   category: Electrical
@@ -235,7 +247,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
   fx: EffectRCDConstruct2
-    
+
 - type: rcd
   id: ComputerFrame
   category: Electrical
