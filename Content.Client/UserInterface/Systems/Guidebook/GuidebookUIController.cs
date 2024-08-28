@@ -180,8 +180,6 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         if (GuidebookButton != null)
             GuidebookButton.SetClickPressed(!_guideWindow.IsOpen);
 
-        selected ??= _configuration.GetCVar(CCVars.DefaultGuide);
-
         if (guides == null)
         {
             guides = _prototypeManager.EnumeratePrototypes<GuideEntryPrototype>()
