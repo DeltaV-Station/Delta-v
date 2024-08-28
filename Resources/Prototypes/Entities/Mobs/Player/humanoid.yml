@@ -785,9 +785,9 @@
       rules: ghost-role-information-disaster-victim-rules
       raffle:
         settings: default
-      requirements:
+      requirements: # DeltaV
       - !type:OverallPlaytimeRequirement
-        time: 72000 # DeltaV - 20 hours
+        time: 72000 # 20 hours
 
 - type: randomHumanoidSettings
   id: DisasterVictimResearchDirector
