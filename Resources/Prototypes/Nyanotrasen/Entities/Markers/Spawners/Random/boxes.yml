@@ -1,3 +1,4 @@
+#Spawners
 - type: entity
   parent: MarkerBase
   id: RandomBox
@@ -8,107 +9,185 @@
       - state: red
       - sprite: Objects/Storage/boxes.rsi
         state: box
-  - type: RandomSpawner
-    offset: 0
-    prototypes:
-      - BoxCardboard
-      - BoxMousetrap
-      - BoxLightbulb
-      - BoxLighttube
-      - BoxLightMixed
-      - BoxColoredLighttube
-      - BoxMaintenanceLightbulb
-      - BoxMesonScanners
-      - BoxMRE
-      - BoxInflatable
-      - BoxPerformer
-      - BoxFlare
-      - BoxTrashbag
-      - BoxSurvival
-      - BoxSyringe
-      - BoxPillCanister
-      - BoxBottle
-      - BoxSterileMask
-      - BoxLatexGloves
-      - BoxBodyBag
-      - BoxBeaker
-      - BoxVial
-      - BoxCandle
-      - BoxCandleSmall
-      - BoxDarts
-      - BoxCartridgeBB
-    chance: 0.7
-    rarePrototypes:
-      - BoxHugHealing
-      - BoxSurvivalMedical
-      - BoxNitrileGloves
-      - BoxMouthSwab
-      - BoxHandcuff
-      - BoxHeadset
-      - BoxFlashbang
-      - BoxZiptie
-      - PresentRandom
-      - BoxHolyWater
-      - MysteryFigureBox
-      - BoxCleanerGrenades
-    rareChance: 0.05
-
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomBoxTable
+      prob: 0.75
 
 - type: entity
   parent: MarkerBase
   id: RandomAmmoBox
   name: random ammo box spawner
-  suffix: 15%
+  suffix: 25%, Salvage
   components:
   - type: Sprite
     layers:
       - state: red
       - sprite: Objects/Storage/boxes.rsi
         state: shellslug
-  - type: RandomSpawner
-    offset: 0
-    prototypes:
-      - BoxMagazinePistolCaselessRiflePractice
-      - MagazineBoxMagnumPractice
-      - BoxMagazineMagnumSubMachineGunPractice
-      - BoxMagazinePistolPractice
-      - BoxMagazinePistolHighCapacityPractice
-      - BoxMagazinePistolSubMachineGunPractice
-      - BoxMagazineShotgunBeanbag
-      - BoxBeanbag
-      - BoxShotgunFlare
-      - BoxShotgunPractice
-      - BoxShellTranquilizer
-      - BoxMagazineRiflePractice
-      - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazineUniversalMagnumPractice
-      - MagazineBoxSpecialRubber
-      - MagazineBoxSpecialPractice
-    chance: 0.15
-    rarePrototypes:
-      - BoxMagazinePistolCaselessRifle
-      - BoxMagazineLightRifle
-      - MagazineBoxMagnum
-      - BoxMagazineMagnumSubMachineGun
-      - BoxMagazinePistolSubMachineGunTopMounted
-      - BoxMagazinePistol
-      - BoxMagazinePistolHighCapacity
-      - BoxMagazinePistolSubMachineGun
-      - BoxMagazineShotgun
-      - BoxMagazineShotgunSlug
-      - BoxMagazineShotgunIncendiary
-      - BoxLethalshot
-      - BoxShotgunSlug
-      - BoxShotgunIncendiary
-      - BoxMagazineRifle
-      - BoxShellSoulbreaker
-      - BoxMagazineUniversalMagnum
-      - BoxSpeedLoaderLightRifle
-      - MagazineBoxSpecial
-      - MagazineBoxSpecialIncendiary
-      - MagazineBoxSpecialUranium
-      - MagazineBoxSpecialMindbreaker
-    rareChance: 0.015
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: AmmoBoxTable
+      prob: 0.25
+
+- type: entity
+  parent: RandomAmmoBox
+  id: RandomArmoryAmmoBox
+  suffix: 90%, Armory
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: AmmoBoxTable
+      prob: 0.90
+
+#Tables
+- type: entityTable
+  id: RandomBoxTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 20
+      children:
+      #General
+      - id: BoxCardboard
+      - id: BoxMesonScanners
+      - id: BoxMRE
+      - id: BoxInflatable
+      - id: BoxPerformer
+      - id: BoxFlare
+      - id: BoxTrashbag
+      - id: BoxEnvelope
+      - id: BoxDarts
+      - id: BoxCartridgeBB
+      - id: BoxMousetrap
+      #Lights
+      - !type:GroupSelector
+        children:
+        - id: BoxLightbulb
+        - id: BoxLighttube
+        - id: BoxLightMixed
+        - id: BoxColoredLighttube
+        - id: BoxMaintenanceLightbulb
+      #Survival boxes
+      - !type:GroupSelector
+        children:
+        - id: BoxSurvival
+        - id: BoxSurvivalNitrogen
+          weight: 0.25
+      #Medical
+      - !type:GroupSelector
+        children:
+        - id: BoxSyringe
+        - id: BoxPillCanister
+        - id: BoxBottle
+        - id: BoxSterileMask
+        - id: BoxLatexGloves
+        - id: BoxBodyBag
+        - id: BoxBeaker
+        - id: BoxVial
+      #Candles
+      - !type:GroupSelector
+        children:
+        - id: BoxCandle
+        - id: BoxCandleSmall
+    #Rare
+    - !type:GroupSelector
+      children:
+      - id: BoxHugHealing
+      - id: BoxSurvivalMedical
+      - id: BoxNitrileGloves
+      - id: BoxHeadset
+      - id: PresentRandom
+      - id: BoxHolyWater
+      - id: MysteryFigureBox
+      - id: BoxCleanerGrenades
+      #Security
+      - !type:GroupSelector
+        children:
+        - id: BoxMouthSwab
+        - id: BoxHandcuff
+        - id: BoxFlashbang
+        - id: BoxZiptie
+
+- type: entityTable
+  id: AmmoBoxTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 10
+      children:
+      #Rifle
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazineRiflePractice
+        - id: BoxMagazineLightRiflePractice
+        - id: BoxMagazinePistolCaselessRiflePractice
+      #Pistol
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazinePistolPractice
+        - id: BoxMagazinePistolHighCapacityPractice
+        - id: BoxMagazinePistolSubMachineGunPractice
+      #Shotgun
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazineShotgunBeanbag
+        - id: BoxBeanbag
+        - id: BoxShotgunFlare
+        - id: BoxShotgunPractice
+        - id: BoxShellTranquilizer
+      #Magnum
+      - !type:GroupSelector
+        children:
+        - id: MagazineBoxMagnumPractice
+        - id: BoxMagazineMagnumSubMachineGunPractice
+        - id: BoxMagazineUniversalMagnumPractice
+        - id: BoxMagazineUniversalMagnumRubber
+      #Special
+      - !type:GroupSelector
+        children:
+        - id: MagazineBoxSpecialRubber
+        - id: MagazineBoxSpecialPractice
+    #Rare
+    - !type:GroupSelector
+      children:
+      #Rifle
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazineLightRifle
+        - id: BoxMagazinePistolCaselessRifle
+        - id: BoxMagazineRifle
+        - id: BoxSpeedLoaderLightRifle
+      #Pistol
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazinePistolSubMachineGunTopMounted
+        - id: BoxMagazinePistol
+        - id: BoxMagazinePistolHighCapacity
+        - id: BoxMagazinePistolSubMachineGun
+      #Shotgun
+      - !type:GroupSelector
+        children:
+        - id: BoxMagazineShotgun
+        - id: BoxMagazineShotgunSlug
+        - id: BoxMagazineShotgunIncendiary
+        - id: BoxShotgunSlug
+        - id: BoxShotgunIncendiary
+        - id: BoxLethalshot
+      #Magnum
+      - !type:GroupSelector
+        children:
+        - id: MagazineBoxMagnum
+        - id: BoxMagazineMagnumSubMachineGun
+        - id: BoxMagazineUniversalMagnum
+      #Special
+      - !type:GroupSelector
+        children:
+        - id: MagazineBoxSpecial
+        - id: MagazineBoxSpecialIncendiary
+        - id: MagazineBoxSpecialUranium
+        - id: MagazineBoxSpecialMindbreaker
+      #Other
+      - id: BoxShellSoulbreaker
