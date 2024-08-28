@@ -49,10 +49,11 @@
     radsPerLevel: 2
     energyLoss: 1
   - type: ChasingWalk
-    minSpeed: 1
-    maxSpeed: 3
+    minSpeed: 2
+    maxSpeed: 5
     chasingComponent:
     - type: Airtight
+    - type: Singularity
   - type: SingularityDistortion
     falloffPower: 2.529822
     energy: 180
