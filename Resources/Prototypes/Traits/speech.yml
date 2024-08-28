@@ -5,7 +5,7 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 2
+  cost: 0 # Delta-V change- removed cost for accentless to 0, as it said it was supposed to be free
   components:
   - type: Accentless
     removes:
@@ -64,14 +64,12 @@
     - type: ReplacementAccent
       accent: liar
 
-# 2 Cost
-
 - type: trait
   id: SocialAnxiety
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1 # Delta-V change- lowered cost to 1 to allow for more versatility with accents
   components:
     - type: StutteringAccent
       matchRandomProb: 0.1
@@ -84,6 +82,6 @@
   name: trait-frontal-lisp-name
   description: trait-frontal-lisp-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1 # Delta-V change- lowered cost to 1 to allow for more versatility with accents
   components:
     - type: FrontalLisp
