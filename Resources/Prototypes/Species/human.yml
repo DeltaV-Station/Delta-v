@@ -17,12 +17,14 @@
 - type: speciesBaseSprites
   id: MobHumanSprites
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobHumanHead
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
     LArm: MobHumanLArm
     RArm: MobHumanRArm
     LHand: MobHumanLHand
@@ -32,7 +34,6 @@
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
     Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
-    HeadTop: MobHumanoidAnyMarking # Nyanotrasen - Felinid & Oni
     HeadSide: MobHumanoidAnyMarking # Einstein Engines - Oni
 
 - type: markingPoints
@@ -40,6 +41,9 @@
   points:
     Head:
       points: 1
+
+    Special: # the cat ear joke
+      points: 0
       required: false
     Hair:
       points: 1

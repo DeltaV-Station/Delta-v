@@ -111,8 +111,8 @@
   abstract: true
   components:
   - type: ItemToggle
-    toggleLight: false
     onUse: false
+  - type: ItemTogglePointLight
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
