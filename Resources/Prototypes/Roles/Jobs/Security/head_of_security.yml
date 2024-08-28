@@ -15,7 +15,6 @@
       time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
       time: 90000 # DeltaV - 25 hours, was 40
-    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10
@@ -24,6 +23,7 @@
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  whitelisted: true # DeltaV
   access:
   - HeadOfSecurity
   - Command
