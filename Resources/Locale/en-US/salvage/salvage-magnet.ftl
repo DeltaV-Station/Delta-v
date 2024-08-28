@@ -18,6 +18,7 @@ salvage-magnet-resources = {$resource ->
     [OrePlasma] Plasma
     [OreUranium] Uranium
     [OreArtifactFragment] Artifact fragments
+    [OreBananium] Bananium
     *[other] {$resource}
 }
 
@@ -29,6 +30,9 @@ salvage-magnet-resources-count = {$count ->
     [5] (Rich)
     *[other] (Extraordinary)
 }
+
+# Debris
+salvage-magnet-debris-ChunkDebris = Space Debris
 
 # Asteroids
 dungeon-config-proto-BlobAsteroid = Asteroid clump
