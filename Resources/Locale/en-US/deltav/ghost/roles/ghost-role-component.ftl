@@ -36,7 +36,7 @@ ghost-role-information-synthesis-rules =
 
     You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself unless your ship is in danger.
 
-ghost-role-information-roboticist-name = Robo-Neuroticist
+ghost-role-information-roboticist-name = Syndicate Robo-Neuroticist
 ghost-role-information-roboticist-description = You are a member of Cybersun Industries! You are provided with all of the tools to manufacture and upgrade the various Silicon entities aboard a nearby station, in the name of accomplishing your nefarious goals.
 ghost-role-information-roboticist-rules =
     Build machines of war, and send them to the station to extract your toll.
