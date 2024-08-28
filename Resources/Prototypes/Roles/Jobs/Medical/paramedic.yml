@@ -5,11 +5,9 @@
   playTimeTracker: JobParamedic
   antagAdvantage: 2 # DeltaV - Reduced TC: External Access
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 3600
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 1800
+      time: 14400 #4h
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

@@ -4,11 +4,9 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800
+      time: 21600 # 6 hours
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10
@@ -17,7 +15,6 @@
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # DeltaV
   access:
   - HeadOfSecurity
   - Command

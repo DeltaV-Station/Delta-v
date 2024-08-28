@@ -4,17 +4,12 @@
   description: job-description-BlueShield
   playTimeTracker: JobBlueshield
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800
+      time: 14400
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 7200
+      time: 21600 # 6 hours
   startingGear: BlueshieldGear
   icon: "JobIconBlueshield"
   supervisors: job-supervisors-centcom

@@ -4,9 +4,8 @@
   description: job-description-borg
   playTimeTracker: JobBorg
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 1800
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hours
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd

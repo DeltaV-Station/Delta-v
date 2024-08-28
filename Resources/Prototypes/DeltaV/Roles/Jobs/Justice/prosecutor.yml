@@ -11,7 +11,7 @@
       time: 1 # 6 hours
     - !type:DepartmentTimeRequirement
       department: Justice
-      time: 1800
+      time: 7200 #2h
   startingGear: ProsecutorGear
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj

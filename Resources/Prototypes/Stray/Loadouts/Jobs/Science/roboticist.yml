@@ -1,3 +1,13 @@
+#   Timers
+- type: loadoutEffectGroup
+  id: RoboticistTechpriestTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRoboticist
+      time: 14400 #4 hrs
+
 # Head
 - type: loadout
   id: RoboticistCap
@@ -11,11 +21,17 @@
 
 - type: loadout
   id: HeadTechPriest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     head: ClothingHeadTechPriest
 
 - type: loadout
   id: HeadHatWeldingMask
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     head: ClothingHeadHatWeldingMaskFlame
 
@@ -37,12 +53,18 @@
 
 - type: loadout
   id: GlassesMeson
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     eyes: ClothingEyesGlassesMeson
 
 #Mask
 - type: loadout
   id: MaskWeldingGas
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     mask: ClothingMaskWeldingGas
 
@@ -85,6 +107,9 @@
 
 - type: loadout
   id: BackpackEcclesia
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     back: ClothingBackpackEcclesiaFilled
 
@@ -101,6 +126,9 @@
 
 - type: loadout
   id: RobeTechPriest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
   equipment:
     outerClothing: ClothingOuterRobeTechPriest
 

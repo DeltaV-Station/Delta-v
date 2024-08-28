@@ -12,11 +12,9 @@
 #      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10800 # 3 hours
+      time: 21600 # 6 hours
 #    - !type:OverallPlaytimeRequirement
 #      time: 72000 # DeltaV - 20 hours
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10

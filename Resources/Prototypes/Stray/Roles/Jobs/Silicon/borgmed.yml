@@ -6,7 +6,9 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 1800
+      time: 3600 #1h
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hours
   canBeAntag: false
   icon: JobIconBorgMedical
   supervisors: job-supervisors-rd

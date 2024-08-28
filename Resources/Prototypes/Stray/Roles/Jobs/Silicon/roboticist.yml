@@ -6,9 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 5400
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 10800 # DeltaV - 3 hours
+      time: 14400 #4h
   startingGear: RoboticistGear
   icon: "JobIconRoboticist"
   supervisors: job-supervisors-rd

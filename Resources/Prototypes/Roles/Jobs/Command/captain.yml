@@ -4,11 +4,11 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
+      time: 36000 # 10 h
+    - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
+      role: JobHeadOfPersonnel
+      time: 3600
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20
@@ -18,7 +18,6 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  whitelisted: true # DeltaV
   accessGroups:
   - AllAccess
   special:

@@ -7,11 +7,9 @@
   playTimeTracker: JobChiefMedicalOfficer
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7200
+      time: 21600 # 6 hours
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10
