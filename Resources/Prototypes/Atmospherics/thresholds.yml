@@ -48,13 +48,6 @@
     threshold: 0.5
 
 - type: alarmThreshold
-  id: stationMethane
-  upperBound: !type:AlarmThresholdSetting
-    threshold: 0.005 # lightable beyond this concentration
-  upperWarnAround: !type:AlarmThresholdSetting
-    threshold: 0.5
-
-- type: alarmThreshold
   id: stationTritium
   upperBound: !type:AlarmThresholdSetting
     threshold: 0.004 # lightable beyond this concentration
