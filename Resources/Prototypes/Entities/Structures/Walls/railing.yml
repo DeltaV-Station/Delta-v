@@ -5,7 +5,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: side
   - type: Icon
@@ -60,7 +60,7 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
 
 - type: entity
   parent: BaseStructure
@@ -69,7 +69,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner
   - type: Icon
@@ -133,7 +133,7 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
 
 - type: entity
   parent: BaseStructure
@@ -142,7 +142,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner_small
   - type: Icon
@@ -197,8 +197,8 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
-    
+    fx: EffectRCDDeconstruct2
+
 - type: entity
   parent: BaseStructure
   id: RailingRound
@@ -206,8 +206,13 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+<<<<<<< HEAD
+    drawdepth: SmallObjects
     sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
+=======
+    drawdepth: SmallObjects
+    sprite: Structures/Walls/railing.rsi
+>>>>>>> b3036ded0a (Make railings render over tables (#31589))
     state: round
   - type: Physics
     bodyType: Static
@@ -276,4 +281,4 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
