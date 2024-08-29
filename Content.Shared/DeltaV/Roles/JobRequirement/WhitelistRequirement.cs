@@ -9,6 +9,9 @@ namespace Content.Shared.Roles;
 /// <summary>
 /// Requires the player be globally whitelisted to play a role.
 /// </summary>
+/// <remarks>
+/// Don't use this for jobs, use <c>whitelisted: true</c> on the JobPrototype instead.
+/// </remarks>
 [Serializable, NetSerializable]
 public sealed partial class WhitelistRequirement : JobRequirement
 {

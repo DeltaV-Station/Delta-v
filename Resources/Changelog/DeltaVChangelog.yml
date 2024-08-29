@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Add automatic changelogs
-    type: Add
-  id: 1
-  time: '2023-09-13T08:00:00.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Added most of the DeltaV and Nyano food and drink, along with recipes.
@@ -3499,3 +3493,27 @@
   id: 498
   time: '2024-08-27T07:20:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1691
+- author: deltanedas
+  changes:
+  - message: Merged last weeks changes from upstream, report any bugs.
+    type: Add
+  - message: Cleaned up a lot of guidebooks.
+    type: Tweak
+  id: 499
+  time: '2024-08-28T03:33:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1693
+- author: deltanedas
+  changes:
+  - message: Fixed Nyano winter coat loadouts (Mail carrier and Mantis) not giving
+      you anything.
+    type: Fix
+  id: 500
+  time: '2024-08-28T06:07:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1697
+- author: deltanedas
+  changes:
+  - message: Disaster victim ghost roles now have a playtime requirement.
+    type: Tweak
+  id: 501
+  time: '2024-08-28T16:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1699
