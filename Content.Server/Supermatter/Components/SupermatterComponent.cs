@@ -208,8 +208,7 @@ public sealed partial class SupermatterComponent : Component
         new (transmissionRate: -.25f, heatModifier: 11f, heatPowerGeneration: 1f), // vapor
         new (heatPowerGeneration: .5f), // ommonium
         new (heatResistance: 5f), // n2o
-        new (transmissionRate: -3f, heatModifier: 9f, heatResistance: 1f, heatPowerGeneration: 1f), // frezon
-        new (transmissionRate: .4f, heatModifier: 14f, heatPowerGeneration: 1f) // Methane
+        new (transmissionRate: -3f, heatModifier: 9f, heatResistance: 1f, heatPowerGeneration: 1f) // frezon
     };
 }
 

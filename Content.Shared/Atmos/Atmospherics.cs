@@ -178,7 +178,7 @@ namespace Content.Shared.Atmos
         ///     This is the actual length of the gases arrays in mixtures.
         ///     Set to the closest multiple of 4 relative to <see cref="TotalNumberOfGases"/> for SIMD reasons.
         /// </summary>
-        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 3) / 4) * 4;
+        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 2) / 4) * 4;
 
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
