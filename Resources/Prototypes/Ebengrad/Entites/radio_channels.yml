@@ -1,0 +1,24 @@
+- type: radioChannel
+  id: OWH-SPEC
+  name: chat-radio-task-group
+  keycode: 'я' # Eben-Localization
+  frequency: 8841
+  color: "#00BFFF"
+  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
+  longRange: true
+
+#Не ну я это доделаю
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyOWH
+  name: Ключ шифрования ОБК
+  description: Увы...
+  components:
+  - type: EncryptionKey
+    channels:
+    - OWH-SPEC
+    defaultChannel: OWH-SPEC
+  - type: Sprite
+    layers:
+    - state: crypt_spec
+    - state: owh_label
