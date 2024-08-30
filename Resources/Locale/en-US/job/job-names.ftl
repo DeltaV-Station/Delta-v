@@ -35,8 +35,8 @@ job-name-bartender = Bartender
 job-name-passenger = Passenger
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
-# DeltaV - Hopefully makes LO maintaining easier
-# job-name-qm = Quartermaster
+# DeltaV - Quartermaster renamed to LO
+job-name-qm = Logistics Officer
 job-name-cargotech = Cargo Technician
 job-name-chef = Chef
 job-name-clown = Clown
