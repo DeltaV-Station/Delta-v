@@ -18,10 +18,6 @@
   weight: -10
   roles:
   - Bartender
-  - Borg
-  - Borgser
-  - Borgcwn
-  - Borgjan
   - Botanist
   - Boxer
   # - Chaplain # DeltaV - Move Chaplain into Epistemics
@@ -118,6 +114,18 @@
   - Chaplain # DeltaV - Move Chaplain into Epistemics
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
   - Roboticist
+
+- type: department
+  id: Silicon
+  name: department-Silicon
+  description: department-Silicon-description
+  color: "#D381C9"
+  roles:
+  - Borg
+  - Borgser
+  - Borgcwn
+  - Borgjan
+  - StationAi
 
 - type: department
   id: Specific
