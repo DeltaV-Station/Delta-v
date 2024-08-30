@@ -29,7 +29,7 @@
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc
   category: SpeechTraits
-  cost: 0 # Delta-V change- lowered cost to 1 to allow for more versatility with accents
+  cost: 0 # Delta-V change- lowered cost to 0 to allow for more versatility with accents
   components:
     - type: StutteringAccent
       matchRandomProb: 0.1
@@ -42,7 +42,7 @@
   name: trait-frontal-lisp-name
   description: trait-frontal-lisp-desc
   category: SpeechTraits
-  cost: 0 # Delta-V change- lowered cost to 1 to allow for more versatility with accents
+  cost: 0 # Delta-V change- lowered cost to 0 to allow for more versatility with accents
   components:
     - type: FrontalLisp
 
