@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Added most of the DeltaV and Nyano food and drink, along with recipes.
-    type: Add
-  id: 2
-  time: '2023-09-13T16:40:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added 15 new moth plushes.
-    type: Add
-  id: 3
-  time: '2023-09-13T16:43:47.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added Vulpkanin.
-    type: Add
-  id: 4
-  time: '2023-09-13T18:24:12.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Added mothroaches.
@@ -3517,3 +3499,26 @@
   id: 501
   time: '2024-08-28T16:14:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1699
+- author: deltanedas
+  changes:
+  - message: Fixed whitelists not working for some people.
+    type: Fix
+  id: 502
+  time: '2024-08-30T03:42:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1708
+- author: MilonPL
+  changes:
+  - message: Fixed felinid/harpy/vulpkanin chat emotes.
+    type: Fix
+  id: 503
+  time: '2024-08-30T04:25:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1710
+- author: deltanedas
+  changes:
+  - message: Disabled Station AI until it's fully implemented.
+    type: Remove
+  - message: Fixed saying lol not making you laugh.
+    type: Fix
+  id: 504
+  time: '2024-08-30T08:28:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1712
