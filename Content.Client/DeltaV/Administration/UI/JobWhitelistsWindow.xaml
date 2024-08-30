@@ -5,7 +5,6 @@
     <BoxContainer Orientation="Vertical">
         <Label Name="PlayerName" Margin="4"/>
         <BoxContainer Orientation="Horizontal" Margin="4">
-            <Label Text="Tiers" VerticalAlignment="Center"/>
             <BoxContainer Name="TierButtons" Orientation="Horizontal"/>
         </BoxContainer>
         <ScrollContainer VerticalExpand="True">
