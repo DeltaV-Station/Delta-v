@@ -206,13 +206,8 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-<<<<<<< HEAD
     drawdepth: SmallObjects
     sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
-=======
-    drawdepth: SmallObjects
-    sprite: Structures/Walls/railing.rsi
->>>>>>> b3036ded0a (Make railings render over tables (#31589))
     state: round
   - type: Physics
     bodyType: Static

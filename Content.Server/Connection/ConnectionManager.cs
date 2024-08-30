@@ -311,19 +311,20 @@ namespace Content.Server.Connection
             }
 
             // DeltaV - Soft whitelist improvements
+            // TODO: replace this with a whitelist config prototype with a connected whitelisted players condition
             if (_cfg.GetCVar(CCVars.WhitelistEnabled))
             {
                 var connectedPlayers = _plyMgr.PlayerCount;
                 var connectedWhitelist = _connectedWhitelistedPlayers.Count;
 
-                var slots = _cfg.GetCVar(CCVars.WhitelistMinPlayers);
+                var slots = 25;
 
                 var noSlotsOpen = slots > 0 && slots < connectedPlayers - connectedWhitelist;
 
                 if (noSlotsOpen && await _db.GetWhitelistStatusAsync(userId) == false
                                      && adminData is null)
                 {
-                    var msg = Loc.GetString(_cfg.GetCVar(CCVars.WhitelistReason));
+                    var msg = Loc.GetString("whitelist-not-whitelisted-peri");
 
                     if (slots > 0)
                         msg += "\n" + Loc.GetString("whitelist-playercount-invalid", ("min", slots), ("max", _cfg.GetCVar(CCVars.SoftMaxPlayers)));
