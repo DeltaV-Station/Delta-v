@@ -110,6 +110,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw']
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -147,7 +148,7 @@
   name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
