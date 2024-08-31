@@ -129,6 +129,14 @@ public abstract class SharedSingularitySystem : EntitySystem
             QueueDel(uid);
     }
 
+    //public void UpdateSmoothedEnergy(EntityUid uid, SingularityDistortionComponent? singularity = null)
+    //{
+    //    if(!Resolve(uid, ref singularity))
+    //        return;
+//
+    //    singularity.SmoothedEnergy = MathHelper.Lerp(singularity.SmoothedEnergy, singularity.Energy, 0.01f);
+    //}
+//
     /// <summary>
     /// Alerts the entity hosting the singularity that the level of the singularity has changed without the level actually changing.
     /// Used to sync components when the singularity component is added to an entity.

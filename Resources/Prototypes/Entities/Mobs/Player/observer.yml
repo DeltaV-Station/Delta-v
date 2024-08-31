@@ -44,10 +44,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Mobs/Ghosts/ghost_human.rsi
+    sprite: SimpleStation14/Mobs/Ghosts/ghost.rsi
     color: "#fff8"
     layers:
-    - state: animated
+    - state: "1"
       shader: unshaded
   - type: ContentEye
     maxZoom: 1.44,1.44
