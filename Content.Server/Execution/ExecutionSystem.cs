@@ -69,7 +69,6 @@ public sealed class ExecutionSystem : EntitySystem
         var weapon = args.Using!.Value;
         var victim = args.Target;
 
-        Log.Debug($"Trying to execute {victim} with {weapon} by {attacker}");
         if (!CanExecuteWithMelee(weapon, victim, attacker))
             return;
 
