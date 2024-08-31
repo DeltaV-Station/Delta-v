@@ -473,6 +473,93 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+- proto: AirAlarm
+  entities:
+  - uid: 732
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,6.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 414
+      - 484
+      - 239
+      - 240
+      - 243
+      - 242
+      - 235
+      - 234
+      - 672
+      - 673
+      - 739
+  - uid: 733
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,4.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 451
+      - 407
+      - 236
+      - 237
+      - 241
+      - 238
+      - 235
+      - 234
+      - 672
+      - 673
+      - 738
+  - uid: 734
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,16.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 415
+      - 485
+      - 243
+      - 242
+  - uid: 735
+    components:
+    - type: Transform
+      pos: -18.5,7.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 481
+      - 408
+      - 238
+      - 239
+  - uid: 736
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,3.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 480
+      - 411
+      - 240
+      - 241
+  - uid: 737
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,-7.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 406
+      - 452
+      - 237
+      - 236
 - proto: AirCanister
   entities:
   - uid: 714
@@ -622,15 +709,39 @@ entities:
     - type: Transform
       pos: -6.5,7.5
       parent: 1
+- proto: AirSensor
+  entities:
+  - uid: 738
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,1.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+  - uid: 739
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,9.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
 - proto: APCBasic
   entities:
   - uid: 282
     components:
+    - type: MetaData
+      name: APC (Aft)
     - type: Transform
       pos: -12.5,-3.5
       parent: 1
   - uid: 284
     components:
+    - type: MetaData
+      name: APC (Fore)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.5,16.5
@@ -639,6 +750,8 @@ entities:
   entities:
   - uid: 283
     components:
+    - type: MetaData
+      name: APC (Centre)
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,7.5
@@ -692,6 +805,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,10.5
+      parent: 1
+- proto: BarSignZocalo
+  entities:
+  - uid: 741
+    components:
+    - type: Transform
+      pos: -15.5,16.5
       parent: 1
 - proto: BedsheetMedical
   entities:
@@ -2009,6 +2129,126 @@ entities:
     - type: Transform
       pos: -8.5,2.5
       parent: 1
+  - uid: 756
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,-6.5
+      parent: 1
+  - uid: 757
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -12.5,-6.5
+      parent: 1
+  - uid: 758
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,8.5
+      parent: 1
+  - uid: 759
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,8.5
+      parent: 1
+  - uid: 760
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,8.5
+      parent: 1
+  - uid: 761
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,8.5
+      parent: 1
+- proto: ClosetEmergencyN2FilledRandom
+  entities:
+  - uid: 730
+    components:
+    - type: Transform
+      pos: -5.5,10.5
+      parent: 1
+  - uid: 731
+    components:
+    - type: Transform
+      pos: -16.5,10.5
+      parent: 1
+- proto: ClosetWallEmergencyFilledRandom
+  entities:
+  - uid: 721
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-3.5
+      parent: 1
+  - uid: 722
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,1.5
+      parent: 1
+  - uid: 723
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,1.5
+      parent: 1
+  - uid: 724
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,9.5
+      parent: 1
+  - uid: 725
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,9.5
+      parent: 1
+  - uid: 746
+    components:
+    - type: Transform
+      pos: -4.5,11.5
+      parent: 1
+  - uid: 747
+    components:
+    - type: Transform
+      pos: -17.5,11.5
+      parent: 1
+- proto: ClosetWallFireFilledRandom
+  entities:
+  - uid: 720
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-3.5
+      parent: 1
+  - uid: 726
+    components:
+    - type: Transform
+      pos: -20.5,11.5
+      parent: 1
+  - uid: 727
+    components:
+    - type: Transform
+      pos: -1.5,11.5
+      parent: 1
+  - uid: 728
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-0.5
+      parent: 1
+  - uid: 729
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-0.5
+      parent: 1
 - proto: ComputerEmergencyShuttle
   entities:
   - uid: 653
@@ -2045,68 +2285,126 @@ entities:
     - type: Transform
       pos: -11.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 732
   - uid: 235
     components:
     - type: Transform
       pos: -12.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 732
   - uid: 236
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 737
   - uid: 237
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -10.5,-3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 737
   - uid: 238
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 735
   - uid: 239
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
+      - 735
   - uid: 240
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
+      - 736
   - uid: 241
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 736
   - uid: 242
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
+      - 734
   - uid: 243
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -10.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
+      - 734
   - uid: 672
     components:
     - type: Transform
       pos: -10.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 732
   - uid: 673
     components:
     - type: Transform
       pos: -9.5,5.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
+      - 732
+- proto: FoodMealCubancarp
+  entities:
+  - uid: 767
+    components:
+    - type: MetaData
+      desc: '...what? We had to do SOMETHING with the victims of the Space Titanic'
+      name: Fernando Fish
+    - type: Transform
+      pos: -7.363249,13.642095
       parent: 1
 - proto: GasPassiveVent
   entities:
@@ -3135,6 +3433,9 @@ entities:
     - type: Transform
       pos: -12.5,-5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 737
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 407
@@ -3143,6 +3444,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -12.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 408
@@ -3150,6 +3454,9 @@ entities:
     - type: Transform
       pos: -15.5,4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 735
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 409
@@ -3173,6 +3480,9 @@ entities:
     - type: Transform
       pos: -6.5,4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 736
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 412
@@ -3197,6 +3507,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 415
@@ -3204,6 +3517,9 @@ entities:
     - type: Transform
       pos: -11.5,15.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 734
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasVentScrubber
@@ -3230,6 +3546,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -9.5,1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 733
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 452
@@ -3237,6 +3556,9 @@ entities:
     - type: Transform
       pos: -9.5,-5.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 737
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 480
@@ -3245,6 +3567,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,6.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 736
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 481
@@ -3253,6 +3578,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -15.5,6.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 735
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 482
@@ -3276,6 +3604,9 @@ entities:
     - type: Transform
       pos: -9.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 732
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 485
@@ -3283,6 +3614,9 @@ entities:
     - type: Transform
       pos: -10.5,15.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 734
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GeneratorBasic15kW
@@ -3451,6 +3785,99 @@ entities:
     - type: Transform
       pos: -17.5,6.5
       parent: 1
+- proto: PlushieCarp
+  entities:
+  - uid: 762
+    components:
+    - type: MetaData
+      desc: Imprisoned for being soley responsible for the sinking of Space Titanic
+      name: Frederick Fish
+    - type: Transform
+      pos: -3.4979386,6.434398
+      parent: 1
+- proto: PlushieHolocarp
+  entities:
+  - uid: 765
+    components:
+    - type: MetaData
+      desc: Chief designer of Space Titanic, hiding in Engineering to avoid media attention
+      name: Freya Fish
+    - type: Transform
+      pos: -10.993683,-5.913672
+      parent: 1
+- proto: PlushieMagicarp
+  entities:
+  - uid: 764
+    components:
+    - type: MetaData
+      desc: Drinks away his sorrow after reading about Space Titanic in the news
+      name: Frankie Fish
+    - type: Transform
+      pos: -14.487494,12.738119
+      parent: 1
+- proto: PlushieRainbowCarp
+  entities:
+  - uid: 763
+    components:
+    - type: MetaData
+      desc: In medbay after being the sole survivor of the sinking of Space Titanic
+      name: Fiona Fish
+    - type: Transform
+      pos: -18.582478,6.441945
+      parent: 1
+- proto: PosterContrabandEAT
+  entities:
+  - uid: 750
+    components:
+    - type: Transform
+      pos: -8.5,13.5
+      parent: 1
+- proto: PosterLegitBuild
+  entities:
+  - uid: 749
+    components:
+    - type: Transform
+      pos: -10.5,-7.5
+      parent: 1
+- proto: PosterLegitCarpMount
+  entities:
+  - uid: 766
+    components:
+    - type: MetaData
+      desc: Excecuted for being a cowardly Captain during the sinking of Space Titanic
+      name: Fabiano Fish
+    - type: Transform
+      pos: -8.5,17.5
+      parent: 1
+- proto: PosterLegitHelpOthers
+  entities:
+  - uid: 751
+    components:
+    - type: Transform
+      pos: -17.5,3.5
+      parent: 1
+- proto: PosterLegitNanotrasenLogo
+  entities:
+  - uid: 752
+    components:
+    - type: Transform
+      pos: -22.5,1.5
+      parent: 1
+  - uid: 753
+    components:
+    - type: Transform
+      pos: -22.5,9.5
+      parent: 1
+  - uid: 754
+    components:
+    - type: Transform
+      pos: 0.5,9.5
+      parent: 1
+  - uid: 755
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 98
@@ -3585,6 +4012,30 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.5,1.5
       parent: 1
+- proto: RandomPosterAny
+  entities:
+  - uid: 744
+    components:
+    - type: Transform
+      pos: -16.5,-0.5
+      parent: 1
+  - uid: 745
+    components:
+    - type: Transform
+      pos: -5.5,-0.5
+      parent: 1
+- proto: RandomPosterLegit
+  entities:
+  - uid: 742
+    components:
+    - type: Transform
+      pos: -13.5,15.5
+      parent: 1
+  - uid: 743
+    components:
+    - type: Transform
+      pos: -8.5,15.5
+      parent: 1
 - proto: RandomProduce
   entities:
   - uid: 509
@@ -3613,6 +4064,9 @@ entities:
     - type: Transform
       pos: -5.5,7.5
       parent: 1
+    - type: AccessReader
+      access:
+      - - Armory
 - proto: ShuttleWindow
   entities:
   - uid: 102
@@ -3772,6 +4226,14 @@ entities:
     - type: Transform
       pos: -8.5,-4.5
       parent: 1
+- proto: SodaDispenser
+  entities:
+  - uid: 740
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,13.5
+      parent: 1
 - proto: StasisBed
   entities:
   - uid: 199
@@ -3792,6 +4254,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,11.5
+      parent: 1
+- proto: Stunbaton
+  entities:
+  - uid: 748
+    components:
+    - type: Transform
+      pos: -12.549713,18.48564
       parent: 1
 - proto: SubstationBasic
   entities:
@@ -4673,6 +5142,13 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-8.5
+      parent: 1
+- proto: WarpPointEvacShuttle
+  entities:
+  - uid: 719
+    components:
+    - type: Transform
+      pos: -11.5,12.5
       parent: 1
 - proto: WeaponCapacitorRecharger
   entities:
