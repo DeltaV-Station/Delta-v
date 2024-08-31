@@ -44,6 +44,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
+    noRot: true
+    overrideContainerOcclusion: true # Always show up regardless of where they're contained.
+    drawdepth: Ghosts
     sprite: SimpleStation14/Mobs/Ghosts/ghost.rsi
     color: "#fff8"
     layers:
