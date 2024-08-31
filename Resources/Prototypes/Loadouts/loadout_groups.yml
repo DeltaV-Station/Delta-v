@@ -496,6 +496,7 @@
   minLimit: 0
   loadouts:
   - JesterHat
+  - JesterAltHat
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -503,6 +504,7 @@
   loadouts:
   - ClownSuit
   - JesterSuit
+  - JesterAltSuit
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -593,6 +595,13 @@
   - ScarfPurple
   - ScarfZebra
 
+- type: loadoutGroup
+  id: MimeBelt
+  name: loadout-group-mime-belt
+  loadouts:
+  - MimeSuspendersRed
+  - MimeSuspendersBlack
+  
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime
@@ -1171,7 +1180,6 @@
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
-  - CombatBoots
   - JackBoots
   - SecurityWinterBoots
 

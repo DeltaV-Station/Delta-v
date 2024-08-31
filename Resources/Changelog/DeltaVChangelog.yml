@@ -1,48 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Add automatic changelogs
-    type: Add
-  id: 1
-  time: '2023-09-13T08:00:00.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Added most of the DeltaV and Nyano food and drink, along with recipes.
-    type: Add
-  id: 2
-  time: '2023-09-13T16:40:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added 15 new moth plushes.
-    type: Add
-  id: 3
-  time: '2023-09-13T16:43:47.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added Vulpkanin.
-    type: Add
-  id: 4
-  time: '2023-09-13T18:24:12.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added mothroaches.
-    type: Add
-  id: 5
-  time: '2023-09-13T19:19:25.0000000+00:00'
-- author: TadJohnson00
-  changes:
-  - message: Added arctic foxes to the game. Who knows, maybe you'll see one around!
-    type: Add
-  id: 6
-  time: '2023-09-13T20:15:57.0000000+00:00'
-- author: Dorragon
-  changes:
-  - message: Added Pride-O-Mat
-    type: Add
-  - message: Added restock box for prideomat that is available in cargo
-    type: Add
-  id: 7
-  time: '2023-09-16T06:26:04.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Added various posters, signs and paintings.
@@ -3499,3 +3455,73 @@
   id: 498
   time: '2024-08-27T07:20:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1691
+- author: deltanedas
+  changes:
+  - message: Merged last weeks changes from upstream, report any bugs.
+    type: Add
+  - message: Cleaned up a lot of guidebooks.
+    type: Tweak
+  id: 499
+  time: '2024-08-28T03:33:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1693
+- author: deltanedas
+  changes:
+  - message: Fixed Nyano winter coat loadouts (Mail carrier and Mantis) not giving
+      you anything.
+    type: Fix
+  id: 500
+  time: '2024-08-28T06:07:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1697
+- author: deltanedas
+  changes:
+  - message: Disaster victim ghost roles now have a playtime requirement.
+    type: Tweak
+  id: 501
+  time: '2024-08-28T16:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1699
+- author: deltanedas
+  changes:
+  - message: Fixed whitelists not working for some people.
+    type: Fix
+  id: 502
+  time: '2024-08-30T03:42:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1708
+- author: MilonPL
+  changes:
+  - message: Fixed felinid/harpy/vulpkanin chat emotes.
+    type: Fix
+  id: 503
+  time: '2024-08-30T04:25:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1710
+- author: deltanedas
+  changes:
+  - message: Disabled Station AI until it's fully implemented.
+    type: Remove
+  - message: Fixed saying lol not making you laugh.
+    type: Fix
+  id: 504
+  time: '2024-08-30T08:28:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1712
+- author: dootythefrooty
+  changes:
+  - message: Added felinid emotes.
+    type: Add
+  id: 505
+  time: '2024-08-31T01:52:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1720
+- author: SsalamethVersaach
+  changes:
+  - message: Added more accents, adjusted language accent weights from 1 to 2 on the
+      character creation page, removed accent cost from others, and added the brand
+      new Irish accent!
+    type: Add
+  id: 506
+  time: '2024-08-31T03:47:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1701
+- author: adeinitas
+  changes:
+  - message: Added vulpkanin tail and ear options to felinids.
+    type: Tweak
+  id: 507
+  time: '2024-08-31T04:24:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1694

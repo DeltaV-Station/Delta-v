@@ -25,6 +25,7 @@ namespace Content.Client.Mail;
 /// </remarks>
 public sealed class MailJobVisualizerSystem : VisualizerSystem<MailComponent>
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SpriteSystem _stateManager = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
@@ -34,7 +35,7 @@ public sealed class MailJobVisualizerSystem : VisualizerSystem<MailComponent>
         if (args.Sprite == null)
             return;
 
-        args.Component.TryGetData(MailVisuals.JobIcon, out string job);
+        _appearance.TryGetData(uid, MailVisuals.JobIcon, out string job, args.Component);
 
         if (string.IsNullOrEmpty(job))
             job = "JobIconUnknown";
