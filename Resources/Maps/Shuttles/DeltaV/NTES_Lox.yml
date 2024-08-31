@@ -2641,13 +2641,6 @@ entities:
       parent: 670
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 580
-    components:
-    - type: Transform
-      pos: -1.5,2.5
-      parent: 670
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 581
     components:
     - type: Transform
@@ -2754,6 +2747,12 @@ entities:
       color: '#0335FCFF'
 - proto: GasPipeTJunction
   entities:
+  - uid: 241
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,2.5
+      parent: 670
   - uid: 532
     components:
     - type: Transform
@@ -2791,18 +2790,6 @@ entities:
       parent: 670
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 555
-    components:
-    - type: Transform
-      anchored: False
-      rot: -1.5707963267948966 rad
-      pos: -1.5,2.5
-      parent: 670
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
-    - type: Physics
-      canCollide: True
-      bodyType: Dynamic
   - uid: 556
     components:
     - type: Transform

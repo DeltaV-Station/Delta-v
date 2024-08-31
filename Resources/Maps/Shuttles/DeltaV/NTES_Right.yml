@@ -7436,23 +7436,6 @@ entities:
     - type: Transform
       pos: -8.5,-5.5
       parent: 1
-- proto: SalvageCanisterSpawner
-  entities:
-  - uid: 1383
-    components:
-    - type: Transform
-      pos: -7.5,-18.5
-      parent: 1
-    - type: RandomSpawner
-      prototypes: []
-      rareChance: 0.09
-      rarePrototypes: []
-      gameRules: []
-  - uid: 1384
-    components:
-    - type: Transform
-      pos: 8.5,-18.5
-      parent: 1
 - proto: Screen
   entities:
   - uid: 1477
