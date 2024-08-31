@@ -49,6 +49,9 @@
     drawdepth: Ghosts
     sprite: SimpleStation14/Mobs/Ghosts/ghost.rsi
     color: "#fff8"
+    layers:
+    - state: "1"
+      shader: unshaded
   - type: ContentEye
     maxZoom: 1.44,1.44
   - type: Eye

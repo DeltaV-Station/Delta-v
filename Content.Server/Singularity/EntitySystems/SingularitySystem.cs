@@ -88,8 +88,8 @@ public sealed class SingularitySystem : SharedSingularitySystem
                 Update(uid, curTime - singularity.LastUpdateTime, singularity);
             if(TryComp(uid, out SingularityDistortionComponent? sinDist)){
                 sinDist.Energy = singularity.Energy;
+                sinDist.SmoothedEnergy = MathHelper.Lerp(sinDist.SmoothedEnergy, sinDist.Energy, frameTime);
                 Dirty(uid,sinDist);
-
             }
         }
     }
