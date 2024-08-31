@@ -453,14 +453,19 @@
         conditions:
         - !type:OrganType
           type: Aquatic
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: Aquatic
+        factor: 2
       # Converts H2O into CO2
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: Aquatic
         ratios: # no duplicating O2 >:3
-          CarbonDioxide: 1.0
-          WaterVapor: -2.0
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice
