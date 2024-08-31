@@ -23,6 +23,7 @@
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  whitelisted: true # DeltaV
   access:
   - Maintenance
   - Engineering
