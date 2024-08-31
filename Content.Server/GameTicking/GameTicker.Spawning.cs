@@ -4,19 +4,16 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
+using Content.Server.Shuttles.Components;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
-using Content.Server.Access.Components;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
-using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
-using Content.Shared.Clothing;
-using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -25,13 +22,13 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!; // DeltaV #1425
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -228,30 +225,6 @@ namespace Content.Server.GameTicking
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
             var job = new JobComponent {Prototype = jobId};
-            // DeltaV #1425 - Loadout stuff to get Senior ID
-            // Get the PresetIdCardComponent and its VirtualJobName/Icon vars;
-            var jobLoadout = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
-
-            if (_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
-            {
-                RoleLoadout? loadout = null;
-                character.Loadouts.TryGetValue(jobLoadout, out loadout);
-
-                // Set to default if not present
-                if (loadout == null)
-                {
-                    loadout = new RoleLoadout(jobLoadout);
-                    loadout.SetDefault(character, player, _prototypeManager);
-                }
-
-                // Get the ID
-                if (GetPresetIdFromLoadout(loadout, roleProto, character, out var presetId))
-                {
-                    job.VirtualJobName = presetId?.VirtualJobName;
-                    job.VirtualJobIcon = presetId?.VirtualJobIcon;
-                }
-            }
-            // End of DeltaV code
             _roles.MindAddRole(newMind, job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
@@ -265,7 +238,7 @@ namespace Content.Server.GameTicking
                 spawnPointType = SpawnPointType.Job;
             }
 
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType);
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 
@@ -310,84 +283,18 @@ namespace Content.Server.GameTicking
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
             }
 
-            // Arrivals is unable to do this during spawning as no actor is attached yet.
-            // We also want this message last.
-            if (!silent && lateJoin && _arrivals.Enabled)
-            {
-                var arrival = _arrivals.NextShuttleArrival();
-                if (arrival == null)
-                {
-                    _chatManager.DispatchServerMessage(player, Loc.GetString("latejoin-arrivals-direction"));
-                }
-                else
-                {
-                    _chatManager.DispatchServerMessage(player,
-                        Loc.GetString("latejoin-arrivals-direction-time", ("time", $"{arrival:mm\\:ss}")));
-                }
-            }
-
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob,
                 player,
-                job, // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobLocalizedName/Icon.
+                jobId,
                 lateJoin,
+                silent,
                 PlayersJoinedRoundNormally,
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
         }
-
-        // DeltaV #1425 - Go through loadout items to find ID card and its attached job
-        private bool GetPresetIdFromLoadout(RoleLoadout loadout, RoleLoadoutPrototype roleProto, HumanoidCharacterProfile character, out PresetIdCardComponent? presetId)
-        {
-            presetId = null;
-            // Use to read job loadout and find an ID card
-            foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
-            {
-                foreach (var items in group.Value)
-                {
-                    if (!_prototypeManager.TryIndex(items.Prototype, out var loadoutProto))
-                    {
-                        Log.Debug($"Unable to find loadout prototype for {items.Prototype}");
-                        continue;
-                    }
-                    if (!_prototypeManager.TryIndex(loadoutProto.Equipment, out var startingGear))
-                    {
-                        Log.Debug($"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
-                        continue;
-                    }
-                    var entProtoId = startingGear.GetGear("id");
-                    if (!_prototypeManager.TryIndex<EntityPrototype>(entProtoId, out var idProto))
-                    {
-                        Log.Debug($"Unable to find prototype for {startingGear} for starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
-                        continue;
-                    }
-                    if (idProto.TryGetComponent<PdaComponent>(out var pdaComponent, _componentFactory) && pdaComponent.IdCard != null)
-                    {
-                        ProtoId<EntityPrototype> idProtoId = pdaComponent.IdCard;
-                        if (!_prototypeManager.TryIndex<EntityPrototype>(idProtoId, out idProto))
-                        {
-                            Log.Warning($"Unable to find an idCard in {idProto}");
-                            return false;
-                        }
-                    }
-
-                    if (!idProto.TryGetComponent<PresetIdCardComponent>(out var idComponent, _componentFactory))
-                    {
-                        Log.Debug($"Unable to find presetIdCard for {idProto}");
-                        continue;
-                    }
-
-                    presetId = idComponent;
-                    Log.Debug($"Successfully outputted {presetId} from {idProto}");
-                    return true;
-                }
-            }
-            Log.Warning($"All other options exhausted");
-            return false;
-        }
-        // End of DeltaV code
 
         public void Respawn(ICommonSession player)
         {
@@ -401,7 +308,7 @@ namespace Content.Server.GameTicking
         }
 
         /// <summary>
-        /// Makes a player join into the game and spawn on a staiton.
+        /// Makes a player join into the game and spawn on a station.
         /// </summary>
         /// <param name="player">The player joining</param>
         /// <param name="station">The station they're spawning on</param>
@@ -579,8 +486,9 @@ namespace Content.Server.GameTicking
     {
         public EntityUid Mob { get; }
         public ICommonSession Player { get; }
-        public JobComponent? Job { get; } // DeltaV #1425 - Replace JobId with Job to parse VirtualJob
+        public string? JobId { get; }
         public bool LateJoin { get; }
+        public bool Silent { get; }
         public EntityUid Station { get; }
         public HumanoidCharacterProfile Profile { get; }
 
@@ -589,16 +497,18 @@ namespace Content.Server.GameTicking
 
         public PlayerSpawnCompleteEvent(EntityUid mob,
             ICommonSession player,
-            JobComponent? job, // DeltaV #1425
+            string? jobId,
             bool lateJoin,
+            bool silent,
             int joinOrder,
             EntityUid station,
             HumanoidCharacterProfile profile)
         {
             Mob = mob;
             Player = player;
-            Job = job; // DeltaV #1425
+            JobId = jobId;
             LateJoin = lateJoin;
+            Silent = silent;
             Station = station;
             Profile = profile;
             JoinOrder = joinOrder;
