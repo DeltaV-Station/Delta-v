@@ -1241,6 +1241,20 @@ entities:
     - type: Transform
       pos: -0.5,-20.5
       parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 332
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,1.5
+      parent: 1
+  - uid: 519
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-0.5
+      parent: 1
 - proto: AtmosDeviceFanTiny
   entities:
   - uid: 323
@@ -1252,16 +1266,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-15.5
-      parent: 1
-  - uid: 332
-    components:
-    - type: Transform
-      pos: -12.5,1.5
-      parent: 1
-  - uid: 519
-    components:
-    - type: Transform
-      pos: -12.5,-0.5
       parent: 1
 - proto: AtmosFixFreezerMarker
   entities:
@@ -5365,11 +5369,15 @@ entities:
   - uid: 1180
     components:
     - type: Transform
+      anchored: False
       rot: 1.5707963267948966 rad
       pos: 6.5,-21.5
       parent: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
+    - type: Physics
+      canCollide: True
+      bodyType: Dynamic
   - uid: 1183
     components:
     - type: Transform
@@ -7976,7 +7984,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-9.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 381
     components:
