@@ -42,7 +42,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTLeaderGearEVA
@@ -66,7 +66,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTLeaderGearEVALecter
@@ -93,7 +93,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 # Chaplain
 - type: job
@@ -214,18 +214,18 @@
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
     pocket2: WeaponPistolUniversal
-#  storage:
-#    back:
-#    - trayScanner
-#    - RCD
-#    - RCDAmmo
-#    - RCDAmmo
-#    - CableMVStack
-#    - CableHVStack
-#    - CableApcStack
-#    - SheetPlasteel
-#    - SheetSteel
-#    - SheetGlass
+  storage:
+    back:
+    - trayScanner
+    - RCD
+    - RCDAmmo
+    - RCDAmmo
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
 
 - type: startingGear
   id: ERTEngineerGearEVA
@@ -242,6 +242,18 @@
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
     pocket2: WeaponPistolUniversal
+  storage:
+    back:
+    - trayScanner
+    - RCD
+    - RCDAmmo
+    - RCDAmmo
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
 
 # Security
 - type: job
@@ -284,7 +296,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTSecurityGearEVA
@@ -308,7 +320,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTSecurityGearEVALecter
@@ -335,7 +347,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 # Medical
 - type: job
@@ -371,14 +383,14 @@
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
     pocket2: WeaponPistolUniversal
-#  storage:
-#    back:
-#    - Hypospray
-#    - MedkitAdvancedFilled
-#    - CrowbarRed
-#    - OmnizineChemistryBottle
-#    - EpinephrineChemistryBottle
-#    - EpinephrineChemistryBottle
+  storage:
+    back:
+    - Hypospray
+    - MedkitAdvancedFilled
+    - CrowbarRed
+    - OmnizineChemistryBottle
+    - EpinephrineChemistryBottle
+    - EpinephrineChemistryBottle
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -395,6 +407,14 @@
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
     pocket2: WeaponPistolUniversal
+  storage:
+    back:
+    - Hypospray
+    - MedkitAdvancedFilled
+    - CrowbarRed
+    - OmnizineChemistryBottle
+    - EpinephrineChemistryBottle
+    - EpinephrineChemistryBottle
 
 # Janitor
 - type: job
@@ -429,14 +449,14 @@
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
     pocket2: WeaponEnergyGunPistol
-#  storage:
-#    back:
-#    - LightReplacer
-#    - BoxLightMixed
-#    - BoxLightMixed
-#    - Soap
-#    - CrowbarRed
-#    - AdvMopItem
+  storage:
+    back:
+    - LightReplacer
+    - BoxLightMixed
+    - BoxLightMixed
+    - Soap
+    - CrowbarRed
+    - AdvMopItem
 
 - type: startingGear
   id: ERTJanitorGearEVA
@@ -452,3 +472,11 @@
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
     pocket2: WeaponEnergyGunPistol
+  storage:
+    back:
+    - LightReplacer
+    - BoxLightMixed
+    - BoxLightMixed
+    - Soap
+    - CrowbarRed
+    - AdvMopItem
