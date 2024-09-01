@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Paramedics now spawn with their respective equipment for retrieving crewmates
-      more effectively.
-    type: Tweak
-  id: 11
-  time: '2023-09-21T04:01:02.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Added the Courier, the Mail Carrier's cousin.
@@ -3530,3 +3523,13 @@
   id: 510
   time: '2024-09-01T03:18:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1730
+- author: deltanedas
+  changes:
+  - message: Salvage still has most roundstart equipment like ore bags, seismics and
+      fultons.
+    type: Tweak
+  - message: Fixed being able to execute yourself with knives.
+    type: Remove
+  id: 511
+  time: '2024-09-01T03:54:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1732
