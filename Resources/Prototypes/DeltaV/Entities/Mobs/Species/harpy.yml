@@ -110,7 +110,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw']
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', ]
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -128,7 +128,6 @@
     weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade # Einstein Engines
     displacements:
       jumpsuit:
         sizeMaps:
@@ -161,7 +160,6 @@
           32:
             sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
-    templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
     layers:
