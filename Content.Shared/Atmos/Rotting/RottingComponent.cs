@@ -41,12 +41,13 @@ public sealed partial class RottingComponent : Component
     /// The damage dealt by rotting.
     /// </summary>
     [DataField]
-    public DamageSpecifier Damage = new()
+    public DamageSpecifier Damage = new() // SYNDIE STATION CHANGE START
     {
         DamageDict = new()
         {
-            { "Blunt", 0.06 },
-            { "Cellular", 0.06 }
+            { "Poison", 0.15 },
+            { "Asphyxiation", 0.15 },
+            { "Radiation", -10 }
         }
-    };
+    }; // SYNDIE STATION CHANGE END
 }

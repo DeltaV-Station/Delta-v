@@ -48,8 +48,6 @@
     tags:
       - SurgeryTool
 
-# Placeholder PAIs, aka semi-automatic ghost roles
-
 - type: entity
   parent: BaseItem
   id: PhantomLinkCard
@@ -71,3 +69,80 @@
       shader: unshaded
       map: ["screen"]
   - type: BlockMovement
+
+# ORGANS
+
+- type: entity
+  parent: BaseItem
+  id: BioSyntheticOrgan
+  abstract: true
+  components:
+  - type: PSurgeryTool
+    consumedOnUse: true
+    kind: Implant
+    useDelay: 5
+    damageOnUse:
+      types:
+        Asphyxiation: -1 # I cannot leave this empty or else the server crashes
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/organ1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/organ2.ogg"
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: BioSyntheticOrgan
+  id: BioSynthHeart
+  name: bio-synthetic heart
+  description: This heart can be transplanted into any living organism and it will adapt to it's organism, in this state it is currently in stasis. Implanting this will allow the patient to be shocked even after rotting for long.
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: PSurgeryTool
+    subKind: BioHeart
+
+- type: entity
+  parent: BioSyntheticOrgan
+  id: BioSynthLiver
+  name: bio-synthetic liver
+  description: This liver can be transplanted into any living organism and it will adapt to it's organism, in this state it is currently in stasis. Implanting this will allow the patient to be revived even after building up too much toxin in their body, and in case of rot this might be necessary for revival.
+  components:
+  - type: Sprite
+    state: liver
+  - type: PSurgeryTool
+    subKind: BioLiver
+    damageOnUse:
+      types:
+        Poison: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
+
+- type: entity
+  parent: BioSyntheticOrgan
+  id: BioSynthLungs
+  name: bio-synthetic lungs
+  description: This pair of lungs can be transplanted into any living organism and it will adapt to it's organism, in this state it is currently in stasis. Implanting this will help with excessive asphyxiation, and in case of rot this might be necessary for revival.
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: PSurgeryTool
+    subKind: BioLungs
+    damageOnUse:
+      types:
+        Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
+
+- type: entity
+  parent: BioSyntheticOrgan
+  id: BioSynthEyes
+  name: bio-synthetic eyes
+  description: This pair of eyes can be transplanted into any living organism and it will adapt to it's organism, in this state it is currently in stasis. Implanting this will treat the patient's blindness and serves as an alternative to oculine.
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: PSurgeryTool
+    subKind: BioEyes

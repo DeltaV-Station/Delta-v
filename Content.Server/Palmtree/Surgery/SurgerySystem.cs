@@ -12,7 +12,6 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-//using Content.Shared.Players;
 using Content.Shared.Standing;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -53,8 +52,8 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
             {"SawBones", new string[]{"scalpel", "retractor"}}, // This comes before letting people saw bones
             {"BrainTransfer", new string[]{"scalpel", "retractor", "saw"}},
             {"ReduceRotting", new string[]{"scalpel", "retractor"}},
-            {"InsertAugment", new string[]{"scapel", "retractor", "saw"}}, // This procedure is used for augments and implants
-            {"RemoveAugment", new string[]{"scalpel", "retractor", "saw", "drill"}} // This procedure removes a person's augments, breaking them
+            {"InsertAugment", new string[]{"scalpel", "retractor", "saw"}}, // This procedure is used for augments and implants
+            {"RemoveAugment", new string[]{"scalpel", "retractor", "saw", "drill"}} // This procedure removes a person's augments, breaking them, synth organs cannot be removed
         };
 
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -195,6 +194,27 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                             failedProcedure = true;
                         }
                         break;
+                    case "Implant": // Shitcode galore
+                    {
+                        if (patient.procedures.SequenceEqual(procedures["InsertAugment"]))
+                        {
+                            switch(tool.subKind)
+                            {
+                                case "BioHeart":
+                                    _rot.ReduceAccumulator((EntityUid) args.Target, TimeSpan.FromSeconds(2147483648));
+                                    break;
+                                default: // Some simply don't have any behavior other than healing
+                                    break;
+                            }
+                            repeatableProcedure = true;
+                        }
+                        else
+                        {
+                            _popupSystem.PopupEntity("You can't implant right now.", args.User, PopupType.Small);
+                            failedProcedure = true;
+                        }
+                        break;
+                    }
                     default:
                         _popupSystem.PopupEntity("If you see this, contact TropicalOwl and tell which tool you used when seeing this, this is an error message.", args.User, PopupType.Small);
                         break;
@@ -213,6 +233,10 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
                     _blood.TryModifyBleedAmount((EntityUid) args.Target, tool.bleedAmountOnUse);
                 }
                 _audio.PlayPvs(tool.audioEnd, args.User);
+                if (tool.consumedOnUse)
+                {
+                    EntityManager.DeleteEntity(uid);
+                }
             }
         }
         private void OnAfterInteract(EntityUid uid, PSurgeryToolComponent tool, AfterInteractEvent args) // Turn this into FTL strings later
