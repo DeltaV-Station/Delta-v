@@ -1,10 +1,10 @@
 # Added to LockerFillSalvageSpecialist with a nested selector
 - type: entityTable
   id: LockerFillSalvageSpecialistDeltaV
-  table: !AllSelector
+  table: !type:AllSelector
     children:
     - id: SeismicCharge
-      amount: 2
+    - id: SeismicCharge
     - id: OreBag
     - id: ClothingShoesBootsWinterMiner
     - id: JetpackMiniFilled # replaces fire extinguisher
