@@ -12,6 +12,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
       time: 72000 # 20 h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 #2h
   special:
   - !type:AddComponentSpecial
     components:
