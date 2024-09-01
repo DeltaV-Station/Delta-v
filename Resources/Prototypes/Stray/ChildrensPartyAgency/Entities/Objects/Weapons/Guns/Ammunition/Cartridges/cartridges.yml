@@ -26,37 +26,37 @@
     proto: Bullet9x18
   - type: Tag
     tags:
-      - Bullet9x18
+      - Bullet9x18mm
 
-  - type: entity
-    id: Cartridge5x39
-    name: bullet (5,45x39mm)
-    parent: BaseCartridgeCPA
-    components:
-    - type: CartridgeAmmo
-      proto: Bullet5x39
-    - type: Tag
-      tags:
-      - Bullet5x39
+- type: entity
+  id: Cartridge5x39
+  name: bullet (5,45x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet5x39
+  - type: Tag
+    tags:
+    - Bullet5x39mm
 
-    - type: entity
-      id: Cartridge8x39
-      name: bullet (7,62x39mm)
-      parent: BaseCartridgeCPA
-      components:
-      - type: CartridgeAmmo
-        proto: Bullet8x39
-      - type: Tag
-        tags:
-        - Bullet8x39
+- type: entity
+  id: Cartridge8x39
+  name: bullet (7,62x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet8x39
+  - type: Tag
+    tags:
+    - Bullet8x39mm
 
-      - type: entity
-        id: Cartridge9x39
-        name: bullet (9x39mm)
-        parent: BaseCartridgeCPA
-        components:
-        - type: CartridgeAmmo
-          proto: Bullet9x39
-        - type: Tag
-          tags:
-        - Bullet9x39
+- type: entity
+  id: Cartridge9x39
+  name: bullet (9x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x39
+  - type: Tag
+    tags:
+    - Bullet9x39mm
