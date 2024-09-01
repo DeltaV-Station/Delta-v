@@ -139,12 +139,9 @@
       - id: FoodCocoaBeans
         amount: !type:RangeNumberSelector
           range: 1, 5
-<<<<<<< HEAD
       - id: FoodCherry
         amount: !type:RangeNumberSelector
           range: 1, 5
-=======
->>>>>>> cc445e07b8 (Update some food spawners w/ entity tables (#30957))
     #rare
     - !type:GroupSelector
       children:
@@ -166,7 +163,6 @@
       - id: DeathNettle
         amount: !type:RangeNumberSelector
           range: 1, 5
-<<<<<<< HEAD
       # Begin DeltaV additions
       - id: FoodCrystalThistle
         amount: !type:RangeNumberSelector
@@ -178,5 +174,3 @@
         amount: !type:RangeNumberSelector
           range: 1, 5
       # End DeltaV additions
-=======
->>>>>>> cc445e07b8 (Update some food spawners w/ entity tables (#30957))
