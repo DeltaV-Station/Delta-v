@@ -1,7 +1,61 @@
+# Frontier Mail
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailNFInstrumentLarge
+  suffix: instrument, large
+  components:
+  - type: Mail
+    contents:
+    - id: TromboneInstrument
+      orGroup: Instrument
+    - id: FrenchHornInstrument
+      orGroup: Instrument
+    - id: SaxophoneInstrument
+      orGroup: Instrument
+    - id: EuphoniumInstrument
+      orGroup: Instrument
+    - id: AcousticGuitarInstrument
+      orGroup: Instrument
+    - id: ElectricGuitarInstrument
+      orGroup: Instrument
+    - id: BassGuitarInstrument
+      orGroup: Instrument
+    - id: RockGuitarInstrument
+      orGroup: Instrument
+    - id: BanjoInstrument
+      orGroup: Instrument
+    - id: ViolinInstrument
+      orGroup: Instrument
+    - id: CelloInstrument
+      orGroup: Instrument
+    - id: ViolaInstrument
+      orGroup: Instrument
+    - id: BagpipeInstrument # Fury.
+      orGroup: Instrument
+    - id: SynthesizerInstrument
+      orGroup: Instrument
+    - id: AccordionInstrument
+      orGroup: Instrument
+    - id: GlockenspielInstrument
+      orGroup: Instrument
+    - id: XylophoneInstrument
+      orGroup: Instrument
+    # Uncommon
+    - id: Rickenbacker4003Instrument
+      orGroup: Instrument
+      prob: 0.25
+    # Rare
+    - id: Rickenbacker4001Instrument
+      orGroup: Instrument
+      prob: 0.1
+
+# Base Nyano Mail
+
 - type: entity
   parent: BaseMail
   id: MailBotanistChemicalBottles
-  suffix: botanistchemicals
+  suffix: botanist chemicals
   components:
   - type: Mail
     contents:
@@ -96,7 +150,7 @@
 - type: entity
   parent: BaseMail
   id: MailHoPBureaucracy
-  suffix: hoppaper
+  suffix: hop paper
   components:
   - type: Mail
     contents:
@@ -106,7 +160,7 @@
 - type: entity
   parent: BaseMail
   id: MailHoPSupplement
-  suffix: hopsupplement
+  suffix: hop supplement
   components:
   - type: Mail
     contents:
@@ -117,7 +171,7 @@
 - type: entity
   parent: BaseMail
   id: MailMimeArtsCrafts
-  suffix: artscrafts
+  suffix: arts and crafts
   components:
   - type: Mail
     contents:
@@ -128,7 +182,7 @@
 - type: entity
   parent: BaseMail
   id: MailMimeBlankBook
-  suffix: blankbook
+  suffix: blank book
   components:
   - type: Mail
     contents:
@@ -137,7 +191,7 @@
 - type: entity
   parent: BaseMail
   id: MailMimeBottleOfNothing
-  suffix: bottleofnothing
+  suffix: bottle of nothing
   components:
   - type: Mail
     contents:
@@ -145,27 +199,8 @@
 
 - type: entity
   parent: BaseMail
-  id: MailMusicianInstrumentSmall
-  suffix: instrument-small
-  components:
-  - type: Mail
-    isFragile: true
-    contents:
-    - id: FluteInstrument
-      orGroup: Instrument
-    - id: HarmonicaInstrument
-      orGroup: Instrument
-    - id: OcarinaInstrument
-      orGroup: Instrument
-    - id: PanFluteInstrument
-      orGroup: Instrument
-    - id: RecorderInstrument
-      orGroup: Instrument
-
-- type: entity
-  parent: BaseMail
   id: MailPassengerMoney
-  suffix: passengermoney
+  suffix: passenger money
   components:
   - type: Mail
     contents:
