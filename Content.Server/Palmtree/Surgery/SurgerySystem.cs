@@ -4,6 +4,7 @@ using Content.Server.Palmtree.Surgery;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Mind;
+using Content.Shared.Inventory;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Palmtree.Surgery;
 using Content.Shared.Interaction;
@@ -63,7 +64,7 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
         [Dependency] private readonly SharedMindSystem _sharedmind = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly StandingStateSystem _standing = default!;
-        //[Dependency] private readonly IPlayerManager _player = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly SharedRottingSystem _rot = default!;
         [Dependency] private readonly BloodstreamSystem _blood = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
@@ -241,6 +242,8 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
         }
         private void OnAfterInteract(EntityUid uid, PSurgeryToolComponent tool, AfterInteractEvent args) // Turn this into FTL strings later
         {
+            int surgeryTimeMultiplier = 1;
+            bool messageShown = false; // Avoid pop up stacking
             bool patientHasState = TryComp(args.Target, out MobStateComponent? patientState);
             if (!args.CanReach || args.Target == null) // We already check if target is null, it's okay to perform direct conversion to non-nullable
             {
@@ -248,29 +251,45 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
             }
             if (!TryComp(args.Target, out PPatientComponent? patient) && patientHasState)
             {
-                _popupSystem.PopupEntity("You cannot perform surgery on this!", args.User, PopupType.Small);
                 return;
+            }
+            if (_inventory.TryGetSlotEntity((EntityUid) args.Target, "outerClothing", out var outer) || _inventory.TryGetSlotEntity((EntityUid) args.Target, "jumpsuit", out var jumpsuit))
+            {
+                _popupSystem.PopupEntity("Remove the patient's clothes first!", args.User, PopupType.MediumCaution);
+                return;
+            }
+            if (args.User == args.Target) // I've reordered the checks so that the most important modifiers are warned about first.
+            {
+                if (!messageShown)
+                {
+                    _popupSystem.PopupEntity("You begin operating yourself, this isn't exactly ideal.", args.User, PopupType.MediumCaution);
+                    messageShown = true;
+                }
+                surgeryTimeMultiplier += 3;
             }
             if (!_standing.IsDown((EntityUid) args.Target))
             {
-                _popupSystem.PopupEntity("The patient must be laying down and asleep!", args.User, PopupType.Small);
-                return;
+                if (!messageShown)
+                {
+                    _popupSystem.PopupEntity("The patient should be laying down!", args.User, PopupType.MediumCaution);
+                    messageShown = true;
+                }
+                surgeryTimeMultiplier += 3;
             }
             if (!TryComp(args.Target, out SleepingComponent? sleep) && !_mobState.IsIncapacitated((EntityUid) args.Target, patientState))
             {
-                _popupSystem.PopupEntity("The patient must be asleep!", args.User, PopupType.Small);
-                return;
+                if (!messageShown)
+                {
+                    _popupSystem.PopupEntity("You begin the procedure with them awake, this is gonna hurt.", args.User, PopupType.MediumCaution);
+                    messageShown = true;
+                }
+                surgeryTimeMultiplier += 1;
             }
-            if (args.User == args.Target)
-            {
-                _popupSystem.PopupEntity("You cannot operate yourself!", args.User, PopupType.Small);
-                return;
-            }
-            var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, tool.useDelay, new SurgeryDoAfterEvent(), uid, target: args.Target)
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, tool.useDelay * surgeryTimeMultiplier, new SurgeryDoAfterEvent(), uid, target: args.Target)
             {
                 NeedHand = true,
-                //BreakOnMove = true,
-                //BreakOnWeightlessMove = true,
+                BreakOnUserMove = true,
+                BreakOnTargetMove = true,
             };
             _audio.PlayPvs(tool.audioStart, args.User);
             _doAfter.TryStartDoAfter(doAfterEventArgs);
