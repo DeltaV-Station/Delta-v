@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Added the Courier, the Mail Carrier's cousin.
-    type: Add
-  - message: Cargo Department is now the Logistics Department
-    type: Tweak
-  id: 12
-  time: '2023-09-21T04:37:30.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Clown Spiders no longer can squeeze through the vents.
     type: Remove
   id: 13
@@ -3533,3 +3525,10 @@
   id: 511
   time: '2024-09-01T03:54:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1732
+- author: MilonPL
+  changes:
+  - message: Fixed the mothic salad recipe giving you a free bowl.
+    type: Fix
+  id: 512
+  time: '2024-09-02T04:56:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1740
