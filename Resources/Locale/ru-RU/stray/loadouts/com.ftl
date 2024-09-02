@@ -5,4 +5,3 @@ loadout-group-blueshield-webbing = офицер Синего Щита, РПС
 loadout-group-blueshield-head = офицер Синего Щита, голова
 loadout-group-blueshield-neck = офицер Синего Щита, плащ
 loadout-group-blueshield-eyes = офицер Синего Щита, глаза
-loadout-group-chief-engineer-backpack = старший инженер, рюкзак
