@@ -3,17 +3,15 @@ hostname         = "[EN][MRP] Delta-v (Ψ) | Periapsis [US East 2]"
 soft_max_players = 50
 
 [server]
-rules_file   = "Rules.txt"
-rules_header = "ui-rules-header"
+rules_file   = "DeltaVRuleset"
 
 [vote]
 preset_enabled = true
 map_enabled = true
 
 [whitelist]
+# TODO: make a whitelist prototype whenever this gets reenabled
 enabled     = false
-reason      = "whitelist-not-whitelisted-peri"
-min_players = 25
 
 [ooc]
 enable_during_round = true

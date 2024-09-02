@@ -1,7 +1,34 @@
-﻿- type: entity
-  id: UnknownShuttleCargoLost
+# Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
+
+- type: entityTable
+  id: UnknownShuttlesFriendlyTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleCargoLost
+    - id: UnknownShuttleTravelingCuisine
+    - id: UnknownShuttleDisasterEvacPod
+    - id: UnknownShuttleHonki
+
+- type: entityTable
+  id: UnknownShuttlesFreelanceTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector # DeltaV
+      tableId: UnknownShuttlesFreelanceTableDeltaV
+    - id: UnknownShuttleSyndieEvacPod
+
+- type: entityTable
+  id: UnknownShuttlesHostileTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: LoneOpsSpawn
+
+# Shuttle Game Rules
+
+- type: entity
+  abstract: true
   parent: BaseGameRule
-  noSpawn: true
+  id: BaseUnknownShuttleRule
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
@@ -10,65 +37,44 @@
     weight: 5
     reoccurrenceDelay: 30
     duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleCargoLost
+  components:
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
 
 - type: entity
+  parent: BaseUnknownShuttleRule
   id: UnknownShuttleTravelingCuisine
-  parent: BaseGameRule
-  noSpawn: true
   components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    reoccurrenceDelay: 30
-    duration: 1
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
 
 - type: entity
+  parent: BaseUnknownShuttleRule
   id: UnknownShuttleDisasterEvacPod
-  parent: BaseGameRule
-  noSpawn: true
   components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    reoccurrenceDelay: 30
-    duration: 1
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
 - type: entity
+  parent: BaseUnknownShuttleRule
   id: UnknownShuttleHonki
-  parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 2
-    reoccurrenceDelay: 30
-    duration: 1
   - type: LoadMapRule
     preloadedGrid: Honki
 
 - type: entity
+  parent: BaseUnknownShuttleRule
   id: UnknownShuttleSyndieEvacPod
-  parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 2
-    reoccurrenceDelay: 30
-    duration: 1
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod

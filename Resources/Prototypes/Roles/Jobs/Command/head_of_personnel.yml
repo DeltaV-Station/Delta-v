@@ -19,6 +19,8 @@
       time: 72000 # 20 hours
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 90000 # 25 hours
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -49,7 +51,7 @@
 #  - Salvage
 #  - Security # NoooOoOo!! My HoPcurity!1
 #  - Brig
-  - Lawyer
+#  - Lawyer # Lawyer is now part of the justice dept
 #  - Cargo
 #  - Atmospherics
 #  - Medical
@@ -74,8 +76,11 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    shoes: ClothingShoesLeather # DeltaV - HoP needs something better than plebe shoes.
+    #shoes: ClothingShoesLeather # DeltaV - Commented for Loadouts
     id: HoPPDA
-    gloves: ClothingHandsGlovesHop
+    #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
     ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
     belt: BoxFolderClipboard
+  storage:
+    back:
+    - Flash

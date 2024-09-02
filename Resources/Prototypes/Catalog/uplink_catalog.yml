@@ -632,16 +632,17 @@
   categories:
   - UplinkDeception
 
-- type: listing
-  id: UplinkHeadsetEncryptionKey
-  name: uplink-encryption-key-name
-  description: uplink-encryption-key-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkDeception
+# Delta-V: replaced by syndicate radio implant
+#- type: listing
+#  id: UplinkHeadsetEncryptionKey
+#  name: uplink-encryption-key-name
+#  description: uplink-encryption-key-desc
+#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+#  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkDeception
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -733,7 +734,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 10 # DV was 8, rebalanced after discussion
+    Telecrystal: 4 # DV was 8, can no longer emag doors
   categories:
   - UplinkDisruption
 
@@ -784,7 +785,7 @@
   description: uplink-slipocalypse-clustersoap-desc
   productEntity: SlipocalypseClusterSoap
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - UplinkDisruption
 
@@ -911,11 +912,11 @@
 - type: listing
   id: UplinkReinforcementRadioSyndicate
   name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  description: uplink-reinforcement-radio-traitor-desc
   productEntity: ReinforcementRadioSyndicate
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
-    Telecrystal: 14 # DV - was 16
+    Telecrystal: 14
   categories:
   - UplinkAllies
   conditions:
@@ -925,13 +926,13 @@
           - NukeOpsUplink
 
 - type: listing
-  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns an agent with the NukeOperative component.
-  name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns another nuclear operative without the uplink.
+  name: uplink-reinforcement-radio-nukeops-name
+  description: uplink-reinforcement-radio-nukeops-desc
   productEntity: ReinforcementRadioSyndicateNukeops
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 20 # DV - Was 16
+    Telecrystal: 20 # DV - Was 35
   categories:
   - UplinkAllies
   conditions:
@@ -945,7 +946,7 @@
   name:  uplink-reinforcement-radio-cyborg-assault-name
   description: uplink-reinforcement-radio-cyborg-assault-desc
   productEntity: ReinforcementRadioSyndicateCyborgAssault
-  icon: { sprite: Mobs/Silicon/chassis.rsi, state: synd_sec }
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
     Telecrystal: 65
   categories:
@@ -961,7 +962,7 @@
   name: uplink-reinforcement-radio-ancestor-name
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestor
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   cost:
     Telecrystal: 6
   categories:
@@ -977,7 +978,7 @@
   name: uplink-reinforcement-radio-ancestor-name
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestorNukeops
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   cost:
     Telecrystal: 6
   categories:
@@ -1007,8 +1008,8 @@
   id: UplinkMobCatMicrobomb
   name: uplink-mobcat-microbomb-name
   description: uplink-mobcat-microbomb-desc
-  icon: { sprite: /Textures/Mobs/Pets/cat.rsi, state: syndicat }
-  productEntity: MobCatSyndy
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
+  productEntity: ReinforcementRadioSyndicateSyndiCat
   cost:
     Telecrystal: 6
   categories:
@@ -1137,14 +1138,14 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 4
+    Telecrystal: 5 #DeltaV- Was 4, now 5
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
+ # conditions: #DeltaV- Allows Death Acidifer for our Syndibros
+ #   - !type:StoreWhitelistCondition
+ #     whitelist:
+ #       tags:
+ #         - NukeOpsUplink
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
@@ -1286,6 +1287,17 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkHardsuitCarp
+  name: uplink-hardsuit-carp-name
+  description: uplink-hardsuit-carp-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/carpsuit.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitCarp
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkHardsuitSyndie
   name: uplink-hardsuit-syndie-name
   description: uplink-hardsuit-syndie-desc
@@ -1297,13 +1309,29 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkHardsuitSyndieElite
   name: uplink-hardsuit-syndieelite-name
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 10
+    Telecrystal: 12
   categories:
   - UplinkWearables
 
@@ -1723,6 +1751,42 @@
   - !type:BuyerJobCondition
     whitelist:
     - Librarian
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkCombatBakery
+  name: uplink-combat-bakery-name
+  description: uplink-combat-bakery-desc
+  icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
+  productEntity: CombatBakeryKit
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+    - Mime
+
+# Objective-specific # DeltaV, reverted upstream
+- type: listing
+  id: UplinkCoreExtractionToolbox
+  name: uplink-core-extraction-toolbox-name
+  description: uplink-core-extraction-toolbox-desc
+  icon:
+    sprite: Objects/Misc/nuke_core_container.rsi
+    state: closed
+  productEntity: ToolboxSyndicateFilledCoreExtraction
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
   - !type:BuyerWhitelistCondition
     blacklist:
       components:

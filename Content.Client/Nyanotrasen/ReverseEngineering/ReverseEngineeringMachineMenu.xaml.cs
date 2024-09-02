@@ -5,40 +5,40 @@ using Robust.Client.GameObjects;
 using Robust.Client.State;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Utility;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Nyanotrasen.ReverseEngineering;
 
 [GenerateTypedNameReferences]
 public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    public event Action<BaseButton.ButtonEventArgs>? OnScanButtonPressed;
-    public event Action<BaseButton.ButtonToggledEventArgs>? OnSafetyButtonToggled;
-    public event Action<BaseButton.ButtonToggledEventArgs>? OnAutoScanButtonToggled;
-    public event Action<BaseButton.ButtonEventArgs>? OnStopButtonPressed;
-    public event Action<BaseButton.ButtonEventArgs>? OnEjectButtonPressed;
+    private readonly IEntityManager _entMan;
+    private readonly IGameTiming _timing;
+    private readonly SharedReverseEngineeringSystem _revEng;
 
-    public ReverseEngineeringMachineMenu()
+    private readonly Entity<ReverseEngineeringMachineComponent> _owner;
+
+    public event Action? OnScanButtonPressed;
+    public event Action? OnSafetyButtonToggled;
+    public event Action? OnAutoScanButtonToggled;
+    public event Action? OnStopButtonPressed;
+    public event Action? OnEjectButtonPressed;
+
+    public ReverseEngineeringMachineMenu(EntityUid owner, IEntityManager entMan, IGameTiming timing)
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
 
-        ScanButton.OnPressed += a => OnScanButtonPressed?.Invoke(a);
-        SafetyButton.OnToggled += a => OnSafetyButtonToggled?.Invoke(a);
-        AutoScanButton.OnToggled += a => OnAutoScanButtonToggled?.Invoke(a);
-        StopButton.OnPressed += a => OnStopButtonPressed?.Invoke(a);
-        EjectButton.OnPressed += a => OnEjectButtonPressed?.Invoke(a);
-    }
+        _entMan = entMan;
+        _timing = timing;
+        _revEng = entMan.System<SharedReverseEngineeringSystem>();
 
+        _owner = (owner, entMan.GetComponent<ReverseEngineeringMachineComponent>(owner));
 
-    public void SetButtonsDisabled(ReverseEngineeringMachineScanUpdateState state)
-    {
-        ScanButton.Disabled = !state.CanScan;
-        StopButton.Disabled = !state.Scanning;
-        SafetyButton.Pressed = state.Safety;
-        AutoScanButton.Pressed = state.AutoProbe;
-        EjectButton.Disabled = (state.Target == null || state.Scanning);
+        ScanButton.OnPressed += _ => OnScanButtonPressed?.Invoke();
+        SafetyButton.OnToggled += _ => OnSafetyButtonToggled?.Invoke();
+        AutoScanButton.OnToggled += _ => OnAutoScanButtonToggled?.Invoke();
+        StopButton.OnPressed += _ => OnStopButtonPressed?.Invoke();
+        EjectButton.OnPressed += _ => OnEjectButtonPressed?.Invoke();
     }
 
     private void UpdateArtifactIcon(EntityUid? uid)
@@ -48,61 +48,40 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
             ItemDisplay.Visible = false;
             return;
         }
-        ItemDisplay.Visible = true;
 
+        ItemDisplay.Visible = true;
         ItemDisplay.SetEntity(uid);
     }
 
-    public void UpdateInformationDisplay(ReverseEngineeringMachineScanUpdateState state)
+    public void UpdateState(ReverseEngineeringMachineState state)
     {
-        var message = new FormattedMessage();
-        _ent.TryGetEntity(state.Target, out var entityTarget);
-
-        UpdateArtifactIcon(entityTarget);
-
-        if (state.ScanReport == null)
-        {
-            if (!state.CanScan) //no item
-                message.AddMarkup(Loc.GetString("analysis-console-info-no-artifact"));
-            else if (state.Target == null) //ready to go
-                message.AddMarkup(Loc.GetString("analysis-console-info-ready"));
-        }
-        else
-        {
-            message.AddMessage(state.ScanReport);
-        }
-
-        Information.SetMessage(message);
+        Information.SetMessage(state.ScanMessage);
     }
 
-    public void UpdateProbeTickProgressBar(ReverseEngineeringMachineScanUpdateState state)
+    protected override void FrameUpdate(FrameEventArgs args)
     {
-        ProgressBar.Visible = state.Scanning;
-        ProgressLabel.Visible = state.Scanning;
+        base.FrameUpdate(args);
 
-        if (!state.Scanning)
+        var scanning = _revEng.IsActive(_owner);
+        var item = _revEng.GetItem(_owner);
+        ScanButton.Disabled = scanning || item == null;
+        StopButton.Disabled = !scanning;
+        SafetyButton.Pressed = _owner.Comp.SafetyOn;
+        AutoScanButton.Pressed = _owner.Comp.AutoScan;
+        EjectButton.Disabled = ScanButton.Disabled;
+
+        UpdateArtifactIcon(item);
+
+        ProgressBox.Visible = scanning;
+
+        if (!_entMan.TryGetComponent<ActiveReverseEngineeringMachineComponent>(_owner, out var active)
+            || !_entMan.TryGetComponent<ReverseEngineeringComponent>(item, out var rev))
             return;
 
-        if (state.Target != null)
-        {
-            TotalProgressLabel.Visible = true;
-            TotalProgressLabel.Text = Loc.GetString("reverse-engineering-total-progress-label");
-            TotalProgressBar.Visible = true;
-            TotalProgressBar.Value = (float) state.TotalProgress / 100f;
-        } else
-        {
-            TotalProgressLabel.Visible = false;
-            TotalProgressBar.Visible = false;
-        }
+        TotalProgressBar.Value = (float) rev.Progress;
 
-        ProgressLabel.Text = Loc.GetString("analysis-console-progress-text",
-            ("seconds", (int) state.TotalTime.TotalSeconds - (int) state.TimeRemaining.TotalSeconds));
-        ProgressBar.Value = (float) state.TimeRemaining.Divide(state.TotalTime);
-    }
-
-    public override void Close()
-    {
-        base.Close();
+        var remaining = Math.Max(active.NextProbe.TotalSeconds - _timing.CurTime.TotalSeconds, 0.0);
+        ProgressLabel.Text = Loc.GetString("analysis-console-progress-text", ("seconds", (int) remaining));
+        ProgressBar.Value = 1f - (float) (remaining / _owner.Comp.AnalysisDuration.TotalSeconds);
     }
 }
-

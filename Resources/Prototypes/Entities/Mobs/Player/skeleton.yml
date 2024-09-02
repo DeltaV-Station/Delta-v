@@ -8,7 +8,6 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
-  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
 
 - type: entity
   name: skeleton pirate
@@ -50,6 +49,9 @@
     name: ghost-role-information-closet-skeleton-name
     description: ghost-role-information-closet-skeleton-description
     rules: ghost-role-information-closet-skeleton-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 172800 # DeltaV - 48 hours
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

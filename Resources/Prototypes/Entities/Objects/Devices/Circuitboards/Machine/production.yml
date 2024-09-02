@@ -2,36 +2,30 @@
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
-  description: A machine printed circuit board for an autolathe
+  description: A machine printed circuit board for an autolathe.
   components:
     - type: MachineBoard
       prototype: Autolathe
-      requirements:
+      stackRequirements:
         MatterBin: 3
         Manipulator: 1
-      materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # delta
-      recipes:
-        - AutolatheMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
   id: AutolatheHyperConvectionMachineCircuitboard
   name: hyper convection autolathe machine board
-  description: A machine printed circuit board for a hyper convection autolathe
+  description: A machine printed circuit board for a hyper convection autolathe.
   components:
   - type: MachineBoard
     prototype: AutolatheHyperConvection
-    requirements:
+    stackRequirements:
       MatterBin: 3
-    materialRequirements:
       Glass: 1
     tagRequirements:
       Igniter:
-        Amount: 1
-        DefaultPrototype: Igniter
-        ExamineName: Igniter
+        amount: 1
+        defaultPrototype: Igniter
   - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
@@ -45,17 +39,13 @@
   components:
     - type: MachineBoard
       prototype: Protolathe
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
-    - type: ReverseEngineering # delta
-      recipes:
-        - ProtolatheMachineCircuitboard
+          amount: 2
+          defaultPrototype: Beaker
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -65,17 +55,15 @@
   components:
   - type: MachineBoard
     prototype: ProtolatheHyperConvection
-    requirements:
+    stackRequirements:
       MatterBin: 2
     tagRequirements:
       GlassBeaker:
-        Amount: 2
-        DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
+        amount: 2
+        defaultPrototype: Beaker
       Igniter:
-        Amount: 1
-        DefaultPrototype: Igniter
-        ExamineName: Igniter
+        amount: 1
+        defaultPrototype: Igniter
   - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
@@ -84,14 +72,13 @@
 - type: entity
   id: BiofabricatorMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: biofabricator machine board
-  description: A machine printed circuit board for a biofabricator.
+  name: biocube fabricator machine board
+  description: A machine printed circuit board for a biocube fabricator.
   components:
     - type: MachineBoard
       prototype: Biofabricator
-      requirements:
+      stackRequirements:
         MatterBin: 4
-      materialRequirements:
         Glass: 1
     - type: ReverseEngineering # delta
       difficulty: 2
@@ -108,26 +95,25 @@
       state: security
     - type: MachineBoard
       prototype: SecurityTechFab
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          amount: 2
+          defaultPrototype: Beaker
 
 - type: entity
   id: AmmoTechFabCircuitboard
   parent: BaseMachineCircuitboard
   name: ammo techfab circuit board
-  description: A machine printed circuit board for an ammo techfab
+  description: A machine printed circuit board for an ammo techfab.
   components:
     - type: Sprite
       state: security
     - type: MachineBoard
       prototype: AmmoTechFab
-      requirements:
+      stackRequirements:
         MatterBin: 1
         Manipulator: 1
 
@@ -141,14 +127,13 @@
       state: medical
     - type: MachineBoard
       prototype: MedicalTechFab
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          amount: 2
+          defaultPrototype: Beaker
     - type: StealTarget
       stealGroup: MedicalTechFabCircuitboard
 
@@ -161,17 +146,13 @@
     state: science
   - type: MachineBoard
     prototype: CircuitImprinter
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 1
     tagRequirements:
       GlassBeaker:
-        Amount: 2
-        DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
-  - type: ReverseEngineering # Nyano
-    recipes:
-      - CircuitImprinterMachineCircuitboard
+        amount: 2
+        defaultPrototype: Beaker
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -183,17 +164,15 @@
     state: science
   - type: MachineBoard
     prototype: CircuitImprinterHyperConvection
-    requirements:
+    stackRequirements:
       MatterBin: 2
     tagRequirements:
       GlassBeaker:
-        Amount: 2
-        DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
+        amount: 2
+        defaultPrototype: Beaker
       Igniter:
-        Amount: 1
-        DefaultPrototype: Igniter
-        ExamineName: Igniter
+        amount: 1
+        defaultPrototype: Igniter
 
 - type: entity
   id: ExosuitFabricatorMachineCircuitboard
@@ -204,10 +183,9 @@
     state: science
   - type: MachineBoard
     prototype: ExosuitFabricator
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 3
-    materialRequirements:
       Glass: 5
   - type: ReverseEngineering # Nyano
     difficulty: 2
@@ -228,7 +206,7 @@
     state: science
   - type: MachineBoard
     prototype: ResearchAndDevelopmentServer
-    materialRequirements:
+    stackRequirements:
       Plasma: 5
 
 - type: entity
@@ -238,13 +216,9 @@
   components:
   - type: MachineBoard
     prototype: UniformPrinter
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 2
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - UniformPrinterMachineCircuitboard
 
 - type: entity
   id: VaccinatorMachineCircuitboard
@@ -255,16 +229,14 @@
     state: medical
   - type: MachineBoard
     prototype: Vaccinator
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 1
-    materialRequirements:
       Cable: 5
     tagRequirements:
         GlassBeaker:
-          Amount: 1
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          amount: 1
+          defaultPrototype: Beaker
   - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
@@ -279,22 +251,20 @@
     state: medical
   - type: MachineBoard
     prototype: DiseaseDiagnoser
-    materialRequirements:
+    stackRequirements:
       Cable: 5
     tagRequirements:
       GlassBeaker:
-        Amount: 1
-        DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
+        amount: 1
+        defaultPrototype: Beaker
     componentRequirements:
-      DiseaseSwab:
-        Amount: 1
-        DefaultPrototype: DiseaseSwab
-        ExamineName: Swab
+      BotanySwab:
+        amount: 1
+        defaultPrototype: DiseaseSwab
   - type: ReverseEngineering # Nyano
     difficulty: 2
     recipes:
-      - DiagnoserMachineCircuitboard
+    - DiagnoserMachineCircuitboard
 
 - type: entity
   id: ArtifactAnalyzerMachineCircuitboard
@@ -306,10 +276,9 @@
       state: science
     - type: MachineBoard
       prototype: MachineArtifactAnalyzer
-      requirements:
+      stackRequirements:
         Manipulator: 3
         Capacitor: 1
-      materialRequirements:
         Glass: 5
     - type: ReverseEngineering # Nyano
       difficulty: 2
@@ -326,9 +295,8 @@
     state: science
   - type: MachineBoard
     prototype: MachineArtifactCrusher
-    requirements:
+    stackRequirements:
       Manipulator: 2
-    materialRequirements:
       Glass: 1
       Steel: 5
   - type: ReverseEngineering # delta
@@ -346,9 +314,8 @@
       state: science
     - type: MachineBoard
       prototype: MachineAnomalyVessel
-      requirements:
+      stackRequirements:
         Capacitor: 3
-      materialRequirements:
         Cable: 1
         PlasmaGlass: 10
     - type: ReverseEngineering # Nyano
@@ -366,9 +333,8 @@
     state: science
   - type: MachineBoard
     prototype: MachineAnomalyVesselExperimental
-    requirements:
+    stackRequirements:
       Capacitor: 3
-    materialRequirements:
       Cable: 5
       PlasmaGlass: 15
       MetalRod: 4
@@ -387,10 +353,9 @@
       state: science
     - type: MachineBoard
       prototype: MachineAnomalySynchronizer
-      requirements:
+      stackRequirements:
         Manipulator: 2
         Capacitor: 5
-      materialRequirements:
         PlasmaGlass: 5
         Cable: 5
     - type: ReverseEngineering # delta
@@ -408,9 +373,8 @@
       state: science
     - type: MachineBoard
       prototype: MachineAPE
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         Cable: 1
         Glass: 1
     - type: ReverseEngineering # Nyano
@@ -428,10 +392,9 @@
     state: engineering
   - type: MachineBoard
     prototype: GasThermoMachineFreezer
-    requirements:
+    stackRequirements:
       MatterBin: 2
       Capacitor: 2
-    materialRequirements:
       Cable: 5
   - type: Construction
     deconstructionTarget: null
@@ -452,10 +415,9 @@
     state: engineering
   - type: MachineBoard
     prototype: GasThermoMachineHeater
-    requirements:
+    stackRequirements:
       MatterBin: 2
       Capacitor: 2
-    materialRequirements:
       Cable: 5
   - type: Construction
     graph: ThermomachineBoard
@@ -472,10 +434,9 @@
     state: engineering
   - type: MachineBoard
     prototype: GasThermoMachineHellfireFreezer
-    requirements:
+    stackRequirements:
       MatterBin: 2
       Capacitor: 2
-    materialRequirements:
       Plasma: 1
   - type: Construction
     deconstructionTarget: null
@@ -496,10 +457,9 @@
     state: engineering
   - type: MachineBoard
     prototype: GasThermoMachineHellfireHeater
-    requirements:
+    stackRequirements:
       MatterBin: 2
       Capacitor: 2
-    materialRequirements:
       Plasma: 1
   - type: Construction
     graph: ThermomachineBoard
@@ -516,13 +476,9 @@
     state: engineering
   - type: MachineBoard
     prototype: BaseGasCondenser
-    requirements:
+    stackRequirements:
       MatterBin: 1
-    materialRequirements:
       Glass: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - CondenserMachineCircuitBoard
 
 - type: entity
   id: PortableScrubberMachineCircuitBoard
@@ -534,10 +490,9 @@
     state: engineering
   - type: MachineBoard
     prototype: PortableScrubber
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 2
-    materialRequirements:
       Cable: 5
       Glass: 2
   - type: ReverseEngineering # Nayno
@@ -555,14 +510,10 @@
     state: engineering
   - type: MachineBoard
     prototype: SpaceHeater
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Capacitor: 2
-    materialRequirements:
       Cable: 5
-  - type: ReverseEngineering # delta
-    recipes:
-      - SpaceHeaterMachineCircuitBoard
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -574,10 +525,9 @@
       state: medical
     - type: MachineBoard
       prototype: CloningPod
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 2
-      materialRequirements:
         Glass: 1
         Cable: 1
     - type: ReverseEngineering # Nyano
@@ -595,9 +545,8 @@
       state: medical
     - type: MachineBoard
       prototype: MedicalScanner
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         Glass: 5
         Cable: 1
     - type: ReverseEngineering # Nyano
@@ -613,7 +562,7 @@
   components:
     - type: MachineBoard
       prototype: CrewMonitoringServer
-      materialRequirements:
+      stackRequirements:
         Steel: 1
         Cable: 2
 
@@ -627,7 +576,7 @@
       state: medical
     - type: MachineBoard
       prototype: CryoPod
-      materialRequirements:
+      stackRequirements:
         Glass: 5
         Cable: 1
     - type: ReverseEngineering # Nyano
@@ -645,19 +594,14 @@
       state: medical
     - type: MachineBoard
       prototype: ChemMaster
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         Glass: 1
         Cable: 1
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - ChemMasterMachineCircuitboard
+          amount: 2
+          defaultPrototype: Beaker
 
 - type: entity
   id: ChemDispenserMachineCircuitboard
@@ -669,19 +613,14 @@
       state: medical
     - type: MachineBoard
       prototype: ChemDispenserEmpty
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         Glass: 1
         Steel: 3
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - ChemDispenserMachineCircuitboard
+          amount: 2
+          defaultPrototype: Beaker
 
 - type: entity
   id: BiomassReclaimerMachineCircuitboard
@@ -691,20 +630,19 @@
   components:
     - type: MachineBoard
       prototype: BiomassReclaimer
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 1
+        Steel: 5
       tagRequirements:
         Knife:
-          Amount: 2
-          DefaultPrototype: KitchenKnife
-          ExamineName: Knife
-      materialRequirements:
-        Steel: 5
+          amount: 2
+          defaultPrototype: KitchenKnife
+          examineName: construction-insert-info-examine-name-knife
     - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
-        - BiomassReclaimerMachineCircuitboard
+      - BiomassReclaimerMachineCircuitboard
 
 - type: entity
   id: HydroponicsTrayMachineCircuitboard
@@ -716,15 +654,14 @@
       state: service
     - type: MachineBoard
       prototype: HydroponicsTrayEmpty
-      materialRequirements:
+      stackRequirements:
         # replacing the console screen
         Glass: 5
         Cable: 2
       tagRequirements:
         GlassBeaker:
-          Amount: 2
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
+          amount: 2
+          defaultPrototype: Beaker
     - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
@@ -740,10 +677,9 @@
       state: service
     - type: MachineBoard
       prototype: SeedExtractor
-      requirements:
+      stackRequirements:
         Manipulator: 2
         Capacitor: 1
-      materialRequirements:
         # replacing the console screen
         Glass: 1
         Cable: 2
@@ -763,14 +699,13 @@
       state: power_mod
     - type: MachineBoard
       prototype: SMESBasicEmpty
-      requirements:
+      stackRequirements:
         Capacitor: 1
-        PowerCell: 4
-      materialRequirements:
         CableHV: 10
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SMESMachineCircuitboard
+      componentRequirements:
+        PowerCell:
+          amount: 4
+          defaultPrototype: PowerCellSmall
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -783,9 +718,8 @@
       state: charger_APC
     - type: MachineBoard
       prototype: PowerCellRecharger
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
@@ -805,9 +739,8 @@
       state: charger_APC
     - type: MachineBoard
       prototype: PowerCageRecharger
-      requirements:
+      stackRequirements:
         Capacitor: 4
-      materialRequirements:
         Steel: 5
         Cable: 10
     - type: PhysicalComposition
@@ -832,9 +765,8 @@
       state: charger_APC
     - type: MachineBoard
       prototype: BorgCharger
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
@@ -854,9 +786,8 @@
       state: charger_APC
     - type: MachineBoard
       prototype: WeaponCapacitorRecharger
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         CableMV: 5
     - type: PhysicalComposition
       materialComposition:
@@ -876,9 +807,8 @@
     state: charger_APC
   - type: MachineBoard
     prototype: TurboItemRecharger
-    requirements:
+    stackRequirements:
       Capacitor: 2
-    materialRequirements:
       CableMV: 5
   - type: PhysicalComposition
     materialComposition:
@@ -897,15 +827,14 @@
   components:
     - type: MachineBoard
       prototype: SubstationBasicEmpty
-      requirements:
+      stackRequirements:
         Capacitor: 1
-        PowerCell: 1
-      materialRequirements:
         CableMV: 5
         CableHV: 5
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SubstationMachineCircuitboard
+      componentRequirements:
+        PowerCell:
+          amount: 1
+          defaultPrototype: PowerCellSmall
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -921,35 +850,35 @@
   components:
     - type: MachineBoard
       prototype: DawInstrument
-      materialRequirements:
+      stackRequirements:
         Glass: 1
         Cable: 1
       tagRequirements:
 #      One instrument to bring them all and in the darkness bind them...
        KeyedInstrument:
-          Amount: 1
-          DefaultPrototype: SynthesizerInstrument
-          ExamineName: Keyed Instrument
+          amount: 1
+          defaultPrototype: SynthesizerInstrument
+          examineName: construction-insert-info-examine-name-instrument-keyed
        StringInstrument:
-          Amount: 1
-          DefaultPrototype: AcousticGuitarInstrument
-          ExamineName: String Instrument
+          amount: 1
+          defaultPrototype: AcousticGuitarInstrument
+          examineName: construction-insert-info-examine-name-instrument-string
        PercussionInstrument:
-          Amount: 1
-          DefaultPrototype: GlockenspielInstrument
-          ExamineName: Percussion Instrument
+          amount: 1
+          defaultPrototype: GlockenspielInstrument
+          examineName: construction-insert-info-examine-name-instrument-percussion
        BrassInstrument:
-          Amount: 1
-          DefaultPrototype: TrumpetInstrument
-          ExamineName: Brass Instrument
+          amount: 1
+          defaultPrototype: TrumpetInstrument
+          examineName: construction-insert-info-examine-name-instrument-brass
        WoodwindInstrument:
-          Amount: 1
-          DefaultPrototype: SaxophoneInstrument
-          ExamineName: Woodwind Instrument
+          amount: 1
+          defaultPrototype: SaxophoneInstrument
+          examineName: construction-insert-info-examine-name-instrument-woodwind
     - type: ReverseEngineering # Nyano
       difficulty: 2
       recipes:
-        - DawInstrumentMachineCircuitboard
+      - DawInstrumentMachineCircuitboard
 
 - type: entity
   id: PortableGeneratorPacmanMachineCircuitboard
@@ -960,9 +889,8 @@
       state: engineering
     - type: MachineBoard
       prototype: PortableGeneratorPacman
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         CableHV: 5
     - type: ReverseEngineering # Nyano
       difficulty: 2
@@ -983,9 +911,8 @@
   components:
   - type: MachineBoard
     prototype: Thruster
-    requirements:
+    stackRequirements:
       Capacitor: 4
-    materialRequirements:
       Steel: 5
   - type: ReverseEngineering # delta
     difficulty: 3
@@ -999,10 +926,9 @@
   components:
   - type: MachineBoard
     prototype: Gyroscope
-    requirements:
+    stackRequirements:
       Manipulator: 2
       Capacitor: 1
-    materialRequirements:
       Glass: 2
   - type: ReverseEngineering # delta
     difficulty: 3
@@ -1018,9 +944,8 @@
       state: engineering
     - type: MachineBoard
       prototype: PortableGeneratorSuperPacman
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         CableHV: 10
     - type: PhysicalComposition
       materialComposition:
@@ -1043,9 +968,8 @@
       state: engineering
     - type: MachineBoard
       prototype: PortableGeneratorJrPacman
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         Cable: 10
     - type: PhysicalComposition
       materialComposition:
@@ -1067,18 +991,13 @@
   components:
     - type: MachineBoard
       prototype: KitchenReagentGrinder
-      requirements:
+      stackRequirements:
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
         GlassBeaker:
-          Amount: 1
-          DefaultPrototype: Beaker
-          ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - ReagentGrinderMachineCircuitboard
+          amount: 1
+          defaultPrototype: Beaker
 
 - type: entity
   id: HotplateMachineCircuitboard
@@ -1088,14 +1007,9 @@
   components:
     - type: MachineBoard
       prototype: ChemistryHotplate
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - HotplateMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1105,15 +1019,10 @@
   components:
   - type: MachineBoard
     prototype: KitchenElectricGrill
-    requirements:
+    stackRequirements:
       Capacitor: 4
-    materialRequirements:
       Glass: 2
       Cable: 5
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - ElectricGrillMachineCircuitboard
 
 - type: entity
   id: StasisBedMachineCircuitboard
@@ -1124,10 +1033,9 @@
       state: medical
     - type: MachineBoard
       prototype: StasisBed
-      requirements:
+      stackRequirements:
         Capacitor: 1
         Manipulator: 1
-      materialRequirements:
         Cable: 3
         Steel: 2
     - type: ReverseEngineering # Nyano
@@ -1145,13 +1053,9 @@
     state: medical
   - type: MachineBoard
     prototype: MachineElectrolysisUnit
-    requirements:
+    stackRequirements:
       Capacitor: 2
-    materialRequirements:
       Cable: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - ElectrolysisUnitMachineCircuitboard
 
 - type: entity
   id: CentrifugeMachineCircuitboard
@@ -1163,32 +1067,9 @@
     state: medical
   - type: MachineBoard
     prototype: MachineCentrifuge
-    requirements:
+    stackRequirements:
       Manipulator: 1
-    materialRequirements:
       Steel: 1
-  - type: ReverseEngineering # delta
-    recipes:
-      - CentrifugeMachineCircuitboard
-
-- type: entity
-  id: MaterialReclaimerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: material reclaimer machine board
-  components:
-    - type: Sprite
-      state: supply
-    - type: MachineBoard
-      prototype: MaterialReclaimer
-      requirements:
-        Manipulator: 2
-      materialRequirements:
-        Steel: 5
-        Plastic: 5
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - MaterialReclaimerMachineCircuitboard
 
 - type: entity
   id: OreProcessorMachineCircuitboard
@@ -1199,14 +1080,10 @@
       state: supply
     - type: MachineBoard
       prototype: OreProcessor
-      requirements:
+      stackRequirements:
         MatterBin: 1
         Manipulator: 3
-      materialRequirements:
         Glass: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - OreProcessorMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1217,10 +1094,9 @@
     state: supply
   - type: MachineBoard
     prototype: OreProcessorIndustrial
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 3
-    materialRequirements:
       Glass: 1
   - type: ReverseEngineering # delta
     difficulty: 2
@@ -1234,7 +1110,7 @@
   components:
   - type: MachineBoard
     prototype: Sheetifier
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 1
   - type: ReverseEngineering # delta
@@ -1251,17 +1127,27 @@
       state: service
     - type: MachineBoard
       prototype: KitchenMicrowave
-      requirements:
+      stackRequirements:
         Capacitor: 1
-      materialRequirements:
         Glass: 2
         Cable: 2
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MicrowaveMachineCircuitboard
     - type: Tag
       tags:
       - MicrowaveMachineBoard
+
+- type: entity
+  id: SyndicateMicrowaveMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: donk co. microwave machine board
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: SyndicateMicrowave
+      stackRequirements:
+        Capacitor: 1
+        Glass: 2
+        Cable: 2
 
 - type: entity
   id: FatExtractorMachineCircuitboard
@@ -1272,17 +1158,17 @@
       state: service
     - type: MachineBoard
       prototype: FatExtractor
-      requirements:
+      stackRequirements:
         Manipulator: 1
       componentRequirements:
         Utensil:
-          Amount: 1
-          DefaultPrototype: ForkPlastic
-          ExamineName: Utensil
+          amount: 1
+          defaultPrototype: ForkPlastic
+          examineName: construction-insert-info-examine-name-utensil
     - type: ReverseEngineering # delta
       difficulty: 2
       recipes:
-        - FatExtractorMachineCircuitboard
+      - FatExtractorMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1291,10 +1177,9 @@
   components:
   - type: MachineBoard
     prototype: MachineFlatpacker
-    requirements:
+    stackRequirements:
       Manipulator: 2
       MatterBin: 1
-    materialRequirements:
       Steel: 1
   - type: ReverseEngineering # delta
     difficulty: 2
@@ -1310,15 +1195,10 @@
       state: engineering
     - type: MachineBoard
       prototype: Emitter
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         CableHV: 5
         Glass: 2
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - EmitterCircuitboard
 
 - type: entity
   id: SurveillanceCameraRouterCircuitboard
@@ -1328,7 +1208,7 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceCameraRouterConstructed
-      materialRequirements:
+      stackRequirements:
         Cable: 1
     - type: ReverseEngineering # Nyano
       difficulty: 2
@@ -1343,7 +1223,7 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceCameraWirelessRouterConstructed
-      materialRequirements:
+      stackRequirements:
         Cable: 2
         Glass: 1
     - type: ReverseEngineering # Nyano
@@ -1359,7 +1239,7 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceWirelessCameraMovableConstructed
-      materialRequirements:
+      stackRequirements:
         Glass: 2
         Cable: 2
     - type: ReverseEngineering # Nyano
@@ -1375,7 +1255,7 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceWirelessCameraAnchoredConstructed
-      materialRequirements:
+      stackRequirements:
         Cable: 2
         Glass: 1
     - type: ReverseEngineering # Nyano
@@ -1391,10 +1271,9 @@
   components:
   - type: MachineBoard
     prototype: GasRecycler
-    requirements:
+    stackRequirements:
       Capacitor: 1
       Manipulator: 1
-    materialRequirements:
       Steel: 10
       Plasma: 5
   - type: ReverseEngineering # Nyano
@@ -1412,16 +1291,12 @@
       state: service
     - type: MachineBoard
       prototype: BoozeDispenserEmpty
-      materialRequirements:
+      stackRequirements:
         Steel: 5
       tagRequirements:
           GlassBeaker:
-            Amount: 1
-            DefaultPrototype: Beaker
-            ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - BoozeDispenserMachineCircuitboard
+            amount: 1
+            defaultPrototype: Beaker
 
 - type: entity
   id: CargoTelepadMachineCircuitboard
@@ -1433,9 +1308,8 @@
       state: supply
     - type: MachineBoard
       prototype: CargoTelepad
-      requirements:
+      stackRequirements:
         Capacitor: 2
-      materialRequirements:
         Steel: 5
         Bluespace: 2  #DeltaV Bluespace Exists
     - type: ReverseEngineering # delta
@@ -1453,16 +1327,12 @@
       state: service
     - type: MachineBoard
       prototype: SodaDispenserEmpty
-      materialRequirements:
+      stackRequirements:
         Steel: 5
       tagRequirements:
           GlassBeaker:
-            Amount: 1
-            DefaultPrototype: Beaker
-            ExamineName: Glass Beaker
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - SodaDispenserMachineCircuitboard
+            amount: 1
+            defaultPrototype: Beaker
 
 - type: entity
   id: TelecomServerCircuitboard
@@ -1472,7 +1342,7 @@
   components:
     - type: MachineBoard
       prototype: TelecomServer
-      materialRequirements:
+      stackRequirements:
         Steel: 1
         Cable: 2
     - type: ReverseEngineering # Nyano
@@ -1487,9 +1357,8 @@
   components:
   - type: MachineBoard
     prototype: SalvageMagnet
-    requirements:
+    stackRequirements:
       Capacitor: 4
-    materialRequirements:
       Steel: 5
       CableHV: 5
       Cable: 2
@@ -1505,10 +1374,9 @@
   components:
   - type: MachineBoard
     prototype: GravityGeneratorMini
-    requirements:
+    stackRequirements:
       Capacitor: 4
       MatterBin: 3
-    materialRequirements:
       Steel: 5
       CableHV: 5
       Uranium: 2
@@ -1527,12 +1395,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunSvalinnMachineGun
-    requirements:
-      MatterBin: 2
-      Manipulator: 4
-    materialRequirements:
+    stackRequirements:
       Steel: 5
       CableHV: 5
+      MatterBin: 2
+      Manipulator: 4
   - type: ReverseEngineering #delta
     difficulty: 3
     recipes:
@@ -1548,12 +1415,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunPerforator
-    requirements:
-      MatterBin: 4
-      Manipulator: 6
-    materialRequirements:
+    stackRequirements:
       Steel: 10
       CableHV: 5
+      MatterBin: 4
+      Manipulator: 6
   - type: ReverseEngineering # delta
     difficulty: 3
     recipes:
@@ -1569,12 +1435,11 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunFriendship
-    requirements:
-      MatterBin: 3
-      Manipulator: 2
-    materialRequirements:
+    stackRequirements:
       Steel: 7
       CableHV: 5
+      MatterBin: 3
+      Manipulator: 2
   - type: ReverseEngineering # delta
     difficulty: 3
     recipes:
@@ -1590,13 +1455,12 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunDuster
-    requirements:
-      MatterBin: 6
-      Manipulator: 4
-    materialRequirements:
+    stackRequirements:
       Steel: 10
       CableHV: 5
       Uranium: 2
+      MatterBin: 6
+      Manipulator: 4
   - type: ReverseEngineering # delta
     difficulty: 4
     recipes:
@@ -1612,16 +1476,31 @@
     state: security
   - type: MachineBoard
     prototype: ShuttleGunKinetic
-    requirements:
-      MatterBin: 2
-      Manipulator: 3
-    materialRequirements:
+    stackRequirements:
       Steel: 5
       CableHV: 2
+      MatterBin: 2
+      Manipulator: 3
   - type: ReverseEngineering # delta
     difficulty: 2
     recipes:
       - ShuttleGunKineticCircuitboard
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: StationAnchorCircuitboard
+  name: station anchor machine board
+  description: A machine printed circuit board for a station anchor.
+  components:
+  - type: MachineBoard
+    prototype: StationAnchor
+    stackRequirements:
+      Capacitor: 4
+      MatterBin: 3
+      Steel: 10
+      Glass: 5
+      CableHV: 8
+      Uranium: 2
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -1630,10 +1509,9 @@
   components:
   - type: MachineBoard
     prototype: ReagentGrinderIndustrial
-    requirements:
+    stackRequirements:
       MatterBin: 1
       Manipulator: 3
-    materialRequirements:
       Glass: 1
   - type: ReverseEngineering # delta
     difficulty: 2
@@ -1648,8 +1526,21 @@
   components:
   - type: MachineBoard
     prototype: Jukebox
-    materialRequirements:
+    stackRequirements:
       WoodPlank: 5
       Steel: 2
       Glass: 5
       Cable: 2
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: CutterMachineCircuitboard
+  name: cutter machine board
+  components:
+  - type: MachineBoard
+    prototype: CutterMachine
+    stackRequirements:
+      Steel: 2
+      Capacitor: 1
+      Manipulator: 1
+      Cable: 1

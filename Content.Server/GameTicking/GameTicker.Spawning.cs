@@ -2,11 +2,12 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Managers;
+using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
+using Content.Server.Shuttles.Components;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players;
@@ -137,8 +138,14 @@ namespace Content.Server.GameTicking
             if (jobBans == null || jobId != null && jobBans.Contains(jobId))
                 return;
 
-            if (jobId != null && !_playTimeTrackings.IsAllowed(player, jobId))
-                return;
+            if (jobId != null)
+            {
+                var ev = new IsJobAllowedEvent(player, new ProtoId<JobPrototype>(jobId));
+                RaiseLocalEvent(ref ev);
+                if (ev.Cancelled)
+                    return;
+            }
+
             SpawnPlayer(player, character, station, jobId, lateJoin, silent);
         }
 
@@ -181,10 +188,9 @@ namespace Content.Server.GameTicking
             }
 
             // Figure out job restrictions
-            var restrictedRoles = new HashSet<string>();
-
-            var getDisallowed = _playTimeTrackings.GetDisallowedJobs(player);
-            restrictedRoles.UnionWith(getDisallowed);
+            var restrictedRoles = new HashSet<ProtoId<JobPrototype>>();
+            var ev = new GetDisallowedJobsEvent(player, restrictedRoles);
+            RaiseLocalEvent(ref ev);
 
             var jobBans = _banManager.GetJobBans(player.UserId);
             if (jobBans != null)
@@ -232,7 +238,7 @@ namespace Content.Server.GameTicking
                 spawnPointType = SpawnPointType.Job;
             }
 
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType);
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType); // DeltaV: pass in spawn point type
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 
@@ -277,28 +283,13 @@ namespace Content.Server.GameTicking
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
             }
 
-            // Arrivals is unable to do this during spawning as no actor is attached yet.
-            // We also want this message last.
-            if (!silent && lateJoin && _arrivals.Enabled)
-            {
-                var arrival = _arrivals.NextShuttleArrival();
-                if (arrival == null)
-                {
-                    _chatManager.DispatchServerMessage(player, Loc.GetString("latejoin-arrivals-direction"));
-                }
-                else
-                {
-                    _chatManager.DispatchServerMessage(player,
-                        Loc.GetString("latejoin-arrivals-direction-time", ("time", $"{arrival:mm\\:ss}")));
-                }
-            }
-
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob,
                 player,
                 jobId,
                 lateJoin,
+                silent,
                 PlayersJoinedRoundNormally,
                 station,
                 character);
@@ -317,7 +308,7 @@ namespace Content.Server.GameTicking
         }
 
         /// <summary>
-        /// Makes a player join into the game and spawn on a staiton.
+        /// Makes a player join into the game and spawn on a station.
         /// </summary>
         /// <param name="player">The player joining</param>
         /// <param name="station">The station they're spawning on</param>
@@ -377,11 +368,16 @@ namespace Content.Server.GameTicking
         public EntityCoordinates GetObserverSpawnPoint()
         {
             _possiblePositions.Clear();
-
-            foreach (var (point, transform) in EntityManager.EntityQuery<SpawnPointComponent, TransformComponent>(true))
+            var spawnPointQuery = EntityManager.EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+            while (spawnPointQuery.MoveNext(out var uid, out var point, out var transform))
             {
-                if (point.SpawnType != SpawnPointType.Observer)
+                if (point.SpawnType != SpawnPointType.Observer
+                   || TerminatingOrDeleted(uid)
+                   || transform.MapUid == null
+                   || TerminatingOrDeleted(transform.MapUid.Value))
+                {
                     continue;
+                }
 
                 _possiblePositions.Add(transform.Coordinates);
             }
@@ -415,7 +411,7 @@ namespace Content.Server.GameTicking
                 {
                     var gridXform = Transform(gridUid);
 
-                    return new EntityCoordinates(gridUid, gridXform.InvWorldMatrix.Transform(toMap.Position));
+                    return new EntityCoordinates(gridUid, Vector2.Transform(toMap.Position, gridXform.InvWorldMatrix));
                 }
 
                 return spawn;
@@ -423,7 +419,9 @@ namespace Content.Server.GameTicking
 
             if (_mapManager.MapExists(DefaultMap))
             {
-                return new EntityCoordinates(_mapManager.GetMapEntityId(DefaultMap), Vector2.Zero);
+                var mapUid = _mapManager.GetMapEntityId(DefaultMap);
+                if (!TerminatingOrDeleted(mapUid))
+                    return new EntityCoordinates(mapUid, Vector2.Zero);
             }
 
             // Just pick a point at this point I guess.
@@ -490,6 +488,7 @@ namespace Content.Server.GameTicking
         public ICommonSession Player { get; }
         public string? JobId { get; }
         public bool LateJoin { get; }
+        public bool Silent { get; }
         public EntityUid Station { get; }
         public HumanoidCharacterProfile Profile { get; }
 
@@ -500,6 +499,7 @@ namespace Content.Server.GameTicking
             ICommonSession player,
             string? jobId,
             bool lateJoin,
+            bool silent,
             int joinOrder,
             EntityUid station,
             HumanoidCharacterProfile profile)
@@ -508,6 +508,7 @@ namespace Content.Server.GameTicking
             Player = player;
             JobId = jobId;
             LateJoin = lateJoin;
+            Silent = silent;
             Station = station;
             Profile = profile;
             JoinOrder = joinOrder;

@@ -1,16 +1,11 @@
 using Content.Server.Explosion.Components;
-using Content.Server.Flash.Components;
 using Content.Server.GameTicking;
-using Content.Server.Popups;
-using Content.Server.Store.Components;
-using Content.Server.Store.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.DeltaV.CCVars;
 using Content.Shared.Explosion.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Flash.Components;
-using Robust.Server.Player;
+using Content.Shared.Store.Components;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.DeltaV.RoundEnd;
@@ -18,10 +13,6 @@ namespace Content.Server.DeltaV.RoundEnd;
 public sealed class PacifiedRoundEnd : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly StoreSystem _storeSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     private bool _enabled;
 
@@ -38,31 +29,31 @@ public sealed class PacifiedRoundEnd : EntitySystem
             return;
 
         var harmQuery = EntityQueryEnumerator<CombatModeComponent>();
-        while (harmQuery.MoveNext(out var uid, out var _))
+        while (harmQuery.MoveNext(out var uid, out _))
         {
             EnsureComp<PacifiedComponent>(uid);
         }
 
         var explosiveQuery = EntityQueryEnumerator<ExplosiveComponent>();
-        while (explosiveQuery.MoveNext(out var uid, out var _))
+        while (explosiveQuery.MoveNext(out var uid, out _))
         {
             RemComp<ExplosiveComponent>(uid);
         }
 
         var grenadeQuery = EntityQueryEnumerator<OnUseTimerTriggerComponent>();
-        while (grenadeQuery.MoveNext(out var uid, out var _))
+        while (grenadeQuery.MoveNext(out var uid, out _))
         {
             RemComp<OnUseTimerTriggerComponent>(uid);
         }
 
         var flashQuery = EntityQueryEnumerator<FlashComponent>();
-        while (flashQuery.MoveNext(out var uid, out var _))
+        while (flashQuery.MoveNext(out var uid, out _))
         {
             RemComp<FlashComponent>(uid);
         }
 
         var uplinkQuery = EntityQueryEnumerator<StoreComponent>();
-        while (uplinkQuery.MoveNext(out var uid, out var store))
+        while (uplinkQuery.MoveNext(out var _, out var store))
         {
             store.Listings.Clear();
         }

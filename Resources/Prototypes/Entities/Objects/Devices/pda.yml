@@ -1,13 +1,15 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [ BaseItem, StorePresetUplink ] #PDA's have uplinks so they have to inherit the data.
   id: BasePDA
   name: PDA
   description: Personal Data Assistant.
   components:
   - type: Appearance
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
+    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -19,7 +21,9 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
+    Scale: 0.75, 0.75 # DeltaV aPDA Resprite PDA Size change, makes it smaller for the full detail.
     state: pda
   - type: Pda
     state: pda
@@ -67,6 +71,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: PDA
     prefix: device-address-prefix-console
+    savableAddress: false
   - type: WirelessNetworkConnection
     range: 500
   - type: CartridgeLoader
@@ -103,12 +108,24 @@
     - DoorBumpOpener
   - type: Input
     context: "human"
+  - type: SentienceTarget # sentient PDA = pAI lite
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
+  - type: BlockMovement
+    blockInteraction: false # lets the PDA toggle its own flashlight
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
 
 - type: entity
   parent: BasePDA
   id: BaseMedicalPDA
   abstract: true
   components:
+  - type: ItemToggle
+    onUse: false
+  - type: ItemTogglePointLight
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -173,7 +190,8 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -224,6 +242,8 @@
     borderColor: "#d7d7d0"
   - type: Icon
     state: pda-cook
+  - type: ReplacementAccent # for random sentience event
+    accent: italian
 
 - type: entity
   parent: BasePDA
@@ -261,9 +281,7 @@
     borderColor: "#C18199"
   - type: Icon
     state: pda-clown
-  - type: Slippery
-    paralyzeTime: 4
-    launchForwardsMultiplier: 1.5
+  - type: Slippery # secretly made of bananium
   - type: StepTrigger
   - type: CollisionWake
     enabled: false
@@ -305,6 +323,7 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
+  - type: Muted # for random sentience event
 
 - type: entity
   name: chaplain PDA
@@ -313,7 +332,7 @@
   description: God's chosen PDA.
   components:
   - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -331,7 +350,7 @@
     borderColor: "#333333"
     accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV - Give Chaplain PDA Epistemics colors
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     state: pda-chaplain
 
 - type: entity
@@ -348,6 +367,12 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
+  - type: CartridgeLoader # DeltaV - MailMetrics courier tracker
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MailMetricsCartridge
 
 - type: entity
   parent: BasePDA
@@ -431,7 +456,8 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -645,7 +671,8 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -667,7 +694,8 @@
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -688,7 +716,8 @@
     borderColor: "#A32D26"
   - type: Icon
     state: pda-security
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -699,7 +728,7 @@
 - type: entity
   parent: BasePDA
   id: CentcomPDA
-  name: CentCom PDA
+  name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
   - type: Pda
@@ -719,27 +748,22 @@
   parent: CentcomPDA
   id: AdminPDA
   name: Admin PDA
+  suffix: Admin
   description: If you are not an admin please return this PDA to the nearest admin.
   components:
   - type: Pda
-    id: PassengerIDCard
+    id: UniversalIDCard
   - type: HealthAnalyzer
     scanDelay: 0
+    silent: true
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
-
-- type: entity
-  parent: CentcomPDA
-  id: CentcomPDAFake
-  suffix: Fake
-  components:
-  - type: Pda
-    id: CentcomIDCardSyndie
 
 - type: entity
   parent: CentcomPDA
@@ -771,7 +795,7 @@
 - type: entity
   parent: BasePDA
   id: AtmosPDA
-  name: atmos PDA
+  name: atmospheric technician PDA # DeltaV - was "atmos PDA"
   description: Still smells like plasma.
   components:
   - type: Pda
@@ -984,7 +1008,8 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -1007,7 +1032,8 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -1054,7 +1080,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: SciencePDA # DeltaV - inherit the glimmer monitor program
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
@@ -1099,7 +1125,8 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge

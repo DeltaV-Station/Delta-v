@@ -6,13 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
       role: JobSecurityOfficer
-      time: 43200 # DeltaV - 12 hrs
+      time: 36000 # DeltaV - 10 hrs
     - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
       role: JobDetective
-      time: 14400 # DeltaV - 4 hours
-    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+      time: 21600 # DeltaV - 6 hours
   startingGear: WardenGear
   icon: "JobIconWarden"
+  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
@@ -20,7 +20,7 @@
   #- Brig # Delta V: Removed
   - Armory
   - Maintenance
-  - Service
+  #- Service # Delta V: Access adjustments
   - External
   - Detective
   - Cryogenics
@@ -35,3 +35,7 @@
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol

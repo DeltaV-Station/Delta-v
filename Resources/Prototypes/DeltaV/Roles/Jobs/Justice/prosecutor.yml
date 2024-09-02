@@ -1,0 +1,37 @@
+- type: job
+  id: Prosecutor
+  name: job-name-prosecutor
+  description: job-description-prosecutor
+  playTimeTracker: JobProsecutor
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      time: 21600 # 6 hours
+  startingGear: ProsecutorGear
+  icon: "JobIconProsecutor"
+  supervisors: job-supervisors-cj
+  canBeAntag: false
+  access:
+  - Prosecutor
+  - Justice
+  - Maintenance
+
+- type: startingGear
+  id: ProsecutorGear
+  equipment:
+    #jumpsuit: ClothingUniformJumpsuitProsecutor
+    #neck: ClothingNeckProsecutorbadge
+    #back: ClothingBackpackLawyerFilled
+    shoes: ClothingShoesBootsLaceup
+    id: ProsecutorPDA
+    ears: ClothingHeadsetJustice
+    # TODO add copy of space law
+  inhand:
+    - BriefcaseBrownFilled
+    #innerClothingSkirt: ClothingUniformJumpskirtProsecutor
+    #satchel: ClothingBackpackSatchelFilled
+    #duffelbag: ClothingBackpackDuffelFilled
+
+

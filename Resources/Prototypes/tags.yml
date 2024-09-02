@@ -28,9 +28,6 @@
   id: ATVKeys
 
 - type: Tag
-  id: Baguette
-
-- type: Tag
   id: Balloon
 
 - type: Tag
@@ -62,6 +59,9 @@
 
 - type: Tag
   id: Bloodpack
+
+- type: Tag
+  id: BlueprintAutolathe
 
 - type: Tag
   id: BodyBag
@@ -259,6 +259,12 @@
   id: CableCoil
 
 - type: Tag
+  id: Candle
+
+- type: Tag
+  id: Cake
+
+- type: Tag
   id: CaneBlade
 
 - type: Tag
@@ -360,6 +366,10 @@
 
 - type: Tag
   id: Chicken
+
+# Allowed to control someone wearing a Chef's hat if inside their hat.
+- type: Tag
+  id: ChefPilot
 
 - type: Tag
   id: ChemDispensable # container that can go into the chem dispenser
@@ -503,6 +513,9 @@
   id: DiscreteHealthAnalyzer #So construction recipes don't eat medical PDAs
 
 - type: Tag
+  id: DNASolutionScannable
+
+- type: Tag
   id: DockArrivals
 
 - type: Tag
@@ -536,7 +549,16 @@
   id: DrinkCan
 
 - type: Tag
+  id: DrinkCup
+
+- type: Tag
+  id: DrinkGlass
+
+- type: Tag
   id: DrinkSpaceGlue
+
+- type: Tag
+  id: Dropper
 
 - type: Tag
   id: Duck
@@ -614,6 +636,9 @@
   id: GasScrubber
 
 - type: Tag
+  id: GasTank
+
+- type: Tag
   id: GasVent
 
 - type: Tag
@@ -633,6 +658,9 @@
 
 - type: Tag
   id: Goat
+
+- type: Tag
+  id: Goliath
 
 - type: Tag
   id: GPS
@@ -750,6 +778,9 @@
 
 - type: Tag
   id: Igniter
+
+- type: Tag
+  id: Ingredient
 
 - type: Tag #Drop this innate tool instead of deleting it.
   id: InnateDontDelete
@@ -927,6 +958,9 @@
   id: NozzleBackTank
 
 - type: Tag
+  id: Nugget # for chicken nuggets
+
+- type: Tag
   id: NukeOpsUplink
 
 - type: Tag
@@ -1011,6 +1045,9 @@
   id: PlushieSharkPink
 
 - type: Tag
+  id: PlutoniumCore
+
+- type: Tag
   id: Potato
 
 - type: Tag
@@ -1057,6 +1094,9 @@
   id: RifleStock
 
 - type: Tag
+  id: Ring
+
+- type: Tag
   id: RipleyCentralControlModule
 
 - type: Tag
@@ -1088,6 +1128,9 @@
 
 - type: Tag
   id: SalvageExperiment
+
+- type: Tag
+  id: Scarf
 
 - type: Tag
   id: Screwdriver
@@ -1123,6 +1166,9 @@
   id: Skewer
 
 - type: Tag
+  id: Slice # sliced fruit, vegetables, pizza etc.
+
+- type: Tag
   id: SmallAIChip
 
 - type: Tag
@@ -1142,6 +1188,7 @@
 
 - type: Tag
   id: Soup
+
 - type: Tag
   id: Spear
 
@@ -1168,6 +1215,9 @@
 
 - type: Tag
   id: SpreaderIgnore
+
+- type: Tag
+  id: StationAi
 
 - type: Tag
   id: StationMapElectronics
@@ -1225,6 +1275,12 @@
 
 - type: Tag
   id: Toolbox
+
+- type: Tag
+  id: ToothSharkminnow
+
+- type: Tag
+  id: ToothSpaceCarp
 
 - type: Tag
   id: Torch

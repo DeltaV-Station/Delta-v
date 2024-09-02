@@ -5,7 +5,7 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 # DeltaV - 4 hours
+      time: 21600 # DeltaV - 6 hours
 #    - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
 #      department: Security
 #      time: 54000 #15 hrs
@@ -18,9 +18,9 @@
   - Security
   #- Brig # Delta V: Removed
   - Maintenance
-  - Service
+  #- Service # Delta V: Access adjustments
   - External
-  - Cryogenics
+  #- Cryogenics # Delta V: Access adjustments
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -35,3 +35,7 @@
     belt: ClothingBeltSecurityFilled
 #    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
     pocket2: BookSecurity
+  storage:
+    back:
+    - Flash
+#    - MagazinePistol # DeltaV - no

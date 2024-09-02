@@ -1,0 +1,61 @@
+- type: job
+  id: ChiefJustice
+  name: job-name-chief-justice
+  description: job-description-chief-justice
+  playTimeTracker: JobChiefJustice
+  requirements:
+#    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so. 
+#      role: JobClerk
+#      time: 36000 # DeltaV - 10 hours
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 hours
+    - !type:RoleTimeRequirement
+      role: JobProsecutor
+      time: 36000 # 10 hours
+    - !type:OverallPlaytimeRequirement
+      time: 90000 # 25 hours
+  weight: 20
+  startingGear: CJGear
+  icon: "JobIconChiefJustice"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  whitelisted: true # DeltaV: whitelist requirement because I don't want any dingus judges
+  access:
+  - Command
+  - ChiefJustice
+  - Justice
+  - Lawyer
+  - Prosecutor
+  - Clerk
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
+
+- type: startingGear
+  id: CJGear
+  equipment:
+    #jumpsuit: ClothingUniformJumpsuitChiefJustice
+    #back: ClothingBackpackFilled # TODO- make Justice department bags
+    #shoes: ClothingShoesLeather
+    #head: ClothingHeadHatCJToque
+    #outerClothing: ClothingOuterChiefJustice
+    id: ChiefJusticePDA
+    ears: ClothingHeadsetAltJustice
+    #gloves: ClothingHandsGlovesColorWhite
+    # Todo - pocket1: Gavel
+    #innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
+    #satchel: ClothingBackpackSatchelFilled # TODO- make Justice departmebt bags
+    #duffelbag: ClothingBackpackDuffelFilled
+
+

@@ -13,6 +13,8 @@
         state: plain
   - type: RandomSpawner
     prototypes:
+      - FoodBagel
+      - FoodBagelPoppy
       - FoodBurgerJelly
       - FoodBurgerCarp
       - FoodBurgerTofu
@@ -30,9 +32,6 @@
       - FoodBurgerChicken
       - FoodBurgerDuck
       - FoodBurgerCheese
-      - FoodMeatHawaiianKebab
-      - FoodMeatKebab
-      - FoodMeatFiestaKebab
       - FoodNoodlesBoiled
       - FoodNoodles
       - FoodNoodlesCopy
@@ -55,11 +54,7 @@
       - FoodBakedDumplings
       - FoodBakedChevreChaud
       - FoodBakedNugget
-      - FoodTacoBeef
-      - FoodTacoChicken
-      - FoodTacoFish
-      - FoodTacoBeefSupreme
-      - FoodTacoChickenSupreme
+      - FoodTacoShell
       - FoodMealGrilledCheese  # Delta V
     chance: 0.8
     offset: 0.0
@@ -77,12 +72,7 @@
       - FoodBurgerSpell
       - FoodBurgerSuper
       - FoodBurgerCrazy
-      - FoodMeatHumanKebab
-      - FoodMeatLizardtailKebab
-      - FoodMeatRatKebab
-      - FoodMeatRatdoubleKebab
-      - FoodMeatSnakeKebab
       - FoodPizzaArnoldSlice
       - FoodPizzaCorncobSlice # Nyanotrasen - Corncob Pizza
-      - FoodTacoRat
+      - FoodPizzaUraniumSlice
     rareChance: 0.05

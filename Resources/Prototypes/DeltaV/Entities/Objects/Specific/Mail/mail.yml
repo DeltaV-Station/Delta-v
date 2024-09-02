@@ -1,5 +1,4 @@
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailBooksAll # See Resources/Prototypes/Nyanotrasen/Entities/Markers/Spawners/Random/books.yml
   suffix: books
@@ -110,7 +109,7 @@
     - id: BookBartendersManual
       prob: 0.2
       orGroup: bookguide
-    - id: BookChefGaming
+    - id: BookHowToCookForFortySpaceman
       prob: 0.2
       orGroup: bookguide
     - id: BookLeafLoversSecret
@@ -167,7 +166,6 @@
 #      orGroup: bookother
 
 - type: entity
-  noSpawn: true
   parent: BaseMail
   id: MailPumpkinPie
   suffix: pumpkinpie

@@ -4,27 +4,24 @@ using System.Threading;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Power.Components;
-using Content.Server.UserInterface;
 using Content.Shared.DoAfter;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Tools.Components;
-using Content.Shared.UserInterface;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
 
 namespace Content.Server.Wires;
 
 public sealed class WiresSystem : SharedWiresSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly ActivatableUISystem _activatableUI = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
@@ -52,8 +49,6 @@ public sealed class WiresSystem : SharedWiresSystem
         SubscribeLocalEvent<WiresComponent, TimedWireEvent>(OnTimedWire);
         SubscribeLocalEvent<WiresComponent, PowerChangedEvent>(OnWiresPowered);
         SubscribeLocalEvent<WiresComponent, WireDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<ActivatableUIRequiresPanelComponent, ActivatableUIOpenAttemptEvent>(OnAttemptOpenActivatableUI);
-        SubscribeLocalEvent<ActivatableUIRequiresPanelComponent, PanelChangedEvent>(OnActivatableUIPanelChanged);
         SubscribeLocalEvent<WiresPanelSecurityComponent, WiresPanelSecurityEvent>(SetWiresPanelSecurity);
     }
 
@@ -473,23 +468,6 @@ public sealed class WiresSystem : SharedWiresSystem
         _uiSystem.CloseUi(ent.Owner, WiresUiKey.Key);
     }
 
-    private void OnAttemptOpenActivatableUI(EntityUid uid, ActivatableUIRequiresPanelComponent component, ActivatableUIOpenAttemptEvent args)
-    {
-        if (args.Cancelled || !TryComp<WiresPanelComponent>(uid, out var wires))
-            return;
-
-        if (component.RequireOpen != wires.Open)
-            args.Cancel();
-    }
-
-    private void OnActivatableUIPanelChanged(EntityUid uid, ActivatableUIRequiresPanelComponent component, ref PanelChangedEvent args)
-    {
-        if (args.Open == component.RequireOpen)
-            return;
-
-        _activatableUI.CloseAll(uid);
-    }
-
     private void OnMapInit(EntityUid uid, WiresComponent component, MapInitEvent args)
     {
         if (!string.IsNullOrEmpty(component.LayoutId))
@@ -750,7 +728,7 @@ public sealed class WiresSystem : SharedWiresSystem
                     break;
                 }
 
-                Tool.PlayToolSound(toolEntity, tool, user);
+                Tool.PlayToolSound(toolEntity, tool, null);
                 if (wire.Action == null || wire.Action.Cut(user, wire))
                 {
                     wire.IsCut = true;
@@ -771,7 +749,7 @@ public sealed class WiresSystem : SharedWiresSystem
                     break;
                 }
 
-                Tool.PlayToolSound(toolEntity, tool, user);
+                Tool.PlayToolSound(toolEntity, tool, null);
                 if (wire.Action == null || wire.Action.Mend(user, wire))
                 {
                     wire.IsCut = false;

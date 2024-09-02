@@ -23,6 +23,9 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+      - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -110,8 +113,6 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.01
-  - type: FireProtection
-    reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
   - type: ClothingSpeedModifier
     walkModifier: 0.4
     sprintModifier: 0.6
@@ -139,6 +140,11 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
 
 - type: entity
   abstract: true
@@ -162,6 +168,11 @@
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
 
 - type: entity
   parent: ClothingOuterBase

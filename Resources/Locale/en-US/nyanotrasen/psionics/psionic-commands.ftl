@@ -1,5 +1,6 @@
-command-glimmershow-description = Show the current glimmer level.
-command-glimmershow-help = No arguments.
+# Delta-V - Change glimmershow to showglimmer
+command-showglimmer-description = Show the current glimmer level.
+command-showglimmer-help = No arguments.
 
 command-glimmerset-description = Set glimmer to a number.
 command-glimmerset-help = glimmerset (integer)

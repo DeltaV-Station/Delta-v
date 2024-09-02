@@ -5,6 +5,7 @@ using Content.Shared.Labels.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 
@@ -17,6 +18,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
     [Dependency] private readonly SharedLabelSystem _labelSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
     [ValidatePrototypeId<TagPrototype>]
@@ -84,7 +86,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
     private void OnUtilityVerb(EntityUid uid, HandLabelerComponent handLabeler, GetVerbsEvent<UtilityVerb> args)
     {
-        if (args.Target is not { Valid: true } target || !handLabeler.Whitelist.IsValid(target) || !args.CanAccess)
+        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanAccess)
             return;
 
         var labelerText = handLabeler.AssignedLabel == string.Empty ? Loc.GetString("hand-labeler-remove-label-text") : Loc.GetString("hand-labeler-add-label-text");
@@ -103,7 +105,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
     private void AfterInteractOn(EntityUid uid, HandLabelerComponent handLabeler, AfterInteractEvent args)
     {
-        if (args.Target is not { Valid: true } target || !handLabeler.Whitelist.IsValid(target) || !args.CanReach)
+        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanReach)
             return;
 
         Labeling(uid, target, args.User, handLabeler);

@@ -88,6 +88,17 @@
       price: 750
 
 - type: entity
+  parent: BaseComputerCircuitboard
+  id: CargoSaleComputerCircuitboard
+  name: cargo sale computer board
+  description: A computer printed circuit board for a cargo sale computer.
+  components:
+    - type: Sprite
+      state: cpu_supply
+    - type: ComputerBoard
+      prototype: ComputerPalletConsole
+
+- type: entity
   id: CargoBountyComputerCircuitboard
   parent: BaseComputerCircuitboard
   name: cargo bounty computer board
@@ -137,17 +148,6 @@
       prototype: ComputerShuttleCargo
     - type: StealTarget
       stealGroup: CargoShuttleConsoleCircuitboard
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: SalvageShuttleConsoleCircuitboard
-  name: salvage shuttle console board
-  description: A computer printed circuit board for a salvage shuttle console.
-  components:
-    - type: ComputerBoard
-      prototype: ComputerShuttleSalvage
-    - type: StealTarget
-      stealGroup: SalvageShuttleConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -249,7 +249,7 @@
         - CrewMonitoringComputerCircuitboard
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [BaseComputerCircuitboard, BaseGrandTheftContraband]
   id: IDComputerCircuitboard
   name: ID card computer board
   description: A computer printed circuit board for an ID card console.
