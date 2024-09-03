@@ -1,6 +1,6 @@
 - type: entity
   id: Vape
-  noSpawn: true # DeltaV - Disable the Vape
+  categories: [ HideSpawnMenu ] # DeltaV - Disable the Vape
   parent: BaseVape
   name: vape
   description: "Like a cigar, but for tough teens. (WARNING:Pour only water into the vape)"

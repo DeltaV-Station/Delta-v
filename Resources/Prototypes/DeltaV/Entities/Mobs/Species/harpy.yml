@@ -57,6 +57,7 @@
         visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
@@ -110,6 +111,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', ]
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -127,7 +129,6 @@
     weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade # Einstein Engines
     displacements:
       jumpsuit:
         sizeMaps:
@@ -147,7 +148,7 @@
   name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
@@ -160,7 +161,6 @@
           32:
             sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
-    templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -181,6 +181,7 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
+      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
