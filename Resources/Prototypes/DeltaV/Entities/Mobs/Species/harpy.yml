@@ -111,6 +111,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', ]
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -125,9 +126,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-#    templateId: digitigrade
     displacements:
       jumpsuit:
         sizeMaps:
@@ -136,13 +137,18 @@
             state: jumpsuit
   - type: HarpyVisuals
   - type: UltraVision
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance

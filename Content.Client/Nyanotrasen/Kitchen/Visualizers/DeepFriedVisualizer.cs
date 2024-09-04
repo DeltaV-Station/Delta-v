@@ -7,68 +7,69 @@ using Content.Shared.Hands;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 
-namespace Content.Client.Kitchen.Visualizers
+namespace Content.Client.Kitchen.Visualizers;
+
+public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
 {
-    public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    private readonly static string ShaderName = "Crispy";
+
+    public override void Initialize()
     {
-        private readonly static string ShaderName = "Crispy";
+        base.Initialize();
 
-        public override void Initialize()
+        SubscribeLocalEvent<DeepFriedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
+        SubscribeLocalEvent<DeepFriedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+    }
+
+    protected override void OnAppearanceChange(EntityUid uid, DeepFriedComponent component, ref AppearanceChangeEvent args)
+    {
+        if (args.Sprite == null)
+            return;
+
+        if (!_appearance.TryGetData(uid, DeepFriedVisuals.Fried, out bool isFried, args.Component))
+            return;
+
+        for (var i = 0; i < args.Sprite.AllLayers.Count(); ++i)
+            args.Sprite.LayerSetShader(i, ShaderName);
+    }
+
+    private void OnHeldVisualsUpdated(EntityUid uid, DeepFriedComponent component, HeldVisualsUpdatedEvent args)
+    {
+        if (args.RevealedLayers.Count == 0)
         {
-            base.Initialize();
-
-            SubscribeLocalEvent<DeepFriedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
-            SubscribeLocalEvent<DeepFriedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+            return;
         }
 
-        protected override void OnAppearanceChange(EntityUid uid, DeepFriedComponent component, ref AppearanceChangeEvent args)
+        if (!TryComp(args.User, out SpriteComponent? sprite))
+            return;
+
+        foreach (var key in args.RevealedLayers)
         {
-            if (args.Sprite == null)
-                return;
+            if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
+                continue;
 
-            if (!args.Component.TryGetData(DeepFriedVisuals.Fried, out bool isFried))
-                return;
+            sprite.LayerSetShader(index, ShaderName);
+        }
+    }
 
-            for (var i = 0; i < args.Sprite.AllLayers.Count(); ++i)
-                args.Sprite.LayerSetShader(i, ShaderName);
+    private void OnEquipmentVisualsUpdated(EntityUid uid, DeepFriedComponent component, EquipmentVisualsUpdatedEvent args)
+    {
+        if (args.RevealedLayers.Count == 0)
+        {
+            return;
         }
 
-        private void OnHeldVisualsUpdated(EntityUid uid, DeepFriedComponent component, HeldVisualsUpdatedEvent args)
+        if (!TryComp(args.Equipee, out SpriteComponent? sprite))
+            return;
+
+        foreach (var key in args.RevealedLayers)
         {
-            if (args.RevealedLayers.Count == 0)
-            {
-                return;
-            }
+            if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
+                continue;
 
-            if (!TryComp(args.User, out SpriteComponent? sprite))
-                return;
-
-            foreach (var key in args.RevealedLayers)
-            {
-                if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
-                    continue;
-
-                sprite.LayerSetShader(index, ShaderName);
-            }
-        }
-
-        private void OnEquipmentVisualsUpdated(EntityUid uid, DeepFriedComponent component, EquipmentVisualsUpdatedEvent args)
-        {
-            if (args.RevealedLayers.Count == 0)
-            {
-                return;
-            }
-
-            if (!TryComp(args.Equipee, out SpriteComponent? sprite))
-                return;
-
-            foreach (var key in args.RevealedLayers)
-            {
-                if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
-                    continue;
-
-                sprite.LayerSetShader(index, ShaderName);
-            }
+            sprite.LayerSetShader(index, ShaderName);
         }
     }
 }

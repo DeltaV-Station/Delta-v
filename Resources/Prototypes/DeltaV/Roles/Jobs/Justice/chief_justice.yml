@@ -15,13 +15,13 @@
       time: 36000 # 10 hours
     - !type:OverallPlaytimeRequirement
       time: 90000 # 25 hours
-    - !type:WhitelistRequirement # whitelist requirement because I don't want any dingus judges
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  whitelisted: true # DeltaV: whitelist requirement because I don't want any dingus judges
   access:
   - Command
   - ChiefJustice

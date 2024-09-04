@@ -1,23 +1,23 @@
 - type: entity
-  id: BionicSyrinxImplanter
-  name: bionic syrinx implanter
   parent: BaseImplantOnlyImplanterSyndi
+  id: BionicSyrinxImplanter
+  suffix: bionic syrinx
   components:
-    - type: Implanter
-      implant: BionicSyrinxImplant
+  - type: Implanter
+    implant: BionicSyrinxImplant
 
 - type: entity
-  id: GenericRadioImplanter
-  name: generic radio implanter
   parent: BaseImplantOnlyImplanterSyndi
+  id: GenericRadioImplanter
+  suffix: generic radio
   components:
   - type: Implanter
     implant: RadioImplant
 
 - type: entity
-  id: SyndicateRadioImplanter
-  name: syndicate radio implanter
   parent: BaseImplantOnlyImplanterSyndi
+  id: SyndicateRadioImplanter
+  suffix: syndicate radio
   components:
   - type: Implanter
     implant: SyndicateRadioImplant
