@@ -1,8 +1,8 @@
 <Document>
 # Surgery
-Let's say that whatever patient arrives from the station straight into medbay is in a really bad shape. You have several options, clone them if they're dead, apply a mix of chemicals, topical medicine or even use the cryo tube with cryoxadone. There is a downside to those options however, all of them require specific external resources that aren't exactly abundant and a constantly running power supply.
+Let's say that whatever patient arrives from the station straight into medbay is in a really bad shape. You have several options, clone them if they're dead, apply a mix of chemicals, topical medicine or even use the cryo tube with cryoxadone. There is a downside to those options however, all of them require specific external resources that aren't exactly abundant and/or a constantly running power supply.
 
-That's where surgery comes in, it will allow you to treat the basic damages of your patients easily (albeit not as effective as every other method above) and it will even allow you to bring people who have rotted for long periods of time back to life.
+That's where surgery comes in, it will allow you to treat the basic damages of your patients easily (albeit not as effective as every other method above) and it will even allow you to bring people who have rotted for long periods of time back to life without having to clone them completely, which can save on biomass and chemicals.
 
 <Box>
 <GuideEntityEmbed Entity="Cautery"/>
@@ -13,10 +13,15 @@ That's where surgery comes in, it will allow you to treat the basic damages of y
 <GuideEntityEmbed Entity="Saw"/>
 </Box>
 
+## Sanitizing
+Your patient may get infected from improper usage of surgical tools, to stop that from happening you must wear gloves and a mask anything will be better than your bare hands and uncovered face.
+
 ## The Basics
 Performing surgery is done by steps, some steps are static while others are interchangeable, meaning they can be done alongside a more advanced procedure.
 
 Every procedure starts with an incision and ends with cauterization, if you screw up at any point you can cauterize the patient and try again. The most basic procedure is tend wounds, it is done by using a hemostat at any point during the surgery, doing so also clamps the bleeders to stop your patient from bleeding out.
+
+If someone is severely hurt, take them to the operating room, undress them and give it a shot.
 
 <GuideEntityEmbed Entity="Scalpel" Caption="incision"/>
 <GuideEntityEmbed Entity="Hemostat" Caption="tend wounds (repeatable)"/>
@@ -24,8 +29,6 @@ Every procedure starts with an incision and ends with cauterization, if you scre
 
 ## Procedure conditions
 Poor condition modifiers stacks and makes each step get progressively slower, the worst case scenario is if you were to do surgery on yourself while standing up and awake, and the best case scenario would be if you were doing surgery on someone else while they are laying down and sedated.
-
-You also need to undress people before performing surgery.
 
 ## Transplants
 If someone dies and doesn't get revived in time, their heart rot and soon does the rest of their organs, which get manifested in different types of damages (asphyxiation for lungs and poison for liver), lucky you, you should be prepared by now to deal exactly with that, these sorts of procedures should be done in this exact order, and the only tool you may optionally use during it is the hemostat to stop the patient from bleeding if they start to.
@@ -43,6 +46,6 @@ Additionally, you can also use the phantomlink card instead of an organ during t
 <GuideEntityEmbed Entity="PhantomLinkCard" Caption="the phantomlink (sprite is a placeholder)"/>
 
 ## Getting organs
-Currently the only transplantable organs are Interdyne's bio-synthetic organs, you can get them by buying a crate of them at cargo.
+Currently the only transplantable organs are Interdyne's bio-synthetic organs, you can get them by buying a crate of them at cargo or using the medical biofabricator.
 
 </Document>
