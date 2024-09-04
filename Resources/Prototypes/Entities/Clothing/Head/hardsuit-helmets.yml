@@ -459,10 +459,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8 # DeltaV - general armour rebalance
-        Slash: 0.8 # DeltaV - general armour rebalance
-        Piercing: 0.8 # DeltaV - general armour rebalance
-        Heat: 0.8 # DeltaV - general armour rebalance
+        Blunt: 0.8 # DeltaV - 0.9 > 0.8
+        Slash: 0.8 # DeltaV - 0.9 > 0.8
+        Piercing: 0.8 # DeltaV - 0.9 > 0.8
+        Heat: 0.8 # DeltaV - 0.9 > 0.8
 
 #Wizard Hardsuit
 - type: entity
