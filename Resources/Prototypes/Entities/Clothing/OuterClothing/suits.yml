@@ -63,6 +63,7 @@
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
+        Shock: 0.9 # DeltaV - general armour rebalance
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.7
@@ -97,6 +98,7 @@
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
+        Shock: 0.9 # DeltaV - general armour rebalance
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -121,6 +123,7 @@
       coefficients:
         Heat: 0.90
         Radiation: 0.05 # DeltaV - general armour rebalance
+        Shock: 0.85 # DeltaV - general armour rebalance
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine

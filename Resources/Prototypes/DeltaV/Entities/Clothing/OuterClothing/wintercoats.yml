@@ -49,11 +49,11 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecsweater.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecsweater.rsi
-  - type: Armor # Keep this the same as the sec winter coat
+  - type: Armor # Better than other coats. Sturdy construction keeps it protective against some light blunt force trauma and cuts / stabs, but it ain't exactly bulletproof.
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.75
+        Slash: 0.75
         Piercing: 0.85
         Heat: 0.75
   - type: AllowSuitStorage
