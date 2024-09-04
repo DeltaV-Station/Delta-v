@@ -9,18 +9,18 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 # DeltaV - general armour rebalance
-    sprintModifier: 0.7 # DeltaV - general armour rebalance
+    walkModifier: 0.85 # DeltaV - 0.8 > 0.85
+    sprintModifier: 0.7 # DeltaV - 0.8 > 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75 # DeltaV - general armour rebalance
-        Slash: 0.75 # DeltaV - general armour rebalance
-        Piercing: 0.75 # DeltaV - general armour rebalance
-        Shock: 0.85 # DeltaV - general armour rebalance
-        Heat: 0.6 # DeltaV - general armour rebalance
+        Blunt: 0.75 # DeltaV - 0.9 > 0.75
+        Slash: 0.75 # DeltaV - 0.9 > 0.75
+        Piercing: 0.75 # DeltaV - 0.9 > 0.75
+        Shock: 0.85 # DeltaV - add resist
+        Heat: 0.6 # DeltaV - 0.75 > 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.1 # DeltaV - general armour rebalance
+    damageCoefficient: 0.1 # DeltaV - 0.15 > 0.1
   - type: GroupExamine
   - type: Tag
     tags:
@@ -63,7 +63,7 @@
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
-        Shock: 0.9 # DeltaV - general armour rebalance
+        Shock: 0.9 # DeltaV - add resist
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.7
@@ -98,7 +98,7 @@
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
-        Shock: 0.9 # DeltaV - general armour rebalance
+        Shock: 0.9 # DeltaV - add resist
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -122,8 +122,8 @@
     modifiers:
       coefficients:
         Heat: 0.90
-        Radiation: 0.05 # DeltaV - general armour rebalance
-        Shock: 0.85 # DeltaV - general armour rebalance
+        Radiation: 0.05 # DeltaV - 0.01 > 0.05
+        Shock: 0.85 # DeltaV - add resist
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
@@ -161,8 +161,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.8
-        Shock: 0.8 # DeltaV - general armour rebalance
-        Heat: 0.8
+        Shock: 0.8 # DeltaV - add resist
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak

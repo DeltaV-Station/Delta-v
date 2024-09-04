@@ -11,10 +11,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95 # DeltaV - general armour rebalance
-        Slash: 0.9 # DeltaV - general armour rebalance
-        Piercing: 0.95 # DeltaV - general armour rebalance
-        Heat: 0.9 # DeltaV - general armour rebalance
+        Blunt: 0.95 # DeltaV - 0.8 > 0.95
+        Slash: 0.9 # DeltaV - 0.8 > 0.9
+        Piercing: 0.95 # DeltaV - 0.8 > 0.95
+        Heat: 0.9 # DeltaV - 0.8 > 0.9
   - type: TemperatureProtection
     coefficient: 0.3
 
@@ -32,6 +32,6 @@
     modifiers:
       coefficients:
         Caustic: 0.75
-        Radiation: 0.75 # DeltaV - general armour rebalance
-        Slash: 0.95 # DeltaV - general armour rebalance
-        Heat: 0.90 # DeltaV - general armour rebalance
+        Radiation: 0.75 # DeltaV - add resist
+        Slash: 0.95 # DeltaV - add resist
+        Heat: 0.90 # DeltaV - add resist

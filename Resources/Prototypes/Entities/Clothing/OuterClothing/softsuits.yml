@@ -27,7 +27,7 @@
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
-  - type: Armor # DeltaV - general armour rebalance
+  - type: Armor # DeltaV - add resist
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -76,7 +76,7 @@
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
-  - type: ClothingSpeedModifier # DeltaV - general armour rebalance
+  - type: ClothingSpeedModifier # DeltaV - add modifier
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: Tag
@@ -98,8 +98,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/ancient_voidsuit.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.0 # DeltaV - general armour rebalance
-    sprintModifier: 1.0 # DeltaV - general armour rebalance
+    walkModifier: 1.0 # DeltaV - 0.85 > 1.0
+    sprintModifier: 1.0 # DeltaV - 0.85 > 1.0
   - type: HeldSpeedModifier
 
 #Paramedic Voidsuit
@@ -118,20 +118,20 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 0.95 # DeltaV - general armour rebalance
-    sprintModifier: 0.85 # DeltaV - general armour rebalance
+    walkModifier: 0.95 # DeltaV - 0.9 > 0.95
+    sprintModifier: 0.85 # DeltaV - 0.9 > 0.85
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     coefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95 # DeltaV - general armour rebalance
-        Slash: 0.95 # DeltaV - general armour rebalance
-        Piercing: 0.95 # DeltaV - general armour rebalance
-        Heat: 0.95 # DeltaV - general armour rebalance
-#        Radiation: 0.75 # DeltaV - general armour rebalance
-        Caustic: 0.75 # DeltaV - general armour rebalance
+        Blunt: 0.95 # DeltaV - add resist
+        Slash: 0.95 # DeltaV - add resist
+        Piercing: 0.95 # DeltaV - add resist
+        Heat: 0.95 # DeltaV - 0.9 > 0.95
+#        Radiation: 0.75 # DeltaV - remove resist
+        Caustic: 0.75 # DeltaV - 0.5 > 0.75
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

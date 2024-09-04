@@ -13,7 +13,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.8 # DeltaV - general armour rebalance
+    damageCoefficient: 0.8 # DeltaV - 0.9 > 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -45,21 +45,21 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 0.5 # DeltaV - general armour rebalance
+    reduction: 0.5 # DeltaV - 0.8 > 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.5 > 0.3
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8 # DeltaV - general armour rebalance
-        Slash: 0.8 # DeltaV - general armour rebalance
-        Piercing: 0.8 # DeltaV - general armour rebalance
-        Shock: 0.8 # DeltaV - general armour rebalance
-        Heat: 0.5 # DeltaV - general armour rebalance
+        Blunt: 0.8 # DeltaV - 0.9 > 0.8
+        Slash: 0.8 # DeltaV - 0.9 > 0.8
+        Piercing: 0.8 # DeltaV - 0.9 > 0.8
+        Shock: 0.8 # DeltaV - add resist
+        Heat: 0.5 # DeltaV -  0.8 > 0.5
         Radiation: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.6 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 0.7 > 0.8
+    sprintModifier: 0.6 # DeltaV - 0.7 > 0.6
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
@@ -79,19 +79,19 @@
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.5 > 0.3
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8 # DeltaV - general armour rebalance
-        Slash: 0.8 # DeltaV - general armour rebalance
-        Piercing: 0.8 # DeltaV - general armour rebalance
+        Blunt: 0.8 # DeltaV - 0.9 > 0.8
+        Slash: 0.8 # DeltaV - 0.9 > 0.8
+        Piercing: 0.8 # DeltaV - 0.9 > 0.8
         Shock: 0.8
         Caustic: 0.5
-        Radiation: 0.25 # DeltaV - general armour rebalance
+        Radiation: 0.25 # DeltaV -  0.2 > 0.25
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.6 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 0.7 > 0.8
+    sprintModifier: 0.6 # DeltaV - 0.7 > 0.6
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
@@ -116,9 +116,9 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Shock: 0.95 # DeltaV - general armour rebalance
-        Radiation: 0.9 #salv is supposed to have radiation hazards in the future # DeltaV - general armour rebalance. Can be readded later if needed, but it's a "lightweight" suit.
-        Caustic: 0.9 # DeltaV - general armour rebalance
+        Shock: 0.95 # DeltaV - add resist
+        Radiation: 0.9 #salv is supposed to have radiation hazards in the future # DeltaV - 0.3 > 0.9. Can be readded later if needed, but it's a "lightweight" suit.
+        Caustic: 0.9 # DeltaV - 0.8 > 0.9
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.8
@@ -141,19 +141,19 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.7 # DeltaV - general armour rebalance
+    damageCoefficient: 0.7 # DeltaV - 0.3 > 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75 # DeltaV - general armour rebalance
-        Slash: 0.75 # DeltaV - general armour rebalance
-        Piercing: 0.75 # DeltaV - general armour rebalance
-        Shock: 0.85 # DeltaV - general armour rebalance
-        Radiation: 0.5 # DeltaV - general armour rebalance
-        Caustic: 0.75 # DeltaV - general armour rebalance
+        Blunt: 0.75 # DeltaV - 0.7 > 0.75
+        Slash: 0.75 # DeltaV - 0.7 > 0.75
+        Piercing: 0.75 # DeltaV - 0.5 > 0.75
+        Shock: 0.85 # DeltaV - add resist
+        Radiation: 0.5 # DeltaV - 0.3 > 0.5
+        Caustic: 0.75 # DeltaV - 0.7 > 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.7 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 0.75 > 0.8
+    sprintModifier: 0.7 # DeltaV - 0.75 > 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
@@ -295,16 +295,16 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7 # DeltaV - general armour rebalance
-        Slash: 0.7 # DeltaV - general armour rebalance
+        Blunt: 0.7 # DeltaV - 0.8 > 0.7
+        Slash: 0.7 # DeltaV - 0.8 > 0.7
         Piercing: 0.6
-        Shock: 0.7 # DeltaV - general armour rebalance
+        Shock: 0.7 # DeltaV - add resist
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 1.0 # DeltaV - general armour rebalance
-    sprintModifier: 0.8 # DeltaV - general armour rebalance
+    walkModifier: 1.0 # DeltaV - 0.8 > 1.0
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
@@ -324,22 +324,22 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: FireProtection
-    reduction: 0.5 # DeltaV - general armour rebalance
+    reduction: 0.5 # DeltaV - 0.8 > 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.2 > 0.3
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75 # DeltaV - general armour rebalance
-        Slash: 0.75 # DeltaV - general armour rebalance
-        Piercing: 0.75 # DeltaV - general armour rebalance
-        Shock: 0.75 # DeltaV - general armour rebalance
-        Heat: 0.5 # DeltaV - general armour rebalance
-        Radiation: 0.1 # DeltaV - general armour rebalance
-        Caustic: 0.5 # DeltaV - general armour rebalance
+        Blunt: 0.75 # DeltaV - 0.8 > 0.75
+        Slash: 0.75 # DeltaV - 0.8 > 0.75
+        Piercing: 0.75 # DeltaV - 0.8 > 0.75
+        Shock: 0.75 # DeltaV - add resist
+        Heat: 0.5 # DeltaV - 0.4 > 0.5
+        Radiation: 0.1 # DeltaV - 0.0 > 0.1
+        Caustic: 0.5 # DeltaV - 0.7 > 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 # DeltaV - general armour rebalance
-    sprintModifier: 0.7 # DeltaV - general armour rebalance
+    walkModifier: 0.9 # DeltaV - 0.75 > 0.9
+    sprintModifier: 0.7 # DeltaV - 0.8 > 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
@@ -359,20 +359,20 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.75 # DeltaV - general armour rebalance
+    damageCoefficient: 0.75 # DeltaV - add resist
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85 # DeltaV - general armour rebalance
-        Slash: 0.85 # DeltaV - general armour rebalance
-        Piercing: 0.85 # DeltaV - general armour rebalance
-        Shock: 0.9 # DeltaV - general armour rebalance
-        Heat: 0.85 # DeltaV - general armour rebalance
-        Radiation: 0.75 # DeltaV - general armour rebalance
-        Caustic: 0.5 # DeltaV - general armour rebalance
+        Blunt: 0.85 # DeltaV - add resist
+        Slash: 0.85 # DeltaV - add resist
+        Piercing: 0.85 # DeltaV - add resist
+        Shock: 0.9 # DeltaV - add resist
+        Heat: 0.85 # DeltaV - add resist
+        Radiation: 0.75 # DeltaV - add resist
+        Caustic: 0.5 # DeltaV - 0.1 > 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 1.0 # DeltaV - general armour rebalance
-    sprintModifier: 0.8 # DeltaV - general armour rebalance
+    walkModifier: 1.0 # DeltaV - 0.9 > 1.0
+    sprintModifier: 0.8 # DeltaV - 0.95 > 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
@@ -394,20 +394,20 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65 # DeltaV - general armour rebalance
-        Slash: 0.7 # DeltaV - general armour rebalance
-        Piercing: 0.75 # DeltaV - general armour rebalance
-        Shock: 0.7 # DeltaV - general armour rebalance
-        Heat: 0.25 # DeltaV - general armour rebalance
-        Radiation: 0.25 # DeltaV - general armour rebalance
-        Caustic: 0.25 # DeltaV - general armour rebalance
+        Blunt: 0.65 # DeltaV - 0.6 > 0.65
+        Slash: 0.7 # DeltaV - 0.8 > 0.7
+        Piercing: 0.75 # DeltaV - 0.9 > 0.75
+        Shock: 0.7 # DeltaV - add resist
+        Heat: 0.25 # DeltaV - 0.3 > 0.25
+        Radiation: 0.25 # DeltaV - 0.1 > 0.25
+        Caustic: 0.25 # DeltaV - 0.2 > 0.25
   - type: ExplosionResistance
-    damageCoefficient: 0.2 # DeltaV - general armour rebalance
+    damageCoefficient: 0.2 # DeltaV - 0.1 > 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.6 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 0.75 > 0.8
+    sprintModifier: 0.6 # DeltaV - 0.75 > 0.6
   - type: HeldSpeedModifier
-  - type: Item # DeltaV fixing the MG's suit being smol
+  - type: Item # DeltaV - fixing the MG's suit being smol
 #    size: Huge
 #    shape:
 #    - 0,0,4,4 #5X5, can fit in a duffel bag but nothing smaller.
@@ -473,15 +473,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85 # DeltaV - general armour rebalance
-        Slash: 0.85 # DeltaV - general armour rebalance
-        Piercing: 0.85 # DeltaV - general armour rebalance
-        Shock: 0.9 # DeltaV - general armour rebalance
+        Blunt: 0.85 # DeltaV - 0.9 > 0.85
+        Slash: 0.85 # DeltaV - 0.9 > 0.85
+        Piercing: 0.85 # DeltaV - 0.8 > 0.85
+        Shock: 0.9 # DeltaV - add resist
         Radiation: 0.5
-        Caustic: 0.75 # DeltaV - general armour rebalance
+        Caustic: 0.75 # DeltaV - # DeltaV - 0.8 > 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 # DeltaV - general armour rebalance
-    sprintModifier: 0.8 # DeltaV - general armour rebalance
+    walkModifier: 0.9 # DeltaV - 0.85 > 0.9
+    sprintModifier: 0.8 # DeltaV - 0.9 > 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
@@ -504,20 +504,20 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.5 > 0.3
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
-        Shock: 0.75 # DeltaV - general armour rebalance
+        Shock: 0.75 # DeltaV - add resist
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.8 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 0.9 > 0.8
+    sprintModifier: 0.8 # DeltaV - 0.9 > 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
@@ -569,24 +569,24 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.2 > 0.3
   - type: FireProtection
-    reduction: 0.5 # DeltaV - general armour rebalance
+    reduction: 0.5 # DeltaV - 0.8 > 0.5
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65 # DeltaV - general armour rebalance
-        Slash: 0.65 # DeltaV - general armour rebalance
-        Piercing: 0.65 # DeltaV - general armour rebalance
-        Shock: 0.65 # DeltaV - general armour rebalance
-        Heat: 0.25 # DeltaV - general armour rebalance
-        Radiation: 0.25 # DeltaV - general armour rebalance
-        Caustic: 0.25 # DeltaV - general armour rebalance
+        Blunt: 0.65 # DeltaV - 0.6 > 0.65
+        Slash: 0.65 # DeltaV - 0.6 > 0.65
+        Piercing: 0.65 # DeltaV - 0.6 > 0.65
+        Shock: 0.65 # DeltaV - add resist
+        Heat: 0.25 # DeltaV - 0.2 > 0.25
+        Radiation: 0.25 # DeltaV - 0.01 > 0.25
+        Caustic: 0.25 # DeltaV - 0.5 > 0.25
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 1.0 # DeltaV - general armour rebalance
-    sprintModifier: 0.85 # DeltaV - general armour rebalance
+    walkModifier: 1.0
+    sprintModifier: 0.85 # 0.9 > 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
@@ -606,20 +606,20 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3 # DeltaV - general armour rebalance
+    damageCoefficient: 0.3 # DeltaV - 0.5 > 0.3
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.4
         Slash: 0.4
-        Piercing: 0.4 # DeltaV - general armour rebalance
-        Shock: 0.7 # DeltaV - general armour rebalance
-        Heat: 0.4 # DeltaV - general armour rebalance
-        Radiation: 0.4 # DeltaV - general armour rebalance
+        Piercing: 0.4 # DeltaV - 0.3 > 0.4
+        Shock: 0.7 # DeltaV - add resist
+        Heat: 0.4 # DeltaV - 0.5 > 0.4
+        Radiation: 0.4 # DeltaV - 0.25 > 0.4
         Caustic: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 # DeltaV - general armour rebalance
-    sprintModifier: 0.8 # DeltaV - general armour rebalance
+    walkModifier: 0.8 # DeltaV - 1.0 > 0.8
+    sprintModifier: 0.8 # DeltaV - 1.0 > 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
@@ -639,20 +639,20 @@
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.15 # DeltaV - general armour rebalance
+    damageCoefficient: 0.15 # DeltaV - 0.3 > 0.15
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.2
         Slash: 0.2
         Piercing: 0.2
-        Shock: 0.5 # DeltaV - general armour rebalance
+        Shock: 0.5 # DeltaV - add resist
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.7 # DeltaV - general armour rebalance
-    sprintModifier: 0.5 # DeltaV - general armour rebalance
+    walkModifier: 0.7 # DeltaV - 0.9 > 0.7
+    sprintModifier: 0.5 # DeltaV - 0.65 > 0.5
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
@@ -975,8 +975,8 @@
   #      Piercing: 0.9
   #      Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 # DeltaV - general armour rebalance
-    sprintModifier: 0.75 # DeltaV - general armour rebalance
+    walkModifier: 0.85 # DeltaV - 0.9 > 0.85
+    sprintModifier: 0.75 # DeltaV - 0.9 > 0.75
   - type: HeldSpeedModifier
   - type: Construction
     graph: ClownHardsuit
