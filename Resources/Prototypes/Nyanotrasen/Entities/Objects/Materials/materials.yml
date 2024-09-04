@@ -26,8 +26,6 @@
       - bluespace_2
       - bluespace_3
     count: 5
-  - type: Item
-    size: Small
 
 - type: entity
   parent: MaterialBluespace
@@ -35,9 +33,10 @@
   suffix: 1
   components:
   - type: Sprite
-    state: bluespace
+    layers:
+    - state: bluespace
+      map: ["base"]
   - type: Stack
-    stackType: Bluespace
     count: 1
   - type: Item
     size: Tiny

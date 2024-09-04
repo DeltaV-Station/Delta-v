@@ -1,17 +1,3 @@
-- type: job
-  id: MailCarrier
-  name: job-name-mail-carrier
-  description: job-description-mail-carrier
-  startingGear: CourierGear
-  playTimeTracker: JobMailCarrier
-  setPreference: false
-  icon: "JobIconMailCarrier"
-  supervisors: job-supervisors-qm
-  access:
-  - Cargo
-  - Maintenance
-  - Mail
-
 - type: startingGear
   id: MailCarrierGear
   equipment:

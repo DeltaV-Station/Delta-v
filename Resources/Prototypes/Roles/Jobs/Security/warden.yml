@@ -12,6 +12,7 @@
       time: 21600 # DeltaV - 6 hours
   startingGear: WardenGear
   icon: "JobIconWarden"
+  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
@@ -23,6 +24,7 @@
   - External
   - Detective
   - Cryogenics
+  - Corpsman #Delta V: Corpsman is actively implemented, warden requires access to the treatment of their prisoners.
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -34,3 +36,7 @@
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
