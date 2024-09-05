@@ -304,11 +304,9 @@ namespace Content.Server.Forensics
                     component.Fibers.Add(fiberLocale + " ; " + fiber.Fiberprint);
                 }
                 // End of DeltaV code
-
-                if (HasComp<FingerprintMaskComponent>(gloves))
-                    return;
             }
-            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out var _))
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
@@ -335,6 +333,23 @@ namespace Content.Server.Forensics
                 recipientComp.DNAs.Add(donorComp.DNA);
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
             }
+        }
+
+        /// <summary>
+        /// Checks if there's an access to the fingerprint of the target entity.
+        /// </summary>
+        /// <param name="target">The entity with the fingerprint</param>
+        /// <param name="blocker">The entity that blocked accessing the fingerprint</param>
+        public bool CanAccessFingerprint(EntityUid target, out EntityUid? blocker)
+        {
+            var ev = new TryAccessFingerprintEvent();
+
+            RaiseLocalEvent(target, ev);
+            if (!ev.Cancelled && TryComp<InventoryComponent>(target, out var inv))
+                _inventory.RelayEvent((target, inv), ev);
+
+            blocker = ev.Blocker;
+            return !ev.Cancelled;
         }
 
         #endregion
