@@ -60,7 +60,7 @@
 
 - type: entity
   parent: ClothingOuterStasecSweater
-  id: ClothingOuterCoatStasecCoat
+  id: ClothingOuterCoatStasec
   name: station security coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
   components:
@@ -71,7 +71,7 @@
 
 - type: entity
   parent: ClothingOuterStasecSweater
-  id: ClothingOuterCoatStasecCoatHoS
+  id: ClothingOuterCoatStasecHoS
   name: head of security's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Bears HoS arm flashes.
   components:
@@ -82,7 +82,7 @@
 
 - type: entity
   parent: ClothingOuterStasecSweater
-  id: ClothingOuterCoatStasecCoatWarden
+  id: ClothingOuterCoatStasecWarden
   name: warden's coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Sports warden arm flashes.
   components:
@@ -93,7 +93,7 @@
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterCoatStasecGreatcoat
+  id: ClothingOuterGreatcoatStasec
   name: station security greatcoat
   description: A long and heavy greatcoat, yet to be phased out of use for Station Security. It's hard to tell what's so great about it, but it sure is warm and sturdy.
   components:
@@ -113,8 +113,8 @@
   - type: AllowSuitStorage
 
 - type: entity
-  parent: ClothingOuterCoatStasecGreatcoat
-  id: ClothingOuterCoatStasecGreatcoatHoS
+  parent: ClothingOuterGreatoatStasec
+  id: ClothingOuterGreatcoatStasecHoS
   name: head of security's greatcoat
   description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Bears HoS arm flashes.
   components:
@@ -124,8 +124,8 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hosgreatcoat.rsi
 
 - type: entity
-  parent: ClothingOuterCoatStasecGreatcoat
-  id: ClothingOuterCoatStasecGreatcoatWarden
+  parent: ClothingOuterGreatcoatStasec
+  id: ClothingOuterGreatcoatStasecWarden
   name: warden's greatcoat
   description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Sports warden arm flashes.
   components:
