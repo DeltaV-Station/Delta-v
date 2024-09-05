@@ -12,7 +12,7 @@
   parent: EventHumanoid
   components:
     - type: MindShield
-    - type: InitialInfectedExempt
+    - type: AntagImmune
 
 ## Death Squad
 
@@ -30,7 +30,6 @@
         - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: DeathSquad
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: DeathSquad
@@ -44,6 +43,7 @@
         settings: short
     - type: Loadout
       prototypes: [ DeathSquadGear ]
+      roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
         - NamesFirstMilitaryLeader
@@ -66,7 +66,6 @@
       - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTLeader
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ERTLeader
@@ -80,6 +79,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
@@ -96,7 +96,6 @@
       state: ertleadereva
     - type: RandomHumanoidSpawner
       settings: ERTLeaderEVA
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ERTLeaderEVA
@@ -109,6 +108,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVALecter
@@ -117,7 +117,6 @@
   components:
     - type: RandomHumanoidSpawner
       settings: ERTLeaderEVALecter
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: ERTLeaderEVALecter
@@ -130,6 +129,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTLeaderGearEVALecter ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
 
@@ -164,6 +164,8 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: BibleUser
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
@@ -188,6 +190,8 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: BibleUser
 
 ## ERT Janitor
 
@@ -222,6 +226,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
@@ -246,6 +251,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTJanitorGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Engineer
 
@@ -280,6 +286,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
@@ -304,6 +311,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTEngineerGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Security
 
@@ -338,6 +346,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -362,6 +371,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVALecter
@@ -382,6 +392,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTSecurityGearEVALecter ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Medic
 
@@ -416,6 +427,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -440,6 +452,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
+      roleLoadout: [ RoleSurvivalEVA ]
 
 ## CBURN
 
@@ -453,7 +466,6 @@
       state: cburn
     - type: RandomHumanoidSpawner
       settings: CBURNAgent
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: CBURNAgent
@@ -461,6 +473,7 @@
   components:
     - type: Loadout
       prototypes: [CBURNGear]
+      roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
@@ -470,10 +483,11 @@
       nameSegments:
       - NamesFirstMilitary
       - NamesLastMilitary
+
 ## Central Command
 
 - type: entity
-  name: CentCom official
+  name: CentComm official
   id: RandomHumanoidSpawnerCentcomOfficial
   components:
     - type: Sprite
@@ -481,7 +495,6 @@
       state: centcom
     - type: RandomHumanoidSpawner
       settings: CentcomOfficial
-    - type: InitialInfectedExempt
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
@@ -494,6 +507,7 @@
         settings: default
     - type: Loadout
       prototypes: [ CentcomGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate
 
@@ -516,6 +530,7 @@
       randomizeName: false
     - type: Loadout
       prototypes: [SyndicateOperativeGearExtremelyBasic]
+      roleLoadout: [ RoleSurvivalSyndicate ]
 
 - type: entity
   id: RandomHumanoidSpawnerNukeOp
@@ -606,6 +621,8 @@
         settings: short
     - type: Loadout
       prototypes: [ LostCargoTechGearSuit, LostCargoTechGearCoat ]
+      roleLoadout: [ RoleSurvivalStandard ]
+
 
 # Clown troupe
 
@@ -657,6 +674,7 @@
         settings: short
     - type: Loadout
       prototypes: [ ClownTroupe ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomMetadata
       nameSegments:
       - names_clown
@@ -668,6 +686,7 @@
   components:
     - type: Loadout
       prototypes: [ BananaClown ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Traveling exotic chef
 
@@ -707,6 +726,7 @@
         settings: short
     - type: Loadout
       prototypes: [ TravelingChef ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Disaster victim
 
@@ -765,6 +785,9 @@
       rules: ghost-role-information-disaster-victim-rules
       raffle:
         settings: default
+      requirements: # DeltaV
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
 
 - type: randomHumanoidSettings
   id: DisasterVictimResearchDirector
@@ -772,6 +795,7 @@
   components:
     - type: Loadout
       prototypes: [ DisasterVictimRD, DisasterVictimRDAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: DisasterVictimCMO
@@ -779,6 +803,7 @@
   components:
     - type: Loadout
       prototypes: [ DisasterVictimCMO, DisasterVictimCMOAlt ]
+      roleLoadout: [ RoleSurvivalMedical ]
 
 - type: randomHumanoidSettings
   id: DisasterVictimCaptain
@@ -786,6 +811,7 @@
   components:
     - type: Loadout
       prototypes: [ DisasterVictimCaptain, DisasterVictimCaptainAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Syndie Disaster Victim
 
@@ -828,3 +854,4 @@
         settings: short
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]
+      roleLoadout: [ RoleSurvivalStandard ]

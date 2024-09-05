@@ -5,11 +5,11 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    drawdepth: SmallObjects
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: side
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: side
   - type: Physics
     bodyType: Static
@@ -60,7 +60,7 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
 
 - type: entity
   parent: BaseStructure
@@ -69,11 +69,11 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    drawdepth: SmallObjects
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner
   - type: Physics
     bodyType: Static
@@ -133,7 +133,7 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
 
 - type: entity
   parent: BaseStructure
@@ -142,11 +142,11 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    drawdepth: SmallObjects
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner_small
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: corner_small
   - type: Physics
     bodyType: Static
@@ -197,8 +197,8 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
-    
+    fx: EffectRCDDeconstruct2
+
 - type: entity
   parent: BaseStructure
   id: RailingRound
@@ -206,8 +206,8 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    drawdepth: SmallObjects
+    sprite: DeltaV/Structures/Walls/railing.rsi # Delta V - Resprite railings
     state: round
   - type: Physics
     bodyType: Static
@@ -276,4 +276,4 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2

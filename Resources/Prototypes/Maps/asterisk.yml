@@ -2,7 +2,7 @@
   id: Asterisk
   mapName: 'Asterisk'
   mapPath: /Maps/asterisk.yml
-  minPlayers: 0
+  minPlayers: 5
   maxPlayers: 70 #80 available job slots that aren't passenger
   stations:
     Asterisk:
@@ -59,7 +59,7 @@
             Brigmedic: [ 1, 1 ]
             SecurityOfficer: [ 2, 4 ]
             SecurityCadet: [ 2, 4 ]
-            Prisoner: [ 1, 2 ] # :^)
+            #Prisoner: [ 1, 2 ] # :^)
           #supply
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 3 ]

@@ -1,7 +1,7 @@
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel.png
+  sprite: /Textures/DeltaV/Tiles/steel.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -19,7 +19,7 @@
 - type: tile
   id: FloorSteelCheckerLight
   name: tiles-steel-floor-checker-light
-  sprite: /Textures/Tiles/cafeteria.png
+  sprite: /Textures/DeltaV/Tiles/cafeteria.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -37,7 +37,7 @@
 - type: tile
   id: FloorSteelCheckerDark
   name: tiles-steel-floor-checker-dark
-  sprite: /Textures/Tiles/checker_dark.png
+  sprite: /Textures/DeltaV/Tiles/checker_dark.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -55,7 +55,7 @@
 - type: tile
   id: FloorSteelMini
   name: tiles-steel-floor-mini
-  sprite: /Textures/Tiles/steel_mini.png
+  sprite: /Textures/DeltaV/Tiles/steel_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -67,13 +67,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelMini
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelPavement
   name: tiles-steel-floor-pavement
-  sprite: /Textures/Tiles/steel_pavement.png
+  sprite: /Textures/DeltaV/Tiles/steel_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -85,13 +85,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelPavement
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelDiagonal
   name: tiles-steel-floor-diagonal
-  sprite: /Textures/Tiles/steel_diagonal.png
+  sprite: /Textures/DeltaV/Tiles/steel_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -103,25 +103,25 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelDiagonal
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelOffset
   name: tiles-steel-floor-offset
-  sprite: /Textures/Tiles/steel_offset.png
+  sprite: /Textures/DeltaV/Tiles/steel_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelOffset
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelMono
   name: tiles-steel-floor-mono
-  sprite: /Textures/Tiles/steel_mono.png
+  sprite: /Textures/DeltaV/Tiles/steel_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -133,13 +133,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelMono
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelPavementVertical
   name: tiles-steel-floor-pavement-vertical
-  sprite: /Textures/Tiles/steel_pavement_vertical.png
+  sprite: /Textures/DeltaV/Tiles/steel_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -151,13 +151,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelPavementVertical
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelHerringbone
   name: tiles-steel-floor-herringbone
-  sprite: /Textures/Tiles/steel_herringbone.png
+  sprite: /Textures/DeltaV/Tiles/steel_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -169,13 +169,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelHerringbone
   heatCapacity: 10000
 
 - type: tile
   id: FloorSteelDiagonalMini
   name: tiles-steel-floor-diagonal-mini
-  sprite: /Textures/Tiles/steel_diagonal_mini.png
+  sprite: /Textures/DeltaV/Tiles/steel_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -187,7 +187,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemSteelDiagonalMini
   heatCapacity: 10000
 
 - type: tile
@@ -217,7 +217,7 @@
 - type: tile
   id: FloorPlastic
   name: tiles-plastic-floor
-  sprite: /Textures/Tiles/plastic.png
+  sprite: /Textures/DeltaV/Tiles/plastic.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -235,7 +235,7 @@
 - type: tile
   id: FloorWood
   name: tiles-wood
-  sprite: /Textures/Tiles/wood.png
+  sprite: /Textures/DeltaV/Tiles/wood.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -255,7 +255,7 @@
 - type: tile
   id: FloorWhite
   name: tiles-white-floor
-  sprite: /Textures/Tiles/white.png
+  sprite: /Textures/DeltaV/Tiles/white.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -273,7 +273,7 @@
 - type: tile
   id: FloorWhiteMini
   name: tiles-white-floor-mini
-  sprite: /Textures/Tiles/white_mini.png
+  sprite: /Textures/DeltaV/Tiles/white_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -285,13 +285,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteMini
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhitePavement
   name: tiles-white-floor-pavement
-  sprite: /Textures/Tiles/white_pavement.png
+  sprite: /Textures/DeltaV/Tiles/white_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -303,13 +303,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhitePavement
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhiteDiagonal
   name: tiles-white-floor-diagonal
-  sprite: /Textures/Tiles/white_diagonal.png
+  sprite: /Textures/DeltaV/Tiles/white_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -321,25 +321,25 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteDiagonal
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhiteOffset
   name: tiles-white-floor-offset
-  sprite: /Textures/Tiles/white_offset.png
+  sprite: /Textures/DeltaV/Tiles/white_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteOffset
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhiteMono
   name: tiles-white-floor-mono
-  sprite: /Textures/Tiles/white_mono.png
+  sprite: /Textures/DeltaV/Tiles/white_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -351,13 +351,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteMono
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhitePavementVertical
   name: tiles-white-floor-pavement-vertical
-  sprite: /Textures/Tiles/white_pavement_vertical.png
+  sprite: /Textures/DeltaV/Tiles/white_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -369,13 +369,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhitePavementVertical
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhiteHerringbone
   name: tiles-white-floor-herringbone
-  sprite: /Textures/Tiles/white_herringbone.png
+  sprite: /Textures/DeltaV/Tiles/white_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -387,13 +387,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteHerringbone
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhiteDiagonalMini
   name: tiles-white-floor-diagonal-mini
-  sprite: /Textures/Tiles/white_diagonal_mini.png
+  sprite: /Textures/DeltaV/Tiles/white_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -405,13 +405,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhiteDiagonalMini
   heatCapacity: 10000
 
 - type: tile
   id: FloorWhitePlastic
   name: tiles-plastic-white-floor
-  sprite: /Textures/Tiles/white_plastic.png
+  sprite: /Textures/DeltaV/Tiles/white_plastic.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -429,7 +429,7 @@
 - type: tile
   id: FloorDark
   name: tiles-dark-floor
-  sprite: /Textures/Tiles/dark.png
+  sprite: /Textures/DeltaV/Tiles/dark.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -447,7 +447,7 @@
 - type: tile
   id: FloorDarkMini
   name: tiles-dark-floor-mini
-  sprite: /Textures/Tiles/dark_mini.png
+  sprite: /Textures/DeltaV/Tiles/dark_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -459,13 +459,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkMini
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkPavement
   name: tiles-dark-floor-pavement
-  sprite: /Textures/Tiles/dark_pavement.png
+  sprite: /Textures/DeltaV/Tiles/dark_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -477,13 +477,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkPavement
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkDiagonal
   name: tiles-dark-floor-diagonal
-  sprite: /Textures/Tiles/dark_diagonal.png
+  sprite: /Textures/DeltaV/Tiles/dark_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -495,25 +495,25 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkDiagonal
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkOffset
   name: tiles-dark-floor-offset
-  sprite: /Textures/Tiles/dark_offset.png
+  sprite: /Textures/DeltaV/Tiles/dark_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkOffset
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkMono
   name: tiles-dark-floor-mono
-  sprite: /Textures/Tiles/dark_mono.png
+  sprite: /Textures/DeltaV/Tiles/dark_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -525,13 +525,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkMono
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkPavementVertical
   name: tiles-dark-floor-pavement-vertical
-  sprite: /Textures/Tiles/dark_pavement_vertical.png
+  sprite: /Textures/DeltaV/Tiles/dark_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -543,13 +543,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkPavementVertical
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkHerringbone
   name: tiles-dark-floor-herringbone
-  sprite: /Textures/Tiles/dark_herringbone.png
+  sprite: /Textures/DeltaV/Tiles/dark_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -561,13 +561,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkHerringbone
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkDiagonalMini
   name: tiles-dark-floor-diagonal-mini
-  sprite: /Textures/Tiles/dark_diagonal_mini.png
+  sprite: /Textures/DeltaV/Tiles/dark_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -579,13 +579,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkDiagonalMini
   heatCapacity: 10000
 
 - type: tile
   id: FloorDarkPlastic
   name: tiles-plastic-dark-floor
-  sprite: /Textures/Tiles/dark_plastic.png
+  sprite: /Textures/DeltaV/Tiles/dark_plastic.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -621,7 +621,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemReinforced
+  itemDrop: PartRodMetal1
   heatCapacity: 10000
 
 - type: tile
@@ -651,7 +651,7 @@
 - type: tile
   id: FloorSteelDirty
   name: tiles-dirty-steel-floor
-  sprite: /Textures/Tiles/steel_dirty.png
+  sprite: /Textures/DeltaV/Tiles/steel_dirty.png #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -699,7 +699,7 @@
 - type: tile
   id: FloorBlue
   name: tiles-blue-tile
-  sprite: /Textures/Tiles/blue.png
+  sprite: /Textures/DeltaV/Tiles/blue.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -711,7 +711,7 @@
 - type: tile
   id: FloorSteelLime
   name: tiles-lime-floor
-  sprite: /Textures/Tiles/lime.png
+  sprite: /Textures/DeltaV/Tiles/lime.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -766,7 +766,7 @@
 - type: tile
   id: FloorFreezer
   name: tiles-freezer
-  sprite: /Textures/Tiles/freezer.png
+  sprite: /Textures/DeltaV/Tiles/freezer.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -778,7 +778,7 @@
 - type: tile
   id: FloorShowroom
   name: tiles-showroom-floor
-  sprite: /Textures/Tiles/showroom.png
+  sprite: /Textures/DeltaV/Tiles/showroom.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -790,7 +790,7 @@
 - type: tile
   id: FloorHydro
   name: tiles-hydro-floor
-  sprite: /Textures/Tiles/hydro.png
+  sprite: /Textures/DeltaV/Tiles/hydro.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -802,7 +802,7 @@
 - type: tile
   id: FloorBar
   name: tiles-bar-floor
-  sprite: /Textures/Tiles/bar.png
+  sprite: /Textures/DeltaV/Tiles/bar.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -820,7 +820,7 @@
 - type: tile
   id: FloorClown
   name: tiles-clown-floor
-  sprite: /Textures/Tiles/clown.png
+  sprite: /Textures/DeltaV/Tiles/clown.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -832,7 +832,7 @@
 - type: tile
   id: FloorMime
   name: tiles-mime-floor
-  sprite: /Textures/Tiles/mime.png
+  sprite: /Textures/DeltaV/Tiles/mime.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -844,7 +844,7 @@
 - type: tile
   id: FloorKitchen
   name: tiles-kitchen-floor
-  sprite: /Textures/Tiles/kitchen.png
+  sprite: /Textures/DeltaV/Tiles/kitchen.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -856,7 +856,7 @@
 - type: tile
   id: FloorLaundry
   name: tiles-laundry-floor
-  sprite: /Textures/Tiles/laundry.png
+  sprite: /Textures/DeltaV/Tiles/laundry.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -919,7 +919,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorConcreteMono
@@ -936,9 +935,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemConcrete
+  itemDrop: FloorTileItemConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorConcreteSmooth
@@ -955,9 +953,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemConcrete
+  itemDrop: FloorTileItemConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcrete
@@ -976,7 +973,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcreteMono
@@ -993,9 +989,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemGrayConcrete
+  itemDrop: FloorTileItemGrayConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcreteSmooth
@@ -1012,9 +1007,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemGrayConcrete
+  itemDrop: FloorTileItemGrayConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcrete
@@ -1033,7 +1027,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcreteMono
@@ -1050,9 +1043,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemOldConcrete
+  itemDrop: FloorTileItemOldConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcreteSmooth
@@ -1069,9 +1061,8 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemOldConcrete
+  itemDrop: FloorTileItemOldConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 # Carpets (non smoothing)
 - type: tile
@@ -1358,7 +1349,7 @@
 - type: tile
   id: FloorGlass
   name: tiles-glass-floor
-  sprite: /Textures/DeltaV/Tiles/glass.png # DeltaV - Replace glass texture so it's easier to see
+  sprite: /Textures/DeltaV/Tiles/glass.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1376,7 +1367,7 @@
 - type: tile
   id: FloorRGlass
   name: tiles-reinforced-glass-floor
-  sprite: /Textures/Tiles/rglass.png
+  sprite: /Textures/DeltaV/Tiles/rglass.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1389,6 +1380,21 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetRGlass1
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMetalFoam
+  name: tiles-metal-foam
+  sprite: /Textures/Tiles/foammetal.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: SheetSteel1
   heatCapacity: 10000
 
 # Circuits
@@ -1734,7 +1740,7 @@
 - type: tile
   id: FloorWoodTile
   name: tiles-wood2
-  sprite: /Textures/Tiles/wood_tile.png
+  sprite: /Textures/DeltaV/Tiles/wood_tile.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1754,7 +1760,7 @@
 - type: tile
   id: FloorBrokenWood
   name: tiles-wood3
-  sprite: /Textures/Tiles/wood_broken.png
+  sprite: /Textures/DeltaV/Tiles/wood_broken.png #Delta V - Resprite Tile
   variants: 7
   placementVariants:
   - 1.0
@@ -1839,7 +1845,7 @@
   isSubfloor: false
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemReinforced #same case as FloorHull
+  itemDrop: PartRodMetal1 #same case as FloorHull
 
 # Faux sci tiles
 
@@ -1917,7 +1923,7 @@
 - type: tile
   id: FloorWoodLarge
   name: tiles-wood-large
-  sprite: /Textures/Tiles/wood_large.png
+  sprite: /Textures/DeltaV/Tiles/wood_large.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
