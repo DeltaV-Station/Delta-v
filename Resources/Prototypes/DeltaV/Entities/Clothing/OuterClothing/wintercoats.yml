@@ -71,6 +71,28 @@
 
 - type: entity
   parent: ClothingOuterStasecSweater
+  id: ClothingOuterCoatStasecCoatHoS
+  name: head of security's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Bears HoS arm flashes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
+
+- type: entity
+  parent: ClothingOuterStasecSweater
+  id: ClothingOuterCoatStasecCoatWarden
+  name: warden's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Sports warden arm flashes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/wardencoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/wardencoat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatStasecGreatcoat
   name: station security greatcoat
   description: A long and heavy greatcoat, yet to be phased out of use for Station Security. It's hard to tell what's so great about it, but it sure is warm and sturdy.
@@ -79,3 +101,35 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecgreatcoat.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecgreatcoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.75
+  - type: AllowSuitStorage
+
+- type: entity
+  parent: ClothingOuterCoatStasecGreatcoat
+  id: ClothingOuterCoatStasecGreatcoatHoS
+  name: head of security's greatcoat
+  description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Bears HoS arm flashes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hosgreatcoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hosgreatcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatStasecGreatcoat
+  id: ClothingOuterCoatStasecGreatcoatWarden
+  name: warden's greatcoat
+  description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Sports warden arm flashes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/wardengreatcoat.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/wardengreatcoat.rsi
