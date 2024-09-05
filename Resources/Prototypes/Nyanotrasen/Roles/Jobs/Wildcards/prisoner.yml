@@ -15,6 +15,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 #2h
+    - !type:WhitelistRequirement # Stray - Whitelist requirement
   special:
   - !type:AddComponentSpecial
     components:
