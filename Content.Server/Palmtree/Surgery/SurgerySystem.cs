@@ -309,8 +309,8 @@ namespace Content.Server.Palmtree.Surgery.SurgerySystem
             var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, tool.useDelay * surgeryTimeMultiplier, new SurgeryDoAfterEvent(), uid, target: args.Target)
             {
                 NeedHand = true,
-                BreakOnUserMove = true,
-                BreakOnTargetMove = true,
+                BreakOnMove = true,
+                //BreakOnTargetMove = true,
             };
             _audio.PlayPvs(tool.audioStart, args.User);
             _doAfter.TryStartDoAfter(doAfterEventArgs);
