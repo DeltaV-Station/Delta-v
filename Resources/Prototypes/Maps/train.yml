@@ -2,8 +2,8 @@
   id: Train
   mapName: 'Train'
   mapPath: /Maps/train.yml
-  minPlayers: 0
-  maxPlayers: 80
+  minPlayers: 10
+  maxPlayers: 50
   stations:
     Train:
       stationProto: StandardNanotrasenStation
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml # To do - add railway station
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

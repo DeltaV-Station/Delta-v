@@ -102,7 +102,7 @@ ghost-role-information-skeleton-pirate-description = Устройте хаос �
 ghost-role-information-skeleton-biker-name = Скелет-байкер
 ghost-role-information-skeleton-biker-description = Колесите на своём прекрасном байке.
 ghost-role-information-closet-skeleton-name = Скелет из шкафа
-ghost-role-information-closet-skeleton-description = Вы сотрудник станции, который по непонятным причинам пребывал в шкафу так долго, что превратился в скелета...(МИРНЫЙ по отношению к станции)
+ghost-role-information-closet-skeleton-description = Вы, похоже, один из старейших сотрудников станции! Верните себе прежнюю должность или устройте хаос! Мир в ваших руках.
 ghost-role-information-remilia-name = Ремилия, фамильяр священника
 ghost-role-information-remilia-description = Слушайтесь и повинуйтесь священнику. Ешьте фрукты. Громко кричите людям в уши и списывайте это на эхолокацию.
 ghost-role-information-cerberus-name = Цербер, злой фамильяр
@@ -146,15 +146,15 @@ ghost-role-information-space-ninja-description = Используйте хитр
 ghost-role-information-syndicate-reinforcement-name = Агент Синдиката
 ghost-role-information-syndicate-reinforcement-description = Кому-то нужно подкрепление. Вы первый, кого Синдикат смог найти и послать на помощь.
 ghost-role-information-syndicate-reinforcement-rules = Вы [color=red][bold]Командный антагонист[/bold][/color], в команде с агентом, который вас призвал.
-ghost-role-information-syndicate-reinforcement-medic-name = Syndicate Medic
-ghost-role-information-syndicate-reinforcement-medic-description = Someone needs reinforcements. Your task is to keep the agent who called you alive.
-ghost-role-information-syndicate-reinforcement-spy-name = Syndicate Spy
-ghost-role-information-syndicate-reinforcement-spy-description = Someone needs reinforcements. Your speciality lies in espionage, do not be discovered.
-ghost-role-information-syndicate-reinforcement-thief-name = Syndicate Thief
-ghost-role-information-syndicate-reinforcement-thief-description = Someone needs reinforcements. Your job is to break in and retrieve something valuable for your agent.
-ghost-role-information-nukeop-reinforcement-name = Nuclear Operative
-ghost-role-information-nukeop-reinforcement-description = The nuclear operatives need reinforcements. You, a reserve agent, will help them.
-ghost-role-information-nukeop-reinforcement-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the nuclear operatives who summoned you.
+ghost-role-information-syndicate-reinforcement-medic-name = Медик Синдиката
+ghost-role-information-syndicate-reinforcement-medic-description = Кому-то нужно подкрепление. Ваша задача - сохранить жизнь вызвавшему вас агенту.
+ghost-role-information-syndicate-reinforcement-spy-name = Шпион Синдиката
+ghost-role-information-syndicate-reinforcement-spy-description = Кому-то нужно подкрепление. Ваша специализация - шпионаж, постарайтесь не быть обнаруженными.
+ghost-role-information-syndicate-reinforcement-thief-name = Вор Синдиката
+ghost-role-information-syndicate-reinforcement-thief-description = Кому-то нужно подкрепление. Ваша задача - проникнуть и забрать что-то ценное для своего агента.
+ghost-role-information-nukeop-reinforcement-name = Ядерный оперативник
+ghost-role-information-nukeop-reinforcement-description = Ядерному оперативнику нужно подкрепление. Вы, резервный агент, поможете им.
+ghost-role-information-nukeop-reinforcement-rules = Вы [color=red][bold]Командный антагонист[/bold][/color], в команде с ядерным оперативником, который вас призвал.
 ghost-role-information-syndicate-monkey-reinforcement-name = Агент Синдиката-обезьяна
 ghost-role-information-syndicate-monkey-reinforcement-description = Кому-то нужно подкрепление. Вы, специально обученная обезьяна, поможете им.
 ghost-role-information-syndicate-monkey-reinforcement-rules = Вы [color=red][bold]Командный антагонист[/bold][/color], в команде с агентом, который вас призвал.

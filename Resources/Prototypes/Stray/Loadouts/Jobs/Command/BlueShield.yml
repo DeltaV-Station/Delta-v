@@ -38,218 +38,138 @@
 # Jumpsuit
 - type: loadout
   id: BlueShieldJumpsuit
-  equipment: BlueShieldJumpsuit
-
-- type: startingGear
-  id: BlueShieldJumpsuit
   equipment:
       jumpsuit: ClothingUniformJumpsuitBlueShield
 
 - type: loadout
-  id: BlueShieldJumpskirt
-  equipment: BlueShieldJumpskirt
-
-- type: startingGear
   id: BlueShieldJumpskirt
   equipment:
       jumpsuit: ClothingUniformJumpskirtBlueShield
 
 - type: loadout
   id: BlueShieldJumpsuitTurtle
-  equipment: BlueShieldJumpsuitTurtle
-
-- type: startingGear
-  id: BlueShieldJumpsuitTurtle
   equipment:
       jumpsuit: ClothingUniformJumpsuitBlueShieldTurtle
 
 - type: loadout
-  id: BlueShieldJumpskirtTurtle
-  equipment: BlueShieldJumpskirtTurtle
-
-- type: startingGear
   id: BlueShieldJumpskirtTurtle
   equipment:
       jumpsuit: ClothingUniformJumpskirtBlueShieldTurtle
 
 - type: loadout
   id: BlueShieldNTUniform
-  equipment: BlueShieldNTUniform
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldNTUniform
   equipment:
       jumpsuit: ClothingUniformJumpsuitNanotrasen
 
 # Outer Clothing
 - type: loadout
   id: BlueShieldArmorVest
-  equipment: BlueShieldArmorVest
-
-- type: startingGear
-  id: BlueShieldArmorVest
   equipment:
       outerClothing: ClothingBlueshieldArmorVest
 
 - type: loadout
   id: BlueShieldBulletproofVest
-  equipment: BlueShieldBulletproofVest
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldBulletproofVest
   equipment:
       outerClothing: ClothingBlueshieldArmor
 
 # Back
 - type: loadout
   id: BlueShieldBackpack
-  equipment: BlueShieldBackpack
-
-- type: startingGear
-  id: BlueShieldBackpack
   equipment:
       back: ClothingBackpackBlueShieldFilled
 
 - type: loadout
-  id: BlueShieldSatchel
-  equipment: BlueShieldSatchel
-
-- type: startingGear
   id: BlueShieldSatchel
   equipment:
       back: ClothingBackpackSatchelBlueShieldFilled
 
 - type: loadout
   id: BlueShieldDuffel
-  equipment: BlueShieldDuffel
-
-- type: startingGear
-  id: BlueShieldDuffel
   equipment:
       back: ClothingBackpackDuffelBlueShieldFilled
 
 - type: loadout
   id: BlueShieldSatchelAlt
-  equipment: BlueShieldSatchelAlt
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldSatchelAlt
   equipment:
       back: ClothingBackpackSatchelBlueShieldAltFilled
 
 - type: loadout
   id: BlueShieldDuffelAlt
-  equipment: BlueShieldDuffelAlt
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldDuffelAlt
   equipment:
       back: ClothingBackpackDuffelBlueShieldAltFilled
 
 - type: loadout
   id: BlueShieldBackpackAlt
-  equipment: BlueShieldBackpackAlt
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldBackpackAlt
   equipment:
       back: ClothingBackpackBlueShieldAltFilled
 
 # Neck
 - type: loadout
   id: BlueShieldCloak
-  equipment: BlueShieldCloak
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldTimer
-
-- type: startingGear
-  id: BlueShieldCloak
   equipment:
     neck: ClothingNeckCloakBlueShield
 
 - type: loadout
   id: BlueShieldCloakNT
-  equipment: BlueShieldCloakNT
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldCloakNT
   equipment:
     neck: ClothingNeckCloakNanotrasen
 
 # Eyes
 - type: loadout
   id: Medglasses
-  equipment: Medglasses
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldTimerMedglasses
-
-- type: startingGear
-  id: Medglasses
   equipment:
     eyes: ClothingEyesGlassesMed
 
 - type: loadout
   id: SecglassesBlueShield
-  equipment: SecglassesBlueShield
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldTimerSec
-
-- type: startingGear
-  id: SecglassesBlueShield
   equipment:
     eyes: ClothingEyesGlassesSecurity
 
 - type: loadout
   id: Blueglasses
-  equipment: Blueglasses
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldTimer
-
-- type: startingGear
-  id: Blueglasses
   equipment:
     eyes: ClothingEyesGlassesBlueShield
 
 # Head
 - type: loadout
   id: BlueShieldBeret
-  equipment: BlueShieldBeret
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldBeret
   equipment:
     head: ClothingHeadHatBlueShield
 
 - type: loadout
-  id: BlueShieldBeretBlack
-  equipment: BlueShieldBeretBlack
-
-- type: startingGear
   id: BlueShieldBeretBlack
   equipment:
     head: ClothingHeadHatBlueShieldBlack
@@ -257,21 +177,13 @@
 # Belt
 - type: loadout
   id: BlueShieldWebbing
-  equipment: BlueShieldWebbing
-
-- type: startingGear
-  id: BlueShieldWebbing
   equipment:
     belt: ClothingBeltCorpsmanWebbingFilled
 
 - type: loadout
   id: BlueShieldWebbingAlt
-  equipment: BlueShieldWebbingAlt
   effects:
   - !type:GroupLoadoutEffect
     proto: BlueShieldADTTimer
-
-- type: startingGear
-  id: BlueShieldWebbingAlt
   equipment:
     belt: ClothingBeltBlueShieldWebbingFilled

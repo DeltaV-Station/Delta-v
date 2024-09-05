@@ -10,3 +10,29 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
     state: icon
+
+- type: construction
+  name: makeshift pistol
+  id: kimpistol
+  graph: KimPistolGraph
+  startNode: start
+  targetNode: kimpistol
+  category: construction-category-weapons
+  objectType: Item
+  description: A shitty, pistol made from salvaged and hand-crafted gun parts.
+  icon:
+    sprite: Stray/Objects/Weapons/Pistols/kim.rsi
+    state: icon
+
+- type: construction
+  name: improvised pistol shell
+  id: improvisedpistolshell
+  graph: ImprovisedPistolShellGraph
+  startNode: start
+  targetNode: pistolshell
+  category: construction-category-weapons
+  objectType: Item
+  description: A weak, improvised shell.
+  icon:
+    sprite: Stray/Objects/Weapons/Ammunition/Casings/improvised_ammo_casing.rsi
+    state: base

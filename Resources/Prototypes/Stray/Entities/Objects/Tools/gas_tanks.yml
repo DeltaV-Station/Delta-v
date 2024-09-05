@@ -1,0 +1,25 @@
+- type: entity
+  # it's a square so no rolling dough
+  parent: PlasmaTank
+  id: LittlePlasmaTankFilled
+  name: little plasma tank
+  description: Contains dangerous plasma. Do not inhale. Extremely flammable. It can hold 4 L of gas.
+  components:
+  - type: Sprite
+    sprite: Objects/Tanks/plasma.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    sprite: Objects/Tanks/plasma.rsi
+  - type: GasTank
+    outputPressure: 101.3
+    air:
+      # 3 minutes of agony
+      volume: 4
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 2.051379050 # plasma
+      temperature: 293.15

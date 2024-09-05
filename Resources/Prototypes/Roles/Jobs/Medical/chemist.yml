@@ -4,11 +4,9 @@
   description: job-description-chemist
   playTimeTracker: JobChemist
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 10800
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 3600
+      time: 10800 #3h
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
@@ -25,3 +23,6 @@
     belt: ChemBag
     pocket1: HandLabeler
     eyes: ClothingEyesGlassesChemical
+  #storage:
+    #back:
+    #- Stuff

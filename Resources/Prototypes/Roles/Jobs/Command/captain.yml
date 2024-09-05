@@ -4,11 +4,13 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 10800
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
+      time: 36000 # 10 h
+    - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
+      role: JobHeadOfPersonnel
+      time: 3600
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -37,3 +39,7 @@
     #gloves: ClothingHandsGlovesCaptain - DeltaV - Commented out for loadout options
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - Flash
+    # - StationCharter

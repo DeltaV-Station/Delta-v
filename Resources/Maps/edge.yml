@@ -86834,7 +86834,6 @@ entities:
   - uid: 7691
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -61.5,36.5
       parent: 2
     - type: DeviceLinkSink
@@ -86843,7 +86842,6 @@ entities:
   - uid: 7983
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -61.5,32.5
       parent: 2
     - type: DeviceLinkSink
@@ -100817,21 +100815,7 @@ entities:
     - type: Transform
       pos: 17.5,6.5
       parent: 2
-- proto: SpawnPointBlueshield
-  entities:
-  - uid: 14004
-    components:
-    - type: Transform
-      pos: 20.5,7.5
-      parent: 2
-- proto: SpawnPointMedicalIntern
-  entities:
-  - uid: 14005
-    components:
-    - type: Transform
-      pos: 18.5,7.5
-      parent: 2
-  - uid: 14006
+  - uid: 11897
     components:
     - type: Transform
       pos: 18.5,6.5
@@ -101018,15 +101002,11 @@ entities:
     - type: Transform
       pos: -0.5,-0.5
       parent: 2
-- proto: SpawnPointIAA
-  entities:
   - uid: 13931
     components:
     - type: Transform
       pos: -0.5,1.5
       parent: 2
-- proto: SpawnPointSlugcat
-  entities:
   - uid: 13932
     components:
     - type: Transform
@@ -101179,8 +101159,6 @@ entities:
     - type: Transform
       pos: -39.5,26.5
       parent: 2
-- proto: SpawnPointRoboticist
-  entities:
   - uid: 14029
     components:
     - type: Transform
@@ -101247,8 +101225,6 @@ entities:
     - type: Transform
       pos: -40.5,27.5
       parent: 2
-- proto: SpawnPointRoboticist
-  entities:
   - uid: 14037
     components:
     - type: Transform

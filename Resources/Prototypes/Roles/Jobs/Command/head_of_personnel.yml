@@ -21,10 +21,12 @@
   #    time: 90000 # 25 hours
   requirements:
      - !type:OverallPlaytimeRequirement #DeltaV
-       time: 18000
-     - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
+       time: 21600 # 6 hours
+     - !type:DepartmentTimeRequirement
        department: Civilian
-       time: 5400 # 1,5 hours
+       time: 1800 # 0,5 hours
+     - !type:AgeRequirement
+       requiredAge: 20
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -40,7 +42,7 @@
   - Janitor
   - Theatre
   - Kitchen
-#  - Chapel
+  - Chapel
   - Hydroponics
   - External
   - Cryogenics
@@ -48,17 +50,17 @@
   # As of 15/03/23 they can't do that so here's MOST of the rest of the access levels.
   # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
   # Delta V - fuck all of this HoP is a service role
-#  - Chemistry
-#  - Engineering
-#  - Research
-#  - Detective
-#  - Salvage
-#  - Security # NoooOoOo!! My HoPcurity!1
-#  - Brig
-#  - Lawyer # Lawyer is now part of the justice dept
-#  - Cargo
-#  - Atmospherics
-#  - Medical
+  - Chemistry
+  - Engineering
+  - Research
+  - Detective
+  - Salvage
+  - Security
+  - Brig
+  - Lawyer
+  - Cargo
+  - Atmospherics
+  - Medical
   - Boxer # DeltaV - Add Boxer access
   - Clown # DeltaV - Add Clown access
   - Library # DeltaV - Add Library access
@@ -85,3 +87,6 @@
     #gloves: ClothingHandsGlovesHop # DeltaV - Commented for Loadouts
     ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
     belt: BoxFolderClipboard
+  storage:
+    back:
+    - Flash

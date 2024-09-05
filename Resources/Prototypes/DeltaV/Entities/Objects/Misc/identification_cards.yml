@@ -3,39 +3,39 @@
   id: ChiefJusticeIDCard
   name: chief justice ID card
   components:
-    - type: PresetIdCard
-      job: ChiefJustice
-    - type: Sprite
-      layers:
-        - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi
-          state: idchiefjustice
+  - type: PresetIdCard
+    job: ChiefJustice
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idchiefjustice
 
 - type: entity
   parent: IDCardStandard
   id: ClerkIDCard
   name: clerk ID card
   components:
-    - type: PresetIdCard
-      job: Clerk
-    - type: Sprite
-      layers:
-        - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi
-          state: idclerk
+  - type: PresetIdCard
+    job: Clerk
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idclerk
 
 - type: entity
   parent: IDCardStandard
   id: ProsecutorIDCard
   name: presecutor ID card
   components:
-    - type: PresetIdCard
-      job: Prosecutor
-    - type: Sprite
-      layers:
-        - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi
-          state: idprosecutor
+  - type: PresetIdCard
+    job: Prosecutor
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idprosecutor
 
 - type: entity
   parent: IDCardStandard
@@ -49,3 +49,219 @@
       state: nyanomailcarrier
   - type: PresetIdCard
     job: Courier
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: VisitorIDCard
+  name: visitor ID card
+  components:
+  - type: IdCard
+    jobTitle: Посетитель
+
+- type: entity
+  parent: PassengerIDCard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: IdCard
+    jobTitle: Турист
+
+- type: entity
+  parent: PassengerIDCard
+  id: OffDutyCrewIDCard
+  name: off-duty crew ID card
+  components:
+  - type: IdCard
+    jobTitle: Неслужебный персонал
+
+- type: entity
+  parent: PassengerIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: IdCard
+    jobTitle: Студент
+
+# Bartender
+
+- type: entity
+  parent: BartenderIDCard
+  id: MixologistIDCard
+  name: mixologist ID card
+  components:
+  - type: IdCard
+    jobTitle: Миксолог
+
+# Chef
+
+- type: entity
+  parent: ChefIDCard
+  id: BakerIDCard
+  name: baker ID card
+  components:
+  - type: IdCard
+    jobTitle: Пекарь
+
+- type: entity
+  parent: ChefIDCard
+  id: ButcherIDCard
+  name: butcher ID card
+  components:
+  - type: IdCard
+    jobTitle: Мясник
+
+- type: entity
+  parent: ChefIDCard
+  id: PizzaioloIDCard
+  name: pizzaiolo ID card
+  components:
+  - type: IdCard
+    jobTitle: Pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: PracticalNurseIDCard
+  name: practical nurse ID card
+  components:
+  - type: IdCard
+    jobTitle: Медсестра
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ResidentIDCard
+  name: resident ID card
+  components:
+  - type: IdCard
+    jobTitle: Резидент
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ClinicianIDCard
+  name: clinician ID card
+  components:
+  - type: IdCard
+    jobTitle: Клиницист
+
+# Atmospheric Technician
+
+- type: entity
+  parent: AtmosIDCard
+  id: LifeSupportTechIDCard
+  name: life support technician ID card
+  components:
+  - type: IdCard
+    jobTitle: Техник по жизнеобеспечению
+
+- type: entity
+  parent: AtmosIDCard
+  id: PlasmaScientistIDCard
+  name: plasma scientist ID card
+  components:
+  - type: IdCard
+    jobTitle: Учёный по плазме
+
+# Station Engineer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ElectricianIDCard
+  name: electrician ID card
+  components:
+  - type: IdCard
+    jobTitle: Электрик
+
+- type: entity
+  parent: EngineeringIDCard
+  id: MechanicIDCard
+  name: mechanic ID card
+  components:
+  - type: IdCard
+    jobTitle: Механик
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoIDCard
+  id: DeckWorkerIDCard
+  name: deck worker ID card
+  components:
+  - type: IdCard
+    jobTitle: Палубный рабочий
+
+- type: entity
+  parent: CargoIDCard
+  id: InventoryAssociateIDCard
+  name: inventory associate ID card
+  components:
+  - type: IdCard
+    jobTitle: Помощник по инвентаризации
+
+# Salvage Specialist
+
+- type: entity
+  parent: SalvageIDCard
+  id: ProspectorIDCard
+  name: prospector ID card
+  components:
+  - type: IdCard
+    jobTitle: Старатель
+
+- type: entity
+  parent: SalvageIDCard
+  id: ExcavatorIDCard
+  name: excavator ID card
+  components:
+  - type: IdCard
+    jobTitle: Землекоп
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: LabTechIDCard
+  name: lab technician ID card
+  components:
+  - type: IdCard
+    jobTitle: Лаборант
+
+- type: entity
+  parent: ResearchIDCard
+  id: XenoarchIDCard
+  name: xenoarchaeologist ID card
+  components:
+  - type: IdCard
+    jobTitle: Ксеноархеолог
+
+- type: entity
+  parent: ResearchIDCard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: IdCard
+    jobTitle: Робототехник
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: JesterIDCard
+  name: jester ID card
+  components:
+  - type: IdCard
+    jobTitle: Шут
+
+- type: entity
+  parent: ClownIDCard
+  id: FoolIDCard
+  name: fool ID card
+  components:
+  - type: IdCard
+    jobTitle: Шут

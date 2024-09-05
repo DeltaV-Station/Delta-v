@@ -99,6 +99,9 @@
     - id: PlasmaCanister
       prob: 0.001
       orGroup: Canister
+    - id: MethaneCanister
+      prob: 0.001
+      orGroup: Canister
     - id: TritiumCanister
       prob: 0.001
       orGroup: Canister
@@ -306,6 +309,9 @@
       orGroup: Plushies
     - id: PlushieArachind
       prob: 0.01
+      orGroup: Plushies
+    - id: PlushieThrongler #hehe
+      prob: 0.0005
       orGroup: Plushies
     #useful
     - id: AmeJar

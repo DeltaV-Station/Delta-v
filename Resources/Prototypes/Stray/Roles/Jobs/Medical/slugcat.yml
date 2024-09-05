@@ -6,7 +6,7 @@
   canBeAntag: false
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 1
+      time: 21600 #6h
   icon: JobIconSlugcat
   supervisors: job-supervisors-cmo
   jobEntity: MobSpaceFerret

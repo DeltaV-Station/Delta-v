@@ -4,8 +4,8 @@
   description: job-description-janitor
   playTimeTracker: JobJanitor
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1 # DeltaV - 2 hours
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 7200 #2h
   startingGear: JanitorGear
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
@@ -25,9 +25,9 @@
     id: JanitorPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
-  storage:
-    back:
-    - BoxSurvival
+  #storage:
+    #back:
+    #- Stuff
 
 - type: startingGear
   id: JanitorMaidGear
@@ -38,3 +38,6 @@
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
+  storage:
+    back:
+    - BoxSurvival

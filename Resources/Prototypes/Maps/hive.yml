@@ -2,14 +2,14 @@
   id: TheHive
   mapName: 'The Hive'
   mapPath: /Maps/hive.yml
-  minPlayers: 10
+  minPlayers: 20
   #maxPlayers: 80 Temporary maybe
   stations:
     TheHive:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'The Hive'
+          mapNameTemplate: '{0} The Hive {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Fishbowl.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

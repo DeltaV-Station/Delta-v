@@ -57,7 +57,6 @@
         visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
-      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
@@ -111,6 +110,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw']
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -125,28 +125,30 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-#    templateId: digitigrade
+    templateId: digitigrade # Einstein Engines
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: HarpyVisuals
   - type: UltraVision
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
@@ -155,14 +157,11 @@
     speciesId: harpy
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -183,7 +182,6 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
-      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]

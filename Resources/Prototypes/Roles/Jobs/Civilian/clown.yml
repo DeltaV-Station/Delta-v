@@ -4,8 +4,8 @@
   description: job-description-clown
   playTimeTracker: JobClown
   requirements:
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 1
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 3600 #1h
   startingGear: ClownGear
   icon: "JobIconClown"
   supervisors: job-supervisors-hop
@@ -36,5 +36,9 @@
     mask: ClothingMaskClown
     pocket1: BikeHorn
     pocket2: ClownRecorder
-    id: ClownPDA
+    #id: ClownPDA # DeltaV: different PDAs in loadouts
     ears: ClothingHeadsetService
+  storage:
+    back:
+    - RubberStampClown
+    - CrayonRainbow

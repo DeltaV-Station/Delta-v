@@ -2,7 +2,7 @@
   id: Box
   mapName: 'Box Station'
   mapPath: /Maps/box.yml
-  minPlayers: 0
+  minPlayers: 20
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

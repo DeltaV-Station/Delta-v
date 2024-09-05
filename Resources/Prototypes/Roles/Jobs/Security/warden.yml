@@ -4,11 +4,9 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 10800
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 7200
+      time: 14400 # 4h
   #requirements:
   #  - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
   #    role: JobSecurityOfficer
@@ -19,6 +17,7 @@
   #  - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   startingGear: WardenGear
   icon: "JobIconWarden"
+  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
@@ -41,3 +40,7 @@
     id: WardenPDA
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol

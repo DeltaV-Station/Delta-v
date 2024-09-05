@@ -3,7 +3,7 @@
   mapName: 'Reach'
   mapPath: /Maps/reach.yml
   minPlayers: 0
-  maxPlayers: 80
+  maxPlayers: 20
   stations:
     Reach:
       stationProto: StandardNanotrasenStation
@@ -17,7 +17,7 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

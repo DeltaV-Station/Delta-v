@@ -8,6 +8,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
+using Content.Shared.Interaction.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -76,16 +77,20 @@ public abstract partial class SharedGunSystem
 
         args.Handled = true;
 
+        // Continuous loading
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
             BreakOnMove = true,
             BreakOnDamage = false,
-            NeedHand = true
+            NeedHand = true,
         });
     }
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)
     {
+        if (args.Handled || args.Cancelled)
+            return;
+
         if (Deleted(args.Target) ||
             !TryComp<BallisticAmmoProviderComponent>(args.Target, out var target) ||
             target.Whitelist == null)
@@ -246,6 +251,7 @@ public abstract partial class SharedGunSystem
                 args.Ammo.Add((entity, EnsureShootable(entity)));
                 component.Entities.RemoveAt(component.Entities.Count - 1);
                 Containers.Remove(entity, component.Container);
+                //RaiseLocalEvent(entity, new DroppedEvent(uid), true);
             }
             else if (component.UnspawnedCount > 0)
             {
@@ -272,6 +278,17 @@ public abstract partial class SharedGunSystem
 
         Appearance.SetData(uid, AmmoVisuals.AmmoCount, GetBallisticShots(component), appearance);
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
+    }
+
+    public void SetBallisticUnspawned(Entity<BallisticAmmoProviderComponent> entity, int count)
+    {
+        if (entity.Comp.UnspawnedCount == count)
+            return;
+
+        entity.Comp.UnspawnedCount = count;
+        UpdateBallisticAppearance(entity.Owner, entity.Comp);
+        UpdateAmmoCount(entity.Owner);
+        Dirty(entity);
     }
 }
 

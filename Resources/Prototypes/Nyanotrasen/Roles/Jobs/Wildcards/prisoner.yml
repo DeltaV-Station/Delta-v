@@ -10,9 +10,25 @@
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-security
   requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 72000 # 20 h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 99999999
+      time: 7200 #2h
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Boxer
+      modifiers:
+        coefficients: # These only apply to unarmed
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.75
+  - !type:AddComponentSpecial
+    components:
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2.0
+      baseSprintSpeed : 3.0
 
 - type: startingGear
   id: PrisonerGear

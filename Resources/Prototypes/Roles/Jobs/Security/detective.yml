@@ -4,11 +4,9 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 7200
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 3600
+      time: 7200
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -19,7 +17,8 @@
   - Maintenance
   #- Service # Delta V: Access adjustments
   - Detective
-  - Cryogenics # Delta V: Access adjustments
+  - Cryogenics
+  - External
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -31,3 +30,8 @@
     id: DetectivePDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
+  storage:
+    back:
+    - Flash
+    - ForensicPad
+    - ForensicScanner

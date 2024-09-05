@@ -1,0 +1,24 @@
+- type: entity
+  name: Сайга-12
+  parent: WeaponShotgunBulldog
+  id: WeaponShotgunSaiga12
+  description: Самозарядный карабин, производимый на Ижевском машиностроительном заводе на базе автомата Калашникова и предназначенный для промысловой и любительской охоты на мелкого, среднего зверя и птицу в районах с любыми климатическими условиями.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/Saiga12.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/Saiga12.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg

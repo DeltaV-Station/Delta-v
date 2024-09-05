@@ -1,7 +1,9 @@
 - type: gameMap
   id: CorvaxTerra
   mapName: 'Terra Colony'
-  mapPath: /Maps/corvax_terra.yml 
+  mapPath: /Maps/corvax_terra.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 0
   maxPlayers: 30
   stations:
@@ -20,7 +22,7 @@
           mapLightColor: "#090303FF"
         - type: GridSpawn
           groups:
-            trade:
+            trade: !type:GridSpawnGroup
               addComponents:
                 - type: ProtectedGrid
                 - type: TradeStation

@@ -2,7 +2,7 @@
   id: Hammurabi
   mapName: 'Hammurabi'
   mapPath: /Maps/hammurabi.yml
-  minPlayers: 0
+  minPlayers: 20
   stations:
     Hammurabi:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Centipede.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

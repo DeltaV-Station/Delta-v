@@ -18,6 +18,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Power;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;

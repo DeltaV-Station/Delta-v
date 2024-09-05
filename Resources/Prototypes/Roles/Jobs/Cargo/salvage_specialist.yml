@@ -8,8 +8,9 @@
   #  - !type:DepartmentTimeRequirement
   #    department: Logistics # DeltaV - Logistics Department replacing Cargo
   #    time: 60 #DeltaV 1 min
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 5400 #1.5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      time: 14400 # 4 hours
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
@@ -24,5 +25,8 @@
   id: SalvageSpecialistGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
-    id: SalvagePDA
+    #id: SalvagePDA # DeltaV: different PDAs in loadouts
     ears: ClothingHeadsetCargo
+  #storage:
+    #back:
+    #- Stuff

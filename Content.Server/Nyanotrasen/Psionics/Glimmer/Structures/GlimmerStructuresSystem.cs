@@ -2,6 +2,7 @@ using Content.Server.Anomaly.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Power;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer

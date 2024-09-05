@@ -3,7 +3,7 @@
   mapName: 'Pebble'
   mapPath: /Maps/pebble.yml
   minPlayers: 0
-  maxPlayers: 80
+  maxPlayers: 45
   stations:
     PebbleStation:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
             prefixCreator: 'NY'
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

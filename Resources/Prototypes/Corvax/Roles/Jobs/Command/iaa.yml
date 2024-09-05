@@ -3,11 +3,9 @@
   name: job-name-iaa
   playTimeTracker: JobIAA
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
-      time: 18000
     - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 7200
+      department: Command
+      time: 21600 # 6 hours
   startingGear: IAAGear
   icon: "JobIconIAA"
   supervisors: job-supervisors-centcom
@@ -19,6 +17,7 @@
   - External
   - Lawyer
   - Security
+  - Justice
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

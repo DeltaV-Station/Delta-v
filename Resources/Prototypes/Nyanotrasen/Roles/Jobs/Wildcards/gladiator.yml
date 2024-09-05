@@ -9,6 +9,9 @@
   icon: "JobIconGladiator"
   supervisors: job-supervisors-security
   setPreference: true
+  requirements:
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 7200 #2h
 #  whitelistRequired: true
   #requirements:
   #  - !type:DepartmentTimeRequirement

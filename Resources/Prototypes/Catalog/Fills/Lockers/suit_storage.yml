@@ -44,7 +44,7 @@
   suffix: Prisoner EVA
   components:
   - type: StorageFill
-    contents:   
+    contents:
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitEVAPrisoner
         - id: ClothingHeadHelmetEVALarge
@@ -141,6 +141,8 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
         - id: ClothingMaskBreath
+        - id: ClothingShoesBootsMagSec
+        - id: JetpackSecurityFilled
   - type: AccessReader
     access: [["Security"]]
 
@@ -150,13 +152,10 @@
   parent: SuitStorageBase
   suffix: Chief Engineer
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: JetpackVoidFilled
-        - id: ClothingShoesBootsMagAdv
-        - id: ClothingOuterHardsuitEngineeringWhite
-        - id: ClothingMaskGasAtmos
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillChiefEngineerHardsuit
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
@@ -166,11 +165,10 @@
   parent: SuitStorageBase
   suffix: Chief Medical Officer
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitMedical
-        - id: ClothingMaskBreathMedical
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillChiefMedicalOfficerHardsuit
   - type: AccessReader
     access: [ [ "ChiefMedicalOfficer" ] ]
 
@@ -180,12 +178,10 @@
   parent: SuitStorageBase
   suffix: Mystagogue # DeltaV - Epistemics Department replacing Science
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitRd
-        - id: ClothingOuterHardsuitMystagogue
-        - id: ClothingMaskBreath
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillResearchDirectorHardsuit
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
 
@@ -195,12 +191,10 @@
   parent: SuitStorageBase
   suffix: Head of Security
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: JetpackSecurityFilled
-        - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
-        - id: ClothingMaskGasSwat
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
@@ -215,6 +209,8 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
         - id: ClothingMaskBreath
+        - id: ClothingShoesBootsMagSec
+        - id: JetpackSecurityFilled
   - type: AccessReader
     access: [["Armory"]]
 
@@ -224,11 +220,10 @@
   parent: SuitStorageBase
   suffix: Captain
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitCap
-        - id: ClothingMaskGasCaptain
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCaptainHardsuit
   - type: AccessReader
     access: [["Captain"]]
 

@@ -1,0 +1,22 @@
+- type: entity
+  name: АПС
+  parent: WeaponPistolViper
+  id: WeaponPistolAPS
+  description: Автоматический пистолет, разработанный в конце 1940-х — начале 1950-х годов конструктором И. Я. Стечкиным и принятый на вооружение Вооружённых Сил СССР в 1951 году, одновременно с пистолетом Макарова. 
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/APS.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/APS.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 6.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg

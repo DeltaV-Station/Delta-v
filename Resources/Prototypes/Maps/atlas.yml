@@ -15,7 +15,7 @@
             prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

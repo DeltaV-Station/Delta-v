@@ -1,0 +1,62 @@
+- type: entity
+  id: BaseCartridgeCPA
+  name: cartridge
+  parent: BaseCartridge
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+  - type: CartridgeAmmo
+    proto: BulletPistol
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge9x18
+  name: bullet (9x18mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x18
+  - type: Tag
+    tags:
+      - Bullet9x18mm
+
+- type: entity
+  id: Cartridge5x39
+  name: bullet (5,45x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet5x39
+  - type: Tag
+    tags:
+    - Bullet5x39mm
+
+- type: entity
+  id: Cartridge8x39
+  name: bullet (7,62x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet8x39
+  - type: Tag
+    tags:
+    - Bullet8x39mm
+
+- type: entity
+  id: Cartridge9x39
+  name: bullet (9x39mm)
+  parent: BaseCartridgeCPA
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x39
+  - type: Tag
+    tags:
+    - Bullet9x39mm

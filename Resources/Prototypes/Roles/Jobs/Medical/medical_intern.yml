@@ -10,7 +10,7 @@
     #   inverted: true # stop playing intern if you're good at med!
   requirements:
     - !type:OverallPlaytimeRequirement #DeltaV
-      time: 1
+      time: 7200 #h
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
@@ -23,7 +23,10 @@
   id: MedicalInternGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: MedicalInternPDA
+  #  id: MedicalInternPDA # DeltaV: different PDAs in loadouts
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     pocket2: BookMedicalReferenceBook
+  #storage:
+    #back:
+    #- Stuff

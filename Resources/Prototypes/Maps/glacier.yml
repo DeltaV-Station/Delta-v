@@ -14,7 +14,7 @@
           prefixCreator: 'NY'
       - type: GridSpawn
         groups:
-          mining:
+          mining: !type:GridSpawnGroup
             paths:
             - /Maps/Shuttles/mining.yml
       - type: StationEmergencyShuttle

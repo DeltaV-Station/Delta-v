@@ -1,0 +1,21 @@
+- type: entity
+  name: ПП-19-01 «Витязь»
+  parent: WeaponSubMachineGunDrozdRubber
+  id: WeaponSubMachineGunVutyaz
+  description: Российский пистолет-пулемёт, разработанный в 2004 году компанией «Ижмаш».
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/SMGs/Vityaz.rsi
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/SMGs/Vityaz.rsi
+    - type: Gun
+      minAngle: 21
+      maxAngle: 32
+      fireRate: 6
+      selectedMode: FullAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      availableModes:
+      - SemiAuto
+      - Burst
+      - FullAuto

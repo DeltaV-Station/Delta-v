@@ -6,10 +6,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: side
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: side
   - type: Physics
     bodyType: Static
@@ -70,10 +70,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: corner
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: corner
   - type: Physics
     bodyType: Static
@@ -143,10 +143,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: corner_small
   - type: Icon
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: corner_small
   - type: Physics
     bodyType: Static
@@ -207,7 +207,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Walls/railing.rsi
+    sprite: Structures/Walls/railing.rsi # Респрайт у Delta V хуйня
     state: round
   - type: Physics
     bodyType: Static

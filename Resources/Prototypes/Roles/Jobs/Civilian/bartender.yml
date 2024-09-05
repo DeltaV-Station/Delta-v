@@ -3,10 +3,9 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Civilian
-  #    time: 3600 #DeltaV
+  requirements:
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 3600 #1h
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop
@@ -22,5 +21,8 @@
   id: BartenderGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: BartenderPDA
+    #id: BartenderPDA # DeltaV - different PDAs in loadouts
     ears: ClothingHeadsetService
+  #storage:
+    #back:
+    #- Stuff

@@ -2,7 +2,7 @@
   id: Lighthouse
   mapName: Lighthouse
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 0
+  minPlayers: 15
   maxPlayers: 80
   stations:
     Lighthouse:
@@ -17,7 +17,7 @@
           prefixCreator: '14'
       - type: GridSpawn
         groups:
-          mining:
+          mining: !type:GridSpawnGroup
             paths:
             - /Maps/Shuttles/mining.yml
       - type: StationJobs

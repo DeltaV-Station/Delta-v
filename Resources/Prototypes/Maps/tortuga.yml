@@ -2,7 +2,7 @@
   id: Tortuga
   mapName: 'Tortuga'
   mapPath: /Maps/tortuga.yml
-  minPlayers: 0
+  minPlayers: 30
   stations:
     Tortuga:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
         - type: GridSpawn
           groups:
-            mining:
+            mining: !type:GridSpawnGroup
               paths:
               - /Maps/Shuttles/mining.yml
         - type: StationJobs

@@ -7,6 +7,5 @@ fi
 
 cd ../../
 
-python RUN_THIS.py
 git submodule update --init --recursive
 dotnet build -c Debug
