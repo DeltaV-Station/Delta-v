@@ -1,7 +1,7 @@
 - type: entity
   name: pharmacist bag
   id: ChemBagPharmacist
-  parent: BaseStorageItem
+  parent: ChemBag
   description: A bag for storing pharmacy products, such as pills, pill canisters, bottles, and syringes.
   components:
   - type: Sprite
