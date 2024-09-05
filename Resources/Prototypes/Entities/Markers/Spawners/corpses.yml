@@ -80,7 +80,7 @@
   name: Random Security Corpse Spawner
   id: RandomSecurityCorpseSpawner
   parent: SalvageHumanCorpseSpawner
-  noSpawn: true # DeltaV - Prevent security corpses from being mapped in
+  categories: [ HideSpawnMenu ] # DeltaV - Prevent security corpses from being mapped in
   components:
   - type: Sprite
     layers:

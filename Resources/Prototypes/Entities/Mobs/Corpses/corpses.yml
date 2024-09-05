@@ -68,7 +68,7 @@
   parent: SalvageHumanCorpse
   id: MobRandomSecurityCorpse
   suffix: Dead, Security
-  noSpawn: true # DeltaV - Prevent security corpses from being mapped in
+  categories: [ HideSpawnMenu ] # DeltaV - Prevent security corpses from being mapped in
   components:
   - type: Loadout
     prototypes:

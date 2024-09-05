@@ -132,17 +132,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSecFormal
-  name: security formal suit
-  description: A ceremonial piece of Station Security kit, for special occasions of any kind.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformal.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformal.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSober
   name: sober sweater
   description: For the more lucid moments.
@@ -207,29 +196,68 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/courier.rsi
 
-# Warden alt uniforms
+# Formal uniforms
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecFormal
+  name: security formal suit
+  description: A ceremonial piece of Station Security kit, for special occasions of any kind.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformalsuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformalsuit.rsi
+
+# Detective uniform
+
+- type: entity
+  parent: ClothingUniformFoldableBase
+  id: ClothingUniformJumpsuitForensicSpec
+  name: detective's jumpsuit
+  description: A white shirt and slate slacks, for forensic specialists.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/detective.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/detective.rsi
+
+# Detective uniform
+
+- type: entity
+  parent: ClothingUniformFoldableBase
+  id: ClothingUniformJumpsuitSecSenior
+  name: senior officer's jumpsuit
+  description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. Can be worn all year round.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/seniorofficer.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/seniorofficer.rsi
+
+# Warden alt uniforms
+
+- type: entity
+  parent: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitWardenBlue
   name: blue warden's jumpsuit
   description: A cool blue shirt with ice-white markings and warden's epaulettes.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformFoldableBase
   id: ClothingUniformJumpsuitWardenGrey
   name: grey warden's jumpsuit
   description: Charcoal pants, a grey shirt, and white warden's markings and epaulettes.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer_grey.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer_grey.rsi
 
 # Central Command Uniform - ported from Velta
 

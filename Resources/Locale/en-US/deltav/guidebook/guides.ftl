@@ -21,3 +21,5 @@ guide-entry-justice = Justice
 guide-entry-pharmacist = Pharmacist
 
 guide-entry-glimmer-creatures = Glimmer Creatures
+
+guide-entry-trade-station = Trade Station

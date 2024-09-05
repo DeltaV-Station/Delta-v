@@ -32,6 +32,8 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateRecruiterGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:
@@ -74,6 +76,8 @@
       max: 2
       pickPlayer: false
       startingGear: SyndicateSynthesisGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:

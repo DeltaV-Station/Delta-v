@@ -234,7 +234,7 @@
   name: exterior light tube
   description: A high power high energy bulb for the depths of space. May contain mercury.
   id: ExteriorLightTube
-  noSpawn: true # DeltaV - Don't map these
+  categories: [ HideSpawnMenu ] # DeltaV - Don't map these
   components:
   - type: LightBulb
     color: "#B4FCF0"

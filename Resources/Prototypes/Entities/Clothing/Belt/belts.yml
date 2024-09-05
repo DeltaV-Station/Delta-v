@@ -610,15 +610,19 @@
         - CartridgeAmmo
 
 - type: entity
-  parent: ClothingBeltSecurity
+  parent: ClothingBeltStorageBase
   id: ClothingBeltSecurityWebbing
-  name: security webbing
+  name: security carrier
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Storage # Delta-V - Split Inventory
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -630,6 +634,10 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
+  - type: Storage # Delta-V - Split Inventory
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -641,6 +649,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
+  - type: Storage # Delta-V - Split Inventory
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
@@ -654,6 +666,10 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: Storage # Delta-V - Split Inventory
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -669,22 +685,36 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage # Delta-V - Split Inventory
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
 
 - type: entity
   parent: ClothingBeltBase
-  id: ClothingBeltSuspenders
-  name: suspenders
+  id: ClothingBeltSuspendersRed
+  name: red suspenders
   description: For holding your pants up.
   components:
   - type: Tag
     tags:
     - MimeBelt
   - type: Sprite
-    sprite: Clothing/Belt/suspenders.rsi
+    sprite: Clothing/Belt/suspenders_red.rsi
     state: icon
   - type: Clothing
-    sprite: Clothing/Belt/suspenders.rsi
+    sprite: Clothing/Belt/suspenders_red.rsi
     quickEquip: true
+
+- type: entity
+  parent: ClothingBeltSuspendersRed
+  id: ClothingBeltSuspendersBlack
+  name: black suspenders
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/suspenders_black.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/suspenders_black.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
