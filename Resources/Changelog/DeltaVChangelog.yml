@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Removed Dwarf from roundstart choices.
-    type: Remove
-  id: 18
-  time: '2023-09-27T21:09:01.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Cadets no longer gets a gun and no more spare mags for Security Officers.
     type: Tweak
   id: 19
@@ -3547,3 +3541,11 @@
   id: 517
   time: '2024-09-04T21:13:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1753
+- author: MilonPL
+  changes:
+  - message: The security webbing inventory is now split into two parts. You can no
+      longer fit a shotgun in it.
+    type: Tweak
+  id: 518
+  time: '2024-09-05T05:37:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1160
