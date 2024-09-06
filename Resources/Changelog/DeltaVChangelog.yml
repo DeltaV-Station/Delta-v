@@ -1,129 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Add automatic changelogs
-    type: Add
-  id: 1
-  time: '2023-09-13T08:00:00.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Added most of the DeltaV and Nyano food and drink, along with recipes.
-    type: Add
-  id: 2
-  time: '2023-09-13T16:40:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added 15 new moth plushes.
-    type: Add
-  id: 3
-  time: '2023-09-13T16:43:47.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added Vulpkanin.
-    type: Add
-  id: 4
-  time: '2023-09-13T18:24:12.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added mothroaches.
-    type: Add
-  id: 5
-  time: '2023-09-13T19:19:25.0000000+00:00'
-- author: TadJohnson00
-  changes:
-  - message: Added arctic foxes to the game. Who knows, maybe you'll see one around!
-    type: Add
-  id: 6
-  time: '2023-09-13T20:15:57.0000000+00:00'
-- author: Dorragon
-  changes:
-  - message: Added Pride-O-Mat
-    type: Add
-  - message: Added restock box for prideomat that is available in cargo
-    type: Add
-  id: 7
-  time: '2023-09-16T06:26:04.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added various posters, signs and paintings.
-    type: Add
-  id: 8
-  time: '2023-09-18T13:49:03.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Martial Artists, Prison Guards, Prisoners and Gladiators are back.
-    type: Add
-  id: 9
-  time: '2023-09-19T14:22:56.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Felinids have been reintegrated to the crew.
-    type: Add
-  id: 10
-  time: '2023-09-20T23:28:21.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Paramedics now spawn with their respective equipment for retrieving crewmates
-      more effectively.
-    type: Tweak
-  id: 11
-  time: '2023-09-21T04:01:02.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the Courier, the Mail Carrier's cousin.
-    type: Add
-  - message: Cargo Department is now the Logistics Department
-    type: Tweak
-  id: 12
-  time: '2023-09-21T04:37:30.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Clown Spiders no longer can squeeze through the vents.
-    type: Remove
-  id: 13
-  time: '2023-09-21T20:45:11.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the PSB emergency snack.
-    type: Add
-  id: 14
-  time: '2023-09-26T02:57:54.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Changed chat messages to not have the names bold.
-    type: Tweak
-  id: 15
-  time: '2023-09-26T16:47:58.0000000+00:00'
-- author: toasterpm87
-  changes:
-  - message: 'toy A6m2 '
-    type: Add
-  id: 16
-  time: '2023-09-27T15:22:55.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Merged latest changes from Wizden
-    type: Add
-  id: 17
-  time: '2023-09-27T19:59:13.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Removed Dwarf from roundstart choices.
-    type: Remove
-  id: 18
-  time: '2023-09-27T21:09:01.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Cadets no longer gets a gun and no more spare mags for Security Officers.
-    type: Tweak
-  id: 19
-  time: '2023-09-27T22:51:15.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Give back all the jobs their proper time requirements.
-    type: Tweak
-  id: 20
-  time: '2023-09-28T14:49:00.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: The Senior Roles are no longer available at round start.
@@ -3374,3 +3249,306 @@
   id: 483
   time: '2024-08-16T20:34:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1634
+- author: MilonPL
+  changes:
+  - message: The admin PDA health analyzer no longer shows a popup to the player.
+    type: Fix
+  id: 484
+  time: '2024-08-18T04:08:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1637
+- author: deltanedas
+  changes:
+  - message: Fixed Vox mantes not getting a tank harness.
+    type: Fix
+  id: 485
+  time: '2024-08-18T10:10:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1647
+- author: MilonPL
+  changes:
+  - message: Fixed the mass sleep power.
+    type: Fix
+  id: 486
+  time: '2024-08-18T10:32:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1649
+- author: deltanedas
+  changes:
+  - message: Changed air vent lockout threshold from 60kpa to 30kpa.
+    type: Tweak
+  id: 487
+  time: '2024-08-18T10:36:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1638
+- author: jimmy12or
+  changes:
+  - message: Added the Plant Bag of Holding! A plant bag with much more space for
+      your produce and seeds!
+    type: Add
+  - message: Added Plant Bag of Holding to Hydroponics research, which now costs 7500
+      points.
+    type: Tweak
+  id: 488
+  time: '2024-08-18T10:44:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1651
+- author: deltanedas
+  changes:
+  - message: Mindshield implants can now be removed.
+    type: Tweak
+  id: 489
+  time: '2024-08-18T10:47:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1631
+- author: deltanedas
+  changes:
+  - message: Added the grappling hook back to the research tree.
+    type: Add
+  - message: Burgers can have 50 ingredients now.
+    type: Tweak
+  - message: Fixed Synthesis Specialists not showing up in the round end summary.
+    type: Fix
+  id: 490
+  time: '2024-08-18T17:21:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1636
+- author: MilonPL
+  changes:
+  - message: Senior job icons are now selectable in agent IDs.
+    type: Fix
+  id: 491
+  time: '2024-08-20T10:02:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1657
+- author: MilonPL
+  changes:
+  - message: AAC tablets now properly get picked up by intercoms.
+    type: Fix
+  id: 492
+  time: '2024-08-21T07:24:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1660
+- author: deltanedas
+  changes:
+  - message: Fixed Vox Fugitives and other antags not getting nitrogen.
+    type: Fix
+  id: 493
+  time: '2024-08-22T13:48:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1666
+- author: deltanedas
+  changes:
+  - message: Merged upstream, except for mining rebalance and energy shotgun.
+    type: Add
+  - message: Every shuttle's price increased due to the rising cost of materials.
+    type: Tweak
+  - message: Fixed the Flatpacker being broken.
+    type: Fix
+  id: 494
+  time: '2024-08-22T14:27:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1665
+- author: deltanedas
+  changes:
+  - message: Made meteor swarm event spawn the old meteors again
+    type: Tweak
+  id: 495
+  time: '2024-08-22T14:29:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1658
+- author: portfiend
+  changes:
+  - message: More floor tiles have been added to the cutter machine, namely Service
+      department tiles such as bar, kitchen, clown, mime, laundry, and arcade tiles.
+    type: Add
+  id: 496
+  time: '2024-08-24T10:22:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1673
+- author: Timemaster99
+  changes:
+  - message: Ported Harpy updates from EE
+    type: Add
+  id: 497
+  time: '2024-08-27T00:21:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1641
+- author: Skubman, dootythefrooty
+  changes:
+  - message: Quite a few new horns for Onis have been added, with three-tone variants
+      and some striped variants! The new horns include the Serket, Nepeta, Vantas,
+      Makara, and more.
+    type: Add
+  - message: Onis get two new tusk markings in the 'Snout' section, and several pointy
+      ear markings that help them resemble tieflings, orcs, elves and more.
+    type: Add
+  - message: Allows felinids, harpies and oni to have more human markings.
+    type: Tweak
+  id: 498
+  time: '2024-08-27T07:20:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1691
+- author: deltanedas
+  changes:
+  - message: Merged last weeks changes from upstream, report any bugs.
+    type: Add
+  - message: Cleaned up a lot of guidebooks.
+    type: Tweak
+  id: 499
+  time: '2024-08-28T03:33:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1693
+- author: deltanedas
+  changes:
+  - message: Fixed Nyano winter coat loadouts (Mail carrier and Mantis) not giving
+      you anything.
+    type: Fix
+  id: 500
+  time: '2024-08-28T06:07:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1697
+- author: deltanedas
+  changes:
+  - message: Disaster victim ghost roles now have a playtime requirement.
+    type: Tweak
+  id: 501
+  time: '2024-08-28T16:14:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1699
+- author: deltanedas
+  changes:
+  - message: Fixed whitelists not working for some people.
+    type: Fix
+  id: 502
+  time: '2024-08-30T03:42:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1708
+- author: MilonPL
+  changes:
+  - message: Fixed felinid/harpy/vulpkanin chat emotes.
+    type: Fix
+  id: 503
+  time: '2024-08-30T04:25:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1710
+- author: deltanedas
+  changes:
+  - message: Disabled Station AI until it's fully implemented.
+    type: Remove
+  - message: Fixed saying lol not making you laugh.
+    type: Fix
+  id: 504
+  time: '2024-08-30T08:28:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1712
+- author: dootythefrooty
+  changes:
+  - message: Added felinid emotes.
+    type: Add
+  id: 505
+  time: '2024-08-31T01:52:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1720
+- author: SsalamethVersaach
+  changes:
+  - message: Added more accents, adjusted language accent weights from 1 to 2 on the
+      character creation page, removed accent cost from others, and added the brand
+      new Irish accent!
+    type: Add
+  id: 506
+  time: '2024-08-31T03:47:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1701
+- author: adeinitas
+  changes:
+  - message: Added vulpkanin tail and ear options to felinids.
+    type: Tweak
+  id: 507
+  time: '2024-08-31T04:24:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1694
+- author: deltanedas
+  changes:
+  - message: Rebalanced mining again, it's a bit fairer.
+    type: Tweak
+  id: 508
+  time: '2024-08-31T23:03:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1721
+- author: MilonPL
+  changes:
+  - message: Harpies can once more wear jumpsuits.
+    type: Fix
+  - message: Harpies can now squeak and chitter!
+    type: Fix
+  id: 509
+  time: '2024-09-01T03:03:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1731
+- author: deltanedas
+  changes:
+  - message: Replaced Mime's breath mask with a spacepen.
+    type: Tweak
+  id: 510
+  time: '2024-09-01T03:18:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1730
+- author: deltanedas
+  changes:
+  - message: Salvage still has most roundstart equipment like ore bags, seismics and
+      fultons.
+    type: Tweak
+  - message: Fixed being able to execute yourself with knives.
+    type: Remove
+  id: 511
+  time: '2024-09-01T03:54:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1732
+- author: MilonPL
+  changes:
+  - message: Fixed the mothic salad recipe giving you a free bowl.
+    type: Fix
+  id: 512
+  time: '2024-09-02T04:56:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1740
+- author: Whatstone, dvir001, ErhardSteinhauer, Adeinitas
+  changes:
+  - message: New ads are in the mail and various mail has been expanded upon.
+    type: Tweak
+  - message: You may find larger parcels in the mail.
+    type: Add
+  - message: The mail RPDS is now in the courierdrobe - shoot your friends (and enemies)
+      with the mail gun today!!!
+    type: Add
+  id: 513
+  time: '2024-09-02T13:14:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1652
+- author: deltanedas
+  changes:
+  - message: The fulton blueprint now unlocks fulton beacons too.
+    type: Tweak
+  id: 514
+  time: '2024-09-02T14:08:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1745
+- author: Beck Thompson
+  changes:
+  - message: The gold and silver ring and now available in the loadouts.
+    type: Add
+  - message: Piety vend now has 2 silver rings and 2 ring boxes.
+    type: Add
+  - message: Rings are now craftable on the lathe.
+    type: Add
+  id: 515
+  time: '2024-09-03T14:12:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1738
+- author: Fox
+  changes:
+  - message: Removed the clown shuttle from the unknown shuttle events pool.
+    type: Remove
+  id: 516
+  time: '2024-09-04T16:58:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1755
+- author: TJohnson
+  changes:
+  - message: Station Security uniform standards have been relaxed, and officers may
+      now roll their sleeves on-duty.
+    type: Tweak
+  id: 517
+  time: '2024-09-04T21:13:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1753
+- author: MilonPL
+  changes:
+  - message: The security webbing inventory is now split into two parts. You can no
+      longer fit a shotgun in it.
+    type: Tweak
+  id: 518
+  time: '2024-09-05T05:37:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1160
+- author: rosieposieeee
+  changes:
+  - message: Added Space Disposals with a warning sign on them, and made disposals
+      pretty again.
+    type: Tweak
+  id: 519
+  time: '2024-09-05T05:46:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1009
+- author: Radezolid
+  changes:
+  - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
+    type: Fix
+  id: 520
+  time: '2024-09-06T21:26:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1759
