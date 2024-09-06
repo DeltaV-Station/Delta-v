@@ -188,11 +188,11 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 5 # DeltaV - was 6
+    weight: 6 # DeltaV - was 5
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
-    minimumPlayers: 40 # DeltaV - was 30
+    minimumPlayers: 15 # DeltaV - was 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
