@@ -39,7 +39,8 @@
         - id: ClothingMaskRaven
         - id: ClothingMaskJackal
         - id: ClothingMaskBat
-      - id: ClothingBeltSuspenders
+      - id: ClothingBeltSuspendersRed
+      - id: ClothingBeltSuspendersBlack
       - id: ClothingEyesEyepatch
       - id: ClothingEyesGlasses
       - id: ClothingHandsGlovesLatex
@@ -243,6 +244,8 @@
           weight: 0.5
         - id: ClothingHandsGlovesColorYellow
           weight: 1
+        - id: ClothingHandsGlovesConducting
+          weight: 0.1
       # Uncommon Group
     - !type:GroupSelector
       weight: 23

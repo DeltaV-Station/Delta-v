@@ -18,7 +18,7 @@
 
 - type: entity
   id: PaperWrittenSalvageLoreGaming1
-  noSpawn: true # keep this from spamming spawn sheet
+  categories: [ HideSpawnMenu ] # keep this from spamming spawn sheet
   suffix: "Salvage: Lore: Gaming 1"
   parent: Paper
   components:
@@ -31,7 +31,7 @@
        - Alexander
 - type: entity
   id: PaperWrittenSalvageLoreGaming2
-  noSpawn: true # keep this from spamming spawn sheet
+  categories: [ HideSpawnMenu ] # keep this from spamming spawn sheet
   suffix: "Salvage: Lore: Gaming 2"
   parent: Paper
   components:
@@ -51,7 +51,7 @@
       What even are you trying to do here, Leah? - Your Friendly DM
 - type: entity
   id: PaperWrittenSalvageLoreGaming3
-  noSpawn: true # keep this from spamming spawn sheet
+  categories: [ HideSpawnMenu ] # keep this from spamming spawn sheet
   suffix: "Salvage: Lore: Gaming 3"
   parent: Paper
   components:
@@ -65,7 +65,7 @@
       Oh dear goodness they just started randomly killing everybody
 - type: entity
   id: PaperWrittenSalvageLoreGaming4
-  noSpawn: true # keep this from spamming spawn sheet
+  categories: [ HideSpawnMenu ] # keep this from spamming spawn sheet
   suffix: "Salvage: Lore: Gaming 4"
   parent: Paper
   components:

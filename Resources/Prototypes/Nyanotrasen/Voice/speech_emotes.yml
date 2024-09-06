@@ -3,76 +3,99 @@
   id: Hiss
   name: nyan-chat-emote-name-hiss
   category: Vocal
+  icon: DeltaV/Interface/Emotes/hiss.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChasis
   chatMessages: [hisses.]
   chatTriggers:
-    - hiss.
-    - hisses.
-    - hisses!
-    - hissing.
-    - hissed.
+    - hiss
+    - hisses
+    - hissing
+    - hissed
 
 - type: emote
   id: Meow
   name: nyan-chat-emote-name-meow
   category: Vocal
+  icon: DeltaV/Interface/Emotes/meow.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChasis
   chatMessages: [meows.]
   chatTriggers:
-    - meow.
-    - meow!
-    - meows.
-    - meows~
-    - meows!
-    - meowing.
-    - meowed.
-    - miau.
-    - miaus.
-    - miaus!
-    - nya.
-    - nyas.
-    - nyas!
-    - mraow.
-    - mraow!
-    - mraow~
-    - mraows.
-    - mraows!
-    - mraows~
+    - meow
+    - meows
+    - meowing
+    - meowed
+    - miau
+    - miaus
+    - nya
+    - nyas
+    - mraow
+    - mraows
 
 - type: emote
   id: Mew
   name: nyan-chat-emote-name-mew
+  icon: DeltaV/Interface/Emotes/mew.png
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChasis
   chatMessages: [mews.]
   chatTriggers:
-    - mew.
-    - mew!
-    - mew~
-    - mews.
-    - mews!
-    - mews~
-    - mewing.
-    - mewed.
+    - mew
+    - mews
+    - mewing
+    - mewed
 
 - type: emote
   id: Growl
   name: chat-emote-name-growl
+  icon: DeltaV/Interface/Emotes/growl.png
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChasis
   chatMessages: [growls.]
   chatTriggers:
-    - growl.
-    - growls.
-    - growls!
-    - growling.
-    - growled.
+    - growl
+    - growls
+    - growling
+    - growled
 
 - type: emote
   id: Purr
   name: chat-emote-name-purr
+  icon: DeltaV/Interface/Emotes/purr.png
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChasis
   chatMessages: [purrs.]
   chatTriggers:
-    - purr.
-    - purrs.
-    - purrs~
-    - purrs!
-    - purring.
-    - purred.
+    - purr
+    - purrs
+    - purring
+    - purred

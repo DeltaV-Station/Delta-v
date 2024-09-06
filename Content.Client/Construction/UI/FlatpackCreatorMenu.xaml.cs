@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Materials;
+using Content.Client.Materials.UI;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Construction.Components;
@@ -81,7 +82,7 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
             if (_entityManager.TryGetComponent(_currentBoard, out machineBoardComp))
                 cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, machineBoardComp));
             else
-                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker));
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), null);
 
             PackButton.Disabled = !_materialStorage.CanChangeMaterialAmount(_owner, cost);
         }
@@ -109,7 +110,7 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
             else if (_entityManager.TryGetComponent<ComputerBoardComponent>(_currentBoard, out var computerBoard))
             {
                 prototype = computerBoard.Prototype;
-                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker));
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), null);
             }
 
             if (prototype is not null && cost is not null)

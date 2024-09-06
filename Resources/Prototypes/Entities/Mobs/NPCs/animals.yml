@@ -358,6 +358,11 @@
     bloodReagent: InsectBlood
     bloodMaxVolume: 20
   - type: Food
+  - type: FlavorProfile
+    flavors:
+    - horrible
+    - terrible
+    - chewy
   - type: Hunger
     baseDecayRate: 0.25
   - type: Extractable
@@ -387,6 +392,8 @@
       behaviors:
       - !type:GibBehavior { }
   - type: NonSpreaderZombie
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
 
 - type: entity
   name: glockroach
@@ -939,6 +946,9 @@
     requiresSpecialDigestion: true
     # Wooly prevents eating wool deleting the goat so its fine
     requireDead: false
+  - type: FlavorProfile
+    flavors:
+    - fiber
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1614,6 +1624,9 @@
       Dead:
         Base: splat-0
   - type: Food
+  - type: FlavorProfile
+    flavors:
+    - meaty
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -1692,6 +1705,21 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Animals/mouse.rsi
+      state: dead-0
+    entries:
+      burger:
+        name: food-sequence-burger-content-rat
+      taco:
+        name: food-sequence-content-rat
+      skewer:
+        name: food-sequence-content-rat
+        sprite: 
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-rat
+
 
 - type: entity
   parent: MobMouse
@@ -1748,6 +1776,10 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Animals/mouse.rsi
+      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -1777,6 +1809,10 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Animals/mouse.rsi
+      state: dead-2
 
 - type: entity
   name: lizard #Weh
@@ -2056,7 +2092,7 @@
 
 - type: entity
   name: grenade penguin
-  parent: [ MobPenguin, MobCombat ]
+  parent: [ MobPenguin, MobCombat, BaseSyndicateContraband ]
   id: MobGrenadePenguin
   description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
   components:
@@ -3119,6 +3155,9 @@
       Dead:
         Base: splat-0
   - type: Food
+  - type: FlavorProfile
+    flavors:
+    - meaty
   - type: Hunger
     baseDecayRate: 0.3
   - type: Extractable
@@ -3183,6 +3222,15 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Animals/hamster.rsi
+      state: dead-0
+    entries:
+      burger:
+        name: food-sequence-burger-content-hamster
+      taco:
+        name: food-sequence-content-hamster
 
 - type: entity
   name: pig

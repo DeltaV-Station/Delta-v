@@ -26,6 +26,7 @@ public sealed partial class PlayerPanel : FancyWindow
     public event Action? OnLogs;
     public event Action? OnDelete;
     public event Action? OnRejuvenate;
+    public event Action<NetUserId?>? OnOpenJobWhitelists; // DeltaV
 
     public NetUserId? TargetPlayer;
     public string? TargetUsername;
@@ -52,6 +53,8 @@ public sealed partial class PlayerPanel : FancyWindow
             LogsButton.OnPressed += _ => OnLogs?.Invoke();
             DeleteButton.OnPressed += _ => OnDelete?.Invoke();
             RejuvenateButton.OnPressed += _ => OnRejuvenate?.Invoke();
+
+            JobWhitelistsButton.OnPressed += _ => OnOpenJobWhitelists?.Invoke(TargetPlayer); // DeltaV: Job whitelists
     }
 
     public void SetUsername(string player)
@@ -70,7 +73,7 @@ public sealed partial class PlayerPanel : FancyWindow
         else
         {
             Whitelisted.Text = Loc.GetString("player-panel-whitelisted");
-            WhitelistToggle.Text = whitelisted.Value.ToString();
+            WhitelistToggle.Text = whitelisted.Value ? Loc.GetString("player-panel-true") : Loc.GetString("player-panel-false");
             WhitelistToggle.Visible = true;
             _isWhitelisted = whitelisted.Value;
         }
@@ -124,9 +127,10 @@ public sealed partial class PlayerPanel : FancyWindow
         NotesButton.Disabled = !_adminManager.CanCommand("adminnotes");
         ShowBansButton.Disabled = !_adminManager.CanCommand("banlist");
         WhitelistToggle.Disabled =
-            !(_adminManager.CanCommand("addwhitelist") && _adminManager.CanCommand("removewhitelist"));
+            !(_adminManager.CanCommand("whitelistadd") && _adminManager.CanCommand("whitelistremove"));
         LogsButton.Disabled = !_adminManager.CanCommand("adminlogs");
         RejuvenateButton.Disabled = !_adminManager.HasFlag(AdminFlags.Debug);
         DeleteButton.Disabled = !_adminManager.HasFlag(AdminFlags.Debug);
+        JobWhitelistsButton.Disabled = !_adminManager.HasFlag(AdminFlags.Whitelist); // DeltaV
     }
 }
