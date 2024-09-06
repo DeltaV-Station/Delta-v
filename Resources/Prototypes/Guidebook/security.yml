@@ -1,12 +1,17 @@
-﻿- type: guideEntry
+- type: guideEntry
   id: Security
   name: guide-entry-security
   text: "/ServerInfo/Guidebook/Security/Security.xml"
+# q?
   children:
   - Forensics
   - Defusal
   - CriminalRecords
-#  - SpaceLaw # TODO
+  - spacelaw 
+  - crimelist
+  - resitem
+  - resgear 
+  - substances
 
 - type: guideEntry
   id: Forensics
@@ -22,3 +27,34 @@
   id: CriminalRecords
   name: guide-entry-criminal-records
   text: "/ServerInfo/Guidebook/Security/CriminalRecords.xml"
+
+- type: guideEntry
+  id: spacelaw
+  name: guide-entry-sl
+  text: "/ServerInfo/Guidebook/Security/SpaceLaw.xml"
+
+- type: guideEntry
+  id: crimelist
+  name: guide-entry-cl
+  text: "/ServerInfo/Guidebook/Security/SLCrimeList.xml"
+
+- type: guideEntry
+  id: resitem
+  name: guide-entry-item
+  text: "/ServerInfo/Guidebook/Security/SLRestrictedWeapons.xml"
+
+- type: guideEntry
+  id: resgear
+  name: guide-entry-gear
+  text: "/ServerInfo/Guidebook/Security/SLRestrictedGear.xml"
+
+- type: guideEntry
+  id: substances
+  name: guide-entry-sb
+  text: "/ServerInfo/Guidebook/Security/SLControlledSubstances.xml"
+
+# guide-entry-sb = Substancias
+# guide-entry-sl = SpaceLaw
+# guide-entry-cl = ListaCrimes
+# guide-entry-item = Items
+# guide-entry-gear = Equipamentos
