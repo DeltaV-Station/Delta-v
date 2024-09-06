@@ -1,4 +1,4 @@
-ent-ReinforcedWindow = армированное окно
+ent-ReinforcedWindow = бронированное окно
     .desc = { ent-Window.desc }
 ent-TintedWindow = тонированное окно
     .desc = { ent-ReinforcedWindow.desc }
