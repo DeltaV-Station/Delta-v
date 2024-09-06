@@ -1,0 +1,39 @@
+- type: cargoProduct
+  id: SurgeryCrate
+  icon:
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  product: CrateMedicalSurgery
+  cost: 1500
+  category: cargoproduct-category-name-medical
+  group: market
+
+# I'm gonna make a proper file for this later, I just wanna get it done now.
+- type: entity
+  id: CrateMedicalSpareOrgans
+  parent: CrateSurgery
+  name: Spare organs crate
+  description: A crate containing 3 of each kind of Syndicate-produced bio-synthetic universal organs as well as a spare phantom link.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BioSynthHeart
+      - id: BioSynthHeart
+      - id: BioSynthHeart
+      - id: BioSynthLiver
+      - id: BioSynthLiver
+      - id: BioSynthLiver
+      - id: BioSynthLungs
+      - id: BioSynthLungs
+      - id: BioSynthLungs
+      - id: PhantomLinkCard
+
+- type: cargoProduct
+  id: SpareOrganCrate
+  icon:
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  product: CrateMedicalSpareOrgans
+  cost: 2000
+  category: cargoproduct-category-name-medical
+  group: market

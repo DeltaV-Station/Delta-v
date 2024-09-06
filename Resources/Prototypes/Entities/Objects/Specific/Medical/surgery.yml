@@ -20,6 +20,17 @@
   parent: BaseToolSurgery
   description: A surgical tool used to cauterize open wounds.
   components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    useDelay: 1
+    kind: cautery
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/cautery1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/cautery2.ogg"
+    bleedAmountOnUse: -15
+    damageOnUse:
+      types:
+        Heat: 1 # Burns!
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
@@ -66,6 +77,15 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    kind: scalpel
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/scalpel1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/scalpel2.ogg"
+    damageOnUse:
+      types:
+        Slash: 15 # Chop chop
   - type: Sharp
     butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Utensil
@@ -132,6 +152,15 @@
   parent: BaseToolSurgery
   description: A surgical tool used to hold open incisions.
   components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    kind: retractor
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/retractor1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/retractor2.ogg"
+    damageOnUse: # Ow it pinches
+      types:
+        Blunt: 5
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
@@ -145,6 +174,18 @@
   parent: Retractor
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    useDelay: 1
+    kind: hemostat # Even if the hemostat is in the same category as a retractor, it is used for different things.
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/hemostat1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/hemostat1.ogg"
+    damageOnUse: # Ow it pinches
+      groups:
+        Brute: -9
+        Burn: -12
+    bleedAmountOnUse: -15
   - type: Sprite
     state: hemostat
   - type: Item
@@ -165,6 +206,15 @@
   parent: BaseToolSurgery
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
+  - type: PSurgeryTool # Palmtree change - I don't need to explain this one, do I?
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/scalpel1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/scalpel2.ogg"
+    kind: saw
+    damageOnUse:
+      types:
+        Blunt: 30 # Having your bones affected gotta hurt a lot
   - type: Sharp
   - type: Utensil
     types:
@@ -207,6 +257,11 @@
   parent: Saw
   description: For heavy duty cutting.
   components:
+  - type: PSurgeryTool
+    audioStart:
+      path: "/Audio/Palmtree/Items/Medical/saw1.ogg"
+    audioEnd:
+      path: "/Audio/Palmtree/Items/Medical/scalpel2.ogg"
   - type: Sprite
     state: electric
   - type: Item
