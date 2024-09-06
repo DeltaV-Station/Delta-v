@@ -284,29 +284,7 @@
       - !type:FlammableReaction
         multiplier: 0.8
 
-- type: reagent
-  id: Toluene
-  name: reagent-name-toluene
-  desc: reagent-desc-toluene
-  physicalDesc: reagent-physical-desc-pungent
-  flavor: bitter
-  color: "#77b58e"
-  tileReactions:  # GHS Hazard Statements H225
-  - !type:FlammableTileReaction
-    temperatureMultiplier: 2.0
-  reactiveEffects:
-    Flammable:
-      methods: [ Touch ]
-      effects:
-      - !type:FlammableReaction
-        multiplier: 0.8
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5
+# Toluene
 
 - type: reagent
   id: HydrogenFluoride
