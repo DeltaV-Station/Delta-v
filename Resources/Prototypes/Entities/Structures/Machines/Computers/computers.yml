@@ -1174,6 +1174,7 @@
         name: circuit-holder
         insertSuccessPopup: silicon-laws-updated
         whitelist:
+          requireAll: true
           components:
           - SiliconLawProvider
           - Item
