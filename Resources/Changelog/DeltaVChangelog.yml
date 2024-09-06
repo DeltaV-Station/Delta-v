@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Give back all the jobs their proper time requirements.
-    type: Tweak
-  id: 20
-  time: '2023-09-28T14:49:00.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: The Senior Roles are no longer available at round start.
     type: Remove
   id: 21
@@ -3551,3 +3545,10 @@
   id: 519
   time: '2024-09-05T05:46:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1009
+- author: Radezolid
+  changes:
+  - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
+    type: Fix
+  id: 520
+  time: '2024-09-06T21:26:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1759
