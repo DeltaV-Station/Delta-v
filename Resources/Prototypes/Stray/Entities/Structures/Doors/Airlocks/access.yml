@@ -1,0 +1,55 @@
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockCentralCommandOperatorLocked
+  suffix: Central Command Operator, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandOperator ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockCentralCommandOfficialLocked
+  suffix: Central Command Official, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandOfficial ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockCentralChiefHeadquartersCommandLocked
+  suffix: Chief Headquarters Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefHeadquartersCentralCommand ]
+
+#Glass
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockGlassCentralCommandOfficialLocked
+  suffix: Central Command Official, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandOfficial ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockGlassCentralCommandOperatorLocked
+  suffix: Central Command Operator, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandOperator ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockGlassCentralChiefHeadquartersCommandLocked
+  suffix: Chief Headquarters Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefHeadquartersCentralCommand ]

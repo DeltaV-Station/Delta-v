@@ -1,0 +1,23 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCentralCommandOperator
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommandOperator"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCentralCommandOfficial
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommandOfficial"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChiefHeadquartersCentralCommand
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefHeadquartersCentralCommand"]]

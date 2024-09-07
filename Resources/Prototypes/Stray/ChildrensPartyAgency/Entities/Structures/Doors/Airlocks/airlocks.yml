@@ -1,0 +1,81 @@
+- type: entity
+  parent: Airlock
+  id: AirlockAgentCPA
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Standard/ADPAgDoorStandart.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockWarriorCPA
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Standard/ADPSolDoorStandart.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockJuniorOfficerCPA
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Standard/ADPYonOffDoorStandart.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockSeniorOfficerCPA
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Standard/ADPHighOffDoorStandart.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockTechnicianPGA
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Standard/ADPTechDoorStandart.rsi
+
+# Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockAgentCPAGlass
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Glass/ADPAgDoorGlass.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockWarriorCPAGlass
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Glass/ADPSolDoorGlass.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockJuniorOfficerCPAGlass
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Glass/ADPYonOffDoorGlass.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockSeniorOfficerCPAGlass
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Glass/ADPHighOffDoorGlass.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockTechnicianPGAGlass
+  suffix: Dot't have access
+  components:
+  - type: Sprite
+    sprite: Stray/CPA/Structures/Doors/Airlocks/Glass/ADPTechDoorGlass.rsi

@@ -23,6 +23,12 @@
     heldPrefix: blue
   - type: IdCard
     jobTitle: оператор ЦентКома
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - CentralCommandOperator
 
 - type: entity
   parent: CentcomIDCard
@@ -36,6 +42,12 @@
     heldPrefix: blue
   - type: IdCard
     jobTitle: представитель ЦентКома
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - CentralCommandOfficial
 
 - type: entity
   parent: CentcomIDCard
@@ -49,6 +61,14 @@
     heldPrefix: blue
   - type: IdCard
     jobTitle: Начальник штаба ЦентКома
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+      - CentralCommand
+      - CentralCommandOperator
+      - CentralCommandOfficial
+      - ChiefHeadquartersCentralCommand
 
 - type: entity
   parent: IDCardStandard
