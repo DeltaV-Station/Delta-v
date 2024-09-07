@@ -48,15 +48,9 @@
   - type: Occluder
   - type: Storage
     grid:
-    - 0,0,15,3
-    maxItemSize: Normal
-    whitelist:
-      tags:
-        - Document
-        - Folder
-        - Write
-        - Book
-        - Spellbook
+    - 0,0,5,1 # DeltaV, make it 2 rows of 6 instead of a giant block
+    - 0,3,5,4
+    #maxItemSize: Normal # DeltaV: removed whitelist and max item size
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
