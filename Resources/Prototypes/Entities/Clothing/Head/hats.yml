@@ -409,8 +409,8 @@
   - type: PressureProtection # DeltaV - Make real wizard clothes space proof
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
+  - type: TemperatureProtection # DeltaV
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
