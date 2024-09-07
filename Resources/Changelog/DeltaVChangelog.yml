@@ -1,18 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Science is now Epistemics.
-    type: Tweak
-  id: 26
-  time: '2023-09-28T22:32:46.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added a new steal objective for the Head of Logistics.
-    type: Add
-  id: 27
-  time: '2023-09-29T13:28:43.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Added fake wizard robes and sandals.
     type: Add
   id: 28
@@ -3532,7 +3520,7 @@
   url: https://github.com/DeltaV-Station/Delta-v/pull/1754
 - author: flyingkarii
   changes:
-  - message: Lowered command age requirement to 18.
+  - message: Removed command age requirement.
     type: Tweak
   id: 522
   time: '2024-09-07T04:38:34.0000000+00:00'
@@ -3560,3 +3548,18 @@
   id: 525
   time: '2024-09-07T15:10:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1489
+- author: Velcroboy
+  changes:
+  - message: Department specific shelves no longer restrict the items that can be
+      placed in them.
+    type: Tweak
+  id: 526
+  time: '2024-09-07T17:46:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1763
+- author: deltanedas
+  changes:
+  - message: Bookshelves can now fit any kind of item, not just books.
+    type: Tweak
+  id: 527
+  time: '2024-09-07T22:05:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1765
