@@ -53,7 +53,6 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
         ghostRole.RoleName = Loc.GetString(component.RoleName);
         ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
-        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
         ghostRole.JobProto = component.JobProto;
     }
 
