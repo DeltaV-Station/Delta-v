@@ -40,7 +40,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        40: Dead
+        50: Dead # DeltaV, was 40
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
@@ -69,8 +69,8 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Blunt: 5
-          Slash: 7
+          Piercing: 5 # DeltaV, was blunt
+          Slash: 10 # DeltaV, was 7
     - type: TypingIndicator
       proto: alien
     - type: Tag
@@ -157,6 +157,20 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    # Begin DeltaV additions: components moved from BaseMobCarp
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        50: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+          Slash: 7
+    # End DeltaV additions
 
 - type: entity
   name: space carp
