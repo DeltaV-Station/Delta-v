@@ -784,14 +784,11 @@
     allowMovement: true
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
-<<<<<<< HEAD
+    rules: ghost-role-information-nonantagonist-rules
     requirements: # Delta V - No raiders
     - !type:RoleTimeRequirement
       role: JobBartender
       time: 14400 # Delta V - 4 hours
-=======
-    rules: ghost-role-information-nonantagonist-rules
->>>>>>> 949a837720 (Ghostrole rule updates (#29249))
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
