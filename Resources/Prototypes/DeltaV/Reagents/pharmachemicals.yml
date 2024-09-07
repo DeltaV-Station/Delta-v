@@ -291,7 +291,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#77b58e"
-  tileReactions:  # GHS Hazard Statements H225
+  tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2.0
   reactiveEffects:
