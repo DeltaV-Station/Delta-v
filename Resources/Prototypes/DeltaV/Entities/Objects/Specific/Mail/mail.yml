@@ -193,7 +193,79 @@
       orGroup: FakeWizard
       prob: 0.1
 
+- type: entity
+  parent: BaseMail
+  id: MailDVCosplayFakeWizard
+  suffix: cosplay-wizard, fake as fuck
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWizardFake
+    - id: ClothingHeadHatWizardFake
+    - id: ClothingShoesWizardFake
+    - id: FoodBurgerSpell
+      orGroup: FakeWizard
+      prob: 0.3
+    - id: FoodKebabSkewer
+      orGroup: FakeWizard
+      prob: 0.1
 
+- type: entity
+  parent: BaseMail
+  id: MailDVScarves
+  suffix: scarves
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingNeckScarfStripedRed
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBlue
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedGreen
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBlack
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBrown
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedLightBlue
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedOrange
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedPurple
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedZebra
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedSyndieGreen
+      orGroup: Scarf
+      prob: 0.25
+    - id: ClothingNeckScarfStripedSyndieRed
+      orGroup: Scarf
+      prob: 0.25
+    - id: ClothingNeckScarfStripedCentcom
+      orGroup: Scarf
+      prob: 0.001
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailDVBoxes
+  suffix: boxes
+  components:
+  - type: Mail
+    contents:
+    - id: BoxEnvelope
+      orGroup: Box
+    - id: BoxCardboard
+      orGroup: Box
+    - id: BoxMRE
+      orGroup: Box
+    - id: BoxPerformer
+      orGroup: Box
+    - id: BoxFlare
+      orGroup: Box
+    - id: BoxDarts
+      orGroup: Box
+    - id: BoxMousetrap
+      orGroup: Box
 
 # Frontier Mail, including Extended Nyano Mail. (Pony Express?)
 - type: entity
