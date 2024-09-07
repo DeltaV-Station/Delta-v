@@ -137,8 +137,6 @@
       - AirTank
       - GasAnalyzer
       - UtilityBelt
-      - Fulton
-      - FultonBeacon
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
@@ -200,6 +198,11 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
+      - GoldRing # Delta-V
+      - SilverRing # Delta-V
+      - GoldRingDiamond # Delta-V
+      - SilverRingDiamond # Delta-V
+
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -299,7 +302,6 @@
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
-      - HandheldCrewMonitor # DeltaV
       - Scalpel
       - Retractor
       - Cautery
@@ -350,16 +352,21 @@
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
-      - CoreSilver # Nyanotrasen - Silver Golem core
       - FauxTileAstroGrass
       - FauxTileMowedAstroGrass
       - FauxTileJungleAstroGrass
       - FauxTileAstroIce
       - FauxTileAstroSnow
       - OreBagOfHolding
-      - PlantBagOfHolding #DeltaV
       - DeviceQuantumSpinInverter
-      - RCDAmmo # DeltaV
+      # Begin DeltaV additions
+      - CoreSilver # Nyanotrasen - Silver Golem core
+      - HandheldCrewMonitor
+      - PlantBagOfHolding
+      - RCDAmmo
+      - Fulton
+      - FultonBeacon
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -480,6 +487,7 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
+    - StationAnchorCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -527,8 +535,6 @@
       - PortableGeneratorPacmanMachineCircuitboard
       - PortableGeneratorSuperPacmanMachineCircuitboard
       - PortableGeneratorJrPacmanMachineCircuitboard
-      - WallmountGeneratorElectronics
-      - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
       - PowerCageRechargerCircuitboard
       - EmitterCircuitboard

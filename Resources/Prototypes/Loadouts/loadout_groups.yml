@@ -26,6 +26,8 @@
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
   - AACTablet # DeltaV
+  - GoldRing # DeltaV
+  - SilverRing # DeltaV
 
 - type: loadoutGroup
   id: Glasses
@@ -595,6 +597,13 @@
   - ScarfPurple
   - ScarfZebra
 
+- type: loadoutGroup
+  id: MimeBelt
+  name: loadout-group-mime-belt
+  loadouts:
+  - MimeSuspendersRed
+  - MimeSuspendersBlack
+  
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime

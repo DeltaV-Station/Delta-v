@@ -6,7 +6,6 @@ using Content.Shared.PowerCell.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Power.Components;
 using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Content.Shared.Whitelist;
@@ -60,7 +59,7 @@ internal sealed class ChargerSystem : EntitySystem
             }
             else
             {
-                // add how much each item is charged it 
+                // add how much each item is charged it
                 foreach (var contained in container.ContainedEntities)
                 {
                     if (!TryComp<BatteryComponent>(contained, out var battery))

@@ -21,6 +21,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+    allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Growl']
   - type: Sprite
     netsync: false
     noRot: true
@@ -103,6 +104,7 @@
   name: Vulpkanin Dummy
   parent: MobHumanDummy
   id: MobVulpkaninDummy
+  categories: [ HideSpawnMenu ]
   description: A dummy vulpkanin meant to be used in character setup.
   components:
   - type: HumanoidAppearance
