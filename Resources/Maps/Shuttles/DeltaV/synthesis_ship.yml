@@ -411,17 +411,13 @@ entities:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
-- proto: APCHighCapacity
+- proto: APCHyperCapacity
   entities:
-  - uid: 76
+  - uid: 75
     components:
     - type: Transform
       pos: 4.5,5.5
       parent: 1
-    - type: Apc
-      hasAccess: True
-      lastExternalState: Good
-      lastChargeState: Full
 - proto: AtmosDeviceFanTiny
   entities:
   - uid: 211
@@ -1696,21 +1692,13 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
-  - uid: 280
-    components:
-    - type: Transform
-      pos: 3.5,7.5
-      parent: 1
 - proto: SubstationBasic
   entities:
-  - uid: 75
+  - uid: 76
     components:
     - type: Transform
       pos: 5.5,-2.5
       parent: 1
-    - type: Battery
-      startingCharge: 5000000
-      maxCharge: 5000000
 - proto: SuitStorageEVASyndicate
   entities:
   - uid: 217
