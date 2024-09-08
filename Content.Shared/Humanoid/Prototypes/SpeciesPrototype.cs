@@ -134,4 +134,5 @@ public enum SpeciesNaming : byte
     //Start of Parkstation - IPC naming
     FirstDashLast,
     // End of Parkstation code
+    LastFirst, // DeltaV - Rodentia
 }

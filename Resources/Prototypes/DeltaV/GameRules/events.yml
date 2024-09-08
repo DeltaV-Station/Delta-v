@@ -104,6 +104,8 @@
       max: 2
       pickPlayer: false
       startingGear: SyndicateListenerGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:
@@ -184,6 +186,8 @@
       max: 1
       pickPlayer: false
       startingGear: FugitiveGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:

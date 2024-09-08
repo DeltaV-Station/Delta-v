@@ -12,7 +12,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -41,7 +40,6 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
-    private const float MeleeExecutionTimeModifier = 5.0f;
     private const float GunExecutionTime = 6.0f;
     private const float DamageModifier = 9.0f;
 
@@ -50,40 +48,9 @@ public sealed class ExecutionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SharpComponent, GetVerbsEvent<UtilityVerb>>(OnGetInteractionVerbsMelee);
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<UtilityVerb>>(OnGetInteractionVerbsGun);
 
-        SubscribeLocalEvent<SharpComponent, ExecutionDoAfterEvent>(OnDoafterMelee);
         SubscribeLocalEvent<GunComponent, ExecutionDoAfterEvent>(OnDoafterGun);
-    }
-
-    private void OnGetInteractionVerbsMelee(
-        EntityUid uid,
-        SharpComponent component,
-        GetVerbsEvent<UtilityVerb> args)
-    {
-        if (args.Hands == null || args.Using == null || !args.CanAccess || !args.CanInteract)
-            return;
-
-        var attacker = args.User;
-        var weapon = args.Using!.Value;
-        var victim = args.Target;
-
-        if (!CanExecuteWithMelee(weapon, victim, attacker))
-            return;
-
-        UtilityVerb verb = new()
-        {
-            Act = () =>
-            {
-                TryStartMeleeExecutionDoafter(weapon, victim, attacker);
-            },
-            Impact = LogImpact.High,
-            Text = Loc.GetString("execution-verb-name"),
-            Message = Loc.GetString("execution-verb-message"),
-        };
-
-        args.Verbs.Add(verb);
     }
 
     private void OnGetInteractionVerbsGun(
@@ -144,17 +111,6 @@ public sealed class ExecutionSystem : EntitySystem
         return true;
     }
 
-    private bool CanExecuteWithMelee(EntityUid weapon, EntityUid victim, EntityUid user)
-    {
-        if (!CanExecuteWithAny(weapon, victim, user)) return false;
-
-        // We must be able to actually hurt people with the weapon
-        if (!TryComp<MeleeWeaponComponent>(weapon, out var melee) && melee!.Damage.GetTotal() > 0.0f)
-            return false;
-
-        return true;
-    }
-
     private bool CanExecuteWithGun(EntityUid weapon, EntityUid victim, EntityUid user)
     {
         if (!CanExecuteWithAny(weapon, victim, user)) return false;
@@ -164,35 +120,6 @@ public sealed class ExecutionSystem : EntitySystem
             return false;
 
         return true;
-    }
-
-    private void TryStartMeleeExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker)
-    {
-        if (!CanExecuteWithMelee(weapon, victim, attacker))
-            return;
-
-        var executionTime = (1.0f / Comp<MeleeWeaponComponent>(weapon).AttackRate) * MeleeExecutionTimeModifier;
-
-        if (attacker == victim)
-        {
-            ShowExecutionPopup("suicide-popup-melee-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-            ShowExecutionPopup("suicide-popup-melee-initial-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
-        }
-        else
-        {
-            ShowExecutionPopup("execution-popup-melee-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-            ShowExecutionPopup("execution-popup-melee-initial-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
-        }
-
-        var doAfter =
-            new DoAfterArgs(EntityManager, attacker, executionTime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
-            {
-                BreakOnMove = true,
-                BreakOnDamage = true,
-                NeedHand = true
-            };
-
-        _doAfterSystem.TryStartDoAfter(doAfter);
     }
 
     private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker)
@@ -232,35 +159,6 @@ public sealed class ExecutionSystem : EntitySystem
 
         // All checks passed
         return true;
-    }
-
-    private void OnDoafterMelee(EntityUid uid, SharpComponent component, DoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled || args.Used == null || args.Target == null)
-            return;
-
-        var attacker = args.User;
-        var victim = args.Target!.Value;
-        var weapon = args.Used!.Value;
-
-        if (!CanExecuteWithMelee(weapon, victim, attacker)) return;
-
-        if (!TryComp<MeleeWeaponComponent>(weapon, out var melee) && melee!.Damage.GetTotal() > 0.0f)
-            return;
-
-        _damageableSystem.TryChangeDamage(victim, melee.Damage * DamageModifier, true);
-        _audioSystem.PlayEntity(melee.HitSound, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
-
-        if (attacker == victim)
-        {
-            ShowExecutionPopup("suicide-popup-melee-complete-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-            ShowExecutionPopup("suicide-popup-melee-complete-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
-        }
-        else
-        {
-            ShowExecutionPopup("execution-popup-melee-complete-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-            ShowExecutionPopup("execution-popup-melee-complete-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
-        }
     }
 
     // TODO: This repeats a lot of the code of the serverside GunSystem, make it not do that

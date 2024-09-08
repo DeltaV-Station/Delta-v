@@ -165,6 +165,7 @@
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: BibleUser
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
@@ -190,6 +191,7 @@
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: BibleUser
 
 ## ERT Janitor
 
@@ -783,6 +785,9 @@
       rules: ghost-role-information-disaster-victim-rules
       raffle:
         settings: default
+      requirements: # DeltaV
+      - !type:OverallPlaytimeRequirement
+        time: 72000 # 20 hours
 
 - type: randomHumanoidSettings
   id: DisasterVictimResearchDirector

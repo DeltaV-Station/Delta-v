@@ -10,6 +10,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Power;
 using Robust.Shared.Timing;
 using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-IPCs // I shouldn't have to modify this.
 using Robust.Shared.Utility;

@@ -8,133 +8,210 @@
       - state: red
       - sprite: Objects/Misc/module.rsi
         state: airalarm_electronics
-  - type: RandomSpawner
-    offset: 0
-    prototypes:
-      - CircuitImprinterMachineCircuitboard
-      - ArtifactAnalyzerMachineCircuitboard
-      - ThermomachineFreezerMachineCircuitBoard
-      - ThermomachineHeaterMachineCircuitBoard
-      - PortableScrubberMachineCircuitBoard
-      - ChemMasterMachineCircuitboard
-      - HydroponicsTrayMachineCircuitboard
-      - SeedExtractorMachineCircuitboard
-      - SMESMachineCircuitboard
-      - SubstationMachineCircuitboard
-      - PortableGeneratorJrPacmanMachineCircuitboard
-      - PortableGeneratorPacmanMachineCircuitboard
-      - PortableGeneratorSuperPacmanMachineCircuitboard
-      - ReagentGrinderMachineCircuitboard
-      - OreProcessorMachineCircuitboard
-      - MaterialReclaimerMachineCircuitboard
-      - MicrowaveMachineCircuitboard
-      - SurveillanceWirelessCameraMovableCircuitboard
-      - PowerComputerCircuitboard
-      - ComputerTelevisionCircuitboard
-      - SolarControlComputerCircuitboard
-      - AirAlarmElectronics
-      - FireAlarmElectronics
-      - MailingUnitElectronics
-      - DoorElectronics
-      - FirelockElectronics
-      - APCElectronics
-      - WallmountSubstationElectronics
-      - WallmountGeneratorElectronics
-      - WallmountGeneratorAPUElectronics
-      - SolarTrackerElectronics
-      - Mousetrap
-      - RadioHandheld
-      - DeepFryerMachineCircuitboard
-      - BoozeDispenserMachineCircuitboard
-      - SodaDispenserMachineCircuitboard
-      - RemoteSignaller
-      - TimerTrigger
-      - SignalTrigger
-      - VoiceTrigger
-      - ExplosivePayload
-      - ChemicalPayload
-      - FlashPayload
-      - ChemDispenserMachineCircuitboard
-      - EmitterCircuitboard
-      - SurveillanceCameraWirelessRouterCircuitboard
-      - SurveillanceWirelessCameraMonitorCircuitboard
-      - SurveillanceWirelessCameraAnchoredCircuitboard
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - GeigerCounter
-      - Holoprojector
-      - HolofanProjector
-      - StationMapCircuitboard
-      - AnomalyVesselCircuitboard
-      - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
-      - HotplateMachineCircuitboard
-      - ElectricGrillMachineCircuitboard
-      - FatExtractorMachineCircuitboard
-      - SpaceHeaterMachineCircuitBoard
-      - StationMapCircuitboard
-      - Igniter
-      - IntercomElectronics
-      - RadiationCollectorFlatpack
-      - ContainmentFieldGeneratorFlatpack
-      - SolarAssemblyFlatpack
-      - StationBeaconPart
-      - HandheldStationMap
-    chance: 0.8
-    rarePrototypes:
-      - CloningPodMachineCircuitboard
-      - MetempsychoticMachineCircuitboard
-      - ReverseEngineeringMachineCircuitboard
-      - MedicalScannerMachineCircuitboard
-      - DawInstrumentMachineCircuitboard
-      - StasisBedMachineCircuitboard
-      - GasRecyclerMachineCircuitboard
-      - CryoPodMachineCircuitboard
-      - BodyScannerComputerCircuitboard
-      - CloningConsoleComputerCircuitboard
-      - CrewManifestCartridge
-      - NetProbeCartridge
-      - HandTeleporter
-      - HoloprojectorSecurity
-      - HoloprojectorEngineering
-      - HandheldStationMap
-      - ComputerMassMediaCircuitboard
-      - SensorConsoleCircuitboard
-      - AmmoTechFabCircuitboard
-      - ArtifactCrusherMachineCircuitboard
-      - AnomalyVesselExperimentalCircuitboard
-      - CondenserMachineCircuitBoard
-      - CrewMonitoringServerMachineCircuitboard
-      - WeaponCapacitorRechargerCircuitboard
-      - ElectrolysisUnitMachineCircuitboard
-      - CentrifugeMachineCircuitboard
-      - SheetifierMachineCircuitboard
-      - TelecomServerCircuitboard
-      - MiniGravityGeneratorCircuitboard
-      - Portafib
-      - ClothingNeckShockCollar
-      - GlimmerMonitorCartridge
-      - PotatoAIChip
-      - CargoTelepadMachineCircuitboard
-      - FlatpackerMachineCircuitboard
-      - OreProcessorIndustrialMachineCircuitboard
-      - TurboItemRechargerCircuitboard
-      - PowerCageRechargerCircuitboard
-      - HellfireHeaterMachineCircuitBoard
-      - HellfireFreezerMachineCircuitBoard
-      - BiofabricatorMachineCircuitboard
-      - SalvageExpeditionsComputerCircuitboard
-      - RadarConsoleCircuitboard
-      - RipleyCentralElectronics
-      - RipleyPeripheralsElectronics
-      - HamtrCentralElectronics
-      - HamtrPeripheralsElectronics
-      - HonkerCentralElectronics
-      - HonkerPeripheralsElectronics
-      - HonkerTargetingElectronics
-      - RemoteSignallerAdvanced
-      - SignalTimerElectronics
-      - LogProbeCartridge
-      - HoloprojectorField
-      - DeviceQuantumSpinInverter
-    rareChance: 0.25
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ElectronicsTable
+      prob: 0.80
+
+#Tables
+- type: entityTable
+  id: ElectronicsTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 10
+      children:
+      #Circuitboards
+      - !type:GroupSelector
+        children:
+        - id: CircuitImprinterMachineCircuitboard
+        - id: ThermomachineFreezerMachineCircuitBoard
+        - id: ThermomachineHeaterMachineCircuitBoard
+        - id: PortableScrubberMachineCircuitBoard
+        - id: OreProcessorMachineCircuitboard
+        - id: CellRechargerCircuitboard
+        - id: BorgChargerCircuitboard
+        - id: SpaceHeaterMachineCircuitBoard
+        - id: StationMapCircuitboard
+        #Cameras
+        - !type:GroupSelector
+          children:
+          - id: SurveillanceWirelessCameraMovableCircuitboard
+          - id: ComputerTelevisionCircuitboard
+          - id: SurveillanceCameraWirelessRouterCircuitboard
+          - id: SurveillanceWirelessCameraMonitorCircuitboard
+          - id: SurveillanceWirelessCameraAnchoredCircuitboard
+        #Science/Chem/Med
+        - !type:GroupSelector
+          children:
+          - id: ArtifactAnalyzerMachineCircuitboard
+          - id: ChemMasterMachineCircuitboard
+          - id: ReagentGrinderMachineCircuitboard
+          - id: ChemDispenserMachineCircuitboard
+          - id: AnomalyVesselCircuitboard
+          - id: HotplateMachineCircuitboard
+          - id: FatExtractorMachineCircuitboard
+        #Service
+        - !type:GroupSelector
+          children:
+          - id: HydroponicsTrayMachineCircuitboard
+          - id: SeedExtractorMachineCircuitboard
+          - id: MicrowaveMachineCircuitboard
+          - id: DeepFryerMachineCircuitboard
+          - id: BoozeDispenserMachineCircuitboard
+          - id: SodaDispenserMachineCircuitboard
+          - id: ElectricGrillMachineCircuitboard
+        #Power
+        - !type:GroupSelector
+          children:
+          - id: SubstationMachineCircuitboard
+          - id: SMESMachineCircuitboard
+          - id: PortableGeneratorJrPacmanMachineCircuitboard
+          - id: PortableGeneratorPacmanMachineCircuitboard
+          - id: PortableGeneratorSuperPacmanMachineCircuitboard
+          - id: PowerComputerCircuitboard
+          - id: SolarControlComputerCircuitboard
+          - id: EmitterCircuitboard
+      #Electronics
+      - !type:GroupSelector
+        children:
+        - id: AirAlarmElectronics
+        - id: FireAlarmElectronics
+        - id: MailingUnitElectronics
+        - id: DoorElectronics
+        - id: FirelockElectronics
+        - id: APCElectronics
+        - id: SolarTrackerElectronics
+        - id: IntercomElectronics
+        #Shuttle
+        - !type:GroupSelector
+          children:
+          - id: WallmountSubstationElectronics
+          - id: WallmountGeneratorElectronics
+          - id: WallmountGeneratorAPUElectronics
+      #Gadgets
+      - !type:GroupSelector
+        children:
+        - id: Mousetrap
+        - id: RadioHandheld
+        - id: RemoteSignaller
+        - id: NotekeeperCartridge
+        - id: NewsReaderCartridge
+        - id: GeigerCounter
+        - id: Holoprojector
+        - id: HolofanProjector
+        - id: Igniter
+        - id: StationBeaconPart
+        - id: HandheldStationMap
+        #Flatpacks
+        - !type:GroupSelector
+          children:
+          - id: RadiationCollectorFlatpack
+          - id: ContainmentFieldGeneratorFlatpack
+          - id: SolarAssemblyFlatpack
+        #Trigger
+        - !type:GroupSelector
+          children:
+          - id: TimerTrigger
+          - id: SignalTrigger
+          - id: VoiceTrigger
+        #Payload
+        - !type:GroupSelector
+          children:
+          - id: ExplosivePayload
+          - id: ChemicalPayload
+          - id: FlashPayload
+    #Rare
+    - !type:GroupSelector
+      children:
+      - !type:GroupSelector
+        children:
+        #Circuitboards
+        - id: DawInstrumentMachineCircuitboard
+        - id: ComputerMassMediaCircuitboard
+        - id: CrewMonitoringServerMachineCircuitboard
+        - id: WeaponCapacitorRechargerCircuitboard
+        - id: TelecomServerCircuitboard
+        - id: TurboItemRechargerCircuitboard
+        - id: PowerCageRechargerCircuitboard
+        #Medical
+        - !type:GroupSelector
+          children:
+          - id: CloningPodMachineCircuitboard
+          - id: MetempsychoticMachineCircuitboard
+          - id: MedicalScannerMachineCircuitboard
+          - id: StasisBedMachineCircuitboard
+          - id: CryoPodMachineCircuitboard
+          - id: CloningConsoleComputerCircuitboard
+          - id: BodyScannerComputerCircuitboard
+          - id: BiomassReclaimerMachineCircuitboard
+        #Chem/Science
+        - !type:GroupSelector
+          children:
+          - id: ArtifactCrusherMachineCircuitboard
+          - id: CondenserMachineCircuitBoard
+          - id: ElectrolysisUnitMachineCircuitboard
+          - id: CentrifugeMachineCircuitboard
+          - id: BiofabricatorMachineCircuitboard
+          - id: AnomalyVesselExperimentalCircuitboard
+          - id: ReverseEngineeringMachineCircuitboard
+        #Logi
+        - !type:GroupSelector
+          children:
+          - id: SalvageExpeditionsComputerCircuitboard
+          - id: OreProcessorIndustrialMachineCircuitboard
+          - id: FlatpackerMachineCircuitboard
+          - id: CargoTelepadMachineCircuitboard
+          - id: MiniGravityGeneratorCircuitboard
+          - id: SalvageExpeditionsComputerCircuitboard
+          - id: AmmoTechFabCircuitboard
+          - id: RadarConsoleCircuitboard
+          - id: ComputerShuttle
+            weight: 0.20
+        #Engi
+        - !type:GroupSelector
+          children:
+          - id: GasRecyclerMachineCircuitboard
+          #- id: SensorConsoleCircuitboard #not implemented yet
+          - id: SheetifierMachineCircuitboard
+          - id: HellfireHeaterMachineCircuitBoard
+          - id: HellfireFreezerMachineCircuitBoard
+      #Electronics
+      - !type:GroupSelector
+        children:
+        - id: RipleyCentralElectronics
+        - id: RipleyPeripheralsElectronics
+        - id: HamtrCentralElectronics
+        - id: HamtrPeripheralsElectronics
+        - id: HonkerCentralElectronics
+        - id: HonkerPeripheralsElectronics
+        - id: HonkerTargetingElectronics
+        - id: SignalTimerElectronics
+        - id: RipleyCentralElectronics
+      #Gadgets
+      - !type:GroupSelector
+        children:
+        - id: HandTeleporter
+        - id: HandheldStationMap
+        - id: Portafib
+        - id: ClothingNeckShockCollar
+        - id: PotatoAIChip
+        - id: WeaponGrapplingGun
+        - id: RemoteSignallerAdvanced
+        - id: DeviceQuantumSpinInverter
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        #Projectors
+        - !type:GroupSelector
+          children:
+          - id: HoloprojectorSecurity
+          - id: HoloprojectorEngineering
+          - id: HoloprojectorField
+        #Cartridges
+        - !type:GroupSelector
+          children:
+          - id: NetProbeCartridge
+          - id: CrewManifestCartridge
+          - id: GlimmerMonitorCartridge
+          - id: LogProbeCartridge

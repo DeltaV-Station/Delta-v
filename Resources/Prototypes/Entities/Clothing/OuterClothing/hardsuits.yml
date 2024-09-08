@@ -401,6 +401,7 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
+    - HidesHarpyWings #DeltaV: Couldn't see the wings for their species-specific sprite because of a lack of this.
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
   - type: StaticPrice
@@ -514,6 +515,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -532,6 +534,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -841,6 +844,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings #DeltaV - Harpy ERT hardsuits
 
 #ERT Janitor Hardsuit
 - type: entity

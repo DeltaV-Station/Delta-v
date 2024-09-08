@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseStation
   abstract: true
   components:
@@ -84,8 +84,8 @@
           - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 400
-          maximumDistance: 450
+          minimumDistance: 300
+          maximumDistance: 350
           nameDataset: names_borer
           stationGrid: false
           addComponents:
