@@ -7,6 +7,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 21600 # 6 hours
+    - !type:RoleTimeRequirement
+      role: JobWarden
+      time: 7200 #2h
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10

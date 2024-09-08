@@ -9,6 +9,9 @@
     - !type:RoleTimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
       role: JobHeadOfPersonnel
       time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 10800 # 3 hours
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20

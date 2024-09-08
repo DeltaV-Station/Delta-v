@@ -14,6 +14,9 @@
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
       time: 21600 # 6 hours
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 7200 # 2 h
     - !type:AgeRequirement
       requiredAge: 21
   weight: 10
