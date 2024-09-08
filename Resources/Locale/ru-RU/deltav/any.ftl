@@ -1,5 +1,3 @@
-department-Silicon = Синтетики
-
 ghost-role-information-slugcat-name = Слизнекот
 ghost-role-information-slugcat-description = Ты - слизнекот! Очень умное существо, способное на многое!
 

@@ -8,5 +8,3 @@ marking-HumanHairClassicMedFade = Затухание (среднее, класс
 marking-HumanHairClassicOmbre = Амбре
 marking-HumanHairClassicCrewcut = Крюк
 marking-HumanHairClassicLong = Длинные 1 (классика)
-marking-HumanHairClassicLong2 = Длинные 2 (классика)
-marking-HumanHairClassicLong3 = Длинные 3 (классика)
