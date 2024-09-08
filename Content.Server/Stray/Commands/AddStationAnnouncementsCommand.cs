@@ -20,6 +20,23 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Fun)]
 public sealed class AddStationAnnouncementsCommand : IConsoleCommand
 {
+    private List<string> allVars = new List<string>(){
+        "Побег_Сингулярности",
+        "Побег_Теслы",
+        "Начало_Зомби_апокалепсиса",
+        "Неизвестный_Объект",
+        "Прибытие_ОБР",
+        "Вылет_ПЦК",
+        "Окончание_раунда_с_не_выполненной_миссией",
+        "Окончание_раунда_с_выполненной_миссией",
+        "Начало_Революции",
+        "Запрос_ЭС",
+        "Запрос_ОБР",
+        "Вылет_ОБР_изза_ситуации_на_станции",
+        "Несанкционированный_эвак",
+        "Санкции_за_непослушание_ОЦК",
+        "Запрос_РХБЗЗ"
+    };
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IResourceManager _res = default!;
@@ -39,44 +56,79 @@ public sealed class AddStationAnnouncementsCommand : IConsoleCommand
             string aud = "";
             int danger = 0;
             switch(args[0]){
-                case "Singularity_Escape":
+                case "Побег_Сингулярности":
                     ann = Loc.GetString("singularity-escape-announcement");
                     aud = "/Audio/Stray/Announcements/SingularityEscape.ogg";
                     danger = 2;
                     break;
-                case "Tesla_Escape":
+                case "Побег_Теслы":
                     ann = Loc.GetString("tesla-escape-announcement");
                     aud = "/Audio/Stray/Announcements/TeslaEscape.ogg";
                     danger = 2;
                     break;
-                case "Zombie_Start":
+                case "Начало_Зомби_апокалепсиса":
                     ann = Loc.GetString("zombie-infection-begin-announcement");
                     aud = "/Audio/Stray/Announcements/ZombieInfectionStarted.ogg";
                     danger = 2;
                     break;
-                case "Unknown_Object":
+                case "Неизвестный_Объект":
                     ann = Loc.GetString("unknown-object-nearby-announcement");
                     aud = "/Audio/Stray/Announcements/ObjectNearby.ogg";
                     danger = 1;
                     break;
-                case "ERT_Arrive":
+                case "Прибытие_ОБР":
                     ann = Loc.GetString("ert-shuttle-arrival-announcement");
                     aud = "/Audio/Stray/Announcements/ERTarrival.ogg";
                     danger = 0;
                     break;
-                case "CentCom_R":
+                case "Вылет_ПЦК":
                     ann = Loc.GetString("centcom-representative-arrival-announcement");
                     aud = "/Audio/Stray/Announcements/CentComR.ogg";
                     danger = 0;
                     break;
-                case "Round_End_Failed_Mission":
+                case "Окончание_раунда_с_не_выполненной_миссией":
                     ann = Loc.GetString("round-end-with-failed-mission-announcement");
                     aud = "/Audio/Stray/Announcements/MissionFail.ogg";
                     danger = 0;
                     break;
-                case "Round_End_Complete_Mission":
+                case "Окончание_раунда_с_выполненной_миссией":
                     ann = Loc.GetString("round-end-with-finished-mission-announcement");
                     aud = "/Audio/Stray/Announcements/MissionComplete.ogg";
+                    danger = 0;
+                    break;
+                case "Начало_Революции":
+                    ann = Loc.GetString("revolution-start-announcement");
+                    aud = "/Audio/Stray/Announcements/VivaLaRevolution.ogg";
+                    danger = 2;
+                    break;
+                case "Запрос_ЭС":
+                    ann = Loc.GetString("death-squad-call-announcement");
+                    aud = "/Audio/Stray/Announcements/DeathSquad.ogg";
+                    danger = 0;
+                    break;
+                case "Запрос_ОБР":
+                    ann = Loc.GetString("ert-call-announcement");
+                    aud = "/Audio/Stray/Announcements/pleaseERT.ogg";
+                    danger = 0;
+                    break;
+                case "Вылет_ОБР_изза_ситуации_на_станции":
+                    ann = Loc.GetString("ert-because-delta-code-announcement");
+                    aud = "/Audio/Stray/Announcements/ERTcall.ogg";
+                    danger = 2;
+                    break;
+                case "Несанкционированный_эвак":
+                    ann = Loc.GetString("unsanctions-evac-announcement");
+                    aud = "/Audio/Stray/Announcements/Evar.ogg";
+                    danger = 0;
+                    break;
+                case "Санкции_за_непослушание_ОЦК":
+                    ann = Loc.GetString("sanctions-announcement");
+                    aud = "/Audio/Stray/Announcements/Fired.ogg";
+                    danger = 0;
+                    break;
+                case "Запрос_РХБЗЗ":
+                    ann = Loc.GetString("rhbzz-call-announcement");
+                    aud = "/Audio/Stray/Announcements/RHBZZ.ogg";
                     danger = 0;
                     break;
                 default:
@@ -160,7 +212,7 @@ public sealed class AddStationAnnouncementsCommand : IConsoleCommand
                 return CompletionResult.FromHintOptions(options, hint);
             }else if(args[0] == ""||(args[0] != ""&&args[0][0] != '/')){
                 var hint = "<event_name>";
-                var options = new List<string>(){"Singularity_Escape", "Tesla_Escape", "Zombie_Start", "Unknown_Object", "ERT_Arrive", "CentCom_R", "Round_End_Failed_Mission", "Round_End_Complete_Mission"};
+                var options = allVars;
                 //var options = CompletionHelper.PrototypeIDs(args[0], _protoManager, _res);
 
                 return CompletionResult.FromHintOptions(options, hint);
