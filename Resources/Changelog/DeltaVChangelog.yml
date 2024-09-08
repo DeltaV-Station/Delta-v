@@ -1,19 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Added the vector safe.
-    type: Add
-  id: 32
-  time: '2023-10-01T20:10:24.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: Rebalanced Vulpakin, they are no longer HUMAN+, and are now currently
-      a sidegrade to humans.
-    type: Tweak
-  id: 33
-  time: '2023-10-03T16:49:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Removed the vape.
     type: Remove
   id: 34
@@ -3578,3 +3565,18 @@
   id: 531
   time: '2024-09-08T04:33:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1771
+- author: TadJohnson00
+  changes:
+  - message: Rodentia players will now also receive the standard emergency survival
+      kit in their backpack.
+    type: Fix
+  id: 532
+  time: '2024-09-08T14:11:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1773
+- author: DisposableCrewmember42
+  changes:
+  - message: The Synthesis Specialist now shows up properly in Round End Summaries
+    type: Fix
+  id: 533
+  time: '2024-09-08T14:12:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1774
