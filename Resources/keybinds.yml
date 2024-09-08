@@ -126,6 +126,9 @@ binds:
 - function: FocusAdminChatWindow
   type: State
   key: RBracket
+- function: FocusMappingChatWindow
+  type: State
+  key: Tilde
 - function: FocusDeadChatWindow
   type: State
   key: Backslash

@@ -35,6 +35,7 @@ chat-manager-send-admin-announcement-wrap-message = [bold]{ $adminChannelName }:
 chat-manager-send-hook-ooc-wrap-message = OOC: [bold](D){ $senderName }:[/bold] { $message }
 chat-manager-dead-channel-name = МЁРТВЫЕ
 chat-manager-admin-channel-name = АДМИН
+chat-manager-mappers-channel-name = МАППЕР
 chat-manager-rate-limited = Вы отправляете сообщения слишком быстро!
 chat-manager-rate-limit-admin-announcement = Игрок { $player } превысил ограничение на частоту сообщений в чате. Присмотрите за ним если это происходит регулярно.
 chat-speech-verb-suffix-exclamation = !

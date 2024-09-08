@@ -44,6 +44,10 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"asay \"{CommandParsing.Escape(str)}\"");
                 break;
 
+            case ChatSelectChannel.Mapping:
+                _consoleHost.ExecuteCommand($"masay \"{CommandParsing.Escape(str)}\"");
+                break;
+
             case ChatSelectChannel.Emotes:
                 _consoleHost.ExecuteCommand($"me \"{CommandParsing.Escape(str)}\"");
                 break;
@@ -78,7 +82,7 @@ internal sealed class ChatManager : IChatManager
         }
     }
 
-    //Nyano - Summary: fires off the update permissions script. 
+    //Nyano - Summary: fires off the update permissions script.
     public void UpdatePermissions()
     {
         PermissionsUpdated?.Invoke();
