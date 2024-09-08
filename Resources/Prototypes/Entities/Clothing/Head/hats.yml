@@ -35,8 +35,8 @@
     sprite: Clothing/Head/Hats/beret_french.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_french.rsi
-  - type: AddAccentClothing
-    accent: FrenchAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: FrenchAccent
   - type: Tag
     tags:
     - ClothMade
@@ -433,8 +433,8 @@
     sprite: Clothing/Head/Hats/sombrero.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/sombrero.rsi
-  - type: AddAccentClothing
-    accent: SpanishAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: SpanishAccent
 
 - type: entity
   parent: ClothingHeadBase
@@ -499,8 +499,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Appearance
-  - type: AddAccentClothing
-    accent: RussianAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: RussianAccent
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing
@@ -1012,9 +1012,9 @@
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
-    - type: AddAccentClothing
-      accent: ReplacementAccent
-      replacement: cowboy
+#    - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#      accent: ReplacementAccent
+#      replacement: cowboy
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
