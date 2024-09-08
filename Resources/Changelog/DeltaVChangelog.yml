@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Added fake wizard robes and sandals.
-    type: Add
-  id: 28
-  time: '2023-09-29T13:55:29.0000000+00:00'
 - author: PHCodes
   changes:
   - message: Added Mr. Butlertron, the Roboisseur
@@ -3563,3 +3557,14 @@
   id: 527
   time: '2024-09-07T22:05:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1765
+- author: portfiend
+  changes:
+  - message: Added Rodentia, a new species of playable rodent-like humanoids.
+    type: Add
+  - message: Mobs that are capable of rummaging (such as the new Rodentia species)
+      can do so every five minutes. They will find small snacks in trash bins instead
+      of entire wheels of cheese.
+    type: Tweak
+  id: 528
+  time: '2024-09-08T02:04:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1511
