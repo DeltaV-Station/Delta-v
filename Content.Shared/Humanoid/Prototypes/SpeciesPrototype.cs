@@ -131,5 +131,8 @@ public enum SpeciesNaming : byte
     LastNoFirst,
     //End of Nyano - Summary: for Oni naming
     TheFirstofLast,
-    LastFirst, // DeltaV
+    //Start of Parkstation - IPC naming
+    FirstDashLast,
+    // End of Parkstation code
+    LastFirst, // DeltaV - Rodentia
 }

@@ -105,6 +105,15 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: WeldingHealing # Same as Brutepack - Estacao Pirata IPCs
+    damageContainers:
+      - Silicon
+    fuelcost: 5
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
 
 - type: entity
   name: industrial welding tool

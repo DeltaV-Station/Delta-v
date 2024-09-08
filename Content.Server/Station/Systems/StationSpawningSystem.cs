@@ -6,6 +6,7 @@ using Content.Server.IdentityManagement;
 using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Shuttles.Systems;
+using Content.Server.SimpleStation14.Silicon.IPC; // Parkstation - IPCs
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
@@ -182,6 +183,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
+            // Parkstation - IPC
+            if (profile != null)
+                InternalEncryptionKeySpawner.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager, profile);
+            // End of Parkstation code
         }
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);

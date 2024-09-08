@@ -12,6 +12,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Shared.Timing;
+using Content.Shared.SimpleStation14.Silicon.Components; // Parkstation-IPCs // I shouldn't have to modify this.
 using Robust.Shared.Utility;
 
 namespace Content.Server.Bed
@@ -70,7 +71,8 @@ namespace Content.Server.Bed
 
                 foreach (var healedEntity in strapComponent.BuckledEntities)
                 {
-                    if (_mobStateSystem.IsDead(healedEntity))
+                    if (_mobStateSystem.IsDead(healedEntity) 
+                        || HasComp<SiliconComponent>(healedEntity)) // Parkstation-IPCs // I shouldn't have to modify this.
                         continue;
 
                     var damage = bedComponent.Damage;
