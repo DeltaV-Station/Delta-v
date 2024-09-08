@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Mail has been reimplemented
-    type: Add
-  id: 31
-  time: '2023-10-01T16:25:32.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Added the vector safe.
@@ -3572,3 +3566,15 @@
   id: 530
   time: '2024-09-08T04:24:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1695
+- author: Stop-Signs
+  changes:
+  - message: The Butlertron now gives you a bigger reward for fulfilling its food
+      requests (1200 spesos is the lowest payout).
+    type: Tweak
+  - message: The list of foods that the Butlertron demands has been adjusted to remove
+      some practically unobtainable foods. New and more common foods have been added,
+      and the reward amount for certain foods has been changed.
+    type: Tweak
+  id: 531
+  time: '2024-09-08T04:33:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1771
