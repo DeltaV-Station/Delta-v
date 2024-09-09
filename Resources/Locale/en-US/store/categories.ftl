@@ -12,7 +12,8 @@ store-category-allies = Allies
 store-category-job = Job
 store-category-wearables = Wearables
 store-category-pointless = Pointless
-store-category-objectives = Objectives
+store-discounted-items = Discounts
+store-category-objectives = Objectives # DeltaV, removed upstream
 
 # Revenant
 store-category-abilities = Abilities
