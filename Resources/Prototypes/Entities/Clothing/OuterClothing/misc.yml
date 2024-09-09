@@ -117,8 +117,8 @@
     sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
-  - type: AddAccentClothing
-    accent: SpanishAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: SpanishAccent
 
 - type: entity
   parent: ClothingOuterBase
@@ -152,8 +152,8 @@
     sprite: Clothing/OuterClothing/Misc/poncho.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/poncho.rsi
-  - type: AddAccentClothing
-    accent: SpanishAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: SpanishAccent
 
 - type: entity
   parent: ClothingOuterBase

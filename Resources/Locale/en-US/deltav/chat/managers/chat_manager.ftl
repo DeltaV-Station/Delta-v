@@ -16,6 +16,12 @@ chat-speech-verb-harpy-2 = tweets
 chat-speech-verb-harpy-3 = caws
 chat-speech-verb-harpy-4 = trills
 
+chat-speech-verb-name-rodentia = Rodentia
+chat-speech-verb-rodentia-1 = squeaks
+chat-speech-verb-rodentia-2 = pieps
+chat-speech-verb-rodentia-3 = chatters
+chat-speech-verb-rodentia-4 = squeals
+
 chat-speech-verb-name-feroxi = Feroxi
 chat-speech-verb-feroxi-1 = blubs
 chat-speech-verb-feroxi-2 = swishes

@@ -257,13 +257,14 @@ namespace Content.Server.Mail
 
         private void OnExamined(EntityUid uid, MailComponent component, ExaminedEvent args)
         {
+            MailEntityStrings mailEntityStrings = component.IsLarge ? MailConstants.MailLarge : MailConstants.Mail; //Frontier: mail types stored per type (large mail)
             if (!args.IsInDetailsRange)
             {
-                args.PushMarkup(Loc.GetString("mail-desc-far"));
+                args.PushMarkup(Loc.GetString(mailEntityStrings.DescFar)); // Frontier: mail constants struct
                 return;
             }
 
-            args.PushMarkup(Loc.GetString("mail-desc-close", ("name", component.Recipient), ("job", component.RecipientJob)));
+            args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose, ("name", component.Recipient), ("job", component.RecipientJob))); // Frontier: mail constants struct
 
             if (component.IsFragile)
                 args.PushMarkup(Loc.GetString("mail-desc-fragile"));
@@ -501,6 +502,15 @@ namespace Content.Server.Mail
             mailComp.RecipientJob = recipient.Job;
             mailComp.Recipient = recipient.Name;
 
+            // Frontier: Large mail bonus
+            MailEntityStrings mailEntityStrings = mailComp.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
+            if (mailComp.IsLarge)
+            {
+                mailComp.Bounty += component.LargeBonus;
+                mailComp.Penalty += component.LargeMalus;
+            }
+            // End Frontier
+
             if (mailComp.IsFragile)
             {
                 mailComp.Bounty += component.FragileBonus;
@@ -534,7 +544,7 @@ namespace Content.Server.Mail
 
             _appearanceSystem.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
-            _metaDataSystem.SetEntityName(uid, Loc.GetString("mail-item-name-addressed",
+            _metaDataSystem.SetEntityName(uid, Loc.GetString(mailEntityStrings.NameAddressed, // Frontier: move constant to MailEntityString
                 ("recipient", recipient.Name)));
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
@@ -713,6 +723,8 @@ namespace Content.Server.Mail
 
                 var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
                 SetupMail(mail, component, candidate);
+
+                _tagSystem.AddTag(mail, "Mail"); // Frontier
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
