@@ -4,6 +4,9 @@
   description: uplink-reinforcement-radio-nukie-mouse-desc
   productEntity: ReinforcementRadioSyndicateNukieMouse
   icon: { sprite: DeltaV/Objects/Devices/communication.rsi, state: cheese-radio }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 3
   categories:
@@ -14,6 +17,9 @@
   name: uplink-bionic-syrinx-implanter-name
   description: uplink-bionic-syrinx-implanter-desc
   productEntity: BionicSyrinxImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -33,6 +39,9 @@
   description: uplink-observation-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: tracks }
   productEntity: Observationskit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 4
   categories:
@@ -44,6 +53,9 @@
   description: uplink-syndicate-radio-implanter-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: SyndicateRadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -55,6 +67,9 @@
   description: uplink-syndicate-radio-implanter-bundle-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: BoxSyndicateRadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 3
   categories:
@@ -67,8 +82,11 @@
   description: uplink-generic-radio-implanter-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: crypt_rusted }
   productEntity: GenericRadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkImplants
 
@@ -77,6 +95,9 @@
   name: uplink-doorjack-name
   description: uplink-doorjack-desc
   productEntity: Doorjack
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
     Telecrystal: 6
   categories:
@@ -89,6 +110,8 @@
   productEntity: BaseBallBatHomeRun
   icon:
     entity: BaseBallBatHomeRun
+  discountDownTo:
+    Telecrystal: 10
   cost:
     Telecrystal: 16
   categories:

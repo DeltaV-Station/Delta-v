@@ -406,11 +406,6 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -526,11 +521,6 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -581,6 +571,11 @@
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection # DeltaV
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -597,11 +592,6 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
