@@ -23,6 +23,24 @@
   - ClothingShoesBootsSecFilled
 
 - type: entity
+  id: ClothingShoesBootsCowboyBrownFilled
+  parent:
+  - ClothingShoesBootsCowboyBrown
+  - ClothingShoesBootsSecFilled
+
+- type: entity
+  id: ClothingShoesBootsCowboyWhiteFilled
+  parent:
+  - ClothingShoesBootsCowboyWhite
+  - ClothingShoesBootsSecFilled
+
+- type: entity
+  id: ClothingShoesBootsCowboyFancyFilled
+  parent:
+  - ClothingShoesBootsCowboyFancy
+  - ClothingShoesBootsSecFilled
+
+- type: entity
   id: ClothingShoesHighheelBootsFilled
   parent:
   - ClothingShoesHighheelBoots
@@ -47,3 +65,4 @@
     containers:
       item:
       - ThrowingKnife
+
