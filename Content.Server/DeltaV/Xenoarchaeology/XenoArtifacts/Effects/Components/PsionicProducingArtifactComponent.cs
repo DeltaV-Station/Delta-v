@@ -5,6 +5,7 @@ namespace Content.Server.DeltaV.Xenoarchaeology.XenoArtifacts.Effects.Components
 /// <summary>
 /// Makes people in a radius around it psionic when triggered.
 /// </summary>
+[RegisterComponent, Access(typeof(PsionicProducingArtifactSystem))]
 public sealed partial class PsionicProducingArtifactComponent : Component
 {
     /// <summary>
