@@ -1,0 +1,7 @@
+- type: artifactEffect
+  id: EffectMakePsionic
+  targetDepth: 4
+  effectHint: artifact-hint-noosphere
+  components:
+  - type: PsionicProducingArtifact
+    range: 5
