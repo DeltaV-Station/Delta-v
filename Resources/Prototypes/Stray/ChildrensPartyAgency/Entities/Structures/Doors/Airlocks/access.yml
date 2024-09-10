@@ -42,8 +42,8 @@
   suffix: Locked
   components:
   - type: ContainerFill
-  containers:
-  board: [ DoorElectronicsWarriorCPA ]
+    containers:
+      board: [ DoorElectronicsWarriorCPA ]
 
 - type: entity
   parent: AirlockJuniorOfficerCPAGlass
@@ -51,8 +51,8 @@
   suffix: Locked
   components:
   - type: ContainerFill
-  containers:
-  board: [ DoorElectronicsJuniorOfficerCPA ]
+    containers:
+      board: [ DoorElectronicsJuniorOfficerCPA ]
 
 - type: entity
   parent: AirlockSeniorOfficerCPAGlass
@@ -60,8 +60,8 @@
   suffix: Locked
   components:
   - type: ContainerFill
-  containers:
-  board: [ DoorElectronicsSeniorOfficerCPA ]
+    containers:
+      board: [ DoorElectronicsSeniorOfficerCPA ]
 
 - type: entity
   parent: AirlockTechnicianPGAGlass
@@ -69,5 +69,5 @@
   suffix: Locked
   components:
   - type: ContainerFill
-  containers:
-  board: [ DoorElectronicsTechnicianPGA ]
+    containers:
+      board: [ DoorElectronicsTechnicianPGA ]
