@@ -1,3 +1,4 @@
+#Nyanotrasen Oracle
 - type: entity
   parent: BaseStructure
   id: Oracle
@@ -40,6 +41,7 @@
   - type: SpriteFade
   - type: Tag
     tags: []
+# End Nyanocode, Start EECode
   - type: Oracle
     demandTypes: OracleDemandTypes
     rewardReagents: OracleRewardReagents
@@ -83,3 +85,4 @@
   weights:
     tech: 3
     plant: 1 # Plants are very annoying to procure most of the time
+# End EEcode
