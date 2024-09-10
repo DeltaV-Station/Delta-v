@@ -1,6 +1,6 @@
 # effects
 
-artifact-effect-hint-noosphere = Noospheric shift
+artifact-effect-hint-noosphere = Noöspheric shift
 
 # triggers
 
