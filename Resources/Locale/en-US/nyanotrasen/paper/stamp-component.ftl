@@ -1,1 +1,1 @@
-stamp-component-stamped-name-mantis = Psionic Mantis
+stamp-component-stamped-name-mantis = Mantis
