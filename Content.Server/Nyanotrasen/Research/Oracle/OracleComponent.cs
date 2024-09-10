@@ -23,6 +23,9 @@ public sealed partial class OracleComponent : Component
     [DataField("barkTime")]
     public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
+    [DataField("barkType")]
+    public OracleBarkType BarkType = OracleBarkType.Never;
+
     [DataField("rejectAccumulator")]
     public float RejectAccumulator;
 
