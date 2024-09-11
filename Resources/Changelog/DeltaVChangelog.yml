@@ -1,128 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Give back all the jobs their proper time requirements.
-    type: Tweak
-  id: 20
-  time: '2023-09-28T14:49:00.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: The Senior Roles are no longer available at round start.
-    type: Remove
-  id: 21
-  time: '2023-09-28T16:55:32.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Remove Ian as a traitor objective.
-    type: Remove
-  id: 22
-  time: '2023-09-28T17:01:47.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Bees can now be put in inventory and ground up as a ingredient.
-    type: Tweak
-  id: 23
-  time: '2023-09-28T17:52:22.0000000+00:00'
-- author: JJ
-  changes:
-  - message: Added Grilled Cheese.
-    type: Add
-  id: 24
-  time: '2023-09-28T17:53:04.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Approving cargo orders now requires the Orders access level
-    type: Tweak
-  id: 25
-  time: '2023-09-28T18:16:02.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Science is now Epistemics.
-    type: Tweak
-  id: 26
-  time: '2023-09-28T22:32:46.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added a new steal objective for the Head of Logistics.
-    type: Add
-  id: 27
-  time: '2023-09-29T13:28:43.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added fake wizard robes and sandals.
-    type: Add
-  id: 28
-  time: '2023-09-29T13:55:29.0000000+00:00'
-- author: PHCodes
-  changes:
-  - message: Added Mr. Butlertron, the Roboisseur
-    type: Add
-  id: 29
-  time: '2023-09-30T15:51:58.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the rickenbacker, killer tomato and useful spawners for mappers.
-    type: Add
-  id: 30
-  time: '2023-09-30T19:44:56.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Mail has been reimplemented
-    type: Add
-  id: 31
-  time: '2023-10-01T16:25:32.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the vector safe.
-    type: Add
-  id: 32
-  time: '2023-10-01T20:10:24.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: Rebalanced Vulpakin, they are no longer HUMAN+, and are now currently
-      a sidegrade to humans.
-    type: Tweak
-  id: 33
-  time: '2023-10-03T16:49:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Removed the vape.
-    type: Remove
-  id: 34
-  time: '2023-10-03T16:51:54.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the Psionic Mantis.
-    type: Add
-  id: 35
-  time: '2023-10-03T17:47:54.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Added PDA boxes to department heads' lockers. Bug your manager for a
-      promotion now!
-    type: Add
-  id: 36
-  time: '2023-10-03T18:06:07.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the Psionic Countermeasures research.
-    type: Add
-  id: 37
-  time: '2023-10-03T19:36:47.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added more guns. If that don't work, we'll add more guns.
-    type: Add
-  id: 38
-  time: '2023-10-03T20:01:48.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added tips about glimmer, rat kings and wisps.
-    type: Add
-  id: 39
-  time: '2023-10-03T20:23:18.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Added an old epistemics book.
     type: Add
   id: 40
@@ -3551,3 +3429,159 @@
   id: 519
   time: '2024-09-05T05:46:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1009
+- author: Radezolid
+  changes:
+  - message: Fixed Mystagogue cloak not counting towards the thief's cloak objective
+    type: Fix
+  id: 520
+  time: '2024-09-06T21:26:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1759
+- author: adeinitas
+  changes:
+  - message: Wing covers have been installed on various ERT suits and some others,
+      and they now fit harpies.
+    type: Tweak
+  id: 521
+  time: '2024-09-07T04:37:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1754
+- author: flyingkarii
+  changes:
+  - message: Removed command age requirement.
+    type: Tweak
+  id: 522
+  time: '2024-09-07T04:38:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1611
+- author: deltanedas
+  changes:
+  - message: Fulton recipes can now be unlocked with the Aerial Extractions tech.
+    type: Add
+  id: 523
+  time: '2024-09-07T13:17:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1760
+- author: Fox
+  changes:
+  - message: New Lobby Track "The Station" by A-Guy
+    type: Add
+  id: 524
+  time: '2024-09-07T13:44:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1761
+- author: Fox
+  changes:
+  - message: Added cryo and some new maints to Pebble!
+    type: Add
+  - message: Adjusts some elements of Pebble
+    type: Tweak
+  id: 525
+  time: '2024-09-07T15:10:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1489
+- author: Velcroboy
+  changes:
+  - message: Department specific shelves no longer restrict the items that can be
+      placed in them.
+    type: Tweak
+  id: 526
+  time: '2024-09-07T17:46:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1763
+- author: deltanedas
+  changes:
+  - message: Bookshelves can now fit any kind of item, not just books.
+    type: Tweak
+  id: 527
+  time: '2024-09-07T22:05:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1765
+- author: portfiend
+  changes:
+  - message: Added Rodentia, a new species of playable rodent-like humanoids.
+    type: Add
+  - message: Mobs that are capable of rummaging (such as the new Rodentia species)
+      can do so every five minutes. They will find small snacks in trash bins instead
+      of entire wheels of cheese.
+    type: Tweak
+  id: 528
+  time: '2024-09-08T02:04:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1511
+- author: DisposableCrewmember42
+  changes:
+  - message: The wardrobe restock box can now be used to restock the CourierDrobe.
+      Lock and Load!
+    type: Fix
+  id: 529
+  time: '2024-09-08T02:10:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1768
+- author: adeinitas
+  changes:
+  - message: Moths now have a bigger range of color. Existing moths may look weirder
+      than usual.
+    type: Tweak
+  id: 530
+  time: '2024-09-08T04:24:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1695
+- author: Stop-Signs
+  changes:
+  - message: The Butlertron now gives you a bigger reward for fulfilling its food
+      requests (1200 spesos is the lowest payout).
+    type: Tweak
+  - message: The list of foods that the Butlertron demands has been adjusted to remove
+      some practically unobtainable foods. New and more common foods have been added,
+      and the reward amount for certain foods has been changed.
+    type: Tweak
+  id: 531
+  time: '2024-09-08T04:33:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1771
+- author: TadJohnson00
+  changes:
+  - message: Rodentia players will now also receive the standard emergency survival
+      kit in their backpack.
+    type: Fix
+  id: 532
+  time: '2024-09-08T14:11:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1773
+- author: DisposableCrewmember42
+  changes:
+  - message: The Synthesis Specialist now shows up properly in Round End Summaries
+    type: Fix
+  id: 533
+  time: '2024-09-08T14:12:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1774
+- author: TadJohnson00
+  changes:
+  - message: Worn clothing will no longer force unwanted accents.
+    type: Tweak
+  id: 534
+  time: '2024-09-08T15:27:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1775
+- author: deltanedas
+  changes:
+  - message: Merged upstream changes from last week.
+    type: Add
+  id: 535
+  time: '2024-09-09T15:20:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1762
+- author: DisposableCrewmember42
+  changes:
+  - message: Returned search functionality to the Drinks page. Bartenders, rejoice!
+    type: Fix
+  id: 536
+  time: '2024-09-09T21:37:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1779
+- author: DisposableCrewmember42
+  changes:
+  - message: Maximum custom burger stack height lowered to 6.
+    type: Tweak
+  id: 537
+  time: '2024-09-10T18:45:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1782
+- author: DisposableCrewmember42
+  changes:
+  - message: Felinids' skin/fur color may now be chosen freely.
+    type: Tweak
+  id: 538
+  time: '2024-09-10T22:23:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1783
+- author: DisposableCrewmember42
+  changes:
+  - message: Added Greenshift to the gamemode vote pool.
+    type: Tweak
+  id: 539
+  time: '2024-09-10T22:36:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1787

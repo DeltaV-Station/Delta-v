@@ -302,7 +302,6 @@
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
-      - HandheldCrewMonitor # DeltaV
       - Scalpel
       - Retractor
       - Cautery
@@ -334,6 +333,8 @@
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas
+      - MineralScannerEmpty
+      - AdvancedMineralScannerEmpty
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
@@ -346,23 +347,28 @@
       #- WeaponForceGun # DeltaV
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
-      #- WeaponTetherGun # DeltaV
       - WeaponGrapplingGun
+      #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
-      - CoreSilver # Nyanotrasen - Silver Golem core
       - FauxTileAstroGrass
       - FauxTileMowedAstroGrass
       - FauxTileJungleAstroGrass
       - FauxTileAstroIce
       - FauxTileAstroSnow
       - OreBagOfHolding
-      - PlantBagOfHolding #DeltaV
       - DeviceQuantumSpinInverter
-      - RCDAmmo # DeltaV
+      # Begin DeltaV additions
+      - CoreSilver # Nyanotrasen - Silver Golem core
+      - HandheldCrewMonitor
+      - PlantBagOfHolding
+      - RCDAmmo
+      - Fulton
+      - FultonBeacon
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
