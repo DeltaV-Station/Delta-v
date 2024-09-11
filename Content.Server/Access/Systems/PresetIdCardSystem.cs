@@ -2,6 +2,7 @@ using Content.Server.Access.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Access.Components; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -78,14 +79,15 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
+        var card = Comp<IdCardComponent>(uid); // DeltaV
+
         //flag
-        _cardSystem.TryChangeJobTitle(uid, !string.IsNullOrEmpty(id.VirtualJobLocalizedName) ? id.VirtualJobLocalizedName : job.LocalizedName); // DeltaV #1425 - Attempt to use virtual job information before using job information
+        if (card.JobTitle == null) // DeltaV: only set job title if id card doesnt have one already
+            _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
-        // DeltaV #1425 - Attempt to use virtual job information before using job information
-        _prototypeManager.TryIndex<StatusIconPrototype>(id.VirtualJobIcon ?? string.Empty, out var virtualJobIcon);
-        if (_prototypeManager.TryIndex(job.Icon, out var jobIcon))
-            _cardSystem.TryChangeJobIcon(uid, virtualJobIcon ?? jobIcon);
-        // End of DeltaV code
+        // DeltaV: only set to the job's icon if the id doesn't specify one
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.TryIndex(job.Icon, out var jobIcon))
+            _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

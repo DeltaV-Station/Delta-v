@@ -49,3 +49,26 @@
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/Vests/clerkvest.rsi
 
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOuterVestPlateCarrierAdv
+  name: advanced plate carrier
+  description: A large and bulky carrier, sporting steel plates, reinforced shoulder pads, and a durathread neckpiece. This particular carrier has some webbing attached to the front for holding various small items.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Vests/advcarrier.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Vests/advcarrier.rsi
+  - type: Armor # intended as Head of Security's and Warden's armour only, hence high values; resists at 30% flat with 50% pierce and 20% shock.
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Shock: 0.8
+        Heat: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.7

@@ -102,7 +102,34 @@
   - BrigMedicBackpack
   - BrigMedicSatchel
   - BrigMedicDuffel
-  
+
+- type: loadoutGroup
+  id: SurvivalCorpsman
+  name: loadout-group-survival-corpsman
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenCorpsman
+  - EmergencyOxygenCorpsman
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolCorpsman
+  name: loadout-group-breath-tool
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesBreathToolCorpsman
+
+## Security Cadet
+- type: loadoutGroup
+  id: SecurityCadetHead
+  name: loadout-group-security-cadet-head
+  minLimit: 0
+  loadouts:
+  - MimeHead
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup

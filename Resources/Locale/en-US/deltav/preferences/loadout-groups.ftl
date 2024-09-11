@@ -1,5 +1,8 @@
 # This file will contain strings for both DeltaV and Nyanotrasen loadouts, because I'm lazy
 
+# Miscellaneous
+loadout-group-survival-corpsman = Corpsman Survival Box
+
 # Command
 loadout-group-captain-gloves = Captain gloves
 loadout-group-captain-shoes = Captain shoes
