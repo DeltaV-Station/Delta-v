@@ -3,3 +3,4 @@ public enum OracleBarkType {
     NewDemand,
     Never
 }
+
