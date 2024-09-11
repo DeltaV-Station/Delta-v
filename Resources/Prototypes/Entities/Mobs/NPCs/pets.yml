@@ -562,6 +562,7 @@
     allowMovement: true
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -584,6 +585,10 @@
     - Hamster
     - VimPilot
     - ChefPilot
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - sadness
 
 - type: entity
   name: Shiva
@@ -688,6 +693,7 @@
     prob: 0.25
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
+    rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -750,6 +756,7 @@
         Caustic: 1
   - type: MultiHandedItem
   - type: Item
+    sprite: Mobs/Pets/smile.rsi
     size: Huge
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-slime
@@ -758,7 +765,7 @@
   - type: GhostRole
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
-    rules: ghost-role-information-smile-rules
+    rules: ghost-role-information-nonantagonist-rules
   - type: Grammar
     attributes:
       proper: true
@@ -777,6 +784,7 @@
     allowMovement: true
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
+    rules: ghost-role-information-nonantagonist-rules
     requirements: # Delta V - No raiders
     - !type:RoleTimeRequirement
       role: JobBartender
@@ -814,6 +822,7 @@
 #    allowMovement: true
 #    name: ghost-role-information-tropico-name
 #    description: ghost-role-information-tropico-description
+#    rules: ghost-role-information-nonantagonist-rules
 #  - type: GhostTakeoverAvailable
   - type: Tag
     tags:

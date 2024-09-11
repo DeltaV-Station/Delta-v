@@ -277,73 +277,6 @@
   - type: KudzuGrowthRule
 
 - type: entity
-  id: MouseMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20 #DeltaV - was 15
-    weight: 5 # DeltaV - was 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    #- id: MobMouseCancer
-    #  prob: 0.001
-# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
-
-# DeltaV - Rat King spawns under MidRoundAntag - Comment out Rat King from spawning with MouseMigration gamerule
-#- type: entity
-#  id: KingRatMigration
-#  parent: BaseStationEventShortDelay
-#  components:
-#  - type: StationEvent
-#    startAnnouncement: station-event-vent-creatures-start-announcement
-#    startAudio:
-#      path: /Audio/Announcements/attention.ogg
-#    earliestStart: 15
-#    weight: 6
-#    duration: 50
-#    minimumPlayers: 15 # Hopefully this is enough for the Rat King's potential Army
-#  - type: VentCrittersRule
-#    entries:
-#    - id: MobMouse
-#      prob: 0.02
-#    - id: MobMouse1
-#      prob: 0.02
-#    - id: MobMouse2
-#      prob: 0.02
-#    - id: MobMouseCancer
-#      prob: 0.001
-#    specialEntries:
-#    - id: SpawnPointGhostRatKing
-#      prob: 0.001
-
-- type: entity
-  id: CockroachMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5 # DeltaV - was 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
-
-- type: entity
   id: PowerGridCheck
   parent: BaseStationEventShortDelay
   components:
@@ -462,8 +395,8 @@
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
-    minimumPlayers: 15
-    weight: 2.5 # DeltaV - was 5
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
@@ -536,7 +469,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule

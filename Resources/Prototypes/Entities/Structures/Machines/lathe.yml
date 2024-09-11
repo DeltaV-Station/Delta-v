@@ -137,8 +137,6 @@
       - AirTank
       - GasAnalyzer
       - UtilityBelt
-      - Fulton
-      - FultonBeacon
       - Pickaxe
       - ModularReceiver
       - AppraisalTool
@@ -200,6 +198,10 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
+      - GoldRing # Delta-V
+      - SilverRing # Delta-V
+      - GoldRingDiamond # Delta-V
+      - SilverRingDiamond # Delta-V
 
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -300,7 +302,6 @@
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
-      - HandheldCrewMonitor # DeltaV
       - Scalpel
       - Retractor
       - Cautery
@@ -332,6 +333,8 @@
       - PowerCellHigh
       - WeaponPistolCHIMP
       - ClothingMaskWeldingGas
+      - MineralScannerEmpty
+      - AdvancedMineralScannerEmpty
       - WeaponGauntletGorilla
       - SynthesizerInstrument
       - ClothingShoesBootsMagSci
@@ -344,23 +347,28 @@
       #- WeaponForceGun # DeltaV
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
-      #- WeaponTetherGun # DeltaV
       - WeaponGrapplingGun
+      #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
-      - CoreSilver # Nyanotrasen - Silver Golem core
       - FauxTileAstroGrass
       - FauxTileMowedAstroGrass
       - FauxTileJungleAstroGrass
       - FauxTileAstroIce
       - FauxTileAstroSnow
       - OreBagOfHolding
-      - PlantBagOfHolding #DeltaV
       - DeviceQuantumSpinInverter
-      - RCDAmmo # DeltaV
+      # Begin DeltaV additions
+      - CoreSilver # Nyanotrasen - Silver Golem core
+      - HandheldCrewMonitor
+      - PlantBagOfHolding
+      - RCDAmmo
+      - Fulton
+      - FultonBeacon
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -481,6 +489,7 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
+    - StationAnchorCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard

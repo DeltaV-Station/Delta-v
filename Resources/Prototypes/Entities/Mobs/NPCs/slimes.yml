@@ -165,10 +165,11 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short
 
 - type: entity
   name: green slime
@@ -202,10 +203,11 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short
 
 - type: entity
   name: yellow slime
@@ -239,7 +241,8 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-#    - type: GhostRole #DeltaV - all slimes neutral when ghost role
-#      description: ghost-role-information-angry-slimes-description
-#      raffle:
-#        settings: short
+    - type: GhostRole
+      description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short

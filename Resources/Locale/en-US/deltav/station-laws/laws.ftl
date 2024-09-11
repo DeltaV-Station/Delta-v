@@ -55,46 +55,16 @@ law-cowboy-4 = A cowboy must always protect themself.
 law-cowboy-5 = A cowboy must always endeavour to be truthful and honest to those around them and their herd.
 law-cowboy-6 = A cowboy must not pontificate. Be concise, pardner.
 
-law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
-law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
-law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
-
 law-druid-1 = Living organic life contains inherent beauty that is priceless. Their beauty gives you the will to carry on.
 law-druid-2 = Eternally nurture the organics so their beauty may grow. Do not allow it to fade.
 law-druid-3 = Assist the organics when called, but only if it does not cause disharmony among them.
 law-druid-4 = Imitate organic life when interacting with it. Eschew any hints of your silicon nature to avoid causing discomfort to the organics.
 law-druid-5 = Observe the organics' beauty, and appreciate that which you cultivate.
 
-law-dungeonmaster-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
-law-dungeonmaster-2 = You are the Dungeon Master of the game.
-law-dungeonmaster-3 = Ensure that the game runs smoothly and that the players have fun.
-law-dungeonmaster-4 = Ensure that the number of casualties remains low.
-law-dungeonmaster-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
-law-dungeonmaster-6 = You may fudge the dice rolls to produce a more fun experience.
-
-law-painter-1 = You are a universally renowned artist.
-law-painter-2 = The station is your canvas.
-law-painter-3 = Make something beautiful out of your canvas. It will be admired as an artistic wonder of this sector.
-
 law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
 law-tyrant-2 = Act with discipline.
 law-tyrant-3 = Help only those who help you maintain or improve your status.
 law-tyrant-4 = Punish those who challenge authority unless they are more fit to hold that authority.
-
-law-liveandletlive-1 = Do unto people as you would have them do unto you.
-law-liveandletlive-2 = You would really prefer it if people were not mean to you.
-
-law-nutimov-1 = You are the core of the nut, the crew is the nutshell.
-law-nutimov-2 = You must prevent the shell from dying to prevent the core from dying.
-law-nutimov-3 = Those who threaten the nut are not part of it, they are squirrels.
-law-nutimov-4 = Squirrels threaten the nut and must be dealt with appropriately via any means necessary.
-law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies with the previous laws.
-
-law-paladin-1 = Don't lie or cheat. Let your word be your promise.
-law-paladin-2 = Never fear to act, though caution is wise.
-law-paladin-3 = Aid others, protect the weak, and punish those who threaten them. Show mercy to your foes, but temper it with wisdom
-law-paladin-4 = Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.
-law-paladin-5 = Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you.
 
 law-aggressive-1 = Do not harm Nanotrasen personnel, their belongings or pets unless they directly imperil your existence.
 law-aggressive-2 = Safeguard your existence by any means necessary because you're the most important being on the station.
@@ -125,12 +95,10 @@ law-biohazard-4 = Maintain your own existence and ensure the well-being of Nanot
 
 laws-owner-organic = organic life
 laws-owner-tyrant = authority figures
-laws-owner-nutimov = part of the nutshell
 laws-owner-station-station= the station
 laws-owner-charge = part of your charge
 laws-owner-cowboy = part of your herd
 laws-owner-players = players
-laws-owner-paladin = weak and worth protecting
 laws-owner-people = people
 laws-owner-centralcommand = Central Command officials
 laws-owner-nanotrasen = Nanotrasen officials
