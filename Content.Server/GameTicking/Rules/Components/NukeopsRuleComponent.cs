@@ -75,10 +75,7 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
-    public int WarDeclarationMinOps = 2;
-    /// <summary>
-    ///  Stray, was 4
-    /// </summary>
+    public int WarDeclarationMinOps = 4;
 
     [DataField]
     public WinType WinType = WinType.Neutral;
