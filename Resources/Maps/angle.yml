@@ -9150,6 +9150,16 @@ entities:
       parent: 9
 - proto: BorgCharger
   entities:
+  - uid: 562
+    components:
+    - type: Transform
+      pos: -24.5,-56.5
+      parent: 9
+  - uid: 2128
+    components:
+    - type: Transform
+      pos: 32.5,-63.5
+      parent: 9
   - uid: 18562
     components:
     - type: Transform
@@ -9159,6 +9169,21 @@ entities:
     components:
     - type: Transform
       pos: 60.5,-87.5
+      parent: 9
+  - uid: 18758
+    components:
+    - type: Transform
+      pos: 7.5,-4.5
+      parent: 9
+  - uid: 18759
+    components:
+    - type: Transform
+      pos: 64.5,-80.5
+      parent: 9
+  - uid: 18760
+    components:
+    - type: Transform
+      pos: 71.5,-7.5
       parent: 9
 - proto: BoxBeanbag
   entities:
@@ -38016,12 +38041,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,-56.5
-      parent: 9
-  - uid: 2128
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -24.5,-56.5
       parent: 9
   - uid: 2129
     components:
@@ -95801,6 +95820,28 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 9
+- proto: SpawnPointBorg
+  entities:
+  - uid: 18761
+    components:
+    - type: Transform
+      pos: 31.5,-67.5
+      parent: 9
+  - uid: 18762
+    components:
+    - type: Transform
+      pos: 32.5,-67.5
+      parent: 9
+  - uid: 18763
+    components:
+    - type: Transform
+      pos: 31.5,-66.5
+      parent: 9
+  - uid: 18764
+    components:
+    - type: Transform
+      pos: 32.5,-66.5
+      parent: 9
 - proto: SpawnPointBotanist
   entities:
   - uid: 8079
@@ -112486,13 +112527,6 @@ entities:
     components:
     - type: Transform
       pos: 42.246056,17.5
-      parent: 9
-- proto: WardrobeRoboticsFilled
-  entities:
-  - uid: 562
-    components:
-    - type: Transform
-      pos: 32.5,-63.5
       parent: 9
 - proto: WardrobeVirologyFilled
   entities:
