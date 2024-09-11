@@ -470,3 +470,22 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurityLawyer ]
+
+# Command-locked External airlocks. These don't exist upstream for some reason.
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCommandLocked
+  suffix: External, Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassCommandLocked
+  suffix: External, Glass, Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
