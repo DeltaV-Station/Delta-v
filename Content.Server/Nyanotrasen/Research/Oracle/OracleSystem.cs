@@ -16,6 +16,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -105,6 +106,9 @@ public sealed class OracleSystem : EntitySystem
             return;
 
         if (!TryComp<MetaDataComponent>(args.Used, out var meta))
+            return;
+
+        if (HasComp<BorgChassisComponent>(args.User))
             return;
 
         if (meta.EntityPrototype == null)
