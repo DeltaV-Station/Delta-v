@@ -79,6 +79,7 @@
     - operationSuffix
   - type: NukeopsRule
     warDeclarationMinOps: 2
+    warNukieArriveDelay: 600 # 10 minutes
     roundEndBehavior: Nothing
   - type: RuleGrids
   - type: AntagSelection
