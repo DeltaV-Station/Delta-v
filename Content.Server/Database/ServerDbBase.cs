@@ -261,7 +261,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                profile.CriminalRecord // DeltaV
             );
         }
 
@@ -292,6 +293,7 @@ namespace Content.Server.Database
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+            profile.CriminalRecord = humanoid.CriminalRecord; // DeltaV
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(

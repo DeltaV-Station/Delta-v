@@ -41,6 +41,7 @@ public sealed class PrisonerRecordSystem : EntitySystem
 
     private void OnGeneralRecordCreated(AfterGeneralRecordCreatedEvent args)
     {
+        // TODO: custom non-prisoner records toggle
         if (args.Record.JobPrototype != Prisoner)
             return;
 
@@ -53,23 +54,26 @@ public sealed class PrisonerRecordSystem : EntitySystem
         // Prisoners spawn in perma so start off detained
         _criminalRecords.OverwriteStatus(args.Key, criminal, SecurityStatus.Detained, null);
         var start = TimeSpan.Zero;
-        criminal.History.Add(new CrimeHistory(start, Loc.GetString("criminal-records-prisoner-record-header")));
-        if (args.Profile.PrisonerCrimeHistory is {} lines)
+        if (string.IsNullOrEmpty(args.Profile.CriminalRecord))
         {
-            foreach (var line in lines)
+            // no custom record specified so generate a random one
+            // prisoner mains should make their own record they can rp with
+            criminal.History.Add(new CrimeHistory(start, Loc.GetString("criminal-records-prisoner-record-header")));
+            foreach (var (crime, count) in Crimes.Pick(_proto, _random))
+            {
+                criminal.History.Add(new CrimeHistory(start, Loc.GetString("fugitive-report-crime", ("crime", crime), ("count", count))));
+            }
+        }
+        else
+        {
+            // a record was specified so add each line
+            foreach (var line in args.Profile.CriminalRecord.Split('\n'))
             {
                 var trimmed = line.Trim();
                 if (trimmed.IsNullOrEmpty())
                     continue;
 
                 criminal.History.Add(new CrimeHistory(start, trimmed));
-            }
-        }
-        else
-        {
-            foreach (var (crime, count) in Crimes.Pick(_proto, _random))
-            {
-                criminal.History.Add(new CrimeHistory(start, Loc.GetString("fugitive-report-crime", ("crime", crime), ("count", count))));
             }
         }
 
