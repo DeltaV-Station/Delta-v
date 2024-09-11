@@ -54,10 +54,25 @@ public sealed class PrisonerRecordSystem : EntitySystem
         _criminalRecords.OverwriteStatus(args.Key, criminal, SecurityStatus.Detained, null);
         var start = TimeSpan.Zero;
         criminal.History.Add(new CrimeHistory(start, Loc.GetString("criminal-records-prisoner-record-header")));
-        foreach (var (crime, count) in Crimes.Pick(_proto, _random))
+        if (args.Profile.PrisonerCrimeHistory is {} lines)
         {
-            criminal.History.Add(new CrimeHistory(start, Loc.GetString("fugitive-report-crime", ("crime", crime), ("count", count))));
+            foreach (var line in lines)
+            {
+                var trimmed = line.Trim();
+                if (trimmed.IsNullOrEmpty())
+                    continue;
+
+                criminal.History.Add(new CrimeHistory(start, trimmed));
+            }
         }
+        else
+        {
+            foreach (var (crime, count) in Crimes.Pick(_proto, _random))
+            {
+                criminal.History.Add(new CrimeHistory(start, Loc.GetString("fugitive-report-crime", ("crime", crime), ("count", count))));
+            }
+        }
+
         _records.Synchronize(args.Key);
     }
 }
