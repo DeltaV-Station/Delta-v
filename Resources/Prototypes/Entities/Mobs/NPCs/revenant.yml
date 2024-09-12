@@ -20,6 +20,9 @@
     allowed:
     - Stun
     - Corporeal
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Spirit # DeltaV: Keep revenant extreme weakness to heat and bible
