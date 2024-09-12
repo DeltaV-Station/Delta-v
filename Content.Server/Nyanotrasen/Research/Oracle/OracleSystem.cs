@@ -23,6 +23,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Research.Oracle;
+using OracleBarkType = OracleComponent.OracleBarkType;
 
 public sealed class OracleSystem : EntitySystem
 {
