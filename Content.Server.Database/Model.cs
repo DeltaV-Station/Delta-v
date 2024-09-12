@@ -377,6 +377,8 @@ namespace Content.Server.Database
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 
+        public string CriminalRecord { get; set; } = null!; // DeltaV
+
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
     }

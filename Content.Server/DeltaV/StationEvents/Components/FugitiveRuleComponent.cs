@@ -1,6 +1,9 @@
-using Content.Shared.Dataset;
+using Content.Server.Destructible.Thresholds; // TODO: shared
 using Content.Server.StationEvents.Events;
+using Content.Shared.Dataset;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -54,34 +57,51 @@ public sealed partial class FugitiveRuleComponent : Component
     public TimeSpan? NextAnnounce;
 
     /// <summary>
-    /// Dataset to pick crimes on the report from.
+    /// Config to use to generate crimes.
     /// </summary>
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CrimesDataset = "FugitiveCrimes";
+    [DataField(required: true)]
+    public RandomCrimes Crimes = new();
+}
+
+[DataDefinition]
+public partial struct RandomCrimes
+{
+    /// <summary>
+    /// Dataset to pick crime strings from.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<LocalizedDatasetPrototype> Dataset;
 
     /// <summary>
-    /// Max number of unique crimes they can be charged with.
+    /// Number of unique crimes they can be charged with.
     /// Does not affect the counts of each crime.
     /// </summary>
-    [DataField]
-    public int MinCrimes = 2;
+    [DataField(required: true)]
+    public MinMax Crimes = new(1, 1);
 
     /// <summary>
-    /// Min number of unique crimes they can be charged with.
-    /// Does not affect the counts of each crime.
+    /// Counts of each crime that can be rolled.
     /// </summary>
-    [DataField]
-    public int MaxCrimes = 7;
+    [DataField(required: true)]
+    public MinMax Counts = new(1, 1);
 
     /// <summary>
-    /// Min counts of each crime that can be rolled.
-    /// </summary>
-    [DataField]
-    public int MinCounts = 1;
-
+    /// Get the localized string and count of each random crime.
     /// <summary>
-    /// Max counts of each crime that can be rolled.
-    /// </summary>
-    [DataField]
-    public int MaxCounts = 4;
+    public IEnumerable<(string, int)> Pick(IPrototypeManager proto, IRobustRandom random)
+    {
+        var crimeTypes = proto.Index(Dataset);
+        var crimes = new HashSet<LocId>();
+        var total = Crimes.Next(random);
+        while (crimes.Count < total)
+        {
+            crimes.Add(random.Pick(crimeTypes));
+        }
+
+        foreach (var crime in crimes)
+        {
+            var count = Counts.Next(random);
+            yield return (Loc.GetString(crime), count);
+        }
+    }
 }

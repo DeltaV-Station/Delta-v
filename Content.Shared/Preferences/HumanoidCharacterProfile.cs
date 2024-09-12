@@ -134,6 +134,14 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
+        /// <summary>
+        /// DeltaV: Lines of a custom criminal record to use.
+        /// If this is empty then prisoners will get a randomly generated one.
+        /// Everyone else won't have one at all.
+        /// </summary>
+        [DataField]
+        public string CriminalRecord;
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
