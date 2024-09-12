@@ -3,11 +3,14 @@ using Content.Server.Communications;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
@@ -15,8 +18,11 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 {
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
 
     public override void Initialize()
     {
@@ -47,9 +53,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         foreach (var xform in consoles)
         {
-            var report = Spawn(comp.ReportPaper, xform.Coordinates);
-            var paper = Comp<PaperComponent>(report);
-            _paper.SetContent((report, paper), comp.Report);
+            SpawnReport(comp, xform);
         }
 
         // prevent any possible funnies
@@ -60,18 +64,42 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
     private void OnEntitySelected(Entity<FugitiveRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (ent.Comp.NextAnnounce != null)
+        var (uid, comp) = ent;
+        if (comp.NextAnnounce != null)
         {
             Log.Error("Fugitive rule spawning multiple fugitives isn't supported, sorry.");
             return;
         }
 
         var fugi = args.EntityUid;
-        ent.Comp.Report = GenerateReport(fugi, ent.Comp).ToMarkup();
-        ent.Comp.Station = StationSystem.GetOwningStation(fugi);
-        ent.Comp.NextAnnounce = Timing.CurTime + ent.Comp.AnnounceDelay;
+        comp.Report = GenerateReport(fugi, comp).ToMarkup();
+        comp.Station = StationSystem.GetOwningStation(fugi);
+        comp.NextAnnounce = Timing.CurTime + comp.AnnounceDelay;
 
         _popup.PopupEntity(Loc.GetString("fugitive-spawn"), fugi, fugi);
+
+        // give the fugi a report so they know what their charges are
+        var report = SpawnReport(comp, Transform(fugi));
+
+        // try to insert it into their bag
+        if (_inventory.TryGetSlotEntity(fugi, "back", out var backpack))
+        {
+            _storage.Insert(backpack.Value, report, out _, playSound: false);
+        }
+        else
+        {
+            // no bag somehow, at least pick it up
+            _hands.TryPickup(fugi, report);
+        }
+    }
+
+    private Entity<PaperComponent> SpawnReport(FugitiveRuleComponent rule, TransformComponent xform)
+    {
+        var report = Spawn(rule.ReportPaper, xform.Coordinates);
+        var paper = Comp<PaperComponent>(report);
+        var ent = (report, paper);
+        _paper.SetContent(ent, rule.Report);
+        return ent;
     }
 
     private FormattedMessage GenerateReport(EntityUid uid, FugitiveRuleComponent rule)
