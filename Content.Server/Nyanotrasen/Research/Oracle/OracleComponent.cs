@@ -87,11 +87,10 @@ public sealed partial class OracleComponent : Component
         "InsulativeHeadcage",
         "CrystalNormality",
     };
+}
 
-
-    public enum OracleBarkType: byte {
-        Timed,
-        NewDemand,
-        Never
-    }
+public enum OracleBarkType: byte {
+    Timed,
+    NewDemand,
+    Never
 }
