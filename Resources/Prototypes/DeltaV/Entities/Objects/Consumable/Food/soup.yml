@@ -30,3 +30,65 @@
           sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
           state: scrambled-eggs
 # Tastes like eggs, butter and salt
+
+- type: entity
+  name: blue tomato soup
+  parent: FoodBowlBase
+  id: FoodSoupTomatoBlue
+  description: It's hard to avoid spilling this tomato soup...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - funny
+      - tomato
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/bluepurpletomatosoup.rsi
+    layers:
+    - state: bowl
+    - state: blue-tomato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: SpaceLube
+          Quantity: 6
+        - ReagentId: Water
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+
+- type: entity
+  name: purple tomato soup
+  parent: FoodBowlBase
+  id: FoodSoupTomatoPurple
+  description: Do they make purple tomatoes?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tingly
+      - tomato
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/bluepurpletomatosoup.rsi
+    layers:
+    - state: bowl
+    - state: purple-tomato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: SpaceLube
+          Quantity: 3
+        - ReagentId: Water
+          Quantity: 6
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
