@@ -34,6 +34,7 @@
   name: all-at-once-title
   description: all-at-once-description
   showInVote: true # Stray
+  minPlayers: 20 # Stray
   rules:
     - Nukeops
     - Traitor
@@ -89,6 +90,7 @@
   - shittersafarideluxeedition
   name: greenshift-title
   showInVote: true #4boring4vote
+  maxPlayers: 10 # Stray
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
@@ -176,6 +178,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: true # Stray
+  minPlayers: 10
   rules:
     - Nukeops
     - SubGamemodesRule
@@ -192,7 +195,8 @@
     - revolutionaries
   name: rev-title
   description: rev-description
-  showInVote: false
+  showInVote: true # Stray
+  minPlayers: 15 # Stray
   rules:
     - Revolutionary
     - SubGamemodesRule
@@ -211,7 +215,8 @@
   - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: false
+  showInVote: true # Stray
+  minPlayers: 15 # Stray
   rules:
   - Zombie
   - BasicStationEventScheduler
