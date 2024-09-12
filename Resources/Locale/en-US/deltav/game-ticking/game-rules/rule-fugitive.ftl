@@ -5,8 +5,8 @@ fugitive-spawn = You fall from the ceiling!
 station-event-fugitive-hunt-announcement = Please check communications consoles for a sensitive message.
 fugitive-announcement-GALPOL = GALPOL
 
-fugitive-report-title = WANTED: {$name}
-fugitive-report-first-line = Escaped fugitive {$name} has been spotted in the sector. They may be a stowaway on a station somewhere.
+fugitive-report-title = WANTED FUGITIVE!
+fugitive-report-first-line = An escaped fugitive has been spotted in the sector and disguised their identity. They may be a stowaway on a station somewhere.
 fugitive-report-inhuman = {CAPITALIZE(THE($name))} {CONJUGATE-BE($name)} inhuman. We have no further details.
 fugitive-report-morphotype = MORPHOTYPE: {$species}
 fugitive-report-age = AGE: {$age}

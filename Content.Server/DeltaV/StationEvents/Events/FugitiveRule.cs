@@ -105,9 +105,9 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
     private FormattedMessage GenerateReport(EntityUid uid, FugitiveRuleComponent rule)
     {
         var report = new FormattedMessage();
-        report.PushMarkup(Loc.GetString("fugitive-report-title", ("name", uid)));
+        report.PushMarkup(Loc.GetString("fugitive-report-title"));
         report.PushNewline();
-        report.PushMarkup(Loc.GetString("fugitive-report-first-line", ("name", uid)));
+        report.PushMarkup(Loc.GetString("fugitive-report-first-line"));
         report.PushNewline();
 
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
