@@ -7,10 +7,7 @@
     - id: UnknownShuttleCargoLost
     - id: UnknownShuttleTravelingCuisine
     - id: UnknownShuttleDisasterEvacPod
-<<<<<<< HEAD
   #  - id: UnknownShuttleHonki #DeltaV - Removes the Clown Shuttle
-=======
-    - id: UnknownShuttleHonki
     - id: UnknownShuttleNTQuark
     - id: UnknownShuttleCruiser
     - id: UnknownShuttleCryptid
@@ -23,7 +20,6 @@
     - id: UnknownShuttleMeatZone
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
->>>>>>> 62f268cbb0 (Impliment visitor ID, reorganize shuttle event and ghost role yml, standardize many visitor roles, add more unknown shuttles. (#28098))
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
@@ -86,7 +82,6 @@
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
-<<<<<<< HEAD
 # - type: entity #DeltaV - Remove Clown Shuttle
 #  parent: BaseUnknownShuttleRule
 #  id: UnknownShuttleHonki
@@ -95,18 +90,6 @@
 #    weight: 2
 #  - type: LoadMapRule
 #    preloadedGrid: Honki
-=======
-# The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
-- type: entity
-  parent: BaseUnknownShuttleRule
-  id: UnknownShuttleHonki
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    weight: 2
-  - type: LoadMapRule
-    preloadedGrid: Honki
->>>>>>> 62f268cbb0 (Impliment visitor ID, reorganize shuttle event and ghost role yml, standardize many visitor roles, add more unknown shuttles. (#28098))
 
 - type: entity
   parent: BaseUnknownShuttleRule
