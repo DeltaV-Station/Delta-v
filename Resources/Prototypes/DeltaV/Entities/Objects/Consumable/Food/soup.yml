@@ -30,9 +30,9 @@
 
 - type: foodSequenceElement
   id: ScrambledEggs
-  name: food-sequence-burger-content-scrambled-eggs
-  sprite:
-    sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
+  name: food-sequence-content-scrambled-eggs
+  sprites:
+  - sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
     state: scrambled-eggs
 
 - type: entity

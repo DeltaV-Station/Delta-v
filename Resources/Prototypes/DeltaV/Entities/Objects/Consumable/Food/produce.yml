@@ -31,8 +31,8 @@
 - type: foodSequenceElement
   id: CrystalThistle
   name: food-sequence-content-crystal-thistle
-  sprite:
-    sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
     state: produce
 
 - type: entity
@@ -76,8 +76,8 @@
 - type: foodSequenceElement
   id: GhostPepper
   name: food-sequence-content-ghost-pepper
-  sprite:
-    sprite: DeltaV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
     state: produce
   tags:
   - Vegetable
@@ -123,8 +123,8 @@
 - type: foodSequenceElement
   id: CosmicRevenant
   name: food-sequence-content-revenant
-  sprite:
-    sprite: DeltaV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
     state: produce
   tags:
   - Vegetable
