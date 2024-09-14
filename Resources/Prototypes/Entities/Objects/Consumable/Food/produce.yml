@@ -2054,7 +2054,7 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5
-        - ReagentId: Holywater
+        - ReagentId: HolyWater # DeltaV - use our holy water
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/holymelon.rsi
@@ -2115,7 +2115,7 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
-        - ReagentId: Holywater
+        - ReagentId: HolyWater # DeltaV - use our holy water
           Quantity: 2
   - type: Extractable
     juiceSolution:
