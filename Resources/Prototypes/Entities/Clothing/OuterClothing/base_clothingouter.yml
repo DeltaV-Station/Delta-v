@@ -165,14 +165,10 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
-<<<<<<< HEAD
   - type: Tag
     tags:
     - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
-  - type: ClothingRequiredStepTriggerImmune
-=======
   - type: ProtectedFromStepTriggers
->>>>>>> 14d5bbb8cb (Fixes Borgs and Syndicats getting hurt by glass shards and other things + honkbot slipping 2 (#31011))
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
     damageProtection:

@@ -363,9 +363,6 @@
     state: pda-chaplain
 
 - type: entity
-<<<<<<< HEAD
-  name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
-=======
   parent: ChaplainPDA
   id: VisitorChaplainPDA
   suffix: Visitor
@@ -375,8 +372,7 @@
     state: pda-chaplain
 
 - type: entity
-  name: quartermaster PDA
->>>>>>> 62f268cbb0 (Impliment visitor ID, reorganize shuttle event and ghost role yml, standardize many visitor roles, add more unknown shuttles. (#28098))
+  name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that directs logistics. # DeltaV - Logistics Department replacing Cargo
