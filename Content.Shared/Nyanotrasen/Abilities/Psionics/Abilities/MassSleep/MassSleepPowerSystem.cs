@@ -44,7 +44,7 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, MassSleepPowerComponent component, MassSleepPowerActionEvent args)
         {
-            var duration = 30; // Duration of the mass sleep
+            var duration = 5; // Duration of the mass sleep
             foreach (var entity in _lookup.GetEntitiesInRange(args.Target, component.Radius))
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
