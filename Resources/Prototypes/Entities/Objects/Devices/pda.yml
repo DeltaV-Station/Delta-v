@@ -878,10 +878,12 @@
 - type: entity
   parent: ClearPDA
   id: VisitorPDA
+  name: visitor PDA # DeltaV
+  description: If you hold onto this, it can be a fun souvenier when you get to... wherever you're going! # DeltaV
   components:
   - type: Pda
     id: VisitorIDCard
-    state: pda
+    state: visitor-pda # DeltaV - visitor pda sprite
 
 - type: entity
   parent: BasePDA
