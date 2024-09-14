@@ -15,7 +15,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 
@@ -26,7 +26,6 @@ namespace Content.Server.Nyanotrasen.StationEvents.Events;
 /// </summary>
 internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleComponent>
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -111,7 +110,7 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
             {
                 var coordinates = xform.Coordinates;
                 var gridUid = xform.GridUid;
-                if (!_mapManager.TryGetGrid(gridUid, out var grid))
+                if (!TryComp<MapGridComponent>(gridUid, out var grid))
                     continue;
 
                 var tileIndices = grid.TileIndicesFor(coordinates);
