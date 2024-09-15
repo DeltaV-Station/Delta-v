@@ -199,6 +199,8 @@
           - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -505,6 +507,8 @@
           - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
@@ -623,6 +627,8 @@
     grid:
     - 0,0,3,1 # Was 0,0,2,1
     - 5,0,8,1 # Was 4,0,7,1
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -664,12 +670,12 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
   - type: Storage # Delta-V - Split Inventory
     grid:
     - 0,0,3,1 # Was 0,0,2,1
     - 5,0,8,1 # Was 4,0,7,1
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -683,8 +689,6 @@
     sprite: Clothing/Belt/militarywebbingmed.rsi
   - type: Item
     size: Huge
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
   - type: Storage # Delta-V - Split Inventory
     grid:
     - 0,0,3,1 # Was 0,0,2,1

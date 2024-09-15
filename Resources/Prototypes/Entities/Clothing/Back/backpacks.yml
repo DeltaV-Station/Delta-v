@@ -64,11 +64,13 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/security.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: [ClothingBackpack, BaseRestrictedContraband]
   id: ClothingBackpackBrigmedic
-  name: brigmedic backpack 
+  name: brigmedic backpack
   description: It's a very sterile backpack.
   components:
   - type: Sprite

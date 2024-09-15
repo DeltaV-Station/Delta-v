@@ -115,6 +115,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseRestrictedContraband]
