@@ -15,7 +15,7 @@
       socks:
         - state: equipped
   - type: TemperatureProtection
-    coefficient: 0.85        
+    CoolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderSocksBase
@@ -25,11 +25,11 @@
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/coder.rsi
-    state: icon    
+    state: icon
   - type: Clothing
     sprite: Clothing/Under/Socks/coder.rsi
     clothingVisuals:
       socks:
         - state: equipped
   - type: TemperatureProtection
-    coefficient: 0.85
+    CoolingCoefficient: 0.85

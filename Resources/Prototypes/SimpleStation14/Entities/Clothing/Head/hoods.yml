@@ -15,7 +15,8 @@
     slots: [ HEAD ]
     sprite: SimpleStation14/Clothing/OuterClothing/Coats/purplecoat.rsi
   - type: TemperatureProtection
-    coefficient: 0.25
+    heatingCoefficient: 0.25
+    coolingCoefficient: 0.25
   - type: Tag
     tags:
     - HidesHair

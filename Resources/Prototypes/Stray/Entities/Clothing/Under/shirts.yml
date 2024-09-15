@@ -11,7 +11,7 @@
       # noRot: true
       state: icon
     - type: TemperatureProtection
-      coefficient: 0.75
+      CoolingCoefficient: 0.75
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1265,4 +1265,3 @@
       clothingVisuals:
         undershirt:
           - state: undershirt
-

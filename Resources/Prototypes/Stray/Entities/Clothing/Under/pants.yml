@@ -11,7 +11,7 @@
       # noRot: true
       state: icon
     - type: TemperatureProtection
-      coefficient: 0.80
+      CoolingCoefficient: 0.80
 
 - type: entity
   parent: ClothingUnderPantsBase
@@ -432,4 +432,3 @@
       clothingVisuals:
         underpants:
           - state: thong
-

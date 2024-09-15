@@ -19,7 +19,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1
   - type: Storage
     grid:
     - 0,0,2,1
@@ -45,7 +46,8 @@
   - type: Clothing
     sprite: Stray/Clothing/Bestlung/ClothingHeadHatBestlung.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1
 
 - type: entity
   parent: ClothingOuterBaseMedium
@@ -68,7 +70,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1
   - type: Storage
     grid:
     - 0,0,2,1
@@ -137,7 +140,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.8
+    coolingCoefficient: 0.1
   - type: Storage
     grid:
     - 0,0,2,1

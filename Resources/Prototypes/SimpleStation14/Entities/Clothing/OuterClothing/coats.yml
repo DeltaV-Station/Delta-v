@@ -33,7 +33,8 @@
     - type: ToggleableClothing
       clothingPrototype: ClothingHeadPurpleHood
     - type: TemperatureProtection
-      coefficient: 0.5
+      heatingCoefficient: 0.5
+      coolingCoefficient: 0.5
     - type: Storage
       grid:
       - 0,0,2,1

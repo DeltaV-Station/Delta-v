@@ -9,12 +9,12 @@
   components:
   - type: Sprite
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
-    state: icon    
+    state: icon
   - type: Clothing
     sprite: Stray/Clothing/Under/Socks/ClothingUnderSocksStripedWhiteandLightBlue.rsi
     clothingVisuals:
       socks:
-        - state: equipped-FEET    
+        - state: equipped-FEET
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -25,7 +25,7 @@
         - ReagentId: Fiber
           Quantity: 30
   - type: TemperatureProtection
-    coefficient: 0.85          
+    CoolingCoefficient: 0.85          
   - type: Tag
     tags:
     - ClothMade
