@@ -15,7 +15,7 @@
       socks:
         - state: equipped
   - type: TemperatureProtection
-    CoolingCoefficient: 0.85
+    coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderSocksBase
@@ -32,4 +32,4 @@
       socks:
         - state: equipped
   - type: TemperatureProtection
-    CoolingCoefficient: 0.85
+    coolingCoefficient: 0.85

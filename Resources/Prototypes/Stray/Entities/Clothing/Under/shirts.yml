@@ -11,7 +11,7 @@
       # noRot: true
       state: icon
     - type: TemperatureProtection
-      CoolingCoefficient: 0.75
+      coolingCoefficient: 0.75
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -148,7 +148,7 @@
         undershirt:
           - state: bra_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -165,7 +165,7 @@
         undershirt:
           - state: bra_assblastusa
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -182,7 +182,7 @@
         undershirt:
           - state: bra_bee-kini
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -199,7 +199,7 @@
         undershirt:
           - state: bra_binder_strapless
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -216,7 +216,7 @@
         undershirt:
           - state: bra_binder
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -233,7 +233,7 @@
         undershirt:
           - state: bra_commie
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 # - type: entity
 #   parent: ClothingUnderShirtBase
@@ -264,7 +264,7 @@
         undershirt:
           - state: bra_neko
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -281,7 +281,7 @@
         undershirt:
           - state: bra_strapless_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -298,7 +298,7 @@
         undershirt:
           - state: bra_strapless
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -315,7 +315,7 @@
         undershirt:
           - state: bra_swimming_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -332,7 +332,7 @@
         undershirt:
           - state: bra_swimming
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 # - type: entity
 #   parent: ClothingUnderShirtBase
@@ -363,7 +363,7 @@
         undershirt:
           - state: bra_uk
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -380,7 +380,7 @@
         undershirt:
           - state: bra
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -574,7 +574,7 @@
         undershirt:
           - state: halterneck_bra
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -621,7 +621,7 @@
         undershirt:
           - state: ljont
     - type: TemperatureProtection
-      coefficient: 0.70
+      coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -996,7 +996,7 @@
         undershirt:
           - state: sports_bra_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1013,7 +1013,7 @@
         undershirt:
           - state: sports_bra
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1030,7 +1030,7 @@
         undershirt:
           - state: striped_bra
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1047,7 +1047,7 @@
         undershirt:
           - state: swimming_black
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1064,7 +1064,7 @@
         undershirt:
           - state: swimming_blue
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1081,7 +1081,7 @@
         undershirt:
           - state: swimming_red
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1098,7 +1098,7 @@
         undershirt:
           - state: tank_fire
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1115,7 +1115,7 @@
         undershirt:
           - state: tank_midriff_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1132,7 +1132,7 @@
         undershirt:
           - state: tank_midriff
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1149,7 +1149,7 @@
         undershirt:
           - state: tank_rainbow
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1166,7 +1166,7 @@
         undershirt:
           - state: tank_stripes
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1183,7 +1183,7 @@
         undershirt:
           - state: tank_sun
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1200,7 +1200,7 @@
         undershirt:
           - state: tanktop_alt
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1217,7 +1217,7 @@
         undershirt:
           - state: tanktop
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
@@ -1234,7 +1234,7 @@
         undershirt:
           - state: tubetop
     - type: TemperatureProtection
-      coefficient: 0.85
+      coolingCoefficient: 0.85
 
 - type: entity
   parent: ClothingUnderShirtBase
