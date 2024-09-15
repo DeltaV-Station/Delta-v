@@ -1,90 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Added the Psionic Countermeasures research.
-    type: Add
-  id: 37
-  time: '2023-10-03T19:36:47.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added more guns. If that don't work, we'll add more guns.
-    type: Add
-  id: 38
-  time: '2023-10-03T20:01:48.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added tips about glimmer, rat kings and wisps.
-    type: Add
-  id: 39
-  time: '2023-10-03T20:23:18.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added an old epistemics book.
-    type: Add
-  id: 40
-  time: '2023-10-03T21:41:37.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the ability for Oni Syndicate agents to buy the Kanabou and Tousei-Gusoku
-      set.
-    type: Add
-  id: 41
-  time: '2023-10-03T21:45:06.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Nanotrasen R&D has cooked up some new hardlight technology
-    type: Add
-  id: 42
-  time: '2023-10-03T22:23:09.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Martial artist finally gets a new coat of paint for their PDA.
-    type: Tweak
-  id: 43
-  time: '2023-10-04T00:20:48.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Changed the glass texture to be more visible.
-    type: Tweak
-  id: 44
-  time: '2023-10-05T19:22:26.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: The Organic Resources Department now uses better filing system, no more
-      bureaucracy errors.
-    type: Remove
-  id: 45
-  time: '2023-10-05T19:22:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added dogvision colorblindness.
-    type: Add
-  id: 46
-  time: '2023-10-05T19:26:42.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added a pistol in .38 for the Mantis.
-    type: Add
-  id: 47
-  time: '2023-10-05T19:28:00.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added Lollipop and Gumball candies.
-    type: Add
-  id: 48
-  time: '2023-10-05T19:29:04.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Mantis gets their own access.
-    type: Tweak
-  id: 49
-  time: '2023-10-05T20:55:12.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added mediborgs as round start job.
-    type: Add
-  id: 50
-  time: '2023-10-06T15:30:42.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Added Edge Station.
@@ -3582,3 +3496,104 @@
   id: 536
   time: '2024-09-09T21:37:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1779
+- author: DisposableCrewmember42
+  changes:
+  - message: Maximum custom burger stack height lowered to 6.
+    type: Tweak
+  id: 537
+  time: '2024-09-10T18:45:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1782
+- author: DisposableCrewmember42
+  changes:
+  - message: Felinids' skin/fur color may now be chosen freely.
+    type: Tweak
+  id: 538
+  time: '2024-09-10T22:23:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1783
+- author: DisposableCrewmember42
+  changes:
+  - message: Added Greenshift to the gamemode vote pool.
+    type: Tweak
+  id: 539
+  time: '2024-09-10T22:36:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1787
+- author: DisposableCrewmember42
+  changes:
+  - message: Borgs can no longer sacrifice their equipment to the Oracle
+    type: Fix
+  id: 540
+  time: '2024-09-11T12:17:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1769
+- author: DisposableCrewmember42
+  changes:
+  - message: Added blue and purple tomato soup, made using Blue Tomatoes.
+    type: Add
+  id: 541
+  time: '2024-09-12T00:51:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1781
+- author: deltanedas
+  changes:
+  - message: Artifacts can now interact with the noosphere in several ways.
+    type: Add
+  id: 542
+  time: '2024-09-12T01:25:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1785
+- author: TadJohnson00
+  changes:
+  - message: Remove justice helm from construction graph.
+    type: Remove
+  id: 543
+  time: '2024-09-12T13:00:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1815
+- author: deltanedas
+  changes:
+  - message: Fugitives now get a copy of their warrant before the station does.
+    type: Tweak
+  id: 544
+  time: '2024-09-12T13:30:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1797
+- author: deltanedas
+  changes:
+  - message: Artifacts can no longer become sentient.
+    type: Remove
+  id: 545
+  time: '2024-09-12T15:26:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1818
+- author: TadJohnson00
+  changes:
+  - message: Mass sleep duration reduced from 30s to 5s.
+    type: Tweak
+  id: 546
+  time: '2024-09-14T02:26:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1816
+- author: Fox
+  changes:
+  - message: New Emergency Shuttle "NTES Titan" coming soon to a station near you!
+    type: Add
+  id: 547
+  time: '2024-09-14T23:35:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1722
+- author: Fox
+  changes:
+  - message: Edge Station has finished being refit, new sec, new evac, and a vox-safe
+      service area!
+    type: Add
+  id: 548
+  time: '2024-09-15T00:30:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1599
+- author: adeinitas
+  changes:
+  - message: Shoukou's Epistemics has moved and there is a new library where it was.
+    type: Tweak
+  id: 549
+  time: '2024-09-15T02:55:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1703
+- author: Colin-Tel
+  changes:
+  - message: Chibi's max population has been lowered from 10 to 4.
+    type: Tweak
+  - message: Asterisk's max population has been lowered from 70 to 50.
+    type: Tweak
+  id: 550
+  time: '2024-09-15T03:34:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1758
