@@ -230,11 +230,25 @@
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
 
 - type: entity
   name: pulse pistol
@@ -295,6 +309,10 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
 
 - type: entity
   name: pulse rifle
@@ -322,6 +340,10 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: laser cannon
