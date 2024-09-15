@@ -41,6 +41,16 @@ public sealed partial class RevenantComponent : Component
     public bool ExorcismRequiresBibleUser = true;
 
     /// <summary>
+    /// If true, only bible users can exorcise this revenant
+    /// with a bible.
+    /// 
+    /// If false, anyone who tries to exorcise a revenant with
+    /// a bible will be able to.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ExorcismRequiresBibleUser = true;
+
+    /// <summary>
     /// The entity's current max amount of essence. Can be increased
     /// through harvesting player souls.
     /// </summary>
