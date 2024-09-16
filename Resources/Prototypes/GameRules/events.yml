@@ -10,12 +10,15 @@
     - id: BreakerFlip
     - id: BureaucraticError
     - id: ClericalError
+    - id: CockroachMigration
     - id: GasLeak
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     #- id: MimicVendorRule # DeltaV - disabled, see below
+    - id: MouseMigration
     - id: PowerGridCheck
+    - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
     - id: SpiderClownSpawn
@@ -126,6 +129,8 @@
     weight: 5
     duration: 1
   - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
 - type: entity
   id: ClericalError
@@ -143,7 +148,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 5 #Stray - was 10
+    weight: 8 # DeltaV - was 10
     duration: 1
     minimumPlayers: 10
   - type: RandomEntityStorageSpawnRule
@@ -154,16 +159,16 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    startAnnouncement: unknown-object-nearby-announcement
-    startAudio:
-      path: /Audio/Stray/Announcements/ObjectNearby.ogg
     weight: 1 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
-    minimumPlayers: 20
-  - type: AntagRandomSpawn
+    minimumPlayers: 45 # DeltaV - was 20
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
   - type: AntagSpawner
     prototype: MobDragon
+  - type: DragonRule
   - type: AntagObjectives
     objectives:
     - CarpRiftsObjective
@@ -178,19 +183,17 @@
       mindComponents:
       - type: DragonRole
         prototype: Dragon
-      - type: RoleBriefing
-        briefing: dragon-role-briefing
 
 - type: entity
   parent: BaseGameRule
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6 # DeltaV - was 5
+    weight: 5 # DeltaV - was 6
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
-    minimumPlayers: 15 # DeltaV - was 40
+    minimumPlayers: 40 # DeltaV - was 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -239,7 +242,7 @@
     weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
-    minimumPlayers: 15 #Stray - was 20
+    minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -261,7 +264,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/gasleak_start.ogg # DeltaV - custom announcer
+      path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
   - type: GasLeakRule
@@ -272,27 +275,10 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 10 # DeltaV - Was 15
     weight: 5 # DeltaV - was 7
     duration: 240
   - type: KudzuGrowthRule
-
-- type: entity
-  parent: BaseStationEventLongDelay
-  id: MeteorSwarm
-  components:
-  - type: StationEvent
-    earliestStart: 30
-    weight: 7.5
-    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
-    startAnnouncement: station-event-meteor-swarm-start-announcement
-    endAnnouncement: station-event-meteor-swarm-end-announcement
-    startAudio:
-      path: /Audio/Announcements/meteors_start.ogg
-      params:
-        volume: -4
-    duration: null #ending is handled by MeteorSwarmRule
-  - type: MeteorSwarmRule
 
 - type: entity
   id: PowerGridCheck
@@ -382,7 +368,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 20 #Stray - was 15
+    minimumPlayers: 15
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -413,8 +399,8 @@
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
-    minimumPlayers: 15
-    weight: 2.5 # DeltaV - was 5
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
@@ -446,12 +432,9 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    startAnnouncement: unknown-object-nearby-announcement
-    startAudio:
-      path: /Audio/Stray/Announcements/ObjectNearby.ogg
     earliestStart: 60 # DeltaV - was 45
     weight: 3.5 # DeltaV - was 5
-    minimumPlayers: 10
+    minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
     duration: 1
   - type: RuleGrids
@@ -490,7 +473,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Stray/Announcements/SignalCatched.ogg
+      path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -513,7 +496,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 5
+    weight: 10
     duration: 150
     maxDuration: 300
   - type: MassHallucinationsRule
