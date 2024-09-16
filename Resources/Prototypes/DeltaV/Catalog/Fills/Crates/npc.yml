@@ -1,8 +1,17 @@
 - type: entity
-  id: CrateNPCSecDog
   parent: CrateLivestock
+  id: CrateNPCSecDog
   components:
   - type: StorageFill
     contents:
-      - id: MobSecDog
-        amount: 1
+    - id: MobSecDog
+      amount: 1
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateNPCPitbull
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobPitbull
+      amount: 1
