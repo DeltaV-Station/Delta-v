@@ -315,6 +315,11 @@
     sprite: Clothing/Mask/muzzle.rsi
   - type: Clothing
     sprite: Clothing/Mask/muzzle.rsi
+    stripDelay: 5
+    equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+    quickEquip: true
+    slots:
+    - mask
   - type: IngestionBlocker
   - type: AddAccentClothing
     accent: ReplacementAccent
@@ -322,6 +327,7 @@
   - type: Construction
     graph: Muzzle
     node: muzzle
+  - type: SelfUnremovableClothing
 
 - type: entity
   parent: ClothingMaskPullableBase
