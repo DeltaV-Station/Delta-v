@@ -7,3 +7,19 @@
   id: PsionicInterloper # Crew aligned psionic
   hostile:
   - GlimmerMonster
+
+- type: npcFaction
+  id: Cat
+  hostile:
+  - Mouse
+  - SimpleHostile
+
+- type: npcFaction
+  id: Pitbull
+  hostile:
+  - Cat
+  - Mailman
+
+# Added and removed by wearing mail carrier/courier jumpsuit
+- type: npcFaction
+  id: Mailman

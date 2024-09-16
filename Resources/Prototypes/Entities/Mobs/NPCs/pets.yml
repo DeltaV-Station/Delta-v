@@ -112,6 +112,7 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
+      - Cat # DeltaV
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -135,6 +136,7 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
+      - Cat # DeltaV
   - type: Grammar
     attributes:
       proper: true
@@ -382,7 +384,7 @@
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-generic
+    interactFailureString: petting-failure-pitbull # DeltaV
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/small_dog_bark_happy.ogg
@@ -396,6 +398,26 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
+  # Begin DeltaV additions: Pitbull behaviour
+  - type: DogVision
+  - type: HostileOnInteractFail
+  - type: HTN
+    rootTask:
+      task: SimpleHostile
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+    - Pitbull
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4
+        Piercing: 8
+        Blunt: 1
+        Structural: 4
+  # End DeltaV additions
 
 - type: entity
   name: Morty
