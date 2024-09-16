@@ -16,13 +16,13 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesGlassesCorpsman
-  name: Corpsman Glasses
+  name: corpsman glasses
   description: Security glasses designed for the Corpsman for medical and security needs. Now with a cool blue hue*
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/corpsglasses.rsi
+    sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/corpsglasses.rsi
+    sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
