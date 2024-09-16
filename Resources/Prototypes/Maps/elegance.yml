@@ -2,7 +2,7 @@
   id: Elegance
   mapName: 'Elegance'
   mapPath: /Maps/elegance.yml
-  minPlayers: 50
+  minPlayers: 40
   stations:
     Elegance:
       stationProto: StandardNanotrasenStation
@@ -13,7 +13,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Transport.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -24,8 +24,8 @@
           #engineering
             AtmosphericTechnician: [ 2, 3 ]
             ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 6, 8 ]
-            TechnicalAssistant: [ 3, 5 ]
+            StationEngineer: [ 4, 8 ]
+            TechnicalAssistant: [ 2, 4 ]
           #justice
             ChiefJustice: [ 1, 1 ]
             Clerk: [ 1, 1 ]
@@ -34,7 +34,7 @@
           #medical
             Chemist: [ 2, 2 ]
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 7, 9 ]
+            MedicalDoctor: [ 4, 8 ]
             MedicalIntern: [ 2, 4 ]
             Paramedic: [ 1, 2 ]
             Psychologist: [ 1, 1 ]
@@ -42,30 +42,30 @@
             Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
-            Prisoner: [ 2, 3 ]
-            PrisonGuard: [ 1, 1 ]
-            SecurityOfficer: [ 6, 9 ]
-            SecurityCadet: [ 1, 1 ]
+            Prisoner: [ 2, 4 ]
+            PrisonGuard: [ 1, 2 ]
+            SecurityOfficer: [ 4, 8 ]
+            SecurityCadet: [ 2, 4 ]
             Warden: [ 1, 1 ]
           #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Boxer: [ 2, 2 ]
-            Chef: [ 3, 4 ]
-            Clown: [ 1, 2 ]
+            Chef: [ 2, 4 ]
+            Clown: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Janitor: [ 2, 3 ]
-            Mime: [ 1, 2 ]
-            Musician: [ 2, 3 ]
+            Janitor: [ 1, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 2, 2 ]
             Reporter: [ 2, 2 ]
-            ServiceWorker: [ 3, 6 ]
+            ServiceWorker: [ 2, 4 ]
           #science
             Chaplain: [ 1, 1 ]
             Borg: [ 2, 3 ]
             ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 2, 4 ]
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 6 ]
+            Scientist: [ 4, 8 ]
           #supply
             CargoTechnician: [ 2, 4 ]
             Courier: [ 2, 2 ]
