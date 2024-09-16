@@ -447,7 +447,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas: # DV - Feroxi get to breathe with this too
+    Gas: # DV - Feroxi get to breathe with this too!
       effects:
       - !type:Oxygenate
         conditions:
@@ -458,11 +458,29 @@
         - !type:OrganType
           type: Aquatic
         factor: 2
+      - !type:Oxygenate
+        - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrate
+        - !type:Oxygenate
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrate
+        factor: 2
       # Converts H2O into CO2
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: Aquatic
+        ratios: # no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: AquaticDehydrate
         ratios: # no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
