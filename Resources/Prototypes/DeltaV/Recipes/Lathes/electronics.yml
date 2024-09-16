@@ -1,18 +1,9 @@
 - type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
   id: SalvageExpeditionsComputerCircuitboard
   result: SalvageExpeditionsComputerCircuitboard
-  category: Circuitry
-  completetime: 4
-  materials:
-    Steel: 100
-    Glass: 500
-    Silver: 100
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: ComputerMassMediaCircuitboard
   result: ComputerMassMediaCircuitboard
-  category: Circuitry
-  completetime: 4
-  materials:
-    Steel: 100
-    Glass: 500
