@@ -4,6 +4,7 @@
     children:
     - id: MothroachSpawn
     - id: XenoVents
+    - id: PitbullVentSpawn
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -75,6 +76,21 @@
   - type: VentCrittersRule
     entries:
     - id: MobMothroach
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: PitbullVentSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 25
+    minimumPlayers: 15
+    reoccurenceDelay: 30 # it gets old
+    weight: 4
+    duration: 1
+  - type: VentCrittersRule
+    entries:
+    - id: MobPitbullVent
       prob: 0.05
 
 - type: entity
