@@ -75,7 +75,7 @@
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "DeltaV/Effects/creampie.rsi"
-        state: "creampie_vulpkanin"
+        state: "creampie_feroxi"
         visible: false
   - type: MeleeWeapon
     hidden: true
@@ -85,7 +85,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 7
+        Piercing: 7 # oooh scary extra damage~
   - type: Perishable
   - type: Damageable
     damageModifierSet: Feroxi
