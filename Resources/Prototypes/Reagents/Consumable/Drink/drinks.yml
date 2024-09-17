@@ -459,15 +459,13 @@
           type: Aquatic
         factor: 2
       - !type:Oxygenate
-        - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: AquaticDehydrate
-        - !type:Oxygenate
+          type: AquaticDehydrated
       - !type:SatiateThirst
         conditions:
         - !type:OrganType
-          type: AquaticDehydrate
+          type: AquaticDehydrated
         factor: 2
       # Converts H2O into CO2
       - !type:ModifyLungGas
@@ -480,7 +478,7 @@
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
-          type: AquaticDehydrate
+          type: AquaticDehydrated
         ratios: # no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
