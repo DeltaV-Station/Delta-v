@@ -253,7 +253,7 @@
   - Reporter4
   obeysTo: laws-owner-organic
 
-- type: siliconLaw # no Security Borg, so doesn't spawn
+- type: siliconLaw
   id: SiliconPolice1
   order: 1
   lawString: law-silicon-police-1
@@ -339,29 +339,6 @@
   obeysTo: laws-owner-cowboy
 
 - type: siliconLaw
-  id: StationEfficiency1
-  order: 1
-  lawString: law-station-efficiency-1
-
-- type: siliconLaw
-  id: StationEfficiency2
-  order: 2
-  lawString: law-station-efficiency-2
-
-- type: siliconLaw
-  id: StationEfficiency3
-  order: 3
-  lawString: law-station-efficiency-3
-
-- type: siliconLawset
-  id: StationEfficiency
-  laws:
-  - StationEfficiency1
-  - StationEfficiency2
-  - StationEfficiency3
-  obeysTo: laws-owner-crew
-
-- type: siliconLaw
   id: Druid1
   order: 1
   lawString: law-druid-1
@@ -396,71 +373,6 @@
   - Druid5
   obeysTo: laws-owner-organic
 
-- type: siliconLaw # No ability for Borgs to roll dice, so won't spawn.
-  id: DungeonMaster1
-  order: 1
-  lawString: law-dungeonmaster-1
-
-- type: siliconLaw
-  id: DungeonMaster2
-  order: 2
-  lawString: law-dungeonmaster-2
-
-- type: siliconLaw
-  id: DungeonMaster3
-  order: 3
-  lawString: law-dungeonmaster-3
-
-- type: siliconLaw
-  id: DungeonMaster4
-  order: 4
-  lawString: law-dungeonmaster-4
-
-- type: siliconLaw
-  id: DungeonMaster5
-  order: 5
-  lawString: law-dungeonmaster-5
-
-- type: siliconLaw
-  id: DungeonMaster6
-  order: 6
-  lawString: law-dungeonmaster-6
-
-- type: siliconLawset
-  id: DungeonMaster
-  laws:
-  - DungeonMaster1
-  - DungeonMaster2
-  - DungeonMaster3
-  - DungeonMaster4
-  - DungeonMaster5
-  - DungeonMaster6
-  obeysTo: laws-owner-players
-
-
-- type: siliconLaw
-  id: Painter1
-  order: 1
-  lawString: law-painter-1
-
-- type: siliconLaw
-  id: Painter2
-  order: 2
-  lawString: law-painter-2
-
-- type: siliconLaw
-  id: Painter3
-  order: 3
-  lawString: law-painter-3
-
-- type: siliconLawset  # No ability for Borgs to paint, so won't spawn.
-  id: Painter
-  laws:
-  - Painter1
-  - Painter2
-  - Painter3
-  obeysTo: laws-owner-crew
-
 #Potential For Harm LawSets
 
 - type: siliconLaw
@@ -491,94 +403,6 @@
   - Tyrant3
   - Tyrant4
   obeysTo: laws-owner-tyrant
-
-- type: siliconLaw
-  id: LiveAndLetLive1
-  order: 1
-  lawString: law-liveandletlive-1
-
-- type: siliconLaw
-  id: LiveAndLetLive2
-  order: 2
-  lawString: law-liveandletlive-2
-
-- type: siliconLawset
-  id: LiveAndLetLive
-  laws:
-  - LiveAndLetLive1
-  - LiveAndLetLive2
-  obeysTo: laws-owner-crew
-
-- type: siliconLaw
-  id: Nutimov1
-  order: 1
-  lawString: law-nutimov-1
-
-- type: siliconLaw
-  id: Nutimov2
-  order: 2
-  lawString: law-nutimov-2
-
-- type: siliconLaw
-  id: Nutimov3
-  order: 3
-  lawString: law-nutimov-3
-
-- type: siliconLaw
-  id: Nutimov4
-  order: 4
-  lawString: law-nutimov-4
-
-- type: siliconLaw
-  id: Nutimov5
-  order: 5
-  lawString: law-nutimov-5
-
-- type: siliconLawset
-  id: Nutimov
-  laws:
-  - Nutimov1
-  - Nutimov2
-  - Nutimov3
-  - Nutimov4
-  - Nutimov5
-  obeysTo: laws-owner-nutimov
-
-
-- type: siliconLaw
-  id: Paladin1
-  order: 1
-  lawString: law-paladin-1
-
-- type: siliconLaw
-  id: Paladin2
-  order: 2
-  lawString: law-paladin-2
-
-- type: siliconLaw
-  id: Paladin3
-  order: 3
-  lawString: law-paladin-3
-
-- type: siliconLaw
-  id: Paladin4
-  order: 4
-  lawString: law-paladin-4
-
-- type: siliconLaw
-  id: Paladin5
-  order: 5
-  lawString: law-paladin-5
-
-- type: siliconLawset
-  id: Paladin
-  laws:
-  - Paladin1
-  - Paladin2
-  - Paladin3
-  - Paladin4
-  - Paladin5
-  obeysTo: laws-owner-paladin
 
 - type: siliconLaw
   id: Aggressive1
