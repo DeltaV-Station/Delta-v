@@ -670,14 +670,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _NF/Structures/Walls/solid_reinforced_diagonal.rsi #DeltaV: Using Frontier sprites to go with the artstyle
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _NF/Structures/Walls/solid_reinforced_diagonal.rsi #DeltaV: Using Frontier sprites to go with the artstyle
     state: state0
 
 # Riveting
