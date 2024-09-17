@@ -1,9 +1,8 @@
-#Inverted inheritance from atmos axe to nuclear operative axe as parent, to prevent plate prying. https://github.com/DeltaV-Station/Delta-v/pull/1844
 - type: entity
-  name: fire axe #DeltaV - #1844, original: fireaxe
+  name: fireaxe
   parent: [BaseItem, BaseEngineeringContraband]
-  id: FireAxeFlaming #DeltaV - #1844, original: FireAxe
-  description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle! #DeltaV - #1844, original: Truly, the weapon of a madman. Who would think to fight fire with an axe?
+  id: FireAxe
+  description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
   - type: Tag
     tags:
@@ -12,10 +11,10 @@
   - type: Execution
     doAfterDuration: 4.0
   - type: Sprite
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi #DeltaV - #1844, original: fireaxe.rsi
+    sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
   - type: MeleeWeapon
-    wideAnimationRotation: 90 #DeltaV - #1844, original: 135
+    wideAnimationRotation: 135
     swingLeft: true
     attackRate: 0.75
     damage:
@@ -35,15 +34,14 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi #DeltaV - #1844, original: fireaxe.rsi
+    sprite: Objects/Weapons/Melee/fireaxe.rsi
     quickEquip: false
     slots:
     - back
   - type: Tool
     qualities:
       - Prying
-      #- Axing
-      # Commented out due to Inverted inheritance.
+      - Axing # DeltaV - The return of fireaxe prying
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -51,27 +49,26 @@
   - type: StealTarget
     stealGroup: FireAxe
   - type: IgniteOnMeleeHit
-    fireStacks: 1 #DeltaV - #1844, original: -4
+    fireStacks: -4
 
-#Inverted inheritance from atmos axe to nuclear operative axe as parent, to prevent plate prying. https://github.com/DeltaV-Station/Delta-v/pull/1844
 - type: entity
-  id: FireAxe #DeltaV - #1844, original: FireAxeFlaming
-  name: fireaxe
-  parent: FireAxeFlaming #DeltaV - #1844, original: FireAxe
-  description: Truly, the weapon of a madman. Who would think to fight fire with an axe? #DeltaV - #1844, original: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
+  id: FireAxeFlaming
+  name: fire axe
+  parent: [BaseSyndicateContraband, FireAxe]
+  description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: 135 #DeltaV - #1844, original: 90
+    wideAnimationRotation: 90
   - type: IgniteOnMeleeHit
-    fireStacks: -4 #DeltaV - #1844, original: 1
+    fireStacks: 1
   - type: Sprite
-    sprite: Objects/Weapons/Melee/fireaxe.rsi #DeltaV - #1844, original: fireaxeflaming
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxe.rsi #DeltaV - #1844, original: fireaxeflaming
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     quickEquip: false
     slots:
     - back
   - type: Tool
     qualities:
-      - Axing # DeltaV - The return of fireaxe prying
+    - Prying #DeltaV - Makes so it can only pry tiles, not plates. #1844
