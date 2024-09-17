@@ -69,9 +69,9 @@
     state: icon
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxe.rsi #DeltaV - #1844, original: fireaxeflaming
-  - type: Tool
-    qualities:
-      - Axing # DeltaV - The return of fireaxe prying
     quickEquip: false
     slots:
     - back
+  - type: Tool
+    qualities:
+      - Axing # DeltaV - The return of fireaxe prying
