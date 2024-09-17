@@ -1,0 +1,17 @@
+#Syndicate EVA
+- type: entity
+  parent: [ ClothingOuterEVASuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitRoboNeurotisist
+  name: robo-neuroticist softshell suit
+  description: "Dramatic cape, stylish collar, and packed to the gills with life support tech'"
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Suits/eva_roboneuroticist.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Suits/eva_roboneuroticist.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetRoboNeuroticist
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
