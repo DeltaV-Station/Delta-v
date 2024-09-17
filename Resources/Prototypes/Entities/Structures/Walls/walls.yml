@@ -659,7 +659,7 @@
     base: reinf_over
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: BaseWallDiagonal #DeltaV: Frontier Diagonal Walls port
   id: WallReinforcedDiagonal
   name: reinforced wall
   suffix: diagonal
@@ -1027,7 +1027,7 @@
     base: solid
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: BaseWallDiagonal #DeltaV: Frontier Diagonal Walls port
   id: WallSolidDiagonal
   name: solid wall
   suffix: diagonal
