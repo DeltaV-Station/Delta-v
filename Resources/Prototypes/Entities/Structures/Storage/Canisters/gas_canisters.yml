@@ -9,10 +9,10 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: _NF/Structures/Storage/canister.rsi # Frontier
+      sprite: Structures/Storage/canister.rsi
       noRot: true
       layers:
-        - state: air # Frontier
+        - state: grey
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -103,7 +103,7 @@
     - type: AccessReader
       access: [["Atmospherics"], ["Engineering"]] # DeltaV - removed research
     - type: Lock
-      locked: true
+      locked: false
 
 - type: entity
   parent: GasCanister
@@ -112,7 +112,7 @@
   components:
     - type: Sprite
       layers:
-        - state: storage # Frontier
+        - state: yellow
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -161,7 +161,7 @@
   components:
   - type: Sprite
     layers:
-      - state: air # Frontier
+      - state: grey
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -201,7 +201,7 @@
   components:
   - type: Sprite
     layers:
-      - state: oxygen # Frontier
+      - state: blue
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -238,40 +238,14 @@
   name: liquid oxygen canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid oxygen. It can be attached to connector ports using a wrench.
   components:
-  - type: Sprite
-    layers:
-      - state: oxygen_liquid # Frontier
   - type: GasCanister
     gasMixture:
       volume: 1000
       moles:
         - 18710.71051 # oxygen
       temperature: 72
-#  - type: AccessReader
-#    access: [["Atmospherics"]]
-  - type: Destructible # Frontier
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          LiquidOxygenCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
+  - type: AccessReader
+    access: [["Atmospherics"]]
 
 - type: entity
   parent: GasCanister
@@ -281,7 +255,7 @@
   components:
     - type: Sprite
       layers:
-        - state: nitrogen # Frontier
+        - state: red
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -319,9 +293,6 @@
   name: liquid nitrogen canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid nitrogen. It can be attached to connector ports using a wrench.
   components:
-  - type: Sprite
-    layers:
-      - state: nitrogen_liquid # Frontier
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -329,31 +300,8 @@
         - 0 # oxygen
         - 18710.71051 # nitrogen
       temperature: 72
-#  - type: AccessReader
-#    access: [["Atmospherics"]]
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          LiquidNitrogenCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
+  - type: AccessReader
+    access: [["Atmospherics"]]
 
 - type: entity
   parent: GasCanister
@@ -363,7 +311,7 @@
   components:
     - type: Sprite
       layers:
-        - state: carbon # Frontier
+        - state: black
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -395,8 +343,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
-#    - type: Lock
-#      locked: true
+    - type: Lock
+      locked: true
 
 - type: entity
   id: LiquidCarbonDioxideCanister
@@ -404,9 +352,6 @@
   name: liquid carbon dioxide canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid carbon dioxide. It can be attached to connector ports using a wrench.
   components:
-  - type: Sprite
-    layers:
-      - state: carbon_liquid # Frontier
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -415,31 +360,8 @@
         - 0 # nitrogen
         - 18710.71051 # CO2
       temperature: 72
-#  - type: AccessReader
-#    access: [["Atmospherics"]]
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          LiquidCarbonDioxideCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
+  - type: AccessReader
+    access: [["Atmospherics"]]
 
 - type: entity
   parent: GasCanister
@@ -449,7 +371,7 @@
   components:
     - type: Sprite
       layers:
-        - state: plasma # Frontier
+        - state: orange
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -482,8 +404,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
-#    - type: Lock
-#      locked: true
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -493,7 +415,7 @@
   components:
     - type: Sprite
       layers:
-        - state: tritium # Frontier
+        - state: green
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -527,8 +449,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
-#    - type: Lock
-#      locked: true
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -582,7 +504,7 @@
   components:
     - type: Sprite
       layers:
-        - state: ammonia # Frontier
+        - state: greenys
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -618,8 +540,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
-#    - type: Lock
-#      locked: true
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -629,7 +551,7 @@
   components:
     - type: Sprite
       layers:
-        - state: nitrous_oxide # Frontier
+        - state: redws
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -713,8 +635,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:DumpCanisterBehavior
-#  - type: Lock
-#    locked: true
+  - type: Lock
+    locked: true
 
 # Broke Entities
 
@@ -751,8 +673,8 @@
       damageModifierSet: Metallic
     - type: InteractionOutline
     - type: Sprite
-      sprite: _NF/Structures/Storage/canister.rsi # Frontier
-      state: air-1 # Frontier
+      sprite: Structures/Storage/canister.rsi
+      state: grey-1
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -777,8 +699,8 @@
   id: StorageCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: storage-1 # Frontier
+    - type: Sprite
+      state: yellow-1
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -786,7 +708,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: air-1 # Frontier
+    state: grey-1
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -794,39 +716,39 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: oxygen-1 # Frontier
+    state: blue-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: NitrogenCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: nitrogen-1 # Frontier
+    - type: Sprite
+      state: red-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: CarbonDioxideCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: carbon-1 # Frontier
+    - type: Sprite
+      state: black-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: PlasmaCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: plasma-1 # Frontier
+    - type: Sprite
+      state: orange-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: TritiumCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: tritium-1 # Frontier
+    - type: Sprite
+      state: green-1
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -834,24 +756,24 @@
   name: broken water vapor canister
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: water_vapor-1
+    - type: Sprite
+      state: water_vapor-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: AmmoniaCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: ammonia-1
+    - type: Sprite
+      state: greenys-1
 
 - type: entity
   parent: GasCanisterBrokenBase
   id: NitrousOxideCanisterBroken
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: nitrous_oxide-1 # Frontier
+    - type: Sprite
+      state: redws-1
 
 - type: entity
   parent: GasCanisterBrokenBase
