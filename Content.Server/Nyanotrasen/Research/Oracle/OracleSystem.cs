@@ -86,7 +86,7 @@ public sealed class OracleSystem : EntitySystem
             ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
 
         _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-            message, messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+            message, messageWrap, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
 
         if (component.LastDesiredPrototype != null)
         {
@@ -96,7 +96,7 @@ public sealed class OracleSystem : EntitySystem
                 ("message", message2));
 
             _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-                message2, messageWrap2, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                message2, messageWrap2, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
         }
     }
 

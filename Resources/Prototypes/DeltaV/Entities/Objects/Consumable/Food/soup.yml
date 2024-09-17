@@ -6,13 +6,13 @@
   components:
   - type: FlavorProfile
     flavors:
-      - egg
-      - salty
+    - egg
+    - salty
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
     layers:
-      - state: bowl
-      - state: scrambled-eggs
+    - state: bowl
+    - state: scrambled-eggs
   - type: SolutionContainerManager
     solutions:
       food:
@@ -24,12 +24,16 @@
           Quantity: 5
   - type: FoodSequenceElement
     entries:
-      burger:
-        name: food-sequence-burger-content-scrambled-eggs
-        sprite:
-          sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
-          state: scrambled-eggs
+      Burger: ScrambledEggs
+      Taco: ScrambledEggs
 # Tastes like eggs, butter and salt
+
+- type: foodSequenceElement
+  id: ScrambledEggs
+  name: food-sequence-content-scrambled-eggs
+  sprites:
+  - sprite: DeltaV/Objects/Consumable/Food/scrambledeggs.rsi
+    state: scrambled-eggs
 
 - type: entity
   name: blue tomato soup

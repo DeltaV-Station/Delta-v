@@ -125,7 +125,6 @@
   components:
   - type: ItemToggle
     onUse: false
-  - type: ItemTogglePointLight
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -272,6 +271,7 @@
     penSlot:
       startingItem: CrayonOrange # no pink crayon?!?
       # ^ Still unacceptable.
+      # ^ I would have to concur.
       ejectSound: /Audio/Items/bikehorn.ogg
       priority: -1
       whitelist:
@@ -303,6 +303,15 @@
         density: 5
         mask:
         - ItemMask
+
+- type: entity
+  parent: ClownPDA
+  id: VisitorClownPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-clown
 
 - type: entity
   parent: BasePDA
@@ -351,6 +360,15 @@
     accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    state: pda-chaplain
+
+- type: entity
+  parent: ChaplainPDA
+  id: VisitorChaplainPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
     state: pda-chaplain
 
 - type: entity
@@ -438,6 +456,15 @@
     state: pda-library
 
 - type: entity
+  parent: LibrarianPDA
+  id: VisitorLibrarianPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-library
+
+- type: entity
   parent: BasePDA
   id: LawyerPDA
   name: lawyer PDA
@@ -464,6 +491,15 @@
       - NewsReaderCartridge
       - CrimeAssistCartridge
       - SecWatchCartridge
+
+- type: entity
+  parent: LawyerPDA
+  id: VisitorLawyerPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-lawyer
 
 - type: entity
   parent: BasePDA
@@ -583,6 +619,15 @@
   - type: GuideHelp
     guides:
     - Medical Doctor
+
+- type: entity
+  parent: MedicalPDA
+  id: VisitorMedicalPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-medical
 
 - type: entity
   parent: BaseMedicalPDA
@@ -793,6 +838,15 @@
     program: 2
 
 - type: entity
+  parent: MusicianPDA
+  id: VisitorMusicianPDA
+  suffix: Visitor
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-musician
+
+- type: entity
   parent: BasePDA
   id: AtmosPDA
   name: atmospheric technician PDA # DeltaV - was "atmos PDA"
@@ -820,6 +874,16 @@
     borderColor: "#288e4d"
   - type: Icon
     state: pda-clear
+
+- type: entity
+  parent: ClearPDA
+  id: VisitorPDA
+  name: visitor PDA # DeltaV
+  description: If you hold onto this, it can be a fun souvenier when you get to... wherever you're going! # DeltaV
+  components:
+  - type: Pda
+    id: VisitorIDCard
+    state: pda-visitor # DeltaV - visitor pda sprite
 
 - type: entity
   parent: BasePDA
