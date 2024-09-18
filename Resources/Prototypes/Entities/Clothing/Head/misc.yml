@@ -153,6 +153,8 @@
   - type: PhysicalComposition #you can't just pass up some free plastic!
     materialComposition:
       Plastic: 100
+  - type: StaticPrice
+    price: 25
 
 - type: entity
   parent: ClothingHeadBase
@@ -166,11 +168,11 @@
     sprite: Clothing/Head/Misc/fancycrown.rsi
   - type: MobPrice
     price: 3000
-  - type: AddAccentClothing
-    accent: MobsterAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: MobsterAccent
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatCatEars
   name: cat ears
   description: "NYAH!"
@@ -182,8 +184,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: OwOAccent
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]
@@ -203,8 +205,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: OwOAccent
 
 - type: entity
   categories: [ Actions, HideSpawnMenu ]
@@ -226,8 +228,8 @@
     sprite: Clothing/Head/Hats/dogears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/dogears.rsi
-  - type: AddAccentClothing
-    accent: BarkAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: BarkAccent
 
 - type: entity
   parent: ClothingHeadBase

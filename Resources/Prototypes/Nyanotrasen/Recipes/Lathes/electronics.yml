@@ -1,37 +1,17 @@
 - type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
   id: MetempsychoticMachineCircuitboard
   result: MetempsychoticMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Gold: 100
 
 - type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
   id: ReverseEngineeringMachineCircuitboard
   result: ReverseEngineeringMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Gold: 100
 
 - type: latheRecipe
-  id: SalvageMagnetMachineCircuitboard
-  result: SalvageMagnetMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Gold: 100
-
-- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: CrewMonitoringComputerCircuitboard
   result: CrewMonitoringComputerCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
 
 - type: latheRecipe
   id: ClothingEyesHudMedical
@@ -44,10 +24,6 @@
     Plasma: 200
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: DeepFryerMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: DeepFryerMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900

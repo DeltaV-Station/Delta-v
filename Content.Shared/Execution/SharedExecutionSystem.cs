@@ -31,8 +31,6 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -116,6 +114,10 @@ public sealed class SharedExecutionSystem : EntitySystem
 
         // The victim must be incapacitated to be executed
         if (victim != attacker && _actionBlocker.CanInteract(victim, null))
+            return false;
+
+        // DeltaV: no suicide
+        if (victim == attacker)
             return false;
 
         // All checks passed

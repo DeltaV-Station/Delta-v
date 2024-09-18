@@ -3,6 +3,7 @@
   parent:
   - BaseMob
   - MobDamageable
+  - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
   id: BaseMobSpecies
@@ -134,6 +135,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
     - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
     - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
   - type: Body

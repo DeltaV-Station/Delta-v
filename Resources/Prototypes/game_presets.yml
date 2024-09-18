@@ -6,12 +6,33 @@
   showInVote: true # secret # DeltaV - Me when the survival. Used for periapsis.
   description: survival-description
   rules:
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    #- GameRuleMeteorScheduler # DeltaV: old meteor event
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
+
+- type: gamePreset
+  id: KesslerSyndrome
+  alias:
+    - kessler
+    - junk
+    - meteorhell
+  name: kessler-syndrome-title
+  showInVote: false # secret
+  description: kessler-syndrome-description
+  rules:
+    - KesslerSyndromeScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: AllAtOnce
+  alias:
+  - all
   name: all-at-once-title
   description: all-at-once-description
   showInVote: false
@@ -20,8 +41,36 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    #- GameRuleMeteorScheduler # DeltaV: old meteor event
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
+
+- type: gamePreset
+  id: AllerAtOnce
+  alias:
+  - allall
+  - aller
+  - badidea
+  - punishment
+  name: aller-at-once-title
+  description: aller-at-once-description
+  showInVote: false #Please god dont do this
+  rules:
+    - Nukeops
+    - Traitor
+    - Revolutionary
+    - Zombie
+    - BasicStationEventScheduler
+    - KesslerSyndromeScheduler
+    - MeteorSwarmMildScheduler
+    - MeteorSwarmScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Extended
@@ -33,7 +82,10 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Greenshift
@@ -41,11 +93,12 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true #4boring4vote # DeltaV - Enable greenshift in gamemode vote
   description: greenshift-description
   rules:
+  - SpaceTrafficControlFriendlyEventScheduler 
   - BasicRoundstartVariation
-  #- GameRuleMeteorScheduler # DeltaV: old meteor event
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Secret
@@ -67,6 +120,10 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -75,6 +132,10 @@
   name: secret-title
   showInVote: false #Admin Use
   description: secret-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler 
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Sandbox
@@ -91,6 +152,7 @@
   id: Traitor
   alias:
     - traitor
+    - tator
   name: traitor-title
   description: traitor-description
   showInVote: false
@@ -98,7 +160,10 @@
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Deathmatch
@@ -107,7 +172,7 @@
     - dm
   name: death-match-title
   description: death-match-description
-  #maxPlayers: 15
+  maxPlayers: 15
   showInVote: false # DeltaV - No.
   supportedMaps: DeathMatchMapPool
   rules:
@@ -124,7 +189,10 @@
     - Nukeops
     - SubGamemodesRule
     - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Revolutionary
@@ -139,7 +207,10 @@
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Zombie
@@ -155,4 +226,24 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
+
+- type: gamePreset
+  id: Zombieteors
+  alias:
+  - zombieteors
+  - zombombies
+  - meteombies
+  name: zombieteors-title
+  description: zombieteors-description
+  showInVote: false
+  rules:
+  - Zombie
+  - BasicStationEventScheduler
+  - KesslerSyndromeScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV

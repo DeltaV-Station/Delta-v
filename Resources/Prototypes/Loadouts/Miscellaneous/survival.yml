@@ -23,6 +23,7 @@
     - Harpy
     - Oni
     - Vulpkanin
+    - Rodentia
     # End DeltaV additions
 
 - type: loadoutEffectGroup
@@ -69,6 +70,26 @@
   storage:
     back:
     - BoxHugNitrogen
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxMime
+
+- type: loadout
+  id: EmergencyNitrogenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxMimeNitrogen
+
 
 # Engineering / Extended
 - type: loadout
