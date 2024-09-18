@@ -7,14 +7,11 @@ namespace Content.Server.DeltaV.Feroxi;
 public sealed partial class FeroxiDehydrateComponent : Component
 {
     [DataField]
-    [Access(Other = AccessPermissions.ReadExecute)]
-    public ProtoId<MetabolizerTypePrototype> HydratedMetabolizer;
+    public ProtoId<MetabolizerTypePrototype> HydratedMetabolizer = "Aquatic";
 
     [DataField]
-    [Access(Other = AccessPermissions.ReadExecute)]
-    public ProtoId<MetabolizerTypePrototype> DehydratedMetabolizer;
+    public ProtoId<MetabolizerTypePrototype> DehydratedMetabolizer = "AquaticDehydrated";
 
     [DataField]
-    [Access(Other = AccessPermissions.ReadWriteExecute)]
     public bool Dehydrated = false;
 }
