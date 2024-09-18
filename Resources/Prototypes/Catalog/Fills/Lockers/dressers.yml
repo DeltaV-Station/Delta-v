@@ -75,6 +75,8 @@
       - id: ClothingUniformJumpskirtHosFormal
       - id: ClothingUniformJumpsuitHosFormal
 #      - id: ClothingOuterWinterHoS # DeltaV - removed for incongruence
+      - id: ClothingOuterCoatStasecHoS # DeltaV - add winter coat
+      - id: ClothingOuterGreatcoatStasecHoS # DeltaV - add greatcoat
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -116,3 +118,5 @@
     contents:
       - id: ClothingHeadHatWarden
       - id: ClothingHeadHatBeretWarden
+      - id: ClothingOuterCoatStasecWarden # DeltaV - add winter coat
+      - id: ClothingOuterGreatcoatStasecWarden # DeltaV - add greatcoat
