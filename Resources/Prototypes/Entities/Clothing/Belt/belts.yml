@@ -462,9 +462,9 @@
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Storage
     whitelist:
       tags:
@@ -612,13 +612,13 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSecurityWebbing
-  name: security carrier
+  name: security chest rig # DeltaV - rename from "security carrier" due to already existing plate carrier
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Storage # Delta-V - Split Inventory
     grid:
     - 0,0,2,1
