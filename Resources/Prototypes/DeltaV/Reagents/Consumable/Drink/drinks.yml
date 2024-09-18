@@ -205,3 +205,19 @@
     Poison:
       effects:
       - !type:Jitter
+
+- type: reagent
+  id: DoubleIceCream
+  name: reagent-name-double-ice-cream
+  parent: BaseSoda
+  desc: reagent-desc-double-ice-cream
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: doubleicecream
+  color: "#a06f42"
+  metamorphicSprite:
+    sprite:  DeltaV/Objects/Consumable/Drinks/doubleicecreamglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  fizziness: 0.4
