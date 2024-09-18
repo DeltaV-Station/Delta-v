@@ -20,7 +20,7 @@
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
       - id: HoloprojectorSecurity
-#      - id: BookSpaceLaw # DeltaV - will uncomment when book is fixed
+      - id: BookSpaceLaw
       # Begin DeltaV additions
       - id: BoxPDAPrisoner
       - id: BoxEncryptionKeyPrisoner
@@ -54,7 +54,7 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
-#      - id: BookSpaceLaw # DeltaV - will uncomment when book is fixed
+      - id: BookSpaceLaw
       # Begin DeltaV additions
       - id: BoxPDAPrisoner
       - id: BoxEncryptionKeyPrisoner
@@ -94,7 +94,7 @@
         prob: 0.1
       - id: HoloprojectorSecurity
         prob: 0.6
-#      - id: BookSpaceLaw # DeltaV - will uncomment when book is fixed
+      - id: BookSpaceLaw
 #        prob: 0.5
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
