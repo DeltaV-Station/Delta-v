@@ -32,23 +32,8 @@ using Content.Shared.Whitelist;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Mind.Components;
-using Content.Server.NPC.HTN;
-using Content.Server.NPC;
-using Robust.Shared.Timing;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.CombatMode;
-using Content.Server.NPC.Systems;
-using Content.Shared.NPC.Components;
-using Content.Shared.NPC.Systems;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Movement.Components;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Cuffs.Components;
+using Robust.Shared.Player;
+using Content.Shared.StatusEffect;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -56,6 +41,7 @@ public sealed partial class RevenantSystem
 {
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
@@ -64,13 +50,11 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly HTNSystem _htnSystem = default!;
-    [Dependency] private readonly NPCSystem _npcSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _factionSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ItemToggleSystem _itemToggleSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+
+    [ValidatePrototypeId<StatusEffectPrototype>]
+    private const string RevenantEssenceRegen = "EssenceRegen";
 
     private void InitializeAbilities()
     {
@@ -84,6 +68,7 @@ public sealed partial class RevenantSystem
         SubscribeLocalEvent<RevenantComponent, RevenantMalfunctionActionEvent>(OnMalfunctionAction);
         SubscribeLocalEvent<RevenantComponent, RevenantBloodWritingEvent>(OnBloodWritingAction);
         SubscribeLocalEvent<RevenantComponent, RevenantAnimateEvent>(OnAnimateAction);
+        SubscribeLocalEvent<RevenantComponent, RevenantHauntActionEvent>(OnHauntAction);
     }
 
     private void OnInteract(EntityUid uid, RevenantComponent component, UserActivateInWorldEvent args)
@@ -241,6 +226,46 @@ public sealed partial class RevenantSystem
         _damage.TryChangeDamage(args.Args.Target, dspec, true, origin: uid);
 
         args.Handled = true;
+    }
+
+    private void OnHauntAction(EntityUid uid, RevenantComponent comp, RevenantHauntActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, comp, 0, comp.HauntDebuffs))
+            return;
+
+        args.Handled = true;
+
+        // This is probably not the right way to do this...
+        var witnesses = new HashSet<NetEntity>(Filter.PvsExcept(uid).RemoveWhere(player =>
+        {
+            if (player.AttachedEntity == null)
+                return true;
+
+            var ent = player.AttachedEntity.Value;
+
+            if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidAppearanceComponent>(ent) || HasComp<RevenantComponent>(ent))
+                return true;
+
+            var haunted = _interact.InRangeUnobstructed((uid, Transform(uid)), (ent, Transform(ent)), range: 0, collisionMask: CollisionGroup.Impassable);
+            Log.Debug($"{ent} haunted: {haunted}");
+            return !haunted;
+        }).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
+
+        // TODO: Maybe an eyeball icon above witnesses on the revenant's client
+
+        // TODO: Modify TryAddStatusEffect to add a premade instance of the component
+        if (witnesses.Count > 0 && _statusEffects.TryAddStatusEffect<RevenantRegenModifierComponent>(uid, RevenantEssenceRegen, comp.HauntEssenceRegenDuration, true))
+        {
+            _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
+            { {comp.StolenEssenceCurrencyPrototype, comp.HauntStolenEssencePerWitness * witnesses.Count} }, uid);
+
+            var regen = Comp<RevenantRegenModifierComponent>(uid);
+            regen.Witnesses = witnesses;
+            Dirty(uid, regen);
+        }
     }
 
     private void OnDefileAction(EntityUid uid, RevenantComponent component, RevenantDefileActionEvent args)
@@ -402,88 +427,12 @@ public sealed partial class RevenantSystem
         }
     }
 
-    public void AnimateObject(EntityUid target, TimeSpan? time = null, Entity<RevenantComponent>? revenant = null)
-    {
-        if (HasComp<MindContainerComponent>(target) || HasComp<HTNComponent>(target))
-            return;
-        
-        // TODO: Make animated handcuffs cuff people and then go inanimate
-        // Disabling them for now because it causes a ton of errors.
-        if (HasComp<HandcuffComponent>(target))
-            return;
-
-        if (revenant != null && !TryUseAbility(revenant.Value.Owner, revenant.Value.Comp, revenant.Value.Comp.AnimateCost, revenant.Value.Comp.AnimateDebuffs))
-            return;
-
-        if (HasComp<ItemToggleMeleeWeaponComponent>(target) && TryComp<ItemToggleComponent>(target, out var toggle))
-        {
-            // Turn on welders and stun prods
-            _itemToggleSystem.TryActivate((target, toggle));
-        }
-
-        var animate = EnsureComp<RevenantAnimatedComponent>(target);
-
-        EnsureComp<CombatModeComponent>(target);
-        if (!HasComp<MeleeWeaponComponent>(target))
-        {
-            var melee = AddComp<MeleeWeaponComponent>(target);
-            melee.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Blunt"), 5);
-            animate.AddedMelee = melee;
-        }
-
-        EnsureComp<MobStateComponent>(target);
-        EnsureComp<InputMoverComponent>(target);
-        var factions = EnsureComp<NpcFactionMemberComponent>(target);
-        _factionSystem.ClearFactions((target, factions));
-        _factionSystem.AddFaction((target, factions), "SimpleHostile");
-
-        var htn = EnsureComp<HTNComponent>(target);
-        if (TryComp<GunComponent>(target, out var gun))
-        {
-            if (TryComp<ChamberMagazineAmmoProviderComponent>(target, out var bolt))
-                _gunSystem.SetBoltClosed(target, bolt, true);
-            htn.RootTask = new HTNCompoundTask() { Task = "SimpleRangedHostileCompound" };
-        }
-        else
-            htn.RootTask = new HTNCompoundTask() { Task = "SimpleHostileCompound" };
-        htn.Blackboard.SetValue(NPCBlackboard.Owner, target);
-
-        _npcSystem.WakeNPC(target, htn);
-        _htnSystem.Replan(htn);
-
-        if (revenant != null)
-            Timer.Spawn(time ?? revenant.Value.Comp.AnimateTime, () =>
-            {
-                if (!animate.Deleted)
-                    InanimateTarget(target, animate);
-            });
-        else if (time != null)
-            Timer.Spawn(time.Value, () =>
-            {
-                if (!animate.Deleted)
-                    InanimateTarget(target, animate);
-            });
-    }
-
-    public void InanimateTarget(EntityUid target, RevenantAnimatedComponent? comp = null)
-    {
-        if (!target.Valid || !Resolve(target, ref comp))
-            return;
-
-        RemComp<HTNComponent>(target);
-        RemComp<MobStateComponent>(target);
-
-        if (comp.AddedMelee != null)
-            RemComp<MeleeWeaponComponent>(target);
-
-        RemComp<RevenantAnimatedComponent>(target);
-    }
-
     private void OnAnimateAction(EntityUid uid, RevenantComponent comp, RevenantAnimateEvent args)
     {
         if (args.Handled)
             return;
 
-        AnimateObject(args.Target, comp.AnimateTime, (uid, comp));
+        if (_revenantAnimated.CanAnimateObject(args.Target) && TryUseAbility(uid, comp, comp.AnimateCost, comp.AnimateDebuffs))
+            _revenantAnimated.TryAnimateObject(args.Target, comp.AnimateTime, (uid, comp));
     }
 }
