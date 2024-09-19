@@ -24,9 +24,9 @@ thief-backpack-category-chameleon-description =
 
 thief-backpack-category-tools-name = breacher kit
 thief-backpack-category-tools-description =
-    What's that sound? A lil' C4 knockin' at their door.
+    What's that sound? A few of stolen breachin' charges knockin' at their door.
     No obstacle can stop you!
-    Includes: Two C4, a multitool, remote signaller, jaws of life,
+    Includes: Two Breaching Charges, a multitool, remote signaller, jaws of life,
     advanced welder, engineering goggles, and insulated gloves.
 
 thief-backpack-category-chemistry-name = anatomy kit
