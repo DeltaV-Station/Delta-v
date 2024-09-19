@@ -56,14 +56,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: _NF/Structures/Walls/solid_reinforced_diagonal.rsi
+    sprite: _NF/Structures/Walls/reinforced_diagonal.rsi
     state: reinf0
   - type: IconSmooth
     mode: DiagonalNF
     key: walls
     base: reinf
   - type: Icon
-    sprite: _NF/Structures/Walls/solid_reinforced_diagonal.rsi
+    sprite: _NF/Structures/Walls/reinforced_diagonal.rsi
     state: reinf0
   - type: Fixtures
     fixtures:
