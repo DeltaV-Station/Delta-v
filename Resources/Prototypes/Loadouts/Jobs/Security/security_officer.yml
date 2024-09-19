@@ -94,6 +94,14 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecSenior
 
+- type: loadout # DeltaV
+  id: SeniorOfficerJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecSenior
+
 # Back
 - type: loadout
   id: SecurityBackpack
