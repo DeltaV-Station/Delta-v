@@ -1108,10 +1108,10 @@
   - StasecGreatcoatHoS # DeltaV
 
 - type: loadoutGroup # DeltaV
-  id: HeadOfSecurityShoes
+  id: HeadofSecurityShoes
   name: loadout-group-head-of-security-shoes
   loadouts:
-  - CombatBoots
+#  - CombatBoots # DeltaV - removed for standardisation of equipment
   - JackBoots # DeltaV
   - SecurityWinterBoots
   - HeadOfSecurityWinterBoots # DeltaV
@@ -1203,7 +1203,7 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-#  - SecurityWinterBoots # DeltaV - removed for incongruence
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
