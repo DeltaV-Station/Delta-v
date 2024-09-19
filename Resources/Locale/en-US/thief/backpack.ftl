@@ -26,7 +26,7 @@ thief-backpack-category-tools-name = breacher kit
 thief-backpack-category-tools-description =
     What's that sound? A few of stolen breachin' charges knockin' at their door.
     No obstacle can stop you!
-    Includes: Two Breaching Charges, a multitool, remote signaller, jaws of life,
+    Includes: Three Breaching Charges, a multitool, remote signaller, jaws of life,
     advanced welder, engineering goggles, and insulated gloves.
 
 thief-backpack-category-chemistry-name = anatomy kit
