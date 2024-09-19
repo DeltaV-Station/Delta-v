@@ -679,6 +679,21 @@
   - type: Icon
     sprite: _NF/Structures/Walls/reinforced_diagonal.rsi #DeltaV: Using Frontier sprites to go with the artstyle
     state: state0
+  - type: Fixtures #DeltaV - Merging the Frontier wall with the upstream wall and causing unneccessary YAML bloating of the file
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Occluder
+    enabled: false #End DeltaV modification
 
 # Riveting
 - type: entity
