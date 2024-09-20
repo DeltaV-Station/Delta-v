@@ -75,11 +75,6 @@
   - type: Projectile
     damage: {}
     deleteOnCollide: false
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 600.0
-    intensitySlope: 30
-    maxIntensity: 45
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
