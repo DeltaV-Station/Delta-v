@@ -78,7 +78,7 @@
   - ERTSecurity
   - ERTEngineer
   - DeathSquad
-  - StationAi
+  - StationAi # DeltaV - added for playtime trackers
   primary: false
   weight: 100
 
@@ -144,7 +144,7 @@
   - Borg
   - MedicalBorg # DeltaV - roundstart mediborg job
   - StationAi
-  primary: false
+  primary: false # DeltaV - removed from primary dept
 
 - type: department
   id: Specific
