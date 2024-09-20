@@ -23,6 +23,7 @@ thief-backpack-category-chameleon-description =
     Disguise as anyone and anything.
 
 thief-backpack-category-tools-name = breacher kit
+(Delta V: C4 replaced with breaching charges and description changed)
 thief-backpack-category-tools-description =
     What's that sound? A few stolen breachin' charges knockin' at their door. 
     No obstacle can stop you!
