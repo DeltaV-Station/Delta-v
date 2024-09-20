@@ -433,7 +433,7 @@ public abstract partial class SharedMoverController : VirtualController
         }
 
         // DeltaV - Don't play the sound if they have no shoes and the component
-        if (NoShoesSilentQuery.TryComp(uid, out var _) &
+        if (NoShoesSilentQuery.HasComp(uid) &
             !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
         {
             return false;
