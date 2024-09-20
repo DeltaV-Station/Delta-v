@@ -84,8 +84,8 @@
     containers:
       storagebase: !type:Container
         ents: []
-      katana: !type:ContainerSlot {}
-      wakizashi: !type:ContainerSlot {}
+      katanaslot: !type:ContainerSlot {}
+      wakizashislot: !type:ContainerSlot {}
   - type: Appearance
   - type: Tag
     tags:
