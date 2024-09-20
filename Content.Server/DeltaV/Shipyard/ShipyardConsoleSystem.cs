@@ -70,7 +70,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
     private void OnBalanceUpdated(Entity<ShipyardConsoleComponent> ent, ref BankBalanceUpdatedEvent args)
     {
-        if (!_ui.IsUiOpen(ent.Owner, ShipyardUiConsole.Key))
+        if (!_ui.IsUiOpen(ent.Owner, ShipyardConsoleUiKey.Key))
             return;
 
         UpdateUI(ent, args.Balance);
