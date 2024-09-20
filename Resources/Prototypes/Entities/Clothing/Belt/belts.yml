@@ -467,7 +467,7 @@
     sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: ItemSlots # DeltaV - add sidearm slot
     slots:
-      item:
+      holster:
         name: clothing-belt-sidearm
         whitelist:
           tags:
@@ -629,7 +629,7 @@
     sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: ItemSlots # DeltaV - add sidearm slot
     slots:
-      item:
+      holster:
         name: clothing-belt-sidearm
         whitelist:
           tags:
