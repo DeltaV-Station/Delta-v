@@ -10,15 +10,15 @@
   - type: Storage # DeltaV - add whitelist to first aid kits
     whitelist:
       tags:
-        - Brutepack
-        - Ointment
         - Bloodpack
+        - Brutepack
         - Gauze
+        - GasTank
+        - Ointment
         - PillCanister
         - Syringe
-        - BreathMask
-        - GasTank
       components:
+        - BreathMask
         - Hypospray
     maxItemSize: Small
     grid:
