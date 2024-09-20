@@ -74,6 +74,26 @@ public sealed partial class RevenantAnimateEvent : EntityTargetActionEvent
 {
 }
 
+[Serializable, NetSerializable]
+public sealed partial class RevenantHauntWitnessEvent : EntityEventArgs
+{
+    public HashSet<NetEntity> Witnesses = new();
+
+    public RevenantHauntWitnessEvent(HashSet<NetEntity> witnesses)
+    {
+        Witnesses = witnesses;
+    }
+
+    public RevenantHauntWitnessEvent() : this(new())
+    {
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ExorciseRevenantDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
 
 [NetSerializable, Serializable]
 public enum RevenantVisuals : byte
