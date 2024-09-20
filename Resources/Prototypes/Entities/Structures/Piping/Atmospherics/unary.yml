@@ -57,6 +57,7 @@
             Welded: { state: vent_welded }
             Lockout: { state: vent_lockout }
     - type: GasVentPump
+      underPressureLockoutThreshold: 30 # DeltaV - lower threshold
     - type: Construction
       graph: GasUnary
       node: ventpump
@@ -233,6 +234,7 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: StationAiWhitelist
     - type: Sprite
       granularLayersRendering: true
       layers:
@@ -277,6 +279,7 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: StationAiWhitelist
     - type: Sprite
       granularLayersRendering : true
       layers:

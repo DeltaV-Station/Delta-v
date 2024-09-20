@@ -9,7 +9,9 @@
       department: Epistemics # DeltaV - Epistemics Department replacing Science
       time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
-      time: 72000 # DeltaV - 20 hours
+      time: 72000 # DeltaV - 20 hours, was 40
+#   - !type:AgeRequirement - DeltaV - PR #1611 for context
+#     requiredAge: 20
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -23,6 +25,7 @@
   - ResearchDirector
   - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
   - Chapel # DeltaV - Chaplain is in Epistemics
+  - External # DeltaV - AI satellite access
   - Cryogenics
   special: # Nyanotrasen - Mystagogue can use the Bible
   - !type:AddComponentSpecial
@@ -42,3 +45,6 @@
     id: RnDPDA
     ears: ClothingHeadsetRD
     belt: BibleMystagogue # Nyanotrasen - Mystagogue book for their Ifrit
+  storage:
+    back:
+    - Flash

@@ -1,10 +1,10 @@
 using System.Linq;
-using Content.Server.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
@@ -29,6 +29,8 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
         int multiplier = Math.Max(1, (int) _glimmer.GetGlimmerTier() - (int) comp.GlimmerTier);
 
         var total = baseCount * multiplier;
+        if (comp.MaxSpawns is {} maxSpawns)
+            total = Math.Min(total, maxSpawns);
 
         Log.Info($"Spawning {total} of {comp.MobPrototype} from {ToPrettyString(uid):rule}");
         for (var i = 0; i < total; i++)

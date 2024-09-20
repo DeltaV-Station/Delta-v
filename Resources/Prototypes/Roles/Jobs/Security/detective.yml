@@ -17,7 +17,8 @@
   - Maintenance
   #- Service # Delta V: Access adjustments
   - Detective
-  - Cryogenics # Delta V: Access adjustments
+  - Cryogenics
+  - External
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -29,3 +30,8 @@
     id: DetectivePDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
+  storage:
+    back:
+    - Flash
+    - ForensicPad
+    - ForensicScanner

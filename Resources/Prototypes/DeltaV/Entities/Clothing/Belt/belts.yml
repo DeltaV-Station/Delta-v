@@ -39,22 +39,6 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltBase
-  id: ClothingBeltSuspendersBlack
-  name: suspenders
-  description: For holding your pants up.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/Belt/suspendersblack.rsi
-    state: icon
-  - type: Clothing
-    sprite: DeltaV/Clothing/Belt/suspendersblack.rsi
-    quickEquip: true
-  - type: Tag
-    tags:
-      - BeltSlotNotBelt
-
-- type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltCorpsmanWebbing
   name: corpsman webbing
@@ -64,3 +48,7 @@
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1

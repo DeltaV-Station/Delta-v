@@ -1,3 +1,4 @@
+#Spawner
 - type: entity
   parent: MarkerBase
   id: RandomItem
@@ -8,269 +9,520 @@
       - state: red
       - sprite: Objects/Fun/dice.rsi
         state: d20_20
-  - type: RandomSpawner
-    offset: 0
-    prototypes:
-      - RadioHandheld
-      - Mousetrap
-      - CigPackGreen
-      - CigPackRed
-      - CigPackBlue
-      - CigPackBlack
-      - PackPaperRolling
-      - Cigar
-      - SmokingPipe
-      - Present
-      - PresentTrash
-      - BikeHorn
-      - CrayonBox
-      - PercentileDie
-      - d20Dice
-      - d12Dice
-      - d10Dice
-      - d8Dice
-      - d6Dice
-      - d4Dice
-      - PartRodMetal1
-      - ShardGlass
-      - ShardGlassReinforced
-      - ShardGlassPlasma
-      - ShardGlassUranium
-      - MaterialCloth1
-      - MaterialDurathread1
-      - MaterialWoodPlank1
-      - MaterialCotton1
-      - MaterialCardboard1
-      - MaterialWebSilk1
-      - MaterialBones1
-      - SheetPlastic1
-      - SheetSteel1
-      - SheetGlass1
-      - SheetRGlass1
-      - BrbSign
-      - BriefcaseBrown
-      - Floodlight
-      - MonkeyCubeWrapped
-      - KoboldCubeWrapped
-      - SpaceCash
-      - SpaceCash10
-      - Torch
-      - SodiumLightTube
-      - ExteriorLightTube
-      - LedLightTube
-      - LightTube
-      - LightBulb
-      - BlueLightTube
-      - LightBulbMaintenance
-      - ColoredLightTubeRed
-      - ColoredLightTubeFrostyBlue
-      - ColoredLightTubeBlackLight
-      - LightBulbMaintenanceRed
-      - LightBulbBroken
-      - LightTubeBroken
-      - LedLightBulb
-      - LightBulbOld
-      - LightTubeOld
-      - ServiceLightBulb
-      - LightTubeCrystalCyan
-      - LightTubeCrystalBlue
-      - LightTubeCrystalPink
-      - LightTubeCrystalOrange
-      - LightTubeCrystalRed
-      - LightTubeCrystalGreen
-      - PowerCellPotato
-      - PowerCellSmallPrinted
-      - ChemistryEmptyBottle03
-      - LargeBeaker
-      - BaseChemistryEmptyVial
-      - Syringe
-      - Dropper
-      - BodyBagFolded
-      - SprayBottle
-      - SprayBottleWater
-      - SprayBottleSpaceCleaner
-      - WetFloorSign
-      - GroundCannabis
-      - GroundTobacco
-      - Bucket
-      - Flare
-      - GlowstickBase
-      - GlowstickRed
-      - GlowstickPurple
-      - GlowstickYellow
-      - GlowstickBlue
-      - HandLabeler
-      - Lantern
-      - CheapLighter
-      - trayScanner
-      - ClothingMaskGas
-      - ClothingMaskBreathMedical
-      - ClothingEyesHudBeer
-      - ClothingEyesGlassesMeson
-      - ClothingEyesGlasses
-      - ClothingEyesGlassesSunglasses
-      - ClothingEyesGlassesThermal
-      - ClothingEyesEyepatch
-      - ClothingEyesBlindfold
-      - ClothingHandsGlovesPowerglove
-      - ClothingHandsGlovesRobohands
-      - ClothingHandsGlovesFingerless
-      - ClothingNeckHeadphones
-      - ClothingOuterHoodieGrey
-      - ClothingOuterCardborg
-      - ClothingOuterPonchoClassic
-      - ClothingOuterPoncho
-      - ClothingOuterVest
-      - ClothingOuterCoatGentle
-      - ClothingOuterCoatJensen
-      - ClothingOuterCoatLab
-      - ClothingShoesFlippers
-      - ClothingShoesTourist
-      - ClothingUnderSocksBee
-      - ClothingUnderSocksCoder
-      - CarvedPumpkinSmall
-      - CarvedPumpkinLarge
-      - DartBlue
-      - DartPurple
-      - DartYellow
-      - CandleRed
-      - CandleBlue
-      - CandleBlack
-      - CandleGreen
-      - CandlePurple
-      - BlankHandyFlag
-      - LGBTQHandyFlag
-      - PirateHandyFlag
-      - Fork
-      - Spoon
-      - KnifePlastic
-      - FishLabeler
-      - SnapPop
-      - ShardCrystalRandom
-      - Coal1
-      - Salt1
-      - BarberScissors
-      - RagItem
-      - Plunger
-      - LightReplacerEmpty
-      - FlippoLighter
-      - RollingPin
-    chance: 0.75
-    rarePrototypes:
-      - CigCartonGreen
-      - CigCartonRed
-      - CigCartonBlue
-      - CigCartonBlack
-      - CigCartonPurple # DeltaV
-      - CigCartonCandy # DeltaV
-      - Joint
-      - Blunt
-      - CigarGold
-      - SmokingPipeFilledTobacco
-      - SmokingPipeFilledCannabis
-      - DiceBag
-      - PersonalAI
-      - PotatoAI
-      - PartRodMetal
-      - IngotSilver1
-      - CigarGold
-      - IngotGold1
-      - GoldOre1
-      - SilverOre1
-      - SteelOre1
-      - PlasmaOre1
-      - SpaceQuartz1
-      - UraniumOre1
-      - BananiumOre1
-      - SheetUranium1
-      - SheetPlasma1
-      - SheetPlasteel1
-      - SheetPGlass1
-      - SheetUGlass1
-      - MaterialSheetMeat1
-      - MaterialBiomass1
-      - MaterialBananium1
-      - MaterialBluespace1
-      - Cablecuffs
-      - Zipties
-      - MonkeyCubeBox
-      - KoboldCubeBox
-      - VariantCubeBox
-      - SpaceCash100
-      - PowerCellSmall
-      - PowerCellMediumPrinted
-      - WoodenBuckler
-      - MakeshiftShield
-      - WebShield
-      - DehydratedSpaceCarp
-      - RobustHarvestChemistryBottle
-      - UnstableMutagenChemistryBottle
-      - EphedrineChemistryBottle
-      - Syringe
-      - HandheldHealthAnalyzer
-      - Ointment
-      - Brutepack
-      - Gauze
-      - AloeCream
-      - StrangePill
-      - PillCanisterRandom
-      - Medkit
-      - MedkitBurn
-      - MedkitToxin
-      - MedkitO2
-      - MedkitBrute
-      - MedkitAdvanced
-      - MedkitRadiation
-      - MedkitCombat
-      - SawImprov
-      - Saw
-      - PlantBGoneSpray
-      - WeedSpray
-      - PestSpray
-      - HydroponicsToolScythe
-      - CableHVStack
-      - CableMVStack
-      - CableApcStack
-      - FlashlightSeclite
-      - HandheldGPSBasic
-      - JetpackBlue
-      - JetpackMini
-      - LanternFlash
-      - ToolboxArtistic
-      - Bola
-      - Gohei
-      - ClothingMaskPlague
-      - ClothingMaskGasExplorer
-      - ClothingHandsGlovesBoxingRed
-      - ClothingHandsGlovesBoxingBlue
-      - ClothingHandsGlovesBoxingGreen
-      - ClothingHandsGlovesBoxingYellow
-      - ClothingHandsGlovesNitrile
-      - ClothingOuterStraightjacket
-      - ClothingShoesGaloshes
-      - HypoDart
-      - MrChips
-      - MrDips
-      - ProximitySensor
-      - GeigerCounter
-      - DefaultStationBeaconUnanchored
-      - HandheldStationMap
-      - BananiumHorn
-      - SnapPopBox
-      - MaterialGunpowder
-      - ShardGlassClockwork
-      - EggSpider
-      - EvidenceMarkerThree
-      - EvidenceMarkerSeven
-      - EvidenceMarkerNine
-      - MothroachCube
-      - MouseCube
-      - CockroachCube
-      - SpaceTickCube
-      - GoatCube
-      - CowCube
-      - WeaponMeleeNeedle
-      - WhiteCane
-      - CleanerGrenade
-      - GrenadeDummy
-    rareChance: 0.05
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomItemTable
+      prob: 0.75
+
+#Tables
+- type: entityTable
+  id: RandomItemTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 20
+      children:
+      #General
+      - id: RadioHandheld
+      - id: Mousetrap
+      - id: Present
+      - id: PresentTrash
+      - id: BikeHorn
+      - id: CrayonBox
+      - id: BrbSign
+      - id: BriefcaseBrown
+      - id: Floodlight
+      - id: SpaceCash
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      - id: SpaceCash10
+        amount: !type:RangeNumberSelector
+          range: 1, 3
+      - id: Torch
+      - id: PowerCellPotato
+      - id: PowerCellSmallPrinted
+      - id: BodyBagFolded
+      - id: WetFloorSign
+      - id: ClothingHeadHatCone
+      - id: Bucket
+      - id: Flare
+      - id: HandLabeler
+      - id: Lantern
+      - id: CheapLighter
+      - id: trayScanner
+      - id: FishLabeler
+      - id: SnapPop
+        amount: !type:RangeNumberSelector
+          range: 1, 3
+      - id: BarberScissors
+      - id: RagItem
+      - id: Plunger
+      - id: LightReplacerEmpty
+      - id: FlippoLighter
+      - id: RollingPin
+      - id: CarvedPumpkinSmall
+      - id: CarvedPumpkinLarge
+      - id: Wristwatch
+      - id: BarSpoon
+      - id: DrinkShaker
+      - id: Envelope
+      #Smokes
+      - !type:GroupSelector
+        children:
+        - id: CigPackGreen
+        - id: CigPackRed
+        - id: CigPackBlue
+        - id: CigPackBlack
+        - id: CigPackPurple #Delta V
+        - id: CigPackCandy #Delta V
+        - id: PackPaperRolling
+        - id: Cigar
+        - id: SmokingPipe
+        - id: GroundCannabis
+          amount: !type:RangeNumberSelector
+            range: 1, 6
+        - id: GroundTobacco
+          amount: !type:RangeNumberSelector
+            range: 1, 6
+      #Dice
+      - !type:GroupSelector
+        children:
+        - id: PercentileDie
+        - id: d20Dice
+        - id: d12Dice
+        - id: d10Dice
+        - id: d8Dice
+        - id: d6Dice
+        - id: d4Dice
+      #Materials
+      - !type:GroupSelector
+        children:
+        - id: PartRodMetal1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialCloth1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialDurathread1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialWoodPlank1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialCotton1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialCardboard1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialWebSilk1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialBones1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetPlastic1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetSteel1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetGlass1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetRGlass1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: Coal1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: Salt1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+      #Shards
+      - !type:GroupSelector
+        children:
+        - id: ShardGlass
+        - id: ShardGlassReinforced
+        - id: ShardGlassPlasma
+        - id: ShardGlassUranium
+        - id: ShardCrystalRandom
+      #Cubes
+      - !type:GroupSelector
+        children:
+        - id: MonkeyCubeWrapped
+        - id: KoboldCubeWrapped
+      #Lights
+      - !type:GroupSelector
+        children:
+        - id: SodiumLightTube
+        - id: ExteriorLightTube
+        - id: LedLightTube
+        - id: LightTube
+        - id: LightBulb
+        - id: BlueLightTube
+        - id: LightBulbMaintenance
+        - id: ColoredLightTubeRed
+        - id: ColoredLightTubeFrostyBlue
+        - id: ColoredLightTubeBlackLight
+        - id: LightBulbMaintenanceRed
+        - id: LightBulbBroken
+        - id: LightTubeBroken
+        - id: LedLightBulb
+        - id: LightBulbOld
+        - id: LightTubeOld
+        - id: ServiceLightBulb
+        - id: LightTubeCrystalCyan
+        - id: LightTubeCrystalBlue
+        - id: LightTubeCrystalPink
+        - id: LightTubeCrystalOrange
+        - id: LightTubeCrystalRed
+        - id: LightTubeCrystalGreen
+      #Chemistry
+      - !type:GroupSelector
+        children:
+        #Bottles
+        - !type:GroupSelector
+          children:
+          - id: ChemistryEmptyBottle01
+          - id: ChemistryEmptyBottle02
+          - id: ChemistryEmptyBottle03
+          - id: ChemistryEmptyBottle04
+        - id: Beaker
+        - id: LargeBeaker
+        - id: BaseChemistryEmptyVial
+        - id: Syringe
+        - id: Dropper
+        - id: Jug
+      #Spray Bottles
+      - !type:GroupSelector
+        children:
+        - id: SprayBottle
+        - id: SprayBottleWater
+        - id: SprayBottleSpaceCleaner
+      #Glowsticks
+      - !type:GroupSelector
+        children:
+        - id: GlowstickBase
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: GlowstickRed
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: GlowstickPurple
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: GlowstickYellow
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: GlowstickBlue
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+      #Darts
+      - !type:GroupSelector
+        children:
+        - id: DartBlue
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: DartPurple
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: DartYellow
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+      #Candles
+      - !type:GroupSelector
+        children:
+        - id: CandleRed
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: CandleBlue
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: CandleBlack
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: CandleGreen
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: CandlePurple
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+      #Flags
+      - !type:GroupSelector
+        children:
+        - id: BlankHandyFlag
+        - id: LGBTQHandyFlag
+        - id: PirateHandyFlag
+      #Utensils
+      - !type:GroupSelector
+        children:
+        - id: Spoon
+        - id: Fork
+        - id: KnifePlastic
+        - id: PairedChopsticks
+      #Clothing
+      - !type:GroupSelector
+        children:
+        #Mask
+        - !type:GroupSelector
+          children:
+          - id: ClothingMaskGas
+          - id: ClothingMaskBreathMedical
+        #Eyes
+        - !type:GroupSelector
+          children:
+          - id: ClothingEyesHudBeer
+          - id: ClothingEyesGlassesMeson
+          - id: ClothingEyesGlasses
+          - id: ClothingEyesGlassesSunglasses
+          - id: ClothingEyesGlassesThermal
+          - id: ClothingEyesEyepatch
+          - id: ClothingEyesBlindfold
+        #Gloves
+        - !type:GroupSelector
+          children:
+          - id: ClothingHandsGlovesPowerglove
+          - id: ClothingHandsGlovesRobohands
+          - id: ClothingHandsGlovesFingerless
+        #Neck
+        - !type:GroupSelector
+          children:
+          - id: ClothingNeckHeadphones
+          - id: ClothingNeckStethoscope
+        #Outer
+        - !type:GroupSelector
+          children:
+          - id: ClothingOuterHoodieGrey
+          - id: ClothingOuterCardborg
+          - id: ClothingOuterPonchoClassic
+          - id: ClothingOuterPoncho
+          - id: ClothingOuterVest
+          - id: ClothingOuterCoatGentle
+          - id: ClothingOuterCoatJensen
+          - id: ClothingOuterCoatLab
+        #Feet
+        - !type:GroupSelector
+          children:
+          - id: ClothingShoesFlippers
+          - id: ClothingShoesTourist
+          - id: ClothingUnderSocksBee
+          - id: ClothingUnderSocksCoder
+    #Rare
+    - !type:GroupSelector
+      children:
+      #General
+      - id: DiceBag
+      - id: PersonalAI
+      - id: PotatoAI
+      - id: Cablecuffs
+      - id: Zipties
+      - id: SpaceCash100
+      - id: PowerCellSmall
+      - id: PowerCellMediumPrinted
+      - id: WhiteCane
+      - id: CleanerGrenade
+      - id: GrenadeDummy
+      - id: HydroponicsToolScythe
+      - id: FlashlightSeclite
+      - id: HandheldGPSBasic
+      - id: LanternFlash
+      - id: ToolboxArtistic
+      - id: ProximitySensor
+      - id: GeigerCounter
+      - id: DefaultStationBeaconUnanchored
+      - id: HandheldStationMap
+      - id: BananiumHorn
+      - id: SnapPopBox
+      - id: ShardGlassClockwork
+      - id: EggSpider
+      - id: PresentRandom
+      - id: ArabianLamp
+        weight: 0.01
+      #Smokes
+      - !type:GroupSelector
+        children:
+        - id: CigCartonGreen
+        - id: CigCartonRed
+        - id: CigCartonBlue
+        - id: CigCartonBlack
+        - id: CigCartonPurple # DeltaV
+        - id: CigCartonCandy # DeltaV
+        - id: Joint
+        - id: Blunt
+        - id: SmokingPipeFilledTobacco
+        - id: SmokingPipeFilledCannabis
+        - id: CigarGold
+          weight: 0.20
+      #Materials
+      - !type:GroupSelector
+        children:
+        - id: PartRodMetal
+        - id: IngotSilver1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: IngotGold1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: GoldOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SilverOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SteelOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: PlasmaOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SpaceQuartz1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: UraniumOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: BananiumOre1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetUranium1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetPlasma1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetPlasteel1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetPGlass1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: SheetUGlass1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialSheetMeat1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialBiomass1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialBananium1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialBluespace1
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+        - id: MaterialGunpowder
+          amount: !type:RangeNumberSelector
+            range: 1, 5
+      #Cubes
+      - !type:GroupSelector
+        children:
+        - id: MonkeyCubeBox
+        - id: KoboldCubeBox
+        - id: VariantCubeBox
+        - id: MothroachCube
+        - id: MouseCube
+        - id: CockroachCube
+        - id: SpaceTickCube
+        - id: GoatCube
+        - id: CowCube
+        - id: DehydratedSpaceCarp
+      #Medical
+      - !type:GroupSelector
+        children:
+        - id: HandheldHealthAnalyzer
+        - id: Ointment
+        - id: Brutepack
+        - id: Gauze
+        - id: AloeCream
+        - id: StrangePill
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: PillCanisterRandom
+        - id: Medkit
+        - id: MedkitBurn
+        - id: MedkitToxin
+        - id: MedkitO2
+        - id: MedkitBrute
+        - id: MedkitAdvanced
+        - id: MedkitRadiation
+        - id: MedkitCombat
+      #Weapoms
+      - !type:GroupSelector
+        children:
+        - id: WoodenBuckler
+        - id: MakeshiftShield
+        - id: WebShield
+        - id: SawImprov
+        - id: Saw
+        - id: Bola
+        - id: Gohei
+        - id: HypoDart
+        - id: WeaponMeleeNeedle
+      #Chems
+      - !type:GroupSelector
+        children:
+        - id: RobustHarvestChemistryBottle
+        - id: UnstableMutagenChemistryBottle
+        - id: EphedrineChemistryBottle
+        - id: PlantBGoneSpray
+        - id: WeedSpray
+        - id: PestSpray
+      #Cables
+      - !type:GroupSelector
+        children:
+        - id: CableHVStack
+        - id: CableMVStack
+        - id: CableApcStack
+      #Evidence Markers
+      - !type:GroupSelector
+        children:
+        - id: EvidenceMarkerThree
+        - id: EvidenceMarkerSeven
+        - id: EvidenceMarkerNine
+      #Jetpacks
+      - !type:GroupSelector
+        children:
+        - id: JetpackBlue
+        - id: JetpackMini
+      #Dolls
+      - !type:GroupSelector
+        children:
+        - id: MrChips
+        - id: MrDips
+      #Coins
+      - !type:GroupSelector
+        children:
+        - id: TreasureCoinIron
+        - id: TreasureCoinSilver
+        - id: TreasureCoinGold
+        - id: TreasureCoinAdamantine
+          weight: 0.20
+        - id: TreasureCoinDiamond
+          weight: 0.20
+      #Clothing
+      - !type:GroupSelector
+        children:
+        #Masks
+        - !type:GroupSelector
+          children:
+          - id: ClothingMaskPlague
+          - id: ClothingMaskGasExplorer
+        #Gloves
+        - !type:GroupSelector
+          children:
+          - id: ClothingHandsGlovesBoxingRed
+          - id: ClothingHandsGlovesBoxingBlue
+          - id: ClothingHandsGlovesBoxingGreen
+          - id: ClothingHandsGlovesBoxingYellow
+          - id: ClothingHandsGlovesNitrile
+        #Outer
+        - !type:GroupSelector
+          children:
+          - id: ClothingOuterStraightjacket
+        #Feet
+        - !type:GroupSelector
+          children:
+          - id: ClothingShoesGaloshes

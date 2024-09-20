@@ -84,6 +84,7 @@ entities:
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
+      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -1278,24 +1279,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.361864,-6.185007
       parent: 2
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
-  - uid: 957
+  - uid: 901
     components:
     - type: Transform
       pos: -4.5,-37.5
       parent: 2
-  - uid: 958
+  - uid: 957
     components:
     - type: Transform
       pos: -2.5,-37.5
       parent: 2
-  - uid: 959
+  - uid: 958
     components:
     - type: Transform
       pos: 3.5,-37.5
       parent: 2
-  - uid: 960
+  - uid: 959
     components:
     - type: Transform
       pos: 5.5,-37.5

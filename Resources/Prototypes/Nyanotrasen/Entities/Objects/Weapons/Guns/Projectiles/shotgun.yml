@@ -1,7 +1,7 @@
 - type: entity
   id: PelletShotgunSoulbreaker
   name: pellet (.50 soulbreaker)
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
   - type: Sprite
