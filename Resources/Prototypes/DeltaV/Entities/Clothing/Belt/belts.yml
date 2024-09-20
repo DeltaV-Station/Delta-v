@@ -67,4 +67,9 @@
           tags:
           - Medkit
     sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
   - type: Appearance

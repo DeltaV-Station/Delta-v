@@ -512,6 +512,11 @@
           tags:
           - Sidearm
     sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
   - type: Appearance
 
 - type: entity
@@ -646,6 +651,11 @@
           tags:
           - Sidearm
     sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
   - type: Appearance # DeltaV
 
 - type: entity

@@ -80,6 +80,12 @@
           tags:
           - Wakizashi
     sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      katana: !type:ContainerSlot {}
+      wakizashi: !type:ContainerSlot {}
   - type: Appearance
   - type: Tag
     tags:
@@ -120,4 +126,9 @@
   - type: Tag
     tags:
       - BeltSlotNotBelt
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
   - type: Appearance # DeltaV
