@@ -7,11 +7,12 @@
   id: ClothingOuterHardsuitPilotUltra
   name: Доспех ордена боевых кабанов
   description: Доспех который носит агент ОБК
+  suffix: ОБК
   components:
   - type: Sprite
-    sprite: Ebengrad/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
   - type: Clothing
-    sprite: Ebengrad/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -38,11 +39,12 @@
   id: ClothingOuterHardsuitPilotUltraAP
   name: Доспех апотекария ордена боевых кабанов
   description: Доспех который носит апотекарий ОБК
+  suffix: ОБК
   components:
   - type: Sprite
-    sprite: Ebengrad/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
   - type: Clothing
-    sprite: Ebengrad/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
