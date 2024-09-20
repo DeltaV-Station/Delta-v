@@ -48,9 +48,10 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Revenant
+    exorcismRequiresBibleUser: true # Escape hatch, change to false if revenant becomes too OP
+    grindingRequiresSalt: true # Escape hatch, change to false if revenant becomes too OP
     spawnOnDeathPrototype: EctoplasmRevenant # DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
     malfunctionWhitelist:
-      exorcismRequiresBibleUser: true # Escape hatch, change to false if revenant becomes too OP
       components:
       # emag lockers open
       - EntityStorage
