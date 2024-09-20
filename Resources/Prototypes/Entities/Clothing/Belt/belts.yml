@@ -504,8 +504,9 @@
           components:
           - Stunbaton
       gasgrenade:
-        tags:
-          - Grenade
+        whitelist:
+          tags:
+            - Grenade
       slp:
         whitelist:
           tags:
