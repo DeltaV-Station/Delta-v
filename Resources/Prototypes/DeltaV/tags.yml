@@ -7,6 +7,33 @@
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
+  id: BionicSyrinxImplant
+
+- type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
+  id: BorgSecurityArmour
+
+- type: Tag
+  id: BorgSecurityHead
+
+- type: Tag
+  id: BorgSecurityLArm
+
+- type: Tag
+  id: BorgSecurityLLeg
+
+- type: Tag
+  id: BorgSecurityRArm
+
+- type: Tag
+  id: BorgSecurityRLeg
+
+- type: Tag
+  id: BorgSecurityTorso
+
+- type: Tag
   id: BulletBB
 
 - type: Tag
@@ -31,10 +58,16 @@
   id: GasPipeHalf #Craftable Musket
 
 - type: Tag
+  id: Grenade
+
+- type: Tag
   id: HandLabeler
 
 - type: Tag
   id: HidesHarpyWings
+  
+- type: Tag
+  id: HudMedicalSecurity #Craftable Corpsman Glasses
 
 - type: Tag
   id: MagazinePistolSpecial # For the .38 special ammo and pistol
@@ -46,46 +79,25 @@
   id: ModularTrigger #Craftable Musket
 
 - type: Tag
-  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
-
-- type: Tag
-  id: SpeedLoaderSpecial
+  id: PaperSlip
 
 - type: Tag
   id: PreventLabel
 
 - type: Tag
-  id: BionicSyrinxImplant
-
-- type: Tag
-  id: PaperSlip
-  
-- type: Tag
-  id: HudMedicalSecurity #Craftable Corpsman Glasses
-
-- type: Tag
-  id: BorgModuleSecurity
-
-- type: Tag
-  id: BorgSecurityHead
-
-- type: Tag
-  id: BorgSecurityTorso
-
-- type: Tag
-  id: BorgSecurityRLeg
-
-- type: Tag
-  id: BorgSecurityLLeg
-
-- type: Tag
-  id: BorgSecurityRArm
-
-- type: Tag
-  id: BorgSecurityLArm
+  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
   id: Skirt
 
 - type: Tag
-  id: BorgSecurityArmour
+  id: SLP # Used for the self-loading pistols
+
+- type: Tag
+  id: SpeedLoaderSpecial
+
+- type: Tag
+  id: Universal # used for the mk32
+
+- type: Tag
+  id: Wakizashi

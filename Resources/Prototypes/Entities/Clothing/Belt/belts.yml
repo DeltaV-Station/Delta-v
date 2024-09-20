@@ -465,6 +465,14 @@
     sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      item:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
   - type: Storage
     whitelist:
       tags:
@@ -489,21 +497,20 @@
         - Whistle
         - HolosignProjector
         - BalloonPopper
-  - type: ItemMapper
+  - type: ItemMapper # DeltaV - adjust for DeltaV sprites.
     mapLayers:
-      flashbang:
-        whitelist:
-          components:
-          - FlashOnTrigger
-      stunbaton:
+      baton:
         whitelist:
           components:
           - Stunbaton
-      tear_gas_grenade:
+      gasgrenade:
+        tags:
+          - Grenade
+      slp:
         whitelist:
-          components:
-          - SmokeOnTrigger
-    sprite: Clothing/Belt/belt_overlay.rsi
+          tags:
+          - Sidearm
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
 - type: entity
@@ -619,10 +626,26 @@
     sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      item:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
   - type: Storage # Delta-V - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: ItemMapper # DeltaV - add holstered sidearm sprite
+    mapLayers:
+      slp:
+        whitelist:
+          tags:
+          - Sidearm
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: Appearance # DeltaV
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]

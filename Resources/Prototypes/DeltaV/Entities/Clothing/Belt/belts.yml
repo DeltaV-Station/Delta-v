@@ -48,7 +48,23 @@
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
+  - type: ItemSlots # add medkit slot
+    slots:
+      item:
+        name: clothing-belt-medkit
+        whitelist:
+          tags:
+          - Medkit
+        insertOnInteract: false # or you can't easily stow medkits in your rig.
   - type: Storage
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: ItemMapper # add stowed medkit sprite
+    mapLayers:
+      medkit:
+        whitelist:
+          tags:
+          - Medkit
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
