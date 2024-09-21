@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Cargo.Systems;
+using Content.Server.Interaction;
+using Content.Server.Mech.Equipment.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Systems; // DeltaV Heat Change system
@@ -9,6 +11,8 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Effects;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
