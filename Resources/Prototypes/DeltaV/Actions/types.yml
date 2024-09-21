@@ -34,3 +34,16 @@
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
     event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  id: ActionToggleMedSecHud
+  name: Toggle medsec hud mode
+  description: Switch between medical and security icons.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    useDelay: 30 # Prevent people from spamming it
+    icon:
+      sprite: Clothing/Eyes/Hud/medsec.rsi
+      state: icon
+    event: !type:ToggleMedSecHudEvent

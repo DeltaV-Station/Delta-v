@@ -152,7 +152,7 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband]
+  parent: [ClothingEyesBase, BaseSecurityCommandContraband]
   id: ClothingEyesHudMedSec
   name: medsec hud
   description: An eye display that looks like a mixture of medical and security huds.
@@ -167,6 +167,7 @@
   - type: Tag
     tags:
     - HudMedicalSecurity
+  - type: MedSecHud
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
