@@ -27,6 +27,15 @@
     snapCardinals: true
   - type: Climbable
   - type: Clickable
+  # Begin DeltaV additions: Sacraficing psionics
+  - type: SacraficialAltar
+  - type: Strap
+    position: Down
+    rotation: -90
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy
+  # End DeltaV additions
 
 - type: entity
   id: AltarNanotrasen
