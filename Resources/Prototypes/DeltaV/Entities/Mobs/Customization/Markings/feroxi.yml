@@ -1,2 +1,58 @@
-# All the Feroxi customization
-# TBD after sprites
+# Default
+- type: marking
+  id: FeroxiPlainEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Feroxi]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-plain-ears
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-inner-ears
+
+- type: marking
+  id: FeroxiPlainTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-plain-tail
+
+- type: marking
+  id: FeroxiPlainSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Feroxi/snout_markings.rsi
+    state: feroxi-plain-snout
+
+
+# Ears Markings
+- type: marking
+  id: FeroxiTipEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Feroxi]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-plain-ears
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-inner-ears
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-tips-ears
+
+- type: marking
+  id: FeroxiPlainFin
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Feroxi]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
+      state: feroxi-plain-fin
+
+
+
+# Tail markings
+
