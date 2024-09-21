@@ -152,10 +152,11 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, BaseSecurityCommandContraband]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseSecurityCommandContraband] # DeltaV - Switching between hud modes
   id: ClothingEyesHudMedSec
   name: medsec hud
-  description: An eye display that looks like a mixture of medical and security huds.
+  # DeltaV - Description tweaks.
+  description: An eye display that looks like a mixture of medical and security huds. The glass looks like it was hastily tinted with a black sharpie.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/medsec.rsi
@@ -167,7 +168,8 @@
   - type: Tag
     tags:
     - HudMedicalSecurity
-  - type: MedSecHud
+  - type: MedSecHud # DeltaV - Switching between hud modes
+  - type: FlashImmunity # DeltaV - Flash protection
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]

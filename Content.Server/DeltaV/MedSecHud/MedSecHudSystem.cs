@@ -42,22 +42,8 @@ namespace Content.Server.DeltaV.MedSecHud
         {
             if (component.MedicalMode)
             {
-                // We can't use EnsureComp<T> because the overlay doesn't update
-                // It sucks, I know
-                var healthBarsComponent = new ShowHealthBarsComponent
-                {
-                    DamageContainers = new List<string> { "Biological" },
-                };
-
-                _entities.AddComponent(uid, healthBarsComponent, true);
-
-                var healthIconsComponent = new ShowHealthIconsComponent
-                {
-                    DamageContainers = new List<string> { "Biological" },
-                };
-
-                _entities.AddComponent(uid, healthIconsComponent, true);
-
+                EnsureComp<ShowHealthBarsComponent>(uid);
+                EnsureComp<ShowHealthIconsComponent>(uid);
                 RemComp<ShowJobIconsComponent>(uid);
                 RemComp<ShowMindShieldIconsComponent>(uid);
                 RemComp<ShowCriminalRecordIconsComponent>(uid);

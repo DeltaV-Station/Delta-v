@@ -42,7 +42,7 @@
   components:
   - type: InstantAction
     itemIconStyle: BigAction
-    useDelay: 30 # Prevent people from spamming it
+    useDelay: 10 # Prevent people from spamming it
     icon:
       sprite: Clothing/Eyes/Hud/medsec.rsi
       state: icon
