@@ -30,7 +30,32 @@
     Plastic: 250
     Gold: 50
     
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityPeacekeeper
+  result: BorgModuleSecurityPeacekeeper
+
 - type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityPatrol
+  result: BorgModuleSecurityPatrol
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityBastion
+  result: BorgModuleSecurityBastion
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSecurityDeescalate
+  result: BorgModuleSecurityDeescalate
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSecurityEscalate
+  result: BorgModuleSecurityEscalate
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
   id: BorgModuleSecurityChase
   result: BorgModuleSecurityChase
   completetime: 3
@@ -41,56 +66,33 @@
     Plastic: 250
     Gold: 50
     
+
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: LeftArmBorgSecurity
   result: LeftArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: RightArmBorgSecurity
   result: RightArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: LeftLegBorgSecurity
   result: LeftLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: RightLegBorgSecurity
   result: RightLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: HeadBorgSecurity
   result: HeadBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: TorsoBorgSecurity
   result: TorsoBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100

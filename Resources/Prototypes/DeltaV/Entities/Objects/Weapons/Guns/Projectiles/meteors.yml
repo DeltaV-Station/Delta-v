@@ -38,3 +38,56 @@
         mask:
         - Impassable
         - BulletImpassable
+
+# this gets spawned by the meteor swarm rule if the target map has an atmosphere
+# since meteors dont make much sense
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MeteorGlacierDeltaV
+  name: meteor
+  description: This meteor is burning up like a in the atmosphere, like a... meteor.
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/meteor.rsi
+    scale: 0.5,0.5
+    layers:
+    - state: large
+      shader: unshaded
+  - type: PointLight
+    radius: 3
+    energy: 5
+    color: "#ff6622"
+  - type: AmbientSound
+    enabled: true
+    volume: 2
+    range: 14
+    sound:
+      path: /Audio/Items/Flare/flare_burn.ogg
+      params:
+        loop: true
+  - type: IgnitionSource
+    ignited: true
+    temperature: 500
+  - type: DeleteOnTrigger
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: Projectile
+    damage: {}
+    deleteOnCollide: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.8
+        density: 100
+        hard: true
+        # Didn't use MapGridComponent for now as the bounds are stuffed.
+        layer:
+        - LargeMobLayer
+        mask:
+        - Impassable
+        - BulletImpassable

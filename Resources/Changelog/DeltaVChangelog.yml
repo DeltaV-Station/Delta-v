@@ -1,122 +1,4 @@
 ﻿Entries:
-- author: VMSolidus
-  changes:
-  - message: Scrubs can no longer be obtained from the MediDrobe
-    type: Remove
-  - message: NT may have forgotten to check their MediDrobes for contraband
-    type: Add
-  - message: Eight different colors of scrubs and surgical caps can now be found in
-      medical scrub crates!
-    type: Add
-  - message: Scrubs can now spawn in one of 8 exciting new colors. Please report sightings
-      of a mysterious 9th color to management.(this needs to be mapped in)
-    type: Add
-  id: 52
-  time: '2023-10-08T22:09:33.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added six new lobby art.
-    type: Add
-  id: 53
-  time: '2023-10-09T17:35:35.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Added two new paintings.
-    type: Add
-  id: 54
-  time: '2023-10-10T03:42:19.0000000+00:00'
-- author: leonardo_dabepis
-  changes:
-  - message: Changed how the revenant looks.
-    type: Tweak
-  id: 55
-  time: '2023-10-10T03:48:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Holy water and bibles now deal Holy damage to unholy creatures.
-    type: Add
-  id: 56
-  time: '2023-10-10T03:55:34.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Skull Size
-    type: Tweak
-  id: 57
-  time: '2023-10-10T04:12:19.0000000+00:00'
-- author: TJohnson
-  changes:
-  - message: Added new vests to play to replace most of the Type I vests in organic
-      play.
-    type: Add
-  - message: Removed most of the Type I vests in organic play. Some might still crop
-      up, but don't count on it!
-    type: Remove
-  id: 58
-  time: '2023-10-10T04:43:44.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Station Holograph
-    type: Add
-  id: 59
-  time: '2023-10-11T00:00:46.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added shock collar, Mystagogue's bible and the fish labeler.
-    type: Add
-  id: 60
-  time: '2023-10-11T03:26:21.0000000+00:00'
-- author: Leonardo DaBepis
-  changes:
-  - message: Gave the Courier a new uniform and cap.
-    type: Tweak
-  id: 61
-  time: '2023-10-12T17:31:11.0000000+00:00'
-- author: rosieposieeee
-  changes:
-  - message: Added Paramedic airlocks.
-    type: Add
-  id: 62
-  time: '2023-10-13T16:40:09.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: 'Harpies have been added to the game as a new playable species! '
-    type: Add
-  id: 63
-  time: '2023-10-13T18:25:13.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Enhanced intrusion defenses have been deployed in electrical systems.
-    type: Add
-  id: 64
-  time: '2023-10-15T14:07:21.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: added mothamphetamine drink
-    type: Add
-  - message: changed "dulleavene" to "health violation"
-    type: Tweak
-  id: 65
-  time: '2023-10-16T23:25:27.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Moth coloration has been changed, existing characters might look slightly
-      weird
-    type: Tweak
-  id: 66
-  time: '2023-10-17T20:09:27.0000000+00:00'
-- author: Tex
-  changes:
-  - message: Added scrambled eggs.
-    type: Add
-  id: 67
-  time: '2023-10-18T21:07:50.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Certain roles require whitelist now. These being the captain, head of
-      security and nukie commander.
-    type: Add
-  id: 68
-  time: '2023-10-18T22:23:18.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Removed mediborgs as round start job.
@@ -3598,3 +3480,143 @@
   id: 551
   time: '2024-09-16T15:41:35.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1825
+- author: deltanedas
+  changes:
+  - message: Plant Bag of Holding is now much cheaper to make.
+    type: Tweak
+  id: 552
+  time: '2024-09-16T23:39:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1832
+- author: deltanedas
+  changes:
+  - message: The Uncloneable trait's failure message is clearer now.
+    type: Tweak
+  id: 553
+  time: '2024-09-17T03:49:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1840
+- author: deltanedas
+  changes:
+  - message: Made the random sentience event a glimmer event.
+    type: Tweak
+  - message: Fixed glimmer events never running.
+    type: Fix
+  id: 554
+  time: '2024-09-17T05:44:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1834
+- author: Beck Thompson
+  changes:
+  - message: The "Die a glorious death" objective is now limited to one traitor per
+      round maximum!
+    type: Tweak
+  id: 555
+  time: '2024-09-17T05:47:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1819
+- author: Fox
+  changes:
+  - message: New Lobby Track "Get It Done" by A-Guy
+    type: Add
+  id: 556
+  time: '2024-09-17T14:02:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1766
+- author: DisposableCrewmember42
+  changes:
+  - message: Shut the oracle up. Scientists may now research in peace.
+    type: Tweak
+  id: 557
+  time: '2024-09-17T14:09:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1786
+- author: deltanedas
+  changes:
+  - message: You no longer need a crowbar to pry powered firelocks open.
+    type: Tweak
+  id: 558
+  time: '2024-09-17T23:11:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1837
+- author: Adei, ErhardSteinhauer, Aikakakah
+  changes:
+  - message: Tweaked wooden tiles so they go with the rest of wood chairs / items
+      more.
+    type: Tweak
+  - message: Decals are now no longer offset by one pixel!
+    type: Tweak
+  - message: You can now build more secret doors.
+    type: Add
+  id: 559
+  time: '2024-09-18T05:11:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1842
+- author: Radezolid
+  changes:
+  - message: Nuclear operatives fire axe is no longer able to pry plating.
+    type: Fix
+  id: 560
+  time: '2024-09-18T08:57:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1844
+- author: dge21
+  changes:
+  - message: added a sweet new drink for the bar to serve
+    type: Add
+  id: 561
+  time: '2024-09-18T09:38:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1780
+- author: MilonPL
+  changes:
+  - message: Fixed rodentia not getting thirsty.
+    type: Fix
+  id: 562
+  time: '2024-09-19T08:39:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1864
+- author: MilonPL
+  changes:
+  - message: Fixed barefoot felinids making footsteps sounds.
+    type: Fix
+  id: 563
+  time: '2024-09-20T03:38:10.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1866
+- author: deltanedas
+  changes:
+  - message: Glacier's atmosphere now protects it from meteor storms.
+    type: Tweak
+  id: 564
+  time: '2024-09-20T13:23:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1872
+- author: Solaris7518
+  changes:
+  - message: The corrupted corgi will no longer terrorize the crew the moment the
+      round starts.
+    type: Remove
+  id: 565
+  time: '2024-09-20T14:02:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1867
+- author: TadJohnson00
+  changes:
+  - message: Removed tech anoms until we pull upstream fixes for superfast flicker.
+    type: Remove
+  id: 566
+  time: '2024-09-21T04:07:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1880
+- author: TadJohnson00
+  changes:
+  - message: Adjusts security loadouts and lockers. Notable changes include moving
+      detective clothing to the Rep and Autodrobes.
+    type: Tweak
+  - message: Advanced plate carriers have been added for the warden and head of security
+      and are located in their lockers.
+    type: Add
+  - message: Several security clothing items have been resprited, including winter
+      boots and winter clothes.
+    type: Tweak
+  id: 567
+  time: '2024-09-21T06:21:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1854
+- author: TadJohnson00
+  changes:
+  - message: Security and medical webbing now feature slots for sidearms and medkits
+      respectively.
+    type: Add
+  - message: Medkits now have a whitelist for stored items.
+    type: Tweak
+  - message: Security belts will now display stored items properly.
+    type: Fix
+  id: 568
+  time: '2024-09-21T06:28:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1870
