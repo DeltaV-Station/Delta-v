@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "drawn by Kilk, modified by TJohnson",
+  "license": "CC0-1.0",
+  "copyright": "Original work by TJohnson.",
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "equipped-FEET",
+      "name": "equipped-INNERCLOTHING",
       "directions": 4
     },
     {
@@ -20,6 +20,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "rolled-equipped-INNERCLOTHING",
       "directions": 4
     }
   ]

@@ -1076,12 +1076,16 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityJumpsuitGrey # DeltaV
+  - HeadofSecurityJumpskirtGrey # DeltaV
+  - HeadofSecurityJumpsuitBlue # DeltaV
+  - HeadofSecurityJumpskirtBlue # DeltaV
+#  - HeadofSecurityTurtleneck # DeltaV - removed for incongruence
+#  - HeadofSecurityTurtleneckSkirt # DeltaV - removed for incongruence
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
-  - HeadofSecurityParadeSuit
-  - HeadofSecurityParadeSkirt
+#  - HeadofSecurityParadeSuit # DeltaV - removed for incongruence
+#  - HeadofSecurityParadeSkirt # DeltaV - removed for incongruence
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1096,14 +1100,18 @@
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
-  - HeadofSecurityCoat
-  - HeadofSecurityWinterCoat
+#  - HeadofSecurityCoat # DeltaV - removed for incongruence
+#  - HeadofSecurityWinterCoat # DeltaV - removed for incongruence
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
+  - StasecWinterCoatHoS # DeltaV
+  - StasecGreatcoatHoS # DeltaV
 
 - type: loadoutGroup # DeltaV
-  id: HeadOfSecurityShoes
+  id: HeadofSecurityShoes
   name: loadout-group-head-of-security-shoes
   loadouts:
-  - CombatBoots
+#  - CombatBoots # DeltaV - removed for standardisation of equipment
   - JackBoots # DeltaV
   - SecurityWinterBoots
   - HeadOfSecurityWinterBoots # DeltaV
@@ -1122,13 +1130,21 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - WardenJumpsuitGrey # DeltaV
+  - WardenJumpskirtGrey # DeltaV
+  - WardenJumpsuitBlue # DeltaV
+  - WardenJumpskirtBlue # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-  - WardenCoat
-  - WardenArmoredWinterCoat
+#  - WardenCoat # DeltaV - removed for incongruence
+#  - WardenArmoredWinterCoat # DeltaV - removed for incongruence
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
+  - StasecWinterCoatWarden # DeltaV
+  - StasecGreatcoatWarden # DeltaV
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1137,8 +1153,8 @@
   loadouts:
   - SecurityHelmet
   - SecurityBeret
-  - SecurityHat
-  - MimeHead # DeltaV - Red Beret
+#  - SecurityHat # DeltaV - removed for incongruence
+#  - MimeHead # DeltaV - Red Beret | removed for incongruence
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1150,8 +1166,10 @@
   - SecurityJumpskirtGrey
   - SecurityJumpsuitBlue # DeltaV
   - SecurityJumpskirtBlue # DeltaV
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
+#  - SeniorOfficerJumpsuit # DeltaV - removed for incongruence
+#  - SeniorOfficerJumpskirt # DeltaV - removed for incongruence
+  - SeniorSecOfficerJumpsuit # DeltaV
+  - SeniorSecOfficerJumpskirt # DeltaV
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1172,11 +1190,14 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
-  - ArmorVest
+#  - ArmorVest # DeltaV - removed for incongruence
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
-  - ArmorVestSlim
-  - SecurityOfficerWintercoat
+#  - ArmorVestSlim - removed for incongruence
+#  - SecurityOfficerWintercoat - removed for incongruence
+  - StasecSweater # DeltaV
+  - StasecWinterCoat # DeltaV
+  - StasecGreatcoat # DeltaV
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1219,10 +1240,12 @@
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
   loadouts:
-  - DetectiveJumpsuit
-  - DetectiveJumpskirt
-  - NoirJumpsuit
-  - NoirJumpskirt
+#  - DetectiveJumpsuit # DeltaV - removed for incongruence
+#  - DetectiveJumpskirt # DeltaV - removed for incongruence
+#  - NoirJumpsuit # DeltaV - removed for incongruence
+#  - NoirJumpskirt # DeltaV - removed for incongruence
+  - ForensicSpecJumpsuit # DeltaV
+  - ForensicSpecJumpskirt # DeltaV
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1249,12 +1272,12 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
 
-- type: loadoutGroup
-  id: SecurityStar
-  name: loadout-group-security-star
-  minLimit: 0
-  loadouts:
-  - SecStar
+#- type: loadoutGroup # DeltaV - removed for incongruence
+#  id: SecurityStar
+#  name: loadout-group-security-star
+#  minLimit: 0
+#  loadouts:
+#  - SecStar
 
 # Medical
 - type: loadoutGroup
