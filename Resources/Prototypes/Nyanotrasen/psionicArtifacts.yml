@@ -4,8 +4,8 @@
   table: !type:AllSelector
     children:
     - id: MaterialBluespace1
-      amount:
-        range: 1,4
+      amount: !type:RangeNumberSelector
+        range: 1, 4
     - !type:NestedSelector
       tableId: PsionicArtifacts
       prob: 0.5
