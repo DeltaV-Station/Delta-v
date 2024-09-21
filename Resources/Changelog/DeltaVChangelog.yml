@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Tex
-  changes:
-  - message: Added scrambled eggs.
-    type: Add
-  id: 67
-  time: '2023-10-18T21:07:50.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Certain roles require whitelist now. These being the captain, head of
@@ -3607,3 +3601,17 @@
   id: 566
   time: '2024-09-21T04:07:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1880
+- author: TadJohnson00
+  changes:
+  - message: Adjusts security loadouts and lockers. Notable changes include moving
+      detective clothing to the Rep and Autodrobes.
+    type: Tweak
+  - message: Advanced plate carriers have been added for the warden and head of security
+      and are located in their lockers.
+    type: Add
+  - message: Several security clothing items have been resprited, including winter
+      boots and winter clothes.
+    type: Tweak
+  id: 567
+  time: '2024-09-21T06:21:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1854
