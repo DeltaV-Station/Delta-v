@@ -41,11 +41,23 @@
     state: scar_top_surgery_long
 
 - type: marking
-  id: ScarChest
+  id: ScarChestMale
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] #Einstein Engines - Felinid, Oni
+  sexRestriction: [Male]
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
-    state: scar_chest
+    state: scar_chest_male
+
+- type: marking
+  id: ScarChestFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] #Einstein Engines - Felinid, Oni
+  sexRestriction: [Female]
+  followSkinColor: true
+  sprites:
+  - sprite: Mobs/Customization/scars.rsi
+    state: scar_chest_female
