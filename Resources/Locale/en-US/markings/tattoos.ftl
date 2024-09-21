@@ -1,8 +1,14 @@
-marking-TattooHiveChest-tattoo_hive_chest = Back Tattoo (Hive)
-marking-TattooHiveChest = Back Tattoo (Hive)
+marking-TattooHiveChestMale-tattoo_hive_chest_male = Back Tattoo (Hive)
+marking-TattooHiveChestMale = Back Tattoo (Hive)
 
-marking-TattooNightlingChest-tattoo_nightling = Chest Tattoo (nightling)
-marking-TattooNightlingChest = Chest Tattoo (Nightling)
+marking-TattooHiveChestFemale-tattoo_hive_chest_female = Back Tattoo (Hive)
+marking-TattooHiveChestFemale = Back Tattoo (Hive)
+
+marking-TattooNightlingChestMale-tattoo_nightling_male = Chest Tattoo (Nightling)
+marking-TattooNightlingChestMale = Chest Tattoo (Nightling)
+
+marking-TattooNightlingChestFemale-tattoo_nightling_female = Chest Tattoo (Nightling)
+marking-TattooNightlingChestFemale = Chest Tattoo (Nightling)
 
 marking-TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg = Left Leg Tattoo (Silverburg)
 marking-TattooSilverburghLeftLeg = Left Leg Tattoo (Silverburg)
