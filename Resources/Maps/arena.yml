@@ -530,8 +530,8 @@ entities:
     - type: Broadphase
     - type: Physics
       bodyStatus: InAir
-      angularDamping: 0.05
-      linearDamping: 0.05
+      angularDamping: 10000
+      linearDamping: 10000
       fixedRotation: False
       bodyType: Dynamic
     - type: Fixtures
@@ -152187,14 +152187,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-87.5
-      parent: 6747
-- proto: SignGravity
-  entities:
-  - uid: 28096
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 74.5,11.5
       parent: 6747
 - proto: SignHydro1
   entities:
