@@ -666,9 +666,14 @@
     equippedPrefix: mouse
     slots:
     - HEAD
-  - type: Damageable # DeltaV - let them be damaged, but they are indestructible
-    damageContainer: Inorganic
-  - type: NpcFactionMember # DeltaV - make cats play with mouse toys
+  # Begin DeltaV additions: make cats attack mouse toys to play with them
+  - type: Damageable
+    damageContainer: Inorganic # not actually destructible, just lets it be attacked
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive # always be considered alive
+  - type: NpcFactionMember
     factions:
     - Mouse
 
