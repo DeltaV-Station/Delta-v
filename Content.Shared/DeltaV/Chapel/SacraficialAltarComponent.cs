@@ -4,6 +4,7 @@ using Content.Shared.EntityTable;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.Chapel;
 
@@ -42,4 +43,5 @@ public sealed partial class SacraficialAltarComponent : Component
     public ProtoId<EntityTablePrototype> RewardPool = "PsionicSacraficeRewards";
 }
 
+[Serializable, NetSerializable]
 public sealed partial class SacraficeDoAfterEvent : SimpleDoAfterEvent;

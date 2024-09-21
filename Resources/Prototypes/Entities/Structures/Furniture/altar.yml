@@ -25,7 +25,7 @@
         - TableLayer
   - type: Sprite
     snapCardinals: true
-  - type: Climbable
+  #- type: Climbable # DeltaV: remove climbable since it conflicts with strap
   - type: Clickable
   # Begin DeltaV additions: Sacraficing psionics
   - type: SacraficialAltar
