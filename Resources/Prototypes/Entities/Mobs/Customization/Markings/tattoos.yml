@@ -1,8 +1,9 @@
 - type: marking
-  id: TattooHiveChest
+  id: TattooHiveChestMale
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Male]
   coloring:
     default:
       type:
@@ -10,13 +11,14 @@
       fallbackColor: "#666666"
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_hive_chest
+    state: tattoo_hive_chest_male
 
 - type: marking
-  id: TattooNightlingChest
+  id: TattooHiveChestFemale
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Female]
   coloring:
     default:
       type:
@@ -24,7 +26,37 @@
       fallbackColor: "#666666"
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_nightling
+    state: tattoo_hive_chest_female
+
+- type: marking
+  id: TattooNightlingChestMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Male]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_nightling_male
+
+- type: marking
+  id: TattooNightlingChestFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_nightling_female
 
 - type: marking
   id: TattooSilverburghLeftLeg
