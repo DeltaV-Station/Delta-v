@@ -666,6 +666,11 @@
     equippedPrefix: mouse
     slots:
     - HEAD
+  - type: Damageable # DeltaV - let them be damaged, but they are indestructible
+    damageContainer: Inorganic
+  - type: NpcFactionMember # DeltaV - make cats play with mouse toys
+    factions:
+    - Mouse
 
 - type: entity
   parent: BasePlushie

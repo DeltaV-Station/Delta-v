@@ -2808,6 +2808,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: HTN # DeltaV - make all cats eat mice
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
+    factions:
+    - Cat
 
 - type: entity
   name: calico cat
