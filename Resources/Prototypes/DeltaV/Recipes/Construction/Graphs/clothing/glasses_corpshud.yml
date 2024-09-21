@@ -12,10 +12,10 @@
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
-            - tag: HudMedicalSecurity
-              name: medsec hud
+            - tag: HudSecurity
+              name: sec hud
               icon:
-                sprite: Clothing/Eyes/Hud/medsec.rsi
+                sprite: Clothing/Eyes/Hud/sec.rsi
                 state: icon
               doAfter: 5
             - material: Cable
