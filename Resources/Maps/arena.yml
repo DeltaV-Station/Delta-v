@@ -131074,7 +131074,7 @@ entities:
           name: null
           reagents:
           - data: null
-            ReagentId: Codeine
+            ReagentId: Pax
             Quantity: 15
     - type: Physics
       canCollide: False
@@ -152532,14 +152532,14 @@ entities:
   - uid: 2988
     components:
     - type: MetaData
-      name: Arena SMES
+      name: SMES (arena)
     - type: Transform
       pos: -43.5,-20.5
       parent: 6747
   - uid: 4017
     components:
     - type: MetaData
-      name: Vault SMES
+      name: SMES (vault)
     - type: Transform
       pos: -34.5,-48.5
       parent: 6747
@@ -152551,35 +152551,35 @@ entities:
   - uid: 11543
     components:
     - type: MetaData
-      name: Backup Medical SMES
+      name: SMES (backup medical)
     - type: Transform
       pos: 5.5,-15.5
       parent: 6747
   - uid: 13445
     components:
     - type: MetaData
-      name: Main SMES 1
+      name: SMES (Main 1)
     - type: Transform
       pos: 59.5,23.5
       parent: 6747
   - uid: 13446
     components:
     - type: MetaData
-      name: Main SMES 2
+      name: SMES (Main 2)
     - type: Transform
       pos: 59.5,22.5
       parent: 6747
   - uid: 19093
     components:
     - type: MetaData
-      name: North Solars SMES
+      name: SMES (north solars)
     - type: Transform
       pos: 32.5,46.5
       parent: 6747
   - uid: 23047
     components:
     - type: MetaData
-      name: West Solars SMES
+      name: SMES (west solars)
     - type: Transform
       pos: -54.5,-23.5
       parent: 6747
@@ -152588,35 +152588,35 @@ entities:
   - uid: 5252
     components:
     - type: MetaData
-      name: South Solars 2 SMES
+      name: SMES (south solars 2)
     - type: Transform
       pos: 16.5,-76.5
       parent: 6747
   - uid: 8516
     components:
     - type: MetaData
-      name: Main SMES 4
+      name: SMES (Main 4)
     - type: Transform
       pos: 59.5,15.5
       parent: 6747
   - uid: 10387
     components:
     - type: MetaData
-      name: South Solars 1 SMES
+      name: SMES (south solars 1)
     - type: Transform
       pos: 15.5,-76.5
       parent: 6747
   - uid: 11586
     components:
     - type: MetaData
-      name: Main SMES 3
+      name: SMES (Main 3)
     - type: Transform
       pos: 59.5,16.5
       parent: 6747
   - uid: 24017
     components:
     - type: MetaData
-      name: East Solars SMES
+      name: SMES (east solars)
     - type: Transform
       pos: 75.5,18.5
       parent: 6747
@@ -155249,126 +155249,126 @@ entities:
   - uid: 2949
     components:
     - type: MetaData
-      name: West Maintenance/South Hall substation
+      name: substation (west maintenance/south hall)
     - type: Transform
       pos: -42.5,-16.5
       parent: 6747
   - uid: 3015
     components:
     - type: MetaData
-      name: Arena Backup substation
+      name: substation (arena backup)
     - type: Transform
       pos: -42.5,-20.5
       parent: 6747
   - uid: 4018
     components:
     - type: MetaData
-      name: Vault substation
+      name: substation (vault)
     - type: Transform
       pos: -33.5,-48.5
       parent: 6747
   - uid: 5249
     components:
     - type: MetaData
-      name: Epistemics/South Solars substation
+      name: substation (epistemics/south solars)
     - type: Transform
       pos: 19.5,-76.5
       parent: 6747
   - uid: 5329
     components:
     - type: MetaData
-      name: Arrivals substation
+      name: substation (arrivals)
     - type: Transform
       pos: 55.5,-33.5
       parent: 6747
   - uid: 5361
     components:
     - type: MetaData
-      name: South Maints/Service substation
+      name: substation (south maints/service)
     - type: Transform
       pos: -49.5,-42.5
       parent: 6747
   - uid: 8053
     components:
     - type: MetaData
-      name: Engineering substation
+      name: substation (engineering)
     - type: Transform
       pos: 57.5,15.5
       parent: 6747
   - uid: 10385
     components:
     - type: MetaData
-      name: Janitor substation
+      name: substation (janitor)
     - type: Transform
       pos: 58.5,-15.5
       parent: 6747
   - uid: 10386
     components:
     - type: MetaData
-      name: Dorms substation
+      name: substation (dorms)
     - type: Transform
       pos: 58.5,-17.5
       parent: 6747
   - uid: 11376
     components:
     - type: MetaData
-      name: South Maintenace/EVAC substation
+      name: substation (south maintenace/EVAC)
     - type: Transform
       pos: 53.5,-39.5
       parent: 6747
   - uid: 11544
     components:
     - type: MetaData
-      name: Security substation
+      name: substation (security)
     - type: Transform
       pos: 5.5,-12.5
       parent: 6747
   - uid: 11545
     components:
     - type: MetaData
-      name: Medical substation
+      name: substation (medical)
     - type: Transform
       pos: 7.5,-12.5
       parent: 6747
   - uid: 15884
     components:
     - type: MetaData
-      name: Bridge substation
+      name: substation (bridge)
     - type: Transform
       pos: -27.5,-44.5
       parent: 6747
   - uid: 17174
     components:
     - type: MetaData
-      name: North Hall/Maints substation
+      name: substation (north hall/maints)
     - type: Transform
       pos: 12.5,4.5
       parent: 6747
   - uid: 18239
     components:
     - type: MetaData
-      name: HoP substation
+      name: substation (HOP office)
     - type: Transform
       pos: 55.5,-35.5
       parent: 6747
   - uid: 22652
     components:
     - type: MetaData
-      name: Logistics substation
+      name: substation (logistics)
     - type: Transform
       pos: 33.5,37.5
       parent: 6747
   - uid: 26196
     components:
     - type: MetaData
-      name: Atmos substation
+      name: substation (atmos)
     - type: Transform
       pos: 57.5,23.5
       parent: 6747
   - uid: 26500
     components:
     - type: MetaData
-      name: Gravity and Telecomms substation
+      name: substation (gravity generator/telecomms)
     - type: Transform
       pos: 64.5,9.5
       parent: 6747
