@@ -37,7 +37,6 @@ namespace Content.Server.StationRecords.Systems;
 public sealed class StationRecordsSystem : SharedStationRecordsSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!; // DeltaV
     [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
@@ -155,6 +154,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         Entity<IdCardComponent>? card = null;
         if (idUid != null && _idCard.TryFindIdCard(idUid.Value, out var card2))
             card = card2;
+
         var record = new GeneralStationRecord()
         {
             Name = name,
