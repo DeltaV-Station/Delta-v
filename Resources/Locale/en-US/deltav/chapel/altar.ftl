@@ -1,5 +1,5 @@
-altar-examine = [color=purple]This altar can be used to sacrafice Psionics.[/color]
-altar-sacrafice-verb = Sacrafice
+altar-examine = [color=purple]This altar can be used to sacrifice Psionics.[/color]
+altar-sacrifice-verb = Sacrifice
 
 altar-failure-reason-self = You can't sacrifice yourself!
 altar-failure-reason-user = You are not psionic or clerically trained!
@@ -8,4 +8,4 @@ altar-failure-reason-target = {CAPITALIZE(THE($target))} {CONJUGATE-BE($target)}
 altar-failure-reason-target-humanoid = {CAPITALIZE(THE($target))} {CONJUGATE-BE($target)} not a humanoid!
 altar-failure-reason-target-catatonic = {CAPITALIZE(THE($target))} {CONJUGATE-BE($target)} braindead!
 
-altar-sacrafice-popup = {$user} starts to sacrafice {$target}!
+altar-sacrifice-popup = {$user} starts to sacrifice {$target}!

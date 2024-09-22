@@ -19,7 +19,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.DeltaV.Chapel;
 
-public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
+public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
 {
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
@@ -35,12 +35,12 @@ public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SacraficialAltarComponent, SacraficeDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<SacrificialAltarComponent, SacrificeDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnDoAfter(Entity<SacraficialAltarComponent> ent, ref SacraficeDoAfterEvent args)
+    private void OnDoAfter(Entity<SacrificialAltarComponent> ent, ref SacrificeDoAfterEvent args)
     {
-        ent.Comp.SacraficeStream = _audio.Stop(ent.Comp.SacraficeStream);
+        ent.Comp.SacrificeStream = _audio.Stop(ent.Comp.SacrificeStream);
         ent.Comp.DoAfter = null;
 
         var user = args.Args.User;
@@ -55,7 +55,7 @@ public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
         if (!HasComp<PsionicComponent>(target))
             return;
 
-        _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(user):player} sacraficed {ToPrettyString(target):target} on {ToPrettyString(ent):altar}");
+        _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(user):player} sacrificed {ToPrettyString(target):target} on {ToPrettyString(ent):altar}");
 
         // lower glimmer by a random amount
         _glimmer.Glimmer -= ent.Comp.GlimmerReduction.Next(_random);
@@ -77,12 +77,12 @@ public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
             QueueDel(target);
     }
 
-    protected override void AttemptSacrafice(Entity<SacraficialAltarComponent> ent, EntityUid user, EntityUid target)
+    protected override void AttemptSacrifice(Entity<SacrificialAltarComponent> ent, EntityUid user, EntityUid target)
     {
         if (ent.Comp.DoAfter != null)
             return;
 
-        // can't sacrafice yourself
+        // can't sacrifice yourself
         if (user == target)
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-self"), ent, user, PopupType.SmallCaution);
@@ -104,7 +104,7 @@ public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
         }
 
         // prevent psichecking SSD people...
-        // notably there is no check in OnDoAfter so you can't alt f4 to survive being sacraficed
+        // notably there is no check in OnDoAfter so you can't alt f4 to survive being sacrificed
         if (!HasComp<ActorComponent>(target) || _mind.GetMind(target) == null)
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-target-catatonic", ("target", target)), ent, user, PopupType.SmallCaution);
@@ -124,12 +124,12 @@ public sealed class SacraficialAltarSystem : SharedSacraficialAltarSystem
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("altar-sacrafice-popup", ("user", user), ("target", target)), ent, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("altar-sacrifice-popup", ("user", user), ("target", target)), ent, PopupType.LargeCaution);
 
-        ent.Comp.SacraficeStream = _audio.PlayPvs(ent.Comp.SacraficeSound, ent)?.Entity;
+        ent.Comp.SacrificeStream = _audio.PlayPvs(ent.Comp.SacrificeSound, ent)?.Entity;
 
-        var ev = new SacraficeDoAfterEvent();
-        var args = new DoAfterArgs(EntityManager, user, ent.Comp.SacraficeTime, ev, target: target, eventTarget: ent)
+        var ev = new SacrificeDoAfterEvent();
+        var args = new DoAfterArgs(EntityManager, user, ent.Comp.SacrificeTime, ev, target: target, eventTarget: ent)
         {
             BreakOnDamage = true,
             NeedHand = true
