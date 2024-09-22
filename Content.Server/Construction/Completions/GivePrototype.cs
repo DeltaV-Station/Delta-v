@@ -1,50 +1,44 @@
 using Content.Server.Stack;
 using Content.Shared.Construction;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Prototypes;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Construction.Completions;
-
-[UsedImplicitly]
-[DataDefinition]
-public sealed partial class GivePrototype : IGraphAction
+namespace Content.Server.Construction.Completions
 {
-    [DataField]
-    public EntProtoId Prototype { get; private set; } = string.Empty;
-
-    [DataField]
-    public int Amount { get; private set; } = 1;
-
-    public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
+    [UsedImplicitly]
+    [DataDefinition]
+    public sealed partial class GivePrototype : IGraphAction
     {
-        if (string.IsNullOrEmpty(Prototype))
-            return;
+        [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string Prototype { get; private set; } = string.Empty;
+        [DataField("amount")]
+        public int Amount { get; private set; } = 1;
 
-        if (EntityPrototypeHelpers.HasComponent<StackComponent>(Prototype))
+        public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
         {
-            var stackSystem = entityManager.EntitySysManager.GetEntitySystem<StackSystem>();
-            var stacks = stackSystem.SpawnMultiple(Prototype, Amount, userUid ?? uid);
-
-            if (userUid is null || !entityManager.TryGetComponent(userUid, out HandsComponent? handsComp))
+            if (string.IsNullOrEmpty(Prototype))
                 return;
 
-            foreach (var item in stacks)
+            var coordinates = entityManager.GetComponent<TransformComponent>(userUid ?? uid).Coordinates;
+
+            if (EntityPrototypeHelpers.HasComponent<StackComponent>(Prototype))
             {
-                stackSystem.TryMergeToHands(item, userUid.Value, hands: handsComp);
+                var stackEnt = entityManager.SpawnEntity(Prototype, coordinates);
+                var stack = entityManager.GetComponent<StackComponent>(stackEnt);
+                entityManager.EntitySysManager.GetEntitySystem<StackSystem>().SetCount(stackEnt, Amount, stack);
+                entityManager.EntitySysManager.GetEntitySystem<SharedHandsSystem>().PickupOrDrop(userUid, stackEnt);
             }
-        }
-        else
-        {
-            var handsSystem = entityManager.EntitySysManager.GetEntitySystem<SharedHandsSystem>();
-            var handsComp = userUid is not null ? entityManager.GetComponent<HandsComponent>(userUid.Value) : null;
-            for (var i = 0; i < Amount; i++)
+            else
             {
-                var item = entityManager.SpawnNextToOrDrop(Prototype, userUid ?? uid);
-                handsSystem.PickupOrDrop(userUid, item, handsComp: handsComp);
+                for (var i = 0; i < Amount; i++)
+                {
+                    var item = entityManager.SpawnEntity(Prototype, coordinates);
+                    entityManager.EntitySysManager.GetEntitySystem<SharedHandsSystem>().PickupOrDrop(userUid, item);
+                }
             }
         }
     }

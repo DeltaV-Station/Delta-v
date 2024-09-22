@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Anomaly.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Power.Components;
@@ -11,7 +10,6 @@ using Content.Shared.Popups;
 using Content.Shared.Power;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Verbs;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Anomaly;
 
@@ -27,7 +25,6 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -41,34 +38,6 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
         SubscribeLocalEvent<AnomalyPulseEvent>(OnAnomalyPulse);
         SubscribeLocalEvent<AnomalySeverityChangedEvent>(OnAnomalySeverityChanged);
         SubscribeLocalEvent<AnomalyStabilityChangedEvent>(OnAnomalyStabilityChanged);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<AnomalySynchronizerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var sync, out var xform))
-        {
-            if (sync.ConnectedAnomaly is null)
-                continue;
-
-            if (_timing.CurTime < sync.NextCheckTime)
-                continue;
-            sync.NextCheckTime += sync.CheckFrequency;
-
-            if (Transform(sync.ConnectedAnomaly.Value).MapUid != Transform(uid).MapUid)
-            {
-                DisconnectFromAnomaly((uid, sync), sync.ConnectedAnomaly.Value);
-                continue;
-            }
-
-            if (!xform.Coordinates.TryDistance(EntityManager, Transform(sync.ConnectedAnomaly.Value).Coordinates, out var distance))
-                continue;
-
-            if (distance > sync.AttachRange)
-                DisconnectFromAnomaly((uid, sync), sync.ConnectedAnomaly.Value);
-        }
     }
 
     /// <summary>
@@ -104,10 +73,10 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
         if (args.Powered)
             return;
 
-        if (ent.Comp.ConnectedAnomaly is null)
+        if (!TryComp<AnomalyComponent>(ent.Comp.ConnectedAnomaly, out var anomaly))
             return;
 
-        DisconnectFromAnomaly(ent, ent.Comp.ConnectedAnomaly.Value);
+        DisconnectFromAnomaly(ent, anomaly);
     }
 
     private void OnExamined(Entity<AnomalySynchronizerComponent> ent, ref ExaminedEvent args)
@@ -156,16 +125,13 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
 
     //TODO: disconnection from the anomaly should also be triggered if the anomaly is far away from the synchronizer.
     //Currently only bluespace anomaly can do this, but for some reason it is the only one that cannot be connected to the synchronizer.
-    private void DisconnectFromAnomaly(Entity<AnomalySynchronizerComponent> ent, EntityUid other)
+    private void DisconnectFromAnomaly(Entity<AnomalySynchronizerComponent> ent, AnomalyComponent anomaly)
     {
         if (ent.Comp.ConnectedAnomaly == null)
             return;
 
-        if (TryComp<AnomalyComponent>(other, out var anomaly))
-        {
-            if (ent.Comp.PulseOnDisconnect)
-                _anomaly.DoAnomalyPulse(ent.Comp.ConnectedAnomaly.Value, anomaly);
-        }
+        if (ent.Comp.PulseOnDisconnect)
+            _anomaly.DoAnomalyPulse(ent.Comp.ConnectedAnomaly.Value, anomaly);
 
         _popup.PopupEntity(Loc.GetString("anomaly-sync-disconnected"), ent, PopupType.Large);
         _audio.PlayPvs(ent.Comp.ConnectedSound, ent);

@@ -365,9 +365,7 @@ public abstract class SharedStorageSystem : EntitySystem
         if (args.Handled || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert, false))
             return;
 
-        var attemptEv = new StorageInteractUsingAttemptEvent();
-        RaiseLocalEvent(uid, ref attemptEv);
-        if (attemptEv.Cancelled)
+        if (HasComp<PlaceableSurfaceComponent>(uid))
             return;
 
         PlayerInsertHeldEntity((uid, storageComp), args.User);

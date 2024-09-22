@@ -16,11 +16,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-  - type: NPCImprintingOnSpawnBehaviour
-    spawnFriendsSearchRadius: 10
-    whitelist:
-      components:
-      - Anomaly # Friendly to inner anomaly host
   - type: MovementIgnoreGravity
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5

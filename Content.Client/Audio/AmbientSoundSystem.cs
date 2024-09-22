@@ -306,9 +306,6 @@ public sealed class AmbientSoundSystem : SharedAmbientSoundSystem
                     .WithMaxDistance(comp.Range);
 
                 var stream = _audio.PlayEntity(comp.Sound, Filter.Local(), uid, false, audioParams);
-                if (stream == null)
-                    continue;
-
                 _playingSounds[sourceEntity] = (stream.Value.Entity, comp.Sound, key);
                 playingCount++;
 

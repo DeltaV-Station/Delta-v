@@ -206,19 +206,6 @@
     open: false
 
 - type: entity
-  id: BaseIntercomSecure
-  parent: Intercom
-  abstract: true
-  components:
-  - type: WiresPanel
-    openDelay: 5
-  - type: WiresPanelSecurity
-    examine: wires-panel-component-on-examine-security-level2
-    wiresAccessible: false
-  - type: Construction
-    node: intercomReinforced
-
-- type: entity
   id: IntercomCommon
   parent: Intercom
   suffix: Common
@@ -232,9 +219,8 @@
 
 - type: entity
   id: IntercomCommand
-  parent: BaseIntercomSecure
+  parent: Intercom
   suffix: Command
-  description: An intercom. It's been reinforced with metal.
   components:
   - type: ContainerFill
     containers:
@@ -285,10 +271,17 @@
 
 - type: entity
   id: IntercomSecurity
-  parent: BaseIntercomSecure
+  parent: Intercom
   suffix: Security
   description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
   components:
+  - type: WiresPanel
+    openDelay: 5
+  - type: WiresPanelSecurity
+    examine: wires-panel-component-on-examine-security-level2
+    wiresAccessible: false
+  - type: Construction
+    node: intercomReinforced
   - type: ContainerFill
     containers:
       board:

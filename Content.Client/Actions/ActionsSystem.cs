@@ -301,7 +301,7 @@ namespace Content.Client.Actions
                     continue;
 
                 var action = _serialization.Read<BaseActionComponent>(actionNode, notNullableOverride: true);
-                var actionId = Spawn();
+                var actionId = Spawn(null);
                 AddComp(actionId, action);
                 AddActionDirect(user, actionId);
 

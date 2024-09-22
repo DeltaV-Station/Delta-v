@@ -23,14 +23,14 @@ public sealed partial class DrainComponent : Component
     [DataField]
     public Entity<SolutionComponent>? Solution = null;
 
-    [DataField]
+    [DataField("accumulator")]
     public float Accumulator = 0f;
 
     /// <summary>
     /// Does this drain automatically absorb surrouding puddles? Or is it a drain designed to empty
-    /// solutions in it manually? 
+    /// solutions in it manually?
     /// </summary>
-    [DataField]
+    [DataField("autoDrain"), ViewVariables(VVAccess.ReadOnly)]
     public bool AutoDrain = true;
 
     /// <summary>
@@ -38,47 +38,47 @@ public sealed partial class DrainComponent : Component
     /// Divided by puddles, so if there are 5 puddles this will take 1/5 from each puddle.
     /// This will stay fixed to 1 second no matter what DrainFrequency is.
     /// </summary>
-    [DataField]
+    [DataField("unitsPerSecond")]
     public float UnitsPerSecond = 6f;
 
     /// <summary>
     /// How many units are ejected from the buffer per second.
     /// </summary>
-    [DataField]
+    [DataField("unitsDestroyedPerSecond")]
     public float UnitsDestroyedPerSecond = 3f;
 
     /// <summary>
     /// How many (unobstructed) tiles away the drain will
     /// drain puddles from.
     /// </summary>
-    [DataField]
+    [DataField("range"), ViewVariables(VVAccess.ReadWrite)]
     public float Range = 2f;
 
     /// <summary>
     /// How often in seconds the drain checks for puddles around it.
     /// If the EntityQuery seems a bit unperformant this can be increased.
     /// </summary>
-    [DataField]
+    [DataField("drainFrequency")]
     public float DrainFrequency = 1f;
 
     /// <summary>
     /// How much time it takes to unclog it with a plunger
     /// </summary>
-    [DataField]
+    [DataField("unclogDuration"), ViewVariables(VVAccess.ReadWrite)]
     public float UnclogDuration = 1f;
 
     /// <summary>
     /// What's the probability of uncloging on each try
     /// </summary>
-    [DataField]
+    [DataField("unclogProbability"), ViewVariables(VVAccess.ReadWrite)]
     public float UnclogProbability = 0.75f;
 
-    [DataField]
+    [DataField("manualDrainSound"), ViewVariables(VVAccess.ReadOnly)]
     public SoundSpecifier ManualDrainSound = new SoundPathSpecifier("/Audio/Effects/Fluids/slosh.ogg");
 
-    [DataField]
+    [DataField("plungerSound"), ViewVariables(VVAccess.ReadOnly)]
     public SoundSpecifier PlungerSound = new SoundPathSpecifier("/Audio/Items/Janitor/plunger.ogg");
 
-    [DataField]
+    [DataField("unclogSound"), ViewVariables(VVAccess.ReadOnly)]
     public SoundSpecifier UnclogSound = new SoundPathSpecifier("/Audio/Effects/Fluids/glug.ogg");
 }
