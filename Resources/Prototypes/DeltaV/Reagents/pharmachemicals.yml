@@ -1,0 +1,633 @@
+# Zepprocane involved reagents
+
+- type: reagent
+  id: HydrogenIodide
+  name: reagent-name-hydrogeniodide
+  desc: reagent-desc-hydrogeniodide
+  physicalDesc: reagent-physical-desc-odorless
+  flavor: bitter
+  color: "white"
+  boilingPoint: 222.0
+  meltingPoint: 237.0
+
+- type: reagent
+  id: SodiumAmalgam
+  name: reagent-name-sodiumamalgam
+  desc: reagent-desc-sodiumamalgam
+  physicalDesc: reagent-physical-desc-crystalline
+  flavor: bitter
+  color: "#c9bba3"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Piercing: 0.5
+
+- type: reagent
+  id: BarbituricAcid
+  name: reagent-name-barbituricacid
+  desc: reagent-desc-barbituricacid
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 2.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+# Asparatine involved reagents
+
+- type: reagent
+  id: BenzenesulfonicAcid
+  name: reagent-name-benzenesulfonicacid
+  desc: reagent-name-benzenesulfonicacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 7
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent 
+  id: SodiumPhenolate # Also used in β-blocker synthesis
+  name: reagent-name-sodiumphenolate
+  desc: reagent-desc-sodiumphenolate
+  physicalDesc: reagent-physical-desc-opaque
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylicacid
+  desc: reagent-desc-salicylicacid
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  desc: reagent-desc-methanol
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#75b1f0"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2.5
+
+- type: reagent
+  id: MethylSalicylate
+  name: reagent-name-methylsalicylate
+  desc: reagent-desc-methylsalicylate
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: rootbeersoda
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange # precursor to asparatine, poisons and pierces your intestins
+        conditions:
+         - !type:ReagentThreshold
+            min: 5.7
+        damage:
+          types:
+            Poison: 2
+            Piercing: 1
+
+- type: reagent
+  id: HydrogenChloride
+  name: reagent-name-hydrogenchloride
+  desc: reagent-desc-hydrogenchloride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: sharp
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
+  id: HydrochloricAcid
+  name: reagent-name-hydrochloricacid
+  desc: reagent-desc-hydrochloricacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 4.3
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: AceticAnhydride
+  name: reagent-name-aceticanhydride
+  desc: reagent-desc-aceticanhydride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.5
+
+- type: reagent
+  id: AceticAcid
+  name: reagent-name-aceticacid
+  desc: reagent-desc-aceticacid
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
+  id: AcetylChloride
+  name: reagent-name-acetylchloride
+  desc: reagent-desc-acetylchloride
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 6.2
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 2
+
+# Naguuprofen involved reagents
+
+- type: reagent
+  id: Propene
+  name: reagent-name-propene
+  desc: reagent-desc-propene
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#66ff33"
+  tileReactions: # GHS Hazard Statements: H225: Highly flammable liquid and vapour
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.8
+
+- type: reagent
+  id: Toluene
+  name: reagent-name-toluene
+  desc: reagent-desc-toluene
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: bitter
+  color: "#77b58e"
+  tileReactions:
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.8
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+
+- type: reagent
+  id: HydrogenFluoride
+  name: reagent-name-hydrogenfluoride
+  desc: reagent-desc-hydrogenfluoride
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: bitter
+  color: "#d7ee46"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Caustic: 0.5
+
+- type: reagent
+  id: Isobutylbenzene
+  name: reagent-name-isobutylbenzene
+  desc: reagent-desc-isobutylbenzene
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: bitter
+  color: "#343434"
+  tileReactions:  # GHS Hazard Statements: H225: Highly flammable liquid and vapour
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.8
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5
+
+- type: reagent
+  id: Isobutylacetophenone
+  name: reagent-name-isobutylacetophenone
+  desc: reagent-desc-isobutylacetophenone
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: bitter
+  color: "#343434"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: Isobutylphenylethanol
+  name: reagent-name-isobutylphenylethanol
+  desc: reagent-desc-isobutylphenylethanol
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: bitter
+  color: "#343434"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5
+            Asphyxiation: 1.5
+            Caustic: 0.5
+
+# β-blocker reagents
+
+- type: reagent
+  id: HydrogenPeroxide
+  name: reagent-name-hydrogenperoxide
+  desc: reagent-desc-hydrogenperoxide
+  physicalDesc: reagent-physical-desc-sharp
+  color: "#d6fffe"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:HealthChange
+          damage:
+            type:
+              Brute: 0.5
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 2
+          damage:
+            types:
+              Poison: 2
+
+- type: reagent
+  id: Catechol
+  name: reagent-name-catechol
+  desc: reagent-desc-catechol
+  physicalDesc: reagent-physical-desc-translucent
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 9.2
+        damage:
+          types:
+            Poison: 1
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: AllylChloride
+  name: reagent-name-allylchloride
+  desc: reagent-desc-allylchloride
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#fdff85"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+          damage:
+            types:
+              Poison: 1
+  tileReactions:  # GHS Hazard Statements: H225: Highly flammable liquid and vapour
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.8
+
+- type: reagent
+  id: Epichlorohydrin
+  name: reagent-name-epichlorohydrin
+  desc: reagent-desc-epichlorohydrin
+  physicalDesc: reagent-physical-desc-pungent
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 2.6
+        damage:
+          types:
+            Poison: 1
+            Cellular: 0.25 # GHS Hazard Statements: H350: May cause cancer
+  reactiveEffects: # GHS Pictograms: GHS05: Corrosive
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.5
+  tileReactions:  # GHS Hazard Statements: H226: Flammable liquid and vapour
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+    
+
+- type: reagent
+  id: Aryloxypropanolamine
+  name: reagent-name-aryloxypropanolamine
+  desc: reagent-desc-aryloxypropanolamine
+  physicalDesc: reagent-physical-desc-translucent
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 4.2
+        damage:
+          types:
+            Poison: 1
+
+## Cordivol
+
+- type: reagent
+  id: PropeneOxide
+  name: reagent-name-propeneoxide
+  desc: reagent-desc-propeneoxide
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 2.6
+        damage:
+          types:
+            Poison: 1
+            Cellular: 1 # carcinogenic
+  tileReactions:  # GHS Hazard Statements: GHS02: Flammable
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.3
+
+- type: reagent
+  id: PropeneGlycol
+  name: reagent-name-propeneglycol
+  desc: reagent-desc-propeneglycol
+  physicalDesc: reagent-physical-desc-crystalline
+  flavor: sweet
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange # Toxicity is insignificant even at large doses
+        conditions:
+          - !type:ReagentThreshold
+            min: 50 
+        damage:
+          types:
+            Poison: 0.1
+
+## X-Devivolol
+
+- type: reagent
+  id: SulfurTrioxide
+  name: reagent-name-sulfurtrioxide
+  desc: reagent-desc-sulfurtrioxide
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: bitter
+  color: "#dfdf00"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  reactiveEffects: # GHS Pictograms: GHS05: Corrosive
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
+  id: ChlorosulfuricAcid
+  name: reagent-name-chlorosulfuricacid
+  desc: reagent-desc-chlorosulfuricacid
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: bitter
+  color: "#b3afa9"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1.5
+  reactiveEffects: # GHS Pictograms: GHS05: Corrosive
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+        conditions:
+        - !type:ReagentThreshold
+          min: 3.7
+
+- type: reagent
+  id: Dodecanol
+  name: reagent-name-dodecanol
+  desc: reagent-desc-dodecanol
+  physicalDesc: reagent-physical-desc-oily
+  flavor: alcohol
+  color: "#b05b3c"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.2
+
+- type: reagent
+  id: SodiumLauryl
+  name: reagent-name-sodiumlauryl
+  desc: reagent-desc-sodiumlauryl
+  physicalDesc: reagent-physical-desc-solidlauryl
+  flavor: bitter
+  color: "white"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 10
+        damage:
+          types:
+            Poison: 2

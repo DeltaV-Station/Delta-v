@@ -50,6 +50,19 @@
   - type: PresetIdCard
     job: Courier
 
+- type: entity
+  parent: IDCardStandard
+  id: PharmacistIDCard
+  name: pharmacist ID card
+  components:
+  - type: PresetIdCard
+    name: Pharmacist
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idpharmacist
+
 ## Alternate Job Titles
 
 # Passenger

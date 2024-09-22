@@ -1,4 +1,17 @@
 - type: entity
+  id: SpawnPointPharmacist
+  parent: SpawnPointJobBase
+  name: Pharmacist
+  components:
+  - type: SpawnPoint
+    job_id: Pharmacist
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: pharmacist
+
+- type: entity
   id: SpawnPointMedicalBorg
   parent: SpawnPointJobBase
   name: medical cyborg
