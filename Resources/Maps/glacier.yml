@@ -16562,6 +16562,13 @@ entities:
     - type: Transform
       pos: -1.5,49.5
       parent: 2
+- proto: Biogenerator
+  entities:
+  - uid: 6400
+    components:
+    - type: Transform
+      pos: 27.5,2.5
+      parent: 2
 - proto: BiomassReclaimer
   entities:
   - uid: 709
@@ -47702,6 +47709,12 @@ entities:
       parent: 2
 - proto: ComputerAlert
   entities:
+  - uid: 14097
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,57.5
+      parent: 2
   - uid: 17148
     components:
     - type: Transform
@@ -48634,11 +48647,6 @@ entities:
     components:
     - type: Transform
       pos: 26.5,6.5
-      parent: 2
-  - uid: 6400
-    components:
-    - type: Transform
-      pos: 27.5,2.5
       parent: 2
 - proto: CrateHydroSecure
   entities:
@@ -101192,6 +101200,17 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Vault
+  - uid: 14101
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,40.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Chief Engineer's Office
   - uid: 14109
     components:
     - type: Transform
@@ -101246,17 +101265,6 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Logistics Officer's Office
-  - uid: 14101
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,40.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraCommand
-      nameSet: True
-      id: Chief Engineer's Office
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 5352
@@ -101400,6 +101408,17 @@ entities:
       id: TEG Exterior
 - proto: SurveillanceCameraGeneral
   entities:
+  - uid: 13240
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 35.5,10.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Logistics Front
   - uid: 14106
     components:
     - type: Transform
@@ -101482,6 +101501,16 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Evacuation
+  - uid: 17953
+    components:
+    - type: Transform
+      pos: 49.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Cryosleep
   - uid: 17955
     components:
     - type: Transform
@@ -101526,27 +101555,6 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Tool Room
-  - uid: 17953
-    components:
-    - type: Transform
-      pos: 49.5,-12.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Cryosleep
-  - uid: 13240
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 35.5,10.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: Logistics Front
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 13913
@@ -114422,7 +114430,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3420.321
+      secondsUntilStateChange: -3483.2776
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114438,7 +114446,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3419.7544
+      secondsUntilStateChange: -3482.711
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114460,7 +114468,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3419.2878
+      secondsUntilStateChange: -3482.2444
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114476,7 +114484,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3420.821
+      secondsUntilStateChange: -3483.7776
       state: Opening
     - type: Airlock
       autoClose: False
