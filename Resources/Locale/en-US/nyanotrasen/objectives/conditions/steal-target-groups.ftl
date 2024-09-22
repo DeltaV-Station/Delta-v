@@ -1,1 +1,1 @@
-steal-target-group-anti-psychic-knife = anti-psychic knife
+steal-target-groups-anti-psychic-knife = anti-psychic knife
