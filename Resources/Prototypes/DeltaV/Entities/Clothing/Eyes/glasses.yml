@@ -14,7 +14,7 @@
         Caustic: 0.85
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesGlassesCorpsman
   name: corpsman glasses
   description: Security glasses designed for the Corpsman for medical and security needs. Now with a cool blue hue*
@@ -41,4 +41,5 @@
     - Medical
   - type: IdentityBlocker
     coverage: EYES
+  - type: SecMedHud
 
