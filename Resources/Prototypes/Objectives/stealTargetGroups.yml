@@ -79,7 +79,7 @@
 
 - type: stealTargetGroup # DeltaV, upstream reverted
   id: PlutoniumCore
-  name: plutonium core
+  name: steal-target-groups-plutonium-core
   sprite:
     sprite: Objects/Misc/plutonium_core.rsi
     state: icon
@@ -268,13 +268,6 @@
   name: steal-target-groups-clothing-neck-clownmedal
   sprite:
     sprite: Clothing/Neck/Medals/clownmedal.rsi
-    state: icon
-
-- type: stealTargetGroup
-  id: ClothingNeckShockCollar
-  name: shock collar
-  sprite:
-    sprite: Clothing/Neck/Misc/shock_collar.rsi
     state: icon
 
 #Thief structures
