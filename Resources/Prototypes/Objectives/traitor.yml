@@ -49,7 +49,6 @@
   - type: EscapeShuttleCondition
 
 - type: entity
-  noSpawn: true
   parent: BaseTraitorObjective
   id: DieObjective
   name: Die a glorious death
@@ -302,7 +301,6 @@
 # Station
 
 - type: entity
-  noSpawn: true
   parent: BaseTraitorStealObjective
   id: PlutoniumCoreStealObjective
   components:

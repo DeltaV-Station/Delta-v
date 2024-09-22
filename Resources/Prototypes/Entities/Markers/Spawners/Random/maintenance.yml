@@ -117,6 +117,7 @@
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
+      - id: RubberChicken
       # Cult
       - !type:AllSelector
         children:
@@ -163,6 +164,7 @@
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
+      #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
 
 - type: entity
   name: Maint Loot Spawner
