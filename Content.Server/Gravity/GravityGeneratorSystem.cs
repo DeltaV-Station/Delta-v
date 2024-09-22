@@ -36,10 +36,8 @@ public sealed class GravityGeneratorSystem : EntitySystem
     private void OnActivated(Entity<GravityGeneratorComponent> ent, ref ChargedMachineActivatedEvent args)
     {
         ent.Comp.GravityActive = true;
-
-        var xform = Transform(ent);
-
-        if (TryComp(xform.ParentUid, out GravityComponent? gravity))
+        if (TryComp<TransformComponent>(ent, out var xform) &&
+            TryComp(xform.ParentUid, out GravityComponent? gravity))
         {
             _gravitySystem.EnableGravity(xform.ParentUid, gravity);
         }
@@ -48,10 +46,8 @@ public sealed class GravityGeneratorSystem : EntitySystem
     private void OnDeactivated(Entity<GravityGeneratorComponent> ent, ref ChargedMachineDeactivatedEvent args)
     {
         ent.Comp.GravityActive = false;
-
-        var xform = Transform(ent);
-
-        if (TryComp(xform.ParentUid, out GravityComponent? gravity))
+        if (TryComp<TransformComponent>(ent, out var xform) &&
+            TryComp(xform.ParentUid, out GravityComponent? gravity))
         {
             _gravitySystem.RefreshGravity(xform.ParentUid, gravity);
         }

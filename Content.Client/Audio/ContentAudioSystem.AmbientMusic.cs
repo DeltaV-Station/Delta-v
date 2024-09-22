@@ -213,9 +213,9 @@ public sealed partial class ContentAudioSystem
             false,
             AudioParams.Default.WithVolume(_musicProto.Sound.Params.Volume + _volumeSlider));
 
-        _ambientMusicStream = strim?.Entity;
+        _ambientMusicStream = strim.Value.Entity;
 
-        if (_musicProto.FadeIn && strim != null)
+        if (_musicProto.FadeIn)
         {
             FadeIn(_ambientMusicStream, strim.Value.Component, AmbientMusicFadeTime);
         }

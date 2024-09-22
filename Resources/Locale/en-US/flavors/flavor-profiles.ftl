@@ -20,7 +20,6 @@ flavor-base-fishy = fishy
 flavor-base-crabby = crabby
 flavor-base-cheesy = cheesy
 flavor-base-funny = funny
-flavor-base-strange = strange
 flavor-base-tingly = tingly
 flavor-base-acid = acidic
 flavor-base-leafy = leafy

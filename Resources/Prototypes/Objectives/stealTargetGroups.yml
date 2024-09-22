@@ -2,91 +2,91 @@
 
 - type: stealTargetGroup
   id: Hypospray
-  name: steal-target-groups-hypospray
+  name: hypospray
   sprite:
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: hypo
 
 - type: stealTargetGroup
   id: HandheldCrewMonitor
-  name: steal-target-groups-handheld-crew-monitor
+  name: handheld crew monitor
   sprite:
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
     state: scanner
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitRd
-  name: steal-target-groups-clothing-outer-hardsuit-rd
+  name: experimental research hardsuit
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
     state: icon
 
 - type: stealTargetGroup
   id: HandTeleporter
-  name: steal-target-groups-hand-teleporter
+  name: hand teleporter
   sprite:
     sprite: Objects/Devices/hand_teleporter.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ClothingShoesBootsMagAdv
-  name: steal-target-groups-clothing-shoes-boots-mag-adv
+  name: advanced magboots
   sprite:
     sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
     state: icon
 
 - type: stealTargetGroup
   id: BoxFolderQmClipboard
-  name: steal-target-groups-box-folder-qm-clipboard
+  name: requisition digi-board
   sprite:
     sprite: Objects/Misc/qm_clipboard.rsi
     state: qm_clipboard
 
 - type: stealTargetGroup
   id: FoodMeatCorgi
-  name: steal-target-groups-food-meat-corgi
+  name: prime-cut corgi meat
   sprite:
     sprite: Objects/Consumable/Food/meat.rsi
     state: corgi
     #
 - type: stealTargetGroup
   id: CaptainIDCard
-  name: steal-target-groups-captain-id-card
+  name: captain ID card
   sprite:
     sprite: Objects/Misc/id_cards.rsi
     state: ert_commander #no one will know the difference.
 
 - type: stealTargetGroup
   id: JetpackCaptainFilled
-  name: steal-target-groups-jetpack-captain-filled
+  name: captain's jetpack
   sprite:
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     state: icon
 
 - type: stealTargetGroup
   id: WeaponAntiqueLaser
-  name: steal-target-groups-weapon-antique-laser
+  name: antique laser pistol
   sprite:
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
     state: base
 
 - type: stealTargetGroup
   id: NukeDisk
-  name: steal-target-groups-nuke-disk
+  name: nuclear authentication disk
   sprite:
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
 - type: stealTargetGroup # DeltaV, upstream reverted
   id: PlutoniumCore
-  name: steal-target-groups-plutonium-core
+  name: plutonium core
   sprite:
     sprite: Objects/Misc/plutonium_core.rsi
     state: icon
 
 - type: stealTargetGroup
   id: WeaponEnergyShotgun
-  name: steal-target-groups-weapon-energy-shot-gun
+  name: energy shotgun
   sprite:
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
     state: base
@@ -95,63 +95,63 @@
 
 - type: stealTargetGroup
   id: Figurines
-  name: steal-target-groups-figurines
+  name: figurines (any)
   sprite:
     sprite: Objects/Fun/figurines.rsi
     state: figurine_spawner
 
 - type: stealTargetGroup
   id: HeadCloak
-  name: steal-target-groups-heads-cloaks
+  name: head's cloaks (any)
   sprite:
     sprite: Clothing/Neck/Cloaks/cap.rsi
     state: icon
 
 - type: stealTargetGroup
   id: HeadBedsheet
-  name: steal-target-groups-heads-bedsheets
+  name: head's bedsheets (any)
   sprite:
     sprite: Objects/Misc/bedsheets.rsi
     state: sheetNT
 
 - type: stealTargetGroup
   id: Stamp
-  name: steal-target-groups-stamps
+  name: stamps (any)
   sprite:
     sprite: Objects/Misc/stamps.rsi
     state: stamp-cap
 
 - type: stealTargetGroup
   id: DoorRemote
-  name: steal-target-groups-door-remotes
+  name: door remotes (any)
   sprite:
     sprite: Objects/Devices/door_remote.rsi
     state: door_remotebase
 
 - type: stealTargetGroup
   id: EncryptionKey
-  name: steal-target-groups-encryption-keys
+  name: encryption keys (any)
   sprite:
     sprite: Objects/Devices/encryption_keys.rsi
     state: crypt_gray
 
 - type: stealTargetGroup
   id: TechnologyDisk
-  name: steal-target-groups-technology-disks
+  name: technology disks
   sprite:
     sprite: Objects/Misc/module.rsi
     state: datadisk_base
 
 - type: stealTargetGroup
   id: IDCard
-  name: steal-target-groups-id-cards
+  name: ID Cards (any)
   sprite:
     sprite: Objects/Misc/id_cards.rsi
     state: default
 
 - type: stealTargetGroup
   id: LAMP
-  name: steal-target-groups-lamps
+  name: LAMPS
   sprite:
     sprite: Objects/Tools/lantern.rsi
     state: lantern
@@ -160,184 +160,191 @@
 
 - type: stealTargetGroup
   id: ForensicScanner
-  name: steal-target-groups-forensic-scanner
+  name: forensic scanner
   sprite:
     sprite: Objects/Devices/forensic_scanner.rsi
     state: forensicnew
 
 - type: stealTargetGroup
   id: FlippoEngravedLighter
-  name: steal-target-groups-flippo-engraved-lighter
+  name: detective's Flippo engraved lighter
   sprite:
     sprite: Objects/Tools/lighters.rsi
     state: zippo_engraved_icon_base
 
 - type: stealTargetGroup
   id: AmmoTechFabCircuitboard
-  name: steal-target-groups-ammo-tech-fab-circuitboard
+  name: ammo techfab circuit board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: security
 
 - type: stealTargetGroup
   id: ClothingHeadHatWarden
-  name: steal-target-groups-clothing-head-hat-warden
+  name: warden's cap
   sprite:
     sprite: Clothing/Head/Hats/warden.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitVoidParamed
-  name: steal-target-groups-clothing-outer-hardsuit-void-paramed
+  name: paramedic void suit
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
 
 - type: stealTargetGroup
   id: MedicalTechFabCircuitboard
-  name: steal-target-groups-medical-tech-fab-circuitboard
+  name: medical techfab machine board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: medical
 
 - type: stealTargetGroup
   id: ClothingHeadsetAltMedical
-  name: steal-target-groups-clothing-headset-alt-medical
+  name: chief medical officer's over-ear headset
   sprite:
     sprite: Clothing/Ears/Headsets/medical.rsi
     state: icon_alt
 
 - type: stealTargetGroup
   id: ResearchAndDevelopmentServerMachineCircuitboard
-  name: steal-target-groups-research-and-development-server-machine-circuitboard
+  name: R&D server machine board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: science
 
 - type: stealTargetGroup
   id: FireAxe
-  name: steal-target-groups-fire-axe
+  name: fireaxe
   sprite:
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
 
 - type: stealTargetGroup
   id: AmePartFlatpack
-  name: steal-target-groups-ame-part-flatpack
+  name: AME part
   sprite:
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
 - type: stealTargetGroup
   id: SalvageExpeditionsComputerCircuitboard
-  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+  name: salvage expeditions computer board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpu_supply
 
 - type: stealTargetGroup
   id: CargoShuttleConsoleCircuitboard
-  name: steal-target-groups-cargo-shuttle-console-circuitboard
+  name: cargo shuttle console board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpuboard
 
 - type: stealTargetGroup
   id: ClothingEyesHudBeer
-  name: steal-target-groups-clothing-eyes-hud-beer
+  name: beer goggles
   sprite:
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
     state: icon
 
 - type: stealTargetGroup
   id: Bible
-  name: steal-target-groups-bible
+  name: bible
   sprite:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ClothingNeckGoldmedal
-  name: steal-target-groups-clothing-neck-goldmedal
+  name: gold medal of crewmanship
   sprite:
     sprite: Clothing/Neck/Medals/gold.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ClothingNeckClownmedal
-  name: steal-target-groups-clothing-neck-clownmedal
+  name: clown medal
   sprite:
     sprite: Clothing/Neck/Medals/clownmedal.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ClothingNeckShockCollar
+  name: shock collar
+  sprite:
+    sprite: Clothing/Neck/Misc/shock_collar.rsi
     state: icon
 
 #Thief structures
 
 - type: stealTargetGroup
   id: NuclearBomb
-  name: steal-target-groups-nuclear-bomb
+  name: nuclear fission explosive
   sprite:
     sprite: Objects/Devices/nuke.rsi
     state: nuclearbomb_base
 
 - type: stealTargetGroup
   id: FaxMachineCaptain
-  name: steal-target-groups-fax-machine-captain
+  name: captain long range fax machine
   sprite:
     sprite: Structures/Machines/fax_machine.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ChemDispenser
-  name: steal-target-groups-chem-dispenser
+  name: chemical dispenser
   sprite:
     sprite: Structures/dispensers.rsi
     state: industrial-working
 
 - type: stealTargetGroup
   id: XenoArtifact
-  name: steal-target-groups-xeno-artifact
+  name: big alien artifact
   sprite:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
     state: ano28
 
 - type: stealTargetGroup
   id: FreezerHeater
-  name: steal-target-groups-freezer-heater
+  name: freezer or heater
   sprite:
     sprite: Structures/Piping/Atmospherics/thermomachine.rsi
     state: heaterOff
 
 - type: stealTargetGroup
   id: Teg
-  name: steal-target-groups-teg
+  name: teg generator part
   sprite:
     sprite: Structures/Power/Generation/teg.rsi
     state: teg
 
 - type: stealTargetGroup
   id: BoozeDispenser
-  name: steal-target-groups-booze-dispenser
+  name: booze dispenser
   sprite:
     sprite: Structures/smalldispensers.rsi
     state: booze
 
 - type: stealTargetGroup
   id: AltarNanotrasen
-  name: steal-target-groups-altar-nanotrasen
+  name: nanotrasen altar (any)
   sprite:
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: nanotrasen
 
 - type: stealTargetGroup
   id: PlantRD
-  name: steal-target-groups-plant-rd
+  name: Mystagogue's potted plant # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
   sprite:
     sprite: Structures/Furniture/potted_plants.rsi
     state: plant-25
 
 - type: stealTargetGroup
   id: ToiletGoldenDirtyWater
-  name: steal-target-groups-toilet-golden-dirty-water
+  name: golden toilet
   sprite:
     sprite: Structures/Furniture/golden_toilet.rsi
     state: condisposal
@@ -346,56 +353,58 @@
 
 - type: stealTargetGroup
   id: AnimalIan
-  name: steal-target-groups-animal-ian
+  name: Ian
   sprite:
     sprite: Mobs/Pets/corgi.rsi
     state: ian
 
 - type: stealTargetGroup
   id: AnimalNamedCat
-  name: steal-target-groups-animal-named-cat
+  name: CMO's Cat
   sprite:
     sprite: Mobs/Pets/bingus.rsi
     state: bingus
 
 - type: stealTargetGroup
   id: AnimalMcGriff
-  name: steal-target-groups-animal-mc-griff
+  name: McGriff
   sprite:
     sprite: Mobs/Pets/mcgriff.rsi
     state: mcgriff
 
 - type: stealTargetGroup
   id: AnimalWalter
-  name: steal-target-groups-animal-walter
+  name: Walter
   sprite:
     sprite: Mobs/Pets/walter.rsi
     state: walter
 
 - type: stealTargetGroup
   id: AnimalMorty
-  name: steal-target-groups-animal-morty
+  name: Morty
   sprite:
     sprite: Mobs/Animals/possum.rsi
     state: possum
 
 - type: stealTargetGroup
   id: AnimalRenault
-  name: steal-target-groups-animal-renault
+  name: Renault
   sprite:
     sprite: Mobs/Animals/fox.rsi
     state: fox
 
 - type: stealTargetGroup
   id: AnimalSecurity #DeltaV - Adjusts because we have multiple possible sec animals
-  name: steal-target-groups-animal-shiva
+  name: Security Pet #DeltaV - Adjusts because we have multiple possible sec animals
   sprite:
     sprite: Mobs/Pets/shiva.rsi
     state: shiva
 
 - type: stealTargetGroup
   id: AnimalTropico
-  name: steal-target-groups-animal-tropico
+  name: Tropico
   sprite:
     sprite: Mobs/Animals/crab.rsi
     state: crab
+
+
