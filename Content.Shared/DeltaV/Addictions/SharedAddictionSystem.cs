@@ -17,11 +17,11 @@ public abstract class SharedAddictionSystem : EntitySystem
         base.Initialize();
     }
 
-    protected abstract void DoAddictionEffect(EntityUid uid, AddictedComponent component);
+    protected abstract void DoAddictionEffect(EntityUid uid);
 
     protected abstract void UpdateTime(EntityUid uid);
 
-    public virtual void TryApplyAddiction(EntityUid uid, float addictionStrength = 1f, StatusEffectsComponent? status = null)
+    public virtual void TryApplyAddiction(EntityUid uid, float addictionTime, StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
             return;
@@ -30,11 +30,11 @@ public abstract class SharedAddictionSystem : EntitySystem
 
         if (!StatusEffects.HasStatusEffect(uid, StatusEffectKey, status))
         {
-            StatusEffects.TryAddStatusEffect<AddictedComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionStrength * 10), true, status);
+            StatusEffects.TryAddStatusEffect<AddictedComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), true, status);
         }
         else
         {
-            StatusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionStrength * 10), status);
+            StatusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), status);
         }
     }
 }
