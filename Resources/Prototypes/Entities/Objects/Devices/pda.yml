@@ -120,6 +120,20 @@
 
 - type: entity
   parent: BasePDA
+  id: BaseSecurityPDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    diskSpace: 7 # DeltaV: increase cartridge space by 2 to fit our extra cartridges
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge # DeltaV
+    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+
+- type: entity
+  parent: BasePDA
   id: BaseMedicalPDA
   abstract: true
   components:
@@ -176,7 +190,7 @@
     - Medical Doctor
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: SecurityCadetPDA
   name: security cadet PDA
   description: Why isn't it red?
@@ -189,14 +203,6 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -396,7 +402,7 @@
   parent: BasePDA
   id: CargoPDA
   name: logistics PDA # DeltaV - Logistics Department replacing Cargo
-  description: PDA for the guys that order the pizzas. # DeltaV - Logistics Department replacing Cargo
+  description: PDA for the guys that order the pizzas.
   components:
   - type: Pda
     id: CargoIDCard
@@ -465,7 +471,7 @@
     state: pda-library
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -483,14 +489,6 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
   parent: LawyerPDA
@@ -516,7 +514,11 @@
     state: pda-janitor
 
 - type: entity
+<<<<<<< HEAD
   parent: BasePDA
+=======
+  parent: BaseSecurityPDA
+>>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -703,7 +705,11 @@
       - GlimmerMonitorCartridge
 
 - type: entity
+<<<<<<< HEAD
   parent: BasePDA
+=======
+  parent: BaseSecurityPDA
+>>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -716,17 +722,9 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
@@ -739,17 +737,9 @@
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: SecurityPDA
   name: security PDA
   description: Red to hide the stains of passenger blood.
@@ -761,17 +751,9 @@
     borderColor: "#A32D26"
   - type: Icon
     state: pda-security
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: CentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
@@ -912,7 +894,11 @@
           - Cartridge
 
 - type: entity
+<<<<<<< HEAD
   parent: BasePDA
+=======
+  parent: BaseSecurityPDA
+>>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: ERTLeaderPDA
   name: ERT Leader PDA
   suffix: Leader
@@ -1060,7 +1046,7 @@
     state: pda-boxer
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1072,14 +1058,6 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1176,7 +1154,7 @@
     state: pda-seniorphysician
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: SeniorOfficerPDA
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.
@@ -1189,14 +1167,6 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
 
 - type: entity
   parent: SyndiPDA
