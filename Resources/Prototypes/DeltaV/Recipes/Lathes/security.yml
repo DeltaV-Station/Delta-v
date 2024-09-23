@@ -1,183 +1,158 @@
+# .38 special
+
 - type: latheRecipe
+  parent: SpeedLoaderMagnumEmpty
   id: SpeedLoaderSpecialEmpty
   result: SpeedLoaderSpecialEmpty
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 50
 
 - type: latheRecipe
+  parent: SpeedLoaderMagnum
   id: SpeedLoaderSpecial
   result: SpeedLoaderSpecial
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 200
 
 - type: latheRecipe
+  parent: SpeedLoaderMagnumPractice
   id: SpeedLoaderSpecialPractice
   result: SpeedLoaderSpecialPractice
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 100
 
 - type: latheRecipe
+  parent: SpeedLoaderMagnumUranium
   id: SpeedLoaderSpecialUranium
   result: SpeedLoaderSpecialUranium
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 50
-    Plastic: 150
-    Uranium: 110
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: SpeedLoaderSpecialRubber
   result: SpeedLoaderSpecialRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 50
     Plastic: 150
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazinePistolSpecial
   result: MagazinePistolSpecial
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 100
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecial
   result: MagazineBoxSpecial
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 1250
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialPractice
   result: MagazineBoxSpecialPractice
-  category: Ammo
-  completetime: 5
   materials:
-    Plastic: 1200
+    Plastic: 300
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialRubber
   result: MagazineBoxSpecialRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 350
     Plastic: 300
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialIncendiary
   result: MagazineBoxSpecialIncendiary
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 1250
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialUranium
   result: MagazineBoxSpecialUranium
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 1250
     Uranium: 125
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialHoly
   result: MagazineBoxSpecialHoly
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 1250
     Steel: 75
     Silver: 75
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxSpecialMindbreaker
   result: MagazineBoxSpecialMindbreaker
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 1250
     Steel: 75
     Bluespace: 75
 
+# Rubber ammo, removed from upstream
+
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazinePistolRubber
   result: MagazinePistolRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 25
     Plastic: 120
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineRifleRubber
   result: MagazineRifleRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 25
     Plastic: 400
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineLightRifleRubber
   result: MagazineLightRifleRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 25
     Plastic: 500
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: SpeedLoaderMagnumRubber
   result: SpeedLoaderMagnumRubber
-  category: Ammo
-  completetime: 5
   materials:
     Steel: 50
     Plastic: 150
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxPistolRubber
   result: MagazineBoxPistolRubber
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 600
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxMagnumRubber
   result: MagazineBoxMagnumRubber
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 240
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxLightRifleRubber
   result: MagazineBoxLightRifleRubber
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 900
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxRifleRubber
   result: MagazineBoxRifleRubber
-  category: Ammo
-  completetime: 5
   materials:
     Plastic: 750
+
+# Armour vests
 
 - type: latheRecipe
   id: ClothingOuterArmorPlateCarrier
@@ -196,30 +171,27 @@
     Plastic: 1000
 
 - type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponEnergyGun
   result: WeaponEnergyGun
-  category: Weapons
-  completetime: 8
   materials:
     Steel: 2000
     Glass: 800
     Plastic: 500
 
 - type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponEnergyGunMini
   result: WeaponEnergyGunMini
-  category: Weapons
-  completetime: 4
   materials:   #Half of Energy Gun Recipe
     Steel: 1000
     Glass: 400
     Plastic: 250
 
 - type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponEnergyGunPistol
   result: WeaponEnergyGunPistol
-  category: Weapons
-  completetime: 10
   materials:
     Steel: 1500
     Glass: 600
@@ -227,10 +199,9 @@
     Gold: 150
 
 - type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponGunLaserCarbineAutomatic
   result: WeaponGunLaserCarbineAutomatic
-  category: Weapons
-  completetime: 15
   materials:
     Steel: 2000
     Glass: 1000

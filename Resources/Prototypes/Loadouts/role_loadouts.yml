@@ -365,10 +365,10 @@
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  - HeadOfSecurityShoes # DeltaV, replaces SecurityShoes
+  - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -383,7 +383,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -399,28 +399,28 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobDetective
   groups:
   - GroupTankHarness
-  - DetectiveHead
-  - DetectiveNeck
+  - SecurityHead # DeltaV - replace DetectiveHead for incongruence
+  - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - SecurityOuterClothing # DeltaV - replace DetectiveOuterClothing for incongruence
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityCadetHead # DeltaV
+  - SecurityHead # DeltaV
   - SecurityNeck # DeltaV
   - SecurityCadetJumpsuit
   - SecurityBackpack
@@ -557,6 +557,12 @@
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
 - type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
   id: RoleSurvivalStandard
   groups:
   - Survival
@@ -596,6 +602,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

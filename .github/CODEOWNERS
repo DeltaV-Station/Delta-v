@@ -1,8 +1,20 @@
 # Last match in file takes precedence.
 
-/Content.*/SimpleStation14/ @DEATHB4DEFEAT
+# C# code
+/Content.*/ @DeltaV-Station/maintainers
 
-/Resources/*.yml @Colin-Tel
-/Resources/*/SimpleStation14/ @DEATHB4DEFEAT
-/Resources/Maps/ @IamVelcroboy
-/Resources/Prototypes/Maps/ @IamVelcroboy
+# YML files
+/Resources/*.yml @DeltaV-Station/yaml-maintainers
+/Resources/**/*.yml @DeltaV-Station/yaml-maintainers
+
+# Sprites
+/Resources/Textures/ @IamVelcroboy
+
+# Lobby art and music - automatically direction issues since its immediately visible to players
+/Resources/Audio/Lobby/ @DeltaV-Station/game-directors
+/Resources/Textures/LobbyScreens/ @DeltaV-Station/game-directors
+
+# Maps
+/Resources/Maps/ @DeltaV-Station/maptainers
+/Resources/Prototypes/Maps/ @DeltaV-Station/maptainers
+/Content.IntegrationTests/Tests/PostMapInitTest.cs @DeltaV-Station/maptainers

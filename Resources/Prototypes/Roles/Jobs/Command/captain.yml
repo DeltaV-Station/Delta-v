@@ -24,8 +24,9 @@
       time: 108000 # DeltaV - 30 hours, was 15
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 108000 # 30 hours
-    - !type:AgeRequirement
-      requiredAge: 21
+    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
+#   - !type:AgeRequirement - DeltaV - PR #1611 for context
+#     requiredAge: 20
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

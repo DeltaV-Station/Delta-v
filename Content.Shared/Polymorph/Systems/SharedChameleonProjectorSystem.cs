@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
@@ -43,6 +44,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChameleonDisguiseComponent, GotEquippedHandEvent>(OnDisguiseEquippedHand);
+        SubscribeLocalEvent<ChameleonDisguiseComponent, InsertIntoEntityStorageAttemptEvent>(OnDisguiseInsertAttempt);
         SubscribeLocalEvent<ChameleonDisguiseComponent, ComponentShutdown>(OnDisguiseShutdown);
 
         SubscribeLocalEvent<ChameleonDisguisedComponent, DamageChangedEvent>(OnDamageChanged);
@@ -61,6 +63,12 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     {
         TryReveal(ent.Comp.User);
         args.Handled = true;
+    }
+
+    private void OnDisguiseInsertAttempt(Entity<ChameleonDisguiseComponent> ent, ref InsertIntoEntityStorageAttemptEvent args)
+    {
+        // stay parented to the user, not the storage
+        args.Cancelled = true;
     }
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
