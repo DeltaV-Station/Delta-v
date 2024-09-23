@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Added Soju and Sake bottle in the Booze-O-Mat.
-    type: Add
-  id: 79
-  time: '2023-10-23T19:04:14.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Removed the random sentience event.
     type: Remove
   id: 80
@@ -3627,3 +3621,11 @@
   id: 578
   time: '2024-09-23T16:20:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1902
+- author: Fox
+  changes:
+  - message: '"Get It Done" and "The Station" should now correctly display their names
+      when playing in the lobby'
+    type: Fix
+  id: 579
+  time: '2024-09-23T18:53:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1903
