@@ -29,8 +29,9 @@
     Glass: 500
     Plastic: 250
     Gold: 50
-    
+
 - type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
   id: BorgModuleSecurityChase
   result: BorgModuleSecurityChase
   completetime: 3
@@ -41,56 +42,33 @@
     Plastic: 250
     Gold: 50
     
+
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: LeftArmBorgSecurity
   result: LeftArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: RightArmBorgSecurity
   result: RightArmBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: LeftLegBorgSecurity
   result: LeftLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: RightLegBorgSecurity
   result: RightLegBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: HeadBorgSecurity
   result: HeadBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: TorsoBorgSecurity
   result: TorsoBorgSecurity
-  category: Robotics
-  completetime: 2
-  materials:
-    Steel: 250
-    Glass: 100

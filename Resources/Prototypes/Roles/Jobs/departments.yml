@@ -73,6 +73,15 @@
   - ResearchDirector
   - Quartermaster
   - ChiefJustice # DeltaV - chief justice is in command staff
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - StationAi # DeltaV - added for playtime trackers
   primary: false
   weight: 100
 
@@ -140,14 +149,15 @@
   color: "#D381C9"
   roles:
   - Roboticist
+  - Borg
   - Borgsec
   - Borgmed
-  - Borg
   - Borgser
   - Borgcwn
   - Borgjan
   - Borgeng
   - StationAi
+  primary: false # DeltaV - removed from primary dept
 
 - type: department
   id: Specific

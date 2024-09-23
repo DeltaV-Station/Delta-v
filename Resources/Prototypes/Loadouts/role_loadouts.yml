@@ -428,10 +428,10 @@
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  - HeadOfSecurityShoes # DeltaV, replaces SecurityShoes
+  - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
   - Trinkets
   - Undershirt
@@ -450,7 +450,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
   - Trinkets
   - Undershirt
@@ -470,7 +470,7 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
   - Trinkets
   - Undershirt
@@ -481,15 +481,15 @@
   id: JobDetective
   groups:
   - GroupTankHarness
-  - DetectiveHead
-  - DetectiveNeck
+  - SecurityHead # DeltaV - replace DetectiveHead for incongruence
+  - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
   - SecurityBackpack
-  - DetectiveOuterClothing
+  - SecurityOuterClothing # DeltaV - replace DetectiveOuterClothing for incongruence
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+#  - SecurityStar # DeltaV - removed for incongruence
   - GroupSpeciesBreathToolSecurity
   - Trinkets
   - Undershirt
@@ -499,7 +499,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityCadetHead # DeltaV
+  - SecurityHead # DeltaV
   - SecurityNeck # DeltaV
   - SecurityCadetJumpsuit
   - SecurityBackpack

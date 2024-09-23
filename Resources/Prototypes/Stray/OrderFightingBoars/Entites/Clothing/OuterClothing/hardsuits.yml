@@ -1,0 +1,66 @@
+#Если вы добавляете новый скафандр, то пожалуйста классифицируйте их по организациям/отделам (если вы этого не сделаете - я вас найду и сожгу)
+
+#Орден Боевых Кабанов
+#Доспех ОБК
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitPilotUltra
+  name: Доспех ордена боевых кабанов
+  description: Доспех который носит агент ОБК
+  suffix: ОБК
+  components:
+  - type: Sprite
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+  - type: Clothing
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Radiation: 0
+        Heat: 0.25
+        Caustic: 0.25
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitUltra
+
+#Доспех ОБК Апотекарий
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitPilotUltraAP
+  name: Доспех апотекария ордена боевых кабанов
+  description: Доспех который носит апотекарий ОБК
+  suffix: ОБК
+  components:
+  - type: Sprite
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+  - type: Clothing
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Radiation: 0
+        Heat: 0.25
+        Caustic: 0.25
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitUltraAP
