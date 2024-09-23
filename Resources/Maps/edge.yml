@@ -415,8 +415,8 @@ entities:
     - type: Broadphase
     - type: Physics
       bodyStatus: InAir
-      angularDamping: 10000
-      linearDamping: 10000
+      angularDamping: 0.05
+      linearDamping: 0.05
       fixedRotation: False
       bodyType: Dynamic
     - type: Fixtures
@@ -78104,12 +78104,6 @@ entities:
     - type: Transform
       pos: -42.5,19.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 11998
-      - 29
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 13941
@@ -79653,12 +79647,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -41.5,21.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 11998
-      - 29
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 15245
