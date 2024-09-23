@@ -349,3 +349,13 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBlackTurtleneck
+  name: black turtleneck
+  description: A simple black turtleneck with the sleeves cut off.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
