@@ -1,0 +1,109 @@
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: HardsuitHemletVOID
+  noSpawn: true
+  name: Шлем VOID
+  suffix: VOID
+  description: Иновационный шлем VOIDTech расчитанный на битвы, имеет не лучший фонарик но отличную защиту.
+  components:
+  - type: Sprite
+    sprite: Void/voidhardsuitHemlet.rsi
+  - type: Clothing
+    sprite: Void/voidhardsuitHemlet.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Radiation: 0.60
+        Caustic: 0.95
+        Heat: 0.95
+  - type: FlashImmunity # Counterpoint: the HoS can't see
+  - type: EyeProtection # They're blind as hell
+
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ElitesuitHemletVOID
+  noSpawn: true
+  name: Шлем VOID
+  suffix: VOID
+  description: Иновационный шлем VOIDTech расчитанный на битвы, имеет не лучший фонарик но отличную защиту.
+  components:
+  - type: Sprite
+    sprite: Void/voidelitesuithemlet.rsi
+  - type: Clothing
+    sprite: Void/voidelitesuithemlet.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Radiation: 0.25
+        Caustic: 0.25
+        Heat: 0.25
+  - type: FlashImmunity # Counterpoint: the HoS can't see
+  - type: EyeProtection # They're blind as hell
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: VOIDVeryhardsuithemlet
+  noSpawn: true
+  name: Шлем сверхтяжелой брони
+  suffix: VOID
+  description: Шлем сверхтяжелой брони, довольно таки тяжелый и бронированный.
+  components:
+  - type: Sprite
+    sprite: Void/voidveryhardsuithemlet.rsi
+  - type: Clothing
+    sprite: Void/voidveryhardsuithemlet.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 100000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Radiation: 0.40
+        Caustic: 0.65
+        Heat: 0.65
+
+- type: entity
+  parent: [ClothingHeadBase, GasMaskVoid]
+  id: ClothingHeadHatHoodRadVOID
+  name: Капюшон антирадиационного костюма
+  suffix: VOID
+  description: "Защищает от радиации и немного от ожогов, в нем уже встроен противогаз, как удобно!"
+  components:
+  - type: Sprite
+    sprite: Void/voidhazmathemlet.rsi
+  - type: Clothing
+    sprite: Void/voidhazmathemlet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.85
+        Radiation: 0.50
+  - type: BreathMask
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout

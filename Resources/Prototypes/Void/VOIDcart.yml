@@ -1,0 +1,46 @@
+- type: entity
+  parent: IDVOIDCardStandard
+  id: VOIDIDCard
+  name: ID карта VOID
+  suffix: VOID
+  components:
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Сотрудник VOID
+    jobIcon: JobIconVoid
+  - type: Access
+    tags:
+    - CentralCommand
+
+- type: entity
+  parent: Clothing
+  id: IDVOIDCardStandard
+  name: ID карта VOID
+  suffix: VOID
+  description: Странная ID карта
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Void/voididcart.rsi
+    layers:
+    - state: void
+  - type: Clothing
+    sprite: Void/voididcart.rsi
+    quickEquip: True
+    slots:
+    - idcard
+  - type: Item
+    sprite: Void/voididcart.rsi
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+  - type: StealTarget
+    stealGroup: IDCard
