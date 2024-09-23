@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: JJ
   changes:
-  - message: Reverse Engineering.
-    type: Add
-  id: 76
-  time: '2023-10-03T22:54:24.0000000+00:00'
-- author: JJ
-  changes:
   - message: Fixed 'Go back' option for Telegnostic Projection.
     type: Fix
   id: 77
@@ -3624,3 +3618,10 @@
   id: 575
   time: '2024-09-22T14:19:41.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1895
+- author: deltanedas
+  changes:
+  - message: Fixed chameleon projectors making you invisible when used with a crate.
+    type: Fix
+  id: 576
+  time: '2024-09-23T12:21:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1884
