@@ -230,6 +230,7 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - WeaponProtoKineticAccelerator
       # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
       - SpeedLoaderSpecial
       - SpeedLoaderSpecialEmpty
@@ -374,6 +375,7 @@
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -413,6 +415,7 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+<<<<<<< HEAD
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - WeaponEnergyGun       # Energy Gun
@@ -435,6 +438,11 @@
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
       # End DeltaV additions
+=======
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
+>>>>>>> 56e6e9b031 (remove shovel from mining module, add recipes to emagged lathes)
 
 - type: entity
   id: ProtolatheHyperConvection
