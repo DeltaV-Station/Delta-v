@@ -1,34 +1,34 @@
 ﻿- type: stealTargetGroup
   id: SpaceCashLuckyBill
-  name: logistics officer's lucky bill
+  name: steal-target-groups-lucky-bill
   sprite:
     sprite: DeltaV/Objects/Misc/first_bill.rsi
     state: icon
 
 - type: stealTargetGroup
   id: BookIanDossier
-  name: head of personnel's photobook
+  name: steal-target-groups-ian-dossier
   sprite:
     sprite: DeltaV/Objects/Misc/bureaucracy.rsi
     state: folder-hop-ian
 
 - type: stealTargetGroup
   id: WeaponEnergyGunMultiphase
-  name: x-01 multiphase energy gun
+  name: steal-target-groups-x01
   sprite:
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
 
 - type: stealTargetGroup
   id: RubberStampNotary
-  name: notary stamp
+  name: steal-target-groups-notary-stamp
   sprite:
     sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-notary
 
 - type: stealTargetGroup
   id: AnimalSilvia
-  name: Silvia
+  name: steal-target-groups-silvia
   sprite:
     sprite: DeltaV/Mobs/Pets/silvia.rsi
     state: silvia

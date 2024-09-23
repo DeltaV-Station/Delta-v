@@ -92,11 +92,3 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
 
-- type: entity
-  parent: VendingMachineRoboDrobe
-  id: VendingMachineAutomatrobe
-  name: Automatrobe
-  description: Automatically good.
-  components:
-  - type: VendingMachine
-    pack: AutomatrobeInventory

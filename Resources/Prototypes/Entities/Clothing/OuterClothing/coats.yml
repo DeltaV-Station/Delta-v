@@ -23,13 +23,13 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoEngravedLighter
-  - type: Armor #same as regular sec armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.80
+#  - type: Armor #same as regular sec armor # DeltaV - remove armour as it is no longer security equipment.
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.70
+#        Heat: 0.80
 
 - type: entity
   parent: ClothingOuterCoatDetective
