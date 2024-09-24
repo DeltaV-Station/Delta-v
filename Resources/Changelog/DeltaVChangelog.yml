@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: Colin-Tel
   changes:
-  - message: Fixed Tortuga station's critical lack of hardsuits
-    type: Fix
-  id: 81
-  time: '2023-10-23T21:40:33.0000000+00:00'
-- author: Colin-Tel
-  changes:
   - message: Removed prisoners from job selection, since they were spawning in arrivals.
       Warden no longer requires prisoner playtime in the meantime.
     type: Remove
@@ -3630,3 +3624,10 @@
   id: 580
   time: '2024-09-24T07:15:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1877
+- author: MilonPL
+  changes:
+  - message: Telegnostic projections will no longer slide on ice.
+    type: Fix
+  id: 581
+  time: '2024-09-24T16:33:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1898
