@@ -14,10 +14,10 @@
         Caustic: 0.85
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesGlassesCorpsman
   name: corpsman glasses
-  description: Security glasses designed for the Corpsman for medical and security needs. Now with a cool blue hue*
+  description: Security glasses designed for the Corpsman for medical needs. Now with a cool blue hue*
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi
