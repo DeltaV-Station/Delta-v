@@ -16,6 +16,11 @@ fugitive-report-sex = SEX: {$sex ->
     *[none] N/A
 }
 fugitive-report-weight = WEIGHT: {$weight} kg
+
+# Random details
+fugitive-report-detail-dna = DNA: {$dna}
+fugitive-report-detail-prints = FINGERPRINT: {$prints}
+
 fugitive-report-crimes-header = The above individual is wanted across the sector for the following:
 fugitive-report-crime = - {$count ->
     [1] One count
