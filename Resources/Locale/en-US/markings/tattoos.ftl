@@ -1,5 +1,5 @@
-marking-TattooHiveChestMale-tattoo_hive_chest_male = Back Tattoo (Hive)
-marking-TattooHiveChestMale = Back Tattoo (Hive)
+marking-TattooHiveChest-tattoo_hive_chest = Back Tattoo (Hive)
+marking-TattooHiveChest = Back Tattoo (Hive)
 
 marking-TattooHiveChestFemale-tattoo_hive_chest_female = Back Tattoo (Hive)
 marking-TattooHiveChestFemale = Back Tattoo (Hive)
