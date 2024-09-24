@@ -16,8 +16,6 @@ public sealed class AddictionSystem : SharedAddictionSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private readonly Dictionary<EntityUid, TimeSpan> _nextEffectTime = new();
-
     // Define the numbers, we're not making another DeepFryerSystem.cs
     // Minimum time between popups
     private const int MinEffectInterval = 10;
