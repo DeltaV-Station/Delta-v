@@ -19,3 +19,14 @@
   description: Prescription sechud, merged glasses and sechud together by sheer luck and cables with glue.
   icon: { sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: corpsman glasses 
+  id: ClothingEyesGlassesCorpsman
+  graph: GlassesCorpsHUD
+  startNode: start
+  targetNode: glassesCorps
+  category: construction-category-clothing
+  description: A pair of sunglasses, modified to have a built-in security and medical HUD.
+  icon: { sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi, state: icon }
+  objectType: Item

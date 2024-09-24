@@ -41,14 +41,16 @@ public sealed class OracleSystem : EntitySystem
         foreach (var oracle in EntityQuery<OracleComponent>())
         {
             oracle.Accumulator += frameTime;
-            oracle.BarkAccumulator += frameTime;
             oracle.RejectAccumulator += frameTime;
-            if (oracle.BarkAccumulator >= oracle.BarkTime.TotalSeconds)
+
+            if (oracle.BarkType == OracleBarkType.Timed)
             {
-                oracle.BarkAccumulator = 0;
-                var message = Loc.GetString(_random.Pick(oracle.DemandMessages), ("item", oracle.DesiredPrototype.Name))
-                    .ToUpper();
-                _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, false);
+                oracle.BarkAccumulator += frameTime;
+                if (oracle.BarkAccumulator >= oracle.BarkTime.TotalSeconds)
+                {
+                    oracle.BarkAccumulator = 0;
+                    SendBark(oracle);
+                }
             }
 
             if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
@@ -86,7 +88,7 @@ public sealed class OracleSystem : EntitySystem
             ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
 
         _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-            message, messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+            message, messageWrap, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
 
         if (component.LastDesiredPrototype != null)
         {
@@ -96,7 +98,7 @@ public sealed class OracleSystem : EntitySystem
                 ("message", message2));
 
             _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-                message2, messageWrap2, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                message2, messageWrap2, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
         }
     }
 
@@ -208,6 +210,17 @@ public sealed class OracleSystem : EntitySystem
             component.DesiredPrototype = proto;
         else
             Logger.Error("Oracle can't index prototype " + protoString);
+
+        if (component.BarkType == OracleBarkType.NewDemand)
+        {
+            SendBark(component);
+        }
+    }
+
+    private void SendBark(OracleComponent component) {
+        var message = Loc.GetString(_random.Pick(component.DemandMessages), ("item", component.DesiredPrototype.Name))
+            .ToUpper();
+        _chat.TrySendInGameICMessage(component.Owner, message, InGameICChatType.Speak, false);
     }
 
     private string GetDesiredItem(OracleComponent component)

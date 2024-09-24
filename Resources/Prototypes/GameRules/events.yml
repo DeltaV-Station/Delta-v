@@ -18,8 +18,10 @@
     #- id: MimicVendorRule # DeltaV - disabled, see below
     - id: MouseMigration
     - id: PowerGridCheck
+    #- id: RandomSentience # DeltaV - replaced with RandomSentienceGlimmer
     - id: SlimesSpawn
     - id: SolarFlare
+    - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
@@ -38,36 +40,35 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
 
-
 - type: entity
   id: BaseStationEvent
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventShortDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventLongDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  40
-        max:  60
+  - type: GameRule
+    delay:
+      min:  40
+      max:  60
 
 - type: entity
   id: AnomalySpawn
@@ -128,6 +129,8 @@
     weight: 5
     duration: 1
   - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
 - type: entity
   id: ClericalError
@@ -160,9 +163,12 @@
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
-  - type: AntagRandomSpawn
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
   - type: AntagSpawner
     prototype: MobDragon
+  - type: DragonRule
   - type: AntagObjectives
     objectives:
     - CarpRiftsObjective
@@ -177,8 +183,6 @@
       mindComponents:
       - type: DragonRole
         prototype: Dragon
-      - type: RoleBriefing
-        briefing: dragon-role-briefing
 
 - type: entity
   parent: BaseGameRule
@@ -287,7 +291,7 @@
     startAudio:
       path: /Audio/Announcements/power_off.ogg
       params:
-       volume: -4
+        volume: -4
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
@@ -353,6 +357,27 @@
     - id: MobAdultSlimesGreenAngry
       prob: 0.02
     - id: MobAdultSlimesYellowAngry
+      prob: 0.02
+
+- type: entity
+  id: SnakeSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobPurpleSnake
+      prob: 0.02
+    - id: MobSmallPurpleSnake
+      prob: 0.02
+    - id: MobCobraSpace
       prob: 0.02
 
 - type: entity
@@ -445,6 +470,9 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalNukie
+
       components:
       - type: NukeOperative
       - type: RandomMetadata

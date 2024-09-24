@@ -23,7 +23,7 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
 
 - type: entity
   abstract: true
@@ -50,7 +50,7 @@
         whitelist:
           tags:
           - Knife
-          - Sidearm
+          - ConcealCarry # DeltaV - replace Sidearm tag
 
 - type: entity
   abstract: true

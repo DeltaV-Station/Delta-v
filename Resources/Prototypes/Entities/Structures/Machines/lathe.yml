@@ -198,11 +198,13 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
-      - GoldRing # Delta-V
-      - SilverRing # Delta-V
-      - GoldRingDiamond # Delta-V
-      - SilverRingDiamond # Delta-V
-
+      - Flare
+      # Begin Delta-V additions
+      - GoldRing
+      - SilverRing
+      - GoldRingDiamond
+      - SilverRingDiamond
+      # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -471,6 +473,7 @@
     - ProtolatheMachineCircuitboard
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
+    - BiogeneratorMachineCircuitboard
     - OreProcessorMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
@@ -490,6 +493,7 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
+    - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -561,7 +565,6 @@
     # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
-      - SalvageMagnetMachineCircuitboard
       - MetempsychoticMachineCircuitboard
     # End Nyano additions
     # Begin DeltaV additions
@@ -1216,13 +1219,6 @@
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
-      - ClothingNeckMantleCap
-      - ClothingNeckMantleCE
-      - ClothingNeckMantleCMO
-      - ClothingNeckMantleHOP
-      - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
-      - ClothingNeckMantleQM
       - ClothingNeckCloakCJ # DeltaV - Chief Justice
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
@@ -1298,6 +1294,70 @@
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  id: Biogenerator
+  parent: BaseLathe
+  name: biogenerator
+  description: Converts plants into biomass, which can be used to construct useful items.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/biofabricator.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: BiogeneratorMachineCircuitboard
+  - type: MaterialStorage
+    insertOnInteract: false
+    canEjectStoredMaterials: false
+  - type: ProduceMaterialExtractor
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: Lathe
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    staticRecipes:
+    - BioGenMilk
+    - BioGenMilkSoy
+    - BioGenEthanol
+    - BioGenCream
+    - BioGenBlackpepper
+    - BioGenEnzyme
+    - BioGenFlour
+    - BioGenSugar
+    - BioGenMonkeyCube
+    - BioGenKoboldCube
+    - BioGenMaterialCloth1
+    - BioGenMaterialCardboard1
+    - BioGenPaper
+    - BioGenPaperRolling1
+    - BioGenCandle
+    - BioGenPlantBGone
+    - BioGenWeedKiller
+    - BioGenPestKiller
+    - BioGenLeft4Zed
+    - BioGenEZNutrient
+    - BioGenRobustHarvest
 
 - type: entity
   parent: BaseLathe

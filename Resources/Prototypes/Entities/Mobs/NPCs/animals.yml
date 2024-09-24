@@ -33,6 +33,8 @@
     states:
       Alive:
         Base: bat
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -102,6 +104,8 @@
     states:
       Alive:
         Base: 0
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Item
@@ -352,6 +356,8 @@
     states:
       Alive:
         Base: cockroach
+      Critical:
+        Base: cockroach_dead
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
@@ -394,6 +400,14 @@
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
 
 - type: entity
   name: glockroach
@@ -609,6 +623,8 @@
     states:
       Alive:
         Base: duck-0
+      Critical:
+        Base: dead-0
       Dead:
         Base: dead-0
   - type: Butcherable
@@ -649,6 +665,8 @@
     states:
       Alive:
         Base: duck-1
+      Critical:
+        Base: dead-1
       Dead:
         Base: dead-1
 
@@ -666,6 +684,8 @@
     states:
       Alive:
         Base: duck-2
+      Critical:
+        Base: dead-2
       Dead:
         Base: dead-2
 
@@ -725,6 +745,8 @@
     states:
       Alive:
         Base: butterfly
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Bloodstream
@@ -771,6 +793,8 @@
     states:
       Alive:
         Base: cow
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: SolutionContainerManager
@@ -855,6 +879,8 @@
     states:
       Alive:
         Base: crab
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1005,6 +1031,8 @@
     states:
       Alive:
         Base: goose
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1283,6 +1311,7 @@
     tags:
     - VimPilot
     - DoorBumpOpener
+    - AnomalyHost
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -1707,25 +1736,14 @@
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat mice, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
   - type: BadFood
   - type: NonSpreaderZombie
-  - type: PreventSpiller
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-0
     entries:
-      burger:
-        name: food-sequence-burger-content-rat
-      taco:
-        name: food-sequence-content-rat
-      skewer:
-        name: food-sequence-content-rat
-        sprite: 
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-rat
-
+      Taco: RatTaco
+      Burger: RatBurger
+      Skewer: RatSkewer
 
 - type: entity
   parent: MobMouse
@@ -1782,10 +1800,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -1815,10 +1829,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-2
 
 - type: entity
   name: lizard #Weh
@@ -1852,6 +1862,8 @@
     states:
       Alive:
         Base: lizard
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1908,6 +1920,8 @@
     states:
       Alive:
         Base: slug
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -1961,6 +1975,8 @@
     states:
       Alive:
         Base: frog
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -2013,6 +2029,8 @@
     states:
       Alive:
         Base: parrot
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable
@@ -2065,6 +2083,8 @@
     states:
       Alive:
         Base: penguin
+      Critical:
+        Base: penguin_dead
       Dead:
         Base: penguin_dead
   - type: Butcherable
@@ -2134,6 +2154,8 @@
     states:
       Alive:
         Base: penguin
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: MeleeWeapon
@@ -2252,6 +2274,8 @@
     states:
       Alive:
         Base: tarantula
+      Critical:
+        Base: tarantula_dead
       Dead:
         Base: tarantula_dead
   - type: Butcherable
@@ -2377,6 +2401,8 @@
       states:
         Alive:
           Base: clown
+        Critical:
+          Base: dead
         Dead:
           Base: dead
     - type: MobThresholds
@@ -2447,6 +2473,8 @@
     states:
       Alive:
         Base: possum
+      Critical:
+        Base: possum_dead
       Dead:
         Base: possum_dead
   - type: Butcherable
@@ -2482,6 +2510,8 @@
     states:
       Alive:
         Base: possum_old
+      Critical:
+        Base: possum_dead_old
       Dead:
         Base: possum_dead_old
 
@@ -2517,6 +2547,8 @@
     states:
       Alive:
         Base: raccoon
+      Critical:
+        Base: raccoon_dead
       Dead:
         Base: raccoon_dead
   - type: Butcherable
@@ -2576,6 +2608,8 @@
     states:
       Alive:
         Base: fox
+      Critical:
+        Base: fox_dead
       Dead:
         Base: fox_dead
   - type: Butcherable
@@ -2648,6 +2682,8 @@
     states:
       Alive:
         Base: corgi
+      Critical:
+        Base: corgi_dead
       Dead:
         Base: corgi_dead
   - type: Butcherable
@@ -2689,6 +2725,8 @@
     states:
       Alive:
         Base: narsian
+      Critical:
+        Base: narsian_dead
       Dead:
         Base: narsian_dead
   - type: MeleeWeapon
@@ -2792,6 +2830,8 @@
     states:
       Alive:
         Base: cat
+      Critical:
+        Base: cat_dead
       Dead:
         Base: cat_dead
   - type: Speech
@@ -2827,6 +2867,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: HTN # DeltaV - make all cats eat mice
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
+    factions:
+    - Cat
 
 - type: entity
   name: calico cat
@@ -2842,6 +2888,8 @@
     states:
       Alive:
         Base: cat2
+      Critical:
+        Base: cat2_dead
       Dead:
         Base: cat2_dead
 
@@ -2859,6 +2907,8 @@
     states:
       Alive:
         Base: syndicat
+      Critical:
+        Base: syndicat_dead
       Dead:
         Base: syndicat_dead
   - type: GhostRole
@@ -2904,6 +2954,8 @@
     states:
       Alive:
         Base: spacecat
+      Critical:
+        Base: spacecat_dead
       Dead:
         Base: spacecat_dead
   - type: Temperature
@@ -2914,7 +2966,7 @@
       - DoorBumpOpener
   - type: MovementAlwaysTouching
   - type: PressureImmunity
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup
     successChance: 0.7
@@ -2941,6 +2993,8 @@
     states:
       Alive:
         Base: caracal_flop
+      Critical:
+        Base: caracal_dead
       Dead:
         Base: caracal_dead
 
@@ -3014,6 +3068,8 @@
     states:
       Alive:
         Base: sloth
+      Critical:
+        Base: sloth_dead
       Dead:
         Base: sloth_dead
   - type: Butcherable
@@ -3066,6 +3122,8 @@
     states:
       Alive:
         Base: ferret
+      Critical:
+        Base: ferret_dead
       Dead:
         Base: ferret_dead
   - type: Butcherable
@@ -3229,15 +3287,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/hamster.rsi
-      state: dead-0
-    entries:
-      burger:
-        name: food-sequence-burger-content-hamster
-      taco:
-        name: food-sequence-content-hamster
 
 - type: entity
   name: pig
@@ -3282,6 +3331,8 @@
     states:
       Alive:
         Base: pig
+      Critical:
+        Base: dead
       Dead:
         Base: dead
   - type: Butcherable

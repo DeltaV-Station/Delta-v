@@ -29,6 +29,8 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
         int multiplier = Math.Max(1, (int) _glimmer.GetGlimmerTier() - (int) comp.GlimmerTier);
 
         var total = baseCount * multiplier;
+        if (comp.MaxSpawns is {} maxSpawns)
+            total = Math.Min(total, maxSpawns);
 
         Log.Info($"Spawning {total} of {comp.MobPrototype} from {ToPrettyString(uid):rule}");
         for (var i = 0; i < total; i++)

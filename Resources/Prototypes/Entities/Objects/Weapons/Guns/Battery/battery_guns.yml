@@ -79,6 +79,7 @@
   - type: Tag
     tags:
     - Sidearm
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -96,6 +97,7 @@
   - type: Tag
     tags:
     - Sidearm
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -267,7 +269,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -443,6 +445,7 @@
     tags:
     - Taser
     - Sidearm
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
 
 - type: entity
   name: disabler
@@ -519,6 +522,7 @@
     tags:
     - Taser
     - Sidearm
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     layers:
@@ -580,6 +584,7 @@
     - HighRiskItem
     - Sidearm
     - WeaponAntiqueLaser
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
   - type: StaticPrice
     price: 750
   - type: StealTarget

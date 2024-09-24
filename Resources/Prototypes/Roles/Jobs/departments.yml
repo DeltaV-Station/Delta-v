@@ -38,13 +38,30 @@
   - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
 
 - type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  editorHidden: true
+  weight: 120
+
+- type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
   - Captain
-  - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
@@ -52,6 +69,16 @@
   - ResearchDirector
   - Quartermaster
   - ChiefJustice # DeltaV - chief justice is in command staff
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - StationAi # DeltaV - added for playtime trackers
   primary: false
   weight: 100
 
@@ -115,7 +142,9 @@
   color: "#D381C9"
   roles:
   - Borg
+  - MedicalBorg # DeltaV - roundstart mediborg job
   - StationAi
+  primary: false # DeltaV - removed from primary dept
 
 - type: department
   id: Specific
