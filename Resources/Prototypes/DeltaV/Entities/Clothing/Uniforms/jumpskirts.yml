@@ -59,6 +59,19 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/detective.rsi
 
+# Senior Officer uniform
+
+- type: entity
+  parent: ClothingUniformFoldableBase
+  id: ClothingUniformJumpskirtSecSenior
+  name: senior officer's jumpskirt
+  description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. This one seems to have a skirt stitched to the waist. Curious.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/seniorofficer.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/seniorofficer.rsi
+
 # Warden alt uniforms
 
 - type: entity
