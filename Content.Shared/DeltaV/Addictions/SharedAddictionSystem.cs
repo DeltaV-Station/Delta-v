@@ -12,13 +12,6 @@ public abstract class SharedAddictionSystem : EntitySystem
 
     public ProtoId<StatusEffectPrototype> StatusEffectKey = "Addicted";
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
-    protected abstract void DoAddictionEffect(EntityUid uid);
-
     protected abstract void UpdateTime(EntityUid uid);
 
     public virtual void TryApplyAddiction(EntityUid uid, float addictionTime, StatusEffectsComponent? status = null)

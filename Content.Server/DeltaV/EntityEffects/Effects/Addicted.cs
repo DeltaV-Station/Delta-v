@@ -23,7 +23,7 @@ public sealed partial class Addicted : EntityEffect
             addictionTime *= reagentArgs.Scale.Float();
         }
 
-        var addictionSystem = args.EntityManager.EntitySysManager.GetEntitySystem<SharedAddictionSystem>();
+        var addictionSystem = args.EntityManager.System<SharedAddictionSystem>();
         addictionSystem.TryApplyAddiction(args.TargetEntity, addictionTime);
     }
 }

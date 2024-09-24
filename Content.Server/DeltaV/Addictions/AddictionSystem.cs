@@ -1,3 +1,4 @@
+using Content.Shared.Dataset;
 using Content.Shared.DeltaV.Addictions;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
@@ -10,10 +11,10 @@ namespace Content.Server.DeltaV.Addictions;
 
 public sealed class AddictionSystem : SharedAddictionSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextEffectTime = new();
 
@@ -27,7 +28,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AddictedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<AddictedComponent, ComponentStartup>(OnInit);
     }
 
     public override void Update(float frameTime)
@@ -46,54 +47,36 @@ public sealed class AddictionSystem : SharedAddictionSystem
                 continue;
             }
 
-            if (!_nextEffectTime.TryGetValue(uid, out var nextTime))
-            {
-                // Between 10 and 40 seconds
-                _nextEffectTime[uid] = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
-                continue;
-            }
-
-            if (curTime < nextTime)
+            if (curTime < component.NextEffectTime)
                 continue;
 
             DoAddictionEffect(uid);
-            _nextEffectTime[uid] = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
+            component.NextEffectTime = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
         }
     }
 
-    private void OnShutdown(EntityUid uid, AddictedComponent component, ComponentShutdown args)
+    // Make sure we don't get a popup on the first update
+    private void OnInit(EntityUid uid, AddictedComponent component, ComponentStartup args)
     {
-        _nextEffectTime.Remove(uid);
+        var curTime = _timing.CurTime;
+        component.NextEffectTime = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
     }
 
     private void UpdateSuppressed(EntityUid uid, AddictedComponent component)
     {
         var componentTime = component.LastMetabolismTime + TimeSpan.FromSeconds(10); // Ten seconds after the last metabolism cycle
-        if (componentTime > _timing.CurTime)
+        var shouldBeSupressed = (componentTime > _timing.CurTime);
+        if (component.Suppressed != shouldBeSupressed)
         {
-            component.Suppressed = true;
-            Dirty(uid, component);
+            component.Suppressed = shouldBeSupressed;
         }
         else
-        {
-            component.Suppressed = false;
-            Dirty(uid, component);
-        }
+            return;
     }
 
     private string GetRandomPopup()
     {
-        return _random.Pick(new[]
-        {
-            Loc.GetString("reagent-effect-medaddiction-1"),
-            Loc.GetString("reagent-effect-medaddiction-2"),
-            Loc.GetString("reagent-effect-medaddiction-3"),
-            Loc.GetString("reagent-effect-medaddiction-4"),
-            Loc.GetString("reagent-effect-medaddiction-5"),
-            Loc.GetString("reagent-effect-medaddiction-6"),
-            Loc.GetString("reagent-effect-medaddiction-7"),
-            Loc.GetString("reagent-effect-medaddiction-8")
-        });
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("AddictionEffects").Values));
     }
 
     public override void TryApplyAddiction(EntityUid uid, float addictionTime, StatusEffectsComponent? status = null)
@@ -101,23 +84,18 @@ public sealed class AddictionSystem : SharedAddictionSystem
         base.TryApplyAddiction(uid, addictionTime, status);
     }
 
-    protected override void DoAddictionEffect(EntityUid uid)
+    private void DoAddictionEffect(EntityUid uid)
     {
-        if (_playerManager.TryGetSessionByEntity(uid, out var session))
-        {
-            _popupSystem.PopupEntity(GetRandomPopup(), uid, session);
-        }
+        _popup.PopupEntity(GetRandomPopup(), uid, uid);
     }
 
     // Called each time a reagent with the Addicted effect gets metabolized
     protected override void UpdateTime(EntityUid uid)
     {
-        if (TryComp<AddictedComponent>((uid), out var component))
+        if (TryComp<AddictedComponent>(uid, out var component))
         {
             component.LastMetabolismTime = _timing.CurTime;
             UpdateSuppressed(uid, component);
         }
-        else
-            return;
     }
 }
