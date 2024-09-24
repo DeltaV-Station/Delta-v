@@ -90,6 +90,12 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
+  - type: Prying # DeltaV: let sentient goliaths pry doors
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   id: ActionGoliathTentacle
