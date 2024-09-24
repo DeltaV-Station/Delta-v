@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Removed prisoners from job selection, since they were spawning in arrivals.
-      Warden no longer requires prisoner playtime in the meantime.
-    type: Remove
-  id: 82
-  time: '2023-10-23T23:12:41.0000000+00:00'
 - author: VMSolidus
   changes:
   - message: Harpies can now be stripped, and can randomly be psychic
@@ -3631,3 +3624,10 @@
   id: 581
   time: '2024-09-24T16:33:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1898
+- author: deltanedas
+  changes:
+  - message: Goliaths can now pry doors open.
+    type: Tweak
+  id: 582
+  time: '2024-09-24T19:48:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1908
