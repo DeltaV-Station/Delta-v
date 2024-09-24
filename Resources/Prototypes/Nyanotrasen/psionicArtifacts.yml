@@ -14,22 +14,10 @@
   id: PsionicArtifacts
   table: !type:GroupSelector
     children:
-    - id: ClothingHandsDispelGloves
-    - id: ClothingEyesTelegnosisSpectacles
-    - id: ClothingHandsGlovesColorYellowUnsulated
-    - id: ClothingShoesBootsMagBlinding
+    - !type:AllSelector # fake wizard outfit
+      children:
+      - id: ClothingHeadHatWizardFake # the hat is fake so you can't sacrifice for gamer eva suit
+      - id: ClothingOuterWizard
+      - id: ClothingShoesWizard
+    - id: CrystalNormality
       weight: 0.5
-    - id: BedsheetInvisibilityCloak
-      weight: 0.15
-    - id: SpawnSpellbook
-      weight: 0.025
-    - id: ForceWallSpellbook
-      weight: 0.025
-    - id: BlinkBook
-      weight: 0.025
-    - id: SmiteBook
-      weight: 0.00025
-    - id: KnockSpellbook
-      weight: 0.025
-    - id: FireballSpellbook
-      weight: 0.01
