@@ -41,23 +41,23 @@
     state: scar_top_surgery_long
 
 - type: marking
-  id: ScarChestMale
+  id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] #Einstein Engines - Felinid, Oni
-  sexRestriction: [Male]
+  sexRestriction: [Male] #DeltaV: Splitting the scars and tattoos
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
-    state: scar_chest_male
+    state: scar_chest
 
 - type: marking
-  id: ScarChestFemale
+  id: ScarChestFemale #DeltaV: Splitting the scars and tattoos
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] #Einstein Engines - Felinid, Oni
-  sexRestriction: [Female]
+  sexRestriction: [Female] #DeltaV: Splitting the scars and tattoos
   followSkinColor: true
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: DeltaV/Mobs/Customization/scars.rsi
     state: scar_chest_female
