@@ -149,7 +149,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
     private string GetDNA(EntityUid uid)
     {
-        return CompOrNull<DnaComponent>(uid, out var dna)?.DNA ?? "?";
+        return CompOrNull<DnaComponent>(uid)?.DNA ?? "?";
     }
 
     private string GetPrints(EntityUid uid)
