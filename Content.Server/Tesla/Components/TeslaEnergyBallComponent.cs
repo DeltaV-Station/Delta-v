@@ -1,13 +1,14 @@
 using Content.Server.Tesla.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // DeltaV
 
 namespace Content.Server.Tesla.Components;
 
 /// <summary>
 /// A component that tracks an entity's saturation level from absorbing other creatures by touch, and spawns new entities when the saturation limit is reached.
 /// </summary>
-[RegisterComponent, Access(typeof(TeslaEnergyBallSystem))]
+[RegisterComponent, Access(typeof(TeslaEnergyBallSystem), typeof(TeslaPassiveDrainSystem))] // DeltaV - Add TeslaPassiveDrainSystem access
 public sealed partial class TeslaEnergyBallComponent : Component
 {
     /// <summary>
@@ -51,4 +52,18 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId ConsumeEffectProto = "EffectTeslaSparks";
+
+    // Begin DeltaV additions
+    /// <summary>
+    /// The amount of energy drained passively per update.
+    /// </summary>
+    [DataField]
+    public float PassiveEnergyDrainRate = 3f;
+
+    /// <summary>
+    /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextUpdateTime = default!;
+    // End DeltaV
 }
