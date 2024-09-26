@@ -1,22 +1,30 @@
+# you can RE any cloning board you find to unlock all 3
+- type: entity
+  abstract: true
+  id: BaseCloningBoard
+  components:
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+    - CloningConsoleComputerCircuitboard
+    - MetempsychoticMachineCircuitboard
+    - MedicalScannerMachineCircuitboard
+
 - type: entity
   id: MetempsychoticMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseCloningBoard ]
   name: metempsychotic machine machine board
   description: A machine printed circuit board for a cloning pod
   components:
-    - type: Sprite
-      state: medical
-    - type: MachineBoard
-      prototype: MetempsychoticMachine
-      stackRequirements:
-        Glass: 1
-        Cable: 1
-        Capacitor: 2
-        Manipulator: 2
-    - type: ReverseEngineering
-      difficulty: 3
-      recipes:
-        - MetempsychoticMachineCircuitboard
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: MetempsychoticMachine
+    stackRequirements:
+      Glass: 1
+      Cable: 1
+      Capacitor: 2
+      Manipulator: 2
 
 - type: entity
   id: ReverseEngineeringMachineCircuitboard
@@ -24,51 +32,48 @@
   name: reverse engineering machine machine board
   description: A machine printed circuit board for a reverse engineering machine
   components:
-    - type: Sprite
-      state: engineering
-    - type: MachineBoard
-      prototype: ReverseEngineeringMachine
-      stackRequirements:
-        Cable: 1
-        PlasmaGlass: 5
-        MatterBin: 1
-        Manipulator: 1
-      tagRequirements:
-        BorgArm:
-          amount: 3
-          defaultPrototype: LeftArmBorg
-    - type: ReverseEngineering
-      difficulty: 2
-      recipes:
-        - ReverseEngineeringMachineCircuitboard
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: ReverseEngineeringMachine
+    stackRequirements:
+      Cable: 1
+      PlasmaGlass: 5
+      MatterBin: 1
+      Manipulator: 1
+    tagRequirements:
+      BorgArm:
+        amount: 3
+        defaultPrototype: LeftArmBorg
+  # TODO: make this reverse engineerable to the upgraded one
 
 - type: entity
   id: DeepFryerMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: deep fryer machine board
   components:
-    - type: Sprite
-      state: service
-    - type: MachineBoard
-      prototype: KitchenDeepFryer
-      stackRequirements:
-        Steel: 4
-        Glass: 2
-        Cable: 4
-        Capacitor: 1
-        MatterBin: 1
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: KitchenDeepFryer
+    stackRequirements:
+      Steel: 4
+      Glass: 2
+      Cable: 4
+      Capacitor: 1
+      MatterBin: 1
 
 - type: entity
   id: MailTeleporterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: mail teleporter machine board
   components:
-    - type: Sprite
-      state: supply
-    - type: MachineBoard
-      prototype: MailTeleporter
-      stackRequirements:
-        Steel: 4
-        Cable: 4
-        Capacitor: 1
-        MatterBin: 1
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MailTeleporter
+    stackRequirements:
+      Steel: 4
+      Cable: 4
+      Capacitor: 1
+      MatterBin: 1

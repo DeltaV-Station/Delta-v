@@ -243,10 +243,6 @@
       beaker:
         maxVol: 60
         canReact: false
-  - type: ReverseEngineering # delta
-    difficulty: 2
-    recipes:
-    - CryostasisBeaker
 
 - type: entity
   name: bluespace beaker
@@ -267,7 +263,7 @@
       beaker:
         maxVol: 1000
         canReact: true
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
       - BluespaceBeaker
@@ -432,7 +428,7 @@
     tags:
     - Syringe
     - Trash
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
       - SyringeBluespace
@@ -467,10 +463,6 @@
     tags:
     - Syringe
     - Trash
-  - type: ReverseEngineering # delta
-    difficulty: 2
-    recipes:
-      - SyringeCryostasis
 
 
 - type: entity
@@ -536,9 +528,9 @@
     tags:
       - PillCanister
   - type: Storage
-    whitelist: # DV - Remove the ability to store anything other than pills in pill canisters
-      tags: 
-        - Pill
+    whitelist: # DeltaV - Remove the ability to store anything other than pills in pill canisters
+      tags:
+      - Pill
     grid:
     - 0,0,4,1
     quickInsert: true

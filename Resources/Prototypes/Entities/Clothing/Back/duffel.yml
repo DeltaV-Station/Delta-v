@@ -170,6 +170,12 @@
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: ReverseEngineering # DeltaV: can RE any valid bag for BoH
+    difficulty: 4
+    recipes:
+    - ClothingBackpackHolding
+    - ClothingBackpackDuffelHolding
+    - ClothingBackpackSatchelHolding
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
