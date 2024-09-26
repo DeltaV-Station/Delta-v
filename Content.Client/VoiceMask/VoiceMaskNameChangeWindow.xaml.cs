@@ -31,17 +31,18 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             OnVerbChange?.Invoke((string?) args.Button.GetItemMetadata(args.Id));
             SpeechVerbSelector.SelectId(args.Id);
         };
-
-        AddVerbs();
+        // AddVerbs(); // DeltaV
     }
 
     public void ReloadVerbs(IPrototypeManager proto)
     {
+        _verbs.Clear(); // DeltaV
         foreach (var verb in proto.EnumeratePrototypes<SpeechVerbPrototype>())
         {
             _verbs.Add((Loc.GetString(verb.Name), verb.ID));
         }
         _verbs.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+        AddVerbs(); // DeltaV
     }
 
     private void AddVerbs()
@@ -73,7 +74,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {
-            if (string.Equals(verb, SpeechVerbSelector.GetItemMetadata(id)))
+            if (string.Equals(verb, (string?)SpeechVerbSelector.GetItemMetadata(id))) // DeltaV
             {
                 SpeechVerbSelector.SelectId(id);
                 break;
