@@ -1088,8 +1088,8 @@
   - HeadofSecurityJumpskirtGrey # DeltaV
   - HeadofSecurityJumpsuitBlue # DeltaV
   - HeadofSecurityJumpskirtBlue # DeltaV
-  - HeadofSecurityTurtleneck # DeltaV 
-  - HeadofSecurityTurtleneckSkirt # DeltaV
+  - HeadofSecurityTurtleneck
+  - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
 #  - HeadofSecurityParadeSuit # DeltaV - removed for incongruence
@@ -1113,7 +1113,6 @@
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
   - StasecWinterCoatHoS # DeltaV
-  - StasecGreatcoatHoS # DeltaV
 
 - type: loadoutGroup # DeltaV
   id: HeadofSecurityShoes
@@ -1142,6 +1141,8 @@
   - WardenJumpskirtGrey # DeltaV
   - WardenJumpsuitBlue # DeltaV
   - WardenJumpskirtBlue # DeltaV
+  - WardenTurtlesuit # DeltaV
+  - WardenTurtleskirt # DeltaV
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1152,7 +1153,6 @@
   - PlateCarrier # DeltaV
   - DuraVest # DeltaV
   - StasecWinterCoatWarden # DeltaV
-  - StasecGreatcoatWarden # DeltaV
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1205,7 +1205,6 @@
 #  - SecurityOfficerWintercoat - removed for incongruence
   - StasecSweater # DeltaV
   - StasecWinterCoat # DeltaV
-  - StasecGreatcoat # DeltaV
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1233,8 +1232,9 @@
   name: loadout-group-detective-head
   minLimit: 0
   loadouts:
-  - DetectiveFedora
-  - DetectiveFedoraGrey
+#  - DetectiveFedora # DeltaV - removed for incongruence
+#  - DetectiveFedoraGrey # DeltaV - removed for incongruence
+  - DetBeret # DeltaV
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1254,14 +1254,19 @@
 #  - NoirJumpskirt # DeltaV - removed for incongruence
   - ForensicSpecJumpsuit # DeltaV
   - ForensicSpecJumpskirt # DeltaV
+  - ForensicSpecTurtlesuit # DeltaV
+  - ForensicSpecTurtleskirt # DeltaV
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
   minLimit: 0
   loadouts:
-  - DetectiveArmorVest
-  - DetectiveCoat
+#  - DetectiveArmorVest # DeltaV - removed for incongruence
+#  - DetectiveCoat # DeltaV - removed for incongruence
+  - StasecWinterCoatDet # DeltaV
+  - PlateCarrier # DeltaV
+  - DuraVest # DeltaV
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

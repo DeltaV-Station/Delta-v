@@ -40,6 +40,16 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtWardenBlue
 
+- type: loadout
+  id: WardenTurtlesuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitWardenTurtle # DeltaV
+
+- type: loadout
+  id: WardenTurtleskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtWardenTurtle # DeltaV
+
 # OuterClothing
 - type: loadout
   id: WardenCoat
@@ -55,8 +65,3 @@
   id: StasecWinterCoatWarden
   equipment:
     outerClothing: ClothingOuterCoatStasecWarden
-
-- type: loadout # DeltaV - security greatcoat
-  id: StasecGreatcoatWarden
-  equipment:
-    outerClothing: ClothingOuterGreatcoatStasecWarden
