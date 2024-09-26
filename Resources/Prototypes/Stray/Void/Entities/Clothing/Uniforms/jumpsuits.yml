@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: VOIDsuit
+  name: Комбинезон с галстуком
+  suffix: VOID
+  description: Деловой костюм с сиреневым галстуком
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Uniforms/Jumpsuit/voidsuit.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Uniforms/Jumpsuit/voidsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: VOIDTacticsuit
+  name: Тактический комбинезон
+  suffix: VOID
+  description: С нами бог, помните ни слова по-русски
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Uniforms/Jumpsuit/voidtacticsuit.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Uniforms/Jumpsuit/voidtacticsuit.rsi

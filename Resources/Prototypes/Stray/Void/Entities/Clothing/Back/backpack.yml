@@ -1,0 +1,9 @@
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: VOIDbackpack
+  name: Рюкзак VOID
+  suffix: VOID
+  description: Стандартный рюкзак небольших размеров, есть бирка с надписью "Производитель VOIDTech"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Back/Backpacks/voidbackpack.rsi

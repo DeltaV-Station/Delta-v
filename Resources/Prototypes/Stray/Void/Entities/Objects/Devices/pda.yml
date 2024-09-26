@@ -1,0 +1,26 @@
+- type: entity
+  parent: BasePDA
+  id: VoidPDA
+  name: КПК Сотрудника VOID
+  suffix: VOID
+  description: В углу написанно VOID... что б могло это значить?
+  components:
+    - type: Pda
+      id: VOIDIDCard
+      state: pda-void
+    - type: PdaBorderColor
+      borderColor: "#6f6192"
+    - type: Icon
+      state: pda-void
+    - type: Sprite
+      sprite: Stray/Void/Objects/Devices/voidpda.rsi
+      layers:
+      - map: [ "enum.PdaVisualLayers.Base" ]
+      - state: "light_overlay"
+        map: [ "enum.PdaVisualLayers.Flashlight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "id_overlay"
+        map: [ "enum.PdaVisualLayers.IdLight" ]
+        shader: "unshaded"
+        visible: false
