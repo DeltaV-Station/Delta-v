@@ -14,13 +14,6 @@
       state: pda-void
     - type: Sprite
       sprite: Stray/Void/Objects/Devices/voidpda.rsi
-      layers:
-      - map: [ "enum.PdaVisualLayers.Base" ]
-      - state: "light_overlay"
-        map: [ "enum.PdaVisualLayers.Flashlight" ]
-        shader: "unshaded"
-        visible: false
-      - state: "id_overlay"
-        map: [ "enum.PdaVisualLayers.IdLight" ]
-        shader: "unshaded"
-        visible: false
+    - type: Icon
+      sprite: Stray/Void/Objects/Devices/voidpda.rsi
+      state: pda-ai
