@@ -1,0 +1,231 @@
+- type: entity
+  name: ???
+  suffix: VOID Пустой охотник
+  parent:
+  - BaseSimpleMob
+  - MobCombat
+  - MobBloodstream
+  id: MobVOIDHunter
+  description: Если вы его видете... вы скорее всего труп
+  components:
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: GhostTakeoverAvailable
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Body
+    prototype: Animal
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: HellSpawn
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: Sprite
+    sprite: Stray/Void/Mobs/Demons/voidhunter.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Firestarter
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: MobPrice
+    price: 100000 # Living critters are valuable in space.
+  - type: Perishable
+  - type: Reflect
+    reflectProb: 0.7
+    reflects:
+      - Energy
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.9
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Butcherable
+    spawned:
+      - id: ArtifactFragment
+        amount: 15
+  - type: MeleeWeapon
+    attackRate: 1
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Piercing: 190
+        Structural: 175
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: PointLight
+    radius: 2
+    energy: 4.5
+    color: "#C71585"
+    castShadows: false
+
+- type: entity
+  name: ???
+  suffix: VOID Кайел
+  parent: SimpleSpaceMobBase
+  id: MobVOIDKayel
+  description: Что это за...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Stray/Void/Mobs/Demons/voidkayel.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Kayel
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: MeleeWeapon
+    attackRate: 3
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Piercing: 10
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: HeartbreakerToxin
+          Quantity: 2000
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 25
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: MobVOIDHumanore
+  id: MobVOIDOrehuman
+  description: Ходячая груда древних артефактов которая хочет вас убить!
+  suffix: VOID Рудочеловек
+  components:
+  - type: Sprite
+    state: alive
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 25
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 5
+            max: 14
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 1
+    energy: 4.5
+    color: "#C71585"
+    castShadows: false
+
+
+- type: entity
+  abstract: true
+  id: MobVOIDHumanore
+  name: Древние артефакты
+  parent: [ MobElementalBase, MobCombat ]
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Mobs/Demons/voidorehuman.rsi
+    state: alive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Blunt: 6
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Damageable
+    damageContainer: Biological
+  - type: PointLight
+    radius: 1
+    energy: 4.5
+    color: "#C71585"
+    castShadows: false

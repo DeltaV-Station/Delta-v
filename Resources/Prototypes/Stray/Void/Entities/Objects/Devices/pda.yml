@@ -1,0 +1,17 @@
+- type: entity
+  parent: BasePDA
+  id: VoidPDA
+  name: КПК Сотрудника VOID
+  suffix: VOID
+  description: В углу написанно VOID... что б могло это значить?
+  components:
+    - type: Pda
+      id: VOIDIDCard
+      state: pda-void
+    - type: PdaBorderColor
+      borderColor: "#6f6192"
+    - type: Sprite
+      sprite: Stray/Void/Objects/Devices/voidpda.rsi
+    - type: Icon
+      sprite: Stray/Void/Objects/Devices/voidpda.rsi
+      state: pda-void

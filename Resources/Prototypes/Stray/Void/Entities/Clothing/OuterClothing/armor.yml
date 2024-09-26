@@ -1,0 +1,20 @@
+- type: entity
+  parent: [ClothingOuterVestWeb, BaseMinorContraband] #web vest so it should have some pockets for ammo
+  id: ClothingVoidArmor
+  name: Сиреневый тактический жилет
+  suffix: VOID
+  description: Прочный, эластичный и вместительный! Это всё про жилет от Voidtech!
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/OuterClothing/Armor/voidarmorbasic.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/OuterClothing/Armor/voidarmorbasic.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75

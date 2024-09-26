@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: BeretVOID
+  name: Сиреневый Берет
+  suffix: VOID
+  description: Обычный берет с буквой V, кажеться они забыли добавить Z.
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Head/Hats/voidberet.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Head/Hats/voidberet.rsi

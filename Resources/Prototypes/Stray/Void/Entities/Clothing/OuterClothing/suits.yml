@@ -1,0 +1,23 @@
+- type: entity
+  parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
+  id: VOIDHazmat
+  name: Антирадиационный костюм
+  suffix: VOID
+  description: "Защищает от радиации и немного от ожогов"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/OuterClothing/Suits/voidhazmat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.85
+        Radiation: 0.05
+  - type: Clothing
+    sprite: Stray/Void/Clothing/OuterClothing/Suits/voidhazmat.rsi
+  - type: GroupExamine
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodRadVOID
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}

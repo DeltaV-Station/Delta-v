@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: HemletArmorVOID
+  name: Сиреневая каска
+  description: Теперь вы в священных кухоных войсках и ХВАТИТЬ ТЕРЯТЬ КАСКУ БОЕЦ!
+  suffix: VOID
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Head/Helmets/voidarmorkaska.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Head/Helmets/voidarmorkaska.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
