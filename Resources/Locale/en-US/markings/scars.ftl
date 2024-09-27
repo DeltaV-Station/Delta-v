@@ -12,6 +12,3 @@ marking-ScarTopSurgeryLong = Top Surgery Scar (Long)
 
 marking-ScarChest-scar_chest = Chest Scar
 marking-ScarChest = Chest Scar
-
-marking-ScarChestFemale-scar_chest_female = Chest Scar
-marking-ScarChestFemale = Chest Scar
