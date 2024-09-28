@@ -12,7 +12,7 @@ pai-system-role-description-syndicate = Be someone's Syndicate pal!
 pai-system-role-name-potato = potato artificial intelligence
 pai-system-role-description-potato = It's a toy for children. And now you live in it.
 
-# pai-system-wipe-device-verb-text = Remove pAI # See DeltaV/pai/pai-system.ftl
+pai-system-wipe-device-verb-text = Remove pAI
 pai-system-wiped-device = The pAI was wiped from the device.
 
 pai-system-stop-searching-verb-text = Stop searching
