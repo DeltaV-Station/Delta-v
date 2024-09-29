@@ -8,10 +8,7 @@
     sprite: Corvax/Back/Duffels/military.rsi
   - type: Storage
     grid:
-    - 0,0,6,3 # TODO: Change this
-    maxItemSize: Huge
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
+    - 0,0,8,4
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -21,5 +18,3 @@
   components:
   - type: Sprite
     sprite: Corvax/Back/Duffels/ce.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.1

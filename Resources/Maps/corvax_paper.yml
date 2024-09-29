@@ -16019,13 +16019,6 @@ entities:
     - type: Transform
       pos: 60.498653,47.57303
       parent: 2
-- proto: AnimalRandomSpawner
-  entities:
-  - uid: 2843
-    components:
-    - type: Transform
-      pos: 38.5,67.5
-      parent: 2
 - proto: AnomalyLocatorUnpowered
   entities:
   - uid: 16837
@@ -103445,14 +103438,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -19.5,11.5
       parent: 16795
-- proto: PlayerStationAiPilgrim
-  entities:
-  - uid: 9971
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 21.5,-37.5
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 598
