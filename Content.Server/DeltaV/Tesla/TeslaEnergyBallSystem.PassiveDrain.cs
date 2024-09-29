@@ -6,15 +6,9 @@ namespace Content.Server.Tesla.EntitySystems;
 /// <summary>
 /// Manages the passive energy drain for the Tesla.
 /// </summary>
-public sealed class TeslaPassiveDrainSystem : EntitySystem
+public sealed partial class TeslaEnergyBallSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly TeslaEnergyBallSystem _teslaSys = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
 
     public override void Update(float frameTime)
     {
@@ -27,7 +21,7 @@ public sealed class TeslaPassiveDrainSystem : EntitySystem
                 continue;
 
             component.NextUpdateTime = curTime + TimeSpan.FromSeconds(1);
-            _teslaSys.AdjustEnergy(uid, component, -component.PassiveEnergyDrainRate);
+            AdjustEnergy(uid, component, -component.PassiveEnergyDrainRate);
         }
     }
 }

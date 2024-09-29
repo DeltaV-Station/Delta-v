@@ -8,7 +8,7 @@ namespace Content.Server.Tesla.Components;
 /// <summary>
 /// A component that tracks an entity's saturation level from absorbing other creatures by touch, and spawns new entities when the saturation limit is reached.
 /// </summary>
-[RegisterComponent, Access(typeof(TeslaEnergyBallSystem), typeof(TeslaPassiveDrainSystem))] // DeltaV - Add TeslaPassiveDrainSystem access
+[RegisterComponent, Access(typeof(TeslaEnergyBallSystem))]
 public sealed partial class TeslaEnergyBallComponent : Component
 {
     /// <summary>
