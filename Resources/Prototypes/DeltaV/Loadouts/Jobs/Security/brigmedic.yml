@@ -57,6 +57,11 @@
       jumpsuit: ClothingUniformJumpsuitBrigmedicTurtle
 
 - type: loadout
+  id: BrigMedicTurtlesuit
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBrigmedicTurtle
+
+- type: loadout
   id: BrigMedicTurtleSkirtRed # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicTurtle
@@ -70,6 +75,11 @@
   id: BrigMedicTurtleSkirtBlue # Stray - loadouts
   equipment:
       jumpsuit: ClothingUniformJumpskirtBrigmedicTurtleAlt
+
+- type: loadout
+  id: BrigMedicTurtleskirt
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBrigmedicTurtle
 
 # Back
 - type: loadout
@@ -128,3 +138,9 @@
   equipment:
     outerClothing: ClothingOuterCoatBrigmedicWB
 
+# OuterClothing
+
+- type: loadout
+  id: StasecWinterCoatCorpsman
+  equipment:
+    outerClothing: ClothingOuterCoatStasecCorpsman

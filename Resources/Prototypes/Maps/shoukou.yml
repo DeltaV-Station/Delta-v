@@ -14,16 +14,12 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/Shuttles/mining.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Kaeri.yml
         - type: StationJobs
           availableJobs:
           #Service
             Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 2 ]
             Reporter: [ 0, 1 ]
             Bartender: [ 1, 2 ]
@@ -35,10 +31,9 @@
             Musician: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
-            Blueshield: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
           #Justice
+            ChiefJustice: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Clerk: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
@@ -54,7 +49,6 @@
             Chemist: [ 1, 2 ]
             MedicalIntern: [ 2, 3 ]
             Psychologist: [ 1, 1 ]
-            Slugcat: [ 1, 1 ]
           #Security
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 2, 4 ]
@@ -69,19 +63,11 @@
             ResearchAssistant: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            Borg: [ 2, 2 ]
-            Roboticist: [ 1, 1 ]
           #Logistics
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 4 ]
             Courier: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
-          #silicon
-            Borgsec: [ 2, 2 ]
-            Borgmed: [ 2, 2 ]
-            Borgeng: [ 2, 2 ]
-            Borgser: [ 2, 2 ]
-            Borgcwn: [ 2, 2 ]
-            Borgjan: [ 2, 2 ]
-            Borgmin: [ 2, 2 ]
+          #Silicon
+            Borg: [ 2, 2 ]
 

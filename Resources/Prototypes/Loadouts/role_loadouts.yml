@@ -481,11 +481,11 @@
   id: JobDetective
   groups:
   - GroupTankHarness
-  - SecurityHead # DeltaV - replace DetectiveHead for incongruence
+  - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing # DeltaV - replace DetectiveOuterClothing for incongruence
+  - DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
@@ -711,6 +711,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

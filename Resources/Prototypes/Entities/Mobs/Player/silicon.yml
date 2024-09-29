@@ -2,7 +2,7 @@
 - type: entity
   id: AiHeld
   description: Components added / removed from an entity that gets inserted into an AI core.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -332,7 +332,7 @@
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -373,7 +373,7 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   suffix: DO NOT MAP
   components:
   - type: WarpPoint
@@ -446,6 +446,18 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
 
+- type: entity
+  id: PlayerBorgSyndicateAssaultGhostRole
+  parent: PlayerBorgSyndicateAssaultBattery
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-assault-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
 
 - type: entity
   id: PlayerBorgMining
@@ -488,6 +500,13 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [names_borg]
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: PlayerBorgJanitor
