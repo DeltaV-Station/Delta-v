@@ -64,3 +64,34 @@
     sprintModifier: 0.9
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitUltraAP
+
+#Доспех ОБК Капеллан
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitPilotUltraCAP
+  name: Доспех капеллана ордена боевых кабанов
+  description: Доспех который носит капеллан ОБК
+  components:
+  - type: Sprite
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
+  - type: Clothing
+    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.30
+        Radiation: 0
+        Heat: 0.30
+        Caustic: 0.35
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitUltraCAP
