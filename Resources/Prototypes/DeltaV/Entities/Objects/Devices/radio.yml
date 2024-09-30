@@ -1,8 +1,8 @@
 - type: entity
-  name: syndicate radio
-  description: A nefarious syndicate radio.
   parent: RadioHandheld
   id: RadioHandheldSyndicate
+  name: syndicate radio
+  description: A nefarious syndicate radio.
   components:
   - type: RadioMicrophone
     broadcastChannel: Syndicate
