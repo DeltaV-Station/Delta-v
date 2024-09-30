@@ -1,8 +1,8 @@
 - type: entity
+  parent: SyndiCrewMonitor
   id: SyndiCrewMonitorRecharging
   name: syndicate crew monitor recharging
   description: The syndicated version of crew monitor, intercepts information from the server.
-  parent: SyndiCrewMonitor
   components:
   - type: PowerCellDraw
     useRate: 10
