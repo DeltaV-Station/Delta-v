@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitDominia
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: dominia power armor helmet
   description: A power armor helmet made for combat and purging heretic swine.
   components:
@@ -16,7 +16,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHoP
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: head of personnel's hardsuit helmet
   description: Fancy helmet for a fancy hardsuit. Doesn't offer much damage protection.
   components:
@@ -58,7 +58,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitEnvirosuit
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: envirosuit helmet
   components:
     - type: Sprite

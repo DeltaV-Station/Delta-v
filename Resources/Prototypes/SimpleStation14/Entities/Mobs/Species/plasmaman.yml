@@ -61,7 +61,7 @@
   name: Plasmaman Dummy
   parent: MobHumanDummy
   id: MobPlasmamanDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Plasmaman meant to be used in character setup.
   components:
     - type: HumanoidAppearance

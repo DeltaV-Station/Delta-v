@@ -12,7 +12,7 @@
       - id: BaseBallBat
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMedical
   id: ClothingBackpackParamedicFilledDV
   components:
@@ -26,7 +26,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMedical
   id: ClothingBackpackPsychologistFilled
   components:

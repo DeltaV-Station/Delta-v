@@ -1,5 +1,5 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelMedical
   id: ClothingBackpackDuffelParamedicFilledDV
   components:
@@ -13,7 +13,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelMedical
   id: ClothingBackpackDuffelPsychologistFilled
   components:

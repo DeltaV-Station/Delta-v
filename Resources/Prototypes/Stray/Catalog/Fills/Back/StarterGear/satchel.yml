@@ -1,5 +1,5 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchelRobo
   id: ClothingBackpackSatchelRoboFilled
   name: сумка робототехника
@@ -11,14 +11,14 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherRoboFilled
-  noSpawn: true
+    categories: [ HideSpawnMenu ]
   components:
     - type: StorageFill
       contents:
         - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchelBlueShield
   id: ClothingBackpackSatchelBlueShieldFilled
   components:

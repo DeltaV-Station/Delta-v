@@ -312,7 +312,7 @@
     descriptionText: objective-steal-supermatter-sliver-desc
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
   id: PlutoniumCoreStealObjective
   components:

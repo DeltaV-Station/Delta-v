@@ -1,14 +1,14 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackFilled
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: StorageFill
     contents:
       - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackClown
   id: ClothingBackpackClownFilled
   components:
@@ -19,7 +19,7 @@
       - id: CrayonRainbow
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSecurity
   id: ClothingBackpackSecurityFilled
   components:
@@ -30,7 +30,7 @@
 #      - id: MagazinePistol # DeltaV - Security doesn't get an extra mag
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSecurity
   id: ClothingBackpackSecurityFilledDetective
   components:
@@ -42,7 +42,7 @@
       - id: ForensicScanner
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMedical
   id: ClothingBackpackMedicalFilled
   components:
@@ -51,7 +51,7 @@
       - id: BoxSurvivalMedical
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMedical
   id: ClothingBackpackParamedicFilled
   components:
@@ -61,7 +61,7 @@
       - id: EmergencyRollerBedSpawnFolded
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackCaptain
   id: ClothingBackpackCaptainFilled
   components:
@@ -72,7 +72,7 @@
       #- name: StationCharter
       #- name: TelescopicBaton
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackEngineering
   id: ClothingBackpackChiefEngineerFilled
   components:
@@ -87,7 +87,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackScience
   id: ClothingBackpackResearchDirectorFilled
   components:
@@ -100,7 +100,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackHOPFilled
   components:
@@ -113,7 +113,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackIan
   id: ClothingBackpackHOPIanFilled
   components:
@@ -126,7 +126,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMedical
   id: ClothingBackpackCMOFilled
   components:
@@ -139,7 +139,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackCargo
   id: ClothingBackpackQuartermasterFilled
   components:
@@ -152,7 +152,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSecurity
   id: ClothingBackpackHOSFilled
   components:
@@ -165,7 +165,7 @@
     damageCoefficient: 0.1
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackEngineering
   id: ClothingBackpackEngineeringFilled
   components:
@@ -174,7 +174,7 @@
       - id: BoxSurvivalEngineering
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackAtmospherics
   id: ClothingBackpackAtmosphericsFilled
   components:
@@ -183,7 +183,7 @@
       - id: BoxSurvivalEngineering
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackScience
   id: ClothingBackpackScienceFilled
   components:
@@ -192,7 +192,7 @@
       - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackHydroponics
   id: ClothingBackpackHydroponicsFilled
   components:
@@ -201,7 +201,7 @@
       - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackMime
   id: ClothingBackpackMimeFilled
   components:
@@ -211,7 +211,7 @@
       - id: RubberStampMime
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackChemistry
   id: ClothingBackpackChemistryFilled
   components:
@@ -220,7 +220,7 @@
       - id: BoxSurvivalMedical
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackChaplainFilled
   components:
@@ -231,7 +231,7 @@
       - id: RubberStampChaplain
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackLawyerFilled
   components:
@@ -241,7 +241,7 @@
       - id: RubberStampLawyer
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackMusicianFilled
   components:
@@ -252,7 +252,7 @@
         - id: SaxophoneInstrument
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackLibrarianFilled
   components:
@@ -262,7 +262,7 @@
         - id: BookRandom
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackDetectiveFilled
   components:
@@ -277,7 +277,7 @@
 # ERT
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTLeaderFilled
   components:
@@ -293,7 +293,7 @@
         - id: MagazineUniversalMagnum
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackERTSecurityFilled
   components:
@@ -309,7 +309,7 @@
         - id: MagazineUniversalMagnum
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTMedical
   id: ClothingBackpackERTMedicalFilled
   components:
@@ -327,7 +327,7 @@
         - id: MagazineUniversalMagnumRubber
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTEngineer
   id: ClothingBackpackERTEngineerFilled
   components:
@@ -349,7 +349,7 @@
         - id: MagazineUniversalMagnumRubber
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTJanitor
   id: ClothingBackpackERTJanitorFilled
   components:
@@ -365,7 +365,7 @@
         - id: CombatKnife
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTChaplain
   id: ClothingBackpackERTChaplainFilled
   components:
@@ -391,7 +391,7 @@
 # Death Squad
 
 - type: entity
-  noSpawn: false
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackDeathSquadFilled
   name: death squad backpack
@@ -418,7 +418,7 @@
 # Cargo
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackCargo
   id: ClothingBackpackCargoFilled
   components:
@@ -427,7 +427,7 @@
         - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSalvage
   id: ClothingBackpackSalvageFilled
   components:
@@ -438,6 +438,7 @@
 # Pirate
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackPirateFilled
   suffix: Filled, Pirate

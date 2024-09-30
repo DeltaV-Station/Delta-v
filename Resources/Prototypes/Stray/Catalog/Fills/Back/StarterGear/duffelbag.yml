@@ -1,5 +1,5 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelRobo
   id: ClothingBackpackDuffelRoboFilled
   name: вещмешок робототехника
@@ -9,7 +9,7 @@
         - id: BoxSurvival
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelBlueShield
   id: ClothingBackpackDuffelBlueShieldFilled
   components:

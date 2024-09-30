@@ -4,7 +4,7 @@
   abstract: true
   name: identification card
   description: A card necessary to access various areas aboard the station.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: SimpleStation14/Objects/Misc/id_cards.rsi

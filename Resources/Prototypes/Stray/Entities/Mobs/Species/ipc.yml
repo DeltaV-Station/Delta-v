@@ -273,7 +273,7 @@
   name: Urist McIPC
   parent: MobHumanDummy
   id: MobIPCDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   save: false
   components:
     - type: Inventory
