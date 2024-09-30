@@ -11,7 +11,7 @@
       - RoboticistRole
 
 - type: entity
-  parent: [BaseRoboticistObjective, BaseSurviveObjective]
+  parent: [ BaseRoboticistObjective, BaseSurviveObjective ]
   id: RoboticistSurviveObjective
   description: As precious as they are, your cyborgs are less valuable than your own life.
   name: Survive
@@ -22,7 +22,7 @@
       state: icon
 
 - type: entity
-  parent: [BaseRoboticistObjective, BaseSurviveObjective]
+  parent: [ BaseRoboticistObjective, BaseSurviveObjective ]
   id: RoboticistBorgObjective
   description: The crew of this station is yours to command, turn them into cyborgs till your have reaped your fill.
   name: Conspiracy to Convert
@@ -33,7 +33,7 @@
       state: state-laws
 
 - type: entity
-  parent: [BaseRoboticistObjective, BaseKillObjective]
+  parent: [ BaseRoboticistObjective, BaseKillObjective ]
   id: RoboticistKillObjective
   description: Your dossier indicates that there is one very appealing neural pattern on the crew. Turn them into a Cyborg.
   components:
@@ -50,7 +50,7 @@
 
 - type: entity
   noSpawn: true
-  parent: [BaseRoboticistObjective, BaseTraitorStealObjective]
+  parent: [ BaseRoboticistObjective, BaseTraitorStealObjective ]
   id: RoboticistPlutoniumCoreStealObjective
   components:
   - type: Objective
