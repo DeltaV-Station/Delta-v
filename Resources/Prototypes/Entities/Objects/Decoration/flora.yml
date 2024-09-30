@@ -52,7 +52,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35,-0.4,0.35,0.4"
+          bounds: "-0.15,-0.2,0.15,0.2" # DeltaV: make it smaller
         density: 1000
         layer:
         - WallLayer
@@ -104,7 +104,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.3,0.1,0.3"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 4000
         layer:
         - WallLayer
@@ -122,7 +122,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.18,-0.35,0.18,0.35"
+          bounds: "-0.18,-0.2,0.18,0.2" # DeltaV: make it smaller
         density: 2000
         layer:
         - WallLayer
@@ -140,7 +140,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.35,0.1,0.35"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 3500
         layer:
         - WallLayer
