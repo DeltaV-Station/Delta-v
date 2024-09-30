@@ -29,7 +29,7 @@
       isCollidableWhenOpen: false
       openOnMove: false
       airtight: false
-      capacity: 4 #4 Entities seems like a nice comfy fit for a cardboard box.
+      capacity: 8 #4 Entities seems like a nice comfy fit for a cardboard box. # DeltaV - Increase to 8
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
