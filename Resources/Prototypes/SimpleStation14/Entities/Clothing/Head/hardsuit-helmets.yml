@@ -72,7 +72,7 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitEnvirosuit
   id: ClothingHeadHelmetHardsuitEnvirosuitDelete
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: DeleteOnEquip
       onEquip: false
