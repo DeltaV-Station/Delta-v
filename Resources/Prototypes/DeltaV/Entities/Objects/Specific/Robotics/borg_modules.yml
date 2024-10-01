@@ -96,8 +96,8 @@
     - WeaponEnergyGunMiniRecharging
 
 - type: entity
-  id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleRadioJammerRecharging # locked behind Syndie exofab
   description: "A module that comes with a recharging radio jammer."
   name: radio jammer cyborg module
   components:
@@ -110,8 +110,8 @@
     - RechargingRadioJammer
 
 - type: entity
-  id: BorgModuleBlades # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleBlades # locked behind Syndie exofab
   name: blade cyborg module
   description: "A module that comes with enough knives to poke your eye out."
   components:
@@ -127,8 +127,8 @@
     - KnifePlastic
 
 - type: entity
-  id: BorgModuleCHIMP # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  id: BorgModuleCHIMP # locked behind Syndie exofab
   name: Experimental C.H.I.M.P. cyborg module
   description: "A module that comes with an unrechargable experimental C.H.I.M.P. handcannon."
   components:
@@ -141,8 +141,8 @@
     - WeaponPistolCHIMPUpgraded
 
 - type: entity
-  id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule, ClothingEyesHudSyndicate]
+  id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   name: syndicate radio cyborg module
   description: "A module that comes with a syndicate handheld radio and PDA."
   components:
@@ -156,13 +156,13 @@
     - SyndiPDA
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
-  - type: ShowHealthBars
+  - type: ShowHealthIcons 
     damageContainers:
     - Biological
 
 - type: entity
-  id: BorgModuleCrewMonitor # locked behind Syndie exofab
   parent: [ BaseBorgModule, BaseProviderBorgModule]
+  id: BorgModuleCrewMonitor # locked behind Syndie exofab
   name: crew monitoring module
   description: "A module that comes with a crew monitor."
   components:

@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: VMSolidus
-  changes:
-  - message: Harpies can now be stripped, and can randomly be psychic
-    type: Fix
-  id: 83
-  time: '2023-10-23T23:32:00.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed Mantis not having their Metapsionic Pulse.
-    type: Fix
-  id: 84
-  time: '2023-10-23T23:40:59.0000000+00:00'
-- author: JJ
-  changes:
-  - message: Tweaked round weighting and lowered instances of Revs
-    type: Tweak
-  id: 85
-  time: '2023-10-24T00:05:22.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Fixed Felinids not being able to eat certain food.
@@ -3631,3 +3613,27 @@
   id: 582
   time: '2024-09-24T19:48:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1908
+- author: TadJohnson00
+  changes:
+  - message: Added turtlenecks to most security roles. Helps to keep the chill out
+      on cool nights.
+    type: Add
+  - message: Removed security greatcoats from loadouts and the vendor.
+    type: Remove
+  id: 583
+  time: '2024-09-26T20:35:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1901
+- author: MilonPL
+  changes:
+  - message: Fixed the description of large mail packages.
+    type: Fix
+  id: 584
+  time: '2024-09-27T23:42:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1925
+- author: Radezolid
+  changes:
+  - message: Fixed deep fryer not being repairable after being broken.
+    type: Fix
+  id: 585
+  time: '2024-09-30T14:41:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1940
