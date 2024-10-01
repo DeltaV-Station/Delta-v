@@ -4,6 +4,7 @@
     children:
     - id: SyndicateRecruiter
     - id: SynthesisSpecialist
+    - id: RoboNeuroticist
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -93,3 +94,51 @@
         prototype: SynthesisSpecialist
       - type: RoleBriefing
         briefing: You are Interdyne's Synthesis Specialist! Prescribe deadly medications, barter your goods, and make a killing.
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: RoboNeuroticist
+  components:
+  - type: StationEvent
+    weight: 2
+    minimumPlayers: 35 #big threat, but has to have ghosts to matter
+    maxOccurrences: 1
+    duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieRoboticistShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - RoboticistSurviveObjective
+    - RoboticistBorgObjective
+    - RoboticistKillObjective
+    - RoboticistPlutoniumCoreStealObjective
+  - type: AntagSelection
+    agentName: roboticist-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostRoboticist
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateRoboticistGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - names_hologram
+        - NamesLastMilitary
+      - type: EmitSoundOnSpawn # evil sound
+        sound: /Audio/Ambience/Antag/emagged_borg.ogg
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: RoboticistRole
+        prototype: RoboNeuroticist
+      - type: RoleBriefing
+        briefing: You are Cybersun's Robo-Neuroticist! Build your borg army, send them at the station, and enact your will.
