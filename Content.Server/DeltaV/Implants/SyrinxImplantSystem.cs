@@ -84,7 +84,7 @@ public sealed class SyrinxImplantSystem : EntitySystem
         }
 
         voice.NameOverride = msg.Name.Trim();
-        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} set voice of {ToPrettyString(uid):mask}: {voice.NameOverride}");
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} set voice of {ToPrettyString(ent):mask}: {voice.NameOverride}");
 
         _popup.PopupEntity(Loc.GetString("voice-mask-popup-success"), user, user);
 
@@ -96,7 +96,7 @@ public sealed class SyrinxImplantSystem : EntitySystem
     /// </summary>
     private void UpdateUI(EntityUid uid, VoiceOverrideComponent voice)
     {
-        var state = new VoiceMaskBuiState(voice.NameOverride, voice.SpeechVerbOverride);
-        _ui.TrySetUiState(uid, VoiceMaskUIKey.Key, state);
+        var state = new VoiceMaskBuiState(voice.NameOverride ?? Loc.GetString("voice-mask-default-name-override"), voice.SpeechVerbOverride);
+        _ui.SetUiState(uid, VoiceMaskUIKey.Key, state);
     }
 }
