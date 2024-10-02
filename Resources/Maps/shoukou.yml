@@ -7087,8 +7087,6 @@ entities:
       pos: 52.5,-31.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
 - proto: AltarConvertMaint
@@ -34910,8 +34908,6 @@ entities:
       pos: 42.5,-32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 14686
     components:
     - type: Transform
@@ -42631,8 +42627,6 @@ entities:
       pos: 44.5,-30.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 61
       - 15263
@@ -42644,8 +42638,6 @@ entities:
       pos: 48.5,-32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 61
       - 62
@@ -83506,8 +83498,6 @@ entities:
       pos: 42.5,-36.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraCommand
@@ -84057,8 +84047,6 @@ entities:
       pos: 65.5,-18.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterEngineering
   entities:
   - uid: 14680
@@ -84067,8 +84055,6 @@ entities:
       pos: 61.5,-18.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterGeneral
   entities:
   - uid: 14681
@@ -84077,8 +84063,6 @@ entities:
       pos: 62.5,-17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterMedical
   entities:
   - uid: 14684
@@ -84087,8 +84071,6 @@ entities:
       pos: 65.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterScience
   entities:
   - uid: 14685
@@ -84097,8 +84079,6 @@ entities:
       pos: 65.5,-20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterSecurity
   entities:
   - uid: 14679
@@ -84107,8 +84087,6 @@ entities:
       pos: 61.5,-20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterService
   entities:
   - uid: 14682
@@ -84117,8 +84095,6 @@ entities:
       pos: 64.5,-17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterSupply
   entities:
   - uid: 14678
@@ -84127,8 +84103,6 @@ entities:
       pos: 61.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraScience
   entities:
   - uid: 12266
