@@ -25,7 +25,7 @@
           False: { visible: false }
         computerLayerKeys:
           True: { visible: true, shader: unshaded }
-          False: { visible: true, shader: shaded }   
+          False: { visible: true, shader: shaded }
       enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
         computerLayerScreen:
           0: { state: alert-0 }
@@ -62,6 +62,9 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
+  - type: Tag
+    tags:
+    - EmagImmune #Delta-V Change
   - type: Rotatable
     rotateWhileAnchored: true
 
