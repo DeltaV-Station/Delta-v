@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: JJ
   changes:
-  - message: 'Fixed Mindswap return action between players. '
-    type: Fix
-  id: 93
-  time: '2023-10-25T14:21:35.0000000+00:00'
-- author: JJ
-  changes:
   - message: Updated Butlertron's sprite.
     type: Tweak
   id: 94
@@ -3654,3 +3648,11 @@
   id: 592
   time: '2024-10-02T13:04:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1915
+- author: Radezolid
+  changes:
+  - message: Moved the reverse engineered combat hardsuits to the security techfab.
+      You can still access them as a traitor with an emag on the exosuit fabricator.
+    type: Tweak
+  id: 593
+  time: '2024-10-02T13:19:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1956
