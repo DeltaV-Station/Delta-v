@@ -42,6 +42,16 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockHydroponics
+  suffix: Hydroponics
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/basic.rsi # DeltaV: temporary sprite until hydroponics is resprited
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: Airlock
   id: AirlockMedical
   suffix: Medical
   components:
@@ -64,6 +74,9 @@
   parent: AirlockMedical
   id: AirlockChemistry
   suffix: Chemistry
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/medical.rsi # DeltaV: using medical sprite until chemistry gets resprited
 
 - type: entity
   parent: Airlock
@@ -196,6 +209,16 @@
 
 - type: entity
   parent: AirlockGlass
+  id: AirlockHydroponicsGlass
+  suffix: Hydroponics, DO NOT MAP # DeltaV: DNM as its not resprited yet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/basic.rsi # DeltaV: temporary sprite until hydroponics is resprited
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: AirlockGlass
   id: AirlockMedicalGlass
   suffix: Medical
   components:
@@ -210,6 +233,9 @@
   parent: AirlockMedicalGlass
   id: AirlockChemistryGlass
   suffix: Chemistry
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/medical.rsi # DeltaV: using medical sprite until chemistry gets resprited
 
 - type: entity
   parent: AirlockMedicalGlass
