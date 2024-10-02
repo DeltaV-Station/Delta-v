@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Whitelist finally works properly
-    type: Fix
-  id: 90
-  time: '2023-10-24T17:10:28.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Fixed mantis stamp being an error.
@@ -3639,3 +3633,11 @@
   id: 589
   time: '2024-10-02T12:59:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1933
+- author: deltanedas
+  changes:
+  - message: Fugitive reports no longer include the name of the fugitive. Use your
+      detective skills!
+    type: Tweak
+  id: 590
+  time: '2024-10-02T13:03:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1817
