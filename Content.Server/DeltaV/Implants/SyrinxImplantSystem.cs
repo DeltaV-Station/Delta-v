@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Implants;
 using Content.Server.Speech.Components;
 using Content.Shared.Database;
+using Content.Shared.DeltaV.Implants;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -27,6 +28,7 @@ public sealed class SyrinxImplantSystem : EntitySystem
         SubscribeLocalEvent<SyrinxImplantComponent, ImplantRemovedEvent>(OnRemoved);
         SubscribeLocalEvent<SyrinxImplantComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         SubscribeLocalEvent<SyrinxImplantComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
+        SubscribeLocalEvent<SyrinxImplantSetNameEvent>(OpenUI);
     }
 
     private void OnImplanted(Entity<SyrinxImplantComponent> ent, ref ImplantImplantedEvent args)
@@ -98,5 +100,16 @@ public sealed class SyrinxImplantSystem : EntitySystem
     {
         var state = new VoiceMaskBuiState(voice.NameOverride ?? Loc.GetString("voice-mask-default-name-override"), voice.SpeechVerbOverride);
         _ui.SetUiState(uid, VoiceMaskUIKey.Key, state);
+    }
+
+    private void OpenUI(SyrinxImplantSetNameEvent args)
+    {
+        var user = args.Performer;
+        if (!TryComp<VoiceOverrideComponent>(user, out var voice))
+            return;
+
+        var uid = args.Action.Comp.Container!.Value;
+        _ui.TryOpenUi(uid, VoiceMaskUIKey.Key, user);
+        UpdateUI(uid, voice);
     }
 }
