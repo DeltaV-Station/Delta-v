@@ -522,11 +522,7 @@
     state: pda-janitor
 
 - type: entity
-<<<<<<< HEAD
-  parent: BasePDA
-=======
   parent: BaseSecurityPDA
->>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -713,11 +709,7 @@
       - GlimmerMonitorCartridge
 
 - type: entity
-<<<<<<< HEAD
-  parent: BasePDA
-=======
   parent: BaseSecurityPDA
->>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -902,11 +894,7 @@
           - Cartridge
 
 - type: entity
-<<<<<<< HEAD
-  parent: BasePDA
-=======
   parent: BaseSecurityPDA
->>>>>>> 95104de117 (Fix cadet pda (#32399))
   id: ERTLeaderPDA
   name: ERT Leader PDA
   suffix: Leader
