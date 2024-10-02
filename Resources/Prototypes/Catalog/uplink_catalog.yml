@@ -1092,15 +1092,16 @@
       components:
       - SurplusBundle
 
-- type: listing
-  id: UplinkCameraBug
-  name: uplink-cameraBug-name
-  description: uplink-cameraBug-desc
-  productEntity: CameraBug
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkDisruption
+# DeltaV: disabled in favour of observation kit
+#- type: listing
+#  id: UplinkCameraBug
+#  name: uplink-cameraBug-name
+#  description: uplink-cameraBug-desc
+#  productEntity: CameraBug
+#  cost:
+#    Telecrystal: 4
+#  categories:
+#  - UplinkDisruption
 
 # Allies
 
