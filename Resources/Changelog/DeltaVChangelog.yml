@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Merged wizden (again). Hopefully you won't visit the backrooms when using
-      a medical scanner anymore.
-    type: Fix
-  id: 89
-  time: '2023-10-24T16:35:53.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Whitelist finally works properly
-    type: Fix
-  id: 90
-  time: '2023-10-24T17:10:28.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed mantis stamp being an error.
-    type: Fix
-  id: 91
-  time: '2023-10-24T19:02:28.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: The moth plushie screams and squeaks once again.
-    type: Tweak
-  id: 92
-  time: '2023-10-24T19:03:43.0000000+00:00'
-- author: JJ
-  changes:
-  - message: 'Fixed Mindswap return action between players. '
-    type: Fix
-  id: 93
-  time: '2023-10-25T14:21:35.0000000+00:00'
 - author: JJ
   changes:
   - message: Updated Butlertron's sprite.
@@ -3639,3 +3608,51 @@
   id: 588
   time: '2024-10-01T15:52:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1951
+- author: Lyndomen
+  changes:
+  - message: Justice may now edit the Criminal Records Computer
+    type: Tweak
+  id: 589
+  time: '2024-10-02T12:59:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1933
+- author: deltanedas
+  changes:
+  - message: Fugitive reports no longer include the name of the fugitive. Use your
+      detective skills!
+    type: Tweak
+  id: 590
+  time: '2024-10-02T13:03:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1817
+- author: deltanedas
+  changes:
+  - message: Psionics can now be sacrificed in the chapel to lower glimmer.
+    type: Add
+  id: 591
+  time: '2024-10-02T13:04:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1883
+- author: deltanedas
+  changes:
+  - message: Syndicate duffelbags can be reverse engineered for bags of holding.
+    type: Add
+  - message: Hyper-capacity powercells can be made by reverse engineering high-capacity
+      powercells, which can also be reverse engineered to make microreactor cells.
+    type: Add
+  - message: Moonboots can now be reverse engineered for speedboots.
+    type: Add
+  - message: Any cloning board that gets reverse engineered unlocks every cloning
+      board instead of itself (which was useless since you already have it).
+    type: Tweak
+  - message: Removed reverse engineering from items that made no sense to reverse
+      engineer like roundstart equipment or tier 1 techs.
+    type: Remove
+  id: 592
+  time: '2024-10-02T13:04:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1915
+- author: Radezolid
+  changes:
+  - message: Moved the reverse engineered combat hardsuits to the security techfab.
+      You can still access them as a traitor with an emag on the exosuit fabricator.
+    type: Tweak
+  id: 593
+  time: '2024-10-02T13:19:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1956
