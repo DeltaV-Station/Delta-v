@@ -571,3 +571,6 @@
     - type: ItemBorgModule
       items:
         - SelfDestructSeq
+    - type: Construction # DeltaV: construction for adding explosive payload to the dud version
+      graph: BorgModuleMartyr
+      node: live

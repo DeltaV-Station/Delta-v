@@ -1,0 +1,23 @@
+- type: constructionGraph
+  id: BorgModuleMartyr
+  start: start
+  graph:
+  - node: start
+    entity: BorgModuleMartyrDud
+    edges:
+    - to: live
+      steps:
+      - tag: ExplosivePayload
+        name: explosive payload
+      - tool: Screwing
+        doAfter: 2
+  - node: live
+    entity: BorgModuleMartyr
+    edges:
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: ExplosivePayload
+      steps:
+      - tool: Prying
+        doAfter: 2
