@@ -1,7 +1,7 @@
 # Door resprites
 - type: AirlockGroup
   id: StandardDeltaV
-  iconPriority: 100
+  iconPriority: 200 # higher priority for spray painter
   stylePaths:
     atmospherics: DeltaV/Structures/Doors/Airlocks/Standard/atmospherics.rsi
     basic:       DeltaV/Structures/Doors/Airlocks/Standard/basic.rsi
@@ -19,7 +19,7 @@
 
 - type: AirlockGroup
   id: GlassDeltaV
-  iconPriority: 90
+  iconPriority: 190
   stylePaths:
     atmospherics: DeltaV/Structures/Doors/Airlocks/Glass/atmospherics.rsi
     basic:       DeltaV/Structures/Doors/Airlocks/Glass/basic.rsi
