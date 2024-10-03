@@ -6733,7 +6733,7 @@ entities:
       pos: 18.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -166538.64
+      secondsUntilStateChange: -166720.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23267,6 +23267,26 @@ entities:
     - type: Transform
       pos: 42.5,-36.5
       parent: 2
+  - uid: 15566
+    components:
+    - type: Transform
+      pos: 62.5,-25.5
+      parent: 2
+  - uid: 15567
+    components:
+    - type: Transform
+      pos: 63.5,-25.5
+      parent: 2
+  - uid: 15568
+    components:
+    - type: Transform
+      pos: 64.5,-25.5
+      parent: 2
+  - uid: 15569
+    components:
+    - type: Transform
+      pos: 65.5,-25.5
+      parent: 2
 - proto: CableHVStack
   entities:
   - uid: 3380
@@ -35899,7 +35919,7 @@ entities:
       pos: 31.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -730.066
+      secondsUntilStateChange: -911.7778
       state: Closing
   - uid: 5409
     components:
@@ -64074,6 +64094,11 @@ entities:
     components:
     - type: Transform
       pos: 61.5,-25.5
+      parent: 2
+  - uid: 15565
+    components:
+    - type: Transform
+      pos: 65.5,-25.5
       parent: 2
 - proto: Girder
   entities:
