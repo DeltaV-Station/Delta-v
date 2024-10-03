@@ -46,11 +46,17 @@ def get_artifact_url() -> str:
     return resp.headers["Location"]
 
 def get_engine_version() -> str:
-    proc = subprocess.run(["git", "describe","--tags", "--abbrev=0"], stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
-    tag = proc.stdout.strip()
-    assert tag.startswith("v")
-    return tag[1:] # Cut off v prefix.
-
+    try:
+        proc = subprocess.run(["git", "describe", "--tags", "--abbrev=0"], 
+                              stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
+        tag = proc.stdout.strip()
+        assert tag.startswith("v")
+        return tag[1:]
+    except subprocess.CalledProcessError:
+        proc = subprocess.run(["git", "rev-parse", "HEAD"], 
+                              stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
+        commit_hash = proc.stdout.strip()
+        return commit_hash
 
 if __name__ == '__main__':
     main()
