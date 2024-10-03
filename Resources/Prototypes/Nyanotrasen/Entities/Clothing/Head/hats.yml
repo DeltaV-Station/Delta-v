@@ -93,12 +93,12 @@
   parent: ClothingHeadTinfoil
   id: ClothingHeadCage
   name: insulative headcage
+  suffix: SelfUnremovable
   description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
     stripDelay: 5
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
     quickEquip: true

@@ -145,7 +145,7 @@
     key: walls
     mode: NoSprite
   - type: PaintableAirlock
-    group: Standard
+    group: StandardDeltaV # DeltaV
     department: Civilian
   - type: StaticPrice
     price: 150
@@ -202,7 +202,7 @@
     graph: Airlock
     node: glassAirlock
   - type: PaintableAirlock
-    group: Glass
+    group: GlassDeltaV # DeltaV
   - type: RadiationBlocker
     resistance: 2
   - type: Tag
