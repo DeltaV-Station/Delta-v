@@ -15,6 +15,7 @@ namespace Content.Server.DeltaV.ProxyDetection;
 
 public sealed class ProxyDetectionManager : IPostInjectInit
 {
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly ILogManager _log = default!;
@@ -34,7 +35,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
         if (IPAddress.IsLoopback(addr))
             return (false, "");
 
-        var existingProxy = await _db.GetServerBanAsync(addr, null, null);
+        var existingProxy = await _dbManager.GetServerBanAsync(addr, null, null);
 
         if (existingProxy != null)
             return (false, "");
@@ -90,7 +91,7 @@ public sealed class ProxyDetectionManager : IPostInjectInit
             probeData.TryGetProperty("is-hosting", out var isHosting);
             probeData.TryGetProperty("is-vpn", out var isVpn);
             if (!isProxy.GetBoolean() && !isHosting.GetBoolean() && !isVpn.GetBoolean())
-              await _db.UpdateBanExemption(e.UserId, ServerBanExemptFlags.Datacenter);
+              await _dbManager.UpdateBanExemption(e.UserId, ServerBanExemptFlags.Datacenter);
                 return (false, "");
 
             result = "Обнаружено подозрительное подключение. Возможно, вы используете VPN. Если это ошибка, пожалуйста, сообщите нам об этом в Discord.";
