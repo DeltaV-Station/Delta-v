@@ -3,6 +3,7 @@
 import requests
 import os
 import subprocess
+import re
 
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
@@ -47,16 +48,26 @@ def get_artifact_url() -> str:
 
 def get_engine_version() -> str:
     try:
+        # Try to get the latest tag
         proc = subprocess.run(["git", "describe", "--tags", "--abbrev=0"], 
                               stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
         tag = proc.stdout.strip()
-        assert tag.startswith("V")
-        return tag[1:]
+        assert tag.startswith("v")
+        return tag[1:]  # Return tag without 'v'
     except subprocess.CalledProcessError:
-        proc = subprocess.run(["git", "rev-parse", "HEAD"], 
+        # If no tag is found, check the latest commit message for a version number
+        proc = subprocess.run(["git", "log", "-1", "--pretty=%B"], 
                               stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
-        commit_hash = proc.stdout.strip()
-        return commit_hash
+        commit_message = proc.stdout.strip()
+        # Use regex to find "Version: X.X.X" in the commit message
+        version_match = re.search(r"Version:\s*([\d\.]+)", commit_message)
+        if version_match:
+            return version_match.group(1)  # Return the version found in the commit message
+        else:
+            # Fallback to returning the commit hash if no version is found
+            proc = subprocess.run(["git", "rev-parse", "HEAD"], 
+                                  stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
+            return proc.stdout.strip()
 
 if __name__ == '__main__':
     main()
