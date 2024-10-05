@@ -46,6 +46,14 @@
 - type: stationGoal
   id: Outpost
 
+- type: stationGoal
+  id: MiningOutpost
+  text: station-goal-mining-outpost
+
+- type: stationGoal
+  id: Tesla
+  text: station-goal-tesla
+
 - type: weightedRandom
   id: StationGoals
   weights:
@@ -64,6 +72,7 @@
   weights:
     Singularity: 1
     SolarPanels: 1
+    Tesla: 1
 
 - type: weightedRandom
   id: StationGoalScience
@@ -87,5 +96,6 @@
     Lectures: 1
     Museum: 1
     Outpost: 1
+    MiningOutpost: 1
     Shuttle: 1
     Zoo: 1
