@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Added eye colouring on felinid, oni and harpy.
-    type: Add
-  - message: Added additional tattoes to harpys.
-    type: Add
-  - message: Tattoes on felinid and oni are once again usable.
-    type: Fix
-  id: 98
-  time: '2023-10-25T14:28:12.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Fixed missing drink locales.
@@ -3665,3 +3655,11 @@
   id: 597
   time: '2024-10-05T00:54:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1963
+- author: MilonPL
+  changes:
+  - message: Species vision filters are now disabled by default. You can re-enable
+      them in the settings!
+    type: Tweak
+  id: 598
+  time: '2024-10-05T16:25:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1953
