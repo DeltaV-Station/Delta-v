@@ -60,8 +60,8 @@ namespace Content.IntegrationTests.Tests
             "Hammurabi", //DeltaV
             "Lighthouse", //DeltaV
             "Micro", //DeltaV
-            "Chibi" //DeltaV
-            "Byoin", //DeltaV
+            "Chibi", //DeltaV
+            "Byoin" //DeltaV
         };
 
         /// <summary>
