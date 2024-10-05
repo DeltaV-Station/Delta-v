@@ -1,0 +1,35 @@
+- type: job
+  id: CentralCommandOperator
+  name: job-name-centcomoperator
+  description: job-description-centcomoperator
+  playTimeTracker: JobCentralCommandOperator
+  setPreference: false
+  startingGear: CentCommOperatorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-chief-headquarters-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - CentralCommandOperator
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CentCommOperatorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelHoldingCentCommOperator
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesHop
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: OCCPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponPistolN1984
+    pocket1: RubberStampCentcom
+    pocket2: BoxFolderCentComClipboard
+    neck: ClothingNeckGoldmedal
+    head: ClothingHeadHatBeretCentcomm
