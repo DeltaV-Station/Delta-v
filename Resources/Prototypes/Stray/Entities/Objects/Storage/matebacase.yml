@@ -1,0 +1,32 @@
+- type: entity
+  id: MatebaCase
+  parent: LunchboxGeneric
+  name: кейс для матебы
+  description: Содержит револьвер, два спидлоадера с резиновыми и один с обычными патронами.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Storage/matebacase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+    - state: unlocked
+      shader: unshaded
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+  - type: Item
+    sprite: Stray/Objects/Storage/matebacase.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,4,1
+  - type: Lock
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+  - type: Appearance
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverMateba
+    - id: SpeedLoaderMagnum
+    - id: SpeedLoaderMagnumRubber
+      amount: 2

@@ -45,6 +45,17 @@
   color: "#0c344d"
   roles:
   - CentralCommandOfficial
+  - CentralCommandOperator
+  - ChiefHeadquartersCentralCommand
+  editorHidden: true
+  weight: 120
+
+- type: department
+  id: SpecialOperations
+  name: department-special-operations
+  description: department-special-operations-description
+  color: "#0c344d"
+  roles:
   - CBURN
   - ERTLeader
   - ERTChaplain
