@@ -2,10 +2,10 @@ station-goal-fax-paper-name = Цель станции
 
 station-goal-fax-paper-header =
     ⠀[color=#2E8B57]███╗░░██╗████████╗[/color]
-    ⠀[color=#2E8B57]████╗░██║╚══██╔══╝[/color] [bold]Форма NT-№{$station}-CC-CMD-DCR[/bold]
+    ⠀[color=#2E8B57]████╗░██║╚══██╔══╝[/color]
     ⠀[color=#2E8B57]██╔██╗██║░░░██║░░░[/color] [bold]Цель станции[/bold]
-    ⠀[color=#2E8B57]██║╚████║░░░██║░░░[/color] [bold]Дата: {$date}[/bold]
-    ⠀[color=#2E8B57]██║░╚███║░░░██║░░░[/color]
+    ⠀[color=#2E8B57]██║╚████║░░░██║░░░[/color] [bold]{$station} ЦК-КОМ[/bold]
+    ⠀[color=#2E8B57]██║░╚███║░░░██║░░░[/color] [bold]Дата: {$date}[/bold]
     ⠀[color=#2E8B57]╚═╝░░╚══╝░░░╚═╝░░░[/color]
     ════════════════════════════════════════
     {$content}
