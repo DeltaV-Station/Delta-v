@@ -199,12 +199,11 @@
 - type: entity
   parent: BaseSignDirectional
   id: SignDirectionalSci
-  name: epistemics sign # DeltaV - Epistemics Department replacing Science
-  description: A direction sign, pointing out which way the Epistemics department is. # DeltaV - Epistemics Department replacing Science
+  name: science sign
+  description: A direction sign, pointing out which way the Science department is.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # DeltaV - Epistemics Department replacing Science
-    state: direction_epi # DeltaV - Epistemics Department replacing Science
+    state: direction_sci
 
 - type: entity
   parent: BaseSignDirectional
