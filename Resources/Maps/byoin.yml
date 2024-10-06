@@ -40697,23 +40697,23 @@ entities:
     - type: Transform
       pos: -11.323594,17.917418
       parent: 2
-- proto: IngotGold
+- proto: IngotGold1
   entities:
-  - uid: 2123
+  - uid: 60
     components:
     - type: Transform
-      pos: 34.332497,-4.477937
+      pos: 34.527573,-4.5086246
       parent: 2
-    - type: Stack
-      count: 15
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - gold
-    - type: ContainerContainer
-      containers:
-        solution@gold: !type:ContainerSlot
-          ent: 2124
+  - uid: 2122
+    components:
+    - type: Transform
+      pos: 34.621323,-4.6336246
+      parent: 2
+  - uid: 2124
+    components:
+    - type: Transform
+      pos: 34.511948,-4.5086246
+      parent: 2
 - proto: IngotSilver
   entities:
   - uid: 6726
@@ -40726,18 +40726,18 @@ entities:
   - uid: 2125
     components:
     - type: Transform
-      pos: 34.50437,-4.462312
+      pos: 34.59536,-4.5827155
       parent: 2
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - gold
-    - type: ContainerContainer
-      containers:
-        solution@gold: !type:ContainerSlot
-          ent: 2126
+  - uid: 2126
+    components:
+    - type: Transform
+      pos: 34.40786,-4.2858405
+      parent: 2
+  - uid: 2127
+    components:
+    - type: Transform
+      pos: 34.579735,-4.5514655
+      parent: 2
 - proto: IntercomAll
   entities:
   - uid: 7247
@@ -41889,13 +41889,6 @@ entities:
     - type: Transform
       pos: -19.5,1.5
       parent: 2
-- proto: MaterialBluespace
-  entities:
-  - uid: 2122
-    components:
-    - type: Transform
-      pos: 34.69187,-4.446687
-      parent: 2
 - proto: MaterialCloth
   entities:
   - uid: 1047
@@ -42318,48 +42311,6 @@ entities:
         Regards:
 
         CE, Leo Evens.
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 60
   - uid: 668
     components:
     - type: Transform
@@ -46359,35 +46310,23 @@ entities:
       parent: 2
 - proto: SheetPlasma
   entities:
+  - uid: 2123
+    components:
+    - type: Transform
+      pos: 48.43246,-12.452603
+      parent: 2
   - uid: 8360
     components:
     - type: Transform
       pos: -8.502493,9.563562
       parent: 2
-- proto: SheetPlasma1
+- proto: SheetPlasma10
   entities:
-  - uid: 2127
+  - uid: 2128
     components:
     - type: Transform
-      pos: 34.47312,-4.477937
+      pos: 34.43678,-4.5531964
       parent: 2
-    - type: Stack
-      count: 10
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - plasma
-    - type: ContainerContainer
-      containers:
-        solution@plasma: !type:ContainerSlot
-          ent: 2128
-  - uid: 8382
-    components:
-    - type: Transform
-      pos: 48.405663,-12.4007015
-      parent: 2
-    - type: Stack
-      count: 15
 - proto: SheetPlasteel
   entities:
   - uid: 6075
@@ -56543,7 +56482,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -483535.88
+      secondsUntilStateChange: -483685.53
       state: Opening
     - type: DoorBolt
       boltsDown: True
