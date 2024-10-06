@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+﻿﻿using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Robust.Shared.Random;
 
@@ -11,6 +11,7 @@ public sealed class LizardAccentSystem : EntitySystem
     private static readonly Regex RegexInternalX = new(@"(\w)x");
     private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
     private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
+
     [Dependency] private readonly IRobustRandom _random = default!; // Corvax-Localization
 
     public override void Initialize()
@@ -33,6 +34,8 @@ public sealed class LizardAccentSystem : EntitySystem
         message = RegexLowerEndX.Replace(message, "ecks$1");
         // eckS
         message = RegexUpperEndX.Replace(message, "ECKS$1");
+
+        // Corvax-Localization-Start
         // c => ссс
         message = Regex.Replace(
             message,
@@ -82,5 +85,6 @@ public sealed class LizardAccentSystem : EntitySystem
             _random.Pick(new List<string>() { "ЩЩ", "ЩЩЩ" })
         );
         // Corvax-Localization-End
+        args.Message = message;
     }
 }
