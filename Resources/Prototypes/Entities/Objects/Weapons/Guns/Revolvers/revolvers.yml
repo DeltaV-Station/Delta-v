@@ -90,6 +90,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: RevolverAmmoProvider
+    proto: CartridgeSpecial
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
