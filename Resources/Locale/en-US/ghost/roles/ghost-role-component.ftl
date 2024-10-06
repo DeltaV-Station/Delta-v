@@ -40,13 +40,6 @@ deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
                                                     You are allowed to attack the salvage shuttle.
                                                     You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
 
-# Delta V skeleton rule
-deltav-ghost-role-information-closet-skeleton-rules = You are a old member of the station, try to get your previous job back or dwell in the maintenance tunnels!.
-                                                    You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
-                                                    You're allowed some minor mischief.
-                                                    All normal rules apply unless an administrator tells you otherwise.
-
-
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
@@ -169,7 +162,8 @@ ghost-role-information-skeleton-biker-name = Skeleton Biker
 ghost-role-information-skeleton-biker-description = Ride around on your sweet ride.
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
-ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+# Delta V removed mention of "cause chaos" to avoid confusion.
+ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or dwell maintenance! The world is yours to shape.
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
@@ -279,7 +273,7 @@ ghost-role-information-medical-description = You are a medical professional, but
 ghost-role-information-cargo-name = Cargo
 ghost-role-information-cargo-description = You are part of a logistics mission, but seem to have found yourself in a strange situation...
 
-ghost-role-information-engineering-name = Engineering
+ghost-role-information-engineering-name = Engineering 
 ghost-role-information-engineering-description = You are on an engineering job, but seem to have found yourself in a strange situation...
 
 ghost-role-information-science-name = Science
