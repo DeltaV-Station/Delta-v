@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Added eye colouring on felinid, oni and harpy.
-    type: Add
-  - message: Added additional tattoes to harpys.
-    type: Add
-  - message: Tattoes on felinid and oni are once again usable.
-    type: Fix
-  id: 98
-  time: '2023-10-25T14:28:12.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed missing drink locales.
-    type: Fix
-  id: 99
-  time: '2023-10-25T22:23:38.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Reimplemented Brigmedics. They're not on any maps (yet).
-    type: Add
-  id: 100
-  time: '2023-10-25T22:52:49.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Fixed Mystagogue not having their dispel power.
@@ -3665,3 +3643,25 @@
   id: 597
   time: '2024-10-05T00:54:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1963
+- author: MilonPL
+  changes:
+  - message: Species vision filters are now disabled by default. You can re-enable
+      them in the settings!
+    type: Tweak
+  id: 598
+  time: '2024-10-05T16:25:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1953
+- author: Velcroboy
+  changes:
+  - message: APCs are rotated again to indicate the direction they are facing.
+    type: Tweak
+  id: 599
+  time: '2024-10-05T21:04:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1969
+- author: Radezolid
+  changes:
+  - message: Fixed Closet Skeleton ghost role rules.
+    type: Fix
+  id: 600
+  time: '2024-10-06T01:59:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1974
