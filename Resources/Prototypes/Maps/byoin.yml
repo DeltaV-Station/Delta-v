@@ -1,6 +1,6 @@
 - type: gameMap
   id: Byoin
-  mapName: 'Byouin'
+  mapName: 'Byōin'
   mapPath: /Maps/byoin.yml
   minPlayers: 0
   maxPlayers: 4
@@ -11,7 +11,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Basu.yml
         - type: StationNameSetup
-          mapNameTemplate: '{0} Byouin Station {1}'
+          mapNameTemplate: '{0} Byōin Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
