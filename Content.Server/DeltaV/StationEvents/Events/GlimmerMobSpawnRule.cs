@@ -7,6 +7,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Station.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
 
@@ -46,12 +47,17 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
     private List<EntityCoordinates> GetCoords<T>() where T : IComponent
     {
         var coords = new List<EntityCoordinates>();
-        var query = EntityQueryEnumerator<TransformComponent, T>();
-        while (query.MoveNext(out var xform, out _))
+        if (TryGetRandomStation(out var station))
         {
-            coords.Add(xform.Coordinates);
+            var query = EntityQueryEnumerator<TransformComponent, T>();
+            while (query.MoveNext(out var xform, out _))
+            {
+                if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station == station)
+                {
+                    coords.Add(xform.Coordinates);
+                }
+            }
         }
-
         return coords;
     }
 
