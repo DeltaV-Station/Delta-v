@@ -21,3 +21,11 @@
   components:
   - type: Implanter
     implant: SyndicateRadioImplant
+
+- type: entity
+  id: MedicalTrackingImplanter
+  suffix: MedTracking
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: MedicalTracker
