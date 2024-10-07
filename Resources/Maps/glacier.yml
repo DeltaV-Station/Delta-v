@@ -17412,6 +17412,14 @@ entities:
     - type: Transform
       pos: -6.5,23.5
       parent: 2
+- proto: ButtonFrameExit
+  entities:
+  - uid: 12087
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,1.5
+      parent: 2
 - proto: CableApcExtension
   entities:
   - uid: 82
@@ -23502,22 +23510,7 @@ entities:
   - uid: 2062
     components:
     - type: Transform
-      pos: -8.5,59.5
-      parent: 2
-  - uid: 2063
-    components:
-    - type: Transform
-      pos: -7.5,59.5
-      parent: 2
-  - uid: 2064
-    components:
-    - type: Transform
-      pos: -6.5,59.5
-      parent: 2
-  - uid: 2065
-    components:
-    - type: Transform
-      pos: -5.5,59.5
+      pos: -7.5,58.5
       parent: 2
   - uid: 2066
     components:
@@ -43611,12 +43604,6 @@ entities:
     - type: Transform
       pos: 76.5,-27.5
       parent: 2
-  - uid: 7117
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,58.5
-      parent: 2
   - uid: 7704
     components:
     - type: Transform
@@ -47723,12 +47710,16 @@ entities:
       parent: 2
 - proto: ComputerAnalysisConsole
   entities:
-  - uid: 6283
+  - uid: 7117
     components:
     - type: Transform
-      rot: 4.71238898038469 rad
-      pos: 36.5,-29.5
+      rot: 1.5707963267948966 rad
+      pos: 34.5,-28.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        2064:
+        - ArtifactAnalyzerSender: ArtifactAnalyzerReceiver
 - proto: computerBodyScanner
   entities:
   - uid: 6284
@@ -58097,14 +58088,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 5410
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,59.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#DD2222FF'
   - uid: 5417
     components:
     - type: Transform
@@ -69210,22 +69193,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 17590
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.5,58.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 17591
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,59.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 17593
     components:
     - type: Transform
@@ -69402,6 +69369,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#DD2222FF'
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,59.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#DD2222FF'
   - uid: 2069
     components:
     - type: Transform
@@ -69469,6 +69444,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,58.5
       parent: 2
+  - uid: 5410
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,59.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 5412
     components:
     - type: Transform
@@ -71217,6 +71200,28 @@ entities:
       parent: 2
 - proto: GasValve
   entities:
+  - uid: 2063
+    components:
+    - type: MetaData
+      name: teg inlet valve
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,59.5
+      parent: 2
+    - type: GasValve
+      open: False
+    - type: AtmosPipeColor
+      color: '#DD2222FF'
+  - uid: 6283
+    components:
+    - type: MetaData
+      name: waste valve
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,58.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 9286
     components:
     - type: Transform
@@ -77923,10 +77928,10 @@ entities:
       parent: 2
 - proto: MachineArtifactAnalyzer
   entities:
-  - uid: 10271
+  - uid: 2064
     components:
     - type: Transform
-      pos: 30.5,-28.5
+      pos: 32.5,-28.5
       parent: 2
 - proto: MachineCentrifuge
   entities:
@@ -86656,15 +86661,15 @@ entities:
       parent: 2
 - proto: Multitool
   entities:
+  - uid: 10271
+    components:
+    - type: Transform
+      pos: 36.26866,-27.347355
+      parent: 2
   - uid: 12086
     components:
     - type: Transform
       pos: 44.53739,12.611739
-      parent: 2
-  - uid: 12087
-    components:
-    - type: Transform
-      pos: 36.230858,-27.381313
       parent: 2
   - uid: 12088
     components:
@@ -97814,6 +97819,16 @@ entities:
         16350:
         - Pressed: AutoClose
         - Pressed: Toggle
+  - uid: 17590
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,1.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        195:
+        - Pressed: Open
 - proto: SignalSwitchDirectional
   entities:
   - uid: 10852
@@ -114430,7 +114445,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3483.2776
+      secondsUntilStateChange: -4145.9346
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114446,7 +114461,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3482.711
+      secondsUntilStateChange: -4145.368
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114468,7 +114483,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3482.2444
+      secondsUntilStateChange: -4144.9014
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114484,7 +114499,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -3483.7776
+      secondsUntilStateChange: -4146.4346
       state: Opening
     - type: Airlock
       autoClose: False
