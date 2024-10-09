@@ -1903,7 +1903,7 @@
       state: slug
       sprite: Mobs/Animals/slug.rsi
   - type: Carriable #DeltaV
-    freeHandsRequired: 1
+    freeHandsRequired: 1 
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3359,7 +3359,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-
+      
 - type: entity
   name: diona nymph
   parent: [SimpleMobBase, StripableInventoryBase]
