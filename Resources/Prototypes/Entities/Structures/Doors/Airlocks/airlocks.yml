@@ -50,7 +50,7 @@
   - type: PaintableAirlock
     department: Hydroponics
   - type: Wires
-    layoutId: AirlockService
+    layoutId: AirlockHydroponics
 
 - type: entity
   parent: Airlock
@@ -82,7 +82,7 @@
   - type: PaintableAirlock
     department: Medical
   - type: Wires
-    layoutId: AirlockMedical
+    layoutId: AirlockChemistry
 
 - type: entity
   parent: Airlock
@@ -223,7 +223,7 @@
   - type: PaintableAirlock
     department: Hydroponics
   - type: Wires
-    layoutId: AirlockService
+    layoutId: AirlockHydroponics
 
 - type: entity
   parent: AirlockGlass
@@ -247,7 +247,7 @@
   - type: PaintableAirlock
     department: Chemistry
   - type: Wires
-    layoutId: AirlockMedical
+    layoutId: AirlockChemistry
 
 
 - type: entity
