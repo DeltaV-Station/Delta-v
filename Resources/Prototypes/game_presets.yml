@@ -35,7 +35,7 @@
   - all
   name: all-at-once-title
   description: all-at-once-description
-  showInVote: true # Stray
+  showInVote: false # Stray
   minPlayers: 25 # Stray
   rules:
     - Nukeops
@@ -94,7 +94,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: true #4boring4vote
+  showInVote: false #4boring4vote
   maxPlayers: 10 # Stray
   description: greenshift-description
   rules:
@@ -157,7 +157,7 @@
     - tator
   name: traitor-title
   description: traitor-description
-  showInVote: true # Stray
+  showInVote: false # Stray
   rules:
     - Traitor
     - SubGamemodesRule
@@ -174,8 +174,8 @@
     - dm
   name: death-match-title
   description: death-match-description
-  maxPlayers: 15
-  showInVote: false # DeltaV - No.
+  maxPlayers: 5
+  showInVote: true # DeltaV - No.
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
@@ -186,7 +186,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: true # Stray
+  showInVote: false # Stray
   minPlayers: 15
   rules:
     - Nukeops
@@ -205,7 +205,7 @@
     - revolutionaries
   name: rev-title
   description: rev-description
-  showInVote: true # Stray
+  showInVote: false # Stray
   minPlayers: 15 # Stray
   rules:
     - Revolutionary
@@ -226,7 +226,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: true # Stray
+  showInVote: false # Stray
   minPlayers: 15 # Stray
   rules:
   - Zombie
