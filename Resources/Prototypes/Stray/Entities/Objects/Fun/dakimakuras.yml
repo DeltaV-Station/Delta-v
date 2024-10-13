@@ -84,3 +84,17 @@
       OffState: lauraFront
       OnState: lauraBack
       Popup: "Вы перевернули дакимакуру"
+
+- type: entity
+  parent: BaseDakimakura
+  id: KinacydyDak
+  name: Дакимакура Анны
+  description: "Зачем? Просто зачем? Зачем это существует? Зачем вы на это смотрите?"
+  components:
+    - type: Sprite
+      state: KinacydyFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: KinacydyFront
+      OnState: KinacydyBack
+      Popup: "Вы перевернули дакимакуру"
