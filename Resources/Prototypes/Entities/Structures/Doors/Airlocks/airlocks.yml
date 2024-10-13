@@ -48,9 +48,9 @@
   - type: Sprite
     sprite: DeltaV/Structures/Doors/Airlocks/Standard/hydroponics.rsi # DeltaV - Resprite Doors
   - type: PaintableAirlock
-    department: Hydroponics
+    department: Service
   - type: Wires
-    layoutId: AirlockHydroponics
+    layoutId: AirlockService
 
 - type: entity
   parent: Airlock
@@ -82,7 +82,7 @@
   - type: PaintableAirlock
     department: Medical
   - type: Wires
-    layoutId: AirlockChemistry
+    layoutId: AirlockMedical
 
 - type: entity
   parent: Airlock
@@ -221,9 +221,9 @@
   - type: Sprite
     sprite: DeltaV/Structures/Doors/Airlocks/Glass/hydroponics.rsi # DeltaV - Resprite Doors
   - type: PaintableAirlock
-    department: Hydroponics
+    department: Service
   - type: Wires
-    layoutId: AirlockHydroponics
+    layoutId: AirlockService
 
 - type: entity
   parent: AirlockGlass
@@ -245,9 +245,9 @@
   - type: Sprite
     sprite: DeltaV/Structures/Doors/Airlocks/Glass/chemistry.rsi # DeltaV - Resprite Doors
   - type: PaintableAirlock
-    department: Chemistry
+    department: Medical
   - type: Wires
-    layoutId: AirlockChemistry
+    layoutId: AirlockMedical
 
 
 - type: entity
