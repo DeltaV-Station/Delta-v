@@ -26,7 +26,8 @@
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-    
+
+
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
@@ -38,6 +39,7 @@
       key_slots:
       - EncryptionKeySyndie
       - EncryptionKeyStationMaster
+      - EncryptionKeyBinary
   - type: Sprite
     sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
   - type: Clothing
