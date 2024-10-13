@@ -13039,6 +13039,8 @@ entities:
       parent: 100
   - uid: 6241
     components:
+    - type: MetaData
+      name: Medical East APC
     - type: Transform
       pos: -11.5,43.5
       parent: 100
@@ -14725,6 +14727,18 @@ entities:
     components:
     - type: Transform
       pos: 3.6405568,-20.290806
+      parent: 100
+- proto: BodyBagFolded
+  entities:
+  - uid: 20562
+    components:
+    - type: Transform
+      pos: -8.307921,39.867046
+      parent: 100
+  - uid: 20683
+    components:
+    - type: Transform
+      pos: -8.471984,39.85142
       parent: 100
 - proto: Bola
   entities:
@@ -44992,6 +45006,13 @@ entities:
     - type: Transform
       pos: -33.122417,-23.179598
       parent: 100
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 20547
+    components:
+    - type: Transform
+      pos: -29.49446,45.694763
+      parent: 100
 - proto: ClothingBeltBandolier
   entities:
   - uid: 15017
@@ -46428,8 +46449,8 @@ entities:
   - uid: 6949
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5,39.5
+      rot: 4.71238898038469 rad
+      pos: -5.5,39.5
       parent: 100
   - uid: 15108
     components:
@@ -47210,7 +47231,7 @@ entities:
   - uid: 21478
     components:
     - type: Transform
-      pos: -29.5,45.5
+      pos: -28.5,45.5
       parent: 100
 - proto: CrateFunBoardGames
   entities:
@@ -94161,7 +94182,7 @@ entities:
   - uid: 20545
     components:
     - type: Transform
-      pos: -8.45518,39.644577
+      pos: -8.386046,39.47642
       parent: 100
   - uid: 21448
     components:
@@ -97938,11 +97959,6 @@ entities:
       parent: 100
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 14183
-    components:
-    - type: Transform
-      pos: -16.5,42.5
-      parent: 100
   - uid: 14369
     components:
     - type: Transform
@@ -114972,6 +114988,11 @@ entities:
     components:
     - type: Transform
       pos: 13.5,-66.5
+      parent: 100
+  - uid: 14183
+    components:
+    - type: Transform
+      pos: -29.5,45.5
       parent: 100
   - uid: 14255
     components:
@@ -134061,17 +134082,23 @@ entities:
   entities:
   - uid: 1496
     components:
+    - type: MetaData
+      name: Chemistry
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -11.5,36.5
       parent: 100
   - uid: 1508
     components:
+    - type: MetaData
+      name: Reception
     - type: Transform
       pos: -6.5,38.5
       parent: 100
   - uid: 1513
     components:
+    - type: MetaData
+      name: Reception
     - type: Transform
       pos: -7.5,38.5
       parent: 100
@@ -134111,7 +134138,7 @@ entities:
     components:
     - type: MetaData
       desc: A windoor for the unification of the two most robust roles on the station.
-      name: Chem/Botany Windoor
+      name: Botany/Medical Windoor
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -26.5,36.5
@@ -134306,6 +134333,8 @@ entities:
   entities:
   - uid: 15106
     components:
+    - type: MetaData
+      name: Chemistry Fridge
     - type: Transform
       pos: -18.5,38.5
       parent: 100
@@ -134445,24 +134474,32 @@ entities:
       parent: 100
   - uid: 5172
     components:
+    - type: MetaData
+      name: Reception Inner
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,38.5
       parent: 100
   - uid: 5661
     components:
+    - type: MetaData
+      name: Reception Inner
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,38.5
       parent: 100
   - uid: 15148
     components:
+    - type: MetaData
+      name: Medical/Botany Windoor
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -24.5,37.5
       parent: 100
   - uid: 15158
     components:
+    - type: MetaData
+      name: Medical/Botany Windoor
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -24.5,36.5
