@@ -22,9 +22,12 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
     {
         base.Started(uid, comp, gameRule, args);
 
-        var glimmerSources = GetCoords<GlimmerSourceComponent>();
-        var normalSpawns = GetCoords<VentCritterSpawnLocationComponent>();
-        var hiddenSpawns = GetCoords<MidRoundAntagSpawnLocationComponent>();
+        if (!TryGetRandomStation(out var station))
+            return;
+
+        var glimmerSources = GetCoords<GlimmerSourceComponent>(station.Value);
+        var normalSpawns = GetCoords<VentCritterSpawnLocationComponent>(station.Value);
+        var hiddenSpawns = GetCoords<MidRoundAntagSpawnLocationComponent>(station.Value);
 
         var psionics = EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count();
         var baseCount = Math.Max(1, psionics / comp.MobsPerPsionic);
@@ -45,22 +48,17 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
         }
     }
 
-    private List<EntityCoordinates> GetCoords<T>() where T : IComponent
+    private List<EntityCoordinates> GetCoords<T>(EntityUid station) where T : IComponent
     {
         var coords = new List<EntityCoordinates>();
         var query = EntityQueryEnumerator<TransformComponent, T>();
-        EntityUid? stationUid = null;
 
         while (query.MoveNext(out var xform, out _))
         {
             if (xform.GridUid == null)
                 continue;
 
-            stationUid ??= _stationSystem.GetOwningStation(xform.GridUid.Value);
-            if (stationUid == null)
-                return coords;
-
-            if (_stationSystem.GetOwningStation(xform.GridUid.Value) == stationUid)
+            if (_stationSystem.GetOwningStation(xform.GridUid.Value) == station)
                 coords.Add(xform.Coordinates);
         }
         return coords;
