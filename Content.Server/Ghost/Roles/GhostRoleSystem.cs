@@ -517,8 +517,8 @@ public sealed partial class GhostRoleSystem : EntitySystem // Converted to parti
 
         _roleSystem.MindAddRole(newMind, "MindRoleGhostMarker");
 
-        if(_roleSystem.MindHasRole<GhostRoleMarkerRoleComponent>(newMind, out _, out var markerRole))
-            markerRole.Value.Comp.Name = role.RoleName;
+        if(_roleSystem.MindHasRole<GhostRoleMarkerRoleComponent>(newMind!, out var markerRole))
+            markerRole.Value.Comp2.Name = role.RoleName;
 
         _mindSystem.SetUserId(newMind, player.UserId);
         _mindSystem.TransferTo(newMind, mob);
