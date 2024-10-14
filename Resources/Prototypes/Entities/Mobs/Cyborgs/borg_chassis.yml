@@ -148,8 +148,6 @@
     interactFailureString: petting-failure-engineer-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Engineering Cyborg
-    laws: Engineer
 
 - type: entity
   id: BorgChassisJanitor
@@ -211,8 +209,6 @@
     interactFailureString: petting-failure-janitor-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: SiliconLawProvider # Delta-V Adds custom lawset for Janitor Cyborg
-    laws: Janitor
 
 - type: entity
   id: BorgChassisMedical
@@ -270,8 +266,6 @@
   - type: Inventory
     templateId: borgDutch
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
-  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Medical cyborg
-    laws: Medical
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHoverBorg
