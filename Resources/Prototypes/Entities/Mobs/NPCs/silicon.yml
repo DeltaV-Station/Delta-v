@@ -258,7 +258,7 @@
   - type: Construction
     graph: CleanBot
     node: bot
-  - type: SentienceTarget
+  - type: SentienceTarget # DeltaV: upstream removed it, cleanbot works when player controlled
     flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Absorbent
     pickupAmount: 10
@@ -331,8 +331,6 @@
   - type: Construction
     graph: MediBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Anchorable
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot
