@@ -1,5 +1,6 @@
 # Weapons
 uplink-pistol-viper-name = Viper
+# Delta-V, removed mention of the full auto.
 uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Uses pistol magazines (.35 auto).
 
 uplink-revolver-python-name = Python
