@@ -142,8 +142,9 @@
     groups:
     - Engineering
 
+# Delta-V Re-added fire-fighting remote.
 - type: entity
-  parent: [DoorRemoteDefault, BaseCommandContraband]
+  parent: [DoorRemoteDefault, BaseEngineeringContraband]
   id: DoorRemoteFirefight
   name: fire-fighting door remote
   description: A gadget which can open and bolt FireDoors remotely.
