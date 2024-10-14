@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Adjusted event weights so rounds are not as exciting.
-    type: Tweak
-  id: 108
-  time: '2023-10-28T03:14:19.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Added the classic Moth markings back, still can't be coloured.
@@ -3670,3 +3664,11 @@
   id: 607
   time: '2024-10-14T18:05:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1982
+- author: Radezolid
+  changes:
+  - message: Now tracking and death rattle implant messages show the coordinates at
+      the same time as the nearest beacon.
+    type: Tweak
+  id: 608
+  time: '2024-10-14T18:06:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1983
