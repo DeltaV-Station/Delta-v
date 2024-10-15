@@ -1,5 +1,5 @@
 roles-antag-paradox-anomaly-name = Paradox Anomaly
-roles-antag-paradox-anomaly-objective = Replace your double, or befriend them.
+roles-antag-paradox-anomaly-objective = Find your double!
 
 roles-antag-listening-post-name = Listening Post Operative
 roles-antag-listening-post-objective = Spy on the station to gather crucial intel for Syndicate High Command.
