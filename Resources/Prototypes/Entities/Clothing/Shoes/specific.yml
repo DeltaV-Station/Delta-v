@@ -15,7 +15,7 @@
   parent: [ClothingShoesBaseButcherable, ClothingSlotBase]
   id: ClothingShoesClownBase
   components:
-  - type: WaddleWhenWorn
+  - type: WaddleWhenWorn # DeltaV: upstream removed waddling
   - type: ItemSlots
     slots:
       item:
