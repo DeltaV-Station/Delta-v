@@ -26,7 +26,7 @@
             ChiefEngineer: [ 1, 1 ] 
             AtmosphericTechnician: [ 2, 3 ]
             StationEngineer: [ 4, 5 ]
-            TechnicalAssistant: [ 4, 5 ]
+            TechnicalAssistant: [ 2, 4 ]
           #justice
             ChiefJustice: [ 1, 1 ]
             Clerk: [ 1, 1 ]
@@ -37,7 +37,7 @@
             Chemist: [ 2, 2 ]
             Paramedic: [ 1, 2 ]
             MedicalDoctor: [ 4, 5 ]
-            MedicalIntern: [ 4, 5 ]
+            MedicalIntern: [ 2, 4 ]
             Psychologist: [ 1, 1 ]
           #security
             Brigmedic: [ 1, 1 ]
@@ -45,12 +45,12 @@
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 4 ]
             PrisonGuard: [ 1, 2 ]
-            SecurityOfficer: [ 4, 6 ]
-            SecurityCadet: [ 2, 3 ]
+            SecurityOfficer: [ 4, 5 ]
+            SecurityCadet: [ 2, 4 ]
             Warden: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 2, 2 ]
+            Bartender: [ 2, 3 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 3 ]
             Clown: [ 1, 1 ]
@@ -58,7 +58,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
             Reporter: [ 2, 2 ]
-            ServiceWorker: [ 2, 4 ]
+            ServiceWorker: [ 3, 5 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
