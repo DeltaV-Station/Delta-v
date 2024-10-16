@@ -1335,6 +1335,7 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
+    allowedEmotes: ['Snap', 'Clap', 'Salute'] #Delta-V: Why shouldn't they have hand emotes
   - type: MonkeyAccent
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
@@ -1371,6 +1372,7 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
+    allowedEmotes: ['Snap', 'Clap', 'Salute'] #Delta-V: Why shouldn't they have hand emotes
   - type: MonkeyAccent
   - type: NpcFactionMember
     factions:
@@ -1419,6 +1421,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Snap', 'Clap', 'Salute', 'Laugh'] #Delta-V: Why shouldn't they have hand emotes and lizard laugh
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -2230,6 +2233,8 @@
     interactSuccessString: petting-success-reptile
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg #Delta-V
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Damageable
@@ -2425,6 +2430,8 @@
         collection: FootstepClownFast
     - type: Speech
       speechVerb: Cluwne
+      speechSounds: Arachnid
+      allowedEmotes: ['Hiss', 'Chitter', 'Click', 'Honk'] #DeltaV added emotes
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
