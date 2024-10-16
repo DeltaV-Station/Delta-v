@@ -74,9 +74,9 @@ namespace Content.Client.PDA
             };
 
             _menu.OnProgramItemPressed += ActivateCartridge;
-            _menu.OnInstallButtonPressed += InstallCartridge;
-            _menu.OnUninstallButtonPressed += UninstallCartridge;
-            _menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
+            //_menu.OnInstallButtonPressed += InstallCartridge;
+            //_menu.OnUninstallButtonPressed += UninstallCartridge;
+            //_menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
 
             var borderColorComponent = GetBorderColorComponent();
             if (borderColorComponent == null)
@@ -117,6 +117,7 @@ namespace Content.Client.PDA
             _menu.ToHomeScreen();
             _menu.HideProgramHeader();
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
+            
         }
 
         protected override void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)

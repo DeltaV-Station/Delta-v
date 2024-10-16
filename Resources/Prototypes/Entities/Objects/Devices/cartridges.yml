@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseItem
   id: NotekeeperCartridge
   name: notekeeper cartridge
@@ -12,8 +12,8 @@
   - type: Cartridge
     programName: notekeeper-program-name
     icon:
-      sprite:  Objects/Misc/books.rsi
-      state: book_icon
+      sprite:  DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+      state: icon-notepad
   - type: NotekeeperCartridge
 
 - type: entity
@@ -30,8 +30,8 @@
   - type: Cartridge
     programName: news-read-program-name
     icon:
-      sprite: Interface/Misc/program_icons.rsi
-      state: news_read
+      sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+      state: icon-news
   - type: NewsReaderCartridge
 
 - type: entity
@@ -48,8 +48,8 @@
     - type: Cartridge
       programName: crew-manifest-program-name
       icon:
-        sprite: Interface/Misc/program_icons.rsi
-        state: crew_manifest
+        sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+        state: icon-manifest
     - type: CrewManifestCartridge
 
 - type: entity
@@ -66,8 +66,8 @@
     - type: Cartridge
       programName: net-probe-program-name
       icon:
-        sprite: Structures/Machines/server.rsi
-        state: server
+        sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+        state: icon-default
     - type: NetProbeCartridge
 
 - type: entity
@@ -87,8 +87,8 @@
     - type: Cartridge
       programName: log-probe-program-name
       icon:
-        sprite: Structures/Doors/Airlocks/Standard/security.rsi
-        state: closed
+        sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+        state: icon-default
     - type: LogProbeCartridge
     - type: GuideHelp
       guides:

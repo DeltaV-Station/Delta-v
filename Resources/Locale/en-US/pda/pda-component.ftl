@@ -24,7 +24,7 @@ pda-bound-user-interface-lock-uplink-description = Prevent anyone from accessing
 
 comp-pda-ui-menu-title = PDA
 
-comp-pda-ui-footer = Personal Digital Assistant
+comp-pda-ui-footer = Advanced Personal Digital Assistant
 
 comp-pda-ui-station = Station: [color=white]{$station}[/color]
 
