@@ -17,7 +17,6 @@ entities:
     components:
     - type: MetaData
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -510,8 +509,6 @@ entities:
     - type: Transform
       pos: 10.5,8.5
       parent: 1
-    - type: Apc
-      hasAccess: True
 - proto: AtmosDeviceFanTiny
   entities:
   - uid: 23
