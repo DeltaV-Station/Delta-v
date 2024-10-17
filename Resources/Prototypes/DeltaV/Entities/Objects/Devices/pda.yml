@@ -206,15 +206,13 @@
 
 # Passenger
 
+# event visitors get externals emergency access, not a good thing for powergaming tiders
 - type: entity
-  parent: PassengerPDA
-  id: VisitorPDA
-  name: visitor PDA
-  description: If you hold onto this, it can be a fun souvenier when you get to... wherever you're going!
+  parent: VisitorPDA
+  id: VisitorPDALoadout
   components:
   - type: Pda
-    id: VisitorIDCard
-    state: pda-visitor # - aPDA Sprite Rework
+    id: VisitorIDCardLoadout
 
 - type: entity
   parent: PassengerPDA

@@ -456,15 +456,23 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseRestrictedContraband]
+  parent: [ClothingBeltStorageBase, BaseRestrictedContraband, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      holster:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
   - type: Storage
     whitelist:
       tags:
@@ -489,21 +497,26 @@
         - Whistle
         - HolosignProjector
         - BalloonPopper
-  - type: ItemMapper
+  - type: ItemMapper # DeltaV - adjust for DeltaV sprites.
     mapLayers:
-      flashbang:
-        whitelist:
-          components:
-          - FlashOnTrigger
-      stunbaton:
+      baton:
         whitelist:
           components:
           - Stunbaton
-      tear_gas_grenade:
+      gasgrenade:
         whitelist:
-          components:
-          - SmokeOnTrigger
-    sprite: Clothing/Belt/belt_overlay.rsi
+          tags:
+            - Grenade
+      slp:
+        whitelist:
+          tags:
+          - Sidearm
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
   - type: Appearance
 
 - type: entity
@@ -610,22 +623,43 @@
         - CartridgeAmmo
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
   id: ClothingBeltSecurityWebbing
-  name: security carrier
+  name: security chest rig # DeltaV - rename from "security carrier" due to already existing plate carrier
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
+  - type: ItemSlots # DeltaV - add sidearm slot
+    slots:
+      holster:
+        name: clothing-belt-sidearm
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
   - type: Storage # Delta-V - Split Inventory
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: ItemMapper # DeltaV - add holstered sidearm sprite
+    mapLayers:
+      slp:
+        whitelist:
+          tags:
+          - Sidearm
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      holster: !type:ContainerSlot {}
+  - type: Appearance # DeltaV
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.

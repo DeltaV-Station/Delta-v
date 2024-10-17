@@ -6,8 +6,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - butter
-      - cheesy
+    - butter
+    - cheesy
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
     state: grilledcheese
@@ -22,8 +22,11 @@
           Quantity: 2
   - type: FoodSequenceElement # unlimited power
     entries:
-      burger:
-        name: food-sequence-burger-content-grilled-cheese
-        sprite:
-          sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
-          state: grilledcheese
+      Burger: GrilledCheese
+
+- type: foodSequenceElement
+  id: GrilledCheese
+  name: food-sequence-content-grilled-cheese
+  sprites:
+  - sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
+    state: grilledcheese

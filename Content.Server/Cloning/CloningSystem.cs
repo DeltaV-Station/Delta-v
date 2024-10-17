@@ -435,7 +435,7 @@ namespace Content.Server.Cloning
             var grammar = EnsureComp<GrammarComponent>(mob);
             grammar.ProperNoun = true;
             grammar.Gender = humanoid.Gender;
-            Dirty(grammar);
+            Dirty(mob, grammar);
 
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);

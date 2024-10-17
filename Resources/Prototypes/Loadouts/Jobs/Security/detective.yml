@@ -9,6 +9,11 @@
   equipment:
     head: ClothingHeadHatFedoraGrey
 
+- type: loadout # DeltaV
+  id: DetBeret
+  equipment:
+    head: ClothingHeadHatBeretDet
+
 # Neck
 - type: loadout
   id: DetectiveTie
@@ -36,6 +41,26 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
 
+- type: loadout # DeltaV
+  id: ForensicSpecJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitForensicSpec
+
+- type: loadout # DeltaV
+  id: ForensicSpecJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtForensicSpec
+
+- type: loadout # DeltaV
+  id: ForensicSpecTurtlesuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDetTurtle
+
+- type: loadout # DeltaV
+  id: ForensicSpecTurtleskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDetTurtle
+
 # OuterClothing
 - type: loadout
   id: DetectiveArmorVest
@@ -46,3 +71,8 @@
   id: DetectiveCoat
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadout
+
+- type: loadout # DeltaV
+  id: StasecWinterCoatDet
+  equipment:
+    outerClothing: ClothingOuterCoatStasecDet

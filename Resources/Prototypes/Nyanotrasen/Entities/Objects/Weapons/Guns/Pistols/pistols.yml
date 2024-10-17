@@ -1,18 +1,18 @@
 - type: entity
-  name: mk 32 "Universal"
+  name: Mk32 "Universal" # DeltaV - update Mk32
   parent: BaseWeaponPistol
   id: WeaponPistolUniversal
-  description: An expensive and robust pistol with decent offensive capabilities. Uses .45 magnum ammo.
+  description: The Mark 32 Offensive Handgun, produced by NanoTrasen's Small Arms Division. Uses .45 magnum ammo. # DeltaV - update Mk32
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Pistols/universal.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/universal.rsi # DeltaV - update Mk32
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Pistols/universal.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/universal.rsi # DeltaV - update Mk32
   - type: Gun
     fireRate: 3
     availableModes:

@@ -29,3 +29,26 @@
     FoodDoughPie: 1
     FoodPumpkin: 1
     FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBlueTomatoSoup
+  name: blue tomato soup recipe
+  result: FoodSoupTomatoBlue
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodBlueTomato: 2
+
+- type: microwaveMealRecipe
+  id: RecipePurpleTomatoSoup
+  name: purple tomato soup recipe
+  result: FoodSoupTomatoPurple
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodBlueTomato: 1
+    FoodTomato: 1

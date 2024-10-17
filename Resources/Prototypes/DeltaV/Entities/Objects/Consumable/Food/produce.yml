@@ -24,11 +24,16 @@
     grindableSolutionName: food
   - type: FoodSequenceElement
     entries:
-      burger:
-        name: food-sequence-burger-content-crystal-thistle
-        sprite:
-          sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
-          state: produce
+      Burger: CrystalThistle
+      Taco: CrystalThistle
+      Skewer: CrystalThistle
+
+- type: foodSequenceElement
+  id: CrystalThistle
+  name: food-sequence-content-crystal-thistle
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+    state: produce
 
 - type: entity
   name: Ghost Pepper
@@ -64,11 +69,18 @@
     - Vegetable
   - type: FoodSequenceElement
     entries:
-      burger:
-        name: food-sequence-burger-content-ghost-pepper
-        sprite:
-          sprite: DeltaV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
-          state: produce
+      Burger: GhostPepper
+      Taco: GhostPepper
+      Skewer: GhostPepper
+
+- type: foodSequenceElement
+  id: GhostPepper
+  name: food-sequence-content-ghost-pepper
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+    state: produce
+  tags:
+  - Vegetable
 
 - type: entity
   name: Cosmic Revenant
@@ -104,8 +116,15 @@
     - Vegetable
   - type: FoodSequenceElement
     entries:
-      burger:
-        name: food-sequence-burger-content-revenant
-        sprite:
-          sprite: DeltaV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
-          state: produce
+      Burger: CosmicRevenant
+      Taco: CosmicRevenant
+      Skewer: CosmicRevenant
+
+- type: foodSequenceElement
+  id: CosmicRevenant
+  name: food-sequence-content-revenant
+  sprites:
+  - sprite: DeltaV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+    state: produce
+  tags:
+  - Vegetable

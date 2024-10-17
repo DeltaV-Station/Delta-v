@@ -70,11 +70,13 @@
       - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatHoshat
       - id: ClothingNeckCloakHos
-      - id: ClothingUniformJumpskirtHoSAlt
-      - id: ClothingUniformJumpsuitHoSAlt
+#      - id: ClothingUniformJumpskirtHoSAlt # DeltaV - removed for incongruence
+#      - id: ClothingUniformJumpsuitHoSAlt # DeltaV - removed for incongruence
       - id: ClothingUniformJumpskirtHosFormal
       - id: ClothingUniformJumpsuitHosFormal
-      - id: ClothingOuterWinterHoS
+#      - id: ClothingOuterWinterHoS # DeltaV - removed for incongruence
+      - id: ClothingOuterCoatStasecHoS # DeltaV - add winter coat
+      - id: ClothingShoesBootsWinterHeadOfSecurity # DeltaV - add HoS winter boots
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -116,3 +118,5 @@
     contents:
       - id: ClothingHeadHatWarden
       - id: ClothingHeadHatBeretWarden
+      - id: ClothingOuterCoatStasecWarden # DeltaV - add winter coat
+      - id: ClothingShoesBootsWinterWarden # DeltaV - add winter boots

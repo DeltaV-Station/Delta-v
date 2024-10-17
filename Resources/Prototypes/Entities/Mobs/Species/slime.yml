@@ -21,6 +21,9 @@
     maxItemSize: Large
     storageInsertSound:
       path: /Audio/Voice/Slime/slime_squish.ogg
+    blacklist: # DeltaV - add blacklist
+      components:
+      - NukeDisk
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -29,8 +32,6 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:

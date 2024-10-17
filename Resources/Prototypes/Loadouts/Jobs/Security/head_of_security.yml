@@ -9,15 +9,35 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoS
 
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpsuitGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSGrey
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpskirtGrey
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSGrey
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSBlue
+
+- type: loadout # DeltaV
+  id: HeadofSecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSBlue
+
 - type: loadout
   id: HeadofSecurityTurtleneck
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSAlt
+    jumpsuit: ClothingUniformJumpsuitHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityTurtleneckSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSAlt
+    jumpsuit: ClothingUniformJumpskirtHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityFormalSuit
@@ -71,6 +91,11 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
+
+- type: loadout # DeltaV - security winter coat
+  id: StasecWinterCoatHoS
+  equipment:
+    outerClothing: ClothingOuterCoatStasecHoS
 
 # Shoes - DeltaV
 - type: loadout # DeltaV

@@ -104,11 +104,12 @@
       types:
         Blunt: 1
 
+# DeltaV - We're keping rubbers so make sure to keep this updated
 - type: entity
   id: BaseBulletRubber
   name: base bullet rubber
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi

@@ -37,9 +37,6 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerPowerMonitoring
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - PowerComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -133,10 +130,6 @@
       prototype: ComputerSalvageExpedition
     - type: StealTarget
       stealGroup: SalvageExpeditionsComputerCircuitboard
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - SalvageExpeditionsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -160,10 +153,6 @@
     - type: Tag
       tags:
         - SurveillanceCameraMonitorCircuitboard
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - SurveillanceCameraMonitorCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -173,10 +162,6 @@
   components:
     - type: ComputerBoard
       prototype: ComputerSurveillanceWirelessCameraMonitor
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - SurveillanceWirelessCameraMonitorCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -189,10 +174,6 @@
     - type: Tag
       tags:
        - ComputerTelevisionCircuitboard
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - ComputerTelevisionCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -215,10 +196,6 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerAnalysisConsole
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - AnalysisComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -230,10 +207,6 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: ComputerTechnologyDiskTerminal
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - TechDiskComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -276,7 +249,7 @@
       prototype: computerBodyScanner
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseGrandTheftContraband ]
   id: CommsComputerCircuitboard
   name: communications computer board
   description: A computer printed circuit board for a communications console.
@@ -287,7 +260,7 @@
       prototype: ComputerComms
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
   id: SyndicateCommsComputerCircuitboard
   name: syndicate communications computer board
   description: A computer printed circuit board for a syndicate communications console.
@@ -302,10 +275,9 @@
   components:
   - type: ComputerBoard
     prototype: ComputerRadar
-  - type: ReverseEngineering # delta
-    difficulty: 2
+  - type: ReverseEngineering
     recipes:
-      - RadarConsoleCircuitboard
+    - HandHeldMassScanner
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -317,10 +289,6 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerSolarControl
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - SolarControlComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -359,10 +327,6 @@
   components:
     - type: ComputerBoard
       prototype: ComputerShuttle
-    - type: ReverseEngineering # delta
-      difficulty: 3
-      recipes:
-        - ShuttleConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -374,7 +338,7 @@
       prototype: ComputerShuttleSyndie
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseCloningBoard ] # DeltaV
   id: CloningConsoleComputerCircuitboard
   name: cloning console computer board
   description: A computer printed circuit board for a cloning console.
@@ -383,10 +347,6 @@
       state: cpu_medical
     - type: ComputerBoard
       prototype: ComputerCloningConsole
-    - type: ReverseEngineering # Nyano
-      difficulty: 3
-      recipes:
-        - CloningConsoleComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -420,10 +380,6 @@
       price: 150
     - type: ComputerBoard
       prototype: ComputerMassMedia
-    - type: ReverseEngineering # delta
-      difficulty: 2
-      recipes:
-        - ComputerMassMediaCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
