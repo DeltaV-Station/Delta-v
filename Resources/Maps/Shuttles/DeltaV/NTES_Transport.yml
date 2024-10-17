@@ -1855,67 +1855,79 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,0.5
       parent: 2
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 847
     components:
     - type: Transform
-      pos: -1.5,30.5
+      rot: -1.5707963267948966 rad
+      pos: -1.5,24.5
       parent: 2
   - uid: 857
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -1.5,22.5
       parent: 2
   - uid: 864
     components:
     - type: Transform
-      pos: -1.5,14.5
+      rot: -1.5707963267948966 rad
+      pos: -1.5,30.5
       parent: 2
   - uid: 875
     components:
     - type: Transform
-      pos: -1.5,32.5
+      rot: -1.5707963267948966 rad
+      pos: -1.5,14.5
       parent: 2
   - uid: 895
     components:
     - type: Transform
-      pos: -1.5,16.5
+      rot: -1.5707963267948966 rad
+      pos: -1.5,32.5
       parent: 2
   - uid: 896
     components:
     - type: Transform
-      pos: -1.5,24.5
+      rot: 1.5707963267948966 rad
+      pos: 26.5,14.5
       parent: 2
   - uid: 1363
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 26.5,16.5
       parent: 2
   - uid: 1364
     components:
     - type: Transform
-      pos: 26.5,14.5
+      rot: 1.5707963267948966 rad
+      pos: 26.5,24.5
       parent: 2
   - uid: 1365
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 26.5,22.5
       parent: 2
   - uid: 1366
     components:
     - type: Transform
-      pos: 26.5,24.5
+      rot: 1.5707963267948966 rad
+      pos: 26.5,30.5
       parent: 2
   - uid: 1367
     components:
     - type: Transform
-      pos: 26.5,30.5
+      rot: 1.5707963267948966 rad
+      pos: 26.5,32.5
       parent: 2
   - uid: 1369
     components:
     - type: Transform
-      pos: 26.5,32.5
+      rot: -1.5707963267948966 rad
+      pos: -1.5,16.5
       parent: 2
 - proto: BarSign
   entities:
