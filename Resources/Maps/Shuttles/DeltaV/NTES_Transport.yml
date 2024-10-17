@@ -10062,23 +10062,6 @@ entities:
     - type: Transform
       pos: 14.5,34.5
       parent: 2
-- proto: PaperSlip
-  entities:
-  - uid: 1265
-    components:
-    - type: Transform
-      pos: 15.50778,6.6498585
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >+
-        Thanks for stopping by the Elegance station. We at the [bold]Central Command Service Division[/bold] hope you enjoyed your stay! Come back soon!
-
-         ‒ CC Service Supervisor Gray
-
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 1295
