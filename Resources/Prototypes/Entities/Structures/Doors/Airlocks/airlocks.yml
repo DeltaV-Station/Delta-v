@@ -77,10 +77,6 @@
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Doors/Airlocks/Standard/chemistry.rsi # DeltaV - Reprite Doors
-  - type: PaintableAirlock
-    department: Medical
-  - type: Wires
-    layoutId: AirlockMedical
 
 - type: entity
   parent: Airlock
@@ -240,10 +236,6 @@
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Doors/Airlocks/Glass/chemistry.rsi # DeltaV - Resprite Doors
-  - type: PaintableAirlock
-    department: Medical
-  - type: Wires
-    layoutId: AirlockMedical
 
 
 - type: entity
