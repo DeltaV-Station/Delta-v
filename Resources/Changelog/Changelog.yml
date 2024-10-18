@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: slarticodefast
-  changes:
-  - message: The digital audio workstation can now be rotated.
-    type: Tweak
-  id: 7033
-  time: '2024-08-02T10:02:16.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/30571
-- author: slarticodefast
-  changes:
-  - message: Added potassium iodide. It gives you short term radiation protection
-      and can be found in radiation treatment kits.
-    type: Add
-  - message: Added haloperidol. It removes most stimulating/hallucinogenic drugs from
-      the body and makes you drowsy.
-    type: Add
-  - message: Added the drowsiness status effect. It blurs your vision and makes you
-      randomly fall asleep. Drink some coffee or cola to remove it.
-    type: Add
-  - message: Chloral hydrate now makes you drowsy instead of forcing you to sleep
-      instantly.
-    type: Tweak
-  id: 7034
-  time: '2024-08-02T17:12:08.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/27454
 - author: Blackern5000
   changes:
   - message: Winter boots no longer have ugly outlines
@@ -3922,3 +3898,18 @@
   id: 7532
   time: '2024-10-18T12:58:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/32838
+- author: Ilya246
+  changes:
+  - message: Spectral locator, rare maintenance loot that lets you know if any ghosts
+      are nearby.
+    type: Add
+  id: 7533
+  time: '2024-10-18T13:42:13.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/32323
+- author: PJB3005
+  changes:
+  - message: You can now start removing items via stripping while holding something.
+    type: Tweak
+  id: 7534
+  time: '2024-10-18T19:20:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/32750
