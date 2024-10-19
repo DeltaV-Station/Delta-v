@@ -47,7 +47,7 @@
       collection: FootstepDuck
       params:
         variation: 0.07
-  - type: WaddleWhenWorn
+  - type: WaddleWhenWorn # DeltaV: upstream removed waddling
     tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
     graph: ClothingShoeSlippersDuck
@@ -123,10 +123,10 @@
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
-      - ClothingShoesBootsSpeed
+    - ClothingShoesBootsSpeed
 
 - type: entity
   id: ActionToggleSpeedBoots
@@ -154,3 +154,7 @@
     price: 75
   - type: Tag
     tags: [ ]
+  - type: ReverseEngineering # DeltaV: upgrade moonboots T1 to speedboots T3
+    difficulty: 5
+    recipes:
+    - ClothingShoesBootsSpeed

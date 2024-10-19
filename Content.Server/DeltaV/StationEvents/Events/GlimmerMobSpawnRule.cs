@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Psionics.Glimmer;
+using Content.Server.Station.Systems;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
@@ -15,14 +16,18 @@ namespace Content.Server.DeltaV.StationEvents.Events;
 public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
 {
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     protected override void Started(EntityUid uid, GlimmerMobRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
 
-        var glimmerSources = GetCoords<GlimmerSourceComponent>();
-        var normalSpawns = GetCoords<VentCritterSpawnLocationComponent>();
-        var hiddenSpawns = GetCoords<MidRoundAntagSpawnLocationComponent>();
+        if (!TryGetRandomStation(out var station))
+            return;
+
+        var glimmerSources = GetCoords<GlimmerSourceComponent>(station.Value);
+        var normalSpawns = GetCoords<VentCritterSpawnLocationComponent>(station.Value);
+        var hiddenSpawns = GetCoords<MidRoundAntagSpawnLocationComponent>(station.Value);
 
         var psionics = EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count();
         var baseCount = Math.Max(1, psionics / comp.MobsPerPsionic);
@@ -43,15 +48,19 @@ public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
         }
     }
 
-    private List<EntityCoordinates> GetCoords<T>() where T : IComponent
+    private List<EntityCoordinates> GetCoords<T>(EntityUid station) where T : IComponent
     {
         var coords = new List<EntityCoordinates>();
         var query = EntityQueryEnumerator<TransformComponent, T>();
+
         while (query.MoveNext(out var xform, out _))
         {
-            coords.Add(xform.Coordinates);
-        }
+            if (xform.GridUid == null)
+                continue;
 
+            if (_stationSystem.GetOwningStation(xform.GridUid.Value) == station)
+                coords.Add(xform.Coordinates);
+        }
         return coords;
     }
 

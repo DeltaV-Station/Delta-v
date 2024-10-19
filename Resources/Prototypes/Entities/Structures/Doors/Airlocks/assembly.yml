@@ -138,6 +138,25 @@
     sprite: DeltaV/Structures/Doors/Airlocks/Standard/freezer.rsi #Delta V - Resprite Doors
     state: "assembly"
 
+#Hydroponics
+- type: entity
+  parent: AirlockAssembly
+  id: AirlockAssemblyHydroponics
+  suffix: Hydroponics
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/hydroponics.rsi #Delta V - Resprite Doors
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssembly
+  id: AirlockAssemblyHydroponicsGlass
+  suffix: Hydroponics, Glass
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/hydroponics.rsi #Delta V - Resprite Doors
+    state: "assembly"
+
 #Maintenance
 - type: entity
   parent: AirlockAssembly

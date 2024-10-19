@@ -85,10 +85,11 @@ loadout-group-head-of-security-shoes = Head of Security shoes
 loadout-group-security-cadet-head = Security Cadet head
 loadout-group-security-neck = Security neck
 
-loadout-group-brig-medic-head = Brigmedic head
-loadout-group-brig-medic-jumpsuit = Brigmedic jumpsuit
-loadout-group-brig-medic-back = Brigmedic backpack
+loadout-group-brig-medic-head = Corpsman head
+loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
+loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-neck = Corpsman neck
+loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
