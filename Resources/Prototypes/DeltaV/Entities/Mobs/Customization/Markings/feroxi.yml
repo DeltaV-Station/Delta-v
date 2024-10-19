@@ -1,17 +1,17 @@
 # Default
 - type: marking
-  id: FeroxiPlainEars
+  id: FeroxiEars
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Feroxi]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
-      state: feroxi-plain-ears
+      state: feroxi-ears
     - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
-      state: feroxi-inner-ears
+      state: feroxi-ears-inner
 
 - type: marking
-  id: FeroxiPlainTailAndDorsal
+  id: FeroxiTailAndDorsal
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Feroxi]
@@ -22,31 +22,31 @@
     state: feroxi-dorsal
 
 - type: marking
-  id: FeroxiPlainSnout
+  id: FeroxiSnout
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Feroxi]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/snout_markings.rsi
-    state: feroxi-plain-snout
+    state: feroxi-snout
 
 # Ears Markings
 - type: marking
-  id: FeroxiTipEars
+  id: FeroxiEarsTips
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Feroxi]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
-      state: feroxi-plain-ears
+      state: feroxi-ears
     - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
-      state: feroxi-inner-ears
+      state: feroxi-ears-inner
     - sprite: DeltaV/Mobs/Customization/Feroxi/ear_markings.rsi
-      state: feroxi-tips-ears
+      state: feroxi-ears-tips
 
 # Tail markings
 - type: marking
-  id: FeroxiPlainTail
+  id: FeroxiTail
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Feroxi]
@@ -81,33 +81,7 @@
     state: feroxi-dorsal-stripes
 
 - type: marking
-  id: FeroxiTwoTipTail
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Feroxi]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail-top-tip
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail-bottom-tip
-
-- type: marking
-  id: FeroxiTwoTipTailWithDorsal
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Feroxi]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail-top-tip
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail-bottom-tip
-
-- type: marking
-  id: FeroxiThreeTipTail
+  id: FeroxiTipTail
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Feroxi]
@@ -122,7 +96,7 @@
     state: feroxi-tail-second-dorsal-tip
 
 - type: marking
-  id: FeroxiThreeTipTailWithDorsal
+  id: FeroxiTipTailAndDorsal
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Feroxi]
@@ -155,8 +129,23 @@
   - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
     state: feroxi-tail-bottom-tip
   - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
-    state: feroxi-tail-stripes
-  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
     state: feroxi-dorsal
   - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
     state: feroxi-dorsal-stripes
+
+- type: marking
+  id: FeroxiBlitzNoDorsal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-top-tip
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-bottom-tip
+  - sprite: DeltaV/Mobs/Customization/Feroxi/tail_markings.rsi
+    state: feroxi-tail-stripes

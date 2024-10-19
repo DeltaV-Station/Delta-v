@@ -48,11 +48,11 @@
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ FeroxiPlainEars ]
+      defaultMarkings: [ FeroxiEars ]
     Snout:
       points: 1
       required: true
-      defaultMarkings: [ FeroxiPlainSnout ]
+      defaultMarkings: [ FeroxiSnout ]
     Chest:
       points: 3
       required: false
@@ -65,7 +65,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ FeroxiPlainTailAndDorsal ]
+      defaultMarkings: [ FeroxiTailAndDorsal ]
 
 - type: humanoidBaseSprite
   id: MobFeroxiHead
