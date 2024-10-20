@@ -1247,7 +1247,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Robotics"]] # DeltaV: Robotics access instead of Research
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -1973,7 +1973,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Robotics"]] # DeltaV: Robotics access instead of Research
 
 - type: entity
   parent: VendingMachine
