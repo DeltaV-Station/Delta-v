@@ -19,3 +19,4 @@ JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
+JobRoboticist = Roboticist
