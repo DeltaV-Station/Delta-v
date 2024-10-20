@@ -114,6 +114,9 @@
       shader: unshaded
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.0
+    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
