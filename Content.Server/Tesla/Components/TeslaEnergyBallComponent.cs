@@ -1,6 +1,7 @@
 using Content.Server.Tesla.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // DeltaV
 
 namespace Content.Server.Tesla.Components;
 
@@ -51,4 +52,18 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId ConsumeEffectProto = "EffectTeslaSparks";
+
+    // Begin DeltaV additions
+    /// <summary>
+    /// The amount of energy drained passively per update.
+    /// </summary>
+    [DataField]
+    public float PassiveEnergyDrainRate = 3f;
+
+    /// <summary>
+    /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextUpdateTime = default!;
+    // End DeltaV
 }
