@@ -79,6 +79,15 @@
     containers:
       board: [ DoorElectronicsMantis ]
 
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
 #Add windoors from upstream roles
 - type: entity
   parent: WindoorSecure
