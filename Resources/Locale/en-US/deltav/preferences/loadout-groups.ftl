@@ -107,6 +107,7 @@ loadout-group-clerk-shoes = Clerk shoes
 
 loadout-group-prosecutor-jumpsuit = Prosecutor jumpsuit
 loadout-group-prosecutor-neck = Prosecutor neck
+loadout-group-prosecutor-outer-clothing = Prosecutor outer clothing
 
 # Wildcards
 loadout-group-prisoner-jumpsuit = Prisoner jumpsuit
