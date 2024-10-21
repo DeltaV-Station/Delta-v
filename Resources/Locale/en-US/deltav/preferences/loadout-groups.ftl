@@ -71,6 +71,13 @@ loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
 
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-id = Roboticist PDA
+
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
 

@@ -997,7 +997,7 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
+  #- RoboticistCap # DeltaV: Moved to RoboticistHead
   - SkullBandana
   - ScientificBeret
 
@@ -1015,8 +1015,8 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
+  #- RoboticistJumpsuit # DeltaV: Moved to RoboticistJumpsuit
+  #- RoboticistJumpskirt # DeltaV: Moved to RoboticistJumpsuit
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -1035,7 +1035,6 @@
   loadouts:
   - RegularLabCoat
   - ScienceLabCoat
-  - RoboticistLabCoat # DeltaV
   - ScienceWintercoat
   - SeniorResearcherLabCoat
 
@@ -1046,7 +1045,7 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  - RobohandsGloves
+  #- RobohandsGloves # DeltaV: Moved to RoboticistGloves
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1063,7 +1062,6 @@
   - SeniorResearcherPDA
   - LabTechPDA # DeltaV
   - XenoarchPDA # DeltaV
-  - RoboticistPDA # DeltaV
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
