@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Removed starvation!
-    type: Remove
-  id: 121
-  time: '2023-11-05T19:24:51.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Cat Ears have been moved from the Syndicate Uplink into the AutoDrobe.
     type: Tweak
   id: 122
@@ -3684,3 +3678,11 @@
   id: 620
   time: '2024-10-24T15:19:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1960
+- author: Solaris7518
+  changes:
+  - message: Fixed almost every midi being completely ruined by a recent change from
+      upstream. You're welcome, my fellow musicians.
+    type: Fix
+  id: 621
+  time: '2024-10-24T23:39:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2041
