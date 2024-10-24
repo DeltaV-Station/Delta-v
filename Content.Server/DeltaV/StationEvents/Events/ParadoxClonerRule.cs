@@ -67,7 +67,7 @@ public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComp
                 mindContainer.Mind is {} mindId &&
                 !_role.MindIsAntagonist(mindId) &&
                 _role.MindHasRole<JobRoleComponent>(mindId, out var role) &&
-                role?.Comp.JobPrototype is {} job)
+                role?.Comp1.JobPrototype is {} job)
             {
                 candidates.Add((uid, mindId, job, profile));
             }

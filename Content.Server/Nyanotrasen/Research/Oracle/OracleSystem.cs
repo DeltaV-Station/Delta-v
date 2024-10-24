@@ -107,7 +107,7 @@ public sealed class OracleSystem : EntitySystem
         if (HasComp<MobStateComponent>(args.Used))
             return;
 
-        if (!TryComp(args.Used, out MetaDataComponent meta))
+        if (!TryComp(args.Used, out MetaDataComponent? meta))
             return;
 
         if (HasComp<BorgChassisComponent>(args.User))
