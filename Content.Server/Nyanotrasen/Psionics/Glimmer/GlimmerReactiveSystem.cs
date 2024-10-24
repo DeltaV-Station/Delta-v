@@ -400,7 +400,7 @@ namespace Content.Server.Psionics.Glimmer
     /// <see cref="GlimmerSystem.GetGlimmerTier"/> has the exact
     /// values corresponding to tiers.
     /// </summary>
-    public class GlimmerTierChangedEvent : EntityEventArgs
+    public sealed class GlimmerTierChangedEvent : EntityEventArgs
     {
         /// <summary>
         /// What was the last glimmer tier before this event fired?

@@ -1,31 +1,4 @@
 ﻿Entries:
-- author: TJohnson
-  changes:
-  - message: Security has received new models of hardsuit!
-    type: Tweak
-  id: 117
-  time: '2023-11-02T00:31:53.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Added Two New Round-End Sounds
-    type: Add
-  - message: Lobby Round-End Sounds
-    type: Remove
-  id: 118
-  time: '2023-11-02T01:00:16.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Technical Assistant now has a 4 hour playtime requirement.
-    type: Tweak
-  id: 119
-  time: '2023-11-02T16:15:06.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Updated Asterisk Station with various fixes, a slot for an atmos technician,
-      and a familiar parallax...
-    type: Tweak
-  id: 120
-  time: '2023-11-02T20:38:51.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Removed starvation!
@@ -3680,3 +3653,34 @@
   id: 616
   time: '2024-10-20T17:30:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2027
+- author: PPooch
+  changes:
+  - message: Clerks now have brig timer and evidence locker access. Don't steal the
+      Prosecutor's job from them!
+    type: Tweak
+  id: 617
+  time: '2024-10-23T07:04:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2034
+- author: deltanedas
+  changes:
+  - message: Merged the past few weeks changes from upstream, report any bugs related
+      to your character menu or objectives!
+    type: Add
+  id: 618
+  time: '2024-10-24T08:41:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2036
+- author: deltanedas
+  changes:
+  - message: Fixed the crew manifest.
+    type: Fix
+  id: 619
+  time: '2024-10-24T12:54:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2037
+- author: deltanedas
+  changes:
+  - message: Martyr cyborg modules can now be disarmed with a crowbar to yield its
+      explosive payload.
+    type: Tweak
+  id: 620
+  time: '2024-10-24T15:19:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1960

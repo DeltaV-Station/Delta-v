@@ -26,7 +26,9 @@ public sealed partial class OverallPlaytimeRequirement : JobRequirement
         reason = new FormattedMessage();
 
         var overallTime = playTimes.GetValueOrDefault(PlayTimeTrackingShared.TrackerOverall);
-        var overallDiff = Time.TotalMinutes - overallTime.TotalMinutes;
+        var overallDiffSpan = Time - overallTime;
+        var overallDiff = overallDiffSpan.TotalMinutes;
+        var formattedOverallDiff = overallDiffSpan.ToString(Loc.GetString("role-timer-time-format"));
 
         if (!Inverted)
         {
@@ -35,14 +37,14 @@ public sealed partial class OverallPlaytimeRequirement : JobRequirement
 
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-overall-insufficient",
-                ("time", Math.Ceiling(overallDiff))));
+                ("time", formattedOverallDiff)));
             return false;
         }
 
         if (overallDiff <= 0 || overallTime >= Time)
         {
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-overall-too-high",
-                ("time", -overallDiff)));
+                ("time", formattedOverallDiff)));
             return false;
         }
 
