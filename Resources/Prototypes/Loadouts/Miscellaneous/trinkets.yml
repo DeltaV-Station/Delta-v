@@ -196,7 +196,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
-      department: Cargo
+      department: Logistics # DeltaV: Logistics replaces Cargo
       time: 360000 # 100hr
   storage:
     back: 
@@ -256,7 +256,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
-      department: Science
+      department: Epistemics # DeltaV: Epistemics replaces Science
       time: 360000 # 100hr
   storage:
     back: 
