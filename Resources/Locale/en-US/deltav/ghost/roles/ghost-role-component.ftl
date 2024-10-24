@@ -35,3 +35,8 @@ ghost-role-information-synthesis-rules =
     Stay on your ship, it is your lifeblood!
 
     You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself unless your ship is in danger.
+
+ghost-role-information-closet-skeleton-rules = You are a old member of the station, try to get your previous job back or dwell in the maintenance tunnels!.
+                                                    You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
+                                                    You're allowed some minor mischief.
+                                                    All normal rules apply unless an administrator tells you otherwise.

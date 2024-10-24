@@ -445,7 +445,7 @@
     - state: default
     - state: idvisitor
   - type: IdCard
-    jobTitle: Visitor
+    jobTitle: job-title-visitor
     jobIcon: JobIconVisitor
   - type: PresetIdCard
     job: Visitor
@@ -745,7 +745,7 @@
     - state: default
     - state: idcluwne
   - type: IdCard
-    jobTitle: Cluwne
+    jobTitle: job-title-cluwne
   - type: Unremoveable
 
 - type: entity
@@ -758,7 +758,7 @@
     - state: default
     - state: idseniorengineer
   - type: IdCard # DeltaV - Change senior job titles
-    jobTitle: Senior Engineer
+    jobTitle: job-alt-title-senior-engineer
     jobIcon: JobIconSeniorEngineer
 
 - type: entity
@@ -771,7 +771,7 @@
     - state: default
     - state: idseniorresearcher
   - type: IdCard # DeltaV - Change senior job titles
-    jobTitle: Senior Researcher
+    jobTitle: job-alt-title-senior-researcher
     jobIcon: JobIconSeniorResearcher
 
 - type: entity
@@ -784,7 +784,7 @@
     - state: default
     - state: idseniorphysician
   - type: IdCard # DeltaV - Change senior job titles
-    jobTitle: Senior Physician
+    jobTitle: job-alt-title-senior-physician
     jobIcon: JobIconSeniorPhysician
 
 - type: entity
@@ -797,7 +797,7 @@
     - state: default
     - state: idseniorofficer
   - type: IdCard # DeltaV - Change senior job titles
-    jobTitle: Senior Officer
+    jobTitle: job-alt-title-senior-officer
     jobIcon: JobIconSeniorOfficer
 
 - type: entity
@@ -817,7 +817,7 @@
   - type: Item
     heldPrefix: green
   - type: IdCard
-    jobTitle: Universal
+    jobTitle: job-title-universal
     jobIcon: JobIconAdmin
   - type: Access
     groups:

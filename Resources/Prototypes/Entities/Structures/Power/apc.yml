@@ -27,7 +27,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: DeltaV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
     layers:
     - state: base
     - state: panel
@@ -91,7 +91,6 @@
         type: ApcBoundUserInterface
   - type: ActivatableUI
     inHandsOnly: false
-    singleUser: true
     key: enum.ApcUiKey.Key
   - type: Construction
     graph: APC
@@ -160,7 +159,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: DeltaV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
     state: frame
   - type: Construction
     graph: APC
