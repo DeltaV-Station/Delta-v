@@ -3,4 +3,4 @@ using Content.Shared.Roles;
 namespace Content.Shared.DeltaV.Roles;
 
 [RegisterComponent]
-public sealed partial class ListeningPostRoleComponent : BaseMindRoleComponent;
+public sealed partial class FugitiveRoleComponent : BaseMindRoleComponent;

@@ -52,7 +52,7 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             // DeltaV - Custom override for override spawnpoints, only used for prisoners currently. This shouldn't run for any other jobs
             if (args.DesiredSpawnPointType == SpawnPointType.Job)
             {
-                if (spawnPoint.SpawnType != SpawnPointType.Job || spawnPoint.Job != args.Job?.Prototype)
+                if (spawnPoint.SpawnType != SpawnPointType.Job || spawnPoint.Job != args.Job)
                     continue;
 
                 possibleContainers.Add((uid, spawnPoint, container, xform));

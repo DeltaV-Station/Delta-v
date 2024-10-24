@@ -185,8 +185,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         if (profile != null)
         {
-            if (job != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, job, station); // DeltaV #1425 - Inherit job data from a VirtualJob if one exists
+            if (prototype != null)
+                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
@@ -219,11 +219,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobComponent job, EntityUid? station) // DeltaV #1425 - Use Job instead of JobId to pass VirtualJobLocalizedName/Icon
+    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station)
     {
-        if (!_prototypeManager.TryIndex(job.Prototype, out var jobPrototype)) // DeltaV #1425 - Get jobPrototype separately as a result
-            return;
-
         if (!InventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
 

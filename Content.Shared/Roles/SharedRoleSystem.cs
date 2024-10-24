@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Roles;
 
-public abstract partial class SharedRoleSystem : EntitySystem // DeltaV - make it partial
+public abstract class SharedRoleSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -27,7 +27,6 @@ public abstract partial class SharedRoleSystem : EntitySystem // DeltaV - make i
     public override void Initialize()
     {
         Subs.CVar(_cfg, CCVars.GameRoleTimerOverride, SetRequirementOverride, true);
-        InitializeDeltaV(); // DeltaV
     }
 
     private void SetRequirementOverride(string value)
