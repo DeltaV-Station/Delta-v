@@ -634,3 +634,6 @@
         - SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+    - type: Construction # DeltaV: construction for adding explosive payload to the dud version
+      graph: BorgModuleMartyr
+      node: live
