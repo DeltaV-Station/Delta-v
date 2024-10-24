@@ -1,0 +1,39 @@
+# Senior Time
+- type: loadoutEffectGroup
+  id: SeniorRoboticist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRoboticist
+      time: 36000 # 10 hours
+
+# Head
+- type: loadout
+  id: CardborgHelmet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorRoboticist
+  equipment:
+    head: ClothingHeadHatCardborg
+
+# OuterClothing
+- type: loadout
+  id: CardborgCostume
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorRoboticist
+  equipment:
+    head: ClothingOuterCardborg
+
+# Shoes
+- type: loadout
+  id: RoboticsWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterRobo
+
+# PDA
+- type: loadout
+  id: RoboticistPDA
+  equipment:
+    id: RoboticistPDA
