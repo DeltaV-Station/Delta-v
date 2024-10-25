@@ -33,6 +33,7 @@ alert.min_players_sharing_connection = 2
 [server]
 id         = "deltav"
 rules_file = "DeltaVRuleset"
+uptime_restart_minutes = 2880 # 48h
 
 [discord]
 rich_main_icon_id = "deltav"

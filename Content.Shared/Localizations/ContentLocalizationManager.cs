@@ -41,6 +41,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "MANY", FormatMany);
+            _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
 
             /*
              * The following language functions are specific to the english localization. When working on your own
@@ -145,6 +146,16 @@ namespace Content.Shared.Localizations
             return Loc.GetString($"zzzz-fmt-direction-{dir.ToString()}");
         }
 
+        /// <summary>
+        /// Formats playtime as hours and minutes.
+        /// </summary>
+        public static string FormatPlaytime(TimeSpan time)
+        {
+            var hours = (int)time.TotalHours;
+            var minutes = time.Minutes;
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
+        }
+
         private static ILocValue FormatLoc(LocArgs args)
         {
             var id = ((LocValueString) args.Args[0]).Value;
@@ -232,6 +243,16 @@ namespace Content.Shared.Localizations
             );
 
             return new LocValueString(res);
+        }
+
+        private static ILocValue FormatPlaytime(LocArgs args)
+        {
+            var time = TimeSpan.Zero;
+            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            {
+                time = timeArg;
+            }
+            return new LocValueString(FormatPlaytime(time));
         }
     }
 }

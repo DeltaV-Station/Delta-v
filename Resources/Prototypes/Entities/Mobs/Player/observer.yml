@@ -35,11 +35,13 @@
         layer:
         - GhostImpassable
 
+# shared parent between aghosts, replay spectators and normal observers
 - type: entity
   parent:
   - Incorporeal
   - BaseMob
-  id: MobObserver
+  id: MobObserverBase
+  abstract: true
   name: observer
   description: Boo!
   categories: [ HideSpawnMenu ]
@@ -91,6 +93,12 @@
   #        animated3: ""
   #        animated4: ""
   #        animated5: ""
+# proto for player ghosts specifically
+- type: entity
+  parent: MobObserverBase
+  id: MobObserver
+  components:
+  - type: Spectral
 
 - type: entity
   id: ActionGhostBoo

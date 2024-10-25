@@ -273,6 +273,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillResearchDirectorDeltaV
+    #- id: Intellicard # DeltaV: temporarily removed until AI is enabled
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
