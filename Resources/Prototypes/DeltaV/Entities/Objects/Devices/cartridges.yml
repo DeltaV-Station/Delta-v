@@ -15,8 +15,8 @@
   - type: Cartridge
     programName: crime-assist-program-name
     icon:
-      sprite: DeltaV/Icons/cri.rsi
-      state: cri
+      sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+      state: icon-default
 
 - type: entity
   parent: BaseItem
@@ -35,8 +35,8 @@
   - type: Cartridge
     programName: sec-watch-program-name
     icon:
-      sprite: Objects/Weapons/Melee/stunbaton.rsi
-      state: stunbaton_on
+      sprite: DeltaV/Icons/pda-icons.rsi # aPDA Icon Rework
+      state: icon-secwatch
   - type: SecWatchCartridge
 
 - type: entity

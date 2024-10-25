@@ -21,8 +21,8 @@ namespace Content.Client.PDA
         private readonly ClientGameTicker _gameTicker;
 
         public const int HomeView = 0;
-        public const int ProgramListView = 1;
-        public const int SettingsView = 2;
+        //public const int ProgramListView = 1;
+        //public const int SettingsView = 2;
         public const int ProgramContentView = 3;
 
 
@@ -37,8 +37,8 @@ namespace Content.Client.PDA
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
-        public event Action<EntityUid>? OnUninstallButtonPressed;
-        public event Action<EntityUid>? OnInstallButtonPressed;
+        //public event Action<EntityUid>? OnUninstallButtonPressed;
+        //public event Action<EntityUid>? OnInstallButtonPressed;
         public PdaMenu()
         {
             IoCManager.InjectDependencies(this);
@@ -52,11 +52,17 @@ namespace Content.Client.PDA
             EjectPenButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pencil.png"));
             EjectIdButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/eject.png"));
             EjectPaiButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pai.png"));
-            ProgramCloseButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/cross.svg.png"));
+            //ProgramCloseButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/cross.svg.png"));
 
 
-            HomeButton.OnPressed += _ => ToHomeScreen();
-
+            HomeButton.OnPressed += _ =>
+            {
+                HomeButton.IsCurrent = true;
+                ProgramTitle.IsCurrent = false;
+                HideProgramHeader();
+                ToHomeScreen();
+            };
+            /*
             ProgramListButton.OnPressed += _ =>
             {
                 HomeButton.IsCurrent = false;
@@ -77,22 +83,24 @@ namespace Content.Client.PDA
 
                 ChangeView(SettingsView);
             };
-
+            */
             ProgramTitle.OnPressed += _ =>
             {
                 HomeButton.IsCurrent = false;
-                ProgramListButton.IsCurrent = false;
-                SettingsButton.IsCurrent = false;
+                //ProgramListButton.IsCurrent = false;
+                //SettingsButton.IsCurrent = false;
                 ProgramTitle.IsCurrent = true;
 
                 ChangeView(ProgramContentView);
             };
 
-            ProgramCloseButton.OnPressed += _ =>
-            {
-                HideProgramHeader();
-                ToHomeScreen();
-            };
+            /*
+             ProgramCloseButton.OnPressed += _ =>
+             {
+                 HideProgramHeader();
+                 ToHomeScreen();
+             };
+            */
 
             PdaOwnerButton.OnPressed += _ =>
             {
@@ -211,13 +219,13 @@ namespace Content.Client.PDA
             }
 
             var row = CreateProgramListRow();
-            var itemCount = 1;
+            var itemCount = 0;
             ProgramList.AddChild(row);
 
             foreach (var (uid, component) in programs)
             {
-                //Create a new row every second program item starting from the first
-                if (itemCount % 2 != 0)
+                //Create a new row every third program item starting from the first
+                if (itemCount % 3 == 0)
                 {
                     row = CreateProgramListRow();
                     ProgramList.AddChild(row);
@@ -230,6 +238,7 @@ namespace Content.Client.PDA
 
                 item.OnPressed += _ => OnProgramItemPressed?.Invoke(uid);
 
+                /*
                 switch (component.InstallationStatus)
                 {
                     case InstallationStatus.Cartridge:
@@ -243,6 +252,7 @@ namespace Content.Client.PDA
                         item.InstallButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(uid);
                         break;
                 }
+                */
 
                 item.ProgramName.Text = Loc.GetString(component.ProgramName);
                 item.SetHeight = 20;
@@ -252,7 +262,7 @@ namespace Content.Client.PDA
             }
 
             //Add a filler item to the last row when it only contains one item
-            if (itemCount % 2 == 0)
+            if (itemCount % 3 == 0)
                 row.AddChild(new Control() { HorizontalExpand = true });
         }
 
@@ -262,8 +272,8 @@ namespace Content.Client.PDA
         public void ToHomeScreen()
         {
             HomeButton.IsCurrent = true;
-            ProgramListButton.IsCurrent = false;
-            SettingsButton.IsCurrent = false;
+            //ProgramListButton.IsCurrent = false;
+            //SettingsButton.IsCurrent = false;
             ProgramTitle.IsCurrent = false;
 
             ChangeView(HomeView);
@@ -276,9 +286,9 @@ namespace Content.Client.PDA
         {
             ProgramTitle.IsCurrent = false;
             ProgramTitle.Visible = false;
-            ProgramCloseButton.Visible = false;
-            ProgramListButton.Visible = true;
-            SettingsButton.Visible = true;
+            //ProgramCloseButton.Visible = false;
+            //ProgramListButton.Visible = true;
+            //SettingsButton.Visible = true;
         }
 
         /// <summary>
@@ -287,14 +297,14 @@ namespace Content.Client.PDA
         public void ToProgramView(string title)
         {
             HomeButton.IsCurrent = false;
-            ProgramListButton.IsCurrent = false;
-            SettingsButton.IsCurrent = false;
-            ProgramTitle.IsCurrent = false;
-            ProgramTitle.IsCurrent = true;
-            ProgramTitle.Visible = true;
-            ProgramCloseButton.Visible = true;
-            ProgramListButton.Visible = false;
-            SettingsButton.Visible = false;
+            //ProgramListButton.IsCurrent = false;
+            //SettingsButton.IsCurrent = false;
+            //ProgramTitle.IsCurrent = false;
+            //ProgramTitle.IsCurrent = true;
+            //ProgramTitle.Visible = true;
+            //ProgramCloseButton.Visible = true;
+            //ProgramListButton.Visible = false;
+            //SettingsButton.Visible = false;
 
             ProgramTitle.LabelText = title;
             ChangeView(ProgramContentView);

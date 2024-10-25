@@ -1,17 +1,18 @@
-﻿<pda:PdaProgramItem HorizontalExpand="True" MinHeight="60" Margin="4"
+<pda:PdaProgramItem HorizontalExpand="True"
+                    MinSize="103 80"
+                    Margin="4"
                     xmlns:pda="clr-namespace:Content.Client.PDA"
                     xmlns="https://spacestation14.io">
     <PanelContainer Name="Panel"/>
-    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" MinWidth="60">
+    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="0 4">
             <AnimatedTextureRect HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Name="Icon" Access="Public"/>
-        </BoxContainer>
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-            <Label Name="ProgramName" Access="Public" VerticalExpand="True"/>
-            <BoxContainer HorizontalExpand="True" SetHeight="28" Margin="0 0 4 4">
-                <BoxContainer HorizontalExpand="True"/>
-                <Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" HorizontalAlignment="Right" VerticalExpand="True"></Button>
-            </BoxContainer>
+            <Label Name="ProgramName" Access="Public" VerticalExpand="True" Margin="0 5"/>
+
+            <!--<BoxContainer HorizontalExpand="True" SetHeight="28">-->
+                <!--<BoxContainer HorizontalExpand="True"/>-->
+                <!--<Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" VerticalExpand="True"></Button>-->
+            <!--</BoxContainer>-->
         </BoxContainer>
     </BoxContainer>
 </pda:PdaProgramItem>
