@@ -10,9 +10,9 @@
   suffix: ОБК
   components:
   - type: Sprite
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
   - type: Clothing
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -42,9 +42,9 @@
   suffix: ОБК
   components:
   - type: Sprite
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
   - type: Clothing
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_ap_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -73,9 +73,9 @@
   description: Доспех который носит капеллан ОБК
   components:
   - type: Sprite
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
   - type: Clothing
-    sprite: Stray/OFB/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_cap_hardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -95,3 +95,18 @@
     sprintModifier: 1.1
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitUltraCAP
+
+#Ну типо доспех технодесантника ОБК
+- type: entity
+  parent: ClothingOuterHardsuitPilotUltra
+  id: ClothingOuterHardsuitPilotUltraTECH
+  name: Доспех технодесантника ордена боевых кабанов #Чё за прикол кстати все названия предметов писать с большой буквы?...
+  description: Доспех, который носит агент ОБК. Обычно в нём ходит женщина... Какой кошмар!
+  suffix: ОБК
+  components:
+  - type: Sprite
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_tech_hardsuit.rsi
+  - type: Clothing
+    sprite: Stray/OWH/Clothing/OuterClothing/Hardsuits/ultra_tech_hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitUltraTECH

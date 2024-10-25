@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltOWH
+  name: пояс ордена боевых кабанов
+  suffix: ОБК
+  description: Просто синий разгрузочный пояс.
+  components:
+  - type: Sprite
+    sprite: Stray/OWH/Clothing/Belt/ultra_discharge_belt.rsi
+  - type: Clothing
+    sprite: Stray/OWH/Clothing/Belt/ultra_discharge_belt.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1 
+    - 5,0,8,1 
