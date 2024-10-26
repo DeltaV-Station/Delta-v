@@ -4,6 +4,18 @@
   name: CentComm computer Id cards
   description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
   components:
+    - type: Sprite
+      layers:
+      - map: ["computerLayerBody"]
+        state: computer
+      - map: ["computerLayerKeyboard"]
+        state: generic_keyboard
+      - map: ["computerLayerScreen"]
+        state: comm_logs
+      - map: ["computerLayerKeys"]
+        state: generic_keys
+      - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+        state: generic_panel_open
     - type: IdCardConsole
       accessLevels:
         - CentralCommand

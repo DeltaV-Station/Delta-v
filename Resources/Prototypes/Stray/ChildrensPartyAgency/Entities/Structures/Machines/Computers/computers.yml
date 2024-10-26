@@ -4,6 +4,8 @@
   name: Консоль ID карт АДП
   description: Terminal for programming CPA employee ID cards to access parts of the station.
   components:
+    - type: Sprite
+      sprite: Stray/CPA/Structures/Machines/computers.rsi
     - type: IdCardConsole
       accessLevels:
         - WarriorCPA
