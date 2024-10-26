@@ -474,7 +474,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Офицер ЦентКома
+    jobTitle: job-name-centcomofficer
     jobIcon: JobIconNanotrasen
   - type: Access
     groups:
@@ -492,7 +492,7 @@
     - state: gold
     - state: ert_commander
   - type: IdCard
-    jobTitle: Лидер ОБР
+    jobTitle: job-name-ertleader
   - type: Item
     heldPrefix: gold
 
@@ -506,7 +506,7 @@
     - state: gold
     - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
   - type: IdCard
-    jobTitle: Священник ОБР
+    jobTitle: job-name-ertchaplain
   - type: Item
     heldPrefix: blue
 
@@ -520,7 +520,7 @@
     - state: gold
     - state: ert_engineer
   - type: IdCard
-    jobTitle: Инженер ОБР
+    jobTitle: Иjob-name-ertengineer
 
 - type: entity
   parent: ERTChaplainIDCard
@@ -532,7 +532,7 @@
     - state: gold
     - state: ert_janitor
   - type: IdCard
-    jobTitle: Уборщик ОБР
+    jobTitle: job-name-ertjanitor
 
 - type: entity
   parent: ERTChaplainIDCard
@@ -544,7 +544,7 @@
     - state: gold
     - state: ert_medic
   - type: IdCard
-    jobTitle: Медик ОБР
+    jobTitle: job-name-ertmedic
 
 - type: entity
   parent: ERTChaplainIDCard
@@ -556,7 +556,7 @@
     - state: gold
     - state: ert_security
   - type: IdCard
-    jobTitle: Офицер ОБР
+    jobTitle: job-name-ertsecurity
 
 - type: entity
   parent: IDCardStandard
@@ -571,7 +571,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Офицер ЦентКома
+    jobTitle: job-name-centcomoff
   - type: Access
     tags:
     - Maintenance
@@ -599,7 +599,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Агент ЦентКома
+    jobTitle: job-name-centcomagent
 
 - type: entity
   name: passenger ID card
@@ -756,7 +756,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Офицер РХБЗЗ
+    jobTitle: job-name-cburn
 
 - type: entity
   parent: IDCardStandard

@@ -9,7 +9,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Офицер спецопераций
+    jobTitle: job-name-off-specops
 
 - type: entity
   parent: CentcomIDCard
@@ -22,7 +22,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: оператор ЦентКома
+    jobTitle: job-name-centcomoperator
   - type: Access
     groups:
     - AllAccess
@@ -41,7 +41,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: представитель ЦентКома
+    jobTitle: job-name-centcomoff
   - type: Access
     groups:
     - AllAccess
@@ -60,7 +60,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Начальник штаба ЦентКома
+    jobTitle: job-name-chief-headquarters-centcom
   - type: Access
     groups:
     - AllAccess
