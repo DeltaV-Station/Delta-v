@@ -37,3 +37,25 @@
         Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.8
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingCrusaderdArmor
+  name: броня крестоносца
+  description: Полный комплект доспехов, имеющий различные символы и обереги, которые защитят владельца от злых сил.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Armor/crusader.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Armor/crusader.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.8
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.8

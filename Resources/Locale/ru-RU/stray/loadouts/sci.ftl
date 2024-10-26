@@ -7,3 +7,4 @@ loadout-group-roboticist-backpack = робототехник, рюкзак
 loadout-group-roboticist-outerclothing = робототехник, верхняя одежда
 loadout-group-roboticist-gloves = робототехник, перчатки
 loadout-group-roboticist-shoes = робототехник, ботинки
+loadout-group-chaplain-belt = священник, пояс

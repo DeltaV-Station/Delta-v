@@ -422,6 +422,7 @@
   - ChaplainPlagueHat
   - ChaplainWitchHat
   - ChaplainWitchHatAlt
+  - CrusaderHelmet
 
 - type: loadoutGroup
   id: ChaplainMask
@@ -429,6 +430,13 @@
   minLimit: 0
   loadouts:
   - ChaplainMask
+
+- type: loadoutGroup
+  id: ChaplainBelt
+  name: loadout-group-chaplain-belt
+  minLimit: 0
+  loadouts:
+  - HolySheath
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
@@ -448,6 +456,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - CrusaderdArmor
 
 - type: loadoutGroup
   id: ChaplainNeck

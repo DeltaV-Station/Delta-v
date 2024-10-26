@@ -1,0 +1,16 @@
+- type: entity
+  name: Священный клеймор
+  parent: Claymore
+  id: HolyClaymore
+  description: Меч, прекрасно подходящий для крестового похода!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/claymore.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Holy: 15
+        Slash: 15
+  - type: Tag
+    tags:
+    - HolyClaymore

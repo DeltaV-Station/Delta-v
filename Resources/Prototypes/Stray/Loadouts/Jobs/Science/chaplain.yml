@@ -1,0 +1,36 @@
+#   Timers
+- type: loadoutEffectGroup
+  id: CrusaderTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 14400 #4 hrs
+
+# Head
+- type: loadout
+  id: CrusaderHelmet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CrusaderTimer
+  equipment:
+    head: ClothingHeadCrusaderHelmet
+
+# OuterClothing
+- type: loadout
+  id: CrusaderdArmor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CrusaderTimer
+  equipment:
+    outerClothing: ClothingCrusaderdArmor
+
+# Belt
+- type: loadout
+  id: HolySheath
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CrusaderTimer
+  equipment:
+    belt: ClothingBeltHolySheathFilled
