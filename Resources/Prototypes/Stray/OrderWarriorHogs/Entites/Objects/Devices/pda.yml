@@ -7,7 +7,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: Stray/OFB/Objects/Devices/pda.rsi
+    sprite: Stray/OWH/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -19,7 +19,7 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Stray/OFB/Objects/Devices/pda.rsi
+    sprite: Stray/OWH/Objects/Devices/pda.rsi
     state: pda
   - type: Pda
     state: pda
@@ -124,8 +124,7 @@
     id: OWHIDCard
     state: pda-owh
   - type: PdaBorderColor
-    borderColor: "#949137"
-    accentVColor: "#447987"
+    borderColor: "#ccbc41"
   - type: Icon
     state: pda-owh
 
@@ -139,7 +138,7 @@
     id: OWHIDCard-Comm
     state: pda-owhcommander
   - type: PdaBorderColor
-    borderColor: "#949137"
-    accentVColor: "#447987"
+    borderColor: "#ccbc41"
+    accentVColor: "#ff0000"
   - type: Icon
     state: pda-owhcommander
