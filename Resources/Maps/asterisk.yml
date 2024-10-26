@@ -64085,7 +64085,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: Boards
+      id: boards
   - uid: 9438
     components:
     - type: Transform
@@ -64117,7 +64117,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: Conference
+      id: conference
   - uid: 9450
     components:
     - type: Transform
@@ -64215,7 +64215,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: ai sat 1
+      id: AI sat 1
   - uid: 12487
     components:
     - type: Transform
@@ -64226,7 +64226,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: ai sat 2
+      id: AI sat 2
   - uid: 12488
     components:
     - type: Transform
@@ -64237,7 +64237,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: ai sat 3
+      id: AI sat 3
   - uid: 12489
     components:
     - type: Transform
@@ -64248,7 +64248,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: ai sat 4
+      id: AI sat 4
   - uid: 12490
     components:
     - type: Transform
@@ -64525,7 +64525,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Reception
+      id: reception
   - uid: 11155
     components:
     - type: Transform
@@ -64536,7 +64536,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Medbay
+      id: medbay
   - uid: 11156
     components:
     - type: Transform
@@ -64547,7 +64547,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Lockers
+      id: lockers
   - uid: 11157
     components:
     - type: Transform
@@ -64558,7 +64558,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Intensive Care
+      id: intensive care
   - uid: 11158
     components:
     - type: Transform
@@ -64569,7 +64569,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Surgery
+      id: surgery
   - uid: 11159
     components:
     - type: Transform
@@ -64580,7 +64580,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Genetics
+      id: genetics
   - uid: 11160
     components:
     - type: Transform
@@ -64591,7 +64591,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Chemistry
+      id: chemistry
   - uid: 11161
     components:
     - type: Transform
@@ -64601,7 +64601,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraMedical
       nameSet: True
-      id: Hall
+      id: hall
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 12375
