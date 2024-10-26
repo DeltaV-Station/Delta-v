@@ -173,3 +173,12 @@
 #      params:
 #        volume: 1
 #
+
+- type: entity
+  name : disabler bolt
+  id: ModefiedBulletDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 60
