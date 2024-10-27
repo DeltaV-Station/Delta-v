@@ -14093,8 +14093,6 @@ entities:
     - type: Transform
       pos: -33.5,33.5
       parent: 2
-    - type: Apc
-      hasAccess: True
     - type: PowerNetworkBattery
       canDischarge: False
   - uid: 254
@@ -88131,6 +88129,13 @@ entities:
     - type: Transform
       pos: 51.5,6.5
       parent: 2
+- proto: PlayerStationAi
+  entities:
+  - uid: 14579
+    components:
+    - type: Transform
+      pos: 38.5,70.5
+      parent: 2
 - proto: PlushieAtmosian
   entities:
   - uid: 12274
@@ -104398,16 +104403,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 59.421833,-15.183031
       parent: 2
-- proto: ToyAi
-  entities:
-  - uid: 14579
-    components:
-    - type: MetaData
-      desc: It's displaying the famous "blue smile of death"
-      name: faulty AI core
-    - type: Transform
-      pos: 38.49569,70.53853
-      parent: 2
 - proto: ToyFigurineClown
   entities:
   - uid: 14580
@@ -105103,6 +105098,11 @@ entities:
     components:
     - type: Transform
       pos: 26.5,39.5
+      parent: 2
+  - uid: 17981
+    components:
+    - type: Transform
+      pos: 29.5,-21.5
       parent: 2
 - proto: VendingMachineViroDrobe
   entities:
@@ -114476,7 +114476,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4307.4097
+      secondsUntilStateChange: -4495.5225
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114492,7 +114492,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4306.8433
+      secondsUntilStateChange: -4494.956
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114514,7 +114514,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4306.3765
+      secondsUntilStateChange: -4494.4893
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114530,7 +114530,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4307.9097
+      secondsUntilStateChange: -4496.0225
       state: Opening
     - type: Airlock
       autoClose: False
