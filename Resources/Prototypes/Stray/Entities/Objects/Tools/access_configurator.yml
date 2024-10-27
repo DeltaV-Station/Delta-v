@@ -1,0 +1,36 @@
+- type: entity
+  parent: AccessConfigurator
+  id: AccessConfiguratorSyndicate
+  name: syndicate access configurator
+  suffix: syndicate
+  description: A modified access configurator used only by the mythical Administrator.
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Tools/access_configurator.rsi
+  - type: Clothing
+    sprite: Stray/Objects/Tools/access_configurator.rsi
+  - type: AccessOverrider
+    accessLevels:
+    - HydroponicsSyndicate
+    - KitchenSyndicate
+    - BarSyndicate
+    - MedicalSyndicate
+    - SecuritySyndicate
+    - CommandSyndicate
+    - HeadOfSecuritySyndicate
+    - ChiefMedicalOfficerSyndicate
+    - ArmorySyndicate
+    - EngineeringSyndicate
+    - SyndicateAgent 
+    privilegedIdSlot:
+      name: id-card-console-privileged-id
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+        - IdCard
+    denialSound:
+      path: /Audio/Machines/custom_deny.ogg
+    doAfter: 0.5

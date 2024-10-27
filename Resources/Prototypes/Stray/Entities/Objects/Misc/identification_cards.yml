@@ -83,3 +83,152 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: Blueshield
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardHydroponicsSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idbotanist
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-hydroponics-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - HydroponicsSyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardBarSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idbartender
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-bar-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - BarSyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardKitchenSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idcook
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-kitchen-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - KitchenSyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardMedicalSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idmedicaldoctor
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-medical-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - MedicalSyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardChiefMedicalOfficerSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idchiefmedicalofficer
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-chief-medical-officer-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - ChiefMedicalOfficerSyndicate
+      - MedicalSyndicate
+      - CommandSyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardSecuritySyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idsecurityofficer
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-security-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - SecuritySyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardHeadOfSecuritySyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idheadofsecurity
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-head-of-security-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - HeadOfSecuritySyndicate
+      - SecuritySyndicate
+      - CommandSyndicate
+      - ArmorySyndicate
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardEngineeringSyndicate
+  name: ID карта синдиката
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+    - state: idstationengineer
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-engineering-syndicate
+  - type: Access
+    tags:
+      - SyndicateAgent
+      - EngineeringSyndicate

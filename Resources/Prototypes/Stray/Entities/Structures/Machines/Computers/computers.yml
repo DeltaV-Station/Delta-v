@@ -85,3 +85,43 @@
         whitelist:
           components:
             - IdCard
+
+- type: entity
+  parent: ComputerId
+  id: SyndicateComputerId
+  name: Syndicate computer Id cards
+  description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
+  components:
+    - type: Sprite
+      sprite: Stray/Structures/Machines/computers.rsi
+    - type: IdCardConsole
+      accessLevels:
+        - SyndicateAgent
+        - HydroponicsSyndicate
+        - KitchenSyndicate
+        - BarSyndicate
+        - MedicalSyndicate
+        - SecuritySyndicate
+        - CommandSyndicate
+        - HeadOfSecuritySyndicate
+        - ChiefMedicalOfficerSyndicate
+        - ArmorySyndicate
+        - EngineeringSyndicate
+      privilegedIdSlot:
+        name: id-card-console-privileged-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
+      targetIdSlot:
+        name: id-card-console-target-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
