@@ -94,3 +94,17 @@
   - type: ItemBorgModule
     items:
     - WeaponEnergyGunMiniRecharging
+
+# Syndicate modules
+- type: entity
+  parent: BorgModuleMartyr
+  id: BorgModuleMartyrDud
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: ItemBorgModule
+    items:
+    - SelfDestructSeqDud
+  - type: Construction
+    node: start
+    defaultTarget: live

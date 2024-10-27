@@ -44,11 +44,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: RecruiterRole
-        prototype: Recruiter
-      - type: RoleBriefing
-        briefing: Find candidates, conduct interviews and seal the deal by having them sign with your special recruiter's pen.
+      mindRoles:
+      - MindRoleRecruiter
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -88,8 +85,5 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: SynthesisRole
-        prototype: SynthesisSpecialist
-      - type: RoleBriefing
-        briefing: You are Interdyne's Synthesis Specialist! Prescribe deadly medications, barter your goods, and make a killing.
+      mindRoles:
+      - MindRoleSynthesis
