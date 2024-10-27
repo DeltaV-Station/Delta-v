@@ -4354,6 +4354,26 @@ entities:
             2786: -18,37
         - node:
             color: '#FFFFFFFF'
+            id: WarnCornerNE
+          decals:
+            2804: -13,0
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerNW
+          decals:
+            2803: -15,0
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSE
+          decals:
+            2801: -13,-2
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnCornerSW
+          decals:
+            2802: -15,-2
+        - node:
+            color: '#FFFFFFFF'
             id: WarnEndE
           decals:
             2473: -35,-16
@@ -4401,6 +4421,7 @@ entities:
             2435: -37,6
             2436: -39,8
             2437: -37,8
+            2805: -14,-2
         - node:
             color: '#FFFFFFFF'
             id: WarnLineW
@@ -4409,6 +4430,7 @@ entities:
             2439: -37,8
             2440: -39,6
             2441: -37,6
+            2800: -14,0
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerSw
@@ -5789,7 +5811,7 @@ entities:
             1: 7
           8,12:
             0: 30708
-            7: 32768
+            3: 32768
           8,13:
             0: 247
             1: 61440
@@ -5935,7 +5957,7 @@ entities:
             0: 65535
           -7,-13:
             0: 45155
-            3: 12
+            4: 12
           -6,-12:
             0: 65335
           -6,-11:
@@ -6360,24 +6382,24 @@ entities:
             0: 65535
           -3,-15:
             0: 13104
-            3: 128
-            4: 32768
+            4: 128
+            5: 32768
           -3,-14:
             0: 13107
-            5: 128
-            6: 32768
+            6: 128
+            7: 32768
           -3,-17:
             0: 61457
             1: 238
           -2,-16:
             0: 64447
           -2,-15:
-            3: 48
-            4: 12288
+            4: 48
+            5: 12288
             0: 34952
           -2,-14:
-            5: 48
-            6: 12288
+            6: 48
+            7: 12288
             0: 34952
           -2,-17:
             0: 47308
@@ -6646,7 +6668,7 @@ entities:
             1: 57856
           9,12:
             0: 238
-            7: 61440
+            3: 61440
           10,10:
             1: 15
             0: 47872
@@ -6657,7 +6679,7 @@ entities:
             1: 8192
           10,12:
             0: 102
-            7: 4096
+            3: 4096
             1: 49152
           10,8:
             0: 32768
@@ -6773,17 +6795,17 @@ entities:
           -7,-15:
             0: 17
             1: 4352
-            3: 52416
+            4: 52416
           -7,-14:
             1: 1
             0: 12560
-            3: 17612
+            4: 17612
           -6,-16:
             0: 65520
           -6,-15:
-            3: 30576
+            4: 30576
           -6,-14:
-            3: 119
+            4: 119
             0: 61440
           -6,-17:
             1: 4096
@@ -6902,7 +6924,7 @@ entities:
             0: 63280
           9,13:
             1: 28672
-            7: 238
+            3: 238
           9,14:
             1: 18146
             0: 8192
@@ -6912,7 +6934,7 @@ entities:
             1: 7715
             0: 8192
           10,13:
-            7: 17
+            3: 17
             1: 9728
           10,14:
             1: 242
@@ -7161,67 +7183,67 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 103.92799
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -12275,6 +12297,22 @@ entities:
     - type: Transform
       pos: -11.5,-18.5
       parent: 100
+- proto: AirlockRoboticsGlassLocked
+  entities:
+  - uid: 5598
+    components:
+    - type: MetaData
+      name: Robotics
+    - type: Transform
+      pos: -10.5,-4.5
+      parent: 100
+  - uid: 5600
+    components:
+    - type: MetaData
+      name: Robotics
+    - type: Transform
+      pos: -16.5,-4.5
+      parent: 100
 - proto: AirlockSalvageGlassLocked
   entities:
   - uid: 1334
@@ -12353,13 +12391,6 @@ entities:
     - type: Transform
       pos: -21.5,-14.5
       parent: 100
-  - uid: 10181
-    components:
-    - type: MetaData
-      name: Robotics
-    - type: Transform
-      pos: -10.5,-4.5
-      parent: 100
   - uid: 14368
     components:
     - type: MetaData
@@ -12367,13 +12398,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.5,-13.5
-      parent: 100
-  - uid: 15346
-    components:
-    - type: MetaData
-      name: Robotics
-    - type: Transform
-      pos: -16.5,-4.5
       parent: 100
 - proto: AirlockScienceLocked
   entities:
@@ -14697,6 +14721,23 @@ entities:
     components:
     - type: Transform
       pos: -63.5,-2.5
+      parent: 100
+- proto: BlastDoorUnlinkedRobotics
+  entities:
+  - uid: 10378
+    components:
+    - type: Transform
+      pos: -12.5,-0.5
+      parent: 100
+  - uid: 11647
+    components:
+    - type: Transform
+      pos: -13.5,-0.5
+      parent: 100
+  - uid: 13744
+    components:
+    - type: Transform
+      pos: -14.5,-0.5
       parent: 100
 - proto: BlockGameArcade
   entities:
@@ -49020,6 +49061,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,3.5
       parent: 100
+  - uid: 10181
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -15.5,-5.5
+      parent: 100
   - uid: 10196
     components:
     - type: Transform
@@ -50263,12 +50310,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.5,-5.5
-      parent: 100
-  - uid: 10378
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,-5.5
       parent: 100
   - uid: 10379
     components:
@@ -52604,6 +52645,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -37.5,-36.5
       parent: 100
+  - uid: 21628
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,-4.5
+      parent: 100
 - proto: DisposalTrunk
   entities:
   - uid: 701
@@ -52867,6 +52914,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -37.5,-37.5
       parent: 100
+  - uid: 21629
+    components:
+    - type: Transform
+      pos: -15.5,-3.5
+      parent: 100
 - proto: DisposalUnit
   entities:
   - uid: 1987
@@ -53088,6 +53140,11 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-37.5
+      parent: 100
+  - uid: 21627
+    components:
+    - type: Transform
+      pos: -15.5,-3.5
       parent: 100
 - proto: DisposalYJunction
   entities:
@@ -93619,6 +93676,21 @@ entities:
       linkedPorts:
         14749:
         - Pressed: Trigger
+- proto: LockableButtonRobotics
+  entities:
+  - uid: 15346
+    components:
+    - type: Transform
+      pos: -15.5,-0.5
+      parent: 100
+    - type: DeviceLinkSource
+      linkedPorts:
+        13744:
+        - Pressed: Toggle
+        11647:
+        - Pressed: Toggle
+        10378:
+        - Pressed: Toggle
 - proto: LockerAtmosphericsFilledHardsuit
   entities:
   - uid: 15078
@@ -109377,23 +109449,6 @@ entities:
     - type: Transform
       pos: -56.5,55.5
       parent: 100
-- proto: ShuttersNormal
-  entities:
-  - uid: 5598
-    components:
-    - type: Transform
-      pos: -14.5,-0.5
-      parent: 100
-  - uid: 5600
-    components:
-    - type: Transform
-      pos: -13.5,-0.5
-      parent: 100
-  - uid: 13744
-    components:
-    - type: Transform
-      pos: -12.5,-0.5
-      parent: 100
 - proto: ShuttersNormalOpen
   entities:
   - uid: 2052
@@ -109910,19 +109965,6 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11338:
-        - Pressed: Toggle
-  - uid: 11647
-    components:
-    - type: Transform
-      pos: -15.5,-0.5
-      parent: 100
-    - type: DeviceLinkSource
-      linkedPorts:
-        5598:
-        - Pressed: Toggle
-        5600:
-        - Pressed: Toggle
-        13744:
         - Pressed: Toggle
   - uid: 11680
     components:
@@ -112539,6 +112581,12 @@ entities:
     - type: Transform
       pos: 10.5,9.5
       parent: 100
+  - uid: 21626
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-1.5
+      parent: 100
 - proto: SpawnPointCourier
   entities:
   - uid: 16733
@@ -113063,6 +113111,23 @@ entities:
     components:
     - type: Transform
       pos: -10.5,56.5
+      parent: 100
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 21623
+    components:
+    - type: Transform
+      pos: -12.5,-2.5
+      parent: 100
+  - uid: 21624
+    components:
+    - type: Transform
+      pos: -14.5,-2.5
+      parent: 100
+  - uid: 21625
+    components:
+    - type: Transform
+      pos: -6.5,-1.5
       parent: 100
 - proto: SpawnPointSalvageSpecialist
   entities:
