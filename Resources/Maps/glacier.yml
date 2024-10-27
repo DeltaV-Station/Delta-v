@@ -13666,6 +13666,23 @@ entities:
     - type: Transform
       pos: 26.5,-30.5
       parent: 2
+- proto: AirlockRoboticsGlassLocked
+  entities:
+  - uid: 129
+    components:
+    - type: Transform
+      pos: 44.5,-19.5
+      parent: 2
+  - uid: 130
+    components:
+    - type: Transform
+      pos: 43.5,-19.5
+      parent: 2
+  - uid: 214
+    components:
+    - type: Transform
+      pos: 40.5,-22.5
+      parent: 2
 - proto: AirlockSalvageGlassLocked
   entities:
   - uid: 13374
@@ -13699,29 +13716,6 @@ entities:
       name: Chapel
     - type: Transform
       pos: 37.5,-15.5
-      parent: 2
-- proto: AirlockScienceGlassLocked
-  entities:
-  - uid: 129
-    components:
-    - type: MetaData
-      name: Robotics
-    - type: Transform
-      pos: 43.5,-19.5
-      parent: 2
-  - uid: 130
-    components:
-    - type: MetaData
-      name: Robotics
-    - type: Transform
-      pos: 44.5,-19.5
-      parent: 2
-  - uid: 214
-    components:
-    - type: MetaData
-      name: Robotics
-    - type: Transform
-      pos: 40.5,-22.5
       parent: 2
 - proto: AirlockScienceLocked
   entities:
@@ -16709,6 +16703,18 @@ entities:
     components:
     - type: Transform
       pos: 1.5,19.5
+      parent: 2
+- proto: BlastDoorUnlinkedRobotics
+  entities:
+  - uid: 12146
+    components:
+    - type: Transform
+      pos: 45.5,-19.5
+      parent: 2
+  - uid: 12687
+    components:
+    - type: Transform
+      pos: 46.5,-19.5
       parent: 2
 - proto: BlockGameArcade
   entities:
@@ -77228,6 +77234,19 @@ entities:
         - Pressed: Toggle
         730:
         - Pressed: Toggle
+- proto: LockableButtonRobotics
+  entities:
+  - uid: 5814
+    components:
+    - type: Transform
+      pos: 47.5,-19.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12687:
+        - Pressed: Toggle
+        12146:
+        - Pressed: Toggle
 - proto: LockableButtonSalvage
   entities:
   - uid: 4805
@@ -97591,16 +97610,6 @@ entities:
       parent: 2
 - proto: ShuttersWindow
   entities:
-  - uid: 12146
-    components:
-    - type: Transform
-      pos: 45.5,-19.5
-      parent: 2
-  - uid: 14706
-    components:
-    - type: Transform
-      pos: 46.5,-19.5
-      parent: 2
   - uid: 17029
     components:
     - type: Transform
@@ -97938,19 +97947,6 @@ entities:
       linkedPorts:
         10250:
         - Status: Toggle
-  - uid: 13939
-    components:
-    - type: Transform
-      pos: 47.5,-19.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        14706:
-        - On: Open
-        - Off: Close
-        12146:
-        - On: Open
-        - Off: Close
   - uid: 14666
     components:
     - type: Transform
@@ -100256,6 +100252,23 @@ entities:
     - type: Transform
       pos: 31.5,42.5
       parent: 2
+- proto: SpawnPointRoboticist
+  entities:
+  - uid: 13939
+    components:
+    - type: Transform
+      pos: 43.5,-21.5
+      parent: 2
+  - uid: 14706
+    components:
+    - type: Transform
+      pos: 46.5,-21.5
+      parent: 2
+  - uid: 17982
+    components:
+    - type: Transform
+      pos: 47.5,-25.5
+      parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 4794
@@ -100284,16 +100297,6 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-33.5
-      parent: 2
-  - uid: 5814
-    components:
-    - type: Transform
-      pos: 43.5,-21.5
-      parent: 2
-  - uid: 12687
-    components:
-    - type: Transform
-      pos: 47.5,-25.5
       parent: 2
   - uid: 13588
     components:
@@ -100344,6 +100347,28 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-18.5
+      parent: 2
+- proto: SpawnPointSecurityBorg
+  entities:
+  - uid: 17983
+    components:
+    - type: Transform
+      pos: -6.5,21.5
+      parent: 2
+  - uid: 17984
+    components:
+    - type: Transform
+      pos: -23.5,21.5
+      parent: 2
+  - uid: 17985
+    components:
+    - type: Transform
+      pos: -22.5,38.5
+      parent: 2
+  - uid: 17986
+    components:
+    - type: Transform
+      pos: -19.5,41.5
       parent: 2
 - proto: SpawnPointSecurityCadet
   entities:
@@ -114476,7 +114501,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4495.5225
+      secondsUntilStateChange: -4705.1113
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114492,7 +114517,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4494.956
+      secondsUntilStateChange: -4704.545
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114514,7 +114539,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4494.4893
+      secondsUntilStateChange: -4704.078
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114530,7 +114555,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4496.0225
+      secondsUntilStateChange: -4705.6113
       state: Opening
     - type: Airlock
       autoClose: False
