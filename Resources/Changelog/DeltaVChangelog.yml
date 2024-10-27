@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Cyborgs using the Medical model can now print candies with medicine once
-      again.
-    type: Add
-  id: 125
-  time: '2023-11-06T15:46:56.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Salvage Expedition computer boards can now be researched by Epistemics
@@ -3688,3 +3681,13 @@
   id: 624
   time: '2024-10-27T02:58:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2052
+- author: MilonPL
+  changes:
+  - message: Re-added teslas!
+    type: Add
+  - message: Tesla now has a random pathfinding and a passive energy drain. Don't
+      forget to leave the PA on!
+    type: Tweak
+  id: 625
+  time: '2024-10-27T23:05:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1916
