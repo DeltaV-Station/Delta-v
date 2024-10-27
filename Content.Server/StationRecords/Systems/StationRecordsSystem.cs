@@ -159,7 +159,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = card?.Comp.JobTitle ?? jobPrototype.LocalizedName, // DeltaV
+            JobTitle = card?.Comp.LocalizedJobTitle ?? jobPrototype.LocalizedName, // DeltaV
             JobIcon = card?.Comp.JobIcon ?? jobPrototype.Icon, // DeltaV
             JobPrototype = jobId,
             Species = species,

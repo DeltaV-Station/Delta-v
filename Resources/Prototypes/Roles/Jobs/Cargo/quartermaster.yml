@@ -19,11 +19,10 @@
       time: 43200 #DeltaV 12 hours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-#   - !type:AgeRequirement - DeltaV - PR #1611 for context
-#     requiredAge: 20
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
+  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -32,9 +31,9 @@
   - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Quartermaster
   - Maintenance
+  - External
   - Command
   - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
-  - External # DeltaV - for promoting salvage specialists
   - Cryogenics
   special:
   - !type:AddImplantSpecial
