@@ -1,19 +1,6 @@
 ﻿Entries:
 - author: FluffiestFloof
   changes:
-  - message: Removed the carp suit bundle from the syndicate uplink.
-    type: Remove
-  id: 123
-  time: '2023-11-06T14:54:09.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Fixed a few issues with Asterisk, including getting stuck on Epi's park
-      tree and evac docking at cargo.
-    type: Fix
-  id: 124
-  time: '2023-11-06T15:25:25.0000000+00:00'
-- author: FluffiestFloof
-  changes:
   - message: Cyborgs using the Medical model can now print candies with medicine once
       again.
     type: Add
@@ -3687,3 +3674,17 @@
   id: 622
   time: '2024-10-25T00:15:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2038
+- author: Radezolid
+  changes:
+  - message: Pie cannons can now be fired by pacifists!
+    type: Tweak
+  id: 623
+  time: '2024-10-26T01:46:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2046
+- author: Radezolid
+  changes:
+  - message: Fixed being unable to print .38 magazines in an emagged autolathe.
+    type: Fix
+  id: 624
+  time: '2024-10-27T02:58:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2052
