@@ -38,6 +38,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         args.Args.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.Args.SpeechVerb;
     }
 
+    // Delta-v specific for implants
     private void OnTransformSpeakerNameImplant(Entity<VoiceMaskComponent> entity, ref ImplantRelayEvent<TransformSpeakerNameEvent> args)
     {
         args.Event.VoiceName = GetCurrentVoiceName(entity);
