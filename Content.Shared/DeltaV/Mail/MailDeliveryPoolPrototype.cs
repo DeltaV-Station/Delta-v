@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Mail;
+namespace Content.Shared.DeltaV.Mail;
 
 /// <summary>
 /// Generic random weighting dataset to use.

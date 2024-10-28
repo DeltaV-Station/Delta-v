@@ -9,7 +9,6 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible;
-using Content.Server.Mail.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -28,7 +27,6 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
-using Content.Shared.Mail;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.PDA;
@@ -43,9 +41,11 @@ using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
+using Content.Server.DeltaV.Mail.Components;
+using Content.Shared.DeltaV.Mail;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Server.Mail
+namespace Content.Server.DeltaV.Mail.EntitySystems
 {
     public sealed class MailSystem : EntitySystem
     {
@@ -192,7 +192,7 @@ namespace Content.Server.Mail
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaId);
                 idCard = pdaId;
             }
-            else if (HasComp<IdCardComponent>(args.Used)) // Or are they using an id card directly?
+            if (idCard == null && HasComp<IdCardComponent>(args.Used)) // If we still don't have an ID, check if the item itself is one
                 idCard = Comp<IdCardComponent>(args.Used);
 
             if (idCard == null) // Return if we still haven't found an id card.

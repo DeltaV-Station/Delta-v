@@ -1,4 +1,4 @@
-namespace Content.Server.Mail
+namespace Content.Server.DeltaV.Mail
 {
     /// <summary>
     /// A set of localized strings related to mail entities
@@ -22,7 +22,7 @@ namespace Content.Server.Mail
         {
             NameAddressed = "mail-item-name-addressed",
             DescClose = "mail-desc-close",
-            DescFar = "mail-desc-far"
+            DescFar = "mail-desc-far",
         };
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Content.Server.Mail
         {
             NameAddressed = "mail-large-item-name-addressed",
             DescClose = "mail-large-desc-close",
-            DescFar = "mail-large-desc-far"
+            DescFar = "mail-large-desc-far",
         };
     }
 }

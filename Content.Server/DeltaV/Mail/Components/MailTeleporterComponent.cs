@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server.Mail.Components
+namespace Content.Server.DeltaV.Mail.Components
 {
     /// <summary>
     /// This is for the mail teleporter.

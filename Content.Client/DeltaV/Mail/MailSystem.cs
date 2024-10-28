@@ -1,9 +1,9 @@
-using Content.Shared.Mail;
+using Content.Shared.DeltaV.Mail;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Mail;
+namespace Content.Client.DeltaV.Mail;
 
 /// <summary>
 ///     Display a cool stamp on the parcel based on the job of the recipient.

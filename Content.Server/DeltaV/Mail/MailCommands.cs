@@ -4,9 +4,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Administration;
 using Content.Server.Administration;
-using Content.Server.Mail.Components;
+using Content.Server.DeltaV.Mail.Components;
+using Content.Server.DeltaV.Mail.EntitySystems;
 
-namespace Content.Server.Mail;
+namespace Content.Server.DeltaV.Mail;
 
 [AdminCommand(AdminFlags.Fun)]
 public sealed class MailToCommand : IConsoleCommand
@@ -101,7 +102,6 @@ public sealed class MailToCommand : IConsoleCommand
             return;
         }
 
-        var coordinates = _entityManager.GetComponent<TransformComponent>(containerUid).Coordinates;
         var mailUid = _entityManager.SpawnEntity(mailPrototype, _entityManager.GetComponent<TransformComponent>(containerUid).Coordinates); // Frontier: _blankMailPrototype<mailPrototype
         var mailContents = containerSystem.EnsureContainer<Container>(mailUid, MailContainer);
 
