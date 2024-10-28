@@ -25,19 +25,6 @@
     - WoodBaton
     - SecurityWhistle
     - FlashlightSecliteRecharging
-# - type: entity 
-#  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start 
-#  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ] 
-#  name: patrol cyborg module 
-#  components: 
-#  - type: Sprite 
-#    layers: 
-#    - state: security 
-#    - state: icon-patrol 
-#  - type: ItemBorgModule 
-#    items:
-#    - FlashlightSecliteRecharging
-#    - SecurityWhistle
 
 # - type: entity
 #  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
