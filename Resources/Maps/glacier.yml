@@ -12068,7 +12068,7 @@ entities:
   - uid: 22
     components:
     - type: MetaData
-      name: Breakroom
+      name: Restroom
     - type: Transform
       pos: 49.5,-24.5
       parent: 2
@@ -13670,16 +13670,22 @@ entities:
   entities:
   - uid: 129
     components:
+    - type: MetaData
+      name: Robotics
     - type: Transform
       pos: 44.5,-19.5
       parent: 2
   - uid: 130
     components:
+    - type: MetaData
+      name: Robotics
     - type: Transform
       pos: 43.5,-19.5
       parent: 2
   - uid: 214
     components:
+    - type: MetaData
+      name: Robotics
     - type: Transform
       pos: 40.5,-22.5
       parent: 2
@@ -47853,6 +47859,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -8.5,24.5
+      parent: 2
+  - uid: 17989
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,20.5
       parent: 2
 - proto: ComputerFrame
   entities:
@@ -88218,6 +88230,14 @@ entities:
     - type: Transform
       pos: -58.510414,-5.4538803
       parent: 2
+- proto: PlushieRainbowCarp
+  entities:
+  - uid: 17987
+    components:
+    - type: Transform
+      parent: 14550
+    - type: Physics
+      canCollide: False
 - proto: PlushieRatvar
   entities:
   - uid: 12281
@@ -104272,6 +104292,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: 50.5,-26.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        stash: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 17987
+        disposals: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
   - uid: 14551
     components:
     - type: Transform
@@ -113702,6 +113732,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: -11.5,41.5
       parent: 2
+- proto: WarningO2
+  entities:
+  - uid: 17988
+    components:
+    - type: Transform
+      pos: -11.5,47.5
+      parent: 2
 - proto: WarpPoint
   entities:
   - uid: 16248
@@ -114501,7 +114538,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4705.1113
+      secondsUntilStateChange: -4934.469
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114517,7 +114554,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4704.545
+      secondsUntilStateChange: -4933.903
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114539,7 +114576,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4704.078
+      secondsUntilStateChange: -4933.436
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114555,7 +114592,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4705.6113
+      secondsUntilStateChange: -4934.969
       state: Opening
     - type: Airlock
       autoClose: False
