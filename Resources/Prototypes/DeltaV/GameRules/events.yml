@@ -116,9 +116,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: ListeningPostRole
-        prototype: ListeningPost
+      mindRoles:
+      - MindRoleListeningPost
 
 # Mid round antag spawns
 - type: entity
@@ -160,11 +159,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: RoleBriefing
-        briefing: paradox-anomaly-role-briefing
-      - type: ParadoxAnomalyRole
-        prototype: ParadoxAnomaly
+      mindRoles:
+      - MindRoleParadoxAnomaly
 
 - type: entity
   parent: BaseMidRoundAntag
@@ -195,6 +191,5 @@
         - fake_human_last
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
-      mindComponents:
-      - type: FugitiveRole
-        prototype: Fugitive
+      mindRoles:
+      - MindRoleFugitive

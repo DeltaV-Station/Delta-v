@@ -1,18 +1,4 @@
 - type: entity
-  name: psychologist's rubber stamp
-  parent: RubberStampBase
-  id: RubberStampPsychologist
-  suffix: DO NOT MAP
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-psychologist
-    stampedColor: "#00ccff"
-    stampState: "paper_stamp-psychologist"
-  - type: Sprite
-    sprite: DeltaV/Objects/Misc/stamps.rsi
-    state: stamp-psychologist
-    
-- type: entity
   name: notary stamp
   parent: RubberStampBase
   id: RubberStampNotary
@@ -28,7 +14,7 @@
     state: stamp-notary
   - type: StealTarget
     stealGroup: RubberStampNotary
-    
+
 - type: entity
   name: chief justice stamp
   parent: RubberStampBase

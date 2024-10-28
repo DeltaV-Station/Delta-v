@@ -78,6 +78,7 @@
   - ERTSecurity
   - ERTEngineer
   - DeathSquad
+  - StationAi # DeltaV - added for playtime trackers
   primary: false
   weight: 100
 
@@ -141,7 +142,9 @@
   color: "#D381C9"
   roles:
   - Borg
+  - MedicalBorg # DeltaV - roundstart mediborg job
   - StationAi
+  primary: false # DeltaV - removed from primary dept
 
 - type: department
   id: Specific

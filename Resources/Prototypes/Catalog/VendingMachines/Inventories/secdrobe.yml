@@ -4,33 +4,34 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-    ClothingUniformJumpsuitSec: 3
+#    ClothingUniformJumpsuitSec: 3 # DeltaV - moved*
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
-##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
-    ClothingHeadBandRed: 3
+    ClothingMaskNeckGaiter: 3 # DeltaV - add neck gaiters to secdrobe
+    ClothingMaskGasSecurity: 3 # DeltaV - add security gas masks to secdrobe
+#    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
+#    ClothingHeadBandRed: 3 # DeltaV - removed for incongruency
 #   ClothingMaskNeckGaiterRed: 3 # DeltaV - removed
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
+    ClothingUniformJumpsuitSec: 3 # DeltaV - *moved
     ClothingUniformJumpskirtSec: 3
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
     ClothingUniformJumpsuitSecBlue: 3
     ClothingUniformJumpskirtSecBlue: 3 # DeltaV - new skirt sprited, added to secdrobe
+    ClothingUniformJumpsuitSecFormal: 1 # DeltaV - add formal uniform to secdrobe
+    ClothingUniformJumpskirtSecFormal: 1 # DeltaV - add formal uniform to secdrobe
     ClothingHeadsetSecurity: 3
     ClothingHeadsetPrison: 3 # DeltaV - prison headsets in secdrobe
+    ClothingOuterStasecSweater: 2 # DeltaV - add sweaters to secdrobe
     ClothingOuterCoatStasec: 2 # DeltaV - replace ClothingOuterWinterSec
-    ClothingOuterGreatcoatStasec: 2 # DeltaV - added greatcoats to SecDrobe. Surplus, reminds the officers of the good times.
 ##    ClothingOuterArmorBasic: 2 # DeltaV - moved body armour from SecDrobe to SecTech
 ##    ClothingOuterArmorBasicSlim: 2
     ClothingNeckScarfStripedRed: 3
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
-    ClothingShoesBootsWinterSec: 2
+#    ClothingShoesBootsWinterSec: 2 # DeltaV - removed for incongruency
 #   ClothingHeadHelmetJustice: 1 # DeltaV - lrp
-    # Begin DeltaV additions
-    ClothingShoesBootsCowboyBlack: 1
-    ClothingHeadHatCowboyBlack: 1
-    # End DeltaV additions
   contrabandInventory:
-    ClothingMaskClownSecurity: 1
+#    ClothingMaskClownSecurity: 1 # DeltaV - removed for incongruency

@@ -3,8 +3,8 @@
   weights:
     OreIron: 1.0
     OreQuartz: 1.0
-    OreCoal: 0.33
-    OreSalt: 0.25
+    OreCoal: 0.58 # DeltaV: was 0.33, added 0.25 from salt
+    #OreSalt: 0.25 # DeltaV: removed salt, added weight to coal
     OreGold: 0.25
     OreSilver: 0.25
     OrePlasma: 0.20

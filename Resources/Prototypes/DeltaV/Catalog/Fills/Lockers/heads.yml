@@ -56,7 +56,7 @@
   id: LockerFillChiefMedicalOfficerDeltaV
   table: !type:AllSelector
     children:
-    - id: RubberStampPsychologist # TODO: make a psych locker and move this to it
+    - id: RubberStampPsychologist # TODO: make a psych locker and move this to it, or just remove this since psych spawns with it.
     - id: BoxPDAMedical
     - id: ClothingBeltMilitaryWebbingCMO # add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
     - id: CMOIDCard
@@ -82,6 +82,6 @@
     - id: BoxPDASecurity
     - id: WeaponEnergyGunMultiphase
     - id: HoSIDCard
-    - id: ClothingShoesBootsWinterHeadOfSecurity
+    - id: ClothingOuterVestPlateCarrierAdv
     - id: LunchboxCommandFilledRandom
       prob: 0.3

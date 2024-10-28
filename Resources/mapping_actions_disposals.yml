@@ -1,0 +1,140 @@
+
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalUnit
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalUnit
+  assignments:
+  - 0: 1
+  name: Disposal Unit
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalTrunk
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalTrunk
+  assignments:
+  - 0: 2
+  name: Disposal Trunk
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalPipe
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalPipe
+  assignments:
+  - 0: 3
+  name: Disposal Pipe
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalBend
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalBend
+  assignments:
+  - 0: 4
+  name: Disposal Bend
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalJunction
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalJunction
+  assignments:
+  - 0: 5
+  name: Disposal Junction
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalJunctionFlipped
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalJunctionFlipped
+  assignments:
+  - 0: 6
+  name: Disposal Junction Flipped
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalYJunction
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalYJunction
+  assignments:
+  - 0: 7
+  name: Disposal Y-Junction
+- action: !type:InstantActionComponent
+    icon:
+      entity: DisposalTagger
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: DisposalTagger
+  assignments:
+  - 0: 8
+  name: Disposal Tagger
+- action: !type:InstantActionComponent
+    icon:
+      entity: SignDisposalSpace
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: SignDisposalSpace
+  assignments:
+  - 0: 9
+  name: Sign Disposal Space
+- action: !type:InstantActionComponent
+    icon: Interface/VerbIcons/delete.svg.192dpi.png
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      eraser: True
+  assignments:
+  - 0: 0
+  name: action-name-mapping-erase
+...

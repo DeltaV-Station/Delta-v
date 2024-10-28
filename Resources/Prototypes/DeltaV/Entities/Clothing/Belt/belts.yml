@@ -39,7 +39,7 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, ClothingSlotBase]
   id: ClothingBeltCorpsmanWebbing
   name: corpsman webbing
   description: A set of security webbing with blue corpsman highlights.
@@ -48,7 +48,28 @@
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/corpsman.rsi
+  - type: ItemSlots # add medkit slot
+    slots:
+      medkit:
+        name: clothing-belt-medkit
+        whitelist:
+          tags:
+          - Medkit
+        insertOnInteract: false # or you can't easily stow medkits in your rig.
   - type: Storage
     grid:
     - 0,0,2,1
     - 4,0,7,1
+  - type: ItemMapper # add stowed medkit sprite
+    mapLayers:
+      medkit:
+        whitelist:
+          tags:
+          - Medkit
+    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
+  - type: Appearance

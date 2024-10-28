@@ -86,6 +86,22 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
+- type: loadout # DeltaV
+  id: SeniorSecOfficerJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecSenior
+
+- type: loadout # DeltaV
+  id: SeniorSecOfficerJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecSenior
+
 # Back
 - type: loadout
   id: SecurityBackpack
@@ -138,6 +154,16 @@
   id: SecurityOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
+
+- type: loadout
+  id: StasecSweater
+  equipment:
+    outerClothing: ClothingOuterStasecSweater
+
+- type: loadout # DeltaV - security winter coat
+  id: StasecWinterCoat
+  equipment:
+    outerClothing: ClothingOuterCoatStasec
 
 # Shoes
 - type: loadout
