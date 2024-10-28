@@ -4391,13 +4391,6 @@ entities:
     - type: Transform
       pos: 4.5,9.5
       parent: 2
-- proto: PottedPlant30
-  entities:
-  - uid: 820
-    components:
-    - type: Transform
-      pos: -0.5,9.5
-      parent: 2
 - proto: Poweredlight
   entities:
   - uid: 754
@@ -5163,6 +5156,13 @@ entities:
     components:
     - type: Transform
       pos: 1.5,15.5
+      parent: 2
+- proto: VendingMachineCola
+  entities:
+  - uid: 395
+    components:
+    - type: Transform
+      pos: -0.5,9.5
       parent: 2
 - proto: VendingMachineDonut
   entities:
