@@ -5,6 +5,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Damage.Components;
 using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Systems;
+using Content.Server.DeltaV.Mail.Components;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Destructible.Thresholds;
@@ -19,6 +20,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Access;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.DeltaV.Mail;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -41,8 +43,6 @@ using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
-using Content.Server.DeltaV.Mail.Components;
-using Content.Shared.DeltaV.Mail;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.DeltaV.Mail.EntitySystems
@@ -96,10 +96,10 @@ namespace Content.Server.DeltaV.Mail.EntitySystems
         {
             base.Update(frameTime);
 
-            var query = EntityQueryEnumerator<MailTeleporterComponent, ApcPowerReceiverComponent>();
-            while (query.MoveNext(out var uid, out var mailTeleporter, out var power))
+            var query = EntityQueryEnumerator<MailTeleporterComponent>();
+            while (query.MoveNext(out var uid, out var mailTeleporter))
             {
-                if (!power.Powered)
+                if (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
                     continue;
 
                 mailTeleporter.Accumulator += frameTime;
