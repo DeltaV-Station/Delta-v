@@ -108,6 +108,6 @@ namespace Content.Server.Mail.Components
         /// </summary>
         public bool IsEnabled = true;
 
-        public CancellationTokenSource? priorityCancelToken;
+        public CancellationTokenSource? PriorityCancelToken;
     }
 }
