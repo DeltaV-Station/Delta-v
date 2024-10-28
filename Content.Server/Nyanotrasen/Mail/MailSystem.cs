@@ -620,7 +620,7 @@ namespace Content.Server.Mail
                 var mayReceivePriorityMail = !(_mindSystem.GetMind(receiver.Owner) == null);
 
                 recipient = new MailRecipient(idCard.Comp.FullName,
-                    idCard.Comp.JobTitle,
+                    idCard.Comp.LocalizedJobTitle ?? idCard.Comp.JobTitle,
                     idCard.Comp.JobIcon,
                     accessTags,
                     mayReceivePriorityMail);
