@@ -1,87 +1,4 @@
 ﻿Entries:
-- author: VMSolidus
-  changes:
-  - message: Cargo can now order medical scrub crates
-    type: Add
-  id: 113
-  time: '2023-10-29T17:38:19.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Removed the clown hardsuit from being craftable.
-    type: Remove
-  id: 114
-  time: '2023-10-30T13:17:07.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Asterisk station has been added to the game.
-    type: Add
-  id: 115
-  time: '2023-11-01T16:32:48.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Switched logos around
-    type: Tweak
-  id: 116
-  time: '2023-11-01T22:45:55.0000000+00:00'
-- author: TJohnson
-  changes:
-  - message: Security has received new models of hardsuit!
-    type: Tweak
-  id: 117
-  time: '2023-11-02T00:31:53.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Added Two New Round-End Sounds
-    type: Add
-  - message: Lobby Round-End Sounds
-    type: Remove
-  id: 118
-  time: '2023-11-02T01:00:16.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Technical Assistant now has a 4 hour playtime requirement.
-    type: Tweak
-  id: 119
-  time: '2023-11-02T16:15:06.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Updated Asterisk Station with various fixes, a slot for an atmos technician,
-      and a familiar parallax...
-    type: Tweak
-  id: 120
-  time: '2023-11-02T20:38:51.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Removed starvation!
-    type: Remove
-  id: 121
-  time: '2023-11-05T19:24:51.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Cat Ears have been moved from the Syndicate Uplink into the AutoDrobe.
-    type: Tweak
-  id: 122
-  time: '2023-11-06T14:39:49.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Removed the carp suit bundle from the syndicate uplink.
-    type: Remove
-  id: 123
-  time: '2023-11-06T14:54:09.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Fixed a few issues with Asterisk, including getting stuck on Epi's park
-      tree and evac docking at cargo.
-    type: Fix
-  id: 124
-  time: '2023-11-06T15:25:25.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Cyborgs using the Medical model can now print candies with medicine once
-      again.
-    type: Add
-  id: 125
-  time: '2023-11-06T15:46:56.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Salvage Expedition computer boards can now be researched by Epistemics
@@ -3676,3 +3593,101 @@
   id: 612
   time: '2024-10-18T00:31:47.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1995
+- author: BlitzTheSquishy
+  changes:
+  - message: Readded the Sec Sticker!
+    type: Add
+  id: 613
+  time: '2024-10-20T00:01:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2022
+- author: ThataKat
+  changes:
+  - message: Small doses of theobromine no longer cause vomiting in animal species.
+    type: Tweak
+  id: 614
+  time: '2024-10-20T05:22:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2024
+- author: deltanedas
+  changes:
+  - message: Ghost role waiting time is down to 3 seconds, from 8.
+    type: Tweak
+  id: 615
+  time: '2024-10-20T16:02:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2026
+- author: deltanedas
+  changes:
+  - message: Removed salt ore in favour of coal. Give the chemists carbon!
+    type: Remove
+  id: 616
+  time: '2024-10-20T17:30:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2027
+- author: PPooch
+  changes:
+  - message: Clerks now have brig timer and evidence locker access. Don't steal the
+      Prosecutor's job from them!
+    type: Tweak
+  id: 617
+  time: '2024-10-23T07:04:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2034
+- author: deltanedas
+  changes:
+  - message: Merged the past few weeks changes from upstream, report any bugs related
+      to your character menu or objectives!
+    type: Add
+  id: 618
+  time: '2024-10-24T08:41:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2036
+- author: deltanedas
+  changes:
+  - message: Fixed the crew manifest.
+    type: Fix
+  id: 619
+  time: '2024-10-24T12:54:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2037
+- author: deltanedas
+  changes:
+  - message: Martyr cyborg modules can now be disarmed with a crowbar to yield its
+      explosive payload.
+    type: Tweak
+  id: 620
+  time: '2024-10-24T15:19:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1960
+- author: Solaris7518
+  changes:
+  - message: Fixed almost every midi being completely ruined by a recent change from
+      upstream. You're welcome, my fellow musicians.
+    type: Fix
+  id: 621
+  time: '2024-10-24T23:39:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2041
+- author: MilonPL
+  changes:
+  - message: Fixed playtime stats and requirements not showing up correctly.
+    type: Fix
+  id: 622
+  time: '2024-10-25T00:15:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2038
+- author: Radezolid
+  changes:
+  - message: Pie cannons can now be fired by pacifists!
+    type: Tweak
+  id: 623
+  time: '2024-10-26T01:46:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2046
+- author: Radezolid
+  changes:
+  - message: Fixed being unable to print .38 magazines in an emagged autolathe.
+    type: Fix
+  id: 624
+  time: '2024-10-27T02:58:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2052
+- author: MilonPL
+  changes:
+  - message: Re-added teslas!
+    type: Add
+  - message: Tesla now has a random pathfinding and a passive energy drain. Don't
+      forget to leave the PA on!
+    type: Tweak
+  id: 625
+  time: '2024-10-27T23:05:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1916

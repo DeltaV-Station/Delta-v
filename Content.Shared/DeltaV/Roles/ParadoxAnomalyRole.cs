@@ -2,5 +2,5 @@ using Content.Shared.Roles;
 
 namespace Content.Shared.DeltaV.Roles;
 
-[RegisterComponent, ExclusiveAntagonist]
-public sealed partial class ParadoxAnomalyRoleComponent : AntagonistRoleComponent;
+[RegisterComponent]
+public sealed partial class ParadoxAnomalyRoleComponent : BaseMindRoleComponent;
