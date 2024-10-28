@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: Rebased Arena Station. This is a major overhaul. Please report any issues
-      or oddities in the mapping channel on Discord.
-    type: Tweak
-  id: 128
-  time: '2023-11-07T19:31:54.0000000+00:00'
 - author: deltanedas
   changes:
   - message: Carp suit has been moved into the AutoDrobe.
@@ -3691,3 +3684,10 @@
   id: 627
   time: '2024-10-28T16:49:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2039
+- author: MilonPL
+  changes:
+  - message: Fixed not being able to unlock mail.
+    type: Fix
+  id: 628
+  time: '2024-10-28T19:32:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2067
