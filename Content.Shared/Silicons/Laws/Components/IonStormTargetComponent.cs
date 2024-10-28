@@ -45,6 +45,12 @@ public sealed partial class IonStormTargetComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ShuffleChance = 0.2f;
+
+    /// <summary>
+    /// Chance to remove the borg censorship filter
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float RemoveAccentChance = 0.2f;
 }
 
 /// <summary>

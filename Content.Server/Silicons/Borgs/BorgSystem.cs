@@ -5,9 +5,11 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Server.DeltaV.Speech.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Database;
+using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle.Components;
@@ -74,6 +76,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
         SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
         SubscribeLocalEvent<BorgChassisComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<CensoredAccentComponent, GotEmaggedEvent>(OnGotEmagged);
 
         SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
         SubscribeLocalEvent<BorgBrainComponent, PointAttemptEvent>(OnBrainPointAttempt);
@@ -135,6 +138,12 @@ public sealed partial class BorgSystem : SharedBorgSystem
             args.Handled = true;
             UpdateUI(uid, component);
         }
+    }
+
+    //emagged borgs will not have the chat censorship of NT borgs
+    protected void OnGotEmagged(EntityUid uid, CensoredAccentComponent component, ref GotEmaggedEvent args)
+    {
+        EntityManager.RemoveComponent<CensoredAccentComponent>(uid);
     }
 
     // todo: consider transferring over the ghost role? managing that might suck.

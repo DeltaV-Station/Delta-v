@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.DeltaV.Speech.Components;
 using Content.Server.Silicons.Laws;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
@@ -11,6 +12,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -168,6 +170,12 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
             EnsureComp<SiliconLawProviderComponent>(ent);
             var ev = new IonStormLawsEvent(laws);
             RaiseLocalEvent(ent, ref ev);
+
+            // try to remove borg cencorship filter
+            if (RobustRandom.Prob(target.RemoveAccentChance))
+            {
+                EntityManager.RemoveComponent<CensoredAccentComponent>(ent);
+            }
         }
     }
 
