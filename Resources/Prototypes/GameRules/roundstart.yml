@@ -189,14 +189,14 @@
       mindRoles:
       - MindRoleTraitor
 
-- type: entity
-  id: TraitorReinforcement
-  parent: Traitor
-  components:
-  - type: TraitorRule
-    giveUplink: false
-    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
-    giveBriefing: false
+#- type: entity #Delta-V change, this is sleepers but they dont get uplinks. We dont need this. - Solaris
+#  id: TraitorReinforcement
+#  parent: Traitor
+#  components:
+#  - type: TraitorRule
+#    giveUplink: false
+#    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+#    giveBriefing: false
 
 - type: entity
   id: Revolutionary
