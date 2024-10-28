@@ -1,0 +1,39 @@
+- type: entity
+  parent: Railing
+  id: RailingDeltaV
+  suffix: Modern
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
+  - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
+
+- type: entity
+  parent: RailingCorner
+  id: RailingCornerDeltaV
+  suffix: Modern
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
+  - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
+
+- type: entity
+  parent: RailingCornerSmall
+  id: RailingCornerSmallDeltaV
+  suffix: Modern
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
+  - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
+
+- type: entity
+  parent: RailingRound
+  id: RailingRoundDeltaV
+  suffix: Modern
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
+  - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi

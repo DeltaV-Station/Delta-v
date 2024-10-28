@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Cyborgs using the Medical model can now print candies with medicine once
-      again.
-    type: Add
-  id: 125
-  time: '2023-11-06T15:46:56.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Salvage Expedition computer boards can now be researched by Epistemics
-      and produced in circuit imprinters.
-    type: Add
-  id: 126
-  time: '2023-11-07T13:36:49.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed the Reverse Engineering Machine incorrectly decreasing scan power
-      with upgrades.
-    type: Fix
-  id: 127
-  time: '2023-11-07T19:31:02.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Rebased Arena Station. This is a major overhaul. Please report any issues
-      or oddities in the mapping channel on Discord.
-    type: Tweak
-  id: 128
-  time: '2023-11-07T19:31:54.0000000+00:00'
 - author: deltanedas
   changes:
   - message: Carp suit has been moved into the AutoDrobe.
@@ -3688,3 +3660,34 @@
   id: 624
   time: '2024-10-27T02:58:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2052
+- author: MilonPL
+  changes:
+  - message: Re-added teslas!
+    type: Add
+  - message: Tesla now has a random pathfinding and a passive energy drain. Don't
+      forget to leave the PA on!
+    type: Tweak
+  id: 625
+  time: '2024-10-27T23:05:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1916
+- author: Solaris7518
+  changes:
+  - message: Cancer mice no longer infest the mail system.
+    type: Remove
+  id: 626
+  time: '2024-10-28T00:25:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2061
+- author: Colin_Tel, Fox, Lyndomen
+  changes:
+  - message: Adjusted the rules, check out the metashield!
+    type: Tweak
+  id: 627
+  time: '2024-10-28T16:49:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2039
+- author: MilonPL
+  changes:
+  - message: Fixed not being able to unlock mail.
+    type: Fix
+  id: 628
+  time: '2024-10-28T19:32:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2067

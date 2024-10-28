@@ -3,6 +3,14 @@
   id: Hiss
   name: nyan-chat-emote-name-hiss
   category: Vocal
+  icon: DeltaV/Interface/Emotes/hiss.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [шипит.]
   chatTriggers:
     - hiss.
@@ -18,6 +26,14 @@
   id: Meow
   name: nyan-chat-emote-name-meow
   category: Vocal
+  icon: DeltaV/Interface/Emotes/meow.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [мяукает.]
   chatTriggers:
     - meow.
@@ -52,6 +68,13 @@
   id: Mew
   name: nyan-chat-emote-name-mew
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [миукает.]
   chatTriggers:
     - mew.
@@ -74,6 +97,13 @@
   id: Growl
   name: chat-emote-name-growl
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [рычит.]
   chatTriggers:
     - growl.
@@ -91,6 +121,13 @@
   id: Purr
   name: chat-emote-name-purr
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [мурчит.]
   chatTriggers:
     - purr.

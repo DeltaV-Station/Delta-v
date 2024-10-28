@@ -3,271 +3,215 @@
   id: HarpyHonk
   name: delta-chat-emote-name-honk
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [honks.]
   chatTriggers:
     - honk
-    - honk.
-    - honk!
-    - honk?
     - honks
-    - honks.
-    - honks!
-    - honks?
     - honking
-    - honking.
-    - honking!
-    - honking?
     - honked
-    - honked.
-    - honked!
-    - honked?
 
 - type: emote
   id: HarpyRing
   name: delta-chat-emote-name-ring
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [rings.]
   chatTriggers:
     - ring
-    - ring.
-    - ring!
-    - ring?
     - rings
-    - rings.
-    - rings!
-    - rings?
     - ringing
-    - ringing.
-    - ringing!
-    - ringing?
     - ringed
-    - ringed.
-    - ringed!
-    - ringed?
     - rang
-    - rang.
-    - rang!
-    - rang?
 
 - type: emote
   id: HarpyPew
   name: delta-chat-emote-name-pew
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [pews.]
   chatTriggers:
     - pew
-    - pew.
-    - pew!
-    - pew?
     - pews
-    - pews.
-    - pews!
-    - pews?
     - pewpew
-    - pewpew.
-    - pewpew!
-    - pewpew?
 
 - type: emote
   id: HarpyBang
   name: delta-chat-emote-name-bang
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [bangs.]
   chatTriggers:
     - bang
-    - bang.
-    - bang!
-    - bang?
     - bangs
-    - bangs.
-    - bangs!
-    - bangs?
     - banging
-    - banging.
-    - banging!
-    - banging?
     - banged
-    - banged.
-    - banged!
-    - banged?
 
 - type: emote
   id: HarpyBeep
   name: delta-chat-emote-name-beep
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [beeps.]
   chatTriggers:
     - beep
-    - beep.
-    - beep!
-    - beep?
     - beeps
-    - beeps.
-    - beeps!
-    - beeps?
     - beeping
-    - beeping.
-    - beeping!
-    - beeping?
     - beeped
-    - beeped.
-    - beeped!
-    - beeped?
 
 - type: emote
   id: HarpyRev
   name: delta-chat-emote-name-rev
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [revs.]
   chatTriggers:
     - rev
-    - rev.
-    - rev!
-    - rev?
     - revs
-    - revs.
-    - revs!
-    - revs?
     - revving
-    - revving.
-    - revving!
-    - revving?
     - revved
-    - revved.
-    - revved!
-    - revved?
 
 - type: emote
   id: HarpyCaw
   name: delta-chat-emote-name-caw
   category: Vocal
-  chatMessages: [каркает.]
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
+  chatMessages: [caws.]
   chatTriggers:
     - caw
-    - caw.
-    - caw!
-    - caw?
     - caws
-    - caws.
-    - caws!
-    - caws?
     - cawing
-    - cawing.
-    - cawing!
-    - cawing?
     - cawed
-    - кар
-    - кар!
-    - кар.
-    - каркает
-    - каркает!
-    - каркает.
 
 #Vulpkanin
 - type: emote
   id: Bark
   name: delta-chat-emote-name-bark
   category: Vocal
-  chatMessages: [лает.]
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
+  chatMessages: [barks.]
   chatTriggers:
     - bark
-    - bark.
-    - bark!
-    - bark?
     - barks
-    - barks.
-    - barks!
-    - barks?
     - barked
-    - barked.
-    - barked!
-    - barked?
     - barking
-    - barking.
-    - лает
-    - гав
-    - гавкает
 
 - type: emote
   id: Snarl
   name: delta-chat-emote-name-snarl
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [snarls.]
   chatTriggers:
     - snarl
-    - snarl.
-    - snarl!
-    - snarl?
     - snarls
-    - snarls.
-    - snarls!
-    - snarls?
     - snarled
-    - snarled.
-    - snarled!
-    - snarled?
     - snarling
-    - snarling.
-    - snarling!
-    - snarling?
 
 - type: emote
   id: Whine
   name: delta-chat-emote-name-whine
   category: Vocal
-  chatMessages: [скулит.]
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
+  chatMessages: [whines.]
   chatTriggers:
     - whine
-    - whine.
-    - whine!
-    - whine?
     - whines
-    - whines.
-    - whines!
-    - whines?
     - whined
-    - whined.
-    - whined!
-    - whined?
     - whining
-    - whining.
-    - скулит
-    - скулит!
-    - скулит.
 
 - type: emote
   id: Howl
   name: delta-chat-emote-name-howl
   category: Vocal
-  chatMessages: [воет.]
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
+  chatMessages: [howls.]
   chatTriggers:
     - howl
-    - howl.
-    - howl!
-    - howl?
     - howls
-    - howls.
-    - howls!
-    - howls?
     - howling
-    - howling.
-    - howling!
-    - howling?
     - howled
-    - howled.
-    - воет
-    - воет!
-    - воет.
 
 - type: emote
   id: Awoo
   name: delta-chat-emote-name-awoo
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorrChassis
   chatMessages: [awoos.]
   chatTriggers:
-    - awoo.
-    - awoo!
-    - awoos.
-    - awoos!
-    - awooing.
-    - awooed.
+    - awoo
+    - awoos
+    - awooing
+    - awooed
