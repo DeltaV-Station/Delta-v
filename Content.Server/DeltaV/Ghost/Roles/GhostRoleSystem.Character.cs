@@ -1,12 +1,14 @@
 ﻿using Content.Server.Administration.Commands;
+using Content.Server.Antag.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
+using Content.Server.Objectives.Components;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Ghost.Roles
 {
@@ -44,6 +46,15 @@ namespace Content.Server.Ghost.Roles
 
             if (outfit != null)
                 SetOutfitCommand.SetOutfit(mob, outfit, _entityManager);
+
+            if (component.MindShield)
+            {
+                EnsureComp<MindShieldComponent>(mob);
+                EnsureComp<AntagImmuneComponent>(mob);
+            }
+
+            if (component.TargetObjectiveImmune)
+                EnsureComp<TargetObjectiveImmuneComponent>(mob);
 
             if (++component.CurrentTakeovers < component.AvailableTakeovers)
             {

@@ -7,16 +7,28 @@
     [Access(typeof(GhostRoleSystem))]
     public sealed partial class GhostRoleCharacterSpawnerComponent : Component
     {
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("deleteOnSpawn")]
+        [DataField]
         public bool DeleteOnSpawn = true;
 
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("availableTakeovers")]
+        [DataField]
         public int AvailableTakeovers = 1;
 
         [ViewVariables]
         public int CurrentTakeovers = 0;
 
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("outfitPrototype")]
+        [DataField]
         public string OutfitPrototype = "PassengerGear";
+
+        /// <summary>
+        ///  Whether to give the MindShield and AntagImmune components on spawn.
+        /// </summary>
+        [DataField]
+        public bool MindShield;
+
+        /// <summary>
+        /// Whether to give the TargetObjectiveImmune component on spawn.
+        /// </summary>
+        [DataField]
+        public bool TargetObjectiveImmune;
     }
 }
