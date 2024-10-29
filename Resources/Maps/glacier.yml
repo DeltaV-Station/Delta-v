@@ -29982,6 +29982,16 @@ entities:
     - type: Transform
       pos: 38.5,59.5
       parent: 2
+  - uid: 17990
+    components:
+    - type: Transform
+      pos: -5.5,17.5
+      parent: 2
+  - uid: 17991
+    components:
+    - type: Transform
+      pos: -33.5,33.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 3087
@@ -76068,6 +76078,13 @@ entities:
     - type: Transform
       pos: -16.5,15.5
       parent: 2
+- proto: GunSafeLaserCarbine
+  entities:
+  - uid: 14378
+    components:
+    - type: Transform
+      pos: -20.5,11.5
+      parent: 2
 - proto: Gyroscope
   entities:
   - uid: 10043
@@ -103325,12 +103342,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-6.5
       parent: 2
-  - uid: 14378
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,11.5
-      parent: 2
   - uid: 14379
     components:
     - type: Transform
@@ -114538,7 +114549,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4934.469
+      secondsUntilStateChange: -5010.42
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114554,7 +114565,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4933.903
+      secondsUntilStateChange: -5009.8535
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114576,7 +114587,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4933.436
+      secondsUntilStateChange: -5009.3867
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114592,7 +114603,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -4934.969
+      secondsUntilStateChange: -5010.92
       state: Opening
     - type: Airlock
       autoClose: False
