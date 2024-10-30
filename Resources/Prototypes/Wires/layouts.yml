@@ -189,3 +189,13 @@
   wires:
   - !type:PowerWireAction
   - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: FireLock
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 20
+  - !type:DoorBoltWireAction
+  - !type:DoorBoltLightWireAction
+  - !type:LogWireAction
+  - !type:AiInteractWireAction

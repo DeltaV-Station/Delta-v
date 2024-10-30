@@ -157,8 +157,8 @@
         - state: door_remotescreencolour
           color: "#e02020"
     - type: Access
-      tags:
-        - Maintenance
+      groups:
+      - FireFight
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
