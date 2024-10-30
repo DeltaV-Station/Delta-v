@@ -135,6 +135,10 @@
           conditions:
             - !type:DoorWelded
               welded: true
+            - !type:DoorBolted
+              value: false
+            - !type:WirePanel {}
+            - !type:AllWiresCut
           steps:
             - tool: Anchoring
               doAfter: 0.25
@@ -168,6 +172,10 @@
           conditions:
             - !type:EntityAnchored
               anchored: true
+            - !type:DoorBolted
+              value: false
+            - !type:WirePanel {}
+            - !type:AllWiresCut
           steps:
             - tool: Anchoring
               doAfter: 1
@@ -182,6 +190,10 @@
           conditions:
             - !type:DoorWelded
               welded: true
+            - !type:DoorBolted
+              value: false
+            - !type:WirePanel {}
+            - !type:AllWiresCut
           steps:
             - tool: Anchoring
               doAfter: 0.25
