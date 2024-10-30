@@ -89,7 +89,7 @@
   description: It's a timer for brig cells.
   components:
   - type: AccessReader
-    access: [["Security"], ["Prosecutor"], ["Clerk"]] # DeltaV - Added justice dept
+    access: [["Security"]]
   - type: Construction
     graph: Timer
     node: brig

@@ -30,15 +30,15 @@
     stealGroup: WeaponEnergyGunMultiphase
     owner: job-name-hos
 
-- type: entity # Clerk steal objective.
+- type: entity # Prosecutor steal objective.
   parent: BaseTraitorStealObjective
-  id: ClerkNotaryStealObjective
+  id: ProsecutorNotaryStealObjective
   components:
   - type: NotJobRequirement
-    job: Clerk
+    job: Prosecutor
   - type: StealCondition
     stealGroup: RubberStampNotary
-    owner: job-name-clerk
+    owner: job-name-prosecutor
 
 - type: entity
   abstract: true

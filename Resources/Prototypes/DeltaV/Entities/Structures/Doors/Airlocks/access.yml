@@ -18,31 +18,13 @@
       board: [ DoorElectronicsMantis ]
 
 - type: entity
-  parent: AirlockCommand
-  id: AirlockChiefJusticeLocked
-  suffix: Chief Justice, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsChiefJustice ]
-
-- type: entity
-  parent: AirlockCommandGlass
-  id: AirlockChiefJusticeGlassLocked
-  suffix: Chief Justice, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsChiefJustice ]
-
-- type: entity
   parent: AirlockJustice
   id: AirlockJusticeLocked
   suffix: Justice, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsJustice ]
+      board: [ DoorElectronicsSecurityLawyer ]
 
 - type: entity
   parent: AirlockJusticeGlass
@@ -51,7 +33,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsJustice ]
+      board: [ DoorElectronicsSecurityLawyer ]
 
 - type: entity
   parent: AirlockJustice
@@ -60,7 +42,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsProsecutor ]
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: AirlockJusticeGlass
@@ -69,63 +51,9 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsProsecutor ]
-
-- type: entity
-  parent: AirlockJustice
-  id: AirlockClerkLocked
-  suffix: Clerk, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsClerk ]
-
-- type: entity
-  parent: AirlockJusticeGlass
-  id: AirlockClerkGlassLocked
-  suffix: Clerk, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsClerk ]
+      board: [ DoorElectronicsSecurity ]
 
 # Maintenance
-- type: entity
-  parent: AirlockMaint
-  id: AirlockMaintChiefJusticeLocked
-  suffix: ChiefJustice, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsChiefJustice ]
-
-- type: entity
-  parent: AirlockMaint
-  id: AirlockMaintJusticeLocked
-  suffix: Justice, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsJustice ]
-
-- type: entity
-  parent: AirlockMaint
-  id: AirlockMaintProsecutorLocked
-  suffix: Prosecutor, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsProsecutor ]
-
-- type: entity
-  parent: AirlockMaint
-  id: AirlockMaintClerkLocked
-  suffix: Clerk, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsClerk ]
-
 - type: entity
   parent: AirlockSecurity
   id: AirlockCorpsmanLocked

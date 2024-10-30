@@ -1268,10 +1268,10 @@
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
   loadouts:
-#  - DetectiveJumpsuit # DeltaV - removed for incongruence
-#  - DetectiveJumpskirt # DeltaV - removed for incongruence
-#  - NoirJumpsuit # DeltaV - removed for incongruence
-#  - NoirJumpskirt # DeltaV - removed for incongruence
+  - DetectiveJumpsuit
+  - DetectiveJumpskirt
+  - NoirJumpsuit
+  - NoirJumpskirt
   - ForensicSpecJumpsuit # DeltaV
   - ForensicSpecJumpskirt # DeltaV
   - ForensicSpecTurtlesuit # DeltaV
@@ -1282,7 +1282,7 @@
   name: loadout-group-detective-outerclothing
   minLimit: 0
   loadouts:
-#  - DetectiveArmorVest # DeltaV - removed for incongruence
+  - DetectiveArmorVest
 #  - DetectiveCoat # DeltaV - removed for incongruence
   - StasecWinterCoatDet # DeltaV
   - PlateCarrier # DeltaV
