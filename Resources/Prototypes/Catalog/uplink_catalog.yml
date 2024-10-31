@@ -978,23 +978,23 @@
   categories:
   - UplinkDisruption
 
-- type: listing
-  id: UplinkPowerSink
-  name: uplink-power-sink-name
-  description: uplink-power-sink-desc
-  productEntity: PowerSink
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3 # DeltaV - was 4
-  cost:
-    Telecrystal: 6 # DeltaV - was 8
-  categories:
-  - UplinkDisruption
-  conditions:
-  - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+#- type: listing
+ # id: UplinkPowerSink
+#  name: uplink-power-sink-name
+#  description: uplink-power-sink-desc
+#  productEntity: PowerSink
+# discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 3 # DeltaV - was 4
+#  cost:
+#    Telecrystal: 6 # DeltaV - was 8
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+ # - !type:BuyerWhitelistCondition
+#      blacklist:
+ #       components:
+ #         - SurplusBundle
 
 - type: listing
   id: UplinkAntimovCircuitBoard
