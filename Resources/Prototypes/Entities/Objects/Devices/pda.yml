@@ -722,6 +722,14 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssist # DeltaV
+    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+    - LogProbeCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -770,6 +778,16 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+      - LogProbeCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -791,6 +809,9 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
+      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+      - MedTekCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -884,14 +905,6 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
-    cartridgeSlot:
-      priority: -1
-      name: Cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -909,6 +922,16 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-ert
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+      - LogProbeCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: ERTLeaderPDA
@@ -949,14 +972,6 @@
   components:
   - type: Pda
     id: ERTMedicIDCard
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - SecWatchCartridge # DeltaV: SecWatch replaces wantedList
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1058,6 +1073,14 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge # DeltaV
+    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+    - LogProbeCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1074,14 +1097,14 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
+  - type: CartridgeLoader
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge # DeltaV
+    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+    - MedTekCartridge
 
 - type: entity
   parent: ClownPDA
@@ -1198,11 +1221,3 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
-    cartridgeSlot:
-      priority: -1
-      name: Cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge
