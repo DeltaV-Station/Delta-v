@@ -487,6 +487,13 @@
   - type: Pda
     id: LawyerIDCard
     state: pda-lawyer
+  # DeltaV - Moved to BaseJusticePDA
+  #  penSlot:
+  #    startingItem: LuxuryPen
+  #    priority: -1
+  #    whitelist:
+  #      tags:
+  #      - Write
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
