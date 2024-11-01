@@ -76,6 +76,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -115,7 +116,8 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
-      
+      - SecWatchCartridge
+
 - type: entity
   parent: BasePDA
   id: ProsecutorPDA
@@ -154,6 +156,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: SyndiPDA
