@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: Samsterious
-  changes:
-  - message: Character name restrictions are more permissive.
-    type: Tweak
-  id: 134
-  time: '2023-11-10T15:08:02.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Revolutionaries are now fewer in number.
-    type: Tweak
-  id: 135
-  time: '2023-11-10T15:08:26.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Head lockers now contain their respective head's spare ID card where
@@ -3694,3 +3682,18 @@
   id: 633
   time: '2024-11-01T13:29:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2082
+- author: Radezolid
+  changes:
+  - message: Fixed the Mail Carrier PDA not coming with the MailMetrics program!
+    type: Fix
+  id: 634
+  time: '2024-11-02T02:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2086
+- author: Radezolid
+  changes:
+  - message: Added an Agent ID to LPO for them to fake signatures, plus a backpack
+      to store all those illegal documents!.
+    type: Add
+  id: 635
+  time: '2024-11-02T14:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2009
