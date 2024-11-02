@@ -43,6 +43,10 @@
         whitelist:
           components:
           - Food
+        blacklist:
+          components:
+          - Storage
+          - ItemSlots
         insertOnInteract: true
         priority: 2
       cash_slot:
