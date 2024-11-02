@@ -132,6 +132,9 @@
       damage:
         types:
           Heat: 3
+    - type: IgniteOnCollide
+      fireStacks: 1
+      count: 10
 
 #- type: entity
 #  id: LiquefiedMethane
