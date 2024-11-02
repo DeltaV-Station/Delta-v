@@ -139,11 +139,11 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        Amount: 2
+          amount: 2 #DeltaV - Double the tanks
         - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
-        Amount: 2
+          amount: 2 #DeltaV - Double the suits
         - id: ClothingMaskBreath
-        Amount: 2
+          amount: 2 #Delta-V Double the masks
   - type: AccessReader
     access: [["Security"]]
 
