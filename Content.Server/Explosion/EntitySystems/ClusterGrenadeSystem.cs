@@ -127,7 +127,7 @@ public sealed class ClusterGrenadeSystem : EntitySystem
         if (clug.RandomSpread)
             direction = _random.NextVector2().Normalized();
 
-        _gun.ShootProjectile(grenade, direction, Vector2.One.Normalized(), clugUid);
+        _gun.ShootProjectile(grenade, direction, Vector2.One.Normalized());// , clugUid
 
     }
 
