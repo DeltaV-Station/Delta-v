@@ -340,14 +340,11 @@ public sealed partial class AtmosAlertsComputerWindow : FancyWindow
         if (blip == null)
             return false;
 
-        // DeltaV: fix client until upstream does
         // Color the region based on alarm state and entity tracking
-        var output = blip.Value.Item2 * new Color(154, 154, 154);
+        color = blip.Value.Item2 * new Color(154, 154, 154);
 
         if (_trackedEntity != null && _trackedEntity != regionOwner)
-            output *= Color.DimGray;
-
-        color = output;
+            color *= Color.DimGray;
 
         return true;
     }
