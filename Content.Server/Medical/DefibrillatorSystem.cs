@@ -156,36 +156,36 @@ public sealed class DefibrillatorSystem : EntitySystem
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-unrevivable"),
                 InGameICChatType.Speak, true);
-       }
-       else
-       {
-           if (_mobState.IsCritical(target, mob)) //DeltaV -  change to only work on critical
-              _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
+        }
+        else
+        {
+            if (_mobState.IsCritical(target, mob)) //DeltaV -  change to only work on critical
+                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
 
-           if (_mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var threshold) &&
-              TryComp<DamageableComponent>(target, out var damageableComponent) &&
-              damageableComponent.TotalDamage < threshold)
-          {
-              _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
-              dead = true;
-          }
+            if (_mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var threshold) &&
+                TryComp<DamageableComponent>(target, out var damageableComponent) &&
+                damageableComponent.TotalDamage < threshold)
+            {
+                _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
+                dead = true;
+            }
          
-          if (_mind.TryGetMind(target, out _, out var mind) &&
-              mind.Session is { } playerSession)
-          {
-              session = playerSession;
-              if (mind.CurrentEntity != target)
-              {
-                  _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
-              }
-          }
-          else
-          
-          {
-              _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
-                  InGameICChatType.Speak, true);
-          }
-       }
+            if (_mind.TryGetMind(target, out _, out var mind) &&
+                mind.Session is { } playerSession)
+            {
+                session = playerSession;
+                // notify them they're being revived.
+                if (mind.CurrentEntity != target)
+                {
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
+                }
+            }
+            else
+            {
+                _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
+                    InGameICChatType.Speak, true);
+            }
+        }
 
         var sound = dead || session == null
             ? component.FailureSound
