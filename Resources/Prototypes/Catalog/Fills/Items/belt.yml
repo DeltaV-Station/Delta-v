@@ -46,10 +46,12 @@
   table: !type:AllSelector
     children:
     - id: Stunbaton
+    - id: GrenadeFlashBang # DeltaV: revert upstream #32291
+    - id: TearGasGrenade # DeltaV
     - id: Handcuffs
     - id: Handcuffs
-    - id: HoloprojectorSecurity
-    - id: RadioHandheldSecurity
+    #- id: HoloprojectorSecurity # DeltaV
+    #- id: RadioHandheldSecurity # DeltaV
 
 - type: entity
   id: ClothingBeltSecurityFilled
