@@ -52,7 +52,7 @@
       state: "creampie_human"
       visible: false
   - type: DamageVisuals
-    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    thresholds: [ 10, 20, 30, 50, 70, 120 ] #DeltaV, crit went up in base.yml
     targetLayers:
     - "enum.HumanoidVisualLayers.Chest"
     - "enum.HumanoidVisualLayers.Head"

@@ -39,7 +39,7 @@
     - type: Defibrillator
       zapHeal:
         types:
-          Asphyxiation: -40
+          Asphyxiation: -100 #DeltaV, doesnt revive dead anymore but reduces massive amounts of aspyx.
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
