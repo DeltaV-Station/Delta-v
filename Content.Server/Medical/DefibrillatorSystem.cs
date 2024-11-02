@@ -169,7 +169,7 @@ public sealed class DefibrillatorSystem : EntitySystem
                 _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
                 dead = true;
             }
-         
+
             if (_mind.TryGetMind(target, out _, out var mind) &&
                 mind.Session is { } playerSession)
             {
