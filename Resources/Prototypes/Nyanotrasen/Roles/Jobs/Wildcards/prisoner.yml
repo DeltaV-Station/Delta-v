@@ -6,7 +6,6 @@
   startingGear: PrisonerGear
   alwaysUseSpawner: true
   canBeAntag: false
-#  whitelistRequired: true
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-security
   requirements:
@@ -30,6 +29,8 @@
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.0
       baseSprintSpeed : 3.0
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplant ]
 
 - type: startingGear
   id: PrisonerGear
