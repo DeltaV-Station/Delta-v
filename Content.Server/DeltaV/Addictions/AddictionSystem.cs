@@ -1,8 +1,7 @@
 using Content.Shared.Dataset;
 using Content.Shared.DeltaV.Addictions;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
-using Robust.Server.Player;
+using Microsoft.CodeAnalysis;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -23,6 +22,9 @@ public sealed class AddictionSystem : SharedAddictionSystem
     // Maximum time between popups
     private const int MaxEffectInterval = 41;
 
+    // The time to add after the last metabolism cycle
+    private const int SuppressionDuration = 10;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -41,7 +43,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
             // If it's suppressed, check if it's still supposed to be
             if (component.Suppressed)
             {
-                UpdateSuppressed(uid, component);
+                UpdateSuppressed(component);
                 continue;
             }
 
@@ -54,32 +56,20 @@ public sealed class AddictionSystem : SharedAddictionSystem
     }
 
     // Make sure we don't get a popup on the first update
-    private void OnInit(EntityUid uid, AddictedComponent component, ComponentStartup args)
+    private void OnInit(Entity<AddictedComponent> ent, ref ComponentStartup args)
     {
         var curTime = _timing.CurTime;
-        component.NextEffectTime = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
+        ent.Comp.NextEffectTime = curTime + TimeSpan.FromSeconds(_random.Next(MinEffectInterval, MaxEffectInterval));
     }
 
-    private void UpdateSuppressed(EntityUid uid, AddictedComponent component)
+    private void UpdateSuppressed(AddictedComponent component)
     {
-        var componentTime = component.LastMetabolismTime + TimeSpan.FromSeconds(10); // Ten seconds after the last metabolism cycle
-        var shouldBeSupressed = (componentTime > _timing.CurTime);
-        if (component.Suppressed != shouldBeSupressed)
-        {
-            component.Suppressed = shouldBeSupressed;
-        }
-        else
-            return;
+        component.Suppressed = (_timing.CurTime < component.SuppressionEndTime);
     }
 
     private string GetRandomPopup()
     {
         return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("AddictionEffects").Values));
-    }
-
-    public override void TryApplyAddiction(EntityUid uid, float addictionTime, StatusEffectsComponent? status = null)
-    {
-        base.TryApplyAddiction(uid, addictionTime, status);
     }
 
     private void DoAddictionEffect(EntityUid uid)
@@ -90,10 +80,11 @@ public sealed class AddictionSystem : SharedAddictionSystem
     // Called each time a reagent with the Addicted effect gets metabolized
     protected override void UpdateTime(EntityUid uid)
     {
-        if (TryComp<AddictedComponent>(uid, out var component))
-        {
-            component.LastMetabolismTime = _timing.CurTime;
-            UpdateSuppressed(uid, component);
-        }
+        if (!TryComp<AddictedComponent>(uid, out var component))
+            return;
+
+        component.LastMetabolismTime = _timing.CurTime;
+        component.SuppressionEndTime = _timing.CurTime + TimeSpan.FromSeconds(SuppressionDuration);
+        UpdateSuppressed(component);
     }
 }

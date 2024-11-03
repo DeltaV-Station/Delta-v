@@ -1,14 +1,11 @@
-
-using Content.Shared.DeltaV.Addictions;
 using Content.Shared.StatusEffect;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.DeltaV.Addictions;
 
 public abstract class SharedAddictionSystem : EntitySystem
 {
-    [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     public ProtoId<StatusEffectPrototype> StatusEffectKey = "Addicted";
 
@@ -21,13 +18,13 @@ public abstract class SharedAddictionSystem : EntitySystem
 
         UpdateTime(uid);
 
-        if (!StatusEffects.HasStatusEffect(uid, StatusEffectKey, status))
+        if (!_statusEffects.HasStatusEffect(uid, StatusEffectKey, status))
         {
-            StatusEffects.TryAddStatusEffect<AddictedComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), true, status);
+            _statusEffects.TryAddStatusEffect<AddictedComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), true, status);
         }
         else
         {
-            StatusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), status);
+            _statusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), status);
         }
     }
 }
