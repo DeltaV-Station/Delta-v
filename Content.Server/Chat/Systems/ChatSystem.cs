@@ -8,9 +8,8 @@ using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.Hushing;
 using Content.Server.Nyanotrasen.Chat;
-using Content.Server.Speech.Components;
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -214,11 +213,20 @@ public sealed partial class ChatSystem : SharedChatSystem
             _chatManager.EnsurePlayer(player.UserId).AddEntity(GetNetEntity(source));
         }
 
-        if (desiredType == InGameICChatType.Speak && message.StartsWith(LocalPrefix))
+        if (desiredType == InGameICChatType.Speak)
         {
-            // prevent radios and remove prefix.
-            checkRadioPrefix = false;
-            message = message[1..];
+            if (message.StartsWith(LocalPrefix))
+            {
+                // prevent radios and remove prefix.
+                checkRadioPrefix = false;
+                message = message[1..];
+            }
+            
+            if (HasComp<HushedComponent>(source))
+            {
+                // hushed players cannot speak on local chat so will be sent as whisper instead
+                desiredType = InGameICChatType.Whisper;
+            }
         }
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
