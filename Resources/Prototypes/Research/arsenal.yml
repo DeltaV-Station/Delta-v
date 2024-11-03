@@ -15,26 +15,27 @@
   # These are roundstart but not replenishable for salvage
 
 - type: technology
-  id: DraconicMunitions
-  name: research-technology-draconic-munitions
+  id: BasicShuttleArmament
+  name: research-technology-basic-shuttle-armament
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
-    state: incendiarydisplay
+    sprite: Structures/Power/cage_recharger.rsi
+    state: full
   discipline: Arsenal
-  tier: 1
-  cost: 10000
+  tier: 1 #Delta-V moved to T1
+  cost: 10500
   recipeUnlocks:
-  - BoxShotgunIncendiary
-  - MagazineRifleIncendiary
-  - MagazinePistolIncendiary
-  - MagazineLightRifleIncendiary
-  - SpeedLoaderMagnumIncendiary
-  - MagazineShotgunIncendiary
-  - MagazineBoxPistolIncendiary
-  - MagazineBoxMagnumIncendiary
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxSpecialIncendiary # DeltaV
+  - PowerCageRechargerCircuitboard
+  - PowerCageSmall
+  - PowerCageMedium
+  - MagazineGrenadeEmpty
+  - GrenadeFlash
+  - GrenadeBlast 
+  - ShuttleGunSvalinnMachineGunCircuitboard
+  - ShuttleGunPerforatorCircuitboard
+  - ShuttleGunFriendshipCircuitboard
+  technologyPrerequisites:
+  - SalvageWeapons
+  - ExplosiveTechnology
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -75,29 +76,7 @@
   - MagazineBoxSpecialRubber
   # End of modified code
 
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
-  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-  - SpeedLoaderSpecialUranium
-  - MagazineBoxSpecialUranium
-  # End of modified code
+
 
 - type: technology
   id: AdvancedRiotControl
@@ -157,43 +136,98 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 12500 #DeltaV- Raised to 12500 from 10000 
   recipeUnlocks:
   - WeaponLaserCannon
+  - WeaponXrayCannon 
+
+  - type: technology
+  id: UraniumMunitions
+  name: research-technology-uranium-munitions
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: uranium
+  discipline: Arsenal
+  tier: 2 #Delta-V moved to t2
+  cost: 7500
+  recipeUnlocks:
+  - MagazineRifleUranium
+  - MagazinePistolUranium
+  - MagazineLightRifleUranium
+  - SpeedLoaderMagnumUranium
+  - MagazineBoxPistolUranium
+  - MagazineBoxMagnumUranium
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxRifleUranium
+  - BoxShotgunUranium
+  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
+  - SpeedLoaderSpecialUranium
+  - MagazineBoxSpecialUranium
+  # End of modified code
+
+#Delta-V merged with concentrated laser weaponry
+#- type: technology 
+#  id: WaveParticleHarnessing
+#  name: research-technology-wave-particle-harnessing
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+#    state: icon
+#  discipline: Arsenal
+#  tier: 2
+#  cost: 10000
+ # recipeUnlocks:
+  #- WeaponXrayCannon 
 
 - type: technology
-  id: WaveParticleHarnessing
-  name: research-technology-wave-particle-harnessing
+  id: DraconicMunitions
+  name: research-technology-draconic-munitions
   icon:
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    state: incendiarydisplay
+  discipline: Arsenal
+  tier: 2 #Delta-V moved to t2
+  cost: 10000
+  recipeUnlocks:
+  - BoxShotgunIncendiary
+  - MagazineRifleIncendiary
+  - MagazinePistolIncendiary
+  - MagazineLightRifleIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - MagazineShotgunIncendiary
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxRifleIncendiary
+  - MagazineBoxSpecialIncendiary # DeltaV
+
+- type: technology
+  id: ExperimentalBatteryAmmo
+  name: research-technology-experimental-battery-ammo
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2 #Delta-V moved to t2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLaserSvalinn
+
+
+- type: technology
+  id: AdvancedShuttleWeapon
+  name: research-technology-advanced-shuttle-weapon
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 15000
   recipeUnlocks:
-  - WeaponXrayCannon
-
-- type: technology
-  id: BasicShuttleArmament
-  name: research-technology-basic-shuttle-armament
-  icon:
-    sprite: Structures/Power/cage_recharger.rsi
-    state: full
-  discipline: Arsenal
-  tier: 2
-  cost: 10500
-  recipeUnlocks:
-  - PowerCageRechargerCircuitboard
-  - PowerCageSmall
-  - PowerCageMedium
-  - MagazineGrenadeEmpty
-  - GrenadeFlash
-  - GrenadeBlast 
-  - ShuttleGunSvalinnMachineGunCircuitboard
-  - ShuttleGunPerforatorCircuitboard
-  - ShuttleGunFriendshipCircuitboard
+  - GrenadeEMP
+  - PowerCageHigh
+  - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
-  - SalvageWeapons
+  - BasicShuttleArmament
 
 # Tier 3
 
@@ -209,30 +243,5 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
 
-- type: technology
-  id: AdvancedShuttleWeapon
-  name: research-technology-advanced-shuttle-weapon
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - GrenadeEMP
-  - PowerCageHigh
-  - ShuttleGunDusterCircuitboard
-  technologyPrerequisites:
-  - BasicShuttleArmament
+
