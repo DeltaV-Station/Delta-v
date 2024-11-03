@@ -71,11 +71,6 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
             return;
         }
 
-        if (basePrice > StockMarketSystem.MaxPrice)
-        {
-            shell.WriteLine(Loc.GetString("cmd-changestocksprice-more-than-max"));
-        }
-
         var name = args[0];
 
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
@@ -85,7 +80,7 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
         {
             if (stockMarket.TryAddCompany(uid, comp, basePrice, name))
                 continue;
-            shell.WriteLine(Loc.GetString("cmd-addstockscompany-already-exists")); // Assume it can't fail for other reasons :blunt:
+            shell.WriteLine(Loc.GetString("cmd-addstockscompany-failure"));
             return;
         }
 
