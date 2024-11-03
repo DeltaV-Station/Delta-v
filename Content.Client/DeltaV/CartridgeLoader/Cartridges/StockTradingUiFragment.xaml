@@ -1,0 +1,39 @@
+<cartridges:StockTradingUiFragment
+    xmlns="https://spacestation14.io"
+    xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
+    Margin="5"
+    VerticalExpand="True">
+
+    <!-- A parent container to hold the balance label and main content -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Control HorizontalExpand="True" />
+            <Label Name="Balance"
+                   Text="Balance: 0"
+                   HorizontalAlignment="Right"
+                   StyleClasses="Label" />
+        </BoxContainer>
+
+        <!-- Main content of the UI -->
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <Label Text="Intergalactic Stock Market"
+                   HorizontalExpand="True"
+                   HorizontalAlignment="Center"
+                   StyleClasses="Heading" />
+
+            <Label Name="NoEntries"
+                   Text="No entries"
+                   HorizontalExpand="True"
+                   HorizontalAlignment="Center"
+                   Visible="False" />
+
+            <ScrollContainer HorizontalExpand="True"
+                             VerticalExpand="True"
+                             Margin="0,10,0,0">
+                <BoxContainer Name="Entries"
+                              Orientation="Vertical"
+                              VerticalAlignment="Top" />
+            </ScrollContainer>
+        </BoxContainer>
+    </BoxContainer>
+</cartridges:StockTradingUiFragment>
