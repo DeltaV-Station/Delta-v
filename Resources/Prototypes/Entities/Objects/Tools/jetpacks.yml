@@ -59,10 +59,10 @@
       price: 100
 #    - type: DynamicPrice
 #      price: 100
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # DeltaV: all jetpacks can RE to void jetpacks, the best kind which can't be bought
       difficulty: 3
       recipes:
-        - JetpackBlue
+      - JetpackVoid
 
 - type: entity
   id: ActionToggleJetpack
@@ -205,10 +205,6 @@
       outputPressure: 42.6
       air:
         volume: 1.5
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - JetpackMini
 
 # Filled mini
 - type: entity
@@ -277,10 +273,6 @@
       - Back
       - suitStorage
       - Belt
-  - type: ReverseEngineering # DeltaV - make void jetpack RE'able
-    difficulty: 4
-    recipes:
-    - JetpackVoid
 
 # Filled void
 - type: entity

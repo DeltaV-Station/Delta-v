@@ -198,7 +198,7 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
-      - Flare
+      - FreezerElectronics
       # Begin Delta-V additions
       - GoldRing
       - SilverRing
@@ -208,7 +208,6 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -236,6 +235,7 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
+      - MagazinePistolSpecial
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -370,6 +370,7 @@
       - RCDAmmo
       - Fulton
       - FultonBeacon
+      - PowerCellHyper
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -484,6 +485,7 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - FloorRedCircuit
     - MicrowaveMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - ElectricGrillMachineCircuitboard
@@ -713,8 +715,6 @@
     - HamtrRLeg
     - VimHarness
   # Begin Nyano additions
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
@@ -723,6 +723,10 @@
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
+  - type: EmagLatheRecipes
+    emagDynamicRecipes:
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
   # DeltaV End
   - type: MaterialStorage
     whitelist:
@@ -807,7 +811,6 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -932,6 +935,8 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -970,7 +975,6 @@
         - MagazineBoxSpecial
         # End of modified code
         - BoxLethalshot
-        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -1317,8 +1321,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    insertOnInteract: false
-    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:

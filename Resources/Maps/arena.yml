@@ -530,8 +530,8 @@ entities:
     - type: Broadphase
     - type: Physics
       bodyStatus: InAir
-      angularDamping: 10000
-      linearDamping: 10000
+      angularDamping: 0.05
+      linearDamping: 0.05
       fixedRotation: False
       bodyType: Dynamic
     - type: Fixtures
@@ -11356,9 +11356,6 @@ entities:
           - 0
         chunkSize: 4
     - type: OccluderTree
-    - type: Shuttle
-      angularDamping: 10000
-      linearDamping: 10000
     - type: GridPathfinding
     - type: RadiationGridResistance
     - type: BecomesStation

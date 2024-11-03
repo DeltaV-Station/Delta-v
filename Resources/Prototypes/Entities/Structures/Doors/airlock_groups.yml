@@ -2,35 +2,37 @@
   id: Standard
   iconPriority: 100
   stylePaths:
-    atmospherics: DeltaV/Structures/Doors/Airlocks/Standard/atmospherics.rsi # Delta V - Door resprite
-    basic:       DeltaV/Structures/Doors/Airlocks/Standard/basic.rsi # Delta V - Door resprite
-    cargo:       DeltaV/Structures/Doors/Airlocks/Standard/cargo.rsi # Delta V - Door resprite
-    command:     DeltaV/Structures/Doors/Airlocks/Standard/command.rsi # Delta V - Door resprite
-    engineering: DeltaV/Structures/Doors/Airlocks/Standard/engineering.rsi # Delta V - Door resprite
-    freezer:     DeltaV/Structures/Doors/Airlocks/Standard/freezer.rsi # Delta V - Door resprite
-    maintenance: DeltaV/Structures/Doors/Airlocks/Standard/maint.rsi # Delta V - Door resprite
-    medical:     DeltaV/Structures/Doors/Airlocks/Standard/medical.rsi # Delta V - Door resprite
-    science:     DeltaV/Structures/Doors/Airlocks/Standard/science.rsi # Delta V - Door resprite
-    security:    DeltaV/Structures/Doors/Airlocks/Standard/security.rsi # Delta V - Door resprite
-    virology:    DeltaV/Structures/Doors/Airlocks/Standard/virology.rsi # Delta V - Door resprite
-    justice:     DeltaV/Structures/Doors/Airlocks/Standard/justice.rsi # Delta V - Add Justice Dept
+    atmospherics: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    basic:       Structures/Doors/Airlocks/Standard/basic.rsi
+    cargo:       Structures/Doors/Airlocks/Standard/cargo.rsi
+    chemistry:   Structures/Doors/Airlocks/Standard/chemistry.rsi
+    command:     Structures/Doors/Airlocks/Standard/command.rsi
+    engineering: Structures/Doors/Airlocks/Standard/engineering.rsi
+    freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
+    hydroponics: Structures/Doors/Airlocks/Standard/hydroponics.rsi
+    maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
+    medical:     Structures/Doors/Airlocks/Standard/medical.rsi
+    science:     Structures/Doors/Airlocks/Standard/science.rsi
+    security:    Structures/Doors/Airlocks/Standard/security.rsi
+    virology:    Structures/Doors/Airlocks/Standard/virology.rsi
 
 - type: AirlockGroup
   id: Glass
   iconPriority: 90
   stylePaths:
-    atmospherics: DeltaV/Structures/Doors/Airlocks/Glass/atmospherics.rsi # Delta V - Door resprite
-    basic:       DeltaV/Structures/Doors/Airlocks/Glass/basic.rsi # Delta V - Door resprite
-    command:     DeltaV/Structures/Doors/Airlocks/Glass/command.rsi # Delta V - Door resprite
-    science:     DeltaV/Structures/Doors/Airlocks/Glass/science.rsi # Delta V - Door resprite
-    cargo:       DeltaV/Structures/Doors/Airlocks/Glass/cargo.rsi # Delta V - Door resprite
-    engineering: DeltaV/Structures/Doors/Airlocks/Glass/engineering.rsi # Delta V - Door resprite
-    glass:       DeltaV/Structures/Doors/Airlocks/Glass/glass.rsi # Delta V - Door resprite
-    maintenance: DeltaV/Structures/Doors/Airlocks/Glass/maint.rsi # Delta V - Door resprite
-    medical:     DeltaV/Structures/Doors/Airlocks/Glass/medical.rsi # Delta V - Door resprite
-    security:    DeltaV/Structures/Doors/Airlocks/Glass/security.rsi # Delta V - Door resprite
-    virology:    DeltaV/Structures/Doors/Airlocks/Glass/virology.rsi # Delta V - Door resprite
-    justice:     DeltaV/Structures/Doors/Airlocks/Glass/justice.rsi # Delta V - Add Justice Dept
+    atmospherics: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    basic:       Structures/Doors/Airlocks/Glass/basic.rsi
+    cargo:       Structures/Doors/Airlocks/Glass/cargo.rsi
+    command:     Structures/Doors/Airlocks/Glass/command.rsi
+    chemistry:   Structures/Doors/Airlocks/Glass/chemistry.rsi
+    science:     Structures/Doors/Airlocks/Glass/science.rsi
+    engineering: Structures/Doors/Airlocks/Glass/engineering.rsi
+    glass:       Structures/Doors/Airlocks/Glass/glass.rsi
+    hydroponics: Structures/Doors/Airlocks/Glass/hydroponics.rsi
+    maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
+    medical:     Structures/Doors/Airlocks/Glass/medical.rsi
+    security:    Structures/Doors/Airlocks/Glass/security.rsi
+    virology:    Structures/Doors/Airlocks/Glass/virology.rsi
 
 - type: AirlockGroup
   id: Windoor
@@ -68,11 +70,14 @@
   departments:
     atmospherics: Engineering
     basic: Civilian
-    cargo: Logistics
+    cargo: Logistics # DeltaV: Logistics department
+    chemistry: Medical
     command: Command
     engineering: Engineering
     freezer: Civilian
     glass: Civilian
+    hydroponics: Civilian
+    justice: Justice # DeltaV: Justice department
     maintenance: Civilian
     medical: Medical
     science: Epistemics
