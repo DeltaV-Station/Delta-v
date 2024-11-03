@@ -160,3 +160,66 @@
     - GlimmerMonster
   - type: NPCRetaliation
     attackMemoryLength: 10
+
+- type: entity
+  name: glimmer scorpion
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  id: MobGlimmerScorpion
+  description: holy fuck
+  components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Ghosts/glimmerscorpion.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: scorpy
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: scorpy
+      Dead:
+        Base: scorpy_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.7
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 5
+        Toxin: 10
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100  #im just putting whatever numbers for this shit feel free to correct me if you understand this better than i do uaeuaueaeu
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MovementIgnoreGravity
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 100
+  - type: CombatMode
+  - type: ReplacementAccent
+    accent: xeno
+  - type: PotentialPsionic
+  - type: Psionic
+  - type: NpcFactionMember
+    factions:
+    - GlimmerMonster
+  - type: NPCRetaliation
+    attackMemoryLength: 10
