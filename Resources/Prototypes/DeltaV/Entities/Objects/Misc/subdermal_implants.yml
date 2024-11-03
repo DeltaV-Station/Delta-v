@@ -9,12 +9,12 @@
     implantAction: ActionSyrinxChangeVoiceMask
     whitelist:
       components:
-      - HarpySinger
+      - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
+  - type: VoiceMask
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
-  - type: SyrinxImplant
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
