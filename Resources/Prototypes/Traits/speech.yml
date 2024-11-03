@@ -46,6 +46,18 @@
   components:
     - type: FrontalLisp
 
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: 0
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+    - type: Hushed
+
 # 2 Cost
 
 - type: trait
