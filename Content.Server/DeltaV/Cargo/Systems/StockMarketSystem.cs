@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Components;
+using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -32,6 +34,11 @@ public sealed class StockMarketSystem : EntitySystem
         }
     }
 
+    private void OnStockTradingMessage(EntityUid uid, StationStockMarketComponent component, StockTradingUiMessageEvent args)
+    {
+        if (!component.Companies.TryGetValue(args.CompanyName, out var company))
+            return;
+
     private void UpdateStockPrices(EntityUid station, StationStockMarketComponent stockMarket)
     {
         var companies = stockMarket.Companies;
@@ -42,11 +49,7 @@ public sealed class StockMarketSystem : EntitySystem
             var changeType = DetermineChangeType(stockMarket);
             var multiplier = CalculatePriceMultiplier(changeType, stockMarket);
 
-            // Store previous price in history
-            company.PriceHistory.Add(company.CurrentPrice);
-
-            if (company.PriceHistory.Count > 10) // Keep last 10 prices
-                company.PriceHistory.RemoveAt(0);
+            UpdatePriceHistory(company);
 
             // Update price with multiplier
             var oldPrice = company.CurrentPrice;
@@ -70,6 +73,86 @@ public sealed class StockMarketSystem : EntitySystem
                 LogImpact.Medium,
                 $"[StockMarket] Company '{company.Name}' price updated by {percentChange:+0.00;-0.00}% from {oldPrice:0.00} to {company.CurrentPrice:0.00}");
         }
+    }
+
+    /// <summary>
+    /// Attempts to change the price for a specific company
+    /// </summary>
+    /// <returns>True if the operation was successful, false otherwise</returns>
+    public bool TryChangeStocksPrice(EntityUid station,
+        StationStockMarketComponent stockMarket,
+        float newPrice,
+        string companyName)
+    {
+        var companies = stockMarket.Companies;
+        foreach (var key in companies.Keys.ToList())
+        {
+            var company = companies[key];
+
+            // Continue if it doesn't match the company we're looking for
+            if (company.Name != companyName)
+                continue;
+
+            UpdatePriceHistory(company);
+
+            // Update price
+            company.CurrentPrice = newPrice;
+
+            // Ensure it doesn't go below minimum threshold
+            company.CurrentPrice = MathF.Max(company.CurrentPrice, company.BasePrice * 0.1f);
+
+            // Save the modified struct back to the dictionary
+            companies[key] = company;
+
+            var ev = new StockMarketUpdatedEvent(station);
+            RaiseLocalEvent(ev);
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Attempts to add a new company to the station
+    /// </summary>
+    /// <returns>False if the company already exists, true otherwise</returns>
+    public bool TryAddCompany(EntityUid station,
+        StationStockMarketComponent stockMarket,
+        float basePrice,
+        string companyName)
+    {
+    var companies = stockMarket.Companies;
+
+    // Check if the company already exists in the dictionary
+    if (companies.ContainsKey(companyName))
+    {
+        return false;
+    }
+
+    // Create a new company struct with the specified parameters
+    var company = new StockCompanyStruct
+    {
+        Name = companyName,
+        BasePrice = basePrice,
+        CurrentPrice = basePrice,
+        PriceHistory = [],
+    };
+
+    // Add the new company to the dictionary
+    companies[companyName] = company;
+
+    var ev = new StockMarketUpdatedEvent(station);
+    RaiseLocalEvent(ev);
+
+    return true;
+    }
+
+    private static void UpdatePriceHistory(StockCompanyStruct company)
+    {
+        // Store previous price in history
+        company.PriceHistory.Add(company.CurrentPrice);
+
+        if (company.PriceHistory.Count > 10) // Keep last 10 prices
+            company.PriceHistory.RemoveAt(0);
     }
 
     private StockChangeType DetermineChangeType(StationStockMarketComponent stockMarket)

@@ -14,6 +14,7 @@ public sealed class StockTradingUiState(
     public readonly float Balance = balance;
 }
 
+// No structure, zero fucks given
 [DataDefinition, Serializable]
 public partial struct StockCompanyStruct
 {
