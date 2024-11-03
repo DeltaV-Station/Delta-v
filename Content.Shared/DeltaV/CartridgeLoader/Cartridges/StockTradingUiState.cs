@@ -30,7 +30,7 @@ public partial struct StockCompanyStruct
     [DataField]
     public List<float> PriceHistory;
 
-    public StockCompanyStruct( string name, float currentPrice, float basePrice, List<float> priceHistory)
+    public StockCompanyStruct(string name, float currentPrice, float basePrice, List<float> priceHistory)
     {
         Name = name;
         CurrentPrice = currentPrice;

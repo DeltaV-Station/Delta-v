@@ -1,6 +1,7 @@
 <cartridges:StockTradingUiFragment
     xmlns="https://spacestation14.io"
     xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     Margin="5"
     VerticalExpand="True">
 
@@ -8,8 +9,8 @@
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
         <!-- Header section with balance -->
         <PanelContainer StyleClasses="AngleRect">
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="8">
-                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0,0,10,0">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0,0,5,0">
                     <Label Text="Intergalactic Stock Market"
                            HorizontalExpand="True"
                            HorizontalAlignment="Left" />
@@ -20,8 +21,10 @@
             </BoxContainer>
         </PanelContainer>
 
+        <!-- Horizontal line under header -->
+        <customControls:HSeparator Margin="5 3 5 5"/>
+
         <!-- Main content -->
-        <Control MinHeight="10"/>
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
             <Label Name="NoEntries"
                    Text="No entries"

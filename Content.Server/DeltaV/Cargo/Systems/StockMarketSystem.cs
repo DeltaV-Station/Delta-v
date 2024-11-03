@@ -6,6 +6,7 @@ using Content.Server.DeltaV.CartridgeLoader.Cartridges;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -18,11 +19,17 @@ public sealed class StockMarketSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+
+    private ISawmill _sawmill = default!;
+    public static readonly float MaxPrice = 262144; // 1/64 of max safe integer
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _sawmill = _log.GetSawmill("admin.stock_market");
 
         SubscribeLocalEvent<StockTradingCartridgeComponent, CartridgeMessageEvent>(OnStockTradingMessage);
     }
@@ -64,6 +71,8 @@ public sealed class StockMarketSystem : EntitySystem
                     LogImpact.Medium,
                     $"[StockMarket] Selling {amount} stocks of {name}");
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         // Update UI
@@ -89,6 +98,9 @@ public sealed class StockMarketSystem : EntitySystem
 
             // Ensure price doesn't go below minimum threshold
             company.CurrentPrice = MathF.Max(company.CurrentPrice, company.BasePrice * 0.1f);
+
+            // Ensure price doesn't go above maximum threshold
+            company.CurrentPrice = MathF.Min(company.CurrentPrice, MaxPrice);
 
             // Save the modified struct back to the dictionary
             companies[key] = company;
@@ -116,6 +128,13 @@ public sealed class StockMarketSystem : EntitySystem
         float newPrice,
         string companyName)
     {
+        // Check if it exceeds the max price
+        if (newPrice > MaxPrice)
+        {
+            _sawmill.Error($"New price cannot be greater than {MaxPrice}");
+            return false;
+        }
+
         var companies = stockMarket.Companies;
         foreach (var key in companies.Keys.ToList())
         {
@@ -183,7 +202,7 @@ public sealed class StockMarketSystem : EntitySystem
         // Store previous price in history
         company.PriceHistory.Add(company.CurrentPrice);
 
-        if (company.PriceHistory.Count > 10) // Keep last 10 prices
+        if (company.PriceHistory.Count > 5) // Keep last 5 prices
             company.PriceHistory.RemoveAt(0);
     }
 

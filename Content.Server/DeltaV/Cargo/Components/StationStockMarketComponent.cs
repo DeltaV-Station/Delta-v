@@ -47,7 +47,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The interval at which the stock market updates
     /// </summary>
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(60); // 5 minutes
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(10); // 5 minutes
 
     /// <summary>
     /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
@@ -59,25 +59,25 @@ public sealed partial class StationStockMarketComponent : Component
     /// The chance for minor market changes
     /// </summary>
     [DataField]
-    public float MinorChangeChance = 0.70f; // 70%
+    public float MinorChangeChance = 0.86f; // 86%
 
     /// <summary>
     /// The chance for moderate market changes
     /// </summary>
     [DataField]
-    public float ModerateChangeChance = 0.25f; // 25%
+    public float ModerateChangeChance = 0.10f; // 10%
 
     /// <summary>
     /// The chance for major market changes
     /// </summary>
     [DataField]
-    public float MajorChangeChance = 0.04f; // 4%
+    public float MajorChangeChance = 0.03f; // 3%
 
     /// <summary>
     /// The chance for catastrophic market changes
     /// </summary>
     [DataField]
-    public float CatastrophicChangeChance = 0.01f; // 1%
+    public float CatastrophicChangeChance = 0.1f; // 1%
 
     /// <summary>
     /// The price range for minor changes
@@ -89,13 +89,13 @@ public sealed partial class StationStockMarketComponent : Component
     /// The price range for moderate changes
     /// </summary>
     [DataField]
-    public Vector2 ModerateChangeRange = new(-0.2f, 0.4f); // -20% to +40%
+    public Vector2 ModerateChangeRange = new(-0.3f, 0.2f); // -30% to +20%
 
     /// <summary>
     /// The price range for major changes
     /// </summary>
     [DataField]
-    public Vector2 MajorChangeRange = new(-0.5f, 2.0f); // -50% to +200%
+    public Vector2 MajorChangeRange = new(-0.5f, 1.5f); // -50% to +150%
 
     /// <summary>
     /// The price range for catastrophic changes

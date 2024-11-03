@@ -71,6 +71,11 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
             return;
         }
 
+        if (basePrice > StockMarketSystem.MaxPrice)
+        {
+            shell.WriteLine(Loc.GetString("cmd-changestocksprice-more-than-max"));
+        }
+
         var name = args[0];
 
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
