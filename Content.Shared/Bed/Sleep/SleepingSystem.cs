@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
-//using Content.Shared.Emoting; # DeltaV - Reverted "Block emotes for sleeping" (upstream PR #32779)
+using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.IdentityManagement;
@@ -312,7 +312,7 @@ public sealed partial class SleepingSystem : EntitySystem
         Wake((ent, ent.Comp));
         return true;
     }
-    /*   DeltaV - Reverted "Block emotes for sleeping" (upstream PR #32779)
+
     /// <summary>
     /// Prevents the use of emote actions while sleeping
     /// </summary>
@@ -320,7 +320,6 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         args.Cancel();
     }
-    */
 }
 
 
