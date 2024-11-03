@@ -11,6 +11,10 @@ public sealed partial class StockTradingUiFragment : BoxContainer
 {
     private readonly Dictionary<string, CompanyEntry> _companyEntries = new();
 
+    // Event handlers for the parent UI
+    public event Action<string, float>? OnBuyButtonPressed;
+    public event Action<string, float>? OnSellButtonPressed;
+
     public StockTradingUiFragment()
     {
         RobustXamlLoader.Load(this);
@@ -33,7 +37,7 @@ public sealed partial class StockTradingUiFragment : BoxContainer
         {
             if (!_companyEntries.TryGetValue(company.Name, out var entry))
             {
-                entry = new CompanyEntry();
+                entry = new CompanyEntry(company.Name, OnBuyButtonPressed, OnSellButtonPressed);
                 _companyEntries[company.Name] = entry;
                 Entries.AddChild(entry.Container);
             }
@@ -50,16 +54,35 @@ public sealed partial class StockTradingUiFragment : BoxContainer
         private readonly Label _priceLabel;
         private readonly Label _changeLabel;
         private readonly Button _sellButton;
+        private readonly Button _buyButton;
         private readonly Label _sharesLabel;
+        private readonly LineEdit _amountEdit;
+        private readonly string _companyName;
 
-        public CompanyEntry()
+        // Define colors
+        private static readonly Color PositiveColor = Color.FromHex("#00ff00"); // Green
+        private static readonly Color NegativeColor = Color.FromHex("#ff0000"); // Red
+        private static readonly Color NeutralColor = Color.FromHex("#ffffff"); // White
+
+        public CompanyEntry(string companyName, Action<string, float>? onBuyPressed, Action<string, float>? onSellPressed)
         {
+            _companyName = companyName;
+
             Container = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 HorizontalExpand = true,
                 Margin = new Thickness(0, 0, 0, 10),
-                StyleClasses = { "StockEntry" },
+            };
+
+            // Company info panel
+            var companyPanel = new PanelContainer();
+
+            var mainContent = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                HorizontalExpand = true,
+                Margin = new Thickness(8),
             };
 
             var topRow = new BoxContainer
@@ -71,23 +94,29 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             _nameLabel = new Label
             {
                 HorizontalExpand = true,
-                StyleClasses = { "CompanyName" },
+                Text = companyName,
             };
+
             _priceLabel = new Label
             {
-                MinWidth = 80,
-                StyleClasses = { "StockPrice" },
+                MinWidth = 100,
+                HorizontalAlignment = HAlignment.Right,
             };
+
             _changeLabel = new Label
             {
-                MinWidth = 80,
-                StyleClasses = { "PriceChange" },
+                MinWidth = 100,
+                HorizontalAlignment = HAlignment.Right,
+                Modulate = NeutralColor, // Default color
             };
 
             topRow.AddChild(_nameLabel);
             topRow.AddChild(_priceLabel);
             topRow.AddChild(_changeLabel);
+            // var graph = new PriceHistoryGraph();
+            // mainContent.AddChild(graph);
 
+            // Trading controls
             var bottomRow = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal,
@@ -95,46 +124,69 @@ public sealed partial class StockTradingUiFragment : BoxContainer
                 Margin = new Thickness(0, 5, 0, 0),
             };
 
-            var amountEdit = new LineEdit
+            _sharesLabel = new Label
+            {
+                Text = "Owned: 0",
+                MinWidth = 100,
+            };
+
+            _amountEdit = new LineEdit
             {
                 PlaceHolder = "Amount",
                 HorizontalExpand = true,
-                MinWidth = 60,
+                MinWidth = 80,
             };
 
-            var buyButton = new Button
+            var buttonContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Horizontal,
+                HorizontalAlignment = HAlignment.Right,
+                MinWidth = 140,
+            };
+
+            _buyButton = new Button
             {
                 Text = "Buy",
-                MinWidth = 60,
-                StyleClasses = { "BuyButton" },
+                MinWidth = 65,
+                Margin = new Thickness(0, 0, 5, 0),
             };
 
             _sellButton = new Button
             {
                 Text = "Sell",
-                MinWidth = 60,
-                StyleClasses = { "SellButton" },
+                MinWidth = 65,
             };
 
-            _sharesLabel = new Label
-            {
-                Text = "Owned: 0",
-                StyleClasses = { "SharesOwned" },
-            };
+            buttonContainer.AddChild(_buyButton);
+            buttonContainer.AddChild(_sellButton);
 
             bottomRow.AddChild(_sharesLabel);
-            bottomRow.AddChild(amountEdit);
-            bottomRow.AddChild(buyButton);
-            bottomRow.AddChild(_sellButton);
+            bottomRow.AddChild(_amountEdit);
+            bottomRow.AddChild(buttonContainer);
 
-            Container.AddChild(topRow);
-            Container.AddChild(bottomRow);
+            mainContent.AddChild(topRow);
+            mainContent.AddChild(bottomRow);
+            companyPanel.AddChild(mainContent);
+            Container.AddChild(companyPanel);
+
+            // Button click events
+            _buyButton.OnPressed += _ =>
+            {
+                if (float.TryParse(_amountEdit.Text, out var amount))
+                    onBuyPressed?.Invoke(_companyName, amount);
+            };
+
+            _sellButton.OnPressed += _ =>
+            {
+                if (float.TryParse(_amountEdit.Text, out var amount))
+                    onSellPressed?.Invoke(_companyName, amount);
+            };
         }
 
         public void Update(StockCompanyStruct company, int ownedStocks)
         {
             _nameLabel.Text = company.Name;
-            _priceLabel.Text = $"{company.CurrentPrice:F2}";
+            _priceLabel.Text = $"${company.CurrentPrice:F2}";
             _sharesLabel.Text = $"Owned: {ownedStocks}";
 
             var priceChange = 0f;
@@ -144,10 +196,15 @@ public sealed partial class StockTradingUiFragment : BoxContainer
                 priceChange = ((company.CurrentPrice - previousPrice) / previousPrice) * 100;
             }
 
-            _changeLabel.Text = $"{priceChange:F2}%";
-            _changeLabel.StyleClasses.Remove("positive");
-            _changeLabel.StyleClasses.Remove("negative");
-            _changeLabel.StyleClasses.Add(priceChange >= 0 ? "positive" : "negative");
+            _changeLabel.Text = $"{(priceChange >= 0 ? "+" : "")}{priceChange:F2}%";
+
+            // Update color based on price change
+            _changeLabel.Modulate = priceChange switch
+            {
+                > 0 => PositiveColor,
+                < 0 => NegativeColor,
+                _ => NeutralColor,
+            };
 
             // Disable sell button if no shares owned
             _sellButton.Disabled = ownedStocks <= 0;

@@ -1,5 +1,6 @@
 using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Fragments;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 
 namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
@@ -16,6 +17,15 @@ public sealed partial class StockTradingUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new StockTradingUiFragment();
+
+        _fragment.OnBuyButtonPressed += (company, amount) =>
+        {
+            SendStockTradingUiMessage(StockTradingUiAction.Buy, company, amount, userInterface);
+        };
+        _fragment.OnSellButtonPressed += (company, amount) =>
+        {
+            SendStockTradingUiMessage(StockTradingUiAction.Sell, company, amount, userInterface);
+        };
     }
 
     public override void UpdateState(BoundUserInterfaceState state)
@@ -24,5 +34,12 @@ public sealed partial class StockTradingUi : UIFragment
         {
             _fragment?.UpdateState(cast);
         }
+    }
+
+    private static void SendStockTradingUiMessage(StockTradingUiAction action, string company, float amount, BoundUserInterface userInterface)
+    {
+        var newsMessage = new StockTradingUiMessageEvent(action, company, amount);
+        var message = new CartridgeUiMessage(newsMessage);
+        userInterface.SendMessage(message);
     }
 }

@@ -2,6 +2,8 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Components;
+using Content.Server.DeltaV.CartridgeLoader.Cartridges;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
 using Robust.Shared.Random;
@@ -18,6 +20,12 @@ public sealed class StockMarketSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<StockTradingCartridgeComponent, CartridgeMessageEvent>(OnStockTradingMessage);
+    }
 
     public override void Update(float frameTime)
     {
@@ -34,10 +42,34 @@ public sealed class StockMarketSystem : EntitySystem
         }
     }
 
-    private void OnStockTradingMessage(EntityUid uid, StationStockMarketComponent component, StockTradingUiMessageEvent args)
+    private void OnStockTradingMessage(Entity<StockTradingCartridgeComponent> ent, ref CartridgeMessageEvent args)
     {
-        if (!component.Companies.TryGetValue(args.CompanyName, out var company))
+        if (args is not StockTradingUiMessageEvent message)
             return;
+
+        var name = message.Company;
+        var amount = message.Amount;
+        var comp = ent.Comp;
+        var station = comp.Station ?? default;
+
+        switch (message.Action)
+        {
+            case StockTradingUiAction.Buy:
+                _adminLogger.Add(LogType.Action,
+                    LogImpact.Medium,
+                    $"[StockMarket] Buying {amount} stocks of {name}");
+                break;
+            case StockTradingUiAction.Sell:
+                _adminLogger.Add(LogType.Action,
+                    LogImpact.Medium,
+                    $"[StockMarket] Selling {amount} stocks of {name}");
+                break;
+        }
+
+        // Update UI
+        var ev = new StockMarketUpdatedEvent(station);
+        RaiseLocalEvent(ev);
+    }
 
     private void UpdateStockPrices(EntityUid station, StationStockMarketComponent stockMarket)
     {
