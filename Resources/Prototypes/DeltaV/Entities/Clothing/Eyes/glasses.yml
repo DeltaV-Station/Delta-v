@@ -59,8 +59,8 @@
 - type: entity
   parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowSecurityIcons, BaseRestrictedContraband]
   id: ClothingEyesPrescriptionSecurityGlasses
-  name: Prescription security glasses
-  description: A pair of security glasses with what appears to be a... prescription lens glued on top?.
+  name: prescription security glasses
+  description: A pair of security glasses with what appears to be a... prescription lens glued on top?
   components:
   - type: Construction
     graph: PrescriptionSecGlasses
@@ -73,8 +73,8 @@
 - type: entity
   parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesPrescriptionCorpsmanGlasses
-  name: Prescription corpsman glasses
-  description: A pair of corpsman glasses with what appears to be a... prescription lens glued on top?.
+  name: prescription corpsman glasses
+  description: A pair of corpsman glasses with what appears to be a... prescription lens glued on top?
   components:
   - type: Construction
     graph: PrescriptionCorpsmanGlasses
