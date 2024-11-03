@@ -135,10 +135,12 @@
           conditions:
             - !type:DoorWelded
               welded: true
+            # DeltaV modifications - Revert fire-fighting door remote removal, added wires to hack it.
             - !type:DoorBolted
               value: false
-            - !type:WirePanel {}
+            - !type:WirePanel
             - !type:AllWiresCut
+            # # DeltaV end of modifications.
           steps:
             - tool: Anchoring
               doAfter: 0.25
@@ -172,10 +174,12 @@
           conditions:
             - !type:EntityAnchored
               anchored: true
+            # DeltaV modifications - Revert fire-fighting door remote removal, added wires to hack it.
             - !type:DoorBolted
               value: false
-            - !type:WirePanel {}
+            - !type:WirePanel
             - !type:AllWiresCut
+            # DeltaV end of modifications.
           steps:
             - tool: Anchoring
               doAfter: 1
@@ -190,10 +194,12 @@
           conditions:
             - !type:DoorWelded
               welded: true
+            # DeltaV modifications - Revert fire-fighting door remote removal, added wires to hack it.
             - !type:DoorBolted
               value: false
-            - !type:WirePanel {}
+            - !type:WirePanel
             - !type:AllWiresCut
+            # DeltaV end of modifications.
           steps:
             - tool: Anchoring
               doAfter: 0.25
