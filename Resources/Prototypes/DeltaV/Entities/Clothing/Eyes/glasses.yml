@@ -44,14 +44,24 @@
     coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons]
-  id: ClothingEyesPrescriptionSecurityGlasses
-  name: Prescription security glasses
-  description: A pair of security glasses with what appears to be a... prescription glass glued on top?.
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionBaseSecGlasses
+  abstract: true
   components:
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: VisionCorrection
+    correctionPower: 1.50 # Being flash proof comes at the cost of less range of vision
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowSecurityIcons, BaseRestrictedContraband]
+  id: ClothingEyesPrescriptionSecurityGlasses
+  name: Prescription security glasses
+  description: A pair of security glasses with what appears to be a... prescription lens glued on top?.
+  components:
   - type: Construction
     graph: PrescriptionSecGlasses
     node: prescsecglasses
@@ -59,20 +69,13 @@
     sprite: DeltaV/Clothing/Eyes/Glasses/prescsecglasses.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Eyes/Glasses/prescsecglasses.rsi
-  - type: VisionCorrection
-    correctionPower: 1.50 # Being flash proof comes at the cost of less range of vision
-  - type: IdentityBlocker
-    coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons, BaseRestrictedContraband]
+  parent: [ClothingEyesPrescriptionBaseSecGlasses, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesPrescriptionCorpsmanGlasses
   name: Prescription corpsman glasses
-  description: A pair of corpsman glasses with what appears to be a... prescription glass glued on top?.
+  description: A pair of corpsman glasses with what appears to be a... prescription lens glued on top?.
   components:
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
   - type: Construction
     graph: PrescriptionCorpsmanGlasses
     node: presccorpsglasses
@@ -80,7 +83,3 @@
     sprite: DeltaV/Clothing/Eyes/Glasses/presccorpsglasses.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Eyes/Glasses/presccorpsglasses.rsi
-  - type: VisionCorrection
-    correctionPower: 1.50 # Being flash proof comes at the cost of less range of vision
-  - type: IdentityBlocker
-    coverage: EYES
