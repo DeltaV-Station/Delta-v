@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.CartridgeLoader.Cartridges;
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Timing;
 
@@ -54,6 +55,12 @@ public sealed partial class StationStockMarketComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextUpdate = TimeSpan.Zero;
+
+    /// <summary>
+    /// The sound to play after selling or buying stocks
+    /// </summary>
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
 
     /// <summary>
     /// The chance for minor market changes
