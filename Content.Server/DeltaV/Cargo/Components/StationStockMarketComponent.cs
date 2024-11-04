@@ -13,49 +13,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The list of companies you can invest in
     /// </summary>
     [DataField]
-    public Dictionary<string, StockCompanyStruct> Companies = new()
-    {
-        ["Nanotrasen"] = new StockCompanyStruct
-        {
-            Name = "Nanotrasen",
-            DisplayName = "Nanotrasen [NT]",
-            CurrentPrice = 100f,
-            BasePrice = 100f,
-            PriceHistory = [],
-        },
-        ["Gorlex"] = new StockCompanyStruct
-        {
-            Name = "Gorlex",
-            DisplayName = "Gorlex [GRX]",
-            CurrentPrice = 75f,
-            BasePrice = 75f,
-            PriceHistory = [],
-        },
-        ["Interdyne"] = new StockCompanyStruct
-        {
-            Name = "Interdyne",
-            DisplayName = "Interdyne Pharmaceuticals [INTP]",
-            CurrentPrice = 300f,
-            BasePrice = 300f,
-            PriceHistory = [],
-        },
-        ["FishInc"] = new StockCompanyStruct
-        {
-            Name = "FishInc",
-            DisplayName = "Fish Inc. [FIN]",
-            CurrentPrice = 25f,
-            BasePrice = 25f,
-            PriceHistory = [],
-        },
-        ["Donk"] = new StockCompanyStruct
-        {
-            Name = "Donk",
-            DisplayName = "Donk Co. [DONK]",
-            CurrentPrice = 90f,
-            BasePrice = 90f,
-            PriceHistory = [],
-        },
-    };
+    public Dictionary<string, StockCompanyStruct> Companies = new();
 
     /// <summary>
     /// The list of shares owned by the station
