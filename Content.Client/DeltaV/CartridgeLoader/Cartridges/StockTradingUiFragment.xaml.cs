@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 
 [GenerateTypedNameReferences]
-public sealed class StockTradingUiFragment : BoxContainer
+public sealed partial class StockTradingUiFragment : BoxContainer
 {
     private readonly Dictionary<string, CompanyEntry> _companyEntries = new();
 
