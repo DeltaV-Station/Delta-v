@@ -2,6 +2,7 @@ using Content.Server.Administration;
 using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Systems;
 using Content.Shared.Administration;
+using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Shared.Console;
 
 namespace Content.Server.DeltaV.Cargo;
@@ -59,26 +60,36 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
 
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 2)
+        if (args.Length != 3)
         {
             shell.WriteLine(Loc.GetString("shell-wrong-arguments-number"));
             return;
         }
 
-        if (!float.TryParse(args[1], out var basePrice))
+        if (!float.TryParse(args[2], out var basePrice))
         {
             shell.WriteError(Loc.GetString("shell-argument-must-be-number"));
             return;
         }
 
         var name = args[0];
+        var displayName = args[1];
+
+        var company = new StockCompanyStruct
+        {
+            Name = name,
+            DisplayName = displayName,
+            CurrentPrice = basePrice,
+            BasePrice = basePrice,
+            PriceHistory = [basePrice, basePrice, basePrice, basePrice, basePrice],
+        };
 
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
 
         var query = _entityManager.EntityQueryEnumerator<StationStockMarketComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (stockMarket.TryAddCompany(uid, comp, basePrice, name))
+            if (stockMarket.TryAddCompany(uid, comp, company))
                 continue;
             shell.WriteLine(Loc.GetString("cmd-addstockscompany-failure"));
             return;

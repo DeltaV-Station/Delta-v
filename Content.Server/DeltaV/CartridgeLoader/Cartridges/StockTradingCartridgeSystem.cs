@@ -72,6 +72,7 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
         {
             entries.Add(new StockCompanyStruct(
                 name: company.Name,
+                displayName: company.DisplayName,
                 currentPrice: company.CurrentPrice,
                 basePrice: company.BasePrice,
                 priceHistory: company.PriceHistory

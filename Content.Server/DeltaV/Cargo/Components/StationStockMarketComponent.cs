@@ -18,23 +18,26 @@ public sealed partial class StationStockMarketComponent : Component
         ["Nanotrasen"] = new StockCompanyStruct
         {
             Name = "Nanotrasen",
+            DisplayName = "Nanotrasen [NT]",
             CurrentPrice = 100f,
             BasePrice = 100f,
-            PriceHistory = [],
+            PriceHistory = [100f, 100f, 100f, 100f, 100f], // look somewhere else
         },
         ["Gorlex"] = new StockCompanyStruct
         {
             Name = "Gorlex",
+            DisplayName = "Gorlex [GRX]",
             CurrentPrice = 75f,
             BasePrice = 75f,
-            PriceHistory = [],
+            PriceHistory = [75f, 75f, 75f, 75f, 75f],
         },
         ["FishInc"] = new StockCompanyStruct
         {
-            Name = "Fish Inc.",
+            Name = "FishInc",
+            DisplayName = "Fish Inc. [FIN]",
             CurrentPrice = 25f,
             BasePrice = 25f,
-            PriceHistory = [],
+            PriceHistory = [25f, 25f, 25f, 25f, 25f],
         },
     };
 
@@ -60,7 +63,13 @@ public sealed partial class StationStockMarketComponent : Component
     /// The sound to play after selling or buying stocks
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
+    public SoundSpecifier ConfirmSound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
+
+    /// <summary>
+    /// The sound to play if the don't have access to buy or sell stocks
+    /// </summary>
+    [DataField]
+    public SoundSpecifier DenySound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
     /// <summary>
     /// The chance for minor market changes
@@ -84,7 +93,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The chance for catastrophic market changes
     /// </summary>
     [DataField]
-    public float CatastrophicChangeChance = 0.1f; // 1%
+    public float CatastrophicChangeChance = 0.01f; // 1%
 
     /// <summary>
     /// The price range for minor changes

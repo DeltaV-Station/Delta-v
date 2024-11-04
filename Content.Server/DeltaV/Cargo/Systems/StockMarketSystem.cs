@@ -1,13 +1,18 @@
 using System.Linq;
+using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.DeltaV.CartridgeLoader.Cartridges;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -18,12 +23,15 @@ namespace Content.Server.DeltaV.Cargo.Systems;
 /// </summary>
 public sealed class StockMarketSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private ISawmill _sawmill = default!;
     private const float MaxPrice = 262144; // 1/64 of max safe integer
@@ -60,100 +68,144 @@ public sealed class StockMarketSystem : EntitySystem
         var name = message.Company;
         var amount = (int)message.Amount; // Convert to int since we can't have partial shares
         var station = ent.Comp.Station;
+        var loader = GetEntity(args.LoaderUid);
+        var xform = Transform(loader);
 
-        if (station == null)
+        // Ensure station and stock market components are valid
+        if (station == null || !TryComp<StationStockMarketComponent>(station, out var stockMarket))
             return;
 
-        // Check if the station has a stock market
-        if (!TryComp<StationStockMarketComponent>(station, out var stockMarket))
+        // Check for access reader component
+        if (!TryComp<AccessReaderComponent>(ent.Owner, out var access))
             return;
 
-        // Validate company exists
-        if (!stockMarket.Companies.ContainsKey(name))
-            return;
+        // Attempt to retrieve ID card from loader
+        IdCardComponent? idCard = null;
+        if (_idCardSystem.TryGetIdCard(loader, out var pdaId))
+            idCard = pdaId;
 
-        // Log who's doing the transaction
-        // This will only display the PDA from which it was done, and not the user, but perhaps still somewhat useful for admins??
-        var loader = args.LoaderUid;
-
-        switch (message.Action)
+        // Play deny sound and exit if access is not allowed
+        if (idCard == null || !_accessSystem.IsAllowed(pdaId.Owner, ent.Owner, access))
         {
-            case StockTradingUiAction.Buy:
-                _adminLogger.Add(LogType.Action,
-                    LogImpact.Medium,
-                    $"{ToPrettyString(loader)} attempting to buy {amount} stocks of {name}");
-                BuyStocks(station.Value, stockMarket, name, amount);
-                break;
-            case StockTradingUiAction.Sell:
-                _adminLogger.Add(LogType.Action,
-                    LogImpact.Medium,
-                    $"{ToPrettyString(loader)} attempting to sell {amount} stocks of {name}");
-                SellStocks(station.Value, stockMarket, name, amount);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            _audio.PlayEntity(
+                stockMarket.DenySound,
+                Filter.Empty().AddInRange(_transform.GetMapCoordinates(loader, xform), 0.05f),
+                loader,
+                true,
+                AudioParams.Default.WithMaxDistance(0.05f)
+            );
+            return;
         }
 
-        // Update UI
-        var ev = new StockMarketUpdatedEvent(station.Value);
-        RaiseLocalEvent(ev);
+        try
+        {
+            // Ensure the specified company exists
+            if (!stockMarket.Companies.TryGetValue(name, out var company))
+                return;
+
+            // Attempt to buy or sell stocks based on the action
+            bool success;
+            switch (message.Action)
+            {
+                case StockTradingUiAction.Buy:
+                    _adminLogger.Add(LogType.Action,
+                        LogImpact.Medium,
+                        $"{ToPrettyString(loader)} attempting to buy {amount} stocks of {company.Name}");
+                    success = BuyStocks(station.Value, stockMarket, name, amount);
+                    break;
+
+                case StockTradingUiAction.Sell:
+                    _adminLogger.Add(LogType.Action,
+                        LogImpact.Medium,
+                        $"{ToPrettyString(loader)} attempting to sell {amount} stocks of {company.Name}");
+                    success = SellStocks(station.Value, stockMarket, name, amount);
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            // Play confirmation sound if the transaction was successful
+            if (success)
+            {
+                _audio.PlayEntity(
+                    stockMarket.ConfirmSound,
+                    Filter.Empty().AddInRange(_transform.GetMapCoordinates(loader, xform), 0.05f),
+                    loader,
+                    true,
+                    AudioParams.Default.WithMaxDistance(0.05f)
+                );
+            }
+        }
+        finally
+        {
+            // Raise the event to update the UI regardless of outcome
+            var ev = new StockMarketUpdatedEvent(station.Value);
+            RaiseLocalEvent(ev);
+        }
     }
 
-    private void BuyStocks(
+    private bool BuyStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
-        string companyName,
+        string companyKey,
         int amount)
     {
         if (amount <= 0)
-            return;
+            return false;
 
         // Check if the station has a bank account
         if (!TryComp<StationBankAccountComponent>(station, out var bank))
-            return;
+            return false;
 
         // Check if the company exists
-        if (!stockMarket.Companies.TryGetValue(companyName, out var company))
-            return;
+        if (!stockMarket.Companies.TryGetValue(companyKey, out var company))
+            return false;
 
         // Convert to int
         var totalValue = (int)Math.Round(company.CurrentPrice * amount);
 
+        // See if we can afford it
+        if (bank.Balance < totalValue)
+            return false;
+
         // Update stock ownership
-        if (!stockMarket.StockOwnership.TryGetValue(companyName, out var currentOwned))
+        if (!stockMarket.StockOwnership.TryGetValue(companyKey, out var currentOwned))
             currentOwned = 0;
 
         // Update the bank account
         _cargo.UpdateBankAccount(station, bank, -totalValue);
 
-        stockMarket.StockOwnership[companyName] = currentOwned + amount;
+        stockMarket.StockOwnership[companyKey] = currentOwned + amount;
 
         // Log the transaction
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,
-            $"[StockMarket] Bought {amount} stocks of {companyName} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+            $"[StockMarket] Bought {amount} stocks of {company.Name} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+
+        return true;
     }
 
-    private void SellStocks(
+    private bool SellStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
-        string companyName,
+        string companyKey,
         int amount)
     {
         if (amount <= 0)
-            return;
+            return false;
 
         // Check if the station has a bank account
         if (!TryComp<StationBankAccountComponent>(station, out var bank))
-            return;
+            return false;
 
         // Check if the company exists
-        if (!stockMarket.Companies.TryGetValue(companyName, out var company))
-            return;
+        if (!stockMarket.Companies.TryGetValue(companyKey, out var company))
+            return false;
 
         // Check if the station owns enough stocks
-        if (!stockMarket.StockOwnership.TryGetValue(companyName, out var currentOwned) || currentOwned < amount)
-            return;
+        if (!stockMarket.StockOwnership.TryGetValue(companyKey, out var currentOwned) || currentOwned < amount)
+            return false;
 
         // Convert to int
         var totalValue = (int)Math.Round(company.CurrentPrice * amount);
@@ -161,9 +213,9 @@ public sealed class StockMarketSystem : EntitySystem
         // Update stock ownership
         var newAmount = currentOwned - amount;
         if (newAmount > 0)
-            stockMarket.StockOwnership[companyName] = newAmount;
+            stockMarket.StockOwnership[companyKey] = newAmount;
         else
-            stockMarket.StockOwnership.Remove(companyName);
+            stockMarket.StockOwnership.Remove(companyKey);
 
         // Update the bank account
         _cargo.UpdateBankAccount(station, bank, totalValue);
@@ -171,7 +223,9 @@ public sealed class StockMarketSystem : EntitySystem
         // Log the transaction
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,
-            $"[StockMarket] Sold {amount} stocks of {companyName} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+            $"[StockMarket] Sold {amount} stocks of {company.Name} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+
+        return true;
     }
 
     private void UpdateStockPrices(EntityUid station, StationStockMarketComponent stockMarket)
@@ -263,7 +317,8 @@ public sealed class StockMarketSystem : EntitySystem
     public bool TryAddCompany(EntityUid station,
         StationStockMarketComponent stockMarket,
         float basePrice,
-        string companyName)
+        string companyName,
+        string displayName)
     {
     var companies = stockMarket.Companies;
 
@@ -277,9 +332,10 @@ public sealed class StockMarketSystem : EntitySystem
     var company = new StockCompanyStruct
     {
         Name = companyName,
+        DisplayName = displayName,
         BasePrice = basePrice,
         CurrentPrice = basePrice,
-        PriceHistory = [],
+        PriceHistory = [basePrice, basePrice, basePrice, basePrice, basePrice],
     };
 
     // Add the new company to the dictionary
@@ -289,6 +345,26 @@ public sealed class StockMarketSystem : EntitySystem
     RaiseLocalEvent(ev);
 
     return true;
+    }
+
+    /// <summary>
+    /// Attempts to add a new company to the station using the StockCompanyStruct
+    /// </summary>
+    /// <returns>False if the company already exists, true otherwise</returns>
+    public bool TryAddCompany(EntityUid station,
+        StationStockMarketComponent stockMarket,
+        StockCompanyStruct company)
+    {
+        var companies = stockMarket.Companies;
+
+        // Add the new company to the dictionary
+        if (!companies.TryAdd(company.Name, company))
+            return false;
+
+        var ev = new StockMarketUpdatedEvent(station);
+        RaiseLocalEvent(ev);
+
+        return true;
     }
 
     private static void UpdatePriceHistory(StockCompanyStruct company)

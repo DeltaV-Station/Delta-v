@@ -1,4 +1,5 @@
 using System.Linq;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
@@ -32,22 +33,52 @@ public sealed class PriceHistoryTable : BoxContainer
 
         AddChild(header);
 
+        // Create a panel container with styled background
+        var panel = new PanelContainer
+        {
+            HorizontalExpand = true,
+            Margin = new Thickness(0, 2, 0, 0)
+        };
+
+        // Create and apply the style
+        var styleBox = new StyleBoxFlat
+        {
+            BackgroundColor = Color.FromHex("#1a1a1a"),
+            ContentMarginLeftOverride = 6,
+            ContentMarginRightOverride = 6,
+            ContentMarginTopOverride = 4,
+            ContentMarginBottomOverride = 4,
+            BorderColor = Color.FromHex("#404040"),
+            BorderThickness = new Thickness(1),
+        };
+
+        panel.PanelOverride = styleBox;
+
+        // Create a centering container
+        var centerContainer = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+            HorizontalAlignment = HAlignment.Center,
+        };
+
         // Create grid for price history
         _grid = new GridContainer
         {
             Columns = 5, // Display 5 entries per row
-            HorizontalExpand = true,
         };
 
-        AddChild(_grid);
+        centerContainer.AddChild(_grid);
+        panel.AddChild(centerContainer);
+        AddChild(panel);
     }
 
     public void Update(List<float> priceHistory)
     {
         _grid.RemoveAllChildren();
 
-        // Take last 10 prices as per StockMarketSystem
-        var lastTenPrices = priceHistory.TakeLast(10).ToList();
+        // Take last 5 prices
+        var lastTenPrices = priceHistory.TakeLast(5).ToList();
 
         for (var i = 0; i < lastTenPrices.Count; i++)
         {
@@ -59,19 +90,19 @@ public sealed class PriceHistoryTable : BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 MinWidth = 80,
-                Margin = new Thickness(2),
+                HorizontalAlignment = HAlignment.Center,
             };
 
             var priceLabel = new Label
             {
                 Text = $"${price:F2}",
-                HorizontalAlignment = HAlignment.Right,
+                HorizontalAlignment = HAlignment.Center,
             };
 
             var changeLabel = new Label
             {
                 Text = $"{(priceChange >= 0 ? "+" : "")}{priceChange:F2}%",
-                HorizontalAlignment = HAlignment.Right,
+                HorizontalAlignment = HAlignment.Center,
                 StyleClasses = { "LabelSubText" },
                 Modulate = priceChange switch
                 {
