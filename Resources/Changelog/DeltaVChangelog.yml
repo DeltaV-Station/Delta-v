@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Head of Personnel now has the access that lawyers have.
-    type: Fix
-  id: 144
-  time: '2023-11-17T23:56:56.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Adjusted Asterisk and Shoukou's min/max population to 0/60.
-    type: Tweak
-  id: 145
-  time: '2023-11-19T06:10:32.0000000+00:00'
-- author: IamVelcroboy
-  changes:
-  - message: Salvage has been rebased. New but strangely familiar space debris will
-      be pulled in by the salvage magnet. Caution is recommended.
-    type: Add
-  id: 146
-  time: '2023-11-22T16:13:12.0000000+00:00'
 - author: tryded
   changes:
   - message: Added double bladed energy swords to Nuclear Operative Uplinks
@@ -3701,3 +3682,24 @@
   id: 643
   time: '2024-11-03T18:02:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2055
+- author: Monotheonist
+  changes:
+  - message: Changed Delta-V cartridges to tapes.
+    type: Tweak
+  id: 644
+  time: '2024-11-04T02:03:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2108
+- author: Radezolid
+  changes:
+  - message: Added prescription security glasses and prescription corpsman glasses!
+    type: Add
+  id: 645
+  time: '2024-11-04T07:39:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2083
+- author: clinux
+  changes:
+  - message: Removed the ability to upgrade reinforced windows to into shuttle windows
+    type: Remove
+  id: 646
+  time: '2024-11-04T19:41:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2118
