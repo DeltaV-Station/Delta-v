@@ -27,6 +27,9 @@
     whitelist:
       tags:
       - AnomalyHost
+  - type: Psionic #Nyano - Summary: makes psionic on creation.
+  - type: GlimmerSource #Nyano - Summary: makes this a potential source of Glimmer.
+    active: false
 
 - type: entity
   parent: BaseAnomalyInjector
