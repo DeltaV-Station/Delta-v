@@ -33,13 +33,13 @@ public partial struct StockCompanyStruct
     /// <summary>
     /// The current price of the company's stock
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public float CurrentPrice;
 
     /// <summary>
     /// The base price of the company's stock
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public float BasePrice;
 
     /// <summary>

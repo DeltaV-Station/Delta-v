@@ -120,14 +120,14 @@ public sealed class StockMarketSystem : EntitySystem
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Medium,
                         $"{ToPrettyString(loader)} attempting to buy {amount} stocks of {company.Name}");
-                    success = BuyStocks(station.Value, stockMarket, name, amount);
+                    success = TryBuyStocks(station.Value, stockMarket, name, amount);
                     break;
 
                 case StockTradingUiAction.Sell:
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Medium,
                         $"{ToPrettyString(loader)} attempting to sell {amount} stocks of {company.Name}");
-                    success = SellStocks(station.Value, stockMarket, name, amount);
+                    success = TrySellStocks(station.Value, stockMarket, name, amount);
                     break;
 
                 default:
@@ -154,7 +154,7 @@ public sealed class StockMarketSystem : EntitySystem
         }
     }
 
-    private bool BuyStocks(
+    private bool TryBuyStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
         string companyKey,
@@ -195,7 +195,7 @@ public sealed class StockMarketSystem : EntitySystem
         return true;
     }
 
-    private bool SellStocks(
+    private bool TrySellStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
         string companyKey,
@@ -344,7 +344,7 @@ public sealed class StockMarketSystem : EntitySystem
         DisplayName = displayName,
         BasePrice = basePrice,
         CurrentPrice = basePrice,
-        PriceHistory = [basePrice, basePrice, basePrice, basePrice, basePrice],
+        PriceHistory = [],
     };
 
     // Add the new company to the dictionary

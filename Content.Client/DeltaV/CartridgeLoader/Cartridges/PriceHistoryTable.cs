@@ -75,12 +75,12 @@ public sealed class PriceHistoryTable : BoxContainer
         _grid.RemoveAllChildren();
 
         // Take last 5 prices
-        var lastTenPrices = priceHistory.TakeLast(5).ToList();
+        var lastFivePrices = priceHistory.TakeLast(5).ToList();
 
-        for (var i = 0; i < lastTenPrices.Count; i++)
+        for (var i = 0; i < lastFivePrices.Count; i++)
         {
-            var price = lastTenPrices[i];
-            var previousPrice = i > 0 ? lastTenPrices[i - 1] : price;
+            var price = lastFivePrices[i];
+            var previousPrice = i > 0 ? lastFivePrices[i - 1] : price;
             var priceChange = ((price - previousPrice) / previousPrice) * 100;
 
             var entryContainer = new BoxContainer
