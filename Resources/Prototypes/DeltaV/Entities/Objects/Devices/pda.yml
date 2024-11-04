@@ -40,6 +40,27 @@
 
 - type: entity
   parent: BasePDA
+  id: BaseJusticePDA
+  abstract: true
+  components:
+  - type: Pda
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: CartridgeLoader
+    diskSpace: 7
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+
+- type: entity
+  parent: BaseJusticePDA
   id: ChiefJusticePDA
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
@@ -59,26 +80,14 @@
   - type: Pda
     id: ChiefJusticeIDCard
     state: pda-chiefjustice
-    penSlot:
-      startingItem: LuxuryPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: PdaBorderColor
     borderColor: "#470823"
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-chiefjustice
-  - type: CartridgeLoader
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: BaseJusticePDA
   id: ClerkPDA
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
@@ -98,26 +107,14 @@
   - type: Pda
     id: ClerkIDCard
     state: pda-clerk
-    penSlot:
-      startingItem: LuxuryPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: PdaBorderColor
     borderColor: "#611528"
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-clerk
-  - type: CartridgeLoader
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      
+
 - type: entity
-  parent: BasePDA
+  parent: BaseJusticePDA
   id: ProsecutorPDA
   name: prosecutor PDA
   description: Sharp. Looks like it could prosecute you all on its own.
@@ -137,23 +134,11 @@
   - type: Pda
     id: ProsecutorIDCard
     state: pda-prosecutor
-    penSlot:
-      startingItem: LuxuryPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
     sprite: DeltaV/Objects/Devices/pda.rsi
     state: pda-prosecutor
-  - type: CartridgeLoader # DeltaV - Crime Assist
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
 
 - type: entity
   parent: SyndiPDA
