@@ -21,7 +21,7 @@ public sealed partial class StationStockMarketComponent : Component
             DisplayName = "Nanotrasen [NT]",
             CurrentPrice = 100f,
             BasePrice = 100f,
-            PriceHistory = [100f, 100f, 100f, 100f, 100f], // look somewhere else
+            PriceHistory = [],
         },
         ["Gorlex"] = new StockCompanyStruct
         {
@@ -29,7 +29,15 @@ public sealed partial class StationStockMarketComponent : Component
             DisplayName = "Gorlex [GRX]",
             CurrentPrice = 75f,
             BasePrice = 75f,
-            PriceHistory = [75f, 75f, 75f, 75f, 75f],
+            PriceHistory = [],
+        },
+        ["Interdyne"] = new StockCompanyStruct
+        {
+            Name = "Interdyne",
+            DisplayName = "Interdyne Pharmaceuticals [INTP]",
+            CurrentPrice = 300f,
+            BasePrice = 300f,
+            PriceHistory = [],
         },
         ["FishInc"] = new StockCompanyStruct
         {
@@ -37,7 +45,15 @@ public sealed partial class StationStockMarketComponent : Component
             DisplayName = "Fish Inc. [FIN]",
             CurrentPrice = 25f,
             BasePrice = 25f,
-            PriceHistory = [25f, 25f, 25f, 25f, 25f],
+            PriceHistory = [],
+        },
+        ["Donk"] = new StockCompanyStruct
+        {
+            Name = "Donk",
+            DisplayName = "Donk Co. [DONK]",
+            CurrentPrice = 90f,
+            BasePrice = 90f,
+            PriceHistory = [90f, 90f, 90f, 90f, 90f],
         },
     };
 
@@ -51,7 +67,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The interval at which the stock market updates
     /// </summary>
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(10); // 5 minutes
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(600); // 10 minutes
 
     /// <summary>
     /// The <see cref="IGameTiming.CurTime"/> timespan of next update.

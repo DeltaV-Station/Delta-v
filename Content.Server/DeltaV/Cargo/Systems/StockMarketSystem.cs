@@ -43,6 +43,15 @@ public sealed class StockMarketSystem : EntitySystem
         _sawmill = _log.GetSawmill("admin.stock_market");
 
         SubscribeLocalEvent<StockTradingCartridgeComponent, CartridgeMessageEvent>(OnStockTradingMessage);
+        SubscribeLocalEvent<StationStockMarketComponent, ComponentInit>(OnInit);
+    }
+
+    private static void OnInit(Entity<StationStockMarketComponent> ent, ref ComponentInit args)
+    {
+        foreach (var company in ent.Comp.Companies.Values)
+        {
+            UpdatePriceHistory(company);
+        }
     }
 
     public override void Update(float frameTime)
@@ -369,11 +378,18 @@ public sealed class StockMarketSystem : EntitySystem
 
     private static void UpdatePriceHistory(StockCompanyStruct company)
     {
+        // Make sure it has at least 5 entries
+        while (company.PriceHistory.Count < 5)
+        {
+            company.PriceHistory.Add(company.BasePrice);
+        }
+
+
         // Store previous price in history
         company.PriceHistory.Add(company.CurrentPrice);
 
         if (company.PriceHistory.Count > 5) // Keep last 5 prices
-            company.PriceHistory.RemoveAt(0);
+            company.PriceHistory.RemoveAt(1); // Always keep the base price
     }
 
     private StockChangeType DetermineChangeType(StationStockMarketComponent stockMarket)

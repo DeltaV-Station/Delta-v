@@ -398,7 +398,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
-      - StockTradingCartridge # DeltaV - StockTrading for the LO
+      - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BasePDA
@@ -413,6 +413,12 @@
     borderColor: "#e39751"
   - type: Icon
     state: pda-cargo
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BasePDA

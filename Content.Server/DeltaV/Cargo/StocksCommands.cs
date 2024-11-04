@@ -81,7 +81,7 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
             DisplayName = displayName,
             CurrentPrice = basePrice,
             BasePrice = basePrice,
-            PriceHistory = [basePrice, basePrice, basePrice, basePrice, basePrice],
+            PriceHistory = [],
         };
 
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
