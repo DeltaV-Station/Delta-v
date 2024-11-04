@@ -7,9 +7,6 @@ namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 public sealed class PriceHistoryTable : BoxContainer
 {
     private readonly GridContainer _grid;
-    private static readonly Color PositiveColor = Color.FromHex("#00ff00");
-    private static readonly Color NegativeColor = Color.FromHex("#ff0000");
-    private static readonly Color NeutralColor = Color.FromHex("#ffffff");
 
     public PriceHistoryTable()
     {
@@ -43,12 +40,12 @@ public sealed class PriceHistoryTable : BoxContainer
         // Create and apply the style
         var styleBox = new StyleBoxFlat
         {
-            BackgroundColor = Color.FromHex("#1a1a1a"),
+            BackgroundColor = StockTradingUiFragment.BackgroundColor,
             ContentMarginLeftOverride = 6,
             ContentMarginRightOverride = 6,
             ContentMarginTopOverride = 4,
             ContentMarginBottomOverride = 4,
-            BorderColor = Color.FromHex("#404040"),
+            BorderColor = StockTradingUiFragment.BorderColor,
             BorderThickness = new Thickness(1),
         };
 
@@ -106,9 +103,9 @@ public sealed class PriceHistoryTable : BoxContainer
                 StyleClasses = { "LabelSubText" },
                 Modulate = priceChange switch
                 {
-                    > 0 => PositiveColor,
-                    < 0 => NegativeColor,
-                    _ => NeutralColor,
+                    > 0 => StockTradingUiFragment.PositiveColor,
+                    < 0 => StockTradingUiFragment.NegativeColor,
+                    _ => StockTradingUiFragment.NeutralColor,
                 }
             };
 

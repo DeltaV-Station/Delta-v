@@ -131,3 +131,4 @@ mail-metrics-money-header = Spesos
 mail-metrics-total = Total
 mail-metrics-progress = {$opened} out of {$total} packages opened!
 mail-metrics-progress-percent = Success rate: {$successRate}%
+stock-trading-program-name = StockTrading

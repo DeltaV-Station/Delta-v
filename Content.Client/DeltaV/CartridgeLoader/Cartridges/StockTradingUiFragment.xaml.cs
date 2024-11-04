@@ -9,13 +9,20 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 
 [GenerateTypedNameReferences]
-public sealed partial class StockTradingUiFragment : BoxContainer
+public sealed class StockTradingUiFragment : BoxContainer
 {
     private readonly Dictionary<string, CompanyEntry> _companyEntries = new();
 
     // Event handlers for the parent UI
     public event Action<string, float>? OnBuyButtonPressed;
     public event Action<string, float>? OnSellButtonPressed;
+
+    // Define colors
+    public static readonly Color PositiveColor = Color.FromHex("#00ff00"); // Green
+    public static readonly Color NegativeColor = Color.FromHex("#ff0000"); // Red
+    public static readonly Color NeutralColor = Color.FromHex("#ffffff"); // White
+    public static readonly Color BackgroundColor = Color.FromHex("#25252a"); // Dark grey
+    public static readonly Color BorderColor = Color.FromHex("#404040"); // Light grey
 
     public StockTradingUiFragment()
     {
@@ -60,15 +67,6 @@ public sealed partial class StockTradingUiFragment : BoxContainer
         private readonly Label _sharesLabel;
         private readonly LineEdit _amountEdit;
         private readonly PriceHistoryTable _priceHistory;
-
-        // Define colors
-        private static readonly Color PositiveColor = Color.FromHex("#00ff00"); // Green
-        private static readonly Color NegativeColor = Color.FromHex("#ff0000"); // Red
-        private static readonly Color NeutralColor = Color.FromHex("#ffffff"); // White
-        private static readonly Color BackgroundColor = Color.FromHex("#25252a"); // Dark grey
-        private static readonly Color BorderColor = Color.FromHex("#404040"); // Light grey
-
-
 
         public CompanyEntry(string companyName,
             Action<string, float>? onBuyPressed,
