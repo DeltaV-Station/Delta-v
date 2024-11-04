@@ -23,7 +23,8 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key, subs =>
+        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key,
+            subs =>
         {
             subs.Event<ShipyardConsolePurchaseMessage>(OnPurchase);
         });

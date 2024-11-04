@@ -6,9 +6,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.Prototypes;
 using Content.Shared.Whitelist;
-using Robust.Server.GameObjects;
 using Robust.Shared.Random;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Shipyard;
 
@@ -28,7 +26,8 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
         base.Initialize();
 
         SubscribeLocalEvent<ShipyardConsoleComponent, BankBalanceUpdatedEvent>(OnBalanceUpdated);
-        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key, subs =>
+        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key,
+            subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnOpened);
         });
@@ -63,7 +62,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
         _cargo.UpdateBankAccount(bank, bank.Comp, -vessel.Price);
 
-        var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString()));
+        var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);
         Audio.PlayPvs(ent.Comp.ConfirmSound, ent);
     }

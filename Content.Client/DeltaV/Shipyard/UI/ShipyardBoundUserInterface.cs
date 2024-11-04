@@ -1,7 +1,6 @@
 using Content.Shared.Access.Systems;
 using Content.Shared.Shipyard;
 using Content.Shared.Whitelist;
-using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
@@ -52,9 +51,16 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         base.Dispose(disposing);
 
-        _menu?.Close();
-        if (disposing)
-            _menu?.Dispose();
+        if (!disposing)
+            return;
+
+        if (_menu == null)
+            return;
+
+        _menu.OnClose -= Close;
+        _menu.OnPurchased -= Purchase;
+        _menu.Close();
+        _menu = null;
     }
 
     private void Purchase(string id)
