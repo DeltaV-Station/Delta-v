@@ -10,8 +10,8 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Hushing; // Delta-V
 using Content.Server.Nyanotrasen.Chat;
-//using Content.Server.Speech.Components; Duplicate - Delta-V 
-//using Content.Server.Speech.EntitySystems; Duplicate - Delta-V
+using Content.Server.Speech.Components;
+using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -224,7 +224,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // Delta-V
         // This needs to happen after prefix removal to avoid bug
-        if (desiredType == InGameICChatType.Speak&&HasComp<HushedComponent>(source))
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;
