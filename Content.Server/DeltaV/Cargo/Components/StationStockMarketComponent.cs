@@ -1,4 +1,6 @@
 using System.Numerics;
+using Content.Server.DeltaV.Cargo.Systems;
+using Content.Server.DeltaV.CartridgeLoader.Cartridges;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -7,19 +9,20 @@ using Robust.Shared.Timing;
 namespace Content.Server.DeltaV.Cargo.Components;
 
 [RegisterComponent, AutoGenerateComponentPause]
+[Access(typeof(StockMarketSystem), typeof(StockTradingCartridgeSystem))]
 public sealed partial class StationStockMarketComponent : Component
 {
     /// <summary>
     /// The list of companies you can invest in
     /// </summary>
     [DataField]
-    public Dictionary<string, StockCompanyStruct> Companies = new();
+    public List<StockCompanyStruct> Companies = [];
 
     /// <summary>
     /// The list of shares owned by the station
     /// </summary>
     [DataField]
-    public Dictionary<string, int> StockOwnership = new();
+    public Dictionary<int, int> StockOwnership = new();
 
     /// <summary>
     /// The interval at which the stock market updates
@@ -46,51 +49,23 @@ public sealed partial class StationStockMarketComponent : Component
     [DataField]
     public SoundSpecifier DenySound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
-    /// <summary>
-    /// The chance for minor market changes
-    /// </summary>
+    // These work well as presets but can be changed in the yaml
     [DataField]
-    public float MinorChangeChance = 0.86f; // 86%
+    public List<MarketChange> MarketChanges =
+    [
+        new() { Chance = 0.86f, Range = new Vector2(-0.05f, 0.05f) }, // Minor
+        new() { Chance = 0.10f, Range = new Vector2(-0.3f, 0.2f) }, // Moderate
+        new() { Chance = 0.03f, Range = new Vector2(-0.5f, 1.5f) }, // Major
+        new() { Chance = 0.01f, Range = new Vector2(-0.9f, 4.0f) }, // Catastrophic
+    ];
+}
 
-    /// <summary>
-    /// The chance for moderate market changes
-    /// </summary>
-    [DataField]
-    public float ModerateChangeChance = 0.10f; // 10%
+[DataDefinition]
+public sealed partial class MarketChange
+{
+    [DataField(required: true)]
+    public float Chance;
 
-    /// <summary>
-    /// The chance for major market changes
-    /// </summary>
-    [DataField]
-    public float MajorChangeChance = 0.03f; // 3%
-
-    /// <summary>
-    /// The chance for catastrophic market changes
-    /// </summary>
-    [DataField]
-    public float CatastrophicChangeChance = 0.01f; // 1%
-
-    /// <summary>
-    /// The price range for minor changes
-    /// </summary>
-    [DataField]
-    public Vector2 MinorChangeRange = new(-0.05f, 0.05f); // -5% to +5%
-
-    /// <summary>
-    /// The price range for moderate changes
-    /// </summary>
-    [DataField]
-    public Vector2 ModerateChangeRange = new(-0.3f, 0.2f); // -30% to +20%
-
-    /// <summary>
-    /// The price range for major changes
-    /// </summary>
-    [DataField]
-    public Vector2 MajorChangeRange = new(-0.5f, 1.5f); // -50% to +150%
-
-    /// <summary>
-    /// The price range for catastrophic changes
-    /// </summary>
-    [DataField]
-    public Vector2 CatastrophicChangeRange = new(-0.9f, 4.0f); // -90% to +400%
+    [DataField(required: true)]
+    public Vector2 Range;
 }

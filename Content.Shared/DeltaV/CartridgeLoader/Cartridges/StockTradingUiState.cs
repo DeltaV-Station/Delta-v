@@ -5,12 +5,12 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 [Serializable, NetSerializable]
 public sealed class StockTradingUiState(
     List<StockCompanyStruct> entries,
-    Dictionary<string, int> ownedStocks,
+    Dictionary<int, int> ownedStocks,
     float balance)
     : BoundUserInterfaceState
 {
     public readonly List<StockCompanyStruct> Entries = entries;
-    public readonly Dictionary<string, int> OwnedStocks = ownedStocks;
+    public readonly Dictionary<int, int> OwnedStocks = ownedStocks;
     public readonly float Balance = balance;
 }
 
@@ -19,16 +19,23 @@ public sealed class StockTradingUiState(
 public partial struct StockCompanyStruct
 {
     /// <summary>
-    /// The internal name/key of the company. Should not contain spaces or special characters.
+    /// The displayed name of the company shown in the UI.
     /// </summary>
     [DataField(required: true)]
-    public string Name;
+    public LocId? DisplayName;
+
+    // Used for runtime-added companies that don't have a localization entry
+    private string? _displayName;
 
     /// <summary>
-    /// The displayed name of the company shown in the UI. Can contain spaces and special characters.
+    /// Gets or sets the display name, using either the localized or direct string value
     /// </summary>
-    [DataField(required: true)]
-    public string DisplayName;
+    [Access(Other = AccessPermissions.ReadWriteExecute)]
+    public string LocalizedDisplayName
+    {
+        get => _displayName ?? Loc.GetString(DisplayName ?? string.Empty);
+        set => _displayName = value;
+    }
 
     /// <summary>
     /// The current price of the company's stock
@@ -46,14 +53,14 @@ public partial struct StockCompanyStruct
     /// The price history of the company's stock
     /// </summary>
     [DataField]
-    public List<float> PriceHistory;
+    public List<float>? PriceHistory;
 
-    public StockCompanyStruct(string name, string displayName, float currentPrice, float basePrice, List<float> priceHistory)
+    public StockCompanyStruct(string displayName, float currentPrice, float basePrice, List<float>? priceHistory)
     {
-        Name = name;
         DisplayName = displayName;
+        _displayName = null;
         CurrentPrice = currentPrice;
         BasePrice = basePrice;
-        PriceHistory = priceHistory;
+        PriceHistory = priceHistory ?? [];
     }
 }

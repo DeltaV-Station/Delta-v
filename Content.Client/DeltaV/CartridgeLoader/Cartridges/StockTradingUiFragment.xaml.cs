@@ -11,17 +11,18 @@ namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class StockTradingUiFragment : BoxContainer
 {
-    private readonly Dictionary<string, CompanyEntry> _companyEntries = new();
+    private readonly Dictionary<int, CompanyEntry> _companyEntries = new();
 
     // Event handlers for the parent UI
-    public event Action<string, float>? OnBuyButtonPressed;
-    public event Action<string, float>? OnSellButtonPressed;
+    public event Action<int, float>? OnBuyButtonPressed;
+    public event Action<int, float>? OnSellButtonPressed;
 
     // Define colors
     public static readonly Color PositiveColor = Color.FromHex("#00ff00"); // Green
     public static readonly Color NegativeColor = Color.FromHex("#ff0000"); // Red
     public static readonly Color NeutralColor = Color.FromHex("#ffffff"); // White
     public static readonly Color BackgroundColor = Color.FromHex("#25252a"); // Dark grey
+    public static readonly Color PriceBackgroundColor = Color.FromHex("#1a1a1a"); // Darker grey
     public static readonly Color BorderColor = Color.FromHex("#404040"); // Light grey
 
     public StockTradingUiFragment()
@@ -32,26 +33,25 @@ public sealed partial class StockTradingUiFragment : BoxContainer
     public void UpdateState(StockTradingUiState state)
     {
         NoEntries.Visible = state.Entries.Count == 0;
-        Balance.Text = $"Balance: {state.Balance:F2} credits";
+        Balance.Text = Loc.GetString("stock-trading-balance", ("balance", state.Balance));
 
-        // Remove old entries
-        foreach (var key in _companyEntries.Keys.ToList().Where(key => state.Entries.All(e => e.Name != key)))
+        // Clear all existing entries
+        foreach (var entry in _companyEntries.Values)
         {
-            _companyEntries[key].Container.RemoveAllChildren();
-            _companyEntries.Remove(key);
+            entry.Container.RemoveAllChildren();
         }
+        _companyEntries.Clear();
+        Entries.RemoveAllChildren();
 
-        // Update or add new entries
-        foreach (var company in state.Entries)
+        // Add new entries
+        for (var i = 0; i < state.Entries.Count; i++)
         {
-            if (!_companyEntries.TryGetValue(company.Name, out var entry))
-            {
-                entry = new CompanyEntry(company.Name, OnBuyButtonPressed, OnSellButtonPressed);
-                _companyEntries[company.Name] = entry;
-                Entries.AddChild(entry.Container);
-            }
+            var company = state.Entries[i];
+            var entry = new CompanyEntry(i, company.LocalizedDisplayName, OnBuyButtonPressed, OnSellButtonPressed);
+            _companyEntries[i] = entry;
+            Entries.AddChild(entry.Container);
 
-            var ownedStocks = state.OwnedStocks.GetValueOrDefault(company.Name, 0);
+            var ownedStocks = state.OwnedStocks.GetValueOrDefault(i, 0);
             entry.Update(company, ownedStocks);
         }
     }
@@ -68,12 +68,11 @@ public sealed partial class StockTradingUiFragment : BoxContainer
         private readonly LineEdit _amountEdit;
         private readonly PriceHistoryTable _priceHistory;
 
-        public CompanyEntry(string companyName,
-            Action<string, float>? onBuyPressed,
-            Action<string, float>? onSellPressed)
+        public CompanyEntry(int companyIndex,
+            string displayName,
+            Action<int, float>? onBuyPressed,
+            Action<int, float>? onSellPressed)
         {
-            var companyName1 = companyName;
-
             Container = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
@@ -101,7 +100,7 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             _nameLabel = new Label
             {
                 HorizontalExpand = true,
-                Text = companyName,
+                Text = displayName,
             };
 
             // Create a panel for price and change
@@ -163,13 +162,13 @@ public sealed partial class StockTradingUiFragment : BoxContainer
 
             _sharesLabel = new Label
             {
-                Text = "Owned: 0",
+                Text = Loc.GetString("stock-trading-owned-shares"),
                 MinWidth = 100,
             };
 
             _amountEdit = new LineEdit
             {
-                PlaceHolder = "Amount",
+                PlaceHolder = Loc.GetString("stock-trading-amount-placeholder"),
                 HorizontalExpand = true,
                 MinWidth = 80,
             };
@@ -183,14 +182,14 @@ public sealed partial class StockTradingUiFragment : BoxContainer
 
             _buyButton = new Button
             {
-                Text = "Buy",
+                Text = Loc.GetString("stock-trading-buy-button"),
                 MinWidth = 65,
                 Margin = new Thickness(3, 0, 3, 0),
             };
 
             _sellButton = new Button
             {
-                Text = "Sell",
+                Text = Loc.GetString("stock-trading-sell-button"),
                 MinWidth = 65,
             };
 
@@ -218,13 +217,13 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             _buyButton.OnPressed += _ =>
             {
                 if (float.TryParse(_amountEdit.Text, out var amount) && amount > 0)
-                    onBuyPressed?.Invoke(companyName1, amount);
+                    onBuyPressed?.Invoke(companyIndex, amount);
             };
 
             _sellButton.OnPressed += _ =>
             {
                 if (float.TryParse(_amountEdit.Text, out var amount) && amount > 0)
-                    onSellPressed?.Invoke(companyName1, amount);
+                    onSellPressed?.Invoke(companyIndex, amount);
             };
 
             // There has to be a better way of doing this
@@ -238,12 +237,12 @@ public sealed partial class StockTradingUiFragment : BoxContainer
 
         public void Update(StockCompanyStruct company, int ownedStocks)
         {
-            _nameLabel.Text = company.DisplayName;
+            _nameLabel.Text = company.LocalizedDisplayName;
             _priceLabel.Text = $"${company.CurrentPrice:F2}";
-            _sharesLabel.Text = $"Owned: {ownedStocks}";
+            _sharesLabel.Text = Loc.GetString("stock-trading-owned-shares", ("shares", ownedStocks));
 
             var priceChange = 0f;
-            if (company.PriceHistory.Count > 0)
+            if (company.PriceHistory is { Count: > 0 })
             {
                 var previousPrice = company.PriceHistory[^1];
                 priceChange = (company.CurrentPrice - previousPrice) / previousPrice * 100;
@@ -259,8 +258,9 @@ public sealed partial class StockTradingUiFragment : BoxContainer
                 _ => NeutralColor,
             };
 
-            // Update the price history table
-            _priceHistory.Update(company.PriceHistory);
+            // Update the price history table if not null
+            if (company.PriceHistory != null)
+                _priceHistory.Update(company.PriceHistory);
 
             // Disable sell button if no shares owned
             _sellButton.Disabled = ownedStocks <= 0;

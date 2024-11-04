@@ -4,58 +4,18 @@
   components:
   - type: StationStockMarket
     companies:
-      Nanotrasen:
-        priceHistory:
-        - 100
-        - 100
-        - 100
-        - 100
-        - 100
-        basePrice: 100
-        currentPrice: 100
-        displayName: Nanotrasen [NT]
-        name: Nanotrasen
-      Gorlex:
-        priceHistory:
-        - 75
-        - 75
-        - 75
-        - 75
-        - 75
-        basePrice: 75
-        currentPrice: 75
-        displayName: Gorlex [GRX]
-        name: Gorlex
-      Interdyne:
-        priceHistory:
-        - 300
-        - 300
-        - 300
-        - 300
-        - 300
-        basePrice: 300
-        currentPrice: 300
-        displayName: Interdyne Pharmaceuticals [INTP]
-        name: Interdyne
-      FishInc:
-        priceHistory:
-        - 25
-        - 25
-        - 25
-        - 25
-        - 25
-        basePrice: 25
-        currentPrice: 25
-        displayName: Fish Inc. [FIN]
-        name: FishInc
-      Donk:
-        priceHistory:
-        - 90
-        - 90
-        - 90
-        - 90
-        - 90
-        basePrice: 90
-        currentPrice: 90
-        displayName: Donk Co. [DONK]
-        name: Donk
+    - displayName: stock-trading-company-nanotrasen
+      basePrice: 100
+      currentPrice: 100
+    - displayName: stock-trading-company-gorlex
+      basePrice: 75
+      currentPrice: 75
+    - displayName: stock-trading-company-interdyne
+      basePrice: 300
+      currentPrice: 300
+    - displayName: stock-trading-company-fishinc
+      basePrice: 25
+      currentPrice: 25
+    - displayName: stock-trading-company-donk
+      basePrice: 90
+      currentPrice: 90

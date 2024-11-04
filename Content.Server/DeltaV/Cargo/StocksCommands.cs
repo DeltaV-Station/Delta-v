@@ -17,11 +17,17 @@ public sealed class ChangeStocksPriceCommand : IConsoleCommand
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 2)
+        if (args.Length < 2)
         {
             shell.WriteLine(Loc.GetString("shell-wrong-arguments-number"));
+            return;
+        }
+
+        if (!int.TryParse(args[0], out var companyIndex))
+        {
+            shell.WriteError(Loc.GetString("shell-argument-must-be-number"));
             return;
         }
 
@@ -31,20 +37,39 @@ public sealed class ChangeStocksPriceCommand : IConsoleCommand
             return;
         }
 
-        var name = args[0];
+        EntityUid? targetStation = null;
+        if (args.Length > 2)
+        {
+            if (!EntityUid.TryParse(args[2], out var station))
+            {
+                shell.WriteError(Loc.GetString("shell-entity-uid-must-be-number"));
+                return;
+            }
+            targetStation = station;
+        }
 
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
-
         var query = _entityManager.EntityQueryEnumerator<StationStockMarketComponent>();
+
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (stockMarket.TryChangeStocksPrice(uid, comp, newPrice, name))
+            // Skip if we're looking for a specific station and this isn't it
+            if (targetStation != null && uid != targetStation)
                 continue;
+
+            if (stockMarket.TryChangeStocksPrice(uid, comp, newPrice, companyIndex))
+            {
+                shell.WriteLine(Loc.GetString("shell-command-success"));
+                return;
+            }
+
             shell.WriteLine(Loc.GetString("cmd-changestocksprice-invalid-company"));
             return;
         }
 
-        shell.WriteLine(Loc.GetString("shell-command-success"));
+        shell.WriteLine(targetStation != null
+            ? Loc.GetString("cmd-changestocksprice-invalid-station")
+            : Loc.GetString("cmd-changestocksprice-no-stations"));
     }
 }
 
@@ -58,43 +83,53 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        if (args.Length < 2)
         {
             shell.WriteLine(Loc.GetString("shell-wrong-arguments-number"));
             return;
         }
 
-        if (!float.TryParse(args[2], out var basePrice))
+        if (!float.TryParse(args[1], out var basePrice))
         {
             shell.WriteError(Loc.GetString("shell-argument-must-be-number"));
             return;
         }
 
-        var name = args[0];
-        var displayName = args[1];
-
-        var company = new StockCompanyStruct
+        EntityUid? targetStation = null;
+        if (args.Length > 2)
         {
-            Name = name,
-            DisplayName = displayName,
-            CurrentPrice = basePrice,
-            BasePrice = basePrice,
-            PriceHistory = [],
-        };
+            if (!EntityUid.TryParse(args[2], out var station))
+            {
+                shell.WriteError(Loc.GetString("shell-entity-uid-must-be-number"));
+                return;
+            }
+            targetStation = station;
+        }
 
+        var displayName = args[0];
         var stockMarket = _entitySystemManager.GetEntitySystem<StockMarketSystem>();
-
         var query = _entityManager.EntityQueryEnumerator<StationStockMarketComponent>();
+
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (stockMarket.TryAddCompany(uid, comp, company))
+            // Skip if we're looking for a specific station and this isn't it
+            if (targetStation != null && uid != targetStation)
                 continue;
+
+            if (stockMarket.TryAddCompany(uid, comp, basePrice, displayName))
+            {
+                shell.WriteLine(Loc.GetString("shell-command-success"));
+                return;
+            }
+
             shell.WriteLine(Loc.GetString("cmd-addstockscompany-failure"));
             return;
         }
 
-        shell.WriteLine(Loc.GetString("shell-command-success"));
+        shell.WriteLine(targetStation != null
+            ? Loc.GetString("cmd-addstockscompany-invalid-station")
+            : Loc.GetString("cmd-addstockscompany-no-stations"));
     }
 }

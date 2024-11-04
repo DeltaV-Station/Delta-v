@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Components;
@@ -43,15 +42,6 @@ public sealed class StockMarketSystem : EntitySystem
         _sawmill = _log.GetSawmill("admin.stock_market");
 
         SubscribeLocalEvent<StockTradingCartridgeComponent, CartridgeMessageEvent>(OnStockTradingMessage);
-        SubscribeLocalEvent<StationStockMarketComponent, ComponentInit>(OnInit);
-    }
-
-    private static void OnInit(Entity<StationStockMarketComponent> ent, ref ComponentInit args)
-    {
-        foreach (var company in ent.Comp.Companies.Values)
-        {
-            UpdatePriceHistory(company);
-        }
     }
 
     public override void Update(float frameTime)
@@ -74,8 +64,8 @@ public sealed class StockMarketSystem : EntitySystem
         if (args is not StockTradingUiMessageEvent message)
             return;
 
-        var name = message.Company;
-        var amount = (int)message.Amount; // Convert to int since we can't have partial shares
+        var companyIndex = message.CompanyIndex;
+        var amount = (int)message.Amount;
         var station = ent.Comp.Station;
         var loader = GetEntity(args.LoaderUid);
         var xform = Transform(loader);
@@ -84,7 +74,10 @@ public sealed class StockMarketSystem : EntitySystem
         if (station == null || !TryComp<StationStockMarketComponent>(station, out var stockMarket))
             return;
 
-        // Check for access reader component
+        // Validate company index
+        if (companyIndex < 0 || companyIndex >= stockMarket.Companies.Count)
+            return;
+
         if (!TryComp<AccessReaderComponent>(ent.Owner, out var access))
             return;
 
@@ -108,9 +101,7 @@ public sealed class StockMarketSystem : EntitySystem
 
         try
         {
-            // Ensure the specified company exists
-            if (!stockMarket.Companies.TryGetValue(name, out var company))
-                return;
+            var company = stockMarket.Companies[companyIndex];
 
             // Attempt to buy or sell stocks based on the action
             bool success;
@@ -119,15 +110,15 @@ public sealed class StockMarketSystem : EntitySystem
                 case StockTradingUiAction.Buy:
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Medium,
-                        $"{ToPrettyString(loader)} attempting to buy {amount} stocks of {company.Name}");
-                    success = TryBuyStocks(station.Value, stockMarket, name, amount);
+                        $"{ToPrettyString(loader)} attempting to buy {amount} stocks of {company.LocalizedDisplayName}");
+                    success = TryBuyStocks(station.Value, stockMarket, companyIndex, amount);
                     break;
 
                 case StockTradingUiAction.Sell:
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Medium,
-                        $"{ToPrettyString(loader)} attempting to sell {amount} stocks of {company.Name}");
-                    success = TrySellStocks(station.Value, stockMarket, name, amount);
+                        $"{ToPrettyString(loader)} attempting to sell {amount} stocks of {company.LocalizedDisplayName}");
+                    success = TrySellStocks(station.Value, stockMarket, companyIndex, amount);
                     break;
 
                 default:
@@ -157,40 +148,34 @@ public sealed class StockMarketSystem : EntitySystem
     private bool TryBuyStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
-        string companyKey,
+        int companyIndex,
         int amount)
     {
-        if (amount <= 0)
+        if (amount <= 0 || companyIndex < 0 || companyIndex >= stockMarket.Companies.Count)
             return false;
 
         // Check if the station has a bank account
         if (!TryComp<StationBankAccountComponent>(station, out var bank))
             return false;
 
-        // Check if the company exists
-        if (!stockMarket.Companies.TryGetValue(companyKey, out var company))
-            return false;
-
-        // Convert to int
+        var company = stockMarket.Companies[companyIndex];
         var totalValue = (int)Math.Round(company.CurrentPrice * amount);
 
         // See if we can afford it
         if (bank.Balance < totalValue)
             return false;
 
-        // Update stock ownership
-        if (!stockMarket.StockOwnership.TryGetValue(companyKey, out var currentOwned))
+        if (!stockMarket.StockOwnership.TryGetValue(companyIndex, out var currentOwned))
             currentOwned = 0;
 
         // Update the bank account
         _cargo.UpdateBankAccount(station, bank, -totalValue);
-
-        stockMarket.StockOwnership[companyKey] = currentOwned + amount;
+        stockMarket.StockOwnership[companyIndex] = currentOwned + amount;
 
         // Log the transaction
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,
-            $"[StockMarket] Bought {amount} stocks of {company.Name} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+            $"[StockMarket] Bought {amount} stocks of {company.LocalizedDisplayName} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
 
         return true;
     }
@@ -198,33 +183,28 @@ public sealed class StockMarketSystem : EntitySystem
     private bool TrySellStocks(
         EntityUid station,
         StationStockMarketComponent stockMarket,
-        string companyKey,
+        int companyIndex,
         int amount)
     {
-        if (amount <= 0)
+        if (amount <= 0 || companyIndex < 0 || companyIndex >= stockMarket.Companies.Count)
             return false;
 
         // Check if the station has a bank account
         if (!TryComp<StationBankAccountComponent>(station, out var bank))
             return false;
 
-        // Check if the company exists
-        if (!stockMarket.Companies.TryGetValue(companyKey, out var company))
+        if (!stockMarket.StockOwnership.TryGetValue(companyIndex, out var currentOwned) || currentOwned < amount)
             return false;
 
-        // Check if the station owns enough stocks
-        if (!stockMarket.StockOwnership.TryGetValue(companyKey, out var currentOwned) || currentOwned < amount)
-            return false;
-
-        // Convert to int
+        var company = stockMarket.Companies[companyIndex];
         var totalValue = (int)Math.Round(company.CurrentPrice * amount);
 
         // Update stock ownership
         var newAmount = currentOwned - amount;
         if (newAmount > 0)
-            stockMarket.StockOwnership[companyKey] = newAmount;
+            stockMarket.StockOwnership[companyIndex] = newAmount;
         else
-            stockMarket.StockOwnership.Remove(companyKey);
+            stockMarket.StockOwnership.Remove(companyIndex);
 
         // Update the bank account
         _cargo.UpdateBankAccount(station, bank, totalValue);
@@ -232,20 +212,18 @@ public sealed class StockMarketSystem : EntitySystem
         // Log the transaction
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,
-            $"[StockMarket] Sold {amount} stocks of {company.Name} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
+            $"[StockMarket] Sold {amount} stocks of {company.LocalizedDisplayName} at {company.CurrentPrice:F2} credits each (Total: {totalValue})");
 
         return true;
     }
 
     private void UpdateStockPrices(EntityUid station, StationStockMarketComponent stockMarket)
     {
-        var companies = stockMarket.Companies;
-
-        foreach (var key in companies.Keys.ToList())
+        for (var i = 0; i < stockMarket.Companies.Count; i++)
         {
-            var company = companies[key];
-            var changeType = DetermineChangeType(stockMarket);
-            var multiplier = CalculatePriceMultiplier(changeType, stockMarket);
+            var company = stockMarket.Companies[i];
+            var changeType = DetermineMarketChange(stockMarket.MarketChanges);
+            var multiplier = CalculatePriceMultiplier(changeType);
 
             UpdatePriceHistory(company);
 
@@ -259,8 +237,7 @@ public sealed class StockMarketSystem : EntitySystem
             // Ensure price doesn't go above maximum threshold
             company.CurrentPrice = MathF.Min(company.CurrentPrice, MaxPrice);
 
-            // Save the modified struct back to the dictionary
-            companies[key] = company;
+            stockMarket.Companies[i] = company;
 
             // Calculate the percentage change
             var percentChange = (company.CurrentPrice - oldPrice) / oldPrice * 100;
@@ -272,7 +249,7 @@ public sealed class StockMarketSystem : EntitySystem
             // Log it
             _adminLogger.Add(LogType.Action,
                 LogImpact.Medium,
-                $"[StockMarket] Company '{company.Name}' price updated by {percentChange:+0.00;-0.00}% from {oldPrice:0.00} to {company.CurrentPrice:0.00}");
+                $"[StockMarket] Company '{company.LocalizedDisplayName}' price updated by {percentChange:+0.00;-0.00}% from {oldPrice:0.00} to {company.CurrentPrice:0.00}");
         }
     }
 
@@ -283,7 +260,7 @@ public sealed class StockMarketSystem : EntitySystem
     public bool TryChangeStocksPrice(EntityUid station,
         StationStockMarketComponent stockMarket,
         float newPrice,
-        string companyName)
+        int companyIndex)
     {
         // Check if it exceeds the max price
         if (newPrice > MaxPrice)
@@ -292,31 +269,18 @@ public sealed class StockMarketSystem : EntitySystem
             return false;
         }
 
-        var companies = stockMarket.Companies;
-        foreach (var key in companies.Keys.ToList())
-        {
-            var company = companies[key];
+        if (companyIndex < 0 || companyIndex >= stockMarket.Companies.Count)
+            return false;
 
-            // Continue if it doesn't match the company we're looking for
-            if (company.Name != companyName)
-                continue;
+        var company = stockMarket.Companies[companyIndex];
+        UpdatePriceHistory(company);
 
-            UpdatePriceHistory(company);
+        company.CurrentPrice = MathF.Max(newPrice, company.BasePrice * 0.1f);
+        stockMarket.Companies[companyIndex] = company;
 
-            // Update price
-            company.CurrentPrice = newPrice;
-
-            // Ensure it doesn't go below minimum threshold
-            company.CurrentPrice = MathF.Max(company.CurrentPrice, company.BasePrice * 0.1f);
-
-            // Save the modified struct back to the dictionary
-            companies[key] = company;
-
-            var ev = new StockMarketUpdatedEvent(station);
-            RaiseLocalEvent(ev);
-            return true;
-        }
-        return false;
+        var ev = new StockMarketUpdatedEvent(station);
+        RaiseLocalEvent(ev);
+        return true;
     }
 
     /// <summary>
@@ -326,34 +290,24 @@ public sealed class StockMarketSystem : EntitySystem
     public bool TryAddCompany(EntityUid station,
         StationStockMarketComponent stockMarket,
         float basePrice,
-        string companyName,
         string displayName)
     {
-    var companies = stockMarket.Companies;
+        // Create a new company struct with the specified parameters
+        var company = new StockCompanyStruct
+        {
+            LocalizedDisplayName = displayName, // Assume there's no Loc for it
+            BasePrice = basePrice,
+            CurrentPrice = basePrice,
+            PriceHistory = [],
+        };
 
-    // Check if the company already exists in the dictionary
-    if (companies.ContainsKey(companyName))
-    {
-        return false;
-    }
+        stockMarket.Companies.Add(company);
+        UpdatePriceHistory(company);
 
-    // Create a new company struct with the specified parameters
-    var company = new StockCompanyStruct
-    {
-        Name = companyName,
-        DisplayName = displayName,
-        BasePrice = basePrice,
-        CurrentPrice = basePrice,
-        PriceHistory = [],
-    };
+        var ev = new StockMarketUpdatedEvent(station);
+        RaiseLocalEvent(ev);
 
-    // Add the new company to the dictionary
-    companies[companyName] = company;
-
-    var ev = new StockMarketUpdatedEvent(station);
-    RaiseLocalEvent(ev);
-
-    return true;
+        return true;
     }
 
     /// <summary>
@@ -364,11 +318,11 @@ public sealed class StockMarketSystem : EntitySystem
         StationStockMarketComponent stockMarket,
         StockCompanyStruct company)
     {
-        var companies = stockMarket.Companies;
-
         // Add the new company to the dictionary
-        if (!companies.TryAdd(company.Name, company))
-            return false;
+        stockMarket.Companies.Add(company);
+
+        // Make sure it has a price history
+        UpdatePriceHistory(company);
 
         var ev = new StockMarketUpdatedEvent(station);
         RaiseLocalEvent(ev);
@@ -378,12 +332,14 @@ public sealed class StockMarketSystem : EntitySystem
 
     private static void UpdatePriceHistory(StockCompanyStruct company)
     {
+        // Create if null
+        company.PriceHistory ??= [];
+
         // Make sure it has at least 5 entries
         while (company.PriceHistory.Count < 5)
         {
             company.PriceHistory.Add(company.BasePrice);
         }
-
 
         // Store previous price in history
         company.PriceHistory.Add(company.CurrentPrice);
@@ -392,57 +348,35 @@ public sealed class StockMarketSystem : EntitySystem
             company.PriceHistory.RemoveAt(1); // Always keep the base price
     }
 
-    private StockChangeType DetermineChangeType(StationStockMarketComponent stockMarket)
+    private MarketChange DetermineMarketChange(List<MarketChange> marketChanges)
     {
         var roll = _random.NextFloat();
+        var cumulative = 0f;
 
-        if (roll < stockMarket.CatastrophicChangeChance)
-            return StockChangeType.Catastrophic;
+        foreach (var change in marketChanges)
+        {
+            cumulative += change.Chance;
+            if (roll <= cumulative)
+                return change;
+        }
 
-        roll -= stockMarket.CatastrophicChangeChance;
-
-        if (roll < stockMarket.MajorChangeChance)
-            return StockChangeType.Major;
-
-        roll -= stockMarket.MajorChangeChance;
-
-        if (roll < stockMarket.ModerateChangeChance)
-            return StockChangeType.Moderate;
-
-        return StockChangeType.Minor;
+        return marketChanges[0]; // Default to first (usually minor) change if we somehow exceed 100%
     }
 
-    private float CalculatePriceMultiplier(StockChangeType changeType, StationStockMarketComponent stockMarket)
+    private float CalculatePriceMultiplier(MarketChange change)
     {
-        var (min, max) = changeType switch
-        {
-            StockChangeType.Minor => stockMarket.MinorChangeRange,
-            StockChangeType.Moderate => stockMarket.ModerateChangeRange,
-            StockChangeType.Major => stockMarket.MajorChangeRange,
-            StockChangeType.Catastrophic => stockMarket.CatastrophicChangeRange,
-            _ => throw new ArgumentOutOfRangeException(nameof(changeType)),
-        };
-
         // Using Box-Muller transform for normal distribution
         var u1 = _random.NextFloat();
         var u2 = _random.NextFloat();
         var randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
 
         // Scale and shift the result to our desired range
-        var range = max - min;
-        var mean = (max + min) / 2;
+        var range = change.Range.Y - change.Range.X;
+        var mean = (change.Range.Y + change.Range.X) / 2;
         var stdDev = range / 6.0f; // 99.7% of values within range
 
         var result = (float)(mean + (stdDev * randStdNormal));
-        return Math.Clamp(result, min, max);
-    }
-
-    private enum StockChangeType
-    {
-        Minor,
-        Moderate,
-        Major,
-        Catastrophic,
+        return Math.Clamp(result, change.Range.X, change.Range.Y);
     }
 }
 public sealed class StockMarketUpdatedEvent(EntityUid station) : EntityEventArgs

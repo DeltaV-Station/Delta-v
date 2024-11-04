@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.DeltaV.Cargo.Systems;
@@ -39,9 +40,24 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
         UpdateAllCartridges(args.Station);
     }
 
-    private void OnMapInit(EntityUid uid, StationStockMarketComponent stockMarket, MapInitEvent args)
+    private void OnMapInit(Entity<StationStockMarketComponent> ent, ref MapInitEvent args)
     {
-        if (_station.GetOwningStation(uid) is { } station)
+        // Initialize price history for each company
+        for (var i = 0; i < ent.Comp.Companies.Count; i++)
+        {
+            var company = ent.Comp.Companies[i];
+
+            // Create initial price history using base price
+            company.PriceHistory = new List<float>();
+            for (var j = 0; j < 5; j++)
+            {
+                company.PriceHistory.Add(company.BasePrice);
+            }
+
+            ent.Comp.Companies[i] = company;
+        }
+
+        if (_station.GetOwningStation(ent.Owner) is { } station)
             UpdateAllCartridges(station);
     }
 
@@ -66,18 +82,12 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
             return;
 
         // Convert company data to UI state format
-        var entries = new List<StockCompanyStruct>();
-
-        foreach (var (key, company) in stockMarket.Companies)
-        {
-            entries.Add(new StockCompanyStruct(
-                name: company.Name,
-                displayName: company.DisplayName,
+        var entries = stockMarket.Companies.Select(company => new StockCompanyStruct(
+            displayName: company.LocalizedDisplayName,
                 currentPrice: company.CurrentPrice,
                 basePrice: company.BasePrice,
-                priceHistory: company.PriceHistory
-            ));
-        }
+                priceHistory: company.PriceHistory))
+            .ToList();
 
         // Send the UI state with balance and owned stocks
         var state = new StockTradingUiState(
