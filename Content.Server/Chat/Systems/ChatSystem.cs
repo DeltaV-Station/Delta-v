@@ -8,7 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
-using Content.Shared.Speech.Hushing; // Delta-V
+using Content.Shared.Speech.Hushing; // DeltaV
 using Content.Server.Nyanotrasen.Chat;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
@@ -222,14 +222,14 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        // Delta-V
+        // DeltaV - Hushed trait logic
         // This needs to happen after prefix removal to avoid bug
         if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
         {
             // hushed players cannot speak on local chat so will be sent as whisper instead
             desiredType = InGameICChatType.Whisper;
         }
-        // End Delta-V
+        // DeltaV - End hushed trait logic
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
