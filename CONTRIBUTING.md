@@ -2,6 +2,9 @@
 
 Generally we follow [upstream's PR guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html) for code quality and such.
 
+Importantly do not make webedits, copied verbatim from above:
+> Do not use GitHub's web editor to create PRs. PRs submitted through the web editor may be closed without review.
+
 Upstream is the [space-wizards/space-station-14](https://github.com/space-wizards/space-station-14) repository that wizden runs on.
 
 # Content specific to Delta-V
@@ -74,6 +77,18 @@ private EntityUid Slice(...)
     ...
 }
 ```
+
+# Mapping
+
+If you want to make changes to a map, get in touch with its maintainer to make sure you don't both make changes at the same time.
+
+Conflicts with maps make PRs mutually exclusive so either your work on the maintainer's work will be lost, communicate to avoid this!
+
+# Before you submit
+
+Double-check your diff on GitHub before submitting: look for unintended commits or changes and remove accidental whitespace or line-ending changes.
+
+Additionally for long-lasting PRs, if you see `RobustToolbox` in the changed files you have to revert it, use `git checkout upstream/master RobustToolbox` (replacing `upstream` with the name of your DeltaV-Station/Delta-V remote)
 
 # Changelogs
 
