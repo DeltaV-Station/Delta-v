@@ -230,13 +230,20 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
-  
+
 - type: loadoutGroup
   id: ProsecutorNeck
   name: loadout-group-prosecutor-neck
   minLimit: 0
   loadouts:
   - ProsecutorNeck
+
+- type: loadoutGroup
+  id: ProsecutorOuterClothing
+  name: loadout-group-prosecutor-outer-clothing
+  minLimit: 0
+  loadouts:
+  - ProsecutorOvercoat
 
 # PDAs
 - type: loadoutGroup

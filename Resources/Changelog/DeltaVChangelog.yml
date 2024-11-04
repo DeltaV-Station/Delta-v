@@ -1,83 +1,4 @@
 ﻿Entries:
-- author: VMSolidus
-  changes:
-  - message: Laika has discovered how to press airlock buttons, now no evildoers are
-      safe.
-    type: Tweak
-  id: 133
-  time: '2023-11-09T19:01:30.0000000+00:00'
-- author: Samsterious
-  changes:
-  - message: Character name restrictions are more permissive.
-    type: Tweak
-  id: 134
-  time: '2023-11-10T15:08:02.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Revolutionaries are now fewer in number.
-    type: Tweak
-  id: 135
-  time: '2023-11-10T15:08:26.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Head lockers now contain their respective head's spare ID card where
-      they didn't already.
-    type: Add
-  id: 136
-  time: '2023-11-11T01:25:33.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: The Hive is Alive!
-    type: Add
-  id: 137
-  time: '2023-11-11T16:37:11.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Glimmer Prober and Drainer are craftable once again.
-    type: Tweak
-  - message: Fix Probers not making sounds depending on the glimmer levels.
-    type: Fix
-  - message: Adds back the Psionic guidebook.
-    type: Add
-  id: 138
-  time: '2023-11-11T17:39:37.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Fixed The Hive's AI room losing power.
-    type: Fix
-  id: 139
-  time: '2023-11-13T00:42:17.0000000+00:00'
-- author: luringens
-  changes:
-  - message: Syndicate harpies can now purchase bionic syrinx implants to further
-      enchance their mimicry skills. It's like a voice mask for your throat!
-    type: Add
-  id: 140
-  time: '2023-11-13T22:42:09.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added Shoukou from Nyanotrasen and hopefully improved it.
-    type: Add
-  id: 141
-  time: '2023-11-15T01:00:27.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the X-01 MultiPhase Energy Gun for the HoS.
-    type: Add
-  id: 142
-  time: '2023-11-15T18:41:01.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Slightly adjusted gamemode weights.
-    type: Tweak
-  id: 143
-  time: '2023-11-16T09:49:24.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Head of Personnel now has the access that lawyers have.
-    type: Fix
-  id: 144
-  time: '2023-11-17T23:56:56.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Adjusted Asterisk and Shoukou's min/max population to 0/60.
@@ -3694,3 +3615,90 @@
   id: 632
   time: '2024-10-31T07:18:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2075
+- author: reesque
+  changes:
+  - message: pie not dropping tin on thrown
+    type: Fix
+  id: 633
+  time: '2024-11-01T13:29:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2082
+- author: Radezolid
+  changes:
+  - message: Fixed the Mail Carrier PDA not coming with the MailMetrics program!
+    type: Fix
+  id: 634
+  time: '2024-11-02T02:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2086
+- author: Radezolid
+  changes:
+  - message: Added an Agent ID to LPO for them to fake signatures, plus a backpack
+      to store all those illegal documents!.
+    type: Add
+  id: 635
+  time: '2024-11-02T14:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2009
+- author: Lyndomen
+  changes:
+  - message: Nuclear Operative Agent now requires 4 hours of Chemist playtime.
+    type: Tweak
+  id: 636
+  time: '2024-11-03T06:08:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2098
+- author: Radezolid
+  changes:
+  - message: Now the prosecutor, clerk and chief justice PDAs comes with a SecWatch
+      program installed.
+    type: Tweak
+  id: 637
+  time: '2024-11-03T07:22:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2085
+- author: Eternally-Confused
+  changes:
+  - message: Canes can now be selected in loadouts.
+    type: Add
+  id: 638
+  time: '2024-11-03T09:26:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2095
+- author: deltanedas
+  changes:
+  - message: Prosecutors can now add their overcoat to loadouts.
+    type: Add
+  id: 639
+  time: '2024-11-03T09:40:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1923
+- author: Radezolid
+  changes:
+  - message: You can use emotes while sleeping to enhance narcoleptic RP.
+    type: Tweak
+  id: 640
+  time: '2024-11-03T15:33:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2084
+- author: deltanedas
+  changes:
+  - message: You can no longer eat brains, they aren't allowed to remember who killed
+      them anyway!
+    type: Tweak
+  id: 641
+  time: '2024-11-03T17:27:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2102
+- author: Radezolid
+  changes:
+  - message: Medibots now smile!
+    type: Tweak
+  id: 642
+  time: '2024-11-03T17:40:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2087
+- author: beck-thompson
+  changes:
+  - message: Syrinx implant now works correctly
+    type: Fix
+  id: 643
+  time: '2024-11-03T18:02:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2055
+- author: Monotheonist
+  changes:
+  - message: Changed Delta-V cartridges to tapes.
+    type: Tweak
+  id: 644
+  time: '2024-11-04T02:03:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2108

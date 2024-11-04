@@ -480,7 +480,7 @@
     state: pda-library
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: BaseJusticePDA # DeltaV - Added secwatch to justice. Was BaseSecurityPDA.
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -488,12 +488,13 @@
   - type: Pda
     id: LawyerIDCard
     state: pda-lawyer
-    penSlot:
-      startingItem: LuxuryPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
+  # DeltaV - Moved to BaseJusticePDA
+  #  penSlot:
+  #    startingItem: LuxuryPen
+  #    priority: -1
+  #    whitelist:
+  #      tags:
+  #      - Write
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
