@@ -41,6 +41,18 @@
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
 
+- type:  technology
+  id: RobustMelee
+  name: research-technology-robust-melee
+  icon:
+    sprite: Objects/Weapons/Melee/Advanced trunch
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  Cost: 12500
+  recipeUnlocks:
+  - AdvancedTruncheon
+  
 #Merged with EnergyGunsAdvanced
 #- type: technology
 #  id: Advanced Laser Manipulation
