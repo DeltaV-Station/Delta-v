@@ -1,7 +1,6 @@
 using Content.Shared.Dataset;
 using Content.Shared.DeltaV.Addictions;
 using Content.Shared.Popups;
-using Microsoft.CodeAnalysis;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
