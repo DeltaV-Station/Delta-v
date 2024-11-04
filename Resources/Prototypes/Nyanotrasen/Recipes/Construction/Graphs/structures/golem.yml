@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: Golem
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: golem
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 5
+              doAfter: 10
+
+    - node: golem
+      entity: MobGolemCult
