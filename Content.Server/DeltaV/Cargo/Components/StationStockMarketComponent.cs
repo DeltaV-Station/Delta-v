@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.DeltaV.Cargo.Components;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class StationStockMarketComponent : Component
 {
     /// <summary>
@@ -53,7 +53,7 @@ public sealed partial class StationStockMarketComponent : Component
             DisplayName = "Donk Co. [DONK]",
             CurrentPrice = 90f,
             BasePrice = 90f,
-            PriceHistory = [90f, 90f, 90f, 90f, 90f],
+            PriceHistory = [],
         },
     };
 
@@ -73,6 +73,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>
