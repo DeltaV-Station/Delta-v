@@ -5,34 +5,20 @@
   priority: -2
   ruleEntry: true
   children:
-    - DeltaVDisclaimer1
-    - DeltaVDisclaimer2
     - DeltaVRule0
-    - DeltaVRuleE1
-    - DeltaVRuleE2
-    - DeltaVRuleE3
+    - DeltaVRuleA1
+    - DeltaVRuleA2
+    - DeltaVRuleA3
+    - DeltaVRuleA4
+    - DeltaVRuleA5
     - DeltaVRule1
     - DeltaVRule2
     - DeltaVRule3
     - DeltaVRule4
     - DeltaVRule5
-    - DeltaVRule6
-    - DeltaVRule7
     - DeltaVRuleC1
     - DeltaVRuleC2
     - DeltaVRuleC3
-
-- type: guideEntry
-  id: DeltaVDisclaimer1
-  name: guide-entry-deltav-disclaimer-1
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/D1_AdminRespect.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: DeltaVDisclaimer2
-  name: guide-entry-deltav-disclaimer-2
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/D2_Exploits.xml"
-  ruleEntry: true
 
 - type: guideEntry
   id: DeltaVRule0
@@ -41,27 +27,39 @@
   ruleEntry: true
 
 - type: guideEntry
-  id: DeltaVRuleE1
-  name: guide-entry-deltav-rule-e1
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/E1_ERP.xml"
+  id: DeltaVRuleA1
+  name: guide-entry-deltav-rule-a1
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/A1_ERP.xml"
   ruleEntry: true
 
 - type: guideEntry
-  id: DeltaVRuleE2
-  name: guide-entry-deltav-rule-e2
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/E2_Community.xml"
+  id: DeltaVRuleA2
+  name: guide-entry-deltav-rule-a2
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/A2_Community.xml"
   ruleEntry: true
 
 - type: guideEntry
-  id: DeltaVRuleE3
-  name: guide-entry-deltav-rule-e3
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/E3_Streaming.xml"
+  id: DeltaVRuleA3
+  name: guide-entry-deltav-rule-a3
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/A3_Streaming.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleA4
+  name: guide-entry-deltav-rule-a4
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/A4_Ahelp.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleA5
+  name: guide-entry-deltav-rule-a5
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/CommunityRules/A5_Exploits.xml"
   ruleEntry: true
 
 - type: guideEntry
   id: DeltaVRule1
   name: guide-entry-deltav-rule-1
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/1_ServerExpectations.xml"
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/1_Behave.xml"
   ruleEntry: true
 
 - type: guideEntry
@@ -73,31 +71,19 @@
 - type: guideEntry
   id: DeltaVRule3
   name: guide-entry-deltav-rule-3
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/3_NewLife.xml"
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/3_Powergaming.xml"
   ruleEntry: true
 
 - type: guideEntry
   id: DeltaVRule4
   name: guide-entry-deltav-rule-4
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/4_NamingConventions.xml"
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/4_Self-antag.xml"
   ruleEntry: true
 
 - type: guideEntry
   id: DeltaVRule5
   name: guide-entry-deltav-rule-5
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/5_RoleplayGuidelines.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: DeltaVRule6
-  name: guide-entry-deltav-rule-6
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/6_Powergaming.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: DeltaVRule7
-  name: guide-entry-deltav-rule-7
-  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/7_EOR.xml"
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/GameRules/5_Leaving.xml"
   ruleEntry: true
 
 - type: guideEntry
