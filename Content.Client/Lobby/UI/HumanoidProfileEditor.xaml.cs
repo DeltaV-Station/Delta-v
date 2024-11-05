@@ -195,6 +195,20 @@ namespace Content.Client.Lobby.UI
 
             #endregion Age
 
+            // # Goobstation - Preferred Cyborg Name Thing
+
+
+            #region BorgName
+
+            BorgNameRandomize.OnPressed += args => RandomizeBorgName();
+            BorgNameEdit.OnTextChanged += args =>
+            {
+                if (!string.IsNullOrEmpty(args.Text))
+                    SetBorgName(args.Text);
+            };
+
+            # endregion BorgName
+
             #region Gender
 
             PronounsButton.AddItem(Loc.GetString("humanoid-profile-editor-pronouns-male-text"), (int) Gender.Male);
@@ -1168,6 +1182,16 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
+        // #Goobstation - Prefered Cyborg Name Stuff
+        private void SetBorgName(string newBName)
+        {
+            Profile = Profile?.WithBorgName(newBName);
+            SetDirty();
+
+            if (!IsDirty)
+                return;
+        }
+
         private void SetSex(Sex newSex)
         {
             Profile = Profile?.WithSex(newSex);
@@ -1259,6 +1283,12 @@ namespace Content.Client.Lobby.UI
         private void UpdateAgeEdit()
         {
             AgeEdit.Text = Profile?.Age.ToString() ?? "";
+        }
+
+        // #Goobstation - More Borg Name Stuff
+        private void UpdateBorgNameEdit()
+        {
+            BorgNameEdit.Text = Profile?.BorgName.ToString() ?? "";
         }
 
         /// <summary>
@@ -1551,6 +1581,15 @@ namespace Content.Client.Lobby.UI
             var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
+        }
+
+        // #Goobstation - Borg Preferred Name
+        private void RandomizeBorgName()
+        {
+            if (Profile == null) return;
+            var name = HumanoidCharacterProfile.GetBorgName();
+            SetBorgName(name);
+            UpdateBorgNameEdit();
         }
 
         private async void ExportImage()
