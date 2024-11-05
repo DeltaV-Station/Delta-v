@@ -1,4 +1,7 @@
-﻿namespace Content.Server.Ghost.Roles.Components
+﻿using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server.Ghost.Roles.Components
 {
     /// <summary>
     ///     Allows a ghost to take this role, spawning their selected character.
@@ -17,18 +20,12 @@
         public int CurrentTakeovers = 0;
 
         [DataField]
-        public string OutfitPrototype = "PassengerGear";
+        public ProtoId<StartingGearPrototype> OutfitPrototype = "PassengerGear";
 
         /// <summary>
-        ///  Whether to give the MindShield and AntagImmune components on spawn.
+        ///  Components to give on spawn.
         /// </summary>
         [DataField]
-        public bool MindShield;
-
-        /// <summary>
-        /// Whether to give the TargetObjectiveImmune component on spawn.
-        /// </summary>
-        [DataField]
-        public bool TargetObjectiveImmune;
+        public ComponentRegistry Components = new();
     }
 }

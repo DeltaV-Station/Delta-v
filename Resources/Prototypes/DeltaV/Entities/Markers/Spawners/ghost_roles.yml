@@ -24,7 +24,8 @@
   suffix: mindshielded, player character
   components:
   - type: GhostRoleCharacterSpawner
-    mindShield: true
+    components:
+    - MindShield
 
 - type: entity
   parent: SpawnPointPlayerCharacter
@@ -33,8 +34,10 @@
   suffix: mindshielded, KillObjectiveImmune, player character
   components:
   - type: GhostRoleCharacterSpawner
-    mindShield: true
-    targetObjectiveImmune: true
+    components:
+    - MindShield
+    - AntagImmune
+    - TargetObjectiveImmune
 
 - type: entity # Part of ListeningPost
   categories: [ HideSpawnMenu, Spawner ]
