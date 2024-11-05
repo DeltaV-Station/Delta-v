@@ -3,6 +3,14 @@
   name: guide-entry-rules
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
+  children:
+  - RuleR1
+  - RuleR2
+  - RuleR3
+  - RuleR4
+  - RuleR5
+  - RuleR6
+  - RuleR7
 
 - type: guideEntry # DeltaV: Nukes all wizden rules except for the following ones
   id: RoleTypes
@@ -24,3 +32,52 @@
   ruleEntry: true
   priority: 100
   text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
+
+- type: guideEntry
+  id: RuleR1
+  name: guide-entry-rules-r1
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/Stray/ServerRules/RuleR1.xml"
+
+- type: guideEntry
+  id: RuleR2
+  name: guide-entry-rules-r2
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/Stray/ServerRules/RuleR2.xml"
+
+- type: guideEntry
+  id: RuleR3
+  name: guide-entry-rules-r3
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/Stray/ServerRules/RuleR3.xml"
+
+- type: guideEntry
+  id: RuleR4
+  name: guide-entry-rules-r4
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/Stray/ServerRules/RuleR4.xml"
+
+- type: guideEntry
+  id: RuleR5
+  name: guide-entry-rules-r5
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/Stray/ServerRules/RuleR5.xml"
+
+- type: guideEntry
+  id: RuleR6
+  name: guide-entry-rules-r6
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/Stray/ServerRules/RuleR6.xml"
+
+- type: guideEntry
+  id: RuleR7
+  name: guide-entry-rules-r7
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/Stray/ServerRules/RuleR7.xml"
