@@ -24,7 +24,7 @@
   suffix: mindshielded, player character
   components:
   - type: GhostRoleCharacterSpawner
-    components:
+    addedComponents:
     - MindShield
 
 - type: entity
@@ -34,7 +34,7 @@
   suffix: mindshielded, KillObjectiveImmune, player character
   components:
   - type: GhostRoleCharacterSpawner
-    components:
+    addedComponents:
     - MindShield
     - AntagImmune
     - TargetObjectiveImmune

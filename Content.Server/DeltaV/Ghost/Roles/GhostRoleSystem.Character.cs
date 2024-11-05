@@ -41,7 +41,7 @@ namespace Content.Server.Ghost.Roles
 
             SetOutfitCommand.SetOutfit(mob, component.OutfitPrototype, _entityManager);
 
-            EntityManager.AddComponents(mob, component.Components);
+            EntityManager.AddComponents(mob, component.AddedComponents);
 
             if (++component.CurrentTakeovers < component.AvailableTakeovers)
             {

@@ -26,6 +26,6 @@ namespace Content.Server.Ghost.Roles.Components
         ///  Components to give on spawn.
         /// </summary>
         [DataField]
-        public ComponentRegistry Components = new();
+        public ComponentRegistry AddedComponents = new();
     }
 }
