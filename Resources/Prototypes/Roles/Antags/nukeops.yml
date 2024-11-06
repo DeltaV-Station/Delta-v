@@ -28,9 +28,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
-  - !type:DepartmentTimeRequirement # DeltaV - Medical dept time requirement
-    department: Medical
-    time: 36000 # DeltaV - 10 hours
+  - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems 
+    role: JobChemist
+    time: 14400 # DeltaV- 4 hours 
 
 - type: antag
   id: NukeopsCommander

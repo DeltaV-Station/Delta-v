@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: CrimeAssistCartridge
-  name: crime assist cartridge
+  name: CrimeAssist cartridge
   description: A cartridge that helps identify crimes and see appropriate punishment.
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
 - type: entity
   parent: BaseItem
   id: SecWatchCartridge
-  name: sec watch cartridge
+  name: SecWatch cartridge
   description: A cartridge that tracks the status of currently wanted individuals.
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 - type: entity
   parent: BaseItem
   id: MailMetricsCartridge
-  name: mail metrics cartridge
+  name: MailMetrics cartridge
   description: A cartridge that tracks statistics related to mail deliveries.
   components:
   - type: Sprite
