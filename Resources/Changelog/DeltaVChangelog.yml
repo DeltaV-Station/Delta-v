@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Corpsmen start with a few autoinjectors in their packs, and gain chemistry
-      access on low-pop rounds.
-    type: Tweak
-  id: 151
-  time: '2023-11-26T01:21:47.0000000+00:00'
 - author: Tryded
   changes:
   - message: Nanotrasen has recently introduced their miniature energy pistols and
@@ -3708,3 +3701,11 @@
   id: 650
   time: '2024-11-06T17:51:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2127
+- author: Crow, Radezolid
+  changes:
+  - message: Added security magboots, they should only be used for EVA or situations
+      that warrant no slips.
+    type: Add
+  id: 651
+  time: '2024-11-06T20:49:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2074
