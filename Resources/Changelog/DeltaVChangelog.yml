@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Tryded
-  changes:
-  - message: Nanotrasen has recently introduced their miniature energy pistols and
-      energy guns to the market and developed experimental research into the IK-60
-      laser carbine and the PDW-9 Energy Pistol. They can be researched by science.
-    type: Add
-  id: 152
-  time: '2023-11-27T22:42:27.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Mindshields are now made with significantly cheaper components, and they
@@ -3709,3 +3701,10 @@
   id: 651
   time: '2024-11-06T20:49:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2074
+- author: SolStar2, Vivi Bunny
+  changes:
+  - message: Added Hushed trait. Hushed players will whisper instead of talking.
+    type: Add
+  id: 652
+  time: '2024-11-06T21:50:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2106
