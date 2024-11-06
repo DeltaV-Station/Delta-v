@@ -392,12 +392,13 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV - MailMetrics courier tracker
+  - type: CartridgeLoader # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - MailMetricsCartridge
+      - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
+      - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BasePDA
@@ -412,6 +413,12 @@
     borderColor: "#e39751"
   - type: Icon
     state: pda-cargo
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BasePDA
@@ -479,7 +486,7 @@
     state: pda-library
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: BaseJusticePDA # DeltaV - Added secwatch to justice. Was BaseSecurityPDA.
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -487,12 +494,13 @@
   - type: Pda
     id: LawyerIDCard
     state: pda-lawyer
-    penSlot:
-      startingItem: LuxuryPen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
+  # DeltaV - Moved to BaseJusticePDA
+  #  penSlot:
+  #    startingItem: LuxuryPen
+  #    priority: -1
+  #    whitelist:
+  #      tags:
+  #      - Write
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
@@ -812,6 +820,7 @@
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
       - MedTekCartridge
       - AstroNavCartridge
+      - StockTradingCartridge # Delta-V
 
 - type: entity
   parent: CentcomPDA
@@ -1030,6 +1039,12 @@
     borderColor: "#3f3f74"
   - type: Icon
     state: pda-reporter
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BasePDA
