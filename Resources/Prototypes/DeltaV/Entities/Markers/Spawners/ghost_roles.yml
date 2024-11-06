@@ -1,14 +1,14 @@
 - type: entity
-  categories: [ HideSpawnMenu, Spawner ]
+  categories: [ Spawner ]
   parent: MarkerBase
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
-  suffix: player character, DO NOT MAP
+  suffix: player character
   components:
     - type: GhostRole
       name: Roleplay Ghost Role
-      description: Placeholder
-      rules: Placeholder
+      description: This is a custom event ghost role.
+      rules: ghost-role-component-default-rules
     - type: GhostRoleCharacterSpawner
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -16,6 +16,28 @@
         - state: green
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
+
+- type: entity
+  parent: SpawnPointPlayerCharacter
+  id: SpawnPointPlayerCharacterMindShield
+  name: ghost role spawn point
+  suffix: mindshielded, player character
+  components:
+  - type: GhostRoleCharacterSpawner
+    addedComponents:
+    - type: MindShield
+
+- type: entity
+  parent: SpawnPointPlayerCharacter
+  id: SpawnPointPlayerCharacterTargetImmune
+  name: ghost role spawn point
+  suffix: mindshielded, KillObjectiveImmune, player character
+  components:
+  - type: GhostRoleCharacterSpawner
+    addedComponents:
+    - type: MindShield
+    - type: AntagImmune
+    - type: TargetObjectiveImmune
 
 - type: entity # Part of ListeningPost
   categories: [ HideSpawnMenu, Spawner ]
