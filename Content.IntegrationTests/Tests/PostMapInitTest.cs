@@ -61,7 +61,7 @@ namespace Content.IntegrationTests.Tests
             "Lighthouse", //DeltaV
             "Micro", //DeltaV
             "Chibi", //DeltaV
-            "Lobster", //DeltaV
+            "Lobster" //DeltaV
         };
 
         /// <summary>
