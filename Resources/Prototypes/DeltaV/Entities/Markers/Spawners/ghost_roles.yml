@@ -25,7 +25,7 @@
   components:
   - type: GhostRoleCharacterSpawner
     addedComponents:
-    - MindShield
+    - type: MindShield
 
 - type: entity
   parent: SpawnPointPlayerCharacter
@@ -35,9 +35,9 @@
   components:
   - type: GhostRoleCharacterSpawner
     addedComponents:
-    - MindShield
-    - AntagImmune
-    - TargetObjectiveImmune
+    - type: MindShield
+    - type: AntagImmune
+    - type: TargetObjectiveImmune
 
 - type: entity # Part of ListeningPost
   categories: [ HideSpawnMenu, Spawner ]
