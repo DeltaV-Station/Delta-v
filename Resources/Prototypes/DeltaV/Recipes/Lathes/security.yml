@@ -211,6 +211,11 @@
     Plasma: 500
 
 - type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsSecurityMagboots
+  result: ClothingShoesBootsSecurityMagboots
+
+- type: latheRecipe
   parent: BaseWeaponRecipe
   id: AdvancedTruncheon
   result: AdvancedTruncheon
@@ -218,8 +223,3 @@
   materials:
     Steel: 1000
     Plastic: 800
-
-- type: latheRecipe
-  parent: ClothingShoesBootsMagSci
-  id: ClothingShoesBootsSecurityMagboots
-  result: ClothingShoesBootsSecurityMagboots
