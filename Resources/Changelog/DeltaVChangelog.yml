@@ -1,161 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Fixed the Reverse Engineering Machine incorrectly decreasing scan power
-      with upgrades.
-    type: Fix
-  id: 127
-  time: '2023-11-07T19:31:02.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Rebased Arena Station. This is a major overhaul. Please report any issues
-      or oddities in the mapping channel on Discord.
-    type: Tweak
-  id: 128
-  time: '2023-11-07T19:31:54.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Carp suit has been moved into the AutoDrobe.
-    type: Tweak
-  id: 129
-  time: '2023-11-07T19:32:52.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: Centcomm Geneticists have modified the Harpies so that they can no longer
-      imitate flash bangs. Your eardrums are safe now.
-    type: Tweak
-  id: 130
-  time: '2023-11-08T22:30:39.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Reskinned the Glimmer Prober and Glimmer Drain.
-    type: Tweak
-  id: 131
-  time: '2023-11-08T22:44:38.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Brought back the custom round end sounds. Collect them all!
-    type: Fix
-  id: 132
-  time: '2023-11-09T04:22:23.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: Laika has discovered how to press airlock buttons, now no evildoers are
-      safe.
-    type: Tweak
-  id: 133
-  time: '2023-11-09T19:01:30.0000000+00:00'
-- author: Samsterious
-  changes:
-  - message: Character name restrictions are more permissive.
-    type: Tweak
-  id: 134
-  time: '2023-11-10T15:08:02.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Revolutionaries are now fewer in number.
-    type: Tweak
-  id: 135
-  time: '2023-11-10T15:08:26.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Head lockers now contain their respective head's spare ID card where
-      they didn't already.
-    type: Add
-  id: 136
-  time: '2023-11-11T01:25:33.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: The Hive is Alive!
-    type: Add
-  id: 137
-  time: '2023-11-11T16:37:11.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Glimmer Prober and Drainer are craftable once again.
-    type: Tweak
-  - message: Fix Probers not making sounds depending on the glimmer levels.
-    type: Fix
-  - message: Adds back the Psionic guidebook.
-    type: Add
-  id: 138
-  time: '2023-11-11T17:39:37.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Fixed The Hive's AI room losing power.
-    type: Fix
-  id: 139
-  time: '2023-11-13T00:42:17.0000000+00:00'
-- author: luringens
-  changes:
-  - message: Syndicate harpies can now purchase bionic syrinx implants to further
-      enchance their mimicry skills. It's like a voice mask for your throat!
-    type: Add
-  id: 140
-  time: '2023-11-13T22:42:09.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added Shoukou from Nyanotrasen and hopefully improved it.
-    type: Add
-  id: 141
-  time: '2023-11-15T01:00:27.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added the X-01 MultiPhase Energy Gun for the HoS.
-    type: Add
-  id: 142
-  time: '2023-11-15T18:41:01.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Slightly adjusted gamemode weights.
-    type: Tweak
-  id: 143
-  time: '2023-11-16T09:49:24.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Head of Personnel now has the access that lawyers have.
-    type: Fix
-  id: 144
-  time: '2023-11-17T23:56:56.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Adjusted Asterisk and Shoukou's min/max population to 0/60.
-    type: Tweak
-  id: 145
-  time: '2023-11-19T06:10:32.0000000+00:00'
-- author: IamVelcroboy
-  changes:
-  - message: Salvage has been rebased. New but strangely familiar space debris will
-      be pulled in by the salvage magnet. Caution is recommended.
-    type: Add
-  id: 146
-  time: '2023-11-22T16:13:12.0000000+00:00'
-- author: tryded
-  changes:
-  - message: Added double bladed energy swords to Nuclear Operative Uplinks
-    type: Add
-  id: 147
-  time: '2023-11-25T14:38:20.0000000+00:00'
-- author: TJohnson
-  changes:
-  - message: Seclites now robust as advertised in item description.
-    type: Tweak
-  id: 148
-  time: '2023-11-26T00:36:54.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Asterisk Station is now protected by additional meteor netting and is
-      also more resistant to movement. Please relay thanks to your local engineers!
-    type: Tweak
-  id: 149
-  time: '2023-11-26T00:38:30.0000000+00:00'
-- author: Tryded
-  changes:
-  - message: Tweaked recipes of bluespace items to require bluespace crystals in exchange
-      of needing less materials
-    type: Tweak
-  id: 150
-  time: '2023-11-26T00:51:27.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Corpsmen start with a few autoinjectors in their packs, and gain chemistry
@@ -3691,3 +3534,177 @@
   id: 626
   time: '2024-10-28T00:25:11.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2061
+- author: Colin_Tel, Fox, Lyndomen
+  changes:
+  - message: Adjusted the rules, check out the metashield!
+    type: Tweak
+  id: 627
+  time: '2024-10-28T16:49:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2039
+- author: MilonPL
+  changes:
+  - message: Fixed not being able to unlock mail.
+    type: Fix
+  id: 628
+  time: '2024-10-28T19:32:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2067
+- author: MilonPL
+  changes:
+  - message: Added a no EORG reminder to the end of round!
+    type: Add
+  id: 629
+  time: '2024-10-28T23:36:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2070
+- author: Radezolid
+  changes:
+  - message: Now perma prisoners will spawn with tracking implants already implanted.
+    type: Tweak
+  id: 630
+  time: '2024-10-29T17:58:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2053
+- author: Aikakakah
+  changes:
+  - message: Fixed tattoos and scars showing through clothing.
+    type: Fix
+  id: 631
+  time: '2024-10-30T13:53:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1889
+- author: MilonPL
+  changes:
+  - message: Fixed the sudden TPS drops, please report any lag issues in the Discord!
+    type: Fix
+  id: 632
+  time: '2024-10-31T07:18:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2075
+- author: reesque
+  changes:
+  - message: pie not dropping tin on thrown
+    type: Fix
+  id: 633
+  time: '2024-11-01T13:29:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2082
+- author: Radezolid
+  changes:
+  - message: Fixed the Mail Carrier PDA not coming with the MailMetrics program!
+    type: Fix
+  id: 634
+  time: '2024-11-02T02:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2086
+- author: Radezolid
+  changes:
+  - message: Added an Agent ID to LPO for them to fake signatures, plus a backpack
+      to store all those illegal documents!.
+    type: Add
+  id: 635
+  time: '2024-11-02T14:21:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2009
+- author: Lyndomen
+  changes:
+  - message: Nuclear Operative Agent now requires 4 hours of Chemist playtime.
+    type: Tweak
+  id: 636
+  time: '2024-11-03T06:08:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2098
+- author: Radezolid
+  changes:
+  - message: Now the prosecutor, clerk and chief justice PDAs comes with a SecWatch
+      program installed.
+    type: Tweak
+  id: 637
+  time: '2024-11-03T07:22:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2085
+- author: Eternally-Confused
+  changes:
+  - message: Canes can now be selected in loadouts.
+    type: Add
+  id: 638
+  time: '2024-11-03T09:26:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2095
+- author: deltanedas
+  changes:
+  - message: Prosecutors can now add their overcoat to loadouts.
+    type: Add
+  id: 639
+  time: '2024-11-03T09:40:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/1923
+- author: Radezolid
+  changes:
+  - message: You can use emotes while sleeping to enhance narcoleptic RP.
+    type: Tweak
+  id: 640
+  time: '2024-11-03T15:33:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2084
+- author: deltanedas
+  changes:
+  - message: You can no longer eat brains, they aren't allowed to remember who killed
+      them anyway!
+    type: Tweak
+  id: 641
+  time: '2024-11-03T17:27:55.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2102
+- author: Radezolid
+  changes:
+  - message: Medibots now smile!
+    type: Tweak
+  id: 642
+  time: '2024-11-03T17:40:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2087
+- author: beck-thompson
+  changes:
+  - message: Syrinx implant now works correctly
+    type: Fix
+  id: 643
+  time: '2024-11-03T18:02:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2055
+- author: Monotheonist
+  changes:
+  - message: Changed Delta-V cartridges to tapes.
+    type: Tweak
+  id: 644
+  time: '2024-11-04T02:03:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2108
+- author: Radezolid
+  changes:
+  - message: Added prescription security glasses and prescription corpsman glasses!
+    type: Add
+  id: 645
+  time: '2024-11-04T07:39:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2083
+- author: clinux
+  changes:
+  - message: Removed the ability to upgrade reinforced windows to into shuttle windows
+    type: Remove
+  id: 646
+  time: '2024-11-04T19:41:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2118
+- author: Unkn0wnGh0st333
+  changes:
+  - message: Added Robotics Airlocks, one step closer to the Roboticist Job.
+    type: Add
+  id: 647
+  time: '2024-11-04T19:54:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2121
+- author: Radezolid
+  changes:
+  - message: Re-added the fire-fighting door remote to atmospheric technicians lockers,
+      firelocks can now be bolted and they are hackable.
+    type: Add
+  id: 648
+  time: '2024-11-04T23:49:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2007
+- author: MilonPL
+  changes:
+  - message: Added the StockTrading app to cargo PDAs, available with the Orders access.
+      Gamblers rejoice!
+    type: Add
+  id: 649
+  time: '2024-11-06T17:30:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2103
+- author: Radezolid
+  changes:
+  - message: Changed the syndicate refugees rules to represent what is expected of
+      them from the administrative team.
+    type: Tweak
+  id: 650
+  time: '2024-11-06T17:51:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2127
