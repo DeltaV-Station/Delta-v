@@ -155,7 +155,6 @@ public sealed class StockMarketSystem : EntitySystem
 
         if (!stockMarket.StockOwnership.TryGetValue(companyIndex, out var currentOwned))
             currentOwned = 0;
-        var newAmount = currentOwned - amount;
 
         if (amount > 0)
         {
@@ -171,6 +170,7 @@ public sealed class StockMarketSystem : EntitySystem
                 return false;
         }
 
+        var newAmount = currentOwned + amount;
         if (newAmount > 0)
             stockMarket.StockOwnership[companyIndex] = newAmount;
         else
