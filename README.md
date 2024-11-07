@@ -26,8 +26,7 @@ We are happy to accept contributions from anybody. Get in Discord if you want to
 
 We are currently accepting translations of the game on our main repository. If you would like to translate the game into another language check the #localization channel in our [Discord](https://go.delta-v.org/AtDxv)
 
-If you make any contributions, please make sure to read the markers section in [MARKERS.md](https://github.com/DeltaV-Station/Delta-v/blob/master/MARKERS.md)
-Any changes made to files belonging to our upstream should be properly marked in accordance to what is specified there.
+Make sure to read [CONTRIBUTING.md](/CONTRIBUTING.md) if you are new to Delta-V!
 
 ## Building
 

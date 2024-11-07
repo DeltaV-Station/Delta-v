@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Corpsmen start with a few autoinjectors in their packs, and gain chemistry
-      access on low-pop rounds.
-    type: Tweak
-  id: 151
-  time: '2023-11-26T01:21:47.0000000+00:00'
-- author: Tryded
-  changes:
-  - message: Nanotrasen has recently introduced their miniature energy pistols and
-      energy guns to the market and developed experimental research into the IK-60
-      laser carbine and the PDW-9 Energy Pistol. They can be researched by science.
-    type: Add
-  id: 152
-  time: '2023-11-27T22:42:27.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Mindshields are now made with significantly cheaper components, and they
-      dont fuse properly anymore. Meaning they can be removed with a little effort.
-    type: Tweak
-  id: 153
-  time: '2023-12-03T00:48:41.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Fixed air chamber in The Hive's atmos not having a vacuum.
-    type: Fix
-  id: 154
-  time: '2023-12-05T19:16:18.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Vulpkanin now have a decent amount of special helmet and mask sprites.
@@ -3708,3 +3680,36 @@
   id: 650
   time: '2024-11-06T17:51:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2127
+- author: Crow, Radezolid
+  changes:
+  - message: Added security magboots, they should only be used for EVA or situations
+      that warrant no slips.
+    type: Add
+  id: 651
+  time: '2024-11-06T20:49:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2074
+- author: SolStar2, Vivi Bunny
+  changes:
+  - message: Added Hushed trait. Hushed players will whisper instead of talking.
+    type: Add
+  id: 652
+  time: '2024-11-06T21:50:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2106
+- author: Stop-Signs
+  changes:
+  - message: New Sec melee for epi to research!
+    type: Add
+  - message: Merged several arsenal techs to better fit the state of epi, as well
+      as changing the tiering and prices.
+    type: Tweak
+  id: 653
+  time: '2024-11-07T01:36:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2104
+- author: Monotheonist
+  changes:
+  - message: Justice has lunch packed for them, millions of attorneys must not go
+      hungry.
+    type: Add
+  id: 654
+  time: '2024-11-07T09:35:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2111
