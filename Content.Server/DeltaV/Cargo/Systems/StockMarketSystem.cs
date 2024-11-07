@@ -87,7 +87,7 @@ public sealed class StockMarketSystem : EntitySystem
         // Play deny sound and exit if access is not allowed
         if (idCard == null || !_access.IsAllowed(idCard.Owner, ent.Owner, access))
         {
-            _audio.PlayPvs(stockMarket.DenySound, loader, user);
+            _audio.PlayEntity(stockMarket.DenySound, loader, user);
             return;
         }
 
@@ -120,7 +120,7 @@ public sealed class StockMarketSystem : EntitySystem
             // Play confirmation sound if the transaction was successful
             if (success)
             {
-                _audio.PlayPvs(stockMarket.ConfirmSound, loader, user);
+                _audio.PlayEntity(stockMarket.ConfirmSound, loader, user);
             }
         }
         finally
