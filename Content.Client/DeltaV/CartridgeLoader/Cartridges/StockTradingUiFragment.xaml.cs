@@ -235,7 +235,7 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             };
         }
 
-        public void Update(StockCompanyStruct company, int ownedStocks)
+        public void Update(StockCompany company, int ownedStocks)
         {
             _nameLabel.Text = company.LocalizedDisplayName;
             _priceLabel.Text = $"${company.CurrentPrice:F2}";

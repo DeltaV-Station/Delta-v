@@ -82,7 +82,7 @@ public sealed class StockTradingCartridgeSystem : EntitySystem
             return;
 
         // Convert company data to UI state format
-        var entries = stockMarket.Companies.Select(company => new StockCompanyStruct(
+        var entries = stockMarket.Companies.Select(company => new StockCompany(
             displayName: company.LocalizedDisplayName,
                 currentPrice: company.CurrentPrice,
                 basePrice: company.BasePrice,
