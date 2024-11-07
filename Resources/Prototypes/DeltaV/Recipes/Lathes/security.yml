@@ -214,3 +214,13 @@
   parent: ClothingShoesBootsMagSci
   id: ClothingShoesBootsSecurityMagboots
   result: ClothingShoesBootsSecurityMagboots
+  
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: AdvancedTruncheon
+  result: AdvancedTruncheon
+  completetime: 5
+  materials:
+    Steel: 1000
+    Plastic: 800
+    
