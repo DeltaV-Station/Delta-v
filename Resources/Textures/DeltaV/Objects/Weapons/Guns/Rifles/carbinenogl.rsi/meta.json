@@ -1,35 +1,43 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Polaris at https://github.com/PolarisSS13/Polaris/commit/ff87150c3dfc387c46db7d1c956abf19ddff7819, backpack sprite by Peptide. Modified by TJohnson.",
+    "copyright": "Taken from Polaris at https://github.com/PolarisSS13/Polaris/commit/ff87150c3dfc387c46db7d1c956abf19ddff7819, backpack sprite by Peptide. Modified by TJohnson. Wielded sprites Taken/modified from tgstation at https://github.com/tgstation/tgstation/pull/41393/commits/1e56473177d0994d163c9edca3d13d6e5b640cc4, https://github.com/tgstation/tgstation/tree/master/icons/obj/weapons/guns edited by RiceMar1244",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
-	  {
-		  "name": "icon"
-	  },
-	  {
-		  "name": "base"
-	  },
-	  {
-		  "name": "mag-0"
-	  },
-	  {
-		  "name": "bolt-open"
-	  },
-	  {
-		  "name": "inhand-left",
-		  "directions": 4
-	  },
-	  {
-		  "name": "inhand-right",
-		  "directions": 4
-	  },
-      {
-        "name": "equipped-BACKPACK",
-        "directions": 4
-      }
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        }
     ]
 }
