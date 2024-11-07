@@ -398,10 +398,10 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/prosecutorred.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformFoldableBase
   id: ClothingUniformBlackTurtleneck
   name: black turtleneck
-  description: A simple black turtleneck with the sleeves cut off.
+  description: A simple black turtleneck. Perfect for any wannabe spy.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
