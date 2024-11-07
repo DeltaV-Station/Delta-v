@@ -43,6 +43,6 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// <summary>
     /// Purchasing this tier of technology causes a server to become "locked" to this discipline.
     /// </summary>
-    //[DataField("lockoutTier")]
-    //public int LockoutTier = 3;
+    [DataField("lockoutTier")]
+    public int LockoutTier = 4;
 }
