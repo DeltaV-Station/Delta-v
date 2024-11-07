@@ -24843,6 +24843,13 @@ entities:
     - type: Transform
       pos: -5.5,7.5
       parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 4312
+    components:
+    - type: Transform
+      pos: 10.5,9.5
+      parent: 2
 - proto: SpawnPointLocationMidRoundAntag
   entities:
   - uid: 4217

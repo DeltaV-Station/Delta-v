@@ -170,6 +170,11 @@
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: AntiRottingContainer
+  - type: Construction
+    graph: ClosetFreezer
+    node: done
+    containers:
+    - entity_storage
 
 - type: entity
   id: LockerFreezer
@@ -379,7 +384,7 @@
   description: To store bags of bullet casings and detainee belongings.
   components:
   - type: AccessReader
-    access: [["Security"], ["Prosecutor"]] # DeltaV - allow Pros access to Evidence
+    access: [["Security"], ["Prosecutor"], ["Clerk"]] # DeltaV - allow Pros and Clerk access to Evidence
 
 # Syndicate
 - type: entity

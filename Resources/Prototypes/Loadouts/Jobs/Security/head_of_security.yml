@@ -32,12 +32,12 @@
 - type: loadout
   id: HeadofSecurityTurtleneck
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSAlt
+    jumpsuit: ClothingUniformJumpsuitHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityTurtleneckSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSAlt
+    jumpsuit: ClothingUniformJumpskirtHoSTurtle # DeltaV - replace ClothingUniformJumpsuitHoSAlt
 
 - type: loadout
   id: HeadofSecurityFormalSuit
@@ -96,11 +96,6 @@
   id: StasecWinterCoatHoS
   equipment:
     outerClothing: ClothingOuterCoatStasecHoS
-
-- type: loadout # DeltaV - security greatcoat
-  id: StasecGreatcoatHoS
-  equipment:
-    outerClothing: ClothingOuterGreatcoatStasecHoS
 
 # Shoes - DeltaV
 - type: loadout # DeltaV

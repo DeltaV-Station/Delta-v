@@ -94,6 +94,16 @@
   loadouts:
   - BrigMedicJumpsuit
   - BrigMedicJumpskirt
+  - BrigMedicTurtlesuit
+  - BrigMedicTurtleskirt
+
+- type: loadoutGroup
+  id: BrigMedicOuterClothing
+  name: loadout-group-brig-medic-outerclothing
+  loadouts:
+  - StasecWinterCoatCorpsman
+  - PlateCarrier
+  - DuraVest
 
 - type: loadoutGroup
   id: BrigMedicBack
@@ -220,13 +230,20 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
-  
+
 - type: loadoutGroup
   id: ProsecutorNeck
   name: loadout-group-prosecutor-neck
   minLimit: 0
   loadouts:
   - ProsecutorNeck
+
+- type: loadoutGroup
+  id: ProsecutorOuterClothing
+  name: loadout-group-prosecutor-outer-clothing
+  minLimit: 0
+  loadouts:
+  - ProsecutorOvercoat
 
 # PDAs
 - type: loadoutGroup

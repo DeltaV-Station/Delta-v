@@ -135,6 +135,7 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
+      - Cat # DeltaV
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -158,6 +159,7 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
+      - Cat # DeltaV
   - type: Grammar
     attributes:
       proper: true
@@ -789,6 +791,7 @@
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
     rules: ghost-role-information-nonantagonist-rules
+    raffle: null
   - type: Grammar
     attributes:
       proper: true

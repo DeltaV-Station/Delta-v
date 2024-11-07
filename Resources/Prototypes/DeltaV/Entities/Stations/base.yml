@@ -1,0 +1,21 @@
+- type: entity
+  id: BaseStationStockMarket
+  abstract: true
+  components:
+  - type: StationStockMarket
+    companies:
+    - displayName: stock-trading-company-nanotrasen
+      basePrice: 100
+      currentPrice: 100
+    - displayName: stock-trading-company-gorlex
+      basePrice: 75
+      currentPrice: 75
+    - displayName: stock-trading-company-interdyne
+      basePrice: 300
+      currentPrice: 300
+    - displayName: stock-trading-company-fishinc
+      basePrice: 25
+      currentPrice: 25
+    - displayName: stock-trading-company-donk
+      basePrice: 90
+      currentPrice: 90

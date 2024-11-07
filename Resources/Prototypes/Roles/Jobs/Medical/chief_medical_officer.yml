@@ -18,8 +18,6 @@
       time: 43200 # DeltaV - 12 hours
     - !type:OverallPlaytimeRequirement
       time: 72000 # DeltaV - 20 hours, was 40
-#   - !type:AgeRequirement - DeltaV - PR #1611 for context
-#     requiredAge: 20
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
