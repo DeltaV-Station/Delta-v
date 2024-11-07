@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Mindshields are now made with significantly cheaper components, and they
-      dont fuse properly anymore. Meaning they can be removed with a little effort.
-    type: Tweak
-  id: 153
-  time: '2023-12-03T00:48:41.0000000+00:00'
 - author: Velcroboy
   changes:
   - message: Fixed air chamber in The Hive's atmos not having a vacuum.
@@ -3708,3 +3701,13 @@
   id: 652
   time: '2024-11-06T21:50:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2106
+- author: Stop-Signs
+  changes:
+  - message: New Sec melee for epi to research!
+    type: Add
+  - message: Merged several arsenal techs to better fit the state of epi, as well
+      as changing the tiering and prices.
+    type: Tweak
+  id: 653
+  time: '2024-11-07T01:36:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2104
