@@ -136,11 +136,11 @@ public abstract class SharedResearchSystem : EntitySystem
             if (percent < techDiscipline.TierPrerequisites[tier])
                 break;
 
-            if (tier >= techDiscipline.LockoutTier &&
-                component.MainDiscipline != null &&
-                techDiscipline.ID != component.MainDiscipline)
-                break;
-            tier++;
+            //if (tier >= techDiscipline.LockoutTier &&
+              //  component.MainDiscipline != null &&
+              //  techDiscipline.ID != component.MainDiscipline)
+             //   break;
+            //tier++;
         }
 
         return tier - 1;
@@ -223,10 +223,10 @@ public abstract class SharedResearchSystem : EntitySystem
             return;
 
         var discipline = PrototypeManager.Index(prototype.Discipline);
-        if (prototype.Tier < discipline.LockoutTier)
-            return;
-        component.MainDiscipline = prototype.Discipline;
-        Dirty(uid, component);
+       // if (prototype.Tier < discipline.LockoutTier)
+         //   return;
+        //component.MainDiscipline = prototype.Discipline;
+      //  Dirty(uid, component);
     }
 
     /// <summary>
