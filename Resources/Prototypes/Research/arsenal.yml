@@ -21,7 +21,7 @@
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     state: incendiarydisplay
   discipline: Arsenal
-  tier: 1
+  tier: 2 # DeltaV moved to t2 from t1
   cost: 10000
   recipeUnlocks:
   - BoxShotgunIncendiary
@@ -82,7 +82,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: uranium
   discipline: Arsenal
-  tier: 1
+  tier: 2 # DeltaV moved to t2 from t1
   cost: 7500
   recipeUnlocks:
   - MagazineRifleUranium
@@ -107,7 +107,7 @@
     state: icon
   discipline: Arsenal
   tier: 1
-  cost: 8000
+  cost: 5000 # DeltaV - Lowered from 8000
   recipeUnlocks:
   - Truncheon
   - TelescopicShield
@@ -115,6 +115,7 @@
   - WeaponDisablerSMG
   - BorgModuleSecurityDeescalate # Delta-V : SecBorg Research
   - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
+ 
 
 - type: technology
   id: ExplosiveTechnology
@@ -156,21 +157,23 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 12500 # DeltaV: increased from 10000
   recipeUnlocks:
   - WeaponLaserCannon
-
-- type: technology
-  id: WaveParticleHarnessing
-  name: research-technology-wave-particle-harnessing
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
   - WeaponXrayCannon
+
+# DeltaV: merged with concentrated laser weaponry
+#- type: technology
+#  id: WaveParticleHarnessing
+#  name: research-technology-wave-particle-harnessing
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+#    state: icon
+#  discipline: Arsenal
+#  tier: 2
+#  cost: 10000
+#  recipeUnlocks:
+#  - WeaponXrayCannon
 
 - type: technology
   id: BasicShuttleArmament
@@ -179,7 +182,7 @@
     sprite: Structures/Power/cage_recharger.rsi
     state: full
   discipline: Arsenal
-  tier: 2
+  tier: 1 # DeltaV: moved to T1 from t2
   cost: 10500
   recipeUnlocks:
   - PowerCageRechargerCircuitboard
@@ -187,12 +190,13 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
-  #- GrenadeBlast # DeltaV - no
+  - GrenadeBlast 
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
+  - ExplosiveTechnology
 
 # Tier 3
 
@@ -215,7 +219,7 @@
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
     state: icon
   discipline: Arsenal
-  tier: 3
+  tier: 2 # DeltaV: moved to t2 from t3
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
@@ -227,7 +231,7 @@
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
   discipline: Arsenal
-  tier: 3
+  tier: 2 # DeltaV: moved to t2 from t3
   cost: 15000
   recipeUnlocks:
   - GrenadeEMP

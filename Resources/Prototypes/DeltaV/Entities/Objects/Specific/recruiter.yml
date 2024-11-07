@@ -16,9 +16,8 @@
     blacklist:
       components:
       - MindShield
-    mindBlacklist:
-      components:
-      - RecruiterRole # no silly goose
+    factionBlacklist:
+    - Syndicate # no silly goose
   - type: SolutionContainerManager
     solutions:
       blood:

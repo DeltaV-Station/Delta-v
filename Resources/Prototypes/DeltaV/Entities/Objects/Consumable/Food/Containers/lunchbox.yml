@@ -410,3 +410,29 @@
       map: [ "openLayer" ]
   - type: Item
     heldPrefix: syndicate
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxJusticeFilledRandom
+  suffix: Justice, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice

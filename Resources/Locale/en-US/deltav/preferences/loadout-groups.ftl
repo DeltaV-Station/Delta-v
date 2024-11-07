@@ -67,7 +67,6 @@ loadout-group-scarfs = Scarf
 # Epistemics
 loadout-group-mantis-head = Mantis head
 loadout-group-mantis-jumpsuit = Mantis jumpsuit
-loadout-group-mantis-backpack = Mantis backpack
 loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
@@ -85,10 +84,11 @@ loadout-group-head-of-security-shoes = Head of Security shoes
 loadout-group-security-cadet-head = Security Cadet head
 loadout-group-security-neck = Security neck
 
-loadout-group-brig-medic-head = Brigmedic head
-loadout-group-brig-medic-jumpsuit = Brigmedic jumpsuit
-loadout-group-brig-medic-back = Brigmedic backpack
+loadout-group-brig-medic-head = Corpsman head
+loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
+loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-neck = Corpsman neck
+loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
@@ -107,6 +107,7 @@ loadout-group-clerk-shoes = Clerk shoes
 
 loadout-group-prosecutor-jumpsuit = Prosecutor jumpsuit
 loadout-group-prosecutor-neck = Prosecutor neck
+loadout-group-prosecutor-outer-clothing = Prosecutor outer clothing
 
 # Wildcards
 loadout-group-prisoner-jumpsuit = Prisoner jumpsuit
