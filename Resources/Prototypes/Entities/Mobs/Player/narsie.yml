@@ -17,6 +17,7 @@
   parent: MobNarsieBase
   id: MobNarsieSpawn
   suffix: Spawn
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: Sprite
     layers:
@@ -31,6 +32,7 @@
 - type: entity
   parent: [MobNarsieBase, BaseMob]
   id: MobNarsie
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: AnnounceOnSpawn
     message: narsie-has-risen
