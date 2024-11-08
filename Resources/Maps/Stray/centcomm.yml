@@ -27690,10 +27690,6 @@ entities:
       - food
     - type: ContainerContainer
       containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 65
         solution@food: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -28006,7 +28002,6 @@ entities:
     - type: Transform
       parent: 75
     - type: SuitSensor
-      station: invalid
       mode: SensorCords
     - type: DeviceNetwork
       address: 2C6D-0584
@@ -28152,14 +28147,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,70.5
       parent: 2
-- proto: CombatKnife
-  entities:
-  - uid: 65
-    components:
-    - type: Transform
-      parent: 63
-    - type: Physics
-      canCollide: False
 - proto: CombatMedipen
   entities:
   - uid: 3544
