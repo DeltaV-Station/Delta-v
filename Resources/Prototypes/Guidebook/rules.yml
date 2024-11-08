@@ -74,6 +74,8 @@
   ruleEntry: true
   priority: 6
   text: "/ServerInfo/Stray/ServerRules/RuleR6.xml"
+  children:
+  - HighRiskItems
 
 - type: guideEntry
   id: RuleR7
@@ -81,3 +83,10 @@
   ruleEntry: true
   priority: 7
   text: "/ServerInfo/Stray/ServerRules/RuleR7.xml"
+
+- type: guideEntry
+  id: HighRiskItems
+  name: guide-entry-rules-highrisk
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/Stray/ServerRules/HighRiskItems.xml"
