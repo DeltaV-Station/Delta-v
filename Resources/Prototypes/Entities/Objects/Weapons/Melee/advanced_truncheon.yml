@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  id: AdvancedTruncheon
+  name: Advanced Truncheon
+  description: If all else fails, BONK!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Melee/advanced_truncheon.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    attackRate: 0.75
+    range: 1.75
+    damage:
+      types:
+        Blunt: 16
+    soundHit:
+      path: /Audio/Nyanotrasen/Weapons/club.ogg
+    bluntStaminaDamageFactor: 1.60 # 25.6 stamina damage
+#  - type: MeleeStaminaCost
+#    swing: 10
+#    wieldCoefficient: 0.35 #if wielded you will only consume 3.5 stam its a weapon after all
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 14
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Melee/advanced_truncheon.rsi
+    quickEquip: false
+    slots:
+    - back
