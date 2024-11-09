@@ -27,6 +27,28 @@
   startNode: start
   targetNode: glassesCorps
   category: construction-category-clothing
-  description: A pair of sunglasses, modified to have a built-in security and medical HUD.
+  description: A pair of sunglasses, modified to have a built-in medical HUD.
   icon: { sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: prescription security glasses
+  id: ClothingEyesPrescriptionSecurityGlasses
+  graph: PrescriptionSecGlasses
+  startNode: start
+  targetNode: prescsecglasses
+  category: construction-category-clothing
+  description: A pair of security glasses with a prescription glass glued on top.
+  icon: { sprite: DeltaV/Clothing/Eyes/Glasses/prescsecglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: prescription corpsman glasses
+  id: ClothingEyesPrescriptionCorpsmanGlasses
+  graph: PrescriptionCorpsmanGlasses
+  startNode: start
+  targetNode: presccorpsglasses
+  category: construction-category-clothing
+  description: A pair of corpsman glasses with a prescription glass glued on top.
+  icon: { sprite: DeltaV/Clothing/Eyes/Glasses/presccorpsglasses.rsi, state: icon }
   objectType: Item
