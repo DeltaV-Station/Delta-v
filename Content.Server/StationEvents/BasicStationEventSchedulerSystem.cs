@@ -6,6 +6,7 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.Administration;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.StationEvents; // DeltaV
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -56,6 +57,14 @@ namespace Content.Server.StationEvents
                     eventScheduler.TimeUntilNextEvent -= frameTime;
                     continue;
                 }
+                NextEventComponent? nextEvent = null;
+
+                // DeltaV events using NextEventComponent
+                if (Resolve(uid, ref nextEvent, false))
+                {
+                    // TODO: handle using NextEventComponent
+                }
+                // DeltaV end events using NextEventComponent
 
                 _event.RunRandomEvent(eventScheduler.ScheduledGameRules);
                 ResetTimer(eventScheduler);
@@ -142,7 +151,7 @@ namespace Content.Server.StationEvents
                 }
             }
 
-            return occurrences.Select(p => (p.Key, (float) p.Value)).OrderByDescending(p => p.Item2);
+            return occurrences.Select(p => (p.Key, (float)p.Value)).OrderByDescending(p => p.Item2);
         }
 
         [CommandImplementation("lsprob")]
