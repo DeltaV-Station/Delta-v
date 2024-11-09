@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMachinePowered
+  parent: [BaseMachinePowered, ConstructibleMachine]
   id: dissolver
   name: dielectric dissolver
   description: It asks for items to continue research on. Works through some crazy space science. Placeholder sprite.
@@ -22,3 +22,5 @@
     # castShadows: false
     radius: 1.5
   - type: LitOnPowered
+  - type: Machine
+    board: DissolverCircuitboard

@@ -48,3 +48,23 @@
         Silicon: 20
     - type: StaticPrice
       price: 40
+
+- type: entity
+  id: DissolverCircuitboard
+  parent: BaseMachineCircuitboard
+  name: диэлектрический растворитель (машинная плата)
+  components:
+    - type: Sprite
+      state: science
+    - type: MachineBoard
+      prototype: dissolver
+      stackRequirements:
+        Steel: 3
+        Glass: 15
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+    - type: StaticPrice
+      price: 4000
