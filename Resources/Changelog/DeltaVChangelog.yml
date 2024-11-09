@@ -1,12 +1,6 @@
 ﻿Entries:
 - author: ps3moira
   changes:
-  - message: Removed bionic syrinx implanter from surplus crate.
-    type: Remove
-  id: 163
-  time: '2023-12-11T23:11:41.0000000+00:00'
-- author: ps3moira
-  changes:
   - message: Removed Carpotoxin from Sashimi, now they are sushi-grade!
     type: Remove
   id: 164
@@ -3718,3 +3712,10 @@
   id: 662
   time: '2024-11-09T13:16:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2143
+- author: deltanedas
+  changes:
+  - message: Fixed telegnostic projections being able to interact with things.
+    type: Tweak
+  id: 663
+  time: '2024-11-09T19:27:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2117
