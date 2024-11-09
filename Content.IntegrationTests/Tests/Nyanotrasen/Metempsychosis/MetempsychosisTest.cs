@@ -28,13 +28,17 @@ public sealed class MetempsychosisTest
             prototypeManager.TryIndex<WeightedRandomPrototype>(metemComponent.MetempsychoticNonHumanoidPool,
                 out var nonHumanoidPool);
 
-            Assert.That(humanoidPool, Is.Not.Null, "MetempsychoticHumanoidPool is null!");
-            Assert.That(nonHumanoidPool, Is.Not.Null, "MetempsychoticNonHumanoidPool is null!");
-
-            Assert.That(humanoidPool.Weights, Is.Not.Empty,
-                "MetempsychoticHumanoidPool has no valid prototypes!");
-            Assert.That(nonHumanoidPool.Weights, Is.Not.Empty,
-                "MetempsychoticNonHumanoidPool has no valid prototypes!");
+            Assert.Multiple(() =>
+            {
+                Assert.That(humanoidPool, Is.Not.Null, "MetempsychoticHumanoidPool is null!");
+                Assert.That(nonHumanoidPool, Is.Not.Null, "MetempsychoticNonHumanoidPool is null!");
+                Assert.That(humanoidPool.Weights,
+                    Is.Not.Empty,
+                    "MetempsychoticHumanoidPool has no valid prototypes!");
+                Assert.That(nonHumanoidPool.Weights,
+                    Is.Not.Empty,
+                    "MetempsychoticNonHumanoidPool has no valid prototypes!");
+            });
 
             foreach (var key in humanoidPool.Weights.Keys)
             {
