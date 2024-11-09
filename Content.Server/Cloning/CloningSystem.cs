@@ -62,9 +62,6 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly ILogManager _log = default!; // DeltaV
-
-        private ISawmill _sawmill = default!; // DeltaV
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -72,8 +69,6 @@ namespace Content.Server.Cloning
         public override void Initialize()
         {
             base.Initialize();
-
-            _sawmill = _log.GetSawmill("cloning"); // DeltaV
 
             SubscribeLocalEvent<CloningPodComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
@@ -237,7 +232,6 @@ namespace Content.Server.Cloning
                     AddComp<ActiveCloningPodComponent>(uid);
                     return true;
                 }
-                // End Nyano-code.
             }
             // end of genetic damage checks
 
@@ -342,6 +336,7 @@ namespace Content.Server.Cloning
             var transform = Transform(uid);
             var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
+
             if (HasComp<EmaggedComponent>(uid))
             {
                 _audio.PlayPvs(clonePod.ScreamSound, uid);

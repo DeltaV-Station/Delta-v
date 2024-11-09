@@ -37,7 +37,7 @@ public sealed partial class CloningSystem
         }
 
         var chance = ent.Comp.HumanoidBaseChance + karmaBonus;
-        chance -= ((1 - ent.Comp.HumanoidBaseChance) * karma);
+        chance -= (1 - ent.Comp.HumanoidBaseChance) * karma;
 
         // Perfect clone chance
         if (chance > 1 && _robustRandom.Prob(chance - 1))
@@ -68,7 +68,7 @@ public sealed partial class CloningSystem
         }
 
         // Fallback to original species if prototype indexing fails
-        _sawmill.Error("Failed to get valid clone type - falling back to original species");
+        Log.Error("Failed to get valid clone type - falling back to original species");
         species = oldSpecies;
         return oldSpecies.Prototype;
     }
