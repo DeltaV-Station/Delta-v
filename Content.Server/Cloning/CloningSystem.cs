@@ -38,7 +38,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Cloning
 {
-    public sealed partial class CloningSystem : EntitySystem
+    public sealed partial class CloningSystem : EntitySystem // DeltaV - Set to partial, see CloningSystem.Metempsychosis.cs
     {
         [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = null!;
