@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: ps3moira
-  changes:
-  - message: Added mouse operative reinforcements, which can be bought from the Syndicate
-      uplink
-    type: Add
-  id: 160
-  time: '2023-12-06T16:03:07.0000000+00:00'
 - author: evilexecutive
   changes:
   - message: Harpies now have a visual indication when they're playing a Midi.
@@ -3716,3 +3709,13 @@
   id: 659
   time: '2024-11-09T04:40:16.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2154
+- author: MilonPL
+  changes:
+  - message: The metempsychosis will always use your player character on the first
+      cloning attempt.
+    type: Tweak
+  - message: Fixed metempsychosis never selecting non-humanoid characters.
+    type: Fix
+  id: 660
+  time: '2024-11-09T10:47:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2156
