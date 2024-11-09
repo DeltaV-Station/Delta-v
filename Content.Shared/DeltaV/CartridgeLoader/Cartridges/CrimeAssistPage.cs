@@ -28,8 +28,19 @@ public sealed partial class CrimeAssistPage : IPrototype
     public LocId? LocKeyDescription;
 
     [DataField]
-    public LocId? LocKeySeverity;
+    public CrimeSeverity? CrimeSeverity;
 
     [DataField]
     public LocId? LocKeyPunishment;
+}
+
+/// <summary>
+/// The severity a crime is in, used for page results.
+/// </summary>
+public enum CrimeSeverity : u8
+{
+    Innocent,
+    Misdemenour,
+    Felony,
+    Capital
 }
