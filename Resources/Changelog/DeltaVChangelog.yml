@@ -1,44 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: Buffed Food Cart storage. Get out there and slang some burgers, chefs!
-    type: Tweak
-  id: 159
-  time: '2023-12-06T15:58:43.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Added mouse operative reinforcements, which can be bought from the Syndicate
-      uplink
-    type: Add
-  id: 160
-  time: '2023-12-06T16:03:07.0000000+00:00'
-- author: evilexecutive
-  changes:
-  - message: Harpies now have a visual indication when they're playing a Midi.
-    type: Add
-  - message: Harpies have been re-balanced so that they now actually have a numerical
-      positive.
-    type: Tweak
-  id: 161
-  time: '2023-12-06T20:10:49.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Due to abuse, prisoners now require whitelist to play.
-    type: Tweak
-  id: 162
-  time: '2023-12-07T13:22:03.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Removed bionic syrinx implanter from surplus crate.
-    type: Remove
-  id: 163
-  time: '2023-12-11T23:11:41.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Removed Carpotoxin from Sashimi, now they are sushi-grade!
-    type: Remove
-  id: 164
-  time: '2023-12-13T20:12:46.0000000+00:00'
 - author: Adrian16199
   changes:
   - message: Crew has learned how to make a straw hat out of wheat bushels!
@@ -3715,3 +3675,48 @@
   id: 658
   time: '2024-11-08T20:50:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/1905
+- author: deltanedas
+  changes:
+  - message: Butchering people now drops organs.
+    type: Tweak
+  id: 659
+  time: '2024-11-09T04:40:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2154
+- author: MilonPL
+  changes:
+  - message: The metempsychosis will always use your player character on the first
+      cloning attempt.
+    type: Tweak
+  - message: Fixed metempsychosis never selecting non-humanoid characters.
+    type: Fix
+  id: 660
+  time: '2024-11-09T10:47:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2156
+- author: MilonPL
+  changes:
+  - message: Fixed beaker solutions duplicating whenever it's thrown.
+    type: Fix
+  id: 661
+  time: '2024-11-09T12:46:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2157
+- author: deltanedas
+  changes:
+  - message: The Synthesis Specialist's vendor can now be restocked.
+    type: Tweak
+  id: 662
+  time: '2024-11-09T13:16:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2143
+- author: deltanedas
+  changes:
+  - message: Fixed telegnostic projections being able to interact with things.
+    type: Tweak
+  id: 663
+  time: '2024-11-09T19:27:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2117
+- author: Unkn0wnGh0st333
+  changes:
+  - message: Synthesis Specialist ghost rules have been slightly adjusted.
+    type: Tweak
+  id: 664
+  time: '2024-11-09T19:44:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2152
