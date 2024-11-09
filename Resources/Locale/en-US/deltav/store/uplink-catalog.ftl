@@ -12,7 +12,7 @@ uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
 
 uplink-generic-radio-implanter-name = Generic Radio Implanter
-uplink-generic-radio-implanter-desc = A cranial implant with a bluespace compartment for a single encryption key (not included). Put in a key of your choice, and you can talk using it like you would with any headset.
+uplink-generic-radio-implanter-desc = A cranial implant with a hidden compartment for a single encryption key (not included). Put in a key of your choice, and you can talk using it like you would with any headset.
 
 uplink-doorjack-name = Airlock Access Override
 uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
