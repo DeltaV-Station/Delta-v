@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: evilexecutive
-  changes:
-  - message: Harpies now have a visual indication when they're playing a Midi.
-    type: Add
-  - message: Harpies have been re-balanced so that they now actually have a numerical
-      positive.
-    type: Tweak
-  id: 161
-  time: '2023-12-06T20:10:49.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Due to abuse, prisoners now require whitelist to play.
@@ -3719,3 +3710,10 @@
   id: 660
   time: '2024-11-09T10:47:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2156
+- author: MilonPL
+  changes:
+  - message: Fixed beaker solutions duplicating whenever it's thrown.
+    type: Fix
+  id: 661
+  time: '2024-11-09T12:46:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2157
