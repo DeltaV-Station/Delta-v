@@ -1755,6 +1755,9 @@ entities:
   entities:
   - uid: 33
     components:
+    - type: MetaData
+      desc: A banner that fills you with a strange hatred for NT...
+      name: omnious banner
     - type: Transform
       anchored: True
       pos: 2.5,7.5
@@ -2676,13 +2679,11 @@ entities:
       parent: 1
 - proto: ClosetWallBlack
   entities:
-  - uid: 405
+  - uid: 904
     components:
-    - type: MetaData
-      desc: A closet packed with forged stamps
-      name: stamp closet
     - type: Transform
-      pos: 10.5,3.5
+      rot: -1.5707963267948966 rad
+      pos: 0.5,0.5
       parent: 1
     - type: EntityStorage
       air:
@@ -2708,65 +2709,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 582
-          - 580
-          - 583
-          - 549
-          - 552
-          - 581
-          - 579
-          - 413
-          - 407
-          - 406
-          - 409
-          - 408
-          - 411
-          - 410
-          - 420
-          - 418
-          - 419
-          - 416
-          - 417
-          - 414
-          - 415
-          - 412
-  - uid: 904
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,0.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
+          - 990
+          - 961
+          - 986
+          - 919
+          - 987
           - 989
           - 988
-          - 987
-          - 919
-          - 986
-          - 961
-          - 990
 - proto: ClosetWallMixed
   entities:
   - uid: 388
@@ -4380,6 +4329,13 @@ entities:
     - type: Transform
       pos: 13.2731,-4.3908787
       parent: 1
+- proto: LockerLPOFilled
+  entities:
+  - uid: 405
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 1
 - proto: LockerSyndicatePersonal
   entities:
   - uid: 363
@@ -5301,204 +5257,6 @@ entities:
     - type: Transform
       pos: 8.5,-6.5
       parent: 1
-- proto: RubberStampApproved
-  entities:
-  - uid: 407
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCaptain
-  entities:
-  - uid: 417
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCE
-  entities:
-  - uid: 413
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampChaplain
-  entities:
-  - uid: 416
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampChiefJustice
-  entities:
-  - uid: 579
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampClown
-  entities:
-  - uid: 414
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampCMO
-  entities:
-  - uid: 412
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampDenied
-  entities:
-  - uid: 411
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampDetective
-  entities:
-  - uid: 581
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampGreytide
-  entities:
-  - uid: 552
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampHop
-  entities:
-  - uid: 419
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampHos
-  entities:
-  - uid: 409
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampLawyer
-  entities:
-  - uid: 580
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampMantis
-  entities:
-  - uid: 415
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampMime
-  entities:
-  - uid: 420
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampNotary
-  entities:
-  - uid: 583
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampPsychologist
-  entities:
-  - uid: 549
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampQm
-  entities:
-  - uid: 408
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampRd
-  entities:
-  - uid: 418
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampSyndicate
-  entities:
-  - uid: 410
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampTrader
-  entities:
-  - uid: 582
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampWarden
-  entities:
-  - uid: 406
-    components:
-    - type: Transform
-      parent: 405
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SalvageLorePaperGamingSpawner
   entities:
   - uid: 801
