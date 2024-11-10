@@ -64,22 +64,16 @@ public sealed class AnnounceCustomCommand : IConsoleCommand
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        switch (args.Length)
+        return args.Length switch
         {
-            case 1:
-                return CompletionResult.FromHint(Loc.GetString("cmd-announcecustom-arg-message"));
-            case 2:
-                return CompletionResult.FromHint(Loc.GetString("shell-argument-username-optional-hint"));
-            case 3:
-                return CompletionResult.FromHint(Loc.GetString("cmd-announcecustom-arg-color"));
-            case 4:
-            {
-                var hint = Loc.GetString("cmd-announcecustom-arg-sound");
-                var options = CompletionHelper.AudioFilePath(args[3], _protoManager, _res);
-                return CompletionResult.FromHintOptions(options, hint);
-            }
-            default:
-                return CompletionResult.Empty;
-        }
+            1 => CompletionResult.FromHint(Loc.GetString("cmd-announcecustom-arg-message")),
+            2 => CompletionResult.FromHint(Loc.GetString("shell-argument-username-optional-hint")),
+            3 => CompletionResult.FromHint(Loc.GetString("cmd-announcecustom-arg-color")),
+            4 => CompletionResult.FromHintOptions(
+                CompletionHelper.AudioFilePath(args[3], _protoManager, _res),
+                Loc.GetString("cmd-announcecustom-arg-sound")
+            ),
+            _ => CompletionResult.Empty
+        };
     }
 }
