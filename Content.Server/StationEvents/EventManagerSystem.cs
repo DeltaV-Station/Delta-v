@@ -58,27 +58,39 @@ public sealed class EventManagerSystem : EntitySystem
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
+        if(TryGenerateRandomEvent(limitedEventsTable, out string? randomLimitedEvent) && randomLimitedEvent != null) // DeltaV seperated into own method
+            GameTicker.AddGameRule(randomLimitedEvent);
+    }
+
+    // DeltaV seperate event generation method
+    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent)
+    {
+        randomLimitedEvent = null;
+        // Snippet from upstreams RunRandomEvent
         if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
         {
             Log.Warning("Provided event table could not build dict!");
-            return;
+            return false;
         }
 
-        var randomLimitedEvent = FindEvent(limitedEvents); // this picks the event, It might be better to use the GetSpawns to do it, but that will be a major rebalancing fuck.
+        randomLimitedEvent = FindEvent(limitedEvents); // this picks the event, It might be better to use the GetSpawns to do it, but that will be a major rebalancing fuck.
+                                                       // DeltaV - randomLimitedEvent declared by enclosing method
         if (randomLimitedEvent == null)
         {
             Log.Warning("The selected random event is null!");
-            return;
+            return false;
         }
 
         if (!_prototype.TryIndex(randomLimitedEvent, out _))
         {
             Log.Warning("A requested event is not available!");
-            return;
+            return false;
         }
+        // End snippet from upstreams RunRandomEvent
 
-        GameTicker.AddGameRule(randomLimitedEvent);
+        return true;
     }
+    // DeltaV end seperate event generation method
 
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
