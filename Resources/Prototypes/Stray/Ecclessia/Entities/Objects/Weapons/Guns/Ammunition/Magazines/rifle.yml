@@ -11,7 +11,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeRadCarabin
+        - Cartridge308
     capacity: 25
     proto: CartridgeRadCarabin
   - type: Item
@@ -33,4 +33,4 @@
   - type: Appearance
   - type: RadiationSource
     intensity: 0.01
-    slore: 0.01
+    slope: 0.7
