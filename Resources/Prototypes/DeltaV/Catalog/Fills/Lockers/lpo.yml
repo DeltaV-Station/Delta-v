@@ -30,11 +30,13 @@
     - id: RubberStampPsychologist
     - id: CyberPen
       prob: 0.7
+    - id: LuxuryPen
+      prob: 0.4
     - id: Hypopen
       prob: 0.2
-    - id: BaseAdvancedPen
-      prob: 0.1
     - id: EnergyDagger
       prob: 0.05
+    - id: PenExplodingBox #Note: Box variant so they don't "*click* oh sh-"
+      prob: 0.005
     - id: PenCentcom
       prob: 0.005
