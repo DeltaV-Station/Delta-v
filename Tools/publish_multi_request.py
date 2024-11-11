@@ -3,6 +3,7 @@
 import requests
 import os
 import subprocess
+import re
 from typing import Iterable
 
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
@@ -10,10 +11,8 @@ VERSION = os.environ["GITHUB_SHA"]
 
 RELEASE_DIR = "release"
 
-#
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
-#
 ROBUST_CDN_URL = "https://cdn.simplestation.org/"
 FORK_ID = "ebengrad"
 
@@ -68,10 +67,37 @@ def get_files_to_publish() -> Iterable[str]:
 
 
 def get_engine_version() -> str:
-    proc = subprocess.run(["git", "describe","--tags", "--abbrev=0"], stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
-    tag = proc.stdout.strip()
-    assert tag.startswith("v")
-    return tag[1:] # Cut off v prefix.
+    # Regular expression to match version numbers in commit messages in the format `Version: X.Y.Z`
+    version_pattern = re.compile(r"Version:\s*(\d+\.\d+\.\d+)")
+
+    try:
+        # Try to get the latest tag
+        proc = subprocess.run(["git", "describe", "--tags", "--abbrev=0"], stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
+        tag = proc.stdout.strip()
+        if tag.startswith("v"):
+            return tag[1:]  # Remove the 'v' prefix if it exists
+        return tag
+    except subprocess.CalledProcessError:
+        # If no tags are found, search the commit history for a version
+        print("No tags found; searching commit history for version.")
+        log_proc = subprocess.run(
+            ["git", "log", "--pretty=%B"],
+            stdout=subprocess.PIPE,
+            cwd="RobustToolbox",
+            check=True,
+            encoding="UTF-8"
+        )
+        
+        # Search each commit message for a version number
+        for line in log_proc.stdout.splitlines():
+            match = version_pattern.search(line)
+            if match:
+                return match.group(1)  # Return the version number if found
+
+        # If no version is found in commit messages, fall back to commit ID
+        print("No version found in commit history; using commit ID as version.")
+        id_proc = subprocess.run(["git", "rev-parse", "HEAD"], stdout=subprocess.PIPE, cwd="RobustToolbox", check=True, encoding="UTF-8")
+        return id_proc.stdout.strip()
 
 
 if __name__ == '__main__':
