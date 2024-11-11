@@ -3,6 +3,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Chat;
+using Content.Shared.Body.Part; // DeltaV
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -160,9 +161,12 @@ namespace Content.Server.Kitchen.EntitySystems
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
-            var gibs = _bodySystem.GibBody(victimUid);
+            var gibs = _bodySystem.GibBody(victimUid, gibOrgans: true); // DeltaV: spawn organs
             foreach (var gib in gibs) {
-                QueueDel(gib);
+                // Begin DeltaV changes: Only delete limbs instead of organs
+                if (HasComp<BodyPartComponent>(gib))
+                    QueueDel(gib);
+                // End DeltaV changes
             }
 
             _audio.PlayEntity(component.SpikeSound, Filter.Pvs(uid), uid, true);

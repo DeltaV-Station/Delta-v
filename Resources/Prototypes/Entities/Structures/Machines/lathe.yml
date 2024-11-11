@@ -163,6 +163,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -235,6 +236,7 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
+      - MagazinePistolSpecial
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -433,6 +435,7 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - AdvancedTruncheon
       # End DeltaV additions
 
 - type: entity
@@ -936,6 +939,8 @@
       - MagazineBoxSpecialMindbreaker
       - ClothingOuterHardsuitJuggernautReverseEngineered
       - ClothingOuterHardsuitSyndieReverseEngineered
+      - ClothingShoesBootsSecurityMagboots
+      - AdvancedTruncheon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
