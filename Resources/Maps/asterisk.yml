@@ -32474,15 +32474,15 @@ entities:
       parent: 2
 - proto: Dropper
   entities:
-  - uid: 531
-    components:
-    - type: Transform
-      pos: 22.471138,-20.718512
-      parent: 2
   - uid: 569
     components:
     - type: Transform
       pos: 15.394513,-20.546741
+      parent: 2
+  - uid: 12498
+    components:
+    - type: Transform
+      pos: 22.434858,-15.62857
       parent: 2
 - proto: EmergencyLight
   entities:
@@ -54085,6 +54085,33 @@ entities:
     - type: Transform
       pos: 14.286431,-18.17447
       parent: 2
+- proto: LauncherSyringe
+  entities:
+  - uid: 531
+    components:
+    - type: Transform
+      pos: 22.445276,-20.663317
+      parent: 2
+    - type: Storage
+      storedItems:
+        12495:
+          position: 0,0
+          _rotation: South
+        12496:
+          position: 1,0
+          _rotation: South
+        12497:
+          position: 2,0
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 12495
+          - 12496
+          - 12497
 - proto: Lighter
   entities:
   - uid: 2432
@@ -55036,6 +55063,26 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-14.5
       parent: 2
+- proto: MiniSyringe
+  entities:
+  - uid: 12495
+    components:
+    - type: Transform
+      parent: 531
+    - type: Physics
+      canCollide: False
+  - uid: 12496
+    components:
+    - type: Transform
+      parent: 531
+    - type: Physics
+      canCollide: False
+  - uid: 12497
+    components:
+    - type: Transform
+      parent: 531
+    - type: Physics
+      canCollide: False
 - proto: Mirror
   entities:
   - uid: 4515
@@ -64035,7 +64082,7 @@ entities:
     - type: Transform
       pos: -35.5,-26.5
       parent: 2
-- proto: SuitStorageSec
+- proto: SuitStorageSecDeltaV
   entities:
   - uid: 10800
     components:
