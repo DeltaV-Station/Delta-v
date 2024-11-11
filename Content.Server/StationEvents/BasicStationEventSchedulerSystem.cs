@@ -6,10 +6,11 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.Administration;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.StationEvents; // DeltaV
+using Content.Shared.DeltaV.StationEvents; // DeltaV
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing; // DeltaV
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 
@@ -22,8 +23,10 @@ namespace Content.Server.StationEvents
     [UsedImplicitly]
     public sealed class BasicStationEventSchedulerSystem : GameRuleSystem<BasicStationEventSchedulerComponent>
     {
+        [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EventManagerSystem _event = default!;
+        [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
 
         protected override void Started(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
             GameRuleStartedEvent args)
@@ -57,12 +60,20 @@ namespace Content.Server.StationEvents
                     eventScheduler.TimeUntilNextEvent -= frameTime;
                     continue;
                 }
-                NextEventComponent? nextEvent = null;
+                NextEventComponent? nextEventComponent = null;
 
                 // DeltaV events using NextEventComponent
-                if (Resolve(uid, ref nextEvent, false))
+                if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
-                    // TODO: handle using NextEventComponent
+                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent) || generatedEvent == null)
+                        continue;
+                    // Cycle the stashed event with the new generated event and time.
+                    string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, (float)_timing.CurTime.TotalSeconds + eventScheduler.TimeUntilNextEvent);
+                    if (storedEvent == null || storedEvent == string.Empty) //If there was no stored event don't try to run it.
+                        continue;
+                    GameTicker.AddGameRule(storedEvent);
+                    ResetTimer(eventScheduler);
+                    continue;
                 }
                 // DeltaV end events using NextEventComponent
 
