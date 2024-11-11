@@ -1,0 +1,104 @@
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterBaseBestlungOvercoat
+  name: 'Шинель Маженир'
+  description: 'Излучает роскошь. На повязке красующейся на руке изображена 4 конечная звезда'
+  suffix: Бэстенлунг, Маженир
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterArmorBestlungJaketJi
+  name: 'Куртка Джи'
+  description: 'Как ни странно, очень прочная. Имеется значёк черепа.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/jaket_ji.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/jaket_ji.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterArmorBestlungJaketAnazio
+  name: 'Куртка Аназио'
+  description: 'Более укреплена, чем для Джи. Имеются погоны в виде флагов Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/jaket_anazio.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/OuterClothing/Coats/jaket_anazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8
+    coolingCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

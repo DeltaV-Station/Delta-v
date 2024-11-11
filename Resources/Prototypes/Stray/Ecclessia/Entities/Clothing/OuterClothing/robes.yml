@@ -1,0 +1,59 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterTechArmoredRobeAdMechEcclesia
+  name: бронежилет с священными покровами
+  description: Бронежилет, покрытый тяжёлой тканью.
+  suffix: Эцессия
+  components:
+  - type: Sprite
+    sprite: Stray/Ecclessia/Clothing/OuterClothing/armored_robe.rsi
+  - type: Clothing
+    sprite: Stray/Ecclessia/Clothing/OuterClothing/armored_robe.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.8
+        Shock: 0.8
+        Caustic: 0.5
+        Radiation: 0.5
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHoodEcclesia
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterTechRobeAdMechEcclesia
+  name: коричневая роба
+  description: Роба, исполненная из тяжёлой ткани.
+  suffix: Эцессия
+  components:
+  - type: Sprite
+    sprite: Stray/Ecclessia/Clothing/OuterClothing/robe.rsi
+  - type: Clothing
+    sprite: Stray/Ecclessia/Clothing/OuterClothing/robe.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Shock: 0.95
+        Caustic: 0.5
+        Radiation: 0.7
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHoodEcclesia

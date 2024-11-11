@@ -1,0 +1,37 @@
+- type: entity
+  parent: BookBase
+  id: BookCodexAdMechEcclesia
+  name: легенда о Омниссии
+  description: Легенда о боге поклоняющихся машинам, в кожанном оплёте с стальными вставками.
+  suffix: Эцессия
+  components:
+    - type: Sprite
+      sprite: Stray/Ecclessia/Objects/Specific/Chapel/Books.rsi
+      layers:
+        - state: BookCodex
+    - type: Paper
+      content: book-text-legend-of-omnissiah
+    - type: Clothing
+      slots:
+        - Belt
+    - type: UseDelay
+      delay: 30.0
+    - type: Bible
+      damage:
+        groups:
+          Brute: -15
+          Burn: -15
+          Airloss: -15
+      damageOnFail:
+        types:
+          Holy: 50
+      damageOnUntrainedUse:
+        types:
+          Holy: 10
+    - type: Prayable
+      bibleUserOnly: true
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 6
+          Holy: 5

@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHelmetHoodEcclesia
+  categories: [ HideSpawnMenu ]
+  suffix: Эцессия
+  name: Капюшон
+  description: Капюшон из тяжёлой ткани.
+  components:
+  - type: Sprite
+    sprite: Stray/Ecclessia/Clothing/Head/hood.rsi
+  - type: Clothing
+    sprite: Stray/Ecclessia/Clothing/Head/hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Piercing: 0.95
+        Caustic: 0.9
+        Heat: 0.9
+        Radiation: 0.8

@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckBestlungPin
+  name: значок Бэстенлунга
+  description: значок Бэстенлунга.
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/pins.rsi
+    state: bestlung
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/pins.rsi
+    equippedPrefix: bestlung

@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckImperiaPin
+  name: значок Империи
+  description: значок Теократической Империи Миртана.
+  suffix: Империя
+  components:
+  - type: Sprite
+    sprite: Stray/Empire/Clothing/Neck/Misc/pins.rsi
+    state: imperia
+  - type: Clothing
+    sprite: Stray/Empire/Clothing/Neck/Misc/pins.rsi
+    equippedPrefix: imperia

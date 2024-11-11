@@ -1,0 +1,16 @@
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateSteelBestlung
+  name: ящик
+  description: стандартное хранилище
+  suffix: Бэстенлунг
+  components:
+  - type: Icon
+    sprite: Stray/Bestlung/Structures/Storage/CrateBestlung.rsi
+  - type: Sprite
+    sprite: Stray/Bestlung/Structures/Storage/CrateBestlung.rsi
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
