@@ -436,6 +436,8 @@
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
       - AdvancedTruncheon
+      - LauncherSyringe
+      - MiniSyringe
       - WeaponColdCannon
       # End DeltaV additions
 
@@ -1068,6 +1070,10 @@
       - WhiteCane
       - AACTablet # DeltaV
     dynamicRecipes:
+      # Begin DeltaV additions
+      - LauncherSyringe
+      - MiniSyringe
+      # End DeltaV additions
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
