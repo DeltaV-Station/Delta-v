@@ -181,8 +181,8 @@ public sealed class EventManagerSystem : EntitySystem
     /// <param name="currentTimeOverride">Override for round time, if using this to simulate events rather than in an actual round.</param>
     /// <returns></returns>
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
-        bool ignoreEarliestStart = false,
-        int? playerCountOverride = null,
+        bool ignoreEarliestStart = true,
+        int? playerCountOverride = 100,
         TimeSpan? currentTimeOverride = null)
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
