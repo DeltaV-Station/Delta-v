@@ -15,5 +15,5 @@ public sealed partial class NextEventComponent : Component
     ///     Round time of the scheduler's next station event.
     /// </summary>
     [DataField]
-    public TimeSpan NextEventTime;
+    public float NextEventTime;
 }
