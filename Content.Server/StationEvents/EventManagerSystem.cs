@@ -113,7 +113,7 @@ public sealed class EventManagerSystem : EntitySystem
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
         var availableEvents = AvailableEvents(eventRunTime); // handles the player counts and individual event restrictions
-                                                                                // DeltaV - Overide time for stashing events
+                                                             // DeltaV - Overide time for stashing events
         if (availableEvents.Count == 0)
         {
             Log.Warning("No events were available to run!");
