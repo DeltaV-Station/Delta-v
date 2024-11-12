@@ -1,5 +1,5 @@
 using Content.Server.Bible.Components;
-using Content.Server.DeltaV.Cloning;
+using Content.Server.Nyanotrasen.Cloning;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;

@@ -9,7 +9,7 @@ using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
 {
-    public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
+    public sealed class TelegnosisPowerSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;

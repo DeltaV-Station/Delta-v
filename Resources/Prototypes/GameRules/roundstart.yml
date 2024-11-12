@@ -309,6 +309,7 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event
   - type: RampingStationEventScheduler
     averageChaos: 4.5 # DeltaV
     averageEndTime: 180 # DeltaV
