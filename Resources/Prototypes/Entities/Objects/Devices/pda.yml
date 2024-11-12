@@ -889,6 +889,18 @@
   name: visitor PDA # DeltaV
   description: If you hold onto this, it can be a fun souvenier when you get to... wherever you're going! # DeltaV
   components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: VisitorIDCard
     state: pda-visitor # DeltaV - visitor pda sprite
