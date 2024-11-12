@@ -40,6 +40,14 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         component.StartingChaos = component.MaxChaos / 10;
 
         PickNextEventTime(uid, component);
+
+        // DeltaV - end init NextEventComp
+        NextEventComponent? nextEventComponent = null;
+        if (Resolve(uid, ref nextEventComponent, false)
+            && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
+            && firstEvent != null)
+            _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+        // DeltaV - end init NextEventComp
     }
 
     public override void Update(float frameTime)

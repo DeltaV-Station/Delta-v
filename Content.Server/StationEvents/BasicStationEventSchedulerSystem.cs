@@ -33,6 +33,14 @@ namespace Content.Server.StationEvents
         {
             // A little starting variance so schedulers dont all proc at once.
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
+
+            // DeltaV - end init NextEventComp
+            NextEventComponent? nextEventComponent = null;
+            if (Resolve(uid, ref nextEventComponent, false)
+                && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
+                && firstEvent != null)
+                _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+            // DeltaV - end init NextEventComp
         }
 
         protected override void Ended(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
