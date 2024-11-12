@@ -68,9 +68,12 @@ namespace Content.Server.StationEvents
                 {
                     TimeSpan nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
                     if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
+                    {
+                        ResetTimer(eventScheduler);
                         continue;
+                    }
                     // Cycle the stashed event with the new generated event and time.
-                    string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, (float)_timing.CurTime.TotalSeconds + eventScheduler.TimeUntilNextEvent);
+                    string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                     if (storedEvent == null || storedEvent == string.Empty) //If there was no stored event don't try to run it.
                         continue;
                     GameTicker.AddGameRule(storedEvent);

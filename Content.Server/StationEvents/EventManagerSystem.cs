@@ -112,7 +112,7 @@ public sealed class EventManagerSystem : EntitySystem
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
-        var availableEvents = AvailableEvents(false, null, null, eventRunTime); // handles the player counts and individual event restrictions
+        var availableEvents = AvailableEvents(eventRunTime); // handles the player counts and individual event restrictions
                                                                                 // DeltaV - Overide time for stashing events
         if (availableEvents.Count == 0)
         {
@@ -199,15 +199,15 @@ public sealed class EventManagerSystem : EntitySystem
         return null;
     }
 
-    // DeltaV - Overloaded for backwards compatiblity
+    // DeltaV - overloaded for backwards compatiblity
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
-        int? playerCountOverride = null,
+        int? playerCountOverride = 100,
         TimeSpan? currentTimeOverride = null)
     {
-        return AvailableEvents(ignoreEarliestStart, playerCountOverride, currentTimeOverride, null);
+        return AvailableEvents(null, ignoreEarliestStart, playerCountOverride, currentTimeOverride);
     }
-    // DeltaV - End overloaded for backwards compatiblity
+    // DeltaV - end overloaded for backwards compatiblity
 
     /// <summary>
     /// Gets the events that have met their player count, time-until start, etc.
@@ -216,9 +216,11 @@ public sealed class EventManagerSystem : EntitySystem
     /// <param name="currentTimeOverride">Override for round time, if using this to simulate events rather than in an actual round.</param>
     /// <returns></returns>
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
+        TimeSpan? eventRunTime,
         bool ignoreEarliestStart = false,
-        int? playerCountOverride = null,
-        TimeSpan? currentTimeOverride = null, TimeSpan? eventRunTime)
+        int? playerCountOverride = 100,
+        TimeSpan? currentTimeOverride = null
+        )
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
