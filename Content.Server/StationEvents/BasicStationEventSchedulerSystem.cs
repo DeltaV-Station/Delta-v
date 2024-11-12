@@ -60,9 +60,10 @@ namespace Content.Server.StationEvents
                     eventScheduler.TimeUntilNextEvent -= frameTime;
                     continue;
                 }
-                NextEventComponent? nextEventComponent = null;
 
                 // DeltaV events using NextEventComponent
+                NextEventComponent? nextEventComponent = null;
+
                 if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
                     if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent) || generatedEvent == null)
