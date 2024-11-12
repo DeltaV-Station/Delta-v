@@ -22,3 +22,13 @@
       - id: Bloodpack
       - id: SyringeEphedrine
       - id: EmergencyMedipen
+
+- type: entity
+  id: ClothingBeltFoamSheathFilled
+  parent: ClothingBeltFoamSheath
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - FoamSabre
