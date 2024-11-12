@@ -38,4 +38,12 @@
     sprite: DeltaV/Structures/Wallmounts/signs.rsi
     state: direction_court
 
-
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionaAI
+  name: AI sign
+  description:  A direction sign, pointing out which way the AI core is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_aicore
