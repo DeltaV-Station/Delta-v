@@ -62,7 +62,7 @@
     damage:
       types:
         Blunt: 0
-  - type: Reflect #Imitation of captain's sword, 1% chance of reflecting a projectile for the fun chance of it happening.
+  - type: Reflect # Imitation of captain's sword, 1% chance of reflecting a projectile for the fun chance of it happening.
     reflectProb: .01
     spread: 90
   - type: Item
@@ -71,5 +71,7 @@
   - type: Tag
     tags:
     - CaptainSabre # To be able to store it a captain's sheath if you get your hands on one.
+  - type: StaminaDamageOnHit
+    damage: 5
   - type: Execution
     doAfterDuration: 3.0
