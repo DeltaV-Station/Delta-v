@@ -245,6 +245,29 @@
   loadouts:
   - ProsecutorOvercoat
 
+#Chaplain
+- type: loadoutGroup
+  id: Bibles
+  name: loadout-group-bibles
+  loadouts:
+  - Bible
+  - Quran
+  - Torah
+  - Bibble
+  - PrideBible
+  - RedditBible
+
+- type: loadoutGroup
+  id: ChaplainShoes
+  name: loadout-group-chaplain-shoes
+  loadouts:
+  - ClothingShoesColorBlack
+  - ClothingShoesBootsLaceup
+  - ClothingShoesLeather
+  - ClothingShoesGeta
+  - ClothingShoesWizardFake
+  - ClothingShoesTourist
+
 # PDAs
 - type: loadoutGroup
   id: PassengerPDADelta

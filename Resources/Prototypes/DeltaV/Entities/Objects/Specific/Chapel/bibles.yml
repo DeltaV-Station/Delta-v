@@ -1,0 +1,75 @@
+- type: entity
+  parent: Bible
+  id: Quran
+  name: qur'an
+  description: "Religious text of Space Islam with a decorated cover."
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chapel/quran.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Specific/Chapel/quran.rsi
+
+- type: entity
+  parent: Bible
+  id: Torah
+  name: torah
+  description: "A Torah scroll, hand written and carefully crafted for practicing Judaism."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/torah.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/torah.rsi
+
+- type: entity
+  parent: Bible
+  id: Tripitaka
+  name: tripitaka
+  description: "This book is an ancient collection of Buddhist sacred scriptures."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+
+- type: entity
+  parent: Bible
+  id: Bibble
+  name: holy bibble
+  description: "Every single page just says bibble in bold over and over and over..."
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Specific/Chapel/bible.rsi
+
+- type: entity
+  parent: Bible
+  id: PrideBible
+  name: pride bible
+  description: "Be gay! Do a crime!"
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/pridebible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/pridebible.rsi
+
+- type: entity
+  parent: Bible
+  id: RedditBible
+  name: space reddit
+  description: "True Atheism in text form... erm aktually-"
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/redditbible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/redditbible.rsi
