@@ -1,20 +1,16 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
-using Content.Shared.DeltaV.StationEvents;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.StationEvents;
 
 public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingStationEventSchedulerComponent>
 {
-    [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
 
     /// <summary>
     /// Returns the ChaosModifier which increases as round time increases to a point.
@@ -40,14 +36,6 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         component.StartingChaos = component.MaxChaos / 10;
 
         PickNextEventTime(uid, component);
-
-        // DeltaV - end init NextEventComp
-        NextEventComponent? nextEventComponent = null;
-        if (Resolve(uid, ref nextEventComponent, false)
-            && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
-            && firstEvent != null)
-            _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
-        // DeltaV - end init NextEventComp
     }
 
     public override void Update(float frameTime)
@@ -68,24 +56,6 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 scheduler.TimeUntilNextEvent -= frameTime;
                 continue;
             }
-
-            // DeltaV events using NextEventComponent
-            NextEventComponent? nextEventComponent = null;
-
-            if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
-            {
-                PickNextEventTime(uid, scheduler);
-                TimeSpan nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
-                if (!_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
-                    continue;
-                // Cycle the stashed event with the new generated event and time.
-                string storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
-                if (storedEvent == null || storedEvent == string.Empty) //If there was no stored event don't try to run it.
-                    continue;
-                GameTicker.AddGameRule(storedEvent);
-                continue;
-            }
-            // DeltaV end events using NextEventComponent
 
             PickNextEventTime(uid, scheduler);
             _event.RunRandomEvent(scheduler.ScheduledGameRules);
