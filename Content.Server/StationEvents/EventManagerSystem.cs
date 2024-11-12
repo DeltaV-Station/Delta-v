@@ -70,8 +70,8 @@ public sealed class EventManagerSystem : EntitySystem
     // DeltaV - end overloaded for backwards compatiblity
 
     // DeltaV - seperate event generation method
-    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent, float? eventRunTime) // Event time checks compared to eventRunTime
-                                                                                                                                    // unless its null in which case current time is used
+    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent, TimeSpan? eventRunTime) // Event time checks compared to eventRunTime
+                                                                                                                                       // unless its null in which case current time is used
     {
         randomLimitedEvent = null;
         if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, eventRunTime))
@@ -108,7 +108,7 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, float? eventRunTime) // DeltaV - Add a time overide
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, TimeSpan? eventRunTime) // DeltaV - Add a time overide
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
@@ -218,21 +218,16 @@ public sealed class EventManagerSystem : EntitySystem
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
         int? playerCountOverride = null,
-        TimeSpan? currentTimeOverride = null, float? eventRunTime)
+        TimeSpan? currentTimeOverride = null, TimeSpan? eventRunTime)
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
         // playerCount does a lock so we'll just keep the variable here
         var currentTime = currentTimeOverride ?? (
-
-            // DeltaV - eventRunTime check
-            eventRunTime.HasValue
-            ? TimeSpan.FromSeconds(eventRunTime.Value)
-            // DeltaV - end of eventRunTime check
-
-            : (!ignoreEarliestStart
-                ? GameTicker.RoundDuration()
-                : TimeSpan.Zero)
+            (!ignoreEarliestStart
+            ? eventRunTime // DeltaV - Use eventRunTime instead of RoundDuration if provided
+            ?? GameTicker.RoundDuration()
+            : TimeSpan.Zero)
         );
 
         var result = new Dictionary<EntityPrototype, StationEventComponent>();
