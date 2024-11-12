@@ -17,6 +17,9 @@
   - Prosecutor
   - Justice
   - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ProsecutorGear
