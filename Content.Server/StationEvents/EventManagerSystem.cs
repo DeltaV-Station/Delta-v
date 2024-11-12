@@ -93,7 +93,6 @@ public sealed class EventManagerSystem : EntitySystem
             Log.Warning("A requested event is not available!");
             return false;
         }
-        // End snippet from upstreams RunRandomEvent
 
         return true;
     }
