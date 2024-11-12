@@ -66,7 +66,10 @@ namespace Content.Server.StationEvents
 
                 if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
-                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent) || generatedEvent == null)
+                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules,
+                        out string? generatedEvent,
+                        (float)_timing.CurTime.TotalSeconds + eventScheduler.TimeUntilNextEvent)
+                        || generatedEvent == null)
                         continue;
                     // Cycle the stashed event with the new generated event and time.
                     string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, (float)_timing.CurTime.TotalSeconds + eventScheduler.TimeUntilNextEvent);

@@ -58,16 +58,23 @@ public sealed class EventManagerSystem : EntitySystem
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
-        if(TryGenerateRandomEvent(limitedEventsTable, out string? randomLimitedEvent) && randomLimitedEvent != null) // DeltaV seperated into own method
+        if(TryGenerateRandomEvent(limitedEventsTable, out string? randomLimitedEvent) && randomLimitedEvent != null) // DeltaV - seperated into own method
             GameTicker.AddGameRule(randomLimitedEvent);
     }
 
-    // DeltaV seperate event generation method
+    // DeltaV - overloaded for backwards compatiblity
     public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent)
     {
+        return TryGenerateRandomEvent(limitedEventsTable, out randomLimitedEvent, null);
+    }
+    // DeltaV - end overloaded for backwards compatiblity
+
+    // DeltaV - seperate event generation method
+    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent, float? eventRunTime) // Event time checks compared to eventRunTime
+                                                                                                                                    // unless its null in which case current time is used
+    {
         randomLimitedEvent = null;
-        // Snippet from upstreams RunRandomEvent
-        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
+        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, eventRunTime))
         {
             Log.Warning("Provided event table could not build dict!");
             return false;
@@ -86,21 +93,27 @@ public sealed class EventManagerSystem : EntitySystem
             Log.Warning("A requested event is not available!");
             return false;
         }
-        // End snippet from upstreams RunRandomEvent
 
         return true;
     }
-    // DeltaV end seperate event generation method
+    // DeltaV - end seperate event generation method
+
+    // DeltaV - overloaded for backwards compatiblity
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
+    {
+        return TryBuildLimitedEvents(limitedEventsTable, out limitedEvents, null);
+    }
+    // DeltaV - end overloaded for backwards compatiblity
 
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, float? eventRunTime) // DeltaV - Add a time overide
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
-        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions
-
+        var availableEvents = AvailableEvents(false, null, null, eventRunTime); // handles the player counts and individual event restrictions
+                                                                                // DeltaV - Overide time for stashing events
         if (availableEvents.Count == 0)
         {
             Log.Warning("No events were available to run!");
@@ -186,6 +199,16 @@ public sealed class EventManagerSystem : EntitySystem
         return null;
     }
 
+    // DeltaV - Overloaded for backwards compatiblity
+    public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
+        bool ignoreEarliestStart = false,
+        int? playerCountOverride = null,
+        TimeSpan? currentTimeOverride = null)
+    {
+        return AvailableEvents(ignoreEarliestStart, playerCountOverride, currentTimeOverride, null);
+    }
+    // DeltaV - End overloaded for backwards compatiblity
+
     /// <summary>
     /// Gets the events that have met their player count, time-until start, etc.
     /// </summary>
@@ -195,14 +218,22 @@ public sealed class EventManagerSystem : EntitySystem
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
         int? playerCountOverride = null,
-        TimeSpan? currentTimeOverride = null)
+        TimeSpan? currentTimeOverride = null, float? eventRunTime)
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
         // playerCount does a lock so we'll just keep the variable here
-        var currentTime = currentTimeOverride ?? (!ignoreEarliestStart
-            ? GameTicker.RoundDuration()
-            : TimeSpan.Zero);
+        var currentTime = currentTimeOverride ?? (
+
+            // DeltaV - eventRunTime check
+            eventRunTime.HasValue
+            ? TimeSpan.FromSeconds(eventRunTime.Value)
+            // DeltaV - end of eventRunTime check
+
+            : (!ignoreEarliestStart
+                ? GameTicker.RoundDuration()
+                : TimeSpan.Zero)
+        );
 
         var result = new Dictionary<EntityPrototype, StationEventComponent>();
 
