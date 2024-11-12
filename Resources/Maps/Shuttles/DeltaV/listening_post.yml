@@ -1934,6 +1934,20 @@ entities:
       pos: 1.5,-3.5
       parent: 1
     - type: Emagged
+- proto: BoxFolderClipboard
+  entities:
+  - uid: 407
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.231457,-0.3822682
+      parent: 1
+  - uid: 408
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.185161,-0.43782377
+      parent: 1
 - proto: BoxHandcuff
   entities:
   - uid: 118
@@ -1973,17 +1987,17 @@ entities:
   - uid: 401
     components:
     - type: Transform
-      pos: 12.580331,-0.57071495
+      pos: 12.685161,-0.44444445
       parent: 1
   - uid: 402
     components:
     - type: Transform
-      pos: 12.615925,0.015501022
+      pos: 12.674515,-0.24074075
       parent: 1
   - uid: 403
     components:
     - type: Transform
-      pos: 12.615925,-0.21887398
+      pos: 12.68979,-0.3148148
       parent: 1
 - proto: ButtonFrameCautionSecurity
   entities:
@@ -2995,6 +3009,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,0.5
+      parent: 1
+- proto: ComputerIFFSyndicate
+  entities:
+  - uid: 406
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.5,-0.5
       parent: 1
 - proto: ComputerMassMedia
   entities:
