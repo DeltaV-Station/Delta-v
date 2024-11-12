@@ -60,7 +60,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      150: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       25: 0.5
@@ -77,7 +77,7 @@
     animation: WeaponArcBite
     damage:
       groups:
-        Brute: 6
+        Brute: 12
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -140,7 +140,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      200: Dead
   - type: Stamina
     critThreshold: 300
   - type: SlowOnDamage
@@ -157,6 +157,15 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      soundHit:
+       collection: AlienClaw
+      animation: WeaponArcBite
+      damage:
+        groups:
+          Brute: 20
 
 - type: entity
   name: drone
@@ -173,14 +182,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      160: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       40: 0.7
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 6
+        Brute: 10
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -210,7 +219,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      600: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       150: 0.7
@@ -218,7 +227,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 12
+       Brute: 30
   - type: Fixtures
     fixtures:
       fix1:
@@ -249,13 +258,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      200: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 10
+       Brute: 20
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -288,7 +297,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 5
+       Brute: 8
   - type: Fixtures
     fixtures:
       fix1:
@@ -300,6 +309,10 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
 
 - type: entity
   name: rouny
@@ -331,7 +344,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Dead
+      100: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       25: 0.7
