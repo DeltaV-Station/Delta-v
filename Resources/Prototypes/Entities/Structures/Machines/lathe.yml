@@ -436,6 +436,8 @@
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
       - AdvancedTruncheon
+      - LauncherSyringe
+      - MiniSyringe
       # End DeltaV additions
 
 - type: entity
@@ -1066,6 +1068,10 @@
       - WhiteCane
       - AACTablet # DeltaV
     dynamicRecipes:
+      # Begin DeltaV additions
+      - LauncherSyringe
+      - MiniSyringe
+      # End DeltaV additions
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
