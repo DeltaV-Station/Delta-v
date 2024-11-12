@@ -22,6 +22,9 @@
   - Justice
   - Clerk
   - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ClerkGear
