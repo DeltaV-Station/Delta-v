@@ -12,3 +12,4 @@ id-card-access-level-head-of-security-syndicate = Глава службы без
 id-card-access-level-chief-medical-officer-syndicate = Главный врач синдиката
 id-card-access-level-armory-syndicate = Оружейная синдиката
 id-card-access-level-engineering-syndicate = Инженерная синдиката
+id-card-access-level-captain-syndicate = Командир синдиката

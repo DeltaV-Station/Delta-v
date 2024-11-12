@@ -16,6 +16,7 @@ job-name-chief-medical-officer-syndicate = ГВ синдиката
 job-name-security-syndicate = Офицер синдиката
 job-name-head-of-security-syndicate = ГСБ синдиката
 job-name-engineering-syndicate = Инженер синдиката
+job-name-captain-syndicate = Командир синдиката
 
 # Role timers - Make these alphabetical or I cut you
 JobChiefHeadquartersCentralCommand = Начальник штаба ЦентКом
