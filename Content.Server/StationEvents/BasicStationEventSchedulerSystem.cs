@@ -170,7 +170,7 @@ namespace Content.Server.StationEvents
                 }
             }
 
-            return occurrences.Select(p => (p.Key, (float)p.Value)).OrderByDescending(p => p.Item2);
+            return occurrences.Select(p => (p.Key, (float) p.Value)).OrderByDescending(p => p.Item2);
         }
 
         [CommandImplementation("lsprob")]
