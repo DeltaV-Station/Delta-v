@@ -54,7 +54,7 @@
 # teach lesson
 
 - type: entity
-  parent: KillRandomPersonObjective
+  parent: BaseTeachObjective
   id: TeachRandomPersonObjective
   description: Kill them, and show everyone we mean business. They only need to die once.  #DeltaV change to reflect that people only gotta die once.
   components:
@@ -63,11 +63,11 @@
     unique: false
   - type: TargetObjective
     title: objective-condition-teach-person-title
-  - type: PickRandomPerson
+  - type: TeachPickRandomPerson
   - type: TeachLessonCondition #DeltaV change to teach lesson
 
 - type: entity
-  parent: KillRandomHeadObjective
+  parent: BaseTeachObjective
   id: TeachRandomHeadObjective
   description: We need this head gone and you probably know why. Good luck, agent.
   components:
@@ -78,7 +78,7 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-teach-head-title
-  - type: PickRandomHead
+  - type: TeachPickRandomHead
   - type: TeachLessonCondition #DeltaV change to teach lesson
     # don't count missing evac as killing as heads are higher profile, so you really need to do the dirty work
     # if ce flies a shittle to centcom you better find a way onto it

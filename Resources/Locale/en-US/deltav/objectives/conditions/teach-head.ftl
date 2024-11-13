@@ -1,1 +1,1 @@
-﻿objective-condition-kill-teach-title = Kill {$targetName}, {CAPITALIZE($job)}
+﻿objective-condition-teach-teach-title = Kill {$targetName}, {CAPITALIZE($job)}

@@ -1,0 +1,26 @@
+# OBJECTIVE STYLE
+# in comments anything that says final prototype means the objective that isnt abstract.
+# you dont need noSpawn because Objectives category is automatically added, which has hideSpawnmenu
+# components are listed in this order:
+# 1. Objective
+# 2. requirement components
+# 3. non-condition components
+# 4. the condition component
+
+# requires that the player kill someone
+# disables social objectives and is disabled by social objectives
+- type: entity
+  abstract: true
+  parent: BaseTargetObjective
+  id: BaseTeachObjective
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - SocialObjective
+  - type: TeachLessonCondition
