@@ -220,8 +220,7 @@ public sealed class EventManagerSystem : EntitySystem
         TimeSpan? eventRunTime,
         bool ignoreEarliestStart = false,
         int? playerCountOverride = 100,
-        TimeSpan? currentTimeOverride = null
-        )
+        TimeSpan? currentTimeOverride = null)
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
