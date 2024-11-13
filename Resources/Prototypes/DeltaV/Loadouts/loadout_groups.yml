@@ -249,24 +249,31 @@
 - type: loadoutGroup
   id: Bibles
   name: loadout-group-bibles
+  minLimit: 1
   loadouts:
   - Bible
   - Quran
   - Torah
   - Bibble
-  - PrideBible
-  - RedditBible
+  - BibleSatanic
+  - BiblePride
+  - BibleHymnsHonkmother
+  - BibleVowsSilentfather
+  - BibleReddit
+  - BibleNanotrasen
+  - BibleNecronomiconDiscount
+  - BibleGilded
 
 - type: loadoutGroup
   id: ChaplainShoes
   name: loadout-group-chaplain-shoes
   loadouts:
-  - ClothingShoesColorBlack
-  - ClothingShoesBootsLaceup
-  - ClothingShoesLeather
-  - ClothingShoesGeta
-  - ClothingShoesWizardFake
-  - ClothingShoesTourist
+  - ShoesBlackSneaker
+  - ShoesBlack
+  - ShoesLeather
+  - SandalsJapanese
+  - SandalsWizard
+  - SandalsTourist
 
 # PDAs
 - type: loadoutGroup
