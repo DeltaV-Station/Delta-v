@@ -23,7 +23,8 @@ public sealed class KillPersonConditionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
-    private List<EntityUid> _wasKilled = new();
+    private List<EntityUid> _wasKilled = new();  //DeltaV Port from EE
+
     public override void Initialize()
     {
         base.Initialize();
@@ -31,7 +32,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         SubscribeLocalEvent<KillPersonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
         SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
-        SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnd); //DeltaV Port from EE
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd); //DeltaV Kill objective
     }
 
     private void OnGetProgress(EntityUid uid, KillPersonConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -106,11 +107,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             if (!requireDead && !_wasKilled.Contains(target)) _wasKilled.Add(target);
             return 1f;
         }
-
-        // if the target was killed once and it isn't a head objective
-        if (_wasKilled.Contains(target))
-            return 1f;
-
+        
         return 0f;
     }
         // if the target has to be dead dead then don't check evac stuff
@@ -132,7 +129,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
 //        // if evac is still here and target hasn't boarded, show 50% to give you an indicator that you are doing good
 //        return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;
     // Clear the wasKilled list on round end
-    private void OnRoundEnd(RoundEndedEvent ev)
+    private void OnRoundEnd(RoundRestartCleanupEvent  ev)
         => _wasKilled.Clear();
     // DeltaV - end making people only die once from EE
 }

@@ -451,7 +451,6 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
-            RaiseLocalEvent(new RoundEndedEvent(RoundId, roundDuration)); //DeltaV - EE change ported
         }
 
         private async void SendRoundEndDiscordMessage()
