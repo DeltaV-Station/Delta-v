@@ -1,12 +1,14 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Armor; // DeltaV
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory; // DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -34,6 +36,7 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // DeltaV
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -202,7 +205,32 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        TakeStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
+        // Begin DeltaV code
+        var damage = component.Damage;
+
+        // Check for armor on the target that might reduce stamina damage
+        if (_inventory.TryGetSlots(target, out var slots))
+        {
+            var coefficient = 1.0f;
+
+            // Check each equipped item for armor
+            foreach (var slot in slots)
+            {
+                if (!_inventory.TryGetSlotEntity(target, slot.Name, out var equipped))
+                    continue;
+
+                // If equipped item has armor component, multiply the coefficient
+                if (TryComp<ArmorComponent>(equipped, out var armor))
+                {
+                    coefficient *= armor.StaminaDamageCoefficient;
+                }
+            }
+
+            damage *= coefficient;
+        }
+
+        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
+        // End DeltaV code
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)

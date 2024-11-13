@@ -22,6 +22,12 @@ public sealed partial class ArmorComponent : Component
     /// </summary>
     [DataField]
     public float PriceMultiplier = 1;
+
+    /// <summary>
+    /// DeltaV: The incoming stamina damage will get multiplied by this value.
+    /// </summary>
+    [DataField]
+    public float StaminaDamageCoefficient = 1;
 }
 
 /// <summary>
