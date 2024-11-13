@@ -438,8 +438,8 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisablerPractice
+  - type: HitscanBatteryAmmoProvider # DeltaV
+    proto: DisablerPractice # DeltaV
     fireCost: 100
   - type: Tag
     tags:
@@ -467,8 +467,8 @@
     slots:
       - suitStorage
       - Belt
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+  - type: HitscanBatteryAmmoProvider # DeltaV
+    proto: Disabler # DeltaV
     fireCost: 100
   - type: GuideHelp
     guides:
