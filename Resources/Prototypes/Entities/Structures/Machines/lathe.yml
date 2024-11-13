@@ -163,6 +163,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -434,6 +435,9 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - AdvancedTruncheon
+      - LauncherSyringe
+      - MiniSyringe
       # End DeltaV additions
 
 - type: entity
@@ -938,6 +942,7 @@
       - ClothingOuterHardsuitJuggernautReverseEngineered
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
+      - AdvancedTruncheon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -1063,6 +1068,10 @@
       - WhiteCane
       - AACTablet # DeltaV
     dynamicRecipes:
+      # Begin DeltaV additions
+      - LauncherSyringe
+      - MiniSyringe
+      # End DeltaV additions
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
