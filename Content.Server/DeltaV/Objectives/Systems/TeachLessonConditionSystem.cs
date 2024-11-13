@@ -28,8 +28,8 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<TeachLessonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-        SubscribeLocalEvent<TeachPickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
-        SubscribeLocalEvent<TeachPickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
+        SubscribeLocalEvent<TeachLessonPickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
+        SubscribeLocalEvent<TeachLessonPickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd); //DeltaV Kill objective
     }
 
@@ -41,12 +41,12 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
 
-    private void OnPersonAssigned(EntityUid uid, TeachPickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnPersonAssigned(EntityUid uid, TeachLessonPickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
     {
         AssignRandomTarget(uid, args, _ => true);
     }
 
-    private void OnHeadAssigned(EntityUid uid, TeachPickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnHeadAssigned(EntityUid uid, TeachLessonPickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
     {
         AssignRandomTarget(uid, args, mind => HasComp<CommandStaffComponent>(uid));
     }

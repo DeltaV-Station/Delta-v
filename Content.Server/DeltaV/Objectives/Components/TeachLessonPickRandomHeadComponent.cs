@@ -7,6 +7,6 @@ namespace Content.Server.Objectives.Components;
 /// If there are no heads it will fallback to any person.
 /// </summary>
 [RegisterComponent, Access(typeof(TeachLessonConditionSystem))]
-public sealed partial class TeachPickRandomHeadComponent : Component
+public sealed partial class TeachLessonPickRandomHeadComponent : Component
 {
 }
