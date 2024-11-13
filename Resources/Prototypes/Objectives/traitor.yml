@@ -88,7 +88,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: KillRandomPersonObjective
-  description: Do it however you like, just make sure they don't make it to centcomm.
+  description: Kill them, and show everyone we mean business. They only need to die once.  #DeltaV change to reflect that people only gotta die once.
   components:
   - type: Objective
     difficulty: 1.75
