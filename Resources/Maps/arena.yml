@@ -157109,6 +157109,14 @@ entities:
     - type: Transform
       pos: -23.5,-62.5
       parent: 6747
+- proto: SignDirectionaAI
+  entities:
+  - uid: 29441
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-41.5
+      parent: 6747
 - proto: SignDirectionalBar
   entities:
   - uid: 6835
@@ -160796,6 +160804,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -72.5,-70.5
       parent: 6747
+  - uid: 29442
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,-48.5
+      parent: 6747
 - proto: StationMapCircuitboard
   entities:
   - uid: 7394
@@ -161357,7 +161371,7 @@ entities:
     - type: Transform
       pos: -35.5,0.5
       parent: 6747
-- proto: SuitStorageSec
+- proto: SuitStorageSecDeltaV
   entities:
   - uid: 684
     components:
@@ -184129,6 +184143,13 @@ entities:
       parent: 6747
     - type: WarpPoint
       location: Court
+- proto: WarpPointAI
+  entities:
+  - uid: 29440
+    components:
+    - type: Transform
+      pos: -65.5,-67.5
+      parent: 6747
 - proto: WarpPointBombing
   entities:
   - uid: 5375
