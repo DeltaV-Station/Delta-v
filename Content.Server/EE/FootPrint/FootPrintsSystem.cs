@@ -2,14 +2,14 @@
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.FootPrint;
-using Content.Shared.Standing;
+using Content.Shared.EE.FootPrint;
+// using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Server.FootPrint;
+namespace Content.Server.EE.FootPrint;
 
 public sealed class FootPrintsSystem : EntitySystem
 {
