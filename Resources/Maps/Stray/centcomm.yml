@@ -27690,6 +27690,10 @@ entities:
       - food
     - type: ContainerContainer
       containers:
+        item: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 65
         solution@food: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -28002,6 +28006,7 @@ entities:
     - type: Transform
       parent: 75
     - type: SuitSensor
+      station: invalid
       mode: SensorCords
     - type: DeviceNetwork
       address: 2C6D-0584
@@ -28147,6 +28152,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,70.5
       parent: 2
+- proto: CombatKnife
+  entities:
+  - uid: 65
+    components:
+    - type: Transform
+      parent: 63
+    - type: Physics
+      canCollide: False
 - proto: CombatMedipen
   entities:
   - uid: 3544
@@ -30068,6 +30081,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,0.5
+      parent: 2
+  - uid: 10942
+    components:
+    - type: Transform
+      pos: 0.5,-15.5
       parent: 2
 - proto: DisposalTrunk
   entities:
@@ -59522,7 +59540,7 @@ entities:
           - 267
           - 264
           - 266
-- proto: SuitStorageSec
+- proto: SuitStorageSecDeltaV
   entities:
   - uid: 7727
     components:
