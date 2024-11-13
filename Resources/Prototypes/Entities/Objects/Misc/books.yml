@@ -342,11 +342,10 @@
       color: "#87011c"
     - state: icon_law
       color: "#f7d61a"
-  - type: GuideHelp
-    guides:
-    - SpaceLaw
-    - StandardOperatingProcedure
-    - AlertProcedure
+  #- type: GuideHelp
+    #openOnActivation: true
+    #guides:
+    #- SpaceLaw # TODO: Delta-V space law guidebook
 
 - type: entity
   parent: BookBase
