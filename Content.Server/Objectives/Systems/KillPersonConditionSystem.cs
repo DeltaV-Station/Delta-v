@@ -90,20 +90,20 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
         _target.SetTarget(uid, _random.Pick(selectedHumans), target);
     }
-
+    // DeltaV - start making people only die once from EE
     private float GetProgress(EntityUid target, bool requireDead)
     {
         // deleted or gibbed or something, counts as dead
         if (!TryComp<MindComponent>(target, out var mind) || mind.OwnedEntity == null)
-        {                                                                                //DeltaV Port from EE
-            if (!requireDead && !_wasKilled.Contains(target)) _wasKilled.Add(target);    //DeltaV Port from EE
+        {
+            if (!requireDead && !_wasKilled.Contains(target)) _wasKilled.Add(target);
             return 1f;
         }
 
         // dead is success
         if (_mind.IsCharacterDeadIc(mind))
         {
-            if (!requireDead && !_wasKilled.Contains(target)) _wasKilled.Add(target);    //DeltaV Port from EE
+            if (!requireDead && !_wasKilled.Contains(target)) _wasKilled.Add(target);
             return 1f;
         }
 
@@ -132,6 +132,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
 //        // if evac is still here and target hasn't boarded, show 50% to give you an indicator that you are doing good
 //        return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;
     // Clear the wasKilled list on round end
-    private void OnRoundEnd(RoundEndedEvent ev) //DeltaV port from EE
-        => _wasKilled.Clear();  //DeltaV port from EE
+    private void OnRoundEnd(RoundEndedEvent ev)
+        => _wasKilled.Clear();
+    // DeltaV - end making people only die once from EE
 }
