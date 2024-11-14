@@ -205,7 +205,5 @@
   - type: Puddle
     solution: step
   - type: Appearance #DeltaV-End updates from EE Blood Puddle
-  - type: SpawnOnDespawn
-    prototype: PuddleSparkle
   - type: TimedDespawn
-    lifetime: 60
+    lifetime: 300
