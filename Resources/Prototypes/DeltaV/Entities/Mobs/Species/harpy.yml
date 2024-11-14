@@ -140,6 +140,9 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  - type: FootPrints #DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-lizard" #DeltaV port from EE, blood splatter
+    rightBarePrint: "footprint-right-bare-lizard" #DeltaV port from EE, blood splatter
 
 - type: entity
   save: false

@@ -110,6 +110,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-diona" #DeltaV port from EE, blood splatter
+    rightBarePrint: "footprint-right-bare-diona" #DeltaV port from EE, blood splatter
 
 - type: entity
   parent: BaseSpeciesDummy
