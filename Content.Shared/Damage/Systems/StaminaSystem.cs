@@ -169,7 +169,7 @@ public sealed partial class StaminaSystem : EntitySystem
         foreach (var (ent, comp) in toHit)
         {
             // DeltaV - Stamina damage coefficient
-            TakeStaminaDamageWithMeleeCoefficient(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            TakeMeleeStaminaDamage(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
 
@@ -204,7 +204,7 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         // DeltaV - Stamina damage coefficient
-        TakeStaminaDamageWithProjectileCoefficient(target, component.Damage, source: uid, sound: component.Sound);
+        TakeProjectileStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)

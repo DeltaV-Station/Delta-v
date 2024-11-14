@@ -224,7 +224,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         var hitEntity = lastHit.Value;
                         if (hitscan.StaminaDamage > 0f)
-                            _stamina.TakeStaminaDamageWithProjectileCoefficient(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
+                            _stamina.TakeProjectileStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
 
                         var dmg = hitscan.Damage;
 

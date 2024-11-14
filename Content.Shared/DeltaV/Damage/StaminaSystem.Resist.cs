@@ -60,7 +60,13 @@ public sealed partial class StaminaSystem
     /// <summary>
     /// Applies stamina damage from melee attacks with armor resistance calculations
     /// </summary>
-    public void TakeStaminaDamageWithMeleeCoefficient(EntityUid target, float damage, StaminaComponent? stamina = null, EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null)
+    public void TakeMeleeStaminaDamage(EntityUid target,
+        float damage,
+        StaminaComponent? stamina = null,
+        EntityUid? source = null,
+        EntityUid? with = null,
+        bool visual = true,
+        SoundSpecifier? sound = null)
     {
         if (!Resolve(target, ref stamina))
             return;
@@ -74,7 +80,13 @@ public sealed partial class StaminaSystem
     /// <summary>
     /// Applies stamina damage from projectiles with armor resistance calculations
     /// </summary>
-    public void TakeStaminaDamageWithProjectileCoefficient(EntityUid target, float damage, StaminaComponent? stamina = null, EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null)
+    public void TakeProjectileStaminaDamage(EntityUid target,
+        float damage,
+        StaminaComponent? stamina = null,
+        EntityUid? source = null,
+        EntityUid? with = null,
+        bool visual = true,
+        SoundSpecifier? sound = null)
     {
         if (!Resolve(target, ref stamina))
             return;
