@@ -1,14 +1,12 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
-using Content.Shared.Armor; // DeltaV
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory; // DeltaV
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -36,7 +34,6 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // DeltaV
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -171,28 +168,8 @@ public sealed partial class StaminaSystem : EntitySystem
 
         foreach (var (ent, comp) in toHit)
         {
-            // Begin DeltaV code - melee stamina resistance from armor
-            var finalDamage = damage / toHit.Count;
-
-            if (_inventory.TryGetSlots(ent, out var slots))
-            {
-                var coefficient = 1.0f;
-
-                foreach (var slot in slots)
-                {
-                    if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped))
-                        continue;
-
-                    if (TryComp<ArmorComponent>(equipped, out var armor))
-                    {
-                        coefficient *= armor.StaminaMeleeDamageCoefficient;
-                    }
-                }
-
-                finalDamage *= coefficient;
-            }
-            TakeStaminaDamage(ent, finalDamage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
-            // End DeltaV code
+            // DeltaV - Stamina damage coefficient
+            TakeStaminaDamageWithMeleeCoefficient(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
 
@@ -226,32 +203,8 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        // Begin DeltaV code
-        var damage = component.Damage;
-
-        // Check for armor on the target that might reduce stamina damage
-        if (_inventory.TryGetSlots(target, out var slots))
-        {
-            var coefficient = 1.0f;
-
-            // Check each equipped item for armor
-            foreach (var slot in slots)
-            {
-                if (!_inventory.TryGetSlotEntity(target, slot.Name, out var equipped))
-                    continue;
-
-                // If equipped item has armor component, multiply the coefficient
-                if (TryComp<ArmorComponent>(equipped, out var armor))
-                {
-                    coefficient *= armor.StaminaDamageCoefficient;
-                }
-            }
-
-            damage *= coefficient;
-        }
-
-        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
-        // End DeltaV code
+        // DeltaV - Stamina damage coefficient
+        TakeStaminaDamageWithProjectileCoefficient(target, component.Damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
