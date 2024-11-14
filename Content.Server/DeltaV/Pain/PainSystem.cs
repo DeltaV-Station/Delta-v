@@ -1,4 +1,7 @@
 using Content.Shared.DeltaV.Pain;
+using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.DeltaV.Pain;
@@ -6,6 +9,10 @@ namespace Content.Server.DeltaV.Pain;
 public sealed class PainSystem : SharedPainSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
 
     public override void Initialize()
     {
@@ -16,19 +23,16 @@ public sealed class PainSystem : SharedPainSystem
     private void OnInit(Entity<PainComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.NextUpdateTime = _timing.CurTime;
+        ent.Comp.NextPopupTime = _timing.CurTime;
     }
 
-    protected override void UpdatePainSuppression(EntityUid uid, float duration)
+    protected override void UpdatePainSuppression(Entity<PainComponent> ent, float duration, PainSuppressionLevel level)
     {
-        if (!TryComp<PainComponent>(uid, out var component))
-            return;
-
-        var ent = new Entity<PainComponent>(uid, component);
         var curTime = _timing.CurTime;
         var newEndTime = curTime + TimeSpan.FromSeconds(duration);
 
         // Only update if this would extend the suppression
-        if (newEndTime <= component.SuppressionEndTime)
+        if (newEndTime <= ent.Comp.SuppressionEndTime)
             return;
 
         ent.Comp.LastPainkillerTime = curTime;
@@ -40,6 +44,23 @@ public sealed class PainSystem : SharedPainSystem
     {
         ent.Comp.Suppressed = (_timing.CurTime < ent.Comp.SuppressionEndTime);
         Dirty(ent);
+    }
+
+    private void ShowPainPopup(Entity<PainComponent> ent)
+    {
+        if (!_prototype.TryIndex(ent.Comp.DatasetPrototype, out var dataset))
+            return;
+
+        var effects = dataset.Values;
+        if (effects.Count == 0)
+            return;
+
+        var effect = _random.Pick(effects);
+        _popup.PopupEntity(Loc.GetString(effect), ent.Owner);
+
+        // Set next popup time
+        var delay = _random.NextFloat(ent.Comp.MinimumPopupDelay, ent.Comp.MaximumPopupDelay);
+        ent.Comp.NextPopupTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
     }
 
     public override void Update(float frameTime)
@@ -60,7 +81,10 @@ public sealed class PainSystem : SharedPainSystem
             {
                 UpdateSuppressed(ent);
             }
-
+            else if (curTime >= component.NextPopupTime)
+            {
+                ShowPainPopup(ent);
+            }
             component.NextUpdateTime = curTime + TimeSpan.FromSeconds(1);
         }
     }

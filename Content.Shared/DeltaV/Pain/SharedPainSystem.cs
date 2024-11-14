@@ -10,7 +10,7 @@ public abstract class SharedPainSystem : EntitySystem
 
     public ProtoId<StatusEffectPrototype> StatusEffectKey = "InPain";
 
-    protected abstract void UpdatePainSuppression(EntityUid uid, float duration);
+    protected abstract void UpdatePainSuppression(Entity<PainComponent> ent, float duration, PainSuppressionLevel level);
 
     public virtual void TryApplyPain(EntityUid uid, float painTime, StatusEffectsComponent? status = null)
     {
@@ -27,11 +27,21 @@ public abstract class SharedPainSystem : EntitySystem
         }
     }
 
-    public virtual void TrySuppressPain(EntityUid uid, float duration)
+    public virtual void TrySuppressPain(EntityUid uid, float duration, PainSuppressionLevel level = PainSuppressionLevel.Normal)
     {
-        if (!TryComp<PainComponent>(uid, out _))
+        if (!TryComp<PainComponent>(uid, out var comp))
             return;
 
-        UpdatePainSuppression(uid, duration);
+        var ent = new Entity<PainComponent>(uid, comp);
+
+        UpdatePainSuppression(ent, duration, level);
     }
+}
+
+// Used by the StatusEffect
+public enum PainSuppressionLevel
+{
+    Mild,
+    Normal,
+    Strong,
 }

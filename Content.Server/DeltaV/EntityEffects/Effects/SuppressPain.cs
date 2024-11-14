@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;
 
-public sealed partial class PainSuppression : EntityEffect
+public sealed partial class SuppressPain : EntityEffect
 {
     /// <summary>
     /// How long should the pain suppression last for each metabolism cycle
@@ -12,8 +12,16 @@ public sealed partial class PainSuppression : EntityEffect
     [DataField]
     public float SuppressionTime = 30f;
 
+    /// <summary>
+    /// The strength level of the pain suppression
+    /// </summary>
+    [DataField]
+    public PainSuppressionLevel SuppressionLevel = PainSuppressionLevel.Normal;
+
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-pain-suppression", ("chance", Probability));
+        => Loc.GetString("reagent-effect-guidebook-pain-suppression",
+            ("chance", Probability),
+            ("level", SuppressionLevel.ToString().ToLowerInvariant()));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -25,6 +33,6 @@ public sealed partial class PainSuppression : EntityEffect
         }
 
         var painSystem = args.EntityManager.System<SharedPainSystem>();
-        painSystem.TrySuppressPain(args.TargetEntity, suppressionTime);
+        painSystem.TrySuppressPain(args.TargetEntity, suppressionTime, SuppressionLevel);
     }
 }
