@@ -32,10 +32,9 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-   # KillRandomPersonObjective: 1 DeltaV- Replaced for Teach Lesson
-    TeachRandomPersonObjective: 1
-   # KillRandomHeadObjective: 0.25 DeltaV- Replaced for Teach Lesson
-    TeachRandomHeadObjective: 0.25
+    #KillRandomPersonObjective: 1 DeltaV- Replaced for Teach Lesson
+    TeachLessonRandomPersonObjective: 1
+    KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
