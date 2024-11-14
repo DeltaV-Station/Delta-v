@@ -31,4 +31,4 @@ trait-inpain-name = Chronic pain
 trait-inpain-desc = You’re constantly in discomfort. You need painkillers to function.
 
 trait-addicted-name = Addicted
-trait-adicted-desc = You crave the substance, and your thoughts keep drifting back to it. Without it, you feel incomplete, anxious, and on edge.
+trait-addicted-desc = You crave the substance, and your thoughts keep drifting back to it. Without it, you feel incomplete, anxious, and on edge.
