@@ -70,7 +70,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 7200 # 2 hours to prove themselves to the Honkmother
+      time: 18000 # 5 hours to prove themselves to the Honkmother
 
 - type: loadout
   id: BibleVowsSilentfather
@@ -81,7 +81,71 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMime
-      time: 7200 # 2 hours to prove themselves to the Silentfather
+      time: 18000 # 5 hours to prove themselves to the Silentfather
+
+#Head
+- type: loadout
+  id: ChaplainTechPriestHood
+  equipment:
+    outerClothing: ClothingHeadTechPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobScientist # Note: change to Roboticist when its merged
+      time: 36000 # 10 hours
+
+#Mask
+- type: loadout
+  id: ChaplainMaskClown
+  equipment:
+    mask: ClothingMaskClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 36000 # 10 hours
+
+- type: loadout
+  id: ChaplainMaskMime
+  equipment:
+    mask: ClothingMaskMime
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 36000 # 10 hours
+
+#Neck
+- type: loadout
+  id: ChaplainRosary
+  equipment:
+    neck: ClothingRosary
+
+#Outer Clothing
+- type: loadout
+  id: ChaplainClownRobes
+  equipment:
+    outerClothing: ClothingOuterClownPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 36000 # 10 hours
+
+- type: loadout
+  id: ChaplainTechPriestRobe
+  equipment:
+    outerClothing: ClothingOuterRobeTechPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobScientist # Note: change to Roboticist when its merged
+      time: 36000 # 10 hours
 
 # Shoes
 - type: loadout
@@ -113,10 +177,3 @@
   id: SandalsTourist
   equipment:
       shoes: ClothingShoesTourist
-
-#Neck
-
-- type: loadout
-  id: ChaplainRosary
-  equipment:
-    neck: ClothingRosary

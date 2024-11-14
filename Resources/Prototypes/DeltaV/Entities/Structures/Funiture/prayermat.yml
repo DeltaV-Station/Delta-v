@@ -1,0 +1,69 @@
+- type: entity
+  id: PrayerMatBase
+  parent: BaseStructure
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Furniture/prayermat.rsi
+    drawdepth: FloorTiles
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCloth1:
+            min: 1
+            max: 1
+  - type: Destructible
+  - type: Tag
+    tags: [ Carpet ]
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+
+- type: entity
+  id: BlackPrayerMat
+  parent: PrayerMatBase
+  name: black prayer mat
+  description: Made of fine black silks making it perfect for religious practice!
+  components:
+  - type: Sprite
+    state: BlackPrayerMat
+  - type: Construction
+    graph: PrayerMat
+    node: BlackPrayerMat
+
+- type: entity
+  id: BluePrayerMat
+  parent: PrayerMatBase
+  name: blue prayer mat
+  description: Made of fine blue velvet fabric making it perfect for religious practice!
+  components:
+  - type: Sprite
+    state: BluePrayerMat
+  - type: Construction
+    graph: PrayerMat
+    node: BluePrayerMat
+
+- type: entity
+  id: RedPrayerMat
+  parent: PrayerMatBase
+  name: red prayer mat
+  description: Made of hand-crafted red silk encrusted in gold making it perfect for religious practice!
+  components:
+  - type: Sprite
+    state: RedPrayerMat
+  - type: Construction
+    graph: PrayerMat
+    node: RedPrayerMat
+

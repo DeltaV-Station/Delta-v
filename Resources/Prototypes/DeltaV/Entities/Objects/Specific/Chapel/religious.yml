@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingNeckBase, ClothingBeltBase ]
+  parent: [ ClothingNeckBase, ClothingBeltBase, ClothingHandsBase ]
   id: ClothingRosary
   name: rosary
   description: "Set of beads and a cross commonly used by Space Catholics to resite prayers"
@@ -15,6 +15,9 @@
     slots:
     - neck
     - belt
+    - gloves
+    equipSound:
+    path: "/Audio/Items/belt_equip.ogg"
   - type: Prayable
     bibleUserOnly: true
   - type: Armor # Only slight protection

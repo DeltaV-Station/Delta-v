@@ -79,14 +79,34 @@
       sprite: DeltaV/Objects/Specific/Chapel/hymnshonkmother.rsi
     - type: Bible
       healSound: "/Audio/Items/bikehorn.ogg"
-    - type: Slippery
+    - type: Slippery # Evil
     - type: StepTrigger
+    - type: CollisionWake
+      enabled: false
+    - type: Physics
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures:
+        slips:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.3,0.4,0.3"
+          hard: false
+          layer:
+            - SlipLayer
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.3,0.4,0.3"
+          density: 5
+          mask:
+          - ItemMask
 
 - type: entity
   parent: Bible
   id: BibleVowsSilentfather
   suffix: "Bible"
-  name: Vows of the Silentfather
+  name: vows of the silentfather
   description: "No color resides in the book besides black, gray, and white. The pages are deafeningly silent..."
   components:
     - type: Sprite
@@ -98,8 +118,6 @@
       effects:
       - !type:GenericStatusEffect
         key: Muted
-    - type: Bible
-      healSound: false
 
 - type: entity
   parent: Bible
@@ -144,6 +162,11 @@
     - type: Item
       size: Small
       sprite: DeltaV/Objects/Specific/Chapel/nanotrasenbible.rsi
+    - type: GuideHelp
+      guides:
+      # - SpaceLaw
+      # - StandardOperatingProcedure
+      - AlertProcedure
 
 - type: entity
   parent: Bible

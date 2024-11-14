@@ -1,0 +1,74 @@
+- type: constructionGraph
+  id: PrayerMat
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: BlackPrayerMat
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - tag: CarpetBlack
+              doAfter: 1
+              name: black carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-black
+        - to: BluePrayerMat
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - tag: CarpetBlue
+              doAfter: 1
+              name: blue carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-blue
+        - to: RedPrayerMat
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - tag: CarpetRed
+              doAfter: 1
+              name: red carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-red
+
+    - node: BlackPrayerMat
+      entity: BlackPrayerMat
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemBlack
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+
+    - node: BluePrayerMat
+      entity: BluePrayerMat
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemBlue
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+
+    - node: RedPrayerMat
+      entity: RedPrayerMat
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FloorCarpetItemRed
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
