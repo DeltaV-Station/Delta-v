@@ -1,15 +1,16 @@
 ﻿using Content.Server.Atmos.Components;
+using Content.Shared._EE.FootPrint;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.EE.FootPrint;
+using Content.Shared._EE.FootPrint;
 // using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Server.EE.FootPrint;
+namespace Content.Server._EE.FootPrint;
 
 public sealed class FootPrintsSystem : EntitySystem
 {

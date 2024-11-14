@@ -1,11 +1,11 @@
-namespace Content.Shared.EE.FootPrint;
+namespace Content.Shared._EE.FootPrint;
 
 [RegisterComponent]
 public sealed partial class PuddleFootPrintsComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables()]
     public float SizeRatio = 0.2f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables()]
     public float OffPercent = 80f;
 }

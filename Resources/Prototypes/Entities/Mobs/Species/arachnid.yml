@@ -115,8 +115,8 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
-  - type: FootPrints
-    leftBarePrint: "footprint-left-bare-spider" #DeltaV port from EE, blood splatter
+  - type: FootPrints # DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-spider"
     rightBarePrint: "footprint-right-bare-spider"
   - type: Inventory
     templateId: arachnid

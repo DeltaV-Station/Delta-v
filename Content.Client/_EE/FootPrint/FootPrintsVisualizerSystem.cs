@@ -1,9 +1,9 @@
-﻿using Content.Shared.EE.FootPrint;
+﻿using Content.Shared._EE.FootPrint;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Random;
 
-namespace Content.Client.EE.FootPrint;
+namespace Content.Client._EE.FootPrint;
 
 public sealed class FootPrintsVisualizerSystem : VisualizerSystem<FootPrintComponent>
 {

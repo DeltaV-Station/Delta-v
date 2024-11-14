@@ -2,13 +2,13 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.EE.FootPrint;
+namespace Content.Shared._EE.FootPrint;
 
 [RegisterComponent]
 public sealed partial class FootPrintsComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly), DataField]
-    public ResPath RsiPath = new("/Textures/EE/Effects/footprints.rsi"); //DeltaV moved to its own space
+    public ResPath RsiPath = new("/Textures/_EE/Effects/footprints.rsi"); //DeltaV moved to its own space
 
     // all of those are set as a layer
     [ViewVariables(VVAccess.ReadOnly), DataField]

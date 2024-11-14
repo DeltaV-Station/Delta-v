@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Content.Shared.EE.FootPrint;
+using Content.Shared._EE.FootPrint;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.EE.FootPrint;
+namespace Content.Server._EE.FootPrint;
 
 public sealed class PuddleFootPrintsSystem : EntitySystem
 {
