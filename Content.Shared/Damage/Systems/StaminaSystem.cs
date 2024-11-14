@@ -171,7 +171,28 @@ public sealed partial class StaminaSystem : EntitySystem
 
         foreach (var (ent, comp) in toHit)
         {
-            TakeStaminaDamage(ent, damage / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            // Begin DeltaV code - melee stamina resistance from armor
+            var finalDamage = damage / toHit.Count;
+
+            if (_inventory.TryGetSlots(ent, out var slots))
+            {
+                var coefficient = 1.0f;
+
+                foreach (var slot in slots)
+                {
+                    if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var equipped))
+                        continue;
+
+                    if (TryComp<ArmorComponent>(equipped, out var armor))
+                    {
+                        coefficient *= armor.StaminaMeleeDamageCoefficient;
+                    }
+                }
+
+                finalDamage *= coefficient;
+            }
+            TakeStaminaDamage(ent, finalDamage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            // End DeltaV code
         }
     }
 
