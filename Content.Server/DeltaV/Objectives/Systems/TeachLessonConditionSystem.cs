@@ -2,16 +2,14 @@
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
 
 /// <summary>
-/// Handles kill person condition logic and picking random kill targets.
+/// Handles teach a lesson condition logic, does not assign target.
 /// </summary>
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
@@ -36,12 +34,15 @@ public sealed class TeachLessonConditionSystem : EntitySystem
     private float GetProgress(EntityUid target)
     {
         // deleted or gibbed or something, counts as dead
-        if (!TryComp<MindComponent>(target, out var mind) || mind.OwnedEntity == null || _mind.IsCharacterDeadIc(mind) || !_wasKilled.Contains(target))
+        if (!TryComp<MindComponent>(target, out var mind) || mind.OwnedEntity == null || _mind.IsCharacterDeadIc(mind))
         {
             _wasKilled.Add(target);
             return 1f;
         }
-
+        if (_wasKilled.Contains(target))
+        {
+            return 1f;
+        }
         return 0f;
     }
     // Clear the wasKilled list on round end
