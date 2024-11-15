@@ -83,6 +83,9 @@ namespace Content.Server.Abilities.Psionics
         /// <param name="args"></param>
         private void OnDoAfter(EntityUid uid, PrecognitionPowerComponent component, PrecognitionDoAfterEvent args)
         {
+            if (args.Handled || args.Cancelled)
+                return;
+
             var minDetectWindow = TimeSpan.FromSeconds(30); // Determines the window that will be looked at for events avoiding events that are too close or too far to be useful.
             var maxDetectWindow = TimeSpan.FromMinutes(5);
             string? message = null;
