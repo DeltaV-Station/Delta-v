@@ -1,0 +1,35 @@
+ - type: entity
+   name: heal bolt
+   id: BulletHealLaser
+   parent: BaseBullet
+   categories: [ HideSpawnMenu ]
+   components:
+   - type: Reflective
+     reflective:
+     - Energy
+   - type: FlyBySound
+     sound:
+       collection: EnergyMiss
+       params:
+         volume: 5
+   - type: Sprite
+     sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+   - type: Ammo
+   - type: Physics
+   - type: Fixtures
+     fixtures:
+       projectile:
+         shape:
+           !type:PhysShapeAabb
+           bounds: "-0.2,-0.2,0.2,0.2"
+         hard: false
+         mask:
+         - Opaque
+       fly-by: *flybyfixture
+   - type: Projectile
+     damage:
+       groups:
+         Brute: -5
+         Burn: -5
+         Airloss: -5
+     ignoreResistances: true
