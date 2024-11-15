@@ -13,9 +13,11 @@
        params:
          volume: 5
    - type: Sprite
-     sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
      layers:
-     - state: heal_bolt
+     - state: omnilaser_greyscale
+       shader: unshaded
+       color: green
    - type: Ammo
    - type: Physics
    - type: Projectile
