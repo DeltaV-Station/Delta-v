@@ -136,9 +136,9 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                 {
                     _xformSystem.AttachToGridOrMap(entity, xform);
 
-                    if (holder.PreviousDirection != Direction.Invalid && gridUid != null && _xformQuery.TryGetComponent(gridUid, out var parentXform))  // DeltaV begin EE Disposal fix
+                    if (holder.PreviousDirection != Direction.Invalid && _xformQuery.TryGetComponent(uid, out var parentXform))  // start DeltaV EE Disposal fix
                     {
-                        var direction = holder.CurrentDirection.ToAngle(); // DeltaV end EE Disposal fix
+                        var direction = holder.CurrentDirection.ToAngle(); // end DeltaV EE Disposal fix
                         direction += _xformSystem.GetWorldRotation(parentXform);
                         _throwing.TryThrow(entity, direction.ToWorldVec() * 3f, 10f);
                     }
