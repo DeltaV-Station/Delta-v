@@ -1,0 +1,11 @@
+- type: technology
+  id: BioPulseEmitter
+  name: research-technology-biopulse-emitter
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/heal_gun.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - WeaponHealGun
