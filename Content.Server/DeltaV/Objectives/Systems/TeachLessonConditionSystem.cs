@@ -2,6 +2,7 @@
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -13,7 +14,7 @@ public sealed class TeachLessonConditionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
-    private List<EntityUid> _wasKilled = new();  //DeltaV Port from EE
+    private List<EntityUid> _wasKilled = new();
 
     public override void Initialize()
     {
@@ -23,9 +24,9 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd);
     }
 
-    private void OnGetProgress(EntityUid uid, TeachLessonConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnGetProgress(Entity<TeachLessonConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
-        if (!_target.GetTarget(uid, out var target))
+        if (!_target.GetTarget(ent, out var target))
             return;
 
         args.Progress = GetProgress(target.Value);
@@ -41,7 +42,7 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         }
         if (_wasKilled.Contains(target))
         {
-            return 1f;
+            return _wasKilled.Contains(target) ? 1f : 0f;
         }
         return 0f;
     }
@@ -50,5 +51,4 @@ public sealed class TeachLessonConditionSystem : EntitySystem
     {
         _wasKilled.Clear();
     }
-    // DeltaV - end making people only die once from EE
 }

@@ -7,6 +7,4 @@ namespace Content.Server.Objectives.Components;
 /// Depends on <see cref="TargetObjectiveComponent"/> to function.
 /// </summary>
 [RegisterComponent, Access(typeof(TeachLessonConditionSystem))]
-public sealed partial class TeachLessonConditionComponent : Component
-{
-}
+public sealed partial class TeachLessonConditionComponent : Component;

@@ -68,9 +68,9 @@
       - SocialObjective
 
 - type: entity
-  parent: [BaseTraitorObjective,BaseTeachLessonObjective]
+  parent: [BaseTraitorObjective, BaseTeachLessonObjective]
   id: TeachLessonRandomPersonObjective
-  description: Kill them, and show everyone we mean business. They only need to die once.  #DeltaV change to reflect that people only gotta die once.
+  description: Kill them, and show everyone we mean business. They only need to die once.
   components:
   - type: Objective
     difficulty: 1.75
