@@ -31,6 +31,13 @@ public sealed partial class SleepingComponent : Component
     [AutoNetworkedField]
     public EntityUid? WakeAction;
 
+    /// <summary>                     // DeltaV begin port Narcolepsy from EE
+    ///     The moment this entity went to sleep. Initialized on MapInit.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public TimeSpan SleepingSince;   // DeltaV end port Narcolepsy from EE
+
     /// <summary>
     /// Sound to play when another player attempts to wake this entity.
     /// </summary>
