@@ -8,6 +8,9 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
+  - type: PrecognitionResult
+    message: psionic-power-precognition-random-sentience-result-message
+    randomResultWeight: 1
   - type: RandomSentienceRule
     minSentiences: 2
     maxSentiences: 5

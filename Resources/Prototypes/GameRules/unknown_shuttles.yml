@@ -59,6 +59,9 @@
   components:
   - type: StationEvent
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult
+    message: psionic-power-precognition-unknown-shuttle-cargo-lost-result-message
+    randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
 
@@ -69,6 +72,9 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult
+    message: psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message
+    randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
 
@@ -79,6 +85,9 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 3 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult
+    message: psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message
+    randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
