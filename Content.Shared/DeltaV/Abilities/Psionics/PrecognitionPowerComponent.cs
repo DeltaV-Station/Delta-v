@@ -14,7 +14,7 @@ namespace Content.Shared.Abilities.Psionics
         public DoAfterId? DoAfter;
 
         [DataField("useDelay")]
-        public float UseDelay = 5f;
+        public TimeSpan UseDelay = TimeSpan.FromSeconds(5);
 
         [DataField("PrecognitionActionId",
         customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
