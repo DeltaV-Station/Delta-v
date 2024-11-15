@@ -97,12 +97,14 @@
   id: GameRuleMeteorSwarm
   abstract: true
   components:
-  - type: NextEvent # DeltaV: Queue Event
   - type: GameRule
   - type: StationEvent
     reoccurrenceDelay: 1
     earliestStart: 12
     minimumPlayers: 25
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
+    randomResultWeight: 1
   - type: MeteorSwarm
 
 - type: entity
@@ -188,6 +190,9 @@
   components:
   - type: StationEvent
     weight: 0.05
+  - type: PrecognitionResult
+    message: psionic-power-precognition-game-rule-urist-swarm-result-message
+    randomResultWeight: 1
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
@@ -213,6 +218,9 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 25
+  - type: PrecognitionResult
+    message: psionic-power-precognition-immovable-rod-spawn-result-message
+    randomResultWeight: 1
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill

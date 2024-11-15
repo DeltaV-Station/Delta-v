@@ -26,6 +26,9 @@
     delay:
       min: 10
       max: 10
+  - type: PrecognitionResult
+    message: psionic-power-precognition-cargo-gifts-base-result-message
+    randomResultWeight: 1
   - type: StationEvent
     startColor: "#18abf5"
     startAudio:

@@ -73,14 +73,15 @@ namespace Content.Server.StationEvents
                 NextEventComponent? nextEventComponent = null;
                 if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
-                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent) || generatedEvent == null)
+                    ResetTimer(eventScheduler);
+                    TimeSpan nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
+                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
                         continue;
                     // Cycle the stashed event with the new generated event and time.
-                    string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, (float)_timing.CurTime.TotalSeconds + eventScheduler.TimeUntilNextEvent);
+                    string storedEvent= _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                     if (storedEvent == null || storedEvent == string.Empty) //If there was no stored event don't try to run it.
                         continue;
                     GameTicker.AddGameRule(storedEvent);
-                    ResetTimer(eventScheduler);
                     continue;
                 }
                 // DeltaV end events using NextEventComponent
