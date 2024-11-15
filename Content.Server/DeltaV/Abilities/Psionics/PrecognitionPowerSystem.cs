@@ -96,12 +96,13 @@ namespace Content.Server.Abilities.Psionics
             if (nextEvent != null)
                 message = GetResultMessage(nextEvent.NextEventId);
 
-            if (_random.Prob(component.RandomResultChance) || true)
+            if (_random.Prob(component.RandomResultChance))
                 message = GetRandomResult();
 
             if (message == string.Empty || message == null)
                 return;
 
+            message = Loc.GetString(message);
             // Send a message describing the vision they see
             _chat.ChatMessageToOne(Shared.Chat.ChatChannel.Server,
                     message,
@@ -123,7 +124,7 @@ namespace Content.Server.Abilities.Psionics
             foreach(var (eventProto, precognitionResult) in AllPrecognitionResults())
                 if (eventProto.ID == nextEventId && precognitionResult != null)
                 {
-                    return Loc.GetString(precognitionResult.Message);
+                    return precognitionResult.Message;
                 }
             Log.Warning("Prototype " + nextEventId + "does not have an associated precognitionResult!");
             return string.Empty;
@@ -145,7 +146,7 @@ namespace Content.Server.Abilities.Psionics
                 sumOfWeights -= (int)stationEvent.Weight;
 
                 if (sumOfWeights <= 0)
-                    return Loc.GetString(proto.ID);
+                    return proto.ID;
             }
 
             Log.Error("Result was not found after weighted pick process!");
