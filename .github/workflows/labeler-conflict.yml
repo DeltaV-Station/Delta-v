@@ -16,10 +16,6 @@ jobs:
       - name: Check for Merge Conflicts
         uses: eps1lon/actions-label-merge-conflict@v3.0.0
         with:
-<<<<<<< HEAD:.github/workflows/conflict-labeler.yml
-          dirtyLabel: "Status: Merge Conflict"
-=======
           dirtyLabel: "S: Merge Conflict"
->>>>>>> 75ec546550 (Update Label workflows to use new labels (#33310)):.github/workflows/labeler-conflict.yml
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."
