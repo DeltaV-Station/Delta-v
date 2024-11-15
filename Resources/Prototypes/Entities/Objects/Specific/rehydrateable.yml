@@ -209,8 +209,9 @@
     handle: false
     sound:
       path: /Audio/Effects/bite.ogg
-  - type: Tag
-    tags: [] # DeltaV - remove PlushieCarp tag to prevent wasting
+  - type: Tag # DeltaV - remove PlushieCarp and ClothMade tag to prevent wasting/eating
+    tags:
+    - Payload
 
 - type: entity #why is this all redefined down here as a parent of base object instead of just being parented to monkeycube?? TODO: Fix this shit
   parent: BaseItem

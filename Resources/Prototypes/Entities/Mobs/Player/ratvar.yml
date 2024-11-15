@@ -16,6 +16,7 @@
   parent: MobRatvarBase
   id: MobRatvarSpawn
   suffix: Spawn
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: Sprite
     layers:
@@ -29,6 +30,7 @@
 - type: entity
   parent: [MobRatvarBase, BaseMob]
   id: MobRatvar
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: AnnounceOnSpawn
     message: ratvar-has-risen

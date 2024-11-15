@@ -209,3 +209,18 @@
     Gold: 250
     Silver: 100
     Plasma: 500
+
+- type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsSecurityMagboots
+  result: ClothingShoesBootsSecurityMagboots
+  
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: AdvancedTruncheon
+  result: AdvancedTruncheon
+  completetime: 5
+  materials:
+    Steel: 1000
+    Plastic: 800
+    

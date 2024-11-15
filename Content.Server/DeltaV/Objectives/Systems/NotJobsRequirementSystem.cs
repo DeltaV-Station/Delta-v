@@ -1,6 +1,6 @@
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -9,23 +9,29 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class NotJobsRequirementSystem : EntitySystem
 {
+    private EntityQuery<MindRoleComponent> _query;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        _query = GetEntityQuery<MindRoleComponent>();
+
         SubscribeLocalEvent<NotJobsRequirementComponent, RequirementCheckEvent>(OnCheck);
     }
 
-    private void OnCheck(EntityUid uid, NotJobsRequirementComponent comp, ref RequirementCheckEvent args)
+    private void OnCheck(Entity<NotJobsRequirementComponent> ent, ref RequirementCheckEvent args)
     {
         if (args.Cancelled)
             return;
 
-        // if player has no job then don't care
-        if (!TryComp<JobComponent>(args.MindId, out var job))
-            return;
-        foreach (string forbidJob in comp.Jobs)
-            if (job.Prototype == forbidJob)
-                args.Cancelled = true;
+        foreach (var forbidJob in ent.Comp.Jobs)
+        {
+            foreach (var roleId in args.Mind.MindRoles)
+            {
+                if (_query.CompOrNull(roleId)?.JobPrototype == forbidJob)
+                    args.Cancelled = true;
+            }
+        }
     }
 }
