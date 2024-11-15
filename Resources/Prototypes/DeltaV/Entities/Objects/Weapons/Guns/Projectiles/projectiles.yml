@@ -14,18 +14,10 @@
          volume: 5
    - type: Sprite
      sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+     layers:
+     - state: heal_bolt
    - type: Ammo
    - type: Physics
-   - type: Fixtures
-     fixtures:
-       projectile:
-         shape:
-           !type:PhysShapeAabb
-           bounds: "-0.2,-0.2,0.2,0.2"
-         hard: false
-         mask:
-         - Opaque
-       fly-by: *flybyfixture
    - type: Projectile
      damage:
        groups:
