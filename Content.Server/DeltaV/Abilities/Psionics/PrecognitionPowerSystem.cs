@@ -63,7 +63,10 @@ namespace Content.Server.Abilities.Psionics
         private void OnPowerUsed(EntityUid uid, PrecognitionPowerComponent component, PrecognitionPowerActionEvent args)
         {
             var ev = new PrecognitionDoAfterEvent(_gameTiming.CurTime);
-            var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid);
+            var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid)
+            {
+                BreakOnDamage = true
+            };
 
             _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
             component.DoAfter = doAfterId;
