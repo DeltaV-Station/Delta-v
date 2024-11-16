@@ -22,7 +22,7 @@ reagent-desc-powdered-juice-banana = A powder-based banana juice substitute that
 reagent-name-powdered-juice-berry = powdered berry juice
 reagent-desc-powdered-juice-berry = A powder-based berry juice substitute that can be reconstituted with water.
 
-reagent-name-powdered-juice-watermelon = powdered watermelon juice
+reagent-name-powdered-juice-watermelon = powdered melon juice
 reagent-desc-powdered-juice-watermelon = A powder-based watermelon juice substitute that can be reconstituted with water.
 
 reagent-name-powdered-juice-grape = powdered grape juice
