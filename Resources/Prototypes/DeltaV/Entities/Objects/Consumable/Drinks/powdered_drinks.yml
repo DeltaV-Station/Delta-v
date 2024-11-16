@@ -1,4 +1,3 @@
-
 - type: entity
   id: ReagentTinBase
   parent: ReagentContainerBase
@@ -46,7 +45,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedOrangeJuice
+  id: ReagentTinPowderedJuiceOrange
   name: tin of powdered orange juice
   description: A container of powdered orange juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -62,7 +61,7 @@
       food:
         maxVol: 50
         reagents:
-        - ReagentId: PowderedOrangeJuice
+        - ReagentId: PowderedJuiceOrange
           Quantity: 50
 
 - type: entity
@@ -109,7 +108,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedLimeJuice
+  id: ReagentTinPowderedJuiceLime
   name: tin of powdered lime juice
   description: A container of powdered lime juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -130,7 +129,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedLemonJuice
+  id: ReagentTinPowderedJuiceLemon
   name: tin of powdered lemon juice
   description: A container of powdered lemon juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -151,7 +150,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedPineappleJuice
+  id: ReagentTinPowderedJuicePineapple
   name: tin of powdered pineapple juice
   description: A container of powdered pineapple juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -172,7 +171,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedBananaJuice
+  id: ReagentTinPowderedJuiceBanana
   name: tin of powdered banana juice
   description: A container of powdered banana juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -193,7 +192,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedBerryJuice
+  id: ReagentTinPowderedJuiceBerry
   name: tin of powdered berry juice
   description: A container of powdered berry juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -214,7 +213,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedWatermelonJuice
+  id: ReagentTinPowderedJuiceWatermelon
   name: tin of powdered melon juice
   description: A container of powdered watermelon juice manufactured by HydroCo. NOTE - Melon only; water not included, sold separately. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -235,7 +234,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedGrapeJuice
+  id: ReagentTinPowderedJuiceGrape
   name: tin of powdered grape juice
   description: A container of powdered grape juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -256,7 +255,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedAppleJuice
+  id: ReagentTinPowderedJuiceApple
   name: tin of powdered apple juice
   description: A container of powdered apple juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -277,7 +276,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedCherryJuice
+  id: ReagentTinPowderedJuiceCherry
   name: tin of powdered cherry juice
   description: A container of powdered cherry juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
@@ -298,7 +297,7 @@
 
 - type: entity
   parent: ReagentTinBase
-  id: ReagentTinPowderedCarrotJuice
+  id: ReagentTinPowderedJuiceCarrot
   name: tin of powdered carrot juice
   description: A container of powdered carrot juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
   components:
