@@ -69,7 +69,34 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
         _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false,
             actor.PlayerSession.Channel, colorOverride: Color.FromHex("#2ed2fd"));
+
+        if (!TryComp<SiliconLawProviderComponent>(uid, out var lawcomp))
+            return;
+
+        if (!lawcomp.Subverted)
+            return;
+
+        var modifedLawMsg = Loc.GetString("laws-notify-subverted");
+        var modifiedLawWrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", modifedLawMsg));
+        _chatManager.ChatMessageToOne(ChatChannel.Server, modifedLawMsg, modifiedLawWrappedMessage, default, false,
+            actor.PlayerSession.Channel, colorOverride: Color.Red);
     }
+
+    private void OnLawProviderMindAdded(Entity<SiliconLawProviderComponent> ent, ref MindAddedMessage args)
+    {
+        if (!ent.Comp.Subverted)
+            return;
+        EnsureSubvertedSiliconRole(args.Mind);
+    }
+
+    private void OnLawProviderMindRemoved(Entity<SiliconLawProviderComponent> ent, ref MindRemovedMessage args)
+    {
+        if (!ent.Comp.Subverted)
+            return;
+        RemoveSubvertedSiliconRole(args.Mind);
+
+    }
+
 
     private void OnToggleLawsScreen(EntityUid uid, SiliconLawBoundComponent component, ToggleLawsScreenEvent args)
     {
@@ -118,8 +145,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             NotifyLawsChanged(uid, component.LawUploadSound);
 
             // new laws may allow antagonist behaviour so make it clear for admins
-            if (TryComp<EmagSiliconLawComponent>(uid, out var emag))
-                EnsureEmaggedRole(uid, emag);
+            if(_mind.TryGetMind(uid, out var mindId, out _))
+                EnsureSubvertedSiliconRole(mindId);
 
         }
     }
