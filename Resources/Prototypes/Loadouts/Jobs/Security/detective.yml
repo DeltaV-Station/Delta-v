@@ -76,3 +76,27 @@
   id: StasecWinterCoatDet
   equipment:
     outerClothing: ClothingOuterCoatStasecDet
+
+- type: loadout # DeltaV
+  id: SecurityRevolverSnub
+  storage:
+    belt:
+    - WeaponRevolverSnub
+
+- type: loadout # DeltaV
+  id: SecurityRevolverInspector
+  storage:
+    belt:
+    - WeaponRevolverInspector
+
+- type: loadout # DeltaV
+  id: SecurityFirearmSpeedLoaderMagnumRubber
+  storage:
+    back:
+    - SpeedLoaderMagnumRubber
+
+- type: loadout # DeltaV
+  id: SecurityFirearmSpeedLoaderMagnum
+  storage:
+    back:
+    - SpeedLoaderMagnum
