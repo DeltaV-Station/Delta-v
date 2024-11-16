@@ -1,4 +1,21 @@
 - type: reagent
+  id: BasePowderedBeverage
+  flavor: terrible
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: BasePowderedBeverage
   id: PowderedMilk
   name: reagent-name-powdered-milk
   group: Foods
@@ -8,6 +25,7 @@
   color: "#FAFAFA"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedMilkSoy
   name: reagent-name-powdered-milk-soy
   group: Foods
@@ -17,6 +35,7 @@
   color: "#FFFCE3"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceOrange
   name: reagent-name-powdered-juice-orange
   group: Foods
@@ -26,6 +45,7 @@
   color: "#FFC420"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceLime
   name: reagent-name-powdered-juice-lime
   group: Foods
@@ -40,8 +60,18 @@
         damage:
           types:
             Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceLemon
   name: reagent-name-powdered-juice-lemon
   group: Foods
@@ -56,8 +86,18 @@
         damage:
           types:
             Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuicePineapple
   name: reagent-name-powdered-juice-pineapple
   group: Foods
@@ -72,8 +112,18 @@
         damage:
           types:
             Caustic: 0.5
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.33
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceBanana
   name: reagent-name-powdered-juice-banana
   group: Foods
@@ -83,6 +133,7 @@
   color: "#FFFEBF"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceBerry
   name: reagent-name-powdered-juice-berry
   group: Foods
@@ -92,6 +143,7 @@
   color: "#D366FF"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceWatermelon
   name: reagent-name-powdered-juice-watermelon
   group: Foods
@@ -101,6 +153,7 @@
   color: "#FFBCDB"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceGrape
   name: reagent-name-powdered-juice-grape
   group: Foods
@@ -110,6 +163,7 @@
   color: "#E57DFF"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceApple
   name: reagent-name-powdered-juice-apple
   group: Foods
@@ -119,6 +173,7 @@
   color: "#FFC67E"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceCherry
   name: reagent-name-powdered-juice-cherry
   group: Foods
@@ -128,6 +183,7 @@
   color: "#A9536C"
 
 - type: reagent
+  parent: BasePowderedBeverage
   id: PowderedJuiceCarrot
   name: reagent-name-powdered-juice-carrot
   group: Foods
