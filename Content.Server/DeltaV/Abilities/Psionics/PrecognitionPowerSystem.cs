@@ -7,26 +7,31 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Actions;
 using Content.Shared.DeltaV.StationEvents;
 using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Random;
-using Content.Server.StationEvents.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
     public sealed class PrecognitionPowerSystem : EntitySystem
     {
-        [Dependency] public readonly GameTicker GameTicker = default!;
-        [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly GameTicker GameTicker = default!;
         [Dependency] private readonly MindSystem _mind = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IComponentFactory _factory = default!;
+        [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly SharedPopupSystem _popups = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly IChatManager _chat = default!;
+        [Dependency] private readonly IComponentFactory _factory = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -68,6 +73,9 @@ namespace Content.Server.Abilities.Psionics
                 BreakOnDamage = true
             };
 
+            _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, "TemporaryBlindness", component.UseDelay, true);
+            _statusEffects.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", component.UseDelay, true);
+
             _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
             component.DoAfter = doAfterId;
 
@@ -83,8 +91,16 @@ namespace Content.Server.Abilities.Psionics
         /// <param name="args"></param>
         private void OnDoAfter(EntityUid uid, PrecognitionPowerComponent component, PrecognitionDoAfterEvent args)
         {
-            if (args.Handled || args.Cancelled)
+            if (args.Handled)
                 return;
+
+            if (args.Cancelled)
+            {
+                _statusEffects.TryRemoveStatusEffect(uid, "TemporaryBlindness");
+                _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+                _popups.PopupEntity(Loc.GetString("psionic-power-precognition-failure-by-damage"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
 
             var minDetectWindow = TimeSpan.FromSeconds(30); // Determines the window that will be looked at for events avoiding events that are too close or too far to be useful.
             var maxDetectWindow = TimeSpan.FromMinutes(5);
