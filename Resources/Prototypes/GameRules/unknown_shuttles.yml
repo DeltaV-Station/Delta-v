@@ -60,7 +60,7 @@
   - type: StationEvent
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: PrecognitionResult
-    message: psionic-power-precognition-unknown-shuttle-cargo-lost-result-message
+    message: psionic-power-precognition-unknown-shuttle-cargo-lost-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
@@ -73,7 +73,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: PrecognitionResult
-    message: psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message
+    message: psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
@@ -86,7 +86,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 3 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: PrecognitionResult
-    message: psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message
+    message: psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod

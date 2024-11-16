@@ -82,7 +82,7 @@
     weight: 12 # DeltaV - was 8
     duration: 35
   - type: PrecognitionResult
-    message: psionic-power-precognition-anomoly-spawn-result-message
+    message: psionic-power-precognition-anomoly-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: AnomalySpawnRule
 
@@ -101,7 +101,7 @@
     weight: 8
     duration: 35
   - type: PrecognitionResult
-    message: psionic-power-precognition-bluespace-artifact-result-message
+    message: psionic-power-precognition-bluespace-artifact-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: BluespaceArtifactRule
 
@@ -115,7 +115,7 @@
     earliestStart: 1
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-bluespace-locker-result-message
+    message: psionic-power-precognition-bluespace-locker-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: BluespaceLockerRule
 
@@ -128,7 +128,7 @@
     duration: 1
     minimumPlayers: 15
   - type: PrecognitionResult
-    message: psionic-power-precognition-breaker-flip-result-message
+    message: psionic-power-precognition-breaker-flip-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: BreakerFlipRule
 
@@ -142,7 +142,7 @@
     weight: 5
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-bureaucratic-error-result-message
+    message: psionic-power-precognition-bureaucratic-error-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: BureaucraticErrorRule
     ignoredJobs:
@@ -158,7 +158,7 @@
     weight: 5
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-clerical-error-result-message
+    message: psionic-power-precognition-clerical-error-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: ClericalErrorRule
 
@@ -171,7 +171,7 @@
     duration: 1
     minimumPlayers: 10
   - type: PrecognitionResult
-    message: psionic-power-precognition-closet-skeleton-result-message
+    message: psionic-power-precognition-closet-skeleton-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
@@ -187,7 +187,7 @@
     minimumPlayers: 45 # DeltaV - was 20
     duration: null
   - type: PrecognitionResult
-    message: psionic-power-precognition-dragon-spawn-result-message
+    message: psionic-power-precognition-dragon-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -219,7 +219,7 @@
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
   - type: PrecognitionResult
-    message: psionic-power-precognition-ninja-spawn-result-message
+    message: psionic-power-precognition-ninja-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
@@ -270,7 +270,7 @@
     earliestStart: 45
     minimumPlayers: 20
   - type: PrecognitionResult
-    message: psionic-power-precognition-revenant-spawn-result-message
+    message: psionic-power-precognition-revenant-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -297,7 +297,7 @@
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
   - type: PrecognitionResult
-    message: psionic-power-precognition-gas-leak-result-message
+    message: psionic-power-precognition-gas-leak-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: GasLeakRule
 
@@ -311,7 +311,7 @@
     weight: 5 # DeltaV - was 7
     duration: 240
   - type: PrecognitionResult
-    message: psionic-power-precognition-kudzu-growth-result-message
+    message: psionic-power-precognition-kudzu-growth-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: KudzuGrowthRule
 
@@ -330,7 +330,7 @@
     duration: 60
     maxDuration: 120
   - type: PrecognitionResult
-    message: psionic-power-precognition-power-grid-check-result-message
+    message: psionic-power-precognition-power-grid-check-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: PowerGridCheckRule
 
@@ -347,7 +347,7 @@
     duration: 120
     maxDuration: 240
   - type: PrecognitionResult
-    message: psionic-power-precognition-solar-flare-result-message
+    message: psionic-power-precognition-solar-flare-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: SolarFlareRule
     onlyJamHeadsets: true
@@ -378,7 +378,7 @@
     weight: 7.5 # DeltaV - was 5
     duration: 60
   - type: PrecognitionResult
-    message: psionic-power-precognition-vent-clog-result-message
+    message: psionic-power-precognition-vent-clog-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: VentClogRule
 
@@ -395,7 +395,7 @@
     weight: 5
     duration: 60
   - type: PrecognitionResult
-    message: psionic-power-precognition-slimes-spawn-result-message
+    message: psionic-power-precognition-slimes-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: VentCrittersRule
     entries:
@@ -419,7 +419,7 @@
     weight: 5
     duration: 60
   - type: PrecognitionResult
-    message: psionic-power-precognition-snake-spawn-result-message
+    message: psionic-power-precognition-snake-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: VentCrittersRule
     entries:
@@ -443,7 +443,7 @@
     weight: 5
     duration: 60
   - type: PrecognitionResult
-    message: psionic-power-precognition-spider-spawn-result-message
+    message: psionic-power-precognition-spider-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: VentCrittersRule
     entries:
@@ -463,7 +463,7 @@
     weight: 1 # DeltaV - was 1.5
     duration: 60
   - type: PrecognitionResult
-    message: psionic-power-precognition-spider-clown-spawn-result-message
+    message: psionic-power-precognition-spider-clown-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: VentCrittersRule
     entries:
@@ -480,7 +480,7 @@
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-zombie-outbreak-result-message
+    message: psionic-power-precognition-zombie-outbreak-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: ZombieRule
   - type: AntagSelection
@@ -517,7 +517,7 @@
     reoccurrenceDelay: 30
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-lone-ops-spawn-result-message
+    message: psionic-power-precognition-lone-ops-spawn-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -555,7 +555,7 @@
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
   - type: PrecognitionResult
-    message: psionic-power-precognition-sleeper-agents-result-message
+    message: psionic-power-precognition-sleeper-agents-result-message # DeltaV - Precogniton
     randomResultWeight: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -585,7 +585,7 @@
     duration: 150
     maxDuration: 300
   - type: PrecognitionResult
-    message: psionic-power-precognition-mass-hallucinations-result-message
+    message: psionic-power-precognition-mass-hallucinations-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 30 # DeltaV - was 0.1
@@ -603,7 +603,7 @@
     reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
   - type: PrecognitionResult
-    message: psionic-power-precognition-ion-storm-result-message
+    message: psionic-power-precognition-ion-storm-result-message # DeltaV - Precogniton
     randomResultWeight: 1
   - type: IonStormRule
 
