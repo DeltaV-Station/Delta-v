@@ -6,3 +6,6 @@ ent-FoodDonkpocketSavory = { ent-CrateFoodDonkpocketSavory }
 
 ent-FoodDonkpocketSweet = { ent-CrateFoodDonkpocketSweet }
     .desc = { ent-CrateFoodDonkpocketSweet.desc }
+
+ent-FoodEmergencyPie = { ent-CrateFoodEmergencyPie }
+    .desc = { ent-CrateFoodEmergencyPie.desc }

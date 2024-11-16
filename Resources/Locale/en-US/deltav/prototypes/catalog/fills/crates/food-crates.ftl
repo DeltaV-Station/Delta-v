@@ -6,3 +6,6 @@ ent-CrateFoodDonkpocketSavory = Donk Pocket shipment (Savory)
 
 ent-CrateFoodDonkpocketSweet = Donk Pocket shipment (Sweet)
     .desc = A shipment of five boxes from the sweet Donk Pocket variety selection.
+
+ent-CrateFoodEmergencyPie = emergency pie delivery
+    .desc = "Then let them eat pie."
