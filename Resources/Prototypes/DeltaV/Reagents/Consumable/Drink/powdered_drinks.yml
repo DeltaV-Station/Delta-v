@@ -33,6 +33,13 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#B4FF64"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
 
 - type: reagent
   id: PowderedJuiceLemon
@@ -42,6 +49,13 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFFC69"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
 
 - type: reagent
   id: PowderedJuicePineapple
@@ -51,6 +65,13 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFD644"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5
 
 - type: reagent
   id: PowderedJuiceBanana
