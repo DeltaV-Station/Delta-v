@@ -2,11 +2,11 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
- #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
- #   requirement:
- #     !type:RoleTimeRequirement
- #     role: JobWarden
- #     time: 21600 #6 hrs
+  #   - !type:JobRequirementLoadoutEffect # DV - Remove Specific Role Timers
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobWarden
+  #     time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
@@ -17,11 +17,11 @@
 - type: loadoutEffectGroup
   id: SecurityStarWorthy
   effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
-        department: Security
-        time: 360000 #100 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 #100 hrs
 
 # Head
 - type: loadout
@@ -204,58 +204,3 @@
   storage:
     back:
     - Dinkystar
-
-# Guns DeltaV
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponPistolPollock
-  equipment:
-    pocket1: WeaponPistolPollock
-
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponPistolSLP57
-  equipment:
-    pocket1: WeaponPistolSLP57
-
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponPistolMk58
-  equipment:
-    pocket1: WeaponPistolMk58
-
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponDisabler
-  equipment:
-    pocket1: WeaponDisabler
-
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponRevolverFitz
-  equipment:
-    pocket1: WeaponRevolverFitz
-
-- type: loadout # DeltaV
-  id: SecurityFirearmWeaponRevolverK38Master
-  equipment:
-    pocket1: WeaponRevolverK38Master
-
-- type: loadout # DeltaV
-  id: SecurityFirearmMagazinePistolRubber
-  storage:
-    back:
-    - MagazinePistolRubber
-
-- type: loadout # DeltaV
-  id: SecurityFirearmMagazinePistol
-  storage:
-    back:
-    - MagazinePistol
-
-- type: loadout # DeltaV
-  id: SecurityFirearmSpeedLoaderSpecialRubber
-  storage:
-    back:
-    - SpeedLoaderSpecialRubber
-
-- type: loadout # DeltaV
-  id: SecurityFirearmSpeedLoaderSpecial
-  storage:
-    back:
-    - SpeedLoaderSpecial

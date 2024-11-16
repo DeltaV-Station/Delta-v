@@ -98,7 +98,6 @@ loadout-group-revolver-gun = Security Revolver
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 
-
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
 loadout-group-chiefjustice-jumpsuit = Chief Justice jumpsuit
