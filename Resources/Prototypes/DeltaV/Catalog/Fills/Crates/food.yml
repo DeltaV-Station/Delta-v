@@ -33,6 +33,8 @@
 - type: entity
   id: CrateFoodEmergencyPie
   parent: CratePlastic
+  name: emergency pie delivery
+  description: '"Then let them eat pie."'
   components:
     - type: StorageFill
       contents:
