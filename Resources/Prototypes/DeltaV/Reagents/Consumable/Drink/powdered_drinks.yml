@@ -1,5 +1,7 @@
 - type: reagent
   id: BasePowderedBeverage
+  abstract: true
+  physicalDesc: reagent-physical-desc-powdery
   flavor: terrible
   metabolisms:
     Poison:
@@ -20,7 +22,6 @@
   name: reagent-name-powdered-milk
   group: Foods
   desc: reagent-desc-powdered-milk
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sweet
   color: "#FAFAFA"
 
@@ -30,7 +31,6 @@
   name: reagent-name-powdered-milk-soy
   group: Foods
   desc: reagent-desc-powdered-milk-soy
-  physicalDesc: reagent-physical-desc-powdery
   flavor: soy
   color: "#FFFCE3"
 
@@ -40,7 +40,6 @@
   name: reagent-name-powdered-juice-orange
   group: Foods
   desc: reagent-desc-powdered-juice-orange
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFC420"
 
@@ -50,7 +49,6 @@
   name: reagent-name-powdered-juice-lime
   group: Foods
   desc: reagent-desc-powdered-juice-lime
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#B4FF64"
   metabolisms:
@@ -76,7 +74,6 @@
   name: reagent-name-powdered-juice-lemon
   group: Foods
   desc: reagent-desc-powdered-juice-lemon
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFFC69"
   metabolisms:
@@ -102,7 +99,6 @@
   name: reagent-name-powdered-juice-pineapple
   group: Foods
   desc: reagent-desc-powdered-juice-pineapple
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFD644"
   metabolisms:
@@ -128,7 +124,6 @@
   name: reagent-name-powdered-juice-banana
   group: Foods
   desc: reagent-desc-powdered-juice-banana
-  physicalDesc: reagent-physical-desc-powdery
   flavor: terrible
   color: "#FFFEBF"
 
@@ -138,7 +133,6 @@
   name: reagent-name-powdered-juice-berry
   group: Foods
   desc: reagent-desc-powdered-juice-berry
-  physicalDesc: reagent-physical-desc-powdery
   flavor: bitter
   color: "#D366FF"
 
@@ -148,7 +142,6 @@
   name: reagent-name-powdered-juice-watermelon
   group: Foods
   desc: reagent-desc-powdered-juice-watermelon
-  physicalDesc: reagent-physical-desc-powdery
   flavor: terrible
   color: "#FFBCDB"
 
@@ -158,7 +151,6 @@
   name: reagent-name-powdered-juice-grape
   group: Foods
   desc: reagent-desc-powdered-juice-grape
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#E57DFF"
 
@@ -168,7 +160,6 @@
   name: reagent-name-powdered-juice-apple
   group: Foods
   desc: reagent-desc-powdered-juice-apple
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#FFC67E"
 
@@ -178,7 +169,6 @@
   name: reagent-name-powdered-juice-cherry
   group: Foods
   desc: reagent-desc-powdered-juice-cherry
-  physicalDesc: reagent-physical-desc-powdery
   flavor: sour
   color: "#A9536C"
 
@@ -188,6 +178,5 @@
   name: reagent-name-powdered-juice-carrot
   group: Foods
   desc: reagent-desc-powdered-juice-carrot
-  physicalDesc: reagent-physical-desc-powdery
   flavor: bitter
   color: "#FFA06B"
