@@ -219,7 +219,7 @@ public sealed class EventManagerSystem : EntitySystem
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         TimeSpan? eventRunTime,
         bool ignoreEarliestStart = false,
-        int? playerCountOverride = 100,
+        int? playerCountOverride = null,
         TimeSpan? currentTimeOverride = null)
     {
         var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
