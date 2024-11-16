@@ -396,7 +396,8 @@
         damageType: Blunt
         damage: 10
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior # Shitmed Change
+        gibContents: Skip # Shitmed Change
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -1213,6 +1214,9 @@
   abstract: true
   components:
   - type: CombatMode
+  #- type: SurgeryTarget
+  #  canOperate: false
+  #- type: Targeting
   - type: Inventory
     templateId: monkey
     speciesId: monkey
