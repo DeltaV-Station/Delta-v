@@ -29,3 +29,43 @@
           amount: 1
         - id: FoodBoxDonkpocketDink
           prob: 0.1
+
+- type: entity
+  id: CrateHydroCoDairy
+  parent: CratePlastic
+  components:
+    - type: StorageFill
+      contents:
+        - id: ReagentTinPowderedMilk
+          amount: 4
+        - id: ReagentTinPowderedMilkSoy
+          amount: 4
+
+- type: entity
+  id: CrateHydroCoJuice
+  parent: CratePlastic
+  components:
+    - type: StorageFill
+      contents:
+        - id: ReagentTinPowderedOrangeJuice
+          amount: 2
+        - id: ReagentTinPowderedLimeJuice
+          amount: 2
+        - id: ReagentTinPowderedLemonJuice
+          amount: 2
+        - id: ReagentTinPowderedPineappleJuice
+          amount: 1
+        - id: ReagentTinPowderedBananaJuice
+          amount: 1
+        - id: ReagentTinPowderedBerryJuice
+          amount: 1
+        - id: ReagentTinPowderedWatermelonJuice
+          amount: 1
+        - id: ReagentTinPowderedGrapeJuice
+          amount: 1
+        - id: ReagentTinPowderedAppleJuice
+          amount: 1
+        - id: ReagentTinPowderedCherryJuice
+          amount: 1
+        - id: ReagentTinPowderedCarrotJuice
+          amount: 1

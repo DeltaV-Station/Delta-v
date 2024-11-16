@@ -6,3 +6,9 @@ ent-CrateFoodDonkpocketSavory = Donk Pocket shipment (Savory)
 
 ent-CrateFoodDonkpocketSweet = Donk Pocket shipment (Sweet)
     .desc = A shipment of five boxes from the sweet Donk Pocket variety selection.
+
+ent-CrateHydroCoDairy = HydroCo Dairy crate
+    .desc = A shipment of powdered dairy products from HydroCo Industries. Contains powdered milk and soy milk.
+
+ent-CrateHydroCoJuice = HydroCo Juice crate
+    .desc = A variety pack of powdered juice products from HydroCo Industries.
