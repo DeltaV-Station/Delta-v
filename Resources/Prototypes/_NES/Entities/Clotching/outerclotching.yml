@@ -15,15 +15,6 @@
           Heat: 0.9
 
 - type: entity
-  parent: ClothingOuterStorageBase
-  id:  Nes14AvaliClothingOuterBase
-  name: маленькая китель-рубашка
-  description: Форменная однобортная куртка со стоячим воротником серого цвета, рукава были обрезаны.
-  components:
-    - type: Sprite
-      sprite: NES/Clothing/OuterClothing/avali_greycoat.rsi
-
-- type: entity
   parent: Nes14ClothingOuterCoatGreycoat
   id: Nes14ClothingOuterCoatRedcoat
   name: красная китель-рубашка
@@ -31,15 +22,6 @@
   components:
     - type: Sprite
       sprite: NES/Clothing/OuterClothing/redcoat.rsi
-
-- type: entity
-  parent: Nes14AvaliClothingOuterBase
-  id: Nes14AvaliClothingOuterBlack
-  name: темное платьице
-  description: Темное платье с красными краями, рукава были либо отрезаны, либо сожраны.
-  components:
-    - type: Sprite
-      sprite: NES/Clothing/OuterClothing/avali_outer_base.rsi
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase

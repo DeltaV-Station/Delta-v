@@ -17,24 +17,6 @@
     state: tarrantok_big
 
 - type: marking
-  id: TailTarrantokBigFluff
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Tarrantok]
-  sprites:
-  - sprite: NES/Mobs/Customization/tails64.rsi
-    state: tarrantok_big_fluff
-
-- type: marking
-  id: TailTarrantokShorter
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Tarrantok]
-  sprites:
-  - sprite: NES/Mobs/Customization/tails32.rsi
-    state: tarrantok_shorter
-
-- type: marking
   id: TailTarrantokMedium
   bodyPart: Tail
   markingCategory: Tail
@@ -42,30 +24,3 @@
   sprites:
   - sprite: NES/Mobs/Customization/tails32.rsi
     state: tarrantok_medium
-
-- type: marking
-  id: TailAvianFemale
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Avian]
-  sprites:
-  - sprite: NES/Mobs/Customization/tails32.rsi
-    state: f_avian
-
-- type: marking
-  id: TailAvianMale
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Avian]
-  sprites:
-  - sprite: NES/Mobs/Customization/tails32.rsi
-    state: m_avian
-
-- type: marking
-  id: TailAvali
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Avali]
-  sprites:
-  - sprite: NES/Mobs/Customization/tails64.rsi
-    state: avali

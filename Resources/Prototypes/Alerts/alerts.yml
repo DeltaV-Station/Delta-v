@@ -24,6 +24,16 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
+    - alertType: Crawling # NES14-Changes, crawling
+
+- type: alert
+  id: Crawling
+  icons:
+  - sprite: /Textures/NES/GUI/Alerts/crawling.rsi
+    state: crawling
+  clickEvent: !type:CrawlingAlertEvent
+  name: alerts-crawling-name
+  description: alerts-crawling-desc
 
 - type: entity
   id: AlertSpriteView

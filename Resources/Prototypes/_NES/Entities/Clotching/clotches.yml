@@ -71,24 +71,6 @@
       sprite: NES/Clothing/Uniforms/maroonjumpsuitparade.rsi
 
 - type: entity
-  parent: ClothingUniformBase
-  id:  Nes14AvaliClothingUniformBase
-  name: белая майка
-  description: Белая майка, одень маленького размера.
-  components:
-  - type: Sprite
-    sprite: NES/Clothing/Uniforms/avali_base.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id:  Nes14AvaliClothingNeckBase
-  name: серый плащик
-  description: Плащ с несколькими засеребрянными линиями.
-  components:
-  - type: Sprite
-    sprite: NES/Clothing/Cloak/avali_cloak_base.rsi
-
-- type: entity
   parent: ClothingUniformSkirtBase
   id: Nes14ClothingUniformMaid
   name: платье горничной
