@@ -128,7 +128,7 @@
     color: "#03fc4e"
     energy: 0.7
   - type: Charger
-    chargeRate: 400
+    chargeRate: 400 # DeltaV buffed from 50 to 400
   - type: Sprite
     sprite: Structures/Power/cage_recharger.rsi
   - type: PowerCellSlot
