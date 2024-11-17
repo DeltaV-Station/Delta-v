@@ -38,17 +38,15 @@ public sealed class NarcolepsySystem : EntitySystem
         // When falling asleep while an incident is nigh, force it to happen immediately.
         if (args.FellAsleep)
         {
-            if (ent.Comp.NextIncidentTime < ent.Comp.TimeBeforeWarning)
-                StartIncident(ent);
+            StartIncident(ent);
             return;
         }
 
-        // When waking up after sleeping for at least the minimum time of an incident, reset the incident timer and show a popup.
-        if (args.TimeSlept is null || args.TimeSlept.Value.TotalSeconds < ent.Comp.DurationOfIncident.X)
-            return;
-
-        ShowRandomPopup(ent, ent.Comp.WakeupLocaleBase, ent.Comp.WakeupLocaleCount);
-        PrepareNextIncident(ent);
+        // When waking up after sleeping, show a popup.
+        else
+        {
+            ShowRandomPopup(ent, ent.Comp.WakeupLocaleBase, ent.Comp.WakeupLocaleCount);
+        }
     }
 
     public void AdjustNarcolepsyTimer(EntityUid uid, float setTime, NarcolepsyComponent? narcolepsy = null)
