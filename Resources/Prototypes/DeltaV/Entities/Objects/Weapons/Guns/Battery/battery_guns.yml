@@ -261,3 +261,37 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Beam Cannon
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponBeamCannon
+  description: BRRRRRZZZZZZZTTT
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    selectedMode: FullAuto
+    fireRate: 20
+    availableModes: FullAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: HitscanBatteryAmmoProvider
+    proto: BeamLaser
+    fireCost: 20
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
