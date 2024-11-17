@@ -14,7 +14,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/engineering.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Engineering
   - type: Wires
@@ -34,7 +34,7 @@
   suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/cargo.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Logistics
   - type: Wires
@@ -56,7 +56,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/medical.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Medical
   - type: Wires
@@ -84,7 +84,7 @@
   suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Standard/science.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Standard/science.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Epistemics
   - type: Wires
@@ -96,7 +96,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/command.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/command.rsi #NES14-Changes
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: PaintableAirlock
@@ -110,7 +110,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/security.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/security.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Security
   - type: Wires
@@ -121,6 +121,11 @@
   id: AirlockMaint
   name: maintenance access
   components:
+  - type: Door
+    openSound:
+      path: /Audio/NES/Doors/Heavy_open.ogg
+    closeSound:
+      path: /Audio/NES/Doors/Heavy_close.ogg
   - type: Sprite
     sprite: NES/Structures/Doors/Airlocks/Standard/maint.rsi #NES14-Changes
 
@@ -173,7 +178,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/engineering.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Engineering
   - type: Wires
@@ -201,7 +206,7 @@
   suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/cargo.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Logistics
   - type: Wires
@@ -223,7 +228,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/medical.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Medical
   - type: Wires
@@ -251,7 +256,7 @@
   suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Glass/science.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Glass/science.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Epistemics
   - type: Wires
@@ -263,7 +268,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/command.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/command.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Command
   - type: WiresPanelSecurity
@@ -277,7 +282,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/security.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/security.rsi #NES14-Changes
   - type: PaintableAirlock
     department: Security
   - type: Wires

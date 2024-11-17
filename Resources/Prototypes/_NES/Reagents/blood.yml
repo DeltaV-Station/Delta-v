@@ -1,11 +1,19 @@
 - type: reagent
   parent: Blood
   id: TarrantokBlood
-  name: reagent-name-tarrantok-blood
   group: Biological
-  desc: reagent-desc-tarrantok-blood
   flavor: metallic
   color: "#ff1d5b"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
+
+- type: reagent
+  parent: Blood
+  id: ResomiBlood
+  group: Biological
+  flavor: metallic
+  color: "#7c1dff"
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
   slippery: false

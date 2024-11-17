@@ -1,0 +1,51 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: Nes14TailbagUniformBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [tailbag]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  abstract: true
+  parent: Nes14TailbagUniformBase
+  id: Nes14ClotchingTailbagBase
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

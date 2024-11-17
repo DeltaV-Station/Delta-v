@@ -29,6 +29,7 @@ public enum SlotFlags
     UNDERPANTS = 1 << 16,
     UNDERSHIRT = 1 << 17,
     SOCKS = 1 << 18,
+    TAILBAG = 1 << 19, // NES14-Changes, Tailbag
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

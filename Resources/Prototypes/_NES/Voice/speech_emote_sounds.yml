@@ -1,4 +1,4 @@
-# species
+# Таррка
 - type: emoteSounds
   id: MaleTarra
   params:
@@ -78,3 +78,63 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+
+# Авали
+- type: emoteSounds
+  id: UnsexResomi
+  params:
+    variation: 0.3
+  sounds:
+    Scream:
+      path: /Audio/NES/Voice/Raptors/resomi_scream.ogg
+    Laugh:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+    Raptor:
+      path: /Audio/NES/Voice/Raptors/wurble.ogg
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    # Gasp:
+    #   collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+
+- type: emote
+  id: Raptor
+  name: Урчит
+  category: Vocal
+  icon: Interface/Emotes/sigh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["урчит"]
+  chatTriggers:
+    - урчит
+    - ря
+    - рякает

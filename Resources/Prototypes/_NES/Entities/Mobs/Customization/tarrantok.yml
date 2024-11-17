@@ -1,0 +1,46 @@
+- type: marking
+  id: EarsTarrantok
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Tarrantok]
+  sprites:
+    - sprite: NES/Mobs/Customization/ears.rsi
+      state: Tarrantok
+
+- type: marking
+  id: EarsTarrantokStriped
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Tarrantok]
+  sprites:
+    - sprite: NES/Mobs/Customization/ears.rsi
+      state: Tarrantok
+    - sprite: NES/Mobs/Customization/ears.rsi
+      state: Tarrantok_stripes
+
+- type: marking
+  id: TailTarrantok
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tarrantok]
+  sprites:
+  - sprite: NES/Mobs/Customization/tails64.rsi
+    state: tarrantok
+
+- type: marking
+  id: TailTarrantokBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tarrantok]
+  sprites:
+  - sprite: NES/Mobs/Customization/tails64.rsi
+    state: tarrantok_big
+
+- type: marking
+  id: TailTarrantokMedium
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tarrantok]
+  sprites:
+  - sprite: NES/Mobs/Customization/tails32.rsi
+    state: tarrantok_medium

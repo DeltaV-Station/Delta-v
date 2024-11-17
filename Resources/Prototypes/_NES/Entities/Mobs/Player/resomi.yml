@@ -1,0 +1,139 @@
+- type: entity
+  save: false
+  name: Авали Боб
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobResomi
+  abstract: true
+  components:
+  - type: DamageVisuals
+    thresholds: [ 10, 30, 50, 70]
+    targetLayers:
+    - enum.HumanoidVisualLayers.Chest
+    - enum.HumanoidVisualLayers.Head
+    - enum.HumanoidVisualLayers.LArm
+    - enum.HumanoidVisualLayers.LLeg
+    - enum.HumanoidVisualLayers.RArm
+    - enum.HumanoidVisualLayers.RLeg
+    - enum.HumanoidVisualLayers.RHand
+    - enum.HumanoidVisualLayers.LHand
+    - enum.HumanoidVisualLayers.RFoot
+    - enum.HumanoidVisualLayers.LFoot
+    damageOverlayGroups:
+      Brute:
+        sprite: NES/Mobs/Effects/Resomi/brute_damage.rsi
+        color: "#C048C2"
+      Burn:
+        sprite: NES/Mobs/Effects/Resomi/burn_damage.rsi
+  - type: HumanoidAppearance
+    species: Resomi
+  - type: Hunger
+  - type: Puller
+    needsHands: false
+  - type: Thirst
+  - type: Icon
+    sprite: NES/Mobs/Species/Resomi/parts.rsi
+    state: full
+  - type: Body
+    prototype: Resomi
+    requiredLegs: 2
+  - type: Bloodstream
+    bloodReagent: ResomiBlood
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      70: Critical
+      140: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      40: 0.7
+      55: 0.5
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Temperature
+    heatDamageThreshold: 315
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      280: 1.1
+      260: 1.2
+  - type: Inventory
+    speciesId: resomi
+    displacements:
+      # jumpsuit:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: jumpsuit
+      # eyes:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: eyes
+      # gloves:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: hand
+      # head:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: head
+      # back:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: back
+      # ears:
+      #   sizeMaps:
+      #     32:
+      #       sprite: Mobs/Species/Vox/displacement.rsi
+      #       state: ears
+      # shoes:
+      #   sizeMaps:
+      #     32:
+      #       sprite: NES/Mobs/Species/Resomi/displacement.rsi
+      #       state: shoes
+  - type: Vocal
+    sounds:
+      Male: UnsexResomi
+      Female: UnsexResomi
+      Unsexed: UnsexResomi
+  - type: FlashModifier
+    modifier: 3
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobResomiDummy
+  noSpawn: true
+  description: A dummy resomi meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Resomi
+
+- type: entity
+  save: false
+  name: Авали Боб
+  parent: BaseMobResomi
+  id: MobResomi
+  components:
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.5 # This makes space and crit more lethal to arachnids.
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5

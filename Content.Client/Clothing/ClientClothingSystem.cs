@@ -50,6 +50,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"suitstorage", "SUITSTORAGE"},
+        {"tailbag", "TAILBAG"}, // NES14-Changes, Tailbag
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;
