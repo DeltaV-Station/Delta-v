@@ -196,7 +196,7 @@
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/rocket.rsi
+    sprite: NES/Structures/Power/Thrusters/rocket.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]

@@ -89,22 +89,25 @@
             collection: MetalBreak
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 4
+    color: "#4f76e4"
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/rocket.rsi #NES14-Changes
+    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
-      offset: 0, -0.2
     - state: thrust
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
-      offset: 0, -0.2
     - state: thrust_burn_unshaded
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 0.7
+      offset: 0, 0.9
 
 - type: entity
   id: ThrusterUnanchored
@@ -127,7 +130,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/rocket.rsi #NES14-Changes
+    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]

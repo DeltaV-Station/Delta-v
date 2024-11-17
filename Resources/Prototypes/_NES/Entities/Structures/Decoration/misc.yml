@@ -47,6 +47,17 @@
     snapCardinals: true
 
 - type: entity
+  parent: Rack
+  id: Nes14Racks
+  name: полки
+  description: Полки, на которые можно положить инструменты или что-то еще.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi
+    state: racks
+    snapCardinals: true
+
+- type: entity
   id: Nes14Monolit1
   name: монолит
   description: Древнее и зловещее нечто.

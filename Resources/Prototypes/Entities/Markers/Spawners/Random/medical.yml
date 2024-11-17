@@ -33,7 +33,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Specific/Medical/firstaidkits.rsi
+        - sprite: NES/Objects/Specific/Medical/firstaidkits.rsi #NES14-Changes
           state: firstaid
     - type: RandomSpawner
       rarePrototypes:

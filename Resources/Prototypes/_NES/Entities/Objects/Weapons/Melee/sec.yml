@@ -24,3 +24,43 @@
     size: Small
     sprite: NES/Objects/Weapons/Melee/glefa.rsi
   - type: Wieldable
+
+- type: entity
+  name: электрошокер
+  parent: Stunbaton
+  id: Nes14MeleeTaser
+  description: Электрошокер, может помочь обездвижить ебучего дегенерата.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Melee/tazer.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 2
+    bluntStaminaDamageFactor: 2.0
+    angle: 20
+    animation: WeaponArcSlash
+  - type: StaminaDamageOnHit
+    damage: 50
+    sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
+  - type: StaminaDamageOnCollide
+    damage: 50
+    sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: Clothing
+    sprite: NES/Objects/Weapons/Melee/tazer.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.1

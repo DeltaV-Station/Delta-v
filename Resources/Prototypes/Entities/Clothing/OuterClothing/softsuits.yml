@@ -6,13 +6,23 @@
   description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space during emergencies.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva.rsi
+    sprite: NES/Clothing/Hardsuits/basic.rsi #NES14-Changes start
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva.rsi
+    sprite: NES/Clothing/Hardsuits/basic.rsi #NES14-Changes end
   - type: Tag
     tags:
     - SuitEVA
-    - MonkeyWearable
+    # - MonkeyWearable
     - WhitelistChameleon
     - HidesHarpyWings
 
@@ -42,12 +52,12 @@
   description: An emergency EVA suit with a built-in helmet. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
+    sprite: NES/Clothing/Hardsuits/heva.rsi #NES14-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    sprite: NES/Clothing/Hardsuits/heva.rsi #NES14-Changes
+  # - type: ClothingSpeedModifier
+  #   walkModifier: 0.7
+  #   sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.75

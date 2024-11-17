@@ -1,7 +1,7 @@
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor
-  sprite: /Textures/DeltaV/Tiles/steel.png #Delta V - Resprite Tiles
+  sprite: /Textures/NES/Tiles/steel.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -19,7 +19,7 @@
 - type: tile
   id: FloorSteelCheckerLight
   name: tiles-steel-floor-checker-light
-  sprite: /Textures/DeltaV/Tiles/cafeteria.png #Delta V - Resprite Tiles
+  sprite: /Textures/NES/Tiles/cafeteria.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -37,7 +37,7 @@
 - type: tile
   id: FloorSteelCheckerDark
   name: tiles-steel-floor-checker-dark
-  sprite: /Textures/DeltaV/Tiles/checker_dark.png #Delta V - Resprite Tiles
+  sprite: /Textures/NES/Tiles/checker_dark.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -255,7 +255,7 @@
 - type: tile
   id: FloorWhite
   name: tiles-white-floor
-  sprite: /Textures/DeltaV/Tiles/white.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/white.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -429,7 +429,7 @@
 - type: tile
   id: FloorDark
   name: tiles-dark-floor
-  sprite: /Textures/DeltaV/Tiles/dark.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/dark.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -585,7 +585,7 @@
 - type: tile
   id: FloorDarkPlastic
   name: tiles-plastic-dark-floor
-  sprite: /Textures/DeltaV/Tiles/dark_plastic.png  #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/dark_plastic.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -603,7 +603,7 @@
 - type: tile
   id: FloorTechMaint
   name: tiles-techmaint-floor
-  sprite: /Textures/Tiles/tech_maint.png
+  sprite: /Textures/NES/Tiles/tech_maint.png #NES14-Changes
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -651,7 +651,7 @@
 - type: tile
   id: FloorSteelDirty
   name: tiles-dirty-steel-floor
-  sprite: /Textures/DeltaV/Tiles/steel_dirty.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/steel_dirty.png #NES14-Changes
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -802,7 +802,7 @@
 - type: tile
   id: FloorBar
   name: tiles-bar-floor
-  sprite: /Textures/DeltaV/Tiles/bar.png #Delta V - Resprite Tiles
+  sprite: /Textures/NES/Tiles/bar.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -868,7 +868,7 @@
 - type: tile
   id: FloorSteelDamaged
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_damaged.png
+  sprite: /Textures/NES/Tiles/steel_damaged.png #NES14-Changes
   variants: 5
   placementVariants:
   - 1.0
@@ -887,7 +887,7 @@
 - type: tile
   id: FloorSteelBurnt
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_burnt.png
+  sprite: /Textures/NES/Tiles/steel_burnt.png #NES14-Changes
   variants: 2
   placementVariants:
   - 1.0
@@ -1367,7 +1367,7 @@
 - type: tile
   id: FloorRGlass
   name: tiles-reinforced-glass-floor
-  sprite: /Textures/DeltaV/Tiles/rglass.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/rglass.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -1722,7 +1722,7 @@
 - type: tile
   id: FloorTechMaint2
   name: tiles-techmaint2-floor
-  sprite: /Textures/Tiles/steel_maint.png
+  sprite: /Textures/NES/Tiles/steel_maint.png #NES14-Changes
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1734,13 +1734,13 @@
 - type: tile
   id: FloorTechMaint3
   name: tiles-techmaint3-floor
-  sprite: /Textures/Tiles/grating_maint.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  sprite: /Textures/NES/Tiles/grating_maint.png #NES14-Changes
+  # variants: 4
+  # placementVariants:
+  # - 1.0
+  # - 1.0
+  # - 1.0
+  # - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]

@@ -1,7 +1,7 @@
 ﻿- type: tile
   id: Plating
   name: tiles-plating
-  sprite: /Textures/DeltaV/Tiles/plating.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/plating.png #NES14-Changes
   baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ Axing ] # DeltaV - The return of fireaxe prying
@@ -78,7 +78,7 @@
 - type: tile
   id: Lattice
   name: tiles-lattice
-  sprite: /Textures/Tiles/lattice.png
+  sprite: /Textures/NES/Tiles/lattice.png #NES14-Changes
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
