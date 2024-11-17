@@ -1,0 +1,47 @@
+- type: entity
+  id: Nes14FreezedPidor
+  name: замерзший
+  description: Замерзшее нечто. Думаю, что стоит оставить его в этих льдах
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/ice_demon.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: Rack
+  id: Nes14RackEngineer
+  name: стойка
+  description: Инженерная стойка.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi # NES14-Changes
+    state: rack-engi
+    snapCardinals: true
+
+- type: entity
+  parent: Rack
+  id: Nes14RackMedical
+  name: стойка
+  description: Медицинская стойка.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi # NES14-Changes
+    state: rack-med
+    snapCardinals: true

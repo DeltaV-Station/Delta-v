@@ -9,18 +9,19 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.1"
+          bounds: "-0.45,-0.15,0.45,0.2"
         density: 190
         hard: true
         mask:
         - MachineMask
         layer:
-        - BulletImpassable
+        - MachineLayer
   - type: Anchorable
   - type: Pullable
   - type: Sprite
+    drawdepth: Mobs
     layers:
-      - sprite: Structures/Hydroponics/containers.rsi
+      - sprite: NES/Structures/Hydroponics/containers.rsi #NES14-Changes
         state: hydrotray3
       - sprite: Structures/Hydroponics/overlays.rsi
         state: lowhealth3

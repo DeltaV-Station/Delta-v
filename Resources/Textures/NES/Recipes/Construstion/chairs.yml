@@ -1,0 +1,41 @@
+# #chairs
+# - type: construction
+#   name: бревно
+#   id: LogBench
+#   graph: Nes14Seat
+#   startNode: start
+#   targetNode: Nes14Logbench
+#   category: construction-category-furniture
+#   description: Бревно, на которое можно сесть.
+#   icon:
+#     sprite: NES/Structures/Decoration/chairs.rsi
+#     state: log-bench
+#   objectType: Structure
+#   placementMode: SnapgridCenter
+#   canBuildInImpassable: false
+#   conditions:
+#     - !type:TileNotBlocked
+
+# - type: constructionGraph
+#   id: Nes14Logbench
+#   start: start
+#   graph:
+#     - node: start
+#       actions:
+#         - !type:DestroyEntity {}
+#       edges:
+#         - to: logbench
+#           steps:
+#             - material: Log
+#               amount: 1
+#               doAfter: 1
+#     - node: logbench
+#       entity: Nes14LogBench
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: Log
+#           steps:
+#             - tool: Screwing
+#               doAfter: 1

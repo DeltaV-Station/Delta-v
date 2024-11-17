@@ -88,8 +88,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           Log:
-            min: 2
-            max: 8
+            min: 1 #NES14-Changes
+            max: 3
 
 - type: entity
   parent: BaseTree

@@ -378,18 +378,24 @@
   - type: PointLight
     enabled: false
     radius: 5
-    energy: 0.6
+    energy: 1
     offset: "0, 0.4"
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: ApcPowerReceiver
+  - type: AmbientSound #NES14-Changes
+    enabled: false
+    range: 6
+    volume: -8
+    sound:
+      path: /Audio/Machines/alarm.ogg
   - type: ExtensionCableReceiver
   - type: Battery
     maxCharge: 30000
     startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 40
+    speed: 120
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:

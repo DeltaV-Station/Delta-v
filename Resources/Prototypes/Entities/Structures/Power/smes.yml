@@ -62,11 +62,11 @@
       maxChargeRate: 50000
       supplyRampTolerance: 50000
       supplyRampRate: 10000
-    - type: PointLight
-      radius: 1.5
-      energy: 1.6
-      color: "#c9c042"
-      castShadows: false
+    # - type: PointLight
+    #   radius: 1.5
+    #   energy: 1.6
+    #   color: "#c9c042"
+    #   castShadows: false
     - type: WiresPanel
     - type: Machine
       board: SMESMachineCircuitboard
@@ -99,8 +99,8 @@
   suffix: Basic, 8MW
   components:
   - type: Battery
-    maxCharge: 80000000
-    startingCharge: 80000000
+    maxCharge: 8000000
+    startingCharge: 8000000
 
 - type: entity
   parent: SMESBasic

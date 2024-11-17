@@ -5,14 +5,14 @@ namespace Content.Server._NES.NightDayMapLight
     {
         [ViewVariables]
         [DataField]
-        public Color DayColor = Color.FromHex("#646462");
+        public Color DayColor = Color.FromHex("#4d6270");
 
         [ViewVariables]
         [DataField]
-        public Color NightColor = Color.FromHex("#050607");
+        public Color NightColor = Color.FromHex("#010203");
 
         [ViewVariables]
         [DataField]
-        public float DayDuration = 1200;
+        public float DayDuration = 600;
     }
 }
