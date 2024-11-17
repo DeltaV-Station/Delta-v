@@ -5,6 +5,8 @@ using Robust.Client.Console;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
+using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Lobby.UI
 {
@@ -35,7 +37,7 @@ namespace Content.Client.Lobby.UI
             {
                 case LobbyGuiState.Default:
                     DefaultState.Visible = true;
-                    RightSide.Visible = true;
+                    // RightSide.Visible = true;
                     break;
                 case LobbyGuiState.CharacterSetup:
                     CharacterSetupState.Visible = true;
@@ -43,10 +45,10 @@ namespace Content.Client.Lobby.UI
                     var actualWidth = (float) UserInterfaceManager.RootControl.PixelWidth;
                     var setupWidth = (float) LeftSide.PixelWidth;
 
-                    if (1 - (setupWidth / actualWidth) > 0.30)
-                    {
-                        RightSide.Visible = false;
-                    }
+                    // if (1 - (setupWidth / actualWidth) > 0.30)
+                    // {
+                    //     RightSide.Visible = false;
+                    // }
 
                     UserInterfaceManager.GetUIController<LobbyUIController>().ReloadCharacterSetup();
 
