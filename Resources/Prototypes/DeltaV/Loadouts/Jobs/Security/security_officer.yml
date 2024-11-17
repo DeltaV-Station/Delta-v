@@ -19,16 +19,6 @@
     pocket1: WeaponDisabler
 
 - type: loadout
-  id: SecurityFirearmWeaponRevolverFitz
-  equipment:
-    pocket1: WeaponRevolverFitz
-
-- type: loadout
-  id: SecurityFirearmWeaponRevolverK38Master
-  equipment:
-    pocket1: WeaponRevolverK38Master
-
-- type: loadout
   id: SecurityFirearmMagazinePistolRubber
   storage:
     back:
@@ -39,15 +29,3 @@
   storage:
     back:
     - MagazinePistol
-
-- type: loadout
-  id: SecurityFirearmSpeedLoaderSpecialRubber
-  storage:
-    back:
-    - SpeedLoaderSpecialRubber
-
-- type: loadout
-  id: SecurityFirearmSpeedLoaderSpecial
-  storage:
-    back:
-    - SpeedLoaderSpecial

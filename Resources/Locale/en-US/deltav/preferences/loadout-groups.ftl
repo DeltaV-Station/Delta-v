@@ -93,10 +93,12 @@ loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
 
-loadout-group-security-gun = Security Firearm
+loadout-group-security-gun = Security Sidearm
 loadout-group-revolver-gun = Security Revolver
+loadout-group-all-gun = Security Sidearm
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
+loadout-group-all-ammo = Ammunition
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
