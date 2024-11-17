@@ -41,6 +41,7 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
+    slotId: lungs # GoobStation
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -73,6 +74,7 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    slotId: stomach # GoobStation
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -116,12 +118,19 @@
   - type: Sprite
     state: liver
   - type: Organ
+    slotId: liver # GoobStation
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Liver # GoobStation
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
   - type: Item
     size: Small
     heldPrefix: liver
@@ -135,6 +144,7 @@
   - type: Sprite
     state: heart-on
   - type: Organ
+    slotId: heart # GoobStation
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Animal ]
@@ -142,9 +152,18 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+<<<<<<< HEAD
   - type: Item
     size: Small
     heldPrefix: heart
+=======
+  - type: Heart # GoobStation
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
+>>>>>>> f00571107f (surgery update (animal and moth surgery) (#882))
 
 - type: entity
   id: OrganAnimalKidneys
@@ -157,6 +176,7 @@
     - state: kidney-l
     - state: kidney-r
   - type: Organ
+    slotId: kidneys # GoobStation
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [ Animal ]
