@@ -1,10 +1,10 @@
 using Content.Shared.Bed.Sleep;
-using Content.Shared.StatusEffect;
-using Robust.Shared.Random;
 using Content.Server.Chat.Managers;  // DeltaV Narcolepsy port from EE
+using Content.Shared.StatusEffect;
 using Content.Shared.Chat;  // DeltaV Narcolepsy port from EE
-using Content.Shared.Popups;
 using Robust.Shared.Player; // DeltaV Narcolepsy port from EE
+using Content.Shared.Popups; // DeltaV Narcolepsy port from EE
+using Robust.Shared.Random;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -43,7 +43,6 @@ public sealed class NarcolepsySystem : EntitySystem
         }
 
         // When waking up after sleeping, show a popup.
-        else
         {
             ShowRandomPopup(ent, ent.Comp.WakeupLocaleBase, ent.Comp.WakeupLocaleCount);
         }
@@ -92,6 +91,7 @@ public sealed class NarcolepsySystem : EntitySystem
         PrepareNextIncident(ent, duration);
 
         _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ent, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
+        var sleepingcomponent = EntityManager.GetComponent<ForcedSleepingComponent> (ent);
     }
 
     private void PrepareNextIncident(Entity<NarcolepsyComponent> ent, float startingFrom = 0f)
