@@ -407,3 +407,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunAttorney
+  name: cybersun attorney suit
+  description: This durable Suit Jacket and Turtleneck Combo doubles as an Accounting suit, and includes an extra button. Take that, Nerd-otrasen!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
