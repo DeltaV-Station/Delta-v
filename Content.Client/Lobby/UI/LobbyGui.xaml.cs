@@ -5,8 +5,6 @@ using Robust.Client.Console;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
-using Robust.Client.ResourceManagement;
-using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Lobby.UI
 {

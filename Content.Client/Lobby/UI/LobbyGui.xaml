@@ -29,29 +29,30 @@
 
                     <!-- Center Panel -->
                     <PanelContainer Name="CenterPanel" HorizontalAlignment="Center" VerticalExpand="True"
-                                    VerticalAlignment="Center" Access="Public">
+                                    VerticalAlignment="Top" Access="Public">
                         <PanelContainer.PanelOverride>
-                            <graphics:StyleBoxFlat BackgroundColor="#151515" />
+                            <graphics:StyleBoxFlat BackgroundColor="#47484b" />
                         </PanelContainer.PanelOverride>
                         <GridContainer Rows="4" Columns="1">
 
                             <!-- Game Title -->
                             <PanelContainer Margin="12 12 12 12">
                                 <PanelContainer.PanelOverride>
-                                    <graphics:StyleBoxFlat BackgroundColor="#76428ADD" />
+                                    <graphics:StyleBoxFlat BackgroundColor="#3c72a8" />
                                 </PanelContainer.PanelOverride>
                                 <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center" Align="Center"
-                                       Text="NOT ENDLESS STATION" FontColorOverride="{x:Static maths:Color.White}" MinWidth="400">
+                                       Text="NOT ENDLESS STATION" FontColorOverride="{x:Static maths:Color.White}" MinWidth="550">
                                 </Label>
                             </PanelContainer>
 
+                            <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"
+                                Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
+                            <BoxContainer MinHeight="10" />
+                            <Label Name="StationTime" Access="Public" StyleClasses="LabelKeyText" HorizontalExpand="True"
+                                FontColorOverride="{x:Static maths:Color.LightGray}" Margin="3 3 3 3" Align="Center" />
+
                             <!-- Buttons -->
                             <GridContainer Columns="1">
-                                <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"
-                                Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
-                                <BoxContainer MinHeight="10" />
-                                <Label Name="StationTime" Access="Public" StyleClasses="LabelKeyText" HorizontalExpand="True"
-                                FontColorOverride="{x:Static maths:Color.LightGray}" Margin="3 3 3 3" Align="Center" />
                                 <Label Name="StartTime"
                                        Access="Public"
                                        Align="Center"
@@ -74,7 +75,6 @@
                                 <Button Name="AHelpButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-ahelp-button'}"
                                         Margin="8 0 8 0"/>
-                                <!-- <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" /> -->
                                 <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-leave-button'}"
                                         Margin="8 0 8 12"/>
@@ -82,8 +82,8 @@
                             <!-- Gold line -->
                             <BoxContainer>
                                 <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
-                                <controls:HSpacer Spacing="200" />
-                                <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
+                                <controls:HSpacer Spacing="300" />
+                                <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="100" />
                             </BoxContainer>
                         </GridContainer>
                     </PanelContainer>
@@ -105,6 +105,9 @@
             </BoxContainer>
 
             <!-- Right Panel -->
+            <PanelContainer Name="RightSide" StyleClasses="AngleRect" HorizontalAlignment="Right" VerticalExpand="True" Visible="False"
+                            VerticalAlignment="Stretch" Access="Public">
+            </PanelContainer>
         </SplitContainer>
     </BoxContainer>
 </lobbyUi:LobbyGui>
