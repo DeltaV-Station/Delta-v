@@ -88,7 +88,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// Multiplies damage by this amount for single-target attacks.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
+    public FixedPoint2 ClickDamageModifier = FixedPoint2.New(2);
 
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>
@@ -101,10 +101,10 @@ public sealed partial class MeleeWeaponComponent : Component
     /// Total width of the angle for wide attacks.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public Angle Angle = Angle.FromDegrees(60);
+    public Angle Angle = Angle.FromDegrees(10);
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcPunch";
+    public EntProtoId Animation = "WeaponArcThrust"; //NES14-Changes
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";

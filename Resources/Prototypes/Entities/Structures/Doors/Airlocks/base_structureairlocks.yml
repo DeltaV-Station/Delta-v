@@ -7,9 +7,11 @@
   - type: StationAiWhitelist
   - type: PointLight #NES14-Changes
     radius: 3
-    energy: 0.2
+    energy: 0.5
     color: "#3c5eb5"
     castShadows: false
+    enabled: false
+  - type: LitOnPowered
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -17,7 +19,7 @@
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/basic.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: closed
@@ -187,7 +189,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/coridor.rsi #NES14-Changes
   - type: AnimationPlayer
   - type: Fixtures
     fixtures:

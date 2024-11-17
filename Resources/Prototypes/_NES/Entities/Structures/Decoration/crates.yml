@@ -1,0 +1,178 @@
+- type: entity
+  id: Nes14LootBox1
+  name: грузовой контейнер
+  description: Грузовой контейнер, используемый для перевозки предметов.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/loot.rsi
+    state: box1
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  # - type: Fixtures
+  #   fixtures:
+  #     fix1:
+  #       shape:
+  #         !type:PhysShapeAabb
+  #         bounds: "-0.25,-0.35,0.25,0.35"
+  #       density: 190
+  #       mask:
+  #       - MachineMask
+  #       layer:
+  #       - MachineLayer
+  - type: InteractionOutline
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+              spawn:
+                Nes14LootBox1Broken:
+                  min: 1
+                  max: 1
+                SheetSteel:
+                  min: 0
+                  max: 15
+                SheetPlastic:
+                  min: 0
+                  max: 15
+                PartRodMetal:
+                  min: 0
+                  max: 15
+                SheetPlasteel:
+                  min: 0
+                  max: 15
+                SheetGlass:
+                  min: 0
+                  max: 15
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Nes14LootBox1Broken
+  parent: Nes14LootBox1
+  components:
+    - type: Sprite
+      sprite: NES/Structures/Decoration/loot.rsi
+      state: box1_open
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: FlimsyMetallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+
+- type: entity
+  id: Nes14LootBox3
+  parent: Nes14LootBox1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/loot.rsi
+    state: box3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+              spawn:
+                Nes14LootBox3Broken:
+                  min: 1
+                  max: 1
+                MedkitAdvancedFilled:
+                  min: 0
+                  max: 1
+                MedkitFilled:
+                  min: 0
+                  max: 1
+                Nes14PortDefibrillator:
+                  min: 0
+                  max: 1
+                EmergencyMedipen:
+                  min: 0
+                  max: 1
+                MedkitBurnFilled:
+                  min: 0
+                  max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Nes14LootBox3Broken
+  parent: Nes14LootBox1Broken
+  components:
+    - type: Sprite
+      sprite: NES/Structures/Decoration/loot.rsi
+      state: box3_open
+
+- type: entity
+  id: Nes14LootBox2
+  parent: Nes14LootBox1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/loot.rsi
+    state: box2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+              spawn:
+                Nes14LootBox2Broken:
+                  min: 1
+                  max: 1
+                Nes14MRE:
+                  min: 0
+                  max: 1
+                Nes14FoodTinMREFish:
+                  min: 0
+                  max: 1
+                Nes14FoodTinMRE:
+                  min: 0
+                  max: 1
+                Nes14DrinkMRE:
+                  min: 0
+                  max: 1
+                DrinkMREFlask:
+                  min: 0
+                  max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Nes14LootBox2Broken
+  parent: Nes14LootBox1Broken
+  components:
+    - type: Sprite
+      sprite: NES/Structures/Decoration/loot.rsi
+      state: box2_open

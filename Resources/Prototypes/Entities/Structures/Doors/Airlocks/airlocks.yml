@@ -122,7 +122,7 @@
   name: maintenance access
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/maint.rsi #NES14-Changes
 
 - type: entity
   parent: AirlockSecurity # if you get syndie door somehow it counts as sec

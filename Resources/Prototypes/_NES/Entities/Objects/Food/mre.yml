@@ -1,0 +1,124 @@
+- type: entity
+  parent: FlaskBase
+  id: Nes14DrinkMRE
+  name: большая бутылка воды
+  description: Большая бутылка с водой для долгих путешествий
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/ERP.rsi
+    state: bottle
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Water
+          Quantity: 50
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: FoodTinBase
+  id: Nes14FoodTinMRE
+  name: консерва фасоли
+  description: Консерва фасоли, лучше найди другое время чтобы пожрать, мудила.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/beans.rsi
+  - type: Openable
+    openableByHand: true
+  - type: FlavorProfile
+    flavors:
+    - savory
+    - salty
+    - cheap
+  - type: Food
+    trash: Nes14FoodTinMRETrash
+
+- type: entity
+  parent: FoodTinBaseTrash
+  id: Nes14FoodTinMRETrash
+  name: пустая консерва
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/beans.rsi
+
+- type: entity
+  parent: FoodTinBase
+  id: Nes14FoodTinMREFish
+  name: рыбная консерва
+  description: Консерва с рыбой, лучше найди другое время чтобы пожрать, мудила.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/fish.rsi
+  - type: Openable
+    openableByHand: true
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - salty
+    - cheap
+  - type: Food
+    trash: Nes14FoodTinMREFishTrash
+
+- type: entity
+  parent: FoodTinBaseTrash
+  id: Nes14FoodTinMREFishTrash
+  name: пустая консерва
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/fish.rsi
+
+- type: entity
+  name: печеньк
+  parent: FoodSnackBase
+  id: Nes14FoodMRESnack
+  description: Вкусн печеньк, не сытнй но сойдт.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/mre.rsi
+    state: cracker
+  - type: Item
+
+- type: entity
+  id: Nes14MRE
+  name: Набор ИРП
+  description: ИРП, ЕРП, какая нахуй разница?
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/ERP.rsi
+    state: base
+  - type: SpawnItemsOnUse
+    items:
+      - id: Nes14MRETrash
+      - id: Nes14FoodTinMRE
+        orGroup: Eat
+      - id: Nes14FoodTinMREFish
+        orGroup: Eat
+      - id: Nes14FoodMRESnack
+        orGroup: Eat2
+      - id: FoodSnackChocolate
+        orGroup: Eat2
+      - id: Nes14DrinkMRE
+      #   orGroup: Water
+      # - id: DrinkWaterBottleFull
+      #   orGroup: Water
+      # - id: DrinkMREFlask
+      #   orGroup: Water
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: Nes14MRETrash
+  noSpawn: true
+  parent: BaseItem
+  name: обертка ИРП
+  description: Мусор.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Food/ERP.rsi
+    state: open
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage

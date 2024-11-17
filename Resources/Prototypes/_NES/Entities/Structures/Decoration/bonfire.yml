@@ -1,0 +1,79 @@
+- type: entity
+  id: Nes14Bonfire
+  parent: BaseStructure
+  name: костёр
+  description: Потухший костёр, символ страха и смерти перед вечным морозом.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Decoration/bonfire.rsi
+    layers:
+      - state: bonfire
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  # - type: Flammable
+  #   fireSpread: true
+  #   canResistFire: false
+  #   alwaysCombustible: true
+  #   canExtinguish: false # Mwahaha! Let the world burn because of one piece of paper!
+  #   damage:
+  #     types:
+  #       Heat: 1
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Heat
+          damage: 1
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            Nes14BonfireFired:
+              min: 1
+              max: 1
+
+- type: entity
+  id: Nes14BonfireFired
+  parent: BaseStructure
+  name: костёр
+  description: Тёплый костер, дарящий тепло, надежду, и возможность жарить зефирки.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Decoration/bonfire.rsi
+    layers:
+      - state: bonfire
+      - state: burning
+  - type: PointLight
+    radius: 3
+    energy: 5
+    color: "#FFC90C"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -8
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: AlwaysHot
+  - type: SolutionHeater
+    heatPerSecond: 4000
+  - type: EntityHeater

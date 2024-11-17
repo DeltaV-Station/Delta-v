@@ -31,7 +31,7 @@
   description: Инженерная стойка.
   components:
   - type: Sprite
-    sprite: NES/Structures/Decoration/furniture.rsi # NES14-Changes
+    sprite: NES/Structures/Decoration/furniture.rsi
     state: rack-engi
     snapCardinals: true
 
@@ -42,6 +42,40 @@
   description: Медицинская стойка.
   components:
   - type: Sprite
-    sprite: NES/Structures/Decoration/furniture.rsi # NES14-Changes
+    sprite: NES/Structures/Decoration/furniture.rsi
     state: rack-med
     snapCardinals: true
+
+- type: entity
+  id: Nes14Monolit1
+  name: монолит
+  description: Древнее и зловещее нечто.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/monolit.rsi
+    drawdepth: Mobs
+    offset: 0, 0.5
+    snapCardinals: true
+    layers:
+    - state: base
+    - state: base-on
+      shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: AmbientSound
+    volume: -10
+    range: 15
+    sound:
+      path: /Audio/NES/Effects/monolit.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

@@ -92,14 +92,74 @@
     - !type:BiomeEntityLayer
       allowedTiles:
         - FloorSnow
-      threshold: -0.30
+      threshold: -0.2
       noise:
         seed: 0
         noiseType: Cellular
         frequency: 0.05
         lacunarity: 2
         fractalType: FBm
+        octaves: 4
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnow
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorSnow
+      threshold: -0.08
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.03
+        lacunarity: 2
+        fractalType: FBm
         octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnowCoal
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorSnow
+      threshold: -0.07
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.03
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnowTin
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorSnow
+      threshold: -0.05
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.03
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockSnowQuartz
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorSnow
+      threshold: -0.03
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 4
         cellularDistanceFunction: Euclidean
         cellularReturnType: Distance2
       entities:
@@ -131,4 +191,4 @@
         fractalType: Ridged
         octaves: 1
       entities:
-        - FloorWaterEntity
+        - IceCrust
