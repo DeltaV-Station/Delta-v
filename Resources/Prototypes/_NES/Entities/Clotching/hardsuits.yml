@@ -5,9 +5,9 @@
   description: Базовый скафандр белого цвета, оснащенный легкими пластиковыми пластинами. Предназначен для вылазок на небесные тела. Присмотревшись - вы видите что форма скафандра сделана для Авали.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Hardsuits/avali_basic.rsi
+    sprite: NES/Clothing/Hardsuits/avali_basic.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hardsuits/avali_basic.rsi
+    sprite: NES/Clothing/Hardsuits/avali_basic.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -33,9 +33,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: NES/Clotches/Hats/Hardsuits/avali_basic.rsi
+    sprite: NES/Clothing/Hats/Hardsuits/avali_basic.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hats/Hardsuits/avali_basic.rsi
+    sprite: NES/Clothing/Hats/Hardsuits/avali_basic.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -51,9 +51,9 @@
   description: Базовый скафандр белого цвета, оснащенный легкими пластиковыми пластинами. Предназначен для вылазок на небесные тела. Присмотревшись - вы видите что форма скафандра сделана для Человека.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Hardsuits/basic.rsi
+    sprite: NES/Clothing/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hardsuits/basic.rsi
+    sprite: NES/Clothing/Hardsuits/basic.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -79,9 +79,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: NES/Clotches/Hats/Hardsuits/basic.rsi
+    sprite: NES/Clothing/Hats/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hats/Hardsuits/basic.rsi
+    sprite: NES/Clothing/Hats/Hardsuits/basic.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

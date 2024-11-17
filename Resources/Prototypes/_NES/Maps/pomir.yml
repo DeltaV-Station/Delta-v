@@ -12,9 +12,6 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'SS'
-        - type: StationRandomTransform
-          enableStationRotation: false
-          maxStationOffset: null
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: StationJobs

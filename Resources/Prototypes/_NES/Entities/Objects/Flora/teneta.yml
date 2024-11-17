@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseTree
+  id: Nes14TenetaTree01
+  name: дерево
+  description: Дерево внеземного происхождения. Выглядит красивым но... Мы же в любом случае аннигилируем природу, верно?
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree01
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 0
+            max: 1
+
+- type: entity
+  parent: Nes14TenetaTree01
+  id: Nes14TenetaTree02
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree02
+
+- type: entity
+  parent: Nes14TenetaTree01
+  id: Nes14TenetaTree03
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree03
+
+- type: entity
+  parent: Nes14TenetaTree01
+  id: Nes14TenetaTree04
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree04
+
+- type: entity
+  parent: Nes14TenetaTree01
+  id: Nes14TenetaTree05
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree05
+
+- type: entity
+  parent: Nes14TenetaTree01
+  id: Nes14TenetaTree06
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslight.rsi
+    state: tree06

@@ -6,7 +6,7 @@
   description: Серый плащ, с серебристыми линиями. Пахнет моим дедушкой.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Cloak/greycloak.rsi
+    sprite: NES/Clothing/Cloak/greycloak.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -15,7 +15,7 @@
   description: Достаточно облегающий свитер с высоким воротом, закрывающим шею своего владельца.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/greyturtleneck.rsi
+    sprite: NES/Clothing/Uniforms/greyturtleneck.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -24,7 +24,7 @@
   description: Прямоугольный плащ серого цвета из плотного материала.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Cloak/greymantle.rsi
+    sprite: NES/Clothing/Cloak/greymantle.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -33,9 +33,9 @@
   description: Серая рубашка для особых мероприятий.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/greyparade.rsi
+      sprite: NES/Clothing/Uniforms/greyparade.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/greyparade.rsi
+      sprite: NES/Clothing/Uniforms/greyparade.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -44,9 +44,9 @@
   description: Чёрная рубашка с золотыми вставками, для особых мероприятий.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/blackparade.rsi
+      sprite: NES/Clothing/Uniforms/blackparade.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/blackparade.rsi
+      sprite: NES/Clothing/Uniforms/blackparade.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -55,9 +55,9 @@
   description: Просто бордовый комбинизон, с золотыми пуговицами и чёрным низом.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/maroonjumpsuit.rsi
+      sprite: NES/Clothing/Uniforms/maroonjumpsuit.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/maroonjumpsuit.rsi
+      sprite: NES/Clothing/Uniforms/maroonjumpsuit.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -66,9 +66,9 @@
   description: Торжественный бордовый комбинезон, с золотыми вставками для особых мероприятий.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/maroonjumpsuitparade.rsi
+      sprite: NES/Clothing/Uniforms/maroonjumpsuitparade.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/maroonjumpsuitparade.rsi
+      sprite: NES/Clothing/Uniforms/maroonjumpsuitparade.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -77,7 +77,7 @@
   description: Белая майка, одень маленького размера.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/avali_base.rsi
+    sprite: NES/Clothing/Uniforms/avali_base.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -86,7 +86,7 @@
   description: Плащ с несколькими засеребрянными линиями.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Cloak/avali_cloak_base.rsi
+    sprite: NES/Clothing/Cloak/avali_cloak_base.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -95,9 +95,9 @@
   description: Платье для особых мероприятий.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/maid.rsi
+      sprite: NES/Clothing/Uniforms/maid.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/maid.rsi
+      sprite: NES/Clothing/Uniforms/maid.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -106,9 +106,9 @@
   description: Платье для особых мероприятий.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/maid_alt.rsi
+      sprite: NES/Clothing/Uniforms/maid_alt.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/maid_alt.rsi
+      sprite: NES/Clothing/Uniforms/maid_alt.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -117,9 +117,9 @@
   description: Черно-белая, или бело-черная? Не знаю, но все еще униформа администратора станции.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/admin.rsi
+      sprite: NES/Clothing/Uniforms/admin.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/admin.rsi
+      sprite: NES/Clothing/Uniforms/admin.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -128,9 +128,9 @@
   description: Черно-белая, или бело-черная? Все же черная, и все еще униформа администратора станции.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/admin_alt.rsi
+      sprite: NES/Clothing/Uniforms/admin_alt.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/admin_alt.rsi
+      sprite: NES/Clothing/Uniforms/admin_alt.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -139,9 +139,9 @@
   description: Черно-белая, или бело-черная? Не знаю, но все еще юбка администратора станции.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/admin_skirt.rsi
+      sprite: NES/Clothing/Uniforms/admin_skirt.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/admin_skirt.rsi
+      sprite: NES/Clothing/Uniforms/admin_skirt.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -150,7 +150,7 @@
   description: Достаточно ухоженый плащ, с серебристыми линиями. По какой-то причине несколько тяжелый.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Cloak/admin.rsi
+    sprite: NES/Clothing/Cloak/admin.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -159,7 +159,7 @@
   description: Достаточно ухоженый плащ для деловых встреч, с серебристыми линиями. Легче чем его обычная версия.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Cloak/admin_alt.rsi
+    sprite: NES/Clothing/Cloak/admin_alt.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -168,9 +168,9 @@
   description: Серая майка, на вид чистая, на запах... Нет
   components:
     - type: Sprite
-      sprite: NES/Clotches/Uniforms/shirt.rsi
+      sprite: NES/Clothing/Uniforms/shirt.rsi
     - type: Clothing
-      sprite: NES/Clotches/Uniforms/shirt.rsi
+      sprite: NES/Clothing/Uniforms/shirt.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -179,7 +179,7 @@
   description: Одеяние кадета СБ.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/sec_cadet.rsi
+    sprite: NES/Clothing/Uniforms/sec_cadet.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -188,7 +188,7 @@
   description: Одеяние офицера СБ.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/sec_officer.rsi
+    sprite: NES/Clothing/Uniforms/sec_officer.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -197,7 +197,7 @@
   description: Одеяние инспектора СБ.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/sec_senitor.rsi
+    sprite: NES/Clothing/Uniforms/sec_senitor.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -206,7 +206,7 @@
   description: Одеяние судьи станции.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/sec_hos.rsi
+    sprite: NES/Clothing/Uniforms/sec_hos.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -215,7 +215,7 @@
   description: Одеяние исследователя дальних миров. Достаточно теплая и тонкая чтобы влезть в скафандр.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/explorator.rsi
+    sprite: NES/Clothing/Uniforms/explorator.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -224,4 +224,4 @@
   description: Одеяние инженера станции. Имеет хорошие карманы для инструментов.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/engineer.rsi
+    sprite: NES/Clothing/Uniforms/engineer.rsi

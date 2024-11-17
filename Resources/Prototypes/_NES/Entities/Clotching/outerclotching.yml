@@ -5,7 +5,7 @@
   description: Форменная однобортная куртка со стоячим воротником серого цвета.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Outerclotches/greycoat.rsi
+      sprite: NES/Clothing/OuterClothing/greycoat.rsi
     - type: Armor
       modifiers:
         coefficients:
@@ -21,7 +21,7 @@
   description: Форменная однобортная куртка со стоячим воротником серого цвета, рукава были обрезаны.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Outerclotches/avali_greycoat.rsi
+      sprite: NES/Clothing/OuterClothing/avali_greycoat.rsi
 
 - type: entity
   parent: Nes14ClothingOuterCoatGreycoat
@@ -30,7 +30,7 @@
   description: Форменная однобортная куртка со стоячим воротником красного цвета.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Outerclotches/redcoat.rsi
+      sprite: NES/Clothing/OuterClothing/redcoat.rsi
 
 - type: entity
   parent: Nes14AvaliClothingOuterBase
@@ -39,4 +39,4 @@
   description: Темное платье с красными краями, рукава были либо отрезаны, либо сожраны.
   components:
     - type: Sprite
-      sprite: NES/Clotches/Outerclotches/avali_outer_base.rsi
+      sprite: NES/Clothing/OuterClothing/avali_outer_base.rsi

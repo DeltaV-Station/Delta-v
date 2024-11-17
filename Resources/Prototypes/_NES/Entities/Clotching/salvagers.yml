@@ -6,9 +6,9 @@
   description: Плотная утилизаторская куртка для работы с морозной флорой и фауной.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Salvagers/cargo-kurt.rsi
+    sprite: NES/Clothing/Salvagers/cargo-kurt.rsi
   - type: Clothing
-    sprite: NES/Clotches/Salvagers/cargo-kurt.rsi
+    sprite: NES/Clothing/Salvagers/cargo-kurt.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -25,9 +25,9 @@
   description: Защитная утилизаторская маска, которую можно подключить к кислородному баллону, защищает ваше отверстие для пирога от холода.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Salvagers/gasexplorer.rsi
+    sprite: NES/Clothing/Salvagers/gasexplorer.rsi
   - type: Clothing
-    sprite: NES/Clotches/Salvagers/gasexplorer.rsi
+    sprite: NES/Clothing/Salvagers/gasexplorer.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -41,9 +41,9 @@
   description: По виду, обычная ушанка с козырьком для защиты от холода, но если посмотреть внимательнее, то можно заметить что в нее встроена рация.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Salvagers/radio-hat.rsi
+    sprite: NES/Clothing/Salvagers/radio-hat.rsi
   - type: Clothing
-    sprite: NES/Clotches/Salvagers/radio-hat.rsi
+    sprite: NES/Clothing/Salvagers/radio-hat.rsi
   - type: RadioMicrophone
     broadcastChannel: Handheld
   - type: RadioSpeaker
@@ -62,9 +62,9 @@
   description: Легкая противоударная броня для защиты различных конечностей от агрессивной флоры и фауны, по типу ксеноморфов и клоунов.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Salvagers/cargo-riot.rsi
+    sprite: NES/Clothing/Salvagers/cargo-riot.rsi
   - type: Clothing
-    sprite: NES/Clotches/Salvagers/cargo-riot.rsi
+    sprite: NES/Clothing/Salvagers/cargo-riot.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.98
     sprintModifier: 0.95

@@ -16,12 +16,17 @@
           - MachineMask
           layer:
           - MachineLayer
+    - type: PointLight
+      enabled: false
+      radius: 4
+      energy: 8
+      color: "#ff8400"
     - type: AmbientSound
       enabled: false
-      range: 4
-      volume: -4
+      range: 20
+      volume: 40
       sound:
-        path: /Audio/Effects/shuttle_thruster.ogg
+        path: /Audio/NES/Effects/Rocket.ogg #NES14-Changes
     - type: Transform
       anchored: true
     - type: Physics
@@ -85,19 +90,21 @@
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
   - type: Sprite
-    sprite: Structures/Shuttles/thruster.rsi
+    sprite: NES/Structures/Power/Thrusters/rocket.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
+      offset: 0, -0.2
     - state: thrust
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
+      offset: 0, -0.2
     - state: thrust_burn_unshaded
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1
+      offset: 0, 0.7
 
 - type: entity
   id: ThrusterUnanchored
@@ -120,19 +127,21 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: Structures/Shuttles/thruster.rsi
+    sprite: NES/Structures/Power/Thrusters/rocket.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
+      offset: 0, -0.2
     - state: thrust
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
+      offset: 0, -0.2
     - state: thrust_burn_unshaded
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1
+      offset: 0, 0.7
 
 - type: entity
   id: Gyroscope

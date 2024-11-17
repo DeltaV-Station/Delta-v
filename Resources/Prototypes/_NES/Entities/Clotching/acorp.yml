@@ -5,9 +5,9 @@
   description: Стильный комбинезон со стильным значком корпоративного ублюдка на груди.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/acorp_jumpsuit.rsi
+    sprite: NES/Clothing/Uniforms/acorp_jumpsuit.rsi
   - type: Clothing
-    sprite: NES/Clotches/Uniforms/acorp_jumpsuit.rsi
+    sprite: NES/Clothing/Uniforms/acorp_jumpsuit.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -16,9 +16,9 @@
   description: Стильный комбинезон с серебряными погонами корпорации.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Uniforms/acorp_cap_jumpsuit.rsi
+    sprite: NES/Clothing/Uniforms/acorp_cap_jumpsuit.rsi
   - type: Clothing
-    sprite: NES/Clotches/Uniforms/acorp_cap_jumpsuit.rsi
+    sprite: NES/Clothing/Uniforms/acorp_cap_jumpsuit.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -27,9 +27,9 @@
   description: Специализированый для командования и высокопоставленых лиц корпорации.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Outerclotches/acorp_outer.rsi
+    sprite: NES/Clothing/OuterClothing/acorp_outer.rsi
   - type: Clothing
-    sprite: NES/Clotches/Outerclotches/acorp_outer.rsi
+    sprite: NES/Clothing/OuterClothing/acorp_outer.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -48,9 +48,9 @@
   description: Берет... Арбуз.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Hats/acorp_beret.rsi
+    sprite: NES/Clothing/Hats/acorp_beret.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hats/acorp_beret.rsi
+    sprite: NES/Clothing/Hats/acorp_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -64,9 +64,9 @@
   description: Кепка... Дыня.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Hats/acorp_kepka_gandonka.rsi
+    sprite: NES/Clothing/Hats/acorp_kepka_gandonka.rsi
   - type: Clothing
-    sprite: NES/Clotches/Hats/acorp_kepka_gandonka.rsi
+    sprite: NES/Clothing/Hats/acorp_kepka_gandonka.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -80,9 +80,9 @@
   description: Да кого ебет описание?!
   components:
   - type: Sprite
-    sprite: NES/Clotches/Boots/acorp_boots.rsi
+    sprite: NES/Clothing/Boots/acorp_boots.rsi
   - type: Clothing
-    sprite: NES/Clotches/Boots/acorp_boots.rsi
+    sprite: NES/Clothing/Boots/acorp_boots.rsi
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -91,6 +91,6 @@
   description: Обычные ботинки с засеребряным покрытием. Имеют секцию для ножа.
   components:
   - type: Sprite
-    sprite: NES/Clotches/Boots/acorp_arm_boots.rsi
+    sprite: NES/Clothing/Boots/acorp_arm_boots.rsi
   - type: Clothing
-    sprite: NES/Clotches/Boots/acorp_arm_boots.rsi
+    sprite: NES/Clothing/Boots/acorp_arm_boots.rsi
