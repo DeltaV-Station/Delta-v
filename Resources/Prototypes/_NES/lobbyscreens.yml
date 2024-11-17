@@ -4,24 +4,28 @@
 
 - type: lobbyBackground
   id: AShuttle
-  background: /Textures/NES/LobbyScreens/shuttle.png
+  background: /Textures/NES/LobbyScreens/shuttle.webp
 
-# - type: lobbyBackground
-#   id: ABluat
-#   background: /Textures/NES/LobbyScreens/bluat.png
+- type: lobbyBackground
+  id: ATerminal
+  background: /Textures/NES/LobbyScreens/terminal.webp
 
 - type: lobbyBackground
   id: ADarkness
-  background: /Textures/NES/LobbyScreens/darkness.png
+  background: /Textures/NES/LobbyScreens/darkness.webp
 
 - type: lobbyBackground
   id: ASalvagers
-  background: /Textures/NES/LobbyScreens/salvagers.png
+  background: /Textures/NES/LobbyScreens/salvagers.webp
 
 - type: lobbyBackground
   id: ATimeFoward
-  background: /Textures/NES/LobbyScreens/blueplanet.png
+  background: /Textures/NES/LobbyScreens/timefoward.webp
 
-# - type: lobbyBackground
-#   id: ABluePlanet
-#   background: /Textures/NES/LobbyScreens/timefoward.png
+- type: lobbyBackground
+  id: ABluePlanet
+  background: /Textures/NES/LobbyScreens/blueplanet.webp
+
+- type: lobbyBackground
+  id: ALost
+  background: /Textures/NES/LobbyScreens/lost.webp

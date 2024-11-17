@@ -1,0 +1,61 @@
+- type: entity
+  id: Nes14GasTankXe
+  name: топливное хранилище
+  description: Взрывоопасное нечто.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Storage/mini_gas.rsi
+    state: xe
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 300
+    intensitySlope: 5
+    totalIntensity: 200
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:ExplodeBehavior
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: Nes14GasTankLox
+  description: Взрывоопасное нечто.
+  parent: Nes14GasTankXe
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Storage/mini_gas.rsi
+    state: lox
+
+- type: entity
+  id: Nes14GasTankLh2
+  description: Взрывоопасное нечто.
+  parent: Nes14GasTankXe
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Storage/mini_gas.rsi
+    state: lh2

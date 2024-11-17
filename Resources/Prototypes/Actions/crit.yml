@@ -23,7 +23,7 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: Interface/Actions/actions_crit.rsi
+      sprite: NES/GUI/Actions/actions_crit.rsi #NES14-Changes
       state: fakedeath
     event: !type:CritFakeDeathEvent
     useDelay: 30
@@ -38,6 +38,6 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: Interface/Actions/actions_crit.rsi
+      sprite: NES/GUI/Actions/actions_crit.rsi #NES14-Changes
       state: lastwords
     event: !type:CritLastWordsEvent

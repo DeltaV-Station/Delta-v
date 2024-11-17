@@ -25,7 +25,7 @@
   description: Handy, but prevents insertion of pie into your pie hole.
   components:
   - type: InstantAction
-    icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+    icon: { sprite: NES/Clothing/Mask/gas.rsi, state: icon } #NES14-Changes
     iconOn: Interface/Default/blocked.png
     event: !type:ToggleMaskEvent
 

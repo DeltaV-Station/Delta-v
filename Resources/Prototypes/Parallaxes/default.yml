@@ -6,31 +6,34 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/FrontierParallaxBG.png"
-      slowness: 0.9996
-      scrolling: "-0.01, 0"
+        path: "/Textures/NES/Parallaxes/Frontier.png"
+      slowness: 0.996
+      scrolling: "-0.0996, 0"
       scale: "1, 1"
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/Teneta.png"
-      slowness: 0.99
-      tiled: false
-      scale: "0.6, 0.6"
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.998
+      scrolling: "-0.0998, 0"
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/AsteroidsSmall.png"
-      slowness: 0.95
-      scrolling: "0.1, 0"
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizards_star_slower"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.9997
+      scrolling: "-0.09997, 0"
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/AsteroidsMedium.png"
-      slowness: 0.88569
-      scrolling: "0.3, 0"
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/AsteroidsBig.png"
-      slowness: 0.7856
-      scrolling: "0.5, 0"
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+      slowness: 0.99997
+      scrolling: "-0.099997, 0"
+    # - texture:
+    #     !type:ImageParallaxTextureSource
+    #     path: "/Textures/NES/Parallaxes/CoolBluePlanet.png"
+    #   slowness: 0.99
+    #   tiled: false
+    #   scale: "0.6, 0.6"
   layersLQ:
     - texture:
         !type:GeneratedParallaxTextureSource

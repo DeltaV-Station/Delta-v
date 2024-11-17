@@ -16,9 +16,9 @@
   description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: NES/Clothing/Uniforms/admin_skirt.rsi #NES14-Changes
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: NES/Clothing/Uniforms/admin_skirt.rsi #NES14-Changes
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -812,3 +812,18 @@
       sprite: Clothing/Uniforms/Jumpskirt/psychologist.rsi
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpskirt/psychologist.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtClown
+  name: clown skirt
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/clown.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/clown.rsi
+  - type: Tag
+    tags:
+    - ClownSuit
+    - WhitelistChameleon

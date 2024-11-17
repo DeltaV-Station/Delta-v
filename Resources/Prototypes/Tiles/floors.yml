@@ -121,7 +121,7 @@
 - type: tile
   id: FloorSteelMono
   name: tiles-steel-floor-mono
-  sprite: /Textures/DeltaV/Tiles/steel_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/steel_mono.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -217,7 +217,7 @@
 - type: tile
   id: FloorPlastic
   name: tiles-plastic-floor
-  sprite: /Textures/DeltaV/Tiles/plastic.png #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/plastic.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -339,7 +339,7 @@
 - type: tile
   id: FloorWhiteMono
   name: tiles-white-floor-mono
-  sprite: /Textures/DeltaV/Tiles/white_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/white_mono.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -411,7 +411,7 @@
 - type: tile
   id: FloorWhitePlastic
   name: tiles-plastic-white-floor
-  sprite: /Textures/DeltaV/Tiles/white_plastic.png  #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/white_plastic.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -513,7 +513,7 @@
 - type: tile
   id: FloorDarkMono
   name: tiles-dark-floor-mono
-  sprite: /Textures/DeltaV/Tiles/dark_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/NES/Tiles/dark_mono.png #NES14-Changes
   variants: 4
   placementVariants:
   - 1.0
@@ -820,7 +820,7 @@
 - type: tile
   id: FloorClown
   name: tiles-clown-floor
-  sprite: /Textures/DeltaV/Tiles/clown.png #Delta V - Resprite Tiles
+  sprite: /Textures/NES/Tiles/clown.png #NES14-Changes
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]

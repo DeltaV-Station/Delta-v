@@ -103,13 +103,12 @@
     tags:
     - Wrench
   - type: Sprite
-    sprite: Objects/Tools/wrench.rsi
+    sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
     state: icon
   - type: Item
-    sprite: Objects/Tools/wrench.rsi
-    size: Small
+    sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
     storedSprite:
-      sprite: Objects/Tools/wrench.rsi
+      sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
       state: storage
   - type: MeleeWeapon
     wideAnimationRotation: 135

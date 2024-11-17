@@ -20,9 +20,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: NES/Structures/Windows/window.rsi #NES14-Changes
   - type: Icon
-    sprite: DeltaV/Structures/Windows/window.rsi #Delta V - Resprite windows
+    sprite: NES/Structures/Windows/window.rsi #NES14-Changes
     state: full
   - type: Physics
     bodyType: Static

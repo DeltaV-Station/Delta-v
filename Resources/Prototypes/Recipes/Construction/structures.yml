@@ -387,7 +387,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/window.rsi
+    sprite: NES/Structures/Windows/window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -424,7 +424,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: NES/Structures/Windows/reinforced_window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter

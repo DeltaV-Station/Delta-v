@@ -329,7 +329,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
     layers:
     - state: base
     - state: ai_empty
@@ -353,10 +353,11 @@
     containerId: station_ai_mind_slot
     job: StationAi
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
     layers:
     - state: base
     - state: ai
+      map: ["unshaded"]
       shader: unshaded
 
 # The actual brain inside the core
@@ -414,9 +415,9 @@
   - type: Visibility
     layer: 2
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
     layers:
-    - state: ai_camera
+    - state: default
       shader: unshaded
       map: ["base"]
 

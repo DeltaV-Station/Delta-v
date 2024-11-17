@@ -2663,24 +2663,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-10.5
       parent: 3
-- proto: Nes14ClothingHeadHelmetHardsuitBasic
-  entities:
-  - uid: 387
-    components:
-    - type: Transform
-      parent: 383
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: Nes14ClothingOuterHardsuitBasic
-  entities:
-  - uid: 385
-    components:
-    - type: Transform
-      parent: 383
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Nes14ClothingSwimsuit
   entities:
   - uid: 462

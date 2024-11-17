@@ -6,8 +6,9 @@
   description: Personal Data Assistant.
   components:
   - type: Appearance
-  - type: Sprite
+  - type: Sprites
     sprite: Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
+    #sprite: NES/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -19,7 +20,7 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
+    sprite: NES/Objects/Devices/pda.rsi
     state: pda
   - type: Pda
     state: pda

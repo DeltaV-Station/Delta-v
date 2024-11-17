@@ -16,7 +16,7 @@
   description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/cap.rsi
+    sprite: NES/Clothing/Cloak/admin.rsi #NES14-Changes
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -111,7 +111,7 @@
   description: A lavish and decorated cloak for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/capcloakformal.rsi
+    sprite: NES/Clothing/Cloak/admin_alt.rsi #NES14-Changes
   - type: StealTarget
     stealGroup: HeadCloak
 

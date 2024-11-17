@@ -90,3 +90,28 @@
         - MachineMask
         layer:
         - MachineLayer
+
+- type: entity
+  id: LoreHuman
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Human
+
+- type: entity
+  id: LoreTarra
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Tarra
+
+- type: entity
+  id: LoreSun
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Sun
+

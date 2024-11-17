@@ -180,8 +180,8 @@
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
-    icon: Interface/Actions/harmOff.png
-    iconOn: Interface/Actions/harm.png
+    icon: NES/GUI/Actions/harmOff.png #NES14-Changes
+    iconOn: NES/GUI/Actions/harm.png #NES14-Changes
     event: !type:ToggleCombatActionEvent
     priority: -100
 

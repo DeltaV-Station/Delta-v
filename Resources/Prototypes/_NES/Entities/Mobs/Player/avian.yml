@@ -43,10 +43,6 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      48: 0.85
-      64: 0.65
   - type: Temperature
     heatDamageThreshold: 340
     coldDamageThreshold: 150

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "NES-Station, created by Aserovich",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ai"
+    },
+    {
+      "name": "ai_camera",
+      "delays": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ai_dead"
+    },
+    {
+      "name": "ai_empty",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "default",
+      "directions": 4
+    },
+    {
+      "name": "base"
+    }
+  ]
+}

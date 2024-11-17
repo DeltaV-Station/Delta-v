@@ -2,7 +2,7 @@
   id: Morgue
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -11,7 +11,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -20,7 +20,7 @@
   id: Holy
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -29,7 +29,7 @@
   id: Train
   sound:
     params:
-      volume: -8
+      volume: -15
     collection: AmbienceTrain
   rules: NearTrain
   priority: 4
@@ -39,7 +39,7 @@
   id: Medical
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -48,7 +48,7 @@
   id: Engineering
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -58,7 +58,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -67,7 +67,7 @@
   id: Space
   sound:
     params:
-      volume: -8
+      volume: -10
     collection: AmbienceSpace
   fadeIn: true
   interruptable: true
@@ -78,7 +78,7 @@
   id: Mining
   sound:
     params:
-      volume: -10
+      volume: -15
     collection: AmbienceMining
   rules: OnMapGrid
   fadeIn: true
@@ -90,7 +90,7 @@
   id: General
   sound:
     params:
-      volume: -14
+      volume: -16
     collection: AmbienceGeneral
   rules: AlwaysTrue
 
