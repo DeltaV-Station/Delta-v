@@ -32,7 +32,8 @@
     - salty
     - cheap
   - type: Food
-    trash: Nes14FoodTinMRETrash
+    trash:
+    - Nes14FoodTinMRETrash
 
 - type: entity
   parent: FoodTinBaseTrash
@@ -58,7 +59,8 @@
     - salty
     - cheap
   - type: Food
-    trash: Nes14FoodTinMREFishTrash
+    trash:
+    - Nes14FoodTinMREFishTrash
 
 - type: entity
   parent: FoodTinBaseTrash
