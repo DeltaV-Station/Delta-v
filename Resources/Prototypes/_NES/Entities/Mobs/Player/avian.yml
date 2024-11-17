@@ -17,16 +17,16 @@
   - type: Inventory
     templateId: avian
     speciesId: avian
-    displacements:
-      jumpsuit:
-        layer:
-          sprite: NES/Mobs/Species/Avian/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+    # displacements:
+    #   jumpsuit:
+    #     layer:
+    #       sprite: NES/Mobs/Species/Avian/displacement.rsi
+    #       state: jumpsuit
+    #       copyToShaderParameters:
+    #         # Value required, provide a dummy. Gets overridden when applied.
+    #         layerKey: dummy
+    #         parameterTexture: displacementMap
+    #         parameterUV: displacementUV
   - type: MobState
   - type: MobThresholds
     thresholds:

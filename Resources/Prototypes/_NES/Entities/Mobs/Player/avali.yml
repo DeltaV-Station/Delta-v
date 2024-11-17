@@ -17,16 +17,16 @@
   - type: Inventory
     templateId: avali
     speciesId: avali
-    displacements:
-      shoes:
-        layer:
-          sprite: NES/Mobs/Species/Avali/displacement.rsi
-          state: shoes
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+    # displacements:
+    #   shoes:
+    #     layer:
+    #       sprite: NES/Mobs/Species/Avali/displacement.rsi
+    #       state: shoes
+    #       copyToShaderParameters:
+    #         # Value required, provide a dummy. Gets overridden when applied.
+    #         layerKey: dummy
+    #         parameterTexture: displacementMap
+    #         parameterUV: displacementUV
   - type: MobState
   - type: MobThresholds
     thresholds:
