@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.StationEvents;
+namespace Content.Server.StationEvents.NextEvent;
 
 [RegisterComponent, Access(typeof(NextEventSystem))]
 public sealed partial class NextEventComponent : Component

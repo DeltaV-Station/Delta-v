@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.StationEvents;
+namespace Content.Server.StationEvents.NextEvent;
 
 public sealed partial class NextEventSystem : EntitySystem
 {

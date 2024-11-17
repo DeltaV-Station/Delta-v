@@ -1,7 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
-using Content.Shared.DeltaV.StationEvents; // DeltaV
+using Content.Server.StationEvents.NextEvent; // DeltaV
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing; // DeltaV
