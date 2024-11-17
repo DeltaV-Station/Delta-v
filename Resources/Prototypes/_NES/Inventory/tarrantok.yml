@@ -1,13 +1,6 @@
 - type: inventoryTemplate
   id: tarrantok
   slots:
-    - name: shoes
-      slotTexture: shoes
-      slotFlags: FEET
-      stripTime: 3
-      uiWindowPos: 1,0
-      strippingWindowPos: 1,3
-      displayName: Shoes
     - name: tailbag
       slotTexture: tailbag
       slotFlags: TAILBAG
@@ -15,13 +8,34 @@
       uiWindowPos: 2,0
       strippingWindowPos: 2,3
       displayName: Tailbag
+    - name: avaliears
+      slotTexture: avaliears
+      slotFlags: EARS
+      stripTime: 3
+      uiWindowPos: 3,0
+      strippingWindowPos: 2,1
+      displayName: Ears
+    - name: shoes
+      slotTexture: shoes
+      slotFlags: FEET
+      stripTime: 3
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,3
+      displayName: Shoes
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
       stripTime: 6
-      uiWindowPos: 0,1
+      uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Jumpsuit
+    - name: pants
+      slotTexture: pants
+      slotFlags: PANTS
+      stripTime: 2
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,3
+      displayName: Pants
     - name: outerClothing
       slotTexture: suit
       slotFlags: OUTERCLOTHING
@@ -39,7 +53,7 @@
       slotTexture: neck
       slotFlags: NECK
       uiWindowPos: 2,3
-      strippingWindowPos: 2,1
+      strippingWindowPos: 0,1
       displayName: Neck
     - name: mask
       slotTexture: mask
@@ -55,18 +69,11 @@
       strippingWindowPos: 0,0
       displayName: Eyes
     - name: ears
-      slotTexture: avaliears
+      slotTexture: ears
       slotFlags: EARS
       stripTime: 3
       uiWindowPos: 2,2
       strippingWindowPos: 2,0
-      displayName: Ears
-    - name: avaliears
-      slotTexture: avaliears
-      slotFlags: EARS
-      stripTime: 3
-      uiWindowPos: 0,2
-      strippingWindowPos: 0,1
       displayName: Ears
     - name: head
       slotTexture: head
@@ -104,6 +111,8 @@
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
       dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowSuitStorage
       displayName: Suit Storage
     - name: id
       slotTexture: id

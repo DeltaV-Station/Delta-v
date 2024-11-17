@@ -1,0 +1,52 @@
+- type: material
+  id: Nes14RawCopper
+  stackEntity: Nes14CopperOre1
+  name: руда меди
+  unit: materials-unit-chunk
+  icon: { sprite: NES/Objects/Materials/ore.rsi, state: copper }
+  price: 0.1
+
+- type: entity
+  parent: OreBase
+  id: Nes14CopperOre
+  name: медная руда
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: Nes14CopperOre
+  - type: Sprite
+    sprite: NES/Objects/Materials/ore.rsi
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Nes14RawCopper: 100
+  - type: Extractable
+    grindableSolutionName: ironore
+  - type: SolutionContainerManager
+    solutions:
+      ironore:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 10
+
+- type: ore
+  id: Nes14CopperOre
+  oreEntity: Nes14CopperOre1
+  minOreYield: 1
+  maxOreYield: 3
+
+- type: entity
+  id: Nes14CopperOre1
+  parent: Nes14CopperOre
+  suffix: Single
+  components:
+    - type: Stack
+      count: 1
+
+- type: stack
+  id: Nes14CopperOre
+  name: медная руда
+  icon: { sprite: /Textures/NES/Objects/Materials/ore.rsi, state: copper }
+  spawn: Nes14CopperOre1
+  maxCount: 30

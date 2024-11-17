@@ -1,0 +1,172 @@
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: Nes14ClothingOuterHardsuitCombat
+  name: военный скафандр
+  description: Военный скафандр, предназначеный для ведения боевых действий в открытом космосе. Конструкция выглядит достаточно легкой и способной защитить от пуль.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Hardsuits/combat_rig.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Hardsuits/combat_rig.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: HideLayerClothing
+    slots:
+    - Tail
+  - type: ToggleableClothing
+    clothingPrototype: Nes14ClothingHeadHelmetHardsuitCombat
+    slot: head
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: Nes14ClothingHeadHelmetHardsuitCombat
+  name: военный шлем скафандра
+  description: Военный шлем скафандра, врятле переживет прямое попадание.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: NES/Clothing/Head/Hardsuits/combat_rig.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/Hardsuits/combat_rig.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+
+- type: entity
+  parent: Nes14ClothingOuterHardsuitCombat
+  id: Nes14ClothingOuterHardsuitCombatSec
+  name: боевой скафандр
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Hardsuits/sec_rig.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Hardsuits/sec_rig.rsi
+  - type: ToggleableClothing
+    clothingPrototype: Nes14ClothingHeadHelmetHardsuitCombatSec
+    slot: head
+
+- type: entity
+  parent: Nes14ClothingHeadHelmetHardsuitCombat
+  id: Nes14ClothingHeadHelmetHardsuitCombatSec
+  name: боевой шлем скафандра
+  description: Военный шлем скафандра, врятле переживет прямое попадание.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Head/Hardsuits/sec_rig.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/Hardsuits/sec_rig.rsi
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: Nes14ClothingOuterHardsuitEVAHight
+  name: укрепленный скафандр
+  description: Укрепленный скафандр, способный хорошо защитить от ударов и небольших столкновений.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Hardsuits/hard_eva.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Hardsuits/hard_eva.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+
+- type: entity
+  parent: Nes14ClothingOuterHardsuitEVAHight
+  id: Nes14ClothingOuterHardsuitSalvage
+  name: укрепленный внешний скафандр
+  description: Укрепленный скафандр, способный хорошо защитить от ударов и небольших столкновений. Сделан в расцветке отдела снабжения.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Hardsuits/salvage.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Hardsuits/salvage.rsi
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: Nes14ClothingOuterHardsuitEngineer
+  name: укрепленный инженерный скафандр
+  description: Укрепленный инженерный скафандр, способный хорошо защитить от ударов тока и небольших столкновений.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Hardsuits/engineer.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Hardsuits/engineer.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: Nes14ClothingHeadHelmetHardsuitEngi
+  name: шлем EVA
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: NES/Clothing/Head/Hardsuits/engineer.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/Hardsuits/engineer.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: Nes14ClothingHeadHelmetHardsuitSalvage
+  name: шлем EVA
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: NES/Clothing/Head/Hardsuits/salvage.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/Hardsuits/salvage.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout

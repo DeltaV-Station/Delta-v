@@ -116,9 +116,10 @@
   name: loadout-group-captain-jumpsuit
   loadouts:
   - CaptainJumpsuit
-  - CaptainJumpskirt
+  # - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
+  - CaptainJumpsuitTurtleneck
 
 - type: loadoutGroup # DeltaV
   id: CaptainGloves
@@ -182,7 +183,8 @@
   name: loadout-group-hop-jumpsuit
   loadouts:
   - HoPJumpsuit
-  - HoPJumpskirt
+  #- HoPJumpskirt # NES
+  - HoPJumpsuitTurtleneck #NES
   - HoPFormal # DeltaV
   - HoPMessSkirt # DeltaV
   - HoPMessSuit # DeltaV
@@ -904,7 +906,7 @@
   name: loadout-group-station-engineer-head
   minLimit: 0 # DeltaV - Not everyone remembers their (hard)hats
   loadouts:
-  - StationEngineerHardhatYellow
+  # - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - SeniorEngineerBeret
@@ -921,10 +923,10 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
-  - StationEngineerJumpskirt
+  # - StationEngineerJumpskirt
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
+  # - SeniorEngineerJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack

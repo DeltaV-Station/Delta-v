@@ -1,0 +1,45 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: Nes14ClothingOuterCoatAcorpDirectorTrench
+  name: защитный тренч А-КОРП
+  description: Специализированый для командования и высокопоставленых лиц корпорации.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/OuterClothing/acorp_outer.rsi
+  - type: Clothing
+    sprite: NES/Clothing/OuterClothing/acorp_outer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+        Caustic: 0.75 #not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: Nes14ClothingOuterCoatGreycoat
+  name: cерая китель-рубашка
+  description: Форменная однобортная куртка со стоячим воротником серого цвета.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/OuterClothing/greycoat.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.95
+          Slash: 0.9
+          Piercing: 0.9
+          Heat: 0.9
+
+- type: entity
+  parent: Nes14ClothingOuterCoatGreycoat
+  id: Nes14ClothingOuterCoatRedcoat
+  name: красная китель-рубашка
+  description: Форменная однобортная куртка со стоячим воротником красного цвета.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/OuterClothing/redcoat.rsi

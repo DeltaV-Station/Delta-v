@@ -37,7 +37,7 @@
       damageContainer: Box
     - type: Sprite
       noRot: true
-      sprite: Structures/Storage/closet.rsi
+      sprite: NES/Structures/Storage/closet.rsi #NES14-Changes, Closet
       layers:
       - state: cardboard
         map: ["enum.StorageVisualLayers.Base"]

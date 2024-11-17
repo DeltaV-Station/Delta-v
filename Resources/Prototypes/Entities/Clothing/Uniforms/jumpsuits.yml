@@ -64,9 +64,9 @@
   description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: NES/Clothing/Uniforms/admin.rsi #NES14-Changes
+    sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
   - type: Clothing
-    sprite: NES/Clothing/Uniforms/admin.rsi #NES14-Changes
+    sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -86,9 +86,9 @@
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
-    sprite: NES/Clothing/Uniforms/explorator.rsi #NES14-Changes
+    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
   - type: Clothing
-    sprite: NES/Clothing/Uniforms/explorator.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -303,9 +303,9 @@
   description: If this suit was non-conductive, maybe engineers would actually do their damn job.
   components:
   - type: Sprite
-    sprite: NES/Clothing/Uniforms/engineer.rsi #NES14-Changes
+    sprite: Clothing/Uniforms/Jumpsuit/engineering.rsi
   - type: Clothing
-    sprite: NES/Clothing/Uniforms/engineer.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/engineering.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -424,9 +424,9 @@
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
-    sprite: NES/Clothing/Uniforms/medical.rsi #NES14-Changes
+    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
   - type: Clothing
-    sprite: NES/Clothing/Uniforms/medical.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -586,9 +586,21 @@
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
+    sprite: NES/Clothing/Uniforms/Jumpsuit/security.rsi #NES14-Changes
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
+    sprite: NES/Clothing/Uniforms/Jumpsuit/security.rsi #NES14-Changes
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#C12D30"
+        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#C12D30"
+        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+      - state: overlay-inhand-right
 
 - type: entity
   parent: ClothingUniformFoldableBase # DeltaV - add foldable jumpsuits
@@ -997,9 +1009,9 @@
   description: A special suit made for the elite security under CentComm.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/ert_security.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/ert_NES/Clothing/Head/Helmets/security.rsi #NES14-Changes
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/ert_security.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/ert_NES/Clothing/Head/Helmets/security.rsi #NES14-Changes
 
 - type: entity
   parent: ClothingUniformJumpsuitClown

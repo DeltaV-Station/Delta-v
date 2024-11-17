@@ -8,6 +8,7 @@ materials-steel = сталь
 materials-gold = золото
 materials-silver = серебро
 materials-plasteel = пласталь
+materials-copper = медь
 # Other
 materials-biomass = биомасса
 materials-cardboard = картон

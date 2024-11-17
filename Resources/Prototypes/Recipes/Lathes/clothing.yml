@@ -247,7 +247,10 @@
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitEngineering
-  result: ClothingUniformJumpsuitEngineering
+  result: Nes14ClothingUniformEngiEngineer #NES14-Changes
+  completetime: 4
+  materials:
+    Cloth: 300
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe

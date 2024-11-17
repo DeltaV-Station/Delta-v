@@ -1,0 +1,99 @@
+- type: entity
+  parent: SheetMetalBase
+  id: Nes14Sheetcopper
+  name: медь
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Nes14copper: 100
+  - type: Stack
+    stackType: Nes14copper
+    baseLayer: base
+    layerStates:
+    - copper
+    - copper_2
+    - copper_3
+  - type: Sprite
+    state: copper_3
+    layers:
+    - state: copper_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: copper
+  - type: Appearance
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Extractable
+    grindableSolutionname: Copper
+  - type: SolutionContainerManager
+    solutions:
+      copper:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 1
+
+- type: entity
+  parent: Nes14Sheetcopper
+  id: Nes14Sheetcopper10
+  name: медь
+  suffix: 10
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Nes14copper
+    count: 10
+
+- type: entity
+  parent: Nes14Sheetcopper
+  id: Nes14Sheetcopper1
+  name: медь
+  suffix: Single
+  components:
+  - type: Sprite
+    state: copper
+  - type: Stack
+    stackType: Nes14copper
+    count: 1
+
+- type: entity
+  parent: Nes14Sheetcopper
+  id: Nes14SheetcopperLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: stack
+  id: Nes14copper
+  name: медь
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/metal.rsi, state: copper }
+  spawn: Nes14Sheetcopper1
+  maxCount: 30
+
+- type: material
+  id: Nes14copper
+  stackEntity: Nes14Sheetcopper1
+  name: materials-copper
+  icon: { sprite: NES/Objects/Materials/Sheets/metal.rsi, state: copper }
+  price: 0.1
+
+- type: latheRecipe
+  id: Nes14Sheetcopper
+  result: Nes14Sheetcopper1
+  completetime: 0
+  materials:
+    Nes14RawCopper: 100
+    Coal: 30
+
+- type: latheRecipe
+  id: Nes14Sheetcopper30
+  result: Nes14Sheetcopper
+  completetime: 2
+  materials:
+    Nes14RawCopper: 3000
+    Coal: 1000

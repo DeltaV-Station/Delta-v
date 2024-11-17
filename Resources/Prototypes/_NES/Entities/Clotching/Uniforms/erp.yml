@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformMaid
+  name: платье горничной
+  description: Платье для особых мероприятий.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/ERP/maid.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/ERP/maid.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformMaidAlt
+  name: платье горничной
+  description: Платье для особых мероприятий.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/ERP/maid_alt.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/ERP/maid_alt.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id:  Nes14ClothingSwimsuit
+  name: купальник
+  description: Не одевай его если у тебя нет очков.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/ERP/swimsuit_alt.rsi

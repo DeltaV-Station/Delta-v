@@ -49,3 +49,36 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: Nes14PantsUniformBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [pants]
+    equipSound:
+      path: /Audio/NES/Items/shirt.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/NES/Items/shirt_kick.ogg
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

@@ -1,0 +1,54 @@
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformPants
+  name: шорты
+  description: Серые шорты, все еще не спасет тебя от перепадов температур
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Pants/base.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Pants/base.rsi
+
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformPantsAdmin
+  name: темные штаны
+  description: Темные штаны из гиперткани, с поясом золотого цвета.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Pants/admin.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Pants/admin.rsi
+
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformPantsAdminAlt
+  name: черно-белые штаны
+  description: Черно-белые штаны из гиперткани, с поясом серебрянного цвета.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Pants/admin_alt.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Pants/admin_alt.rsi
+
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformPantsBlack
+  name: черные штаны
+  description: Черные штаны из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Pants/greyturtleneck.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Pants/greyturtleneck.rsi
+
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformPantsMaroon
+  name: бордовые штаны
+  description: Бордовые штаны из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Pants/maroonjumpsuit.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Pants/maroonjumpsuit.rsi

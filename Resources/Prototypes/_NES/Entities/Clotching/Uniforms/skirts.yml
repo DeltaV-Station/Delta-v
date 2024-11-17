@@ -1,0 +1,10 @@
+- type: entity
+  parent: Nes14PantsUniformBase
+  id: Nes14ClothingUniformSkirtAdmin
+  name: темная юбка
+  description: Стильная, темная юбка из гиперткани, почти не гнется под ветром
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Skirt/admin_skirt.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Skirt/admin_skirt.rsi

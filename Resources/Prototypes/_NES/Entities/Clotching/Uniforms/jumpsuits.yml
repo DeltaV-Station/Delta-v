@@ -1,0 +1,30 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: Nes14ClothingUniformJumpsuitAcorp
+  name: стильный комбинезон Acorp
+  description: Стильный комбинезон со стильным значком корпоративного ублюдка на груди.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/Jumpsuit/acorp_jumpsuit.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Uniforms/Jumpsuit/acorp_jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Nes14ClothingUniformJumpsuitCapAcorp
+  name: серебряный комбинезон Acorp
+  description: Стильный комбинезон с серебряными погонами корпорации.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/Jumpsuit/acorp_cap_jumpsuit.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Uniforms/Jumpsuit/acorp_cap_jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id:  Nes14ClothingUniformEngiEngineer
+  name: комбинезон инженера
+  description: Форма инженера станции. Имеет хорошие карманы для инструментов.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/Jumpsuit/engineer.rsi
