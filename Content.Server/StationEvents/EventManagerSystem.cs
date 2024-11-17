@@ -69,7 +69,7 @@ public sealed class EventManagerSystem : EntitySystem
     }
     // DeltaV - end overloaded for backwards compatiblity
 
-    // DeltaV - seperate event generation method
+    // DeltaV - separate event generation method
     public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent, TimeSpan? eventRunTime) // Event time checks compared to eventRunTime
                                                                                                                                        // unless its null in which case current time is used
     {
@@ -93,11 +93,10 @@ public sealed class EventManagerSystem : EntitySystem
             Log.Warning("A requested event is not available!");
             return false;
         }
-        // End snippet from upstreams RunRandomEvent
 
         return true;
     }
-    // DeltaV - end seperate event generation method
+    // DeltaV - end separate event generation method
 
     // DeltaV - overloaded for backwards compatiblity
     public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)

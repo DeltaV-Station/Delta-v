@@ -73,7 +73,7 @@ namespace Content.Server.StationEvents
                 NextEventComponent? nextEventComponent = null;
                 if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
-                    ResetTimer(eventScheduler);
+                    ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
                     TimeSpan nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
                     if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
                         continue;
