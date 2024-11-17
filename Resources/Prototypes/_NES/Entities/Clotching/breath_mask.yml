@@ -1,0 +1,47 @@
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: Nes14ClothingMaskBreath
+  name: аварийная маска
+  description: Аварийная маска со встроенным баллоном. Может выйграть несколько минут для ваших легких.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: NES/Clotches/Mask/breath2.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Mask/breath2.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      # If gas tank volume is changed, adjust MinimumTritiumOxyburnEnergy in Atmospherics.cs by the same proportions
+      volume: 0.22
+      temperature: 293.15
+    # tankLowPressure: 0.22
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 100
+  - type: StaticPrice
+    price: 12.5 # increases in price after decomposed into raw materials
+
+- type: entity
+  id: Nes14ClothingMaskBreathFilled
+  parent: Nes14ClothingMaskBreath
+  suffix: Заполнен
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      # 4 minutes
+      volume: 0.66
+      moles:
+        - 0.270782035 # oxygen
+      temperature: 293.15

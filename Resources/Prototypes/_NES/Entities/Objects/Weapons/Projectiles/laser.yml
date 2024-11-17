@@ -1,0 +1,46 @@
+- type: entity
+  name : энергетический заряд
+  id: Nes14BulletLaser
+  parent: BulletDisabler
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Laser/projectiles.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: PointLight
+    radius: 1.4
+    energy: 4
+    color: "#49b5d8"
+  - type: Projectile
+    impactEffect: Nes14BulletImpactEffectLaser
+    damage:
+      types:
+        Heat: 18
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  id: Nes14BulletImpactEffectLaser
+  parent: BulletImpactEffect
+  noSpawn: true
+  components:
+    - type: TimedDespawn
+      lifetime: 0.2
+    - type: PointLight
+      radius: 0.5
+      energy: 6
+      color: "#49b5d8"
+    - type: Sprite
+      drawdepth: Effects
+      layers:
+        - shader: unshaded
+          map: ["enum.EffectLayers.Unshaded"]
+          sprite: NES/Objects/Weapons/Laser/projectiles.rsi
+          state: impact_laser_blue
+    - type: EffectVisuals
+    - type: Tag
+      tags:
+        - HideContextMenu

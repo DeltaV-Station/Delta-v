@@ -1,0 +1,165 @@
+- type: species
+  id: Avian
+  name: species-name-Avian
+  roundStart: true
+  prototype: MobAvian
+  sprites: MobAvianSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobAvianMarkingLimits
+  dollPrototype: MobAvianDummy
+  skinColoration: Hues
+  maleFirstNames: names_Tarrantok
+  femaleFirstNames: names_Tarrantok
+  maleLastNames: names_arachnid_last # Corvax-LastnameGender
+  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
+  minAge: 25
+  maxAge: 60
+  youngAge: 25
+  oldAge: 50
+  sexes:
+    - Male
+    - Female
+    - Unsexed
+
+- type: speciesBaseSprites
+  id: MobAvianSprites
+  sprites:
+    Head: MobAvianHead
+    Snout: MobAvianAnyMarkingFollowSkin
+    HeadTop: MobAvianAnyMarkingFollowSkin
+    Hair: MobAvianAnyMarking
+    HeadSide: MobAvianAnyMarkingFollowSkin
+    Tail: MobHumanoidAnyMarking
+    Chest: MobAvianTorso
+    Eyes: MobAvianEyes
+    LArm: MobAvianLArm
+    RArm: MobAvianRArm
+    LHand: MobAvianLHand
+    RHand: MobAvianRHand
+    LLeg: MobAvianLLeg
+    RLeg: MobAvianRLeg
+    LFoot: MobAvianLFoot
+    RFoot: MobAvianRFoot
+
+- type: markingPoints
+  id: MobAvianMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [TailAvianFemale]
+    Snout:
+      points: 0
+      required: true
+      defaultMarkings: [Beak]
+    HeadTop:
+      points: 0
+      required: false
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [WingsAvian]
+
+- type: humanoidBaseSprite
+  id: MobAvianAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobAvianAnyMarkingFollowSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobAvianHead
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAvianHeadMale
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAvianHeadFemale
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobAvianTorso
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAvianTorsoMale
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAvianTorsoFemale
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobAvianLLeg
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAvianLHand
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobAvianEyes
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobAvianLArm
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAvianLFoot
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAvianRLeg
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAvianRHand
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobAvianRArm
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAvianRFoot
+  baseSprite:
+    sprite: NES/Mobs/Species/Avian/parts.rsi
+    state: r_foot

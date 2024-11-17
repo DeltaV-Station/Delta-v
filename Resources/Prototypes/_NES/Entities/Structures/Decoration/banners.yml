@@ -1,0 +1,57 @@
+- type: entity
+  id: NesBannerFederation
+  parent: BannerBase
+  name: флаг Федерации
+  description: Флаг одной из самых могущественных фракций земли. Ублюдки.
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: 0,0.45
+    scale: 1.3, 1.3
+    sprite: NES/Structures/Decoration/flags.rsi
+    state: fd_flag
+
+- type: entity
+  id: NesBannerTKK
+  parent: NesBannerFederation
+  name: флаг ТКК
+  description: Флаг одной из самых могущественных фракций земли. Узкоглазые ублюдки.
+  components:
+  - type: Sprite
+    state: china_flag
+
+- type: entity
+  id: NesBannerCitadel
+  parent: NesBannerFederation
+  name: флаг Циты
+  description: Флаг одной из самых могущественных фракций златоглазки. Пернатые ублюдки.
+  components:
+  - type: Sprite
+    state: citadel_flag
+
+- type: entity
+  id: NesBannerFandor
+  parent: NesBannerFederation
+  name: флаг Фандора
+  description: Флаг одной фракций глубокого космоса. Ушастые ублюдки.
+  components:
+  - type: Sprite
+    state: fandor_flag
+
+- type: entity
+  id: NesBannerNermanta
+  parent: NesBannerFederation
+  name: флаг Нерманты
+  description: Флаг одной из самых могущественных фракций марса. Коммунистические ублюдки.
+  components:
+  - type: Sprite
+    state: mars_flag
+
+- type: entity
+  id: NesBannerStation
+  parent: NesBannerFederation
+  name: флаг экспедиции FDSS-55
+  description: На данном знамени изображена эмблема всей программы освоения 55-го сектора. Наша станция будет самым маленьким и отдаленным остравком демократии.
+  components:
+  - type: Sprite
+    state: nes_flag

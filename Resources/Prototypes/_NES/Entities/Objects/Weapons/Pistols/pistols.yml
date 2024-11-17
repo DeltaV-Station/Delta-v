@@ -1,0 +1,21 @@
+- type: entity
+  name: ГШ 70
+  parent: BaseWeaponPistol
+  id: Nes14WeaponPistolGH70
+  description: Табельное оружие сотрудников службы безопасности. Использует патроны калибра .35 авто.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Pistol/pollock.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: NES/Objects/Weapons/Pistol/pollock.rsi
+  - type: Gun
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/NES/Guns/universal.ogg

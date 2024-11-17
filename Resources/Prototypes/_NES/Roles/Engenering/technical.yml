@@ -1,0 +1,24 @@
+- type: job
+  id: Technical
+  name: механник
+  description: job-description-technical
+  playTimeTracker: JobTechnical
+  startingGear: Nes14TechGear
+  icon: "JobIconTechnicalAssistant"
+  supervisors: job-supervisors-engineering
+  canBeAntag: false
+  access:
+  - Maintenance
+  - Engineering
+  - External
+
+- type: startingGear
+  id: Nes14TechGear
+  equipment:
+    id: Nes14AdminPDA
+    ears: ClothingHeadsetAltCommand
+    jumpsuit: Nes14ClothingUniformShirt
+  # storage:
+  #   back:
+  #   - BoxSurvival
+  #   - Flash

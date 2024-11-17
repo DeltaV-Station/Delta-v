@@ -74,7 +74,7 @@
   name: cell recharger
   components:
   - type: Sprite
-    sprite: Structures/Power/cell_recharger.rsi
+    sprite: NES/Structures/Power/cell_recharger.rsi # NES14-Changes
     layers:
     - map: ["enum.PowerChargerVisualLayers.Base"]
       state: "empty"

@@ -1,0 +1,40 @@
+- type: damageModifierSet
+  id: Tarrantok # пупупу
+  coefficients:
+    Blunt: 1.2
+    Piercing: 1.2
+    Slash: 1.2
+    Cold: 1
+    Heat: 1
+    Poison: 0.8
+    Shock: 1.2
+    Cellular: 0.9
+    Asphyxiation: 0.9
+
+- type: damageModifierSet
+  id: Avian
+  coefficients:
+    Blunt: 1
+    Piercing: 1
+    Slash: 1
+    Cold: 1.5
+    Heat: 0.9
+    Poison: 0.9
+    Shock: 0.8
+    Cellular: 0.5
+    Asphyxiation: 1.1
+    Bloodloss: 0.9
+    Radiation: 0.5
+
+- type: damageModifierSet
+  id: Avali
+  coefficients:
+    Blunt: 1.2
+    Piercing: 1.2
+    Slash: 1.2
+    Cold: 0.8
+    Heat: 2
+    Poison: 0.9
+    Cellular: 1
+    Asphyxiation: 0.8
+    Bloodloss: 1.2

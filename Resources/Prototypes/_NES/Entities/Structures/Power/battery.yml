@@ -1,0 +1,32 @@
+- type: entity
+  parent: [ BaseSMES, Nes14BaseMediStructure ]
+  id: Nes14BigShotNatteryBasic
+  name: большой аккамулятор
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Power/BIGshotBattery.rsi
+    snapCardinals: true
+    layers:
+      - state: smes
+        offset: 0.5, 0.5
+      - map: ["enum.SmesVisualLayers.Charge"]
+        state: "smes-og1" # -og0 does not exist
+        shader: unshaded
+        visible: false
+        offset: 0.5, 0.5
+      - map: ["enum.SmesVisualLayers.Input"]
+        state: "smes-oc0"
+        shader: unshaded
+        offset: 0.5, 0.5
+      - map: ["enum.SmesVisualLayers.Output"]
+        state: "smes-op1"
+        shader: unshaded
+        offset: 0.5, 0.5
+  - type: AmbientSound
+    volume: -3
+    range: 8
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+  - type: Battery
+    maxCharge: 240000000
+    startingCharge: 240000000

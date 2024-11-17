@@ -1,0 +1,54 @@
+- type: inventoryTemplate
+  id: engineer_droid
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,0
+      displayName: Head
+    - name: crowbar
+      slotTexture: crowbar
+      slotFlags: POCKET
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - Crowbar
+    - name: wrench
+      slotTexture: wrench
+      slotFlags: POCKET
+      uiWindowPos: 1,1
+      strippingWindowPos: 1,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - Wrench
+    - name: wirecutter
+      slotTexture: cutters
+      slotFlags: POCKET
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - Wirecutter
+    - name: screwdiver
+      slotTexture: screwdiver
+      slotFlags: POCKET
+      uiWindowPos: 2,0
+      strippingWindowPos: 0,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - Screwdriver
+    - name: welding
+      slotTexture: welder
+      slotFlags: POCKET
+      uiWindowPos: 3,0
+      strippingWindowPos: 0,1
+      displayName: welder
+      whitelist:
+        tags:
+          - WeldWearable

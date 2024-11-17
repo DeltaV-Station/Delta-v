@@ -1,0 +1,22 @@
+- type: entity
+  name: самодельная C4
+  description: Кому-то удалось собрать бомбу своими руками.
+  parent: GrenadeBase
+  id: Nes14HandmakedBombC4
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Bomb/breaching.rsi
+  - type: OnUseTimerTrigger
+    delay: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 100
+    intensitySlope: 10
+    maxIntensity: 15
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/minibombcountdown.ogg
+      params:
+        volume: 12

@@ -1,0 +1,29 @@
+- type: entity
+  id: OrganAvianStomach
+  parent: OrganHumanStomach
+  name: avian stomach
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 40
+  - type: Metabolizer
+    metabolizerTypes: [Avian]
+
+- type: entity
+  id: OrganAvaliStomach
+  parent: OrganHumanStomach
+  name: avali stomach
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 30
+  - type: Metabolizer
+    metabolizerTypes: [Avali]

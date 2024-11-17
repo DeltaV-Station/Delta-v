@@ -1,0 +1,67 @@
+# - type: entity
+#   parent: WallReinforced
+#   id: Nes14WallPlastic
+#   name: пластиковая стена
+#   components:
+#   - type: Sprite
+#     sprite: NES/Structures/Walls/plastic.rsi
+#   - type: Icon
+#     sprite: NES/Structures/Walls/plastic.rsi
+#     state: full
+#   - type: Construction
+#     graph: Girder
+#     node: shuttleWall
+#   - type: IconSmooth
+#     key: walls
+#     base: plastitanium
+#   - type: Appearance
+
+# - type: entity
+#   parent: WallReinforced
+#   id: Nes14WallShuttle
+#   name: стена шаттла
+#   components:
+#   - type: Sprite
+#     sprite: NES/Structures/Walls/shuttle_plastic.rsi
+#   - type: Icon
+#     sprite: NES/Structures/Walls/shuttle_plastic.rsi
+#     state: full
+#   - type: Construction
+#     graph: Girder
+#     node: shuttleWall
+#   - type: IconSmooth
+#     key: walls
+#     base: plastitanium
+#   - type: Appearance
+
+- type: entity
+  parent: Girder
+  id: Nes14WallPlasticFrame
+  name: пластиковая баррикада
+  components:
+  - type: SpriteFade
+  - type: Climbable
+  - type: Sprite
+    sprite: NES/Structures/Walls/frame_2.rsi
+  - type: Icon
+    sprite: NES/Structures/Walls/frame_2.rsi
+    state: full
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: PlaceableSurface
+  - type: IconSmooth
+    key: walls
+    base: plastitanium
+  - type: Appearance

@@ -1,0 +1,34 @@
+- type: entity
+  parent: Clothing
+  id: Nes14ACSCardStandard
+  name: identification card
+  description: A card necessary to access various areas aboard the station.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: Nes14ACSCardStandard
+  id: Nes14ACSCard
+  name: passenger ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: PresetIdCard
+    job: Passenger

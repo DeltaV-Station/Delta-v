@@ -10,7 +10,7 @@
   - type: WallMount
     arc: 175
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: NES/Structures/Storage/tanks.rsi #NES14-Changes
     state: cleanerdispenser
   - type: Appearance
   - type: InteractionOutline
@@ -71,7 +71,7 @@
   name: fuel dispenser
   components:
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: NES/Structures/Storage/tanks.rsi #NES14-Changes
     state: fueldispenser
   - type: SolutionContainerManager
     solutions:

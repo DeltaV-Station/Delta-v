@@ -1,0 +1,45 @@
+- type: inventoryTemplate
+  id: medical_droid
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,0
+      displayName: Head
+    - name: defib
+      slotTexture: defib
+      slotFlags: BELT
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - DefibrillatorWearable
+    - name: monitor
+      slotTexture: monitor
+      slotFlags: BELT
+      uiWindowPos: 1,1
+      strippingWindowPos: 1,1
+      displayName: Belt
+      whitelist:
+        tags:
+          - MonitorWearable
+    - name: hypo
+      slotTexture: hypo
+      slotFlags: BELT
+      uiWindowPos: 0,1
+      strippingWindowPos: 2,2
+      displayName: Belt
+      whitelist:
+        tags:
+          - HypoWearable
+    - name: health
+      slotTexture: health
+      slotFlags: BELT
+      uiWindowPos: 2,0
+      strippingWindowPos: 2,0
+      displayName: Belt
+      whitelist:
+        tags:
+          - ScanerWearable

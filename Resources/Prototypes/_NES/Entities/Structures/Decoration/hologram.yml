@@ -1,0 +1,16 @@
+- type: entity
+  id: Nes14ShuttleHologram
+  parent: BaseStructure
+  name: голограмма шаттла
+  description: Голограмма одного из шаттлов станции.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: NES/Structures/Decoration/shuttle_manipulator.rsi
+    state: holograph_station
+  - type: PointLight
+    radius: 1.4
+    energy: 4
+    color: "#6bc9a5"
+  - type: Damageable
+    damageContainer: Inorganic

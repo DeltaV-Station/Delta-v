@@ -1,0 +1,13 @@
+- type: entity
+  parent: ReinforcedWindow
+  id: Nes14Window
+  name: окно
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Windows/plastic_window.rsi
+  - type: Icon
+    sprite: NES/Structures/Windows/plastic_window.rsi
+  - type: IconSmooth
+    base: swindow
+

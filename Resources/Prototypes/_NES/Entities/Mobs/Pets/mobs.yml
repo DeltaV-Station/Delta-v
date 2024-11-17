@@ -1,0 +1,42 @@
+#NES мобы
+
+- type: entity
+  name: Гарфилд
+  parent: MobCat
+  id: Nes14MobCatGarfield
+  description: Его явно откормили этими лазаньями.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: NES/Mobs/garfield.rsi #Спрайт nupiya
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+    - map: [ "head" ]
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+
+- type: entity
+  name: спавн Гарфилда
+  id: Nes14SpawnMobCatGarfield
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - Nes14MobCatGarfield
+

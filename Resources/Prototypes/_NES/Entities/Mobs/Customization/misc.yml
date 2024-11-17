@@ -1,0 +1,26 @@
+- type: marking
+  id: Beak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Avian]
+  sprites:
+    - sprite: NES/Mobs/Species/Avian/parts.rsi
+      state: beak
+
+- type: marking
+  id: WingsAvali
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Avali]
+  sprites:
+    - sprite: NES/Mobs/Customization/misc.rsi
+      state: avali
+
+- type: marking
+  id: WingsAvian
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Avian]
+  sprites:
+    - sprite: NES/Mobs/Customization/misc.rsi
+      state: avian

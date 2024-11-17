@@ -1,0 +1,31 @@
+- type: job
+  id: Administrator
+  name: администратор
+  description: job-description-admin
+  playTimeTracker: JobAdministration
+  weight: 20
+  startingGear: Nes14AdminGear
+  icon: "JobIconCaptain"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: startingGear
+  id: Nes14AdminGear
+  equipment:
+    id: Nes14AdminPDA
+    ears: ClothingHeadsetAltCommand
+    jumpsuit: Nes14ClothingUniformShirt
+  # storage:
+  #   back:
+  #   - BoxSurvival
+  #   - Flash

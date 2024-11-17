@@ -1,0 +1,49 @@
+- type: body
+  id: Avian
+  name: Avian
+  root: torso
+  slots:
+    head:
+      part: HeadAvian
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoAvian
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganAvianStomach
+        liver:  OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmAvian
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmAvian
+      connections:
+      - left hand
+    right hand:
+      part: RightHandAvian
+    left hand:
+      part: LeftHandAvian
+    right leg:
+      part: RightLegAvian
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegAvian
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAvian
+    left foot:
+      part: LeftFootAvian

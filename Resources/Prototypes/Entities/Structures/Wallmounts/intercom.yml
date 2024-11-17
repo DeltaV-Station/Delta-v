@@ -43,7 +43,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: NES/Structures/Wallmounts/intercom.rsi # NES14-Changes
     layers:
     - state: base
     - state: unshaded
@@ -135,19 +135,8 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
-    layers:
-    - state: build
-    - state: panel
-      visible: false
-      map: [ "wires" ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ConstructionVisuals.Layer:
-        wires:
-          0: { visible: false }
-          1: { visible: true }
+    sprite: NES/Structures/Wallmounts/intercom.rsi # NES14-Changes
+    state: build
   - type: Construction
     graph: Intercom
     node: assembly

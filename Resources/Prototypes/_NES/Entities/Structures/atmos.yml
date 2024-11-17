@@ -1,0 +1,106 @@
+- type: entity
+  parent: [Nes14BaseBigStructure, GasCanister]
+  id: Nes14OxygenStorage
+  name: хранилище кислорода
+  description: О... 2... ЭТО БЫЛ НАШ КИСЛОРОД.
+  components:
+    - type: InteractionOutline
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: Sprite
+      sprite: NES/Structures/Storage/gas.rsi
+      scale: 2, 2
+      layers:
+        - state: o2
+    - type: Appearance
+    - type: Physics
+      bodyType: Static
+    - type: AtmosDevice
+      requireAnchored: false
+      joinSystem: true
+    - type: GasPortable
+    - type: GasCanister
+      gasMixture:
+        volume: 100000
+        moles:
+          - 50000
+        temperature: 293.15
+    - type: StaticPrice
+      price: 1000
+    - type: AccessReader
+      access: [["Atmospherics"], ["Engineering"], ["Research"]]
+    - type: Lock
+      locked: false
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
+
+- type: entity
+  parent: [Nes14BaseBigStructure, GasCanister]
+  id: Nes14NitrogenStorage
+  name: хранилище азота
+  description: N... 2... ЭТО БЫЛ НАШ АЗОТ.
+  components:
+    - type: InteractionOutline
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: Sprite
+      sprite: NES/Structures/Storage/gas.rsi
+      scale: 2, 2
+      layers:
+        - state: n2
+    - type: Appearance
+    - type: Physics
+      bodyType: Static
+    - type: AtmosDevice
+      requireAnchored: false
+      joinSystem: true
+    - type: GasPortable
+    - type: GasCanister
+      gasMixture:
+        volume: 100000
+        moles:
+          - 0
+          - 50000
+        temperature: 293.15
+    - type: StaticPrice
+      price: 1000
+    - type: AccessReader
+      access: [["Atmospherics"], ["Engineering"], ["Research"]]
+    - type: Lock
+      locked: false
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior

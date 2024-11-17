@@ -1,0 +1,26 @@
+- type: entity
+  name: шоковая глефа
+  parent: EnergySword
+  id: Nes14EnergyStickDouble
+  description: Шоковая глефа, предпочитаемая передовыми войсками околосолнечного сектора для ведения ближнего боя.
+  components:
+  # - type: EnergySword
+  #   activatedColor: "#569eb8"
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Slash: 10
+            Heat: 12
+  - type: ItemToggleDisarmMalus
+    activatedDisarmMalus: 0.6
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Melee/glefa.rsi
+    layers:
+      - state: e_cutlass
+      - state: e_cutlass_blade
+        visible: false
+        map: [ "blade" ]
+  - type: Item
+    size: Small
+    sprite: NES/Objects/Weapons/Melee/glefa.rsi
+  - type: Wieldable

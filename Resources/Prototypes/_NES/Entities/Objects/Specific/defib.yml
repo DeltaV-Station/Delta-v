@@ -1,0 +1,12 @@
+- type: entity
+  id: Nes14PortDefibrillator
+  name: портативный дефиблилятор
+  description: БЗЗЗЗ, РАЗРЯД!
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Specific/Medical/portafib.rsi
+  - type: Item
+    size: Normal
+  - type: PowerCellDraw
+    useRate: 300

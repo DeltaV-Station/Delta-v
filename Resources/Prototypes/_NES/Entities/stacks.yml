@@ -1,0 +1,13 @@
+- type: stack
+  id: NesStackGreyTape
+  name: скотч
+  icon: {sprite: "/Textures/NES/Objects/Misc/tape.rsi", state: tapegrey }
+  spawn: Nes14GreyTape
+  maxCount: 20
+
+- type: stack
+  id: NesStackTape
+  name: скотч
+  icon: {sprite: "/Textures/NES/Objects/Misc/tape.rsi", state: tape }
+  spawn: Nes14Tape
+  maxCount: 20

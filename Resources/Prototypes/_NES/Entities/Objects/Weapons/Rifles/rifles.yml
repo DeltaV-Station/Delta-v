@@ -1,0 +1,48 @@
+- type: entity
+  name: ФГ 6
+  parent: BaseWeaponRifle
+  id: Nes14WeaponRifleVulcan
+  description: Стандартное вооружение службы безопасности, используемый для перестрелок в тесных помещениях. Использует патроны калибра .20 винтовочные.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Rifles/vulcan.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: NES/Objects/Weapons/Rifles/vulcan.rsi
+  - type: Gun
+    minAngle: 11
+    maxAngle: 22
+    fireRate: 5
+    soundGunshot:
+      path: /Audio/NES/Guns/typewriter.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

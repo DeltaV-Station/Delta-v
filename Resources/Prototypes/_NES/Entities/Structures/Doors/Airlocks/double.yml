@@ -1,0 +1,34 @@
+- type: entity
+  id: Nes14DoubleGlassAirlock
+  parent: AirlockGlass
+  name: двойной стеклянный шлюз
+  description: Он открывается, он закрывается. Совершенно ненормальная широкая дверь.
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Effects/glass_hit.ogg"
+  - type: Sprite
+    sprite: NES/Structures/Doors/Airlocks/double_glass_airlock.rsi
+    snapCardinals: false
+    offset: 0.5,0
+  - type: PointLight
+    radius: 3
+    energy: 0.2
+    color: "#3c5eb5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,1.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
+        - GlassAirlockLayer
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Transform
+    noRot: false

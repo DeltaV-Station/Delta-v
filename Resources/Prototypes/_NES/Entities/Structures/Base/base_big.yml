@@ -1,0 +1,39 @@
+- type: entity
+  id: Nes14BaseBigStructure
+  parent: BaseStructure
+  abstract: true
+  components:
+  - type: Transform
+    anchored: false
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.4,-1.4,1.4,1.4"
+        density: 600
+        layer:
+        - WallLayer
+
+- type: entity
+  id: Nes14BaseMediStructure
+  parent: BaseStructure
+  abstract: true
+  components:
+  - type: Transform
+    anchored: false
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,1.5,1.5"
+        density: 600
+        layer:
+        - WallLayer

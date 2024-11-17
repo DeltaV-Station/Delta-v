@@ -1,0 +1,69 @@
+- type: entity
+  id: Nes14GravityCentrifuge
+  parent: BaseMachinePowered
+  name: гравитационная центрифуга
+  description: Задает круговое вращение вашей станции для поддержки гравитации.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: AmbientSound
+    enabled: false
+    volume: -6
+    range: 7
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: Sprite
+    sprite: NES/Structures/Power/gravity_generator.rsi
+    layers:
+      - sprite: Structures/Machines/gravity_generator_core.rsi
+        state: activated
+        visible: false
+        map: ["enum.GravityGeneratorVisualLayers.Core"]
+      - state: on
+        map: ["enum.GravityGeneratorVisualLayers.Base"]
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+  - type: ExtensionCableReceiver
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2,1.5,2.5"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: GravityGenerator
+    idlePower: 50
+    activePower: 2500
+    lightRadiusMin: 0
+    lightRadiusMax: 0
+    spriteMap:
+      broken: "broken"
+      unpowered: "off"
+      off: "off"
+      on: "on"
+  - type: UserInterface
+    interfaces:
+        enum.GravityGeneratorUiKey.Key:
+          type: GravityGeneratorBoundUserInterface
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000

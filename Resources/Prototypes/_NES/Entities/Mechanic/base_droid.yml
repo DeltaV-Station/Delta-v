@@ -1,0 +1,336 @@
+- type: entity
+  id: Nes14DroidBase
+  parent: BaseBorgChassisNT
+  noSpawn: true
+  name: Дроид
+  description: CH-1, в бывшем, боевой дроид на службе десантных войск. По всей видимости эту модель не оснастили боевым модулем и поставили на выполнение более простых задач.
+  components:
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    netsync: false
+    color: "#87c8e4"
+  - type: Hands
+    showInHands: true
+  - type: Body
+    prototype: Human
+  - type: CombatMode
+    canDisarm: true
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    name: cyborg
+  - type: Puller
+    needsHands: true
+  - type: MeleeWeapon
+    # soundHit:
+    #   path: /Audio/Effects/bite.ogg
+    angle: 30
+    # animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 10
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    layers:
+    - state: robot
+    - state: robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: robot_e
+    noMindState: robot_e_r
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      params:
+        variation: 0.07
+  - type: Speech
+    speechVerb: Robotic
+  - type: Construction
+    node: cyborg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+
+- type: entity
+  id: Nes14DroidCH1
+  parent: Nes14DroidBase
+  name: Дроид
+  description: CH-1, в бывшем, боевой дроид на службе десантных войск. По всей видимости эту модель не оснастили боевым модулем и поставили на выполнение более простых задач.
+  components:
+  - type: Inventory
+    templateId: combat_droid
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    netsync: false
+    color: "#87c8e4"
+  - type: Hands
+    showInHands: true
+  - type: Body
+    prototype: Human
+  - type: CombatMode
+    canDisarm: true
+  - type: Puller
+    needsHands: true
+  - type: MeleeWeapon
+    # soundHit:
+    #   path: /Audio/Effects/bite.ogg
+    angle: 30
+    # animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 10
+    bluntStaminaDamageFactor: 4.0
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    scale: 1.1, 1.1
+    layers:
+    - state: robot
+    - state: robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: robot_e
+    noMindState: robot_e_r
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      params:
+        variation: 0.07
+  - type: Speech
+    speechVerb: Robotic
+  - type: Construction
+    node: cyborg
+
+- type: entity
+  id: Nes14PlayerBorgCH1
+  parent: Nes14DroidCH1
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
+- type: entity
+  id: Nes14DroidOH3
+  parent: Nes14DroidBase
+  name: Дроид
+  description: OH-3, отличная замена твоего домашнего инженера или грузщика, с нюансом маленькой мобильности.
+  components:
+  - type: MeleeWeapon
+    # soundHit:
+    #   path: /Audio/Effects/bite.ogg
+    angle: 30
+    # animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 6
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    scale: 1.2, 1.2
+    layers:
+    - state: cargo
+    - state: cargo_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: cargo_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: cargo_e
+    noMindState: cargo_e_r
+  - type: Inventory
+    templateId: engineer_droid
+  - type: Construction
+    node: cyborg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+
+- type: entity
+  id: Nes14PlayerBorgOH3
+  parent: Nes14DroidOH3
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
+- type: entity
+  id: Nes14DroidMG7
+  parent: Nes14DroidBase
+  name: Дроид
+  description: MG-7, достаточно старая модель дроида-телохранителя. Ходят слухи что в дедовские времена вместо ИИ были лишь наборы логических алгоритмов. Проверить?
+  components:
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    layers:
+    - state: old_robot
+    - state: old_robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: old_robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: old_robot_e
+    noMindState: old_robot_e_r
+  - type: Inventory
+  - type: Construction
+    node: cyborg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3.5
+
+- type: entity
+  id: Nes14PlayerBorgMG7
+  parent: Nes14DroidMG7
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
+- type: entity
+  id: Nes14DroidMC9
+  parent: Nes14DroidBase
+  name: Дроид
+  description: MC-9, базовый медецинский дроид с, скорее всего, взаранее загружеными навыками оказания первой помощи.
+  components:
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    layers:
+    - state: medical
+    - state: medical_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: medical_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: medical_e
+    noMindState: medical_e_r
+  - type: Inventory
+    templateId: medical_droid
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/NES/Mech/mech.ogg
+  - type: Construction
+    node: cyborg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.6
+
+- type: entity
+  id: Nes14PlayerBorgMC9
+  parent: Nes14DroidMC9
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
+- type: entity
+  id: Nes14DroidS9
+  parent: Nes14DroidBase
+  name: Дроид
+  description: S-9, от повреждений чуствительных органов никто не застрахован, даже ты.
+  components:
+  - type: MeleeWeapon
+    # soundHit:
+    #   path: /Audio/Effects/bite.ogg
+    angle: 30
+    # animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 6
+  - type: Sprite
+    sprite: NES/Mobs/Bots/boobs.rsi
+    scale: 0.9, 0.9
+    layers:
+    - state: service
+    - state: service_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: service_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: service_e
+    noMindState: service_e_r
+  - type: Inventory
+    templateId: combat_droid
+  - type: Construction
+    node: cyborg
+
+- type: entity
+  id: Nes14PlayerBorgS9
+  parent: Nes14DroidS9
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - MMIFilled
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium

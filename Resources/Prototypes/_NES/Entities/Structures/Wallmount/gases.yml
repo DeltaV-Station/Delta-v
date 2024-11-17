@@ -1,0 +1,76 @@
+- type: entity
+  id: Nes14SignAir
+  parent: BaseSign
+  name: знак "Воздух"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: air
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignCarbonDioxide
+  parent: BaseSign
+  name: знак "Диоксид Карбона"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: carbon_dioxide
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignMix
+  parent: BaseSign
+  name: знак "Смешивание"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: mix
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignNitrogen
+  parent: BaseSign
+  name: знак "Нитроген"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: nitrogen
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignNitrousOxide
+  parent: BaseSign
+  name: знак "Оксид Нитрогена"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: nitrous_oxide
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignOxygen
+  parent: BaseSign
+  name: знак "Кислород"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: oxygen
+    snapCardinals: true
+
+- type: entity
+  id: Nes14SignPlasma
+  parent: BaseSign
+  name: знак "Плазма"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/gases.rsi
+    state: plasma
+    snapCardinals: true

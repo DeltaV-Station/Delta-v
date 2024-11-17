@@ -1,0 +1,57 @@
+- type: entity
+  name: ручка
+  parent: Pen
+  id: Nes14PenColored1
+  description: Ручка, как хорошо что не чернильная... Наверное.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 1
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored2
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 2
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored3
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 3
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored4
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 4
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored5
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 5
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored6
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 6
+
+- type: entity
+  parent: Nes14PenColored1
+  id: Nes14PenColored7
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 7

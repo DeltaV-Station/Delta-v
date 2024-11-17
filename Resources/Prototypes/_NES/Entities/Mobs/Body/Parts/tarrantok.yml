@@ -1,0 +1,155 @@
+- type: entity
+  id: PartTarrantok
+  parent: BaseItem
+  name: Tarrantok body part
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+  - type: Icon
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+  - type: Damageable
+    damageContainer: Biological
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+
+- type: entity
+  id: TorsoTarrantok
+  name: Tarrantok torso
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: torso_m
+  - type: Icon
+    state: torso_m
+  - type: BodyPart
+    partType: Torso
+
+- type: entity
+  id: HeadTarrantok
+  name: Tarrantok head
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: head_m
+  - type: Icon
+    state: head_m
+  - type: BodyPart
+    partType: Head
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+
+- type: entity
+  id: LeftArmTarrantok
+  name: left Tarrantok arm
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Icon
+    state: l_arm
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+
+- type: entity
+  id: RightArmTarrantok
+  name: right Tarrantok arm
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Icon
+    state: r_arm
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+
+- type: entity
+  id: LeftHandTarrantok
+  name: left Tarrantok hand
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: Icon
+    state: l_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: RightHandTarrantok
+  name: right Tarrantok hand
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: Icon
+    state: r_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: LeftLegTarrantok
+  name: left Tarrantok leg
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: Icon
+    state: l_leg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart
+
+- type: entity
+  id: RightLegTarrantok
+  name: right Tarrantok leg
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: Icon
+    state: r_leg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart
+
+- type: entity
+  id: LeftFootTarrantok
+  name: left Tarrantok foot
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: Icon
+    state: l_foot
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: RightFootTarrantok
+  name: right Tarrantok foot
+  parent: PartTarrantok
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: Icon
+    state: r_foot
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right

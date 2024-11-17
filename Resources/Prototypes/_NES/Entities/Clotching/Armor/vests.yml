@@ -1,0 +1,46 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: Nes14ClothingOuterVestArmorSec
+  name: легкий бронежилет
+  description: Базовый бронежилет на вооружении службы безопасности. Хорошо защищает от ударов.
+  components:
+    - type: Sprite
+      sprite: NES/Clotches/Outerclotches/Vests/duravest.rsi
+    - type: Clothing
+      sprite: NES/Clotches/Outerclotches/Vests/duravest.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.9
+          Caustic: 0.9
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 0.95
+    - type: ExplosionResistance
+      damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: Nes14ClothingOuterArmorBulletproof
+  name: легкий бронежилет
+  description: Базовый бронежилет на службе службы безопасности. Хорошо защищает от малокалиберного оружия
+  components:
+  - type: Sprite
+    sprite: NES/Clotches/Outerclotches/Vests/platecarrier.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Outerclotches/Vests/platecarrier.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.5
+        Heat: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

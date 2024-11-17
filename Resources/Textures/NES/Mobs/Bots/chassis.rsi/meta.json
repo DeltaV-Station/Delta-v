@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "NES-Station",
+  "states": [
+    {
+      "name": "robot",
+      "directions": 4
+    },
+    {
+      "name": "robot_e",
+      "directions": 4
+    },
+    {
+      "name": "robot_e_r",
+      "directions": 4
+    },
+    {
+      "name": "robot_l",
+      "directions": 4
+    },
+    {
+        "name": "old_robot",
+        "directions": 4
+      },
+      {
+        "name": "old_robot_e",
+        "directions": 4
+      },
+      {
+        "name": "old_robot_e_r",
+        "directions": 4
+      },
+      {
+        "name": "old_robot_l",
+        "directions": 4
+      },
+    {
+        "name": "cargo",
+        "directions": 4
+      },
+      {
+        "name": "cargo_e",
+        "directions": 4
+      },
+      {
+        "name": "cargo_e_r",
+        "directions": 4
+      },
+      {
+        "name": "cargo_l",
+        "directions": 4
+      },
+      {
+        "name": "medical",
+        "directions": 4
+      },
+      {
+        "name": "medical_e",
+        "directions": 4
+      },
+      {
+        "name": "medical_e_r",
+        "directions": 4
+      },
+      {
+        "name": "medical_l",
+        "directions": 4
+      }
+  ]
+}

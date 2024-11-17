@@ -1,0 +1,46 @@
+# - type: entity
+#   parent: FireAxeCabinet
+#   id: Nes14CaptainIDCardCabinet
+#   name: шкаф для золотой карты
+#   description: В этом шкафу лежит золотая айди карта, с доступом к любым дверям на этой станции. Открывать только при экстренной необходимости.
+#   components:
+#   - type: Sprite
+#     sprite: NES/Structures/Wallmounts/idcard_cabinet.rsi
+#     layers:
+#     - state: cabinet
+#     - state: card
+#       map: ["enum.ItemCabinetVisualLayers.ContainsItem"]
+#       visible: true
+#     - state: glass
+#       map: ["enum.ItemCabinetVisualLayers.Door"]
+#   - type: ItemCabinet
+#     cabinetSlot:
+#       ejectOnInteract: true
+#       whitelist:
+#         tags:
+#         - CaptainIDCard
+#   - type: AccessReader
+#     access: [["Command"]]
+
+# - type: entity
+#   id: Nes14CaptainIDCardCabinetOpen
+#   parent: [Nes14CaptainIDCardCabinet, FireAxeCabinetOpen]
+#   suffix: Открытый
+
+# - type: entity
+#   id: Nes14CaptainIDCardCabinetFilled
+#   parent: [Nes14CaptainIDCardCabinet, FireAxeCabinetFilled]
+#   suffix: Заполнено
+#   components:
+#   - type: ItemCabinet
+#     cabinetSlot:
+#       startingItem: CaptainIDCard
+#       ejectOnInteract: true
+#       whitelist:
+#         tags:
+#         - CaptainIDCard
+
+# - type: entity
+#   id: Nes14CaptainIDCardCabinetFilledOpen
+#   parent: [Nes14CaptainIDCardCabinetFilled ,FireAxeCabinetFilledOpen]
+#   suffix: Заполнено, Открытый

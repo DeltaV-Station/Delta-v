@@ -1,0 +1,38 @@
+# - type: entity
+#   parent: BaseWall
+#   id: Nes14WallPaper
+#   name: бумажная стена
+#   description: Бумажная стена, как самая дешевая из возможных стен на случай банкрота.
+#   components:
+#   - type: Sprite
+#     sprite: NES/Structures/Walls/paper.rsi
+#   - type: Icon
+#     sprite: NES/Structures/Walls/paper.rsi
+#   - type: Construction
+#     graph: Girder
+#     # node: paperWall
+#   - type: Destructible
+#     thresholds:
+#     - trigger:
+#         !type:DamageTrigger
+#         damage: 300 # #excess damage (nuke?). avoid computational cost of spawning entities.
+#       behaviors:
+#       - !type:DoActsBehavior
+#         acts: ["Destruction"]
+#     - trigger:
+#         !type:DamageTrigger
+#         damage: 150
+#       behaviors:
+#       - !type:PlaySoundBehavior
+#         sound:
+#           collection: MetalBreak
+#       - !type:ChangeConstructionNodeBehavior
+#         node: girder
+#       - !type:DoActsBehavior
+#         acts: ["Destruction"]
+#       - !type:PlaySoundBehavior
+#         sound:
+#           collection: MetalBreak
+#   - type: IconSmooth
+#     key: walls
+#     base: paperwall

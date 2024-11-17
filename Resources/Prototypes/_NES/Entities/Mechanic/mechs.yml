@@ -1,0 +1,103 @@
+- type: entity
+  id: Nes14MechAugust
+  parent: BaseMech
+  name: Мех "Август"
+  description: Тяжелая и достаточно подвижная конструкция "Август", является достаточно технологическим грузовым мехом, который можно редко встретить даже в столицах околосолнечного сектора. По всей видимости вам повезло заиметь его у себя.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    offset: 0,0.2
+    noRot: true
+    sprite: NES/Objects/Misc/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: august
+      scale: 1.3, 1.3
+  - type: MechAir
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/NES/Mech/mech.ogg
+  - type: Mech
+    maxIntegrity: 1000
+    baseState: august
+    openState: august-open
+    brokenState: august-broken
+    mechToPilotDamageMultiplier: 0
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 6 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.25
+    baseSprintSpeed: 2.6
+
+- type: entity
+  id: Nes14MechAugustBattery
+  parent: Nes14MechAugust
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+
+- type: entity
+  id: Nes14MechKipler
+  parent: BaseMech
+  name: Мех "Киплер"
+  description: Дорогое мессиво из прочных сплавов и орудий для расчленения. Думаю что пора бежать.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: NES/Objects/Misc/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: reticence
+      scale: 1.2, 1.2
+  - type: MechAir
+  - type: PointLight
+    radius: 4
+    color: "#ee7620"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/NES/Mech/mech2.ogg
+  - type: Mech
+    maxIntegrity: 6000
+    baseState: reticence
+    openState: reticence-open
+    brokenState: reticence-broken
+    mechToPilotDamageMultiplier: 0
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    attackRate: 1.5
+    angle: 250
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Blunt: 10
+        Piercing: 30
+        Structural: 60
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 3.6
+
+- type: entity
+  id: Nes14MechKiplerBattery
+  parent: Nes14MechKipler
+  suffix: Батарея
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh

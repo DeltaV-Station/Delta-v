@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Legioner - SS13 Tier",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "nuclearbomb_deployed"
+    },
+    {
+      "name": "nuclearbomb_deployed_unlit"
+    },
+    {
+      "name": "nukefestive",
+      "delays": [
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "nuclearbomb_timing",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "nuclearbomb_exploding",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nuclearbomb_base"
+    },
+    {
+      "name": "nuclearbombc",
+      "delays": [
+        [
+          1,
+          0.3,
+          0.3
+        ]
+      ]
+    }
+  ]
+}

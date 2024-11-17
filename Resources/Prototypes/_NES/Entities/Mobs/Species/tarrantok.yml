@@ -1,0 +1,166 @@
+- type: species
+  id: Tarrantok
+  name: species-name-Tarrantok
+  roundStart: true
+  prototype: MobTarrantok
+  sprites: MobTarrantokSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobTarrantokMarkingLimits
+  dollPrototype: MobTarrantokDummy
+  skinColoration: Hues
+  maleFirstNames: names_Tarrantok
+  femaleFirstNames: names_Tarrantok
+  maleLastNames: names_arachnid_last # Corvax-LastnameGender
+  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
+  minAge: 20
+  maxAge: 90
+  youngAge: 30
+  oldAge: 70
+  sexes:
+    - Male
+    - Female
+    - Unsexed
+
+- type: speciesBaseSprites
+  id: MobTarrantokSprites
+  sprites:
+    Head: MobTarrantokHead
+    Snout: MobTarrantokAnyMarkingFollowSkin
+    HeadTop: MobTarrantokAnyMarkingFollowSkin
+    HeadSide: MobTarrantokAnyMarkingFollowSkin
+    Tail: MobHumanoidAnyMarking
+    Chest: MobTarrantokTorso
+    Eyes: MobTarrantokEyes
+    LArm: MobTarrantokLArm
+    RArm: MobTarrantokRArm
+    RHand: MobTarrantokRHand
+    LHand: MobTarrantokLHand
+    LLeg: MobTarrantokLLeg
+    RLeg: MobTarrantokRLeg
+    LFoot: MobTarrantokLFoot
+    RFoot: MobTarrantokRFoot
+
+- type: markingPoints
+  id: MobTarrantokMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [TailTarrantok]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [EarsTarrantok]
+    Chest:
+      points: 0
+      required: false
+    Legs:
+      points: 0
+      required: false
+    Arms:
+      points: 0
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobTarrantokAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobTarrantokAnyMarkingFollowSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobTarrantokHead
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobTarrantokHeadMale
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobTarrantokHeadFemale
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobTarrantokTorso
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobTarrantokTorsoMale
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobTarrantokTorsoFemale
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobTarrantokLLeg
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobTarrantokLHand
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobTarrantokEyes
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobTarrantokLArm
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobTarrantokLFoot
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobTarrantokRLeg
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobTarrantokRHand
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobTarrantokRArm
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobTarrantokRFoot
+  baseSprite:
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: r_foot

@@ -1,0 +1,240 @@
+- type: entity
+  id: Nes14RCS
+  name: РСУ
+  description: По всей виимости, маневровый двигатель.
+  suffix: Двигатель
+  parent: [ Nes14BaseOldThruster, ConstructibleMachine ]
+  components:
+  - type: Thruster
+    baseThrust: 200
+    thrust: 200
+  - type: Machine
+    board: ThrusterMachineCircuitboard
+  - type: Sprite
+    sprite: NES/Structures/Power/Thrusters/RCS.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      scale: 1, 1
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+
+- type: entity
+  id: Nes14OldRCS
+  name: РСУ
+  description: По всей видимости, старый маневровый двигатель.
+  suffix: Двигатель
+  parent: [ Nes14BaseOldThruster, ConstructibleMachine ]
+  components:
+  - type: Thruster
+    baseThrust: 150
+    thrust: 150
+  - type: Machine
+    board: ThrusterMachineCircuitboard
+  - type: Sprite
+    sprite: NES/Structures/Power/Thrusters/oldRCS.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      scale: 1, 1
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+
+- type: entity
+  id: Nes14BigThruster
+  name: ОСД-05
+  description: Пятая серия "Около Световых Двигателей". Позволяют разгонятся до скорости в 0.5 от света, идеально подходят для межпланетных перелетов.
+  suffix: Двигатель
+  parent: [ Nes14BaseBigStructure, BaseThruster ]
+  components:
+  - type: Thruster
+    baseThrust: 500
+    thrust: 500
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 900
+  - type: StaticPrice
+    price: 5000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 220
+    intensitySlope: 8
+    totalIntensity: 800
+  - type: Sprite
+    sprite: NES/Structures/Power/Thrusters/bigZeta.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+      scale: 1, 1
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      scale: 1, 1
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      color: "#5adbff"
+      shader: unshaded
+      scale: 0.6, 1
+      visible: false
+      offset: 0, 2.7
+
+- type: entity
+  id: Nes14MediThruster
+  name: ОСД-03
+  description: Третья серия "Около Световых Двигателей". Идеально подходят для межпланетных перелетов.
+  suffix: Двигатель
+  parent: [ Nes14BaseMediStructure, BaseThruster ]
+  components:
+  - type: Thruster
+    baseThrust: 300
+    thrust: 300
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 700
+  - type: StaticPrice
+    price: 5000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 120
+    intensitySlope: 5
+    totalIntensity: 500
+  - type: Sprite
+    sprite: NES/Structures/Power/Thrusters/zeta.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+      scale: 1, 1
+      offset: 0.5, 0.5
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      scale: 1, 1
+      visible: false
+      offset: 0.5, 0.5
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      color: "#5adbff"
+      shader: unshaded
+      scale: 0.6, 1
+      visible: false
+      offset: 0.5, 2.4
+
+- type: entity
+  id: Nes14RocketThruster
+  name: ракетный двигатель
+  description: Делает хороший ВРРРРУУУУМ.
+  parent: [ BaseThruster, ConstructibleMachine ]
+  components:
+  - type: Thruster
+    baseThrust: 180
+    thrust: 180
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+  - type: Sprite
+    sprite: NES/Structures/Power/Thrusters/rocket.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+      offset: 0, -0.2
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+      offset: 0, -0.2
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 0.7
+
+- type: entity
+  id: Nes14BaseOldThruster
+  parent: BaseStructureDynamic
+  abstract: true
+  components:
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Rotatable
+      rotateWhileAnchored: true
+    - type: Thruster
+      damage:
+        types:
+          Heat: 40
+    - type: InteractionOutline
+    - type: Sprite
+    - type: Appearance
+    - type: ApcPowerReceiver
+      powerLoad: 100
+    - type: ExtensionCableReceiver
+    - type: ThrusterVisuals
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300  # Considering we need a lot of thrusters didn't want to make an individual one too tanky
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+    - type: StaticPrice
+      price: 150
+  placement:
+    mode: SnapgridCenter

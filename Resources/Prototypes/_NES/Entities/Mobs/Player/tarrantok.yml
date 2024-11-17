@@ -1,0 +1,103 @@
+- type: entity
+  save: false
+  parent: BaseMobHuman
+  id: MobTarrantok
+  name: Тарран Боб
+  components:
+  - type: HumanoidAppearance
+    species: Tarrantok
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: NES/Mobs/Species/Tarrantok/parts.rsi
+    state: full
+  - type: Inventory
+    templateId: tarrantok
+    speciesId: tarrantok
+  - type: Body
+    prototype: Tarrantok
+    requiredLegs: 2
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      180: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      48: 0.85
+      64: 0.65
+  - type: Damageable
+    damageContainer: Biological # Tarrantok
+    damageModifierSet: Tarrantok
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Temperature
+    heatDamageThreshold: 320
+    coldDamageThreshold: 200
+    currentTemperature: 300.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.25 #per second, scales with temperature & other constants
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130 #lower density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+  - type: Vocal
+    sounds:
+      Male: MaleTarra
+      Female: FemaleTarra
+      Unsexed: FemaleTarra
+  - type: CombatMode
+    canDisarm: true
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Alerts
+  - type: Actions
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.6
+    baseSprintSpeed : 2.8
+
+- type: entity
+  save: false
+  parent: MobHumanDummy
+  id: MobTarrantokDummy
+  noSpawn: true
+  description: A dummy Tarrantok meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Tarrantok

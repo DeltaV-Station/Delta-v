@@ -1,0 +1,76 @@
+- type: entity
+  name: Авиан
+  id: Nes14MobChadAvian
+  parent: SimpleMobBase
+  description: Качек.
+  components:
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.00
+    baseSprintSpeed : 2.00
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: NES/Mobs/chad.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: chad_avian
+      scale: 1.2, 1.2
+  - type: Hands
+  - type: Physics
+    bodyType: KinematicController
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: chad_avian
+      Critical:
+        Base: chad_avian
+      Dead:
+        Base: chad_avian_ded
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 10
+        Blunt: 30
+        Piercing: 10
+  - type: Body
+    prototype: Human
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1500
+      behaviors:
+      - !type:GibBehavior { }
+  - type: NoSlip
+  - type: Speech
+    speechVerb: SmallMob
+  - type: MobPrice
+    price: 2500
+  - type: Grammar
+    attributes:
+      gender: male

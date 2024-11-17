@@ -1,0 +1,51 @@
+- type: entity
+  id: TelecomServerBroken
+  parent: BaseStructure
+  name: сломаный сервер
+  description: Кто-то пролил много напитков на него...
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: NES/Structures/Power/telecomms.rsi
+      offset: 0, 0.2
+      state: broken
+    - type: Icon
+      sprite: NES/Structures/Power/telecomms.rsi
+      offset: 0, 0.2
+      state: broken
+    - type: RCDDeconstructable
+      cost: 6
+      delay: 4
+      fx: EffectRCDDeconstruct4
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.4,0.4,0.4"
+          density: 190
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Physics
+      bodyType: Static
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: FlimsyMetallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: ["Destruction"]

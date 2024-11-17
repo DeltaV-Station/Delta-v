@@ -25,8 +25,14 @@
     graph: Girder
     node: girder
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
-    state: wall_girder
+    sprite: NES/Structures/Walls/frame.rsi # NES14-Changes
+    state: full
+  - type: Icon
+    sprite: NES/Structures/Walls/frame.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: plastitanium
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic

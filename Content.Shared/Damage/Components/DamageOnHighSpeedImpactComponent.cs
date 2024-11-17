@@ -12,7 +12,7 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class DamageOnHighSpeedImpactComponent : Component
 {
     [DataField("minimumSpeed"), ViewVariables(VVAccess.ReadWrite)]
-    public float MinimumSpeed = 20f;
+    public float MinimumSpeed = 13f; //NES14-Changes
 
     [DataField("speedDamageFactor"), ViewVariables(VVAccess.ReadWrite)]
     public float SpeedDamageFactor = 0.5f;

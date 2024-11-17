@@ -1,0 +1,91 @@
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: Nes14ClothingOuterHardsuitAvaliBasic
+  name: легкий скафандр
+  description: Базовый скафандр белого цвета, оснащенный легкими пластиковыми пластинами. Предназначен для вылазок на небесные тела. Присмотревшись - вы видите что форма скафандра сделана для Авали.
+  components:
+  - type: Sprite
+    sprite: NES/Clotches/Hardsuits/avali_basic.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Hardsuits/avali_basic.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: Nes14ClothingHeadHelmetHardsuitAvaliBasic
+  name: легкий шлем скафандра
+  description: Базовый шлем скафандра, который защитит вашу голову от перепадов давления. Присмотревшись - вы видите что форма шлема сделана для Авали.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: NES/Clotches/Hats/Hardsuits/avali_basic.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Hats/Hardsuits/avali_basic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: Nes14ClothingOuterHardsuitBasic
+  name: легкий скафандр
+  description: Базовый скафандр белого цвета, оснащенный легкими пластиковыми пластинами. Предназначен для вылазок на небесные тела. Присмотревшись - вы видите что форма скафандра сделана для Человека.
+  components:
+  - type: Sprite
+    sprite: NES/Clotches/Hardsuits/basic.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Hardsuits/basic.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: Nes14ClothingHeadHelmetHardsuitBasic
+  name: легкий шлем скафандра
+  description: Базовый шлем скафандра, который защитит вашу голову от перепадов давления. Присмотревшись - вы видите что форма шлема сделана для Человека.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: NES/Clotches/Hats/Hardsuits/basic.rsi
+  - type: Clothing
+    sprite: NES/Clotches/Hats/Hardsuits/basic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout

@@ -1,0 +1,109 @@
+- type: entity
+  id: Nes14Sign0
+  parent: BaseSign
+  name: знак "0"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 0
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign1
+  parent: Nes14Sign0
+  name: знак "1"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 1
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign2
+  parent: Nes14Sign0
+  name: знак "2"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 2
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign3
+  parent: Nes14Sign0
+  name: знак "3"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 3
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign4
+  parent: Nes14Sign0
+  name: знак "4"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 4
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign5
+  parent: Nes14Sign0
+  name: знак "5"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 5
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign6
+  parent: Nes14Sign0
+  name: знак "6"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 6
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign7
+  parent: Nes14Sign0
+  name: знак "7"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 7
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign8
+  parent: Nes14Sign0
+  name: знак "8"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 8
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Sign9
+  parent: Nes14Sign0
+  name: знак "1"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: NES/Structures/Wallmounts/numbers.rsi
+    state: 9
+    snapCardinals: true

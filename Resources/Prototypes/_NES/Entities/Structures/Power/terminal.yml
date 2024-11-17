@@ -1,0 +1,102 @@
+- type: entity
+  id: Nes14StationTerminal
+  parent: BaseMachinePowered
+  name: станционный терминал
+  description: Терминал, используемый для управления станцией и поддержания связи с ЦК.
+  placement:
+    mode: AlignTileAny
+  components:
+  # - type: SpriteFade
+  - type: Sprite
+    sprite: NES/Structures/Power/station_terminal.rsi
+    offset: 0,0.4
+    # drawdepth: Mobs
+    layers:
+    - state: base
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+    - state: unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: generating
+      visible: false
+      shader: unshaded
+      map: ["enum.AnomalyGeneratorVisualLayers.Base"]
+  - type: Transform
+    anchored: true
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 400
+  - type: ExtensionCableReceiver
+  - type: AmbientSound
+    range: 5
+    volume: -6
+    sound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Physics
+    bodyType: Static
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-station
+  - type: DeviceNetwork
+    transmitFrequencyId: ShuttleTimer
+  - type: ActivatableUIRequiresPower
+  - type: ActivatableUI
+    key: enum.CommunicationsConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+  - type: Computer
+    board: CommsComputerCircuitboard
+  - type: PointLight
+    radius: 3.5
+    energy: 1.6
+    color: "#3c5eb5"
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.5,1.5,1.4"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 5
+  - type: WiresPanel
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.AnomalyGeneratorVisuals.Generating:
+        enum.AnomalyGeneratorVisualLayers.Base:
+          True: { visible: true }
+          False: { visible: false }
+  - type: WiresVisuals
+  - type: StaticPrice
+    price: 5000
+  - type: AccessReader
+    access: [[ "Command" ]]

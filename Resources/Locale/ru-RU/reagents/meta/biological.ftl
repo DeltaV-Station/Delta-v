@@ -20,3 +20,7 @@ reagent-name-vomit = рвота
 reagent-desc-vomit = Вы можете увидеть в ней несколько кусков чьей-то последней еды.
 reagent-name-grey-matter = серое вещество
 reagent-desc-grey-matter = Сок мыслей, вытекающий из ушей.
+
+## NES14-Changes
+reagent-name-tarrantok-blood = кровь
+reagent-desc-tarrantok-blood = Я надеюсь это... Это блядь кровь.
