@@ -234,3 +234,12 @@
   components:
   - type: Sprite
     sprite: NES/Clothing/Uniforms/medical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id:  Nes14ClothingSwimsuit
+  name: купальник
+  description: Не одевай его если у тебя нет очков.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/swimsuit_alt.rsi

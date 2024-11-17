@@ -5,6 +5,11 @@
   description: It opens, it closes, and maybe crushes you.
   components:
   - type: StationAiWhitelist
+  - type: PointLight #NES14-Changes
+    radius: 3
+    energy: 0.2
+    color: "#3c5eb5"
+    castShadows: false
   - type: MeleeSound
     soundGroups:
       Brute:

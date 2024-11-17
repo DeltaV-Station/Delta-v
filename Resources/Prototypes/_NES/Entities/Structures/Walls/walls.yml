@@ -16,23 +16,45 @@
 #     base: plastitanium
 #   - type: Appearance
 
-# - type: entity
-#   parent: WallReinforced
-#   id: Nes14WallShuttle
-#   name: стена шаттла
-#   components:
-#   - type: Sprite
-#     sprite: NES/Structures/Walls/shuttle_plastic.rsi
-#   - type: Icon
-#     sprite: NES/Structures/Walls/shuttle_plastic.rsi
-#     state: full
-#   - type: Construction
-#     graph: Girder
-#     node: shuttleWall
-#   - type: IconSmooth
-#     key: walls
-#     base: plastitanium
-#   - type: Appearance
+- type: entity
+  parent: WallReinforced
+  id: Nes14WallShuttleGomer
+  name: стена шаттла
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Walls/shuttle_gomer.rsi
+  - type: Icon
+    sprite: NES/Structures/Walls/shuttle_gomer.rsi
+    state: full
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: IconSmooth
+    key: walls
+    base: plastitanium
+  - type: Appearance
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: Nes14WallShuttleGomerDiagonal
+  name: угол шаттла
+  suffix: Диагональ
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: NES/Structures/Walls/shuttle_gomer_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: NES/Structures/Walls/shuttle_gomer_diagonal.rsi
+    state: state0
 
 - type: entity
   parent: Girder

@@ -3,7 +3,7 @@
   stackEntity: MaterialBiomass1
   name: materials-biomass
   unit: materials-unit-piece
-  icon: { sprite: /Textures/NES/Objects/Misc/monkeycube.rsi, state: cube } #NES14-Changes
+  icon: { sprite: Objects/Misc/monkeycube.rsi, state: cube }
   color: "#8A9A5B"
   price: 0.1
 
@@ -11,7 +11,7 @@
   id: Cardboard
   stackEntity: MaterialCardboard1
   name: materials-cardboard
-  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: cardboard } #NES14-Changes
+  icon: { sprite: NES/Objects/Materials/materials.rsi, state: cardboard } #NES14-Changes
   color: "#70736c"
   price: 0.025
 
@@ -20,7 +20,7 @@
   stackEntity: MaterialCloth1
   name: materials-cloth
   unit: materials-unit-roll
-  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: cloth } #NES14-Changes
+  icon: { sprite: Objects/Materials/materials.rsi, state: cloth }
   color: "#e7e7de"
   price: 0.05
 
@@ -30,7 +30,7 @@
   name: materials-durathread
   # not exactly a sheet but its sprite suggests it cant be rolled like cloth
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: durathread } #NES14-Changes
+  icon: { sprite: Objects/Materials/materials.rsi, state: durathread }
   color: "#8291a1"
   price: 0.35 # 1-1 mix of plastic and cloth.
 
@@ -96,7 +96,7 @@
   id: WebSilk
   name: materials-web
   unit: materials-unit-web
-  icon: { sprite: NES/Objects/Materials/silk.rsi, state: icon } #NES14-Changes
+  icon: { sprite: Objects/Materials/silk.rsi, state: icon }
   color: "#eeeeee" #eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
   price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
 
@@ -121,7 +121,7 @@
   id: Gunpowder
   name: materials-gunpowder
   unit: materials-unit-piece
-  icon: { sprite: NES/Objects/Misc/reagent_fillings.rsi, state: powderpile } #NES14-Changes
+  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   color: "#A9A9A9"
   price: 0
 

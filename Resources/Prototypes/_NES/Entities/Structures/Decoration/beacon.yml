@@ -1,0 +1,38 @@
+- type: entity
+  id: Nes14PlanetBeacon
+  name: аварийный маяк
+  description: Небольшой аварийный маяк, способный отправлять сигналы в далекий космос.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Power/signal.rsi
+    drawdepth: Mobs
+    offset: 0, 1
+    snapCardinals: true
+    layers:
+    - state: base
+    - state: power
+      shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: AmbientSound
+    volume: -2
+    range: 50
+    sound:
+      path: /Audio/NES/Effects/signal.ogg
+  - type: PointLight
+    radius: 1
+    energy: 0.5
+    castShadows: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
