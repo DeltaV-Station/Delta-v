@@ -182,6 +182,12 @@
     color: "#4246b3"
   - type: Machine
     board: GyroscopeMachineCircuitboard
+  - type: AmbientSound
+    enabled: false
+    range: 10
+    volume: 1
+    sound:
+      path: /Audio/NES/Effects/Rocket.ogg #NES14-Changes
   - type: Destructible
     thresholds:
     - trigger:

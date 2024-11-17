@@ -1,0 +1,10 @@
+- type: gamePreset
+  id: GameruleLostShip
+  alias:
+    - Lost
+  name: Потерянный корабль
+  showInVote: false # secret
+  description: По плану, этот полет не должен был занять больше трех месяцев, всего-лишь перелет из одной звездной системы в другую. К сожалению, сегодня просто не ваш день.
+  rules:
+    - BasicRoundstartVariation
+    - GameRuleMeteorScheduler

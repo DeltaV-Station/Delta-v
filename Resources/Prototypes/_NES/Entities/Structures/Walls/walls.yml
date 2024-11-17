@@ -87,3 +87,40 @@
     key: walls
     base: plastitanium
   - type: Appearance
+
+
+- type: entity
+  parent: WallReinforced
+  id: Nes14WallRescT
+  name: стена шаттла
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Walls/solid.rsi
+  - type: Icon
+    sprite: NES/Structures/Walls/solid.rsi
+    state: full
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: IconSmooth
+    key: walls
+    base: solid
+  - type: Appearance
+
+- type: entity
+  parent: WallReinforced
+  id: Nes14WallRescB
+  name: стена шаттла
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Walls/solid.rsi
+  - type: Icon
+    sprite: NES/Structures/Walls/solid.rsi
+    state: rgeneric
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: IconSmooth
+    key: walls
+    base: reinf_over
+  - type: Appearance

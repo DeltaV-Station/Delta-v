@@ -83,6 +83,17 @@
     maxIntensity: 220
     intensitySlope: 8
     totalIntensity: 800
+  - type: AmbientSound
+    enabled: false
+    range: 40
+    volume: 40
+    sound:
+      path: /Audio/NES/Effects/Rocket.ogg
+  - type: PointLight
+    enabled: false
+    radius: 4
+    energy: 8
+    color: "#6490d3"
   - type: Sprite
     sprite: NES/Structures/Power/Thrusters/bigZeta.rsi
     layers:

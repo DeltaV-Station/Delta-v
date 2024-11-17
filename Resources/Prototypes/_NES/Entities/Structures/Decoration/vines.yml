@@ -1,0 +1,96 @@
+#BaseCobweb doesn't really need to exist since, as of writing, these only have 2 sprite states & obviously have no need for variation beyond that.
+
+- type: entity
+  id: Nes14Vines1
+  name: лианы
+  description: Не люблю природу.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: vines1
+    drawdepth: OverMobs #We want this to appear below doors but above mobs
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: vines1
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20 #With the damage modifier you should have a hard time getting through it with something blunt, but an axe or something flammable will do the trick.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: Nes14Vines2
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: vines2
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: vines2
+
+- type: entity
+  id: Nes14WallVines1
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines1
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines1
+
+- type: entity
+  id: Nes14WallVines2
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines2
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines2
+
+- type: entity
+  id: Nes14WallVines3
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines3
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines3
+
+- type: entity
+  id: Nes14WallVines4
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines4
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines4
+
+- type: entity
+  id: Nes14WallVines5
+  parent: Nes14Vines1
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines5
+  - type: Icon
+    sprite: NES/Structures/Decoration/vines.rsi
+    state: wall_vines5
