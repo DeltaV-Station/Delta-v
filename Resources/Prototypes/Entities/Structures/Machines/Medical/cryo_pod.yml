@@ -10,7 +10,7 @@
     noRot: true
     offset: 0, 0.5
     layers:
-      - sprite: Structures/Piping/Atmospherics/pipe.rsi
+      - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
         state: pipeHalf
         offset: 0, -0.5
         map: [ "enum.PipeVisualLayers.Pipe" ]

@@ -45,7 +45,7 @@
       - !type:DoActsBehavior
         acts: ["Breakage"]
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
     drawdepth: ThinPipe
     visible: false
   - type: Appearance
@@ -104,7 +104,7 @@
   - type: Item
     size: Normal
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: storageStraight
     shape:
     - 0,0,0,2
@@ -141,7 +141,7 @@
     - 1,1,1,1
     heldPrefix: Bend
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: storageBend
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -181,7 +181,7 @@
     - 1,1,1,1
     heldPrefix: TJunction
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: storageTJunction
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -234,7 +234,7 @@
   description: It used to hold gas.
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
     drawdepth: ThinPipe
     state: pipeBroken
     layers:

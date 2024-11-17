@@ -647,16 +647,16 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: NES/Structures/Walls/rust.rsi #NES14-Changes
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: NES/Structures/Walls/rust.rsi #NES14-Changes
     state: rgeneric
   - type: Construction
     graph: Girder
     node: reinforcedWallRust
   - type: IconSmooth
     key: walls
-    base: reinf_over
+    base: plastitanium
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -670,14 +670,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: NES/Structures/Walls/plastic_diagonal.rsi #NES14-Changes
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: NES/Structures/Walls/plastic_diagonal.rsi #NES14-Changes
     state: state0
 
 # Riveting
@@ -1038,14 +1038,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: NES/Structures/Walls/plastic2_diagonal.rsi #NES14-Changes
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: NES/Structures/Walls/plastic2_diagonal.rsi #NES14-Changes
     state: state0
 
 - type: entity
@@ -1055,16 +1055,16 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: NES/Structures/Walls/rust2.rsi #NES14-Changes
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: NES/Structures/Walls/rust2.rsi #NES14-Changes
     state: full
   - type: Construction
     graph: Girder
     node: wallrust
   - type: IconSmooth
     key: walls
-    base: solid
+    base: plastitanium
 
 - type: entity
   parent: BaseWall
@@ -1141,7 +1141,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: woods
+    key: walls
     base: wood
 
 - type: entity

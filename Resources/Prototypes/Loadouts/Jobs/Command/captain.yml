@@ -1,23 +1,48 @@
+# For mantles
+- type: loadoutEffectGroup
+  id: MasterCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 72000 #20 hrs
+
+# Pants
+- type: loadout
+  id: CaptainPants
+  equipment:
+    pants: Nes14ClothingUniformPantsAdmin
+
+- type: loadout
+  id: CaptainPantsAlt
+  equipment:
+    pants: Nes14ClothingUniformPantsAdminAlt
+
+- type: loadout
+  id: CaptainSkirt
+  equipment:
+    pants: Nes14ClothingUniformSkirtAdmin
 # Jumpsuit
 - type: loadout
-  id: CaptainJumpsuit
+  id: CaptainJumpsuit Nes14ClothingUniformAdminAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCaptain
+    jumpsuit: Nes14ClothingUniformAdmin
 
 - type: loadout
   id: CaptainJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtCaptain
+    jumpsuit: Nes14ClothingUniformAdminAlt
 
 - type: loadout
   id: CaptainFormalSuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCapFormal
+    jumpsuit: Nes14ClothingUniformAdminAltAlt
 
-- type: loadout
-  id: CaptainFormalSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCapFormalDress
+# - type: loadout
+#   id: CaptainFormalSkirt
+#   equipment:
+#     jumpsuit: ClothingUniformJumpskirtCapFormalDress
 
 # Head
 - type: loadout

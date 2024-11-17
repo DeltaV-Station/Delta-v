@@ -70,8 +70,8 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 8
-          maxCount: 8
+          minCount: 1
+          maxCount: 2
           stationGrid: false
           paths:
           #- /Maps/Ruins/chunked_tcomms.yml # TODO
@@ -86,7 +86,7 @@
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
         vgroid: !type:DungeonSpawnGroup
           minimumDistance: 540000
-          maximumDistance: 1400
+          maximumDistance: 3400
           nameDataset: names_borer
           stationGrid: false
           addComponents:

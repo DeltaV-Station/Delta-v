@@ -2,7 +2,7 @@
   id: Morgue
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -11,7 +11,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -20,7 +20,7 @@
   id: Holy
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -29,7 +29,7 @@
   id: Train
   sound:
     params:
-      volume: -15
+      volume: -8
     collection: AmbienceTrain
   rules: NearTrain
   priority: 4
@@ -39,7 +39,7 @@
   id: Medical
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -48,7 +48,7 @@
   id: Engineering
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -58,7 +58,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -72,13 +72,13 @@
   fadeIn: true
   interruptable: true
   rules: InSpace
-  priority: 5
+  priority: 1
 
 - type: ambientMusic
   id: Mining
   sound:
     params:
-      volume: -15
+      volume: -12
     collection: AmbienceMining
   rules: OnMapGrid
   fadeIn: true
@@ -90,9 +90,10 @@
   id: General
   sound:
     params:
-      volume: -16
+      volume: -12
     collection: AmbienceGeneral
   rules: AlwaysTrue
+  priority: 6
 
 # Sound collections
 - type: soundCollection
@@ -107,29 +108,19 @@
     - /Audio/Ambience/ambitech.ogg
     - /Audio/Ambience/ambitech2.ogg
     - /Audio/Ambience/ambitech3.ogg
-    # - /Audio/NES/Ambience/Deus_Divided.ogg
 
 - type: soundCollection
   id: AmbienceGeneral
   files:
-    - /Audio/Ambience/ambigen1.ogg
-    - /Audio/Ambience/ambigen3.ogg
-    - /Audio/Ambience/ambigen4.ogg
-    - /Audio/Ambience/ambigen5.ogg
-    - /Audio/Ambience/ambigen6.ogg
-    - /Audio/Ambience/ambigen7.ogg
-    - /Audio/Ambience/ambigen8.ogg
-    - /Audio/Ambience/ambigen9.ogg
-    - /Audio/Ambience/ambigen10.ogg
-    - /Audio/Ambience/ambigen11.ogg
-    - /Audio/Ambience/ambigen12.ogg
-    - /Audio/Ambience/ambigen14.ogg
-    - /Audio/Ambience/ambigen15.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
-    # - /Audio/NES/Ambience/Deus_Divided.ogg
-    - /Audio/NES/Ambience/Biochill_Sun.ogg
-    - /Audio/NES/Ambience/Saros_Lonely.ogg
+    # - /Audio/Ambience/spookyspace1.ogg
+    # - /Audio/Ambience/spookyspace2.ogg
+    - /Audio/NES/Ambience/general1.ogg
+    - /Audio/NES/Ambience/general2.ogg
+    - /Audio/NES/Ambience/general3.ogg
+    - /Audio/NES/Ambience/general4.ogg
+    # - /Audio/Ambience/ambispace2.ogg
+    # - /Audio/Ambience/ambinice.ogg
+    # - /Audio/Ambience/ambiatmos.ogg
 
 - type: soundCollection
   id: AmbienceHoly
@@ -141,7 +132,6 @@
     - /Audio/Ambience/ambiholy.ogg
     - /Audio/Ambience/ambiholy2.ogg
     - /Audio/Ambience/ambiholy3.ogg
-    - /Audio/NES/Ambience/Endeleas_Desert.ogg
 
 - type: soundCollection
   id: AmbienceMaintenance
@@ -157,7 +147,6 @@
     - /Audio/Voice/Misc/lowHiss3.ogg
     - /Audio/Voice/Misc/lowHiss4.ogg
     - /Audio/Ambience/maintambience.ogg
-    # - /Audio/NES/Ambience/Deus_Divided.ogg
 
 - type: soundCollection
   id: AmbienceMedical
@@ -167,28 +156,23 @@
 - type: soundCollection
   id: AmbienceMining
   files:
-    # - /Audio/Ambience/ambicave.ogg
-    # - /Audio/Ambience/ambidanger.ogg
-    # - /Audio/Ambience/ambidanger2.ogg
-    # - /Audio/Ambience/ambilava1.ogg
-    # - /Audio/Ambience/ambilava2.ogg
-    # - /Audio/Ambience/ambilava3.ogg
-    # - /Audio/Ambience/ambimaint1.ogg
-    # - /Audio/Ambience/ambimine.ogg
-    # - /Audio/Ambience/ambiruin.ogg
-    # - /Audio/Ambience/ambiruin2.ogg
-    # - /Audio/Ambience/ambiruin3.ogg
-    # - /Audio/Ambience/ambiruin4.ogg
-    # - /Audio/Ambience/ambiruin5.ogg
-    # - /Audio/Ambience/ambiruin6.ogg
-    # - /Audio/Ambience/ambiruin7.ogg
-    # - /Audio/Ambience/voyage_neverending.ogg
-    # - /Audio/Ambience/unanchored.ogg
-    - /Audio/NES/Ambience/MogueHeart_Wanderlustl.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
-    - /Audio/NES/Ambience/Saros_Lonely.ogg
-    - /Audio/NES/Ambience/Endeleas_Desert.ogg
-    - /Audio/NES/Ambience/Endeleas_Traveler.ogg
+    - /Audio/Ambience/ambicave.ogg
+    - /Audio/Ambience/ambidanger.ogg
+    - /Audio/Ambience/ambidanger2.ogg
+    - /Audio/Ambience/ambilava1.ogg
+    - /Audio/Ambience/ambilava2.ogg
+    - /Audio/Ambience/ambilava3.ogg
+    - /Audio/Ambience/ambimaint1.ogg
+    - /Audio/Ambience/ambimine.ogg
+    - /Audio/Ambience/ambiruin.ogg
+    - /Audio/Ambience/ambiruin2.ogg
+    - /Audio/Ambience/ambiruin3.ogg
+    - /Audio/Ambience/ambiruin4.ogg
+    - /Audio/Ambience/ambiruin5.ogg
+    - /Audio/Ambience/ambiruin6.ogg
+    - /Audio/Ambience/ambiruin7.ogg
+    - /Audio/Ambience/voyage_neverending.ogg
+    - /Audio/Ambience/unanchored.ogg
 
 - type: soundCollection
   id: AmbienceRuins
@@ -206,23 +190,12 @@
     - /Audio/Ambience/ambiruin5.ogg
     - /Audio/Ambience/ambiruin6.ogg
     - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
 
 - type: soundCollection
   id: AmbienceSpace
   files:
-    # - /Audio/Ambience/constellations.ogg //NES14-changes
-    # - /Audio/Ambience/starlight.ogg
-    # - /Audio/Ambience/drifting.ogg
-    # - /Audio/Ambience/spookyspace1.ogg
-    # - /Audio/Ambience/spookyspace2.ogg
-    # - /Audio/Ambience/ambispace2.ogg
-    # - /Audio/Lobby/title2.ogg
-    # - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    # - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
     - /Audio/NES/Ambience/Shamaluev_Space.ogg
-    - /Audio/NES/Ambience/Biochill_Sun.ogg
+    - /Audio/NES/Ambience/Endeleas_Desert.ogg
 
 - type: soundCollection
   id: AmbienceSpooky
@@ -233,8 +206,6 @@
     - /Audio/Ambience/ambiodd.ogg
     - /Audio/Ambience/ambiruin6.ogg
     - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
 
 - type: soundCollection
   id: AmbienceTrain
@@ -245,8 +216,6 @@
     - /Audio/Ambience/ambiruin3.ogg
     - /Audio/Ambience/ambiruin5.ogg
     - /Audio/Ambience/ambiruin6.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
 
 - type: soundCollection
   id: AmbienceSpookyFog
@@ -265,19 +234,12 @@
     - /Audio/Ambience/ambidanger.ogg
     - /Audio/Ambience/ambidanger2.ogg
     - /Audio/Ambience/ambimine.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
 
 ## Background noise on station, separate to ambient music.
 - type: soundCollection
   id: AmbienceStation
   files:
-    # - /Audio/Ambience/shipambience.ogg
-    - /Audio/NES/Ambience/Dreamstate_Crossing_Infinity.ogg
-    - /Audio/NES/Ambience/Dreamstate_Orbital.ogg
-    # - /Audio/NES/Ambience/Deus_Divided.ogg
-    - /Audio/NES/Ambience/Biochill_Sun.ogg
-    - /Audio/NES/Ambience/Saros_Lonely.ogg
+    - /Audio/Ambience/shipambience.ogg
 
 # Rules
 - type: rules

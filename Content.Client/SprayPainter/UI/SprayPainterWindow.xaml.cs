@@ -22,7 +22,7 @@ public sealed partial class SprayPainterWindow : DefaultWindow
     private List<SprayPainterEntry> CurrentEntries = new List<SprayPainterEntry>();
 
     private readonly SpriteSpecifier _colorEntryIconTexture = new SpriteSpecifier.Rsi(
-        new ResPath("Structures/Piping/Atmospherics/pipe.rsi"),
+        new ResPath("NES/Structures/Piping/Atmospherics/pipe.rsi"), // NES14-Changes
         "pipeStraight");
 
     public SprayPainterWindow()

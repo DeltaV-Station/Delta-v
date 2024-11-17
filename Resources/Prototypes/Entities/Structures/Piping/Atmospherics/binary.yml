@@ -42,7 +42,7 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressure
@@ -90,7 +90,7 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpVolume
@@ -139,7 +139,7 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpPassiveGate
@@ -169,7 +169,7 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpManualValve
@@ -217,7 +217,7 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpSignalValve
@@ -275,7 +275,7 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
           state: pipeHalf
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasCanisterPort
@@ -305,7 +305,7 @@
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
@@ -360,7 +360,7 @@
   - type: Sprite
     sprite: Structures/Machines/gasrecycler.rsi
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: running
@@ -425,7 +425,7 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: heStraight

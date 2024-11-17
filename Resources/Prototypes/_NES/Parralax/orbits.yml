@@ -165,12 +165,6 @@
       slowness: 0.999
       scale: "0.5, 0.5"
       tiled: false
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/Pluto.png"
-      slowness: 0.99
-      scale: "0.5, 0.5"
-      tiled: false
   layersLQ:
     - texture:
         !type:GeneratedParallaxTextureSource
