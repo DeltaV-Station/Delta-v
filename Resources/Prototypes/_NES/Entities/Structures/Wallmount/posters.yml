@@ -1,0 +1,64 @@
+- type: entity
+  parent: PosterBase
+  id: Nes14PosterBase
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: NES/Structures/Wallmounts/posters.rsi
+    snapCardinals: true
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterAcorp
+  name: постер "ACORP"
+  description: Слався белый ебано-бюрократический треугольник.
+  components:
+  - type: Sprite
+    state: acorp
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterAvali
+  name: постер "Cute Avali"
+  description: Не обманывай себя. На постере она лишь менее жуткая.
+  components:
+  - type: Sprite
+    state: avali
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterXeno
+  name: постер "УБЕЙ КСЕНО"
+  description: Чувак, эти ксеносы отстой. Мы блядь должны их ненавидеть.
+  components:
+  - type: Sprite
+    state: xeno
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterAris
+  name: постер "Арис"
+  description: Постер с обнаженной героиней какого-то аниме или порнухи. Ужс.
+  components:
+  - type: Sprite
+    state: aris
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterMir
+  name: постер "Мирный"
+  description: Постер с обнаженной парой из какого-то аниме или порнухи. Ужс.
+  components:
+  - type: Sprite
+    state: aris_mir
+
+- type: entity
+  parent: Nes14PosterBase
+  id: Nes14PosterLastIdiot
+  name: табличка "0 ДНЕЙ С ПОСЛЕДНЕГО ИДИОТА"
+  description: Счетчик на табличке показывает что с последней идиотины на борту прошло 0 дней. Надеюсь это шутка...
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Wallmounts/last_idiot.rsi
+    state: icon

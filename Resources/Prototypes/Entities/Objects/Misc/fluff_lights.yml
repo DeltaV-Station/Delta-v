@@ -190,7 +190,10 @@
   components:
   - type: Item
     size: Normal
+  - type: MultiHandedItem
   - type: Sprite
+    sprite: NES/Objects/Misc/Lights/lights.rsi #NES14-Changes
+    drawdepth: Mobs
     layers:
       - state: floodlight
       - state: floodlight_on
@@ -210,8 +213,9 @@
         - HighImpassable
   - type: PointLight
     enabled: false
-    radius: 8
-    energy: 5
+    radius: 10
+    energy: 2
+    color: "#be885e"
   - type: ItemSlots
     slots:
       cell_slot:
@@ -245,7 +249,7 @@
   description: A pole with powerful mounted lights on it. It's broken.
   components:
   - type: Sprite
-    sprite: Objects/Misc/Lights/lights.rsi
+    sprite: NES/Objects/Misc/Lights/lights.rsi #NES14-Changes
     state: floodlight_broken
   - type: Anchorable
   - type: Damageable

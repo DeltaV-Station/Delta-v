@@ -32,23 +32,21 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+      sprite: NES/Structures/Doors/Airlocks/Standard/firelock.rsi #NES14-Changes
       snapCardinals: true
       layers:
-        - state: closed
-          map: ["enum.DoorVisualLayers.Base"]
-        - state: closed_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseUnlit"]
-          visible: false
-        - state: welded
-          map: ["enum.WeldableLayers.BaseWelded"]
-        - state: bolted_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseBolted"]
-          visible: false
-        - state: panel_open
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      - state: closed
+        map: ["enum.DoorVisualLayers.Base"]
+      - state: closed_unlit
+        shader: unshaded
+        map: ["enum.DoorVisualLayers.BaseUnlit"]
+      - state: welded
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: bolted_unlit
+        shader: unshaded
+        map: ["enum.DoorVisualLayers.BaseBolted"]
+      - state: panel_open
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - type: AnimationPlayer
     - type: Fixtures
       fixtures:
@@ -63,10 +61,10 @@
           - AirlockLayer
     - type: Door
       openDrawDepth: WallTops
-      closeTimeOne: 0.1
-      closeTimeTwo: 0.6
-      openTimeOne: 0.1
-      openTimeTwo: 0.6
+      closeTimeOne: 0.8
+      closeTimeTwo: 1
+      openTimeOne: 0.8
+      openTimeTwo: 1
       state: Open
       bumpOpen: false
       clickOpen: true
@@ -79,8 +77,8 @@
         path: /Audio/Machines/airlock_close.ogg
       denySound:
         path: /Audio/Machines/airlock_deny.ogg
-      openingAnimationTime: 0.6
-      closingAnimationTime: 0.6
+      openingAnimationTime: 0.8
+      closingAnimationTime: 0.8
     - type: Weldable
       fuel: 5
       time: 3
@@ -148,7 +146,7 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
+      sprite: NES/Structures/Doors/Airlocks/Glass/firelock.rsi #NES14-Changes
     - type: Occluder
       enabled: false
     - type: Fixtures

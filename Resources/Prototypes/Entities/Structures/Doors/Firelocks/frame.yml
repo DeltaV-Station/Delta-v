@@ -5,19 +5,19 @@
   description: That is a firelock frame.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/firelock.rsi #NES14-Changes
     layers:
-    - state: frame1
+    - state: closed
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          frame1: { state: frame1 }
-          frame2: { state: frame2 }
-          frame3: { state: frame3 }
-          frame4: { state: frame4 }
+          frame1: { state: closed }
+          frame2: { state: closed }
+          frame3: { state: closed }
+          frame4: { state: closed }
   - type: Construction
     graph: Firelock
     node: frame1

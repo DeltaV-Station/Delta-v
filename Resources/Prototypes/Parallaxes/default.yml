@@ -6,34 +6,28 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/NES/Parallaxes/Frontier.png"
+        path: "/Textures/NES/Parallaxes/PurpleParallax2.png"
       slowness: 0.996
-      scrolling: "-0.0996, 0"
+      # scrolling: "-0.0996, 0"
       scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
       slowness: 0.998
-      scrolling: "-0.0998, 0"
+      # scrolling: "-0.0998, 0"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizards_star_slower"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
       slowness: 0.9997
-      scrolling: "-0.09997, 0"
+      # scrolling: "-0.09997, 0"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.99997
-      scrolling: "-0.099997, 0"
-    # - texture:
-    #     !type:ImageParallaxTextureSource
-    #     path: "/Textures/NES/Parallaxes/CoolBluePlanet.png"
-    #   slowness: 0.99
-    #   tiled: false
-    #   scale: "0.6, 0.6"
+      # scrolling: "-0.099997, 0"
   layersLQ:
     - texture:
         !type:GeneratedParallaxTextureSource

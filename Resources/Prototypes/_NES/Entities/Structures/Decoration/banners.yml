@@ -1,8 +1,8 @@
 - type: entity
-  id: NesBannerFederation
+  id: Nes14BannerFederation
   parent: BannerBase
   name: флаг Федерации
-  description: Флаг одной из самых могущественных фракций земли. Ублюдки.
+  description: Флаг земного объеденения, образовавшегося перед началом холодной войны с Коммунистами.
   components:
   - type: Sprite
     drawdepth: Overdoors
@@ -12,46 +12,157 @@
     state: fd_flag
 
 - type: entity
-  id: NesBannerTKK
-  parent: NesBannerFederation
+  id: Nes14BannerTKK
+  parent: Nes14BannerFederation
   name: флаг ТКК
-  description: Флаг одной из самых могущественных фракций земли. Узкоглазые ублюдки.
+  description: Торговая Космическая Компания. Большинству людей они запомнились лишь ценами за свои услуги по доставке грузов.
   components:
   - type: Sprite
     state: china_flag
 
 - type: entity
-  id: NesBannerCitadel
-  parent: NesBannerFederation
-  name: флаг Циты
-  description: Флаг одной из самых могущественных фракций златоглазки. Пернатые ублюдки.
+  id: Nes14BannerCitadel
+  parent: Nes14BannerFederation
+  name: флаг Цитадели
+  description: Могущественное государство с планеты Титан, так и норовит поднять разговор о прошлом.
   components:
   - type: Sprite
     state: citadel_flag
 
 - type: entity
-  id: NesBannerFandor
-  parent: NesBannerFederation
-  name: флаг Фандора
-  description: Флаг одной фракций глубокого космоса. Ушастые ублюдки.
+  id: Nes14BannerMiras
+  parent: Nes14BannerFederation
+  name: флаг Мира`са
+  description: Флаг могущественного государства с Марса. Их можно описать как "пассивная обезьяна с ядерным вооружением".
   components:
   - type: Sprite
-    state: fandor_flag
+    state: miras
 
 - type: entity
-  id: NesBannerNermanta
-  parent: NesBannerFederation
+  id: Nes14BannerNermanta
+  parent: Nes14BannerFederation
   name: флаг Нерманты
-  description: Флаг одной из самых могущественных фракций марса. Коммунистические ублюдки.
+  description: Нерманта... Во славу Императора.
   components:
   - type: Sprite
-    state: mars_flag
+    state: nermanta
 
 - type: entity
-  id: NesBannerStation
-  parent: NesBannerFederation
-  name: флаг экспедиции FDSS-55
-  description: На данном знамени изображена эмблема всей программы освоения 55-го сектора. Наша станция будет самым маленьким и отдаленным остравком демократии.
+  id: Nes14BannerStation
+  parent: Nes14BannerFederation
+  name: флаг FDSS-55
+  description: FDSS-55. Жалкая попытка объеденить ряд государств общим делом.
   components:
   - type: Sprite
     state: nes_flag
+
+- type: entity
+  id: Nes14BannerCommunistus
+  parent: Nes14BannerFederation
+  name: флаг Коммунистического Собрания
+  description: С одной стороны, когда серп и молот возвышается над нищетой и разрухой, это хорошо, но когда дело доходит до космоса, предпочитаешь не говорить о них.
+  components:
+  - type: Sprite
+    state: communistus
+
+#Инфо-столб
+
+- type: entity
+  id: Nes14Info
+  name: информационный столб
+  description: Небольшой информационный столб, по всей видимости должен что то отображать.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/info_screen/base.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: 0, 0.2
+    layers:
+    - state: base
+    - state: base-on
+      shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: PointLight
+    radius: 1
+    energy: 0.5
+    castShadows: false
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Nes14InfoBroken:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+
+- type: entity
+  id: Nes14InfoBroken
+  name: сломаный информационный столб
+  description: Небольшой информационный столб, по всей видимости должен был что то отображать.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/info_screen/base.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: 0, 0.2
+    layers:
+    - state: broken
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline

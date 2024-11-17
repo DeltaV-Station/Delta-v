@@ -106,7 +106,7 @@
   suffix: External
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Standard/external.rsi #NES14-Changes
     state: "assembly"
 
 - type: entity
@@ -115,7 +115,7 @@
   suffix: External, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Glass/external.rsi #NES14-Changes
     state: "assembly"
 
 #Public (Glass Airlock)
