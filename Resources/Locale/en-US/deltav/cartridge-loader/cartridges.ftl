@@ -1,3 +1,6 @@
+## CrimeAssist
+
+# General
 crime-assist-program-name = Crime Assist
 crime-assist-yes-button = Yes
 crime-assist-no-button = No
@@ -6,6 +9,14 @@ crime-assist-crimetype-misdemeanour = Misdemeanour
 crime-assist-crimetype-felony = Felony
 crime-assist-crimetype-capital = Capital
 crime-assist-crime-innocent = No crime was committed
+crime-assist-mainmenu = Welcome to Crime Assist!
+crime-assist-sophont-explanation = A sophont is described as any entity with the capacity to display the following attributes:
+                                   • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
+                                   • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
+                                   • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
+                                   Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
+
+# Crimes
 crime-assist-crime-animalcruelty = Code 101: Animal Cruelty
 crime-assist-crime-theft = Code 102: Theft
 crime-assist-crime-trespass = Code 110: Trespass
@@ -32,7 +43,8 @@ crime-assist-crime-decorporealisation = Code 305: Decorporealisation
 crime-assist-crime-kidnapping = Code 309: Kidnapping
 crime-assist-crime-sedition = Code 311: Sedition
 crime-assist-crime-sexualharassment = Code 314: Sexual Harassment
-crime-assist-mainmenu = Welcome to Crime Assist!
+
+# Questions
 crime-assist-question-isitterrorism = Did the suspect hold hostages, cause many deaths or major destruction to force compliance from the crew?
 crime-assist-question-wassomeoneattacked = Was an entity attacked?
 crime-assist-question-wasitsophont = Was the victim in question a sophont?
@@ -59,6 +71,8 @@ crime-assist-question-happenincourt = Was the suspect a nuisance in court?
 crime-assist-question-duringactiveinvestigation = Was the suspect a nuisance during an active investigation, and hindered the investigation as a result?
 crime-assist-question-tocommandstaff = Did the suspect overthrow or compromise a lawfully established Chain of Command, or attempt to do so?
 crime-assist-question-wasitcommanditself = Was a command staff or department head abusing authority over another sophont?
+
+# Crime details
 crime-assist-crimedetail-innocent = Crime could not be determined. Use your best judgement to resolve the situation.
 crime-assist-crimedetail-animalcruelty = To inflict unnecessary suffering on a sapient being with malicious intent.
 crime-assist-crimedetail-theft = To unlawfully take property or items without consent.
@@ -86,6 +100,8 @@ crime-assist-crimedetail-decorporealisation = To unlawfully, maliciously, and pe
 crime-assist-crimedetail-kidnapping = To unlawfully confine or restrict the free movement of a sophont against their will.
 crime-assist-crimedetail-sedition = To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
 crime-assist-crimedetail-sexualharassment = To sexually harass, attempt to coerce into sexual relations, or effect unwanted sexual contact with an unwilling sophont.
+
+# Punishments
 crime-assist-crimepunishment-innocent = No punishment may be necessary
 crime-assist-crimepunishment-animalcruelty = Punishment: 3 minutes
 crime-assist-crimepunishment-theft = Punishment: 2 minutes
@@ -113,12 +129,10 @@ crime-assist-crimepunishment-decorporealisation = Punishment: Capital
 crime-assist-crimepunishment-kidnapping = Punishment: Capital
 crime-assist-crimepunishment-sedition = Punishment: Capital
 crime-assist-crimepunishment-sexualharassment = Punishment: Capital
-crime-assist-sophont-explanation = A sophont is described as any entity with the capacity to display the following attributes:
-                                   • [bold]Sapience[/bold]: the entity possesses basic logic and problem-solving skills, or at a minimum some level of significant intelligence.
-                                   • [bold]Sentience[/bold]: the entity has the capacity to process an emotion or lack thereof, or at a minimum the ability to recognise its own pain.
-                                   • [bold]Self-awareness[/bold]: the entity is capable of altering its behaviour in a reasonable fashion as a result of stimuli, or at a minimum is capable of recognising its own sapience and sentience.
-                                   Any sophont is considered a legal person, regardless of origin or prior cognitive status. Much like any other intelligent organic, a sophont may press charges against crew and be tried for crimes.
 
+## MailMetrics
+
+# General
 mail-metrics-program-name = MailMetrics
 mail-metrics-header = Income from Mail Deliveries
 mail-metrics-opened = Earnings (Opened)
@@ -131,3 +145,16 @@ mail-metrics-money-header = Spesos
 mail-metrics-total = Total
 mail-metrics-progress = {$opened} out of {$total} packages opened!
 mail-metrics-progress-percent = Success rate: {$successRate}%
+
+## StockTrading
+
+# General
+stock-trading-program-name = StockTrading
+stock-trading-title = Intergalactic Stock Market
+stock-trading-balance = Balance: {$balance} credits
+stock-trading-no-entries = No entries
+stock-trading-owned-shares = Owned: {$shares}
+stock-trading-buy-button = Buy
+stock-trading-sell-button = Sell
+stock-trading-amount-placeholder = Amount
+stock-trading-price-history = Price History
