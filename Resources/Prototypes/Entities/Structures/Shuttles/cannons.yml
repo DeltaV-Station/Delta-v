@@ -76,7 +76,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 300
       behaviors:
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
@@ -129,7 +129,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 800
       behaviors:
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
