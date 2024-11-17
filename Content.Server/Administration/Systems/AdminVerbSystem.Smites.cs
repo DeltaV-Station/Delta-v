@@ -622,7 +622,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = dustName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Materials/materials.rsi"), "ash"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/NES/Objects/Materials/materials.rsi #NES14-Changes"), "ash"),
             Act = () =>
             {
                 EntityManager.QueueDeleteEntity(args.Target);

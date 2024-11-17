@@ -8,63 +8,63 @@
 - type: stack
   id: WoodPlank
   name: wood plank
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: wood }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: wood } #NES14-Changes
   spawn: MaterialWoodPlank1
   maxCount: 30
 
 - type: stack
   id: Cardboard
   name: cardboard
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: cardboard } #NES14-Changes
   spawn: MaterialCardboard1
   maxCount: 30
 
 - type: stack
   id: Cloth
   name: cloth
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: cloth } #NES14-Changes
   spawn: MaterialCloth1
   maxCount: 30
 
 - type: stack
   id: Durathread
   name: durathread
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: durathread } #NES14-Changes
   spawn: MaterialDurathread1
   maxCount: 30
 
 - type: stack
   id: Diamond
   name: diamond
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: diamond }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: diamond } #NES14-Changes
   spawn: MaterialDiamond1
   maxCount: 30
 
 - type: stack
   id: Cotton
   name: cotton
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cotton }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: cotton } #NES14-Changes
   spawn: MaterialCotton1
   maxCount: 30
 
 - type: stack
   id: Pyrotton
   name: pyrotton
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: pyrotton }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: pyrotton } #NES14-Changes
   spawn: MaterialPyrotton1
   maxCount: 30
 
 - type: stack
   id: Bananium
   name: bananium
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bananium }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: bananium } #NES14-Changes
   spawn: MaterialBananium1
   maxCount: 10
 
 - type: stack
   id: MeatSheets
   name: meat sheet
-  icon: { sprite: /Textures/Objects/Materials/Sheets/meaterial.rsi, state: meat }
+  icon: { sprite: /Textures/Objects/Materials/Sheets/meaterial.rsi, state: meat } #NES14-Changes
   spawn: MaterialSheetMeat1
   maxCount: 30
 
@@ -92,7 +92,7 @@
 - type: stack
   id: Bones
   name: bones
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bones}
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi , state: bones} #NES14-Changes
   spawn: MaterialBones1
   maxCount: 30
 

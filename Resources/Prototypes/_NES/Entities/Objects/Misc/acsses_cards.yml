@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
   - type: Clothing
     slots:
     - idcard
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
   - type: Item
     size: Small
     heldPrefix: default

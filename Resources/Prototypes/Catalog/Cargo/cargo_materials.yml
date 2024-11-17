@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: MaterialSteel
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
     state: steel_3
   product: CrateMaterialSteel
   cost: 1500
@@ -21,7 +21,7 @@
 - type: cargoProduct
   id: MaterialPlastic
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: NES/Objects/Materials/Sheets/other.rsi #NES14-Changes
     state: plastic_3
   product: CrateMaterialPlastic
   cost: 2000
@@ -31,7 +31,7 @@
 - type: cargoProduct
   id: MaterialBrass
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
     state: brass_3
   product: CrateMaterialBrass
   cost: 3000
@@ -41,7 +41,7 @@
 - type: cargoProduct
   id: MaterialPlasteel
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
     state: plasteel_3
   product: CrateMaterialPlasteel
   cost: 4800
@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: MaterialTextiles
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     state: cloth_3
   product: CrateMaterialTextiles
   cost: 1500
@@ -61,8 +61,8 @@
 - type: cargoProduct
   id: MaterialPlasma
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: plasma_3
+    sprite: NES/Objects/Materials/Sheets/other.rsi #NES14-Changes
+    state: plasma # Corvax-Resprite
   product: CrateMaterialPlasma
   cost: 2000
   category: cargoproduct-category-name-materials
@@ -71,7 +71,7 @@
 - type: cargoProduct
   id: CardboardMaterial
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     state: cardboard_3
   product: CrateMaterialCardboard
   cost: 750
@@ -81,7 +81,7 @@
 - type: cargoProduct
   id: PaperMaterial
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: NES/Objects/Materials/Sheets/other.rsi #NES14-Changes
     state: paper_3
   product: CrateMaterialPaper
   cost: 1000

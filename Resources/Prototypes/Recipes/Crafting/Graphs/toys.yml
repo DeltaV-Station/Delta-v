@@ -31,7 +31,7 @@
       - tag: HideCorgi
         name: corgi hide
         icon:
-          sprite: Objects/Materials/materials.rsi
+          sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
           state: corgihide
         doAfter: 5
   - node: suit

@@ -225,3 +225,12 @@
   components:
   - type: Sprite
     sprite: NES/Clothing/Uniforms/engineer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id:  Nes14ClothingUniformMedMedical
+  name: униформа врача
+  description: Униформа врача, по идее эта зеленая полоска должна сказать "Хей, это ты док!". Но все же согласимся... Это нихуя не так.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Uniforms/medical.rsi

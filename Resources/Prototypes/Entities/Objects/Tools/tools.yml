@@ -241,10 +241,10 @@
     tags:
     - Powerdrill
   - type: Sprite
-    sprite: Objects/Tools/drill.rsi
+    sprite: NES/Objects/Tools/drill.rsi #NES14-Changes
     state: drill_screw
   - type: Item
-    sprite: Objects/Tools/drill.rsi
+    sprite: NES/Objects/Tools/drill.rsi #NES14-Changes
     size: Small
   - type: Tool
     qualities:
@@ -256,7 +256,7 @@
     entries:
       - behavior: Screwing
         sprite:
-          sprite: Objects/Tools/drill.rsi
+          sprite: NES/Objects/Tools/drill.rsi #NES14-Changes
           state: drill_screw
         useSound:
           path: /Audio/Items/drill_use.ogg
@@ -264,7 +264,7 @@
           path: /Audio/Items/change_drill.ogg
       - behavior: Anchoring
         sprite:
-          sprite: Objects/Tools/drill.rsi
+          sprite: NES/Objects/Tools/drill.rsi #NES14-Changes
           state: drill_bolt
         useSound:
           path: /Audio/Items/drill_use.ogg

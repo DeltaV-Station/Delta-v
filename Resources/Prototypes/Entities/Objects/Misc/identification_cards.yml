@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
   - type: Clothing
     slots:
     - idcard
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
   - type: Item
     size: Small
     heldPrefix: default
@@ -832,12 +832,12 @@
   description: An ID card that gives you access beyond your wildest dreams.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
     layers:
     - state: admin
     - state: idadmin
   - type: Clothing
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
   - type: Item
     heldPrefix: green
   - type: IdCard

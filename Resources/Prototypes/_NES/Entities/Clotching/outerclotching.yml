@@ -40,3 +40,20 @@
   components:
     - type: Sprite
       sprite: NES/Clothing/OuterClothing/avali_outer_base.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: Nes14ClothingOuterCoatLabMedical
+  name: халат врача
+  description: Халат врача, который должен поддерживать уровень антисанитарии в вашем отделе. Почему? Ну... Какой дегенерат обрезал его нижнюю часть?
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat.rsi
+  - type: Clothing
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95
+        Caustic: 0.65

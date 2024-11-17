@@ -2,8 +2,8 @@
   id: Steel
   stackEntity: SheetSteel1
   name: materials-steel
-  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
-  price: 0.15 # $15 for 1 unit
+  icon: { sprite: NES/Objects/Materials/Sheets/metal.rsi, state: steel } #NES14-Changes
+  price: 0.05
 
 - type: material
   id: Gold
@@ -27,7 +27,7 @@
   id: Brass
   stackEntity: SheetBrass1
   name: materials-brass
-  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: brass }
+  icon: { sprite: NES/Objects/Materials/Sheets/metal.rsi, state: brass } #NES14-Changes
   color: "#b18b25"
   price: 0.30 # $30 for 1 unit
 
@@ -35,6 +35,6 @@
   id: Plasteel
   stackEntity: SheetPlasteel1
   name: materials-plasteel
-  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  icon: { sprite: NES/Objects/Materials/Sheets/metal.rsi, state: plasteel } #NES14-Changes
   color: "#696969" #Okay, this is epic
   price: 0.5 # 1-1 mix of plasma and steel.

@@ -3,7 +3,7 @@
   stackEntity: MaterialBiomass1
   name: materials-biomass
   unit: materials-unit-piece
-  icon: { sprite: /Textures/Objects/Misc/monkeycube.rsi, state: cube }
+  icon: { sprite: /Textures/NES/Objects/Misc/monkeycube.rsi, state: cube } #NES14-Changes
   color: "#8A9A5B"
   price: 0.1
 
@@ -11,7 +11,7 @@
   id: Cardboard
   stackEntity: MaterialCardboard1
   name: materials-cardboard
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: cardboard } #NES14-Changes
   color: "#70736c"
   price: 0.025
 
@@ -20,7 +20,7 @@
   stackEntity: MaterialCloth1
   name: materials-cloth
   unit: materials-unit-roll
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: cloth } #NES14-Changes
   color: "#e7e7de"
   price: 0.05
 
@@ -30,7 +30,7 @@
   name: materials-durathread
   # not exactly a sheet but its sprite suggests it cant be rolled like cloth
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }
+  icon: { sprite: /Textures/NES/Objects/Materials/materials.rsi, state: durathread } #NES14-Changes
   color: "#8291a1"
   price: 0.35 # 1-1 mix of plastic and cloth.
 
@@ -38,7 +38,7 @@
   id: Paper
   stackEntity: SheetPaper1
   name: materials-paper
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: paper }
+  icon: { sprite: NES/Objects/Materials/Sheets/other.rsi, state: paper } #NES14-Changes
   color: "#d9d9d9"
   price: 0.01 # it's paper bro what do you expect?
 
@@ -46,7 +46,7 @@
   id: Plasma
   stackEntity: SheetPlasma1
   name: materials-plasma
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plasma }
+  icon: { sprite: NES/Objects/Materials/Sheets/other.rsi, state: plasma } #NES14-Changes
   color: "#7e009e"
   price: 0.35 # $35 for 1 unit
 
@@ -54,7 +54,7 @@
   id: Plastic
   stackEntity: SheetPlastic1
   name: materials-plastic
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plastic }
+  icon: { sprite: NES/Objects/Materials/Sheets/other.rsi, state: plastic } #NES14-Changes
   color: "#d9d9d9"
   price: 0.20 # $20 for 1 unit
 
@@ -63,7 +63,7 @@
   stackEntity: MaterialWoodPlank1
   name: materials-wood
   unit: materials-unit-plank
-  icon: { sprite: Objects/Materials/materials.rsi, state: wood }
+  icon: { sprite: NES/Objects/Materials/materials.rsi, state: wood } #NES14-Changes
   color: "#966F33"
   price: 0.10 # $10 for 1 unit
 
@@ -71,7 +71,7 @@
   id: Uranium
   stackEntity: SheetUranium1
   name: materials-uranium
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
+  icon: { sprite: NES/Objects/Materials/Sheets/other.rsi, state: uranium } #NES14-Changes
   color: "#32a852"
   price: 0.85 # $85 for 1 unit
 
@@ -80,7 +80,7 @@
   stackEntity: MaterialBananium1
   name: materials-bananium
   unit: materials-unit-bunch
-  icon: { sprite: Objects/Materials/materials.rsi, state: bananium }
+  icon: { sprite: NES/Objects/Materials/materials.rsi, state: bananium } #NES14-Changes
   color: "#32a852"
   price: 1.0 # $100 for 1 unit
 
@@ -88,7 +88,7 @@
   id: Meaterial # you can't take this pun from me
   name: materials-meat
   unit: materials-unit-slab
-  icon: { sprite: Objects/Materials/Sheets/meaterial.rsi, state: meat }
+  icon: { sprite: NES/Objects/Materials/Sheets/meaterial.rsi, state: meat } #NES14-Changes
   color: "#c53648"
   price: 0.05
 
@@ -96,7 +96,7 @@
   id: WebSilk
   name: materials-web
   unit: materials-unit-web
-  icon: { sprite: Objects/Materials/silk.rsi, state: icon }
+  icon: { sprite: NES/Objects/Materials/silk.rsi, state: icon } #NES14-Changes
   color: "#eeeeee" #eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
   price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
 
@@ -104,7 +104,7 @@
   id: Bones
   name: materials-bones
   unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/materials.rsi, state: bones }
+  icon: { sprite: NES/Objects/Materials/materials.rsi, state: bones } #NES14-Changes
   color: "#896f5e"
   price: 0
 
@@ -113,7 +113,7 @@
   stackEntity: Coal1
   name: materials-coal
   unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/ore.rsi, state: coal }
+  icon: { sprite: NES/Objects/Materials/ore.rsi, state: coal } #NES14-Changes
   color: "#404040"
   price: 0.1 # $10 for 1 unit
 
@@ -121,7 +121,7 @@
   id: Gunpowder
   name: materials-gunpowder
   unit: materials-unit-piece
-  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  icon: { sprite: NES/Objects/Misc/reagent_fillings.rsi, state: powderpile } #NES14-Changes
   color: "#A9A9A9"
   price: 0
 
