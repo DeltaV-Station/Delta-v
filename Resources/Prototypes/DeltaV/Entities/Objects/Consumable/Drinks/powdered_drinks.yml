@@ -316,3 +316,24 @@
         reagents:
         - ReagentId: PowderedJuiceCarrot
           Quantity: 50
+
+- type: entity
+  parent: ReagentTinBase
+  id: ReagentTinPowderedJuiceTomato
+  name: tin of powdered tomato juice
+  description: A container of powdered tomato juice manufactured by HydroCo. According to the instructions, stirring with water in a 1:1 ratio will reconstitute the juice.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Drinks/powdered_drinks.rsi
+    layers:
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: overlay-container
+      color: "#EF908F"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: PowderedJuiceTomato
+          Quantity: 50

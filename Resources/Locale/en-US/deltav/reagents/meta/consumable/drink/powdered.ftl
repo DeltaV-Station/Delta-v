@@ -36,3 +36,6 @@ reagent-desc-powdered-juice-cherry = A powder-based cherry juice substitute that
 
 reagent-name-powdered-juice-carrot = powdered carrot juice
 reagent-desc-powdered-juice-carrot = A powder-based carrot juice substitute that can be reconstituted with water.
+
+reagent-name-powdered-juice-carrot = powdered tomato juice
+reagent-desc-powdered-juice-carrot = A powder-based tomato juice substitute that can be reconstituted with water.
