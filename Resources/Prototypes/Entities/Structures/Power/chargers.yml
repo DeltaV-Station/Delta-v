@@ -128,19 +128,18 @@
     color: "#03fc4e"
     energy: 0.7
   - type: Charger
-    chargeRate: 50
+    chargeRate: 400
   - type: Sprite
     sprite: Structures/Power/cage_recharger.rsi
-  - type: PowerCellSlot
-    cellSlotId: charger_slot
   - type: ItemSlots
     slots:
       charger_slot:
         ejectOnInteract: true
-        name: Power cage
         whitelist:
           tags:
           - PowerCage
+          components:
+          - HitscanBatteryAmmoProvider
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
