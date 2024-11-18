@@ -295,3 +295,39 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Beam Devestator
+  parent: BaseWeaponBattery
+  id: WeaponBeamDevestator
+  description: Flavor text
+  components:
+    - type: Item
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: ClothingSpeedModifier
+      walkModifier: 0.7
+      sprintModifier: 0.7
+    - type: HeldSpeedModifier
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+    - type: Gun
+      selectedMode: FullAuto
+      fireRate: 15
+      availableModes: FullAuto
+      soundGunshot:
+        path: /Audio/Weapons/emitter.ogg
+        params:
+          pitch: 2
+    - type: HitscanBatteryAmmoProvider
+      proto: BeamDev
+      fireCost: 600
+    - type: Battery
+      maxCharge: 300000
+      startingCharge: 300000
+    - type: Tag
+      tags:
+      - PowerCage
