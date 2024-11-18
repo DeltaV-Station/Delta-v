@@ -1,14 +1,17 @@
 ﻿- type: loadout
   id: SecurityRevolverWeaponRevolverLucky
-  storage:
-    belt:
-    - WeaponRevolverLucky
+  equipment:
+    pocket1: WeaponRevolverLucky
 
 - type: loadout
   id: SecurityRevolverInspector
-  storage:
-    belt:
-    - WeaponRevolverInspector
+  equipment:
+    pocket1: WeaponRevolverInspector
+
+- type: loadout
+  id: SecurityFirearmWeaponRevolverFitz
+  equipment:
+    pocket1: WeaponRevolverFitz
 
 - type: loadout
   id: SecurityFirearmSpeedLoaderMagnumRubber
@@ -33,11 +36,6 @@
   storage:
     back:
     - SpeedLoaderSpecial
-
-- type: loadout
-  id: SecurityFirearmWeaponRevolverFitz
-  equipment:
-    pocket1: WeaponRevolverFitz
 
 - type: loadout
   id: SecurityFirearmWeaponRevolverK38Master
