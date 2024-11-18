@@ -319,9 +319,7 @@
       fireRate: 15
       availableModes: FullAuto
       soundGunshot:
-        path: /Audio/Weapons/emitter.ogg
-        params:
-          pitch: 2
+        path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
     - type: HitscanBatteryAmmoProvider
       proto: BeamDev
       fireCost: 600

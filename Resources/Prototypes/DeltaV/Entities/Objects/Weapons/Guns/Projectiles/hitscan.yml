@@ -34,12 +34,13 @@
   damage:
     types:
       Heat: 5
+      Structural: 20
   muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
   travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: beam
   impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_laser
