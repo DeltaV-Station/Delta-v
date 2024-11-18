@@ -1,5 +1,4 @@
 using Content.Shared.Bed.Sleep;
-using Content.Server.Chat.Managers;  // DeltaV Narcolepsy port from EE
 using Content.Shared.StatusEffect;
 using Content.Shared.Dataset; // DeltaV Narcolepsy port from EE
 using Content.Shared.Popups; // DeltaV Narcolepsy port from EE
@@ -16,7 +15,6 @@ public sealed class NarcolepsySystem : EntitySystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string StatusEffectKey = "ForcedSleep"; // Same one used by N2O and other sleep chems.
 
-    [Dependency] private readonly IChatManager _chatMan = default!; // DeltaV Narcolepsy port from EE
     [Dependency] private readonly SharedPopupSystem _popups = default!;  // DeltaV Narcolepsy port from EE
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -75,7 +73,7 @@ public sealed class NarcolepsySystem : EntitySystem
                 if (_random.Prob(narcolepsy.WarningChancePerSecond))
                 {
                     DoWarningPopup(uid);
-                    narcolepsy.LastWarningRollTime = 0f; // Do not show any more popups for the upcoming incident
+                    narcolepsy.LastWarningRollTime = 0f; // Do not show anymore popups for the upcoming incident
                 }
             }
 
@@ -86,15 +84,15 @@ public sealed class NarcolepsySystem : EntitySystem
         }
     }
 
-    public void StartIncident(Entity<NarcolepsyComponent> ent)
+    private void StartIncident(Entity<NarcolepsyComponent> ent)
     {
         var duration = _random.NextFloat(ent.Comp.DurationOfIncident.X, ent.Comp.DurationOfIncident.Y);
         PrepareNextIncident(ent, duration);
 
         _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ent, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
-        if (!TryComp<ForcedSleepingComponent>(ent, out var comp))
+        if (!TryComp<ForcedSleepingComponent>(ent, out var forcedsleepingcomponent))
         {
-            Logger.Error($"Narcoleptic didn't go to bed when they should have on {EntityManager.GetComponent<ForcedSleepingComponent> (ent)}. should have slept for {TimeSpan.FromSeconds(duration)}.");
+            Log.Error($"Narcoleptic didn't go to bed when they should have on {EntityManager.GetComponent<ForcedSleepingComponent> (ent)}. should have slept for {TimeSpan.FromSeconds(duration)}.");
         }
     }
 
