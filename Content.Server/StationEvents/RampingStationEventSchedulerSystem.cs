@@ -75,12 +75,12 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
             if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
             {
                 PickNextEventTime(uid, scheduler);
-                TimeSpan nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
+                var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
                 if (!_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
                     continue;
                 // Cycle the stashed event with the new generated event and time.
-                string storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
-                if (storedEvent == null || storedEvent == string.Empty) //If there was no stored event don't try to run it.
+                string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
+                if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
                     continue;
                 GameTicker.AddGameRule(storedEvent);
                 continue;

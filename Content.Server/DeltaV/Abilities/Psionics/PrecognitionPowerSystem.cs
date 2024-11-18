@@ -112,13 +112,13 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         if (!TryFindEarliestNextEvent(minDetectWindow, maxDetectWindow, out var nextEvent)) // A special message given if there is no event within the time window.
             message = "psionic-power-precognition-no-event-result-message";
 
-        if (nextEvent != null)
+        if (nextEvent != null && nextEvent.NextEventId != null)
             message = GetResultMessage(nextEvent.NextEventId);
 
         if (_random.Prob(component.RandomResultChance)) // This will replace the proper result message with a random one occasionaly to simulate some unreliablity.
             message = GetRandomResult();
 
-        if (message == string.Empty || message == null) // If there is no message to send don't bother trying to send it.
+        if (string.IsNullOrEmpty(message)) // If there is no message to send don't bother trying to send it.
             return;
 
         // Send a message describing the vision they see
@@ -138,7 +138,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// Gets the precognition result message corosponding to the passed event id.
     /// </summary>
     /// <returns>message string corosponding to the event id passed</returns>
-    private string GetResultMessage(EntProtoId eventId)
+    private string GetResultMessage(EntProtoId? eventId)
     {
         foreach(var (eventProto, precognitionResult) in AllPrecognitionResults())
             if (eventProto.ID == eventId && precognitionResult != null)
@@ -182,7 +182,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         TimeSpan? earliestNextEventTime = null;
         earliestNextEvent = null;
         var query = EntityQueryEnumerator<NextEventComponent>();
-        while (query.MoveNext(out var uid, out var nextEventComponent))
+        while (query.MoveNext(out _, out var nextEventComponent))
         {
             // Update if the event is the most recent event that isnt too close or too far from happening to be of use
             if (nextEventComponent.NextEventTime > _gameTicker.RoundDuration() + minDetectWindow
