@@ -1,7 +1,7 @@
 - type: entity
   id: Nes14DroidBase
   parent: BaseBorgChassisNT
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: Дроид
   description: CH-1, в бывшем, боевой дроид на службе десантных войск. По всей видимости эту модель не оснастили боевым модулем и поставили на выполнение более простых задач.
   components:

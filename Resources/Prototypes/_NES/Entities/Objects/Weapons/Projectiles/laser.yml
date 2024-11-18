@@ -2,7 +2,7 @@
   name : энергетический заряд
   id: Nes14BulletLaser
   parent: BulletDisabler
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: NES/Objects/Weapons/Laser/projectiles.rsi
@@ -25,7 +25,7 @@
 - type: entity
   id: Nes14BulletImpactEffectLaser
   parent: BulletImpactEffect
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: TimedDespawn
       lifetime: 0.2

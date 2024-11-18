@@ -67,7 +67,7 @@
 
 - type: entity
   id: LoreHuman
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: NES/GUI/Lore.rsi
@@ -75,7 +75,7 @@
 
 - type: entity
   id: LoreTarra
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: NES/GUI/Lore.rsi
@@ -83,7 +83,7 @@
 
 - type: entity
   id: LoreSun
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: NES/GUI/Lore.rsi
