@@ -51,33 +51,114 @@
   id: CrateHydroCoJuice
   parent: CratePlastic
   name: HydroCo Juice crate
-  description: A variety pack of powdered juice products from HydroCo. Comes in Citrus, Berry, Tropical and Juicy editions.
+  description: A variety pack of powdered juice products from HydroCo. Comes in Citrus, Berry, Tropical and Garden editions.
   components:
-    - type: StorageFill
-      contents:
-        - id: PaperCrateHydroCoConsumption
-          amount: 1
-        - id: Spoon
-          amount: 2
-        - id: ReagentTinPowderedJuiceOrange
-          amount: 1
-        - id: ReagentTinPowderedJuiceLime
-          amount: 1
-        - id: ReagentTinPowderedJuiceLemon
-          amount: 1
-        - id: ReagentTinPowderedJuicePineapple
-          amount: 1
-        - id: ReagentTinPowderedJuiceBanana
-          amount: 1
-        - id: ReagentTinPowderedJuiceBerry
-          amount: 1
-        - id: ReagentTinPowderedJuiceWatermelon
-          amount: 1
-        - id: ReagentTinPowderedJuiceGrape
-          amount: 1
-        - id: ReagentTinPowderedJuiceApple
-          amount: 1
-        - id: ReagentTinPowderedJuiceCherry
-          amount: 1
-        - id: ReagentTinPowderedJuiceCarrot
-          amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:GroupSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceCitrus
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceBerry
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceTropical
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceGarden
+
+- type: entityTable
+  id: FillHydroCoJuiceCitrus
+  table: !type:AllSelector
+    children:
+    - id: ReagentTinPowderedJuiceOrange
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceLime
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceLemon
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: Spoon
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: PaperCrateHydroCoConsumption
+      amount: !type:ConstantNumberSelector
+        value: 1
+
+
+- type: entityTable
+  id: FillHydroCoJuiceBerry
+  table: !type:AllSelector
+    children:
+    - id: ReagentTinPowderedJuiceBerry
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceGrape
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceCherry
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: Spoon
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: PaperCrateHydroCoConsumption
+      amount: !type:ConstantNumberSelector
+        value: 1
+
+- type: entityTable
+  id: FillHydroCoJuiceTropical
+  table: !type:AllSelector
+    children:
+    - id: ReagentTinPowderedJuicePineapple
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceBanana
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceWatermelon
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: Spoon
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: PaperCrateHydroCoConsumption
+      amount: !type:ConstantNumberSelector
+        value: 1
+
+
+- type: entityTable
+  id: FillHydroCoJuiceGarden
+  table: !type:AllSelector
+    children:
+    - id: ReagentTinPowderedJuiceApple
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - id: ReagentTinPowderedJuiceCarrot
+      amount: !type:ConstantNumberSelector
+        value: 1
+    - !type:NestedSelector
+      tableId: FillHydroCoJuiceRandomTin
+    - id: Spoon
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: PaperCrateHydroCoConsumption
+      amount: !type:ConstantNumberSelector
+        value: 1
+
+- type: entityTable
+  id: FillHydroCoJuiceRandomTin
+  table: !type:GroupSelector
+    children:
+    - id: ReagentTinPowderedJuiceLemon
+    - id: ReagentTinPowderedJuiceLime
+    - id: ReagentTinPowderedJuiceOrange
+    - id: ReagentTinPowderedJuicePineapple
+    - id: ReagentTinPowderedJuiceBanana
+    - id: ReagentTinPowderedJuiceWatermelon
+    - id: ReagentTinPowderedJuiceBerry
+    - id: ReagentTinPowderedJuiceGrape
+    - id: ReagentTinPowderedJuiceCherry
+    - id: ReagentTinPowderedJuiceApple
+    - id: ReagentTinPowderedJuiceCarrot
