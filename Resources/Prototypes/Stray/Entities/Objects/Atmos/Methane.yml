@@ -58,7 +58,7 @@
   description: "Канистра с метаном. Не открывать находясь в эпицентре ядерного взрыва, ведь метан может загореться."
   components:
     - type: Sprite
-      sprite: Stray/Structures/Storage/canister.rsi
+      sprite: Stray/NES/Structures/Storage/canister.rsi #NES14-Changes
       layers:
         - state: methane
     - type: GasCanister
@@ -108,7 +108,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: Stray/Structures/Storage/canister.rsi
+      sprite: Stray/NES/Structures/Storage/canister.rsi #NES14-Changes
       state: methane-1
 
 - type: entity

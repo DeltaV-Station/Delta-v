@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: AtmosphericsAir
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: grey
   product: AirCanister
   cost: 1100
@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: AtmosphericsOxygen
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: blue
   product: OxygenCanister
   cost: 1100
@@ -21,7 +21,7 @@
 - type: cargoProduct
   id: AtmosphericsLiquidOxygen
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: blue
   product: LiquidOxygenCanister
   cost: 2500
@@ -31,7 +31,7 @@
 - type: cargoProduct
   id: AtmosphericsNitrogen
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: red
   product: NitrogenCanister
   cost: 1100
@@ -41,7 +41,7 @@
 - type: cargoProduct
   id: AtmosphericsLiquidNitrogen
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: red
   product: LiquidNitrogenCanister
   cost: 2500
@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: AtmosphericsCarbonDioxide
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: black
   product: CarbonDioxideCanister
   cost: 2200 # Until someone fixes it co2 can be used to oneshot people so it's more expensive
@@ -61,7 +61,7 @@
 - type: cargoProduct
   id: AtmosphericsLiquidCarbonDioxide
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: black
   product: LiquidCarbonDioxideCanister
   cost: 4000
@@ -71,7 +71,7 @@
 - type: cargoProduct
   id: AtmosphericsStorage
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: yellow
   product: StorageCanister
   cost: 1010 # No gases in it so it's cheaper
@@ -83,7 +83,7 @@
 #  id: AtmosphericsWaterVapor
 #  description: "Water vapor canister"
 #  icon:
-#    sprite: Structures/Storage/canister.rsi
+#    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
 #    state: water_vapor
 #  product: WaterVaporCanister
 #  cost: 2600
@@ -93,7 +93,7 @@
 - type: cargoProduct
   id: AtmosphericsPlasma
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: orange
   product: PlasmaCanister
   cost: 4000
@@ -103,7 +103,7 @@
 - type: cargoProduct
   id: AtmosphericsMethane
   icon:
-    sprite: Structures/Storage/canister.rsi
+    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
     state: orange
   product: MethaneCanister
   cost: 2000
@@ -115,7 +115,7 @@
 #  id: AtmosphericsTritium
 #  description: "Tritium canister"
 #  icon:
-#    sprite: Structures/Storage/canister.rsi
+#    sprite: NES/Structures/Storage/canister.rsi #NES14-Changes
 #    state: green
 #  product: TritiumCanister
 #  cost: 15500

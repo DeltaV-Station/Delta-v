@@ -40,7 +40,7 @@
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
-        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
@@ -82,7 +82,7 @@
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
-        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_passive
@@ -114,7 +114,7 @@
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/scrubber.rsi
       layers:
-        - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: scrub_off
@@ -156,7 +156,7 @@
       sprite: Structures/Piping/Atmospherics/outletinjector.rsi
       layers:
         - state: pipeHalf
-          sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: injector
           map: [ "enum.SubfloorLayers.FirstLayer" ]

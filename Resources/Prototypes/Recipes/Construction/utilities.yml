@@ -396,7 +396,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   icon:
-    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
 
 - type: construction
@@ -410,7 +410,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   icon:
-    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
 
 - type: construction
@@ -424,7 +424,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   icon:
-    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeBend
 
 - type: construction
@@ -438,7 +438,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   icon:
-    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeTJunction
 
 - type: construction
@@ -452,7 +452,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   icon:
-    sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeFourway
 
 # ATMOS UNARY
@@ -470,7 +470,7 @@
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
@@ -491,7 +491,7 @@
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
@@ -512,7 +512,7 @@
     sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
@@ -533,7 +533,7 @@
     sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
@@ -555,7 +555,7 @@
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
@@ -576,7 +576,7 @@
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
@@ -597,7 +597,7 @@
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
@@ -618,7 +618,7 @@
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
@@ -639,7 +639,7 @@
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpSignalValve
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpSignalValve
@@ -660,7 +660,7 @@
     sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeHalf
   - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
@@ -681,7 +681,7 @@
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
-  - sprite: NES/Structures/Piping/Atmospherics/pipe.rsi #NES14-Changes
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
