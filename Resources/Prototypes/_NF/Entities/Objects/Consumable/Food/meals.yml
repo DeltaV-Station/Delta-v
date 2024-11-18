@@ -23,7 +23,7 @@
           Quantity: 12
         - ReagentId: Vitamin
           Quantity: 5
-        - ReagentId: Flavorol
+        - ReagentId: Wine # DeltaV we dont have Flavorol, changed to wine
           Quantity: 8
   - type: Tag
     tags:
@@ -51,11 +51,9 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 16 # DeltaV increase for lack of flavorol
         - ReagentId: Vitamin
-          Quantity: 8
-        - ReagentId: Flavorol
-          Quantity: 8
+          Quantity: 12 # DeltaV increase for lack of flavorol
         - ReagentId: Theobromine
           Quantity: 3
   - type: Tag
@@ -83,11 +81,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 7 # DeltaV increase for lack of flavorol
         - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Flavorol
-          Quantity: 2
+          Quantity: 5 # DeltaV increase for lack of flavorol
         - ReagentId: Theobromine
           Quantity: 1
   - type: Tag
