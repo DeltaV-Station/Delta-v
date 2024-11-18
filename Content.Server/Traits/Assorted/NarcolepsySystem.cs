@@ -92,12 +92,9 @@ public sealed class NarcolepsySystem : EntitySystem
         PrepareNextIncident(ent, duration);
 
         _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ent, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
-        var sleepingcomponent = EntityManager.GetComponent<ForcedSleepingComponent> (ent);
-        if (sleepingcomponent != EntityManager.GetComponent<ForcedSleepingComponent>(ent))
-            Logger.Error($"Narcoleptic didn't go to bed when they should have on {EntityManager.GetComponent<ForcedSleepingComponent> (ent)}");
-
+        if (!TryComp<ForcedSleepingComponent>(ent, out var comp))
         {
-
+            Logger.Error($"Narcoleptic didn't go to bed when they should have on {EntityManager.GetComponent<ForcedSleepingComponent> (ent)}. should have slept for {TimeSpan.FromSeconds(duration)}.");
         }
     }
 
