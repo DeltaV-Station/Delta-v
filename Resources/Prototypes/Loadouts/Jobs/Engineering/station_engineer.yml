@@ -14,10 +14,10 @@
   equipment:
     head: ClothingHeadHatBeretEngineering
 
-# - type: loadout
-#   id: StationEngineerHardhatYellow
-#   equipment:
-#     head: ClothingHeadHatHardhatYellow
+- type: loadout
+  id: StationEngineerHardhatYellow
+  equipment:
+    head: ClothingHeadHatHardhatYellow
 
 - type: loadout
   id: StationEngineerHardhatOrange
@@ -40,12 +40,12 @@
 - type: loadout
   id: StationEngineerJumpsuit
   equipment:
-    jumpsuit: Nes14ClothingUniformEngiEngineer
+    jumpsuit: ClothingUniformJumpsuitEngineering
 
-# - type: loadout
-#   id: StationEngineerJumpskirt
-#   equipment:
-#     jumpsuit: ClothingUniformJumpskirtEngineering
+- type: loadout
+  id: StationEngineerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEngineering
 
 - type: loadout
   id: StationEngineerHazardsuit
@@ -60,13 +60,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
 
-# - type: loadout
-#   id: SeniorEngineerJumpskirt
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: SeniorEngineering
-#   equipment:
-#     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
+- type: loadout
+  id: SeniorEngineerJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorEngineer
 
 # Back
 - type: loadout

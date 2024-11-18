@@ -12,6 +12,4 @@ species-name-vox = Вокс
 snail-hurt-by-salt-popup = Солевой раствор жжёт как кислота!
 
 ## NES14-Changes
-# species-name-Avali = Авали
-# species-name-Avian = Авиан
-species-name-Tarrantok = Тарран
+species-name-Avali = Авали

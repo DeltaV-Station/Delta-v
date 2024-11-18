@@ -8,8 +8,8 @@
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    # - SpaceTrafficControlEventScheduler
-    - # SpaceTrafficControlFriendlyEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -25,7 +25,7 @@
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -44,7 +44,7 @@
     - Zombie
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -68,8 +68,8 @@
     - MeteorSwarmMildScheduler
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    # - SpaceTrafficControlEventScheduler
-    - # SpaceTrafficControlFriendlyEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -84,7 +84,7 @@
   rules:
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  # - SpaceTrafficControlEventScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -98,7 +98,7 @@
   maxPlayers: 10 # Stray
   description: greenshift-description
   rules:
-  - # SpaceTrafficControlFriendlyEventScheduler
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -123,7 +123,7 @@
   rules:
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -135,7 +135,7 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - # SpaceTrafficControlFriendlyEventScheduler
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -163,7 +163,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -193,7 +193,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -212,7 +212,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    # - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -232,7 +232,7 @@
   - Zombie
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  # - SpaceTrafficControlEventScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -249,6 +249,6 @@
   - Zombie
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
-  # # - SpaceTrafficControlEventScheduler
+  # - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV

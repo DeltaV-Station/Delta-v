@@ -170,7 +170,7 @@
     hasMindState: cargo_e
     noMindState: cargo_e_r
   - type: Inventory
-    templateId: engineer_droid
+    templateId: combat_droid
   - type: Construction
     node: cyborg
   - type: MovementSpeedModifier
@@ -259,7 +259,7 @@
     hasMindState: medical_e
     noMindState: medical_e_r
   - type: Inventory
-    templateId: medical_droid
+    templateId: combat_droid
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/NES/Mech/mech.ogg

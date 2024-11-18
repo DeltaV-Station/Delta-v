@@ -119,7 +119,6 @@
   - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
-  - CaptainJumpsuitTurtleneck
 
 - type: loadoutGroup # DeltaV
   id: CaptainGloves
@@ -128,14 +127,6 @@
   loadouts:
   - CaptainGloves
   - InspectionGloves
-
-- type: loadoutGroup
-  id: CaptainPants
-  name: Капитан, штаны
-  loadouts:
-  - CaptainPants
-  - CaptainPantsAlt
-  - CaptainSkirt
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -191,19 +182,11 @@
   name: loadout-group-hop-jumpsuit
   loadouts:
   - HoPJumpsuit
-  #- HoPJumpskirt # NES
-  - HoPJumpsuitTurtleneck #NES
+  - HoPJumpskirt
   - HoPFormal # DeltaV
   - HoPMessSkirt # DeltaV
   - HoPMessSuit # DeltaV
   - HoPBoatswain # DeltaV
-  - HoPJumpsuitAlt
-
-- type: loadoutGroup
-  id: HoPPants
-  name: Глава персонала, штаны
-  loadouts:
-  - HoPPants
 
 - type: loadoutGroup
   id: HoPNeck
@@ -248,9 +231,7 @@
   name: loadout-group-passenger-jumpsuit
   loadouts:
   - GreyJumpsuit
-# - GreyJumpskirt
-# - AncientJumpsuit
-# - RainbowJumpsuit
+  - GreyJumpskirt
   - WhiteJumpsuit
   - WhiteJumpskirt
   - BlackJumpsuit
@@ -263,12 +244,8 @@
   - CasualRedSuit
   - CasualPurpleSkirt
   - CasualPurpleSuit # End DeltaV Changes
-
-- type: loadoutGroup
-  id: PassengerPants
-  name: Пассажир, штаны
-  loadouts:
-  - GreyPants
+  - AncientJumpsuit
+  - RainbowJumpsuit
 
 - type: loadoutGroup
   id: PassengerFace
@@ -927,7 +904,7 @@
   name: loadout-group-station-engineer-head
   minLimit: 0 # DeltaV - Not everyone remembers their (hard)hats
   loadouts:
-  # - StationEngineerHardhatYellow
+  - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - SeniorEngineerBeret
@@ -944,10 +921,10 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
-  # - StationEngineerJumpskirt
+  - StationEngineerJumpskirt
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
-  # - SeniorEngineerJumpskirt
+  - SeniorEngineerJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack

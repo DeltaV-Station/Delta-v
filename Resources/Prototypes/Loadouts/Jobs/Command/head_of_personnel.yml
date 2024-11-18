@@ -8,22 +8,16 @@
       role: JobHeadOfPersonnel
       time: 54000 #15 hrs, special reward for HoP mains
 
-# Pants
-- type: loadout
-  id: HoPPants
-  equipment:
-    pants: Nes14ClothingUniformPantsMaroon
-
 # Jumpsuit
 - type: loadout
   id: HoPJumpsuit
   equipment:
-    jumpsuit: Nes14ClothingUniformJumpmaroon
+    jumpsuit: ClothingUniformJumpsuitHoP
 
 - type: loadout
-  id: HoPJumpsuitAlt
+  id: HoPJumpskirt
   equipment:
-    jumpsuit: Nes14ClothingUniformManager
+    jumpsuit: ClothingUniformJumpskirtHoP
 
 # Head
 - type: loadout
