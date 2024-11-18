@@ -6,9 +6,3 @@ ent-FoodDonkpocketSavory = { ent-CrateFoodDonkpocketSavory }
 
 ent-FoodDonkpocketSweet = { ent-CrateFoodDonkpocketSweet }
     .desc = { ent-CrateFoodDonkpocketSweet.desc }
-
-ent-FoodHydroCoDairy = { ent-CrateHydroCoDairy }
-    .desc = { ent-CrateHydroCoDairy.desc }
-
-ent-FoodHydroCoJuice = { ent-CrateHydroCoJuice }
-    .desc = { ent-CrateHydroCoJuice.desc }
