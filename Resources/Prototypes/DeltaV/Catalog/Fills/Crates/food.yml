@@ -40,7 +40,7 @@
       contents:
         - id: PaperCrateHydroCoConsumption
           amount: 1
-        - id: Spoon
+        - id: SpoonPlastic
           amount: 2
         - id: ReagentTinPowderedMilk
           amount: 2
@@ -51,11 +51,11 @@
   id: CrateHydroCoJuice
   parent: CratePlastic
   name: HydroCo Juice crate
-  description: A variety pack of powdered juice products from HydroCo. Comes in Citrus, Berry, Tropical and Garden editions.
+  description: A variety pack of powdered juice products from HydroCo.
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:GroupSelector
+      entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
           tableId: FillHydroCoJuiceCitrus
@@ -65,10 +65,16 @@
           tableId: FillHydroCoJuiceTropical
         - !type:NestedSelector
           tableId: FillHydroCoJuiceGarden
+        - id: SpoonPlastic
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PaperCrateHydroCoConsumption
+          amount: !type:ConstantNumberSelector
+            value: 1
 
 - type: entityTable
   id: FillHydroCoJuiceCitrus
-  table: !type:AllSelector
+  table: !type:GroupSelector
     children:
     - id: ReagentTinPowderedJuiceOrange
       amount: !type:ConstantNumberSelector
@@ -79,17 +85,10 @@
     - id: ReagentTinPowderedJuiceLemon
       amount: !type:ConstantNumberSelector
         value: 1
-    - id: Spoon
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: PaperCrateHydroCoConsumption
-      amount: !type:ConstantNumberSelector
-        value: 1
-
 
 - type: entityTable
   id: FillHydroCoJuiceBerry
-  table: !type:AllSelector
+  table: !type:GroupSelector
     children:
     - id: ReagentTinPowderedJuiceBerry
       amount: !type:ConstantNumberSelector
@@ -100,16 +99,10 @@
     - id: ReagentTinPowderedJuiceCherry
       amount: !type:ConstantNumberSelector
         value: 1
-    - id: Spoon
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: PaperCrateHydroCoConsumption
-      amount: !type:ConstantNumberSelector
-        value: 1
 
 - type: entityTable
   id: FillHydroCoJuiceTropical
-  table: !type:AllSelector
+  table: !type:GroupSelector
     children:
     - id: ReagentTinPowderedJuicePineapple
       amount: !type:ConstantNumberSelector
@@ -120,17 +113,11 @@
     - id: ReagentTinPowderedJuiceWatermelon
       amount: !type:ConstantNumberSelector
         value: 1
-    - id: Spoon
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: PaperCrateHydroCoConsumption
-      amount: !type:ConstantNumberSelector
-        value: 1
 
 
 - type: entityTable
   id: FillHydroCoJuiceGarden
-  table: !type:AllSelector
+  table: !type:GroupSelector
     children:
     - id: ReagentTinPowderedJuiceApple
       amount: !type:ConstantNumberSelector
@@ -139,12 +126,6 @@
       amount: !type:ConstantNumberSelector
         value: 1
     - id: ReagentTinPowderedJuiceTomato
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: Spoon
-      amount: !type:ConstantNumberSelector
-        value: 2
-    - id: PaperCrateHydroCoConsumption
       amount: !type:ConstantNumberSelector
         value: 1
 
