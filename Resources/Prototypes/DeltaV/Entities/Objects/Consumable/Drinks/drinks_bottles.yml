@@ -1,0 +1,17 @@
+- type: entity
+  parent: DrinkColaBottleFull
+  id: DrinkTarragonBottleFull
+  name: Бутылка космического тархуна
+  description: Безалкогольный напиток... хотя кому надо описание?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Tarragon
+          Quantity: 100
+  - type: Label
+    currentLabel: тархун
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/colabottle.rsi
+  - type: Sealable
