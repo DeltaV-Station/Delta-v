@@ -22,13 +22,13 @@
     materialComposition:
       Nes14RawCopper: 100
   - type: Extractable
-    grindableSolutionName: ironore
+    grindableSolutionName: Copper
   - type: SolutionContainerManager
     solutions:
-      ironore:
+      copper:
         reagents:
         - ReagentId: Copper
-          Quantity: 10
+          Quantity: 1
 
 - type: ore
   id: Nes14CopperOre
