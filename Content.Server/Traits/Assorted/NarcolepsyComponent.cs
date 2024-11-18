@@ -1,5 +1,7 @@
 ﻿using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // DeltaV Narcolepsy
 using System.Numerics;
+using Content.Shared.Dataset;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -21,16 +23,20 @@ public sealed partial class NarcolepsyComponent : Component
     [DataField("durationOfIncident", required: true)]
     public Vector2 DurationOfIncident { get; private set; }
 
-    [DataField("NextIncidentTime", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)] // # DeltaV begin Narcolepsy port from EE
-    [AutoPausedField]
+    [DataField] // # DeltaV begin Narcolepsy port from EE
     public float  NextIncidentTime;
 
     /// <summary>
-    ///     Locales for popups shown when the entity is about to fall asleep/is waking up.
-    ///     They are fetched in the format of "(base)-(random number between 1 and count)", e.g. "narcolepsy-warning-popup-3".
+    /// Dataset to pick warning strings from.
     /// </summary>
     [DataField]
-    public string WarningLocaleBase = "narcolepsy-warning-popup", WakeupLocaleBase = "narcolepsy-wakeup-popup";
+    public ProtoId<LocalizedDatasetPrototype> NarcolepsyWarningDataset = "NarcolepsyWarning";
+
+    /// <summary>
+    /// Dataset to pick wakeup strings from.
+    /// </summary>
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype> NarcolepsyWakeupDataset = "NarcolepsyWakeup";
 
     [DataField]
     public int WarningLocaleCount = 5, WakeupLocaleCount = 3;

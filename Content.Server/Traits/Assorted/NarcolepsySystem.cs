@@ -1,9 +1,9 @@
 using Content.Shared.Bed.Sleep;
 using Content.Server.Chat.Managers;  // DeltaV Narcolepsy port from EE
 using Content.Shared.StatusEffect;
-using Content.Shared.Chat;  // DeltaV Narcolepsy port from EE
-using Robust.Shared.Player; // DeltaV Narcolepsy port from EE
+using Content.Shared.Dataset; // DeltaV Narcolepsy port from EE
 using Content.Shared.Popups; // DeltaV Narcolepsy port from EE
+using Robust.Shared.Prototypes; // DeltaV Narcolepsy port from EE
 using Robust.Shared.Random;
 
 namespace Content.Server.Traits.Assorted;
@@ -20,6 +20,7 @@ public sealed class NarcolepsySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popups = default!;  // DeltaV Narcolepsy port from EE
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,7 +45,7 @@ public sealed class NarcolepsySystem : EntitySystem
 
         // When waking up after sleeping, show a popup.
         {
-            ShowRandomPopup(ent, ent.Comp.WakeupLocaleBase, ent.Comp.WakeupLocaleCount);
+            DoWakeupPopup(ent);
         }
     }
 
@@ -73,7 +74,7 @@ public sealed class NarcolepsySystem : EntitySystem
                 narcolepsy.LastWarningRollTime = narcolepsy.NextIncidentTime;
                 if (_random.Prob(narcolepsy.WarningChancePerSecond))
                 {
-                    ShowRandomPopup(uid, narcolepsy.WarningLocaleBase, narcolepsy.WakeupLocaleCount);
+                    DoWarningPopup(uid);
                     narcolepsy.LastWarningRollTime = 0f; // Do not show any more popups for the upcoming incident
                 }
             }
@@ -92,6 +93,12 @@ public sealed class NarcolepsySystem : EntitySystem
 
         _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ent, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
         var sleepingcomponent = EntityManager.GetComponent<ForcedSleepingComponent> (ent);
+        if (sleepingcomponent != EntityManager.GetComponent<ForcedSleepingComponent>(ent))
+            Logger.Error($"Narcoleptic didn't go to bed when they should have on {EntityManager.GetComponent<ForcedSleepingComponent> (ent)}");
+
+        {
+
+        }
     }
 
     private void PrepareNextIncident(Entity<NarcolepsyComponent> ent, float startingFrom = 0f)
@@ -101,15 +108,23 @@ public sealed class NarcolepsySystem : EntitySystem
         ent.Comp.LastWarningRollTime = float.MaxValue;
     }
 
-    private void ShowRandomPopup(EntityUid uid, string prefix, int count)
+    private string GetRandomWakeup()
     {
-        if (count <= 0 || !TryComp<ActorComponent>(uid, out var actor))
-            return;
-
-        var popup = Loc.GetString($"{prefix}-{_random.Next(1, count + 1)}");
-        _popups.PopupEntity(popup, uid, uid, PopupType.MediumCaution);
-        // This should use ChatChannel.Visual, but it's not displayed on the client.
-        _chatMan.ChatMessageToOne(ChatChannel.Notifications, popup, popup, uid, false,
-            actor.PlayerSession.Channel, Color.IndianRed);
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWakeupDataset").Values));
     }
+    private string GetRandomWarning()
+    {
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWarningDataset").Values));
+    }
+
+    private void DoWakeupPopup(EntityUid ent)
+    {
+        _popups.PopupEntity(GetRandomWakeup(),ent,ent);
+    }
+
+    private void DoWarningPopup(EntityUid ent)
+    {
+        _popups.PopupEntity(GetRandomWarning(),ent,ent);
+    }
+
 }
