@@ -266,7 +266,7 @@
   name: Beam Cannon
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponBeamCannon
-  description: BRRRRRZZZZZZZTTT
+  description: "For when a single shot just isn't enough"
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
@@ -282,11 +282,11 @@
     soundGunshot:
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
     selectedMode: FullAuto
-    fireRate: 10
+    fireRate: 15
     availableModes: FullAuto
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 3000
+    startingCharge: 3000
   - type: HitscanBatteryAmmoProvider
     proto: BeamLaser
     fireCost: 10
