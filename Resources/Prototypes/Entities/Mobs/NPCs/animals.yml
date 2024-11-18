@@ -560,7 +560,7 @@
     - Mouse
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # GoobStation
+  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -579,7 +579,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # GoobStation
+      enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
@@ -869,8 +869,8 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -951,8 +951,8 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -1044,8 +1044,8 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -1267,8 +1267,8 @@
   abstract: true
   components:
   - type: CombatMode
-  - type: SurgeryTarget # GoobStation
-  - type: Targeting # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: Targeting # Shitmed
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1323,7 +1323,7 @@
   - type: Body
     prototype: Primate
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: UserInterface # GoobStation: Add SurgeryUIKey on top of stripping ui
+  - type: UserInterface # Shitmed: Add SurgeryUIKey on top of stripping ui
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
@@ -1643,8 +1643,8 @@
   components:
   - type: Body
     prototype: Mouse
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -2335,8 +2335,8 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
