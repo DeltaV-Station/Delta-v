@@ -9,7 +9,7 @@
   - type: StationAiWhitelist
   - type: InteractionOutline
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/highsec/highsec.rsi #Delta V - Resprite Doors
+    sprite: Structures/Doors/Airlocks/highsec/highsec.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -59,6 +59,7 @@
     fuel: 10
     time: 10
   - type: Airlock
+    openUnlitVisible: true # Corvax-Resprite-Airlocks
   - type: NavMapDoor
   - type: DoorBolt
   - type: AccessReader

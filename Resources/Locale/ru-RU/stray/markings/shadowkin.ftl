@@ -1,0 +1,13 @@
+marking-EarsShadowkin = уши сумеречника
+marking-EarsShadowkinStriped = уши сумеречника в полоску
+marking-TailShadowkin = хвост сумеречника
+marking-TailShadowkinBigFluff = большой и пушистый хвост сумеречника
+marking-TailShadowkinBig = большой хвост сумеречника
+marking-TailShadowkinMedium = средний хвост сумеречника
+marking-TailShadowkinShorter = короткий хвост сумеречника
+marking-EyeRightShadowkin = Глаз (правый)
+marking-EyeLeftShadowkin = Глаз (левый)
+marking-GauzeLefteyePatchShadowkin = Бинт, Перевязь глаза (левый)
+marking-GauzeLefteyePadShadowkin = Бинт, подушечка на глаз (левый)
+marking-GauzeRighteyePatchShadowkin = Бинт, Перевязь глаза (правый)
+marking-GauzeRighteyePadShadowkin = Бинт, подушечка на глаз (правый)

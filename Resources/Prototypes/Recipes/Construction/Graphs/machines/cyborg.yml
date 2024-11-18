@@ -208,19 +208,12 @@
         doAfter: 2
 
       - material: Plasteel
-        amount: 2
+        amount: 5
         doAfter: 1
         store: part-container
 
       - tool: Welding
         doAfter: 2
-
-      - tag: BorgSecurityArmour
-        name: one of security's armour vests
-        store: part-container
-        icon:
-          sprite: DeltaV/Clothing/OuterClothing/Armor/platecarrier.rsi
-          state: icon
 
       - tool: Cutting
         doAfter: 1

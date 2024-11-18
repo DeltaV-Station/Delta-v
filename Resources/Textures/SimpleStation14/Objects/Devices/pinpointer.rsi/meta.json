@@ -1,0 +1,72 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Modified from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d",
+    "states": [
+        {
+            "name": "pinonclose",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinondirect",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonfar",
+            "delays": [
+                [
+                    0.6,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonmedium",
+            "delays": [
+                [
+                    0.4,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonnull",
+            "delays": [
+                [
+                    0.7,
+                    0.7,
+                    0.7,
+                    0.7
+                ]
+            ]
+        },
+        {
+            "name": "pinpointer_anomaly"
+        },
+        {
+            "name": "pinpointer_artifact"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

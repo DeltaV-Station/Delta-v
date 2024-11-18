@@ -1,0 +1,78 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitDominia
+  categories: [ HideSpawnMenu ]
+  name: dominia power armor helmet
+  description: A power armor helmet made for combat and purging heretic swine.
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/dominia.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/dominia.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHoP
+  categories: [ HideSpawnMenu ]
+  name: head of personnel's hardsuit helmet
+  description: Fancy helmet for a fancy hardsuit. Doesn't offer much damage protection.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: SimpleStation14/Clothing/Head/Hardsuits/hopsuit.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: PointLight
+    color: "#ff2034"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.6
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitEnvirosuit
+  categories: [ HideSpawnMenu ]
+  name: envirosuit helmet
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Head/Hardsuits/envirosuit.rsi
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Head/Hardsuits/envirosuit.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 10000
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEnvirosuit
+  id: ClothingHeadHelmetHardsuitEnvirosuitDelete
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: DeleteOnEquip
+      onEquip: false

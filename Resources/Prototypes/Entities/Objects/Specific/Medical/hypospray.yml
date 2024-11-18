@@ -158,7 +158,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 3
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: poison auto-injector
@@ -185,7 +185,7 @@
         - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: brute auto-injector
@@ -217,7 +217,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: burn auto-injector
@@ -249,7 +249,7 @@
         - ReagentId: Leporazine
           Quantity: 10
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: rad auto-injector
@@ -281,7 +281,7 @@
         - ReagentId: Bicaridine
           Quantity: 5
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: puncturase auto-injector
@@ -410,7 +410,7 @@
           - ReagentId: Barozine
             Quantity: 20
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: hyperzine injector
@@ -442,7 +442,7 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: hyperzine microinjector
@@ -469,7 +469,7 @@
   - type: StaticPrice
     price: 100
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: combat medipen
@@ -503,7 +503,7 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    tags: [AutoInjector]
 
 - type: entity
   name: pen

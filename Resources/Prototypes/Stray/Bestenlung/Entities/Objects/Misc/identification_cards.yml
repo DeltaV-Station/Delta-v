@@ -1,0 +1,11 @@
+- type: entity
+  parent: IDCardStandard
+  id: IDCardBestlung
+  name: Жетон
+  description: Опозновательный жетон с чипом.
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Objects/Misc/id_cards.rsi
+    layers:
+    - state: silver

@@ -1,0 +1,62 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackRobo
+  id: ClothingBackpackRoboFilled
+  components:
+  - type: StorageFill
+    contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackEcclesia
+  id: ClothingBackpackEcclesiaFilled
+  components:
+  - type: StorageFill
+    contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackBlueShield
+  id: ClothingBackpackBlueShieldFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: BodyBagFolded
+      - id: Portafib
+      - id: Flash
+      - id: HandheldCrewMonitor
+      - id: BoxZiptieBlueShield
+      - id: BluespaceBoxHardsuitBlueShield
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackBlueShieldFilled
+  id: ClothingBackpackBlueShieldAltFilled
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Backpacks/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Back/Backpacks/blueshield.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3
+
+- type: entity
+  parent: ClothingBackpackBrigmedicAlt
+  id: ClothingBackpackBrigmedicAltFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+    #  - id: Flash
+      - id: BruteAutoInjector
+        amount: 2
+      - id: BurnAutoInjector
+        amount: 2

@@ -1,0 +1,70 @@
+﻿- type: entity
+  id: PrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for an document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDoc
+      stackRequirements:
+        MatterBin: 3
+        Manipulator: 1
+        Glass: 1
+
+- type: entity
+  id: CentCommPrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for an document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDocCentComm
+      stackRequirements:
+        MatterBin: 3
+        Manipulator: 1
+        Glass: 1
+
+- type: entity
+  id: PortableCoalGeneratorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: P.A.C.M.A.N.-type portable generator machine board
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: PortableCoalGenerator
+      stackRequirements:
+        Capacitor: 2
+        CableHV: 5
+        Steel: 1
+    - type: ReverseEngineering # Nyano
+      difficulty: 1
+      recipes:
+        - PortableCoalGeneratorMachineCircuitboard
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+    - type: StaticPrice
+      price: 40
+
+- type: entity
+  id: DissolverCircuitboard
+  parent: BaseMachineCircuitboard
+  name: диэлектрический растворитель (машинная плата)
+  components:
+    - type: Sprite
+      state: science
+    - type: MachineBoard
+      prototype: dissolver
+      stackRequirements:
+        Steel: 3
+        Glass: 15
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+    - type: StaticPrice
+      price: 4000

@@ -1,0 +1,36 @@
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackMafiaFilled
+  suffix: Filled, Mafia
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: WeaponSubMachineGunTypewriter
+      - id: WeaponPistolViperWood
+      - id: MagazinePistol
+      - id: BaseBallBat
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackMedical
+  id: ClothingBackpackParamedicFilledDV
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackMedical
+  id: ClothingBackpackPsychologistFilled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalMedical
+    - id: RubberStampPsychologist

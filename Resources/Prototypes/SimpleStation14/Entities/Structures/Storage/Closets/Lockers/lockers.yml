@@ -1,0 +1,13 @@
+- type: entity
+  id: LockerChiefServiceSupervisor
+  parent: LockerBooze
+  name: chief service supervisor's locker
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Storage/closet.rsi
+  - type: EntityStorageVisuals
+    stateBaseClosed: css_cabinet
+    stateDoorOpen: css_cabinet_open
+    stateDoorClosed: css_cabinet_door
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]

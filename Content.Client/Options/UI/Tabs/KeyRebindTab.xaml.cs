@@ -167,6 +167,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.CameraRotateLeft);
             AddButton(EngineKeyFunctions.CameraRotateRight);
             AddButton(EngineKeyFunctions.CameraReset);
+            //AddButton(EngineKeyFunctions.CameraOffset);
             AddButton(ContentKeyFunctions.ZoomIn);
             AddButton(ContentKeyFunctions.ZoomOut);
             AddButton(ContentKeyFunctions.ResetZoom);
@@ -208,6 +209,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);
             AddButton(ContentKeyFunctions.FocusAdminChat);
+            AddButton(ContentKeyFunctions.FocusMappingChat);
             AddButton(ContentKeyFunctions.FocusDeadChat);
             AddButton(ContentKeyFunctions.FocusConsoleChat);
             AddButton(ContentKeyFunctions.CycleChatChannelForward);

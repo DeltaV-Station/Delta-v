@@ -1,0 +1,16 @@
+- type: job
+  id: Borgmed
+  name: "борг медицинский"
+  description: job-description-borg
+  playTimeTracker: JobBorgmed
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 3600 #1h
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hours
+  canBeAntag: false
+  icon: JobIconBorgMedical
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgMedical
+  startingGear: RobotGear # for char preview only

@@ -5,14 +5,17 @@
   playTimeTracker: JobClerk
   antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
-    - !type:RoleTimeRequirement
-      role: JobLawyer
-      time: 36000 # 10 hours
-    - !type:RoleTimeRequirement
-      role: JobProsecutor
-      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 7200 #2h
+#    - !type:OverallPlaytimeRequirement
+#      time: 36000 # 10 hrs
+#    - !type:RoleTimeRequirement
+#      role: JobLawyer
+#      time: 36000 # 10 hours
+#    - !type:RoleTimeRequirement
+#      role: JobProsecutor
+#      time: 36000 # 10 hours
   startingGear: ClerkGear
   icon: "JobIconClerk"
   requireAdminNotify: true
@@ -22,9 +25,6 @@
   - Justice
   - Clerk
   - Maintenance
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ClerkGear
@@ -37,8 +37,3 @@
     #innerClothingSkirt: ClothingUniformJumpskirtClerk
     #satchel: ClothingBackpackSatchelFilled
     #duffelbag: ClothingBackpackDuffelFilled
-  storage:
-    back:
-    - BookSpaceLaw
-
-

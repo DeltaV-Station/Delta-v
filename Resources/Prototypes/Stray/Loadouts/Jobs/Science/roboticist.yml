@@ -1,0 +1,155 @@
+#   Timers
+- type: loadoutEffectGroup
+  id: RoboticistTechpriestTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRoboticist
+      time: 14400 #4 hrs
+
+# Head
+- type: loadout
+  id: RoboticistCap
+  equipment:
+    head: ClothingHeadHatCorpsoft
+
+- type: loadout
+  id: SkullBandana
+  equipment:
+    head: ClothingHeadBandSkull
+
+- type: loadout
+  id: HeadTechPriest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    head: ClothingHeadTechPriest
+
+- type: loadout
+  id: HeadHatWeldingMask
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    head: ClothingHeadHatWeldingMaskFlame
+
+#Eyes
+- type: loadout
+  id: EyesHudDiagnostic
+  equipment:
+    eyes: ClothingEyesHudDiagnostic
+
+- type: loadout
+  id: EyepatchHudDiag
+  equipment:
+    eyes: ClothingEyesEyepatchHudDiag
+
+- type: loadout
+  id: EyesGlasses
+  equipment:
+    eyes: ClothingEyesGlasses
+
+- type: loadout
+  id: GlassesMeson
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    eyes: ClothingEyesGlassesMeson
+
+#Mask
+- type: loadout
+  id: MaskWeldingGas
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    mask: ClothingMaskWeldingGas
+
+- type: loadout
+  id: MaskGas
+  equipment:
+    mask: ClothingMaskGas
+
+# Jumpsuit
+- type: loadout
+  id: RoboticistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+
+- type: loadout
+  id: RoboticistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRoboticist
+
+# Back
+- type: loadout
+  id: SatchelLeatherRobo
+  equipment:
+    back: ClothingBackpackSatchelLeatherRoboFilled
+
+- type: loadout
+  id: BackpackRobo
+  equipment:
+    back: ClothingBackpackRoboFilled
+
+- type: loadout
+  id: SatchelRobo
+  equipment:
+    back: ClothingBackpackSatchelRoboFilled
+
+- type: loadout
+  id: DuffelRobo
+  equipment:
+    back: ClothingBackpackDuffelRoboFilled
+
+- type: loadout
+  id: BackpackEcclesia
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    back: ClothingBackpackEcclesiaFilled
+
+# OuterClothing
+- type: loadout
+  id: CoatRobo
+  equipment:
+    outerClothing: ClothingOuterCoatRobo
+
+- type: loadout
+  id: WinterRobo
+  equipment:
+    outerClothing: ClothingOuterWinterRobo
+
+- type: loadout
+  id: RobeTechPriest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RoboticistTechpriestTimer
+  equipment:
+    outerClothing: ClothingOuterRobeTechPriest
+
+# Gloves
+- type: loadout
+  id: RobohandsGloves
+  equipment:
+    gloves: ClothingHandsGlovesRobohands
+
+# Shoes
+- type: loadout
+  id: ShoesBootsJack
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+- type: loadout
+  id: BootsWinterRobo
+  equipment:
+    shoes: ClothingShoesBootsWinterRobo
+
+- type: loadout
+  id: ShoesColorBlack
+  equipment:
+    shoes: ClothingShoesColorBlack

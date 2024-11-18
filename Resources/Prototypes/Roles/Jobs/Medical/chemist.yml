@@ -3,11 +3,10 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  antagAdvantage: 4 # DeltaV - Synthesize any chem you want with little oversight. 
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 28800 # DeltaV - 8 hours
+      time: 10800 #3h
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo

@@ -25,6 +25,8 @@ namespace Content.Server.Database
         public ServerUnbanDef? Unban { get; }
         public ServerBanExemptFlags ExemptFlags { get; }
 
+
+
         public ServerBanDef(int? id,
             NetUserId? userId,
             (IPAddress, int)? address,

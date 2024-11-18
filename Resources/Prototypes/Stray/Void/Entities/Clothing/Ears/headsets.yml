@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetVOID
+  name: Сиреневая гарнитура
+  suffix: VOID
+  description: Странная гарнитура... почему она сиреневая...
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyVoid
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Ears/Headsets/voidheadset.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Ears/Headsets/voidheadset.rsi

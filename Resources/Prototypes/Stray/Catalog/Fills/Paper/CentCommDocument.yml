@@ -1,0 +1,207 @@
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentOrderToReport
+  name: ORDER TO REPORT
+  components:
+    - type: Paper
+      content: doc-text-printer-report-order
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentReportRequest
+  name: REPORT REQUEST
+  components:
+    - type: Paper
+      content: doc-text-printer-report-request
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentCentCommOrder
+  name: CENTCOMM ORDER
+  components:
+    - type: Paper
+      content: doc-text-printer-centcomm-order
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentReportResponce
+  name: REPORT RESPONCE
+  components:
+    - type: Paper
+      content: doc-text-printer-report-responce
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentStationStatus
+  name: STATION STATUS
+  components:
+    - type: Paper
+      content: doc-text-printer-station-status
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentGoalProgress
+  name: GOAL PROGRESS
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-progress
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentSalary
+  name: SALARY
+  components:
+    - type: Paper
+      content: doc-text-printer-salary
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentFiringOrder
+  name: FIRING ORDER
+  components:
+    - type: Paper
+      content: doc-text-printer-firing-order
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentIaaNotification
+  name: IAA NOTIFICATION
+  components:
+    - type: Paper
+      content: doc-text-printer-iaa-notification
+
+#цели
+
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentCC
+  abstract: true
+  description: Бюрократическая единица. Документ распечатанный на принтере.
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalZoo
+  name: цель станции (зоопарк)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-zoo
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalSolar
+  name: цель станции (питание)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-solar
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalShuttle
+  name: цель станции (шаттл)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-shuttle
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalArts
+  name: цель станции (артефакты)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-arts
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalSingularity
+  name: цель станции (сингулярность)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-singularity
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalTesla
+  name: цель станции (тесла)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-tesla
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalAnom
+  name: цель станции (аномалии)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-anom
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalBank
+  name: цель станции (хранилище)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-bank
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalOutpost
+  name: цель станции (аванпост)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-outpost
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalXeno
+  name: цель станции (ксено)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-xeno
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalMuseum
+  name: цель станции (музей)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-museum
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalLabor
+  name: цель станции (ужин)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-labor
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalLectures
+  name: цель станции (лекции)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-lectures
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalCombat
+  name: цель станции (защита)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-combat
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalError
+  name: цель станции (ошибка)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-error
+
+- type: entity
+  parent: PrintedDocumentCC
+  id: PrintedDocumentGoalArea
+  name: цель станции (площадь)
+  components:
+    - type: Paper
+      content: doc-text-printer-goal-area

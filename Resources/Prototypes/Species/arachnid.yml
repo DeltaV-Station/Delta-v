@@ -10,7 +10,8 @@
   skinColoration: Hues
   maleFirstNames: names_arachnid_first
   femaleFirstNames: names_arachnid_first
-  lastNames: names_arachnid_last
+  maleLastNames: names_arachnid_last # Corvax-LastnameGender
+  femaleLastNames: names_arachnid_last # Corvax-LastnameGender
   sexes:
   - Unsexed
 
@@ -43,6 +44,9 @@
   id: MobArachnidMarkingLimits
   onlyWhitelisted: true
   points:
+    Head:
+      points: 1
+      required: false
     Hair:
       points: 0
       required: false

@@ -84,7 +84,7 @@
   - type: PotentialPsionic
   - type: Psionic
     removable: false
-  # - type: PyrokinesisPower # Pending psionic rework
+  - type: PyrokinesisPower # Pending psionic rework
   - type: Grammar
     attributes:
       proper: true
@@ -105,7 +105,7 @@
     requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 14400 # DeltaV - 4 hours
+      time: 360 # Stray - 10 min
 
 - type: entity
   parent: WelderExperimental

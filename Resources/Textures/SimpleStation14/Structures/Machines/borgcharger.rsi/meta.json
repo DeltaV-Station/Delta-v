@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Yogstation at commit https://github.com/yogstation13/Yogstation/commit/159e6bf846e911590ab27f15272ec2ebc465c1da",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "borgcharger_open_unlit"
+    },
+    {
+      "name": "borgcharger_closed_unlit"
+    },
+    {
+      "name": "borgcharger_unlit"
+    },
+    {
+      "name": "borgcharger_active_unlit",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "borgcharger_panel"
+    },
+    {
+      "name": "borgcharger_1"
+    },
+    {
+      "name": "borgcharger_2"
+    }
+  ]
+}

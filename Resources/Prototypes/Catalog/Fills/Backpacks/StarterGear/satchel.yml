@@ -1,0 +1,319 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelTools
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+
+- type: entity
+  parent: ClothingBackpackSatchelClown
+  id: ClothingBackpackSatchelClownFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxHug
+      - id: RubberStampClown
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelSecurity
+  id: ClothingBackpackSatchelSecurityFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+#      - id: MagazinePistol # DeltaV - Security doesn't get an extra mag
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelSecurity
+  id: ClothingBackpackSatchelSecurityFilledDetective
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: ForensicPad
+      - id: ForensicScanner
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Flash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelMedicalFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: EmergencyRollerBedSpawnFolded
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelCaptain
+  id: ClothingBackpackSatchelCaptainFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Flash
+      #- name: StationCharter
+      #- name: TelescopicBaton
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelEngineering
+  id: ClothingBackpackSatchelChiefEngineerFilled
+  components:
+  - type: Sprite
+    sprite: Corvax/Back/Satchels/ce.rsi
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+      - id: Flash
+      #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelScience
+  id: ClothingBackpackSatchelResearchDirectorFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Flash
+      #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelHOPFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Flash
+      #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelCMOFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: Flash
+      #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelCargo
+  id: ClothingBackpackSatchelQuartermasterFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Flash
+      #- id: TelescopicBaton
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelSecurity
+  id: ClothingBackpackSatchelHOSFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: Flash
+      - id: MagazinePistol
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelEngineering
+  id: ClothingBackpackSatchelEngineeringFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelAtmospherics
+  id: ClothingBackpackSatchelAtmosphericsFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalEngineering
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelScience
+  id: ClothingBackpackSatchelScienceFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelHydroponics
+  id: ClothingBackpackSatchelHydroponicsFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelChemistry
+  id: ClothingBackpackSatchelChemistryFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelChaplainFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: Bible
+      - id: RubberStampChaplain
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelLawyerFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampLawyer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelMusicianFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: AcousticGuitarInstrument
+        - id: SaxophoneInstrument
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelLibrarianFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+        - id: BookRandom
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelDetectiveFilled
+  components:
+    - type: StorageFill
+      contents:
+      - id: BoxSurvival
+      - id: BoxForensicPad
+      - id: Lighter
+      - id: CigPackBlack
+      - id: HandLabeler
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelCargo
+  id: ClothingBackpackSatchelCargoFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelSalvage
+  id: ClothingBackpackSatchelSalvageFilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelMime
+  id: ClothingBackpackSatchelMimeFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvival
+      - id: RubberStampMime
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelAdm
+  id: ClothingBackpackSatchelHoldingAdmin
+  components:
+  - type: StorageFill
+    contents:
+    - id: GasAnalyzer
+    - id: trayScanner
+    - id: Crowbar
+    - id: Wrench
+    - id: Multitool
+    - id: AccessConfiguratorUniversal
+  - type: Unremoveable

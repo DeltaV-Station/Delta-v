@@ -1,0 +1,12 @@
+marking-WingsDragonOpen=Дракон (открытый)
+marking-WingsDragon=Дракон
+marking-WingsFlyOpen=Fly (Open)
+marking-WingsFly=Летать
+marking-WingsMegamothOpen=Megamoth (Open)
+marking-WingsMegamoth=Мегамот
+marking-WingsMothraOpen=Мотра (Открыто)
+marking-WingsMothra=Мотра
+marking-WingsRobotic=Робот
+marking-WingsSkeletonOpen=Скелет (открыт)
+marking-WingsSkeleton=Скелет
+marking-WingsHarpy=Гарпия

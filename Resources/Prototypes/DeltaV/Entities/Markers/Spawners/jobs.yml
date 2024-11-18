@@ -4,7 +4,7 @@
   name: medical cyborg
   components:
   - type: SpawnPoint
-    job_id: MedicalBorg
+    job_id: Borgmed
   - type: Sprite
     layers:
     - state: green
@@ -71,7 +71,7 @@
   name: security cyborg
   components:
   - type: SpawnPoint
-    job_id: SecurityBorg
+    job_id: Borgsec
   - type: Sprite
     layers:
     - state: green

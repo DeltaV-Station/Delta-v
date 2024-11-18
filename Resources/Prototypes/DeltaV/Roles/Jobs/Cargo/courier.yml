@@ -4,6 +4,10 @@
   description: job-description-courier
   startingGear: CourierGear
   playTimeTracker: JobCourier
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      time: 7200 # 2 hours
   icon: "JobIconCourier"
   supervisors: job-supervisors-qm
   access:

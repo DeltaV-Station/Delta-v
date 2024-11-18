@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingBlueshieldArmor
+  name: blueshield bulletproof vest
+  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Armor/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Armor/blueshield.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.4
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingBlueshieldArmorVest
+  name: blueshield armor vest
+  description: A third class of armor designed for Blue Shield officers. It provides acceptable protection against blows and medium protection against firearms.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Vests/armor_blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Vests/armor_blueshield.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingCrusaderdArmor
+  name: броня крестоносца
+  description: Полный комплект доспехов, имеющий различные символы и обереги, которые защитят владельца от злых сил.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Armor/crusader.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Armor/crusader.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.8
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.8

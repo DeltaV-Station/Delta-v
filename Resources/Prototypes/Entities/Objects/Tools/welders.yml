@@ -171,6 +171,24 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 1
+  - type: Tool
+    speedModifier: 1.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+        types:
+            Heat: 15
 
 - type: entity
   name: emergency welding tool

@@ -66,6 +66,11 @@
     head: ClothingHeadHatHoshat
 
 - type: loadout
+  id: ClothingHeadHatCapHoS
+  equipment:
+    head: ClothingHeadHatCapHoS # Stray
+
+- type: loadout
   id: HeadofSecurityBeret
   equipment:
     head: ClothingHeadHatBeretHoS
@@ -81,6 +86,11 @@
   equipment:
     neck: ClothingNeckMantleHOS
 
+- type: loadout
+  id: ClothingNeckMantleHOSShoulder
+  equipment:
+    neck: ClothingNeckMantleHOSShoulder # Stray
+
 # OuterClothing
 - type: loadout
   id: HeadofSecurityCoat
@@ -91,6 +101,11 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
+
+- type: loadout
+  id: ClothingOuterCoatHoSGreatcoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoSGreatcoat
 
 - type: loadout # DeltaV - security winter coat
   id: StasecWinterCoatHoS

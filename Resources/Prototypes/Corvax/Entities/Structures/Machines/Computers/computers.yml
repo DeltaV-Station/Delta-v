@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: ComputerComms
+  id: CentcomComputerComms
+  name: centcom communications computer
+  components:
+    - type: Sprite
+      layers:
+      - map: ["computerLayerBody"]
+        state: computer
+      - map: ["computerLayerKeyboard"]
+        state: generic_keyboard
+      - map: ["computerLayerScreen"]
+        state: comm_monitor
+      - map: ["computerLayerKeys"]
+        state: generic_keys
+      - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+        state: generic_panel_open
+    - type: AccessReader
+      access: [[ "Command" ]]
+    - type: CommunicationsConsole
+      title: comms-console-announcement-title-centcom
+      global: true
+      sound:
+        path: /Audio/Corvax/Announcements/centcomm.ogg
+        params:
+          volume: -4

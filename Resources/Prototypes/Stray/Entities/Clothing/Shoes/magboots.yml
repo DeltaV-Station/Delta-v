@@ -1,0 +1,20 @@
+- type: entity
+  parent: [BaseRestrictedContraband, ClothingShoesBootsMag]
+  id: ClothingShoesBootsMagSec
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Shoes/Boots/magboots-security.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Shoes/Boots/magboots-security.rsi
+
+- type: entity
+  parent: [BaseSecurityCommandContraband, ClothingShoesBootsMag]
+  id: ClothingShoesBootsMagHoS
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Shoes/Boots/magboots-hos.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Shoes/Boots/magboots-hos.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.85

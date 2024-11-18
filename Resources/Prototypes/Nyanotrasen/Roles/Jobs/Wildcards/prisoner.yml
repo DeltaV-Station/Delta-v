@@ -6,14 +6,29 @@
   startingGear: PrisonerGear
   alwaysUseSpawner: true
   canBeAntag: false
-#  whitelistRequired: true
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-security
   requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 72000 # 20 h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 21600
+      time: 7200 #2h
+    - !type:WhitelistRequirement # Stray - Whitelist requirement
   special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Boxer
+      modifiers:
+        coefficients: # These only apply to unarmed
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.75
+  - !type:AddComponentSpecial
+    components:
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2.0
+      baseSprintSpeed : 3.0
   - !type:AddImplantSpecial
     implants: [ TrackingImplant ]
 

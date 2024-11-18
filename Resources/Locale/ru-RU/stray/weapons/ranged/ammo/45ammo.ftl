@@ -1,0 +1,9 @@
+ent-BoxMagazineUniversalMagnumPractice = коробка с магазинами .45 "Уневерсал" (учебные)
+    .desc = Коробка, полная тренировочных магазинов магнум 45-го калибра.
+ent-BoxMagazineUniversalMagnumRubber = коробка с магазинами .45 "Уневерсал" (резиновые)
+    .desc = Коробка, полная резиновых магазинов магнум 45-го калибра.
+ent-BoxMagazineUniversalMagnum = коробка с магазинами .45 "Уневерсал"
+    .desc = Коробка, полная магазинов магнум 45-го калибра.
+ent-MagazineUniversalMagnumRubber = "Универсал" магазин (резиновые.45 магнум)
+ent-MagazineUniversalMagnumPractice = "Универсал" магазин (тренировочные .45 магнум)
+ent-MagazineUniversalMagnum = "Универсал" магазин (.45 магнум)

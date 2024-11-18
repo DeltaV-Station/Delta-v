@@ -21,6 +21,7 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.9
+    staminaDamageCoefficient: 0.9 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -211,6 +212,7 @@
         Slash: 0.6
         Piercing: 0.6
         Caustic: 0.7
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -238,6 +240,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.7
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -268,6 +271,7 @@
         Slash: 0.6
         Piercing: 0.6
         Caustic: 0.7
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -300,6 +304,7 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -335,8 +340,8 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
@@ -435,6 +440,7 @@
         Piercing: 0.5
         Radiation: 0.5
         Caustic: 0.6
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -501,6 +507,7 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
+    staminaDamageCoefficient: 0.2 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -568,11 +575,12 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+    staminaDamageCoefficient: 0.3 # DeltaV
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0 # Was 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
@@ -602,6 +610,7 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
+    staminaDamageCoefficient: 0.2 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -634,6 +643,7 @@
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
+    staminaDamageCoefficient: 0.1 # DeltaV
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
@@ -881,7 +891,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.8
   - type: Armor
@@ -985,7 +995,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-  - type: Construction 
+  - type: Construction
     graph: MimeHardsuit
     node: mimeHardsuit
   - type: ToggleableClothing

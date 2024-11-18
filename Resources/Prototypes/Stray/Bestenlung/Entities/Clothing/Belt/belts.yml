@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltMilitaryWaistbagBestlung
+  name: военная поясная сумка
+  description: Кожаная поясная сумка, в которой можно носить дополнительные боезапасы.
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Belt/waistbag.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Belt/waistbag.rsi

@@ -11,7 +11,16 @@ namespace Content.Shared.Singularity.Components
         [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
         public float Intensity = 31.25f;
 
+        [DataField("energy"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+        public float Energy = 150f;
+
+        [DataField("smoothedEnergy"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+        public float SmoothedEnergy = 150f;
+
         [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
         public float FalloffPower = MathF.Sqrt(2f);
+
+        [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+        public bool HasDisk = false;
     }
 }

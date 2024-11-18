@@ -1,0 +1,19 @@
+- type: job
+  id: Borg
+  name: job-name-borg
+  description: job-description-borg
+  playTimeTracker: JobBorg
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hours
+  canBeAntag: false
+  icon: JobIconBorg
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgGeneric
+  startingGear: RobotGear # for char preview only
+
+- type: startingGear
+  id: RobotGear
+  equipment:
+    head: ClothingHeadHatCardborg
+    outerClothing: ClothingOuterCardborg

@@ -1,0 +1,39 @@
+- type: entity
+  parent: IDCardStandard
+  id: OWHIDCard
+  name: ID карта оперативника ОБК
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-operative-ofh
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+
+- type: entity
+  parent: IDCardStandard
+  id: OWHIDCard-Comm
+  name: ID карта командира ОБК
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-commander-ofh
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand

@@ -1,0 +1,18 @@
+- type: entity
+  name: АК103
+  parent: WeaponRifleAk
+  id: WeaponRifleAK103
+  description: Экспортная версия автомата АК-74М, различающаяся использованием патронов 5,56×45 мм (стандарт НАТО SS109) и 7,62×39 мм (советский патрон образца 1943 г.), соответственно. 
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/AK103.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/AK103.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 5.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg

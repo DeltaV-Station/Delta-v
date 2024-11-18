@@ -1,0 +1,2110 @@
+# - type: entity
+#   abstract: true
+#   parent: Clothing
+#   id: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       sprite: Mobs/Customization/human_hair.rsi
+#       state: afro
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: afro
+#       slots:
+#         - HEAD
+#     - type: Tag
+#       tags:
+#         - DroneUsable
+#         # - WhitelistChameleon
+#     - type: StaticPrice
+#       price: 75
+
+# - type: entity
+#   name: Wig Afro
+#   id: HumanHairAfro
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: afro
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: afro
+# - type: entity
+#   name: Wig Afro2
+#   id: HumanHairAfro2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: afro2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: afro2
+# - type: entity
+#   name: Wig Big Afro
+#   id: HumanHairBigafro
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bigafro
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bigafro
+# - type: entity
+#   name: Wig Antenna
+#   id: HumanHairAntenna
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: antenna
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: antenna
+# - type: entity
+#   name: Wig Balding
+#   id: HumanHairBalding
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: e
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: e
+# - type: entity
+#   name: Wig Bedhead
+#   id: HumanHairBedhead
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bedhead
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bedhead
+# - type: entity
+#   name: Wig Bedhead 2
+#   id: HumanHairBedheadv2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bedheadv2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bedheadv2
+# - type: entity
+#   name: Wig Bedhead 3
+#   id: HumanHairBedheadv3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bedheadv3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bedheadv3
+# - type: entity
+#   name: Wig Long Bedhead
+#   id: HumanHairLongBedhead
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: long_bedhead
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: long_bedhead
+# - type: entity
+#   name: Wig Floorlength Bedhead
+#   id: HumanHairFloorlengthBedhead
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: floorlength_bedhead
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: floorlength_bedhead
+# - type: entity
+#   name: Wig Beehive
+#   id: HumanHairBeehive
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: beehive
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: beehive
+# - type: entity
+#   name: Wig Beehive 2
+#   id: HumanHairBeehivev2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: beehivev2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: beehivev2
+# - type: entity
+#   name: Wig Bob
+#   id: HumanHairBob
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bob
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bob
+# - type: entity
+#   name: Wig Bob2
+#   id: HumanHairBob2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bob2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bob2
+# - type: entity
+#   name: Wig Bobcut
+#   id: HumanHairBobcut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bobcut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bobcut
+# - type: entity
+#   name: Wig Bob4
+#   id: HumanHairBob4
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bob4
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bob4
+# - type: entity
+#   name: Wig Bobcurl
+#   id: HumanHairBobcurl
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bobcurl
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bobcurl
+# - type: entity
+#   name: Wig Boddicker
+#   id: HumanHairBoddicker
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: boddicker
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: boddicker
+# - type: entity
+#   name: Wig Bowlcut
+#   id: HumanHairBowlcut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bowlcut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bowlcut
+# - type: entity
+#   name: Wig Bowlcut
+#   id: HumanHairBowlcut2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bowlcut2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bowlcut2
+# - type: entity
+#   name: Wig Braid
+#   id: HumanHairBraid
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: braid
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: braid
+# - type: entity
+#   name: Wig Braided
+#   id: HumanHairBraided
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: braided
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: braided
+# - type: entity
+#   name: Wig Braidfront
+#   id: HumanHairBraidfront
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: braidfront
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: braidfront
+# - type: entity
+#   name: Wig Braid2
+#   id: HumanHairBraid2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: braid2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: braid2
+# - type: entity
+#   name: Wig HBraid
+#   id: HumanHairHbraid
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: hbraid
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: hbraid
+# - type: entity
+#   name: Wig Short Braid
+#   id: HumanHairShortbraid
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shortbraid
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shortbraid
+# - type: entity
+#   name: Wig Braidtail
+#   id: HumanHairBraidtail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: braidtail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: braidtail
+# - type: entity
+#   name: Wig Bun
+#   id: HumanHairBun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bun
+# - type: entity
+#   name: Wig Bun 2
+#   id: HumanHairBunhead2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bunhead2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bunhead2
+# - type: entity
+#   name: Wig Bun 3
+#   id: HumanHairBun3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bun3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bun3
+# - type: entity
+#   name: Wig Large Bun
+#   id: HumanHairLargebun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: largebun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: largebun
+# - type: entity
+#   name: Wig Man Bun
+#   id: HumanHairManbun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: manbun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: manbun
+# - type: entity
+#   name: Wig Tight Bun
+#   id: HumanHairTightbun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: tightbun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: tightbun
+# - type: entity
+#   name: Wig Business
+#   id: HumanHairBusiness
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: business
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: business
+# - type: entity
+#   name: Wig Business 2
+#   id: HumanHairBusiness2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: business2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: business2
+# - type: entity
+#   name: Wig Business 3
+#   id: HumanHairBusiness3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: business3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: business3
+# - type: entity
+#   name: Wig Business 4
+#   id: HumanHairBusiness4
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: business4
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: business4
+# - type: entity
+#   name: Wig Buzzcut
+#   id: HumanHairBuzzcut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: buzzcut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: buzzcut
+# - type: entity
+#   name: Wig CIA
+#   id: HumanHairCia
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cia
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cia
+# - type: entity
+#   name: Wig Coffeehouse
+#   id: HumanHairCoffeehouse
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: coffeehouse
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: coffeehouse
+# - type: entity
+#   name: Wig Combover
+#   id: HumanHairCombover
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: combover
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: combover
+# - type: entity
+#   name: Wig Cornrows
+#   id: HumanHairCornrows
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cornrows
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cornrows
+# - type: entity
+#   name: Wig Cornrows 2
+#   id: HumanHairCornrows2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cornrows2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cornrows2
+# - type: entity
+#   name: Wig Cornrow Bun
+#   id: HumanHairCornrowbun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cornrowbun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cornrowbun
+# - type: entity
+#   name: Wig Cornrow Braid
+#   id: HumanHairCornrowbraid
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cornrowbraid
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cornrowbraid
+# - type: entity
+#   name: Wig Cornrow Tail
+#   id: HumanHairCornrowtail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: cornrowtail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: cornrowtail
+# - type: entity
+#   name: Wig Crewcut
+#   id: HumanHairCrewcut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: crewcut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: crewcut
+# - type: entity
+#   name: Wig Curls
+#   id: HumanHairCurls
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: curls
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: curls
+# - type: entity
+#   name: Wig C
+#   id: HumanHairC
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: c
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: c
+# - type: entity
+#   name: Wig Dandy Pompadour
+#   id: HumanHairDandypompadour
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: dandypompadour
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: dandypompadour
+# - type: entity
+#   name: Wig Devilock
+#   id: HumanHairDevilock
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: devilock
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: devilock
+# - type: entity
+#   name: Wig Double Bun
+#   id: HumanHairDoublebun
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: doublebun
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: doublebun
+# - type: entity
+#   name: Wig Dreads
+#   id: HumanHairDreads
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: dreads
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: dreads
+# - type: entity
+#   name: Wig Drillruru
+#   id: HumanHairDrillruru
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: drillruru
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: drillruru
+# - type: entity
+#   name: Wig Drillhair
+#   id: HumanHairDrillhairextended
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: drillhairextended
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: drillhairextended
+# - type: entity
+#   name: Wig Emo
+#   id: HumanHairEmo
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: emo
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: emo
+# - type: entity
+#   name: Wig Emo Fringe
+#   id: HumanHairEmofringe
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: emofringe
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: emofringe
+# - type: entity
+#   name: Wig No Fade
+#   id: HumanHairNofade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: nofade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: nofade
+# - type: entity
+#   name: Wig High Fade
+#   id: HumanHairHighfade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: highfade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: highfade
+# - type: entity
+#   name: Wig Med Fade
+#   id: HumanHairMedfade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: medfade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: medfade
+# - type: entity
+#   name: Wig Low Fade
+#   id: HumanHairLowfade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: lowfade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: lowfade
+# - type: entity
+#   name: Wig Bald Fade
+#   id: HumanHairBaldfade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: baldfade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: baldfade
+# - type: entity
+#   name: Wig Feather
+#   id: HumanHairFeather
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: feather
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: feather
+# - type: entity
+#   name: Wig Father
+#   id: HumanHairFather
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: father
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: father
+# - type: entity
+#   name: Wig Sargeant
+#   id: HumanHairSargeant
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sargeant
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sargeant
+# - type: entity
+#   name: Wig Flair
+#   id: HumanHairFlair
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: flair
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: flair
+# - type: entity
+#   name: Wig Big Flattop
+#   id: HumanHairBigflattop
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bigflattop
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bigflattop
+# - type: entity
+#   name: Wig Flow
+#   id: HumanHairFlow
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: f
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: f
+# - type: entity
+#   name: Wig Gelled
+#   id: HumanHairGelled
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: gelled
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: gelled
+# - type: entity
+#   name: Wig Gentle
+#   id: HumanHairGentle
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: gentle
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: gentle
+# - type: entity
+#   name: Wig Half Bang
+#   id: HumanHairHalfbang
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: halfbang
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: halfbang
+# - type: entity
+#   name: Wig Half Bang 2
+#   id: HumanHairHalfbang2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: halfbang2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: halfbang2
+# - type: entity
+#   name: Wig Half Shaved
+#   id: HumanHairHalfshaved
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: halfshaved
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: halfshaved
+# - type: entity
+#   name: Wig Hedgehog
+#   id: HumanHairHedgehog
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: hedgehog
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: hedgehog
+# - type: entity
+#   name: Wig Himecut
+#   id: HumanHairHimecut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: himecut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: himecut
+# - type: entity
+#   name: Wig Himecut 2
+#   id: HumanHairHimecut2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: himecut2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: himecut2
+# - type: entity
+#   name: Wig Shorthime
+#   id: HumanHairShorthime
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shorthime
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shortthime
+# - type: entity
+#   name: Wig Himeup
+#   id: HumanHairHimeup
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: himeup
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: himeup
+# - type: entity
+#   name: Wig Hitop
+#   id: HumanHairHitop
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: hitop
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: hitop
+# - type: entity
+#   name: Wig Jade
+#   id: HumanHairJade
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: jade
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: jade
+# - type: entity
+#   name: Wig Jensen
+#   id: HumanHairJensen
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: jensen
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: jensen
+# - type: entity
+#   name: Wig Joestar
+#   id: HumanHairJoestar
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: joestar
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: joestar
+# - type: entity
+#   name: Wig Keanu
+#   id: HumanHairKeanu
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: keanu
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: keanu
+# - type: entity
+#   name: Wig Kusanagi
+#   id: HumanHairKusanagi
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: kusanagi
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: kusanagi
+# - type: entity
+#   name: Wig Long
+#   id: HumanHairLong
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: long
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: long
+# - type: entity
+#   name: Wig Long 2
+#   id: HumanHairLong2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: long2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: long2
+# - type: entity
+#   name: Wig Long 3
+#   id: HumanHairLong3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: long3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: long3
+# - type: entity
+#   name: Wig Long Over Eye
+#   id: HumanHairLongovereye
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longovereye
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longovereye
+# - type: entity
+#   name: Wig LBangs
+#   id: HumanHairLbangs
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: lbangs
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: lbangs
+# - type: entity
+#   name: Wig Long Emo
+#   id: HumanHairLongemo
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longemo
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longemo
+# - type: entity
+#   name: Wig Long Fringe
+#   id: HumanHairLongfringe
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longfringe
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longfringe
+# - type: entity
+#   name: Wig Long Sidepart
+#   id: HumanHairLongsidepart
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longsidepart
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longsidepart
+# - type: entity
+#   name: Wig Mega Eyebrows
+#   id: HumanHairMegaeyebrows
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: megaeyebrows
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: megaeyebrows
+# - type: entity
+#   name: Wig Messy
+#   id: HumanHairMessy
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: messy
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: messy
+# - type: entity
+#   name: Wig Modern
+#   id: HumanHairModern
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: modern
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: modern
+# - type: entity
+#   name: Wig Mohawk
+#   id: HumanHairMohawk
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: d
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: d
+# - type: entity
+#   name: Wig Nitori
+#   id: HumanHairNitori
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: nitori
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: nitori
+# - type: entity
+#   name: Wig Reverse Mohawk
+#   id: HumanHairReversemohawk
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: reversemohawk
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: reversemohawk
+# - type: entity
+#   name: Wig Unshaven Mohawk
+#   id: HumanHairUnshavenMohawk
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: unshaven_mohawk
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: unshaven_mohawk
+# - type: entity
+#   name: Wig Mulder
+#   id: HumanHairMulder
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: mulder
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: mulder
+# - type: entity
+#   name: Wig Odango
+#   id: HumanHairOdango
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: odango
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: odango
+# - type: entity
+#   name: Wig Ombre
+#   id: HumanHairOmbre
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ombre
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ombre
+# - type: entity
+#   name: Wig One Shoulder
+#   id: HumanHairOneshoulder
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: oneshoulder
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: oneshoulder
+# - type: entity
+#   name: Wig Short Overeye
+#   id: HumanHairShortovereye
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shortovereye
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shortovereye
+# - type: entity
+#   name: Wig Oxton
+#   id: HumanHairOxton
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: oxton
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: oxton
+# - type: entity
+#   name: Wig Parted
+#   id: HumanHairParted
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: parted
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: parted
+# - type: entity
+#   name: Wig Part
+#   id: HumanHairPart
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: part
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: part
+# - type: entity
+#   name: Wig Kagami
+#   id: HumanHairKagami
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: kagami
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: kagami
+# - type: entity
+#   name: Wig Pigtails
+#   id: HumanHairPigtails
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: pigtails
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: pigtails
+# - type: entity
+#   name: Wig Pigtails2
+#   id: HumanHairPigtails2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: pigtails2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: pigtails
+# - type: entity
+#   name: Wig Pixie
+#   id: HumanHairPixie
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: pixie
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: pixie
+# - type: entity
+#   name: Wig Pompadour
+#   id: HumanHairPompadour
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: pompadour
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: pompadour
+# - type: entity
+#   name: Wig Big Pompadour
+#   id: HumanHairBigpompadour
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: bigpompadour
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: bigpompadour
+# - type: entity
+#   name: Wig Ponytail
+#   id: HumanHairPonytail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail
+# - type: entity
+#   name: Wig Ponytail 2
+#   id: HumanHairPonytail2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail2
+# - type: entity
+#   name: Wig Ponytail 3
+#   id: HumanHairPonytail3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail3
+# - type: entity
+#   name: Wig Ponytail 4
+#   id: HumanHairPonytail4
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail4
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail4
+# - type: entity
+#   name: Wig Ponytail 5
+#   id: HumanHairPonytail5
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail5
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail5
+# - type: entity
+#   name: Wig Ponytail 6
+#   id: HumanHairPonytail6
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail6
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail6
+# - type: entity
+#   name: Wig Ponytail 7
+#   id: HumanHairPonytail7
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ponytail7
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ponytail7
+# - type: entity
+#   name: Wig High Ponytail
+#   id: HumanHairHighponytail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: highponytail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: highponytail
+# - type: entity
+#   name: Wig Stail
+#   id: HumanHairStail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: stail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: stail
+# - type: entity
+#   name: Wig Long Straight Ponytail
+#   id: HumanHairLongstraightponytail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longstraightponytail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longstraightponytail
+# - type: entity
+#   name: Wig Country
+#   id: HumanHairCountry
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: country
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: country
+# - type: entity
+#   name: Wig Fringetail
+#   id: HumanHairFringetail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: fringetail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: fringetail
+# - type: entity
+#   name: Wig Sidetail
+#   id: HumanHairSidetail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sidetail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sidetail
+# - type: entity
+#   name: Wig Sidetail 2
+#   id: HumanHairSidetail2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sidetail2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sidetail2
+# - type: entity
+#   name: Wig Sidetail 3
+#   id: HumanHairSidetail3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sidetail3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sidetail3
+# - type: entity
+#   name: Wig Sidetail 4
+#   id: HumanHairSidetail4
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sidetail4
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sidetail4
+# - type: entity
+#   name: Wig Spiky Ponytail
+#   id: HumanHairSpikyponytail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: spikyponytail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: spikyponytail
+# - type: entity
+#   name: Wig Poofy
+#   id: HumanHairPoofy
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: poofy
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: poofy
+# - type: entity
+#   name: Wig Quiff
+#   id: HumanHairQuiff
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: quiff
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: quiff
+# - type: entity
+#   name: Wig Ronin
+#   id: HumanHairRonin
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: ronin
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: ronin
+# - type: entity
+#   name: Wig Shaved
+#   id: HumanHairShaved
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shaved
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shaved
+# - type: entity
+#   name: Wig Shaved Part
+#   id: HumanHairShavedpart
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shavedpart
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shavedpart
+# - type: entity
+#   name: Wig Short Bangs
+#   id: HumanHairShortbangs
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shortbangs
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shortbangs
+# - type: entity
+#   name: Wig A
+#   id: HumanHairA
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: a
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: a
+# - type: entity
+#   name: Wig Short Hair 2
+#   id: HumanHairShorthair2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shorthair2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shorthair2
+# - type: entity
+#   name: Wig Short Hair 3
+#   id: HumanHairShorthair3
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shorthair3
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shorthair3
+# - type: entity
+#   name: Wig D
+#   id: HumanHairD
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: d
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: d
+# - type: entity
+#   name: Wig E
+#   id: HumanHairE
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: e
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: e
+# - type: entity
+#   name: Wig F
+#   id: HumanHairF
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: f
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: f
+# - type: entity
+#   name: Wig G
+#   id: HumanHairShorthairg
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: shorthairg
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: shorthairg
+# - type: entity
+#   name: Wig 80s
+#   id: HumanHair80s
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: 80s
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: 80s
+# - type: entity
+#   name: Wig Rosa
+#   id: HumanHairRosa
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: rosa
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: rosa
+# - type: entity
+#   name: Wig B
+#   id: HumanHairB
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: b
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: b
+# - type: entity
+#   name: Wig Sidecut
+#   id: HumanHairSidecut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: sidecut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: sidecut
+# - type: entity
+#   name: Wig Skinhead
+#   id: HumanHairSkinhead
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: skinhead
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: skinhead
+# - type: entity
+#   name: Wig Protagonist
+#   id: HumanHairProtagonist
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: protagonist
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: protagonist
+# - type: entity
+#   name: Wig Spikey
+#   id: HumanHairSpikey
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: spikey
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: spikey
+# - type: entity
+#   name: Wig Spiky
+#   id: HumanHairSpiky
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: spiky
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: spiky
+# - type: entity
+#   name: Wig Spiky 2
+#   id: HumanHairSpiky2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: spiky2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: spiky2
+# - type: entity
+#   name: Wig Swept
+#   id: HumanHairSwept
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: swept
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: swept
+# - type: entity
+#   name: Wig Swept 2
+#   id: HumanHairSwept2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: swept2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: swept2
+# - type: entity
+#   name: Wig Thinning
+#   id: HumanHairThinning
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: thinning
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: thinning
+# - type: entity
+#   name: Wig Thinning Front
+#   id: HumanHairThinningfront
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: thinningfront
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: thinningfront
+# - type: entity
+#   name: Wig Thinning Rear
+#   id: HumanHairThinningrear
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: thinningrear
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: thinningrear
+# - type: entity
+#   name: Wig Topknot
+#   id: HumanHairTopknot
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: topknot
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: topknot
+# - type: entity
+#   name: Wig Tress Shoulder
+#   id: HumanHairTressshoulder
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: tressshoulder
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: tressshoulder
+# - type: entity
+#   name: Wig Trimmed
+#   id: HumanHairTrimmed
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: trimmed
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: trimmed
+# - type: entity
+#   name: Wig Trim Flat
+#   id: HumanHairTrimflat
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: trimflat
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: trimflat
+# - type: entity
+#   name: Wig Twintail
+#   id: HumanHairTwintail
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: twintail
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: twintail
+# - type: entity
+#   name: Wig Undercut
+#   id: HumanHairUndercut
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: undercut
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: undercut
+# - type: entity
+#   name: Wig Cut Left
+#   id: HumanHairUndercutleft
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: undercutleft
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: undercutleft
+# - type: entity
+#   name: Wig Cut Right
+#   id: HumanHairUndercutright
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: undercutright
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: undercutright
+# - type: entity
+#   name: Wig Unkept
+#   id: HumanHairUnkept
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: unkept
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: unkept
+# - type: entity
+#   name: Wig Updo
+#   id: HumanHairUpdo
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: updo
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: updo
+# - type: entity
+#   name: Wig Long
+#   id: HumanHairVlong
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: vlong
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: vlong
+# - type: entity
+#   name: Wig Longest
+#   id: HumanHairLongest
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longest
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longest
+# - type: entity
+#   name: Wig Longest 2
+#   id: HumanHairLongest2
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: longest2
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: longest2
+# - type: entity
+#   name: Wig Very Short Overeye Alternate
+#   id: HumanHairVeryshortovereyealternate
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: veryshortovereyealternate
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: veryshortovereyealternate
+# - type: entity
+#   name: Wig V Long Fringe
+#   id: HumanHairVlongfringe
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: vlongfringe
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: vlongfringe
+# - type: entity
+#   name: Wig Volaju
+#   id: HumanHairVolaju
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: volaju
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: volaju
+# - type: entity
+#   name: Wig Wisp
+#   id: HumanHairWisp
+#   parent: ClothingWigBase
+#   components:
+#     - type: Sprite
+#       state: wisp
+#     - type: Clothing
+#       sprite: Mobs/Customization/human_hair.rsi
+#       clothingVisuals:
+#         head:
+#           - state: wisp

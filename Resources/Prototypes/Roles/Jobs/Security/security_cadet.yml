@@ -4,8 +4,11 @@
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 21600 # DeltaV - 6 hours
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 7200 #2h
+  #requirements:
+  #  - !type:OverallPlaytimeRequirement
+  #    time: 14400 # DeltaV - 4 hours
 #    - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
 #      department: Security
 #      time: 54000 #15 hrs
@@ -28,12 +31,13 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
+    #head: Brain     Causes an error
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-#    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
+    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
     pocket2: BookSecurity
   storage:
     back:

@@ -90,9 +90,14 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: RevolverAmmoProvider
+    proto: CartridgeSpecial
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+    whitelist:
+      tags:
+        - CartridgeSpecial
+        - SpeedLoaderSpecial
 
 - type: entity
   name: Mateba
@@ -108,6 +113,8 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: RevolverAmmoProvider
+    capacity: 7
 
 - type: entity
   name: Python
@@ -128,6 +135,8 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: RevolverAmmoProvider
+    capacity: 7
 
 - type: entity
   parent: WeaponRevolverPython

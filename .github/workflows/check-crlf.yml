@@ -1,6 +1,8 @@
 ﻿name: CRLF Check
 
 on:
+  push:
+    branches: [ cursed ]
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
 

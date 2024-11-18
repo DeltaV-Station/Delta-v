@@ -1,0 +1,144 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, StorePresetUplink ] #PDA's have uplinks so they have to inherit the data.
+  id: BasePDAOWH
+  name: PDA
+  description: Personal Data Assistant.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: Stray/OWH/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: Stray/OWH/Objects/Devices/pda.rsi
+    state: pda
+  - type: Pda
+    state: pda
+    paiSlot:
+      priority: -2
+      whitelist:
+        components:
+        - PAI
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - IdCard
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      PDA-id: !type:ContainerSlot {}
+      PDA-pen: !type:ContainerSlot {}
+      PDA-pai: !type:ContainerSlot {}
+      Cartridge-Slot: !type:ContainerSlot {}
+      program-container: !type:Container
+  - type: ItemSlots
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    softness: 5
+    autoRot: true
+  - type: Ringer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: PDA
+    prefix: device-address-prefix-console
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+    cartridgeSlot:
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge
+  - type: ActivatableUI
+    key: enum.PdaUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Input
+    context: "human"
+  - type: SentienceTarget # sentient PDA = pAI lite
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
+  - type: BlockMovement
+    blockInteraction: false # lets the PDA toggle its own flashlight
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+
+- type: entity
+  parent: BasePDAOWH
+  id: OWHPDA
+  name: КПК оперативника ОБК
+  description: Сделано на Марсе
+  components:
+  - type: Pda
+    id: OWHIDCard
+    state: pda-owh
+  - type: PdaBorderColor
+    borderColor: "#ccbc41"
+  - type: Icon
+    state: pda-owh
+
+- type: entity
+  parent: BasePDAOWH
+  id: OWHPDA-Comm
+  name: КПК командира ОБК
+  description: Сделано на Марсе
+  components:
+  - type: Pda
+    id: OWHIDCard-Comm
+    state: pda-owhcommander
+  - type: PdaBorderColor
+    borderColor: "#ccbc41"
+    accentVColor: "#ff0000"
+  - type: Icon
+    state: pda-owhcommander

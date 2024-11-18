@@ -114,8 +114,8 @@
   - type: Storage
     maxItemSize: Normal
     grid: # DeltaV - Make the grid smaller
-    - 0,0,2,1
-    - 4,0,7,1
+    - 0,0,3,2 # Was 0,0,2,1
+    - 5,0,8,2 # Was 4,0,7,1
   - type: ItemMapper # DeltaV - add stowed medkit sprite
     mapLayers:
       medkit:

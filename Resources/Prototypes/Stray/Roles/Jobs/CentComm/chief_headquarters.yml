@@ -1,0 +1,36 @@
+- type: job
+  id: ChiefHeadquartersCentralCommand
+  name: job-name-chief-headquarters-centcom
+  description: job-description-chief-headquarters-centcom
+  playTimeTracker: JobChiefHeadquartersCentralCommand
+  setPreference: false
+  startingGear: ChiefHeadquartersCentCommGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-sectoral-management
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - CentralCommandOperator
+  - CentralCommandOfficial
+  - ChiefHeadquartersCentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ChiefHeadquartersCentCommGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomDirector
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCentcomNaval
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: CHCCPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilled
+    pocket1: RubberStampChiefCentComm
+    pocket2: BoxFolderCentCom
+    neck: ClothingNeckCloakBoat
+    head: ClothingHeadHatDirCap

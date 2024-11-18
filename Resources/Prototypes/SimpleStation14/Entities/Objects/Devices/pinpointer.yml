@@ -1,0 +1,37 @@
+- type: entity
+  name: anomaly tracker
+  id: PinpointerAnomaly
+  parent: PinpointerBase
+  components:
+  - type: Pinpointer
+    component: Anomaly
+    mediumDistance: 24
+    closeDistance: 12
+    reachedDistance: 5
+    precision: 0.2
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer_anomaly
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+
+- type: entity
+  name: artifact tracker
+  id: PinpointerArtifact
+  parent: PinpointerBase
+  components:
+  - type: Pinpointer
+    component: Artifact
+    mediumDistance: 24
+    closeDistance: 12
+    reachedDistance: 5
+    precision: 0.02
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer_artifact
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]

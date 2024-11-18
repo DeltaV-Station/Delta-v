@@ -200,6 +200,14 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: Insulated
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+    - id: SheetSteel1
+      amount: 1
 
 - type: entity
   parent: [ClothingHandsBase, BaseToggleClothing, BaseMajorContraband]

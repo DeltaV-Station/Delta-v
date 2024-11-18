@@ -1,0 +1,24 @@
+- type: job
+  id: Roboticist
+  name: "робототехник"
+  description: "Бип-Буп."
+  playTimeTracker: JobRoboticist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      time: 14400 #4h
+  startingGear: RoboticistGear
+  icon: "JobIconRoboticist"
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: RoboticistGear
+  equipment:
+    belt: ClothingBeltUtilityFilled
+    id: RoboticistPDA
+    ears: ClothingHeadsetRobotics
+    pocket1: StorageImplanter
+    pocket2: HandheldStationMap

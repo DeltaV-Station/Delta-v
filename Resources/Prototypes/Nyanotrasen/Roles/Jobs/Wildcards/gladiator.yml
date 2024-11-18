@@ -9,11 +9,15 @@
   icon: "JobIconGladiator"
   supervisors: job-supervisors-security
   setPreference: true
-#  whitelistRequired: true
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 21600
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 7200 #2h
+#  whitelistRequired: true
+  - !type:WhitelistRequirement # Stray - Whitelist requirement
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Security
+  #    time: 21600
   special:
   - !type:AddComponentSpecial
     components:

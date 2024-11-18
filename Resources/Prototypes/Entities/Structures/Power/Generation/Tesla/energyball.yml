@@ -77,11 +77,11 @@
       params:
         variation: 0.3
   - type: LightningArcShooter
-    arcDepth: 3
+    arcDepth: 0 # Stray was 3
     maxLightningArc: 4
     shootMinInterval: 3
     shootMaxInterval: 5
-    shootRange: 7
+    shootRange: 20 # Stray was 7
     lightningPrototype: Lightning #To do: change to HyperchargedLightning, after fix beam system
   # - type: ChasingWalk # DeltaV - Replaced with random pathfinding
   #   minSpeed: 1

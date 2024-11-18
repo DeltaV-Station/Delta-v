@@ -473,11 +473,17 @@
     - state: idcentcom
   - type: Item
     heldPrefix: blue
-  - type: PresetIdCard
-    job: CentralCommandOfficial
+  - type: IdCard
+    jobTitle: job-name-centcomofficer
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
 
 - type: entity
-  parent: IDCardStandard
+  parent: CentcomIDCard
   id: ERTLeaderIDCard
   name: ERT leader ID card
   components:
@@ -485,13 +491,13 @@
     layers:
     - state: gold
     - state: ert_commander
-  - type: PresetIdCard
-    job: ERTLeader
+  - type: IdCard
+    jobTitle: job-name-ertleader
   - type: Item
     heldPrefix: gold
 
 - type: entity
-  parent: IDCardStandard
+  parent: ERTLeaderIDCard
   id: ERTChaplainIDCard
   name: ERT chaplain ID card
   components:
@@ -499,13 +505,13 @@
     layers:
     - state: gold
     - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
-  - type: PresetIdCard
-    job: ERTChaplain
+  - type: IdCard
+    jobTitle: job-name-ertchaplain
   - type: Item
     heldPrefix: blue
 
 - type: entity
-  parent: IDCardStandard
+  parent: ERTChaplainIDCard
   id: ERTEngineerIDCard
   name: ERT engineer ID card
   components:
@@ -513,11 +519,11 @@
     layers:
     - state: gold
     - state: ert_engineer
-  - type: PresetIdCard
-    job: ERTEngineer
+  - type: IdCard
+    jobTitle: job-name-ertengineer
 
 - type: entity
-  parent: IDCardStandard
+  parent: ERTChaplainIDCard
   id: ERTJanitorIDCard
   name: ERT janitor ID card
   components:
@@ -525,11 +531,11 @@
     layers:
     - state: gold
     - state: ert_janitor
-  - type: PresetIdCard
-    job: ERTJanitor
+  - type: IdCard
+    jobTitle: job-name-ertjanitor
 
 - type: entity
-  parent: IDCardStandard
+  parent: ERTChaplainIDCard
   id: ERTMedicIDCard
   name: ERT medic ID card
   components:
@@ -537,11 +543,11 @@
     layers:
     - state: gold
     - state: ert_medic
-  - type: PresetIdCard
-    job: ERTMedical
+  - type: IdCard
+    jobTitle: job-name-ertmedic
 
 - type: entity
-  parent: IDCardStandard
+  parent: ERTChaplainIDCard
   id: ERTSecurityIDCard
   name: ERT security ID card
   components:
@@ -549,8 +555,26 @@
     layers:
     - state: gold
     - state: ert_security
-  - type: PresetIdCard
-    job: ERTSecurity
+  - type: IdCard
+    jobTitle: job-name-ertsecurity
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomIDCardSyndie
+  name: command officer ID card
+  suffix: Fake
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-centcomoff
+  - type: Access
+    tags:
+    - Maintenance
 
 - type: entity
   parent: IDCardStandard
@@ -565,7 +589,7 @@
       job: Musician
 
 - type: entity
-  parent: IDCardStandard
+  parent: CentcomIDCard
   id: CentcomIDCardDeathsquad
   name: death squad ID card
   components:
@@ -574,8 +598,8 @@
     - state: centcom
   - type: Item
     heldPrefix: blue
-  - type: PresetIdCard
-    job: DeathSquad
+  - type: IdCard
+    jobTitle: job-name-centcomagent
 
 - type: entity
   name: passenger ID card
@@ -731,8 +755,8 @@
     - state: centcom
   - type: Item
     heldPrefix: blue
-  - type: PresetIdCard
-    job: CBURN
+  - type: IdCard
+    jobTitle: job-name-cburn
 
 - type: entity
   parent: IDCardStandard

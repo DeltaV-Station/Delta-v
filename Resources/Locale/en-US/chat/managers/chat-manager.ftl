@@ -48,6 +48,9 @@ chat-manager-send-hook-ooc-wrap-message = OOC: (D){$senderName}: {$message}
 chat-manager-dead-channel-name = DEAD
 chat-manager-admin-channel-name = ADMIN
 
+chat-manager-mappers-channel-name = MAPPER
+
+
 chat-manager-rate-limited = You are sending messages too quickly!
 chat-manager-rate-limit-admin-announcement = Player { $player } breached chat rate limits. Watch them if this is a regular occurence.
 

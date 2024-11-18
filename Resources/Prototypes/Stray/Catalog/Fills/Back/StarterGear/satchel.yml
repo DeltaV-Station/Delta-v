@@ -1,0 +1,65 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelRobo
+  id: ClothingBackpackSatchelRoboFilled
+  name: сумка робототехника
+  components:
+  - type: StorageFill
+    contents:
+        - id: BoxSurvival
+
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: ClothingBackpackSatchelLeatherRoboFilled
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSatchelBlueShield
+  id: ClothingBackpackSatchelBlueShieldFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: BodyBagFolded
+      - id: Portafib
+      - id: Flash
+      - id: HandheldCrewMonitor
+      - id: BoxZiptieBlueShield
+      - id: BluespaceBoxHardsuitBlueShield
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackSatchelBlueShieldFilled
+  id: ClothingBackpackSatchelBlueShieldAltFilled
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Satchels/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Back/Satchels/blueshield.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,7,3
+    - 9,0,10,3
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedicAlt
+  id: ClothingBackpackSatchelBrigmedicAltFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+    #  - id: Flash
+      - id: BruteAutoInjector
+        amount: 2
+      - id: BurnAutoInjector
+        amount: 2

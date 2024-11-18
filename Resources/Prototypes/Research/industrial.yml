@@ -82,6 +82,7 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+  - PortableCoalGeneratorMachineCircuitboard
   - PortableGeneratorPacmanMachineCircuitboard
   - PortableGeneratorSuperPacmanMachineCircuitboard
   - PortableGeneratorJrPacmanMachineCircuitboard
@@ -170,6 +171,8 @@
     - JawsOfLife
     - BorgModuleAdvancedTool
     - BorgModuleRCD
+    - RCD
+    - RCDAmmo
 
 - type: technology
   id: MassExcavation

@@ -1,0 +1,18 @@
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetOWH
+  name: Гарнитура Агента Ордена Боевых Кабанов
+  description: Используется буквально оперативной группой ОБК.
+  suffix: ОБК
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyOWH
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: Stray/OWH/Clothing/Ears/Headsets/merc.rsi
+  - type: Clothing
+    sprite: Stray/OWH/Clothing/Ears/Headsets/merc.rsi

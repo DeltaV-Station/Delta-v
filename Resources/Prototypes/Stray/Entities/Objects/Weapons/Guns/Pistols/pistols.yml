@@ -1,0 +1,35 @@
+- type: entity
+  name: KimPistol
+  parent: BaseWeaponSniper
+  id: WeaponPistolKim
+  description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo. # DeltaV - change description to reflect forced semi
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/Pistols/kim.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: Stray/Objects/Weapons/Pistols/kim.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: null
+    whitelist:
+      tags:
+      - CartridgePistol
+  - type: Construction
+    graph: KimPistolGraph
+    node: kimpistol

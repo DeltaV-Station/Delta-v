@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltVoidWebbing
+  name: РПС void
+  suffix: VOID
+  description: Он больше чем кажеться! На бирке написанно "Производитель VOIDTech"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Belt/voidrps.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Belt/voidrps.rsi
+  - type: Storage
+    grid:
+    - 0,0,6,3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8

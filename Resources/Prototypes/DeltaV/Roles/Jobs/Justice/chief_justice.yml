@@ -3,18 +3,7 @@
   name: job-name-chief-justice
   description: job-description-chief-justice
   playTimeTracker: JobChiefJustice
-  requirements:
-#    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so. 
-#      role: JobClerk
-#      time: 36000 # DeltaV - 10 hours
-    - !type:RoleTimeRequirement
-      role: JobLawyer
-      time: 36000 # 10 hours
-    - !type:RoleTimeRequirement
-      role: JobProsecutor
-      time: 36000 # 10 hours
-    - !type:OverallPlaytimeRequirement
-      time: 90000 # 25 hours
+  setPreference: false
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
@@ -57,5 +46,3 @@
     #innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
     #satchel: ClothingBackpackSatchelFilled # TODO- make Justice departmebt bags
     #duffelbag: ClothingBackpackDuffelFilled
-
-

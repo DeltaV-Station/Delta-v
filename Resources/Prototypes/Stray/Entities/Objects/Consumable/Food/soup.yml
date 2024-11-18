@@ -1,0 +1,24 @@
+- type: entity
+  name: sawdust soup
+  parent: FoodBowlBase
+  id: FoodSoupSawdust
+  description: A humble split pea soup.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sawdustsoup
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: sawdust
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: SawdustSoupReagent
+          Quantity: 35
+  - type: Tag
+    tags:
+    - Fruit

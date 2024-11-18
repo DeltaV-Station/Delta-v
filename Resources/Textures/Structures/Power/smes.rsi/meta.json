@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9c7d509354ee030300f63c701da63c17928c3b3b and modified by Swept",
+  "copyright": "NES-Station : Aserovich",
   "size": {
     "x": 32,
     "y": 32
@@ -23,40 +23,60 @@
       "name": "smes-oc1",
       "delays": [
         [
-          0.5,
-          0.5
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
     {
-      "name": "smes-oc2",
-      "delays": [
-        [
-          0.5,
-          0.5
-        ]
-      ]
+      "name": "smes-oc2"
     },
     {
       "name": "smes-og1",
       "delays": [
         [
-          1,
-          1
+          0.2,
+          0.2
         ]
       ]
     },
     {
-      "name": "smes-og2"
+      "name": "smes-og2",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "smes-og3"
+      "name": "smes-og3",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "smes-og4"
+      "name": "smes-og4",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "smes-og5"
+      "name": "smes-og5",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
       "name": "smes-op0"
@@ -65,13 +85,25 @@
       "name": "smes-op1",
       "delays": [
         [
-          1,
-          1
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
     {
-      "name": "smes-op2"
+      "name": "smes-op2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }

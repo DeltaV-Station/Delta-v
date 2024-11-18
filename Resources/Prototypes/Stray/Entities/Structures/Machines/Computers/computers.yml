@@ -1,0 +1,129 @@
+﻿- type: entity
+  parent: ComputerId
+  id: CentCommComputerId
+  name: CentComm computer Id cards
+  description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
+  components:
+    - type: Sprite
+      layers:
+      - map: ["computerLayerBody"]
+        state: computer
+      - map: ["computerLayerKeyboard"]
+        state: generic_keyboard
+      - map: ["computerLayerScreen"]
+        state: comm_logs
+      - map: ["computerLayerKeys"]
+        state: generic_keys
+      - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+        state: generic_panel_open
+    - type: IdCardConsole
+      accessLevels:
+        - CentralCommand
+        - CentralCommandOperator
+        - CentralCommandOfficial
+        - ChiefHeadquartersCentralCommand
+        - Armory
+        - Atmospherics
+        - Bar
+        #- Brig #Delta V: Removed Brig Access
+        - Boxer #Delta V: Add Boxer Access
+        - Detective
+        - Captain
+        - Cargo
+        - Chapel
+        - Chemistry
+        - ChiefEngineer
+        - ChiefMedicalOfficer
+        - Clown #Delta V: Add Clown Access
+        - Corpsman # DeltaV: Add Corpsman access
+        - Command
+        - Engineering
+        - External
+        - HeadOfPersonnel
+        - HeadOfSecurity
+        - Hydroponics
+        - Janitor
+        - Kitchen
+        - Lawyer
+        - Library #Delta V: Add Library Access
+        - Mail #Nyanotrasen: Add Mail Access
+        - Maintenance
+        - Mantis #Nyanotrasen: Add Mantis Access
+        - Medical
+        - Mime #Delta V: Add Mime Access
+        - Musician #Delta V: Add Musician Access
+        - Paramedic # Delta V - adds Paramedic access
+        - Psychologist #Delta V: Add Psychologist Access
+        - Quartermaster
+        - Reporter #Delta V: Add Reporter Access
+        - Research
+        - ResearchDirector
+        - Salvage
+        - Security
+        - Service
+        - Theatre
+        - Zookeeper #Delta V: Add Zookeeper Access
+        - ChiefJustice  #Delta V: Add Chief Justice Access
+        - Prosecutor  #Delta V: Add Prosecutor Access
+        - Justice  #Delta V: Add Justice Access
+        - Clerk  #Delta V: Add Clerk Access
+      privilegedIdSlot:
+        name: id-card-console-privileged-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
+      targetIdSlot:
+        name: id-card-console-target-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
+
+- type: entity
+  parent: ComputerId
+  id: SyndicateComputerId
+  name: Syndicate computer Id cards
+  description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
+  components:
+    - type: Sprite
+      sprite: Stray/Structures/Machines/computers.rsi
+    - type: IdCardConsole
+      accessLevels:
+        - SyndicateAgent
+        - HydroponicsSyndicate
+        - KitchenSyndicate
+        - BarSyndicate
+        - MedicalSyndicate
+        - SecuritySyndicate
+        - CommandSyndicate
+        - HeadOfSecuritySyndicate
+        - ChiefMedicalOfficerSyndicate
+        - ArmorySyndicate
+        - EngineeringSyndicate
+        - NuclearOperative
+        - CaptainSyndicate
+      privilegedIdSlot:
+        name: id-card-console-privileged-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
+      targetIdSlot:
+        name: id-card-console-target-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard

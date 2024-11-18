@@ -1,0 +1,24 @@
+- type: entity
+  id: BulletRadCarabin
+  name: bullet uranium
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  suffix: Эцессия
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: uranium
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 7
+        Radiation: 15
+  - type: PointLight
+    enabled: true
+    color: "#38c24f"
+    radius: 3.0
+    energy: 7.0
+  - type: RadiationSource
+    intensity: 6
+    slope: 0.3

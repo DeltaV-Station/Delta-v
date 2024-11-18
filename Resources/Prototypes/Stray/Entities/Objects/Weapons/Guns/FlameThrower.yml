@@ -1,0 +1,53 @@
+- type: entity
+  id: FlameThrowerGun
+  parent: BaseWeaponRifle
+  name: "Огнемёт"
+  description: "Огнемёт. Заправляется сжиженным метаном. Не рекомендуется долго стрелять. По какой-то причине на нём весь текст на немецком"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/Flamethrower.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Stray/Objects/Weapons/Flamethrower.rsi
+  - type: Gun
+    fireRate: 15
+    minAngle: 0
+    maxAngle: 45
+    selectedMode: FullAuto
+    resetOnHandSelected: true
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Stray/Other/Effects/Releasedtheairfromlungs.ogg
+      params:
+        volume: 3
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: "Баллон с метаном для огнемётов"
+        startingItem: FlameThrowerTank
+        insertSound: /Audio/Effects/squeak1.ogg
+        ejectSound: /Audio/Effects/squeak3.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - FlameThrowerFuelTank
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Ammo
+    muzzleFlash: FlamethrowerFlashEffect
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,6

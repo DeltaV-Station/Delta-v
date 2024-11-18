@@ -1,0 +1,3 @@
+disease-seizures-compulsion = {CAPITALIZE(THE($person))} яростно трясется и немного раскачивается...
+disease-blood-compulsion = Вы очень хотите кого-то убить.
+disease-xeno-polymorph = Вы падаете, когда ваше тело наваливается на вас, меняя форму.

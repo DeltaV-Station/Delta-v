@@ -1,0 +1,21 @@
+- type: entity
+  parent: [ClothingHeadBase, GasMaskVoid]
+  id: ClothingHeadHatHoodRadVOID
+  name: Капюшон антирадиационного костюма
+  suffix: VOID
+  description: "Защищает от радиации и немного от ожогов, в нем уже встроен противогаз, как удобно!"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Head/Hoods/voidhazmathemlet.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Head/Hoods/voidhazmathemlet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.85
+        Radiation: 0.50
+  - type: BreathMask
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout

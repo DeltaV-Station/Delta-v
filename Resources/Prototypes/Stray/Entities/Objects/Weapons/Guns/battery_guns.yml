@@ -1,0 +1,26 @@
+- type: entity
+  name: makeshift laser pistol
+  parent: WeaponMakeshiftLaser
+  id: WeaponMakeshiftLaserEmpty
+  description: Better pray it won't burn your hands off.
+  components:
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 0
+  - type: Construction
+    graph: MakeshiftLaserGraph
+    node: makeshiftlaser
+
+- type: entity
+  name: Улучшенный Станнер
+  parent: WeaponDisabler
+  id: WeaponModefiedDisabler
+  description: Специально разработанное для представителей NT оружие самообороны с автозарядкой, которое изнуряет органические цели, ослабляя их до тех пор, пока они не свалятся с ног.
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 55
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    - type: ProjectileBatteryAmmoProvider
+      proto: ModefiedBulletDisabler

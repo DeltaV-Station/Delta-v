@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingMaskGasExplorer
+  id: GasMaskVoid
+  name: Противогаз VOID
+  suffix: VOID
+  description: Стандартный противогаз, внутри написанно маленькими буквами "Производитель VOIDTech"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Mask/voidgas.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Mask/voidgas.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    hideOnToggle: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.85
+        Radiation: 0.5

@@ -1,0 +1,23 @@
+- type: entity
+  parent: IDCardStandard
+  id: VOIDIDCard
+  name: ID карта VOID
+  suffix: VOID
+  components:
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-name-void-worker
+    jobIcon: JobIconVoid
+  - type: Access
+    tags:
+    - CentralCommand
+  - type: Sprite
+    sprite: Stray/Void/Objects/Devices/voididcart.rsi
+    layers:
+    - state: void
+  - type: Clothing
+    sprite: Stray/Void/Objects/Devices/voididcart.rsi
+    quickEquip: True
+    slots:
+    - idcard

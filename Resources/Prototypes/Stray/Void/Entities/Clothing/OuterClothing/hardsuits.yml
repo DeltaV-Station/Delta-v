@@ -1,0 +1,98 @@
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: VOIDhardsuit
+  name: Лёгкая броня VOID
+  suffix: VOID
+  description: Иновационная броня VOIDTech, она очень даже лёгкая
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidelitesuit.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidelitesuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 10000
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Armor # About as protective as a riot hardsuit but with far less movement penalty.
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Radiation: 0.60
+        Caustic: 0.95
+        Heat: 0.95
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.4
+  - type: ToggleableClothing
+    clothingPrototype: HardsuitHemletVOID
+  - type: AllowSuitStorage
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: VOIDVeryhardsuit
+  name: Сверхтяжелая броня VOID
+  suffix: VOID
+  description: Сверхтяжелая броня VOID Ходить в ней спплошное испытание, для ношения требует очень долгой подговотки
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidveryhardsuit.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidveryhardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 100000
+  - type: ExplosionResistance
+    damageCoefficient: 0.20
+  - type: Armor # More protective than a standard security hardsuit, but far slower.
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Radiation: 0.10
+        Caustic: 0.25
+        Heat: 0.25
+  - type: ClothingSpeedModifier
+    walkModifier: 0.50
+    sprintModifier: 0.50
+  - type: ToggleableClothing
+    clothingPrototype: VOIDVeryhardsuithemlet
+  - type: AllowSuitStorage
+
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: VOIDelitesuit
+  name: Элитная броня VOID
+  suffix: VOID
+  description: Самая иновационная броня Voidtech, доступна от допуска выше 8, по стандарту выдаеться при допуске выше 15.
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidelitesuit.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/OuterClothing/Hardsuits/voidelitesuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 10000
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+  - type: Armor # About as protective as a riot hardsuit but with far less movement penalty.
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Radiation: 0.25
+        Caustic: 0.25
+        Heat: 0.25
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ToggleableClothing
+    clothingPrototype: ElitesuitHemletVOID
+  - type: AllowSuitStorage

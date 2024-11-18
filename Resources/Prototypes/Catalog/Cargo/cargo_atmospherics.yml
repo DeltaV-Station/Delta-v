@@ -100,6 +100,16 @@
   category: cargoproduct-category-name-atmospherics
   group: market
 
+- type: cargoProduct
+  id: AtmosphericsMethane
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: orange
+  product: MethaneCanister
+  cost: 2000
+  category: cargoproduct-category-name-atmospherics
+  group: market
+
 #- type: cargoProduct
 #  name: "tritium canister"
 #  id: AtmosphericsTritium

@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoLong
+  name: cargo tech jumpsuit
+  description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/cargotech.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/cargotech.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicRed
+  name: brigmedic jumpsuit
+  description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicTurtleAlt
+  name: blue brigmedic turtleneck                    
+  description: Comfortable and warm turtleneck. Especially for the guardian angel.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_turtle.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/brigmedic_turtle.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueShield
+  name: blue shield suit
+  description: Comfortable blue shirt and stylish pants. Suitable for those who want to look their best while rescuing important persons.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueShieldTurtle
+  name: blue shield turtleneck
+  description: Comfortable and warm turtleneck. Suitable for those who prefer to be more mobile while rescuing important persons.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/blueshield_turtle.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Uniforms/Jumpsuit/blueshield_turtle.rsi

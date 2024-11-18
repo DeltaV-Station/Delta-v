@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Yogstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "brain-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "brain-inhand-right",
+        "directions": 4
+    },
+    {
+      "name": "heart-off"
+    },
+    {
+      "name": "heart-on",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "brain",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "eyeball-r"
+    },
+    {
+      "name": "tongue"
+    },
+    {
+      "name": "eyeball-l"
+    },
+    {
+      "name": "microcell",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "ears"
+    }
+  ]
+}

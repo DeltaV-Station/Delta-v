@@ -1,0 +1,11 @@
+# Delta-V
+# --------
+# Contains the current Patron tier definitions. All patrons in Patrons.yml are
+# expected to reference one of these tiers BY NAME.
+# The Priority field is used for sorting in the Credits tab. Lower numbered
+# tiers are sorted towards the top.
+# --------
+
+- Name: "Boosty"
+  Priority: 1
+  Color: "#f0652b"

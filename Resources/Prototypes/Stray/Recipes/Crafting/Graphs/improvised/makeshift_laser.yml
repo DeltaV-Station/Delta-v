@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: MakeshiftLaserGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftlaser
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Cable
+        amount: 5
+        doAfter: 2
+      - material: Plastic
+        amount: 5
+        doAfter: 10
+      - material: Plasma
+        amount: 10
+        doAfter: 15
+  - node: makeshiftlaser
+    entity: WeaponMakeshiftLaserEmpty

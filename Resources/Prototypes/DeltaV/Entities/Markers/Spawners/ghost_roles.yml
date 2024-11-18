@@ -50,16 +50,13 @@
     rules: ghost-role-information-listeningop-rules
     requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
     - !type:OverallPlaytimeRequirement
-      time: 259200 # 72 hours
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 40000 # 11.1 hours
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 40000 # 11.1 hours
+      time: 1800 # 0.5 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 40000 # 11.1 hours
+      time: 3600 # 1 hours
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -98,7 +95,7 @@
     rules: ghost-role-information-recruiter-rules
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24h so you probably know some general lore or something
+      time: 10800 # 3 hours so you probably know some general lore or something
     - !type:RoleTimeRequirement
       role: JobLawyer
       time: 3600 # 1h as lawyer so you maybe know how to paperwork
@@ -119,7 +116,7 @@
     rules: ghost-role-information-synthesis-rules
     requirements: # keep in sync with the antag prototype
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24h so you probably know some general lore or something
+      time: 10800 # 3 hours so you probably know some general lore or something
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 7200 # 2h chemist so you know how to make CH
+      time: 1800 # 0.5h chemist so you know how to make CH

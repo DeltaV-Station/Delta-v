@@ -25,6 +25,7 @@
         - map: ["enum.SmesVisualLayers.Input"]
           state: "smes-oc0"
           shader: unshaded
+          visible: false
         - map: ["enum.SmesVisualLayers.Output"]
           state: "smes-op1"
           shader: unshaded
@@ -61,11 +62,11 @@
       maxChargeRate: 5000
       supplyRampTolerance: 5000
       supplyRampRate: 1000
-    - type: PointLight
-      radius: 1.5
-      energy: 1.6
-      color: "#c9c042"
-      castShadows: false
+    # - type: PointLight
+    #   radius: 1.5
+    #   energy: 1.6
+    #   color: "#c9c042"
+    #   castShadows: false
     - type: WiresPanel
     - type: Machine
       board: SMESMachineCircuitboard

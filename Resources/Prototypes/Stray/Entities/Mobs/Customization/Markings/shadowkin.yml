@@ -1,0 +1,75 @@
+- type: marking
+  id: EyeRightShadowkin
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  followSkinColor: false
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/eyes.rsi
+    state: right_eye
+
+- type: marking
+  id: EyeLeftShadowkin
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  followSkinColor: false
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/eyes.rsi
+    state: left_eye
+
+- type: marking
+  id: GauzeLefteyePatchShadowkin
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/gauze.rsi
+    state: gauze_lefteye_2
+
+- type: marking
+  id: GauzeLefteyePadShadowkin
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/gauze.rsi
+    state: gauze_lefteye_1
+
+- type: marking
+  id: GauzeRighteyePatchShadowkin
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/gauze.rsi
+    state: gauze_righteye_2
+
+- type: marking
+  id: GauzeRighteyePadShadowkin
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Stray/Mobs/Customization/Shadowkin/gauze.rsi
+    state: gauze_righteye_1

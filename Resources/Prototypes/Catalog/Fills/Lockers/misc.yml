@@ -134,6 +134,8 @@
     children:
     - id: StrangePill
       prob: 0.20
+    - id: Matchbox
+      prob: 0.10
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable

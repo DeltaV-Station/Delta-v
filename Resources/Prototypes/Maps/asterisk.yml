@@ -15,6 +15,11 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
+        - type: GridSpawn
+          groups:
+            mining: !type:GridSpawnGroup
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             Captain: [ 1, 1 ]
@@ -67,3 +72,15 @@
             CargoTechnician: [ 2, 4 ]
           #civilian
             Passenger: [ -1, -1 ]
+            # delta
+            Slugcat: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

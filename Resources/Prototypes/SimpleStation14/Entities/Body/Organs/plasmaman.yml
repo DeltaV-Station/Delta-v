@@ -1,0 +1,25 @@
+- type: entity
+  id: OrganPlasmamanLungs
+  parent: OrganHumanLungs
+  suffix: "plasmaman"
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanStomach
+  parent: OrganHumanStomach
+  name: stomach
+  components:
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 100
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Plasmaman ]
+    groups:
+    - id: Food
+    - id: Drink

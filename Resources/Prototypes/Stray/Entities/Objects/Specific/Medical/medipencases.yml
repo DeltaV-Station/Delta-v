@@ -1,0 +1,23 @@
+- type: entity
+  name: medipen case
+  parent: BoxCardboard
+  id: InjectorCase
+  description: Convenient storage for medipens.
+  components:
+  - type: Tag
+    tags:
+    - AutoInjectorCase
+  - type: Sprite
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    layers:
+      - state: injectorscase
+  - type: Item
+    heldPrefix: injectorscase
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    whitelist:
+      tags:
+        - AutoInjector

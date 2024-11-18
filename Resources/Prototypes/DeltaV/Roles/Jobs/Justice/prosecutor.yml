@@ -5,10 +5,13 @@
   playTimeTracker: JobProsecutor
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 3600 # 1 hrs
     - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
       department: Security
-      time: 21600 # 6 hours
+      time: 1 # 6 hours
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 7200 #2h
   startingGear: ProsecutorGear
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj
@@ -17,9 +20,6 @@
   - Prosecutor
   - Justice
   - Maintenance
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ProsecutorGear
@@ -36,9 +36,3 @@
     #innerClothingSkirt: ClothingUniformJumpskirtProsecutor
     #satchel: ClothingBackpackSatchelFilled
     #duffelbag: ClothingBackpackDuffelFilled
-  storage:
-    back:
-    - RubberStampProsec
-    - BookSpaceLaw
-
-

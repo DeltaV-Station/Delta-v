@@ -1,0 +1,27 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconIAA
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: IAA
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconJudge
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Judge
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBarber
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Barber
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPathologist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Pathologist

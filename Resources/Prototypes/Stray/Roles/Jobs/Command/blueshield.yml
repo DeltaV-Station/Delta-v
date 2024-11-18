@@ -1,0 +1,52 @@
+- type: job
+  id: Blueshield
+  name: job-name-BlueShield
+  description: job-description-BlueShield
+  playTimeTracker: JobBlueshield
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 21600 # 6 hours
+  startingGear: BlueshieldGear
+  icon: "JobIconBlueshield"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Command
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Research
+  - Medical
+  - Engineering
+  - Cargo
+  extendedAccess:
+  - Atmospherics
+  - Chemistry
+  - Captain
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
+      flatBonus: 0.025
+
+- type: startingGear
+  id: BlueshieldGear
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesCombat
+    id: BlueShieldPDA
+    ears: ClothingHeadsetCentCom
+    pocket1: WeaponPistolUniversal
+    pocket2: WeaponPulsePistol

@@ -1,0 +1,73 @@
+- type: entity
+  parent: AirlockWarriorCPA
+  id: AirlockAirlockWarriorCPALocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsWarriorCPA ]
+
+- type: entity
+  parent: AirlockJuniorOfficerCPA
+  id: AirlockAirlockJuniorOfficerCPALocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJuniorOfficerCPA ]
+
+- type: entity
+  parent: AirlockSeniorOfficerCPA
+  id: AirlockAirlockSeniorOfficerCPALocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeniorOfficerCPA ]
+
+- type: entity
+  parent: AirlockTechnicianPGA
+  id: AirlockAirlockTechnicianPGALocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsTechnicianPGA ]
+
+#Glass
+
+- type: entity
+  parent: AirlockWarriorCPAGlass
+  id: AirlockAirlockWarriorCPAGlassLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsWarriorCPA ]
+
+- type: entity
+  parent: AirlockJuniorOfficerCPAGlass
+  id: AirlockAirlockJuniorOfficerCPAGlassLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJuniorOfficerCPA ]
+
+- type: entity
+  parent: AirlockSeniorOfficerCPAGlass
+  id: AirlockAirlockSeniorOfficerCPAGlassLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeniorOfficerCPA ]
+
+- type: entity
+  parent: AirlockTechnicianPGAGlass
+  id: AirlockAirlockTechnicianPGAGlassLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsTechnicianPGA ]

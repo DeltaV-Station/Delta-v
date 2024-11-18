@@ -19,9 +19,12 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["socks"]
+    - map: ["underpants"]
+    - map: ["undershirt"]
+    - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
@@ -216,6 +219,7 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
+  - type: FootPrints  #DeltaV port from EE, blood splatter
 
 - type: entity
   save: false
@@ -310,9 +314,12 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["socks"]
+    - map: ["underpants"]
+    - map: ["undershirt"]
+    - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]

@@ -1,0 +1,282 @@
+- type: damageContainer
+  id: IPC
+  supportedGroups:
+    - Brute
+  supportedTypes:
+    - Asphyxiation
+    - Heat
+    - Shock
+    - Caustic
+
+- type: entity
+  save: false
+  name: Urist McIPC
+  parent: # we technically require multiple parents due to reimplementing BaseMobSpeciesOrganic but without the organics
+  - MobBloodstream
+  - MobAtmosStandard
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobIPC
+  abstract: true
+  components:
+    # beginregion Organic
+    - type: SSDIndicator
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Drunk
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - Muted
+      - Pacified
+      - StaminaModifier
+      - Flashed
+    - type: ThermalRegulator
+      metabolismHeat: 0
+      radiatedHeat: 100
+      implicitHeatRegulation: 500
+      sweatHeatRegulation: 2000
+      shiveringHeatRegulation: 2000
+      normalBodyTemperature: 313.15
+      thermalRegulationTemperatureThreshold: 25
+    - type: FireVisuals
+      alternateState: Standing
+    - type: DamageVisuals
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#a76b1c"
+    # endregion Organic
+    # The important nessessities
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 0.5
+      baseSprintSpeed : 5.5
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: HumanoidAppearance
+      species: IPC
+    - type: Damageable
+      damageContainer: IPC
+      damageModifierSet: Metallic
+    - type: Icon
+      sprite: Stray/Mobs/Species/IPCs/parts.rsi
+      state: full
+    - type: Sprite
+      layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+      - map: ["enum.BorgVisualLayers.Light"]
+        sprite: Stray/Mobs/Species/IPCs/parts.rsi
+        state: "IPC_e_r"
+        shader: unshaded
+        visible: false
+      - map: ["light"]
+        sprite: Stray/Mobs/Species/IPCs/parts.rsi
+        state: "IPC_l"
+        shader: unshaded
+        visible: false
+    # Damage and speed
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        140: Critical
+        200: Dead
+      stateAlertDict:
+        Alive: BorgHealth
+        Critical: BorgCrit
+        Dead: BorgDead
+      showOverlays: false
+      allowRevives: true
+    - type: Bloodstream
+      bloodReagent: Oil
+      bloodlossDamage:
+        types:
+          Heat: 0.25
+    - type: Temperature
+      heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
+      coldDamageThreshold: 283.15 # 10c aka "cold" causes condensation/freezing and as such shorting
+      currentTemperature: 313.15
+      specificHeat: 46
+      coldDamage:
+        types:
+          Heat: -0.01
+      heatDamage:
+        types:
+          Heat: 4
+    - type: Repairable
+      fuelCost: 5 # cause most of the fuel is used how long its turned on for
+      doAfterDelay: 15
+      damage:
+        types:
+          Blunt: -50 # you can't heal group damage. it doesn't work. wh y.
+          Slash: -50
+          Piercing: -50
+          Shock: -50
+          Caustic: -50
+          Heat: 15
+          Asphyxiation: -200 # TODO FIX DEATHGASPS
+      allowSelfRepair: true
+    - type: Barotrauma
+      damage:
+        types:
+          Heat: 0.15 # IPCs can't radiate well, they rely on air cooling
+          Blunt: 0.01
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.6
+        90: 0.4
+    # Misc
+    - type: Speech
+      speechSounds: IPC
+    - type: Vocal
+      sounds:
+        Male: UnisexIPC
+        Female: UnisexIPC
+        Unsexed: UnisexIPC
+      wilhelm:
+        path: /Audio/Voice/IPC/wilhelm.ogg
+      wilhelmProbability: 0.001
+    - type: Inventory
+      templateId: ipc
+    - type: ZombieImmune
+    - type: ShowJobIcons
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - Biological
+    - type: EyeProtection
+    - type: Eye
+      visMask:
+        - TelegnosticProjection
+        - PsionicInvisibility
+        - Normal
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 200
+      damage:
+        types:
+          Heat: -0.2
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot { }
+        part-container: !type:Container
+        key_slots: !type:Container
+    - type: PowerCellSlot
+      cellSlotId: cell_slot
+      fitsInCharger: true
+    - type: PowerCellDraw
+      drawRate: 2
+    - type: TypingIndicator
+      proto: robot
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+    - type: BorgChassis
+      maxModules: 4
+      hasMindState: IPC_e
+      noMindState: IPC_e_r
+    - type: ToggleableLightVisuals
+    - type: PointLight
+      enabled: false
+      radius: 1.1
+      autoRot: true
+      netsync: false
+    - type: HandheldLight
+      toggleOnInteract: false
+      wattage: 0.2
+      blinkingBehaviourId: blinking
+      radiatingBehaviourId: radiating
+    - type: Headset
+    - type: EncryptionKeyHolder
+      keySlots: 4
+      keysExtractionMethod: Cutting
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Binary
+        - Common
+        - Command
+        - Engineering
+        - Medical
+        - Science
+        - Security
+        - Service
+        - CentCom
+        - Syndicate
+        - Freelance
+    - type: LockedWiresPanel
+
+- type: entity
+  name: Urist McIPC
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+    - type: Inventory
+      templateId: ipc
+    - type: HumanoidAppearance
+      species: IPC

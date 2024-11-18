@@ -16,15 +16,13 @@
         Slash: 0.80
         Piercing: 0.50
         Heat: 0.80
+    staminaDamageCoefficient: 0.6 # Decent at stopping disablers
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90
   - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
     damageCoefficient: 0.70
   - type: AllowSuitStorage
-  - type: Tag
-    tags:
-      - BorgSecurityArmour
 
 #Alternate / slim basic armor vest replacement
 - type: entity
@@ -44,12 +42,10 @@
         Slash: 0.60
         Piercing: 0.90
         Heat: 0.90
+    staminaDamageCoefficient: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
     damageCoefficient: 0.90
   - type: AllowSuitStorage
-  - type: Tag
-    tags:
-      - BorgSecurityArmour
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -68,6 +64,7 @@
         Slash: 0.40
         Piercing: 0.70
         Heat: 0.70
+    staminaDamageCoefficient: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -77,5 +74,4 @@
   - type: AllowSuitStorage
   - type: Tag
     tags:
-      - BorgSecurityArmour
       - WhitelistChameleon # Inherited from Parent

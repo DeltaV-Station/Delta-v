@@ -3,6 +3,9 @@
   name: job-name-janitor
   description: job-description-janitor
   playTimeTracker: JobJanitor
+  requirements:
+  - !type:OverallPlaytimeRequirement #DeltaV
+    time: 7200 #2h
   startingGear: JanitorGear
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop

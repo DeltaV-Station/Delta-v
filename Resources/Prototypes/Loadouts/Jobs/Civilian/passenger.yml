@@ -39,6 +39,17 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
 
+# Black
+- type: loadout
+  id: BlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: BlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+
 # Rainbow
 - type: loadout
   id: RainbowJumpsuit
@@ -70,7 +81,6 @@
   id: CasualRedSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCasualRed
-
 
 # Casual Blue - DeltaV
 - type: loadout
@@ -141,6 +151,21 @@
     proto: GreyTider
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
+
+- type: loadout
+  id: PassengerGlovesWhite
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: PassengerGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: PassengerHead
+  equipment:
+    head: FoodPoppy
 
 # Outerclothing
 - type: loadout

@@ -1,5 +1,4 @@
 # Head
-
 - type: loadout
   id: ResearchDirectorBeret
   startingGear: ScientificBeret
@@ -10,7 +9,6 @@
     head: ClothingHeadHoodMysta
 
 # Neck
-
 - type: loadout
   id: ResearchDirectorMantle
   equipment:
@@ -32,7 +30,33 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
+#- type: loadout
+#  id: MystagogueJumpsuit
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitMystagogue
+#
+#- type: loadout
+#  id: MystagogueJumpskirt
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtMystagogue
+#
+# Back
+#- type: loadout
+#  id: ResearchDirectorBackpack
+#  equipment:
+#    back: ClothingBackpackResearchDirectorFilled
+#
+#- type: loadout
+#  id: ResearchDirectorSatchel
+#  equipment:
+#    back: ClothingBackpackSatchelResearchDirectorFilled
+#
+#- type: loadout
+#  id: ResearchDirectorDuffel
+#  equipment:
+#    back: ClothingBackpackDuffelResearchDirectorFilled
 # OuterClothing
+
 - type: loadout
   id: ResearchDirectorLabCoat
   equipment:
@@ -47,6 +71,16 @@
   id: ResearchDirectorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRD
+
+- type: loadout
+  id: MystagogueLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRndMysta
+
+- type: loadout
+  id: MystagogueWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterMystagogue
 
 # Shoes - DeltaV
 - type: loadout # DeltaV

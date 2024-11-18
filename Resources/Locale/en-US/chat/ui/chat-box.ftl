@@ -5,6 +5,7 @@ hud-chatbox-info-unbound = Click here to talk.
 
 hud-chatbox-select-name-prefixed = {$prefix} {$name}
 hud-chatbox-select-channel-Admin = Admin
+hud-chatbox-select-channel-Mapping = Mapper
 hud-chatbox-select-channel-Console = Console
 hud-chatbox-select-channel-Dead = Dead
 hud-chatbox-select-channel-Emotes = Emotes

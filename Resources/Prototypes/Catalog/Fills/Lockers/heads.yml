@@ -343,6 +343,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
+    - id: MatebaCase
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -353,7 +354,8 @@
     - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
+    - id: JetpackSecurityFilled
+    - id: ClothingShoesBootsMagHoS # Ebengrad - Added security magboots.
 
 # No hardsuit locker
 - type: entity

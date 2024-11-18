@@ -231,13 +231,14 @@
   suffix: Empty
   components:
   - type: Item
-    sprite: Objects/Tanks/Jetpacks/security.rsi
+    sprite: Stray/Objects/Tanks/Jetpacks/security.rsi
   - type: Sprite
-    sprite: Objects/Tanks/Jetpacks/security.rsi
+    sprite: Stray/Objects/Tanks/Jetpacks/security.rsi
   - type: Clothing
-    sprite: Objects/Tanks/Jetpacks/security.rsi
+    sprite: Stray/Objects/Tanks/Jetpacks/security.rsi
     slots:
       - Back
+      - suitStorage
 
 #Filled security
 - type: entity

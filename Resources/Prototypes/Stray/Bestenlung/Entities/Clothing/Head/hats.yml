@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBestlung
+  name: 'Фуражка Маженир'
+  description: 'Очень тёплый головной убор. Золотая 4 конечная звезда подчёркивает значимость человека, на котором эта фуражка сидит'
+  suffix: Бэстенлунг, Маженир
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Head/Hats/cap.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Head/Hats/cap.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.1

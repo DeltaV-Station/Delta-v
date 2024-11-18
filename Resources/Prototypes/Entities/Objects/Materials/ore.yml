@@ -323,7 +323,9 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Coal: 200 # DeltaV
+      Coal: 200
+  - type: StaticPrice
+    price: 5
 
 - type: entity
   parent: Coal

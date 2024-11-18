@@ -10,8 +10,11 @@
   - CaptainGloves # DeltaV
   - CaptainShoes # DeltaV
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -26,18 +29,17 @@
   - HoPShoes # DeltaV
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
-
-# Silicons
-- type: roleLoadout
-  id: JobStationAi
-  nameDataset: names_ai
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Civilian
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - PassengerHead
   - Scarfs # DeltaV
   - GroupTankHarness
   - PassengerJumpsuit
@@ -50,8 +52,11 @@
   - PassengerShoes
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBartender
@@ -65,8 +70,11 @@
   - BartenderOuterClothing
   - BartenderPDADelta # DeltaV
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -78,8 +86,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChef
@@ -93,8 +104,11 @@
   - ChefPDADelta # DeltaV
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobLibrarian
@@ -105,8 +119,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobLawyer
@@ -117,8 +134,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChaplain
@@ -132,8 +152,12 @@
   - ChaplainOuterClothing
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
+  - ChaplainBelt
 
 - type: roleLoadout
   id: JobJanitor
@@ -150,6 +174,9 @@
   - Trinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBotanist
@@ -162,8 +189,11 @@
   - BotanistOuterClothing
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobClown
@@ -177,8 +207,11 @@
   - ClownPDADelta # DeltaV
   - ClownShoes
   - Glasses
-  - Trinkets
   - SurvivalClown
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMime
@@ -190,10 +223,12 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
-  - MimeBelt
   - Glasses
-  - SurvivalMime
+  - Survival
   - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMusician
@@ -208,6 +243,9 @@
   - Trinkets
   - Instruments
   - GroupSpeciesBreathTool
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Cargo
 - type: roleLoadout
@@ -222,8 +260,11 @@
   - QuartermasterShoes
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -238,8 +279,11 @@
   - CargoTechnicianShoes
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -252,8 +296,11 @@
   - SalvageSpecialistShoes
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Engineering
 - type: roleLoadout
@@ -262,13 +309,16 @@
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
-  - StationEngineerBackpack
+  - ChiefEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - SurvivalExtended
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -277,8 +327,11 @@
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -292,8 +345,11 @@
   - StationEngineerShoes
   - StationEngineerID
   - SurvivalExtended
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -307,10 +363,13 @@
   - AtmosPDADelta # DeltaV
   - AtmosphericTechnicianShoes
   - SurvivalExtended
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
-# Science
+# Scienceы
 - type: roleLoadout
   id: JobResearchDirector
   groups:
@@ -324,8 +383,11 @@
   - ResearchDirectorShoes
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobScientist
@@ -341,8 +403,11 @@
   - ScientistPDA
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -352,8 +417,7 @@
   - ScientistBackpack
   - Glasses
   - Survival
-  - Trinkets
-  - GroupSpeciesBreathTool
+
 
 # Security
 - type: roleLoadout
@@ -370,6 +434,10 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobWarden
@@ -383,8 +451,12 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar 
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -401,6 +473,10 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobDetective
@@ -416,6 +492,10 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -425,8 +505,11 @@
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
-  - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Medical
 - type: roleLoadout
@@ -443,8 +526,11 @@
   - ChiefMedicalOfficerShoes
   - Glasses
   - SurvivalMedical
-  - Trinkets
   - GroupSpeciesBreathToolMedical
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -461,8 +547,11 @@
   - MedicalDoctorPDA
   - Glasses
   - SurvivalMedical
-  - Trinkets
   - GroupSpeciesBreathToolMedical
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -473,8 +562,11 @@
   - MedicalInternPDADelta # DeltaV
   - Glasses
   - SurvivalMedical
-  - Trinkets
   - GroupSpeciesBreathToolMedical
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobChemist
@@ -488,8 +580,11 @@
   - ChemistOuterClothing
   - ChemistShoes # DeltaV, replaces MedicalShoes
   - SurvivalMedical
-  - Trinkets
   - GroupSpeciesBreathToolMedical
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobParamedic
@@ -505,8 +600,11 @@
   - ParamedicShoes
   - Glasses
   - SurvivalMedical
-  - Trinkets
   - GroupSpeciesBreathToolMedical
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # Wildcards
 - type: roleLoadout
@@ -516,8 +614,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobReporter
@@ -527,8 +628,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobPsychologist
@@ -538,8 +642,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 - type: roleLoadout
   id: JobBoxer
@@ -550,8 +657,11 @@
   - CommonBackpack
   - Glasses
   - Survival
-  - Trinkets
   - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

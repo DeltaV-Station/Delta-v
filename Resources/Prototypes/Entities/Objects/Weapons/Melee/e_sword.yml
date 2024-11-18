@@ -69,6 +69,10 @@
       - state: inhand-right-blade
         shader: unshaded
   - type: Reflect
+#    reflectProb: 0.20
+#    spread: 20
+#    reflects:
+#      - Energy #DeltaV: 20% Energy Reflection but no ballistics.
   - type: IgnitionSource
     temperature: 700
 

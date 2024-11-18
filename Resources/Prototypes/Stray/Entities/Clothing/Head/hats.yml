@@ -1,0 +1,41 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretBrigmedicRed
+  name: brigmedic beret
+  description: Red security beret with silver medical cross.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Head/Hats/beret_brigmedic.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Head/Hats/beret_brigmedic.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBlueShield
+  name: blue shield beret
+  description: A corporate blue beret with a blueshield officer's rank emblem.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBlueShieldBlack
+  name: blue shield beret
+  description: Black beret with the white and blue cockade of the Blue Shield unit.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Head/Hats/beret_blueshieldblack.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Head/Hats/beret_blueshieldblack.rsi
+  - type: Tag
+    tags:
+    - ClothMade

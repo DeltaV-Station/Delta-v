@@ -1,0 +1,18 @@
+- type: job
+  id: StationAi
+  name: job-name-station-ai
+  description: job-description-station-ai
+  playTimeTracker: JobStationAi
+  requirements:
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 54000 # 15 h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5 hours
+    - !type:DepartmentTimeRequirement
+      department: Silicon
+      time: 18000  # 5 hrs
+  canBeAntag: false
+  icon: JobIconStationAi
+  supervisors: job-supervisors-rd
+  jobEntity: StationAiBrain

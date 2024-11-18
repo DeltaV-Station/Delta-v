@@ -223,6 +223,9 @@ internal sealed partial class ChatManager : IChatManager
             case OOCChatType.Admin:
                 SendAdminChat(player, message);
                 break;
+            case OOCChatType.Mapper:
+                SendMappersChat(player, message);
+                break;
         }
     }
 
@@ -290,6 +293,34 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
+    }
+
+    private void SendMappersChat(ICommonSession player, string message)
+    {
+        if (!_adminManager.IsAdmin(player))
+        {
+            _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} attempted to send admin message but was not admin");
+            return;
+        }
+
+        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+        var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
+                                        ("adminChannelName", Loc.GetString("chat-manager-mappers-channel-name")),
+                                        ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+
+        foreach (var client in clients)
+        {
+            var isSource = client != player.Channel;
+            ChatMessageToOne(ChatChannel.MappersChat,
+                message,
+                wrappedMessage,
+                default,
+                false,
+                client,
+                author: player.UserId);
+        }
+
+        _adminLogger.Add(LogType.Chat, $"Mapper chat from {player:Player}: {message}");
     }
 
     #endregion
@@ -398,5 +429,6 @@ internal sealed partial class ChatManager : IChatManager
 public enum OOCChatType : byte
 {
     OOC,
-    Admin
+    Admin,
+    Mapper
 }

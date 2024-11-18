@@ -46,7 +46,7 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadTechPriest
   name: automaturge hood
   description: Protects the mind that makes artificial minds.
@@ -99,9 +99,11 @@
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: Clothing
-    stripDelay: 10
-    equipDelay: 5
-    sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
+    stripDelay: 5
+    equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+    quickEquip: true
+    slots:
+    - head
   - type: SelfUnremovableClothing
 
 - type: entity

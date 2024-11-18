@@ -1,0 +1,13 @@
+- type: job
+  id: Borgser
+  name: "борг сервисный"
+  description: job-description-borg
+  playTimeTracker: JobBorgser
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hours
+  canBeAntag: false
+  icon: JobIconBorgService
+  supervisors: job-supervisors-rd
+  jobEntity: PlayerBorgService
+  startingGear: RobotGear # for char preview only

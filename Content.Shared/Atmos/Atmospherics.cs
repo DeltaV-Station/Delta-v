@@ -172,13 +172,13 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 9;
+        public const int TotalNumberOfGases = 10;
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
         ///     Set to the closest multiple of 4 relative to <see cref="TotalNumberOfGases"/> for SIMD reasons.
         /// </summary>
-        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 3) / 4) * 4;
+        public const int AdjustedNumberOfGases = ((TotalNumberOfGases + 2) / 4) * 4;
 
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
@@ -188,6 +188,7 @@ namespace Content.Shared.Atmos
         public const float FireMinimumTemperatureToSpread = T0C + 150f;
         public const float FireSpreadRadiosityScale = 0.85f;
         public const float FirePlasmaEnergyReleased = 160e3f; // methane is 16 kJ/mol, plus plasma's spark of magic
+        public const float FireMethaneEnergyReleased = 130e3f; // methane is 16 kJ/mol, plus Methane's spark of magic
         public const float FireGrowthRate = 40000f;
 
         public const float SuperSaturationThreshold = 96f;
@@ -199,6 +200,10 @@ namespace Content.Shared.Atmos
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
 
+        public const float MethaneMinimumBurnTemperature = (100f+T0C);
+        public const float MethaneUpperTemperature = (1570f+T0C);
+        public const float MethaneOxygenFullburn = 7f;
+        public const float MethaneBurnRateDelta = 1f;
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
         /// </summary>
@@ -337,6 +342,7 @@ namespace Content.Shared.Atmos
         WaterVapor = 5,
         Ammonia = 6,
         NitrousOxide = 7,
-        Frezon = 8
+        Frezon = 8,
+        Methane = 9
     }
 }

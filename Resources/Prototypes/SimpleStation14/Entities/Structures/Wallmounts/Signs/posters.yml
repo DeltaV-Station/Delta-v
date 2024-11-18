@@ -1,0 +1,92 @@
+# Parlour posters
+- type: entity
+  parent: PosterBase
+  id: PosterBasePark
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/posters.rsi
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourOne
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster1_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourTwo
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster2_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourThree
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster3_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourFour
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster4_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourFive
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster5_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourSix
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster6_parlour
+
+- type: entity
+  parent: PosterBasePark
+  id: PosterParlourSeven
+  name: "parlour poster"
+  description: "A flashy poster that makes you want ice cream."
+  components:
+  - type: Sprite
+    state: poster7_parlour
+
+# Maps
+- type: entity
+  parent: PosterBasePark
+  id: PosterMapParkStation
+  name: "ParkStation Map"
+  description: "A map of ParkStation."
+  components:
+  - type: Sprite
+    state: parkstationmap
+
+# Yog
+- type: entity
+  parent: PosterBase
+  id: PosterSafety
+  name: Informative Poster
+  description: A poster displaying an engineer wearing a hard hat and insulated gloves, "Always wear your safety gear!"
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Structures/Wallmounts/yogposters.rsi
+    state: safety

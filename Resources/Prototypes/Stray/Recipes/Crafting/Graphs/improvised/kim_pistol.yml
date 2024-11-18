@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: KimPistolGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: kimpistol
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: modular receiver
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: rifle stock
+      - material: Steel
+        amount: 1
+        doAfter: 10
+  - node: kimpistol
+    entity: WeaponPistolKim

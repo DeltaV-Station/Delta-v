@@ -135,13 +135,19 @@
   id: SuitStorageSec
   parent: SuitStorageBase
   suffix: Security
-  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: StorageFill
     contents:
-    - id: OxygenTankFilled
-    - id: ClothingOuterHardsuitSecurity
-    - id: ClothingMaskBreath
+        - id: OxygenTankFilled
+          amount: 2 #DeltaV - Double the tanks
+        - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
+          amount: 2 #DeltaV - Double the suits
+        - id: ClothingMaskBreath
+          amount: 2 #Delta-V Double the masks
+        - id: ClothingShoesBootsMagSec
+          amount: 2 #Delta-V
+        - id: JetpackSecurityFilled
+          amount: 2 #Delta-V
   - type: AccessReader
     access: [["Security"]]
 
@@ -208,7 +214,8 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
         - id: ClothingMaskBreath
-        - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
+        - id: ClothingShoesBootsMagSec
+        - id: JetpackSecurityFilled
   - type: AccessReader
     access: [["Armory"]]
 
@@ -267,6 +274,7 @@
       - id: OxygenTankFilled
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingMaskBreath
+      - id: ClothingShoesBootsSecurityMagboots #Added security magboots.
   - type: AccessReader
     access: [ [ "Corpsman" ] ]
 

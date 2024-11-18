@@ -40,12 +40,12 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -140,6 +140,9 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  - type: FootPrints #DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-lizard" #DeltaV port from EE, blood splatter
+    rightBarePrint: "footprint-right-bare-lizard" #DeltaV port from EE, blood splatter
 
 - type: entity
   save: false

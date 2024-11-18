@@ -1,0 +1,51 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatCSS
+  name: css's suit jacket
+  description: A snazzy pinstripe jacket, fit for only the classiest of Heads.
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/css_jacket.rsi
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/css_jacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatPirateBlack
+  name: pirate captain costume
+  description: Yarr harr.
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/pirate_black.rsi
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/pirate_black.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterPurpleCoat
+  name: purple coat
+  description: A fashionable puffy coat.
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/purplecoat.rsi
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/OuterClothing/Coats/purplecoat.rsi
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadPurpleHood
+    - type: TemperatureProtection
+      heatingCoefficient: 0.5
+      coolingCoefficient: 0.5
+    - type: Storage
+      grid:
+      - 0,0,2,1
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    - type: Tag
+      tags:
+        - WhitelistChameleon

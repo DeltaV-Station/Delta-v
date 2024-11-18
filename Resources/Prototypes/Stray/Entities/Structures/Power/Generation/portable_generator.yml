@@ -1,0 +1,59 @@
+#
+# You can use this Desmos sheet to calculate fuel burn rate values:
+# https://www.desmos.com/calculator/qcektq5dqs
+#
+
+- type: entity
+  name: P.A.C.M.A.N.-type portable generator
+  description: |-
+    A flexible backup generator for powering a variety of equipment.
+    Runs off solid plasma sheets and is rated for up to 15 kW.
+  parent: PortableGeneratorSwitchableBase
+  id: PortableCoalGenerator
+  suffix: Coal, 15 kW
+  components:
+    - type: Sprite
+      sprite: Stray/Structures/Power/Generation/portable_generator.rsi
+      layers:
+        - state: portgen0
+          map: [ "enum.GeneratorVisualLayers.Body" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.GeneratorVisuals.Running:
+          enum.GeneratorVisualLayers.Body:
+            True: { state: portgen0on }
+            False: { state: portgen0 }
+          enum.GeneratorVisualLayers.Unlit:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Machine
+      board: PortableCoalGeneratorMachineCircuitboard
+    - type: FuelGenerator
+      minTargetPower: 5000
+      maxTargetPower: 15000
+      targetPower: 15000
+      optimalPower: 550
+      # 15 minutes at max output
+      optimalBurnRate: 0.0333333
+      # a decent curve that goes up to about an hour at 5 kW.
+      fuelEfficiencyConstant: 0.5
+    - type: SolidFuelGeneratorAdapter
+      fuelMaterial: Coal
+      multiplier: 0.01
+    - type: MaterialStorage
+      storageLimit: 15000
+      materialWhiteList: [Coal]
+    - type: PortableGenerator
+      startChance: 0.3
+    - type: GeneratorExhaustGas
+      gasType: CarbonDioxide
+      # 10 moles of gas for every sheet of plasma.
+      moleRatio: 20
+      temperature: 673.15
+    - type: PowerMonitoringDevice
+      group: Generator
+      loadNodes:
+        - output_hv
+        - output_mv
+      sprite: Structures/Power/Generation/portable_generator.rsi
+      state: portgen0

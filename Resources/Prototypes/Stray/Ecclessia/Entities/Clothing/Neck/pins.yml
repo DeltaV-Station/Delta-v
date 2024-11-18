@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckEcclessiaPin
+  name: значок Эцессии
+  description: значок Содружества Эцессии Металлум.
+  suffix: Эцессия
+  components:
+  - type: Sprite
+    sprite: Stray/Ecclessia/Clothing/Neck/pins.rsi
+    state: ecclessia
+  - type: Clothing
+    sprite: Stray/Ecclessia/Clothing/Neck/pins.rsi
+    equippedPrefix: ecclessia

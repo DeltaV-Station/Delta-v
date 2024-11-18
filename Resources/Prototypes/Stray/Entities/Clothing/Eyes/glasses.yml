@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMed
+  name: medical sunglasses
+  description: They perfectly protect the eyes from flashes, showing all the information about the health of others. A field medic's best friend.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingEyesGlassesSecurity, ClothingEyesGlassesMed]
+  id: ClothingEyesGlassesBlueShield
+  name: blueshield sunglasses
+  description: Stylish goggles that protect your eyes from flashes and also shows all the health and occupational information of others. A great choice for real pros.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Eyes/Glasses/blueglasses.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Eyes/Glasses/blueglasses.rsi

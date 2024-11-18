@@ -1,0 +1,29 @@
+﻿- type: entity
+  parent: CryogenicSleepUnit
+  id: CryogenicSleepUnitSpawnerCentralCommandOfficial
+  suffix: Спавнер, ПЦК
+  components:
+    - type: ContainerSpawnPoint
+      containerId: storage
+      spawnType: Job
+      job: CentralCommandOfficial
+
+- type: entity
+  parent: CryogenicSleepUnit
+  id: CryogenicSleepUnitSpawnerCentralCommandOperator
+  suffix: Спавнер, ОЦК
+  components:
+    - type: ContainerSpawnPoint
+      containerId: storage
+      spawnType: Job
+      job: CentralCommandOperator
+
+- type: entity
+  parent: CryogenicSleepUnit
+  id: CryogenicSleepUnitSpawnerChiefHeadquartersCentralCommand
+  suffix: Спавнер, НШЦК
+  components:
+    - type: ContainerSpawnPoint
+      containerId: storage
+      spawnType: Job
+      job: ChiefHeadquartersCentralCommand

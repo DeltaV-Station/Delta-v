@@ -18,6 +18,10 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Events;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Body.Systems;
 
@@ -73,6 +77,13 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (_mobState.IsDead(uid))
                 continue;
+
+            //_bodySystem.GetBodyOrgans<(EntityUid euid, LungComponent lc)>(uid, body);
+            //_bodySystem.
+          /*  var organs = _bodySystem.GetBodyOrganComponents<LungComponent>(uid, body);
+            if(organs==null){
+                continue;
+            }*/
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 

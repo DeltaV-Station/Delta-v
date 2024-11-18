@@ -53,6 +53,17 @@
   - type: Clothing
     sprite: Clothing/Neck/mantles/hosmantle.rsi
 
+- type: entity # Corvax-Resprite: Old mantle renamed and saved as that new entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleHOSShoulder
+  name: head of security's shoulder mantle
+  description: Shootouts with nukies are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
+
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleRD

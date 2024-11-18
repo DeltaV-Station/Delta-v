@@ -1,0 +1,188 @@
+#- type: Tag
+#  id: Fungus
+#
+#- type: damageModifierSet
+#  id: Plesen
+#  coefficients:
+#    Blunt: 0.7
+#    Slash: 0.5
+#    Piercing: 0.7
+#    Shock: 0.5
+#    Heat: 3
+#
+#- type: entity
+##  abstract: true
+#  id: PlesenCore
+#  name: Ядро плесени
+#  description: "Это ядро плесени, её мозг, её надежда"
+#  components:
+#    - type: Sprite
+#      sprite: Stray/Structures/Walls/plesen.rsi
+#      noRot: true
+#      layers:
+#        - state: core
+#          sprite: Stray/Structures/Walls/plesen.rsi
+#        - state: coreFol
+#          sprite: Stray/Structures/Walls/plesenFol.rsi
+#          visible: false
+#    - type: PlesenCore
+#      health: 100
+#    - type: Transform
+#      anchored: false
+#    - type: Physics
+#      bodyType: Static
+#    - type: Fixtures
+#      fixtures:
+#        fix1:
+#          shape:
+#            !type:PhysShapeCircle
+#            radius: 0.35
+#          density: 50
+#          mask:
+#          - MobMask
+#          layer:
+#          - MobLayer
+#    - type: InteractionOutline
+#    - type: Clickable
+#    - type: Damageable
+#    - type: Appearance
+#
+#- type: entity
+##  abstract: true
+#  id: FungusFloor
+#  name: Плесневый пол
+#  description: Прекрасный вид смертельного поля
+#  placement:
+#    mode: SnapgridCenter
+#    snap:
+#    - Wall
+#  components:
+#  - type: Transform
+#    anchored: true
+#  - type: Clickable
+#  - type: RangedDamageSound
+#    soundGroups:
+#      Brute:
+#        collection:
+#          WoodDestroy
+#    soundTypes:
+#      Heat:
+#        collection:
+#          WoodDestroy
+#  - type: PlacementReplacement
+#    key: walls
+#  - type: Damageable
+#    damageContainer: Inorganic
+#    damageModifierSet: Plesen
+#  - type: PlesenFloor
+#    health: 50
+#  - type: Tag
+#    tags:
+#      - Wall
+#      - Fungus
+#  - type: Sprite
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    drawdepth: FloorTiles
+#    layers:
+#      - state: floor
+#        visible: false
+#        sprite: Stray/Structures/Walls/plesen.rsi
+#      - state: floorFol
+#        sprite: Stray/Structures/Walls/plesenFol.rsi
+#  - type: Icon
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    state: floor
+#
+#- type: entity
+##  abstract: true
+#  #parent: BaseWall
+#  id: FungusWall
+#  name: Плесневая стена
+#  description: Цветёт и благоухает
+#  placement:
+#    mode: SnapgridCenter
+#    snap:
+#    - Wall
+#  components:
+#  - type: PlesenWall
+#    health: 100
+#  - type: Transform
+#    anchored: true
+#  - type: Clickable
+#  - type: RangedDamageSound
+#    soundGroups:
+#      Brute:
+#        collection:
+#          WoodDestroy
+#    soundTypes:
+#      Heat:
+#        collection:
+#          WoodDestroy
+#  - type: PlacementReplacement
+#    key: walls
+#  - type: Damageable
+#    damageContainer: Inorganic
+#    damageModifierSet: Plesen
+#  - type: Tag
+#    tags:
+#      - Wall
+#      - Fungus
+#  - type: Sprite
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    drawdepth: OverMobs
+#    layers:
+#      - state: wall
+#        visible: false
+#        sprite: Stray/Structures/Walls/plesen.rsi
+#      - state: wallFol
+#        sprite: Stray/Structures/Walls/plesenFol.rsi
+#  - type: Icon
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    state: wall
+#
+#- type: entity
+##  abstract: true
+#  parent: FungusWall
+#  id: FungusWallBurned
+#  name: Сгоревшая плесневая стена
+#  description: Дымится и рассыпается
+#  components:
+#  - type: Damageable
+#    damageContainer: Inorganic
+#    damageModifierSet: Plesen
+#  - type: Tag
+#    tags:
+#      - Wall
+#  - type: Sprite
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    drawdepth: OverMobs
+#    layers:
+#      - state: wallburned
+#        sprite: Stray/Structures/Walls/plesen.rsi
+#      - state: wallburnedFol
+#        sprite: Stray/Structures/Walls/plesenFol.rsi
+#  - type: Icon
+#    sprite: Stray/Structures/Walls/plesen.rsi
+#    state: wallburned
+#  - type: Destructible
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 50
+#
+#- type: tile
+##  abstract: true
+#  id: FloorFungusBurned
+#  name: stray-structures-plesen
+#  sprite: /Textures/Stray/Tiles/Plesen/floorburned.png
+#  edgeSprites:
+#    South: /Textures/Stray/Tiles/Plesen/floorburnedFolS.png
+#    East: /Textures/Stray/Tiles/Plesen/floorburnedFolE.png
+#    North: /Textures/Stray/Tiles/Plesen/floorburnedFolN.png
+#    West: /Textures/Stray/Tiles/Plesen/floorburnedFolW.png
+#  baseTurf: Plating
+#  isSubfloor: false
+#  footstepSounds:
+#    collection: FootstepGrass
+#  heatCapacity: 10000
+#

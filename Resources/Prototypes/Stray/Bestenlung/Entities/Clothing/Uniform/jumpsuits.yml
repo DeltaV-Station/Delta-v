@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBestlungJi
+  name: 'Форма Джи'
+  description: 'Чёрная форма сшитая из прочного материала. На спине изображена 4 конечная звезда, а на груди череп.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/ji.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/ji.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBestlungAnazio
+  name: 'Форма Аназио'
+  description: 'Чёрная форма сшитая из прочного материала. На спине изображена 4 конечная звезда, а на груди череп окрашенный в цвета флага Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/anazio.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/anazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.95

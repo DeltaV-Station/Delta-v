@@ -1,0 +1,54 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackDuffelRobo
+  id: ClothingBackpackDuffelRoboFilled
+  name: вещмешок робототехника
+  components:
+  - type: StorageFill
+    contents:
+        - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackDuffelBlueShield
+  id: ClothingBackpackDuffelBlueShieldFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: BodyBagFolded
+      - id: Portafib
+      - id: Flash
+      - id: HandheldCrewMonitor
+      - id: BoxZiptieBlueShield
+      - id: BluespaceBoxHardsuitBlueShield
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackDuffelBlueShieldFilled
+  id: ClothingBackpackDuffelBlueShieldAltFilled
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Back/Duffels/blueshield.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Back/Duffels/blueshield.rsi
+  - type: Storage
+    grid:
+    - 0,0,8,4
+
+- type: entity
+  parent: ClothingBackpackDuffelBrigmedicAlt
+  id: ClothingBackpackDuffelBrigmedicAltFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalSecurity
+      - id: EmergencyRollerBedSpawnFolded
+      - id: BodyBagFolded
+      - id: Portafib
+    #  - id: Flash
+      - id: BruteAutoInjector
+        amount: 2
+      - id: BurnAutoInjector
+        amount: 2

@@ -1,0 +1,14 @@
+ent-ClothingShoesBootsMantis = сапоги мантиса
+    .desc = Мягкие, удобные, хороши для пересеченной местности.
+ent-ClothingShoesBootsFishing = рыбацкие ботинки
+    .desc = Пахнет рыбой!
+ent-ClothingShoesGeta = сандали гэта
+    .desc = Пара традиционных японских сандалий.
+ent-ClothingShoesWizardFake = обувь волшебника
+    .desc = Пара туфель.
+ent-ClothingShoesMiscWhite = белые кожаные ботинки
+    .desc = Безупречно начищенные белые кожаные ботинки. Не наступайте на них.
+ent-ClothingShoesBootsMagSec = { ent-ClothingShoesBootsMag }
+    .desc = { ent-ClothingShoesBootsMag.desc }
+ent-ClothingShoesBootsMagHoS = { ent-ClothingShoesBootsMag }
+    .desc = { ent-ClothingShoesBootsMag.desc }

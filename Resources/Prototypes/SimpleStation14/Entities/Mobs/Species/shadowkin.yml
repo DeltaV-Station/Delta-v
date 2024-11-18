@@ -1,0 +1,85 @@
+- type: entity
+  save: false
+  parent:
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobShadowkinPerson
+  abstract: true
+  components:
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 2
+        Slash: 3
+        Piercing: 1
+  - type: Damageable
+    damageModifierSet: Shadowkin
+  - type: Inventory
+    speciesId: shadowkin
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.2
+        Heat: 0.1
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 179
+    damage:
+      types:
+        Asphyxiation: -10
+      groups:
+        Burn: -0.07
+        Brute: -0.07
+        Toxin: -0.07
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - SeeingRainbows
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Drunk
+    - SlurredSpeech
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - Pacified
+    - StaminaModifier
+  - type: Blindable
+  - type: Temperature
+    heatDamageThreshold: 330
+    coldDamageThreshold: 250
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05
+    heatDamage:
+      types:
+        Heat : 0.25
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: FoodMeat
+        amount: 5
+  - type: FireVisuals
+    alternateState: Standing
+  - type: PsionicBonusChance
+    multiplier: 3

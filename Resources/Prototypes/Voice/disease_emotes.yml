@@ -19,13 +19,12 @@
   chatTriggers:
     - cough
     - coughs
-    - coughed 
-    - cough.
-    - coughs.
-    - coughed.
-    - cough!
-    - coughs!
-    - coughed!
+    - coughed
+    # Corvax-Localization-Start
+    - кашель
+    - кашляет
+    - кашлянул
+    # Corvax-Localization-End
 
 - type: emote
   id: CatMeow
@@ -66,6 +65,10 @@
   chatTriggers:
     - yawn
     - yawns
+    # Corvax-Localization-Start
+    - зевок
+    - зевает
+    # Corvax-Localization-End
 
 - type: emote
   id: Snore

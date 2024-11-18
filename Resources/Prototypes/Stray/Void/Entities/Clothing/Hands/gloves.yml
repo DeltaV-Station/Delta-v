@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: VoidGlovesCombat
+  name: Сиреневые перчатки
+  suffix: VOID
+  description: Стандартные боевые перчатки... но почему они сиреневые?
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Hands/Gloves/voidarmorgloves.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Hands/Gloves/voidarmorgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-olive

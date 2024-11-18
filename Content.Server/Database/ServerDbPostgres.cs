@@ -258,7 +258,7 @@ namespace Content.Server.Database
                 RoundId = serverBan.RoundId,
                 PlaytimeAtNote = serverBan.PlaytimeAtNote,
                 PlayerUserId = serverBan.UserId?.UserId,
-                ExemptFlags = serverBan.ExemptFlags
+                ExemptFlags = serverBan.ExemptFlags,
             });
 
             await db.PgDbContext.SaveChangesAsync();

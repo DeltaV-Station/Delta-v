@@ -1,0 +1,49 @@
+- type: gameMap
+  id: Reach
+  mapName: 'Reach'
+  mapPath: /Maps/reach.yml
+  minPlayers: 0
+  maxPlayers: 20
+  stations:
+    Reach:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Reach Transport {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'SC'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+        - type: GridSpawn
+          groups:
+            mining: !type:GridSpawnGroup
+              paths:
+              - /Maps/Shuttles/mining.yml
+        - type: StationJobs
+          availableJobs:
+            Captain: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 1, 3 ]
+            CargoTechnician: [ 1, 2 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            MedicalDoctor: [ 1, 2 ]
+            Chemist: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 2 ]
+            Passenger: [ -1, -1 ]
+            # delta
+            Slugcat: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 1, 1 ]
+            Borgmed: [ 1, 1 ]
+            Borgeng: [ 1, 1 ]
+            Borgser: [ 1, 1 ]
+            Borgcwn: [ 1, 1 ]
+            Borgjan: [ 1, 1 ]
+            Borgmin: [ 1, 1 ]

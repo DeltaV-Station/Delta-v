@@ -1,0 +1,40 @@
+- type: entity
+  parent: BasePlushie
+  id: ToyMcgriff
+  name: mcgriff toy
+  description: The bearer of the law, now 10x more portable!
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Objects/Fun/toys.rsi
+      state: mcgriff
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/Items/Toys/ian.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Items/Toys/ian.ogg
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Items/Toys/ian.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardRGB
+  name: RGB lizard
+  description: It alternates between color slowly, beautiful.
+  components:
+    - type: PointLight
+      radius: 2
+      energy: 2
+    - type: RgbLightController
+      layers: [0]
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieShadowkin
+  name: shadowkin plushie
+  description: A plushie of a Shadowkin. It's very soft.
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Objects/Fun/Plushies/shadowkin.rsi
+      state: shadowkin

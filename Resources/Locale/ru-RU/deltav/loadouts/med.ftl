@@ -1,0 +1,1 @@
+loadout-group-psychologist-backpack = психолог, рюкзак

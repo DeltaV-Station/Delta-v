@@ -1,0 +1,28 @@
+- type: damageModifierSet
+  id: Shadowkin
+  coefficients:
+    Blunt: 0.95
+    Slash: 1.2
+    Piercing: 1.1
+    Asphyxiation: 0
+    Cold: 0.75
+    Heat: 1.2
+    Cellular: 0.25
+    Bloodloss: 1.35
+    Shock: 1.25
+    Radiation: 1.3
+
+- type: damageModifierSet
+  id: Plasmaman
+  coefficients:
+    Blunt: 0.25
+    Slash: 0.25
+    Piercing: 0.25
+    Shock: 0.0
+    Cold: 3.0
+    Heat: 3.0
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 1.0
+    Bloodloss: 0.0
+    Cellular: 0.0

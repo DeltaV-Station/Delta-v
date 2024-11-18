@@ -1,0 +1,19 @@
+- type: listing
+  id: UplinkFlameThrower
+  name: "Огнемёт"
+  description: "Огнемёт. Заправляется сжиженным метаном. Не рекомендуется долго стрелять. По какой-то причине на нём весь текст на немецком"
+  productEntity: FlameThrowerGun
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkFlameThrowerTank
+  name: "Баллон с метаном для огнемётов"
+  description: "Баллон с сжиженным метаном. Был сделан специально для огнемётов"
+  productEntity: FlameThrowerTank
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry

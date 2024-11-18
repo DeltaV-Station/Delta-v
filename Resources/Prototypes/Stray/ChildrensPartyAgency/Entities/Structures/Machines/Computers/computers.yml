@@ -1,0 +1,32 @@
+- type: entity
+  parent: ComputerId
+  id: CPACComputerId
+  name: Консоль ID карт АДП
+  description: Terminal for programming CPA employee ID cards to access parts of the station.
+  components:
+    - type: Sprite
+      sprite: Stray/CPA/Structures/Machines/computers.rsi
+    - type: IdCardConsole
+      accessLevels:
+        - WarriorCPA
+        - JuniorOfficerCPA
+        - SeniorOfficerCPA
+        - TechnicianPGA
+      privilegedIdSlot:
+        name: id-card-console-privileged-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard
+      targetIdSlot:
+        name: id-card-console-target-id
+        ejectSound: /Audio/Machines/id_swipe.ogg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectOnBreak: true
+        swap: false
+        whitelist:
+          components:
+            - IdCard

@@ -6,22 +6,18 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 # DeltaV - 20 hours
+      time: 21600 # 6 hours
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 36000 #DeltaV 10 hrs
-    - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
-      department: Command
-      time: 36000 # 10 hours
-    - !type:OverallPlaytimeRequirement
-      time: 90000 # DeltaV - 25 hours, was 40
+      time: 7200 #2h
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
-  whitelisted: true # DeltaV
   access:
   - HeadOfSecurity
   - Command

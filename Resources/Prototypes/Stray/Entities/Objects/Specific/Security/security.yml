@@ -1,0 +1,12 @@
+- type: entity
+  parent: Handcuffs
+  id: HandcuffsLingering
+  suffix: Lingering
+  components:
+  - type: Stack
+    stackType: HandcuffsSt
+    baseLayer: handcuff
+    layerStates:
+    - handcuff
+    lingering: true
+    count: 15

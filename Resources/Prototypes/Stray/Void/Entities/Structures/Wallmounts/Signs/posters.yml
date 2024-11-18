@@ -1,0 +1,32 @@
+- type: entity
+  parent: PosterBase
+  id: PosterJOINVOID
+  name: Набор в VOID
+  suffix: VOID
+  description: Вступайте в ряды VOID! Вместе мы защитим гуманоидов от заразы! Код для приглашения 6Rfr3ArShp.
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Structures/Wallmounts/voidposter.rsi
+    state: voidposterjoin
+
+- type: entity
+  parent: PosterBase
+  id: PosterVOID
+  name: Логотип VOID
+  description: Плакат с изображением одного из логотипов VOID.
+  suffix: VOID
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Structures/Wallmounts/voidposter.rsi
+    state: voidposter
+
+- type: entity
+  parent: PosterBase
+  id: FlagVOID
+  name: Флаг VOID
+  suffix: VOID
+  description: Флаг VOID с их основным логотипом по середине.
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Structures/Wallmounts/voidflag.rsi
+    state: flag

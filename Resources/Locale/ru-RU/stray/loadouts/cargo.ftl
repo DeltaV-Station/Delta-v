@@ -1,0 +1,1 @@
+loadout-group-mail-mask = курьер, лицо

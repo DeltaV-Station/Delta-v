@@ -1,0 +1,40 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBestlungHelmetJi
+  name: 'Каска Джи'
+  description: 'Потрёпанная каска из метала, частый элемент одежды полевых солдат. Имеется значёк черепа.'
+  suffix: Бэстенлунг, Джи
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Head/Helmets/helmet_ji.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Head/Helmets/helmet_ji.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBestlungHelmetAnazio
+  name: 'Каска Аназио'
+  description: 'Потрёпанная каска из метала, частый элемент одежды полевых солдат. Имеется значёк черепа окрашенный в цвета флага Бэстенлунга.'
+  suffix: Бэстенлунг, Аназио
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Head/Helmets/helmet_anazio.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Head/Helmets/helmet_anazio.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.75

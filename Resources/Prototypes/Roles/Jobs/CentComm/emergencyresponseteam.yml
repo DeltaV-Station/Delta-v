@@ -9,6 +9,12 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+    time: 7200 # DeltaV - 2 hours
+  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    time: 3600 # DeltaV - 1 hours
   accessGroups:
   - AllAccess
   access:
@@ -36,7 +42,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTLeaderGearEVA
@@ -60,7 +66,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTLeaderGearEVALecter
@@ -72,11 +78,12 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
+    suitstorage: WeaponGunLaserCarbineAutomatic
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    pocket1: WeaponEnergyGunPistol
+    pocket2: HandheldGPSBasic
   inhand:
   - WeaponRifleLecter
   storage:
@@ -86,7 +93,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - MagazineUniversalMagnum
 
 # Chaplain
 - type: job
@@ -99,6 +106,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -122,7 +132,7 @@
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPistolUniversal
     pocket2: DrinkWaterBottleFull
   storage:
     back:
@@ -153,7 +163,7 @@
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPistolUniversal
     pocket2: DrinkWaterBottleFull
   storage:
     back:
@@ -181,6 +191,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -200,7 +213,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-    pocket2: GasAnalyzer
+    pocket2: WeaponPistolUniversal
   storage:
     back:
     - trayScanner
@@ -228,7 +241,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-    pocket2: GasAnalyzer
+    pocket2: WeaponPistolUniversal
   storage:
     back:
     - trayScanner
@@ -253,6 +266,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -271,7 +287,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponPistolUniversal
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -280,14 +296,14 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTSecurityGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagHoS
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
@@ -295,7 +311,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponPistolUniversal
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -304,23 +320,24 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 - type: startingGear
   id: ERTSecurityGearEVALecter
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagHoS
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
+    suitstorage: WeaponGunLaserCarbineAutomatic
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    pocket1: WeaponEnergyGunPistol
+    pocket2: HandheldGPSBasic
   inhand:
     - WeaponRifleLecter
   storage:
@@ -330,7 +347,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - MagazineUniversalMagnum
 
 # Medical
 - type: job
@@ -343,6 +360,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -362,6 +382,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
+    pocket2: WeaponPistolUniversal
   storage:
     back:
     - Hypospray
@@ -376,7 +397,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagHoS
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
@@ -385,6 +406,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: Flare
+    pocket2: WeaponPistolUniversal
   storage:
     back:
     - Hypospray
@@ -405,6 +427,9 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -423,6 +448,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
+    pocket2: WeaponEnergyGunPistol
   storage:
     back:
     - LightReplacer
@@ -437,7 +463,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagHoS
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesColorPurple
     outerClothing: ClothingOuterHardsuitERTJanitor
@@ -445,6 +471,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
     pocket1: Flare
+    pocket2: WeaponEnergyGunPistol
   storage:
     back:
     - LightReplacer

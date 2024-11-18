@@ -21,8 +21,9 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesPrefix = '@';
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
+    public const char MappingPrefix = '}';
     public const char WhisperPrefix = ',';
-    public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.  
+    public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
     public const char DefaultChannelKey = 'h';
 
     [ValidatePrototypeId<RadioChannelPrototype>]

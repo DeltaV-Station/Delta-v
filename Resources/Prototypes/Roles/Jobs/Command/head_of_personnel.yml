@@ -4,21 +4,32 @@
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
+  #requirements:
+  #  - !type:RoleTimeRequirement
+  #    role: JobChef
+  #    time: 14400 # DeltaV - 4 hours
+  #  - !type:RoleTimeRequirement
+  #    role: JobBartender
+  #    time: 14400 # DeltaV - 4 hours
+  #  - !type:RoleTimeRequirement
+  #    role: JobJanitor
+  #    time: 14400 # DeltaV - 4 hours
+  #  - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
+  #    department: Civilian
+  #    time: 72000 # 20 hours
+  #  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+  #    time: 90000 # 25 hours
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobChef
-      time: 14400 # DeltaV - 4 hours
-    - !type:RoleTimeRequirement
-      role: JobBartender
-      time: 14400 # DeltaV - 4 hours
-    - !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 14400 # DeltaV - 4 hours
-    - !type:DepartmentTimeRequirement # DeltaV - Civilian dept time requirement
-      department: Civilian
-      time: 72000 # 20 hours
-    - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-      time: 90000 # 25 hours
+     - !type:OverallPlaytimeRequirement #DeltaV
+       time: 21600 # 6 hours
+     - !type:DepartmentTimeRequirement
+       department: Civilian
+       time: 3600 # 1 hours
+     - !type:DepartmentTimeRequirement
+       department: Command
+       time: 3600 # 1 hours
+     - !type:AgeRequirement
+       requiredAge: 20
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -34,7 +45,7 @@
   - Janitor
   - Theatre
   - Kitchen
-#  - Chapel
+  - Chapel
   - Hydroponics
   - External
   - Cryogenics
@@ -42,17 +53,17 @@
   # As of 15/03/23 they can't do that so here's MOST of the rest of the access levels.
   # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
   # Delta V - fuck all of this HoP is a service role
-#  - Chemistry
-#  - Engineering
-#  - Research
-#  - Detective
-#  - Salvage
-#  - Security # NoooOoOo!! My HoPcurity!1
-#  - Brig
-#  - Lawyer # Lawyer is now part of the justice dept
-#  - Cargo
-#  - Atmospherics
-#  - Medical
+  - Chemistry
+  - Engineering
+  - Research
+  - Detective
+  - Salvage
+  - Security
+  - Brig
+  - Lawyer
+  - Cargo
+  - Atmospherics
+  - Medical
   - Boxer # DeltaV - Add Boxer access
   - Clown # DeltaV - Add Clown access
   - Library # DeltaV - Add Library access

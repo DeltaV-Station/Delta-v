@@ -6,12 +6,16 @@
   setPreference: false
   startingGear: CentcomGear
   icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-chief-headquarters-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
+  - CentralCommandOfficial
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: CentcomGear
@@ -27,3 +31,22 @@
     belt: WeaponPistolN1984
     pocket1: BoxFolderBlack
     pocket2: PenCentcom
+
+- type: startingGear
+  id: CentCommOfficialEVAGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelHoldingCentCommOfficial
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTCentcomm
+    mask: ClothingMaskGasCentcom
+    id: OffCCPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponModefiedDisabler
+    pocket1: BoxFolderBlack
+    pocket2: PenCentcom
+    suitstorage: AirTankFilled
+    neck: ClothingNeckCloakCentcom
+    head: ClothingHeadHatCentcom

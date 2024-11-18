@@ -1,0 +1,15 @@
+- type: entity
+  id: CartridgePistolImprovised
+  name: cartridge (.35 improvised)
+  parent: BaseCartridgePistol
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Weapons/Ammunition/Casings/improvised_ammo_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletPistolImprovised
+  - type: Construction
+    graph: ImprovisedPistolShellGraph
+    node: pistolshell

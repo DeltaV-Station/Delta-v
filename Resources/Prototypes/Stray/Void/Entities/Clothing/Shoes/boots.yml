@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: VOIDAmorshoes
+  name: Сиреневые ботинки
+  suffix: VOID
+  description: Просто ботинки... а что это там? Нож?
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Shoes/Boots/voidarmorboots.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Shoes/Boots/voidarmorboots.rsi

@@ -1,0 +1,179 @@
+- type: reagent
+  id: Methane
+  name: reagent-name-methane
+  desc: reagent-desc-methane
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#3E3E3E"
+  recognizable: true
+  boilingPoint: -161.5
+  meltingPoint: -182.0
+  tileReactions:
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 1.5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 3
+    Gas:
+      effects:
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
+        clear: True
+        time: 5
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
+        damage:
+          types:
+            Poison: 3
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+
+- type: gas
+  id: 9
+  name: reagent-name-methane
+  specificHeat: 300
+  heatCapacityRatio: 2
+  molarMass: 16
+  gasOverlaySprite: /Textures/Stray/Effects/atmospherics.rsi
+  gasOverlayState: methane
+  color: 3E3E3E
+  reagent: Methane
+
+- type: entity
+  parent: GasCanister
+  id: MethaneCanister
+  name: "Канистра с метаном"
+  description: "Канистра с метаном. Не открывать находясь в эпицентре ядерного взрыва, ведь метан может загореться."
+  components:
+    - type: Sprite
+      sprite: Stray/Structures/Storage/canister.rsi
+      layers:
+        - state: methane
+    - type: GasCanister
+      gasMixture:
+        volume: 1000
+        moles:
+          - 0     # oxygen
+          - 0     # nitrogen
+          - 0     # carbon dioxide
+          - 0     # plasma
+          - 0     # tritium
+          - 0     # vapor
+          - 0     # ammonia
+          - 0  # n2o
+          - 0     # frezon
+          - 1871.71051     # hidrogen    hehe   hidrogen
+        temperature: 293.15
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MethaneCanisterBroken:
+              min: 1
+              max: 1
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
+
+- type: entity
+  parent: GasCanisterBrokenBase
+  id: MethaneCanisterBroken
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Stray/Structures/Storage/canister.rsi
+      state: methane-1
+
+- type: entity
+  # it's a square so no rolling dough
+  parent: GasTankBase
+  id: MethaneTank
+  name: "Баллон метана"
+  description: "Баллон метана. Содержит метан. Очень хорошо и очень быстро горит"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Tanks/methane.rsi
+  - type: Item
+    sprite: Stray/Objects/Tanks/methane.rsi
+  - type: GasTank
+    outputPressure: 101.3
+  - type: Clothing
+    sprite: Objects/Tanks/generic.rsi
+    slots:
+    - Belt
+    - suitStorage
+
+- type: entity
+  id: MethaneTankFilled
+  parent: MethaneTank
+  name: Баллон метана
+  suffix: Полный
+  components:
+  - type: GasTank
+    outputPressure: 101.3
+    air:
+      volume: 5
+      moles:
+        - 0     # oxygen
+        - 0     # nitrogen
+        - 0     # carbon dioxide
+        - 0     # plasma
+        - 0     # tritium
+        - 0     # vapor
+        - 0     # ammonia
+        - 0  # n2o
+        - 0     # frezon
+        - 2.051379050          # ***
+      temperature: 293.15
+
+- type: alarmThreshold
+  id: stationMethane
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 0.006 # lightable beyond this concentration
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.5
+
+- type: gasReaction
+  id: MethaneFire
+  priority: -2
+  minimumTemperature: 373.149 # Same as Atmospherics.FireMinimumTemperatureToExist
+  minimumRequirements: # In this case, same as minimum mole count.
+    - 0.01     # oxygen
+    - 0     # nitrogen
+    - 0     # carbon dioxide
+    - 0     # plasma
+    - 0     # tritium
+    - 0     # vapor
+    - 0     # ammonia
+    - 0  # n2o
+    - 0     # frezon
+    - 0.01     # Mifroltiragene
+  effects:
+    - !type:MethaneFireReaction {}

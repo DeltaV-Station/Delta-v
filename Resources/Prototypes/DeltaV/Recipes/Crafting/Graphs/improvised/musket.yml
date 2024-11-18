@@ -45,11 +45,11 @@
     edges:
     - to: flintlock
       steps:
-      - tag: GasPipeHalf
+      - tag: Pipe
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
-        name: half pipe
+          state: pipeStraight
+        name: pipe
       - tag: ModularBreech
         icon:
           sprite: DeltaV/Objects/Misc/modular_breech.rsi

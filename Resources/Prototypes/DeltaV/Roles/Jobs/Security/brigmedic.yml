@@ -4,12 +4,9 @@
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 21600 # 6 hrs
-    - !type:RoleTimeRequirement # DeltaV - JobSecurityOfficer time requirement
-      role: JobSecurityOfficer
-      time: 21600 # DeltaV - 6 hrs
+    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      time: 7200 # 2 hours
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -30,10 +27,9 @@
 - type: startingGear
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
-    eyes: ClothingEyesHudMedical
-    id: CorpsmanPDA
+    id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
-    belt: ClothingBeltCorpsmanWebbingFilled
+    belt: ClothingBeltMedicalEMTFilled
     pocket1: WeaponPistolMk58Nonlethal
   storage:
     back:

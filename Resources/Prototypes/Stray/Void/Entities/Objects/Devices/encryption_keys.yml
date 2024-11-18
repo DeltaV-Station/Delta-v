@@ -1,0 +1,17 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyVoid
+  name: Сиреневый ключ шифрования
+  suffix: VOID
+  description: Странный ключ шифрования
+  components:
+  - type: EncryptionKey
+    channels:
+    - Void
+    defaultChannel: Void
+  - type: Item
+    sprite: Stray/Void/Objects/Devices/voidkey.rsi
+  - type: Sprite
+    sprite: Stray/Void/Objects/Devices/voidkey.rsi
+    layers:
+    - state: crypt_void

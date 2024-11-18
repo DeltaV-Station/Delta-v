@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEmpire
+  name: форма имперской пехоты
+  description: filler
+  suffix: Империя
+  components:
+  - type: Sprite
+    sprite: Stray/Empire/Clothing/Uniforms/Jumpsuit/infantry.rsi
+  - type: Clothing
+    sprite: Stray/Empire/Clothing/Uniforms/Jumpsuit/infantry.rsi

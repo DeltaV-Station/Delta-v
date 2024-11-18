@@ -6,8 +6,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 216000 #60 hrs
-
+      time: 21600 #6 hrs
 
 # Head
 - type: startingGear
@@ -21,16 +20,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
-
-- type: loadout
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
-
-- type: loadout
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
 
 # Neck
 
@@ -49,16 +38,6 @@
   id: ScientistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
-
-- type: loadout
-  id: RoboticistJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRoboticist
-
-- type: loadout
-  id: RoboticistJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRoboticist
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -131,11 +110,6 @@
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
-
-- type: loadout
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
 
 # Shoes
 - type: loadout

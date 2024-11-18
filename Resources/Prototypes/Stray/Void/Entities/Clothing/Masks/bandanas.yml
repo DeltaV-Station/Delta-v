@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: VOIDBandana
+  name: Сиреневая бандана
+  suffix: VOID
+  description: Обычная сиреневая бандана
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Clothing/Mask/voidbandana.rsi
+  - type: Clothing
+    sprite: Stray/Void/Clothing/Mask/voidbandana.rsi
+
+- type: entity
+  parent: [ClothingHeadBandBase, VOIDBandana]
+  id: ClothingHeadBandVOID
+  name: Сиреневая бандана
+  suffix: VOID

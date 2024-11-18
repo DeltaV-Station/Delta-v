@@ -4,6 +4,9 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Robust.Shared.Timing;
+using Content.Shared.Singularity.EntitySystems;
+
 
 namespace Content.Client.Singularity
 {
@@ -12,6 +15,8 @@ namespace Content.Client.Singularity
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         private SharedTransformSystem? _xformSystem = null;
+
+        private SharedSingularitySystem? _singSys = null;
 
         /// <summary>
         ///     Maximum number of distortions that can be shown on screen at a time.
@@ -38,6 +43,9 @@ namespace Content.Client.Singularity
         private readonly Vector2[] _positions = new Vector2[MaxCount];
         private readonly float[] _intensities = new float[MaxCount];
         private readonly float[] _falloffPowers = new float[MaxCount];
+        private readonly float[] _energys = new float[MaxCount];
+        private readonly float[] _smoothedenergys = new float[MaxCount];
+        private readonly bool[] _acrDisk = new bool[MaxCount];
         private int _count = 0;
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -46,8 +54,36 @@ namespace Content.Client.Singularity
                 return false;
             if (_xformSystem is null && !_entMan.TrySystem(out _xformSystem))
                 return false;
+            if (_singSys is null && !_entMan.TrySystem(out _singSys))
+                return false;
+            //_count = 0;
+//
+            //var query = _entMan.EntityQueryEnumerator<SingularityComponent, TransformComponent>();
+            //while (query.MoveNext(out var uid, out var singulo, out var xform))
+            //{
+            //    if (xform.MapID != args.MapId)
+            //        continue;
+//
+            //    var mapPos = _xformSystem.GetWorldPosition(uid);
+//
+            //    // is the distortion in range?
+            //    if ((mapPos - args.WorldAABB.ClosestPoint(mapPos)).LengthSquared() > MaxDistance * MaxDistance)
+            //        continue;
+//
+            //    // To be clear, this needs to use "inside-viewport" pixels.
+            //    // In other words, specifically NOT IViewportControl.WorldToScreen (which uses outer coordinates).
+            //    var tempCoords = args.Viewport.WorldToLocal(mapPos);
+            //    tempCoords.Y = args.Viewport.Size.Y - tempCoords.Y; // Local space to fragment space.
+//
+            //    _energys[_count] = singulo.Energy;
+            //    _count++;
+//
+            //    if (_count == MaxCount)
+            //        break;
+            //}
 
             _count = 0;
+
             var query = _entMan.EntityQueryEnumerator<SingularityDistortionComponent, TransformComponent>();
             while (query.MoveNext(out var uid, out var distortion, out var xform))
             {
@@ -65,11 +101,17 @@ namespace Content.Client.Singularity
                 var tempCoords = args.Viewport.WorldToLocal(mapPos);
                 tempCoords.Y = args.Viewport.Size.Y - tempCoords.Y; // Local space to fragment space.
 
+
                 _positions[_count] = tempCoords;
                 _intensities[_count] = distortion.Intensity;
                 _falloffPowers[_count] = distortion.FalloffPower;
+                _energys[_count] = distortion.Energy;
+                //_singSys.UpdateSmoothedEnergy(uid, distortion);
+                //distortion.SmoothedEnergy = MathHelper.Lerp(distortion.SmoothedEnergy, distortion.Energy, 0.01f);
+                _acrDisk[_count] = distortion.HasDisk;
+                _smoothedenergys[_count] = distortion.SmoothedEnergy;
                 _count++;
-
+//
                 if (_count == MaxCount)
                     break;
             }
@@ -84,10 +126,12 @@ namespace Content.Client.Singularity
 
             _shader?.SetParameter("renderScale", args.Viewport.RenderScale * args.Viewport.Eye.Scale);
             _shader?.SetParameter("count", _count);
+            _shader?.SetParameter("energy", _smoothedenergys);//new float[]{250,500,1000,1500,2000});
             _shader?.SetParameter("position", _positions);
             _shader?.SetParameter("intensity", _intensities);
             _shader?.SetParameter("falloffPower", _falloffPowers);
             _shader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+            _shader?.SetParameter("acrDisk", _acrDisk);
 
             var worldHandle = args.WorldHandle;
             worldHandle.UseShader(_shader);

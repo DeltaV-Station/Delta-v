@@ -1,0 +1,100 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseDakimakura
+  name: Дакимакура
+  description: "Дакимакура"
+  components:
+    - type: Sprite
+      sprite: Stray/Objects/Fun/dakimakuras.rsi
+    - type: Tag
+      tags:
+        - Payload
+        - ClothMade
+    - type: EmitSoundOnCollide
+      sound:
+        collection: ToySqueak
+    - type: EmitSoundOnLand
+      sound:
+        collection: ToyFall
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      soundHit:
+        collection: ToySqueak
+      damage:
+        types:
+          Blunt: 0
+    - type: PhysicalComposition
+      materialComposition:
+        Cloth: 100
+    - type: StaticPrice
+      price: 5
+    - type: Food
+      requiresSpecialDigestion: true
+      useSound:
+        collection: ToySqueak
+      delay: 2
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 50
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 50
+
+
+- type: entity
+  parent: BaseDakimakura
+  id: GranataDak
+  name: Дакимакура Нестора
+  description: "Дакимакура Нестора Гудрановича. Неизвестно за какие 'заслуги' он попал на дакимакуру, но уже поздно разбираться"
+  components:
+    - type: Sprite
+      state: nestorFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: nestorFront
+      OnState: nestorBack
+      Popup: "Вы перевернули дакимакуру"
+
+- type: entity
+  parent: BaseDakimakura
+  id: RizzerDak
+  name: Дакимакура Алиты-Ниисан
+  description: "Дакимакура Алиты-Ниисан. Видимо кому-то очень сильно нравится Алита..."
+  components:
+    - type: Sprite
+      state: alitaFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: alitaFront
+      OnState: alitaBack
+      Popup: "Вы перевернули дакимакуру"
+
+- type: entity
+  parent: BaseDakimakura
+  id: DimasKarabas28Dak
+  name: Дакимакура Лауры
+  description: "Дакимакура Лауры Сергеевой. Приятель, я конечно не эксперт. Но женщина в форме не решение всех твоих проблем"
+  components:
+    - type: Sprite
+      state: lauraFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: lauraFront
+      OnState: lauraBack
+      Popup: "Вы перевернули дакимакуру"
+
+- type: entity
+  parent: BaseDakimakura
+  id: KinacydyDak
+  name: Дакимакура Анны
+  description: "Зачем? Просто зачем? Зачем это существует? Зачем вы на это смотрите?"
+  components:
+    - type: Sprite
+      state: KinacydyFront
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: KinacydyFront
+      OnState: KinacydyBack
+      Popup: "Вы перевернули дакимакуру"

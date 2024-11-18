@@ -1,0 +1,12 @@
+ent-VendingMachinePride = ПрайдоМат
+    .desc = Вендинговый автомат содержащий преступления
+ent-VendingMachineAutomatrobe = МашиноШкаф
+    .desc = Автоматизация рулит!
+ent-VendingMachineBoxingDrobe = БоксШкаф
+    .desc = Всегда не хватает товара на складе.
+ent-VendingMachineMNKDrobe = MNK-Шкаф
+    .desc = Качественная одежда от MoNoKrome.
+ent-VendingMachineRepDrobe = РепШкаф
+    .desc = Машина для всех ваших потребностей в осбенности, если вам нужна одежда.
+ent-VendingMachineCourierDrobe = КурьерШкаф
+    .desc = Ни солнечные вспышки, ни метеоры, ни плазменный огонь, ни пустота космоса не удерживают этих курьеров от быстрого завершения назначенных им заказов.

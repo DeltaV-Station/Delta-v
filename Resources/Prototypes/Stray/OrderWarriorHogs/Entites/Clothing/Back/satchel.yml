@@ -1,0 +1,30 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackMilitarySatchelOWH
+  name: армейская сумка ОБК
+  description: Сумка. и?
+  components:
+  - type: Sprite
+    sprite: Corvax/Back/Satchels/military.rsi
+  - type: Storage
+    grid:
+    - 0,0,9,6 # TODO: Change this
+    maxItemSize: Huge
+  - type: ExplosionResistance
+    damageCoefficient: 0
+
+- type: entity
+  parent: ClothingBackpackMilitarySatchelOWH
+  id: ClothingBackpackMilitarySatchelOWHFilled
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingUniformJumpsuitTacticool
+        - id: ClothingHandsMercGlovesCombat
+        - id: ClothingEyesHudMedSec
+        - id: ClothingShoesBootsMagAdv
+        - id: ClothingMaskGasMerc
+        - id: ClothingHeadsetOWH
+        - id: MindShieldImplanter
+

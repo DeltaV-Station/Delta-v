@@ -8,6 +8,7 @@
   - Quartermaster
   - SalvageSpecialist
   - Courier # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
+  - Borgmin
 
 - type: department
   id: Civilian
@@ -44,6 +45,17 @@
   color: "#0c344d"
   roles:
   - CentralCommandOfficial
+  - CentralCommandOperator
+  - ChiefHeadquartersCentralCommand
+  editorHidden: true
+  weight: 120
+
+- type: department
+  id: SpecialOperations
+  name: department-special-operations
+  description: department-special-operations-description
+  color: "#0c344d"
+  roles:
   - CBURN
   - ERTLeader
   - ERTChaplain
@@ -62,6 +74,9 @@
   color: "#334E6D"
   roles:
   - Captain
+  - IAA
+  - Blueshield
+  - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
@@ -69,7 +84,6 @@
   - ResearchDirector
   - Quartermaster
   - ChiefJustice # DeltaV - chief justice is in command staff
-  - CentralCommandOfficial
   - CBURN
   - ERTLeader
   - ERTChaplain
@@ -92,6 +106,7 @@
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
+  - Borgeng
 
 - type: department
   id: Medical
@@ -105,7 +120,8 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  - Slugcat
+  - Borgmed
 
 - type: department
   id: Security
@@ -121,7 +137,8 @@
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
-  - SecurityBorg # Delta-V : Security Borg
+  - Pilot # Corvax
+  - Borgsec
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
@@ -134,6 +151,7 @@
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+  - Roboticist
 
 - type: department
   id: Silicon
@@ -141,9 +159,14 @@
   description: department-Silicon-description
   color: "#D381C9"
   roles:
+  - Roboticist
   - Borg
-  - MedicalBorg # DeltaV - roundstart mediborg job
-  - SecurityBorg # Delta-V : Security Borg
+  - Borgsec
+  - Borgmed
+  - Borgser
+  - Borgcwn
+  - Borgjan
+  - Borgeng
   - StationAi
   primary: false # DeltaV - removed from primary dept
 
@@ -155,6 +178,7 @@
   weight: 10
   roles:
   - Boxer
+  - Borg
   - Reporter
   - Zookeeper
   - Psychologist

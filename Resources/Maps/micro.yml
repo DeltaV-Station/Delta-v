@@ -6028,8 +6028,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 30.5,-2.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 7102
     components:
     - type: MetaData
@@ -33474,11 +33472,6 @@ entities:
       parent: 2
 - proto: filingCabinetRandom
   entities:
-  - uid: 4429
-    components:
-    - type: Transform
-      pos: 17.793312,13.5
-      parent: 2
   - uid: 4946
     components:
     - type: Transform
@@ -56097,7 +56090,7 @@ entities:
   - uid: 1106
     components:
     - type: Transform
-      pos: 17.272478,13.5
+      pos: 17.5,13.5
       parent: 2
 - proto: LockerResearchDirectorFilled
   entities:

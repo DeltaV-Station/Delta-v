@@ -1,0 +1,795 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseCard
+  name: Карта
+  description: Есть идеи что на этой карте?
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    layers:
+    - state: closedCard
+  - type: Item
+    size: Small
+  - type: Appearance
+  - type: Tag
+    tags:
+      - GameCard
+  #- type: LayerChangeOnWeld
+  #  unWeldedLayer: 1
+  #  weldedLayer: 2
+
+- type: entity
+  parent: BaseItem
+  id: GameCardsInHand
+  name: Колода Карт
+  description: Это твои карты. Помещает до 20 карт
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    state: InHand
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,19,1
+    quickInsert: true
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - GameCard
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: BaseItem
+  id: GameCardsColode
+  name: Упаковка карт
+  description: Сыграем в покер?
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Fun/cards.rsi
+    state: colode
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,12,7
+    quickInsert: true
+    areaInsert: true
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - GameCard
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Dumpable
+  - type: StorageFill
+    contents:
+      - id: CarDpt
+      - id: CarDp2
+      - id: CarDp3
+      - id: CarDp4
+      - id: CarDp5
+      - id: CarDp6
+      - id: CarDp7
+      - id: CarDp8
+      - id: CarDp9
+      - id: CarDp10
+      - id: CarDpd
+      - id: CarDpk
+      - id: CarDpv
+
+      - id: CarDkt
+      - id: CarDk2
+      - id: CarDk3
+      - id: CarDk4
+      - id: CarDk5
+      - id: CarDk6
+      - id: CarDk7
+      - id: CarDk8
+      - id: CarDk9
+      - id: CarDk10
+      - id: CarDkd
+      - id: CarDkk
+      - id: CarDkv
+
+      - id: CarDbt
+      - id: CarDb2
+      - id: CarDb3
+      - id: CarDb4
+      - id: CarDb5
+      - id: CarDb6
+      - id: CarDb7
+      - id: CarDb8
+      - id: CarDb9
+      - id: CarDb10
+      - id: CarDbd
+      - id: CarDbk
+      - id: CarDbv
+
+      - id: CarDht
+      - id: CarDh2
+      - id: CarDh3
+      - id: CarDh4
+      - id: CarDh5
+      - id: CarDh6
+      - id: CarDh7
+      - id: CarDh8
+      - id: CarDh9
+      - id: CarDh10
+      - id: CarDhd
+      - id: CarDhk
+      - id: CarDhv
+  #- type: SpawnAfterInteract
+  #  prototype: CarDptC
+  #  doAfter: 0
+  #  ignoreDistance: false
+  #  removeOnInteract: true
+
+  #- type: Defibrillator
+  #  zapHeal:
+  #    types:
+  #      Asphyxiation: -40
+
+      #enum.ToggleVisuals.Toggled:
+      #  enum.ToggleVisuals.Layer:
+      #    True: { visible: true }
+      #    False: { visible: false }
+      #enum.DefibrillatorVisuals.Ready:
+      #  enum.PowerDeviceVisualLayers.Powered:
+      #    True: { visible: true }
+      #    False: { visible: false }
+
+
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.TrayScannerVisual.Visual:
+  #      base:
+  #        Off: { state: pt }
+  #        On: { state: closedCard }
+  #- type: ActionOnInteract
+  #  actions:
+  #   - CarDptC
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+    #layers:
+    #  - state: pt
+    #    shader: "unshaded"
+    #  - state: closedCard
+    #    shader: "unshaded"
+#
+#- type: entity
+#  parent: BaseCard
+#  id: CarDptC
+#  name: Карта
+#  description: Есть идеи что на этой карте?
+#  components:
+#  - type: Sprite
+#    state: closedCard
+    #layers:
+    #- state: closedCard
+    #  map: ["base"]
+    #layers:
+    #  - state: closedCard
+    #    shader: "unshaded"
+    #    visible: true
+  #- type: ActionOnInteract
+  #  actions:
+  #   - CarDpt
+  #- type: TrayScanner
+  #  range: 0.01
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.TrayScannerVisual.Visual:
+  #      base:
+  #        Off: { state: closedCard }
+  #        On: { state: closedCard }
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+      #- state: pt
+      #  shader: "unshaded"
+
+  #- type: SpawnAfterInteract
+  #  prototype: CarDpt
+  #  doAfter: 0
+  #  ignoreDistance: false
+  #  removeOnInteract: true
+    #canTargetSelf: false
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+  #-type: InteractionRelay
+  #  RelayEntity: CarDpt
+  #- type: Actions
+  #  Actions:
+  #   - ReplacementAccent
+  #  #canTargetSelf: false
+  #- type: ReplacementAccent
+  #  Accent: CarDpt
+  #- type: SpawnOnTrigger
+  #  proto: CarDpt
+  #- type: EntityTargetAction
+  #  event:
+  #    toAdd:
+  #    - type: ReplacementAccent
+  #      Accent: CarDpt
+  #-type: InteractionRelay
+  #  RelayEntity: ReplacementAccent
+  #- type: Actions
+  #  actions:
+  #   - ReplacementAccent
+  #- type: ReplacementAccent
+  #  Accent: CarDptC
+  #- type: SpawnOnTrigger
+  #  proto: CarDpt
+  #- type: EntityTargetAction
+  #  event:
+  #    toAdd:
+  #    - type: RandomSpawner
+  #      prototypes:
+  #        - CarDptC
+  #    #- type: ReplacementAccent
+  #    #  Accent: CarDptC
+    #- type: Actions
+  #- type: ReplacementAccent
+    #layers:
+    #- map: [ "enum.ItemCabinetVisualLayers.Base" ]
+    #- state: "closedCard"
+    #  map: [ "enum.PdaVisualLayers.Flashlight" ]
+    #  shader: "unshaded"
+    #  visible: false
+     #- type: Clickable
+- type: entity
+  parent: BaseCard
+  id: CarDpt
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pt
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp2
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p2
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp3
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p3
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp4
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p4
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp5
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p5
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp6
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p6
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp7
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p7
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp8
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p8
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp9
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p9
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDp10
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: p10
+      Popup: "Вы перевернули карту"
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDpd
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pd
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDpk
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pk
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDpv
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: pv
+      Popup: "Вы перевернули карту"
+
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDkt
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kt
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk2
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k2
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk3
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k3
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk4
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k4
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk5
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k5
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk6
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k6
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk7
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k7
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk8
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k8
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk9
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k9
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDk10
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: k10
+      Popup: "Вы перевернули карту"
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDkd
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kd
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDkk
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kk
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDkv
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: kv
+      Popup: "Вы перевернули карту"
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDht
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: ht
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh2
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h2
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh3
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h3
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh4
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h4
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh5
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h5
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh6
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h6
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh7
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h7
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh8
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h8
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh9
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h9
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDh10
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: h10
+      Popup: "Вы перевернули карту"
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDhd
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hd
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDhk
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hk
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDhv
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: hv
+      Popup: "Вы перевернули карту"
+
+
+
+
+
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDbt
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bt
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb2
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b2
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb3
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b3
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb4
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b4
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb5
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b5
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb6
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b6
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb7
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b7
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb8
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b8
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb9
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b9
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDb10
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: b10
+      Popup: "Вы перевернули карту"
+
+
+- type: entity
+  parent: BaseCard
+  id: CarDbd
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bd
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDbk
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bk
+      Popup: "Вы перевернули карту"
+
+- type: entity
+  parent: BaseCard
+  id: CarDbv
+  components:
+    - type: SpriteOnOffState
+      IsOn: false
+      OffState: closedCard
+      OnState: bv
+      Popup: "Вы перевернули карту"

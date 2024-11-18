@@ -1,0 +1,190 @@
+#   Timers
+- type: loadoutEffectGroup
+  id: BlueShieldTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshield
+      time: 14400 #4 hrs
+
+- type: loadoutEffectGroup
+  id: BlueShieldADTTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshield
+      time: 27600 #460 hrs #Я короче тупой далбаёб. Я почему то нахуй в секунды время переводил, когда эту залупу делал.
+                           #Поэтому там было 4560 часов вместо 76-ти... (Но при этом я повысил планку до 460 часов, да.)
+
+- type: loadoutEffectGroup
+  id: BlueShieldTimerMedglasses
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 14400 #4 hrs
+
+- type: loadoutEffectGroup
+  id: BlueShieldTimerSec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400 #4 hrs
+
+# Jumpsuit
+- type: loadout
+  id: BlueShieldJumpsuit
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBlueShield
+
+- type: loadout
+  id: BlueShieldJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBlueShield
+
+- type: loadout
+  id: BlueShieldJumpsuitTurtle
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitBlueShieldTurtle
+
+- type: loadout
+  id: BlueShieldJumpskirtTurtle
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtBlueShieldTurtle
+
+- type: loadout
+  id: BlueShieldNTUniform
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitNanotrasen
+
+# Outer Clothing
+- type: loadout
+  id: BlueShieldArmorVest
+  equipment:
+      outerClothing: ClothingBlueshieldArmorVest
+
+- type: loadout
+  id: BlueShieldBulletproofVest
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+      outerClothing: ClothingBlueshieldArmor
+
+# Back
+- type: loadout
+  id: BlueShieldBackpack
+  equipment:
+      back: ClothingBackpackBlueShieldFilled
+
+- type: loadout
+  id: BlueShieldSatchel
+  equipment:
+      back: ClothingBackpackSatchelBlueShieldFilled
+
+- type: loadout
+  id: BlueShieldDuffel
+  equipment:
+      back: ClothingBackpackDuffelBlueShieldFilled
+
+- type: loadout
+  id: BlueShieldSatchelAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+      back: ClothingBackpackSatchelBlueShieldAltFilled
+
+- type: loadout
+  id: BlueShieldDuffelAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+      back: ClothingBackpackDuffelBlueShieldAltFilled
+
+- type: loadout
+  id: BlueShieldBackpackAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+      back: ClothingBackpackBlueShieldAltFilled
+
+# Neck
+- type: loadout
+  id: BlueShieldCloak
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimer
+  equipment:
+    neck: ClothingNeckCloakBlueShield
+
+- type: loadout
+  id: BlueShieldCloakNT
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+    neck: ClothingNeckCloakNanotrasen
+
+# Eyes
+- type: loadout
+  id: Medglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimerMedglasses
+  equipment:
+    eyes: ClothingEyesGlassesMed
+
+- type: loadout
+  id: SecglassesBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimerSec
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: Blueglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldTimer
+  equipment:
+    eyes: ClothingEyesGlassesBlueShield
+
+# Head
+- type: loadout
+  id: BlueShieldBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+    head: ClothingHeadHatBlueShield
+
+- type: loadout
+  id: BlueShieldBeretBlack
+  equipment:
+    head: ClothingHeadHatBlueShieldBlack
+
+# Belt
+- type: loadout
+  id: BlueShieldWebbing
+  equipment:
+    belt: ClothingBeltCorpsmanWebbingFilled
+
+- type: loadout
+  id: BlueShieldWebbingAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BlueShieldADTTimer
+  equipment:
+    belt: ClothingBeltBlueShieldWebbingFilled

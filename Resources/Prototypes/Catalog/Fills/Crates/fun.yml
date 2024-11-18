@@ -41,6 +41,18 @@
     - id: PlushieMothRandom # Nyano - random moth plushies
     - id: PlushieArachind
     - id: PlushiePenguin
+    - id: ToyMaxwell # Stray Toy
+    - id: DotsPlushie # Stray Toy
+    - id: PlushieLao # Stray Kotovasu Plushie
+    - id: PlushieGGados # Stray Gados Plushie
+    - id: StrangeToster # Stray endr_animet's toster
+    - id: PlushieScientist # Stray Rizzer (Scientist) Plushie
+    - id: PlushieDahhat # Stray корректировщик Plushie
+    - id: PlushieFull # Stray Fullmaster Plushie
+    - id: PlushieDuga # Stray Duga Plushie
+    - id: PlushieMollis # Stray Mollis Plushie
+    - id: PlushieBrun # Stray Brun's Plushie
+    - id: PlushieLizardTey # Stray 9Kvac_'s Plushie
 
 - type: entity
   id: CrateFunPlushie
@@ -48,6 +60,41 @@
   name: plushie crate
   description: A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
   components:
+#  - type: StorageFill
+#    contents:
+#      - id: PlushieBee
+#      - id: PlushieNuke
+#      - id: PlushieSlime
+#      - id: PlushieSnake
+#      - id: PlushieLizard
+#      - id: PlushieSpaceLizard
+#      - id: PlushieVox
+#      - id: PlushieRouny
+#      - id: PlushieRatvar
+#      - id: PlushieSharkBlue
+#        orGroup: PlushieShark
+#      - id: PlushieSharkGrey
+#        orGroup: PlushieShark
+#      - id: PlushieAtmosian
+#      - id: PlushieDiona
+#      - id: PlushieXeno
+#      - id: PlushieHampter
+#      - id: PlushieMoth
+#      - id: PlushieMothRandom # Nyanotrasen - Random Moth Plushies
+#        amount: 2
+#      - id: ToyMaxwell # Stray Toy
+#      - id: DotsPlushie # Stray Toy
+#      - id: PlushieLao # Stray Kotovasu Plushie
+#      - id: PlushieGGados # Stray Gados Plushie
+#      - id: StrangeToster # Stray endr_animet's toster
+#      - id: PlushieScientist # Stray Rizzer (Scientist) Plushie
+#      - id: PlushieDahhat # Stray корректировщик Plushie
+#      - id: PlushieFull # Stray Fullmaster Plushie
+#      - id: PlushieDuga # Stray Duga Plushie
+#      - id: PlushieMollis # Stray Mollis Plushie
+#      - id: PlushieBrun # Stray Brun's Plushie
+#      - id: PlushieArachind
+#      - id: PlushiePenguin
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
@@ -336,6 +383,17 @@
       - id: ClothingHeadHatMagician
       - id: BeachBall
       - id: ClothingShoesSkates
+      - id: ToyMaxwell #Stray Toy
+      - id: DotsPlushie # Stray Toy
+      - id: PlushieLao #Stray Kotovasu Plushie
+      - id: PlushieGGados # Stray Gados Plushie
+      - id: PlushieScientist # Stray Rizzer (Scientist) Plushie
+      - id: StrangeToster # Stray endr_animet's toster
+      - id: PlushieDahhat # Stray корректировщик Plushie
+      - id: PlushieFull # Stray Fullmaster Plushie
+      - id: PlushieDuga # Stray Duga Plushie
+      - id: PlushieMollis # Stray Mollis Plushie
+      - id: PlushieBrun # Stray Brun's Plushie
       - id: RubberChicken
 
 - type: entity
@@ -378,4 +436,3 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
-

@@ -1,0 +1,10 @@
+- type: entity
+  id: BannerVOID
+  parent: BannerBase
+  name: Баннер VOID
+  suffix: VOID
+  description: Страннный с надписью "VOID"
+  components:
+  - type: Sprite
+    sprite: Stray/Void/Structures/Decoration/voidbanner.rsi
+    state: voidbanner

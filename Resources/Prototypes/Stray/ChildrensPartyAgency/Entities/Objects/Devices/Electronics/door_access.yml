@@ -1,0 +1,31 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsWarriorCPA
+  suffix: WarriorCPA, Locked
+  components:
+  - type: AccessReader
+    access: [["WarriorCPA"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsJuniorOfficerCPA
+  suffix: JuniorOfficerCPA, Locked
+  components:
+  - type: AccessReader
+    access: [["JuniorOfficerCPA"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSeniorOfficerCPA
+  suffix: SeniorOfficerCPA, Locked
+  components:
+  - type: AccessReader
+    access: [["SeniorOfficerCPA"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsTechnicianPGA
+  suffix: TechnicianPGA, Locked
+  components:
+  - type: AccessReader
+    access: [["TechnicianPGA"]]

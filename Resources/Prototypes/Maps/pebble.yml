@@ -3,7 +3,7 @@
   mapName: 'Pebble'
   mapPath: /Maps/pebble.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 45
   stations:
     PebbleStation:
       stationProto: StandardNanotrasenStation
@@ -13,10 +13,17 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
+        - type: GridSpawn
+          groups:
+            mining: !type:GridSpawnGroup
+              paths:
+              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
           #service
             Captain: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 2 ]
@@ -40,6 +47,7 @@
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
+            Slugcat: [ 1, 1 ]
           #science
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -47,6 +55,7 @@
             Scientist: [ 2, 3 ]
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 1, 1 ]
+            Roboticist: [ 1, 1 ]
           #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -62,7 +71,14 @@
           #civilian
             Passenger: [ -1, -1 ]
           #justice
-            ChiefJustice: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             Clerk: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
+          #silicon
+            Borgsec: [ 2, 2 ]
+            Borgmed: [ 2, 2 ]
+            Borgeng: [ 2, 2 ]
+            Borgser: [ 2, 2 ]
+            Borgcwn: [ 2, 2 ]
+            Borgjan: [ 2, 2 ]
+            Borgmin: [ 2, 2 ]

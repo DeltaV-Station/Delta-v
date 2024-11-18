@@ -1,0 +1,231 @@
+# No gas
+
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalNoGas
+  suffix: Standard no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalEngineering
+  id: BoxSurvivalEngineeringNoGas
+  suffix: Extended no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalSecurityNoGas
+  suffix: Security no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+    - id: DrinkWaterBottleFull
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalMedical
+  id: BoxSurvivalMedicalNoGas
+  suffix: Medical no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+    - id: DrinkWaterBottleFull
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxHug
+  id: BoxHugNoGas
+  suffix: Emergency no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalNoGas
+  id: BoxMimeNoGas
+  suffix: Emergency no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodBreadBaguette
+    - id: DrinkWaterBottleFull
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalSyndicate
+  id: BoxSurvivalSyndicateNoGas
+  suffix: Syndicate no gas
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen, replaces flare for space
+    - id: FoodPSB # DeltaV - replace nutribrick with PSB
+    - id: DrinkWaterBottleFull # DeltaV - why didnt they get water???
+    - id: DrinkWaterBottleFull
+    # Intentionally wrong picture on the box to mimic the NT one
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+# Plasma
+
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalPlasma
+  suffix: Standard plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: DrinkWaterBottleFull
+    - id: LittlePlasmaTankFilled
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalEngineering
+  id: BoxSurvivalEngineeringPlasma
+  suffix: Extended plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: LittlePlasmaTankFilled
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalSecurityPlasma
+  suffix: Security plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: LittlePlasmaTankFilled
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalMedical
+  id: BoxSurvivalMedicalPlasma
+  suffix: Medical plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: LittlePlasmaTankFilled
+  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxHug
+  id: BoxHugPlasma
+  suffix: Emergency plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen
+    - id: Flare
+    - id: LittlePlasmaTankFilled
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalPlasma
+  id: BoxMimePlasma
+  suffix: Emergency plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodBreadBaguette
+    - id: LittlePlasmaTankFilled
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSyndicate
+  id: BoxSurvivalSyndicatePlasma
+  suffix: Syndicate plasma
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: EmergencyMedipen
+    - id: SpaceMedipen # DeltaV - keep spacepen, replaces flare for space
+    - id: LittlePlasmaTankFilled
+    # Intentionally wrong picture on the box to mimic the NT one
+  - type: Label
+    currentLabel: reagent-name-plasma

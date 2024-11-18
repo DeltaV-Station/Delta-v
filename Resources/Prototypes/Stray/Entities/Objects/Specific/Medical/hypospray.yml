@@ -1,0 +1,103 @@
+- type: entity
+  name: антидот АДП
+  parent: ChemicalMedipen
+  id: ADPantidote
+  description: "Инъектор, содержащий в себе лекарство от всех болезней (даже от зомби-вируса), а также лечит все редкие виды повреждений, начиная от радиации, и заканчивая кислотой"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: adpantidote
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: adpantidote_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Feraksicelline
+          Quantity: 15
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: стимулятор АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPstimulator
+  description: "Инъектор, значительно ускоряющий вас на долгий промежуток времени. Немного лечит травмы. Больше двух не вкалывать!"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: adpstimulator
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: adpstimulator_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Kortizadrenaline
+          Quantity: 10
+        - ReagentId: Deraksozine
+          Quantity: 5
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: НАНОГИПОДНИМАЛКА АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPnanogipodnimalka
+  description: "Инъектор, способный запросто поднять вашего товарища из критического состояния"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: nanogipodnimalka
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: nanogipodnimalka_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Deraksozine
+          Quantity: 10
+        - ReagentId: Tantoksadone
+          Quantity: 5
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: ОТВСЕГОЛЕЧИЛКА АДП 2.0
+  parent: ChemicalMedipen
+  id: ADPotvsegolechilka
+  description: "Инъектор, способный вылечить любое ваше ранение и остановить кровотечение"
+  components:
+  - type: Sprite
+    sprite: Stray/Objects/Specific/Medical/adp.rsi
+    layers:
+    - state: otvsegolechilka
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: otvsegolechilka_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Deraksozine
+          Quantity: 15
+  - type: Tag
+    tags: []

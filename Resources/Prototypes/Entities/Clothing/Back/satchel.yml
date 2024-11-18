@@ -77,6 +77,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/chemistry.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -113,15 +115,17 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseRestrictedContraband]
   id: ClothingBackpackSatchelBrigmedic
-  name: corpsman satchel # DeltaV - rename brigmedic to corpsman
+  name: brigmedic satchel
   description: A sterile satchel for medical related needs.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Back/Satchels/brigmedic.rsi # DeltaV - resprite
+    sprite: Stray/Clothing/Back/Satchels/brigmedic.rsi # resprite by Tamioki
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
@@ -131,6 +135,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/captain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -178,3 +184,5 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+  - type: ExplosionResistance
+    damageCoefficient: 0.01

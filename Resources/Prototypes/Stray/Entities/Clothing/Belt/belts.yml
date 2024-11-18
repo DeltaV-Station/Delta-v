@@ -1,0 +1,41 @@
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ClothingBeltHolySheath
+  name: Священные ножны
+  description: Ножны, в которых можно хранить ваш меч вне похода.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Belt/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: Stray/Clothing/Belt/sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: HolyClaymore
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - HolyClaymore
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - HolyClaymore
+  - type: Appearance
+
+- type: entity
+  id: ClothingBeltHolySheathFilled
+  parent: ClothingBeltHolySheath
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - HolyClaymore

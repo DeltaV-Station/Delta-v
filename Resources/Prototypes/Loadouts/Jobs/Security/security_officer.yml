@@ -11,7 +11,8 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 216000 # 60 hrs
+      time: 1800
+
 
 #Security Star
 - type: loadoutEffectGroup
@@ -21,7 +22,7 @@
       requirement:
         !type:DepartmentTimeRequirement
         department: Security
-        time: 360000 #100 hrs
+        time: 3600 #100 hrs
 
 # Head
 - type: loadout
@@ -38,6 +39,27 @@
   id: SecurityBeret
   equipment:
     head: ClothingHeadHatBeretSecurity
+
+# Eyes - DeltaV
+- type: loadout # DeltaV
+  id: Sunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout # DeltaV
+  id: SunglassesSec
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout # DeltaV
+  id: HudSec
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout # DeltaV
+  id: HudSecPatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
 
 # Jumpsuit
 - type: loadout
@@ -85,6 +107,11 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+
+- type: loadout
+  id: ClothingUniformJumpsuitSecFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecFormal # Stray
 
 - type: loadout # DeltaV
   id: SeniorSecOfficerJumpsuit
@@ -154,6 +181,11 @@
   id: SecurityOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
+
+- type: loadout
+  id: ClothingOuterCoatSecurityOvercoat
+  equipment:
+    outerClothing: ClothingOuterCoatSecurityOvercoat # Stray
 
 - type: loadout
   id: StasecSweater

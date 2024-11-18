@@ -50,6 +50,8 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/captain.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -71,15 +73,17 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/security.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseRestrictedContraband]
   id: ClothingBackpackDuffelBrigmedic
-  name: corpsman duffel bag # DeltaV - rename brigmedic to corpsman
+  name: brigmedic duffel bag
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Back/Duffels/brigmedic.rsi # DeltaV - resprite
+    sprite: Stray/Clothing/Back/Duffels/brigmedic.rsi # resprite by Tamioki
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -89,6 +93,8 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/chemistry.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -262,3 +268,5 @@
     walkModifier: 1
     sprintModifier: 1
   - type: HeldSpeedModifier
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

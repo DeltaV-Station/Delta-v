@@ -40,6 +40,10 @@
       - id: HolofanProjector
       - id: GasAnalyzer
       - id: trayScanner
+      - id: CombatRCD
+      - id: CableHVStack
+      - id: CableMVStack
+      - id: CableApcStack
 
 - type: entityTable
   id: BeltSecurityEntityTable
@@ -194,8 +198,8 @@
   - type: StorageFill
     contents:
         - id: WeaponRevolverInspector
-        - id: SpeedLoaderMagnum
-        - id: SpeedLoaderMagnumRubber
+        - id: SpeedLoaderSpecial
+        - id: SpeedLoaderSpecialRubber
 
 - type: entity
   id: ClothingBeltChefFilled

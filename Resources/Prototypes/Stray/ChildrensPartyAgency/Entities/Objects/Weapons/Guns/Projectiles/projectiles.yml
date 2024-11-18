@@ -1,0 +1,47 @@
+- type: entity
+  id: Bullet9x18
+  name: bullet (9x18mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+  - type: StaminaDamageOnCollide
+    damage: 16
+
+- type: entity
+  id: Bullet5x39
+  name: bullet (5,45x39mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+
+- type: entity
+  id: Bullet8x39
+  name: bullet (7,62x39mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+
+- type: entity
+  id: Bullet9x39
+  name: bullet (9x39mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+  - type: StaminaDamageOnCollide
+    damage: 22
