@@ -19,7 +19,7 @@ public sealed partial class PainComponent : Component
     /// The current level of pain suppression
     /// </summary>
     [DataField]
-    public byte CurrentSuppressionLevel = PainSuppressionLevelExtensions.Normal;
+    public PainSuppressionLevel CurrentSuppressionLevel = PainSuppressionLevel.Normal;
 
     /// <summary>
     /// The last time painkillers were administered

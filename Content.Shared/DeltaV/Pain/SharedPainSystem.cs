@@ -9,7 +9,7 @@ public abstract class SharedPainSystem : EntitySystem
 
     public ProtoId<StatusEffectPrototype> StatusEffectKey = "InPain";
 
-    protected abstract void UpdatePainSuppression(Entity<PainComponent> ent, float duration, byte level);
+    protected abstract void UpdatePainSuppression(Entity<PainComponent> ent, float duration, PainSuppressionLevel level);
 
     public virtual void TryApplyPain(EntityUid uid, float painTime, StatusEffectsComponent? status = null)
     {
@@ -26,7 +26,7 @@ public abstract class SharedPainSystem : EntitySystem
         }
     }
 
-    public virtual void TrySuppressPain(EntityUid uid, float duration, byte level = PainSuppressionLevelExtensions.Normal)
+    public virtual void TrySuppressPain(EntityUid uid, float duration, PainSuppressionLevel level = PainSuppressionLevel.Normal)
     {
         if (!TryComp<PainComponent>(uid, out var comp))
             return;
@@ -36,25 +36,9 @@ public abstract class SharedPainSystem : EntitySystem
 }
 
 // Used by the StatusEffect
-public static class PainSuppressionLevelExtensions
+public enum PainSuppressionLevel : byte
 {
-    public const byte Mild = 0;
-    public const byte Normal = 1;
-    public const byte Strong = 2;
-
-    public static string ToDisplayString(this byte level)
-    {
-        return level switch
-        {
-            Mild => nameof(Mild),
-            Normal => nameof(Normal),
-            Strong => nameof(Strong),
-            _ => throw new ArgumentOutOfRangeException(nameof(level)),
-        };
-    }
-
-    public static bool IsValid(byte level)
-    {
-        return level <= Strong;
-    }
+    Mild,
+    Normal,
+    Strong,
 }

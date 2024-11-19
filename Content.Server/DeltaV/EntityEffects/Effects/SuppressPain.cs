@@ -16,7 +16,7 @@ public sealed partial class SuppressPain : EntityEffect
     /// The strength level of the pain suppression
     /// </summary>
     [DataField]
-    public byte SuppressionLevel = PainSuppressionLevelExtensions.Normal;
+    public PainSuppressionLevel SuppressionLevel = PainSuppressionLevel.Normal;
 
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-pain-suppression",

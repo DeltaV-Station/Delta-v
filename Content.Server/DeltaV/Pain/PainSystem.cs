@@ -25,7 +25,7 @@ public sealed class PainSystem : SharedPainSystem
         ent.Comp.NextPopupTime = _timing.CurTime;
     }
 
-    protected override void UpdatePainSuppression(Entity<PainComponent> ent, float duration, byte level)
+    protected override void UpdatePainSuppression(Entity<PainComponent> ent, float duration, PainSuppressionLevel level)
     {
         var curTime = _timing.CurTime;
         var newEndTime = curTime + TimeSpan.FromSeconds(duration);
