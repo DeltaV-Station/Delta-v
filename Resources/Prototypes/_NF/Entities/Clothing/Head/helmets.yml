@@ -1,0 +1,37 @@
+#These are intentionally all very mediocre as locational damage does not exist yet. Without it, armor values will stack in a way that makes it really god damn hard to determine how effective something is, along with making players extremely tanky.
+#When it DOES exist, the values here should be totally reworked - probably just port them from SS13.
+
+#ERT Mail Carrier Helmet
+- type: entity
+  parent: [ BaseC2ContrabandUnredeemable, ClothingHeadHelmetBasic ]
+  id: ClothingHeadHelmetERTMailCarrier
+  name: ERT mail carrier helmet
+  description: An in-atmosphere helmet worn by mail members of the Nanotrasen Emergency Response Team. Has dark purple highlights.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/ert_mailcarrier.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/ert_mailcarrier.rsi
+
+- type: entity
+  parent: [ BaseC2ContrabandUnredeemable, ClothingHeadHelmetBasic ]
+  id: ClothingHeadHelmetNfsd
+  name: nfsd helmet
+  description: an nfsd issued helmet to protect your head
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/nfsd.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/nfsd.rsi
+
+#Mercenary Helmet
+- type: entity
+  parent: [ BaseC1Contraband, ClothingHeadHelmetMercenary ]
+  id: ClothingHeadHelmetMercenaryBlack
+  name: mercenary helmet
+  description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the urban sprawl.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/mercenary_black.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/mercenary_black.rsi

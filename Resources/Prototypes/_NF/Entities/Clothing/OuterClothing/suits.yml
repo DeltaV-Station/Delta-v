@@ -1,0 +1,13 @@
+# Syndicate bomb suit
+- type: entity
+  parent:
+  - BaseC3SyndicateContraband
+  - ClothingOuterSuitBomb
+  - ContrabandClothing
+  id: ClothingOuterSuitBombSyndie
+  name: syndicate bomb suit
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Suits/syndicate_bombsuit.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Suits/syndicate_bombsuit.rsi

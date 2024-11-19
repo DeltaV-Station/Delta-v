@@ -1,0 +1,65 @@
+- type: entity
+  id: ClothingHandsGlovesArcadiaCombat
+  name: arcadia combat gloves
+  parent: [ ClothingHandsGlovesCombat, BaseC3ContrabandNoValue, ContrabandClothing ]
+  description: Combat gloves produced by Arcadia Industries.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Hands/Gloves/arcadia.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Hands/Gloves/arcadia.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsGlovesLeather
+  id: ClothingHandsGlovesPilot
+  name: pilot gloves
+  description: Driving gloves, but for spaceships!
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Hands/Gloves/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Hands/Gloves/pilot.rsi
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesCombatNfsdBrown
+  name: nfsd combat gloves
+  description: Insulated gloves for a deputy sheriff.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Hands/Gloves/nfsd_brown.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Hands/Gloves/nfsd_brown.rsi
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  parent: ClothingHandsGlovesCombatNfsdBrown
+  id: ClothingHandsGlovesCombatNfsdCream
+  name: nfsd combat gloves
+  description: Insulated gloves for a deputy sheriff.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Hands/Gloves/nfsd_cream.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Hands/Gloves/nfsd_cream.rsi
+  - type: Fiber
+    fiberColor: fibers-cream
+
+- type: entity
+  parent: ClothingHandsGlovesHop
+  id: ClothingHandsGlovesSr
+  suffix: Insulated
+  components:
+  - type: Insulated
+
+- type: entity
+  parent: ClothingHandsGlovesForensic
+  id: ClothingHandsGlovesForensicNF
+  suffix: Insulated
+  components:
+  - type: Insulated

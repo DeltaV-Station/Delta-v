@@ -1,0 +1,42 @@
+- type: entity
+  parent:
+  - BaseC3CultContrabandUnredeemable
+  - ClothingHeadHelmetBasic
+  - BaseC3CultContraband
+  - ContrabandClothing
+  id: ClothingHeadHelmetCultJanitor
+  name: cult janitor helmet
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/cult_janitor.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/cult_janitor.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent:
+  - BaseC3CultContrabandUnredeemable
+  - ClothingHeadBase
+  - BaseC3CultContraband
+  - ContrabandClothing
+  id: ClothingHeadHatHoodBloodCulthood
+  name: cult hood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hoods/cult.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hoods/cult.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity # for looks only
+  parent: [ ClothingHeadHatHoodBloodCulthood, ClothingHeadHelmetBasic, BaseC3CultContraband, ContrabandClothing ]
+  id: ClothingHeadHatHoodBloodCulthoodUnremoveable
+  categories: [ HideSpawnMenu ]
+  name: cult hood
+  components:
+  - type: Unremoveable

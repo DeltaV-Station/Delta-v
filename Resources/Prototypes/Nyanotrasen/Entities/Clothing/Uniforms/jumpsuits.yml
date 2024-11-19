@@ -8,6 +8,10 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
+    
+- type: entity
+  parent: ClothingUniformMailCarrier
+  id: ClothingUniformJumpsuitMailCarrier # Frontier Compatibility
 #  - type: FactionClothing
 #    faction: Mailman
 
