@@ -26,13 +26,10 @@
     node: girder
   - type: Sprite
     sprite: NES/Structures/Walls/frame.rsi # NES14-Changes
-    state: full
+    state: state1
   - type: Icon
     sprite: NES/Structures/Walls/frame.rsi
-    state: full
-  - type: IconSmooth
-    key: walls
-    base: plastitanium
+    state: state1
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
@@ -67,9 +64,9 @@
   name: reinforced girder
   description: A large structural assembly made out of metal and plasteel; It requires a layer of plasteel before it can be considered a reinforced wall.
   components:
-    # - type: Sprite
-    #   sprite: NES/Structures/Walls/frame.rsi # NES14-Changes
-    #   state: full
+    - type: Sprite
+      sprite: NES/Structures/Walls/frame.rsi # NES14-Changes
+      state: state0
     - type: Construction
       graph: Girder
       node: reinforcedGirder
