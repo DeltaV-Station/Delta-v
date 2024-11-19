@@ -202,7 +202,7 @@ public sealed class EventManagerSystem : EntitySystem
     // DeltaV - overloaded for backwards compatiblity
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
-        int? playerCountOverride = 100,
+        int? playerCountOverride = null,
         TimeSpan? currentTimeOverride = null)
     {
         return AvailableEvents(null, ignoreEarliestStart, playerCountOverride, currentTimeOverride);
