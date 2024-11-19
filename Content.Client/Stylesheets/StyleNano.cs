@@ -90,18 +90,19 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
-        public static readonly Color NanoGold = Color.FromHex("#A88B5E");
+        public static readonly Color NanoGold = Color.FromHex("#5d95a6");
         public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
-        public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
+        public static readonly Color DisabledFore = Color.FromHex("#73b5ca");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
-        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#363847");
+        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#f39c3e");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#aec3c4");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#303133");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#598a78");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#12362e");
+
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -150,7 +151,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassButtonColorRed = "ButtonColorRed";
         public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
-        public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
+        public static readonly Color ChatBackgroundColor = Color.FromHex("#151a23");
 
         // DeltaV - AAC button variables
         public static readonly string CommandButtonClass = "CommandButton";
@@ -1459,11 +1460,11 @@ namespace Content.Client.Stylesheets
                 //The lengths you have to go through to change a background color smh
                 Element<PanelContainer>().Class("PanelBackgroundBaseDark")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F23")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#111212")),
 
                 Element<PanelContainer>().Class("PanelBackgroundLight")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2F2F3B")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#24252e")),
 
                 // Window Footer
                 Element<TextureRect>().Class("NTLogoDark")

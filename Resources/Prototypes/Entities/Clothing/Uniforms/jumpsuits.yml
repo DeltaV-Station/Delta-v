@@ -86,9 +86,9 @@
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -586,21 +586,9 @@
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: NES/Clothing/Uniforms/Jumpsuit/security.rsi #NES14-Changes
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: NES/Clothing/Uniforms/Jumpsuit/security.rsi #NES14-Changes
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-left
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-right
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformFoldableBase # DeltaV - add foldable jumpsuits

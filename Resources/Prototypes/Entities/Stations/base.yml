@@ -43,34 +43,33 @@
   abstract: true
   components:
     - type: StationCargoShuttle
-      path: /Maps/NES/Cargo_mini.yml
+      path: /Maps/NES/Shuttles/cargo_mini.yml
     - type: GridSpawn
       groups:
-
 #        trade: # DeltaV - trade station has its own map
 #          addComponents:
 #          - type: ProtectedGrid
 #          - type: TradeStation
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
-        #mining: !type:GridSpawnGroup # DeltaV - reclaimer is a wreck instead of working shuttle
-        #  hide: true
-        #  nameGrid: true
-        #  minCount: 1
-        #  maxCount: 1
-        #  paths:
-        #  - /Maps/Shuttles/DeltaV/mining_broken.yml
-        #  - /Maps/Shuttles/DeltaV/mining_morebroken.yml
-        #  - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
-        #  - /Maps/Shuttles/DeltaV/mining_ticks.yml
-        #  - /Maps/Shuttles/DeltaV/mining_carp.yml
-        #  - /Maps/Shuttles/DeltaV/mining_snakes.yml
-        #  - /Maps/Shuttles/DeltaV/mining_watcher.yml
+        mining: !type:GridSpawnGroup # DeltaV - reclaimer is a wreck instead of working shuttle
+          hide: true
+          nameGrid: true
+          minCount: 1
+          maxCount: 1
+          paths:
+          - /Maps/Shuttles/DeltaV/mining_broken.yml
+          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
+          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
+          - /Maps/Shuttles/DeltaV/mining_ticks.yml
+          - /Maps/Shuttles/DeltaV/mining_carp.yml
+          - /Maps/Shuttles/DeltaV/mining_snakes.yml
+          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 1
+          minCount: 2
           maxCount: 2
           stationGrid: false
           paths:
@@ -85,8 +84,8 @@
           - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
           - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 540000
-          maximumDistance: 3400
+          minimumDistance: 300
+          maximumDistance: 350
           nameDataset: names_borer
           stationGrid: false
           addComponents:

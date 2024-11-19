@@ -8,10 +8,7 @@
   - type: Clothing
     slots: [innerclothing]
     equipSound:
-      path: /Audio/NES/Items/shirt.ogg #NES14-Changes
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/NES/Items/shirt_kick.ogg
+      path: /Audio/Items/jumpsuit_equip.ogg
   - type: Butcherable
     butcheringType: Knife
     spawned:

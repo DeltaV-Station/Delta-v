@@ -2,7 +2,7 @@
   id: Morgue
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -11,7 +11,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -20,7 +20,7 @@
   id: Holy
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -39,7 +39,7 @@
   id: Medical
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -48,7 +48,7 @@
   id: Engineering
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -58,7 +58,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -67,7 +67,7 @@
   id: Space
   sound:
     params:
-      volume: -10
+      volume: -13
     collection: AmbienceSpace
   fadeIn: true
   interruptable: true
@@ -78,7 +78,7 @@
   id: Mining
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMining
   rules: OnMapGrid
   fadeIn: true
@@ -90,7 +90,7 @@
   id: General
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceGeneral
   rules: AlwaysTrue
   priority: 6
@@ -118,6 +118,7 @@
     - /Audio/NES/Ambience/general2.ogg
     - /Audio/NES/Ambience/general3.ogg
     - /Audio/NES/Ambience/general4.ogg
+    - /Audio/NES/Ambience/Ambient2.ogg
     # - /Audio/Ambience/ambispace2.ogg
     # - /Audio/Ambience/ambinice.ogg
     # - /Audio/Ambience/ambiatmos.ogg
@@ -156,23 +157,24 @@
 - type: soundCollection
   id: AmbienceMining
   files:
-    - /Audio/Ambience/ambicave.ogg
-    - /Audio/Ambience/ambidanger.ogg
-    - /Audio/Ambience/ambidanger2.ogg
-    - /Audio/Ambience/ambilava1.ogg
-    - /Audio/Ambience/ambilava2.ogg
-    - /Audio/Ambience/ambilava3.ogg
-    - /Audio/Ambience/ambimaint1.ogg
-    - /Audio/Ambience/ambimine.ogg
-    - /Audio/Ambience/ambiruin.ogg
-    - /Audio/Ambience/ambiruin2.ogg
-    - /Audio/Ambience/ambiruin3.ogg
-    - /Audio/Ambience/ambiruin4.ogg
-    - /Audio/Ambience/ambiruin5.ogg
-    - /Audio/Ambience/ambiruin6.ogg
-    - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/Ambience/voyage_neverending.ogg
-    - /Audio/Ambience/unanchored.ogg
+    # - /Audio/Ambience/ambicave.ogg
+    # - /Audio/Ambience/ambidanger.ogg
+    # - /Audio/Ambience/ambidanger2.ogg
+    # - /Audio/Ambience/ambilava1.ogg
+    # - /Audio/Ambience/ambilava2.ogg
+    # - /Audio/Ambience/ambilava3.ogg
+    # - /Audio/Ambience/ambimaint1.ogg
+    # - /Audio/Ambience/ambimine.ogg
+    # - /Audio/Ambience/ambiruin.ogg
+    # - /Audio/Ambience/ambiruin2.ogg
+    # - /Audio/Ambience/ambiruin3.ogg
+    # - /Audio/Ambience/ambiruin4.ogg
+    # - /Audio/Ambience/ambiruin5.ogg
+    # - /Audio/Ambience/ambiruin6.ogg
+    # - /Audio/Ambience/ambiruin7.ogg
+    - /Audio/NES/Ambience/Endeleas_Desert.ogg
+    - /Audio/NES/Ambience/MogueHeart_Wanderlustl.ogg
+    - /Audio/NES/Ambience/Endeleas_Traveler.ogg
 
 - type: soundCollection
   id: AmbienceRuins
