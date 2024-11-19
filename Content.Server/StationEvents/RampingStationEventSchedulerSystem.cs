@@ -1,3 +1,4 @@
+using Content.Server.Chat.Managers; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
@@ -10,6 +11,7 @@ namespace Content.Server.StationEvents;
 
 public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingStationEventSchedulerComponent>
 {
+    [Dependency] private readonly IChatManager _chatManager = default!; // DeltaV
     [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
@@ -46,7 +48,10 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         if (Resolve(uid, ref nextEventComponent, false)
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
             && firstEvent != null)
+        {
+            _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
             _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+        }
         // DeltaV - end init NextEventComp
     }
 
@@ -78,6 +83,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
                 if (!_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
                     continue;
+                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)scheduler.TimeUntilNextEvent)));
                 // Cycle the stashed event with the new generated event and time.
                 string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                 if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
