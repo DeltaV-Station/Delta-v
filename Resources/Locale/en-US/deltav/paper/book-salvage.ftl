@@ -33,22 +33,20 @@ book-text-fishops = FISHOPS ADVANCED USER MANUAL FIRST EDITION
      CHAPTER 6: Fish War
      In the event of fish war there will be double the fish, more than could possibly be carried. A reinforcement or two will be required to carry the surplus fish. A fish war has never happened in recorded history, so it is currently purely theoretical. Its destructive power would rival several neutronium bombs.
 
-book-text-vulpkanin = [bold]Vulpkanin for Dummies, an Exhaustive Guide[/bold]
+book-text-vulpkanin = Vulpkanin for Dummies, an Exhaustive Guide
 
-    So, you're new to the sector and keep seeing these fine folks running around?[/bold]
+    So, you're new to the sector and keep seeing these fine folks running around?
     Those are Vulpkanin, basically space foxes (or wolves, depending who you ask)!
     We've accumulated some quick tips you might use when engaging with these fluff balls.
 
-    [bold] No Chocolate![/bold] Seriously, it's like poison to them. Stick to burgers and fries.
+       No Chocolate! Seriously, it's like poison to them. Stick to burgers and fries.
 
-    [bold] Watch the Tail:[/bold] A wagging tail usually means they're happy. A puffed-up tail? Back away slowly...
+       Watch the Tail: A wagging tail usually means they're happy. A puffed-up tail? Back away slowly...
 
-    [bold] They Come in All Colors:[/bold] From fiery reds to snowy whites, every Vulpkanin is unique!
+       They Come in All Colors: From fiery reds to snowy whites, every Vulpkanin is unique!
 
-    [bold] Learn their Language:[/bold] While most Vulpkanin speak common, knowing a few phrases in their native tongue can go a long way in building rapport.
+       Learn their Language: While most Vulpkanin speak common, knowing a few phrases in their native tongue can go a long way in building rapport.
 
-    [bold] How to Kiss:[/bold] Kiss
+       How to Kiss: Kiss
 
-    [bold] Don't Underestimate Them:[/bold] Vulpkanin may look cute and cuddly, but they can be fierce fighters when provoked. Treat them with respect and avoid unnecessary conflict.
-
-
+       Don't Underestimate Them: Vulpkanin may look cute and cuddly, but they can be fierce fighters when provoked. Treat them with respect and avoid unnecessary conflict.
