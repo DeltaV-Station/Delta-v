@@ -58,76 +58,43 @@
       entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
-          tableId: FillHydroCoJuiceCitrus
+          tableId: FillHydroCoJuiceMix
         - !type:NestedSelector
-          tableId: FillHydroCoJuiceBerry
-        - !type:NestedSelector
-          tableId: FillHydroCoJuiceTropical
-        - !type:NestedSelector
-          tableId: FillHydroCoJuiceGarden
+          tableId: FillHydroCoJuiceRandomTin
+          prob: 0.15
         - id: SpoonPlastic
           amount: !type:ConstantNumberSelector
             value: 2
         - id: PaperCrateHydroCoConsumption
-          amount: !type:ConstantNumberSelector
-            value: 1
 
 - type: entityTable
-  id: FillHydroCoJuiceCitrus
-  table: !type:GroupSelector
+  id: FillHydroCoJuiceMix
+  table: !type:AllSelector
     children:
-    - id: ReagentTinPowderedJuiceOrange
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceLime
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceLemon
-      amount: !type:ConstantNumberSelector
-        value: 1
-
-- type: entityTable
-  id: FillHydroCoJuiceBerry
-  table: !type:GroupSelector
-    children:
-    - id: ReagentTinPowderedJuiceBerry
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceGrape
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceCherry
-      amount: !type:ConstantNumberSelector
-        value: 1
-
-- type: entityTable
-  id: FillHydroCoJuiceTropical
-  table: !type:GroupSelector
-    children:
-    - id: ReagentTinPowderedJuicePineapple
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceBanana
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceWatermelon
-      amount: !type:ConstantNumberSelector
-        value: 1
-
-
-- type: entityTable
-  id: FillHydroCoJuiceGarden
-  table: !type:GroupSelector
-    children:
-    - id: ReagentTinPowderedJuiceApple
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceCarrot
-      amount: !type:ConstantNumberSelector
-        value: 1
-    - id: ReagentTinPowderedJuiceTomato
-      amount: !type:ConstantNumberSelector
-        value: 1
+    #Citrus
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceOrange
+      - id: ReagentTinPowderedJuiceLime
+      - id: ReagentTinPowderedJuiceLemon
+    #Berry
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceBerry
+      - id: ReagentTinPowderedJuiceGrape
+      - id: ReagentTinPowderedJuiceCherry
+    #Tropical
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuicePineapple
+      - id: ReagentTinPowderedJuiceBanana
+      - id: ReagentTinPowderedJuiceWatermelon
+    #Garden
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceApple
+      - id: ReagentTinPowderedJuiceCarrot
+      - id: ReagentTinPowderedJuiceTomato
 
 - type: entityTable
   id: FillHydroCoJuiceRandomTin
