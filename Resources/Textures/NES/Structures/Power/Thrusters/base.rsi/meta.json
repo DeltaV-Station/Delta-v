@@ -8,10 +8,12 @@
   "license": "CC-BY-SA-3.0",
   "states": [
     {
-      "name": "base"
+      "name": "base",
+      "directions": 4
     },
     {
       "name": "thrust",
+      "directions": 4,
       "delays": [
         [
           0.1,
@@ -25,6 +27,7 @@
     },
     {
       "name": "thrust_burn_unshaded",
+      "directions": 4,
       "delays": [
         [
           0.1,
