@@ -13,20 +13,19 @@ public sealed class PainSystem : SharedPainSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PainComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<PainComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnInit(Entity<PainComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<PainComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdateTime = _timing.CurTime;
         ent.Comp.NextPopupTime = _timing.CurTime;
     }
 
-    protected override void UpdatePainSuppression(Entity<PainComponent> ent, float duration, PainSuppressionLevel level)
+    protected override void UpdatePainSuppression(Entity<PainComponent> ent, float duration, byte level)
     {
         var curTime = _timing.CurTime;
         var newEndTime = curTime + TimeSpan.FromSeconds(duration);

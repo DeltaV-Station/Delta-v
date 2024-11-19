@@ -12,7 +12,7 @@ public sealed partial class SuppressAddiction : EntityEffect
     [DataField]
     public float SuppressionTime = 30f;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-addiction-suppression",
             ("chance", Probability));
 

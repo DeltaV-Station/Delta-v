@@ -87,7 +87,7 @@
         - !type:ReagentThreshold
           reagent: Ethanol # Alcohol makes it really easy to overdose by increasing your body's absorption of the medicine.
           min: 1
-        reagent: Neurozenium
+        reagent: Neurozenium 
         amount: 0.15
       - !type:AdjustReagent
         conditions:
@@ -164,10 +164,10 @@
           min: 5.1
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentThreshold 
           min: 5.1
         key: SeeingRainbows # hallucinations set in after 40 seconds, meaning ~0.40u overdose untreated.
-        component: SeeingRainbows
+        component: SeeingRainbows 
         type: Add
         time: 1.1
         refresh: false
@@ -176,7 +176,7 @@
         - !type:ReagentThreshold
           reagent: Ethanol # Alcohol makes it really easy to overdose by increasing your body's absorption of the medicine.
           min: 1
-        reagent: Blissifylovene
+        reagent: Blissifylovene 
         amount: 0.15
       - !type:AdjustReagent
         conditions:
@@ -477,7 +477,7 @@
       - !type:SatiateHunger # causes digestion inefficiency during overdose
         factor: -1.2
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentThreshold 
             min: 14
       - !type:ChemVomit
         probability: 0.8
@@ -488,7 +488,7 @@
       - !type:SatiateHunger # causes digestion inefficiency if you drink alcohol
         factor: -2.0
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentThreshold 
             reagent: Ethanol
             min: 2
       - !type:PopupMessage
@@ -644,3 +644,4 @@
         conditions:
           - !type:ReagentThreshold
             max: 0.1
+          

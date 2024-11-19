@@ -12,14 +12,15 @@ public sealed partial class Addicted : EntityEffect
     [DataField]
     public float AddictionTime = 5f;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-addicted", ("chance", Probability));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
         var addictionTime = AddictionTime;
 
-        if (args is EntityEffectReagentArgs reagentArgs) {
+        if (args is EntityEffectReagentArgs reagentArgs)
+        {
             addictionTime *= reagentArgs.Scale.Float();
         }
 
