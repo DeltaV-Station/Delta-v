@@ -110,7 +110,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
 
         // Determines the window that will be looked at for events, avoiding events that are too close or too far to be useful.
         var minDetectWindow = TimeSpan.FromSeconds(30);
-        var maxDetectWindow = TimeSpan.FromMinutes(5);
+        var maxDetectWindow = TimeSpan.FromMinutes(10);
         string? message = null;
 
         if (!_mind.TryGetMind(uid, out _, out var mindComponent) || mindComponent.Session == null)
