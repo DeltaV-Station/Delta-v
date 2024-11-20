@@ -22,6 +22,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -49,9 +50,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         SubscribeLocalEvent<SiliconLawProviderComponent, GetSiliconLawsEvent>(OnDirectedGetLaws);
         SubscribeLocalEvent<SiliconLawProviderComponent, IonStormLawsEvent>(OnIonStormLaws);
+        SubscribeLocalEvent<SiliconLawProviderComponent, MindAddedMessage>(OnLawProviderMindAdded);
+        SubscribeLocalEvent<SiliconLawProviderComponent, MindRemovedMessage>(OnLawProviderMindRemoved);
         SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnEmagLawsAdded);
-        SubscribeLocalEvent<EmagSiliconLawComponent, MindAddedMessage>(OnEmagMindAdded);
-        SubscribeLocalEvent<EmagSiliconLawComponent, MindRemovedMessage>(OnEmagMindRemoved);
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -141,6 +142,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             // gotta tell player to check their laws
             NotifyLawsChanged(uid, component.LawUploadSound);
 
+            // Show the silicon has been subverted.
+            component.Subverted = true;
+
             // new laws may allow antagonist behaviour so make it clear for admins
             if(_mind.TryGetMind(uid, out var mindId, out _))
                 EnsureSubvertedSiliconRole(mindId);
@@ -153,6 +157,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
+
+        // Show the silicon has been subverted.
+        component.Subverted = true;
 
         // Add the first emag law before the others
         var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.UserUid); // DeltaV: Reuse emagger name if possible
@@ -184,27 +191,16 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     }
 
-    private void OnEmagMindAdded(EntityUid uid, EmagSiliconLawComponent component, MindAddedMessage args)
+    private void EnsureSubvertedSiliconRole(EntityUid mindId)
     {
-        if (HasComp<EmaggedComponent>(uid))
-            EnsureEmaggedRole(uid, component);
-    }
-
-    private void OnEmagMindRemoved(EntityUid uid, EmagSiliconLawComponent component, MindRemovedMessage args)
-    {
-        if (component.AntagonistRole == null)
-            return;
-
-        _roles.MindTryRemoveRole<SubvertedSiliconRoleComponent>(args.Mind);
-    }
-
-    private void EnsureEmaggedRole(EntityUid uid, EmagSiliconLawComponent component)
-    {
-        if (component.AntagonistRole == null || !_mind.TryGetMind(uid, out var mindId, out _))
-            return;
-
         if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
             _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon");
+    }
+
+    private void RemoveSubvertedSiliconRole(EntityUid mindId)
+    {
+        if (_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
+            _roles.MindTryRemoveRole<SubvertedSiliconRoleComponent>(mindId);
     }
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
