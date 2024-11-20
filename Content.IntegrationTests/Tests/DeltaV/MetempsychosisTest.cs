@@ -1,12 +1,10 @@
-using Content.Server.Nyanotrasen.Cloning;
+using Content.Server.DeltaV.Cloning;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.DeltaV;
 
 [TestFixture]
-[TestOf(typeof(MetempsychoticMachineSystem))]
 public sealed class MetempsychosisTest
 {
     [Test]
@@ -23,18 +21,22 @@ public sealed class MetempsychosisTest
 
         await server.WaitAssertion(() =>
         {
-            prototypeManager.TryIndex<WeightedRandomPrototype>(metemComponent.MetempsychoticHumanoidPool,
+            prototypeManager.TryIndex(metemComponent.MetempsychoticHumanoidPool,
                 out var humanoidPool);
-            prototypeManager.TryIndex<WeightedRandomPrototype>(metemComponent.MetempsychoticNonHumanoidPool,
+            prototypeManager.TryIndex(metemComponent.MetempsychoticNonHumanoidPool,
                 out var nonHumanoidPool);
 
-            Assert.That(humanoidPool, Is.Not.Null, "MetempsychoticHumanoidPool is null!");
-            Assert.That(nonHumanoidPool, Is.Not.Null, "MetempsychoticNonHumanoidPool is null!");
-
-            Assert.That(humanoidPool.Weights, Is.Not.Empty,
-                "MetempsychoticHumanoidPool has no valid prototypes!");
-            Assert.That(nonHumanoidPool.Weights, Is.Not.Empty,
-                "MetempsychoticNonHumanoidPool has no valid prototypes!");
+            Assert.Multiple(() =>
+            {
+                Assert.That(humanoidPool, Is.Not.Null, "MetempsychoticHumanoidPool is null!");
+                Assert.That(nonHumanoidPool, Is.Not.Null, "MetempsychoticNonHumanoidPool is null!");
+                Assert.That(humanoidPool.Weights,
+                    Is.Not.Empty,
+                    "MetempsychoticHumanoidPool has no valid prototypes!");
+                Assert.That(nonHumanoidPool.Weights,
+                    Is.Not.Empty,
+                    "MetempsychoticNonHumanoidPool has no valid prototypes!");
+            });
 
             foreach (var key in humanoidPool.Weights.Keys)
             {
