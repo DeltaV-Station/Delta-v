@@ -1,62 +1,4 @@
 ﻿Entries:
-- author: BramvanZijp
-  changes:
-  - message: Security dogs now can wear an id card and radio, are able to drag things,
-      and have received additional combat training.
-    type: Tweak
-  id: 184
-  time: '2023-12-28T09:32:10.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Gives shoukou an oxygen miner until air actualy works.
-    type: Fix
-  id: 185
-  time: '2023-12-28T21:38:57.0000000+00:00'
-- author: Master2112
-  changes:
-  - message: Crime Assist program to Security and Lawyer PDA's, to help identify a
-      crime with a simple yes/no question tree.
-    type: Add
-  id: 186
-  time: '2023-12-29T19:34:56.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Added Scottish Trait.
-    type: Add
-  - message: Added Kilt to Theatervend.
-    type: Add
-  id: 187
-  time: '2023-12-29T19:44:44.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Mail no longer has throwing damage.
-    type: Tweak
-  id: 188
-  time: '2023-12-29T19:53:10.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Space winter is officially over!
-    type: Remove
-  id: 189
-  time: '2023-12-30T14:15:42.0000000+00:00'
-- author: Master2112
-  changes:
-  - message: Fixed incorrect reference to ftl in crimeassist yaml
-    type: Fix
-  id: 190
-  time: '2023-12-30T22:03:53.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added a fluffy tail for the felinids.
-    type: Add
-  id: 191
-  time: '2023-12-30T22:05:52.0000000+00:00'
-- author: DarkenedSynergy
-  changes:
-  - message: Fixed logistics airlocks looking like engineering airlocks when opened.
-    type: Fix
-  id: 192
-  time: '2023-12-31T16:23:10.0000000+00:00'
 - author: DangerRevolution and VMSolidus
   changes:
   - message: Rumours say that Syndicate Agents have cracked encoded communications!
@@ -3739,3 +3681,70 @@
   id: 683
   time: '2024-11-18T02:08:58.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2214
+- author: Stareostar, Mylegsaresharp, Aikakakah
+  changes:
+  - message: Added new lobby art to the rotation!
+    type: Add
+  id: 684
+  time: '2024-11-18T17:05:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2226
+- author: Lyndomen, SleepyApril
+  changes:
+  - message: Normal kill targets now just need to be killed once- but it needs to
+      teach them a lesson that will be remembered
+    type: Tweak
+  id: 685
+  time: '2024-11-19T03:58:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2225
+- author: Lyndomen
+  changes:
+  - message: Added holiday cheer
+    type: Add
+  id: 686
+  time: '2024-11-19T05:46:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2233
+- author: Kr8art
+  changes:
+  - message: New mail-themed poster!
+    type: Add
+  id: 687
+  time: '2024-11-19T17:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2239
+- author: MilonPL, dotCatshark
+  changes:
+  - message: Added self-refilling bluespace fire extinguishers! They can be unlocked
+      in the T2 industrial research!
+    type: Add
+  id: 688
+  time: '2024-11-19T20:57:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2171
+- author: MilonPL
+  changes:
+  - message: Added Chronic pain and Addicted traits.
+    type: Add
+  - message: Reworked the addictions system.
+    type: Tweak
+  id: 689
+  time: '2024-11-20T00:59:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2192
+- author: Lyndomen
+  changes:
+  - message: Ported footprints and bloodstains from EE. Sorry Janitors.
+    type: Add
+  id: 690
+  time: '2024-11-20T01:00:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2186
+- author: therealDLondon
+  changes:
+  - message: 'New Lobby Track: "Undefined Theory" by A-Guy'
+    type: Add
+  id: 691
+  time: '2024-11-20T01:10:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2234
+- author: MilonPL
+  changes:
+  - message: Fixed pain effect popups being visible to everyone.
+    type: Fix
+  id: 692
+  time: '2024-11-20T20:26:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2248
