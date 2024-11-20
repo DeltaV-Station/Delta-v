@@ -110,9 +110,12 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: MovementSpeedModifier # start DeltaV Diona difference
+  - type: MovementSpeedModifier # start DeltaV
     baseWalkSpeed: 1.0
-    baseSprintSpeed: 3.0  # end DeltaV Diona difference
+    baseSprintSpeed: 3.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.0
+    baseSprintSpeed: 3.0  # end DeltaV
 
 - type: entity
   parent: BaseSpeciesDummy
