@@ -97,7 +97,7 @@
   - type: IgnoreKudzu
   - type: IgniteOnHeatDamage
     fireStacks: 1
-    threshold: 20 # DeltaV Diona difference - ignites on laser rifle hit with no armor- armor stops ignite
+    threshold: 12
   - type: GibAction
     actionPrototype: DionaGibAction
     allowedStates:
@@ -110,10 +110,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # DeltaV port from EE, blood splatter
+  - type: FootPrints # begin DeltaV
     leftBarePrint: "footprint-left-bare-diona"
     rightBarePrint: "footprint-right-bare-diona"
-  - type: MovementSpeedModifier # DeltaV
+  - type: MovementSpeedModifier
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0  # end DeltaV
 
