@@ -12,9 +12,11 @@ using Content.Shared.Popups;
 using Content.Shared.Psionics.Events;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics;
 
@@ -24,6 +26,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -77,6 +80,9 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
         component.DoAfter = doAfterId;
 
+        var player = _audio.PlayGlobal(component.VisionSound, Filter.Entities(uid), true);
+        if (player != null)
+            component.SoundStream = player.Value.Entity;
         _psionics.LogPowerUsed(uid, "Precognition");
         args.Handled = true;
     }
@@ -95,6 +101,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         if (args.Cancelled)
         {
             // Need to clean up the applied effects in case of cancel and alert the player.
+            component.SoundStream = _audio.Stop(component.SoundStream);
             _statusEffects.TryRemoveStatusEffect(uid, "TemporaryBlindness");
             _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
             _popups.PopupEntity(Loc.GetString("psionic-power-precognition-failure-by-damage"), uid, uid, PopupType.MediumCaution);
@@ -158,12 +165,12 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             sumOfWeights += (int)precognitionResult.Weight;
 
         sumOfWeights = _random.Next(sumOfWeights);
-        foreach (var (proto, stationEvent) in precognitionResults)
+        foreach (var precognitionResult in precognitionResults.Values)
         {
-            sumOfWeights -= (int)stationEvent.Weight;
+            sumOfWeights -= (int)precognitionResult.Weight;
 
             if (sumOfWeights <= 0)
-                return proto.ID;
+                return precognitionResult.Message;
         }
 
         Log.Error("Result was not found after weighted pick process!");
