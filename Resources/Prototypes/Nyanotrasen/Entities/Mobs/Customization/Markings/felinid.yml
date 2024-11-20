@@ -151,3 +151,65 @@
     state: basic_bow
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_bell
+
+# Felinid Tail Wag (DeltaV)
+
+- type: marking
+  id: FelinidTailBasicAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [] 
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd_wag
+
+- type: marking
+  id: FelinidTailBasicWithBowAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [] 
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow_wag
+
+- type: marking
+  id: FelinidTailBasicWithBellAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [] 
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell_wag
+
+- type: marking
+  id: FelinidTailBasicWithBowAndBellAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [] 
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow_wag
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell_wag

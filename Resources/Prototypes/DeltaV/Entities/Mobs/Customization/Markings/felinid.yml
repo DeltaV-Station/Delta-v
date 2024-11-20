@@ -1,3 +1,4 @@
+#Other Tails
 - type: marking
   id: FelinidFluffyTailRings
   bodyPart: Tail
@@ -39,3 +40,24 @@
       state: m_tail_tiger_secondary
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_tertiary
+
+# Animated Tails
+- type: marking
+  id: FelinidFluffyTailRingsAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full_wag
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings_wag
+
+- type: marking
+  id: FelinidFluffyTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full_wag

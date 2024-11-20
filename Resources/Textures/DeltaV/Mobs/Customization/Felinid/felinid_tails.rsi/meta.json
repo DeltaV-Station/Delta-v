@@ -9,6 +9,14 @@
     "states": [
         {
             "name": "felinid_fluffy_tail_rings",
+            "directions": 4
+        },
+        {
+            "name": "felinid_fluffy_tail_full_wag",
+            "directions": 4
+        },
+        {
+            "name": "felinid_fluffy_tail_rings_wag",
             "directions": 4,
             "delays": [
                 [
@@ -58,7 +66,7 @@
             ]
         },
         {
-            "name": "Felinid_fluffy_tail_full",
+            "name": "felinid_fluffy_tail_full",
             "directions": 4,
             "delays": [
                 [
@@ -106,6 +114,6 @@
                     0.2
                 ]
             ]
-        }  
+        }
     ]
 }
