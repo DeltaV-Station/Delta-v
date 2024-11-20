@@ -1,0 +1,32 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+void fragment() {
+    highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+    highp float time = TIME * 0.3;
+
+    const highp float distortAmount = 0.003;
+
+    highp vec2 waveOffset = vec2(
+        distortAmount * (
+            sin(time * 0.5 + coord.y * 4.0) +  // Primary wave
+            sin(time * 0.7 + coord.y * 8.0) * 0.5 +  // Secondary faster wave
+            sin(time * 0.2 + coord.x * 3.0) * 0.8    // Slower cross wave
+        ),
+        distortAmount * (
+            cos(time * 0.5 + coord.x * 4.0) +  // Primary wave
+            cos(time * 0.7 + coord.x * 8.0) * 0.5 +  // Secondary faster wave
+            cos(time * 0.2 + coord.y * 3.0) * 0.8    // Slower cross wave
+        )
+    );
+
+    highp vec4 redChannel = zTextureSpec(SCREEN_TEXTURE, coord + waveOffset * 1.5 + vec2(-distortAmount * 2.0, distortAmount));
+    highp vec4 greenChannel = zTextureSpec(SCREEN_TEXTURE, coord + waveOffset);
+    highp vec4 blueChannel = zTextureSpec(SCREEN_TEXTURE, coord + waveOffset * 1.2 + vec2(distortAmount * 2.0, -distortAmount));
+
+    COLOR = vec4(
+        redChannel.r,
+        greenChannel.g,
+        blueChannel.b,
+        (redChannel.a + greenChannel.a + blueChannel.a) / 3.0
+    );
+}
