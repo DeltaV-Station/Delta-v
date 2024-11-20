@@ -104,7 +104,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             component.SoundStream = _audio.Stop(component.SoundStream);
             _statusEffects.TryRemoveStatusEffect(uid, "TemporaryBlindness");
             _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
-            _popups.PopupEntity(Loc.GetString("psionic-power-precognition-failure-by-damage"), uid, uid, PopupType.MediumCaution);
+            _popups.PopupEntity(Loc.GetString("psionic-power-precognition-failure-by-damage"), uid, uid, PopupType.SmallCaution);
             return;
         }
 
