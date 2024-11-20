@@ -4,27 +4,28 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;
 
-public sealed partial class Addicted : EntityEffect
+public sealed partial class SuppressAddiction : EntityEffect
 {
     /// <summary>
-    /// How long should each metabolism cycle make the effect last for.
+    /// How long should the addiction suppression last for each metabolism cycle
     /// </summary>
     [DataField]
-    public float AddictionTime = 5f;
+    public float SuppressionTime = 30f;
 
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-addicted", ("chance", Probability));
+        => Loc.GetString("reagent-effect-guidebook-addiction-suppression",
+            ("chance", Probability));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        var addictionTime = AddictionTime;
+        var suppressionTime = SuppressionTime;
 
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            addictionTime *= reagentArgs.Scale.Float();
+            suppressionTime *= reagentArgs.Scale.Float();
         }
 
         var addictionSystem = args.EntityManager.System<SharedAddictionSystem>();
-        addictionSystem.TryApplyAddiction(args.TargetEntity, addictionTime);
+        addictionSystem.TrySuppressAddiction(args.TargetEntity, suppressionTime);
     }
 }
