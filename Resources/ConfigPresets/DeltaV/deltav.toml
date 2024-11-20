@@ -39,8 +39,10 @@ uptime_restart_minutes = 2880 # 48h
 [discord]
 rich_main_icon_id = "deltav"
 
+# general mrp stuff
 [ic]
 flavor_text = true
+punctuation = true
 
 # Disabled because it causes giga lag
 #[worldgen]
@@ -71,8 +73,3 @@ auto_call_extension_time = 30 # next auto call at 2h30
 
 [biomass]
 easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
-
-# general mrp stuff
-[ic]
-flavor_text = true
-punctuation = true
