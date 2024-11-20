@@ -29,10 +29,10 @@
       path: /Audio/Announcements/meteors.ogg
       params:
         volume: -4
+    duration: null #ending is handled by MeteorSwarmRule
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
     randomResultWeight: 1
-    duration: null #ending is handled by MeteorSwarmRule
   - type: MeteorSwarmRule
 
 - type: entity
