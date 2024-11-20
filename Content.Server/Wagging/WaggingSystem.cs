@@ -63,7 +63,7 @@ public sealed class WaggingSystem : EntitySystem
         if (markings.Count == 0)
             return false;
 
-        wagging.Wagging = !wagging.Wagging; // Einstein-Engines
+        wagging.Wagging = !wagging.Wagging;
 
         _actions.SetToggled(wagging.ActionEntity, wagging.Wagging); // Einstein-Engines
 
