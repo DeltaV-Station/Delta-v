@@ -30,6 +30,19 @@ public sealed class AddictionSystem : SharedAddictionSystem
         SubscribeLocalEvent<AddictedComponent, ComponentStartup>(OnInit);
     }
 
+    protected override void UpdateAddictionSuppression(Entity<AddictedComponent> ent, float duration)
+    {
+        var curTime = _timing.CurTime;
+        var newEndTime = curTime + TimeSpan.FromSeconds(duration);
+
+        // Only update if this would extend the suppression
+        if (newEndTime <= ent.Comp.SuppressionEndTime)
+            return;
+
+        ent.Comp.SuppressionEndTime = newEndTime;
+        UpdateSuppressed(ent.Comp);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
