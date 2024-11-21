@@ -1261,24 +1261,24 @@
 
 # Implants
 
-- type: listing
-  id: UplinkStorageImplanter
-  name: uplink-storage-implanter-name
-  description: uplink-storage-implanter-desc
-  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
-  productEntity: StorageImplanter
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 5 # DeltaV
-  cost:
-    Telecrystal: 10 # DeltaV - Was 8
-  categories:
-    - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+#- type: listing # DeltaV - Removed storage implanter.
+#  id: UplinkStorageImplanter
+#  name: uplink-storage-implanter-name
+#  description: uplink-storage-implanter-desc
+#  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
+#  productEntity: StorageImplanter
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 5 # DeltaV
+#  cost:
+#    Telecrystal: 10 # DeltaV - Was 8
+#  categories:
+#    - UplinkImplants
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      blacklist:
+#        tags:
+#          - NukeOpsUplink
 
 - type: listing
   id: UplinkFreedomImplanter
