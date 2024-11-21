@@ -1,8 +1,8 @@
 - type: entity
-  save: false
-  name: Urist McFin
   parent: BaseMobSpeciesOrganic
   id: BaseMobFeroxi
+  name: Urist McFin
+  save: false
   abstract: true
   components:
   - type: HumanoidAppearance
@@ -95,10 +95,10 @@
     dehydrationThreshold: 150
 
 - type: entity
-  save: false
-  name: Feroxi Dummy
   parent: MobHumanDummy
   id: MobFeroxiDummy
+  name: Feroxi Dummy
+  save: false
   categories: [ HideSpawnMenu ]
   description: A dummy feroxi meant to be used in character setup.
   components:

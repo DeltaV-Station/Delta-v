@@ -1,6 +1,6 @@
 - type: entity
-  id: OrganFeroxiStomach
   parent: OrganAnimalStomach
+  id: OrganFeroxiStomach
   categories: [ HideSpawnMenu ]
   components:
   - type: Stomach
@@ -22,8 +22,8 @@
           Quantity: 5
 
 - type: entity
-  id: OrganFeroxiLungs
   parent: BaseHumanOrgan
+  id: OrganFeroxiLungs
   name: Aquatic Lungs
   description: "A pair of amphibious lungs, filtering oxygen out of the air continuously."
   components:
