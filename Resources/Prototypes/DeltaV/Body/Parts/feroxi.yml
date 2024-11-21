@@ -1,7 +1,7 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  parent: [BaseItem, BasePart]
+  parent: [ BasePart ]
   id: PartFeroxi
   name: feroxi body part
   abstract: true
@@ -15,7 +15,7 @@
         Quantity: 10
 
 - type: entity
-  parent: [PartFeroxi, BaseTorso]
+  parent: [ PartFeroxi, BaseTorso ]
   id: TorsoFeroxi
   name: feroxi torso
   components:
@@ -31,7 +31,7 @@
         Quantity: 20
 
 - type: entity
-  parent: [PartFeroxi, BaseHead]
+  parent: [ PartFeroxi, BaseHead ]
   id: HeadFeroxi
   name: feroxi head
   components:
@@ -47,7 +47,7 @@
         Quantity: 10
 
 - type: entity
-  parent: [PartFeroxi, BaseLeftArm]
+  parent: [ PartFeroxi, BaseLeftArm ]
   id: LeftArmFeroxi
   name: left feroxi arm
   components:
@@ -56,7 +56,7 @@
     state: "l_arm"
 
 - type: entity
-  parent: [PartFeroxi, BaseRightArm]
+  parent: [ PartFeroxi, BaseRightArm ]
   id: RightArmFeroxi
   name: right feroxi arm
   components:
@@ -65,7 +65,7 @@
     state: "r_arm"
 
 - type: entity
-  parent: [PartFeroxi, BaseLeftHand]
+  parent: [ PartFeroxi, BaseLeftHand ]
   id: LeftHandFeroxi
   name: left feroxi hand
   components:
@@ -74,7 +74,7 @@
     state: "l_hand"
 
 - type: entity
-  parent: [PartFeroxi, BaseRightHand]
+  parent: [ PartFeroxi, BaseRightHand ]
   id: RightHandFeroxi
   name: right feroxi hand
   components:
@@ -83,7 +83,7 @@
     state: "r_hand"
 
 - type: entity
-  parent: [PartFeroxi, BaseLeftLeg]
+  parent: [ PartFeroxi, BaseLeftLeg ]
   id: LeftLegFeroxi
   name: left feroxi leg
   components:
@@ -92,7 +92,7 @@
     state: "l_leg"
 
 - type: entity
-  parent: [PartFeroxi, BaseRightLeg]
+  parent: [ PartFeroxi, BaseRightLeg ]
   id: RightLegFeroxi
   name: right feroxi leg
   components:
@@ -101,7 +101,7 @@
     state: "r_leg"
 
 - type: entity
-  parent: [PartFeroxi, BaseLeftFoot]
+  parent: [ PartFeroxi, BaseLeftFoot ]
   id: LeftFootFeroxi
   name: left feroxi foot
   components:
@@ -110,7 +110,7 @@
     state: "l_foot"
 
 - type: entity
-  parent: [PartFeroxi, BaseRightFoot]
+  parent: [ PartFeroxi, BaseRightFoot ]
   id: RightFootFeroxi
   name: right feroxi foot
   components:
