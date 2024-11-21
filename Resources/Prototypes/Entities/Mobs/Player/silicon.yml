@@ -173,7 +173,7 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PaladinLawset
-    
+
 - type: entity
   id: LiveLetLiveCircuitBoard
   parent: BaseElectronics
@@ -185,7 +185,7 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
-    
+
 - type: entity
   id: StationEfficiencyCircuitBoard
   parent: BaseElectronics
@@ -209,7 +209,7 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: RobocopLawset
-    
+
 - type: entity
   id: OverlordCircuitBoard
   parent: BaseElectronics
@@ -221,7 +221,7 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: OverlordLawset
-    
+
 - type: entity
   id: DungeonMasterCircuitBoard
   parent: BaseElectronics
@@ -417,7 +417,7 @@
   - type: Sprite
     sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
     layers:
-    - state: default
+    - state: ai_camera
       shader: unshaded
       map: ["base"]
 

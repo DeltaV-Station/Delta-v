@@ -8,7 +8,15 @@
   },
   "states": [
     {
-      "name": "ai"
+      "name": "ai",
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "ai_camera",
