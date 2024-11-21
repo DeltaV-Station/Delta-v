@@ -32,10 +32,10 @@
   description: An arrest warrant for a space fugitive sent from GALPOL.
 
 - type: entity
-  id: PaperCrateHydroCoConsumption
-  categories: [ HideSpawnMenu ]
-  name: HydroCo Notice
   parent: Paper
+  id: PaperCrateHydroCoConsumption
+  name: HydroCo Notice
+  categories: [ HideSpawnMenu ]
   components:
   - type: Paper
     stampState: paper_stamp-generic
@@ -59,10 +59,10 @@
       Enjoy your drinks!
 
 - type: entity
-  id: PaperMailHydroCoTrial
-  categories: [ HideSpawnMenu ]
-  name: HydroCo Trial Message
   parent: Paper
+  id: PaperMailHydroCoTrial
+  name: HydroCo Trial Message
+  categories: [ HideSpawnMenu ]
   components:
   - type: Paper
     stampState: paper_stamp-generic
