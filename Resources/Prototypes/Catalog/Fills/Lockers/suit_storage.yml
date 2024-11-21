@@ -111,8 +111,7 @@
     contents:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
-        - id: Nes14ClothingOuterHardsuitEngineer
-        - id: Nes14ClothingHeadHelmetHardsuitEngi
+        - id: ClothingOuterHardsuitEngineering
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
@@ -239,12 +238,10 @@
   parent: SuitStorageBase
   suffix: Salvage
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: Nes14ClothingOuterHardsuitSalvage
-        - id: Nes14ClothingHeadHelmetHardsuitSalvage
-        - id: ClothingMaskBreath
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSalvageSpecialistHardsuitSpatio
   - type: AccessReader
     access: [["Salvage"]]
 
@@ -277,7 +274,6 @@
       - id: OxygenTankFilled
       - id: ClothingOuterHardsuitCombatCorpsman
       - id: ClothingMaskBreath
-      - id: ClothingShoesBootsSecurityMagboots #Added security magboots.
   - type: AccessReader
     access: [ [ "Corpsman" ] ]
 

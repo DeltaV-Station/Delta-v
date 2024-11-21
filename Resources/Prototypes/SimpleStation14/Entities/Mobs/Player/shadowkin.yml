@@ -73,8 +73,8 @@
         layer:
           - MobLayer
   - type: Sprite
-    scale: 0.8, 0.8 # Small
-    zoom: "0.85, 0.85"
+    # scale: 0.8, 0.8 # Small #Scale часто ломает элементы наложения хвостов, одежды и прочего, и мне так захотелось
+    # zoom: "0.85, 0.85"
   - type: MeleeWeapon
     soundHit:
       collection: Punch
