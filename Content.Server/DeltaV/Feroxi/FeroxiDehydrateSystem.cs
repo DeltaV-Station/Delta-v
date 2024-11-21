@@ -6,9 +6,9 @@ namespace Content.Server.DeltaV.Feroxi;
 
 public sealed class FeroxiDehydrateSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
-    private const float DehydrationThreshold = 150f;
+    private const float DehydrationThreshold;
 
     public override void Update(float frameTime)
     {
