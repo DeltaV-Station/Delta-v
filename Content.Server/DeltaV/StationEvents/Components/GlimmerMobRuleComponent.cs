@@ -18,6 +18,12 @@ public sealed partial class GlimmerMobRuleComponent : Component
     public EntProtoId MobPrototype = string.Empty;
 
     /// <summary>
+    /// Hard cap on spawns, regardless of glimmer or psionics.
+    /// </summary>
+    [DataField]
+    public int? MaxSpawns;
+
+    /// <summary>
     /// Every this number of psionics spawns 1 mob.
     /// </summary>
     [DataField]

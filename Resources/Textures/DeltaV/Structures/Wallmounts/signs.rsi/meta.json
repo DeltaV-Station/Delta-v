@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "directional sprites taken from https://github.com/space-wizards/space-station-14/commit/c1556214de46d66fe4057500e269b17438dc96ca | direction_mail modified by Hyenh, direction_logi modified by Floofers | direction_court, direction_justice by leonardo_dabepis (Discord)",
+    "copyright": "directional sprites taken from https://github.com/space-wizards/space-station-14/commit/c1556214de46d66fe4057500e269b17438dc96ca | direction_mail modified by Hyenh, direction_logi modified by Floofers | direction_court, direction_justice by leonardo_dabepis (Discord) | chapel modified from upstream sprite by Lyndomen (github)",
     "size": {
         "x": 32,
         "y": 32
@@ -22,6 +22,13 @@
         {
             "name": "direction_justice",
             "directions": 4
+        },
+        {
+            "name": "direction_aicore",
+            "directions": 4
+        },
+        {
+            "name": "chapel"
         }
     ]
 }

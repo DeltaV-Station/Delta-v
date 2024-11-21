@@ -132,3 +132,56 @@
     node: flintlock
   - type: UseDelay
     delay: 0 #Straight up doesn't work for guns
+
+- type: entity
+  name: SLP-67 "Volk"
+  parent: BaseWeaponPistol
+  id: WeaponPistolSLP67
+  description: The SLP-67, featuring a fullsize polymer frame and extended slide, improves upon its predecessor in ergonomics, accuracy, and capacity. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/slp67.rsi
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/slp67.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHighCapacity
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
+- type: entity
+  name: SLP-57
+  parent: BaseWeaponPistol
+  id: WeaponPistolSLP57
+  description: The ubiquitous, compact, and reliable Self-Loading Pistol, Model 57. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/slp57.rsi
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/slp57.rsi
+  - type: Gun
+    minAngle: 0
+    maxAngle: 30
+    angleIncrease: 10
+    angleDecay: 100
+    fireRate: 6
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg

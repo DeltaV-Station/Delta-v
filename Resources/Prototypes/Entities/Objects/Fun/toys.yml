@@ -35,6 +35,7 @@
     damage:
       types:
         Blunt: 0
+    hidden: true
   - type: PhysicalComposition
     materialComposition:
       Cloth: 100
@@ -52,6 +53,24 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  - type: Speech
+    speechVerb: Default # for pais (In the secret stash)
+  - type: SecretStash
+    secretStashName: secret-stash-plushie
+    blacklist:
+      components:
+      - SecretStash # Prevents being able to insert plushies inside each other (infinite plush)!
+      - NukeDisk # Could confuse the nukies if they don't know that plushies have a stash.
+      tags:
+      - QuantumSpinInverter # It will cause issues with the grinder...
+      - FakeNukeDisk # So you can't tell if the nuke disk is real or fake depending on if it can be inserted or not.
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Slicing # Should probably be stitching or something if that gets added
+    name: secret-stash-plushie
 
 - type: entity
   parent: BasePlushie
@@ -323,6 +342,25 @@
     equippedPrefix: lizard
     slots:
     - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieRainbowLizard #Weh but gay
+  description: An adorable stuffed toy that resembles a lizardperson of every color. You just might trip while staring at it...
+  name: rainbow lizard plushie
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: lizard-equipped-HELMET
+        shader: unshaded
 
 - type: entity
   parent: PlushieLizard
@@ -563,7 +601,9 @@
     animation: WeaponArcBite # Rrrr!
   - type: Tag
     tags:
-    - PlushieCarp # DeltaV - fish labeler craft
+    - Payload
+    - ClothMade
+    - PlushieCarp
 
 - type: entity
   parent: PlushieCarp
@@ -666,6 +706,17 @@
     equippedPrefix: mouse
     slots:
     - HEAD
+  # Begin DeltaV additions: make cats attack mouse toys to play with them
+  - type: Damageable
+    damageContainer: StructuralInorganic # not actually destructible, just lets it be attacked
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive # always be considered alive
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  # End DeltaV additions
 
 - type: entity
   parent: BasePlushie
@@ -987,6 +1038,7 @@
     tags:
     - Sidearm
     - ToySidearm
+    - ConcealCarry # DeltaV - can be stowed in military boots for now
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -1326,10 +1378,9 @@
     sprite: Objects/Weapons/Melee/cutlass.rsi
     state: foam_icon
   - type: MeleeWeapon
+    wideAnimationRotation: -135
     attackRate: 1.5
     range: 2.0
-    angle: 0
-    animation: WeaponArcThrust
     damage:
       types:
         Blunt: 0
@@ -1553,3 +1604,52 @@
 #      params:
 #        volume: -9
 #        maxDistance: 3
+
+- type: entity
+  parent: BasePlushie
+  id: RubberChicken
+  name: rubber chicken
+  description: A stress inducing parody of nature's most delectable avian.
+  components:
+  - type: Sprite
+    state: rubber_chicken
+  - type: EmitSoundOnUse
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnActivate
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: 110
+    soundHit:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25

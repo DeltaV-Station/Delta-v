@@ -104,11 +104,12 @@
       types:
         Blunt: 1
 
+# DeltaV - We're keping rubbers so make sure to keep this updated
 - type: entity
   id: BaseBulletRubber
   name: base bullet rubber
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -1029,15 +1030,16 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+       # - Impassable 
+       # - BulletImpassable
+        - Opaque # Delta-V changed from impassable so that they can go through windows
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 13
+        Heat: 10 # DeltaV changed from 13 to 10
 
 - type: entity
   name: wide laser barrage

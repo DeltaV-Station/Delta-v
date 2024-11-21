@@ -28,7 +28,9 @@ flavor-complex-healthcodeviolation = ominous
 flavor-complex-blellow = like an impossible color
 flavor-complex-candy-strawberry = like strawberries
 flavor-complex-candy-bubblegum = like bubble gum
+flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-dr-gibb-blood-red = like severe malpractice
+
 
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.

@@ -92,15 +92,7 @@
   components:
   - type: FreeProberRule
 
-## converted upstream events
-- type: entity
-  parent: BaseGlimmerSignaturesEvent
-  id: GlimmerRandomSentience
-  components:
-  - type: GlimmerEvent
-    maximumGlimmer: 600
-  - type: GlimmerRandomSentienceRule
-
+# Converted from upstream event
 - type: entity
   parent: BaseGlimmerSignaturesEvent
   id: GlimmerRevenantSpawn
@@ -108,7 +100,9 @@
   - type: GlimmerEvent
     minimumGlimmer: 500
     maximumGlimmer: 900
-  - type: GlimmerRevenantRule
+  - type: GlimmerMobRule
+    mobPrototype: MobRevenant
+    maxSpawns: 1
 
 - type: entity
   parent: BaseGlimmerSignaturesEvent

@@ -41,14 +41,16 @@ public sealed class OracleSystem : EntitySystem
         foreach (var oracle in EntityQuery<OracleComponent>())
         {
             oracle.Accumulator += frameTime;
-            oracle.BarkAccumulator += frameTime;
             oracle.RejectAccumulator += frameTime;
-            if (oracle.BarkAccumulator >= oracle.BarkTime.TotalSeconds)
+
+            if (oracle.BarkType == OracleBarkType.Timed)
             {
-                oracle.BarkAccumulator = 0;
-                var message = Loc.GetString(_random.Pick(oracle.DemandMessages), ("item", oracle.DesiredPrototype.Name))
-                    .ToUpper();
-                _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, false);
+                oracle.BarkAccumulator += frameTime;
+                if (oracle.BarkAccumulator >= oracle.BarkTime.TotalSeconds)
+                {
+                    oracle.BarkAccumulator = 0;
+                    SendBark(oracle);
+                }
             }
 
             if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
@@ -105,7 +107,7 @@ public sealed class OracleSystem : EntitySystem
         if (HasComp<MobStateComponent>(args.Used))
             return;
 
-        if (!TryComp<MetaDataComponent>(args.Used, out var meta))
+        if (!TryComp(args.Used, out MetaDataComponent? meta))
             return;
 
         if (HasComp<BorgChassisComponent>(args.User))
@@ -137,13 +139,13 @@ public sealed class OracleSystem : EntitySystem
             return;
         }
 
-        EntityManager.QueueDeleteEntity(args.Used);
+        QueueDel(args.Used);
 
         _adminLog.Add(LogType.InteractHand,
             LogImpact.Medium,
             $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
 
-        EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
+        Spawn("ResearchDisk5000", Transform(args.User).Coordinates);
 
         DispenseLiquidReward(uid, component);
 
@@ -151,7 +153,7 @@ public sealed class OracleSystem : EntitySystem
 
         while (i != 0)
         {
-            EntityManager.SpawnEntity("MaterialBluespace1", Transform(args.User).Coordinates);
+            Spawn("MaterialBluespace1", Transform(args.User).Coordinates);
             i--;
         }
 
@@ -208,6 +210,17 @@ public sealed class OracleSystem : EntitySystem
             component.DesiredPrototype = proto;
         else
             Logger.Error("Oracle can't index prototype " + protoString);
+
+        if (component.BarkType == OracleBarkType.NewDemand)
+        {
+            SendBark(component);
+        }
+    }
+
+    private void SendBark(OracleComponent component) {
+        var message = Loc.GetString(_random.Pick(component.DemandMessages), ("item", component.DesiredPrototype.Name))
+            .ToUpper();
+        _chat.TrySendInGameICMessage(component.Owner, message, InGameICChatType.Speak, false);
     }
 
     private string GetDesiredItem(OracleComponent component)

@@ -5,23 +5,23 @@
   name: bionic syrinx implant
   description: This implant lets a harpy adjust their voice to whoever they can think of.
   components:
-    - type: SubdermalImplant
-      implantAction: ActionSyrinxChangeVoiceMask
-      whitelist:
-        components:
-        - HarpySinger
-    - type: VoiceMasker
-    - type: Tag
-      tags:
-        - SubdermalImplant
-        - BionicSyrinxImplant
+  - type: SubdermalImplant
+    implantAction: ActionSyrinxChangeVoiceMask
+    whitelist:
+      components:
+      - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: StorageImplant
   id: RadioImplant
   name: generic radio implant
-  description: This implant contains a radio augmentation with a bluespace compartment for an encryption key. It allows its user to communicate on the key's channels.
+  description: This implant contains a radio augmentation with a hidden compartment for an encryption key. It allows its user to communicate on the key's channels.
   components:
   - type: SubdermalImplant
     implantAction: ActionOpenRadioImplant
@@ -30,13 +30,13 @@
       - Hands # the user needs to have hands to actually insert or remove a key, much like the storage implant
     blacklist:
       components:
-      - BorgChassisComponent # borgs have "hands", but can't pick stuff up so the implant would be useless for them
+      - BorgChassis # borgs have "hands", but can't pick stuff up so the implant would be useless for them
   - type: Storage
     grid:
       - 0,0,0,1
     whitelist:
       components:
-        - EncryptionKey # encryption keys only!
+      - EncryptionKey # encryption keys only!
   - type: RadioImplant
 
 - type: entity
