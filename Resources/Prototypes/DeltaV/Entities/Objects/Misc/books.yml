@@ -29,7 +29,7 @@
   description: You seriously didn't purchase a "For Dummies" book in 2425?
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
+    sprite: DeltaV/Objects/Misc/books.rsi
     layers:
     - state: paper
     - state: cover_strong
@@ -38,7 +38,7 @@
       color: "#961cc8"
     - state: detail_bookmark
       color: "#eee039"
-    - state: icon_question
+    - state: icon_kiss
     - state: detail_bookmark
       color: "#2c5491"
   - type: Paper
