@@ -8,8 +8,6 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _bodySystem = default!;
 
-    private const float DehydrationThreshold = 150f;
-
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>();
@@ -17,7 +15,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
         while (query.MoveNext(out var uid, out var feroxiDehydrate, out var thirst))
         {
             var currentThirst = thirst.CurrentThirst;
-            var shouldBeDehydrated = currentThirst <= DehydrationThreshold;
+            var shouldBeDehydrated = currentThirst <= feroxiDehydrate.DehydrationThreshold;
 
             if (feroxiDehydrate.Dehydrated != shouldBeDehydrated)
             {

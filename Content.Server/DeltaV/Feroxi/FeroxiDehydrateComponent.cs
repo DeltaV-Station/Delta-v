@@ -13,5 +13,8 @@ public sealed partial class FeroxiDehydrateComponent : Component
     public ProtoId<MetabolizerTypePrototype> DehydratedMetabolizer = "AquaticDehydrated";
 
     [DataField]
-    public bool Dehydrated = false;
+    public bool Dehydrated;
+
+    [DataField]
+    public float DehydrationThreshold;
 }
