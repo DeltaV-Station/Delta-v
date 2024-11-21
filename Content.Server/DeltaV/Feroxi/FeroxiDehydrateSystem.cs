@@ -6,7 +6,7 @@ namespace Content.Server.DeltaV.Feroxi;
 
 public sealed class FeroxiDehydrateSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
     public override void Update(float frameTime)
     {
@@ -28,7 +28,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
     {
         feroxiDehydrate.Dehydrated = shouldBeDehydrated;
 
-        foreach (var entity in _bodySystem.GetBodyOrganEntityComps<LungComponent>(uid))
+        foreach (var entity in _body.GetBodyOrganEntityComps<LungComponent>(uid))
         {
             if (TryComp<MetabolizerComponent>(entity, out var metabolizer))
             {
