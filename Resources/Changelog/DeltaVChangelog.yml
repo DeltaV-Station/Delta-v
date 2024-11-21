@@ -1,48 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Mail no longer has throwing damage.
-    type: Tweak
-  id: 188
-  time: '2023-12-29T19:53:10.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Space winter is officially over!
-    type: Remove
-  id: 189
-  time: '2023-12-30T14:15:42.0000000+00:00'
-- author: Master2112
-  changes:
-  - message: Fixed incorrect reference to ftl in crimeassist yaml
-    type: Fix
-  id: 190
-  time: '2023-12-30T22:03:53.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added a fluffy tail for the felinids.
-    type: Add
-  id: 191
-  time: '2023-12-30T22:05:52.0000000+00:00'
-- author: DarkenedSynergy
-  changes:
-  - message: Fixed logistics airlocks looking like engineering airlocks when opened.
-    type: Fix
-  id: 192
-  time: '2023-12-31T16:23:10.0000000+00:00'
-- author: DangerRevolution and VMSolidus
-  changes:
-  - message: Rumours say that Syndicate Agents have cracked encoded communications!
-      Added the Syndicate Listening Post to the Syndicate's arsenal of espionage!
-    type: Add
-  id: 193
-  time: '2023-12-31T16:48:27.0000000+00:00'
-- author: VMSolidus and DangerRevolution
-  changes:
-  - message: The Listening Outpost has received several tweaks and balance changes.
-      It should spawn less often now.
-    type: Tweak
-  id: 194
-  time: '2024-01-01T21:33:58.0000000+00:00'
 - author: ps3moira
   changes:
   - message: Reverted Shotgun sprites
@@ -3740,3 +3696,55 @@
   id: 687
   time: '2024-11-19T17:23:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2239
+- author: MilonPL, dotCatshark
+  changes:
+  - message: Added self-refilling bluespace fire extinguishers! They can be unlocked
+      in the T2 industrial research!
+    type: Add
+  id: 688
+  time: '2024-11-19T20:57:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2171
+- author: MilonPL
+  changes:
+  - message: Added Chronic pain and Addicted traits.
+    type: Add
+  - message: Reworked the addictions system.
+    type: Tweak
+  id: 689
+  time: '2024-11-20T00:59:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2192
+- author: Lyndomen
+  changes:
+  - message: Ported footprints and bloodstains from EE. Sorry Janitors.
+    type: Add
+  id: 690
+  time: '2024-11-20T01:00:15.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2186
+- author: therealDLondon
+  changes:
+  - message: 'New Lobby Track: "Undefined Theory" by A-Guy'
+    type: Add
+  id: 691
+  time: '2024-11-20T01:10:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2234
+- author: MilonPL
+  changes:
+  - message: Fixed pain effect popups being visible to everyone.
+    type: Fix
+  id: 692
+  time: '2024-11-20T20:26:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2248
+- author: Kr8art
+  changes:
+  - message: Bomberjackets now protect from the cold!
+    type: Tweak
+  id: 693
+  time: '2024-11-20T23:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2246
+- author: Stop-Signs
+  changes:
+  - message: Mini syringes now hold 5u instead of 15
+    type: Tweak
+  id: 694
+  time: '2024-11-21T04:28:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2249
