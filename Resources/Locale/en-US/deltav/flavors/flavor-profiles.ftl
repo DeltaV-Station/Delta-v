@@ -31,7 +31,6 @@ flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-drgibbbloodred = like severe malpractice
 
-
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.
 candy-flavor-profile-unknown = You have no idea what this one is supposed to taste like.
