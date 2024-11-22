@@ -1,4 +1,6 @@
-﻿using Content.Server.Atmos.Components;
+﻿using System.Linq;
+using System.Numerics; // DeltaV
+using Content.Server.Atmos.Components;
 using Content.Shared._EE.FootPrint;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
@@ -7,7 +9,9 @@ using Content.Shared._EE.FootPrint;
 // using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.GameTicking; // DeltaV
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components; // DeltaV
 using Robust.Shared.Random;
 
 namespace Content.Server._EE.FootPrint;
@@ -21,6 +25,16 @@ public sealed class FootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // DeltaV
+
+    // DeltaV - Max amount of footprints per tile
+    // Not stored on the component because its convenient here
+    private const int MaxFootprintsPerTile = 2;
+
+    /// <summary>
+    ///     DeltaV: Dictionary tracking footprints per tile using tile coordinates as key
+    /// </summary>
+    private readonly Dictionary<Vector2i, Queue<EntityUid>> _footprintsPerTile = new();
 
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
@@ -38,6 +52,10 @@ public sealed class FootPrintsSystem : EntitySystem
 
         SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
         SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<FootPrintComponent, ComponentInit>(OnFootPrintInit); // DeltaV
+        SubscribeLocalEvent<FootPrintComponent, ComponentRemove>(OnFootPrintRemove); // DeltaV
+        SubscribeLocalEvent<MapGridComponent, EntityTerminatingEvent>(OnGridTerminating); // DeltaV
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd); // DeltaV
     }
 
     private void OnStartupComponent(EntityUid uid, FootPrintsComponent component, ComponentStartup args)
@@ -62,7 +80,12 @@ public sealed class FootPrintsSystem : EntitySystem
 
         component.RightStep = !component.RightStep;
 
-        var entity = Spawn(component.StepProtoId, CalcCoords(gridUid, component, transform, dragging));
+        // DeltaV - Check if we've hit the footprint limit for this tile before spawning
+        var coords = CalcCoords(gridUid, component, transform, dragging);
+        if (!ShouldCreateNewFootprint(coords))
+            return;
+
+        var entity = Spawn(component.StepProtoId, coords);
         var footPrintComponent = EnsureComp<FootPrintComponent>(entity);
 
         footPrintComponent.PrintOwner = uid;
@@ -90,6 +113,119 @@ public sealed class FootPrintsSystem : EntitySystem
             return;
 
         _solution.TryAddReagent(footPrintComponent.Solution.Value, component.ReagentToTransfer, 1, out _);
+    }
+
+    /// <summary>
+    ///     DeltaV: Checks if a new footprint can be created at the specified coordinates based on the per-tile limit.
+    /// </summary>
+    /// <returns>True if a new footprint can be created, false if the tile is full or invalid</returns>
+    private bool ShouldCreateNewFootprint(EntityCoordinates coords)
+    {
+        if (!coords.IsValid(EntityManager))
+            return false;
+
+        var mapCoords = _transform.ToMapCoordinates(coords);
+
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var grid))
+            return false;
+
+        var tilePos = _mapSystem.CoordinatesToTile(gridUid, grid, coords);
+        return !_footprintsPerTile.TryGetValue(tilePos, out var footprints) || footprints.Count < MaxFootprintsPerTile;
+    }
+
+    /// <summary>
+    ///     DeltaV: Handles the initialization of a footprint component.
+    /// </summary>
+    private void OnFootPrintInit(Entity<FootPrintComponent> ent, ref ComponentInit args)
+    {
+        if (!TryGetTilePos(ent.Owner, out var tilePos))
+            return;
+
+        if (!_footprintsPerTile.TryGetValue(tilePos, out var footprints))
+        {
+            footprints = new Queue<EntityUid>();
+            _footprintsPerTile[tilePos] = footprints;
+        }
+
+        footprints.Enqueue(ent);
+
+        // If we've exceeded the limit, remove the oldest footprint
+        if (footprints.Count > MaxFootprintsPerTile)
+        {
+            var oldestFootprint = footprints.Dequeue();
+            if (Exists(oldestFootprint))
+                QueueDel(oldestFootprint);
+        }
+    }
+
+    /// <summary>
+    ///     DeltaV: Handles cleanup when a footprint component is removed.
+    /// </summary>
+    private void OnFootPrintRemove(Entity<FootPrintComponent> ent, ref ComponentRemove args)
+    {
+        if (!TryGetTilePos(ent.Owner, out var tilePos))
+            return;
+
+        if (_footprintsPerTile.TryGetValue(tilePos, out var footprints))
+        {
+            // Create a new queue without the removed footprint
+            var newQueue = new Queue<EntityUid>(footprints.Where(x => x != ent.Owner));
+            if (newQueue.Count > 0)
+                _footprintsPerTile[tilePos] = newQueue;
+            else
+                _footprintsPerTile.Remove(tilePos);
+        }
+    }
+
+    /// <summary>
+    ///     DeltaV: Handles cleanup when a grid is being terminated, removing all footprint tracking data from that grid.
+    /// </summary>
+    private void OnGridTerminating(Entity<MapGridComponent> ent, ref EntityTerminatingEvent args)
+    {
+        // Find and remove all footprints that belong to this grid's tiles
+        var toRemove = new List<Vector2i>();
+
+        foreach (var (pos, footprints) in _footprintsPerTile)
+        {
+            // Convert position to map coordinates to check if it belongs to this grid
+            var mapCoords = _transform.ToMapCoordinates(new EntityCoordinates(ent,
+                new Vector2(pos.X * ent.Comp.TileSize, pos.Y * ent.Comp.TileSize)));
+
+            if (_map.TryFindGridAt(mapCoords, out var gridUid, out _) && gridUid == ent.Owner)
+            {
+                toRemove.Add(pos);
+            }
+        }
+
+        foreach (var pos in toRemove)
+        {
+            _footprintsPerTile.Remove(pos);
+        }
+    }
+
+    /// <summary>
+    ///     DeltaV: Attempts to get the tile position for a given entity.
+    /// </summary>
+    private bool TryGetTilePos(EntityUid uid, out Vector2i tilePos)
+    {
+        tilePos = default;
+
+        var coords = new EntityCoordinates(Transform(uid).ParentUid, Transform(uid).LocalPosition);
+        var mapCoords = _transform.ToMapCoordinates(coords);
+
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var grid))
+            return false;
+
+        tilePos = _mapSystem.CoordinatesToTile(gridUid, grid, coords);
+        return true;
+    }
+
+    /// <summary>
+    ///     DeltaV: Clean up the dict on round end
+    /// </summary>
+    private void OnRoundEnd(RoundRestartCleanupEvent ev)
+    {
+        _footprintsPerTile.Clear();
     }
 
     private EntityCoordinates CalcCoords(EntityUid uid, FootPrintsComponent component, TransformComponent transform, bool state)
