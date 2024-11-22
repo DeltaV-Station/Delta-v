@@ -124,8 +124,7 @@ public sealed class EntityWhitelistSystem : EntitySystem
         if (whitelist.RequireAll)
         {
             _sawmill.Debug($"Whitelist requires all conditions - Components: {string.Join(", ", whitelist.Components ?? Array.Empty<string>())}, " +
-                           $"Tags: {(whitelist.Tags != null ? string.Join(", ", whitelist.Tags.Select(t => t.ToString())) : "none")}, " +
-                           $"MaxSize: {whitelist.MaxSize}");
+                           $"Tags: {(whitelist.Tags != null ? string.Join(", ", whitelist.Tags.Select(t => t.ToString())) : "none")}");
         }
 
         return isValid;
