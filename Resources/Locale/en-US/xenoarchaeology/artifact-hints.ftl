@@ -42,6 +42,7 @@ artifact-trigger-hint-plasma = Gaseous plasma
 artifact-trigger-hint-land = Active deceleration
 artifact-trigger-hint-examine = Examination
 artifact-trigger-hint-medical = Therapeutic chemicals
+artifact-trigger-hint-funny = Slapstick comedy
 
 artifact-trigger-hint-resurrection = Resurrection
 artifact-trigger-hint-drink-classic-martini = Beverage "Classically shaken"
