@@ -115,7 +115,6 @@ public sealed class EntityWhitelistSystem : EntitySystem
             return false;
 
         // Begin DeltaV
-        Log.Debug($"Checking whitelist pass for entity {ToPrettyString(uid)}");
         var isValid = IsValid(whitelist, uid);
         Log.Debug($"Whitelist validation result for entity {ToPrettyString(uid)}: {isValid}");
 
