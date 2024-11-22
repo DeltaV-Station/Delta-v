@@ -5,4 +5,5 @@ id-card-access-level-prosecutor = Prosecutor
 id-card-access-level-clerk = Clerk
 id-card-access-level-justice = Justice
 id-card-access-level-corpsman = Corpsman
+id-card-access-level-robotics = Robotics
 id-card-access-level-pharmacist = Pharmacist

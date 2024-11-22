@@ -128,6 +128,14 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsRobotics
+  suffix: Robotics, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"]] # Uses research access until the job is added
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsPharmacist
   suffix: Pharmacist, Locked
   components:

@@ -154,6 +154,15 @@
     - type: GridFill
       path: /Maps/Shuttles/DeltaV/sub_escape_pod.yml
 
+- type: entity
+  parent: AirlockRobotics
+  id: AirlockRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
 #Add airlocks from upstream roles
 - type: entity
   parent: AirlockServiceLocked
@@ -239,15 +248,6 @@
       board: [ DoorElectronicsPsychologist ]
 
 - type: entity
-  parent: AirlockMedical
-  id: AirlockPharmacistLocked
-  suffix: Pharmacist, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPharmacist ]
-
-- type: entity
   parent: AirlockFreezer
   id: AirlockFreezerServiceLocked
   suffix: Service, Locked
@@ -255,6 +255,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsService ]
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockPharmacistLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]
 
 # Glass Airlocks
 - type: entity
@@ -370,6 +379,15 @@
       board: [ DoorElectronicsPsychologist ]
 
 - type: entity
+  parent: AirlockRoboticsGlass
+  id: AirlockRoboticsGlassLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
+- type: entity
   parent: AirlockMedicalGlass
   id: AirlockPharmacistGlassLocked
   suffix: Pharmacist, Locked
@@ -481,15 +499,6 @@
       board: [ DoorElectronicsPsychologist ]
 
 - type: entity
-  parent: AirlockMaintMedLocked
-  id: AirlockMaintPharmacistLocked
-  suffix: Pharmacist, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPharmacist ]
-
-- type: entity
   parent: AirlockMaintSecLocked
   id: AirlockMaintSecurityLawyerLocked
   suffix: Security/Lawyer, Locked
@@ -497,3 +506,62 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurityLawyer ]
+
+- type: entity
+  parent: AirlockMaintRnDLocked
+  id: AirlockMaintRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
+# Command-locked External airlocks. These don't exist upstream for some reason.
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCommandLocked
+  suffix: External, Command, Locked
+  components:
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassCommandLocked
+  suffix: External, Glass, Command, Locked
+  components:
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalSecurityLocked
+  suffix: External, Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassSecurityLocked
+  suffix: External, Glass, Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockMaintMedLocked
+  id: AirlockMaintPharmacistLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]

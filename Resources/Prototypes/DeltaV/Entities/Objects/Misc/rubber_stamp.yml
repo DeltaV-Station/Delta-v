@@ -1,33 +1,4 @@
 - type: entity
-  name: psychologist's rubber stamp
-  parent: RubberStampBase
-  id: RubberStampPsychologist
-  suffix: DO NOT MAP
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-psychologist
-    stampedColor: "#00ccff"
-    stampState: "paper_stamp-psychologist"
-  - type: Sprite
-    sprite: DeltaV/Objects/Misc/stamps.rsi
-    state: stamp-psychologist
-
-- type: entity
-  name: pharmacist's rubber stamp
-  parent: RubberStampBase
-  id: RubberStampPharmacist
-  suffix: DO NOT MAP
-  noSpawn: true
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-pharmacist
-    stampedColor: "#5a96bb"
-    stampState: "paper_stamp-pharmacist"
-  - type: Sprite
-    sprite: DeltaV/Objects/Misc/stamps.rsi
-    state: stamp-pharmacist
-    
-- type: entity
   name: notary stamp
   parent: RubberStampBase
   id: RubberStampNotary
@@ -43,7 +14,22 @@
     state: stamp-notary
   - type: StealTarget
     stealGroup: RubberStampNotary
-    
+
+- type: entity
+  name: pharmacist's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampPharmacist
+  suffix: DO NOT MAP
+  noSpawn: true
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-pharmacist
+    stampedColor: "#5a96bb"
+    stampState: "paper_stamp-pharmacist"
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-pharmacist
+
 - type: entity
   name: chief justice stamp
   parent: RubberStampBase
@@ -58,3 +44,17 @@
     sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-cj
 
+- type: entity
+  name: prosecutor's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampProsec
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-prosec
+    stampedColor: "#562D3D"
+    stampState: "paper_stamp-prosec"
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/stamps.rsi
+    state: stamp-prosec
