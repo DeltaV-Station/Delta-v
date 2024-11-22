@@ -12,14 +12,12 @@ public sealed class EntityWhitelistSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private ISawmill _sawmill = default!; // DeltaV
     private EntityQuery<ItemComponent> _itemQuery;
 
     public override void Initialize()
     {
         base.Initialize();
         _itemQuery = GetEntityQuery<ItemComponent>();
-        _sawmill = Logger.GetSawmill("whitelist"); // DeltaV
     }
 
     /// <inheritdoc cref="IsValid(Content.Shared.Whitelist.EntityWhitelist,Robust.Shared.GameObjects.EntityUid)"/>
@@ -117,13 +115,13 @@ public sealed class EntityWhitelistSystem : EntitySystem
             return false;
 
         // Begin DeltaV
-        _sawmill.Debug($"Checking whitelist pass for entity {ToPrettyString(uid)}");
+        Log.Debug($"Checking whitelist pass for entity {ToPrettyString(uid)}");
         var isValid = IsValid(whitelist, uid);
-        _sawmill.Debug($"Whitelist validation result for entity {ToPrettyString(uid)}: {isValid}");
+        Log.Debug($"Whitelist validation result for entity {ToPrettyString(uid)}: {isValid}");
 
         if (whitelist.RequireAll)
         {
-            _sawmill.Debug($"Whitelist requires all conditions - Components: {string.Join(", ", whitelist.Components ?? Array.Empty<string>())}, " +
+            Log.Debug($"Whitelist requires all conditions - Components: {string.Join(", ", whitelist.Components ?? Array.Empty<string>())}, " +
                            $"Tags: {(whitelist.Tags != null ? string.Join(", ", whitelist.Tags.Select(t => t.ToString())) : "none")}");
         }
 
