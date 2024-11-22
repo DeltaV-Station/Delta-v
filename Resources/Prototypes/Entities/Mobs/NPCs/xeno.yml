@@ -99,7 +99,7 @@
 #    makeSentient: true
 #    name: ghost-role-information-xeno-name
 #    description: ghost-role-information-xeno-description
-#    rules: ghost-role-information-xeno-rules
+#    rules: ghost-role-information-rules-default-team-antagonist
 #    raffle:
 #      settings: default
 #  - type: GhostTakeoverAvailable
@@ -119,6 +119,7 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+    speechSounds: Xenonid # DeltaV: Use RMC's speech sounds for sentient xenos
   - type: PotentialPsionic #Nyano - Summary: makes potentially psionic.
     chance: -2
   - type: Psionic #Nyano - Summary: makes psionic by default.

@@ -69,11 +69,11 @@
 
 - type: entity
   parent: PassengerIDCard
-  id: VisitorIDCard
+  id: VisitorIDCardLoadout
   name: visitor ID card
   components:
   - type: IdCard
-    jobTitle: Visitor
+    jobTitle: job-title-visitor
 
 - type: entity
   parent: PassengerIDCard
@@ -81,7 +81,7 @@
   name: tourist ID card
   components:
   - type: IdCard
-    jobTitle: Tourist
+    jobTitle: job-alt-title-tourist
 
 - type: entity
   parent: PassengerIDCard
@@ -89,7 +89,7 @@
   name: off-duty crew ID card
   components:
   - type: IdCard
-    jobTitle: Off-Duty Crew
+    jobTitle: job-alt-title-off-duty-crew
 
 - type: entity
   parent: PassengerIDCard
@@ -97,7 +97,7 @@
   name: student ID card
   components:
   - type: IdCard
-    jobTitle: Student
+    jobTitle: job-alt-title-student
 
 # Bartender
 
@@ -107,7 +107,7 @@
   name: mixologist ID card
   components:
   - type: IdCard
-    jobTitle: Mixologist
+    jobTitle: job-alt-title-mixologist
 
 # Chef
 
@@ -117,7 +117,7 @@
   name: baker ID card
   components:
   - type: IdCard
-    jobTitle: Baker
+    jobTitle: job-alt-title-baker
 
 - type: entity
   parent: ChefIDCard
@@ -125,7 +125,7 @@
   name: butcher ID card
   components:
   - type: IdCard
-    jobTitle: Butcher
+    jobTitle: job-alt-title-butcher
 
 - type: entity
   parent: ChefIDCard
@@ -133,7 +133,7 @@
   name: pizzaiolo ID card
   components:
   - type: IdCard
-    jobTitle: Pizzaiolo
+    jobTitle: job-alt-title-pizzaiolo
 
 # Medical Intern
 
@@ -143,7 +143,7 @@
   name: practical nurse ID card
   components:
   - type: IdCard
-    jobTitle: Practical Nurse
+    jobTitle: job-alt-title-practical-nurse
 
 - type: entity
   parent: MedicalInternIDCard
@@ -151,7 +151,7 @@
   name: resident ID card
   components:
   - type: IdCard
-    jobTitle: Resident
+    jobTitle: job-alt-title-resident
 
 # Medical Doctor
 
@@ -161,7 +161,7 @@
   name: clinician ID card
   components:
   - type: IdCard
-    jobTitle: Clinician
+    jobTitle: job-alt-title-clinician
 
 # Atmospheric Technician
 
@@ -171,7 +171,7 @@
   name: life support technician ID card
   components:
   - type: IdCard
-    jobTitle: Life Support Technician
+    jobTitle: job-alt-title-life-support
 
 - type: entity
   parent: AtmosIDCard
@@ -179,7 +179,7 @@
   name: plasma scientist ID card
   components:
   - type: IdCard
-    jobTitle: Plasma Scientist
+    jobTitle: job-alt-title-plasma-scientist
 
 # Station Engineer
 
@@ -189,7 +189,7 @@
   name: electrician ID card
   components:
   - type: IdCard
-    jobTitle: Electrician
+    jobTitle: job-alt-title-electrician
 
 - type: entity
   parent: EngineeringIDCard
@@ -197,7 +197,7 @@
   name: mechanic ID card
   components:
   - type: IdCard
-    jobTitle: Mechanic
+    jobTitle: job-alt-title-mechanic
 
 # Cargo Technician
 
@@ -207,7 +207,7 @@
   name: deck worker ID card
   components:
   - type: IdCard
-    jobTitle: Deck Worker
+    jobTitle: job-alt-title-deck-worker
 
 - type: entity
   parent: CargoIDCard
@@ -215,7 +215,7 @@
   name: inventory associate ID card
   components:
   - type: IdCard
-    jobTitle: Inventory Associate
+    jobTitle: job-alt-title-inventory-associate
 
 # Salvage Specialist
 
@@ -225,7 +225,7 @@
   name: prospector ID card
   components:
   - type: IdCard
-    jobTitle: Prospector
+    jobTitle: job-alt-title-prospector
 
 - type: entity
   parent: SalvageIDCard
@@ -233,7 +233,7 @@
   name: excavator ID card
   components:
   - type: IdCard
-    jobTitle: Excavator
+    jobTitle: job-alt-title-excavator
 
 # Scientist
 
@@ -243,7 +243,7 @@
   name: lab technician ID card
   components:
   - type: IdCard
-    jobTitle: Lab Technician
+    jobTitle: job-alt-title-lab-technician
 
 - type: entity
   parent: ResearchIDCard
@@ -251,7 +251,7 @@
   name: xenoarchaeologist ID card
   components:
   - type: IdCard
-    jobTitle: Xenoarchaeologist
+    jobTitle: job-alt-title-xenoarch
 
 - type: entity
   parent: ResearchIDCard
@@ -259,7 +259,7 @@
   name: roboticist ID card
   components:
   - type: IdCard
-    jobTitle: Roboticist
+    jobTitle: job-alt-title-roboticist
 
 # Clown
 
@@ -269,7 +269,7 @@
   name: jester ID card
   components:
   - type: IdCard
-    jobTitle: Jester
+    jobTitle: job-alt-title-jester
 
 - type: entity
   parent: ClownIDCard
@@ -277,4 +277,4 @@
   name: fool ID card
   components:
   - type: IdCard
-    jobTitle: Fool
+    jobTitle: job-alt-title-fool

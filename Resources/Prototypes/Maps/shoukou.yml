@@ -3,7 +3,7 @@
   mapName: 'Shōkō'
   mapPath: /Maps/shoukou.yml
   minPlayers: 5
-  maxPlayers: 60
+  maxPlayers: 50
   stations:
     Shoukou:
       stationProto: StandardNanotrasenStation
@@ -14,11 +14,12 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Kaeri.yml
         - type: StationJobs
           availableJobs:
           #Service
             Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 2 ]
             Reporter: [ 0, 1 ]
             Bartender: [ 1, 2 ]
@@ -62,10 +63,11 @@
             ResearchAssistant: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            Borg: [ 2, 2 ]
           #Logistics
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 4 ]
             Courier: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
+          #Silicon
+            Borg: [ 2, 2 ]
 

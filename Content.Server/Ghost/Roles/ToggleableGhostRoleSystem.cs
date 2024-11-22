@@ -53,13 +53,15 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         EnsureComp<GhostTakeoverAvailableComponent>(uid);
         ghostRole.RoleName = Loc.GetString(component.RoleName);
         ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
+        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
+        ghostRole.JobProto = component.JobProto;
     }
 
     private void OnExamined(EntityUid uid, ToggleableGhostRoleComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
-        
+
         if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
         {
             args.PushMarkup(Loc.GetString(component.ExamineTextMindPresent));

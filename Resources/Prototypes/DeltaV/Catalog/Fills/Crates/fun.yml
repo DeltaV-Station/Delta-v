@@ -23,3 +23,18 @@
         amount: 2
       - id: BoxCartridgeCap
         amount: 2
+
+- type: entity
+  name: foam toys set
+  description: Foam weapon kit to play war with the clowns.
+  id: CrateFoamWeapons
+  parent: CrateToyBox
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleFoam
+        amount: 1
+      - id: BoxDonkSoftBox
+        amount: 1
+      - id: GrenadeFoamDart
+        amount: 2

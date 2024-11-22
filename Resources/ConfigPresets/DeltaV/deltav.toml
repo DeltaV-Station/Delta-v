@@ -6,14 +6,14 @@ round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 
 [infolinks]
-discord    = "https://go.delta-v.org/sxzqj"
+discord    = "https://discord.gg/deltav"
 github     = "https://github.com/DeltaV-Station/Delta-v"
-website    = "https://www.delta-v.org/"
+#website    = "https://www.delta-v.org/"
 wiki       = "https://wiki.delta-v.org/view/Main_Page"
-patreon    = "https://www.patreon.com/Delta_v"
+#patreon    = "https://www.patreon.com/Delta_v"
 bug_report = "https://github.com/DeltaV-Station/Delta-v/issues/new/choose"
-forum      = "https://forum.delta-v.org/"
-appeal     = "https://go.delta-v.org/appeal"
+#forum      = "https://forum.delta-v.org/"
+appeal     = "https://discord.gg/deltav"
 
 [net]
 max_connections = 1024
@@ -33,6 +33,7 @@ alert.min_players_sharing_connection = 2
 [server]
 id         = "deltav"
 rules_file = "DeltaVRuleset"
+uptime_restart_minutes = 2880 # 48h
 
 [discord]
 rich_main_icon_id = "deltav"
@@ -46,3 +47,9 @@ flavor_text = true
 [ahelp]
 admin_prefix = false
 admin_prefix_webhook = false
+
+[votekick]
+enabled = false # only enabled on periapsis
+eligible_number = 5
+initiator_ghost_requirement = false
+voter_ghost_requirement = false

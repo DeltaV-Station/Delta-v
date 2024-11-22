@@ -170,6 +170,12 @@
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: ReverseEngineering # DeltaV: can RE any valid bag for BoH
+    difficulty: 4
+    recipes:
+    - ClothingBackpackHolding
+    - ClothingBackpackDuffelHolding
+    - ClothingBackpackSatchelHolding
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
@@ -245,7 +251,7 @@
   - type: HeldSpeedModifier
 
 - type: entity
-  parent: ClothingBackpackDuffel
+  parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
   id: ClothingBackpackDuffelCBURN
   name: CBURN duffel bag
   description: A duffel bag containing a variety of biological containment equipment.
