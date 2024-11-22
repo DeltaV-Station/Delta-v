@@ -1,8 +1,8 @@
 - type: entity
   parent: Clothing
   id: PortableRecharger
-  name: portable recharger 
-  description: High-tech recharger adapted for portability
+  name: portable recharger
+  description: High-tech recharger adapted for portability.
   components:
   - type: Item
     size: Huge
@@ -25,6 +25,9 @@
     price: 500
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: ContainerContainer
+    containers:
+      charger_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       charger_slot:
