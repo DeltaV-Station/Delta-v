@@ -266,7 +266,7 @@
   name: Medi-Cannon
   parent: BaseWeaponBattery
   id: WeaponHealGun
-  description: "A 20 round semi-automatic laser carbine."
+  description: "A high-tech firearm that shoots specialized healing projectiles."
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/heal_gun.rsi
@@ -284,7 +284,7 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
     selectedMode: SemiAuto
-    fireRate: 3
+    fireRate: 2
     availableModes:
       - SemiAuto
   - type: Battery
