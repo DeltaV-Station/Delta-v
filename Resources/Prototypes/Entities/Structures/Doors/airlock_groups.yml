@@ -2,36 +2,36 @@
   id: Standard
   iconPriority: 100
   stylePaths:
-    atmospherics: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    atmospherics: NES/Structures/Doors/Airlocks/Standard/atmospherics.rsi #NES14-Changes
     basic:       Structures/Doors/Airlocks/Standard/basic.rsi
     cargo:       NES/Structures/Doors/Airlocks/Standard/cargo.rsi #NES14-Changes
-    chemistry:   Structures/Doors/Airlocks/Standard/chemistry.rsi
+    chemistry:   NES/Structures/Doors/Airlocks/Standard/chemistry.rsi #NES14-Changes
     command:     NES/Structures/Doors/Airlocks/Standard/command.rsi #NES14-Changes
     engineering: NES/Structures/Doors/Airlocks/Standard/engineering.rsi #NES14-Changes
-    freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
+    freezer:     NES/Structures/Doors/Airlocks/Standard/freezer.rsi #NES14-Changes
     maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
     medical:     NES/Structures/Doors/Airlocks/Standard/medical.rsi #NES14-Changes
     science:     NES/Structures/Doors/Airlocks/Standard/science.rsi #NES14-Changes
     security:    NES/Structures/Doors/Airlocks/Standard/security.rsi #NES14-Changes
-    virology:    Structures/Doors/Airlocks/Standard/virology.rsi
+    virology:    NES/Structures/Doors/Airlocks/Standard/virology.rsi #NES14-Changes
     justice:     DeltaV/Structures/Doors/Airlocks/Standard/justice.rsi # Delta V - Add Justice Dept
 
 - type: AirlockGroup
   id: Glass
   iconPriority: 90
   stylePaths:
-    atmospherics: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    atmospherics: NES/Structures/Doors/Airlocks/Glass/atmospherics.rsi #NES14-Changes
     basic:       Structures/Doors/Airlocks/Glass/basic.rsi
     cargo:       NES/Structures/Doors/Airlocks/Glass/cargo.rsi #NES14-Changes
     command:     NES/Structures/Doors/Airlocks/Glass/command.rsi #NES14-Changes
-    chemistry:   Structures/Doors/Airlocks/Glass/chemistry.rsi
+    chemistry:   NES/Structures/Doors/Airlocks/Glass/chemistry.rsi #NES14-Changes
     science:     NES/Structures/Doors/Airlocks/Glass/science.rsi #NES14-Changes
     engineering: NES/Structures/Doors/Airlocks/Glass/engineering.rsi #NES14-Changes
     glass:       Structures/Doors/Airlocks/Glass/glass.rsi
     maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
     medical:     NES/Structures/Doors/Airlocks/Glass/medical.rsi #NES14-Changes
     security:    NES/Structures/Doors/Airlocks/Glass/security.rsi #NES14-Changes
-    virology:    Structures/Doors/Airlocks/Glass/virology.rsi
+    virology:    NES/Structures/Doors/Airlocks/Glass/virology.rsi #NES14-Changes
     justice:     DeltaV/Structures/Doors/Airlocks/Glass/justice.rsi # Delta V - Add Justice Dept
 
 - type: AirlockGroup
