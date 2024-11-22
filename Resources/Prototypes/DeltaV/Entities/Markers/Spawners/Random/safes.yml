@@ -1,50 +1,55 @@
 - type: entity
+  abstract: true
+  parent: MarkerBase
   id: BaseGunSafeSpawner
   name: random safe spawner
-  parent: MarkerBase
-  abstract: true
   components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Structures/Storage/closet.rsi
-          state: shotguncase
-    - type: RandomSpawner
-      offset: 0
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Storage/closet.rsi
+      state: shotguncase
+  - type: EntityTableSpawner
+    offset: 0
 
 - type: entity
-  suffix: Shotgun
+  parent: BaseGunSafeSpawner
   id: ShotgunSafeSpawner
-  parent: BaseGunSafeSpawner
+  suffix: Shotgun
   components:
-    - type: RandomSpawner
-      prototypes:
-        - GunSafeShotgunEnforcer
-        - GunSafeShotgunKammerer
-        - GunSafeAdjutantShotgun
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeShotgunEnforcer
+      - id: GunSafeShotgunKammerer
+      - id: GunSafeAdjutantShotgun
 
 - type: entity
-  suffix: Rifle
+  parent: BaseGunSafeSpawner
   id: RifleSafeSpawner
-  parent: BaseGunSafeSpawner
+  suffix: Rifle
   components:
-    - type: RandomSpawner
-      prototypes:
-        - GunSafeVulcanRifle
-        - GunSafeSubMachineGunDrozd
-        - GunSafeRifleLecter
-        - GunSafeM90Rifle
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeVulcanRifle
+      - id: GunSafeSubMachineGunDrozd
+      - id: GunSafeRifleLecter
+      - id: GunSafeM90Rifle
 
 - type: entity
-  suffix: Handgun
-  id: HandgunSafeSpawner
   parent: BaseGunSafeSpawner
+  id: HandgunSafeSpawner
+  suffix: Handgun
   components:
-    - type: RandomSpawner
-      prototypes:
-        - GunSafePistolMk58
-      rarePrototypes:
-        - GunSafeEnergyGunMini
-        - GunSafePistolUniversal
-        - GunSafeSubMachineGunWt550
-      rareChance: 0.15
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafePistolMk58
+        weight: 0.85
+      - !type:GroupSelector
+        weight: 0.15
+        children:
+        - id: GunSafeEnergyGunMini
+        - id: GunSafePistolUniversal
+        - id: GunSafeSubMachineGunWt550

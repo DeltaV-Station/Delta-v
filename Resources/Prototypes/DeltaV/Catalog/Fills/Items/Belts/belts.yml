@@ -3,10 +3,12 @@
   parent: ClothingBeltKatanaSheath
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: Wakizashi
-      - id: Katana
+  - type: ContainerFill
+    containers:
+      katanaslot:
+        - Katana
+      wakizashislot:
+        - Wakizashi
 
 - type: entity
   id: ClothingBeltCorpsmanWebbingFilled

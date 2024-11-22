@@ -31,6 +31,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Thump']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -38,6 +39,8 @@
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -74,7 +77,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
+  - type: FootPrints # DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
 
 - type: entity
   parent: BaseSpeciesDummy

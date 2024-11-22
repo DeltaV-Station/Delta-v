@@ -11,6 +11,7 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
+    - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -18,6 +19,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
+    - id: AstroNavCartridge
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -227,6 +229,7 @@
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    - id: MedTekCartridge
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -270,12 +273,12 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillResearchDirectorDeltaV
+    #- id: Intellicard # DeltaV: temporarily removed until AI is enabled
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
-    - id: EncryptionKeyBinary
     - id: HandTeleporter
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
@@ -324,7 +327,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    #- id: WeaponEnergyShotgun # DeltaV - replaced by X-01
+    - id: WeaponEnergyShotgun
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -333,7 +336,7 @@
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
-    - id: ClothingOuterCoatHoSTrench
+#    - id: ClothingOuterCoatHoSTrench # DeltaV - removed for incongruence
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
@@ -350,6 +353,7 @@
     - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
 
 # No hardsuit locker
 - type: entity

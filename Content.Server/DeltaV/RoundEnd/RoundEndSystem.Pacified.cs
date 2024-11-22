@@ -53,9 +53,9 @@ public sealed class PacifiedRoundEnd : EntitySystem
         }
 
         var uplinkQuery = EntityQueryEnumerator<StoreComponent>();
-        while (uplinkQuery.MoveNext(out var _, out var store))
+        while (uplinkQuery.MoveNext(out var uid, out _))
         {
-            store.Listings.Clear();
+            RemComp<StoreComponent>(uid);
         }
     }
 }

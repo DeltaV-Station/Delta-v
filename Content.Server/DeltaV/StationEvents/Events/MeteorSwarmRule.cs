@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.Atmos.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
@@ -12,6 +13,7 @@ namespace Content.Server.StationEvents.Events
 {
     public sealed class MeteorSwarmRule : StationEventSystem<MeteorSwarmRuleComponent>
     {
+        [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
         protected override void Started(EntityUid uid, MeteorSwarmRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -40,6 +42,10 @@ namespace Content.Server.StationEvents.Events
 
             Box2? playableArea = null;
             var mapId = GameTicker.DefaultMap;
+            // use a dud meteor if there's an atmosphere to "simulate" burning up
+            var proto = "MeteorLargeDeltaV";
+            if (_map.TryGetMap(mapId, out var mapUid) && TryComp<MapAtmosphereComponent>(mapUid, out var atmos) && !atmos.Space)
+                proto = "MeteorGlacierDeltaV";
 
             var query = AllEntityQuery<MapGridComponent, TransformComponent>();
             while (query.MoveNext(out var gridId, out _, out var xform))
@@ -67,7 +73,7 @@ namespace Content.Server.StationEvents.Events
                 var angle = new Angle(RobustRandom.NextFloat() * MathF.Tau);
                 var offset = angle.RotateVec(new Vector2((maximumDistance - minimumDistance) * RobustRandom.NextFloat() + minimumDistance, 0));
                 var spawnPosition = new MapCoordinates(center + offset, mapId);
-                var meteor = Spawn("MeteorLargeDeltaV", spawnPosition);
+                var meteor = Spawn(proto, spawnPosition);
                 var physics = EntityManager.GetComponent<PhysicsComponent>(meteor);
                 _physics.SetBodyStatus(meteor, physics, BodyStatus.InAir);
                 _physics.SetLinearDamping(meteor, physics, 0f);

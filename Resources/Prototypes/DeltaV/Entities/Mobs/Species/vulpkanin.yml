@@ -91,7 +91,7 @@
   - type: Damageable
     damageModifierSet: Vulpkanin
   - type: TemperatureProtection
-    coefficient: 0.1
+    coolingCoefficient: 0.1 # fur is insulating
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
@@ -109,3 +109,9 @@
   components:
   - type: HumanoidAppearance
     species: Vulpkanin
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Inventory
+    speciesId: vulpkanin

@@ -40,7 +40,10 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        50: Dead
+        50: Dead # DeltaV, was 40
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
     - type: Stamina
       critThreshold: 100
     - type: DamageStateVisuals
@@ -66,8 +69,8 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 5
-          Slash: 10
+          Piercing: 5 # DeltaV, was blunt
+          Slash: 10 # DeltaV, was 7
     - type: TypingIndicator
       proto: alien
     - type: Tag
@@ -154,6 +157,20 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    # Begin DeltaV additions: components moved from BaseMobCarp
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        50: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+          Slash: 7
+    # End DeltaV additions
 
 - type: entity
   name: space carp
@@ -167,6 +184,7 @@
       makeSentient: true
       name: ghost-role-information-sentient-carp-name
       description: ghost-role-information-sentient-carp-description
+      rules: ghost-role-information-space-dragon-summoned-carp-rules
       raffle:
         settings: short
     - type: GhostTakeoverAvailable
@@ -219,7 +237,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        180: Dead
+        150: Dead
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
@@ -243,7 +261,7 @@
     - type: MeleeWeapon
       damage:
         types:
-          Slash: 12
+          Slash: 10
           Bloodloss: 5
 
 - type: entity

@@ -42,7 +42,7 @@
       - SecWatchCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: CourierPDA # DeltaV - Gives them the MailMetrics cartbridge
   id: MailCarrierPDA
   name: mail carrier PDA
   description: Smells like unopened letters.

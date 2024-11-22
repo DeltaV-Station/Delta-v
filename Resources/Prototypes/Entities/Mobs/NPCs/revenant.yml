@@ -8,6 +8,7 @@
   components:
   - type: Input
     context: "ghost"
+  - type: Spectral
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 6
@@ -39,7 +40,7 @@
     makeSentient: true
     name: ghost-role-information-revenant-name
     description: ghost-role-information-revenant-description
-    rules: ghost-role-information-revenant-rules
+    rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -80,4 +81,3 @@
     - RevenantTheme
   - type: Speech
     speechVerb: Ghost
-  - type: PreventSpiller

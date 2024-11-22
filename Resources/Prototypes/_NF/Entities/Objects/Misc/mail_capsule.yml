@@ -32,7 +32,6 @@
           components:
           - Mail
           - Paper
-          - HyperlinkBook
         insertOnInteract: true
         priority: 3
       food_slot:
@@ -43,6 +42,10 @@
         whitelist:
           components:
           - Food
+        blacklist:
+          components:
+          - Storage
+          - ItemSlots
         insertOnInteract: true
         priority: 2
       cash_slot:
@@ -93,7 +96,6 @@
           components:
           - Mail
           - Paper
-          - HyperlinkBook
     sprite: _NF/Objects/Misc/mail_capsule.rsi
   - type: Dumpable
   - type: Damageable

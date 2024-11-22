@@ -117,6 +117,7 @@
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
+      - id: RubberChicken
       # Cult
       - !type:AllSelector
         children:
@@ -144,6 +145,7 @@
         - id: ClothingNeckAromanticPin
         - id: ClothingNeckAsexualPin
         - id: ClothingNeckBisexualPin
+        - id: ClothingNeckGayPin
         - id: ClothingNeckIntersexPin
         - id: ClothingNeckLesbianPin
         - id: ClothingNeckNonBinaryPin
@@ -163,6 +165,7 @@
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
+      #- id: RubberStampGreytide # Delta-V: prevent greytide stamp from spawning
 
 - type: entity
   name: Maint Loot Spawner
@@ -287,6 +290,7 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
+      #- id: SpectralLocator # DeltaV: no ghost locator
       - id: LidSalami
         weight: 0.05
 
