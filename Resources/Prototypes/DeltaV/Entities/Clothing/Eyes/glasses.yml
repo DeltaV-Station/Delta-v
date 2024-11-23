@@ -42,7 +42,7 @@
     - Medical
   - type: IdentityBlocker
     coverage: EYES
-  - type: SecMedHud # we have ComponentToggler at home
+  - type: MedSecHud # we have ComponentToggler at home
     addComponents:
     - type: ShowHealthBars
     - type: ShowHealthIcons
