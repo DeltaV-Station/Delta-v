@@ -1,12 +1,12 @@
 - type: entity
-  suffix: Serenitol 10u
   parent: Pill
   id: PillSerenitol
+  suffix: Serenitol 10u
   components:
-  - type: Pill
-    pillType: 9
   - type: Sprite
     state: pill10
+  - type: Pill
+    pillType: 9
   - type: Label
     currentLabel: serenitol 10u
   - type: SolutionContainerManager
@@ -30,14 +30,14 @@
       amount: 5
 
 - type: entity
-  suffix: Neurozenium 10u
   parent: Pill
   id: PillNeurozenium
+  suffix: Neurozenium 10u
   components:
-  - type: Pill
-    pillType: 7
   - type: Sprite
     state: pill8
+  - type: Pill
+    pillType: 7
   - type: Label
     currentLabel: neurozenium 10u
   - type: SolutionContainerManager
@@ -61,14 +61,14 @@
       amount: 5
 
 - type: entity
-  suffix: Equilibrazine 5u
   parent: Pill
   id: PillEquilibrazine
+  suffix: Equilibrazine 5u
   components:
-  - type: Pill
-    pillType: 1
   - type: Sprite
     state: pill2
+  - type: Pill
+    pillType: 1
   - type: Label
     currentLabel: equilibrazine 5u
   - type: SolutionContainerManager
@@ -92,14 +92,14 @@
       amount: 5
 
 - type: entity
-  suffix: Blissifylovene 5u
   parent: Pill
   id: PillBlissifylovene
+  suffix: Blissifylovene 5u
   components:
-  - type: Pill
-    pillType: 6
   - type: Sprite
     state: pill7
+  - type: Pill
+    pillType: 6
   - type: Label
     currentLabel: blissifylovene 5u
   - type: SolutionContainerManager
@@ -123,14 +123,14 @@
       amount: 5
 
 - type: entity
-  suffix: Calmafluxine 10u
   parent: Pill
   id: PillCalmafluxine
+  suffix: Calmafluxine 10u
   components:
-  - type: Pill
-    pillType: 14
   - type: Sprite
     state: pill15
+  - type: Pill
+    pillType: 14
   - type: Label
     currentLabel: calmafluxine 10u
   - type: SolutionContainerManager
@@ -154,14 +154,14 @@
       amount: 5
 
 - type: entity
-  suffix: Tranquinase 10u
   parent: Pill
   id: PillTranquinase
+  suffix: Tranquinase 10u
   components:
-  - type: Pill
-    pillType: 15
   - type: Sprite
     state: pill16
+  - type: Pill
+    pillType: 15
   - type: Label
     currentLabel: tranquinase 10u
   - type: SolutionContainerManager
@@ -185,14 +185,14 @@
       amount: 5
 
 - type: entity
-  suffix: Stubantazine 10u
   parent: Pill
   id: PillStubantazine
+  suffix: Stubantazine 10u
   components:
-  - type: Pill
-    pillType: 2
   - type: Sprite
     state: pill3
+  - type: Pill
+    pillType: 2
   - type: Label
     currentLabel: stubantazine 10u
   - type: SolutionContainerManager
@@ -216,14 +216,14 @@
       amount: 5
 
 - type: entity
-  suffix: Soretizone 5u
   parent: Pill
   id: PillSoretizone
+  suffix: Soretizone 5u
   components:
-  - type: Pill
-    pillType: 17
   - type: Sprite
     state: pill18
+  - type: Pill
+    pillType: 17
   - type: Label
     currentLabel: soretizone 5u
   - type: SolutionContainerManager
@@ -247,14 +247,14 @@
       amount: 5
 
 - type: entity
-  suffix: agonolexyne 5u
   parent: Pill
   id: PillAgonolexyne
+  suffix: agonolexyne 5u
   components:
-  - type: Pill
-    pillType: 19
   - type: Sprite
     state: pill20
+  - type: Pill
+    pillType: 19
   - type: Label
     currentLabel: agonolexyne 5u
   - type: SolutionContainerManager
