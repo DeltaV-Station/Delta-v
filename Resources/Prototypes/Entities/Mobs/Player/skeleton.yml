@@ -50,7 +50,7 @@
   - type: GhostRole
     name: ghost-role-information-closet-skeleton-name
     description: ghost-role-information-closet-skeleton-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-closet-skeleton-rules # DeltaV - No longer free agent, now a non-antag (Some leeway given).
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 172800 # DeltaV - 48 hours

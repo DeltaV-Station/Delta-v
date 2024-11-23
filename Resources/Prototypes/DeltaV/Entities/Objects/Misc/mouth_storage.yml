@@ -9,10 +9,11 @@
     grid:
     - 0,0,1,1
     maxItemSize: Small
-    blacklist: 
+    blacklist:
       components:
       - Sharp
       - MindContainer
+      - NukeDisk
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

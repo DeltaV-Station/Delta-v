@@ -368,8 +368,10 @@
   - HeadofSecurityShoes # DeltaV - winter boots
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobWarden
@@ -383,8 +385,10 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar 
   - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -399,23 +403,27 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityFirearm # DeltaV - loadouts
+  - SecurityFirearmAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobDetective
   groups:
   - GroupTankHarness
-  - SecurityHead # DeltaV - replace DetectiveHead for incongruence
+  - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing # DeltaV - replace DetectiveOuterClothing for incongruence
+  - DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-#  - SecurityStar # DeltaV - removed for incongruence
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityRevolverFirearm # DeltaV - loadouts
+  - SecurityRevolverAmmo # DeltaV - loadouts
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -602,6 +610,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

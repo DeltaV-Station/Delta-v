@@ -21,5 +21,14 @@ trait-deuteranopia-name = Deuteranopia
 trait-deuteranopia-desc = Whether through custom bionic eyes, random mutation,
                           or being a Vulpkanin, you have red–green colour blindness.
 
+trait-hushed-name = Hushed
+trait-hushed-desc = You are unable to speak louder than a whisper.
+
 trait-uncloneable-name = Uncloneable
 trait-uncloneable-desc = Cannot be cloned
+
+trait-inpain-name = Chronic pain
+trait-inpain-desc = You’re constantly in discomfort. You need painkillers to function.
+
+trait-addicted-name = Addicted
+trait-addicted-desc = You crave the substance, and your thoughts keep drifting back to it. Without it, you feel incomplete, anxious, and on edge.

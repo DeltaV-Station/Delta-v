@@ -9,6 +9,8 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Psionics; // DeltaV
+using Content.Server.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -33,26 +35,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Traits.Assorted; //Nyano - Summary: allows the potential psionic ability to be written to the character.
-using Content.Server.Psionics; //DeltaV needed for Psionic Systems
-using Content.Shared.Speech; //DeltaV Start Metem Usings
-using Content.Shared.Tag;
-using Content.Shared.Preferences;
-using Content.Shared.Emoting;
-using Content.Server.Speech.Components;
-using Content.Server.StationEvents.Components;
-using Content.Server.Ghost.Roles.Components;
-using Content.Server.Nyanotrasen.Cloning;
-using Content.Shared.Humanoid.Prototypes;
-using Robust.Shared.GameObjects.Components.Localization; //DeltaV End Metem Usings
-using Content.Server.EntityList;
-using Content.Shared.SSDIndicator;
-using Content.Shared.Damage.ForceSay;
-using Content.Server.Polymorph.Components;
 
 namespace Content.Server.Cloning
 {
-    public sealed class CloningSystem : EntitySystem
+    public sealed partial class CloningSystem : EntitySystem // DeltaV - Set to partial, see CloningSystem.Metempsychosis.cs
     {
         [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = null!;
@@ -76,8 +62,6 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
-        [Dependency] private readonly TagSystem _tag = default!; //DeltaV
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -157,6 +141,10 @@ namespace Content.Server.Cloning
         {
             if (!Resolve(uid, ref clonePod))
                 return false;
+
+            // DeltaV - This method should use Entity<CloningPodComponent> pod instead
+            // But I don't want to completely mangle it so we do this here
+            var podEnt = new Entity<CloningPodComponent>(uid, clonePod);
 
             if (HasComp<ActiveCloningPodComponent>(uid))
                 return false;
@@ -244,13 +232,13 @@ namespace Content.Server.Cloning
                     AddComp<ActiveCloningPodComponent>(uid);
                     return true;
                 }
-                // End Nyano-code.
             }
             // end of genetic damage checks
 
-            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
+            // DeltaV - Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
+            var mob = FetchAndSpawnMob(podEnt, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus);
 
-            ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
+            // Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
 
             var ev = new CloningEvent(bodyToClone, mob);
@@ -271,7 +259,7 @@ namespace Content.Server.Cloning
 
             // TODO: Ideally, components like this should be components on the mind entity so this isn't necessary.
             // Add on special job components to the mob.
-            if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
+            if (_jobs.MindTryGetJob(mindEnt, out var prototype))
             {
                 foreach (var special in prototype.Special)
                 {
@@ -348,6 +336,7 @@ namespace Content.Server.Cloning
             var transform = Transform(uid);
             var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
+
             if (HasComp<EmaggedComponent>(uid))
             {
                 _audio.PlayPvs(clonePod.ScreamSound, uid);
@@ -375,84 +364,6 @@ namespace Content.Server.Cloning
             RemCompDeferred<ActiveCloningPodComponent>(uid);
         }
 
-        /// <summary>
-        /// Start Nyano Code: Handles fetching the mob and any appearance stuff...
-        /// </summary>
-        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidAppearanceComponent humanoid, EntityUid bodyToClone, float karmaBonus)
-        {
-            List<Sex> sexes = new();
-            bool switchingSpecies = false;
-            bool applyKarma = false;
-            var toSpawn = speciesPrototype.Prototype;
-            TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
-
-            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
-            {
-                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, karmaBonus, metem, speciesPrototype, out var newSpecies, oldKarma?.Score);
-                applyKarma = true;
-
-                if (newSpecies != null)
-                {
-                    sexes = newSpecies.Sexes;
-
-                    if (speciesPrototype.ID != newSpecies.ID)
-                        switchingSpecies = true;
-
-                    speciesPrototype = newSpecies;
-                }
-            }
-
-            var mob = Spawn(toSpawn, _transformSystem.GetMapCoordinates(clonePod.Owner));
-            if (TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
-            {
-                if (switchingSpecies || HasComp<MetempsychosisKarmaComponent>(bodyToClone))
-                {
-                    pref = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
-                    if (sexes.Contains(humanoid.Sex))
-                        pref = pref.WithSex(humanoid.Sex);
-
-                    pref = pref.WithGender(humanoid.Gender);
-                    pref = pref.WithAge(humanoid.Age);
-
-                }
-                _humanoidSystem.LoadProfile(mob, pref);
-            }
-
-            if (applyKarma)
-            {
-                var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
-                karma.Score++;
-                if (oldKarma != null)
-                    karma.Score += oldKarma.Score;
-            }
-
-            var ev = new CloningEvent(bodyToClone, mob);
-            RaiseLocalEvent(bodyToClone, ref ev);
-
-            if (!ev.NameHandled)
-                _metaSystem.SetEntityName(mob, MetaData(bodyToClone).EntityName);
-
-            var grammar = EnsureComp<GrammarComponent>(mob);
-            grammar.ProperNoun = true;
-            grammar.Gender = humanoid.Gender;
-            Dirty(mob, grammar);
-
-            EnsureComp<PotentialPsionicComponent>(mob);
-            EnsureComp<SpeechComponent>(mob);
-            EnsureComp<DamageForceSayComponent>(mob);
-            EnsureComp<EmotingComponent>(mob);
-            EnsureComp<MindContainerComponent>(mob);
-            EnsureComp<SSDIndicatorComponent>(mob);
-            RemComp<ReplacementAccentComponent>(mob);
-            RemComp<MonkeyAccentComponent>(mob);
-            RemComp<SentienceTargetComponent>(mob);
-            RemComp<GhostTakeoverAvailableComponent>(mob);
-
-            _tag.AddTag(mob, "DoorBumpOpener");
-
-            return mob;
-        }
-        //End Nyano Code
         public void Reset(RoundRestartCleanupEvent ev)
         {
             ClonesWaitingForMind.Clear();

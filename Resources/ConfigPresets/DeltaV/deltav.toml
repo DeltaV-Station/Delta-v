@@ -33,6 +33,7 @@ alert.min_players_sharing_connection = 2
 [server]
 id         = "deltav"
 rules_file = "DeltaVRuleset"
+uptime_restart_minutes = 2880 # 48h
 
 [discord]
 rich_main_icon_id = "deltav"
@@ -46,3 +47,9 @@ flavor_text = true
 [ahelp]
 admin_prefix = false
 admin_prefix_webhook = false
+
+[votekick]
+enabled = false # only enabled on periapsis
+eligible_number = 5
+initiator_ghost_requirement = false
+voter_ghost_requirement = false

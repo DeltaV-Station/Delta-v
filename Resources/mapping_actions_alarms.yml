@@ -1,0 +1,139 @@
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirAlarm
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirAlarm
+  assignments:
+  - 0: 1
+  name: Air Alarm
+- action: !type:InstantActionComponent
+    icon:
+      entity: FireAlarm
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: FireAlarm
+  assignments:
+  - 0: 2
+  name: Fire Alarm
+- action: !type:InstantActionComponent
+    icon:
+      entity: AirSensor
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: AirSensor
+  assignments:
+  - 0: 3
+  name: Air Sensor
+- action: !type:InstantActionComponent
+    icon:
+      entity: Firelock
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Firelock
+  assignments:
+  - 0: 4
+  name: Firelock
+- action: !type:InstantActionComponent
+    icon:
+      entity: FirelockGlass
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: FirelockGlass
+  assignments:
+  - 0: 5
+  name: Firelock Glass
+- action: !type:InstantActionComponent
+    icon:
+      entity: FirelockEdge
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: FirelockEdge
+  assignments:
+  - 0: 6
+  name: Firelock Edge
+- action: !type:InstantActionComponent
+    icon:
+      entity: Multitool
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: Multitool
+  assignments:
+  - 0: 7
+  name: Multitool
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentScrubber
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentScrubber
+  assignments:
+  - 0: 8
+  name: Gas Vent Scrubber
+- action: !type:InstantActionComponent
+    icon:
+      entity: GasVentPump
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      placementOption: SnapgridCenter
+      entityType: GasVentPump
+  assignments:
+  - 0: 9
+  name: Gas Vent Pump
+- action: !type:InstantActionComponent
+    icon: Interface/VerbIcons/delete.svg.192dpi.png
+    keywords: []
+    checkCanInteract: False
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartPlacementActionEvent
+      eraser: True
+  assignments:
+  - 0: 0
+  name: action-name-mapping-erase
+...

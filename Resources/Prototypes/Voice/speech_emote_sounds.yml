@@ -249,6 +249,8 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Hiss:
+      path: /Audio/Animals/snake_hiss.ogg #DeltaV
     Weh:
       collection: Weh
     Gasp:
@@ -424,6 +426,22 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+       
+- type: emoteSounds
+  id: ReptilianBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
 
 # mobs
 - type: emoteSounds

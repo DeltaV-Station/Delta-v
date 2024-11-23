@@ -75,21 +75,6 @@
   categories:
   - UplinkImplants
 
-
-- type: listing
-  id: UplinkGenericRadioImplanter
-  name: uplink-generic-radio-implanter-name
-  description: uplink-generic-radio-implanter-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: crypt_rusted }
-  productEntity: GenericRadioImplanter
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkImplants
-
 - type: listing
   id: UplinkDoorjack
   name: uplink-doorjack-name

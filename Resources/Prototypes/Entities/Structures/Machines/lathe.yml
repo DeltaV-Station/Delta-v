@@ -163,6 +163,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -198,15 +199,16 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
-      - GoldRing # Delta-V
-      - SilverRing # Delta-V
-      - GoldRingDiamond # Delta-V
-      - SilverRingDiamond # Delta-V
-
+      - FreezerElectronics
+      # Begin Delta-V additions
+      - GoldRing
+      - SilverRing
+      - GoldRingDiamond
+      - SilverRingDiamond
+      # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -234,6 +236,7 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
+      - MagazinePistolSpecial
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -368,6 +371,8 @@
       - RCDAmmo
       - Fulton
       - FultonBeacon
+      - PowerCellHyper
+      - FireExtinguisherBluespace
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -431,6 +436,9 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - AdvancedTruncheon
+      - LauncherSyringe
+      - MiniSyringe
       # End DeltaV additions
 
 - type: entity
@@ -482,6 +490,7 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - FloorRedCircuit
     - MicrowaveMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - ElectricGrillMachineCircuitboard
@@ -711,8 +720,6 @@
     - HamtrRLeg
     - VimHarness
   # Begin Nyano additions
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - ClothingOuterHardsuitSyndieReverseEngineered
     - JetpackBlue
     - JetpackMini
   # End Nyano additions
@@ -721,6 +728,10 @@
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
+  - type: EmagLatheRecipes
+    emagDynamicRecipes:
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
   # DeltaV End
   - type: MaterialStorage
     whitelist:
@@ -805,7 +816,6 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -930,6 +940,10 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
+      - ClothingShoesBootsSecurityMagboots
+      - AdvancedTruncheon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -968,7 +982,6 @@
         - MagazineBoxSpecial
         # End of modified code
         - BoxLethalshot
-        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -1056,6 +1069,10 @@
       - WhiteCane
       - AACTablet # DeltaV
     dynamicRecipes:
+      # Begin DeltaV additions
+      - LauncherSyringe
+      - MiniSyringe
+      # End DeltaV additions
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
@@ -1217,14 +1234,6 @@
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
-      - ClothingNeckMantleCap
-      - ClothingNeckMantleCE
-      - ClothingNeckMantleCMO
-      - ClothingNeckMantleHOP
-      - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
-      - ClothingNeckMantleQM
-      - ClothingNeckCloakCJ # DeltaV - Chief Justice
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
@@ -1322,8 +1331,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    insertOnInteract: false
-    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:
