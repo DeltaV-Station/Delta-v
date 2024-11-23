@@ -163,17 +163,35 @@ public sealed class FootPrintsSystem : EntitySystem
     /// </summary>
     private void OnFootPrintRemove(Entity<FootPrintComponent> ent, ref ComponentRemove args)
     {
-        if (!TryGetTilePos(ent.Owner, out var tilePos))
-            return;
-
-        if (_footprintsPerTile.TryGetValue(tilePos, out var footprints))
+        // Try to get tile pos if entity is still valid
+        Vector2i? tilePos = null;
+        if (!Deleted(ent) && !EntityManager.IsQueuedForDeletion(ent) && Transform(ent).ParentUid.IsValid())
         {
-            // Create a new queue without the removed footprint
+            TryGetTilePos(ent.Owner, out var pos);
+            tilePos = pos;
+        }
+
+        // If we couldn't get tile pos, search all tiles to find and remove this footprint
+        if (tilePos == null)
+        {
+            foreach (var (pos, prints) in _footprintsPerTile)
+            {
+                if (!prints.Contains(ent.Owner))
+                    continue;
+
+                tilePos = pos;
+                break;
+            }
+        }
+
+        // Clean up the footprint tracking if we found it
+        if (tilePos.HasValue && _footprintsPerTile.TryGetValue(tilePos.Value, out var footprints))
+        {
             var newQueue = new Queue<EntityUid>(footprints.Where(x => x != ent.Owner));
             if (newQueue.Count > 0)
-                _footprintsPerTile[tilePos] = newQueue;
+                _footprintsPerTile[tilePos.Value] = newQueue;
             else
-                _footprintsPerTile.Remove(tilePos);
+                _footprintsPerTile.Remove(tilePos.Value);
         }
     }
 
