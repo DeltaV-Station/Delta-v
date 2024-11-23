@@ -1725,7 +1725,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Doors/secret_door.rsi
+    sprite: NES/Structures/Doors/secret_door.rsi #NES14-Changes
     state: closed
   conditions:
     - !type:TileNotBlocked

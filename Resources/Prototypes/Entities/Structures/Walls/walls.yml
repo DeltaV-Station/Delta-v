@@ -968,15 +968,15 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: NES/Structures/Walls/shuttleinterior.rsi
   - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: NES/Structures/Walls/shuttleinterior.rsi
   - type: Construction
     graph: Girder
     node: shuttleInteriorWall
   - type: IconSmooth
     key: walls
-    base: state
+    base: plastitanium
   # - type: Reflect
   #   reflectProb: 1
 

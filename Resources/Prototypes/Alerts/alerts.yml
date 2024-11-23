@@ -147,7 +147,7 @@
 - type: alert
   id: Handcuffed
   clickEvent: !type:RemoveCuffsAlertEvent
-  icons: [ /Textures/Interface/Alerts/Handcuffed/Handcuffed.png ]
+  icons: [ /Textures/NES/GUI/Alerts/Handcuffed/Handcuffed.png ] #NES14-Changes
   name: alerts-handcuffed-name
   description: alerts-handcuffed-desc
 
@@ -155,7 +155,7 @@
   id: Ensnared
   clickEvent: !type:RemoveEnsnareAlertEvent
   icons:
-  - sprite: /Textures/Interface/Alerts/ensnared.rsi
+  - sprite: /Textures/NES/GUI/Alerts/ensnared.rsi #NES14-Changes
     state: ensnared
   name: alerts-ensnared-name
   description: alerts-ensnared-desc
