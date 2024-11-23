@@ -41,5 +41,13 @@
     - Medical
   - type: IdentityBlocker
     coverage: EYES
-  - type: SecMedHud
-
+  - type: SecMedHud # we have ComponentToggler at home
+    addComponents:
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    removeComponents:
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+  - type: ToggleClothing
+    action: ActionToggleMedSecHud
