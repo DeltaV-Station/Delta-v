@@ -4378,7 +4378,7 @@ entities:
       pos: 35.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44489.23
+      secondsUntilStateChange: -44658.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6031,7 +6031,7 @@ entities:
       pos: -2.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -48910.25
+      secondsUntilStateChange: -49080.008
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -40584,7 +40584,7 @@ entities:
   - uid: 6913
     components:
     - type: Transform
-      pos: 6.568842,-11.429706
+      pos: 6.5117345,-11.346227
       parent: 2
 - proto: ClothingNeckMantleQM
   entities:
@@ -81141,7 +81141,7 @@ entities:
       pos: 52.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -10106.565
+      secondsUntilStateChange: -10276.321
       state: Opening
   - uid: 12763
     components:
@@ -81532,6 +81532,14 @@ entities:
     - type: Transform
       pos: 9.6889925,5.5761485
       parent: 2
+- proto: Lamp
+  entities:
+  - uid: 12831
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.45446992,-11.31914
+      parent: 2
 - proto: LampBanana
   entities:
   - uid: 12830
@@ -81604,11 +81612,6 @@ entities:
     - type: Physics
       canCollide: True
     - type: ActionsContainer
-  - uid: 12831
-    components:
-    - type: Transform
-      pos: 0.5088124,-11.338787
-      parent: 2
   - uid: 12832
     components:
     - type: Transform
@@ -94694,13 +94697,13 @@ entities:
   - uid: 15092
     components:
     - type: Transform
-      pos: -8.359964,-1.562458
+      pos: -7.954586,-1.5532649
       parent: 2
-  - uid: 15093
+  - uid: 18245
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -8.281839,-1.578083
+      pos: -7.860836,-1.5220149
       parent: 2
 - proto: SubstationBasic
   entities:
@@ -97216,11 +97219,6 @@ entities:
     - type: Transform
       pos: -2.5,-11.5
       parent: 2
-  - uid: 15491
-    components:
-    - type: Transform
-      pos: 6.5,-11.5
-      parent: 2
   - uid: 15492
     components:
     - type: Transform
@@ -97637,6 +97635,11 @@ entities:
       parent: 2
 - proto: TableWood
   entities:
+  - uid: 15491
+    components:
+    - type: Transform
+      pos: 6.5,-11.5
+      parent: 2
   - uid: 15569
     components:
     - type: Transform
@@ -109294,6 +109297,29 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 29.5,8.5
       parent: 2
+- proto: WallWeaponCapacitorRecharger
+  entities:
+  - uid: 18241
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-10.5
+      parent: 2
+  - uid: 18242
+    components:
+    - type: Transform
+      pos: -10.5,2.5
+      parent: 2
+  - uid: 18243
+    components:
+    - type: Transform
+      pos: -7.5,2.5
+      parent: 2
+  - uid: 18244
+    components:
+    - type: Transform
+      pos: -5.5,2.5
+      parent: 2
 - proto: WallWood
   entities:
   - uid: 17826
@@ -109778,6 +109804,11 @@ entities:
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:
+  - uid: 15093
+    components:
+    - type: Transform
+      pos: -8.5,-1.5
+      parent: 2
   - uid: 17903
     components:
     - type: Transform
@@ -109793,6 +109824,12 @@ entities:
     components:
     - type: Transform
       pos: -13.5,45.5
+      parent: 2
+  - uid: 18246
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-7.5
       parent: 2
 - proto: WeaponDisabler
   entities:
