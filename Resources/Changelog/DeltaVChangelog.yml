@@ -1,60 +1,4 @@
 ﻿Entries:
-- author: DarkenedSynergy
-  changes:
-  - message: Fixed logistics airlocks looking like engineering airlocks when opened.
-    type: Fix
-  id: 192
-  time: '2023-12-31T16:23:10.0000000+00:00'
-- author: DangerRevolution and VMSolidus
-  changes:
-  - message: Rumours say that Syndicate Agents have cracked encoded communications!
-      Added the Syndicate Listening Post to the Syndicate's arsenal of espionage!
-    type: Add
-  id: 193
-  time: '2023-12-31T16:48:27.0000000+00:00'
-- author: VMSolidus and DangerRevolution
-  changes:
-  - message: The Listening Outpost has received several tweaks and balance changes.
-      It should spawn less often now.
-    type: Tweak
-  id: 194
-  time: '2024-01-01T21:33:58.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Reverted Shotgun sprites
-    type: Tweak
-  id: 195
-  time: '2024-01-01T21:48:08.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Added BB guns! Don't shoot your eye out.
-    type: Add
-  id: 196
-  time: '2024-01-02T22:03:49.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: On very high pop revolution rounds, there can be 2 head revolutionaries.
-    type: Tweak
-  id: 197
-  time: '2024-01-02T22:06:22.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: There should only ever be one Listening Outpost spawning at a time
-    type: Fix
-  id: 198
-  time: '2024-01-02T23:05:25.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: 'Added maiden outfits into janidrobe. '
-    type: Add
-  id: 199
-  time: '2024-01-07T14:57:38.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Prison guards are now mindshielded and have a security playtime requirement.
-    type: Fix
-  id: 200
-  time: '2024-01-07T18:20:45.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Atmos hopefully shouldn't break anymore
@@ -3747,3 +3691,73 @@
   id: 691
   time: '2024-11-20T01:10:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2234
+- author: MilonPL
+  changes:
+  - message: Fixed pain effect popups being visible to everyone.
+    type: Fix
+  id: 692
+  time: '2024-11-20T20:26:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2248
+- author: Kr8art
+  changes:
+  - message: Bomberjackets now protect from the cold!
+    type: Tweak
+  id: 693
+  time: '2024-11-20T23:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2246
+- author: Stop-Signs
+  changes:
+  - message: Mini syringes now hold 5u instead of 15
+    type: Tweak
+  id: 694
+  time: '2024-11-21T04:28:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2249
+- author: Radezolid
+  changes:
+  - message: Removed the war declarator from the nuclear operatives.
+    type: Remove
+  id: 695
+  time: '2024-11-21T08:26:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2207
+- author: Radezolid
+  changes:
+  - message: HoP's locker no longer spawns with a disabler inside.
+    type: Tweak
+  id: 696
+  time: '2024-11-22T22:35:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2269
+- author: Kr8art
+  changes:
+  - message: Added missing RPDS sprites. The RPDS can now be wielded and worn in on
+      a suit without turning invisible!
+    type: Fix
+  id: 697
+  time: '2024-11-22T22:41:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2267
+- author: Kr8art
+  changes:
+  - message: Vulpkanin 101 now has a custom icon!
+    type: Tweak
+  id: 698
+  time: '2024-11-22T22:51:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2254
+- author: pontaoski
+  changes:
+  - message: Characters with the "chronic pain" trait now spawn with 5 pills of 10u
+      soretizone to tide them over at the start of a shift
+    type: Add
+  id: 699
+  time: '2024-11-24T03:47:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2259
+- author: deltanedas
+  changes:
+  - message: Merged upstream changes from the last 2 weeks.
+    type: Add
+  - message: Security borgs have baton, seclite and holoprojector modules when a chassis
+      switches to it.
+    type: Tweak
+  - message: Removed the security borg wood baton module, they get real batongs now.
+    type: Remove
+  id: 700
+  time: '2024-11-24T04:37:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2205
