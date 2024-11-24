@@ -1,0 +1,21 @@
+name: "Labels: Size"
+on: pull_request_target
+jobs:
+  size-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: size-label
+        uses: "pascalgn/size-label-action@v0.5.5"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          # Custom size configuration
+          # DeltaV: changed to powers of 4
+          sizes: >
+            {
+              "0": "XS",
+              "16": "S",
+              "64": "M",
+              "256": "L",
+              "1024": "XL"
+            }

@@ -3,6 +3,7 @@ using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVars; // DeltaV
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
@@ -272,7 +273,7 @@ public sealed class EventManagerSystem : EntitySystem
 
         // Nyano - Summary: - Begin modified code block: check for glimmer events.
         // This could not be cleanly done anywhere else.
-        if (_configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
+        if (_configurationManager.GetCVar(DCCVars.GlimmerEnabled) &&
             prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
             (_glimmer.Glimmer < glimmerEvent.MinimumGlimmer ||
             _glimmer.Glimmer > glimmerEvent.MaximumGlimmer))

@@ -1,7 +1,7 @@
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
-using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVars;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.GameTicking;
 using Content.Server.CartridgeLoader.Cartridges;
@@ -34,7 +34,7 @@ namespace Content.Server.Psionics.Glimmer
         {
             base.Initialize();
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
-            _cfg.OnValueChanged(CCVars.GlimmerLostPerSecond, UpdatePassiveGlimmer, true);
+            _cfg.OnValueChanged(DCCVars.GlimmerLostPerSecond, UpdatePassiveGlimmer, true);
         }
 
         private void OnRoundRestartCleanup(RoundRestartCleanupEvent args)
