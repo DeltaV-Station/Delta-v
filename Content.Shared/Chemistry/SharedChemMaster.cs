@@ -9,7 +9,7 @@ namespace Content.Shared.Chemistry
     /// </summary>
     public sealed class SharedChemMaster
     {
-        public const uint PillTypes = 20;
+        public const uint PillTypes = 23;
         public const string BufferSolutionName = "buffer";
         public const string InputSlotName = "beakerSlot";
         public const string OutputSlotName = "outputSlot";
