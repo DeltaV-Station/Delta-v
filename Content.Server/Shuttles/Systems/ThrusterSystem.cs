@@ -31,7 +31,7 @@ public sealed class ThrusterSystem : EntitySystem
     [Dependency] private readonly AmbientSoundSystem _ambient = default!;
     [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private readonly SharedPointLightSystem _light = default!; //NES14-Changes
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     // Essentially whenever thruster enables we update the shuttle's available impulses which are used for movement.
@@ -232,7 +232,7 @@ public sealed class ThrusterSystem : EntitySystem
 
     private void OnThrusterInit(EntityUid uid, ThrusterComponent component, ComponentInit args)
     {
-        _ambient.SetAmbience(uid, false);
+        // _ambient.SetAmbience(uid, false);
 
         if (!component.Enabled)
         {
@@ -313,12 +313,12 @@ public sealed class ThrusterSystem : EntitySystem
             _appearance.SetData(uid, ThrusterVisualState.State, true, appearance);
         }
 
-        if (_light.TryGetLight(uid, out var pointLightComponent))
-        {
-            _light.SetEnabled(uid, true, pointLightComponent);
-        }
+        // if (_light.TryGetLight(uid, out var pointLightComponent))
+        // {
+        //     _light.SetEnabled(uid, true, pointLightComponent);
+        // }
 
-        _ambient.SetAmbience(uid, true);
+        // _ambient.SetAmbience(uid, true);
         RefreshCenter(uid, shuttleComponent);
     }
 
@@ -401,12 +401,12 @@ public sealed class ThrusterSystem : EntitySystem
             _appearance.SetData(uid, ThrusterVisualState.State, false, appearance);
         }
 
-        if (_light.TryGetLight(uid, out var pointLightComponent))
-        {
-            _light.SetEnabled(uid, false, pointLightComponent);
-        }
+        // if (_light.TryGetLight(uid, out var pointLightComponent))
+        // {
+        //     _light.SetEnabled(uid, false, pointLightComponent);
+        // }
 
-        _ambient.SetAmbience(uid, false);
+        // _ambient.SetAmbience(uid, false);
 
         if (EntityManager.TryGetComponent(uid, out PhysicsComponent? physicsComponent))
         {
@@ -511,6 +511,8 @@ public sealed class ThrusterSystem : EntitySystem
             comp.Firing = true;
             appearanceQuery.TryGetComponent(uid, out var appearance);
             _appearance.SetData(uid, ThrusterVisualState.Thrusting, true, appearance);
+            _ambient.SetAmbience(uid, true);
+            _light.SetEnabled(uid, true);
         }
     }
 
@@ -536,6 +538,8 @@ public sealed class ThrusterSystem : EntitySystem
             appearanceQuery.TryGetComponent(uid, out var appearance);
             comp.Firing = false;
             _appearance.SetData(uid, ThrusterVisualState.Thrusting, false, appearance);
+            _ambient.SetAmbience(uid, false);
+            _light.SetEnabled(uid, false);
         }
     }
 
@@ -564,6 +568,8 @@ public sealed class ThrusterSystem : EntitySystem
                 appearanceQuery.TryGetComponent(uid, out var appearance);
                 comp.Firing = true;
                 _appearance.SetData(uid, ThrusterVisualState.Thrusting, true, appearance);
+                _ambient.SetAmbience(uid, true);
+                _light.SetEnabled(uid, true);
             }
         }
         else
@@ -576,6 +582,8 @@ public sealed class ThrusterSystem : EntitySystem
                 appearanceQuery.TryGetComponent(uid, out var appearance);
                 comp.Firing = false;
                 _appearance.SetData(uid, ThrusterVisualState.Thrusting, false, appearance);
+                _ambient.SetAmbience(uid, false);
+                _light.SetEnabled(uid, false);
             }
         }
     }

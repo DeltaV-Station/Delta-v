@@ -8,7 +8,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/Sheets/metal.rsi
+        - sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
           state: steel_3
     - type: RandomSpawner
       rarePrototypes:
@@ -33,7 +33,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/materials.rsi
+        - sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
           state: wood_2
     - type: RandomSpawner
       prototypes:
@@ -54,7 +54,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/Sheets/metal.rsi
+        - sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
           state: plasteel_2
     - type: RandomSpawner
       rarePrototypes:
@@ -74,7 +74,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/Sheets/other.rsi
+        - sprite: NES/Objects/Materials/Sheets/other.rsi #NES14-Changes
           state: plasma_2
     - type: RandomSpawner
       rarePrototypes:
@@ -98,7 +98,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/Sheets/metal.rsi
+        - sprite: NES/Objects/Materials/Sheets/metal.rsi #NES14-Changes
           state: steel_3
     - type: RandomSpawner
       rarePrototypes:

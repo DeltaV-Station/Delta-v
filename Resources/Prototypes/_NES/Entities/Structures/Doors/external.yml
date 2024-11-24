@@ -1,0 +1,91 @@
+- type: entity
+  id: Nes14DoorHandled
+  name: стеклянный ручной шлюз
+  parent: BaseMaterialDoorNavMap
+  description: Герметичный шлюз, который открывается и закрывается без надобности в электричестве. Только не открой случайно в космос.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Doors/external.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.2
+    closeTimeTwo: 0.6
+    openTimeOne: 0.6
+    openTimeTwo: 0.2
+    openSound:
+      path: /Audio/NES/Doors/Open.ogg
+    closeSound:
+      path: /Audio/NES/Doors/Close.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Occluder
+    enabled: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Nes14DoorHandledAlt
+  name: ручной шлюз
+  parent: BaseMaterialDoorNavMap
+  description: Герметичный шлюз, который открывается и закрывается без надобности в электричестве. Только не открой случайно в космос.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Doors/external.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.2
+    closeTimeTwo: 0.6
+    openTimeOne: 0.6
+    openTimeTwo: 0.2
+    openSound:
+      path: /Audio/NES/Doors/Open.ogg
+    closeSound:
+      path: /Audio/NES/Doors/Close.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: Nes14DoorSpaceHandled
+  name: внешний ручной шлюз
+  parent: Nes14DoorHandled
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Doors/external_space.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.2
+    closeTimeTwo: 0.6
+    openTimeOne: 0.6
+    openTimeTwo: 0.2
+    openSound:
+      path: /Audio/NES/Doors/Open.ogg
+    closeSound:
+      path: /Audio/NES/Doors/Close.ogg

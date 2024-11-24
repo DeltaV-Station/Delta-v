@@ -69,7 +69,7 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     layers:
     - state: fire0
       map: ["fireAlarmBase"]
@@ -119,7 +119,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     layers:
     - state: fire_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

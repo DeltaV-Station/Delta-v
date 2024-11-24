@@ -2,7 +2,7 @@
   id: Morgue
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -11,7 +11,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -20,7 +20,7 @@
   id: Holy
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -39,7 +39,7 @@
   id: Medical
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -48,7 +48,7 @@
   id: Engineering
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -58,7 +58,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -67,7 +67,7 @@
   id: Space
   sound:
     params:
-      volume: -10
+      volume: -13
     collection: AmbienceSpace
   fadeIn: true
   interruptable: true
@@ -78,10 +78,10 @@
   id: Mining
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceMining
   rules: OnMapGrid
-  fadeIn: true
+  # fadeIn: true
   interruptable: true
   priority: 1
 
@@ -90,9 +90,11 @@
   id: General
   sound:
     params:
-      volume: -12
+      volume: -15
     collection: AmbienceGeneral
   rules: AlwaysTrue
+  interruptable: true
+  priority: 6
 
 # Sound collections
 - type: soundCollection
@@ -111,19 +113,16 @@
 - type: soundCollection
   id: AmbienceGeneral
   files:
-    - /Audio/Ambience/ambigen1.ogg
-    - /Audio/Ambience/ambigen3.ogg
-    - /Audio/Ambience/ambigen4.ogg
-    - /Audio/Ambience/ambigen5.ogg
-    - /Audio/Ambience/ambigen6.ogg
-    - /Audio/Ambience/ambigen7.ogg
-    - /Audio/Ambience/ambigen8.ogg
-    - /Audio/Ambience/ambigen9.ogg
-    - /Audio/Ambience/ambigen10.ogg
-    - /Audio/Ambience/ambigen11.ogg
-    - /Audio/Ambience/ambigen12.ogg
-    - /Audio/Ambience/ambigen14.ogg
-    - /Audio/Ambience/ambigen15.ogg
+    # - /Audio/Ambience/spookyspace1.ogg
+    # - /Audio/Ambience/spookyspace2.ogg
+    # - /Audio/Ambience/ambispace2.ogg
+    # - /Audio/Ambience/ambinice.ogg
+    # - /Audio/Ambience/ambiatmos.ogg
+    - /Audio/NES/Ambience/general1.ogg
+    - /Audio/NES/Ambience/general2.ogg
+    - /Audio/NES/Ambience/general3.ogg
+    - /Audio/NES/Ambience/general4.ogg
+    - /Audio/NES/Ambience/general5.ogg
 
 - type: soundCollection
   id: AmbienceHoly
@@ -159,51 +158,54 @@
 - type: soundCollection
   id: AmbienceMining
   files:
-    - /Audio/Ambience/ambicave.ogg
-    - /Audio/Ambience/ambidanger.ogg
-    - /Audio/Ambience/ambidanger2.ogg
-    - /Audio/Ambience/ambilava1.ogg
-    - /Audio/Ambience/ambilava2.ogg
-    - /Audio/Ambience/ambilava3.ogg
-    - /Audio/Ambience/ambimaint1.ogg
-    - /Audio/Ambience/ambimine.ogg
-    - /Audio/Ambience/ambiruin.ogg
-    - /Audio/Ambience/ambiruin2.ogg
-    - /Audio/Ambience/ambiruin3.ogg
-    - /Audio/Ambience/ambiruin4.ogg
-    - /Audio/Ambience/ambiruin5.ogg
-    - /Audio/Ambience/ambiruin6.ogg
-    - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/Ambience/voyage_neverending.ogg
-    - /Audio/Ambience/unanchored.ogg
+    # - /Audio/Ambience/ambicave.ogg
+    # - /Audio/Ambience/ambidanger.ogg
+    # - /Audio/Ambience/ambidanger2.ogg
+    # - /Audio/Ambience/ambilava1.ogg
+    # - /Audio/Ambience/ambilava2.ogg
+    # - /Audio/Ambience/ambilava3.ogg
+    # - /Audio/Ambience/ambimaint1.ogg
+    # - /Audio/Ambience/ambimine.ogg
+    # - /Audio/Ambience/ambiruin.ogg
+    # - /Audio/Ambience/ambiruin2.ogg
+    # - /Audio/Ambience/ambiruin3.ogg
+    # - /Audio/Ambience/ambiruin4.ogg
+    # - /Audio/Ambience/ambiruin5.ogg
+    # - /Audio/Ambience/ambiruin6.ogg
+    # - /Audio/Ambience/ambiruin7.ogg
+    - /Audio/NES/Ambience/planetary1.ogg
+    - /Audio/NES/Ambience/planetary2.ogg
+    - /Audio/NES/Ambience/planetary3.ogg
+    - /Audio/NES/Ambience/planetary4.ogg
+    - /Audio/NES/Ambience/planetary5.ogg
 
 - type: soundCollection
   id: AmbienceRuins
   files:
-    - /Audio/Ambience/ambicave.ogg
-    - /Audio/Ambience/ambidanger.ogg
-    - /Audio/Ambience/ambidanger2.ogg
-    - /Audio/Ambience/ambimaint1.ogg
-    - /Audio/Ambience/ambimine.ogg
-    - /Audio/Ambience/ambimystery.ogg
-    - /Audio/Ambience/ambiruin.ogg
-    - /Audio/Ambience/ambiruin2.ogg
-    - /Audio/Ambience/ambiruin3.ogg
-    - /Audio/Ambience/ambiruin4.ogg
-    - /Audio/Ambience/ambiruin5.ogg
-    - /Audio/Ambience/ambiruin6.ogg
-    - /Audio/Ambience/ambiruin7.ogg
+    # - /Audio/Ambience/ambicave.ogg
+    # - /Audio/Ambience/ambidanger.ogg
+    # - /Audio/Ambience/ambidanger2.ogg
+    # - /Audio/Ambience/ambimaint1.ogg
+    # - /Audio/Ambience/ambimine.ogg
+    # - /Audio/Ambience/ambimystery.ogg
+    # - /Audio/Ambience/ambiruin.ogg
+    # - /Audio/Ambience/ambiruin2.ogg
+    # - /Audio/Ambience/ambiruin3.ogg
+    # - /Audio/Ambience/ambiruin4.ogg
+    # - /Audio/Ambience/ambiruin5.ogg
+    # - /Audio/Ambience/ambiruin6.ogg
+    # - /Audio/Ambience/ambiruin7.ogg
+    - /Audio/NES/Ambience/planetary1.ogg
+    - /Audio/NES/Ambience/planetary2.ogg
+    - /Audio/NES/Ambience/planetary3.ogg
+    - /Audio/NES/Ambience/planetary4.ogg
+    - /Audio/NES/Ambience/planetary5.ogg
 
 - type: soundCollection
   id: AmbienceSpace
   files:
-    - /Audio/Ambience/constellations.ogg
-    - /Audio/Ambience/starlight.ogg
-    - /Audio/Ambience/drifting.ogg
-    - /Audio/Ambience/spookyspace1.ogg
-    - /Audio/Ambience/spookyspace2.ogg
-    - /Audio/Ambience/ambispace2.ogg
-#    - /Audio/Lobby/title2.ogg
+    - /Audio/NES/Ambience/Saros_Lonely.ogg
+    - /Audio/NES/Ambience/Shamaluev_Space.ogg
 
 - type: soundCollection
   id: AmbienceSpooky
@@ -320,7 +322,7 @@
       components:
         - type: Morgue
       range: 3
-      
+
 - type: rules
   id: NearSpookyFog
   rules:

@@ -1,0 +1,52 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: Nes14ClothingHeadHatAcorpBeret
+  name: берет Acorp
+  description: Берет... Арбуз.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Head/acorp_beret.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/acorp_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: Nes14ClothingHeadHatAcorpKepkaGandonka
+  name: темная кепка
+  description: Кепка... Дыня.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Head/acorp_kepka_gandonka.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/acorp_kepka_gandonka.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: Nes14ClothingHeadHatSalvagerRadio
+  name: ушанка утилизатора
+  description: По виду, обычная ушанка с козырьком для защиты от холода, но если посмотреть внимательнее, то можно заметить что в нее встроена рация.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Head/radio-hat.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Head/radio-hat.rsi
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+  - type: Speech
+    speechVerb: Robotic
+  - type: Tag
+    tags:
+    - Radio

@@ -5,7 +5,7 @@
   id: Medkit
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: NES/Objects/Specific/Medical/firstaidkits.rsi #NES14-Changes
     state: firstaid
   - type: Storage # DeltaV - add whitelist to first aid kits
     whitelist:
@@ -26,7 +26,7 @@
     - 0,0,3,1
   - type: Item
     size: Large
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    sprite: NES/Objects/Specific/Medical/firstaidkits.rsi #NES14-Changes
     heldPrefix: firstaid
   - type: PhysicalComposition
     materialComposition:

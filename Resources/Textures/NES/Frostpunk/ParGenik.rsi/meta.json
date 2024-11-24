@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Aserovich",
+    "size": {
+        "x": 64,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "portgen0"
+        },
+        {
+            "name": "box_1"
+        },
+        {
+            "name": "HeatTransferPipes-2"
+        },
+        {
+            "name": "PotectiveGrilles-3"
+        },
+        {
+            "name": "box_2"
+        },
+        {
+            "name": "portgen0on",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "portgen_on_unlit",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

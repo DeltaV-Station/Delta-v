@@ -40,10 +40,10 @@
   description: A bright red toolbox, stocked with emergency tools.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_red.rsi #NES14-Changes
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_red.rsi #NES14-Changes
 
 - type: entity
   name: mechanical toolbox
@@ -52,10 +52,10 @@
   description: A blue box, stocked with mechanical tools.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_blue.rsi #NES14-Changes
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_blue.rsi #NES14-Changes
 
 - type: entity
   name: electrical toolbox
@@ -64,10 +64,10 @@
   description: A toolbox typically stocked with electrical gear.
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_yellow.rsi #NES14-Changes
     state: icon
   - type: Item
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: NES/Objects/Tools/Toolboxes/toolbox_yellow.rsi #NES14-Changes
 
 - type: entity
   name: electrical toolbox

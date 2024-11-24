@@ -1,0 +1,66 @@
+- type: entity
+  id: Nes14BannerFederation
+  parent: BannerBase
+  name: флаг Федерации
+  description: Флаг земного объеденения, образовавшегося перед началом холодной войны с Коммунистами.
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: 0,0.45
+    scale: 1.3, 1.3
+    sprite: NES/Structures/Decoration/flags.rsi
+    state: fd_flag
+
+- type: entity
+  id: Nes14BannerTKK
+  parent: Nes14BannerFederation
+  name: флаг ТКК
+  description: Торговая Космическая Компания. Большинству людей они запомнились лишь ценами за свои услуги по доставке грузов.
+  components:
+  - type: Sprite
+    state: china_flag
+
+- type: entity
+  id: Nes14BannerCitadel
+  parent: Nes14BannerFederation
+  name: флаг Цитадели
+  description: Могущественное государство с планеты Титан, так и норовит поднять разговор о прошлом.
+  components:
+  - type: Sprite
+    state: citadel_flag
+
+- type: entity
+  id: Nes14BannerMiras
+  parent: Nes14BannerFederation
+  name: флаг Мира`са
+  description: Флаг могущественного государства с Марса. Их можно описать как "пассивная обезьяна с ядерным вооружением".
+  components:
+  - type: Sprite
+    state: miras
+
+- type: entity
+  id: Nes14BannerNermanta
+  parent: Nes14BannerFederation
+  name: флаг Нерманты
+  description: Нерманта... Во славу Императора.
+  components:
+  - type: Sprite
+    state: nermanta
+
+- type: entity
+  id: Nes14BannerStation
+  parent: Nes14BannerFederation
+  name: флаг FDSS-55
+  description: FDSS-55. Жалкая попытка объеденить ряд государств общим делом.
+  components:
+  - type: Sprite
+    state: nes_flag
+
+- type: entity
+  id: Nes14BannerCommunistus
+  parent: Nes14BannerFederation
+  name: флаг Коммунистического Собрания
+  description: С одной стороны, когда серп и молот возвышается над нищетой и разрухой, это хорошо, но когда дело доходит до космоса, предпочитаешь не говорить о них.
+  components:
+  - type: Sprite
+    state: communistus

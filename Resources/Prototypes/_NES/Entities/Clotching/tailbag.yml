@@ -1,0 +1,10 @@
+- type: entity
+  parent: Nes14ClotchingTailbagBase
+  id: Nes14ClotchingTailbag
+  name: хвостовая сумка
+  description: Сумка, которая не сильно мешается если носить ее на хвосте. Часто используется существами с массивными хвостами.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Belt/tailbag_base.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Belt/tailbag_base.rsi

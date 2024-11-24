@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "discord #nupiya",
+  "states": [
+    {
+      "name": "cat",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_dead",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_deadcollar",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_deadtag",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_rest",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "cat_restcollar",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_resttag",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cat_sit",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "catcollar",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "cattag",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,27 +1,27 @@
 - type: stack
   id: Paper
   name: paper
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: paper }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/other.rsi , state: paper } #NES14-Change
   spawn: SheetPaper1
   maxCount: 30
 
 - type: stack
   id: Plasma
   name: plasma
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: plasma }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/other.rsi , state: plasma } #NES14-Change
   spawn: SheetPlasma1
   maxCount: 30
 
 - type: stack
   id: Plastic
   name: plastic
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: plastic }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/other.rsi , state: plastic } #NES14-Change
   spawn: SheetPlastic1
   maxCount: 30
 
 - type: stack
   id: Uranium
   name: uranium
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: uranium }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/other.rsi , state: uranium } #NES14-Change
   spawn: SheetUranium1
   maxCount: 30

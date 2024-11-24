@@ -5,6 +5,7 @@
   description: It opens, it closes, it might crush you, and there might be only space behind it.
   components:
   - type: Door
+    bumpOpen : false #NES14-Changes
     crushDamage:
       types:
         Blunt: 15
@@ -14,8 +15,14 @@
       path: /Audio/Machines/airlock_ext_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    openingAnimationTime: 0.5
+    closingAnimationTime: 0.5
+    closeTimeOne: 0.5
+    closeTimeTwo: 0.5
+    openTimeOne: 0.5
+    openTimeTwo: 0.5
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/external.rsi #NES14-Changes
   - type: PaintableAirlock
     group: External
     department: null
@@ -32,7 +39,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/external.rsi #NES14-Changes
   - type: PaintableAirlock
     group: ExternalGlass
   - type: Fixtures

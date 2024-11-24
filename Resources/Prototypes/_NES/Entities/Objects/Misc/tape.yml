@@ -1,0 +1,60 @@
+- type: entity
+  name: изолента
+  description: Хорошая и крепкая изолента.
+  parent: BaseHealingItem
+  id: Nes14Tape
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    sprite: NES/Objects/Misc/tape.rsi
+    state: tape
+  - type: Item
+    heldPrefix: medicated-suture
+    storedRotation: -90
+  - type: Healing
+    damageContainers:
+      - Inorganic
+      - Silicon
+      - StructuralInorganic
+    damage:
+      groups:
+        Brute: -40 # 10 for each type in the group
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: NesStackTape
+    count: 20
+
+- type: entity
+  name: скотч
+  description: Хороший и крепкий скотч.
+  parent: Nes14Tape
+  id: Nes14GreyTape
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    sprite: NES/Objects/Misc/tape.rsi
+    state: tapegrey
+  - type: Healing
+    damageContainers:
+      - Inorganic
+      - Silicon
+      - StructuralInorganic
+    damage:
+      groups:
+        Brute: -20 # 10 for each type in the group
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: NesStackGreyTape
+    count: 20

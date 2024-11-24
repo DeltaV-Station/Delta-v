@@ -261,7 +261,7 @@
   description: The creep of automation now threatening space janitors.
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/cleanbot.rsi
+    sprite: NES/Mobs/Bots/smoll.rsi #NES14-Changes
     state: cleanbot
   - type: Construction
     graph: CleanBot
@@ -331,7 +331,7 @@
         reagent: SpaceDrugs
         quantity: 25
   - type: Sprite
-    sprite: DeltaV/Mobs/Silicon/Bots/medibot.rsi # DeltaV - Changed for a sprite with a smiley face.
+    sprite: NES/Mobs/Bots/smoll.rsi #NES14-Changes
     state: medibot
   - type: HTN
     rootTask:

@@ -1,0 +1,278 @@
+- type: entity
+  id: Nes14ShuttleGunPapai
+  parent: [ShuttleGunBase, ConstructibleMachine]
+  name: ПВП-70a "Папайя"
+  description: Небольшая пусковая установка, компактная и покрашеная в дешевую белую краску. Предназначена для совершения военных преступлений в ваккуме.
+  suffix: Корабельное орудие
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/launcher.rsi
+    layers:
+    - state: defaul
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    projectileSpeed: 100
+    fireRate: 2
+    angleDecay: 45
+    minAngle: 0
+    maxAngle: 15
+    soundGunshot:
+      path: /Audio/NES/Canon/Canon2.ogg
+      params:
+        pitch: 0.8
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+
+- type: entity
+  id: Nes14ShuttleGunPapaiAlt
+  parent: Nes14ShuttleGunPapai
+  name: ПВП-70b "Папайя"
+  description: Небольшая пусковая установка, компактная и покрашеная в дешевую белую краску. В отличие от модели 70а, модифицирована дополнительными 6ю стволами.
+  suffix: Корабельное орудие
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/launcher.rsi
+    layers:
+    - state: waxa
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    projectileSpeed: 100
+    fireRate: 3
+    angleDecay: 45
+    minAngle: 0
+    maxAngle: 15
+    soundGunshot:
+      path: /Audio/NES/Canon/Canon2.ogg
+      params:
+        pitch: 0.8
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 9
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunRocket
+  parent: [ShuttleGunBase, ConstructibleMachine]
+  name: РВП-5с "Робензон"
+  description: Небольшая ракетная установка, компактная и покрашеная в дешевую белую краску. Предназначена для совершения военных преступлений в ваккуме.
+  suffix: Корабельное орудие
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/launcher.rsi
+    layers:
+    - state: rocket
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    projectileSpeed: 100
+    fireRate: 3
+    angleDecay: 30
+    minAngle: 0
+    maxAngle: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_friendship.ogg
+      params:
+        pitch: 0.8
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeRocket
+    capacity: 6
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+
+- type: entity
+  id: Nes14ShuttleGunRailgun
+  parent: [ShuttleGunBase, ConstructibleMachine]
+  name: Рельсотрон "Горков"
+  description: Массивная установка имени Горкого, ее массивный ствол способен разогнать снаряд до чрезвычайно больших скоростей.
+  suffix: Корабельное орудие
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/launcher.rsi
+    layers:
+    - state: big_railgun
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    projectileSpeed: 200
+    fireRate: 5
+    angleDecay: 45
+    minAngle: 0
+    maxAngle: 5
+    soundGunshot:
+      path: /Audio/NES/Canon/Canon1.ogg
+      params:
+        pitch: 0.8
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 30
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunRailgunAlt
+  parent: Nes14ShuttleGunRailgun
+  name: Компактный рельсотрон "Горков"
+  description: Уменьшеная версия рельсотрона установка имени Горкого, ее массивный ствол способен разогнать снаряд до чрезвычайно больших скоростей.
+  suffix: Корабельное орудие
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/launcher.rsi
+    layers:
+    - state: mini_railgun
+  - type: Gun
+    projectileSpeed: 200
+    fireRate: 3
+    angleDecay: 65
+    minAngle: 0
+    maxAngle: 40
+    soundGunshot:
+      path: /Audio/NES/Canon/Canon1.ogg
+      params:
+        pitch: 0.8
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+
+#Дебаг с увеличеным кол-во снарядов
+
+- type: entity
+  id: Nes14ShuttleGunPapaiInf
+  parent: Nes14ShuttleGunPapai
+  suffix: Корабельное орудие, больше снарядов
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    proto: GrenadeFrag
+    capacity: 150
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunPapaiAltInf
+  parent: Nes14ShuttleGunPapaiAlt
+  suffix: Корабельное орудие, больше снарядов
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    proto: GrenadeFrag
+    capacity: 300
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunRocketInf
+  parent: Nes14ShuttleGunRocket
+  suffix: Корабельное орудие, больше снарядов
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeRocket
+    proto: CartridgeRocket
+    capacity: 100
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunRailgunInf
+  parent: Nes14ShuttleGunRailgun
+  suffix: Корабельное орудие, больше снарядов
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeRocket
+    proto: CartridgeRocket
+    capacity: 200
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: Nes14ShuttleGunRailgunAltInf
+  parent: Nes14ShuttleGunRailgunAlt
+  suffix: Корабельное орудие, больше снарядов
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeRocket
+    proto: CartridgeRocket
+    capacity: 200
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

@@ -1,0 +1,42 @@
+- type: entity
+  parent: VendingMachine
+  id: Nes14VendingMachineAcorp
+  name: КорпоратоСтиль
+  description: Будь модным среди коллег по бугалтерии здесь и сейчас.
+  components:
+  - type: VendingMachine
+    pack: NesVendingAcorp
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 1.9
+  - type: Speech
+  - type: Sprite
+    sprite: NES/Structures/Power/Vending/acorp.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#3c5eb5"
+
+- type: vendingMachineInventory
+  id: NesVendingAcorp
+  startingInventory:
+   Nes14ClothingUniformJumpsuitAcorp: 4
+   Nes14ClothingUniformJumpsuitCapAcorp: 2
+   Nes14ClothingShoesBootsAcorpArmed: 2
+   Nes14ClothingShoesBootsAcorp: 2
+   Nes14ClothingHeadHatAcorpBeret: 2
+   Nes14ClothingOuterCoatAcorpDirectorTrench: 2
+   Nes14ClothingHeadHatAcorpKepkaGandonka: 2

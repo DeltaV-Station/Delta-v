@@ -32,7 +32,7 @@
       shader: unshaded
     state: base
   - type: PointLight
-    color: "#FFE4CE" # 5000K color temp
+    color: "#a5bfd8" #NES14-Changes
     energy: 0.8
     radius: 10
     softness: 1
@@ -377,19 +377,25 @@
     - AlertProcedure
   - type: PointLight
     enabled: false
-    radius: 5
-    energy: 0.6
+    radius: 6
+    energy: 2
     offset: "0, 0.4"
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: ApcPowerReceiver
+  - type: AmbientSound
+    enabled: false
+    range: 6
+    volume: -8
+    sound:
+      path: /Audio/NES/Effects/Alarm/alarm.ogg #NES14-Changes
   - type: ExtensionCableReceiver
   - type: Battery
     maxCharge: 30000
     startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 40
+    speed: 150
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:

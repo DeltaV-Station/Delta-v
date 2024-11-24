@@ -1,0 +1,123 @@
+- type: entity
+  parent: Rack
+  id: Nes14RackEngineer
+  name: стойка
+  description: Инженерная стойка.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi
+    state: rack-engi
+    snapCardinals: true
+
+- type: entity
+  parent: Rack
+  id: Nes14RackMedical
+  name: стойка
+  description: Медицинская стойка.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi
+    state: rack-med
+    snapCardinals: true
+
+- type: entity
+  parent: Rack
+  id: Nes14Racks
+  name: полки
+  description: Полки, на которые можно положить инструменты или что-то еще.
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi
+    state: racks
+    snapCardinals: true
+
+- type: entity
+  id: Nes14Monolit1
+  name: монолит
+  description: Древнее и зловещее нечто.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/monolit.rsi
+    drawdepth: Mobs
+    offset: 0, 0.5
+    snapCardinals: true
+    layers:
+    - state: base
+    - state: base-on
+      shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: AmbientSound
+    volume: -10
+    range: 15
+    sound:
+      path: /Audio/NES/Effects/monolit.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: LoreHuman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Human
+
+- type: entity
+  id: LoreTarra
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Tarra
+
+- type: entity
+  id: LoreSun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: NES/GUI/Lore.rsi
+    state: Sun
+
+- type: entity
+  parent: ComputerSurveillanceWirelessCameraMonitor
+  id: Nes14ComputerTelevision
+  name: телевизор
+  description: Что там камеры в техах сегодня вещают?
+  components:
+  - type: Sprite
+    sprite: NES/Structures/Decoration/furniture.rsi
+    noRot: true
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      state: tv
+    - map: ["computerLayerScreen"]
+      state: screen
+  - type: Computer
+    board: ComputerTelevisionCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 200
+        mask:
+          - TabletopMachineMask
+        layer:
+          - TabletopMachineLayer

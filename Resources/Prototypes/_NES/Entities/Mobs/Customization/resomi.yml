@@ -1,0 +1,226 @@
+- type: marking
+  id: ResomiTail
+  bodyPart: Chest
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  forcedColoring: true
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: tail
+
+- type: marking
+  id: ResomiTailFeathers
+  bodyPart: Chest
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: tail_feathers
+
+- type: marking
+  id: ResomiLArmFeathers
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: l_hand_feathers
+
+- type: marking
+  id: ResomiLLegFeathers
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: l_foot_feathers
+
+- type: marking
+  id: ResomiRArmFeathers
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: r_hand_feathers
+
+- type: marking
+  id: ResomiRLegFeathers
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: r_foot_feathers
+
+- type: marking
+  id: ResomiFluff
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: fluff
+
+- type: marking
+  id: ResomiFluffHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: fluff_head
+
+- type: marking
+  id: ResomiFluffHeadUp
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: NES/Mobs/Customization/resomi_parts.rsi
+    state: fluff_head_up
+
+- type: marking
+  id: HairResomiBackstrafe
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiBackstrafe
+- type: marking
+  id: HairResomiBurstShort
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiBurstShort
+- type: marking
+  id: HairResomiDefault
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiDefault
+- type: marking
+  id: HairResomiDroopy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiDroopy
+- type: marking
+  id: HairResomiEars
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiEars
+- type: marking
+  id: HairResomiFluffymohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiFluffymohawk
+- type: marking
+  id: HairResomiHedge
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiHedge
+- type: marking
+  id: HairResomiLongway
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiLongway
+- type: marking
+  id: HairResomiMane
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiMane
+- type: marking
+  id: HairResomiManeBeardless
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiManeBeardless
+- type: marking
+  id: HairResomiMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiMohawk
+- type: marking
+  id: HairResomiMushroom
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiMushroom
+- type: marking
+  id: HairResomiNotree
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiNotree
+- type: marking
+  id: HairResomiSpiky
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiSpiky
+- type: marking
+  id: HairResomiPointy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiPointy
+- type: marking
+  id: HairResomiTwies
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiTwies
+- type: marking
+  id: HairResomiUpright
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiUpright
+- type: marking
+  id: HairResomiLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: NES/Mobs/Customization/resomi_hair.rsi
+      state: ResomiLong

@@ -1,0 +1,35 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: Nes14ClothingNeckCloakgrey
+  name: посеребрянный плащ
+  description: Серый плащ, с серебристыми линиями. Пахнет моим дедушкой.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Cloak/greycloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: Nes14ClothingNeckMantleGreyShoulder
+  name: cерая наплечная мантия
+  description: Прямоугольный плащ серого цвета из плотного материала.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Cloak/greymantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: Nes14ClothingNeckCloakAdmin
+  name: администраторский плащ
+  description: Достаточно ухоженый плащ, с серебристыми линиями. По какой-то причине несколько тяжелый.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Cloak/admin.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: Nes14ClothingNeckCloakAdminAlt
+  name: администраторский торжественный плащ
+  description: Достаточно ухоженый плащ для деловых встреч, с серебристыми линиями. Легче чем его обычная версия.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Cloak/admin_alt.rsi

@@ -24,6 +24,7 @@
     - map: ["socks"]
     - map: ["underpants"]
     - map: ["undershirt"]
+    # - map: ["pants"] #NES14-Changes, Pants
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -220,6 +221,7 @@
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
   - type: FootPrints  #DeltaV port from EE, blood splatter
+  - type: Crawler #NES14-Changes, Crawling
 
 - type: entity
   save: false
@@ -319,6 +321,7 @@
     - map: ["socks"]
     - map: ["underpants"]
     - map: ["undershirt"]
+    # - map: ["pants"] #NES14-Changes, Pants
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -345,6 +348,7 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    - map: ["tailbag"] #NES14-Changes, Tailbag
   - type: Appearance
   - type: HumanoidAppearance
     species: Human

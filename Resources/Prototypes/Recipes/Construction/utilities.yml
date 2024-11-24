@@ -56,11 +56,29 @@
   category: construction-category-utilities
   description: "Area Power Controller (APC). Controls power. In an area."
   icon:
-    sprite: Structures/Power/apc.rsi
+    sprite: NES/Structures/Power/apc.rsi # NES14-Changes
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+- type: construction
+  name: solar assembly
+  id: SolarPanel
+  graph: SolarPanel
+  startNode: start
+  targetNode: solarpanel
+  category: construction-category-utilities
+  description: "Can be turned into a solar panel or solar tracker."
+  icon:
+    sprite: NES/Structures/Power/Generation/solar_panel.rsi #NES14-Changes
+    state: solar_assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+      failIfSpace: false
 
 - type: construction
   name: cable terminal
@@ -71,7 +89,7 @@
   category: construction-category-utilities
   description: "Input of devices such as the SMES. The red cables needs to face the device."
   icon:
-    sprite: Structures/Power/cable_terminal.rsi
+    sprite: NES/Structures/Power/cable_terminal.rsi # NES14-Changes
     state: term
   objectType: Structure
   placementMode: SnapgridCenter
@@ -324,7 +342,7 @@
   category: construction-category-structures
   description: An air alarm. Alarms... air?
   icon:
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     state: alarm0
   placementMode: SnapgridCenter
   objectType: Structure
@@ -342,7 +360,7 @@
   category: construction-category-structures
   description: A fire alarm. Spicy!
   icon:
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     state: fire0
   placementMode: SnapgridCenter
   objectType: Structure
@@ -779,7 +797,7 @@
   category: construction-category-structures
   description: An intercom. For when the station just needs to know something.
   icon:
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: NES/Structures/Wallmounts/intercom.rsi # NES14-Changes
     state: base
   placementMode: SnapgridCenter
   objectType: Structure

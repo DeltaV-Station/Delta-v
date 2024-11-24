@@ -1,20 +1,20 @@
 - type: stack
   id: Steel
   name: steel
-  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/metal.rsi, state: steel } #NES14-Changes
   spawn: SheetSteel1
   maxCount: 30
 
 - type: stack
   id: Plasteel
   name: plasteel
-  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/metal.rsi, state: plasteel } #NES14-Changes
   spawn: SheetPlasteel1
   maxCount: 30
 
 - type: stack
   id: Brass
   name: brass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: brass }
+  icon: { sprite: /Textures/NES/Objects/Materials/Sheets/metal.rsi, state: brass } #NES14-Changes
   spawn: SheetBrass1
   maxCount: 30

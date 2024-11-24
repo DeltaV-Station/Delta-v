@@ -16,8 +16,8 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: NES/Structures/Wallmounts/switch.rsi #NES14-Changes
+    state: off
   - type: SignalSwitch
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -59,7 +59,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: NES/Structures/Wallmounts/switch.rsi #NES14-Changes
     state: dead
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.

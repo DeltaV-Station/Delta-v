@@ -1,0 +1,19 @@
+- type: entity
+  parent: BasePlushie
+  id: Nes14PlushieAris
+  name: плюшевая сумеречница
+  description: Розовая сумеречница, мерч героя из какого-то аниме.
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Fun/toys.rsi
+    state: ArisAlt
+
+- type: entity
+  parent: BasePlushie
+  id: Nes14PlushieAserovich
+  name: плюшевый огузок
+  description: Огузок! Огрызок! Дармоед!
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Fun/toys.rsi
+    state: Gandon

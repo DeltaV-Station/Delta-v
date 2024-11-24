@@ -5,6 +5,13 @@
   description: It opens, it closes, and maybe crushes you.
   components:
   - type: StationAiWhitelist
+  - type: PointLight #NES14-Changes
+    radius: 3
+    energy: 0.5
+    color: "#3c5eb5"
+    castShadows: false
+    enabled: false
+  - type: LitOnPowered
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -12,7 +19,7 @@
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/basic.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: closed
@@ -56,9 +63,9 @@
       types:
         Blunt: 15
     openSound:
-      path: /Audio/Machines/airlock_open.ogg
+      path: /Audio/NES/Doors/Open.ogg #NES14-Changes
     closeSound:
-      path: /Audio/Machines/airlock_close.ogg
+      path: /Audio/NES/Doors/Close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: ContainerContainer
@@ -126,7 +133,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 350
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -134,6 +141,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+      - !type:SpawnEntitiesBehavior
+              spawn:
+                AirlockAssembly:
+                  min: 1
+                  max: 1
   - type: Construction
     graph: Airlock
     node: airlock
@@ -182,7 +194,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/coridor.rsi #NES14-Changes
   - type: AnimationPlayer
   - type: Fixtures
     fixtures:

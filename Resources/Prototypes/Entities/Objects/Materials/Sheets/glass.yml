@@ -6,9 +6,9 @@
   description: A sheet of glass, used often on the station in various applications.
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/glass.rsi
+    sprite: NES/Objects/Materials/Sheets/glass.rsi #NES14-Changes
   - type: Item
-    sprite: Objects/Materials/Sheets/glass.rsi
+    sprite: NES/Objects/Materials/Sheets/glass.rsi #NES14-Changes
     size: Normal
   - type: StaticPrice
     price: 0

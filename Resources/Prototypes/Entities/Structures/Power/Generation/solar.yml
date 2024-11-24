@@ -27,7 +27,7 @@
         layer:
         - MidImpassable, LowImpassable, BulletImpassable
   - type: Sprite
-    sprite: Structures/Power/Generation/solar_panel.rsi
+    sprite: NES/Structures/Power/Generation/solar_panel.rsi #NES14-Changes
     state: normal
   - type: NodeContainer
     examinable: true
@@ -38,7 +38,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: output
-    sprite: Structures/Power/Generation/solar_panel.rsi
+    sprite: NES/Structures/Power/Generation/solar_panel.rsi #NES14-Changes
     state: static
     collectionName: SolarPanel
   - type: Anchorable
@@ -136,7 +136,7 @@
         layer:
         - MachineLayer
   - type: Sprite
-    sprite: Structures/Power/Generation/solar_panel.rsi
+    sprite: NES/Structures/Power/Generation/solar_panel.rsi #NES14-Changes
     state: solar_assembly
   - type: Transform
     anchored: true
@@ -182,7 +182,7 @@
         layer:
         - MachineLayer
   - type: Sprite
-    sprite: Structures/Power/Generation/solar_panel.rsi
+    sprite: NES/Structures/Power/Generation/solar_panel.rsi #NES14-Changes
     state: solar_tracker
   - type: Transform
     anchored: true

@@ -60,7 +60,7 @@
   id: CaptainIDCard
   name: steal-target-groups-captain-id-card
   sprite:
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
     state: ert_commander #no one will know the difference.
 
 - type: stealTargetGroup
@@ -146,7 +146,7 @@
   id: IDCard
   name: steal-target-groups-id-cards
   sprite:
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: NES/Objects/Misc/id_cards.rsi #NES14-Changes
     state: default
 
 - type: stealTargetGroup
@@ -276,7 +276,7 @@
   id: NuclearBomb
   name: steal-target-groups-nuclear-bomb
   sprite:
-    sprite: Objects/Devices/nuke.rsi
+    sprite: NES/Objects/Misc/nuke.rsi #NES14-Changes
     state: nuclearbomb_base
 
 - type: stealTargetGroup

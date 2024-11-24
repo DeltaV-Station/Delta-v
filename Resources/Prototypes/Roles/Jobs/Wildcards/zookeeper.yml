@@ -8,6 +8,7 @@
   #    time: 7200 #DeltaV 2 hours
   startingGear: ZookeeperGear
   icon: "JobIconZookeeper"
+  setPreference: false
   supervisors: job-supervisors-hop
   access:
   - Service

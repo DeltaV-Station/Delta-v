@@ -1,0 +1,23 @@
+- type: entity
+  name: темнота
+  id: Nes14Portal1
+  parent: BasePortal
+  description: Вы не можете разглядеть что находится по ту сторону, возможно это просто выбило лампочку, а возможно и искажение пространства. Рискнешь проверить?
+  components:
+  - type: Portal
+  - type: Sprite
+    sprite: /Textures/NES/Structures/Gradient.rsi
+    layers:
+    - state: GradientAlt
+
+- type: entity
+  name: темнота
+  description: Вы не можете разглядеть что находится по ту сторону, возможно это просто выбило лампочку, а возможно и искажение пространства. Рискнешь проверить?
+  id: Nes14Portal2
+  parent: BasePortal
+  components:
+  - type: Portal
+  - type: Sprite
+    sprite: /Textures/NES/Structures/Gradient.rsi
+    layers:
+    - state: Gradient

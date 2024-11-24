@@ -25,13 +25,13 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
 
     public void SetLoaded(bool value)
     {
-        Loaded.Visible = value;
-        Unloaded.Visible = !value;
+        // Loaded.Visible = value;
+        // Unloaded.Visible = !value;
     }
 
     public void SetSummaryText(string value)
     {
-        Summary.Text = value;
+        // Summary.Text = value;
     }
 
     public void SetSprite(EntityUid uid)
@@ -43,16 +43,16 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
 
         _previewDummy = uid;
 
-        ViewBox.DisposeAllChildren();
-        var spriteView = new SpriteView
-        {
-            OverrideDirection = Direction.South,
-            Scale = new Vector2(4f, 4f),
-            MaxSize = new Vector2(112, 112),
-            Stretch = SpriteView.StretchMode.Fill,
-        };
-        spriteView.SetEntity(uid);
-        ViewBox.AddChild(spriteView);
+        // ViewBox.DisposeAllChildren();
+        // var spriteView = new SpriteView
+        // {
+        //     OverrideDirection = Direction.South,
+        //     Scale = new Vector2(4f, 4f),
+        //     MaxSize = new Vector2(112, 112),
+        //     Stretch = SpriteView.StretchMode.Fill,
+        // };
+        // spriteView.SetEntity(uid);
+        // ViewBox.AddChild(spriteView);
     }
 
     protected override void Dispose(bool disposing)

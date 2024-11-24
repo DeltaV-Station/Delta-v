@@ -55,11 +55,11 @@
   description: An orange high voltage power cable.
   components:
   - type: Sprite
-    sprite: Structures/Power/Cables/hv_cable.rsi
+    sprite: NES/Structures/Power/Cables/hv_cable.rsi #NES14-Changes
     state: hvcable_0
     drawdepth: ThickWire
   - type: Icon
-    sprite: Structures/Power/Cables/hv_cable.rsi
+    sprite: NES/Structures/Power/Cables/hv_cable.rsi #NES14-Changes
     state: hvcable_4
   - type: NodeContainer
     nodes:

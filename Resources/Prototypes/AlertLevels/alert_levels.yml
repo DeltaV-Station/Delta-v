@@ -12,7 +12,7 @@
       announcement: alert-level-blue-announcement
       sound: /Audio/Misc/bluealert.ogg
       color: DodgerBlue
-      forceEnableEmergencyLights: true
+      # forceEnableEmergencyLights: true #NES14-Changes
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
     violet:
@@ -34,6 +34,13 @@
       sound: /Audio/Misc/notice1.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    beta:
+      announcement: alert-level-beta-announcement
+      sound: /Audio/Misc/redalert.ogg
+      color: Orange
+      emergencyLightColor: Orange
       forceEnableEmergencyLights: true
       shuttleTime: 600
     red:

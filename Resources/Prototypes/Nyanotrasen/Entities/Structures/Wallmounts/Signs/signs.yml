@@ -11,11 +11,11 @@
 - type: entity
   parent: BaseSign
   id: SignLastIdiot
-  name: Zero Days Since Last Idiot
-  description: Must be an Engineering joke.
+  name: 0 ДНЕЙ С ПОСЛЕДНЕГО ИДИОТА
+  description: Счетчик на табличке показывает что с последней идиотины на борту прошло 0 дней. Надеюсь это шутка...
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/last_idiot.rsi
+    sprite: NES/Structures/Wallmounts/last_idiot.rsi #NES14-Changes
     state: icon
     offset: "0.5,0"
 

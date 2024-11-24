@@ -1,0 +1,98 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformShirt
+  name: майка
+  description: Серая майка, на вид - чистая, на запах - нет
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/base.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/base.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformAdminAltAlt
+  name: темная рубашка
+  description: Темная рубашка из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/admin_alt.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/admin_alt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformAdmin
+  name: белая рубашка
+  description: Белая рубашка из гиперткани, с темным воротником.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/admin.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/admin.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformManager
+  name: бордовая рубашка
+  description: Бордовая рубашка из гиперткани, с темным воротником.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/manager.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/manager.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformAdminAlt
+  name: белая рубашка
+  description: Белая рубашка из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/admin_skirt.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/admin_skirt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformMaroonParade
+  name: торжественная бордовая форма
+  description: Торжественная бордовая униформа, с золотыми вставками для особых мероприятий.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/maroonjumpsuitparade.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/maroonjumpsuitparade.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformBlackParade
+  name: торжественная форма
+  description: Торжественная темная униформа, с золотыми вставками для особых мероприятий.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/blackparade.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/blackparade.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformJumpmaroon
+  name: бордовая форма
+  description: Бордовая униформа из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/maroonjumpsuit.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/maroonjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: Nes14ClothingUniformBlack
+  name: темная форма
+  description: Темная униформа из гиперткани.
+  components:
+    - type: Sprite
+      sprite: NES/Clothing/Uniforms/Shirt/greyturtleneck.rsi
+    - type: Clothing
+      sprite: NES/Clothing/Uniforms/Shirt/greyturtleneck.rsi

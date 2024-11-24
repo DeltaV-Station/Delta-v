@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: Nes14ClothingShoesBootsAcorp
+  name: ботинки А-КОРП
+  description: Да кого ебет описание?!
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Boots/acorp_boots.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Boots/acorp_boots.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: Nes14ClothingShoesBootsAcorpArmed
+  name: серебряные ботинки А-КОРП
+  description: Обычные ботинки с засеребряным покрытием. Имеют секцию для ножа.
+  components:
+  - type: Sprite
+    sprite: NES/Clothing/Boots/acorp_arm_boots.rsi
+  - type: Clothing
+    sprite: NES/Clothing/Boots/acorp_arm_boots.rsi
+
+- type: entity
+  id: Nes14ClothingShoesBootsSalvagerFilled
+  name: ботинки утилизаторов
+  description: Специализированные ботинки со стальными носками для работ по утилизации в опасных условиях
+  parent: ClothingShoesBootsSalvage
+  suffix: Заполненный
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - SurvivalKnife

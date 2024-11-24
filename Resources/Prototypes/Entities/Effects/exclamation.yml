@@ -7,7 +7,7 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: NES/Structures/Storage/closet.rsi #NES14-Changes, Closet
       drawdepth: Effects
       noRot: true
       layers:
@@ -17,15 +17,14 @@
     - type: Tag
       tags:
         - HideContextMenu
-        
-        
+
 - type: entity
   id: WhistleExclamation
   name: exclamation
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: NES/Structures/Storage/closet.rsi #NES14-Changes, Closet
       state: cardboard_special
       drawdepth: Effects
       offset: 0, 1

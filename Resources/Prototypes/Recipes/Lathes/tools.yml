@@ -61,11 +61,19 @@
   parent: CableStack
   id: CableMVStack
   result: CableMVStack1
+  category: Parts
+  completetime: 2
+  materials:
+    Steel: 30
 
 - type: latheRecipe
   parent: CableStack
   id: CableHVStack
   result: CableHVStack1
+  category: Parts
+  completetime: 2
+  materials:
+    Steel: 30
 
 - type: latheRecipe
   parent: BaseToolRecipe

@@ -387,7 +387,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/window.rsi
+    sprite: NES/Structures/Windows/window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -424,7 +424,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: NES/Structures/Windows/reinforced_window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -555,7 +555,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/shuttle_window.rsi
+    sprite: NES/Structures/Windows/shuttle_window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -770,7 +770,7 @@
   category: construction-category-structures
   description: This is a firelock - it locks an area when a fire alarm in the area is triggered. Don't get squished!
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/firelock.rsi #NES14-Changes
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -788,7 +788,7 @@
   category: construction-category-structures
   description: This is a firelock - it locks an area when a fire alarm in the area is triggered. Don't get squished!
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/firelock.rsi #NES14-Changes
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1338,7 +1338,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you. Necessary for connecting two space craft together.
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/shuttle.rsi #NES14-Changes
     state: closed
   #  state: assembly
   objectType: Structure
@@ -1356,7 +1356,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you. Necessary for connecting two space craft together. This one has a window.
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/shuttle.rsi #NES14-Changes
     state: closed
   #  state: assembly
   objectType: Structure
@@ -1725,7 +1725,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Doors/secret_door.rsi
+    sprite: NES/Structures/Doors/secret_door.rsi #NES14-Changes
     state: closed
   conditions:
     - !type:TileNotBlocked

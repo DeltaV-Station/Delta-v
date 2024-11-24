@@ -9,12 +9,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 7200 # DeltaV - 2 hours
-  - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
-    department: Command
-    time: 3600 # DeltaV - 1 hours
   accessGroups:
   - AllAccess
   access:
@@ -28,6 +22,7 @@
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetERTLeader
     eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckMantleERTLeader # Corvax-Clothing
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTLeaderPDA
@@ -52,6 +47,7 @@
     shoes: ClothingShoesBootsMagAdv
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckMantleERTLeader # Corvax-Clothing
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
@@ -106,9 +102,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -191,9 +184,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -266,9 +256,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -360,9 +347,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:
@@ -427,9 +411,6 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours
   accessGroups:
   - AllAccess
   access:

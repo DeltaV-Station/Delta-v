@@ -5,9 +5,9 @@
   description: A raw material.
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
   - type: Item
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     size: Normal
   - type: Tag
     tags:
@@ -319,7 +319,7 @@
   name: bear hide
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: bearpelt
@@ -347,7 +347,7 @@
   description: Luxury pelt used in only the most elite fashion. Rumors say this is found when a corgi is sent to the nice farm.
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     state: corgihide
   - type: Item
     sprite: Clothing/Head/Misc/hides.rsi

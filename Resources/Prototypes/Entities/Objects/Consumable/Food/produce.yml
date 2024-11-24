@@ -441,10 +441,10 @@
   id: TrashBananiumPeel
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     state: peel
   - type: Item
-    sprite: Objects/Materials/materials.rsi
+    sprite: NES/Objects/Materials/materials.rsi #NES14-Changes
     heldPrefix: peel
   - type: Slippery
 

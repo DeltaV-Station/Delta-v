@@ -5,7 +5,7 @@
   description: A disk for the R&D server containing 1000 points.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/researchdisk.rsi
+    sprite: NES/Objects/Specific/Research/researchdisk.rsi #NES14-Changes
     state: icon
   - type: ResearchDisk
   - type: GuideHelp

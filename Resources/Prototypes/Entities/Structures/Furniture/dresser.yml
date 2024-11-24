@@ -5,7 +5,7 @@
   description: Wooden dresser, can store things inside itself, ideal for underwear, and someone's kidneys?...
   components:
   - type: Sprite
-    sprite: Structures/Furniture/furniture.rsi
+    sprite: NES/Structures/Decoration/furniture.rsi # NES14-Changes
     state: dresser
   - type: Damageable
     damageModifierSet: Wood

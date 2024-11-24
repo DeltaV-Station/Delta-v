@@ -1,0 +1,11 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "NES-Station, created by Aserovich",
+    "size": { "x": 32, "y": 32 },
+    "states": [
+        { "name": "peckish", "directions": 1, "delays": [[1.0]] },
+        { "name": "starving", "directions": 1, "delays": [[0.5, 0.5]] },
+        { "name": "overfed", "directions": 1, "delays": [[1.0]] }
+    ]
+}

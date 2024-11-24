@@ -79,7 +79,7 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     layers:
     - state: alarm0
       map: ["airAlarmBase"] # TODO: fire alarm enum
@@ -126,7 +126,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: NES/Structures/Wallmounts/air_monitors.rsi # NES14-Changes
     layers:
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

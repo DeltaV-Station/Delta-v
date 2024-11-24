@@ -5,7 +5,7 @@
   description: A hand-held scanner built to collect information on various anomalous objects.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    sprite: NES/Objects/Specific/Research/anomalyscanner.rsi #NES14-Changes
     state: icon
   - type: ActivatableUI
     key: enum.AnomalyScannerUiKey.Key

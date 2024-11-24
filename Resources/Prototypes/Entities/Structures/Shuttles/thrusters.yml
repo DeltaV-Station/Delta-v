@@ -16,12 +16,17 @@
           - MachineMask
           layer:
           - MachineLayer
+    - type: PointLight
+      enabled: false
+      radius: 4
+      energy: 8
+      color: "#ff8400"
     - type: AmbientSound
       enabled: false
-      range: 4
-      volume: -4
+      range: 20
+      volume: 40
       sound:
-        path: /Audio/Effects/shuttle_thruster.ogg
+        path: /Audio/NES/Effects/Rocket.ogg #NES14-Changes
     - type: Transform
       anchored: true
     - type: Physics
@@ -84,8 +89,13 @@
             collection: MetalBreak
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 4
+    color: "#4f76e4"
   - type: Sprite
-    sprite: Structures/Shuttles/thruster.rsi
+    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -97,7 +107,7 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1
+      offset: 0, 0.9
 
 - type: entity
   id: ThrusterUnanchored
@@ -120,19 +130,21 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: Structures/Shuttles/thruster.rsi
+    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
+      offset: 0, -0.2
     - state: thrust
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
+      offset: 0, -0.2
     - state: thrust_burn_unshaded
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1
+      offset: 0, 0.7
 
 - type: entity
   id: Gyroscope
@@ -147,7 +159,7 @@
     machinePartThrust: Manipulator
   - type: Sprite
     # Listen I'm not the biggest fan of the sprite but it was the most appropriate thing I could find.
-    sprite: Structures/Shuttles/gyroscope.rsi
+    sprite: NES/Structures/Power/gyroscope.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: base
@@ -173,6 +185,12 @@
     color: "#4246b3"
   - type: Machine
     board: GyroscopeMachineCircuitboard
+  - type: AmbientSound
+    enabled: false
+    range: 10
+    volume: 1
+    sound:
+      path: /Audio/NES/Effects/Rocket.ogg #NES14-Changes
   - type: Destructible
     thresholds:
     - trigger:
@@ -221,7 +239,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: Structures/Shuttles/gyroscope.rsi
+    sprite: NES/Structures/Power/gyroscope.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: base

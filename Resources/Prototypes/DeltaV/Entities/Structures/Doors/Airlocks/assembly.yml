@@ -6,7 +6,7 @@
   suffix: Chemistry
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Standard/chemistry.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Standard/chemistry.rsi #NES14-Changes #Delta V - Resprite Doors
     state: "assembly"
 
 - type: entity
@@ -15,7 +15,7 @@
   suffix: Chemistry, Glass
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Glass/chemistry.rsi #Delta V - Resprite Doors
+    sprite: NES/Structures/Doors/Airlocks/Glass/chemistry.rsi #NES14-Changes #Delta V - Resprite Doors
     state: "assembly"
 
 #Roboticist - Delta-V Creation
@@ -25,7 +25,7 @@
   suffix: Robotics
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Standard/roboticist.rsi 
+    sprite: DeltaV/Structures/Doors/Airlocks/Standard/roboticist.rsi
     state: "assembly"
 
 - type: entity
@@ -34,5 +34,5 @@
   suffix: Robotics, Glass
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Doors/Airlocks/Glass/roboticist.rsi 
+    sprite: DeltaV/Structures/Doors/Airlocks/Glass/roboticist.rsi
     state: "assembly"

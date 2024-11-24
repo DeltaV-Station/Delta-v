@@ -27,7 +27,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: NES/Structures/Power/apc.rsi # NES14-Changes
     layers:
     - state: base
     - state: panel
@@ -76,7 +76,7 @@
     sourceNode: input
     loadNode: output
     collectionName: apc
-    sprite: Structures/Power/apc.rsi
+    sprite: NES/Structures/Power/apc.rsi # NES14-Changes
     state: static
   - type: BatteryCharger
     voltage: Medium
@@ -159,7 +159,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: NES/Structures/Power/apc.rsi # NES14-Changes
     state: frame
   - type: Construction
     graph: APC

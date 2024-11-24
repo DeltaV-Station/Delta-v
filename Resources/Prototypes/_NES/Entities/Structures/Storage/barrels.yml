@@ -1,0 +1,38 @@
+- type: entity
+  id: Nes14WeldingFuelBarrel
+  parent: [StorageTank, StructureWheeled]
+  name: топливная бочка
+  description: У нас больше нет тележек которые можно присобачить к топливным бочкам! Держите так!
+  suffix: Пуст
+  components:
+  - type: StaticPrice
+    price: 750
+  - type: Sprite
+    sprite: NES/Structures/Storage/tanks.rsi #NES14-Changes
+    state: barrel
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+  - type: DamageOnToolInteract
+    tools: Welding
+    weldingDamage:
+      types:
+        Heat: 10
+  - type: PacifismDangerousAttack
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 60 # Mediocre explosion. Not enough to do any meaningful structural damage to anything other then windows, provided you're only using one tank.
+
+- type: entity
+  id: Nes14WeldingFuelBarrelFilled
+  parent: Nes14WeldingFuelBarrel
+  suffix: Полон
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1500

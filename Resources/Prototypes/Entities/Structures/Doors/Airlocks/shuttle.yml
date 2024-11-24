@@ -29,7 +29,7 @@
           position: "0,-0.5"
         hard: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
+    sprite: NES/Structures/Doors/Airlocks/Standard/shuttle.rsi #NES14-Changes
     snapCardinals: false
     layers:
     - state: closed
@@ -50,17 +50,20 @@
   - type: Wires
     layoutId: Docking
   - type: Door
+    bumpOpen : false #NES14-Changes
     closeTimeTwo: 0.4
     openTimeTwo: 0.4
     crushDamage:
       types:
         Blunt: 15
     openSound:
-      path: /Audio/Effects/docking.ogg
+      path: /Audio/NES/Doors/dock.ogg
     closeSound:
-      path: /Audio/Effects/docking.ogg
+      path: /Audio/NES/Doors/undock.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    # canPry: false # увы
+    # clickOpen: false
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
@@ -85,7 +88,7 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/shuttle.rsi #NES14-Changes
   - type: Occluder
     enabled: false
   - type: PaintableAirlock
@@ -110,7 +113,7 @@
     noRot: false
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: NES/Structures/Doors/Airlocks/Glass/shuttle.rsi #NES14-Changes
     state: closed
   - type: Construction
     graph: AirlockShuttle

@@ -7,7 +7,7 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    sprite: Objects/Devices/nuke.rsi
+    sprite: NES/Objects/Misc/nuke.rsi #NES14-Changes
     noRot: true
     layers:
     - state: nuclearbomb_base
@@ -16,9 +16,9 @@
       map: ["enum.NukeVisualLayers.Unlit"]
       shader: unshaded
       visible: false
-    - state: nuclearbomb_gay
-      map: ["pride"]
-      visible: false
+    # - state: nuclearbomb_gay
+    #   map: ["pride"]
+    #   visible: false
     - state: nukefestive
       map: ["christmas"]
       visible: false
@@ -27,8 +27,8 @@
     holidays:
       festive:
       - FestiveSeason
-      pride:
-      - PrideMonth
+      # pride:
+      # - PrideMonth
   - type: GenericVisualizer
     visuals:
       enum.HolidayVisuals.Holiday:
@@ -154,22 +154,22 @@
     anchored: false
   - type: NukeLabel
   - type: Sprite
-    sprite: Objects/Devices/nuke.rsi
+    sprite: NES/Objects/Misc/nuke.rsi #NES14-Changes
     layers:
     - state: nuclearbomb_base
     - state: nukefestive
       map: ["christmas"]
       visible: false
-    - state: nuclearbomb_gay
-      map: [ "pride" ]
-      visible: false
+    # - state: nuclearbomb_gay
+    #   map: [ "pride" ]
+    #   visible: false
   - type: Appearance
   - type: HolidayVisuals
     holidays:
       festive:
       - FestiveSeason
-      pride:
-      - PrideMonth
+      # pride:
+      # - PrideMonth
   - type: GenericVisualizer
     visuals:
       enum.HolidayVisuals.Holiday:

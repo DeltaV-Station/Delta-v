@@ -8,6 +8,7 @@
     id: PrisonerIDCard
     state: pda-clear
   - type: Icon
+    sprite: Objects/Devices/pda.rsi
     state: pda-clear
 
 - type: entity
@@ -31,6 +32,7 @@
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
   - type: Icon
+    sprite: Objects/Devices/pda.rsi
     state: pda-prisonguard # - aPDA Sprite Rework
   - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
     diskSpace: 7
