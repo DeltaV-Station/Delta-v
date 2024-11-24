@@ -24,6 +24,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
+
 namespace Content.Server.Voting.Managers
 {
     public sealed partial class VoteManager : IVoteManager
@@ -39,7 +40,7 @@ namespace Content.Server.Voting.Managers
         [Dependency] private readonly IGameMapManager _gameMapManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly ISharedPlaytimeManager _playtimeManager = default!;
+        [Dependency] private readonly ISharedPlaytimeManager _playtimeManager = default!; 
 
         private int _nextVoteId = 1;
 
@@ -281,7 +282,7 @@ namespace Content.Server.Voting.Managers
             }
 
             // Admin always see the vote count, even if the vote is set to hide it.
-            if (v.DisplayVotes || _adminMgr.HasAdminFlag(player, AdminFlags.Moderator))
+            if (_adminMgr.HasAdminFlag(player, AdminFlags.Moderator))
             {
                 msg.DisplayVotes = true;
             }

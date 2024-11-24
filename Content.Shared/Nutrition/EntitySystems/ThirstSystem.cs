@@ -9,7 +9,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -32,9 +31,17 @@ public sealed class ThirstSystem : EntitySystem
     [ValidatePrototypeId<SatiationIconPrototype>]
     private const string ThirstIconParchedId = "ThirstIconParched";
 
+    private SatiationIconPrototype? _thirstIconOverhydrated = null;
+    private SatiationIconPrototype? _thirstIconThirsty = null;
+    private SatiationIconPrototype? _thirstIconParched = null;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        DebugTools.Assert(_prototype.TryIndex(ThirstIconOverhydratedId, out _thirstIconOverhydrated) &&
+                          _prototype.TryIndex(ThirstIconThirstyId, out _thirstIconThirsty) &&
+                          _prototype.TryIndex(ThirstIconParchedId, out _thirstIconParched));
 
         SubscribeLocalEvent<ThirstComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<ThirstComponent, MapInitEvent>(OnMapInit);
@@ -121,28 +128,26 @@ public sealed class ThirstSystem : EntitySystem
         }
     }
 
-    public bool TryGetStatusIconPrototype(ThirstComponent component, [NotNullWhen(true)] out SatiationIconPrototype? prototype)
+    public bool TryGetStatusIconPrototype(ThirstComponent component, out SatiationIconPrototype? prototype)
     {
         switch (component.CurrentThirstThreshold)
         {
             case ThirstThreshold.OverHydrated:
-                _prototype.TryIndex(ThirstIconOverhydratedId, out prototype);
-                break;
+                prototype = _thirstIconOverhydrated;
+                return true;
 
             case ThirstThreshold.Thirsty:
-                _prototype.TryIndex(ThirstIconThirstyId, out prototype);
-                break;
+                prototype = _thirstIconThirsty;
+                return true;
 
             case ThirstThreshold.Parched:
-                _prototype.TryIndex(ThirstIconParchedId, out prototype);
-                break;
+                prototype = _thirstIconParched;
+                return true;
 
             default:
                 prototype = null;
-                break;
+                return false;
         }
-
-        return prototype != null;
     }
 
     private void UpdateEffects(EntityUid uid, ThirstComponent component)

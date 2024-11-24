@@ -12,6 +12,8 @@
   recipeUnlocks:
   - MiningDrill
   - MineralScannerEmpty
+  - BorgModuleMining
+  - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard
   - SalvageExpeditionsComputerCircuitboard # DeltaV
   - ClothingMaskWeldingGas
@@ -168,6 +170,7 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+    - BorgModuleRCD
 
 - type: technology
   id: MassExcavation

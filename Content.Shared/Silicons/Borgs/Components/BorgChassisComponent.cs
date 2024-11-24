@@ -89,18 +89,5 @@ public enum BorgVisuals : byte
 [Serializable, NetSerializable]
 public enum BorgVisualLayers : byte
 {
-    /// <summary>
-    /// Main borg body layer.
-    /// </summary>
-    Body,
-
-    /// <summary>
-    /// Layer for the borg's mind state.
-    /// </summary>
-    Light,
-
-    /// <summary>
-    /// Layer for the borg flashlight status.
-    /// </summary>
-    LightStatus,
+    Light
 }

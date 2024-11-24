@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Shared.Alert;
 using JetBrains.Annotations;
 using Robust.Client.Player;
-using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -25,7 +24,8 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
         SubscribeLocalEvent<AlertsComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<AlertsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
-        SubscribeLocalEvent<AlertsComponent, ComponentHandleState>(OnHandleState);
+
+        SubscribeLocalEvent<AlertsComponent, AfterAutoHandleStateEvent>(ClientAlertsHandleState);
     }
     protected override void LoadPrototypes()
     {
@@ -47,22 +47,17 @@ public sealed class ClientAlertsSystem : AlertsSystem
         }
     }
 
-    private void OnHandleState(Entity<AlertsComponent> alerts, ref ComponentHandleState args)
-    {
-        if (args.Current is not AlertComponentState cast)
-            return;
-
-        alerts.Comp.Alerts = cast.Alerts;
-
-        UpdateHud(alerts);
-    }
-
     protected override void AfterShowAlert(Entity<AlertsComponent> alerts)
     {
         UpdateHud(alerts);
     }
 
     protected override void AfterClearAlert(Entity<AlertsComponent> alerts)
+    {
+        UpdateHud(alerts);
+    }
+
+    private void ClientAlertsHandleState(Entity<AlertsComponent> alerts, ref AfterAutoHandleStateEvent args)
     {
         UpdateHud(alerts);
     }
