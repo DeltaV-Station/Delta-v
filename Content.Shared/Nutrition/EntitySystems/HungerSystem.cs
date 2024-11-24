@@ -33,9 +33,17 @@ public sealed class HungerSystem : EntitySystem
     [ValidatePrototypeId<SatiationIconPrototype>]
     private const string HungerIconStarvingId = "HungerIconStarving";
 
+    private SatiationIconPrototype? _hungerIconOverfed;
+    private SatiationIconPrototype? _hungerIconPeckish;
+    private SatiationIconPrototype? _hungerIconStarving;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        DebugTools.Assert(_prototype.TryIndex(HungerIconOverfedId, out _hungerIconOverfed) &&
+                          _prototype.TryIndex(HungerIconPeckishId, out _hungerIconPeckish) &&
+                          _prototype.TryIndex(HungerIconStarvingId, out _hungerIconStarving));
 
         SubscribeLocalEvent<HungerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HungerComponent, ComponentShutdown>(OnShutdown);
@@ -213,13 +221,13 @@ public sealed class HungerSystem : EntitySystem
         switch (component.CurrentThreshold)
         {
             case HungerThreshold.Overfed:
-                _prototype.TryIndex(HungerIconOverfedId, out prototype);
+                prototype = _hungerIconOverfed;
                 break;
             case HungerThreshold.Peckish:
-                _prototype.TryIndex(HungerIconPeckishId, out prototype);
+                prototype = _hungerIconPeckish;
                 break;
             case HungerThreshold.Starving:
-                _prototype.TryIndex(HungerIconStarvingId, out prototype);
+                prototype = _hungerIconStarving;
                 break;
             default:
                 prototype = null;

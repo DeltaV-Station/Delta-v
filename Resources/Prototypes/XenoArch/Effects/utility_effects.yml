@@ -49,6 +49,10 @@
   permanentComponents:
   - type: Item
     size: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -159,6 +163,9 @@
     components:
     - Item
   permanentComponents:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
   - type: RevolverAmmoProvider
     whitelist:
       tags:

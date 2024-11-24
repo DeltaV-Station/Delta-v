@@ -512,23 +512,16 @@ namespace Content.Server.Database
         public async Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
         {
             await using var db = await GetDb();
-            var roleBanDetails = await db.DbContext.RoleBan
-                .Where(b => b.Id == id)
-                .Select(b => new { b.BanTime, b.PlayerUserId })
-                .SingleOrDefaultAsync();
 
-            if (roleBanDetails == default)
+            var ban = await db.DbContext.RoleBan.SingleOrDefaultAsync(b => b.Id == id);
+            if (ban is null)
                 return;
-
-            await db.DbContext.RoleBan
-                .Where(b => b.BanTime == roleBanDetails.BanTime && b.PlayerUserId == roleBanDetails.PlayerUserId)
-                .ExecuteUpdateAsync(setters => setters
-                    .SetProperty(b => b.Severity, severity)
-                    .SetProperty(b => b.Reason, reason)
-                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?)null)
-                    .SetProperty(b => b.LastEditedById, editedBy)
-                    .SetProperty(b => b.LastEditedAt, editedAt.UtcDateTime)
-                );
+            ban.Severity = severity;
+            ban.Reason = reason;
+            ban.ExpirationTime = expiration?.UtcDateTime;
+            ban.LastEditedById = editedBy;
+            ban.LastEditedAt = editedAt.UtcDateTime;
+            await db.DbContext.SaveChangesAsync();
         }
         #endregion
 

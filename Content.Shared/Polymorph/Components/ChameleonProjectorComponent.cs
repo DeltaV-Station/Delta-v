@@ -1,3 +1,4 @@
+using Content.Shared.Polymorph;
 using Content.Shared.Polymorph.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -56,6 +57,24 @@ public sealed partial class ChameleonProjectorComponent : Component
     /// </summary>
     [DataField]
     public float MaxHealth = 100f;
+
+    /// <summary>
+    /// Popup shown to the user when they try to disguise as an entity inside a container.
+    /// </summary>
+    [DataField]
+    public LocId ContainerPopup = "chameleon-projector-inside-container";
+
+    /// <summary>
+    /// Popup shown to the user when they try to disguise as an invalid entity.
+    /// </summary>
+    [DataField]
+    public LocId InvalidPopup = "chameleon-projector-invalid";
+
+    /// <summary>
+    /// Popup shown to the user when they disguise as a valid entity.
+    /// </summary>
+    [DataField]
+    public LocId SuccessPopup = "chameleon-projector-success";
 
     /// <summary>
     /// User currently disguised by this projector, if any
