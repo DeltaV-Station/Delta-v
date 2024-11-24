@@ -5,7 +5,6 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility; // DeltaV
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -95,10 +94,10 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
 
     /// <summary>
-    /// DeltaV: Sprite RSI path to use instead of the default.
+    /// DeltaV: Components only added on the client.
     /// </summary>
     [DataField]
-    public ResPath? SpritePath;
+    public ComponentRegistry? ClientComponents;
 
     /// <summary>
     /// The sprite state for the main borg body.

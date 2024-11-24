@@ -2,8 +2,6 @@
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
-using Robust.Client.ResourceManagement; // DeltaV
-using static Robust.Shared.Serialization.TypeSerializers.Implementations.SpriteSpecifierSerializer; // DeltaV
 
 namespace Content.Client.Silicons.Borgs;
 
@@ -16,7 +14,6 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 {
     [Dependency] private readonly BorgSystem _borgSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -40,12 +37,12 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype)
     {
+        // Begin DeltaV Code
+        if (prototype.ClientComponents is {} add)
+            EntityManager.AddComponents(entity, add);
+        // End DeltaV Code
         if (TryComp(entity, out SpriteComponent? sprite))
         {
-            // DeltaV: Begin sprite path stuff
-            if (prototype.SpritePath is {} path && _resourceCache.TryGetResource(TextureRoot / path, out RSIResource? resource))
-                sprite.BaseRSI = resource.RSI;
-            // DeltaV: End sprite path stuff
             sprite.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState);
             sprite.LayerSetState(BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
         }
