@@ -10,7 +10,7 @@ public sealed class WhiteCVars
         CVarDef.Create("ghost.respawn_time", 15d, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GhostRespawnMaxPlayers =
-        CVarDef.Create("ghost.respawn_max_players", 10, CVar.SERVERONLY);
+        CVarDef.Create("ghost.respawn_max_players", 35, CVar.SERVERONLY);
 
     #endregion
 }
