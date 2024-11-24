@@ -23,6 +23,7 @@
         Radiation: 0.75
         Caustic: 0.75
         Heat: 0.75
+    staminaDamageCoefficient: 0.3 # It's a hardsuit, duh
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -68,6 +69,7 @@
         Radiation: 0.80
         Caustic: 0.80
         Heat: 0.80
+    staminaDamageCoefficient: 0.3 # still a hardsuit
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -113,6 +115,7 @@
         Radiation: 0.70
         Caustic: 0.70
         Heat: 0.70
+    staminaDamageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -158,6 +161,7 @@
         Radiation: 0.75
         Caustic: 0.75
         Heat: 0.75
+    staminaDamageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
