@@ -132,6 +132,8 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
+    startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
+      path: /Audio/Announcements/bureaucratic_error.ogg 
 
 - type: entity
   id: ClericalError
