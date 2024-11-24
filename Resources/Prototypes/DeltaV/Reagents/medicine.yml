@@ -1,0 +1,63 @@
+- type: reagent
+  id: Testosterone
+  name: reagent-name-testosterone
+  group: Medicine
+  desc: reagent-desc-testosterone
+  physicalDesc: reagent-physical-desc-hormonal
+  flavor: bitter
+  color: "#eb692d"
+  boilingPoint: 1321.0
+  meltingPoint: 424.1
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:GenericStatusEffect
+        key: Masculinized
+        component: Masculinized
+        type: Add
+        time: 2
+        refresh: false
+
+- type: reagent
+  id: Estradiol
+  name: reagent-name-estradiol
+  group: Medicine
+  desc: reagent-desc-estradiol
+  physicalDesc: reagent-physical-desc-hormonal
+  flavor: bitter
+  color: "#65b4b1"
+  boilingPoint: 1573.0
+  meltingPoint: 446.5
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:GenericStatusEffect
+        key: Feminized
+        component: Feminized
+        type: Add
+        time: 2
+        refresh: false
+
+- type: reagent
+  id: Hormonium
+  name: reagent-name-hormonium
+  group: Medicine
+  desc: reagent-desc-hormonium
+  physicalDesc: reagent-physical-desc-hormonal
+  flavor: bitter
+  color: "#f9c3f9"
+  boilingPoint: 937.0
+  meltingPoint: 420.0
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 1.1
+        refresh: false

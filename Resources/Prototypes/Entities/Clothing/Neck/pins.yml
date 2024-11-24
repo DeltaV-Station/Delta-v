@@ -121,6 +121,16 @@
     state: trans
   - type: Clothing
     equippedPrefix: trans
+  # Begin DeltaV Additions - trans pins can be ground into hormonium
+  - type: SolutionContainerManager
+    solutions:
+      hormone:
+        reagents:
+        - ReagentId: Hormonium
+          Quantity: 15
+  - type: Extractable
+    grindableSolutionName: hormone
+  # End DeltaV Additions
  
 - type: entity
   parent: ClothingNeckPinBase

@@ -1,0 +1,34 @@
+- type: reaction
+  id: Testosterone
+  reactants:
+    Oil:
+      amount: 1
+    Hormonium:
+      amount: 1
+    Mercury:
+      amount: 1
+  products:
+    Testosterone: 3
+
+- type: reaction
+  id: Estradiol
+  reactants:
+    Oil:
+      amount: 1
+    Hormonium:
+      amount: 1
+    Radium:
+      amount: 1
+  products:
+    Estradiol: 3
+
+- type: reaction
+  id: TestosteroneEstradiol
+  impact: Medium
+  reactants:
+    Testosterone:
+      amount: 1
+    Estradiol:
+      amount: 1
+  products:
+    Hormonium: 1

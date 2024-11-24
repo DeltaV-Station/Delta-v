@@ -143,6 +143,16 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/trans.rsi
+  # Begin DeltaV Additions - trans cloaks can be ground into hormonium
+  - type: SolutionContainerManager
+    solutions:
+      hormone:
+        reagents:
+        - ReagentId: Hormonium
+          Quantity: 25
+  - type: Extractable
+    grindableSolutionName: hormone
+  # End DeltaV Additions
 
 - type: entity
   parent: ClothingNeckBase
