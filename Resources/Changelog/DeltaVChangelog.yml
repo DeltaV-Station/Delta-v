@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Gregg
-  changes:
-  - message: Adjusted the rules in regards to PDA confiscation and borg memory.
-    type: Tweak
-  id: 206
-  time: '2024-01-19T10:30:34.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Zombies can no longer be psionic
@@ -3764,3 +3758,10 @@
   id: 705
   time: '2024-11-24T10:15:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2277
+- author: Big Orthagonal
+  changes:
+  - message: Diagonal secborgs are not real and were never real.
+    type: Fix
+  id: 706
+  time: '2024-11-24T11:57:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2278
