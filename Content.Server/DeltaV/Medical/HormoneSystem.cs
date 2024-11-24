@@ -1,5 +1,6 @@
 using Content.Shared.Humanoid;
 using Content.Shared.DeltaV.Medical;
+using Content.Shared.DeltaV.Traits;
 
 namespace Content.Server.DeltaV.Medical;
 
@@ -28,8 +29,10 @@ public sealed class HormoneSystem : EntitySystem
             return;
         }
 
-        component.Original = humanoid.Sex;
-        _humanoidSystem.SetSex(uid, component.Target);
+        if (TryComp<HormoneSensitiveComponent>(uid, out var trait) && trait.Target == component.Target) {
+            component.Original = humanoid.Sex;
+            _humanoidSystem.SetSex(uid, component.Target);
+        }
     }
 
     private void OnShutdown(EntityUid uid, IHormoneComponent component, ComponentShutdown args)

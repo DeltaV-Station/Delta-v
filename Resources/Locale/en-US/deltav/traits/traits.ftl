@@ -32,3 +32,9 @@ trait-inpain-desc = You’re constantly in discomfort. You need painkillers to f
 
 trait-addicted-name = Addicted
 trait-addicted-desc = You crave the substance, and your thoughts keep drifting back to it. Without it, you feel incomplete, anxious, and on edge.
+
+trait-estradiol-sensitive-name = Estradiol sensitive
+trait-estradiol-sensitive-desc = Your body is capable of taking on Nanotrasen's special feminization medicines.
+
+trait-testosterone-sensitive-name = Testosterone sensitive
+trait-testosterone-sensitive-desc = Your body is capable of taking on Nanotrasen's special masculinization medicines.
