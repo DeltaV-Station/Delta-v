@@ -555,7 +555,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: Structures/Windows/shuttle_window.rsi
+    sprite: NES/Structures/Windows/shuttle_window.rsi #NES14-Changes
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
