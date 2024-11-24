@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Prison guards are now mindshielded and have a security playtime requirement.
-    type: Fix
-  id: 200
-  time: '2024-01-07T18:20:45.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Atmos hopefully shouldn't break anymore
@@ -3755,3 +3749,15 @@
   id: 699
   time: '2024-11-24T03:47:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2259
+- author: deltanedas
+  changes:
+  - message: Merged upstream changes from the last 2 weeks.
+    type: Add
+  - message: Security borgs have baton, seclite and holoprojector modules when a chassis
+      switches to it.
+    type: Tweak
+  - message: Removed the security borg wood baton module, they get real batongs now.
+    type: Remove
+  id: 700
+  time: '2024-11-24T04:37:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2205
