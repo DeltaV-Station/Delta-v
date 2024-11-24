@@ -81,7 +81,7 @@
       volume: -15
     collection: AmbienceMining
   rules: OnMapGrid
-  fadeIn: true
+  # fadeIn: true
   interruptable: true
   priority: 1
 
@@ -93,6 +93,7 @@
       volume: -15
     collection: AmbienceGeneral
   rules: AlwaysTrue
+  interruptable: true
   priority: 6
 
 # Sound collections
@@ -172,31 +173,38 @@
     # - /Audio/Ambience/ambiruin5.ogg
     # - /Audio/Ambience/ambiruin6.ogg
     # - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/NES/Ambience/Endeleas_Desert.ogg
-    - /Audio/NES/Ambience/MogueHeart_Wanderlustl.ogg
-    - /Audio/NES/Ambience/Endeleas_Traveler.ogg
+    - /Audio/NES/Ambience/planetary1.ogg
+    - /Audio/NES/Ambience/planetary2.ogg
+    - /Audio/NES/Ambience/planetary3.ogg
+    - /Audio/NES/Ambience/planetary4.ogg
+    - /Audio/NES/Ambience/planetary5.ogg
 
 - type: soundCollection
   id: AmbienceRuins
   files:
-    - /Audio/Ambience/ambicave.ogg
-    - /Audio/Ambience/ambidanger.ogg
-    - /Audio/Ambience/ambidanger2.ogg
-    - /Audio/Ambience/ambimaint1.ogg
-    - /Audio/Ambience/ambimine.ogg
-    - /Audio/Ambience/ambimystery.ogg
-    - /Audio/Ambience/ambiruin.ogg
-    - /Audio/Ambience/ambiruin2.ogg
-    - /Audio/Ambience/ambiruin3.ogg
-    - /Audio/Ambience/ambiruin4.ogg
-    - /Audio/Ambience/ambiruin5.ogg
-    - /Audio/Ambience/ambiruin6.ogg
-    - /Audio/Ambience/ambiruin7.ogg
+    # - /Audio/Ambience/ambicave.ogg
+    # - /Audio/Ambience/ambidanger.ogg
+    # - /Audio/Ambience/ambidanger2.ogg
+    # - /Audio/Ambience/ambimaint1.ogg
+    # - /Audio/Ambience/ambimine.ogg
+    # - /Audio/Ambience/ambimystery.ogg
+    # - /Audio/Ambience/ambiruin.ogg
+    # - /Audio/Ambience/ambiruin2.ogg
+    # - /Audio/Ambience/ambiruin3.ogg
+    # - /Audio/Ambience/ambiruin4.ogg
+    # - /Audio/Ambience/ambiruin5.ogg
+    # - /Audio/Ambience/ambiruin6.ogg
+    # - /Audio/Ambience/ambiruin7.ogg
+    - /Audio/NES/Ambience/planetary1.ogg
+    - /Audio/NES/Ambience/planetary2.ogg
+    - /Audio/NES/Ambience/planetary3.ogg
+    - /Audio/NES/Ambience/planetary4.ogg
+    - /Audio/NES/Ambience/planetary5.ogg
 
 - type: soundCollection
   id: AmbienceSpace
   files:
-    - /Audio/NES/Ambience/Shamaluev_Space.ogg
+    - /Audio/NES/Ambience/Saros_Lonely.ogg
     - /Audio/NES/Ambience/Endeleas_Desert.ogg
 
 - type: soundCollection

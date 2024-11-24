@@ -104,12 +104,17 @@
     - Wrench
   - type: Sprite
     sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
-    state: icon
+    layers:
+      - state: icon
+      - state: storage
+        map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: Item
     sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
-    storedSprite:
-      sprite: NES/Objects/Tools/wrench.rsi #NES14-Changes
-      state: storage
+    storedRotation: -90
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          storage: Rainbow
   - type: MeleeWeapon
     wideAnimationRotation: 135
     attackRate: 1.5
