@@ -1,7 +1,7 @@
 - type: entity
+  abstract: true
   parent: ReagentContainerBase
   id: ReagentTinBase
-  abstract: true
   components:
   - type: Openable
     openableByHand: false

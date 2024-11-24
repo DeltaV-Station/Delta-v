@@ -31,8 +31,8 @@
           prob: 0.1
 
 - type: entity
-  id: CrateHydroCoDairy
   parent: CratePlastic
+  id: CrateHydroCoDairy
   name: HydroCo Dairy crate
   description: A shipment of powdered dairy products from HydroCo. Contains powdered milk and soy milk.
   components:
@@ -47,8 +47,8 @@
           amount: 2
 
 - type: entity
-  id: CrateHydroCoJuice
   parent: CratePlastic
+  id: CrateHydroCoJuice
   name: HydroCo Juice crate
   description: A variety pack of powdered juice products from HydroCo.
   components:
@@ -70,25 +70,25 @@
   id: FillHydroCoJuiceMix
   table: !type:AllSelector
     children:
-    #Citrus
+    # Citrus
     - !type:GroupSelector
       children:
       - id: ReagentTinPowderedJuiceOrange
       - id: ReagentTinPowderedJuiceLime
       - id: ReagentTinPowderedJuiceLemon
-    #Berry
+    # Berry
     - !type:GroupSelector
       children:
       - id: ReagentTinPowderedJuiceBerry
       - id: ReagentTinPowderedJuiceGrape
       - id: ReagentTinPowderedJuiceCherry
-    #Tropical
+    # Tropical
     - !type:GroupSelector
       children:
       - id: ReagentTinPowderedJuicePineapple
       - id: ReagentTinPowderedJuiceBanana
       - id: ReagentTinPowderedJuiceWatermelon
-    #Garden
+    # Garden
     - !type:GroupSelector
       children:
       - id: ReagentTinPowderedJuiceApple
