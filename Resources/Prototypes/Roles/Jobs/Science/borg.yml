@@ -15,17 +15,3 @@
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
   applyTraits: false
-
-- type: job
-  id: Borg
-  name: job-name-borg
-  description: job-description-borg
-  playTimeTracker: JobBorg
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs
-  canBeAntag: false
-  icon: JobIconBorg
-  supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgBattery
-  applyTraits: false
