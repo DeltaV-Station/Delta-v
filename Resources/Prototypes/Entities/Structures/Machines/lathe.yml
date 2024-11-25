@@ -377,6 +377,9 @@
       - PowerCellHyper
       - FireExtinguisherBluespace
       # End DeltaV additions
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BorgModuleFauna
@@ -649,6 +652,7 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -687,6 +691,14 @@
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
+    # Shitmed End
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ClothingOuterHardsuitJuggernautReverseEngineered
@@ -912,6 +924,8 @@
       - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
+      - SecurityCyberneticEyes # Shitmed Change
+      - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1048,6 +1062,12 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
