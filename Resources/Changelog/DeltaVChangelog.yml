@@ -1,54 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Atmos hopefully shouldn't break anymore
-    type: Fix
-  id: 201
-  time: '2024-01-07T22:10:36.0000000+00:00'
-- author: Bribrooo
-  changes:
-  - message: 'added a ChemVend inside of Chemistry on Pebble Station '
-    type: Add
-  id: 202
-  time: '2024-01-11T06:14:27.0000000+00:00'
-- author: Adrian
-  changes:
-  - message: Shoukou has maintenance now in logistics and in security
-    type: Tweak
-  id: 203
-  time: '2024-01-12T22:08:47.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Added the spare ID safe
-    type: Add
-  - message: The captain's locker no longer starts with a spare ID card
-    type: Remove
-  id: 204
-  time: '2024-01-14T23:48:30.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Added Hammurabi Prison Station. Crime must be punished!
-    type: Add
-  id: 205
-  time: '2024-01-17T03:53:36.0000000+00:00'
-- author: Gregg
-  changes:
-  - message: Adjusted the rules in regards to PDA confiscation and borg memory.
-    type: Tweak
-  id: 206
-  time: '2024-01-19T10:30:34.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Zombies can no longer be psionic
-    type: Remove
-  id: 207
-  time: '2024-01-19T20:53:05.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Fixes mantis and them not be able to spawn with duffelbags and satchels.
-    type: Fix
-  id: 208
-  time: '2024-01-19T20:54:29.0000000+00:00'
 - author: Adrian16199
   changes:
   - message: Laika no longer takes 200 damage before dying from critical.
@@ -3761,3 +3711,60 @@
   id: 700
   time: '2024-11-24T04:37:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2205
+- author: deltanedas
+  changes:
+  - message: Fixed borgs not having names.
+    type: Fix
+  id: 701
+  time: '2024-11-24T10:06:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2276
+- author: dotCatshark
+  changes:
+  - message: Resprited EE sprites for corpse dragging.
+    type: Tweak
+  id: 702
+  time: '2024-11-24T10:07:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2255
+- author: Yule&
+  changes:
+  - message: NukeOps are 3% less valid.
+    type: Tweak
+  id: 703
+  time: '2024-11-24T10:08:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2208
+- author: deltanedas
+  changes:
+  - message: Re-enabled the portable recharger Tier 3 Arsenal tech.
+    type: Add
+  id: 704
+  time: '2024-11-24T10:09:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2206
+- author: moth
+  changes:
+  - message: Made moth's heat damage less insane.
+    type: Tweak
+  id: 705
+  time: '2024-11-24T10:15:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2277
+- author: Big Orthagonal
+  changes:
+  - message: Diagonal secborgs are not real and were never real.
+    type: Fix
+  id: 706
+  time: '2024-11-24T11:57:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2278
+- author: deltanedas
+  changes:
+  - message: Fixed salvage debris not having anything.
+    type: Fix
+  id: 707
+  time: '2024-11-24T20:25:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2280
+- author: DisposableCrewmember42
+  changes:
+  - message: Hungry? Stuff your face with cream from an emergency pie delivery for
+      a change!
+    type: Add
+  id: 708
+  time: '2024-11-25T05:30:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2211
