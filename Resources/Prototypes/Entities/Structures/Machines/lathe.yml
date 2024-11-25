@@ -641,6 +641,17 @@
     - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
+    - BorgModuleAppraisal
+    - BorgModuleConstruction
+    # DeltaV Start
+    - BorgModuleSecurityHold
+    - LeftArmBorgSecurity
+    - RightArmBorgSecurity
+    - LeftLegBorgSecurity
+    - RightLegBorgSecurity
+    - HeadBorgSecurity
+    - TorsoBorgSecurity
+    # DeltaV end
     - BorgModuleService
     - BorgModuleTreatment
     - BorgModuleCleaning
@@ -651,6 +662,42 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - LeftArmBorgEngineer
+    - RightArmBorgEngineer
+    - LeftLegBorgEngineer
+    - RightLegBorgEngineer
+    - HeadBorgEngineer
+    - TorsoBorgEngineer
+    - LeftLegBorgJanitor
+    - RightLegBorgJanitor
+    - HeadBorgJanitor
+    - TorsoBorgJanitor
+    - LeftArmBorgMedical
+    - RightArmBorgMedical
+    - LeftLegBorgMedical
+    - RightLegBorgMedical
+    - HeadBorgMedical
+    - TorsoBorgMedical
+    - LeftArmBorgMining
+    - RightArmBorgMining
+    - LeftLegBorgMining
+    - RightLegBorgMining
+    - HeadBorgMining
+    - TorsoBorgMining
+    - LeftArmBorgService
+    - RightArmBorgService
+    - LeftLegBorgService
+    - RightLegBorgService
+    - HeadBorgService
+    - TorsoBorgService
+    # Delta-V : Start
+    - LeftArmBorgSecurity
+    - RightArmBorgSecurity
+    - LeftLegBorgSecurity
+    - RightLegBorgSecurity
+    - HeadBorgSecurity
+    - TorsoBorgSecurity
+    # Delta-V : End
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -686,6 +733,8 @@
     - JetpackMini
   # End Nyano additions
   # DeltaV Start
+    - BorgModuleSecurityDetain
+    - BorgModuleSecurityControl
     - BorgModuleSecurityChase
     - JetpackVoid
   - type: EmagLatheRecipes
