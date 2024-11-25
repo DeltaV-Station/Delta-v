@@ -1,9 +1,8 @@
-![image](https://github.com/EndrAnimet/DeltaV-Stray/assets/122978178/802c8d4b-da7f-4413-89a1-409e4776b032)
 
-Stray station - это форк англоязычного сервера [Delta-V](https://github.com/DeltaV-Station/Delta-v)
+![git](https://github.com/user-attachments/assets/6d10ae1b-3674-431e-a3b5-7ba8d8f26757)
 
-<p align="center"> <img alt="Space Station 14 Delta-V Logo" width="128" height="128" src="https://raw.githubusercontent.com/DeltaV-Station/Delta-v/master/Resources/Textures/Logo/logo.png" /></p>
-<!---<p align="center"> <img alt="Space Station 14 Delta-V Banner" width="512" height="126" src="https://raw.githubusercontent.com/DeltaV-Station/Delta-v/master/Resources/Textures/Logo/banner.png" /></p>-->
+
+NES - это форк англоязычного сервера [Delta-V](https://github.com/DeltaV-Station/Delta-v)
 
 Delta-V is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14), embracing a mixture of classic SS13 chaos and experimentation only possible with the new engine.
 
@@ -13,7 +12,7 @@ Delta-V is a continuation of the [Nyanotrasen](https://www.nyanotrasen.moe/) for
 
 ## Ссылки
 
-#### Stray station
+#### NES station
 [Наш Discord](https://discord.gg/jJmM4pY77m)
 
 #### DeltaV
