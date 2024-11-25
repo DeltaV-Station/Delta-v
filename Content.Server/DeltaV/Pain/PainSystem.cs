@@ -55,7 +55,7 @@ public sealed class PainSystem : SharedPainSystem
             return;
 
         var effect = _random.Pick(effects);
-        _popup.PopupEntity(Loc.GetString(effect), ent.Owner);
+        _popup.PopupEntity(Loc.GetString(effect), ent, ent);
 
         // Set next popup time
         var delay = _random.NextFloat(ent.Comp.MinimumPopupDelay, ent.Comp.MaximumPopupDelay);
