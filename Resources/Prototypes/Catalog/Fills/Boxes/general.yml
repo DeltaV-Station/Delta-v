@@ -75,6 +75,10 @@
       storagebase:
         id: LightBulb
         amount: 12
+  - type: Tag # Imp - add drones
+    tags:
+      - BoxCardboard
+      - DroneUsable
 
 - type: entity
   name: lightbulb box warm
@@ -256,6 +260,10 @@
     layers:
       - state: box
       - state: inflatable
+  - type: Tag # Imp - add drones
+    tags:
+      - BoxCardboard
+      - DroneUsable
 
 - type: entity
   name: hatsune miku day bag
@@ -311,6 +319,10 @@
     layers:
       - state: box
       - state: trashbag
+  - type: Tag # Imp - add drones
+    tags:
+      - BoxCardboard
+      - DroneUsable
 
 - type: entity
   name: passenger encryption key box

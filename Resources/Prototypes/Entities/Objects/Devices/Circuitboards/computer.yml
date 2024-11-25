@@ -10,6 +10,9 @@
       state: cpuboard
     - type: Item
       storedRotation: -90
+    - type: Tag
+      tags:
+        - DroneUsable
     - type: StaticPrice
       price: 100
     - type: PhysicalComposition
@@ -97,6 +100,9 @@
       prototype: ComputerCargoOrders
     - type: StaticPrice
       price: 750
+    - type: Tag
+      tags:
+        - DroneUsable
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -198,6 +204,9 @@
   - type: ComputerBoard
     prototype: ComputerCargoBounty
   - type: StaticPrice
+  - type: Tag
+    tags:
+    - DroneUsable
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -249,6 +258,7 @@
   - type: Tag
     tags:
     - SurveillanceCameraMonitorCircuitboard
+    - DroneUsable # Imp - add drones
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -282,7 +292,8 @@
       prototype: ComputerTelevision
     - type: Tag
       tags:
-       - ComputerTelevisionCircuitboard
+        - ComputerTelevisionCircuitboard
+        - DroneUsable # Imp - add drones
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -347,6 +358,7 @@
     - type: Tag
       tags:
       - HighRiskItem
+      - DroneUsable # Imp - add drones
 
 - type: entity
   parent: BaseComputerCircuitboard

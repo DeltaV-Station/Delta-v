@@ -313,6 +313,9 @@
   - type: Sprite
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_assembly
+  - type: Tag
+    tags:
+    - DroneUsable
   - type: Transform
     anchored: true
     noRot: true

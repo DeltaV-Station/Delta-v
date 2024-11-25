@@ -13,6 +13,7 @@
     tags:
     - Sheet
     - ConstructionMaterial
+    - DroneUsable # Imp - add drones
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -141,6 +142,7 @@
     - Plastic
     - Sheet
     - ConstructionMaterial
+    - DroneUsable # Imp - add drones
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -262,6 +264,7 @@
     - type: Tag
       tags:
       - Sheet
+      - DroneUsable
     - type: Material
     - type: PhysicalComposition
       materialComposition:

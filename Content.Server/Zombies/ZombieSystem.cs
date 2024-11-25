@@ -5,6 +5,7 @@ using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Server._Impstation.Drone.Components;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
@@ -247,7 +248,7 @@ namespace Content.Server.Zombies
                 if (args.User == uid)
                     continue;
 
-                if (!TryComp<MobStateComponent>(uid, out var mobState))
+                if (!TryComp<MobStateComponent>(entity, out var mobState) || HasComp<DroneComponent>(entity))
                     continue;
 
                 if (HasComp<ZombieComponent>(uid) || HasComp<IncurableZombieComponent>(uid))

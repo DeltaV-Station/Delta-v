@@ -409,6 +409,9 @@
     dataset: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
+  - type: Tag # Imp - add drones
+    tags:
+      - DroneUsable
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/clothing.rsi
     layers:
@@ -440,6 +443,9 @@
     dataset: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
+  - type: Tag
+    tags:
+      - DroneUsable
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/winterdrobe.rsi
     layers:
@@ -908,6 +914,9 @@
     radius: 1.5
     energy: 3.0
     color: "#b89e2a"
+  - type: Tag
+    tags:
+    - DroneUsable
 
 - type: entity
   parent: VendingMachine
@@ -1295,6 +1304,9 @@
     radius: 1.5
     energy: 3.0
     color: "#c73434"
+  - type: Tag
+    tags:
+      - DroneUsable
 
 - type: entity
   parent: VendingMachine
@@ -1392,6 +1404,9 @@
     radius: 1.5
     energy: 3.0
     color: "#d4ab33"
+  - type: Tag
+    tags:
+      - DroneUsable
 
 - type: entity
   parent: VendingMachine

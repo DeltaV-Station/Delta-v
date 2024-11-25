@@ -22,8 +22,9 @@
           Quantity: 10
   - type: Tag
     tags:
-    - ClothMade
-    - WhitelistChameleon
+      - ClothMade
+      - DroneUsable # Imp - add drones
+      - WhitelistChameleon
 
 - type: entity
   abstract: true

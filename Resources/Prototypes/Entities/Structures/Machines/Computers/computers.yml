@@ -854,6 +854,9 @@
     guides:
     - SolarPanels
     - Power
+  - type: Tag # Imp - add drones
+    tags:
+      - DroneUsable
 
 - type: entity
   parent: BaseComputerAiAccess

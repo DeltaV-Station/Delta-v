@@ -10,6 +10,9 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: generic
+  - type: Tag # Imp - add drones
+    tags:
+      - DroneUsable  
   - type: PhysicalComposition
     materialComposition:
       Glass: 200

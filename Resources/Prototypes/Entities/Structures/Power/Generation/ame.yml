@@ -107,6 +107,9 @@
     guides:
     - AME
     - Power
+  - type: Tag # Imp - add drones
+    tags:
+      - DroneUsable
   - type: Electrified
     onHandInteract: false
     onInteractUsing: false

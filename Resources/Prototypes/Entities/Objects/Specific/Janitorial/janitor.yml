@@ -51,6 +51,7 @@
       Plastic: 50
   - type: Tag
     tags:
+      - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
       - Mop
       - MopBasic
   - type: GuideHelp
@@ -92,6 +93,7 @@
       quantity: 10
     - type: Tag
       tags:
+        - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
@@ -337,6 +339,7 @@
       delay: 1.5
     - type: Tag
       tags:
+        - DroneUsable
         - Mop
     - type: Fiber
       fiberColor: fibers-white
