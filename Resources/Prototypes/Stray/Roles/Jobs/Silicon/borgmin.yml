@@ -1,16 +1,13 @@
 - type: job
   id: Borgmin
   name: "борг шахтерский"
+  setPreference: false
   description: job-description-borg
   playTimeTracker: JobBorgmin
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Logistics
-      time: 7200 #2 hours
     - !type:OverallPlaytimeRequirement
-      time: 7200 #2 hours
+      time: 999999
   canBeAntag: false
   icon: JobIconBorgShaftMiner
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgMining
   startingGear: RobotGear # for char preview only

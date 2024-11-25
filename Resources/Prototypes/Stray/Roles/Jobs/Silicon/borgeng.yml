@@ -1,16 +1,13 @@
 - type: job
   id: Borgeng
   name: "борг инженерный"
+  setPreference: false
   description: job-description-borg
   playTimeTracker: JobBorgeng
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 7200 #2 hours
     - !type:OverallPlaytimeRequirement
-      time: 7200 #2 hours
+      time: 999999
   canBeAntag: false
   icon: JobIconBorgEngineer
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgEngineer
   startingGear: RobotGear # for char preview only

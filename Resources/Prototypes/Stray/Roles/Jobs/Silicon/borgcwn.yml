@@ -1,13 +1,13 @@
 - type: job
   id: Borgcwn
   name: "борг клоун"
+  setPreference: false
   description: job-description-borg
   playTimeTracker: JobBorgcwn
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 7200 #2 hours
+      time: 999999
   canBeAntag: false
   icon: JobIconBorgClown
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgClown
   startingGear: RobotGear # for char preview only
