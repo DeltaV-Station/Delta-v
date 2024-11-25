@@ -27,3 +27,13 @@
   cost: 6000 # Thanks bounties
   category: Food
   group: market
+
+- type: cargoProduct
+  id: FoodEmergencyPie
+  icon:
+    sprite: Objects/Consumable/Food/Baked/pie.rsi
+    state: tin
+  product: CrateFoodEmergencyPie
+  cost: 3333
+  category: Food
+  group: market
