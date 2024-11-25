@@ -1,0 +1,17 @@
+- type: antag
+  id: RoundstartFugitive #Set ID Should this be Fugitive or RoundstartFugitive?
+  name: roles-antag-roundstartfugitive-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-roundstartfugitive-objective
+  guides: [ Fugitive ] #Guide TBD
+  requirements: # DeltaV - Playtime requirement
+  - !type:OverallPlaytimeRequirement
+    time: 0 # Time 0 for testing, set to DeltaV - 24 hours, take value '86400'
+
+- type: startingGear
+  id: RoundstartFugitiveGear
+  #removed fugi gear except for the toolbox
+  storage:
+    back:
+    - FugitiveStash
