@@ -31,6 +31,17 @@
           prob: 0.1
 
 - type: entity
+  id: CrateFoodEmergencyPie
+  parent: CratePlastic
+  name: emergency pie delivery
+  description: '"Then let them eat pie."'
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodPieBananaCream
+      amount: 13
+
+- type: entity
   parent: CratePlastic
   id: CrateHydroCoDairy
   name: HydroCo Dairy crate

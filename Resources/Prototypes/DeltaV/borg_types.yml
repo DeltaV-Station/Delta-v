@@ -37,6 +37,8 @@
   # Visual
   clientComponents:
   - type: Sprite
+    noRot: true
+    drawdepth: Mobs
     sprite: DeltaV/Mobs/Silicon/chassis.rsi
     layers:
     - state: security

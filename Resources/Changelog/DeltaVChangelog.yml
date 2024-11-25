@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: Gregg
-  changes:
-  - message: Adjusted the rules in regards to PDA confiscation and borg memory.
-    type: Tweak
-  id: 206
-  time: '2024-01-19T10:30:34.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Zombies can no longer be psionic
-    type: Remove
-  id: 207
-  time: '2024-01-19T20:53:05.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Fixes mantis and them not be able to spawn with duffelbags and satchels.
-    type: Fix
-  id: 208
-  time: '2024-01-19T20:54:29.0000000+00:00'
 - author: Adrian16199
   changes:
   - message: Laika no longer takes 200 damage before dying from critical.
@@ -3764,3 +3746,25 @@
   id: 705
   time: '2024-11-24T10:15:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2277
+- author: Big Orthagonal
+  changes:
+  - message: Diagonal secborgs are not real and were never real.
+    type: Fix
+  id: 706
+  time: '2024-11-24T11:57:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2278
+- author: deltanedas
+  changes:
+  - message: Fixed salvage debris not having anything.
+    type: Fix
+  id: 707
+  time: '2024-11-24T20:25:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2280
+- author: DisposableCrewmember42
+  changes:
+  - message: Hungry? Stuff your face with cream from an emergency pie delivery for
+      a change!
+    type: Add
+  id: 708
+  time: '2024-11-25T05:30:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2211
