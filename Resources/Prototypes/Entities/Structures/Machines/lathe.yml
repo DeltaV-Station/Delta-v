@@ -381,6 +381,7 @@
       - Fulton
       - FultonBeacon
       - PowerCellHyper
+      - FireExtinguisherBluespace
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -699,20 +700,13 @@
     # Delta-V : End
     dynamicRecipes:
     - ProximitySensor
-    - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
-    - BorgModuleMining
-    - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleMusique
-    - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
@@ -868,6 +862,7 @@
       - TargetHuman
       - TargetSyndicate
       - WeaponDisablerPractice
+      - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
       # Begin DeltaV additions
@@ -910,7 +905,7 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
-      #- PortableRecharger # DeltaV - removed for some reason
+      - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
       - PowerCageSmall
@@ -1250,7 +1245,6 @@
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
-      - ClothingNeckCloakCJ # DeltaV - Chief Justice
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown

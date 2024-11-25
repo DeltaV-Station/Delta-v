@@ -115,6 +115,7 @@
   - WeaponDisablerSMG
   - BorgModuleSecurityControl # DeltaV SecBorg Research
   - BorgModuleSecurityDetain # DeltaV SecBorg Research
+  - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
 
 - type: technology
   id: ExplosiveTechnology
@@ -210,6 +211,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
+  - PortableRecharger
 
 - type: technology
   id: ExperimentalBatteryAmmo

@@ -1,63 +1,7 @@
 - type: entity
   id: BorgChassisSecurity
-  parent: BaseBorgChassisNT
+  parent: BorgChassisSelectable
   name: security cyborg
   components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: security_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: security_l
-      shader: unshaded
-      map: ["light"]
-      visible: false
-  - type: BorgChassis
-    maxModules: 4
-    moduleWhitelist:
-      tags:
-      - BorgModuleGeneric
-      - BorgModuleSecurity
-    hasMindState: security_e
-    noMindState: security_e_r
-  - type: BorgTransponder
-    sprite:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: security
-    name: security cyborg
-  - type: Construction
-    node: security
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-    - Common
-    - Science
-    - Security
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-    - Science
-    - Security
-  - type: AccessReader
-    access: [["Security"], ["Command"], ["Research"]]
-  - type: SiliconLawProvider
-    laws: SiliconPolice
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      140: Critical # +40 to Crit Threshold
-      240: Dead # +40 to Dead Threshold
-  - type: NoSlip
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Stray/Mech/mech.ogg
-      params:
-        variation: 0.07
-  - type: Speech
-    speechVerb: Robotic
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
+  - type: BorgSwitchableType
+    selectedBorgType: security

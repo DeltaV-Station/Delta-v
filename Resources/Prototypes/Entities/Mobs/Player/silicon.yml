@@ -45,6 +45,8 @@
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -53,19 +55,20 @@
         toggleAction: ActionAGhostShowCrewMonitoring
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
+      enum.CommunicationsConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowCommunications
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
   - type: RadarConsole
     followEntity: false
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#2ed2fd"
-  - type: Speech
-    speechVerb: Robotic
   - type: ShowJobIcons
 
 - type: entity
@@ -117,7 +120,7 @@
 - type: entity
   id: AsimovCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Crewsimov)
+  name: law board (Crewsimov)
   description: An electronics board containing the Crewsimov lawset.
   components:
   - type: Sprite
@@ -129,7 +132,7 @@
 - type: entity
   id: CorporateCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Corporate)
+  name: law board (Corporate)
   description: An electronics board containing the Corporate lawset.
   components:
   - type: Sprite
@@ -141,7 +144,7 @@
 - type: entity
   id: NTDefaultCircuitBoard
   parent: BaseElectronics
-  name: circuit board (NT Default)
+  name: law board (NT Default)
   description: An electronics board containing the NT Default lawset.
   components:
   - type: Sprite
@@ -153,7 +156,7 @@
 - type: entity
   id: CommandmentCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Ten Commandments)
+  name: law board (Ten Commandments)
   description: An electronics board containing the Ten Commandments lawset.
   components:
   - type: Sprite
@@ -165,7 +168,7 @@
 - type: entity
   id: PaladinCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Paladin)
+  name: law board (Paladin)
   description: An electronics board containing the Paladin lawset.
   components:
   - type: Sprite
@@ -177,7 +180,7 @@
 - type: entity
   id: LiveLetLiveCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Live and Let Live)
+  name: law board (Live and Let Live)
   description: An electronics board containing the Live and Let Live lawset.
   components:
   - type: Sprite
@@ -189,7 +192,7 @@
 - type: entity
   id: StationEfficiencyCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Station Efficiency)
+  name: law board (Station Efficiency)
   description: An electronics board containing the Station Efficiency lawset.
   components:
   - type: Sprite
@@ -201,7 +204,7 @@
 - type: entity
   id: RobocopCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Robocop)
+  name: law board (Robocop)
   description: An electronics board containing the Robocop lawset.
   components:
   - type: Sprite
@@ -213,7 +216,7 @@
 - type: entity
   id: OverlordCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Overlord)
+  name: law board (Overlord)
   description: An electronics board containing the Overlord lawset.
   components:
   - type: Sprite
@@ -225,7 +228,7 @@
 - type: entity
   id: DungeonMasterCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Dungeon Master)
+  name: law board (Dungeon Master)
   description: An electronics board containing the Dungeon Master lawset.
   components:
   - type: Sprite
@@ -237,7 +240,7 @@
 - type: entity
   id: ArtistCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Artist)
+  name: law board (Artist)
   description: An electronics board containing the Artist lawset.
   components:
   - type: Sprite
@@ -249,7 +252,7 @@
 - type: entity
   id: AntimovCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Antimov)
+  name: law board (Antimov)
   description: An electronics board containing the Antimov lawset.
   components:
   - type: Sprite
@@ -262,7 +265,7 @@
 - type: entity
   id: NutimovCircuitBoard
   parent: BaseElectronics
-  name: circuit board (Nutimov)
+  name: law board (Nutimov)
   description: An electronics board containing the Nutimov lawset.
   components:
   - type: Sprite
@@ -298,6 +301,7 @@
         unshaded:
           Empty: { state: empty }
           Occupied: { state: full }
+  - type: Intellicard
 
 - type: entity
   id: PlayerStationAiEmpty
@@ -329,7 +333,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
+    sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
     - state: ai_empty
@@ -353,11 +357,10 @@
     containerId: station_ai_mind_slot
     job: StationAi
   - type: Sprite
-    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
+    sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
     - state: ai
-      map: ["unshaded"]
       shader: unshaded
 
 # The actual brain inside the core
@@ -374,7 +377,6 @@
     blockInteraction: false
   - type: SiliconLawProvider
     laws: Crewsimov
-  - type: IonStormTarget
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
@@ -392,6 +394,9 @@
     drawFov: false
   - type: Examiner
   - type: InputMover
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
   - type: Tag
     tags:
     - HideContextMenu
@@ -409,6 +414,7 @@
   categories: [ HideSpawnMenu ]
   suffix: DO NOT MAP
   components:
+  - type: NoFTL
   - type: WarpPoint
     follow: true
   - type: Eye
@@ -416,7 +422,7 @@
   - type: Visibility
     layer: 2
   - type: Sprite
-    sprite: NES/Mobs/Bots/station_ai.rsi #NES14-Changes
+    sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: ai_camera
       shader: unshaded
@@ -424,29 +430,8 @@
 
 # Borgs
 - type: entity
-  id: PlayerBorgGeneric
-  parent: BorgChassisGeneric
-  suffix: Battery, Tools
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-        - PositronicBrain
-      borg_module:
-        - BorgModuleBasic
-        - BorgModuleTool
-        - BorgModuleAnomaly
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
   id: PlayerBorgBattery
-  parent: BorgChassisGeneric
+  parent: BorgChassisSelectable
   suffix: Battery
   components:
   - type: ContainerFill
@@ -458,6 +443,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: RandomMetadata # DeltaV: give job borgs names
+    nameSegments: [names_borg]
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery
@@ -493,134 +480,50 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  id: PlayerBorgMining
-  parent: BorgChassisMining
-  suffix: Battery, Tools
+  id: PlayerBorgSyndicateSaboteurBattery
+  parent: BorgChassisSyndicateSaboteur
+  suffix: Battery, Module, Operative
   components:
+  - type: NukeOperative
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+        - PositronicBrain
       borg_module:
-      - BorgModuleBasic
-      - BorgModuleMining
-      - BorgModuleGrapplingGun
+        - BorgModuleTool
+        - BorgModuleOperative
+        - BorgModuleSyndicateWeapon
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
+        startingItem: PowerCellHyper
 
 - type: entity
-  id: PlayerBorgEngineer
-  parent: BorgChassisEngineer
-  suffix: Battery, Tools
+  id: PlayerBorgSyndicateSaboteurGhostRole
+  parent: PlayerBorgSyndicateSaboteurBattery
+  suffix: Ghost role
   components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - MMIFilled
-      borg_module:
-      - BorgModuleBasic
-      - BorgModuleCable
-      - BorgModuleAdvancedTool
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-  - type: GhostRole
-    name: ghost-role-information-syndicate-cyborg-saboteur-name
-    description: ghost-role-information-syndicate-cyborg-description
-    rules: ghost-role-information-silicon-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-saboteur-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
 
 - type: entity
-  id: PlayerBorgJanitor
-  parent: BorgChassisJanitor
-  suffix: Battery, Tools
+  name: syndicate invasion borg spawner
+  id: PlayerBorgSyndicateInvasionGhostRoleSpawner
+  parent: MarkerBase
   components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - MMIFilled
-      borg_module:
-      - BorgModuleBasic
-      - BorgModuleCleaning
-      - BorgModuleLightReplacer
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
-  id: PlayerBorgService
-  parent: BorgChassisService
-  suffix: Battery, Tools
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - MMIFilled
-      borg_module:
-      - BorgModuleBasic
-      - BorgModuleService
-      - BorgModuleMusique
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
-  id: PlayerBorgClown
-  parent: BorgChassisClown
-  suffix: Battery, Tools
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - MMIFilled
-      borg_module:
-      - BorgModuleBasic
-      - BorgModuleClowning
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
-  id: PlayerBorgSecurity
-  parent: BorgChassisSecurity
-  suffix: Battery, Tools
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - MMIFilled
-      borg_module:
-      - BorgModuleBasic
-      - BorgModuleSecurityControl
-      - BorgModuleSecurityChase
-      - BorgModuleSecurityHold
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner_syndicate
+  - type: RandomSpawner
+    prototypes:
+    - PlayerBorgSyndicateAssaultGhostRole
+    - PlayerBorgSyndicateAssaultGhostRole # Saboteurs are kinda like cyborg medics, we want less.
+    - PlayerBorgSyndicateSaboteurGhostRole

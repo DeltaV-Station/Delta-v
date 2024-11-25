@@ -113,7 +113,6 @@
   components:
   - type: Clickable
   - type: Slippery
-
   - type: Transform
     noRot: true
     anchored: true
@@ -166,10 +165,10 @@
   - type: Tag
     tags:
     - DNASolutionScannable
-  - type: PuddleFootPrints #DeltaV- Begin updates from EE Blood Puddle
+  - type: PuddleFootPrints # DeltaV- Begin updates from EE Blood Puddle
 
 - type: entity
-  name: Footstep
+  name: footstep
   id: Footstep
   save: false
   description: Trace of liquid
@@ -204,6 +203,9 @@
   - type: FootPrint
   - type: Puddle
     solution: step
-  - type: Appearance #DeltaV-End updates from EE Blood Puddle
+  - type: Appearance
+  - type: SpawnOnDespawn
+    prototype: PuddleSparkle
   - type: TimedDespawn
-    lifetime: 300
+    lifetime: 60 # DeltaV End updates from EE Blood Puddle
+
