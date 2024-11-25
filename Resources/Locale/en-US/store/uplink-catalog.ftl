@@ -114,7 +114,7 @@ uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
 # DeltaV - Correct Emag name, Emag no longer breaks doors
-uplink-emag-name = Cryptographic Sequencer 
+uplink-emag-name = Cryptographic Sequencer
 uplink-emag-desc = The business card of the Syndicate, this sequencer is able to tamper with a variety of station devices. Rendered obsolete against airlocks.
 
 uplink-agent-id-card-name = Agent ID Card
@@ -173,7 +173,7 @@ uplink-antimov-law-desc = A very dangerous Lawset to use when you want to cause 
 
 # Implants
 uplink-storage-implanter-name = Storage Implanter
-uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology!
+uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology! Recent limitations have made it impossible to store both high risk, and storage containing items inside it.
 
 uplink-freedom-implanter-name = Freedom Implanter
 uplink-freedom-implanter-desc = Get away from those nasty sec officers with this three use implant!
