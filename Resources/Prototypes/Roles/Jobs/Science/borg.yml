@@ -5,12 +5,17 @@
   description: job-description-station-ai
   playTimeTracker: JobStationAi
   requirements:
-  - !type:RoleTimeRequirement
-    role: JobBorg
-    time: 54000  # 15 hrs
+    - !type:OverallPlaytimeRequirement #DeltaV
+      time: 54000 # 15 h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5 hours
+    - !type:DepartmentTimeRequirement
+      department: Silicon
+      time: 18000  # 5 hrs
   canBeAntag: false
-  setPreference: false # DeltaV - disable AI until its fleshed out
-  whitelisted: true # DeltaV - ai must be whitelisted
+  #setPreference: false # DeltaV - disable AI until its fleshed out
+  #whitelisted: true # DeltaV - ai must be whitelisted
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
