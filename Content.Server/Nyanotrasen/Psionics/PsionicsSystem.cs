@@ -4,8 +4,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
+using Content.Shared.DeltaV.CCVars;
 using Content.Shared.IdentityManagement;
-using Content.Shared.CCVar;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
 using Content.Server.Electrocution;
@@ -137,7 +137,7 @@ namespace Content.Server.Psionics
             if (HasComp<PsionicComponent>(ent))
                 return false;
 
-            if (!_cfg.GetCVar(CCVars.PsionicRollsEnabled))
+            if (!_cfg.GetCVar(DCCVars.PsionicRollsEnabled))
                 return false;
 
             var warn = CompOrNull<PsionicBonusChanceComponent>(ent)?.Warn ?? true;
