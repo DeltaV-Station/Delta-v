@@ -1,7 +1,7 @@
  - type: entity
-   name: heal bolt
-   id: BulletHealLaser
    parent: BaseBullet
+   id: BulletHealLaser
+   name: heal bolt
    categories: [ HideSpawnMenu ]
    components:
    - type: Reflective
