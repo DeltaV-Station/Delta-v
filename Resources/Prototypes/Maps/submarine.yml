@@ -2,7 +2,8 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/submarine.yml
-  minPlayers: 0
+  minPlayers: 10
+  maxPlayers: 70
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation
