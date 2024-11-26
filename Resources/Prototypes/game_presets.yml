@@ -36,7 +36,7 @@
   name: all-at-once-title
   description: all-at-once-description
   showInVote: false # Stray
-  minPlayers: 25 # Stray
+  minPlayers: 10 # Stray
   rules:
     - Nukeops
     - Traitor
@@ -79,7 +79,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: true #2boring2vote # DeltaV - I'd like to disagree, used for periapsis.
+  showInVote: false #2boring2vote # DeltaV - I'd like to disagree, used for periapsis.
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -187,7 +187,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false # Stray
-  minPlayers: 15
+  minPlayers: 10
   rules:
     - Nukeops
     - SubGamemodesRule
@@ -206,7 +206,7 @@
   name: rev-title
   description: rev-description
   showInVote: false # Stray
-  minPlayers: 15 # Stray
+  minPlayers: 10 # Stray
   rules:
     - Revolutionary
     - SubGamemodesRule
@@ -227,7 +227,7 @@
   name: zombie-title
   description: zombie-description
   showInVote: false # Stray
-  minPlayers: 15 # Stray
+  minPlayers: 10 # Stray
   rules:
   - Zombie
   - BasicStationEventScheduler

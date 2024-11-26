@@ -377,8 +377,8 @@
     - AlertProcedure
   - type: PointLight
     enabled: false
-    radius: 6
-    energy: 2
+    radius: 4
+    energy: 1
     offset: "0, 0.4"
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
@@ -395,7 +395,7 @@
     startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 150
+    speed: 50
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:
