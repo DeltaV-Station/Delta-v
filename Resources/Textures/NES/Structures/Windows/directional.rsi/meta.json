@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Aseorvich",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "window",
+      "directions": 4
+    },
+    {
+      "name": "reinforced_window",
+      "directions": 4
+    },
+    {
+      "name": "tinted_window",
+      "directions": 4
+    },
+    {
+      "name": "frosted_window",
+      "directions": 4
+    },
+	{
+	  "name": "clock_window",
+	  "directions": 4
+	},
+	{
+	  "name": "plasma_window",
+	  "directions": 4
+	},
+    {
+        "name": "plasma_reinforced_window",
+        "directions": 4
+    },
+    {
+        "name": "uranium_window",
+        "directions": 4
+    },
+    {
+        "name": "uranium_reinforced_window",
+        "directions": 4
+    }
+  ]
+}
