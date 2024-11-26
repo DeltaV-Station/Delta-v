@@ -6,6 +6,10 @@ on:
   pull_request_review:
     types: [submitted]
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   add_label:
     runs-on: ubuntu-latest
