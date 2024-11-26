@@ -14,7 +14,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser #Lets them heal with bibles
+    - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
       multiplier: 3
 
@@ -28,3 +28,4 @@
     back:
     - Bible
     - RubberStampChaplain
+    - NullRodDefault
