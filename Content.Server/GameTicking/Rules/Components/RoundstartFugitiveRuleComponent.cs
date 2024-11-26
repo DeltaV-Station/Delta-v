@@ -37,7 +37,7 @@ public sealed partial class RoundstartFugitiveRuleComponent : Component
     /// How long to wait after the antag spawns before announcing it.
     /// </summary>
     [DataField]
-    public TimeSpan AnnounceDelay = TimeSpan.FromSeconds(5); //Should be FromMinutes(5) - changed for resting only!
+    public TimeSpan AnnounceDelay = TimeSpan.FromSeconds(5); //Should be FromMinutes(5) - changed for testing only!
 
     /// <summary>
     /// Station to give the report to.

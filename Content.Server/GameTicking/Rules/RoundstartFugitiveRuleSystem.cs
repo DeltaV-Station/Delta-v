@@ -182,12 +182,12 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
         if (TryComp<PhysicsComponent>(uid, out var physics))
             report.PushMarkup(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
 
-        // add a random identifying quality that officers can use to track them down
-        report.PushMarkup(RobustRandom.Next(0, 2) switch
-        {
-            0 => Loc.GetString("fugitive-report-detail-dna", ("dna", GetDNA(uid))),
-            _ => Loc.GetString("fugitive-report-detail-prints", ("prints", GetPrints(uid)))
-        });
+        // add a random identifying quality that officers can use to track them down - DISABLED
+        //report.PushMarkup(RobustRandom.Next(0, 2) switch
+        //{
+        //    0 => Loc.GetString("fugitive-report-detail-dna", ("dna", GetDNA(uid))),
+        //    _ => Loc.GetString("fugitive-report-detail-prints", ("prints", GetPrints(uid)))
+        //});
 
         report.PushNewline();
         report.PushMarkup(Loc.GetString("fugitive-report-crimes-header"));
