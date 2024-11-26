@@ -1,24 +1,4 @@
 - type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityPeacekeeper
-  result: BorgModuleSecurityPeacekeeper
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityPatrol
-  result: BorgModuleSecurityPatrol
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleSecurityBastion
-  result: BorgModuleSecurityBastion
-
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleSecurityDeescalate
-  result: BorgModuleSecurityDeescalate
-
-- type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleSecurityEscalate
   result: BorgModuleSecurityEscalate
@@ -27,33 +7,3 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleSecurityChase
   result: BorgModuleSecurityChase
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgSecurity
-  result: LeftArmBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgSecurity
-  result: RightArmBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgSecurity
-  result: LeftLegBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgSecurity
-  result: RightLegBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgSecurity
-  result: HeadBorgSecurity
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgSecurity
-  result: TorsoBorgSecurity
