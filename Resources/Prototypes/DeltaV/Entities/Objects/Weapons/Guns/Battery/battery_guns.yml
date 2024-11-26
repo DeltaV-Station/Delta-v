@@ -263,9 +263,9 @@
   - type: Appearance
 
 - type: entity
-  name: I.C.E.E.
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseRestrictedContraband ]
   id: WeaponColdCannon
+  name: I.C.E.E.
   description: It's cooler than a normal gun.
   components:
   - type: Sprite
