@@ -94,6 +94,7 @@
       left foot:
         id: "left foot"
         type: Foot
+  - type: MovementBodyPart
   - type: Sprite
     state: borg_l_leg
   - type: Icon
@@ -103,9 +104,6 @@
     - Trash
     - BorgLeg
     - BorgLLeg
-  - type: MovementBodyPart # Shitmed Change: 25% speed boost
-    walkSpeed: 3.125
-    sprintSpeed: 5.625
 
 - type: entity
   id: RightLegBorg
@@ -120,6 +118,7 @@
       right foot:
         id: "right foot"
         type: Foot
+  - type: MovementBodyPart
   - type: Sprite
     state: borg_r_leg
   - type: Icon
