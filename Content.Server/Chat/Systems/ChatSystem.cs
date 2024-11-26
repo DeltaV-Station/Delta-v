@@ -8,6 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.Hushing; // DeltaV
 using Content.Server.Nyanotrasen.Chat;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
@@ -220,6 +221,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             checkRadioPrefix = false;
             message = message[1..];
         }
+
+        // DeltaV - Hushed trait logic
+        // This needs to happen after prefix removal to avoid bug
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
+        {
+            // hushed players cannot speak on local chat so will be sent as whisper instead
+            desiredType = InGameICChatType.Whisper;
+        }
+        // DeltaV - End hushed trait logic
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
@@ -756,11 +766,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     // ReSharper disable once InconsistentNaming
     private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
-        var newMessage = message.Trim();
-        newMessage = SanitizeMessageReplaceWords(newMessage);
+        var newMessage = SanitizeMessageReplaceWords(message.Trim());
 
-        // DeltaV: sanitize first
-        _sanitizer.TrySanitizeOutSmilies(newMessage, source, out newMessage, out emoteStr);
+        GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
+
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
 
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
@@ -769,7 +780,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (punctuate)
             newMessage = SanitizeMessagePeriod(newMessage);
 
-        return newMessage;
+        return prefix + newMessage;
     }
 
     private string SanitizeInGameOOCMessage(string message)

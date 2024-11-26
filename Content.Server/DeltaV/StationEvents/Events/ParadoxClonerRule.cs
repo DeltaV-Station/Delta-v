@@ -59,16 +59,17 @@ public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComp
         clone = null;
 
         // Get a list of potential candidates
-        var candidates = new List<(EntityUid, Entity<JobComponent>, HumanoidCharacterProfile)>();
+        var candidates = new List<(EntityUid, EntityUid, ProtoId<JobPrototype>, HumanoidCharacterProfile)>();
         var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
         while (query.MoveNext(out var uid, out var mindContainer, out var humanoid))
         {
             if (humanoid.LastProfileLoaded is {} profile &&
-                _mind.GetMind(uid, mindContainer) is {} mindId &&
-                TryComp<JobComponent>(mindId, out var job) &&
-                !_role.MindIsAntagonist(mindId))
+                mindContainer.Mind is {} mindId &&
+                !_role.MindIsAntagonist(mindId) &&
+                _role.MindHasRole<JobRoleComponent>(mindId, out var role) &&
+                role?.Comp1.JobPrototype is {} job)
             {
-                candidates.Add((uid, (mindId, job), profile));
+                candidates.Add((uid, mindId, job, profile));
             }
         }
 
@@ -82,10 +83,10 @@ public sealed class ParadoxClonerRule : StationEventSystem<ParadoxClonerRuleComp
         return true;
     }
 
-    private EntityUid SpawnParadoxAnomaly(EntityUid spawner, List<(EntityUid, Entity<JobComponent>, HumanoidCharacterProfile)> candidates)
+    private EntityUid SpawnParadoxAnomaly(EntityUid spawner, List<(EntityUid, EntityUid, ProtoId<JobPrototype>, HumanoidCharacterProfile)> candidates)
     {
         // Select a candidate.
-        var (uid, (mindId, job), profile) = _random.Pick(candidates);
+        var (uid, mindId, job, profile) = _random.Pick(candidates);
 
         // Spawn the clone.
         var coords = Transform(spawner).Coordinates;

@@ -21,6 +21,9 @@
     maxItemSize: Large
     storageInsertSound:
       path: /Audio/Voice/Slime/slime_squish.ogg
+    blacklist: # DeltaV - add blacklist
+      components:
+      - NukeDisk
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -117,6 +120,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FootPrints # DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-slime"
+    rightBarePrint: "footprint-right-bare-slime"
 
 - type: entity
   parent: MobHumanDummy

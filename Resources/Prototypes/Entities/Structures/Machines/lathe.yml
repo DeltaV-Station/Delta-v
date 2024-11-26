@@ -163,6 +163,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -199,7 +200,6 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
-      - Flare
       # Begin Delta-V additions
       - GoldRing
       - SilverRing
@@ -209,7 +209,6 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -237,6 +236,7 @@
       - SpeedLoaderSpecialEmpty
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
+      - MagazinePistolSpecial
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -372,6 +372,7 @@
       - Fulton
       - FultonBeacon
       - PowerCellHyper
+      - FireExtinguisherBluespace
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -435,6 +436,9 @@
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialHoly
       - MagazineBoxSpecialMindbreaker
+      - AdvancedTruncheon
+      - LauncherSyringe
+      - MiniSyringe
       # End DeltaV additions
 
 - type: entity
@@ -627,11 +631,6 @@
     - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
-    - BorgModuleAppraisal
-    - BorgModuleConstruction
-    - BorgModuleService
-    - BorgModuleTreatment
-    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -639,61 +638,15 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
-    - LeftArmBorgEngineer
-    - RightArmBorgEngineer
-    - LeftLegBorgEngineer
-    - RightLegBorgEngineer
-    - HeadBorgEngineer
-    - TorsoBorgEngineer
-    - LeftLegBorgJanitor
-    - RightLegBorgJanitor
-    - HeadBorgJanitor
-    - TorsoBorgJanitor
-    - LeftArmBorgMedical
-    - RightArmBorgMedical
-    - LeftLegBorgMedical
-    - RightLegBorgMedical
-    - HeadBorgMedical
-    - TorsoBorgMedical
-    - LeftArmBorgMining
-    - RightArmBorgMining
-    - LeftLegBorgMining
-    - RightLegBorgMining
-    - HeadBorgMining
-    - TorsoBorgMining
-    - LeftArmBorgService
-    - RightArmBorgService
-    - LeftLegBorgService
-    - RightLegBorgService
-    - HeadBorgService
-    - TorsoBorgService
-    # Delta-V : Start
-    - BorgModuleSecurityPeacekeeper
-    - BorgModuleSecurityPatrol
-    - BorgModuleSecurityBastion
-    - LeftArmBorgSecurity
-    - RightArmBorgSecurity
-    - LeftLegBorgSecurity
-    - RightLegBorgSecurity
-    - HeadBorgSecurity
-    - TorsoBorgSecurity
-    # Delta-V : End
     dynamicRecipes:
     - ProximitySensor
-    - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
-    - BorgModuleMining
-    - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleMusique
-    - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness
@@ -720,7 +673,6 @@
     - JetpackMini
   # End Nyano additions
   # DeltaV Start
-    - BorgModuleSecurityDeescalate
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
@@ -812,7 +764,6 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -849,6 +800,7 @@
       - TargetHuman
       - TargetSyndicate
       - WeaponDisablerPractice
+      - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
       # Begin DeltaV additions
@@ -891,7 +843,7 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
-      #- PortableRecharger # DeltaV - removed for some reason
+      - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
       - PowerCageSmall
@@ -939,6 +891,8 @@
       - MagazineBoxSpecialMindbreaker
       - ClothingOuterHardsuitJuggernautReverseEngineered
       - ClothingOuterHardsuitSyndieReverseEngineered
+      - ClothingShoesBootsSecurityMagboots
+      - AdvancedTruncheon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -977,7 +931,6 @@
         - MagazineBoxSpecial
         # End of modified code
         - BoxLethalshot
-        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -1065,6 +1018,10 @@
       - WhiteCane
       - AACTablet # DeltaV
     dynamicRecipes:
+      # Begin DeltaV additions
+      - LauncherSyringe
+      - MiniSyringe
+      # End DeltaV additions
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
@@ -1226,7 +1183,6 @@
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
-      - ClothingNeckCloakCJ # DeltaV - Chief Justice
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
@@ -1324,8 +1280,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    insertOnInteract: false
-    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:

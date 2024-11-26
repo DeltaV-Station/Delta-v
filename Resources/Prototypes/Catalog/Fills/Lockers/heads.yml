@@ -138,7 +138,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: WeaponDisabler
+    #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
     - id: ClothingEyesHudCommand
 
 - type: entity
@@ -273,6 +273,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillResearchDirectorDeltaV
+    #- id: Intellicard # DeltaV: temporarily removed until AI is enabled
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled
@@ -326,7 +327,7 @@
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfSecurityDeltaV
     - id: BookSecretDocuments
-    #- id: WeaponEnergyShotgun # DeltaV - replaced by X-01
+    - id: WeaponEnergyShotgun
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -352,6 +353,7 @@
     - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
 
 # No hardsuit locker
 - type: entity

@@ -120,8 +120,6 @@
   - type: Construction
     graph: FireBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: HTN
     rootTask:
       task: FirebotCompound
@@ -148,12 +146,14 @@
     vaporSpread: 90
     sprayVelocity: 3.0
   - type: UseDelay
-    delay: 4
+    delay: 2
   - type: InteractionPopup
     interactSuccessString: petting-success-firebot
     interactFailureString: petting-failure-firebot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Advertise
+    pack: FirebotAd
 
 - type: entity
   parent: MobSiliconBase
@@ -166,6 +166,8 @@
     maxInterval: 12
     sound:
       collection: BikeHorn
+      params:
+        variation: 0.125
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
@@ -210,6 +212,8 @@
     interactFailureString: petting-failure-honkbot
     interactSuccessSound:
       path: /Audio/Items/bikehorn.ogg
+      params:
+        variation: 0.125
 
 - type: entity
   parent: MobHonkBot
@@ -220,6 +224,8 @@
   - type: SpamEmitSound
     sound:
       collection: CluwneHorn
+      params:
+        variation: 0.125
   - type: Sprite
     state: jonkbot
   - type: Construction
@@ -235,6 +241,8 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Items/brokenbikehorn.ogg
+      params:
+        variation: 0.125
   - type: Vocal
     sounds:
       Unsexed: Cluwne
@@ -258,7 +266,7 @@
   - type: Construction
     graph: CleanBot
     node: bot
-  - type: SentienceTarget
+  - type: SentienceTarget # DeltaV: upstream removed it, cleanbot works when player controlled
     flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Absorbent
     pickupAmount: 10
@@ -323,7 +331,7 @@
         reagent: SpaceDrugs
         quantity: 25
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/medibot.rsi
+    sprite: DeltaV/Mobs/Silicon/Bots/medibot.rsi # DeltaV - Changed for a sprite with a smiley face.
     state: medibot
   - type: HTN
     rootTask:
@@ -331,8 +339,6 @@
   - type: Construction
     graph: MediBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Anchorable
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot

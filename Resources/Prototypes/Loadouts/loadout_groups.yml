@@ -5,6 +5,9 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - FlowerWreath
+  - Hairflower
+  - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -26,9 +29,27 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorWhite
+  - TowelColorYellow
   - AACTablet # DeltaV
   - GoldRing # DeltaV
   - SilverRing # DeltaV
+  - Cane # DeltaV
+  - WhiteCane #DeltaV
 
 - type: loadoutGroup
   id: Glasses
@@ -1286,12 +1307,12 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
 
-#- type: loadoutGroup # DeltaV - removed for incongruence
-#  id: SecurityStar
-#  name: loadout-group-security-star
-#  minLimit: 0
-#  loadouts:
-#  - SecStar
+- type: loadoutGroup
+  id: SecurityStar
+  name: loadout-group-security-star
+  minLimit: 0
+  loadouts:
+  - SecStar
 
 # Medical
 - type: loadoutGroup

@@ -4,11 +4,21 @@
   hideSpawnMenu: true
 
 - type: entityCategory
+  id: GameRules
+  name: entity-category-name-game-rules
+  hideSpawnMenu: true
+
+- type: entityCategory
   id: Objectives
   name: entity-category-name-objectives
   hideSpawnMenu: true
 
 - type: entityCategory
-  id: GameRules
-  name: entity-category-name-game-rules
+  id: Roles
+  name: entity-category-name-roles
   hideSpawnMenu: true
+
+# markers, atmos fixing, etc
+- type: entityCategory
+  id: Mapping
+  name: entity-category-name-mapping
