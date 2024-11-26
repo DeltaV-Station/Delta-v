@@ -1,0 +1,30 @@
+- type: entity
+  parent: Pill
+  id: PillSoretizone
+  suffix: Soretizone 10u
+  components:
+  - type: Pill
+    pillType: 14
+  - type: Sprite
+    state: pill15
+  - type: Label
+    currentLabel: soretizone 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Soretizone
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterSoretizone
+  suffix: Soretizone 10u, 5
+  components:
+  - type: Label
+    currentLabel: soretizone 10u
+  - type: StorageFill
+    contents:
+    - id: PillSoretizone
+      amount: 5
