@@ -9,6 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.DeltaV.NanoChat; // DeltaV
 
 namespace Content.Server.Access.Systems
 {
@@ -28,6 +29,17 @@ namespace Content.Server.Access.Systems
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobChangedMessage>(OnJobChanged);
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobIconChangedMessage>(OnJobIconChanged);
+            SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardNumberChangedMessage>(OnNumberChanged); // DeltaV
+        }
+
+        // DeltaV - Add number change handler
+        private void OnNumberChanged(Entity<AgentIDCardComponent> ent, ref AgentIDCardNumberChangedMessage args)
+        {
+            if (!TryComp<NanoChatCardComponent>(ent, out var comp))
+                return;
+
+            comp.Number = args.Number;
+            Dirty(ent, comp);
         }
 
         private void OnAfterInteract(EntityUid uid, AgentIDCardComponent component, AfterInteractEvent args)
@@ -67,7 +79,17 @@ namespace Content.Server.Access.Systems
             if (!TryComp<IdCardComponent>(uid, out var idCard))
                 return;
 
-            var state = new AgentIDCardBoundUserInterfaceState(idCard.FullName ?? "", idCard.LocalizedJobTitle ?? "", idCard.JobIcon);
+            // DeltaV - Get current number if it exists
+            uint? currentNumber = null;
+            if (TryComp<NanoChatCardComponent>(uid, out var comp))
+                currentNumber = comp.Number;
+
+            var state = new AgentIDCardBoundUserInterfaceState(
+                idCard.FullName ?? "",
+                idCard.LocalizedJobTitle ?? "",
+                idCard.JobIcon,
+                currentNumber); // DeltaV - Pass current number
+
             _uiSystem.SetUiState(uid, AgentIDCardUiKey.Key, state);
         }
 

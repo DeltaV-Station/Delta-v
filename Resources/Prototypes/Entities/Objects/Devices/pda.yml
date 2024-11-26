@@ -811,16 +811,14 @@
     silent: true
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
-    notificationsEnabled: false
+#    notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
-      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-      - MedTekCartridge
-      - AstroNavCartridge
       - StockTradingCartridge # Delta-V
+      - NanoChatCartridge
 
 - type: entity
   parent: CentcomPDA
