@@ -64,10 +64,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/directional.rsi
+    sprite: NES/Structures/Windows/directional.rsi #NES14-Changes
     state: clock_window
   - type: Icon
-    sprite: Structures/Windows/directional.rsi
+    sprite: NES/Structures/Windows/directional.rsi #NES14-Changes
     state: clock_window
   - type: Construction
     graph: WindowDirectional
