@@ -48,7 +48,7 @@ public sealed class DelayedRuleSystem : GameRuleSystem<DelayedRuleComponent>
             if (!TryComp<MindComponent>(mindId, out var mind) || !TryGetEntity(mind.OriginalOwnedEntity, out var mob))
                 continue;
 
-            var uid = mob!.Value; // amazing language
+            var uid = mob.Value;
             _popup.PopupEntity(Loc.GetString(ent.Comp.EndedPopup), uid, uid, PopupType.LargeCaution);
             EntityManager.AddComponents(uid, comps);
         }
