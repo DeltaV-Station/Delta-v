@@ -27,7 +27,7 @@ namespace Content.Server.GameTicking.Rules;
 /// <summary>
 /// Copy of ThiefRuleSystem
 /// </summary>
-public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugitiveRuleComponent> //Also need this somehow: StationEventSystem : StationEventSystem<FugitiveRuleComponent>
+public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugitiveRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -46,15 +46,18 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
         SubscribeLocalEvent<RoundstartFugitiveRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
 
         SubscribeLocalEvent<RoundstartFugitiveRoleComponent, GetBriefingEvent>(OnGetBriefing);
+
     }
 
+    //Moved this bit of code down below so AfterAntagSelcted isn't duplicate
+
     // Greeting upon thief activation
-    private void AfterAntagSelected(Entity<RoundstartFugitiveRuleComponent> mindId,
-        ref AfterAntagEntitySelectedEvent args)
-    {
-        var ent = args.EntityUid;
-        _antag.SendBriefing(ent, MakeBriefing(ent), null, null);
-    }
+    //private void AfterAntagSelected(Entity<RoundstartFugitiveRuleComponent> mindId,
+    //    ref AfterAntagEntitySelectedEvent args)
+    //{
+    //    var ent = args.EntityUid;
+    //    _antag.SendBriefing(ent, MakeBriefing(ent), null, null);
+    //}
 
     // Character screen briefing
     private void OnGetBriefing(Entity<RoundstartFugitiveRoleComponent> role, ref GetBriefingEvent args)
@@ -111,9 +114,14 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
         RemCompDeferred(uid, comp);
     }
 
-    private void OnEntitySelected(Entity<RoundstartFugitiveRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    private void AfterAntagSelected(Entity<RoundstartFugitiveRuleComponent> mindId, ref AfterAntagEntitySelectedEvent args)
     {
-        var (uid, comp) = ent;
+        {
+            var ent = args.EntityUid;
+            _antag.SendBriefing(ent, MakeBriefing(ent), null, null);
+        }
+
+        var (uid, comp) = mindId;
         if (comp.NextAnnounce != null)
         {
             Log.Error("Fugitive rule spawning multiple fugitives isn't supported, sorry.");
@@ -125,7 +133,7 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
         comp.Station = _station.GetOwningStation(fugi);
         comp.NextAnnounce = Timing.CurTime + comp.AnnounceDelay;
 
-        _popup.PopupEntity(Loc.GetString("fugitive-spawn"), fugi, fugi);
+        // _popup.PopupEntity(Loc.GetString("fugitive-spawn"), fugi, fugi); //I think this does the 'You fall from the ceiling popup? If so, can be removed later
 
         // give the fugi a report so they know what their charges are
         var report = SpawnReport(comp, Transform(fugi));
