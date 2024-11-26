@@ -35,7 +35,9 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
-
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -85,14 +87,14 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
 
         var announcement = Loc.GetString(comp.Announcement);
         var sender = Loc.GetString(comp.Sender);
-        ChatSystem.DispatchGlobalAnnouncement(announcement, sender: sender, colorOverride: comp.Color);
+        _chat.DispatchGlobalAnnouncement(announcement, sender: sender, colorOverride: comp.Color);
 
         // send the report to every comms console on the station
         var query = EntityQueryEnumerator<TransformComponent, CommunicationsConsoleComponent>();
         var consoles = new List<TransformComponent>();
         while (query.MoveNext(out var console, out var xform, out _))
         {
-            if (StationSystem.GetOwningStation(console, xform) != comp.Station || HasComp<GhostComponent>(console))
+            if (_station.GetOwningStation(console, xform) != comp.Station || HasComp<GhostComponent>(console))
                 continue;
 
             consoles.Add(xform);
@@ -120,7 +122,7 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
 
         var fugi = args.EntityUid;
         comp.Report = GenerateReport(fugi, comp).ToMarkup();
-        comp.Station = StationSystem.GetOwningStation(fugi);
+        comp.Station = _station.GetOwningStation(fugi);
         comp.NextAnnounce = Timing.CurTime + comp.AnnounceDelay;
 
         _popup.PopupEntity(Loc.GetString("fugitive-spawn"), fugi, fugi);
@@ -163,7 +165,7 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
             return report;
         }
 
-        var species = PrototypeManager.Index(humanoid.Species);
+        var species = _proto.Index(humanoid.Species); //IPrototype or protoype
 
         report.PushMarkup(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
         report.PushMarkup(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
@@ -205,7 +207,7 @@ public sealed class RoundstartFugitiveRuleSystem : GameRuleSystem<RoundstartFugi
 
     private void AddCharges(FormattedMessage report, RoundstartFugitiveRuleComponent rule)
     {
-        var crimeTypes = PrototypeManager.Index(rule.CrimesDataset);
+        var crimeTypes = _proto.Index(rule.CrimesDataset);
         var crimes = new HashSet<LocId>();
         var total = RobustRandom.Next(rule.MinCrimes, rule.MaxCrimes + 1);
         while (crimes.Count < total)
