@@ -1120,21 +1120,19 @@
 
 # so that we dont have to add the same components over and over again
 - type: entity
+  abstract: true
   id: BaseBulletTracer
-  name: base bullet tracer red
-  categories: [ HideSpawnMenu ]
   components:
   - type: Tracer
   - type: PointLight
-    radius: 1.4
+    radius: 1.3
     energy: 2
     color: "#ff0000"
 
 - type: entity
+  abstract: true
   parent: BaseBulletTracer
   id: BaseBulletTracerYellow
-  name: base bullet tracer yellow
-  categories: [ HideSpawnMenu ]
   components:
   - type: Tracer
     color: "#ffff00"
@@ -1142,10 +1140,9 @@
     color: "#ffff00"
 
 - type: entity
+  abstract: true
   parent: BaseBulletTracer
   id: BaseBulletTracerGreen
-  name: base bullet tracer green
-  categories: [ HideSpawnMenu ]
   components:
   - type: Tracer
     color: "#008000"

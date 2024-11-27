@@ -1,8 +1,8 @@
+using Content.Client.DeltaV.Weapons.Ranged.Systems;
 using Robust.Client.Graphics;
-using Content.Client.Weapons.Ranged.Systems;
 using Robust.Shared.Enums;
 
-namespace Content.Client.Weapons.Ranged.Overlays;
+namespace Content.Client.DeltaV.Weapons.Ranged.Overlays;
 
 public sealed class TracerOverlay : Overlay
 {
