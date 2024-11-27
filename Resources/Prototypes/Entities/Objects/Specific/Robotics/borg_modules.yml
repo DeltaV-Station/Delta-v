@@ -618,9 +618,9 @@
         - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
-    - type: Tag
+    - type: Tag # DeltaV allows secborgs to use
       tags:
-        - BorgModuleSecurity # DeltaV allows secborgs to use
+        - BorgModuleSecurity
 
 - type: entity
   id: BorgModuleMartyr
