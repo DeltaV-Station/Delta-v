@@ -263,9 +263,9 @@
   - type: Appearance
 
 - type: entity
-  name: Beam Cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon
+  name: Beam Cannon
   description: "For when a single shot just isn't enough"
   components:
   - type: Sprite
@@ -297,9 +297,9 @@
   - type: Appearance
 
 - type: entity
-  name: Beam Devastator
   parent: BaseWeaponBattery
   id: WeaponBeamDevestator
+  name: Beam Devastator
   description: Flavor text
   components:
     - type: Item
