@@ -128,10 +128,10 @@
     color: "#03fc4e"
     energy: 0.7
   - type: Charger
-    chargeRate: 400 # DeltaV Raised from 50 to 400
+    chargeRate: 400 # DeltaV - Raised from 50 to 400
   - type: Sprite
     sprite: Structures/Power/cage_recharger.rsi
-  - type: ItemSlots # DeltaV Removed PowerCellSlot
+  - type: ItemSlots # DeltaV - Removed PowerCellSlot
     slots:
       charger_slot:
         ejectOnInteract: true
@@ -139,7 +139,7 @@
           tags:
           - PowerCage
           components:
-          - HitscanBatteryAmmoProvider # DeltaV allows hitscan guns to be charged
+          - HitscanBatteryAmmoProvider # DeltaV - allows hitscan guns to be charged
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
