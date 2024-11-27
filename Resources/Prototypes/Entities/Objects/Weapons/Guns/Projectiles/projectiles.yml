@@ -1117,3 +1117,38 @@
         Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
     soundHit:
       collection: MeatLaserImpact
+
+# so that we dont have to add the same components over and over again
+- type: entity
+  abstract: true
+  id: BaseBulletTracer
+  name: base bullet tracer red
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tracer
+  - type: PointLight
+    radius: 1.4
+    energy: 2
+    color: "#ff0000"
+
+- type: entity
+  parent: BaseBulletTracer
+  id: BaseBulletTracerYellow
+  name: base bullet tracer yellow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tracer
+    color: "#ffff00"
+  - type: PointLight
+    color: "#ffff00"
+
+- type: entity
+  parent: BaseBulletTracer
+  id: BaseBulletTracerGreen
+  name: base bullet tracer green
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tracer
+    color: "#008000"
+  - type: PointLight
+    color: "#008000"

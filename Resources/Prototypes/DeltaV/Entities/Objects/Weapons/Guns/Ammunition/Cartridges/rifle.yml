@@ -12,3 +12,11 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#43c4f7"
+
+- type: entity
+  parent: BaseCartridgeRifle
+  id: CartridgeRifleTracer
+  name: cartridge (.20 rifle tracer)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletRifleTracer
