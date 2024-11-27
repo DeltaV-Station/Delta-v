@@ -623,14 +623,15 @@
       state: service
     - type: MachineBoard
       prototype: HydroponicsTrayEmpty
-      stackRequirements:
+      stackRequirements: # DeltaV - Removed beaker requirment and reduced glass amount, added steel to compensate.
         # replacing the console screen
-        Glass: 5
+        Glass: 2
+        Steel: 2 
         Cable: 2
-      tagRequirements:
-        GlassBeaker:
-          amount: 2
-          defaultPrototype: Beaker
+     #tagRequirements:
+       #GlassBeaker:
+         #amount: 2
+         #defaultPrototype: Beaker
 
 - type: entity
   id: SeedExtractorMachineCircuitboard
