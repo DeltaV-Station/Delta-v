@@ -235,12 +235,11 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         var hitEntity = lastHit.Value;
                         if (hitscan.StaminaDamage > 0f)
+                            _stamina.TakeProjectileStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
 
                         // DeltaV: Changes the target's temperature by this amount when hit
                         if (hitscan.HeatChange != 0f)
                              _temperature.ChangeHeat(hitEntity, hitscan.HeatChange, true);
-
-                            _stamina.TakeProjectileStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
 
                         var dmg = hitscan.Damage;
 
