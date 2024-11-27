@@ -128,14 +128,14 @@
   - type: CartridgeAmmo
     proto: PelletShotgunTranquilizer
   - type: ChemicalAmmo
-  - type: SolutionContainerManager
+  - type: SolutionContainerManager # DeltaV - Changed to nocturine and quantity reduced
     solutions:
       ammo:
         reagents:
-        - ReagentId: ChloralHydrate
-          Quantity: 7
-  - type: SolutionTransfer
-    maxTransferAmount: 7
+        - ReagentId: Nocturine 
+          Quantity: 3.75
+  - type: SolutionTransfer # DeltaV - Quantity reduced to 3.75 from 7
+    maxTransferAmount: 3.75
   - type: SpentAmmoVisuals
     state: "tranquilizer"
 
