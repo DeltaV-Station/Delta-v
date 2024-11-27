@@ -32,7 +32,7 @@ public sealed class EngraveableSystem : EntitySystem
             : ent.Comp.HasEngravingText));
 
         if (ent.Comp.EngravedMessage != string.Empty)
-            msg.AddMarkupOrThrow(Loc.GetString(ent.Comp.EngravedMessage));
+            msg.AddMarkupPermissive(Loc.GetString(ent.Comp.EngravedMessage));
 
         args.PushMessage(msg, 1);
     }
