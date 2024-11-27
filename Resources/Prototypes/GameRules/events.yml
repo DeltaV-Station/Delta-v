@@ -34,7 +34,7 @@
       tableId: BasicAntagEventsTableDeltaV
     - id: ClosetSkeleton
     - id: DragonSpawn
-    #- id: KingRatMigration # DeltaV - disabled
+    - id: KingRatMigration # DeltaV - disabled
     - id: NinjaSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
@@ -58,8 +58,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  5
+      max:  10
 
 - type: entity
   id: BaseStationEventLongDelay
@@ -127,7 +127,7 @@
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
-      path: /Audio/Announcements/bureaucratic_error.ogg 
+      path: /Audio/Announcements/bureaucratic_error.ogg
     minimumPlayers: 25
     weight: 5
     duration: 1

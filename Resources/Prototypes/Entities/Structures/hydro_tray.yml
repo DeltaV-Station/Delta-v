@@ -9,13 +9,13 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.15,0.45,0.2"
+          bounds: "-0.45,-0.45,0.45,0.1"
         density: 190
         hard: true
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+        - BulletImpassable
   - type: Anchorable
   - type: Pullable
   - type: Sprite
