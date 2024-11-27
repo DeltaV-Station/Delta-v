@@ -1,7 +1,7 @@
 - type: entity
   id: BulletLightRifle
   name: bullet (.20 rifle)
-  parent: BaseBullet
+  parent: [ BaseBulletTracer, BaseBullet ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
