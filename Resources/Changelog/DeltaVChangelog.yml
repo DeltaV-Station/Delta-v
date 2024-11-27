@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Laika no longer takes 200 damage before dying from critical.
-    type: Fix
-  id: 209
-  time: '2024-01-19T20:57:11.0000000+00:00'
-- author: lleftTheDragon
-  changes: []
-  id: 210
-  time: '2024-01-19T21:06:32.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Enabled gamerule voting on periapsis
-    type: Tweak
-  - message: Enabled map voting on periapsis
-    type: Tweak
-  id: 211
-  time: '2024-01-19T22:33:21.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Added gridinv, sorry.
@@ -3768,3 +3750,28 @@
   id: 708
   time: '2024-11-25T05:30:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2211
+- author: deltanedas
+  changes:
+  - message: Initial Infecteds now get radio implants to communicate thanks to the
+      Syndicate.
+    type: Tweak
+  - message: Initial Infecteds now have to wait 5 minutes before they can turn, form
+      a plan!
+    type: Tweak
+  id: 709
+  time: '2024-11-26T12:23:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2194
+- author: Stop-Signs
+  changes:
+  - message: Omega particles are more deadly, Mystagogues beware!
+    type: Tweak
+  id: 710
+  time: '2024-11-26T18:19:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2292
+- author: Stop-Signs
+  changes:
+  - message: psych chems are no longer stronger nocturine
+    type: Tweak
+  id: 711
+  time: '2024-11-27T20:22:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2302
