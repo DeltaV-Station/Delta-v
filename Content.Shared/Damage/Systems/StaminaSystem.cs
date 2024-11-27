@@ -168,7 +168,8 @@ public sealed partial class StaminaSystem : EntitySystem
 
         foreach (var (ent, comp) in toHit)
         {
-            TakeStaminaDamage(ent, damage / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound);
+            // DeltaV - Stamina damage coefficient
+            TakeMeleeStaminaDamage(ent, damage, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
 
@@ -202,7 +203,8 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        TakeStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
+        // DeltaV - Stamina damage coefficient
+        TakeProjectileStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
