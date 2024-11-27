@@ -4,7 +4,6 @@ using Content.Shared.DeltaV.Weapons.Ranged.Components;
 using Robust.Client.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
-using TracerComponent = Content.Shared.DeltaV.Weapons.Ranged.Components.TracerComponent;
 
 namespace Content.Client.DeltaV.Weapons.Ranged.Systems;
 
