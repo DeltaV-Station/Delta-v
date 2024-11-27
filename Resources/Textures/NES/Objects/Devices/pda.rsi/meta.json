@@ -92,15 +92,7 @@
       "name": "pda-lawyer"
     },
     {
-      "name": "pda-library",
-      "delays": [
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ]
-      ]
+      "name": "pda-library"
     },
     {
       "name": "pda-medical"
@@ -130,7 +122,13 @@
       ]
     },
     {
-      "name": "pda-r-library"
+      "name": "pda-r-library",
+      "delays": [
+        [
+          0.8,
+          0.8
+        ]
+      ]
     },
     {
       "name": "pda-rd"
