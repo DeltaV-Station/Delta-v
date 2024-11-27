@@ -67,3 +67,13 @@
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/Posters/grayposters.rsi
     state: posterroidsyndicate
+    
+- type: entity
+  parent: PosterBase
+  id: PosterLegitGetToWork
+  name: "GET TO WORK"
+  description: "A gentle reminder to station employees to stay on task. The eyes on that sun are always watching for slackers."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/Posters/grayposters.rsi
+    state: gettowork
