@@ -1,6 +1,5 @@
 using System.Numerics;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 
 namespace Content.Shared.DeltaV.Weapons.Ranged.Components;
 
