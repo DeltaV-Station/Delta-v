@@ -24,9 +24,9 @@
     Steel: 50
 
 - type: latheRecipe
+  parent: BaseWeaponRecipe
   id: WeaponHealGun
   result: WeaponHealGun
-  completetime: 1.5
   materials:
     Plastic: 1000
     Glass: 500
