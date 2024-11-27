@@ -111,12 +111,7 @@
   kind: source
   path: "/Textures/Shaders/base_postprocess.swsl"
   params:
-    CircleRadius: 420.0
-    CircleMinDist: 0.0
-    CirclePow: 1.0
-    CircleMax: 4.0
-    CircleMult: 0.25
-    FalloffClampMin: 0.075
-    FalloffClampMax: 1.0
-    FalloffStrength: 0.75
-    FalloffPow: 3.0
+    RANGE: 0.005
+    STEPS: 0.001
+    THRESHOLD: 0.97
+    ANGLE_STEPS: 16

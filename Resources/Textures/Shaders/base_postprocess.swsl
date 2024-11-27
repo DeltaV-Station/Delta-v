@@ -1,32 +1,33 @@
-//Boilerplate
 uniform sampler2D SCREEN_TEXTURE;
-uniform sampler2D LIGHT_TEXTURE;
 
-uniform highp float Zoom;
-
-//Variables for controlling the falloff of the additive lighting effect.
-uniform highp float CircleRadius; //= 420.0;
-uniform highp float CircleMinDist; //= 0.0;
-uniform highp float CirclePow; //= 0.75;
-uniform highp float CircleMax; //= 4.0;
-uniform highp float CircleMult; //= 0.5;
-uniform highp float FalloffClampMin; //= 0.25;
-uniform highp float FalloffClampMax; //= 1.0;
-uniform highp float FalloffStrength; //= 0.6;
-uniform highp float FalloffPow; //= 3.0;
+const highp float RANGE = 0.005;    // Длина свечения
+const highp float STEPS = 0.001;     // Шаг выборки текстуры
+const highp float THRESHOLD = 0.97; // Порог цвета (0-1)
+const highp int ANGLE_STEPS = 16;   // Количество направлений для свечения
 
 void fragment() {
-	COLOR = zTextureSpec(SCREEN_TEXTURE, Pos);
-	highp vec2 aspect = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
-	highp float actualZoom = Zoom;
+    highp vec4 baseColor = texture(SCREEN_TEXTURE, UV);
 
-	highp float circle = clamp(zCircleGradient(aspect, FRAGCOORD.xy, CircleMax, CircleRadius / actualZoom, CircleMinDist / actualZoom, CirclePow) * CircleMult, FalloffClampMin, FalloffClampMax);
+    highp vec4 glowColor = vec4(0.0);
 
-	highp vec3 lightsampleraw = texture2D(LIGHT_TEXTURE, Pos).rgb;
-	highp float graylight = max(zGrayscale(lightsampleraw) - max((1.0 - circle) * FalloffStrength, 0.0), 0.0);
-	graylight = pow(graylight, FalloffPow);
+    for (int i = 0; i < ANGLE_STEPS; i++) {
+        // Угол текущего луча
+        highp float angle = float(i) / float(ANGLE_STEPS) * 6.283185; // Полный круг (2 * PI)
 
-	highp vec3 lightsample = lightsampleraw * vec3(graylight);
+        highp vec2 direction = vec2(cos(angle), sin(angle));
 
-	COLOR.rgb = COLOR.rgb + lightsample;
+        for (highp float offset = 0.0; offset < RANGE; offset += STEPS) {
+            // Расчет смещения
+            highp vec2 sampleUV = UV + direction * offset;
+
+            highp float falloff = pow(1.0 - (offset / RANGE), 2.0);
+
+            highp vec4 sampleColor = texture(SCREEN_TEXTURE, sampleUV);
+            glowColor += max(vec4(0.0), sampleColor - vec4(THRESHOLD)) * falloff;
+        }
+    }
+
+    highp vec4 finalColor = baseColor + vec4(vec3(glowColor) * 2.0, glowColor.a);
+
+    COLOR = finalColor;
 }
