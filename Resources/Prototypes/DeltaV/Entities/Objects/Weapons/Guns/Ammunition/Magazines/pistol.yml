@@ -15,6 +15,20 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+  parent: BaseMagazinePistol
+  id: MagazinePistolTracer
+  name: pistol magazine (.35 auto tracer)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolTracer
+  - type: Sprite
+    layers:
+    - state: red
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: entity
   id: MagazinePistolSubMachineGunRubber
   name: SMG magazine (.35 auto rubber)
   parent: BaseMagazinePistolSubMachineGun
@@ -27,6 +41,20 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazinePistolSubMachineGunTracer
+  name: SMG magazine (.35 auto tracer)
+  parent: BaseMagazinePistolSubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolTracer
+  - type: Sprite
+    layers:
+    - state: red
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
 
 # .38 special
 

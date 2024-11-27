@@ -1,7 +1,7 @@
 - type: entity
   id: BulletPistol
   name: bullet (.35 auto)
-  parent: BaseBullet
+  parent: [ BaseBulletTracerYellow, BaseBullet ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
