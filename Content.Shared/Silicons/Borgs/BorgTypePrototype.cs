@@ -2,6 +2,7 @@
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.Laws; // DeltaV
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -82,6 +83,13 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// <seealso cref="BorgModuleComponent.DefaultModule"/>
     [DataField]
     public EntProtoId[] DefaultModules = [];
+
+    /// <summary>
+    /// DeltaV: Lawset to use instead of crewsimov.
+    /// If the chassis is emagged or ion stormed this is ignored.
+    /// </summary>
+    [DataField]
+    public ProtoId<SiliconLawsetPrototype>? Lawset;
 
     /// <summary>
     /// Additional components to add to the borg entity when this type is selected.
