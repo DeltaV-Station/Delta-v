@@ -18,9 +18,9 @@
   - BorgModuleSecurityPatrol
   - BorgModuleSecurityBastion
 
+  lawset: SiliconPolice
+
   addComponents:
-  - type: SiliconLawProvider
-    laws: SiliconPolice
   - type: FlashImmunity
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
