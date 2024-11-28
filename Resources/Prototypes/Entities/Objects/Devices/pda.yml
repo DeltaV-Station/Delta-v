@@ -548,6 +548,16 @@
     borderColor: "#7C5D00"
   - type: Icon
     state: pda-captain
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+    - AstroNavCartridge
+    - StockTradingCartridge # Delta-V
+    - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
