@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 using Robust.Shared.Configuration;
-using Content.Shared.CCVar;
+using Content.Shared.DeltaV.CCVars;
 using Content.Shared.GameTicking;
 
 namespace Content.Shared.Psionics.Glimmer
@@ -22,8 +22,8 @@ namespace Content.Shared.Psionics.Glimmer
         {
             base.Initialize();
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
-            _enabled = _cfg.GetCVar(CCVars.GlimmerEnabled);
-            _cfg.OnValueChanged(CCVars.GlimmerEnabled, value => _enabled = value, true);
+            _enabled = _cfg.GetCVar(DCCVars.GlimmerEnabled);
+            _cfg.OnValueChanged(DCCVars.GlimmerEnabled, value => _enabled = value, true);
         }
 
         private void Reset(RoundRestartCleanupEvent args)
