@@ -498,29 +498,7 @@
     containers:
       board: [ DoorElectronicsRobotics ]
 
-# Command-locked External airlocks. These don't exist upstream for some reason.
-- type: entity
-  parent: AirlockExternal
-  id: AirlockExternalCommandLocked
-  suffix: External, Command, Locked
-  components:
-  - type: WiresPanelSecurity
-    securityLevel: medSecurity
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsCommand ]
-
-- type: entity
-  parent: AirlockExternalGlass
-  id: AirlockExternalGlassCommandLocked
-  suffix: External, Glass, Command, Locked
-  components:
-  - type: WiresPanelSecurity
-    securityLevel: medSecurity
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsCommand ]
-
+# Security-locked External airlocks. These don't exist upstream for some reason.
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalSecurityLocked
