@@ -618,7 +618,7 @@
   - type: AnomalousParticle
     particleType: Default
     severityOverride: true
-    severityPerSeverityHit: 0.1
+    severityPerSeverityHit: 0.3 # DeltaV raised to .3 from .1
     stabilityPerDestabilizingHit: 0.05
     healthPerWeakeningeHit: 1
     stabilityPerWeakeningeHit: -0.05
@@ -626,7 +626,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Heat: 20
+        Heat: 30 # DeltaV raised to 30 from 20
 
 - type: entity
   parent: AnomalousParticleDelta
