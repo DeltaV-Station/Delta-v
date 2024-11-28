@@ -19,22 +19,22 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 
             if (feroxiDehydrate.Dehydrated != shouldBeDehydrated)
             {
-                UpdateDehydrationStatus(uid, feroxiDehydrate, shouldBeDehydrated);
+                UpdateDehydrationStatus((uid, feroxiDehydrate), shouldBeDehydrated);
             }
         }
     }
 
-    private void UpdateDehydrationStatus(EntityUid uid, FeroxiDehydrateComponent feroxiDehydrate, bool shouldBeDehydrated)
+    private void UpdateDehydrationStatus(Entity<FeroxiDehydrateComponent> ent, bool shouldBeDehydrated)
     {
-        feroxiDehydrate.Dehydrated = shouldBeDehydrated;
+        ent.Comp.Dehydrated = shouldBeDehydrated;
 
-        foreach (var entity in _body.GetBodyOrganEntityComps<LungComponent>(uid))
+        foreach (var entity in _body.GetBodyOrganEntityComps<LungComponent>(ent.Owner))
         {
             if (!TryComp<MetabolizerComponent>(entity, out var metabolizer) || metabolizer.MetabolizerTypes == null)
             {
                 continue;
             }
-            var newMetabolizer = shouldBeDehydrated ? feroxiDehydrate.DehydratedMetabolizer : feroxiDehydrate.HydratedMetabolizer;
+            var newMetabolizer = shouldBeDehydrated ? ent.Comp.DehydratedMetabolizer : ent.Comp.HydratedMetabolizer;
             metabolizer.MetabolizerTypes!.Clear();
             metabolizer.MetabolizerTypes.Add(newMetabolizer);
         }
