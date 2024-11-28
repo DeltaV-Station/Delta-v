@@ -32,3 +32,13 @@
     containers:
       item:
       - FoamSabre
+
+- type: entity
+  id: ClothingBeltRealFoamSheathFilled
+  parent: ClothingBeltFoamSheath
+  suffix: Filled, Real
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - RealFoamSabre

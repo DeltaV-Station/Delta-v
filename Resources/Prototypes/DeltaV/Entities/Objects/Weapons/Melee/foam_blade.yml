@@ -1,0 +1,16 @@
+- type: entity
+  parent: FoamSabre
+  name: foam sabre
+  id: RealFoamSabre
+  suffix: Real
+  description: Cosplay as a captain and command your group of friends!. It looks sturdier than usual.
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 14
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: StaminaDamageOnHit
+    damage: 0
