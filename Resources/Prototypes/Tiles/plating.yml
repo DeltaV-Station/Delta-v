@@ -28,18 +28,6 @@
   heatCapacity: 10000
 
 - type: tile
-  id: PlatingBurnt
-  name: tiles-plating
-  sprite: /Textures/Tiles/plating_burnt.png
-  baseTurf: Lattice
-  isSubfloor: true
-  deconstructTools: [ Axing ] # DeltaV - The return of fireaxe prying
-  footstepSounds:
-    collection: FootstepPlating
-  friction: 0.3
-  heatCapacity: 10000
-
-- type: tile
   id: PlatingAsteroid
   name: tiles-asteroid-plating
   sprite: /Textures/Tiles/Asteroid/asteroid_plating.png
