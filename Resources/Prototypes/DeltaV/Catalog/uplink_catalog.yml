@@ -102,3 +102,18 @@
     Telecrystal: 16
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkRealFoamSabre
+  name: uplink-foam-sabre-name
+  description: uplink-foam-sabre-desc
+  productEntity: ClothingBeltRealFoamSheathFilled
+  icon:
+    entity: RealFoamSabre
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
