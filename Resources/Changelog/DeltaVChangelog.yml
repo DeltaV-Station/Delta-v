@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: Updated Asterisk Station.
-    type: Tweak
-  id: 214
-  time: '2024-01-30T21:09:41.0000000+00:00'
 - author: DebugOk
   changes:
   - message: You should be able to exit cryo even after leaving now, meaning it just
@@ -3777,3 +3771,11 @@
   id: 713
   time: '2024-11-28T12:04:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2301
+- author: Kr8art
+  changes:
+  - message: The nuke core container now displays an appropriate message when hasty
+      syndicate agents try to insert the nuke core while it is still closed!
+    type: Fix
+  id: 714
+  time: '2024-11-28T19:36:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2309
