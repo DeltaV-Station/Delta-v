@@ -6,8 +6,8 @@ namespace Content.Server.DeltaV.Station.Components;
 /// <summary>
 /// Denotes a station has no captain and holds data for automatic ACO systems
 /// </summary>
-[RegisterComponent, Access(typeof(NoCaptainSystem), typeof(StationSystem))]
-public sealed partial class NoCaptainComponent : Component
+[RegisterComponent, Access(typeof(CaptainStateSystem), typeof(StationSystem))]
+public sealed partial class CaptainStateComponent : Component
 {
     /// <summary>
     /// How long with no captain before an ACO vote is requested
