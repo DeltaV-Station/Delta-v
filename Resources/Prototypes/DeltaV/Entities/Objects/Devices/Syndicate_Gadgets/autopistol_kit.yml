@@ -1,0 +1,15 @@
+- type: entity
+  name: auto-pistol conversion kit
+  id: conversionKitAutoPistol
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Devices/autoswitch.rsi
+      state: autoswitch
+    - type: Item
+      sprite: DeltaV/Objects/Devices/autoswitch.rsi
+      state: autoswitch
+      size: Small
+    - type: Tag
+      tags:
+        - WeaponUpgradeAutoSwitch

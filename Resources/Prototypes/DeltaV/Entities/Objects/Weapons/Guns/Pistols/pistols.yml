@@ -71,6 +71,9 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: Construction  # Delta-V: Allow modification with the auto switch
+    graph: UpgradeWeaponPistolAutoSwitch
+    node: PollockStart
 
 - type: entity
   name: psi-breaker
@@ -118,7 +121,7 @@
   components:
   - type: BallisticAmmoProvider
     whitelist:
-      tags: 
+      tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
@@ -185,3 +188,69 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: Construction
+    graph: UpgradeWeaponPistolAutoSwitch
+    node: SLP57Start
+
+- type: entity
+  name: modified Mk 58
+  parent: WeaponPistolMk58
+  id: WeaponPistolMk58AutoSwitch
+  description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo. This one has a strange device on the back of the slide.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/mk58-auto.rsi
+  - type: Gun
+    fireRate: 15
+    minAngle: 0
+    maxAngle: 35
+    angleIncrease: 5
+    angleDecay: 15
+    shotsPerBurst: 15
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+
+- type: entity
+  name: modified Pollock
+  parent: WeaponPistolPollock
+  id: WeaponPistolPollockAutoSwitch
+  description: A compact and mass-produced combat pistol. Uses .35 auto ammo. This one has a strange device on the back of the slide.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/pollock-auto.rsi
+  - type: Gun
+    fireRate: 15
+    minAngle: 0
+    maxAngle: 35
+    angleIncrease: 5
+    angleDecay: 15
+    shotsPerBurst: 15
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+
+- type: entity
+  name: modified SLP-57
+  parent: WeaponPistolSLP57
+  id: WeaponPistolSLP57AutoSwitch
+  description: The ubiquitous, compact, and reliable Self-Loading Pistol, Model 57. Uses .35 auto ammo. This one has a strange device on the back of the slide.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Pistols/slp57-auto.rsi
+  - type: Gun
+    fireRate: 15
+    minAngle: 0
+    maxAngle: 35
+    angleIncrease: 5
+    angleDecay: 15
+    shotsPerBurst: 15
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg

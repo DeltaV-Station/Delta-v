@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: UpgradeWeaponPistolAutoSwitch
+  start: Mk58Start
+  graph:
+    - node: Mk58Start
+      edges:
+        - to: Mk58Upgraded
+          steps:
+            - tag: WeaponUpgradeAutoSwitch
+              doAfter: 2
+    - node: Mk58Upgraded
+      entity: WeaponPistolMk58AutoSwitch
+    - node: PollockStart
+      edges:
+        - to: PollockUpgraded
+          steps:
+            - tag: WeaponUpgradeAutoSwitch
+              doAfter: 2
+    - node: PollockUpgraded
+      entity: WeaponPistolPollockAutoSwitch
+    - node: SLP57Start
+      edges:
+        - to: SLP57Upgraded
+          steps:
+            - tag: WeaponUpgradeAutoSwitch
+              doAfter: 2
+    - node: SLP57Upgraded
+      entity: WeaponPistolSLP57AutoSwitch

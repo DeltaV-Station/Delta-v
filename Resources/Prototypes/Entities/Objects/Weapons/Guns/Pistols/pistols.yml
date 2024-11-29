@@ -210,6 +210,10 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: Construction  # Delta-V: Allow modification with the auto switch
+    graph: UpgradeWeaponPistolAutoSwitch
+    node: Mk58Start
+
 
 - type: entity
   id: WeaponPistolMk58Nonlethal
@@ -239,7 +243,7 @@
   name: N1984
   parent: [BaseWeaponPistol, BaseRestrictedContraband]
   id: WeaponPistolN1984 # the spaces in description are for formatting.
-  description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber. 
+  description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
