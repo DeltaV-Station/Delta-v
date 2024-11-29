@@ -58,13 +58,13 @@
           minCount: 1
           maxCount: 1
           paths:
-          - /Maps/Shuttles/DeltaV/mining_broken.yml
-          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
-          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
-          - /Maps/Shuttles/DeltaV/mining_ticks.yml
-          - /Maps/Shuttles/DeltaV/mining_carp.yml
-          - /Maps/Shuttles/DeltaV/mining_snakes.yml
-          - /Maps/Shuttles/DeltaV/mining_watcher.yml
+          - /Maps/NES/Shuttles/Mining_mini.yml
+          # - /Maps/Shuttles/DeltaV/mining_morebroken.yml
+          # - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
+          # - /Maps/Shuttles/DeltaV/mining_ticks.yml
+          # - /Maps/Shuttles/DeltaV/mining_carp.yml
+          # - /Maps/Shuttles/DeltaV/mining_snakes.yml
+          # - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
