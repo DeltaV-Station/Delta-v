@@ -114410,6 +114410,27 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Captain's Quarters
+  - uid: 21670
+    components:
+    - type: Transform
+      pos: -71.5,73.5
+      parent: 100
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core South
+  - uid: 21671
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -71.5,79.5
+      parent: 100
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core North
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 2874
@@ -114544,6 +114565,17 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: TEG
+  - uid: 21672
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -66.5,73.5
+      parent: 100
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: AI Satellite Power
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 177
