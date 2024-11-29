@@ -9091,6 +9091,17 @@ entities:
     - type: DeviceList
       devices:
       - 21362
+  - uid: 21668
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,-4.5
+      parent: 100
+    - type: DeviceList
+      devices:
+      - 21655
+      - 21656
+      - 21669
 - proto: AirAlarmVox
   entities:
   - uid: 21104
@@ -58565,6 +58576,15 @@ entities:
       deviceLists:
       - 21360
       - 17161
+  - uid: 21669
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-5.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 21668
 - proto: Fireplace
   entities:
   - uid: 324
@@ -59848,7 +59868,6 @@ entities:
   - uid: 5783
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -10.5,-5.5
       parent: 100
     - type: AtmosPipeColor
@@ -61419,6 +61438,37 @@ entities:
     components:
     - type: Transform
       pos: -18.5,50.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 21657
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,-5.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21663
+    components:
+    - type: Transform
+      pos: -10.5,-1.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21664
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,-6.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 21665
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,-6.5
       parent: 100
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -77943,13 +77993,6 @@ entities:
       parent: 100
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 19852
-    components:
-    - type: Transform
-      pos: -12.5,-1.5
-      parent: 100
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 19853
     components:
     - type: Transform
@@ -79058,6 +79101,59 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -15.5,45.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 21658
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,-5.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21659
+    components:
+    - type: Transform
+      pos: -10.5,-4.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21660
+    components:
+    - type: Transform
+      pos: -10.5,-3.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21661
+    components:
+    - type: Transform
+      pos: -10.5,-2.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21662
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,-1.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21666
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-6.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 21667
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-6.5
       parent: 100
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -81881,6 +81977,14 @@ entities:
       parent: 100
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 19852
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-1.5
+      parent: 100
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 19856
     components:
     - type: Transform
@@ -84083,6 +84187,16 @@ entities:
       - 6162
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 21656
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 21668
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasVentPumpVox
   entities:
   - uid: 21106
@@ -85836,6 +85950,17 @@ entities:
       deviceLists:
       - 6162
       - 15423
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 21655
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-5.5
+      parent: 100
+    - type: DeviceNetwork
+      deviceLists:
+      - 21668
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GasVentScrubberVox
@@ -114197,7 +114322,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraCommand
       nameSet: True
-      id: ai satellite
+      id: AI Satellite
   - uid: 16625
     components:
     - type: Transform
