@@ -1,0 +1,10 @@
+- type: entity
+  name: security superweapon spawner
+  suffix: superweapon
+  id: LootSpawnerSecuritySuperweapon
+  parent: MarkerBase
+  components:
+    - type: RandomSpawner
+      prototypes:
+        - WeaponBeamDevastator
+        - WeaponLauncherRocket
