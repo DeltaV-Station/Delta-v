@@ -30,11 +30,12 @@ ghost-role-information-silvia-rules = Keep the medical team company and help out
 ghost-role-information-synthesis-name = Synthesis Specialist
 ghost-role-information-synthesis-description = You are a member of Interdyne Pharmaceutics! You are provided all the tools to manufacture a variety of medical cocktails. Establish your craft, peddle your poisons, and make profit.
 ghost-role-information-synthesis-rules =
-    Brew deadly poisons, marvelous medicines, and anything in between.
-    Sell your concoctions to local agents, crew, and anyone with supplies.
-    Stay on your ship, it is your lifeblood!
-
+    You are a [color=yellow][bold]Free-Agent[/bold][/color].  You are free to act as either an antagonist or a non-antagonist.
     You are just a chemist so do not act like a full-on antagonist, i.e. no killing people yourself unless your ship is in danger.
+
+    Brew deadly poisons, marvelous medicines, and anything in between.
+    Sell your concoctions to [color=red]local agents[/color], crew, and anyone with supplies.
+    Stay on your ship; it is your job, home, and lifeblood.
 
 ghost-role-information-closet-skeleton-rules = You are a old member of the station, try to get your previous job back or dwell in the maintenance tunnels!.
                                                     You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
