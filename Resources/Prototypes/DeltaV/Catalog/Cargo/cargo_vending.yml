@@ -7,3 +7,13 @@
   cost: 1100
   category: Service
   group: market
+
+- type: cargoProduct
+  id: CrateVendingMachineRestockSustenance
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockSustenanceFilled
+  cost: 750
+  category: Service
+  group: market
