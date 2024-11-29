@@ -1,0 +1,17 @@
+- type: entity
+  id: SuitStorageSecDeltaV
+  parent: SuitStorageSec
+  suffix: Security, DeltaV
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+      amount: 2
+    - id: ClothingOuterHardsuitCombatOfficer
+      amount: 2
+    - id: ClothingMaskGasSecurity
+      amount: 2
+    - id: ClothingShoesBootsSecurityMagboots
+      amount: 2
+    - id: JetpackSecurity
+      amount: 2
