@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.DeltaV.Station.Events; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
@@ -109,6 +110,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!TryAdjustJobSlot(station, jobPrototypeId, -1, false, false, stationJobs))
             return false;
 
+        RaiseLocalEvent(station, new PlayerJobAddedEvent(netUserId, jobPrototypeId), false); // DeltaV added AddedPlayerJobsEvent for noCaptainSystem
         stationJobs.PlayerJobs.TryAdd(netUserId, new());
         stationJobs.PlayerJobs[netUserId].Add(jobPrototypeId);
         return true;
@@ -206,7 +208,10 @@ public sealed partial class StationJobsSystem : EntitySystem
     {
         if (!Resolve(station, ref jobsComponent, false))
             return false;
-
+        // DeltaV added RemovedPlayerJobsEvent for noCaptainSystem
+        if (jobsComponent.PlayerJobs.TryGetValue(userId, out var playerJobsEntry))
+            RaiseLocalEvent(station, new PlayerJobsRemovedEvent(userId, playerJobsEntry), false);
+        // DeltaV end added RemovedPlayerJobsEvent for noCaptainSystem
         return jobsComponent.PlayerJobs.Remove(userId);
     }
 
