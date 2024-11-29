@@ -9,9 +9,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -30,7 +28,6 @@ public sealed class StockMarketSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private ISawmill _sawmill = default!;
     private const float MaxPrice = 262144; // 1/64 of max safe integer
@@ -68,7 +65,6 @@ public sealed class StockMarketSystem : EntitySystem
         var companyIndex = message.CompanyIndex;
         var amount = message.Amount;
         var loader = GetEntity(args.LoaderUid);
-        var xform = Transform(loader);
 
         // Ensure station and stock market components are valid
         if (ent.Comp.Station is not {} station || !TryComp<StationStockMarketComponent>(station, out var stockMarket))
@@ -81,11 +77,9 @@ public sealed class StockMarketSystem : EntitySystem
         if (!TryComp<AccessReaderComponent>(ent, out var access))
             return;
 
-        // Attempt to retrieve ID card from loader
-        _idCard.TryGetIdCard(loader, out var idCard);
-
-        // Play deny sound and exit if access is not allowed
-        if (idCard == null || !_access.IsAllowed(idCard.Owner, ent.Owner, access))
+        // Attempt to retrieve ID card from loader,
+        // play deny sound and exit if access is not allowed
+        if (!_idCard.TryGetIdCard(loader, out var idCard) || !_access.IsAllowed(idCard, ent.Owner, access))
         {
             _audio.PlayEntity(stockMarket.DenySound, loader, user);
             return;
@@ -148,7 +142,7 @@ public sealed class StockMarketSystem : EntitySystem
             return false;
 
         var company = stockMarket.Companies[companyIndex];
-        var totalValue = (int)Math.Round(company.CurrentPrice * (float) amount);
+        var totalValue = (int)Math.Round(company.CurrentPrice * amount);
 
         if (!stockMarket.StockOwnership.TryGetValue(companyIndex, out var currentOwned))
             currentOwned = 0;
@@ -163,7 +157,7 @@ public sealed class StockMarketSystem : EntitySystem
         {
             // Selling: see if we have enough stocks to sell
             var selling = -amount;
-            if (currentOwned < amount)
+            if (currentOwned < selling)
                 return false;
         }
 
