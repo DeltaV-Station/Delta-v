@@ -7,12 +7,12 @@ public sealed class CaptainStateSystem : EntitySystem
 {
     public override void Initialize()
     {
-        SubscribeLocalEvent<CaptainStateComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<CaptainStateComponent, ComponentInit> (OnComponentInit);
 
         base.Initialize();
     }
 
-    private void OnComponentShutdown(Entity<CaptainStateComponent> ent, ref ComponentShutdown args)
+    private void OnComponentInit(Entity<CaptainStateComponent> ent, ref ComponentInit args)
     {
     }
 }

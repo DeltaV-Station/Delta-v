@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   id: BaseStationNanotrasen
   components:
@@ -29,6 +29,7 @@
     - BaseStationStockMarket # DeltaV
   categories: [ HideSpawnMenu ]
   components:
+    - type: CaptainState # DeltaV
     - type: Transform
 
 - type: entity

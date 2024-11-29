@@ -1,5 +1,6 @@
 using Content.Server.DeltaV.Station.Systems;
 using Content.Server.Station.Systems;
+using System.ComponentModel.DataAnnotations;
 
 namespace Content.Server.DeltaV.Station.Components;
 
@@ -10,19 +11,28 @@ namespace Content.Server.DeltaV.Station.Components;
 public sealed partial class CaptainStateComponent : Component
 {
     /// <summary>
-    /// How long with no captain before an ACO vote is requested
+    /// Denotes wether the entity has a captain or not
     /// </summary>
+    /// <remarks>
+    /// Assume no captain unless specified
+    /// </remarks>
     [DataField]
-    public TimeSpan ACOVoteDelay = TimeSpan.FromMinutes(15);
+    public bool HasCaptain = false;
 
     /// <summary>
-    /// Set after ACO vote time has come and been handled to avoid duplicate calls
+    /// How long with no captain before an ACO is requested
     /// </summary>
     [DataField]
-    public bool ACOVoteHandled = false;
+    public TimeSpan ACORequestDelay = TimeSpan.FromMinutes(15);
 
     /// <summary>
-    /// How long after ACO vote is called the spare id cabinet will be unlocked if applicable
+    /// Set after ACO has been requested to avoid duplicate calls
+    /// </summary>
+    [DataField]
+    public bool ACORequestHandled = false;
+
+    /// <summary>
+    /// How long after ACO is requested the spare id cabinet will be unlocked if applicable
     /// </summary>
     [DataField]
     public TimeSpan UnlockAADelay = TimeSpan.FromMinutes(5);

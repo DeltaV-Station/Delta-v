@@ -156,10 +156,11 @@ public sealed class StationSystem : EntitySystem
     // DeltaV Handle PlayerJob Events
     public void OnPlayerJobAdded(EntityUid station, StationJobsComponent _, PlayerJobAddedEvent args)
     {
-        // Once a captain joins the NoCaptainComponent no longer applies
         if (args.JobPrototypeId == "Captain")
         {
-            EntityManager.RemoveComponent<CaptainStateComponent>(station);
+            CaptainStateComponent? captainStateComponent = null;
+            if (Resolve(station, ref captainStateComponent, false))
+                captainStateComponent.HasCaptain = true;
         }
     }
     public void OnPlayerJobsRemoved(EntityUid station, StationJobsComponent stationJobs, PlayerJobsRemovedEvent args)
@@ -167,15 +168,19 @@ public sealed class StationSystem : EntitySystem
         if (args.PlayerJobs == null)
             return;
 
-        // If the player that left was the only captain then the same protocols of NoCaptainComponent should take effect
+        // If the player that left was the only captain then there is no captain
         if (args.PlayerJobs.Contains("Captain"))
         {
             if (stationJobs.PlayerJobs.Count == 0 || !stationJobs.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // Expensive but only ran if a cap leaves so fine
             {
-                EnsureComp<CaptainStateComponent>(station, out var captainStateComponent);
-                captainStateComponent.CaptainDeparted = true;
-                captainStateComponent.UnlockAAOverride = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
-                captainStateComponent.ACOVoteDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
+                CaptainStateComponent? captainStateComponent = null;
+                if (Resolve(station, ref captainStateComponent, false))
+                {
+                    captainStateComponent.HasCaptain = false;
+                    captainStateComponent.CaptainDeparted = true;
+                    captainStateComponent.UnlockAAOverride = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
+                    captainStateComponent.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
+                }
             }
         }
     }
@@ -318,8 +323,6 @@ public sealed class StationSystem : EntitySystem
         {
             AddGridToStation(station, grid, null, data, name);
         }
-
-        EnsureComp<CaptainStateComponent>(station); // DeltaV start assuming no captain untill captain joins
 
         var ev = new StationPostInitEvent((station, data));
         RaiseLocalEvent(station, ref ev, true);
