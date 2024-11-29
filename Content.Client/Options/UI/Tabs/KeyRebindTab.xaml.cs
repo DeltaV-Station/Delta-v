@@ -262,14 +262,11 @@ namespace Content.Client.Options.UI.Tabs
             {
                 AddButton(boundKey);
             }
-<<<<<<< HEAD
-=======
             // goobstation
             foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
             {
                 AddButton(boundKey);
             }
->>>>>>> a3b45e4bd6 (Shitmed Update 2 - bottom text (#956))
 
             AddHeader("ui-options-header-shuttle");
             AddButton(ContentKeyFunctions.ShuttleStrafeUp);
