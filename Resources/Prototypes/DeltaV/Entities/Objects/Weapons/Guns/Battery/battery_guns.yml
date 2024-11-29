@@ -302,30 +302,30 @@
   name: beam devastator
   description: A powerful energy weapon that fires multiple rapid laser beams per second
   components:
-    - type: Item
-      size: Ginormous
-    - type: MultiHandedItem
-    - type: ClothingSpeedModifier
-      walkModifier: 0.7
-      sprintModifier: 0.7
-    - type: HeldSpeedModifier
-    - type: Sprite
-      sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_devestator.rsi
-      layers:
-        - state: base
-          map: ["enum.GunVisualLayers.Base"]
-    - type: Gun
-      selectedMode: FullAuto
-      fireRate: 15
-      availableModes: FullAuto
-      soundGunshot:
-        path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
-    - type: HitscanBatteryAmmoProvider
-      proto: BeamDev
-      fireCost: 600
-    - type: Battery
-      maxCharge: 300000
-      startingCharge: 300000
-    - type: Tag
-      tags:
-      - PowerCage
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: HeldSpeedModifier
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_devestator.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 15
+    availableModes: FullAuto
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: BeamDev
+    fireCost: 600
+  - type: Battery
+    maxCharge: 300000
+    startingCharge: 300000
+  - type: Tag
+    tags:
+    - PowerCage
