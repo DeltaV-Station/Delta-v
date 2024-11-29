@@ -81197,11 +81197,6 @@ entities:
     - type: Transform
       pos: 50.5,-0.5
       parent: 2
-  - uid: 10865
-    components:
-    - type: Transform
-      pos: 34.5,71.5
-      parent: 2
   - uid: 10866
     components:
     - type: Transform
@@ -81327,11 +81322,6 @@ entities:
     - type: Transform
       pos: 49.5,-19.5
       parent: 2
-  - uid: 10902
-    components:
-    - type: Transform
-      pos: 34.5,72.5
-      parent: 2
   - uid: 10903
     components:
     - type: Transform
@@ -81346,6 +81336,11 @@ entities:
     components:
     - type: Transform
       pos: 57.5,-14.5
+      parent: 2
+  - uid: 10908
+    components:
+    - type: Transform
+      pos: 37.5,72.5
       parent: 2
   - uid: 10909
     components:
@@ -81901,6 +81896,11 @@ entities:
     components:
     - type: Transform
       pos: 32.5,63.5
+      parent: 2
+  - uid: 11030
+    components:
+    - type: Transform
+      pos: 38.5,72.5
       parent: 2
   - uid: 11031
     components:
@@ -86436,6 +86436,11 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-15.5
+      parent: 2
+  - uid: 13982
+    components:
+    - type: Transform
+      pos: 39.5,72.5
       parent: 2
   - uid: 14615
     components:
@@ -100330,15 +100335,15 @@ entities:
       parent: 2
 - proto: SpawnPointReporter
   entities:
+  - uid: 10891
+    components:
+    - type: Transform
+      pos: 68.5,-8.5
+      parent: 2
   - uid: 13981
     components:
     - type: Transform
       pos: 67.5,-9.5
-      parent: 2
-  - uid: 13982
-    components:
-    - type: Transform
-      pos: 69.5,-8.5
       parent: 2
   - uid: 14159
     components:
@@ -101279,7 +101284,7 @@ entities:
   - uid: 10517
     components:
     - type: Transform
-      pos: 37.5,73.5
+      pos: 36.5,73.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
@@ -105645,12 +105650,17 @@ entities:
   - uid: 10845
     components:
     - type: Transform
-      pos: 39.5,72.5
+      pos: 34.5,72.5
       parent: 2
   - uid: 10863
     components:
     - type: Transform
       pos: -23.5,11.5
+      parent: 2
+  - uid: 10865
+    components:
+    - type: Transform
+      pos: 34.5,71.5
       parent: 2
   - uid: 10868
     components:
@@ -105684,25 +105694,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: 39.5,70.5
       parent: 2
-  - uid: 10891
-    components:
-    - type: Transform
-      pos: 38.5,72.5
-      parent: 2
   - uid: 10900
     components:
     - type: Transform
       pos: 41.5,68.5
       parent: 2
+  - uid: 10902
+    components:
+    - type: Transform
+      pos: 36.5,72.5
+      parent: 2
   - uid: 10907
     components:
     - type: Transform
       pos: 41.5,71.5
-      parent: 2
-  - uid: 10908
-    components:
-    - type: Transform
-      pos: 37.5,72.5
       parent: 2
   - uid: 10914
     components:
@@ -105720,11 +105725,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 42.5,64.5
-      parent: 2
-  - uid: 11030
-    components:
-    - type: Transform
-      pos: 36.5,72.5
       parent: 2
   - uid: 11043
     components:
@@ -114624,7 +114624,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5167.282
+      secondsUntilStateChange: -5336.6123
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114640,7 +114640,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5166.716
+      secondsUntilStateChange: -5336.046
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114662,7 +114662,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5166.249
+      secondsUntilStateChange: -5335.579
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114678,7 +114678,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5167.782
+      secondsUntilStateChange: -5337.1123
       state: Opening
     - type: Airlock
       autoClose: False
