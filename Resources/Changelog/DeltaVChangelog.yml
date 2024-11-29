@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Prisoners can now spawn from a special cryopod that can be put in security,
-      instead of magically appearing in a cell.
-    type: Tweak
-  id: 219
-  time: '2024-01-31T22:02:05.0000000+00:00'
 - author: DangerRevolution
   changes:
   - message: Added sprites for Syndicate Listener's Headsets
@@ -3785,3 +3778,12 @@
   id: 718
   time: '2024-11-29T17:08:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2319
+- author: CheddaCheez
+  changes:
+  - message: Made grilled cheese, scrambled eggs, and buttered baked corn recipes
+      use less butter. Grilled cheese and scrambled eggs are more efficiently nutritious,
+      and scrambled eggs use one less egg.
+    type: Tweak
+  id: 719
+  time: '2024-11-29T19:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2321
