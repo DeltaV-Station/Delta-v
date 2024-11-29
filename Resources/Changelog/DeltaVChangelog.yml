@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: DebugOk
   changes:
-  - message: You should be able to exit cryo even after leaving now, meaning it just
-      keeps your body safe?
-    type: Tweak
-  id: 215
-  time: '2024-01-31T07:41:58.0000000+00:00'
-- author: DebugOk
-  changes:
   - message: Prisoners will no longer spawn in cryopods instead of in the brig.
     type: Fix
   id: 216
@@ -3779,3 +3772,11 @@
   id: 714
   time: '2024-11-28T19:36:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2309
+- author: Kr8art
+  changes:
+  - message: Added a restock for the sustenance vendor to end the ongoing involuntary
+      hunger strikes in perma.
+    type: Add
+  id: 715
+  time: '2024-11-29T01:27:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2307
