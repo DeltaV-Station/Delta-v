@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Prisoners will no longer spawn in cryopods instead of in the brig.
-    type: Fix
-  id: 216
-  time: '2024-01-31T09:42:57.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Made HCV cocktail less immediately lethal (damnation!!!)
-    type: Tweak
-  id: 217
-  time: '2024-01-31T10:34:16.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Shoukou has received the cryopods.
-    type: Tweak
-  id: 218
-  time: '2024-01-31T15:34:32.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Prisoners can now spawn from a special cryopod that can be put in security,
-      instead of magically appearing in a cell.
-    type: Tweak
-  id: 219
-  time: '2024-01-31T22:02:05.0000000+00:00'
-- author: DangerRevolution
-  changes:
-  - message: Added sprites for Syndicate Listener's Headsets
-    type: Add
-  id: 220
-  time: '2024-02-01T18:29:24.0000000+00:00'
 - author: leonardo-dabepis
   changes:
   - message: a new pest from beyond the noosphere!
@@ -3780,3 +3749,44 @@
   id: 715
   time: '2024-11-29T01:27:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2307
+- author: Emily9031
+  changes:
+  - message: Felinids, vulpkanin, harpies, and rodentia now have gasping sounds.
+    type: Fix
+  id: 716
+  time: '2024-11-29T06:35:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2313
+- author: DisposableCrewmember42
+  changes:
+  - message: NanoTrasen has established business relations with HydroCo! You can now
+      order powdered milk and juice via your Logistics department and bet on the growth
+      of the HYD stock.
+    type: Add
+  id: 717
+  time: '2024-11-29T09:51:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2210
+- author: Stop-Signs
+  changes:
+  - message: Meatspike will now take longer to construct
+    type: Tweak
+  id: 718
+  time: '2024-11-29T17:08:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2319
+- author: CheddaCheez
+  changes:
+  - message: Made grilled cheese, scrambled eggs, and buttered baked corn recipes
+      use less butter. Grilled cheese and scrambled eggs are more efficiently nutritious,
+      and scrambled eggs use one less egg.
+    type: Tweak
+  id: 719
+  time: '2024-11-29T19:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2321
+- author: Stop-Signs
+  changes:
+  - message: Added the new Beam Cannon for Epi to research.
+    type: Add
+  - message: The Cage Recharger can now charge lasers.
+    type: Tweak
+  id: 720
+  time: '2024-11-29T20:45:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2231
