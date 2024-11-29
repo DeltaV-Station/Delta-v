@@ -9,6 +9,9 @@
   - type: ActionGrant
     actions:
     - ActionAnomalyPulse
+  - type: Psionic #Nyano - Summary: makes psionic on creation.
+  - type: GlimmerSource #Nyano - Summary: makes this a potential source of Glimmer. Note, I hope this works like I think it does.
+    active: false
 
 - type: entity
   parent: AnomalyInjectionBase
