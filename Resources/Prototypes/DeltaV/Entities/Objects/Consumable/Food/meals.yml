@@ -6,17 +6,27 @@
   components:
   - type: FlavorProfile
     flavors:
-      - butter
-      - cheesy
+    - butter
+    - cheesy
   - type: Sprite
     sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
     state: grilledcheese
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 3
+  - type: FoodSequenceElement # unlimited power
+    entries:
+      Burger: GrilledCheese
+
+- type: foodSequenceElement
+  id: GrilledCheese
+  name: food-sequence-content-grilled-cheese
+  sprites:
+  - sprite: DeltaV/Objects/Consumable/Food/Baked/grilledcheese.rsi
+    state: grilledcheese

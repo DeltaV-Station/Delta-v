@@ -3,7 +3,7 @@
   name: ghost role spawn point
   suffix: Ifrit
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: GhostRoleMobSpawner
     prototype: MobIfritFamiliar

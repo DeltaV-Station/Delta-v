@@ -14,4 +14,5 @@ public enum DamageStateVisualLayers : byte
 {
     Base,
     BaseUnshaded,
+    BaseUnshadedAccessory, // DeltaV - Pet clothing
 }

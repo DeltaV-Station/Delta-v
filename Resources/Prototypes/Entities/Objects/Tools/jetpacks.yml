@@ -1,6 +1,6 @@
 - type: entity
   id: JetpackEffect
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
     lifetime: 2
@@ -22,8 +22,8 @@
   parent: GasTankBase
   abstract: true
   id: BaseJetpack
-  name: Jetpack
-  description: It's a jetpack.
+  name: jetpack
+  description: It's a jetpack. It can hold 5 L of gas.
   components:
     - type: InputMover
       toParent: true
@@ -59,10 +59,10 @@
       price: 100
 #    - type: DynamicPrice
 #      price: 100
-    - type: ReverseEngineering # Nyano
+    - type: ReverseEngineering # DeltaV: all jetpacks can RE to void jetpacks, the best kind which can't be bought
       difficulty: 3
       recipes:
-        - JetpackBlue
+      - JetpackVoid
 
 - type: entity
   id: ActionToggleJetpack
@@ -113,7 +113,7 @@
 #Empty black
 - type: entity
   id: JetpackBlack
-  parent: BaseJetpack
+  parent: [BaseJetpack, BaseSyndicateContraband]
   name: jetpack
   suffix: Empty
   components:
@@ -146,7 +146,7 @@
 #Empty captain
 - type: entity
   id: JetpackCaptain
-  parent: BaseJetpack
+  parent: [BaseJetpack, BaseGrandTheftContraband]
   name: captain's jetpack
   suffix: Empty
   components:
@@ -188,6 +188,7 @@
   id: JetpackMini
   parent: BaseJetpack
   name: mini jetpack
+  description: It's a jetpack. It can hold 1.5 L of gas.
   suffix: Empty
   components:
     - type: Item
@@ -204,10 +205,6 @@
       outputPressure: 42.6
       air:
         volume: 1.5
-    - type: ReverseEngineering # Nyano
-      difficulty: 2
-      recipes:
-        - JetpackMini
 
 # Filled mini
 - type: entity
@@ -229,7 +226,7 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: BaseJetpack
+  parent: [BaseJetpack, BaseRestrictedContraband]
   name: security jetpack
   suffix: Empty
   components:
@@ -276,10 +273,6 @@
       - Back
       - suitStorage
       - Belt
-  - type: ReverseEngineering # DeltaV - make void jetpack RE'able
-    difficulty: 4
-    recipes:
-    - JetpackVoid
 
 # Filled void
 - type: entity

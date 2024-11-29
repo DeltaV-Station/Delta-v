@@ -65,8 +65,28 @@
   - type: NpcFactionMember
     factions:
     - PetsNT
+  - type: Sprite
+    sprite: DeltaV/Mobs/Pets/lawyercarp.rsi # Fancy Fishe
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshadedAccessory" ]
+        state: suit
   - type: TypingIndicator
     proto: lawyer # incase of cognizine
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+        BaseUnshaded: mouth
+        BaseUnshadedAccessory: suit
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_mouth
+        BaseUnshadedAccessory: suit_dead
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -154,7 +174,7 @@
       transferAmount: 6 #heals 24 burn/brute/air/toxin in 12seconds/minus 6 brute per bite
     - type: SolutionRegeneration
       solution: melee
-      duration: 30 #regen 1u every 30 seconds. 15 mins to full
+      duration: 15 #regen 1u every 15 seconds. 7.5 mins to full
       generated:
         reagents:
         - ReagentId: Omnizine

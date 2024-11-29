@@ -21,10 +21,9 @@
       time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 108000 # DeltaV - 30 hours
+      time: 108000 # DeltaV - 30 hours, was 15
     - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
       time: 108000 # 30 hours
-    - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -32,6 +31,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  whitelisted: true # DeltaV
   accessGroups:
   - AllAccess
   special:
@@ -53,3 +53,7 @@
     #gloves: ClothingHandsGlovesCaptain - DeltaV - Commented out for loadout options
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - Flash
+    # - StationCharter

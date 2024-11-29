@@ -1,8 +1,7 @@
-
 - type: entity
   name: Salvage Parts Spawner
   id: SalvagePartsSpawnerLow
-  suffix: Low
+  suffix: 90%
   parent: MarkerBase
   components:
     - type: Sprite
@@ -21,7 +20,7 @@
 - type: entity
   name: Salvage Parts Spawner
   id: SalvagePartsSpawnerMid
-  suffix: High
+  suffix: 50%
   parent: MarkerBase
   components:
     - type: Sprite
@@ -34,7 +33,5 @@
         - CapacitorStockPart
         - MicroManipulatorStockPart
         - MatterBinStockPart
-        - CrateMaterialSteel
-        - CrateMaterialGlass
       chance: 0.50
       offset: 0.0

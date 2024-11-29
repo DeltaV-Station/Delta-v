@@ -112,3 +112,12 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: mindbreaker
+
+- type: entity
+  parent: MagazineBoxSpecialMindbreaker
+  id: MagazineBoxSpecialHoly
+  name: ammunition box (.38 special holy)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialHoly
+  # TODO: distinct sprite for holy rounds

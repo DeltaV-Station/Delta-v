@@ -65,6 +65,7 @@ entities:
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
+      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -246,8 +247,6 @@ entities:
     - type: Transform
       pos: -1.5,-13.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
 - proto: AirlockCommandLocked
   entities:
   - uid: 253
@@ -421,46 +420,54 @@ entities:
     - type: Transform
       pos: -1.5,7.5
       parent: 617
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 148
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 6.5,2.5
       parent: 617
   - uid: 149
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 6.5,4.5
       parent: 617
   - uid: 150
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 6.5,-3.5
       parent: 617
   - uid: 151
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 6.5,-5.5
       parent: 617
   - uid: 152
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -7.5,-5.5
       parent: 617
   - uid: 153
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -7.5,-3.5
       parent: 617
   - uid: 154
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -7.5,2.5
       parent: 617
   - uid: 155
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -7.5,4.5
       parent: 617
 - proto: BarSignTheOuterSpess
@@ -1731,8 +1738,6 @@ entities:
       - 273
       - 295
       - 296
-    - type: AtmosDevice
-      joinedGrid: 617
 - proto: FirelockEdge
   entities:
   - uid: 273
@@ -2185,8 +2190,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-13.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentPump
@@ -2197,8 +2200,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-11.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 224
@@ -2207,8 +2208,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-13.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 283
@@ -2216,8 +2215,6 @@ entities:
     - type: Transform
       pos: -0.5,-7.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 307
@@ -2226,8 +2223,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-5.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 308
@@ -2235,8 +2230,6 @@ entities:
     - type: Transform
       pos: 3.5,-5.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 309
@@ -2245,8 +2238,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-4.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 310
@@ -2255,8 +2246,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,0.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 311
@@ -2265,8 +2254,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,4.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 326
@@ -2274,8 +2261,6 @@ entities:
     - type: Transform
       pos: 1.5,11.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 342
@@ -2284,8 +2269,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,10.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 632
@@ -2294,8 +2277,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,10.5
       parent: 617
-    - type: AtmosDevice
-      joinedGrid: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: Gauze1
@@ -3385,7 +3366,7 @@ entities:
     - type: Transform
       pos: 5.5,-9.5
       parent: 617
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 129
     components:

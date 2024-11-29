@@ -31,7 +31,7 @@
     soundHit:
       path: "/Audio/Weapons/click.ogg"
   - type: StaticPrice
-    price: 10
+    price: 20
 
 - type: entity
   parent: LunchboxGeneric
@@ -410,3 +410,29 @@
       map: [ "openLayer" ]
   - type: Item
     heldPrefix: syndicate
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxJusticeFilledRandom
+  suffix: Justice, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice

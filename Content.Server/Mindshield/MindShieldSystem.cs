@@ -28,19 +28,26 @@ public sealed class MindShieldSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
+        SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(OnImplanted); // DeltaV: separate handlers for implanting and removal
+        SubscribeLocalEvent<SubdermalImplantComponent, ImplantRemovedEvent>(OnRemoved); // DeltaV
     }
 
     /// <summary>
-    /// Checks if the implant was a mindshield or not
+    /// DeltaV: Adds components when implantedChecks if the implant was a mindshield or not
     /// </summary>
-    public void ImplantCheck(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
+    public void OnImplanted(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (_tag.HasTag(ev.Implant, MindShieldTag) && ev.Implanted != null)
-        {
-            EnsureComp<MindShieldComponent>(ev.Implanted.Value);
-            MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
-        }
+        if (comp.AddedComponents is {} components && ev.Implanted is {} user)
+            EntityManager.AddComponents(user, components);
+    }
+
+    /// <summary>
+    /// DeltaV: Removes components when implanted.
+    /// </summary>
+    private void OnRemoved(Entity<SubdermalImplantComponent> ent, ref ImplantRemovedEvent args)
+    {
+        if (ent.Comp.AddedComponents is {} components && args.Implanted is {} user)
+            EntityManager.RemoveComponents(user, components);
     }
 
     /// <summary>

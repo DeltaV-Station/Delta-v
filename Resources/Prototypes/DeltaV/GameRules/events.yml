@@ -1,7 +1,40 @@
+- type: entityTable
+  id: BasicCalmEventsTableDeltaV
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: MothroachSpawn
+    - id: XenoVents
+
+- type: entityTable
+  id: BasicAntagEventsTableDeltaV
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: Fugitive
+    - id: ListeningPost
+    - id: ParadoxAnomaly
+    #- id: RatKingSpawn
+
+# Replaces upstream meteor events until they're good
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: MeteorSwarm
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 7.5
+    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    startAudio:
+      path: /Audio/Announcements/meteors.ogg
+      params:
+        volume: -4
+    duration: null #ending is handled by MeteorSwarmRule
+  - type: MeteorSwarmRule
+
 - type: entity
   id: XenoVents
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
@@ -33,7 +66,6 @@
 - type: entity
   id: MothroachSpawn
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 15
@@ -48,7 +80,6 @@
 - type: entity
   id: ListeningPost
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 15
@@ -73,6 +104,8 @@
       max: 2
       pickPlayer: false
       startingGear: SyndicateListenerGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:
@@ -83,9 +116,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: ListeningPostRole
-        prototype: ListeningPost
+      mindRoles:
+      - MindRoleListeningPost
 
 # Mid round antag spawns
 - type: entity
@@ -101,7 +133,6 @@
   - type: MidRoundAntagRule
 
 #- type: entity
-#  noSpawn: true
 #  parent: BaseMidRoundAntag
 #  id: RatKingSpawn
 #  components:
@@ -128,11 +159,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: RoleBriefing
-        briefing: paradox-anomaly-role-briefing
-      - type: TerminatorRole
-        prototype: ParadoxAnomaly
+      mindRoles:
+      - MindRoleParadoxAnomaly
 
 - type: entity
   parent: BaseMidRoundAntag
@@ -154,6 +182,8 @@
       max: 1
       pickPlayer: false
       startingGear: FugitiveGear
+      roleLoadout:
+      - RoleSurvivalStandard
       components:
       - type: RandomMetadata
         nameSegments:
@@ -161,49 +191,5 @@
         - fake_human_last
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
-      mindComponents:
-      - type: FugitiveRole
-        prototype: Fugitive
-
-- type: entity
-  parent: BaseGameRule
-  id: SyndicateRecruiter
-  components:
-  - type: StationEvent
-    weight: 4
-    minimumPlayers: 20
-    maxOccurrences: 1
-    duration: null
-  - type: RuleGrids
-  - type: LoadMapRule
-    preloadedGrid: SyndieRecruiterShip
-  - type: AntagSpawner
-    prototype: MobHuman
-  - type: AntagObjectives
-    objectives:
-    - RecruiterEscapeObjective
-    - RecruiterRecruitingObjective
-    - RecruiterKeepPenObjective
-  - type: AntagSelection
-    agentName: recruiter-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRecruiter
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateRecruiterGear
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - fake_human_first
-        - fake_human_last
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindComponents:
-      - type: RecruiterRole
-        prototype: Recruiter
-      - type: RoleBriefing
-        briefing: Find candidates, conduct interviews and seal the deal by having them sign with your special recruiter's pen.
+      mindRoles:
+      - MindRoleFugitive

@@ -10,9 +10,9 @@ namespace Content.Server.Psionics
 {
     public sealed class PsionicInvisibilitySystem : EntitySystem
     {
-        [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly VisibilitySystem _visibility = default!;
         [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
-        [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
+        [Dependency] private readonly NpcFactionSystem _faction = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
         public override void Initialize()
         {
@@ -45,16 +45,16 @@ namespace Content.Server.Psionics
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
                 _invisSystem.ToggleInvisibility(uid);
 
-            if (_npcFactonSystem.ContainsFaction(uid, "PsionicInterloper"))
+            if (_faction.IsMember(uid, "PsionicInterloper"))
             {
                 component.SuppressedFactions.Add("PsionicInterloper");
-                _npcFactonSystem.RemoveFaction(uid, "PsionicInterloper");
+                _faction.RemoveFaction(uid, "PsionicInterloper");
             }
 
-            if (_npcFactonSystem.ContainsFaction(uid, "GlimmerMonster"))
+            if (_faction.IsMember(uid, "GlimmerMonster"))
             {
                 component.SuppressedFactions.Add("GlimmerMonster");
-                _npcFactonSystem.RemoveFaction(uid, "GlimmerMonster");
+                _faction.RemoveFaction(uid, "GlimmerMonster");
             }
 
             SetCanSeePsionicInvisiblity(uid, true);
@@ -75,29 +75,31 @@ namespace Content.Server.Psionics
 
             foreach (var faction in component.SuppressedFactions)
             {
-                _npcFactonSystem.AddFaction(uid, faction);
+                _faction.AddFaction(uid, faction);
             }
             component.SuppressedFactions.Clear();
         }
 
         private void OnInvisInit(EntityUid uid, PsionicallyInvisibleComponent component, ComponentInit args)
         {
-            var visibility = EntityManager.EnsureComponent<VisibilityComponent>(uid);
+            var visibility = EnsureComp<VisibilityComponent>(uid);
+            var ent = (uid, visibility);
 
-            _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
-            _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
-            _visibilitySystem.RefreshVisibility(uid, visibility);
+            _visibility.AddLayer(ent, (int) VisibilityFlags.PsionicInvisibility, false);
+            _visibility.RemoveLayer(ent, (int) VisibilityFlags.Normal, false);
+            _visibility.RefreshVisibility(ent);
         }
 
 
         private void OnInvisShutdown(EntityUid uid, PsionicallyInvisibleComponent component, ComponentShutdown args)
         {
-            if (TryComp<VisibilityComponent>(uid, out var visibility))
-            {
-                _visibilitySystem.RemoveLayer(uid, visibility, (int) VisibilityFlags.PsionicInvisibility, false);
-                _visibilitySystem.AddLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(uid, visibility);
-            }
+            if (!TryComp<VisibilityComponent>(uid, out var visibility))
+                return;
+
+            var ent = (uid, visibility);
+            _visibility.RemoveLayer(ent, (int) VisibilityFlags.PsionicInvisibility, false);
+            _visibility.AddLayer(ent, (int) VisibilityFlags.Normal, false);
+            _visibility.RefreshVisibility(ent);
         }
 
         private void OnEyeInit(EntityUid uid, EyeComponent component, ComponentInit args)

@@ -3,7 +3,7 @@
   mapName: Glacier
   mapPath: /Maps/glacier.yml
   minPlayers: 15
-  maxPlayers: 70
+  maxPlayers: 60
   stations:
     Glacier:
       stationProto: StandardNanotrasenStation
@@ -22,6 +22,7 @@
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]
+          StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
@@ -57,6 +58,7 @@
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
+          Roboticist: [ 1, 2 ]
           Scientist: [ 2, 3 ]
           ResearchAssistant: [ 2, 2 ]
           Borg: [ 2, 3 ]

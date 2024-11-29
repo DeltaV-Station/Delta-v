@@ -1,17 +1,14 @@
-#Delta-V - This file is licensed under AGPLv3
-# Copyright (c) 2024 Delta-V Contributors
-# See AGPLv3.txt for details.
-
 - type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
-  suffix: player character, DO NOT MAP
-  parent: MarkerBase
+  suffix: player character
   components:
     - type: GhostRole
       name: Roleplay Ghost Role
-      description: Placeholder
-      rules: Placeholder
+      description: This is a custom event ghost role.
+      rules: ghost-role-component-default-rules
     - type: GhostRoleCharacterSpawner
     - type: Sprite
       sprite: Markers/jobs.rsi
@@ -20,8 +17,30 @@
         - sprite: Mobs/Species/Human/parts.rsi
           state: full
 
+- type: entity
+  parent: SpawnPointPlayerCharacter
+  id: SpawnPointPlayerCharacterMindShield
+  name: ghost role spawn point
+  suffix: mindshielded, player character
+  components:
+  - type: GhostRoleCharacterSpawner
+    addedComponents:
+    - type: MindShield
+
+- type: entity
+  parent: SpawnPointPlayerCharacter
+  id: SpawnPointPlayerCharacterTargetImmune
+  name: ghost role spawn point
+  suffix: mindshielded, KillObjectiveImmune, player character
+  components:
+  - type: GhostRoleCharacterSpawner
+    addedComponents:
+    - type: MindShield
+    - type: AntagImmune
+    - type: TargetObjectiveImmune
+
 - type: entity # Part of ListeningPost
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostSyndicateListener
   components:
@@ -43,7 +62,7 @@
       time: 40000 # 11.1 hours
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostParadoxAnomaly
   name: paradox anomaly spawn point
@@ -54,7 +73,7 @@
     rules: ghost-role-information-paradox-anomaly-rules
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostFugitive
   name: fugitive spawn point
@@ -69,7 +88,7 @@
       time: 3600 # 1 hour
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostRecruiter
   components:
@@ -88,3 +107,19 @@
     - state: green
     - sprite: DeltaV/Objects/Misc/recruiter_pen.rsi
       state: empty
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSynthesis
+  components:
+  - type: GhostRole
+    name: ghost-role-information-synthesis-name
+    description: ghost-role-information-synthesis-description
+    rules: ghost-role-information-synthesis-rules
+    requirements: # keep in sync with the antag prototype
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24h so you probably know some general lore or something
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 7200 # 2h chemist so you know how to make CH

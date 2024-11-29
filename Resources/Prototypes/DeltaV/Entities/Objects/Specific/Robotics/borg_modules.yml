@@ -12,20 +12,6 @@
 # Security Modules
 
 - type: entity
-  id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
-  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: peacekeeper cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icon-peacekeeper
-  - type: ItemBorgModule
-    items:
-    - WoodBaton
-    - SecurityWhistle
-
-- type: entity
   id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: patrol cyborg module
@@ -94,3 +80,17 @@
   - type: ItemBorgModule
     items:
     - WeaponEnergyGunMiniRecharging
+
+# Syndicate modules
+- type: entity
+  parent: BorgModuleMartyr
+  id: BorgModuleMartyrDud
+  name: unfinished martyr cyborg module
+  description: This unfinished module has a large space for an explosive payload, with "boom" helpfully scribbled under it.
+  components:
+  - type: ItemBorgModule
+    items:
+    - SelfDestructSeqDud
+  - type: Construction
+    node: start
+    defaultTarget: live

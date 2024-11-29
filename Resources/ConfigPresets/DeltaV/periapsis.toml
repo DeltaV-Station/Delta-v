@@ -10,12 +10,14 @@ preset_enabled = true
 map_enabled = true
 
 [whitelist]
+# TODO: make a whitelist prototype whenever this gets reenabled
 enabled     = false
-reason      = "whitelist-not-whitelisted-peri"
-min_players = 25
 
 [ooc]
 enable_during_round = true
+
+[votekick]
+enabled = true
 
 [hub]
 tags = "lang:en-US,region:am_n_e,rp:med,no_tag_infer"

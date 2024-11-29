@@ -14,10 +14,15 @@
         - CartridgeSpecial
     capacity: 6
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: MagazineVisuals
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
 
 - type: entity
   id: SpeedLoaderSpecial
@@ -27,17 +32,25 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: base-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: base
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderSpecialEmpty
+  name: "speed loader (.38 special any)"
+  parent: SpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
 
 - type: entity
   id: SpeedLoaderSpecialPractice
@@ -47,17 +60,13 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialPractice
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: practice-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: practice-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: practice
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
 
 - type: entity
   id: SpeedLoaderSpecialRubber
@@ -67,17 +76,13 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialRubber
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: rubber-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: rubber-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: rubber
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
 
 - type: entity
   id: SpeedLoaderSpecialUranium
@@ -87,17 +92,13 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialUranium
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: uranium-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: uranium-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: uranium
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
 
 - type: entity
   id: SpeedLoaderSpecialMindbreaker
@@ -107,17 +108,13 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialMindbreaker
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: mindbreaker-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mindbreaker-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mindbreaker
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
 
 - type: entity
   id: SpeedLoaderSpecialHoly
@@ -127,14 +124,10 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialHoly
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: holy-6
-        map: [ "enum.GunVisualLayers.Mag" ]
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: holy-6
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: holy
-    steps: 7
-    zeroVisible: false
-  - type: Appearance

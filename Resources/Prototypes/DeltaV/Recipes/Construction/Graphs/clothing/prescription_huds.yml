@@ -41,10 +41,10 @@
             - tag: HudSecurity
               name: security hud
               icon:
-                sprite: Clothing/Eyes/Hud/med.rsi
+                sprite: Clothing/Eyes/Hud/sec.rsi
                 state: icon
               doAfter: 5
-            - tag: GlassesNearsight
+            - component: VisionCorrection
               name: glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/glasses.rsi

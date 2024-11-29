@@ -7,17 +7,17 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Mind;
 using Content.Shared.Actions.Events;
+using Content.Shared.StatusEffect;
 
 namespace Content.Shared.Abilities.Psionics
 {
     public sealed class MassSleepPowerSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        public ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep";
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
         public override void Initialize()
         {
@@ -44,12 +44,13 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, MassSleepPowerComponent component, MassSleepPowerActionEvent args)
         {
+            var duration = 5; // Duration of the mass sleep
             foreach (var entity in _lookup.GetEntitiesInRange(args.Target, component.Radius))
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
-                        EnsureComp<SleepingComponent>(entity);
+                        _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(entity, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
                 }
             }
             _psionics.LogPowerUsed(uid, "mass sleep");

@@ -166,8 +166,8 @@ public partial class ChatSystem
     /// <param name="textInput"></param>
     private void TryEmoteChatInput(EntityUid uid, string textInput)
     {
-        var actionLower = textInput.ToLower();
-        if (!_wordEmoteDict.TryGetValue(actionLower, out var emotes))
+        var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
+        if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
             return;
 
         foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
@@ -179,6 +179,23 @@ public partial class ChatSystem
         foreach (var emote in emotes) // DeltaV - Multiple emotes for the same trigger
         {
             InvokeEmoteEvent(uid, emote);
+        }
+
+        static string TrimPunctuation(string textInput)
+        {
+            var trimEnd = textInput.Length;
+            while (trimEnd > 0 && char.IsPunctuation(textInput[trimEnd - 1]))
+            {
+                trimEnd--;
+            }
+
+            var trimStart = 0;
+            while (trimStart < trimEnd && char.IsPunctuation(textInput[trimStart]))
+            {
+                trimStart++;
+            }
+
+            return textInput[trimStart..trimEnd];
         }
     }
     /// <summary>

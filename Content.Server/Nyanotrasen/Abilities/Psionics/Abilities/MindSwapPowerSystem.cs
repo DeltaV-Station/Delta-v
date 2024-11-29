@@ -1,19 +1,20 @@
+using Content.Server.GameTicking;
+using Content.Server.Ghost;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Server.Psionics;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
-using Content.Server.Mind;
 using Content.Shared.Mobs.Systems;
-using Content.Server.Popups;
-using Content.Server.Psionics;
-using Content.Server.GameTicking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Mind;
-using Content.Shared.Actions.Events;
 
 namespace Content.Server.Abilities.Psionics
 {

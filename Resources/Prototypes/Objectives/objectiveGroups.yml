@@ -21,17 +21,19 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
+    #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     SecretDocumentsStealObjective: 0.5
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
-    HoSGunStealObjective: 0.5
-    PlutoniumCoreStealObjective: 0.5
+    HoSGunStealObjective: 0.5 # DeltaV
+    PlutoniumCoreStealObjective: 0.5 # DeltaV, was reverted upstream
     NukeDiskStealObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomPersonObjective: 1
+    # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
+    TeachLessonRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
@@ -48,8 +50,6 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
-    RaiseGlimmerObjective: 0.5 # Nyanotrasen - Raise glimmer to a target amount, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
-
 
 #Thief groups
 - type: weightedRandom
@@ -61,8 +61,8 @@
 - type: weightedRandom
   id: ThiefBigObjectiveGroups
   weights:
-    ThiefObjectiveGroupStructure: 0 #Temporarily disabled until obvious ways to steal structures are added
-    ThiefObjectiveGroupAnimal: 2
+    ThiefObjectiveGroupStructure: 1
+    ThiefObjectiveGroupAnimal: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
@@ -72,7 +72,6 @@
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
     TechnologyDiskStealCollectionObjective: 1        #rnd
-    FigurineStealCollectionObjective: 0.3          #service
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
 
@@ -82,6 +81,7 @@
     ForensicScannerStealObjective: 1                    #sec
     FlippoEngravedLighterStealObjective: 0.5
     ClothingHeadHatWardenStealObjective: 1
+    ClothingNeckShockCollarStealObjective: 1
     ClothingOuterHardsuitVoidParamedStealObjective: 1   #med
     MedicalTechFabCircuitboardStealObjective: 1
     ClothingHeadsetAltMedicalStealObjective: 1
@@ -100,7 +100,6 @@
   weights:
     NuclearBombStealObjective: 0.5
     FaxMachineCaptainStealObjective: 1
-    VehicleSecwayStealObjective: 1
     ChemDispenserStealObjective: 1
     XenoArtifactStealObjective: 1
     FreezerHeaterStealObjective: 1
@@ -108,6 +107,7 @@
     BoozeDispenserStealObjective: 1
     AltarNanotrasenStealObjective: 1
     PlantRDStealObjective: 1
+    ToiletGoldenStealObjective: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupAnimal

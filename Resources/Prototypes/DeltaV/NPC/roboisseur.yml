@@ -1,11 +1,9 @@
 - type: entity
-  parent: BaseStructure
+  parent: BaseMachine
   id: Roboisseur
   name: Mr. Butlertron
   description: It asks for food to deliver to exotic customers across the cosmos. Powered by the latest technology in bluespace food delivery.
   components:
-  - type: Anchorable
-  - type: Pullable
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -23,8 +21,21 @@
   - type: Roboisseur
   - type: Speech
     speechSounds: Pai
+  - type: Transform
+    noRot: false # Fix for existing maps
   - type: Appearance
   - type: Grammar
     attributes:
       gender: male
       proper: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.1,0.15,0.4"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

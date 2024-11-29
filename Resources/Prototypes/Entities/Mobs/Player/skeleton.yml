@@ -8,7 +8,6 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
-  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
 
 - type: entity
   name: skeleton pirate
@@ -18,6 +17,7 @@
   - type: GhostRole
     name: ghost-role-information-skeleton-pirate-name
     description: ghost-role-information-skeleton-pirate-description
+    rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -34,6 +34,7 @@
   - type: GhostRole
     name: ghost-role-information-skeleton-biker-name
     description: ghost-role-information-skeleton-biker-description
+    rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -49,7 +50,7 @@
   - type: GhostRole
     name: ghost-role-information-closet-skeleton-name
     description: ghost-role-information-closet-skeleton-description
-    rules: ghost-role-information-closet-skeleton-rules
+    rules: ghost-role-information-closet-skeleton-rules # DeltaV - No longer free agent, now a non-antag (Some leeway given).
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 172800 # DeltaV - 48 hours

@@ -16,6 +16,7 @@
   - ClothingShoesChameleon
   - BarberScissors
   - ChameleonProjector
+  - AgentIDCard
 
 - type: thiefBackpackSet
   id: ToolsSet
@@ -31,8 +32,9 @@
   - JawsOfLife
   - RemoteSignaller
   - Multitool
-  - C4
-  - C4
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
+  - BreachingCharge # DeltaV (From C4 to Breaching Charge [Prevent Pacifist Implant Bypass])
 
 - type: thiefBackpackSet
   id: ChemistrySet
@@ -57,9 +59,10 @@
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     state: telecrystal
   content:
-  - AgentIDCard
+  - RadioJammer
+  - TraitorCodePaper
   - Emag
-  - SyndicatePersonalAI
+  - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
 

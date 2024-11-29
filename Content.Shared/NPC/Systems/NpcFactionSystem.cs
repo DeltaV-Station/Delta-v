@@ -8,7 +8,6 @@ namespace Content.Shared.NPC.Systems;
 
 /// <summary>
 ///     Outlines faction relationships with each other.
-///     part of psionics rework was making this a partial class. Should've already been handled upstream, based on the linter. 
 /// </summary>
 public sealed partial class NpcFactionSystem : EntitySystem
 {
@@ -60,6 +59,15 @@ public sealed partial class NpcFactionSystem : EntitySystem
             ent.Comp.FriendlyFactions.UnionWith(factionData.Friendly);
             ent.Comp.HostileFactions.UnionWith(factionData.Hostile);
         }
+        // Add additional factions if it is written in prototype
+        if (ent.Comp.AddFriendlyFactions != null)
+        {
+            ent.Comp.FriendlyFactions.UnionWith(ent.Comp.AddFriendlyFactions);
+        }
+        if (ent.Comp.AddHostileFactions != null)
+        {
+            ent.Comp.HostileFactions.UnionWith(ent.Comp.AddHostileFactions);
+        }
     }
 
     /// <summary>
@@ -71,6 +79,24 @@ public sealed partial class NpcFactionSystem : EntitySystem
             return false;
 
         return ent.Comp.Factions.Contains(faction);
+    }
+
+    /// <summary>
+    /// Returns whether an entity is a member of any listed faction.
+    /// If the list is empty this returns false.
+    /// </summary>
+    public bool IsMemberOfAny(Entity<NpcFactionMemberComponent?> ent, IEnumerable<ProtoId<NpcFactionPrototype>> factions)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        foreach (var faction in factions)
+        {
+            if (ent.Comp.Factions.Contains(faction))
+                return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -87,6 +113,28 @@ public sealed partial class NpcFactionSystem : EntitySystem
         ent.Comp ??= EnsureComp<NpcFactionMemberComponent>(ent);
         if (!ent.Comp.Factions.Add(faction))
             return;
+
+        if (dirty)
+            RefreshFactions((ent, ent.Comp));
+    }
+
+    /// <summary>
+    /// Adds this entity to the particular faction.
+    /// </summary>
+    public void AddFactions(Entity<NpcFactionMemberComponent?> ent, HashSet<ProtoId<NpcFactionPrototype>> factions, bool dirty = true)
+    {
+        ent.Comp ??= EnsureComp<NpcFactionMemberComponent>(ent);
+
+        foreach (var faction in factions)
+        {
+            if (!_proto.HasIndex(faction))
+            {
+                Log.Error($"Unable to find faction {faction}");
+                continue;
+            }
+
+            ent.Comp.Factions.Add(faction);
+        }
 
         if (dirty)
             RefreshFactions((ent, ent.Comp));

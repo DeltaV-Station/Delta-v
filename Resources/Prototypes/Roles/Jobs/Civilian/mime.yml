@@ -23,13 +23,15 @@
 - type: startingGear
   id: MimeGear
   equipment:
-    belt: ClothingBeltSuspenders
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
     pocket1: CrayonMime
     pocket2: Paper
     id: MimePDA
     ears: ClothingHeadsetService
+  storage:
+    back:
+    - RubberStampMime
 
 - type: entity
   id: ActionMimeInvisibleWall

@@ -1,5 +1,4 @@
 using Content.Server.Body.Components;
-using Content.Server.GenericAntag;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Roles;
 using Content.Server.Terminator.Components;

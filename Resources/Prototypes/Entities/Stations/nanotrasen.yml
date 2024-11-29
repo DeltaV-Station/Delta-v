@@ -26,7 +26,8 @@
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationMail # Nyano component, required for station mail to function
-  noSpawn: true
+    - BaseStationStockMarket # DeltaV
+  categories: [ HideSpawnMenu ]
   components:
     - type: Transform
 
@@ -36,8 +37,7 @@
     - BaseStation
     - BaseStationAlertLevels
     - BaseStationNanotrasen
-#    - BaseRandomStation
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Transform
 
@@ -48,6 +48,6 @@
   - BaseStationJobsSpawning
   - BaseStationRecords
   - BaseStationNanotrasen
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: Transform

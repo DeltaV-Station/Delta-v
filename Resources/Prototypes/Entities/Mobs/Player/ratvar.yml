@@ -16,6 +16,7 @@
   parent: MobRatvarBase
   id: MobRatvarSpawn
   suffix: Spawn
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: Sprite
     layers:
@@ -29,6 +30,7 @@
 - type: entity
   parent: [MobRatvarBase, BaseMob]
   id: MobRatvar
+  categories: [ HideSpawnMenu ] # DeltaV
   components:
   - type: AnnounceOnSpawn
     message: ratvar-has-risen
@@ -49,18 +51,18 @@
         restitution: 0.8
         density: 1
         mask:
-        - AllMask
+        - SingularityLayer
         layer:
-        - AllMask
+        - SingularityLayer
       EventHorizonConsumer:
         shape:
           !type:PhysShapeCircle
             radius: 5
         hard: false
         mask:
-        - AllMask
+        - SingularityLayer
         layer:
-        - AllMask
+        - SingularityLayer
   - type: Input
     context: "ghost"
   - type: MovementIgnoreGravity

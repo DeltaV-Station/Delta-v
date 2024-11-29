@@ -55,6 +55,7 @@
       - Reporter #Delta V: Add Reporter Access
       - Research
       - ResearchDirector
+      - Robotics # DeltaV: Robotics access
       - Salvage
       - Security
       - Service
@@ -82,7 +83,7 @@
           type: AccessOverriderBoundUserInterface
     - type: ActivatableUI
       key: enum.AccessOverriderUiKey.Key
-      requireHands: true
+      requiresComplex: true
       requireActiveHand: false
       singleUser: true
     - type: ItemSlots

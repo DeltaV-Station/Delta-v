@@ -159,18 +159,18 @@
   name: corporate plastic card
   description: A plastic card for confidential corporate matters.
   components:
-    - type: Paper
-      canEdit: false
-    - type: Sprite
-      layers:
-        - state: corpslip
-        - state: corpslip_words
-          map: [ "enum.PaperVisualLayers.Writing" ]
-          visible: false
-    - type: PaperVisuals
-      backgroundImagePath: "/Textures/DeltaV/Interface/Paper/paper_background_corpcard.svg.96dpi.png"
-      contentMargin: 70.0, 16.0, 70.0, 16.0
-      maxWritableArea: 400.0, 600.0
+  - type: Paper
+    editingDisabled: true
+  - type: Sprite
+    layers:
+      - state: corpslip
+      - state: corpslip_words
+        map: [ "enum.PaperVisualLayers.Writing" ]
+        visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/DeltaV/Interface/Paper/paper_background_corpcard.svg.96dpi.png"
+    contentMargin: 70.0, 16.0, 70.0, 16.0
+    maxWritableArea: 400.0, 600.0
 
 
 - type: entity

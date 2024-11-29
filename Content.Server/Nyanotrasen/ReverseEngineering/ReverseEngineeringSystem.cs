@@ -2,6 +2,7 @@ using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
 using Content.Server.Power.Components;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.TechnologyDisk.Components;
 using Content.Shared.ReverseEngineering;

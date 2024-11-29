@@ -1,6 +1,11 @@
-- type: statusIcon
-  parent: JobIcon
-  id: JobIconCourier
-  icon:
-    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: nyanoMailCarrier
+- type: statusEffect
+  id: Addicted
+
+- type: statusEffect
+  id: SuppressAddiction
+
+- type: statusEffect
+  id: InPain
+
+- type: statusEffect
+  id: SuppressPain

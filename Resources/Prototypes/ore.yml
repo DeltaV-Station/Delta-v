@@ -56,7 +56,13 @@
   id: OreBananium
   oreEntity: BananiumOre1
   minOreYield: 1
-  maxOreYield: 3
+  maxOreYield: 2
+
+- type: ore
+  id: OreDiamond
+  oreEntity: DiamondOre1
+  minOreYield: 1
+  maxOreYield: 2
 
 - type: ore
   id: OreQuartzCrab
@@ -77,14 +83,14 @@
 - type: ore
   id: OreArtifactFragment
   oreEntity: ArtifactFragment1
-  minOreYield: 2
-  maxOreYield: 4
+  minOreYield: 1
+  maxOreYield: 3
 
 - type: weightedRandomOre
   id: RandomOreDistributionStandard
   weights:
     OreSteel: 10
-    OreCoal: 10
+    OreCoal: 12 # DeltaV: increased slightly from 10 so there is a surplus to give to chem
     OreSpaceQuartz: 8
     OreGold: 2
     OrePlasma: 4
@@ -92,7 +98,6 @@
     OreUranium: 1
     OreBananium: 0.5
     OreArtifactFragment: 0.5
-    OreSalt: 5 #Delta V - Adds so our rocks can spawn salt
 
 - type: weightedRandomOre
   id: OreCrab

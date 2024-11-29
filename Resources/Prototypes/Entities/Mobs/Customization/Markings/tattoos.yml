@@ -3,6 +3,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Male] #DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
@@ -17,13 +18,14 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Male] #DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
+  - sprite: DeltaV/Mobs/Customization/tattoos.rsi #DeltaV: Splitting the scars and tattoos
     state: tattoo_nightling
 
 - type: marking
@@ -114,7 +116,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy] # Delta V - Felinid, Vulpkanin, Oni, Harpy
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia] # Delta V - Felinid, Vulpkanin, Oni, Harpy, Rodentia
   coloring:
     default:
       type:
@@ -128,7 +130,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy] # Delta V - Felinid, Vulpkanin, Oni, Harpy
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Vulpkanin, Oni, Harpy, Rodentia] # Delta V - Felinid, Vulpkanin, Oni, Harpy, Rodentia
   coloring:
     default:
       type:

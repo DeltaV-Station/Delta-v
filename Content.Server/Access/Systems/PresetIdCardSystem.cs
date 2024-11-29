@@ -2,10 +2,9 @@ using Content.Server.Access.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.Access.Components; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
-using Content.Shared.StationRecords;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
@@ -17,8 +16,6 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly StationRecordsSystem _record = default!; // DeltaV - Allow changing the job title within the prototype
-
     public override void Initialize()
     {
         SubscribeLocalEvent<PresetIdCardComponent, MapInitEvent>(OnMapInit);
@@ -41,7 +38,6 @@ public sealed class PresetIdCardSystem : EntitySystem
 
             SetupIdAccess(uid, card, true);
             SetupIdName(uid, card);
-            SetupIdJob(uid, card); // DeltaV - Allow changing the job title within the prototype
         }
     }
 
@@ -61,7 +57,6 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         SetupIdAccess(uid, id, extended);
         SetupIdName(uid, id);
-        SetupIdJob(uid, id); // DeltaV - Allow changing the job title within the prototype
     }
 
     private void SetupIdName(EntityUid uid, PresetIdCardComponent id)
@@ -70,25 +65,6 @@ public sealed class PresetIdCardSystem : EntitySystem
             return;
         _cardSystem.TryChangeFullName(uid, id.IdName);
     }
-
-    // DeltaV - Allow changing the job title within the prototype
-    private void SetupIdJob(EntityUid uid, PresetIdCardComponent id)
-    {
-        if (id.CustomJobName == null)
-            return;
-        _cardSystem.TryChangeJobTitle(uid, id.CustomJobName);
-
-        // The following code is taken from IdCardConsoleSystem
-        if (!TryComp<StationRecordKeyStorageComponent>(uid, out var keyStorage)
-            || keyStorage.Key is not { } key
-            || !_record.TryGetRecord<GeneralStationRecord>(key, out var record))
-        {
-            return;
-        }
-        record.JobTitle = id.CustomJobName;
-        _record.Synchronize(key);
-    }
-    // End of DeltaV code
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended)
     {
@@ -103,10 +79,15 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
-        _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
+        var card = Comp<IdCardComponent>(uid); // DeltaV
+
+        //flag
+        if (card.JobTitle == null) // DeltaV: only set job title if id card doesnt have one already
+            _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
-        if (_prototypeManager.TryIndex(job.Icon, out var jobIcon))
+        // DeltaV: only set to the job's icon if the id doesn't specify one
+        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.TryIndex(job.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

@@ -80,6 +80,7 @@
   completetime: 4
   materials:
     Cloth: 500
+    Durathread: 200
 
 # Chief Justice Wardrobe
 
@@ -89,6 +90,7 @@
   completetime: 2
   materials:
     Cloth: 100
+    Durathread: 50
 
 - type: latheRecipe
   id: ClothingUniformJumpsuitChiefJustice
@@ -97,7 +99,7 @@
   materials:
     Cloth: 300
     Durathread: 100
- 
+
 - type: latheRecipe
   id: ClothingUniformJumpskirtChiefJustice
   result: ClothingUniformJumpskirtChiefJustice
@@ -135,5 +137,5 @@
   result: ClothingOuterChiefJustice
   completetime: 3.2
   materials:
-    Cloth: 300
-    Durathread: 200
+    Cloth: 500
+    Durathread: 300

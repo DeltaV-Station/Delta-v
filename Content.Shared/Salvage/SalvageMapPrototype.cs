@@ -14,7 +14,8 @@ public sealed partial class SalvageMapPrototype : IPrototype
     [DataField(required: true)] public ResPath MapPath;
 
     /// <summary>
-    /// DeltaV - Used for getting the proper name for the map
+    /// String that describes the size of the map.
     /// </summary>
-    [DataField] public string Size { get; } = "unknown";
+    [DataField(required: true)]
+    public LocId SizeString;
 }

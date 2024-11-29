@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
-using Content.Server.Paper;
 using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
@@ -9,11 +8,12 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Emag.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Paper;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems
@@ -40,6 +40,7 @@ namespace Content.Server.Cargo.Systems
             SubscribeLocalEvent<CargoOrderConsoleComponent, BoundUIOpenedEvent>(OnOrderUIOpened);
             SubscribeLocalEvent<CargoOrderConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CargoOrderConsoleComponent, InteractUsingEvent>(OnInteractUsing);
+            SubscribeLocalEvent<CargoOrderConsoleComponent, BankBalanceUpdatedEvent>(OnOrderBalanceUpdated);
             Reset();
         }
 
@@ -84,9 +85,11 @@ namespace Content.Server.Cargo.Systems
             {
                 _timer -= Delay;
 
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
+                var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
+                while (stationQuery.MoveNext(out var uid, out var bank))
                 {
-                    account.Balance += account.IncreasePerSecond * Delay;
+                    var balanceToAdd = bank.IncreasePerSecond * Delay;
+                    UpdateBankAccount(uid, bank, balanceToAdd);
                 }
 
                 var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
@@ -188,20 +191,23 @@ namespace Content.Server.Cargo.Systems
                 }
             }
 
-            _idCardSystem.TryFindIdCard(player, out var idCard);
-            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            order.SetApproverData(idCard.Comp?.FullName, idCard.Comp?.JobTitle);
+            order.Approved = true;
             _audio.PlayPvs(component.ConfirmSound, uid);
 
-            var approverName = idCard.Comp?.FullName ?? Loc.GetString("access-reader-unknown-id");
-            var approverJob = idCard.Comp?.JobTitle ?? Loc.GetString("access-reader-unknown-id");
-            var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
-                ("productName", Loc.GetString(order.ProductName)),
-                ("orderAmount", order.OrderQuantity),
-                ("approverName", approverName),
-                ("approverJob", approverJob),
-                ("cost", cost));
-            _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            if (!HasComp<EmaggedComponent>(uid))
+            {
+                var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, player);
+                RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+                order.SetApproverData(tryGetIdentityShortInfoEvent.Title);
+
+                var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
+                    ("productName", Loc.GetString(order.ProductName)),
+                    ("orderAmount", order.OrderQuantity),
+                    ("approver", order.Approver ?? string.Empty),
+                    ("cost", cost));
+                _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            }
+
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(ev.FulfillmentEntity.Value).EntityName)));
 
             // Log order approval
@@ -209,7 +215,7 @@ namespace Content.Server.Cargo.Systems
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
 
             orderDatabase.Orders.Remove(order);
-            DeductFunds(bank, cost);
+            UpdateBankAccount(station.Value, bank, -cost);
             UpdateOrders(station.Value);
         }
 
@@ -317,6 +323,15 @@ namespace Content.Server.Cargo.Systems
 
         #endregion
 
+
+        private void OnOrderBalanceUpdated(Entity<CargoOrderConsoleComponent> ent, ref BankBalanceUpdatedEvent args)
+        {
+            if (!_uiSystem.IsUiOpen(ent.Owner, CargoConsoleUiKey.Orders))
+                return;
+
+            UpdateOrderState(ent, args.Station);
+        }
+
         private void UpdateOrderState(EntityUid consoleUid, EntityUid? station)
         {
             if (station == null ||
@@ -413,6 +428,7 @@ namespace Content.Server.Cargo.Systems
 
             // Approve it now
             order.SetApproverData(dest, sender);
+            order.Approved = true;
 
             // Log order addition
             _adminLogger.Add(LogType.Action, LogImpact.Low,
@@ -504,15 +520,14 @@ namespace Content.Server.Cargo.Systems
                 var val = Loc.GetString("cargo-console-paper-print-name", ("orderNumber", order.OrderId));
                 _metaSystem.SetEntityName(printed, val);
 
-                _paperSystem.SetContent(printed, Loc.GetString(
+                _paperSystem.SetContent((printed, paper), Loc.GetString(
                         "cargo-console-paper-print-text",
                         ("orderNumber", order.OrderId),
                         ("itemName", MetaData(item).EntityName),
                         ("orderQuantity", order.OrderQuantity),
                         ("requester", order.Requester),
                         ("reason", order.Reason),
-                        ("approver", order.Approver ?? string.Empty)),
-                    paper);
+                        ("approver", order.Approver ?? string.Empty)));
 
                 // attempt to attach the label to the item
                 if (TryComp<PaperLabelComponent>(item, out var label))
@@ -523,11 +538,6 @@ namespace Content.Server.Cargo.Systems
 
             return true;
 
-        }
-
-        private void DeductFunds(StationBankAccountComponent component, int amount)
-        {
-            component.Balance = Math.Max(0, component.Balance - amount);
         }
 
         #region Station

@@ -11,11 +11,24 @@
   cost: 7500
   recipeUnlocks:
   - MiningDrill
-  - BorgModuleMining
+  - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
-  - OreBagOfHolding
   - SalvageExpeditionsComputerCircuitboard # DeltaV
   - ClothingMaskWeldingGas
+
+- type: technology
+  id: SpaceScanning
+  name: research-technology-space-scanning
+  icon:
+    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - RadarConsoleCircuitboard
+  - HandHeldMassScanner
+  - BorgModuleGPS
 
 - type: technology
   id: AdvancedPowercells
@@ -107,34 +120,7 @@
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
 
-#- type: technology
-#  id: Grappling
-#  name: research-technology-grappling
-#  icon:
-#    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-#    state: base
-#  discipline: Industrial
-#  tier: 1
-#  cost: 5000
-#  recipeUnlocks:
-#  - WeaponGrapplingGun
-#  - BorgModuleGrapplingGun
-
 # Tier 2
-
-- type: technology
-  id: SpaceScanning
-  name: research-technology-space-scanning
-  icon:
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
-    state: icon
-  discipline: Industrial
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - RadarConsoleCircuitboard
-  - HandHeldMassScanner
-  - BorgModuleGPS
 
 - type: technology
   id: Shuttlecraft
@@ -164,6 +150,9 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - FireExtinguisherBluespace # DeltaV
+  technologyPrerequisites:
+  - AtmosphericTech
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -179,7 +168,20 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - BorgModuleRCD
+
+- type: technology
+  id: MassExcavation
+  name: research-technology-excavation
+  icon:
+    sprite: Objects/Tools/handdrilldiamond.rsi
+    state: handdrill
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+    - OreBagOfHolding
+    - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
 
 # Tier 3
 

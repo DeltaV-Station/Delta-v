@@ -64,8 +64,3 @@ jobs:
 
       - name: Package client
         run: dotnet run --project Content.Packaging client --no-wipe-release
-
-      - name: Shuffle files around
-        run: |
-          mkdir "release/${{ github.sha }}"
-          mv release/*.zip "release/${{ github.sha }}"

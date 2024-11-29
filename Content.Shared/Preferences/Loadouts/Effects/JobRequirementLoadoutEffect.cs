@@ -28,9 +28,11 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
         var playtimes = manager.GetPlayTimes(session);
         var isWhitelisted = session.ContentData()?.Whitelisted ?? false; // DeltaV - Whitelist requirement
 
-        return JobRequirements.TryRequirementMet(Requirement, playtimes, out reason,
-            collection.Resolve<IEntityManager>(),
+        return Requirement.Check(collection.Resolve<IEntityManager>(),
             collection.Resolve<IPrototypeManager>(),
+            profile,
+            playtimes,
+            out reason,
             isWhitelisted); // DeltaV
     }
 }

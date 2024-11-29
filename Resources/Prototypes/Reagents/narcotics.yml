@@ -40,16 +40,20 @@
         key: KnockedDown
         time: 3
         type: Remove
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.6 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -89,6 +93,14 @@
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 1
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
         type: Remove
       - !type:PopupMessage
         visualType: Medium
@@ -150,6 +162,14 @@
         key: ForcedSleep
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -161,8 +181,7 @@
         - !type:HealthChange
           conditions:
           - !type:TotalDamage
-            min: 70
-            max: 120 # you've got a chance to get out of crit
+            min: 70 # only heals when you're more dead than alive
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
               Burn: -1
@@ -191,16 +210,12 @@
         type: Add
         time: 16
         refresh: false
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
 
 - type: reagent
   id: Nicotine
@@ -243,16 +258,12 @@
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 20 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
+      - !type:SuppressAddiction
 
 - type: reagent
   id: SpaceDrugs
@@ -271,21 +282,17 @@
         type: Add
         time: 5
         refresh: false
-      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic. 
+      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic.
         conditions:
         - !type:ReagentThreshold
           reagent: SpaceDrugs
           min: 15
-      - !type:AdjustReagent # Delta-V - Addictive
+      - !type:Addicted # Delta-V - Addictive
         probability: 0.4 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 10 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.1
+      - !type:SuppressAddiction
 
 - type: reagent
   id: Bananadine
@@ -343,6 +350,9 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        type: Add
+        time: 10
+        refresh: false
 
 - type: reagent
   id: NorepinephricAcid

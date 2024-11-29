@@ -26,8 +26,6 @@
     interfaces:
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -111,6 +109,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Meow', 'Hiss', 'Mew', 'Purr', 'Growl', 'Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'HarpyHonk', 'HarpyRing', 'HarpyPew', 'HarpyBang', 'HarpyBeep', 'HarpyRev', 'HarpyCaw', 'Squish', 'Chitter', 'Squeak', 'Click', ]
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -125,28 +124,32 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-#    templateId: digitigrade
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: HarpyVisuals
   - type: UltraVision
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: FootPrints #DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-lizard" #DeltaV port from EE, blood splatter
+    rightBarePrint: "footprint-right-bare-lizard" #DeltaV port from EE, blood splatter
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
@@ -155,14 +158,10 @@
     speciesId: harpy
     displacements:
       jumpsuit:
-        layer:
-          sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-          state: jumpsuit
-          copyToShaderParameters:
-            # Value required, provide a dummy. Gets overridden when applied.
-            layerKey: dummy
-            parameterTexture: displacementMap
-            parameterUV: displacementUV
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: Sprite
     scale: 0.9, 0.9
     layers:

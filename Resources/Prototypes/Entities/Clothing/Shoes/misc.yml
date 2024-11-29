@@ -47,7 +47,7 @@
       collection: FootstepDuck
       params:
         variation: 0.07
-  - type: WaddleWhenWorn
+  - type: WaddleWhenWorn # DeltaV: upstream removed waddling
     tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
     graph: ClothingShoeSlippersDuck
@@ -88,7 +88,7 @@
   - type: NoSlip
 
 - type: entity
-  parent: [ClothingShoesBase, PowerCellSlotSmallItem]
+  parent: [ClothingShoesBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ClothingShoesBootsSpeed
   name: speed boots
   description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
@@ -100,12 +100,11 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Shoes/Boots/speedboots.rsi
-  - type: ToggleClothingSpeed
-    toggleAction: ActionToggleSpeedBoots
+  - type: ToggleClothing
+    action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
     walkModifier: 1.5
     sprintModifier: 1.5
-    enabled: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -117,16 +116,17 @@
     price: 500
   - type: PowerCellDraw
     drawRate: 4
+  - type: ToggleCellDraw
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
-  - type: ReverseEngineering # delta
+  - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
-      - ClothingShoesBootsSpeed
+    - ClothingShoesBootsSpeed
 
 - type: entity
   id: ActionToggleSpeedBoots
@@ -134,10 +134,8 @@
   description: Toggles the speed boots on and off.
   components:
   - type: InstantAction
-    itemIconStyle: NoItem
-    event: !type:ToggleClothingSpeedEvent
-    icon: { sprite: Clothing/Shoes/Boots/speedboots.rsi, state: icon }
-    iconOn: { sprite: Clothing/Shoes/Boots/speedboots.rsi, state: icon-on }
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent
 
 - type: entity
   parent: ClothingShoesBase
@@ -156,3 +154,7 @@
     price: 75
   - type: Tag
     tags: [ ]
+  - type: ReverseEngineering # DeltaV: upgrade moonboots T1 to speedboots T3
+    difficulty: 5
+    recipes:
+    - ClothingShoesBootsSpeed

@@ -1,6 +1,6 @@
 - type: entity
   name: fireaxe
-  parent: BaseItem
+  parent: [BaseItem, BaseEngineeringContraband]
   id: FireAxe
   description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
@@ -8,6 +8,8 @@
     tags:
     - FireAxe
   - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
@@ -39,6 +41,7 @@
   - type: Tool
     qualities:
       - Prying
+      - Axing # DeltaV - The return of fireaxe prying
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -51,7 +54,7 @@
 - type: entity
   id: FireAxeFlaming
   name: fire axe
-  parent: FireAxe
+  parent: [BaseSyndicateContraband, FireAxe]
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
@@ -66,3 +69,6 @@
     quickEquip: false
     slots:
     - back
+  - type: Tool
+    qualities:
+    - Prying #DeltaV - Makes so it can only pry tiles, not plates. #1844

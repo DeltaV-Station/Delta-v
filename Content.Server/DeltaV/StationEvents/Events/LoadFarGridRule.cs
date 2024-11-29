@@ -1,13 +1,7 @@
-/*
-* Delta-V - This file is licensed under AGPLv3
-* Copyright (c) 2024 Delta-V Contributors
-* See AGPLv3.txt for details.
-*/
-
-using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
+using Content.Shared.GameTicking.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Map;
