@@ -23,3 +23,19 @@
     - state: green_bit
       shader: unshaded
     - state: refill_pride
+
+- type: entity
+  parent: BaseVendingMachineRestockDeltaV
+  id: VendingMachineRestockSustenance
+  name: Sustenance vendor restock box
+  description: Prisoners have to eat too. Nobody said they had to eat well.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - SustenanceInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_sustenance
