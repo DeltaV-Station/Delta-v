@@ -5,3 +5,11 @@
   - type: StorageFill
     contents:
       - id: VendingMachineRestockPride
+
+- type: entity
+  id: CrateVendingMachineRestockSustenanceFilled
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+    - id: VendingMachineRestockSustenance
