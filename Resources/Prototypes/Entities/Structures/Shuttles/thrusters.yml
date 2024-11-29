@@ -95,7 +95,7 @@
     energy: 4
     color: "#4f76e4"
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
+    sprite: NES/Structures/Machines/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -130,7 +130,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/base.rsi #NES14-Changes
+    sprite: NES/Structures/Machines/Thrusters/base.rsi #NES14-Changes
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -159,7 +159,7 @@
     machinePartThrust: Manipulator
   - type: Sprite
     # Listen I'm not the biggest fan of the sprite but it was the most appropriate thing I could find.
-    sprite: NES/Structures/Power/gyroscope.rsi #NES14-Changes
+    sprite: NES/Structures/Machines/Thrusters/gyroscope.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: base
@@ -239,7 +239,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: NES/Structures/Power/gyroscope.rsi #NES14-Changes
+    sprite: NES/Structures/Machines/Thrusters/gyroscope.rsi #NES14-Changes
     snapCardinals: true
     layers:
     - state: base

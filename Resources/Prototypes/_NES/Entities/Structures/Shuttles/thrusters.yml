@@ -43,7 +43,7 @@
     energy: 8
     color: "#6490d3"
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/bigZeta.rsi
+    sprite: NES/Structures/Machines/Thrusters/bigZeta.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -95,7 +95,7 @@
     intensitySlope: 5
     totalIntensity: 500
   - type: Sprite
-    sprite: NES/Structures/Power/Thrusters/zeta.rsi
+    sprite: NES/Structures/Machines/Thrusters/zeta.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
