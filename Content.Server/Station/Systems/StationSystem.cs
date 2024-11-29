@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
+using Content.Server.DeltaV.Station.Components;
+using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
@@ -7,6 +9,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Station;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Collections;
@@ -48,6 +51,8 @@ public sealed class StationSystem : EntitySystem
         SubscribeLocalEvent<StationDataComponent, ComponentShutdown>(OnStationDeleted);
         SubscribeLocalEvent<StationMemberComponent, ComponentShutdown>(OnStationGridDeleted);
         SubscribeLocalEvent<StationMemberComponent, PostGridSplitEvent>(OnStationSplitEvent);
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded); // DeltaV
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved); // DeltaV
 
         _player.PlayerStatusChanged += OnPlayerStatusChanged;
     }
@@ -147,6 +152,34 @@ public sealed class StationSystem : EntitySystem
             QueueDel(station);
         }
     }
+
+    // DeltaV Handle PlayerJob Events
+    public void OnPlayerJobAdded(EntityUid station, StationJobsComponent _, PlayerJobAddedEvent args)
+    {
+        // Once a captain joins the NoCaptainComponent no longer applies
+        if (args.JobPrototypeId == "Captain")
+        {
+            EntityManager.RemoveComponent<NoCaptainComponent>(station);
+        }
+    }
+    public void OnPlayerJobsRemoved(EntityUid station, StationJobsComponent stationJobs, PlayerJobsRemovedEvent args)
+    {
+        if (args.PlayerJobs == null)
+            return;
+
+        // If the player that left was the only captain then the same protocols of NoCaptainComponent should take effect
+        if (args.PlayerJobs.Contains("Captain"))
+        {
+            if (stationJobs.PlayerJobs.Count == 0 || !stationJobs.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // Expensive but only ran if a cap leaves so fine
+            {
+                EnsureComp<NoCaptainComponent>(station, out var noCaptainComponent);
+                captainStateComponent.CaptainDeparted = true;
+                captainStateComponent.UnlockAAOverride = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
+                captainStateComponent.ACOVoteDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
+            }
+        }
+    }
+    // DeltaV End handle PlayerJob Events
 
     #endregion Event handlers
 
@@ -285,6 +318,8 @@ public sealed class StationSystem : EntitySystem
         {
             AddGridToStation(station, grid, null, data, name);
         }
+
+        EnsureComp<NoCaptainComponent>(station); // DeltaV start assuming no captain untill captain joins
 
         var ev = new StationPostInitEvent((station, data));
         RaiseLocalEvent(station, ref ev, true);

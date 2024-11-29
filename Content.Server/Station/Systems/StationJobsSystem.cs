@@ -210,9 +210,13 @@ public sealed partial class StationJobsSystem : EntitySystem
             return false;
         // DeltaV added RemovedPlayerJobsEvent for noCaptainSystem
         if (jobsComponent.PlayerJobs.TryGetValue(userId, out var playerJobsEntry))
+        {
+            jobsComponent.PlayerJobs.Remove(userId);
             RaiseLocalEvent(station, new PlayerJobsRemovedEvent(userId, playerJobsEntry), false);
+            return true;
+        }
+        return false;
         // DeltaV end added RemovedPlayerJobsEvent for noCaptainSystem
-        return jobsComponent.PlayerJobs.Remove(userId);
     }
 
     /// <inheritdoc cref="TrySetJobSlot(Robust.Shared.GameObjects.EntityUid,string,int,bool,Content.Server.Station.Components.StationJobsComponent?)"/>

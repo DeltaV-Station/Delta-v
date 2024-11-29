@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.DeltaV.Station.Events;
 
 /// <summary>
-/// Raised on a station when a players jobs are removed
+/// Raised on a station when a after a players jobs are removed from the PlayerJobs
 /// </summary>
 /// <param name="netUserId">Player whos jobs were removed</param>
 /// <param name="playerJobs">Entry in PlayerJobs removed a list of JobPrototypes</param>
