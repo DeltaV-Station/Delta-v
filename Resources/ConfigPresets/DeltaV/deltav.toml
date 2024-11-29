@@ -21,6 +21,7 @@ tickrate = 30
 
 [vote]
 restart_required_ratio = 0.7
+preset_enabled = false
 
 [netres]
 limit    = 10.0
@@ -38,11 +39,17 @@ uptime_restart_minutes = 2880 # 48h
 [discord]
 rich_main_icon_id = "deltav"
 
+# general mrp stuff
 [ic]
 flavor_text = true
+punctuation = true
 
+# Disabled because it causes giga lag
 #[worldgen]
 #enabled = true
+
+[rules]
+time = 60
 
 [ahelp]
 admin_prefix = false
@@ -53,3 +60,16 @@ enabled = false # only enabled on periapsis
 eligible_number = 5
 initiator_ghost_requirement = false
 voter_ghost_requirement = false
+
+[atmos]
+space_wind = true
+
+[shuttle]
+arrivals = false
+emergency_dock_time = 240 # an extra minute over the default
+emergency_transit_time_min = 90
+auto_call_time = 120 # rounds are longer
+auto_call_extension_time = 30 # next auto call at 2h30
+
+[biomass]
+easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
