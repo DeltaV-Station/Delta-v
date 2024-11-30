@@ -18,6 +18,11 @@ namespace Content.Server.Chemistry.Components
         [DataField("mode"), ViewVariables(VVAccess.ReadWrite)]
         public ChemMasterMode Mode = ChemMasterMode.Transfer;
 
+        // Begin DeltaV - chemmaster sources
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public ChemMasterSource Source = ChemMasterSource.InternalBuffer;
+        // End DeltaV - chemmaster sources
+
         [DataField("pillDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint PillDosageLimit;
 

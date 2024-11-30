@@ -81,6 +81,12 @@ namespace Content.Client.Chemistry.UI
             PillNumber.InitDefaultButtons();
             BottleDosage.InitDefaultButtons();
 
+            // Begin DeltaV - chemmaster sources
+            var sourceGroup = new ButtonGroup(false);
+            SourceBufferButton.Group = sourceGroup;
+            SourceInsertedButton.Group = sourceGroup;
+            // End DeltaV - chemmaster sources
+
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
 
@@ -125,6 +131,14 @@ namespace Content.Client.Chemistry.UI
             PillNumber.IsValid = x => x >= 0 && x <= pillNumberMax;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
             BottleDosage.IsValid = x => x >= 0 && x <= bottleAmountMax;
+
+            // Begin DeltaV - chemmaster sources
+            var activeButton = castState.Source switch {
+                ChemMasterSource.InternalBuffer => SourceBufferButton,
+                ChemMasterSource.InsertedContainer => SourceInsertedButton,
+            };
+            activeButton.Pressed = true;
+            // End DeltaV - chemmaster sources
 
             if (PillNumber.Value > pillNumberMax)
                 PillNumber.Value = pillNumberMax;

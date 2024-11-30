@@ -53,6 +53,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetModeMessage>(OnSetModeMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetSourceMessage>(OnSetSourceMessage); // DeltaV - chemmaster sources
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetPillTypeMessage>(OnSetPillTypeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
@@ -75,9 +76,12 @@ namespace Content.Server.Chemistry.EntitySystems
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
 
+            // Begin DeltaV - chemmaster sources
             var state = new ChemMasterBoundUserInterfaceState(
                 chemMaster.Mode, BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
-                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel);
+                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel,
+                chemMaster.Source);
+            // End DeltaV - chemmaster sources
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -92,6 +96,15 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
         }
+
+        // Begin DeltaV - chemmaster sources
+        private void OnSetSourceMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetSourceMessage message)
+        {
+            chemMaster.Comp.Source = message.ChemMasterSource;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+        // End DeltaV - chemmaster sources
 
         private void OnSetPillTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetPillTypeMessage message)
         {
@@ -261,6 +274,35 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+        // Begin DeltaV - chemmaster sources
+        private Entity<SolutionComponent>? GetSourceSolution(
+            Entity<ChemMasterComponent> chemMaster)
+        {
+            switch (chemMaster.Comp.Source) {
+                case ChemMasterSource.InternalBuffer: {
+                    if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner,
+                        SharedChemMaster.BufferSolutionName, out var component, out _))
+                    {
+                        return null;
+                    }
+                    return component;
+                }
+                case ChemMasterSource.InsertedContainer: {
+                    var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
+                    if (container is null ||
+                        !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var component, out _))
+                    {
+                        return null;
+                    }
+                    return component;
+                }
+                default: {
+                    return null;
+                }
+            }
+        }
+        // End DeltaV - chemmaster sources
+
         private bool WithdrawFromBuffer(
             Entity<ChemMasterComponent> chemMaster,
             FixedPoint2 neededVolume, EntityUid? user,
@@ -268,10 +310,13 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             outputSolution = null;
 
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
+            // Begin DeltaV - chemmaster sources
+            if (GetSourceSolution(chemMaster) is not {} source)
             {
                 return false;
             }
+            var solution = source.Comp.Solution;
+            // End DeltaV - chemmaster sources
 
             if (solution.Volume == 0)
             {
@@ -288,7 +333,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return false;
             }
 
-            outputSolution = solution.SplitSolution(neededVolume);
+            outputSolution = _solutionContainerSystem.SplitSolution(source, neededVolume); // DeltaV - chemmaster sources
             return true;
         }
 

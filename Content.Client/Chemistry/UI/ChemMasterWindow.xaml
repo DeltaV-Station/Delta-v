@@ -125,6 +125,16 @@
                         <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="0" />
                         <Button MinSize="80 0" Name="CreateBottleButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
                     </BoxContainer>
+
+                    <!-- Begin DeltaV - chemmaster sources -->
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="{Loc 'chem-master-window-source-label'}" />
+                        <Control HorizontalExpand="True" MinSize="50 0" />
+
+                        <Button MinSize="80 0" Name="SourceBufferButton" Access="Public" Text="{Loc 'chem-master-source-buffer-button'}" Pressed="True" />
+                        <Button MinSize="80 0" Name="SourceInsertedButton" Access="Public" Text="{Loc 'chem-master-source-inserted-button'}" />
+                    </BoxContainer>
+                    <!-- End DeltaV - chemmaster sources -->
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>

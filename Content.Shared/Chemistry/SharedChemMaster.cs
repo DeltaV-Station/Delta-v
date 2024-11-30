@@ -29,6 +29,19 @@ namespace Content.Shared.Chemistry
         }
     }
 
+    // Begin DeltaV - chemmaster sources
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSetSourceMessage : BoundUserInterfaceMessage
+    {
+        public readonly ChemMasterSource ChemMasterSource;
+
+        public ChemMasterSetSourceMessage(ChemMasterSource source)
+        {
+            ChemMasterSource = source;
+        }
+    }
+    // End DeltaV - chemmaster sources
+
     [Serializable, NetSerializable]
     public sealed class ChemMasterSetPillTypeMessage : BoundUserInterfaceMessage
     {
@@ -82,6 +95,14 @@ namespace Content.Shared.Chemistry
             Label = label;
         }
     }
+
+    // Begin DeltaV - chemmaster sources
+    public enum ChemMasterSource
+    {
+        InternalBuffer,
+        InsertedContainer,
+    }
+    // End DeltaV - chemmaster sources
 
     public enum ChemMasterMode
     {
@@ -159,6 +180,7 @@ namespace Content.Shared.Chemistry
         public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
 
         public readonly ChemMasterMode Mode;
+        public readonly ChemMasterSource Source; // DeltaV - chemmaster sources
 
         public readonly FixedPoint2? BufferCurrentVolume;
         public readonly uint SelectedPillType;
@@ -170,7 +192,7 @@ namespace Content.Shared.Chemistry
         public ChemMasterBoundUserInterfaceState(
             ChemMasterMode mode, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel)
+            uint selectedPillType, uint pillDosageLimit, bool updateLabel, ChemMasterSource source) // DeltaV - chemmaster sources
         {
             InputContainerInfo = inputContainerInfo;
             OutputContainerInfo = outputContainerInfo;
@@ -180,6 +202,7 @@ namespace Content.Shared.Chemistry
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
+            Source = source; // DeltaV - chemmaster sources
         }
     }
 

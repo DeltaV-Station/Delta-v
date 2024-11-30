@@ -47,6 +47,13 @@ namespace Content.Client.Chemistry.UI
                 new ChemMasterOutputToBottleMessage(
                     (uint) _window.BottleDosage.Value, _window.LabelLine));
 
+            // Begin DeltaV - chemmaster sources
+            _window.SourceBufferButton.OnPressed += _ => SendMessage(
+                new ChemMasterSetSourceMessage(ChemMasterSource.InternalBuffer));
+            _window.SourceInsertedButton.OnPressed += _ => SendMessage(
+                new ChemMasterSetSourceMessage(ChemMasterSource.InsertedContainer));
+            // End DeltaV - chemmaster sources
+
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {
                 var pillType = i;
