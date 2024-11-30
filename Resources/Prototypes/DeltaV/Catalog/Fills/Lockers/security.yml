@@ -86,9 +86,8 @@
   - type: StorageFill
     contents:
     - id: WeaponLauncherRocket
-      amount: 1
     - id: CartridgeRocket
-      amount: 1
+      prob: 0.2
 
 - type: entity
   parent: GunSafe
@@ -98,4 +97,4 @@
   - type: StorageFill
     contents:
     - id: WeaponBeamDevastator
-      amount: 1
+ 
