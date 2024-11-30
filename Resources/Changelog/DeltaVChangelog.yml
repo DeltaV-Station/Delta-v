@@ -1,63 +1,4 @@
 ﻿Entries:
-- author: leonardo-dabepis
-  changes:
-  - message: Made HCV cocktail less immediately lethal (damnation!!!)
-    type: Tweak
-  id: 217
-  time: '2024-01-31T10:34:16.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Shoukou has received the cryopods.
-    type: Tweak
-  id: 218
-  time: '2024-01-31T15:34:32.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Prisoners can now spawn from a special cryopod that can be put in security,
-      instead of magically appearing in a cell.
-    type: Tweak
-  id: 219
-  time: '2024-01-31T22:02:05.0000000+00:00'
-- author: DangerRevolution
-  changes:
-  - message: Added sprites for Syndicate Listener's Headsets
-    type: Add
-  id: 220
-  time: '2024-02-01T18:29:24.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: a new pest from beyond the noosphere!
-    type: Add
-  id: 221
-  time: '2024-02-01T18:32:28.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: An alternative wagging tail for felinids.
-    type: Add
-  id: 222
-  time: '2024-02-01T18:32:54.0000000+00:00'
-- author: ODJ
-  changes:
-  - message: Moth's now take less heat dmg.
-    type: Tweak
-  - message: You now move a little faster when hurt than previously
-    type: Tweak
-  id: 223
-  time: '2024-02-01T18:34:18.0000000+00:00'
-- author: Rose and Unicorn On LSD
-  changes:
-  - message: Added Submarine Station. A new map with a heavy emphasis on the medical
-      dept. Features also include a full zoo, park with an ice rink, and some sort
-      of experiment-gone-bad deep within the epistemics labs.
-    type: Add
-  id: 224
-  time: '2024-02-01T19:30:23.0000000+00:00'
-- author: UnicornOnLSD
-  changes:
-  - message: Submarine station has received adjustments after feedback from HR
-    type: Tweak
-  id: 225
-  time: '2024-02-03T06:50:49.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Updated Edge Station.
@@ -3781,3 +3722,74 @@
   id: 716
   time: '2024-11-29T06:35:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2313
+- author: DisposableCrewmember42
+  changes:
+  - message: NanoTrasen has established business relations with HydroCo! You can now
+      order powdered milk and juice via your Logistics department and bet on the growth
+      of the HYD stock.
+    type: Add
+  id: 717
+  time: '2024-11-29T09:51:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2210
+- author: Stop-Signs
+  changes:
+  - message: Meatspike will now take longer to construct
+    type: Tweak
+  id: 718
+  time: '2024-11-29T17:08:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2319
+- author: CheddaCheez
+  changes:
+  - message: Made grilled cheese, scrambled eggs, and buttered baked corn recipes
+      use less butter. Grilled cheese and scrambled eggs are more efficiently nutritious,
+      and scrambled eggs use one less egg.
+    type: Tweak
+  id: 719
+  time: '2024-11-29T19:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2321
+- author: Stop-Signs
+  changes:
+  - message: Added the new Beam Cannon for Epi to research.
+    type: Add
+  - message: The Cage Recharger can now charge lasers.
+    type: Tweak
+  id: 720
+  time: '2024-11-29T20:45:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2231
+- author: Radezolid
+  changes:
+  - message: The tools module now comes with a gas analyzer installed.
+    type: Tweak
+  id: 721
+  time: '2024-11-30T06:08:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2324
+- author: Kr8art
+  changes:
+  - message: Increased the healing values of Aloxadone from 3 Heat, 3 Shock and 1
+      Caustic per 0.5u to 5 Heat, 5 Shock, 5 Cold and 2 Caustic per 0.5u
+    type: Tweak
+  id: 722
+  time: '2024-11-30T06:54:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2318
+- author: Colin-Tel
+  changes:
+  - message: Added AI and reconfigured cameras on Micro station.
+    type: Add
+  id: 723
+  time: '2024-11-30T16:27:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2181
+- author: Velcroboy
+  changes:
+  - message: Changed Arena medbay layout
+    type: Tweak
+  id: 724
+  time: '2024-11-30T16:27:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2138
+- author: Velcroboy
+  changes:
+  - message: Hammurabi's medical is SOP compliant, Roller Coaster is fixed, Rapid
+      Transit has been installed in engineering
+    type: Tweak
+  id: 725
+  time: '2024-11-30T16:28:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2311
