@@ -9,7 +9,7 @@ public sealed partial class BorgModuleControl : PanelContainer
 {
     public Action? RemoveButtonPressed;
 
-    public BorgModuleControl(EntityUid entity, IEntityManager entityManager, bool canRemove)
+    public BorgModuleControl(EntityUid entity, IEntityManager entityManager)
     {
         RobustXamlLoader.Load(this);
 
@@ -20,7 +20,6 @@ public sealed partial class BorgModuleControl : PanelContainer
         {
             RemoveButtonPressed?.Invoke();
         };
-        RemoveButton.Visible = canRemove;
     }
 }
 

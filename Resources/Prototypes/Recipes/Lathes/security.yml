@@ -605,15 +605,6 @@
 
 - type: latheRecipe
   parent: BaseWeaponRecipe
-  id: WeaponFlareGunSecurity
-  result: WeaponFlareGunSecurity
-  completetime: 6
-  materials:
-    Plastic: 100
-    Steel: 400
-
-- type: latheRecipe
-  parent: BaseWeaponRecipe
   id: WeaponDisabler
   result: WeaponDisabler
   completetime: 6
@@ -666,13 +657,14 @@
     Plastic: 100
     Glass: 20
 
-- type: latheRecipe
-  id: PortableRecharger
-  result: PortableRecharger
-  completetime: 15
-  materials:
-    Steel: 2000
-    Uranium: 2000
-    Plastic: 1000
-    Plasma: 500
-    Glass: 500
+# DeltaV: removed, idk why
+#- type: latheRecipe
+#  id: PortableRecharger
+#  result: PortableRecharger
+#  completetime: 15
+#  materials:
+#    Steel: 2000
+#    Uranium: 2000
+#    Plastic: 1000
+#    Plasma: 500
+#    Glass: 500

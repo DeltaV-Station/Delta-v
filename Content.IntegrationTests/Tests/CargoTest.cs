@@ -101,7 +101,6 @@ public sealed class CargoTest
     [Test]
     public async Task NoStaticPriceAndStackPrice()
     {
-        return; // DeltaV: Disable this stupid test its 100% false positives
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 

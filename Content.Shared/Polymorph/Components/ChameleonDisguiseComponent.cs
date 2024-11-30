@@ -1,4 +1,3 @@
-using Content.Shared.Polymorph.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -8,8 +7,7 @@ namespace Content.Shared.Polymorph.Components;
 /// Component added to disguise entities.
 /// Used by client to copy over appearance from the disguise's source entity.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedChameleonProjectorSystem))]
-[AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class ChameleonDisguiseComponent : Component
 {
     /// <summary>

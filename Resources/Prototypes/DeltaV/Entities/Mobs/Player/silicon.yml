@@ -1,12 +1,16 @@
+
 - type: entity
   id: PlayerBorgMedical
   parent: BorgChassisMedical
-  suffix: Battery
+  suffix: Diagnosis, Treatment
   components:
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_module:
+      - BorgModuleDiagnosis
+      - BorgModuleTreatment
   - type: ItemSlots
     slots:
       cell_slot:
@@ -18,12 +22,16 @@
 - type: entity
   parent: BorgChassisSecurity
   id: PlayerBorgSecurity
-  suffix: Battery
+  suffix: Peacekeeper, Patrol, Bastion
   components:
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
+      borg_module:
+      - BorgModuleSecurityPeacekeeper
+      - BorgModuleSecurityPatrol
+      - BorgModuleSecurityBastion
   - type: ItemSlots
     slots:
       cell_slot:

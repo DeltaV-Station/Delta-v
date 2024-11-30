@@ -124,10 +124,6 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                 continue;
             }
 
-            var targetEv = new GetFlashEffectTargetEvent(ent);
-            RaiseLocalEvent(ent, ref targetEv);
-            ent = targetEv.Target;
-
             EnsureComp<ColorFlashEffectComponent>(ent, out comp);
             comp.NetSyncEnabled = false;
             comp.Color = sprite.Color;
@@ -136,9 +132,3 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         }
     }
 }
-
-/// <summary>
-/// Raised on an entity to change the target for a color flash effect.
-/// </summary>
-[ByRefEvent]
-public record struct GetFlashEffectTargetEvent(EntityUid Target);

@@ -22,9 +22,6 @@
   - Justice
   - Clerk
   - Maintenance
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ClerkGear
@@ -37,8 +34,5 @@
     #innerClothingSkirt: ClothingUniformJumpskirtClerk
     #satchel: ClothingBackpackSatchelFilled
     #duffelbag: ClothingBackpackDuffelFilled
-  storage:
-    back:
-    - BookSpaceLaw
 
 

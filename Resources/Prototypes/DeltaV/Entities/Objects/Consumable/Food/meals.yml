@@ -14,12 +14,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 3
+          Quantity: 2
   - type: FoodSequenceElement # unlimited power
     entries:
       Burger: GrilledCheese
