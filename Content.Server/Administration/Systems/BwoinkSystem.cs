@@ -11,6 +11,7 @@ using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
+using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -44,6 +45,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IAfkManager _afkManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
         [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
@@ -703,6 +705,14 @@ namespace Content.Server.Administration.Systems
 
                 if (_config.GetCVar(CCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.RoleName}\\][/bold] ";
+            }
+
+            if (!bwoinkParams.FromWebhook
+                && _config.GetCVar(CCVars.UseAdminOOCColorInBwoinks)
+                && bwoinkParams.SenderAdmin is not null)
+            {
+                var prefs = _preferencesManager.GetPreferences(bwoinkParams.SenderId);
+                adminColor = prefs.AdminOOCColor.ToHex();
             }
 
             // If role color is enabled and exists, use it, otherwise use the discord reply color

@@ -163,6 +163,13 @@ public sealed partial class CCVars
         CVarDef.Create("ban.hardware_ids", true, CVar.SERVERONLY);
 
     /// <summary>
+    ///     Use the admin's Admin OOC color in bwoinks.
+    ///     If either the ooc color or this is not set, uses the admin.admin_bwoink_color value.
+    /// </summary>
+    public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
+        CVarDef.Create("admin.bwoink_use_admin_ooc_color", false, CVar.SERVERONLY);
+
+    /// <summary>
     ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
     ///     Overrides DiscordReplyColor and AdminBwoinkColor.
     /// </summary>
