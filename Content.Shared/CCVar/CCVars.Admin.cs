@@ -177,8 +177,7 @@ public sealed partial class CCVars
         CVarDef.Create("admin.use_discord_role_color", false, CVar.SERVERONLY);
 
     /// <summary>
-    ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
-    ///     Overrides DiscordReplyColor and AdminBwoinkColor.
+    ///     If an admin replies to users from discord, should it use their discord role name? (if applicable)
     /// </summary>
     public static readonly CVarDef<bool> UseDiscordRoleName =
         CVarDef.Create("admin.use_discord_role_name", false, CVar.SERVERONLY);
