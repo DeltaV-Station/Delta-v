@@ -37,6 +37,7 @@ public sealed class StationSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] public readonly GameTicker GameTicker = default!; // DeltaV
 
     private ISawmill _sawmill = default!;
 
@@ -177,8 +178,9 @@ public sealed class StationSystem : EntitySystem
                 if (Resolve(station, ref captainStateComponent, false))
                 {
                     captainStateComponent.HasCaptain = false;
+                    captainStateComponent.TimeSinceCaptain = GameTicker.RoundDuration();
                     captainStateComponent.CaptainDeparted = true;
-                    captainStateComponent.UnlockAAOverride = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
+                    captainStateComponent.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
                     captainStateComponent.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
                 }
             }

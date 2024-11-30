@@ -20,6 +20,12 @@ public sealed partial class CaptainStateComponent : Component
     public bool HasCaptain = false;
 
     /// <summary>
+    /// Holds the round time of the last time a captain was present if one is not present currently
+    /// </summary>
+    [DataField]
+    public TimeSpan TimeSinceCaptain = TimeSpan.Zero;
+
+    /// <summary>
     /// How long with no captain before an ACO is requested
     /// </summary>
     [DataField]
@@ -29,28 +35,19 @@ public sealed partial class CaptainStateComponent : Component
     /// Set after ACO has been requested to avoid duplicate calls
     /// </summary>
     [DataField]
-    public bool ACORequestHandled = false;
+    public bool IsACORequestActive = false;
+
+    /// <summary>
+    /// Used to denote that AA should be unlocked after the delay
+    /// </summary>
+    [DataField]
+    public bool UnlockAA = true;
 
     /// <summary>
     /// How long after ACO is requested the spare id cabinet will be unlocked if applicable
     /// </summary>
     [DataField]
     public TimeSpan UnlockAADelay = TimeSpan.FromMinutes(5);
-
-    /// <summary>
-    /// Maximum player count that AA should be unlocked for ACO
-    /// </summary>
-    /// <remarks>
-    /// If there are too many players it's likely that there is a sufficient command staffing to render automatic aa approval redundant.
-    /// </remarks>
-    [DataField]
-    public int UnlockAAPlayerThreshold = 40;
-
-    /// <summary>
-    /// Used to override other conditions and AA will be unlocked after the delay
-    /// </summary>
-    [DataField]
-    public bool? UnlockAAOverride = null;
 
     /// <summary>
     /// Used to denote that a captain has left and lost job (i.e. cryo) as apposed to no captain since round start
