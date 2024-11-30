@@ -6874,6 +6874,8 @@ entities:
   entities:
   - uid: 12154
     components:
+    - type: MetaData
+      name: APC (AI)
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 63.5,-14.5
@@ -57206,33 +57208,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 54.5,-12.5
       parent: 2
-  - uid: 12323
-    components:
-    - type: Transform
-      pos: 63.5,-9.5
-      parent: 2
-  - uid: 12324
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 63.5,-19.5
-      parent: 2
   - uid: 12325
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 61.5,-21.5
-      parent: 2
-  - uid: 12326
-    components:
-    - type: Transform
-      pos: 63.5,-16.5
-      parent: 2
-  - uid: 12327
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 63.5,-12.5
       parent: 2
   - uid: 12328
     components:
@@ -62363,6 +62343,8 @@ entities:
       parent: 2
   - uid: 12134
     components:
+    - type: MetaData
+      name: SMES (AI)
     - type: Transform
       pos: 64.5,-15.5
       parent: 2
@@ -63949,6 +63931,8 @@ entities:
       parent: 2
   - uid: 12148
     components:
+    - type: MetaData
+      name: substation (AI)
     - type: Transform
       pos: 64.5,-13.5
       parent: 2
