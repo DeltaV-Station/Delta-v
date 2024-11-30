@@ -1,0 +1,217 @@
+- type: entity
+  parent: Bible
+  id: Quran
+  suffix: "Bible"
+  name: qur'an
+  description: "Religious text of Space Islam with a decorated cover."
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chapel/quran.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Specific/Chapel/quran.rsi
+
+- type: entity
+  parent: Bible
+  id: Torah
+  suffix: "Bible"
+  name: torah
+  description: "A Torah scroll, hand written and carefully crafted for practicing Judaism."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/torah.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/torah.rsi
+
+- type: entity
+  parent: Bible
+  id: Tripitaka
+  suffix: "Bible"
+  name: tripitaka
+  description: "This book is an ancient collection of Buddhist sacred scriptures."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+
+- type: entity
+  parent: Bible
+  id: BibleSatanic
+  suffix: "Bible"
+  name: satanic bible
+  description: "The worship of Lucifer, the fallen angel. It seems stained..."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Chapel/satanicbible.rsi
+  - type: Item
+    sprite: DeltaV/Objects/Specific/Chapel/satanicbible.rsi
+
+- type: entity
+  parent: Bible
+  id: Bibble
+  suffix: "Bible"
+  name: holly bibble
+  description: "YOU QUESTION THE WORDS OF THE MIGHTY JIMMY?!"
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Specific/Chapel/bible.rsi
+
+- type: entity
+  parent: Bible
+  id: BibleHymnsHonkmother
+  suffix: "Bible"
+  name: hymns of the honkmother
+  description: "The pages are gilded with bananium, the cover as slippery as soap, and yet it seems masterfully crafted."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/hymnshonkmother.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/hymnshonkmother.rsi
+    - type: Bible
+      healSound: "/Audio/Items/bikehorn.ogg"
+    - type: Slippery # Evil
+    - type: StepTrigger
+    - type: CollisionWake
+      enabled: false
+    - type: Physics
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures:
+        slips:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.3,0.4,0.3"
+          hard: false
+          layer:
+            - SlipLayer
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.3,0.4,0.3"
+          density: 5
+          mask:
+          - ItemMask
+
+- type: entity
+  parent: Bible
+  id: BibleVowsSilentfather
+  suffix: "Bible"
+  name: vows of the silentfather
+  description: "No color resides in the book besides black, gray, and white. The pages are deafeningly silent..."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/vowssilentfather.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/vowssilentfather.rsi
+      effects:
+      - !type:GenericStatusEffect
+        key: Muted
+
+- type: entity
+  parent: Bible
+  id: BiblePride
+  suffix: "Bible"
+  name: pride bible
+  description: "Be gay! Do a crime!"
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/pridebible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/pridebible.rsi
+
+- type: entity
+  parent: Bible
+  suffix: "Bible"
+  id: BibleReddit
+  name: space reddit
+  description: "True Atheism in text form... erm aktually-"
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/redditbible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/redditbible.rsi
+    - type: Bible
+      failChance: 1 # What god is going to heal them? :trollface:
+
+- type: entity
+  parent: Bible
+  suffix: "Bible"
+  id: BibleNanotrasen
+  name: nanotrasen manual
+  description: "Certified Awarded Nanotrasen Manual. Some employees like to keep these for religious use, considering it a bible."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/nanotrasenbible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/nanotrasenbible.rsi
+    - type: GuideHelp
+      guides:
+      # - SpaceLaw
+      # - StandardOperatingProcedure
+      - AlertProcedure
+
+- type: entity
+  parent: Bible
+  suffix: "Bible"
+  id: BibleSyndicate
+  name: syndicate manual
+  description: "Not so Awarded Syndicate Manual. Some agents like to keep these for religious use, considering it a bible."
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/syndicatebible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/syndicatebible.rsi
+
+- type: entity
+  parent: Bible
+  suffix: "Bible"
+  id: BibleNecronomiconDiscount
+  name: discount necronomicon
+  description: "A secondhand cheap knockoff Necronomicon..."
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Chapel/necronomicon.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Specific/Chapel/necronomicon.rsi
+    - type: Summonable
+      specialitem: false
+    - type: Bible
+      failChance: 1 
+
+- type: entity
+  parent: Bible
+  suffix: "Bible"
+  id: BibleGilded
+  name: religious book
+  description: "A religious text in a white gilded book"
+  components:
+    - type: Sprite
+      sprite: DeltaV/Objects/Specific/Chapel/gildedbible.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: DeltaV/Objects/Specific/Chapel/gildedbible.rsi
+
+

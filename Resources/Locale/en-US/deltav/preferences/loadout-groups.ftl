@@ -71,6 +71,9 @@ loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
 
+loadout-group-chaplain-shoes = Chaplain shoes
+loadout-group-bibles = Bibles
+
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
 
