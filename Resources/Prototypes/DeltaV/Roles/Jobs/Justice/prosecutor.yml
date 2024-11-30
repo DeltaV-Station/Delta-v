@@ -17,6 +17,9 @@
   - Prosecutor
   - Justice
   - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ProsecutorGear
@@ -33,5 +36,9 @@
     #innerClothingSkirt: ClothingUniformJumpskirtProsecutor
     #satchel: ClothingBackpackSatchelFilled
     #duffelbag: ClothingBackpackDuffelFilled
+  storage:
+    back:
+    - RubberStampProsec
+    - BookSpaceLaw
 
 

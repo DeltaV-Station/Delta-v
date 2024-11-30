@@ -20,3 +20,27 @@
       color: "#2c5491"
   - type: Paper
     content: book-text-fishops
+
+- type: entity
+  parent: BookBase
+  id: BookVulpFAQ
+  name: Vulpkanin 101
+  suffix: library salvage
+  description: You seriously didn't purchase a "For Dummies" book in 2425?
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#c836aa"
+    - state: decor_spine
+      color: "#961cc8"
+    - state: detail_bookmark
+      color: "#eee039"
+    - state: icon_kiss
+      sprite: DeltaV/Objects/Misc/books.rsi
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: Paper
+    content: book-text-vulpkanin
