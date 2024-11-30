@@ -32357,11 +32357,6 @@ entities:
     - type: Transform
       pos: -37.5,21.5
       parent: 2
-  - uid: 9295
-    components:
-    - type: Transform
-      pos: 7.5,6.5
-      parent: 2
   - uid: 11655
     components:
     - type: Transform
@@ -32371,6 +32366,11 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-10.5
+      parent: 2
+  - uid: 12446
+    components:
+    - type: Transform
+      pos: 6.5,4.5
       parent: 2
 - proto: DonkpocketBoxSpawner
   entities:
@@ -33470,13 +33470,11 @@ entities:
       name: HOS office
 - proto: FaxMachineCaptain
   entities:
-  - uid: 4641
+  - uid: 5255
     components:
     - type: Transform
-      pos: 7.5,4.5
+      pos: 7.5,6.5
       parent: 2
-    - type: FaxMachine
-      name: captain
 - proto: filingCabinet
   entities:
   - uid: 2891
@@ -60890,11 +60888,6 @@ entities:
     - type: Transform
       pos: 36.5,15.5
       parent: 2
-  - uid: 11486
-    components:
-    - type: Transform
-      pos: 35.5,8.5
-      parent: 2
   - uid: 11487
     components:
     - type: Transform
@@ -61059,6 +61052,11 @@ entities:
     components:
     - type: Transform
       pos: 7.5,9.5
+      parent: 2
+  - uid: 12449
+    components:
+    - type: Transform
+      pos: 34.5,8.5
       parent: 2
 - proto: RandomVending
   entities:
@@ -64095,6 +64093,11 @@ entities:
     - type: Transform
       pos: -45.5,-21.5
       parent: 2
+  - uid: 4638
+    components:
+    - type: Transform
+      pos: 37.5,19.5
+      parent: 2
   - uid: 12157
     components:
     - type: Transform
@@ -64750,10 +64753,10 @@ entities:
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
-  - uid: 288
+  - uid: 12447
     components:
     - type: Transform
-      pos: 7.5,6.5
+      pos: 6.5,4.5
       parent: 2
 - proto: SpawnMobMcGriff
   entities:
@@ -65904,6 +65907,11 @@ entities:
     - type: Transform
       pos: 29.5,-16.5
       parent: 2
+  - uid: 4641
+    components:
+    - type: Transform
+      pos: 35.5,8.5
+      parent: 2
   - uid: 5248
     components:
     - type: Transform
@@ -66574,6 +66582,13 @@ entities:
       - SurveillanceCameraMedical
       nameSet: True
       id: treatment room
+- proto: SurveillanceCameraRouterCommand
+  entities:
+  - uid: 9295
+    components:
+    - type: Transform
+      pos: 7.5,4.5
+      parent: 2
 - proto: SurveillanceCameraRouterEngineering
   entities:
   - uid: 4222
@@ -67330,6 +67345,11 @@ entities:
     - type: Transform
       pos: 4.5,19.5
       parent: 2
+  - uid: 288
+    components:
+    - type: Transform
+      pos: 7.5,6.5
+      parent: 2
   - uid: 378
     components:
     - type: Transform
@@ -67486,11 +67506,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,29.5
-      parent: 2
-  - uid: 4638
-    components:
-    - type: Transform
-      pos: 7.5,4.5
       parent: 2
 - proto: TableCounterWood
   entities:
@@ -77236,11 +77251,6 @@ entities:
     - type: Transform
       pos: -24.5,-12.5
       parent: 2
-  - uid: 5255
-    components:
-    - type: Transform
-      pos: 40.5,15.5
-      parent: 2
   - uid: 5256
     components:
     - type: Transform
@@ -77251,10 +77261,20 @@ entities:
     - type: Transform
       pos: -12.5,47.5
       parent: 2
+  - uid: 11486
+    components:
+    - type: Transform
+      pos: 40.5,15.5
+      parent: 2
   - uid: 11843
     components:
     - type: Transform
       pos: -2.5,-22.5
+      parent: 2
+  - uid: 12448
+    components:
+    - type: Transform
+      pos: 44.5,17.5
       parent: 2
 - proto: WetFloorSign
   entities:
