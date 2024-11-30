@@ -88,13 +88,21 @@
   - type: Crayon
     color: Red
     selectableColor: true
-    capacity: 30
+    capacity: 1000000 # Delta V - Let there be art!
   - type: Tag
     tags:
     - Write
     - Crayon
     - Recyclable
     - Trash
+  - type: SolutionContainerManager # Delta V - So they can't accidentally eat it
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 99998
+        - ReagentId: MindbreakerToxin
+          Quantity: 2
 
 - type: entity
   parent: Crayon
