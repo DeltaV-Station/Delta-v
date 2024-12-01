@@ -292,6 +292,8 @@
     - AllAccessBorg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+  - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
+    law: ObeyAI
   - type: ShowJobIcons
   - type: InteractionPopup
     interactSuccessSound:
