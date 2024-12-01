@@ -4,7 +4,17 @@
   id: LootSpawnerSecuritySuperweapon
   parent: MarkerBase
   components:
-    - type: RandomSpawner
-      prototypes:
-        - WeaponBeamDevastator
-        - WeaponLauncherRocket
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSuperweaponTable
+
+#Table
+- type: entityTable
+  id: RandomSuperweaponTable
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      children:
+      - id: WeaponLauncherRocket
+      - id: CartridgeRocket
+    - id: WeaponBeamDevastator
