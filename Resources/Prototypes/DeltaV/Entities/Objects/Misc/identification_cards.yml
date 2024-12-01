@@ -245,8 +245,12 @@
   id: RoboticistIDCard
   name: roboticist ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-roboticist
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: Roboticist
 
 # Clown
 
