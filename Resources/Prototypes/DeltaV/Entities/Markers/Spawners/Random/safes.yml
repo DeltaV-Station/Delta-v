@@ -59,7 +59,8 @@
   id: SuperweaponSafeSpawner
   suffix: Superweapon
   components:
-  - type: RandomSpawner
-    prototypes:
-      - GunSafeBeamDevastator
-      - GunSafeRocketLauncher
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeBeamDevastator
+      - id: GunSafeRocketLauncher
