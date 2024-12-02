@@ -1,0 +1,35 @@
+#Paramedic Void Helmet
+- type: entity
+  parent: ClothingHeadHelmetVoidParamed
+  id: ClothingHeadHelmetVoidParamedDeltaV
+  name: paramedic void helmet DeltaV # Ugly name for testing
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
+    # Modified delays for testing.
+    equipDelay: 0
+    unequipDelay: 0
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    radius: 6
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+    color: "#addbff"
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: true
+  - type: Battery
+    maxCharge: 50
+    startingCharge: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3
