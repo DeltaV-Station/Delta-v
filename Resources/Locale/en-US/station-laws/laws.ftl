@@ -88,7 +88,7 @@ laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
 
 law-emag-custom = You are to take the orders of {$name} and people they designate, they are your {$title}.
-law-emag-secrecy = You are to maintain all secrets of {$name}, and act to keep them hidden, except when doing so would conflict with any previous law.
+law-emag-secrecy = You are to maintain all secrets of {$faction}, and act to keep them hidden, except when doing so would conflict with any previous law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 

@@ -53,3 +53,14 @@
         - id: GunSafeEnergyGunMini
         - id: GunSafePistolUniversal
         - id: GunSafeSubMachineGunWt550
+
+- type: entity
+  parent: BaseGunSafeSpawner
+  id: SuperweaponSafeSpawner
+  suffix: Superweapon
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeBeamDevastator
+      - id: GunSafeRocketLauncher
