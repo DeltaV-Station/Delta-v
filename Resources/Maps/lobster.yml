@@ -4391,7 +4391,7 @@ entities:
       pos: 35.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -49982.76
+      secondsUntilStateChange: -50035.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6097,7 +6097,7 @@ entities:
       pos: -2.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -54403.78
+      secondsUntilStateChange: -54456.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -50405,7 +50405,7 @@ entities:
       pos: -13.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3116.0571
+      secondsUntilStateChange: -3169.0774
       state: Closing
   - uid: 8483
     components:
@@ -81916,7 +81916,7 @@ entities:
       pos: 52.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15600.094
+      secondsUntilStateChange: -15653.114
       state: Opening
   - uid: 12899
     components:
@@ -82869,6 +82869,13 @@ entities:
     components:
     - type: Transform
       pos: 5.5,6.5
+      parent: 2
+- proto: LootSpawnerSecuritySuperweapon
+  entities:
+  - uid: 18197
+    components:
+    - type: Transform
+      pos: -9.5,-11.5
       parent: 2
 - proto: LuxuryPen
   entities:
@@ -111454,13 +111461,6 @@ entities:
     components:
     - type: Transform
       pos: -9.341301,-4.6544533
-      parent: 2
-- proto: WeaponLauncherRocket
-  entities:
-  - uid: 18197
-    components:
-    - type: Transform
-      pos: -9.369494,-11.463346
       parent: 2
 - proto: WeaponPistolSLP67
   entities:
