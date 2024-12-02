@@ -1,10 +1,9 @@
 # threats called in by ninja hacking comms console
 - type: weightedRandom
-  id: NinjaThreats # DeltaV - Added loneop to this and adjusted weights
+  id: NinjaThreats # DeltaV weights adjusted
   weights:
     Dragon: 5
     Revenant: 1
-    Loneop: 4
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -15,8 +14,3 @@
   id: Revenant
   announcement: terror-revenant
   rule: RevenantSpawn
-
-- type: ninjaHackingThreat # DeltaV - ninjas can call loneops
-  id: Loneop
-  announcement: terror-loneop
-  rule: LoneOpsSpawn

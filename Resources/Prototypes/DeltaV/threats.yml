@@ -1,0 +1,10 @@
+# threats called in by ninja hacking comms console
+- type: weightedRandom
+  id: NinjaThreatsDeltaV
+  weights:
+    Loneop: 4
+
+- type: ninjaHackingThreat
+  id: Loneop
+  announcement: terror-loneop
+  rule: LoneOpsSpawn
