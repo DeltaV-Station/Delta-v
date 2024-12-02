@@ -1,43 +1,4 @@
 ﻿Entries:
-- author: UnicornOnLSD
-  changes:
-  - message: Submarine got better telecomms, a revamped psych. ward and more !
-    type: Tweak
-  id: 230
-  time: '2024-02-07T02:32:33.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed PSB not being edible by Reptilian
-    type: Fix
-  id: 231
-  time: '2024-02-08T15:38:11.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Fixed martial artist access
-    type: Fix
-  id: 232
-  time: '2024-02-08T15:39:24.0000000+00:00'
-- author: IamVelcroboy
-  changes:
-  - message: 'More improvements all around to Submarine Station as well as the addition
-      of medical cyborgs. '
-    type: Tweak
-  id: 233
-  time: '2024-02-08T19:21:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed missing Mantis stamp sprite.
-    type: Fix
-  id: 234
-  time: '2024-02-09T10:47:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: .38 Special is now in the ammo techfab.
-    type: Tweak
-  - message: Fixed .38 Special Mindbreaker not breaking minds.
-    type: Fix
-  id: 235
-  time: '2024-02-10T23:17:28.0000000+00:00'
 - author: FluffiestFloof
   changes:
   - message: Fixed glimmer mite being extremely loud for some.
@@ -3797,3 +3758,47 @@
   id: 729
   time: '2024-12-01T13:28:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2329
+- author: deltanedas
+  changes:
+  - message: Fixed Robotics access not being listed in ID card consoles.
+    type: Fix
+  id: 730
+  time: '2024-12-01T22:04:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2335
+- author: deltanedas, Ilya246
+  changes:
+  - message: Borgs have a new law that makes them obey the AI.
+    type: Add
+  id: 731
+  time: '2024-12-01T22:48:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2337
+- author: Ilya246
+  changes:
+  - message: AI's default lawset is now NTDefault. This should make it more station-oriented.
+    type: Tweak
+  - message: 'tweak: AI is now ion-stormable.'
+    type: Tweak
+  id: 732
+  time: '2024-12-01T22:48:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2338
+- author: Kr8art
+  changes:
+  - message: Mercenaries and marines can now find a fitting outfit in the Clothesmate!
+    type: Add
+  id: 733
+  time: '2024-12-02T14:33:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2306
+- author: Foxmin
+  changes:
+  - message: New DeltaV specific names for Station AIs, collect all 62!
+    type: Add
+  id: 734
+  time: '2024-12-02T19:43:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2345
+- author: Colin_Tel, Fox, deltanedas, DeltaV Admin Team
+  changes:
+  - message: Added silicon rules to the rules list.
+    type: Add
+  id: 735
+  time: '2024-12-02T19:46:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2344
