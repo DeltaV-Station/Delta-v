@@ -38,7 +38,7 @@ public sealed class CaptainStateSystem : EntitySystem
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (captainState.IsACORequestActive == false)
             return;
-        _chat.DispatchStationAnnouncement(uid, captainState.RevokeACOMessage, colorOverride: Color.Gold);
+        _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.RevokeACOMessage), colorOverride: Color.Gold);
         captainState.IsACORequestActive = false;
     }
 
@@ -52,13 +52,13 @@ public sealed class CaptainStateSystem : EntitySystem
         if (CheckACORequest(captainState, currentTime))
         {
             var message = captainState.UnlockAA ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
-            _chat.DispatchStationAnnouncement(uid, Loc.GetString(message), colorOverride: Color.Gold);
+            _chat.DispatchStationAnnouncement(uid, Loc.GetString(message, ("minutes", captainState.UnlockAADelay.TotalMinutes)), colorOverride: Color.Gold);
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
         {
             captainState.UnlockAA = false; // Once unlocked don't unlock again
-            _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Gold);
+            _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Red);
 
             // Extend access of spare id lockers to command so they can access emergency AA
             _entityManager.System<AccessReaderSystem>().ExpandAccessForAllReaders(captainState.EmergencyAAAccess, captainState.ACOAccess);

@@ -179,7 +179,6 @@ public sealed class StationSystem : EntitySystem
                 {
                     captainStateComponent.HasCaptain = false;
                     captainStateComponent.TimeSinceCaptain = GameTicker.RoundDuration();
-                    captainStateComponent.CaptainDeparted = true;
                     captainStateComponent.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
                     captainStateComponent.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
                 }

@@ -86,4 +86,3 @@ public sealed partial class CaptainStateComponent : Component
     [DataField]
     public List<ProtoId<AccessLevelPrototype>> ACOAccess = new() { "Command" };
 }
-}
