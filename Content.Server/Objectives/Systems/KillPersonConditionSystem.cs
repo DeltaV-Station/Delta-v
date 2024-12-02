@@ -38,14 +38,17 @@ public sealed class KillPersonConditionSystem : EntitySystem
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
 
-    private void OnPersonAssigned(EntityUid uid, PickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(uid, args, _ => true);
+        AssignRandomTarget(ent, args, _ => true);
     }
 
-    private void OnHeadAssigned(EntityUid uid, PickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnHeadAssigned(Entity<PickRandomHeadComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(uid, args, mind => HasComp<CommandStaffComponent>(uid));
+        AssignRandomTarget(ent, args, mindId =>
+            TryComp<MindComponent>(mindId, out var mind) &&
+            mind.OwnedEntity is { } ownedEnt &&
+            HasComp<CommandStaffComponent>(ownedEnt));
     }
 
     private void AssignRandomTarget(EntityUid uid, ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)

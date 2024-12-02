@@ -71,6 +71,13 @@ loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
 
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-id = Roboticist PDA
+
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
 
@@ -92,6 +99,13 @@ loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
+
+loadout-group-security-gun = Security Sidearm
+loadout-group-revolver-gun = Security Revolver
+loadout-group-all-gun = Security Sidearm
+loadout-group-security-gun-ammo = Ammunition
+loadout-group-revolver-ammo = Ammunition
+loadout-group-all-ammo = Ammunition
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head

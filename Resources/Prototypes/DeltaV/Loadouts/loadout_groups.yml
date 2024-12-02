@@ -140,6 +140,77 @@
   loadouts:
   - MimeHead
 
+## Security Guns
+- type: loadoutGroup
+  id: SecurityFirearm
+  name: loadout-group-security-gun
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SecurityFirearmWeaponPistolPollock
+  - SecurityFirearmWeaponPistolSLP57
+  - SecurityFirearmWeaponPistolMk58
+  - SecurityFirearmWeaponDisabler
+
+- type: loadoutGroup
+  id: SecurityRevolverFirearm
+  name: loadout-group-revolver-gun
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SecurityRevolverInspector
+  - SecurityFirearmWeaponRevolverFitz
+  - SecurityRevolverWeaponRevolverLucky
+
+- type: loadoutGroup
+  id: SecurityFirearmAmmo
+  name: loadout-group-security-gun-ammo
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - SecurityFirearmMagazinePistol
+  - SecurityFirearmMagazinePistolRubber
+
+- type: loadoutGroup
+  id: SecurityRevolverAmmo
+  name: loadout-group-revolver-ammo
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - SecurityFirearmSpeedLoaderMagnumRubber
+  - SecurityFirearmSpeedLoaderMagnum
+  - SecurityFirearmSpeedLoaderSpecialRubber
+  - SecurityFirearmSpeedLoaderSpecial
+
+- type: loadoutGroup
+  id: SecurityAllFirearm
+  name: loadout-group-all-gun
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SecurityFirearmWeaponPistolPollock
+  - SecurityFirearmWeaponPistolSLP57
+  - SecurityFirearmWeaponPistolMk58
+  - SecurityFirearmWeaponDisabler
+  - SecurityRevolverInspector
+  - SecurityFirearmWeaponRevolverFitz
+  - SecurityRevolverWeaponRevolverLucky
+  - SecurityFirearmWeaponRevolverDeckard
+  - SecurityFirearmWeaponRevolverK38Master
+
+- type: loadoutGroup
+  id: SecurityAllAmmo
+  name: loadout-group-all-ammo
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - SecurityFirearmMagazinePistol
+  - SecurityFirearmMagazinePistolRubber
+  - SecurityFirearmSpeedLoaderMagnumRubber
+  - SecurityFirearmSpeedLoaderMagnum
+  - SecurityFirearmSpeedLoaderSpecialRubber
+  - SecurityFirearmSpeedLoaderSpecial
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
@@ -245,6 +316,56 @@
   loadouts:
   - ProsecutorOvercoat
 
+# Epistemics
+## Roboticist
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+  - ScientificBeret
+  - CardborgHelmet
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  loadouts:
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+  - RegularLabCoat
+  - ScienceLabCoat
+  - CardborgCostume
+
+- type: loadoutGroup
+  id: RoboticistGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
+
+- type: loadoutGroup
+  id: RoboticistShoes
+  name: loadout-group-roboticist-shoes
+  loadouts:
+  - BlackShoes
+  - RoboticsWinterBoots
+  - WhiteShoes
+  - ScienceWinterBoots
+
 # PDAs
 - type: loadoutGroup
   id: PassengerPDADelta
@@ -311,6 +432,12 @@
   - ClownPDA
   - JesterPDA
   - FoolPDA
+
+- type: loadoutGroup
+  id: RoboticistPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticistPDA
 
 # Misc
 - type: loadoutGroup

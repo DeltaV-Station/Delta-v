@@ -17,3 +17,13 @@
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/Posters/misc.rsi
     state: woodygotwood
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitMail
+  name: "Only You Can Prevent Expired Mail"
+  description: "A propaganda poster that subtly encourages crew to open their mail. Brought to you by the Ministries Aiding Interstellar Logistics (M.A.I.L.)"
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/Posters/mailposter.rsi
+    state: mailposter
