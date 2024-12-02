@@ -1,6 +1,7 @@
 using Content.Server.DeltaV.Station.Systems;
 using Content.Server.Station.Systems;
-using System.ComponentModel.DataAnnotations;
+using Content.Shared.Access;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Station.Components;
 
@@ -32,6 +33,24 @@ public sealed partial class CaptainStateComponent : Component
     public TimeSpan ACORequestDelay = TimeSpan.FromMinutes(15);
 
     /// <summary>
+    /// The message ID used for announcing the cancellation of ACO requests
+    /// </summary>
+    [DataField]
+    public string RevokeACOMessage = "captain-arrived-revoke-aco-announcement";
+
+    /// <summary>
+    /// The message ID for requesting an ACO vote when AA will be unlocked
+    /// </summary>
+    [DataField]
+    public string ACORequestWithAAMessage = "no-captain-request-aco-vote-with-aa-announcement";
+
+    /// <summary>
+    /// The message ID for requesting an ACO vote when AA will not be unlocked
+    /// </summary>
+    [DataField]
+    public string ACORequestNoAAMessage = "no-captain-request-aco-vote-announcement";
+
+    /// <summary>
     /// Set after ACO has been requested to avoid duplicate calls
     /// </summary>
     [DataField]
@@ -50,8 +69,21 @@ public sealed partial class CaptainStateComponent : Component
     public TimeSpan UnlockAADelay = TimeSpan.FromMinutes(5);
 
     /// <summary>
-    /// Used to denote that a captain has left and lost job (i.e. cryo) as apposed to no captain since round start
+    /// The message ID for announcing that AA has been unlocked for ACO
     /// </summary>
     [DataField]
-    public bool CaptainDeparted = false;
+    public string AAUnlockedMessage = "no-captain-aa-unlocked-announcement";
+
+    /// <summary>
+    /// The access level used to identify spare ID cabinets
+    /// </summary>
+    [DataField]
+    public List<ProtoId<AccessLevelPrototype>> EmergencyAAAccess = new() { "DV-SpareSafe" };
+
+    /// <summary>
+    /// The access level to grant to spare ID cabinets
+    /// </summary>
+    [DataField]
+    public List<ProtoId<AccessLevelPrototype>> ACOAccess = new() { "Command" };
+}
 }

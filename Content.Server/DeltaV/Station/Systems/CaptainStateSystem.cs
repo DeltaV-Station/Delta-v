@@ -2,9 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.DeltaV.Station.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
-using Content.Shared.Access;
 using Content.Shared.Access.Systems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -40,7 +38,7 @@ public sealed class CaptainStateSystem : EntitySystem
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (captainState.IsACORequestActive == false)
             return;
-        _chat.DispatchStationAnnouncement(uid, "captain-arrived-revoke-aco-announcement", colorOverride: Color.Gold);
+        _chat.DispatchStationAnnouncement(uid, captainState.RevokeACOMessage, colorOverride: Color.Gold);
         captainState.IsACORequestActive = false;
     }
 
@@ -53,19 +51,17 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         if (CheckACORequest(captainState, currentTime))
         {
-            var message = captainState.UnlockAA ? "no-captain-request-aco-vote-with-aa-announcement" : "no-captain-request-aco-vote-announcement";
+            var message = captainState.UnlockAA ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
             _chat.DispatchStationAnnouncement(uid, Loc.GetString(message), colorOverride: Color.Gold);
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
         {
             captainState.UnlockAA = false; // Once unlocked don't unlock again
-            _chat.DispatchStationAnnouncement(uid, Loc.GetString("no-captain-aa-unlocked-announcement"), colorOverride: Color.Gold);
+            _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Gold);
 
             // Extend access of spare id lockers to command so they can access emergency AA
-            var spareSafeAccess = new List<ProtoId<AccessLevelPrototype>> { "DV-SpareSafe" };
-            var commandAccess = new List<ProtoId<AccessLevelPrototype>> { "Command" };
-            _entityManager.System<AccessReaderSystem>().ExpandAccessForAllReaders(spareSafeAccess, commandAccess);
+            _entityManager.System<AccessReaderSystem>().ExpandAccessForAllReaders(captainState.EmergencyAAAccess, captainState.ACOAccess);
         }
     }
 
