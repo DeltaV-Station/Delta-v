@@ -1,8 +1,10 @@
 using Content.Server.Chat.Systems;
 using Content.Server.DeltaV.Station.Components;
-using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
+using Content.Shared.Access;
+using Content.Shared.Access.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -10,13 +12,14 @@ public sealed class CaptainStateSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] public readonly GameTicker GameTicker = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var currentTime = GameTicker.RoundDuration(); // Caching to reduce redundant calls
+        var currentTime = _gameTicker.RoundDuration(); // Caching to reduce redundant calls
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var uid, out var captainState))
         {
@@ -58,7 +61,11 @@ public sealed class CaptainStateSystem : EntitySystem
         {
             captainState.UnlockAA = false; // Once unlocked don't unlock again
             _chat.DispatchStationAnnouncement(uid, Loc.GetString("no-captain-aa-unlocked-announcement"), colorOverride: Color.Gold);
-            // TODO: Unlock AA
+
+            // Extend access of spare id lockers to command so they can access emergency AA
+            var spareSafeAccess = new List<ProtoId<AccessLevelPrototype>> { "DV-SpareSafe" };
+            var commandAccess = new List<ProtoId<AccessLevelPrototype>> { "Command" };
+            _entityManager.System<AccessReaderSystem>().ExpandAccessForAllReaders(spareSafeAccess, commandAccess);
         }
     }
 

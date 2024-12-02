@@ -328,6 +328,34 @@ public sealed class AccessReaderSystem : EntitySystem
         RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());
     }
 
+    // DeltaV Expanding access logic
+    /// <summary>
+    /// Extends access of readers accepted with the existing accesses to the new accesses.
+    /// </summary>
+    /// <param name="existingAcesss">The existing access levels used to identify matching readers.</param>
+    /// <param name="newAccess">The new access levels to add.</param>
+    /// <returns>List of affected Entities</returns>
+    /// <remarks>Access Readers with no access restrictions are unaffected to preserve thier status.</remarks>
+    public List<EntityUid> ExpandAccessForAllReaders(ICollection<ProtoId<AccessLevelPrototype>> existingAcesss, List<ProtoId<AccessLevelPrototype>> newAccess)
+    {
+        List<EntityUid> affected = new();
+        var query = EntityQueryEnumerator<AccessReaderComponent>();
+        while (query.MoveNext(out var uid, out var accessReader))
+        {
+            if (accessReader.AccessLists.Count == 0) // We need to exclude access readers with no restrictions or else all hallway doors will suddenly need the new access
+                continue;
+            if (!AreAccessTagsAllowed(existingAcesss, accessReader))
+                continue;
+            affected.Add(uid);
+            foreach (var access in newAccess)
+                accessReader.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>>() { access });
+            Dirty(uid, accessReader);
+            RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());
+        }
+        return affected;
+    }
+    // DeltaV End expanding access logic
+
     public bool FindAccessItemsInventory(EntityUid uid, out HashSet<EntityUid> items)
     {
         items = new();
