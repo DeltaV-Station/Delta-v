@@ -1,282 +1,4 @@
 ﻿Entries:
-- author: DangerRevolution and VMSolidus
-  changes:
-  - message: Rumours say that Syndicate Agents have cracked encoded communications!
-      Added the Syndicate Listening Post to the Syndicate's arsenal of espionage!
-    type: Add
-  id: 193
-  time: '2023-12-31T16:48:27.0000000+00:00'
-- author: VMSolidus and DangerRevolution
-  changes:
-  - message: The Listening Outpost has received several tweaks and balance changes.
-      It should spawn less often now.
-    type: Tweak
-  id: 194
-  time: '2024-01-01T21:33:58.0000000+00:00'
-- author: ps3moira
-  changes:
-  - message: Reverted Shotgun sprites
-    type: Tweak
-  id: 195
-  time: '2024-01-01T21:48:08.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Added BB guns! Don't shoot your eye out.
-    type: Add
-  id: 196
-  time: '2024-01-02T22:03:49.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: On very high pop revolution rounds, there can be 2 head revolutionaries.
-    type: Tweak
-  id: 197
-  time: '2024-01-02T22:06:22.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: There should only ever be one Listening Outpost spawning at a time
-    type: Fix
-  id: 198
-  time: '2024-01-02T23:05:25.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: 'Added maiden outfits into janidrobe. '
-    type: Add
-  id: 199
-  time: '2024-01-07T14:57:38.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Prison guards are now mindshielded and have a security playtime requirement.
-    type: Fix
-  id: 200
-  time: '2024-01-07T18:20:45.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Atmos hopefully shouldn't break anymore
-    type: Fix
-  id: 201
-  time: '2024-01-07T22:10:36.0000000+00:00'
-- author: Bribrooo
-  changes:
-  - message: 'added a ChemVend inside of Chemistry on Pebble Station '
-    type: Add
-  id: 202
-  time: '2024-01-11T06:14:27.0000000+00:00'
-- author: Adrian
-  changes:
-  - message: Shoukou has maintenance now in logistics and in security
-    type: Tweak
-  id: 203
-  time: '2024-01-12T22:08:47.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Added the spare ID safe
-    type: Add
-  - message: The captain's locker no longer starts with a spare ID card
-    type: Remove
-  id: 204
-  time: '2024-01-14T23:48:30.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Added Hammurabi Prison Station. Crime must be punished!
-    type: Add
-  id: 205
-  time: '2024-01-17T03:53:36.0000000+00:00'
-- author: Gregg
-  changes:
-  - message: Adjusted the rules in regards to PDA confiscation and borg memory.
-    type: Tweak
-  id: 206
-  time: '2024-01-19T10:30:34.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Zombies can no longer be psionic
-    type: Remove
-  id: 207
-  time: '2024-01-19T20:53:05.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Fixes mantis and them not be able to spawn with duffelbags and satchels.
-    type: Fix
-  id: 208
-  time: '2024-01-19T20:54:29.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Laika no longer takes 200 damage before dying from critical.
-    type: Fix
-  id: 209
-  time: '2024-01-19T20:57:11.0000000+00:00'
-- author: lleftTheDragon
-  changes: []
-  id: 210
-  time: '2024-01-19T21:06:32.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Enabled gamerule voting on periapsis
-    type: Tweak
-  - message: Enabled map voting on periapsis
-    type: Tweak
-  id: 211
-  time: '2024-01-19T22:33:21.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Added gridinv, sorry.
-    type: Add
-  id: 212
-  time: '2024-01-21T18:58:28.0000000+00:00'
-- author: TadJohnson00
-  changes:
-  - message: Pride vend has received an adjusted inventory. Make sure to check out
-      the new cloaks available!
-    type: Tweak
-  id: 213
-  time: '2024-01-30T14:22:13.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Updated Asterisk Station.
-    type: Tweak
-  id: 214
-  time: '2024-01-30T21:09:41.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: You should be able to exit cryo even after leaving now, meaning it just
-      keeps your body safe?
-    type: Tweak
-  id: 215
-  time: '2024-01-31T07:41:58.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Prisoners will no longer spawn in cryopods instead of in the brig.
-    type: Fix
-  id: 216
-  time: '2024-01-31T09:42:57.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: Made HCV cocktail less immediately lethal (damnation!!!)
-    type: Tweak
-  id: 217
-  time: '2024-01-31T10:34:16.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Shoukou has received the cryopods.
-    type: Tweak
-  id: 218
-  time: '2024-01-31T15:34:32.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Prisoners can now spawn from a special cryopod that can be put in security,
-      instead of magically appearing in a cell.
-    type: Tweak
-  id: 219
-  time: '2024-01-31T22:02:05.0000000+00:00'
-- author: DangerRevolution
-  changes:
-  - message: Added sprites for Syndicate Listener's Headsets
-    type: Add
-  id: 220
-  time: '2024-02-01T18:29:24.0000000+00:00'
-- author: leonardo-dabepis
-  changes:
-  - message: a new pest from beyond the noosphere!
-    type: Add
-  id: 221
-  time: '2024-02-01T18:32:28.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: An alternative wagging tail for felinids.
-    type: Add
-  id: 222
-  time: '2024-02-01T18:32:54.0000000+00:00'
-- author: ODJ
-  changes:
-  - message: Moth's now take less heat dmg.
-    type: Tweak
-  - message: You now move a little faster when hurt than previously
-    type: Tweak
-  id: 223
-  time: '2024-02-01T18:34:18.0000000+00:00'
-- author: Rose and Unicorn On LSD
-  changes:
-  - message: Added Submarine Station. A new map with a heavy emphasis on the medical
-      dept. Features also include a full zoo, park with an ice rink, and some sort
-      of experiment-gone-bad deep within the epistemics labs.
-    type: Add
-  id: 224
-  time: '2024-02-01T19:30:23.0000000+00:00'
-- author: UnicornOnLSD
-  changes:
-  - message: Submarine station has received adjustments after feedback from HR
-    type: Tweak
-  id: 225
-  time: '2024-02-03T06:50:49.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Updated Edge Station.
-    type: Tweak
-  id: 226
-  time: '2024-02-04T02:30:44.0000000+00:00'
-- author: UnicornOnLSD
-  changes:
-  - message: Submarine has been made better, stronger, and not faster.
-    type: Tweak
-  id: 227
-  time: '2024-02-04T02:31:24.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: 'Tweaked the space ruins to be slightly more dangerous. '
-    type: Tweak
-  id: 228
-  time: '2024-02-05T21:11:50.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Asterisk's TEG has been adjusted after receiving player feedback.
-    type: Tweak
-  id: 229
-  time: '2024-02-05T21:22:18.0000000+00:00'
-- author: UnicornOnLSD
-  changes:
-  - message: Submarine got better telecomms, a revamped psych. ward and more !
-    type: Tweak
-  id: 230
-  time: '2024-02-07T02:32:33.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed PSB not being edible by Reptilian
-    type: Fix
-  id: 231
-  time: '2024-02-08T15:38:11.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Fixed martial artist access
-    type: Fix
-  id: 232
-  time: '2024-02-08T15:39:24.0000000+00:00'
-- author: IamVelcroboy
-  changes:
-  - message: 'More improvements all around to Submarine Station as well as the addition
-      of medical cyborgs. '
-    type: Tweak
-  id: 233
-  time: '2024-02-08T19:21:16.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed missing Mantis stamp sprite.
-    type: Fix
-  id: 234
-  time: '2024-02-09T10:47:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: .38 Special is now in the ammo techfab.
-    type: Tweak
-  - message: Fixed .38 Special Mindbreaker not breaking minds.
-    type: Fix
-  id: 235
-  time: '2024-02-10T23:17:28.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Fixed glimmer mite being extremely loud for some.
-    type: Fix
-  id: 236
-  time: '2024-02-10T23:21:56.0000000+00:00'
 - author: Adrian16199
   changes:
   - message: Added a speech bubble to felinids. Mraow!
@@ -3748,3 +3470,336 @@
   id: 692
   time: '2024-11-20T20:26:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2248
+- author: Kr8art
+  changes:
+  - message: Bomberjackets now protect from the cold!
+    type: Tweak
+  id: 693
+  time: '2024-11-20T23:57:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2246
+- author: Stop-Signs
+  changes:
+  - message: Mini syringes now hold 5u instead of 15
+    type: Tweak
+  id: 694
+  time: '2024-11-21T04:28:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2249
+- author: Radezolid
+  changes:
+  - message: Removed the war declarator from the nuclear operatives.
+    type: Remove
+  id: 695
+  time: '2024-11-21T08:26:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2207
+- author: Radezolid
+  changes:
+  - message: HoP's locker no longer spawns with a disabler inside.
+    type: Tweak
+  id: 696
+  time: '2024-11-22T22:35:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2269
+- author: Kr8art
+  changes:
+  - message: Added missing RPDS sprites. The RPDS can now be wielded and worn in on
+      a suit without turning invisible!
+    type: Fix
+  id: 697
+  time: '2024-11-22T22:41:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2267
+- author: Kr8art
+  changes:
+  - message: Vulpkanin 101 now has a custom icon!
+    type: Tweak
+  id: 698
+  time: '2024-11-22T22:51:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2254
+- author: pontaoski
+  changes:
+  - message: Characters with the "chronic pain" trait now spawn with 5 pills of 10u
+      soretizone to tide them over at the start of a shift
+    type: Add
+  id: 699
+  time: '2024-11-24T03:47:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2259
+- author: deltanedas
+  changes:
+  - message: Merged upstream changes from the last 2 weeks.
+    type: Add
+  - message: Security borgs have baton, seclite and holoprojector modules when a chassis
+      switches to it.
+    type: Tweak
+  - message: Removed the security borg wood baton module, they get real batongs now.
+    type: Remove
+  id: 700
+  time: '2024-11-24T04:37:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2205
+- author: deltanedas
+  changes:
+  - message: Fixed borgs not having names.
+    type: Fix
+  id: 701
+  time: '2024-11-24T10:06:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2276
+- author: dotCatshark
+  changes:
+  - message: Resprited EE sprites for corpse dragging.
+    type: Tweak
+  id: 702
+  time: '2024-11-24T10:07:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2255
+- author: Yule&
+  changes:
+  - message: NukeOps are 3% less valid.
+    type: Tweak
+  id: 703
+  time: '2024-11-24T10:08:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2208
+- author: deltanedas
+  changes:
+  - message: Re-enabled the portable recharger Tier 3 Arsenal tech.
+    type: Add
+  id: 704
+  time: '2024-11-24T10:09:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2206
+- author: moth
+  changes:
+  - message: Made moth's heat damage less insane.
+    type: Tweak
+  id: 705
+  time: '2024-11-24T10:15:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2277
+- author: Big Orthagonal
+  changes:
+  - message: Diagonal secborgs are not real and were never real.
+    type: Fix
+  id: 706
+  time: '2024-11-24T11:57:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2278
+- author: deltanedas
+  changes:
+  - message: Fixed salvage debris not having anything.
+    type: Fix
+  id: 707
+  time: '2024-11-24T20:25:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2280
+- author: DisposableCrewmember42
+  changes:
+  - message: Hungry? Stuff your face with cream from an emergency pie delivery for
+      a change!
+    type: Add
+  id: 708
+  time: '2024-11-25T05:30:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2211
+- author: deltanedas
+  changes:
+  - message: Initial Infecteds now get radio implants to communicate thanks to the
+      Syndicate.
+    type: Tweak
+  - message: Initial Infecteds now have to wait 5 minutes before they can turn, form
+      a plan!
+    type: Tweak
+  id: 709
+  time: '2024-11-26T12:23:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2194
+- author: Stop-Signs
+  changes:
+  - message: Omega particles are more deadly, Mystagogues beware!
+    type: Tweak
+  id: 710
+  time: '2024-11-26T18:19:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2292
+- author: Stop-Signs
+  changes:
+  - message: psych chems are no longer stronger nocturine
+    type: Tweak
+  id: 711
+  time: '2024-11-27T20:22:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2302
+- author: deltanedas
+  changes:
+  - message: Fixed borgs with special lawsets fixing their emag laws when switched
+      to.
+    type: Fix
+  id: 712
+  time: '2024-11-28T07:22:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2299
+- author: Kr8art
+  changes:
+  - message: Added customizable dogtags from Cosmatic Drift to the trinket loadout!
+    type: Add
+  id: 713
+  time: '2024-11-28T12:04:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2301
+- author: Kr8art
+  changes:
+  - message: The nuke core container now displays an appropriate message when hasty
+      syndicate agents try to insert the nuke core while it is still closed!
+    type: Fix
+  id: 714
+  time: '2024-11-28T19:36:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2309
+- author: Kr8art
+  changes:
+  - message: Added a restock for the sustenance vendor to end the ongoing involuntary
+      hunger strikes in perma.
+    type: Add
+  id: 715
+  time: '2024-11-29T01:27:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2307
+- author: Emily9031
+  changes:
+  - message: Felinids, vulpkanin, harpies, and rodentia now have gasping sounds.
+    type: Fix
+  id: 716
+  time: '2024-11-29T06:35:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2313
+- author: DisposableCrewmember42
+  changes:
+  - message: NanoTrasen has established business relations with HydroCo! You can now
+      order powdered milk and juice via your Logistics department and bet on the growth
+      of the HYD stock.
+    type: Add
+  id: 717
+  time: '2024-11-29T09:51:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2210
+- author: Stop-Signs
+  changes:
+  - message: Meatspike will now take longer to construct
+    type: Tweak
+  id: 718
+  time: '2024-11-29T17:08:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2319
+- author: CheddaCheez
+  changes:
+  - message: Made grilled cheese, scrambled eggs, and buttered baked corn recipes
+      use less butter. Grilled cheese and scrambled eggs are more efficiently nutritious,
+      and scrambled eggs use one less egg.
+    type: Tweak
+  id: 719
+  time: '2024-11-29T19:23:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2321
+- author: Stop-Signs
+  changes:
+  - message: Added the new Beam Cannon for Epi to research.
+    type: Add
+  - message: The Cage Recharger can now charge lasers.
+    type: Tweak
+  id: 720
+  time: '2024-11-29T20:45:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2231
+- author: Radezolid
+  changes:
+  - message: The tools module now comes with a gas analyzer installed.
+    type: Tweak
+  id: 721
+  time: '2024-11-30T06:08:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2324
+- author: Kr8art
+  changes:
+  - message: Increased the healing values of Aloxadone from 3 Heat, 3 Shock and 1
+      Caustic per 0.5u to 5 Heat, 5 Shock, 5 Cold and 2 Caustic per 0.5u
+    type: Tweak
+  id: 722
+  time: '2024-11-30T06:54:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2318
+- author: Colin-Tel
+  changes:
+  - message: Added AI and reconfigured cameras on Micro station.
+    type: Add
+  id: 723
+  time: '2024-11-30T16:27:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2181
+- author: Velcroboy
+  changes:
+  - message: Changed Arena medbay layout
+    type: Tweak
+  id: 724
+  time: '2024-11-30T16:27:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2138
+- author: Velcroboy
+  changes:
+  - message: Hammurabi's medical is SOP compliant, Roller Coaster is fixed, Rapid
+      Transit has been installed in engineering
+    type: Tweak
+  id: 725
+  time: '2024-11-30T16:28:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2311
+- author: Yule&
+  changes:
+  - message: Pebble has been updated, and now includes a Station AI slot
+    type: Add
+  id: 726
+  time: '2024-12-01T08:09:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2293
+- author: deltanedas
+  changes:
+  - message: Enabled AI for all stations except Chibi!
+    type: Add
+  id: 727
+  time: '2024-12-01T08:10:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2018
+- author: deltanedas
+  changes:
+  - message: Added the Roboticist job for building and upgrading the station's silicons!
+    type: Add
+  id: 728
+  time: '2024-12-01T08:11:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2029
+- author: deltanedas
+  changes:
+  - message: Replaced traitors' antimov board in the uplink with an overlord board.
+    type: Tweak
+  id: 729
+  time: '2024-12-01T13:28:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2329
+- author: deltanedas
+  changes:
+  - message: Fixed Robotics access not being listed in ID card consoles.
+    type: Fix
+  id: 730
+  time: '2024-12-01T22:04:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2335
+- author: deltanedas, Ilya246
+  changes:
+  - message: Borgs have a new law that makes them obey the AI.
+    type: Add
+  id: 731
+  time: '2024-12-01T22:48:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2337
+- author: Ilya246
+  changes:
+  - message: AI's default lawset is now NTDefault. This should make it more station-oriented.
+    type: Tweak
+  - message: 'tweak: AI is now ion-stormable.'
+    type: Tweak
+  id: 732
+  time: '2024-12-01T22:48:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2338
+- author: Kr8art
+  changes:
+  - message: Mercenaries and marines can now find a fitting outfit in the Clothesmate!
+    type: Add
+  id: 733
+  time: '2024-12-02T14:33:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2306
+- author: Foxmin
+  changes:
+  - message: New DeltaV specific names for Station AIs, collect all 62!
+    type: Add
+  id: 734
+  time: '2024-12-02T19:43:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2345
+- author: Colin_Tel, Fox, deltanedas, DeltaV Admin Team
+  changes:
+  - message: Added silicon rules to the rules list.
+    type: Add
+  id: 735
+  time: '2024-12-02T19:46:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2344
+- author: Emily9031
+  changes:
+  - message: The Station AI can now use the Prison and Justice radio channels.
+    type: Fix
+  id: 736
+  time: '2024-12-03T06:36:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2352

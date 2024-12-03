@@ -29,3 +29,96 @@
           amount: 1
         - id: FoodBoxDonkpocketDink
           prob: 0.1
+
+- type: entity
+  id: CrateFoodEmergencyPie
+  parent: CratePlastic
+  name: emergency pie delivery
+  description: '"Then let them eat pie."'
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodPieBananaCream
+      amount: 13
+
+- type: entity
+  parent: CratePlastic
+  id: CrateHydroCoDairy
+  name: HydroCo Dairy crate
+  description: A shipment of powdered dairy products from HydroCo. Contains powdered milk and soy milk.
+  components:
+    - type: StorageFill
+      contents:
+        - id: PaperCrateHydroCoConsumption
+        - id: SpoonPlastic
+          amount: 2
+        - id: ReagentTinPowderedMilk
+          amount: 2
+        - id: ReagentTinPowderedMilkSoy
+          amount: 2
+
+- type: entity
+  parent: CratePlastic
+  id: CrateHydroCoJuice
+  name: HydroCo Juice crate
+  description: A variety pack of powdered juice products from HydroCo.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceMix
+        - !type:NestedSelector
+          tableId: FillHydroCoJuiceRandomTin
+          prob: 0.15
+        - id: SpoonPlastic
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PaperCrateHydroCoConsumption
+
+- type: entityTable
+  id: FillHydroCoJuiceMix
+  table: !type:AllSelector
+    children:
+    # Citrus
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceOrange
+      - id: ReagentTinPowderedJuiceLime
+      - id: ReagentTinPowderedJuiceLemon
+    # Berry
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceBerry
+      - id: ReagentTinPowderedJuiceGrape
+      - id: ReagentTinPowderedJuiceCherry
+    # Tropical
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuicePineapple
+      - id: ReagentTinPowderedJuiceBanana
+      - id: ReagentTinPowderedJuiceWatermelon
+    # Garden
+    - !type:GroupSelector
+      children:
+      - id: ReagentTinPowderedJuiceApple
+      - id: ReagentTinPowderedJuiceCarrot
+      - id: ReagentTinPowderedJuiceTomato
+
+- type: entityTable
+  id: FillHydroCoJuiceRandomTin
+  table: !type:GroupSelector
+    children:
+    - id: ReagentTinPowderedJuiceLemon
+    - id: ReagentTinPowderedJuiceLime
+    - id: ReagentTinPowderedJuiceOrange
+    - id: ReagentTinPowderedJuicePineapple
+    - id: ReagentTinPowderedJuiceBanana
+    - id: ReagentTinPowderedJuiceWatermelon
+    - id: ReagentTinPowderedJuiceBerry
+    - id: ReagentTinPowderedJuiceGrape
+    - id: ReagentTinPowderedJuiceCherry
+    - id: ReagentTinPowderedJuiceApple
+    - id: ReagentTinPowderedJuiceCarrot
+    - id: ReagentTinPowderedJuiceTomato
