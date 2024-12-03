@@ -1,7 +1,5 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Server.DeltaV.Station.Components; // DeltaV
-using Content.Server.DeltaV.Station.Events; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
@@ -36,7 +34,6 @@ public sealed class StationSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] public readonly GameTicker GameTicker = default!; // DeltaV
 
     private ISawmill _sawmill = default!;
 

@@ -76,14 +76,8 @@ public sealed partial class CaptainStateComponent : Component
     public LocId AAUnlockedMessage = "no-captain-aa-unlocked-announcement";
 
     /// <summary>
-    /// The access level used to identify spare ID cabinets
-    /// </summary>
-    [DataField]
-    public List<ProtoId<AccessLevelPrototype>> EmergencyAAAccess = new() { "DV-SpareSafe" };
-
-    /// <summary>
     /// The access level to grant to spare ID cabinets
     /// </summary>
     [DataField]
-    public List<ProtoId<AccessLevelPrototype>> ACOAccess = new() { "Command" };
+    public ProtoId<AccessLevelPrototype> ACOAccess = "Command";
 }

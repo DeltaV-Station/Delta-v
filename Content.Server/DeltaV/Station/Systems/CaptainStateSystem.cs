@@ -1,19 +1,22 @@
 using Content.Server.Chat.Systems;
+using Content.Server.DeltaV.Cabinet;
 using Content.Server.DeltaV.Station.Components;
 using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
 public sealed class CaptainStateSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override void Initialize()
     {
@@ -93,7 +96,19 @@ public sealed class CaptainStateSystem : EntitySystem
             _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Red);
 
             // Extend access of spare id lockers to command so they can access emergency AA
-            _entity.System<AccessReaderSystem>().ExpandAccessForAllReaders(captainState.EmergencyAAAccess, captainState.ACOAccess);
+            var query = EntityQueryEnumerator<SpareIDSafeComponent>();
+            while (query.MoveNext(out var spareIDSafe, out var _))
+            {
+                if (!TryComp<AccessReaderComponent>(spareIDSafe, out var accessReader))
+                    continue;
+                var acceses = accessReader.AccessLists;
+                if (acceses.Count <= 0) // Avoid restricting access for readers with no accesses
+                    continue;
+                // Awful and disgusting but the accessReader has no proper api for adding acceses to readers without awful type casting. See AccessOverriderSystem
+                acceses.Add(new HashSet<ProtoId<AccessLevelPrototype>> { captainState.ACOAccess });
+                Dirty(spareIDSafe, accessReader);
+                RaiseLocalEvent(spareIDSafe, new AccessReaderConfigurationChangedEvent());
+            }
         }
     }
 
