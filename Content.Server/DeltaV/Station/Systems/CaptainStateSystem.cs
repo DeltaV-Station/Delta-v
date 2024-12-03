@@ -1,8 +1,11 @@
 using Content.Server.Chat.Systems;
 using Content.Server.DeltaV.Station.Components;
+using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
+using System.Linq;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -12,6 +15,13 @@ public sealed class CaptainStateSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded); // DeltaV
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved); // DeltaV
+        base.Initialize();
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -20,11 +30,34 @@ public sealed class CaptainStateSystem : EntitySystem
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var station, out var captainState))
         {
-            if (captainState.HasCaptain == true)
+            if (captainState.HasCaptain)
                 HandleHasCaptain(station, captainState);
             else
                 HandleNoCaptain(station, captainState, currentTime);
         }
+    }
+
+    private void OnPlayerJobAdded(Entity<StationJobsComponent> ent, ref PlayerJobAddedEvent args)
+    {
+        if (args.JobPrototypeId == "Captain")
+        {
+            if (TryComp<CaptainStateComponent>(ent, out var component))
+                component.HasCaptain = true;
+        }
+    }
+
+    private void OnPlayerJobsRemoved(Entity<StationJobsComponent> ent, ref PlayerJobsRemovedEvent args)
+    {
+        if (args.PlayerJobs == null || !args.PlayerJobs.Contains("Captain")) // If the player that left was a captain we need to check if there are any captains left
+            return;
+        if (ent.Comp.PlayerJobs.Count != 0 && ent.Comp.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // We check the PlayerJobs if there are any cpatins left
+            return;
+        if (!TryComp<CaptainStateComponent>(ent, out var component)) // We update CaptainState if the station has one on the new captain status
+            return;
+        component.HasCaptain = false;
+        component.TimeSinceCaptain = _ticker.RoundDuration();
+        component.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
+        component.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
     }
 
     /// <summary>
@@ -35,7 +68,7 @@ public sealed class CaptainStateSystem : EntitySystem
     private void HandleHasCaptain(Entity<CaptainStateComponent?> station, CaptainStateComponent captainState)
     {
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
-        if (captainState.IsACORequestActive == false)
+        if (!captainState.IsACORequestActive)
             return;
         _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.RevokeACOMessage), colorOverride: Color.Gold);
         captainState.IsACORequestActive = false;
