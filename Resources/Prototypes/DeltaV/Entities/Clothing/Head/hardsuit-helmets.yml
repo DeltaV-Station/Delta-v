@@ -135,3 +135,18 @@
     sprite: DeltaV/Clothing/Head/Hardsuits/Combat/hos.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Hardsuits/Combat/hos.rsi
+
+#Paramedic Void Helmet
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetVoidParamedDeltaV
+  name: paramedic void helmet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    radius: 6
+    color: "#addbff"
