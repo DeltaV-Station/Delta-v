@@ -46,7 +46,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: GunRequiresWield # Delta-V | Firing a bolt action is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield # Delta-V - Firing a bolt action is.. incredibly unweildy with one hand.
 
 - type: entity
   name: Hristov
@@ -64,8 +64,7 @@
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
-  - type: GunRequiresWield # Delta-V | Firing an antimateriel rifle is.. incredibly unweildy with one hand.
-
+  - type: GunRequiresWield # Delta-V - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
 
 - type: entity
   name: musket
@@ -104,7 +103,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: GunRequiresWield # Delta-V | Firing a muzzle loader is.. incredibly unweildy with one hand.
+  - type: GunRequiresWield # Delta-V - Firing a muzzle loader is.. incredibly unweildy with one hand.
 
 - type: entity
   name: flintlock pistol
