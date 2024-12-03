@@ -9,59 +9,58 @@ namespace Content.Server.DeltaV.Station.Systems;
 public sealed class CaptainStateSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var currentTime = _gameTicker.RoundDuration(); // Caching to reduce redundant calls
+        var currentTime = _ticker.RoundDuration(); // Caching to reduce redundant calls
         var query = EntityQueryEnumerator<CaptainStateComponent>();
-        while (query.MoveNext(out var uid, out var captainState))
+        while (query.MoveNext(out var station, out var captainState))
         {
             if (captainState.HasCaptain == true)
-                HandleHasCaptain(uid, captainState);
+                HandleHasCaptain(station, captainState);
             else
-                HandleNoCaptain(uid, captainState, currentTime);
+                HandleNoCaptain(station, captainState, currentTime);
         }
     }
 
     /// <summary>
     /// Handles cases for when there is a captain
     /// </summary>
-    /// <param name="uid"></param>
+    /// <param name="station"></param>
     /// <param name="captainState"></param>
-    private void HandleHasCaptain(EntityUid uid, CaptainStateComponent captainState)
+    private void HandleHasCaptain(Entity<CaptainStateComponent?> station, CaptainStateComponent captainState)
     {
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (captainState.IsACORequestActive == false)
             return;
-        _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.RevokeACOMessage), colorOverride: Color.Gold);
+        _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.RevokeACOMessage), colorOverride: Color.Gold);
         captainState.IsACORequestActive = false;
     }
 
     /// <summary>
     /// Handles cases for when there is no captain
     /// </summary>
-    /// <param name="uid"></param>
+    /// <param name="station"></param>
     /// <param name="captainState"></param>
-    private void HandleNoCaptain(EntityUid uid, CaptainStateComponent captainState, TimeSpan currentTime)
+    private void HandleNoCaptain(Entity<CaptainStateComponent?> station, CaptainStateComponent captainState, TimeSpan currentTime)
     {
         if (CheckACORequest(captainState, currentTime))
         {
             var message = captainState.UnlockAA ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
-            _chat.DispatchStationAnnouncement(uid, Loc.GetString(message, ("minutes", captainState.UnlockAADelay.TotalMinutes)), colorOverride: Color.Gold);
+            _chat.DispatchStationAnnouncement(station, Loc.GetString(message, ("minutes", captainState.UnlockAADelay.TotalMinutes)), colorOverride: Color.Gold);
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
         {
             captainState.UnlockAA = false; // Once unlocked don't unlock again
-            _chat.DispatchStationAnnouncement(uid, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Red);
+            _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Red);
 
             // Extend access of spare id lockers to command so they can access emergency AA
-            _entityManager.System<AccessReaderSystem>().ExpandAccessForAllReaders(captainState.EmergencyAAAccess, captainState.ACOAccess);
+            _entity.System<AccessReaderSystem>().ExpandAccessForAllReaders(captainState.EmergencyAAAccess, captainState.ACOAccess);
         }
     }
 

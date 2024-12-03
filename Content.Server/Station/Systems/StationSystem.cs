@@ -154,7 +154,7 @@ public sealed class StationSystem : EntitySystem
     }
 
     // DeltaV Handle PlayerJob Events
-    public void OnPlayerJobAdded(EntityUid station, StationJobsComponent _, PlayerJobAddedEvent args)
+    public void OnPlayerJobAdded(Entity<StationJobsComponent> station, ref PlayerJobAddedEvent args)
     {
         if (args.JobPrototypeId == "Captain")
         {
@@ -163,7 +163,7 @@ public sealed class StationSystem : EntitySystem
                 captainStateComponent.HasCaptain = true;
         }
     }
-    public void OnPlayerJobsRemoved(EntityUid station, StationJobsComponent stationJobs, PlayerJobsRemovedEvent args)
+    public void OnPlayerJobsRemoved(EntityUid station, StationJobsComponent stationJobs, ref PlayerJobsRemovedEvent args)
     {
         if (args.PlayerJobs == null)
             return;
