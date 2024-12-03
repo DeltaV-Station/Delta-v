@@ -3,9 +3,20 @@
   id: NinjaThreatsDeltaV
   weights:
     Loneop: 4
+    Dragon: 5
+    Revenant: 1
 
 - type: ninjaHackingThreat
   id: Loneop
   announcement: terror-loneop
   rule: LoneOpsSpawn
 
+- type: ninjaHackingThreat
+  id: Dragon
+  announcement: terror-dragon
+  rule: DragonSpawn
+
+- type: ninjaHackingThreat
+  id: Revenant
+  announcement: terror-revenant
+  rule: RevenantSpawn
