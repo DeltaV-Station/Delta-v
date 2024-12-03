@@ -15,3 +15,25 @@
       amount: 2
     - id: JetpackSecurity
       amount: 2
+
+#Paramedic hardsuit
+- type: entityTable
+  id: ParamedicSuitStorageFill
+  table: !type:AllSelector
+    children:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitVoidParamed
+    - id: ClothingHeadHelmetVoidParamedDeltaV
+    - id: ClothingMaskBreathMedical
+    - id: JetpackMiniFilled # No more begging cargo.
+
+- type: entity
+  id: SuitStorageParamedic
+  suffix: Paramedic
+  parent: SuitStorageBase
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ParamedicSuitStorageFill

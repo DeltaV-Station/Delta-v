@@ -2,7 +2,7 @@
 - type: entity
   parent: ClothingHeadHelmetVoidParamed
   id: ClothingHeadHelmetVoidParamedDeltaV
-  name: paramedic void helmet DeltaV # Ugly name for testing
+  name: paramedic void helmet
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
@@ -13,9 +13,6 @@
       map: [ "light" ]
   - type: Clothing
     sprite: DeltaV/Clothing/Head/Helmets/paramedhelm.rsi
-    # Modified delays for testing.
-    equipDelay: 0
-    unequipDelay: 0
   - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
