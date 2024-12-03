@@ -150,3 +150,11 @@
   - type: PointLight
     radius: 6
     color: "#addbff"
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.75
