@@ -12,7 +12,7 @@
     - id: Fugitive
     - id: ListeningPost
     - id: ParadoxAnomaly
-    #- id: RatKingSpawn
+    - id: RatKingSpawn
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -132,13 +132,13 @@
     earliestStart: 25
   - type: MidRoundAntagRule
 
-#- type: entity
-#  parent: BaseMidRoundAntag
-#  id: RatKingSpawn
-#  components:
-#  if you uncomment this update this for antag refactor, below wont work
-#  - type: MidRoundAntagRule
-#    spawner: SpawnPointGhostRatKing
+- type: entity
+  parent: BaseMidRoundAntag
+  id: RatKingSpawn
+  components:
+  if you uncomment this update this for antag refactor, below wont work
+  - type: MidRoundAntagRule
+    spawner: SpawnPointGhostRatKing
 
 - type: entity
   parent: BaseMidRoundAntag
