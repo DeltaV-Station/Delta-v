@@ -14477,6 +14477,18 @@ entities:
     - type: Transform
       pos: -52.5,-18.5
       parent: 6747
+- proto: AirlockExternalGlassShuttleEmergencyLocked
+  entities:
+  - uid: 1082
+    components:
+    - type: Transform
+      pos: 71.5,-54.5
+      parent: 6747
+  - uid: 1083
+    components:
+    - type: Transform
+      pos: 69.5,-54.5
+      parent: 6747
 - proto: AirlockExternalGlassShuttleEscape
   entities:
   - uid: 1129
@@ -15051,16 +15063,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,42.5
-      parent: 6747
-  - uid: 1082
-    components:
-    - type: Transform
-      pos: 69.5,-54.5
-      parent: 6747
-  - uid: 1083
-    components:
-    - type: Transform
-      pos: 71.5,-54.5
       parent: 6747
   - uid: 1130
     components:
@@ -18730,10 +18732,10 @@ entities:
       parent: 6747
 - proto: BannerCargo
   entities:
-  - uid: 22333
+  - uid: 29443
     components:
     - type: Transform
-      pos: 26.5,13.5
+      pos: 23.5,11.5
       parent: 6747
 - proto: BannerEngineering
   entities:
@@ -61270,6 +61272,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 14.5,18.5
       parent: 6747
+  - uid: 1835
+    components:
+    - type: Transform
+      pos: 26.5,13.5
+      parent: 6747
   - uid: 6649
     components:
     - type: Transform
@@ -75244,6 +75251,17 @@ entities:
     - type: Transform
       pos: -35.50642,-44.938274
       parent: 6747
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          temperature: 293.15
+          canReact: True
+          maxVol: 20
+          name: null
+          reagents:
+          - data: null
+            ReagentId: Champagne
+            Quantity: 18
 - proto: DrinkGrapeCan
   entities:
   - uid: 9492
@@ -126176,6 +126194,14 @@ entities:
     - type: Transform
       pos: -35.43267,-48.272682
       parent: 6747
+- proto: IntercomAll
+  entities:
+  - uid: 1840
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -75.5,-69.5
+      parent: 6747
 - proto: IntercomCommand
   entities:
   - uid: 29204
@@ -126194,14 +126220,6 @@ entities:
     components:
     - type: Transform
       pos: -44.487347,-39.534794
-      parent: 6747
-- proto: IntercomEngineering
-  entities:
-  - uid: 29205
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -75.5,-69.5
       parent: 6747
 - proto: IntercomScience
   entities:
@@ -128317,7 +128335,7 @@ entities:
   - uid: 4036
     components:
     - type: Transform
-      pos: -35.674225,-47.724026
+      pos: -35.652367,-47.82449
       parent: 6747
 - proto: MaterialDurathread
   entities:
@@ -157263,11 +157281,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-40.5
       parent: 6747
-  - uid: 6569
-    components:
-    - type: Transform
-      pos: 70.49715,-48.17924
-      parent: 6747
   - uid: 6852
     components:
     - type: Transform
@@ -158075,6 +158088,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,-7.5
+      parent: 6747
+- proto: SignShipDock
+  entities:
+  - uid: 6569
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 70.5,-48.5
       parent: 6747
 - proto: SignSpace
   entities:
@@ -184898,6 +184919,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -39.5,8.5
       parent: 6747
+  - uid: 3355
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,-32.5
+      parent: 6747
+  - uid: 3356
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,-33.5
+      parent: 6747
   - uid: 3870
     components:
     - type: Transform
@@ -184924,18 +184957,6 @@ entities:
     components:
     - type: Transform
       pos: -43.5,0.5
-      parent: 6747
-  - uid: 8736
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 38.5,-32.5
-      parent: 6747
-  - uid: 8738
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 38.5,-33.5
       parent: 6747
   - uid: 8739
     components:
@@ -185059,18 +185080,6 @@ entities:
       parent: 6747
 - proto: WindoorSecureCommandLocked
   entities:
-  - uid: 3355
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 38.5,-32.5
-      parent: 6747
-  - uid: 3356
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 38.5,-33.5
-      parent: 6747
   - uid: 3966
     components:
     - type: Transform
@@ -185124,6 +185133,20 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 42.5,11.5
+      parent: 6747
+- proto: WindoorSecureHeadOfPersonnelLocked
+  entities:
+  - uid: 8736
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,-32.5
+      parent: 6747
+  - uid: 8738
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,-33.5
       parent: 6747
 - proto: WindoorSecureJanitorLocked
   entities:
@@ -185241,6 +185264,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,-44.5
       parent: 6747
+  - uid: 22333
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,-41.5
+      parent: 6747
+  - uid: 29205
+    components:
+    - type: Transform
+      pos: -10.5,-43.5
+      parent: 6747
 - proto: WindoorSecureSecurityLocked
   entities:
   - uid: 139
@@ -185292,12 +185326,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,-5.5
-      parent: 6747
-  - uid: 1840
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -13.5,-41.5
       parent: 6747
   - uid: 2708
     components:
@@ -186838,11 +186866,6 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-43.5
-      parent: 6747
-  - uid: 1835
-    components:
-    - type: Transform
-      pos: -10.5,-43.5
       parent: 6747
   - uid: 1836
     components:
