@@ -316,6 +316,56 @@
   loadouts:
   - ProsecutorOvercoat
 
+# Epistemics
+## Roboticist
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+  - ScientificBeret
+  - CardborgHelmet
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  loadouts:
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+  - RegularLabCoat
+  - ScienceLabCoat
+  - CardborgCostume
+
+- type: loadoutGroup
+  id: RoboticistGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
+
+- type: loadoutGroup
+  id: RoboticistShoes
+  name: loadout-group-roboticist-shoes
+  loadouts:
+  - BlackShoes
+  - RoboticsWinterBoots
+  - WhiteShoes
+  - ScienceWinterBoots
+
 # PDAs
 - type: loadoutGroup
   id: PassengerPDADelta
@@ -382,6 +432,12 @@
   - ClownPDA
   - JesterPDA
   - FoolPDA
+
+- type: loadoutGroup
+  id: RoboticistPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticistPDA
 
 # Misc
 - type: loadoutGroup
