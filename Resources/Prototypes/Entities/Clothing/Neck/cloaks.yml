@@ -18,7 +18,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/cap.rsi
   - type: StealTarget
-    stealGroup: HeadCloak
+    stealGroup: CaptainsCloak # DeltaV: replaces HeadCloak for ninja
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -113,7 +113,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/capcloakformal.rsi
   - type: StealTarget
-    stealGroup: HeadCloak
+    stealGroup: CaptainsCloak # DeltaV: replaces HeadCloak for ninja
 
 - type: entity
   parent: ClothingNeckBase
