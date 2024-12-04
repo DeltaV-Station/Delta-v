@@ -15,7 +15,7 @@
         Caustic: 0.25
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseToggleable
   id: ClothingOuterInterdyneChemistrySuit
   name: interdyne chemistry suit
   description: A spotless suit and durable, designed to protect you from chemical spills.
@@ -30,4 +30,3 @@
         Caustic: 0.40
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatInterdyneChemistryHood
-    slot: head
