@@ -67,10 +67,16 @@ loadout-group-scarfs = Scarf
 # Epistemics
 loadout-group-mantis-head = Mantis head
 loadout-group-mantis-jumpsuit = Mantis jumpsuit
-loadout-group-mantis-backpack = Mantis backpack
 loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
+
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-id = Roboticist PDA
 
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
@@ -85,13 +91,21 @@ loadout-group-head-of-security-shoes = Head of Security shoes
 loadout-group-security-cadet-head = Security Cadet head
 loadout-group-security-neck = Security neck
 
-loadout-group-brig-medic-head = Brigmedic head
-loadout-group-brig-medic-jumpsuit = Brigmedic jumpsuit
-loadout-group-brig-medic-back = Brigmedic backpack
+loadout-group-brig-medic-head = Corpsman head
+loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
+loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-neck = Corpsman neck
+loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
+
+loadout-group-security-gun = Security Sidearm
+loadout-group-revolver-gun = Security Revolver
+loadout-group-all-gun = Security Sidearm
+loadout-group-security-gun-ammo = Ammunition
+loadout-group-revolver-ammo = Ammunition
+loadout-group-all-ammo = Ammunition
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
@@ -107,6 +121,7 @@ loadout-group-clerk-shoes = Clerk shoes
 
 loadout-group-prosecutor-jumpsuit = Prosecutor jumpsuit
 loadout-group-prosecutor-neck = Prosecutor neck
+loadout-group-prosecutor-outer-clothing = Prosecutor outer clothing
 
 # Wildcards
 loadout-group-prisoner-jumpsuit = Prisoner jumpsuit

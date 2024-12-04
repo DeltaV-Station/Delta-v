@@ -1484,9 +1484,9 @@
       - id: MobMouse2
         orGroup: Critter
         prob: 0.33
-      - id: MobMouseCancer
-        orGroup: Critter
-        prob: 0.01 # Rare
+      #- id: MobMouseCancer #Delta-V change, This is supposed to be admin only, plus its just stupid. - Solaris
+      #  orGroup: Critter
+      #  prob: 0.01 # Rare
 
 - type: entity
   parent: BaseMail
@@ -1698,3 +1698,37 @@
       orGroup: Coat
     - id: ClothingOuterWinterCoatPlaid
       orGroup: Coat
+
+- type: entity
+  parent: BaseMail
+  id: MailHydroCoPowderJuice
+  suffix: HydroCo powder juice
+  components:
+  - type: Mail
+    contents:
+    - id: ReagentTinPowderedJuiceLemon
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceLime
+      orGroup: Juice
+    - id: ReagentTinPowderedJuicePineapple
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceBanana
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceBerry
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceWatermelon
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceGrape
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceApple
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceCherry
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceCarrot
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceTomato
+      orGroup: Juice
+    - id: SpoonPlastic
+      amount: 1
+    - id: PaperMailHydroCoTrial
+      amount: 1

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: CrimeAssistCartridge
-  name: crime assist cartridge
+  name: CrimeAssist cartridge
   description: A cartridge that helps identify crimes and see appropriate punishment.
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
 - type: entity
   parent: BaseItem
   id: SecWatchCartridge
-  name: sec watch cartridge
+  name: SecWatch cartridge
   description: A cartridge that tracks the status of currently wanted individuals.
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 - type: entity
   parent: BaseItem
   id: MailMetricsCartridge
-  name: mail metrics cartridge
+  name: MailMetrics cartridge
   description: A cartridge that tracks statistics related to mail deliveries.
   components:
   - type: Sprite
@@ -59,3 +59,27 @@
     icon:
       sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
       state: icon
+
+- type: entity
+  parent: BaseItem
+  id: StockTradingCartridge
+  name: StockTrading cartridge
+  description: A cartridge that tracks the intergalactic stock market.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/cartridge.rsi
+    state: cart-stonk
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/cartridge.rsi
+    state: cart-mail
+  - type: UIFragment
+    ui: !type:StockTradingUi
+  - type: StockTradingCartridge
+  - type: Cartridge
+    programName: stock-trading-program-name
+    icon:
+      sprite: DeltaV/Misc/program_icons.rsi
+      state: stock_trading
+  - type: BankClient
+  - type: AccessReader # This is so that we can restrict who can buy stocks
+    access: [["Orders"]]

@@ -226,10 +226,10 @@
     price: 750
 
 - type: entity
-  name: IK-60 laser carbine
+  name: IK-60 energy carbine
   parent: BaseWeaponBattery
   id: WeaponGunLaserCarbineAutomatic
-  description: "A 20 round semi-automatic laser carbine."
+  description: "A 20 round semi-automatic energy carbine."
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
@@ -261,3 +261,71 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
+  id: WeaponBeamCannon
+  name: beam cannon
+  description: "For when a single shot just isn't enough"
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
+    selectedMode: FullAuto
+    fireRate: 15
+    availableModes: FullAuto
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: HitscanBatteryAmmoProvider
+    proto: BeamLaser
+    fireCost: 10
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponBeamDevastator
+  name: beam devastator
+  description: A powerful energy weapon that fires multiple rapid laser beams per second
+  components:
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: HeldSpeedModifier
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_devestator.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 15
+    availableModes: FullAuto
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/beamcannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: BeamDev
+    fireCost: 600
+  - type: Battery
+    maxCharge: 300000
+    startingCharge: 300000
+  - type: Tag
+    tags:
+    - PowerCage

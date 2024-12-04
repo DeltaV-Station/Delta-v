@@ -32,7 +32,8 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomPersonObjective: 1
+    # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
+    TeachLessonRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom
@@ -49,8 +50,6 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
-    RaiseGlimmerObjective: 0.5 # Nyanotrasen - Raise glimmer to a target amount, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
-
 
 #Thief groups
 - type: weightedRandom
@@ -73,7 +72,6 @@
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
     TechnologyDiskStealCollectionObjective: 1        #rnd
-    FigurineStealCollectionObjective: 0.3          #service
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
 

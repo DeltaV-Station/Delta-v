@@ -1,4 +1,7 @@
-﻿namespace Content.Server.Ghost.Roles.Components
+﻿using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server.Ghost.Roles.Components
 {
     /// <summary>
     ///     Allows a ghost to take this role, spawning their selected character.
@@ -7,16 +10,22 @@
     [Access(typeof(GhostRoleSystem))]
     public sealed partial class GhostRoleCharacterSpawnerComponent : Component
     {
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("deleteOnSpawn")]
+        [DataField]
         public bool DeleteOnSpawn = true;
 
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("availableTakeovers")]
+        [DataField]
         public int AvailableTakeovers = 1;
 
         [ViewVariables]
         public int CurrentTakeovers = 0;
 
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("outfitPrototype")]
-        public string OutfitPrototype = "PassengerGear";
+        [DataField]
+        public ProtoId<StartingGearPrototype> OutfitPrototype = "PassengerGear";
+
+        /// <summary>
+        ///  Components to give on spawn.
+        /// </summary>
+        [DataField]
+        public ComponentRegistry AddedComponents = new();
     }
 }

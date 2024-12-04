@@ -73,7 +73,7 @@
   parent: ClothingOuterStasecSweater
   id: ClothingOuterCoatStasecHoS
   name: head of security's coat
-  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Bears HoS arm flashes.
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
@@ -84,7 +84,7 @@
   parent: ClothingOuterStasecSweater
   id: ClothingOuterCoatStasecWarden
   name: warden's coat
-  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. Sports warden arm flashes.
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version features ice-white trim.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/armourercoat.rsi
@@ -92,44 +92,23 @@
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/armourercoat.rsi
 
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterGreatcoatStasec
-  name: station security greatcoat
-  description: A long and heavy greatcoat, yet to be phased out of use for Station Security. It's hard to tell what's so great about it, but it sure is warm and sturdy.
+  parent: ClothingOuterStasecSweater
+  id: ClothingOuterCoatStasecDet
+  name: detective's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is detective plum.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecgreatcoat.rsi
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/detcoat.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/stasecgreatcoat.rsi
-  - type: TemperatureProtection
-    coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-  - type: AllowSuitStorage
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/detcoat.rsi
 
 - type: entity
-  parent: ClothingOuterGreatcoatStasec
-  id: ClothingOuterGreatcoatStasecHoS
-  name: head of security's greatcoat
-  description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Bears HoS arm flashes.
+  parent: ClothingOuterStasecSweater
+  id: ClothingOuterCoatStasecCorpsman
+  name: corpsman's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is corpsman blue.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hosgreatcoat.rsi
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/corpsmancoat.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/hosgreatcoat.rsi
-
-- type: entity
-  parent: ClothingOuterGreatcoatStasec
-  id: ClothingOuterGreatcoatStasecWarden
-  name: warden's greatcoat
-  description: A long and heavy greatcoat, yet to be phased out of use for Station Security. Sports warden arm flashes.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/armourergreatcoat.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/armourergreatcoat.rsi
+    sprite: DeltaV/Clothing/OuterClothing/WinterCoats/corpsmancoat.rsi

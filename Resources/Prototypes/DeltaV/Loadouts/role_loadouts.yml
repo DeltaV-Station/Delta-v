@@ -23,11 +23,13 @@
   - BrigMedicJumpsuit
   - BrigMedicBack
   - SecurityShoes
-  - SecurityOuterClothing
+  - BrigMedicOuterClothing
   - MedicalGloves
-  - SurvivalSecurity # DeltaV - replace SurvivalCorpsman for incongruence
+  - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolCorpsman
+  - SecurityFirearm
+  - SecurityFirearmAmmo
 
 # Justice
 - type: roleLoadout
@@ -65,7 +67,26 @@
   - GroupTankHarness
   - ProsecutorJumpsuit
   - ProsecutorNeck
+  - ProsecutorOuterClothing
   - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Epistemics
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - RoboticistHead
+  - ScientistNeck
+  - RoboticistJumpsuit
+  - ScientistBackpack
+  - RoboticistOuterClothing
+  - RoboticistGloves
+  - RoboticistShoes
+  - RoboticistPDA
   - Glasses
   - Survival
   - Trinkets

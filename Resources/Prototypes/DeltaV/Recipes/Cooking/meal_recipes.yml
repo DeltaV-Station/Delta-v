@@ -6,7 +6,7 @@
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
-    FoodButter: 1
+    FoodButterSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeScrambledEggs
@@ -17,18 +17,8 @@
     TableSalt: 5
   solids:
     FoodBowlBig: 1
-    FoodEgg: 3
-    FoodButter: 1
-
-- type: microwaveMealRecipe
-  id: RecipePumpkinPie
-  name: pumpkin pie
-  result: FoodPiePumpkin
-  time: 15
-  solids:
-    FoodDoughPie: 1
-    FoodPumpkin: 1
-    FoodPlateTin: 1
+    FoodEgg: 2
+    FoodButterSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeBlueTomatoSoup

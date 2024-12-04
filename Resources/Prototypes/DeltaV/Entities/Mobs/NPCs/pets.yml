@@ -174,7 +174,7 @@
       transferAmount: 6 #heals 24 burn/brute/air/toxin in 12seconds/minus 6 brute per bite
     - type: SolutionRegeneration
       solution: melee
-      duration: 30 #regen 1u every 30 seconds. 15 mins to full
+      duration: 15 #regen 1u every 15 seconds. 7.5 mins to full
       generated:
         reagents:
         - ReagentId: Omnizine
