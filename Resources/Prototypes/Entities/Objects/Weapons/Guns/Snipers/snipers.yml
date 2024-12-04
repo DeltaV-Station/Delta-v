@@ -63,6 +63,7 @@
       - CartridgeAntiMateriel
     capacity: 1 # Delta V - Reduced ammo count due to increased power
     proto: CartridgeAntiMateriel
+  - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
   - type: Gun
     fireRate: 0.4
     selectedMode: SemiAuto
@@ -75,7 +76,7 @@
   name: musket
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband ]
   id: Musket
-  description: This should've been in a museum long before you were born. Uses musket catridges. #DeltaV- swapping to our crafted musket ammo
+  description: This should've been in a museum long before you were born. Uses musket catridges. # Delta V - swapping to our crafted musket ammo
   components:
   - type: Sharp
   - type: Item
@@ -113,7 +114,7 @@
   name: flintlock pistol
   parent: [BaseWeaponSniper, BaseMinorContraband]
   id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Uses musket cartridges. #DeltaV- Ditto the above
+  description: A pirate's companion. Yarrr! Uses musket cartridges. # Delta V - Ditto the above
   components:
   - type: Gun
     minAngle: 0
