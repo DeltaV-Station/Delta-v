@@ -17,9 +17,10 @@
             prefixCreator: 'DV'
         - type: StationJobs
           availableJobs:
-          #service
+          #command
             Captain: [ 1, 1 ]
-            StationAI: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 3 ]
             Botanist: [ 2, 2 ]
