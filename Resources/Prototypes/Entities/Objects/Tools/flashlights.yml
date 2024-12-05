@@ -15,16 +15,16 @@
     behaviours:
       - !type:FadeBehaviour
         id: radiating
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
+        maxDuration: 5
+        startValue: 2.5
+        endValue: 2
         isLooped: true
         reverseWhenFinished: true
       - !type:PulseBehaviour
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
+        minValue: 1.5
         maxValue: 2.0
         isLooped: true
   - type: ToggleableLightVisuals
@@ -59,10 +59,11 @@
     storedRotation: -90
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/NES/Effects/LightMasks/cone_smoll.png
     autoRot: true
     radius: 6
     netsync: false
+    color: "#ebe6b7"
   - type: Appearance
   - type: StaticPrice
     price: 40
