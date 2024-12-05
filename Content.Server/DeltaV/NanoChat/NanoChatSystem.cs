@@ -21,12 +21,12 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NameIdentifierSystem _name = default!;
 
-    private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "GenericNumber"; // recycling
+    private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "NanoChat";
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NanoChatCardComponent, ComponentInit>(OnCardInit);
+        SubscribeLocalEvent<NanoChatCardComponent, MapInitEvent>(OnCardInit);
         SubscribeLocalEvent<NanoChatCardComponent, BeingMicrowavedEvent>(OnMicrowaved, after: [typeof(IdCardSystem)]);
     }
 
@@ -117,7 +117,7 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
         return new string(chars);
     }
 
-    private void OnCardInit(Entity<NanoChatCardComponent> ent, ref ComponentInit args)
+    private void OnCardInit(Entity<NanoChatCardComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.Number != null)
             return;
