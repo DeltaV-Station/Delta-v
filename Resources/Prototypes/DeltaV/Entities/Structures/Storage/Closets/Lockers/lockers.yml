@@ -23,3 +23,16 @@
     stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Clerk"]]
+
+- type: entity
+  parent: LockerBaseSecure
+  id: LockerPsychologist
+  name: psychologist's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: psych
+    stateDoorOpen: med_secure_open
+    stateDoorClosed: psych_door
+  - type: AccessReader
+    access: [["Psychologist"]]
