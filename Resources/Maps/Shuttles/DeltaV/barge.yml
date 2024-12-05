@@ -457,7 +457,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
 - proto: AirCanister
   entities:
@@ -598,44 +597,26 @@ entities:
     - type: Transform
       pos: 5.5,-0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 437
   - uid: 23
     components:
     - type: Transform
       pos: 5.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 437
   - uid: 24
     components:
     - type: Transform
       pos: -4.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 434
-      - 435
   - uid: 25
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 434
-      - 435
   - uid: 26
     components:
     - type: Transform
       pos: -4.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 434
-      - 435
 - proto: BoozeDispenser
   entities:
   - uid: 249
@@ -1693,139 +1674,90 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 507
-      - 508
   - uid: 232
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 507
-      - 508
   - uid: 233
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 507
-      - 508
   - uid: 234
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 507
-      - 508
   - uid: 235
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 510
   - uid: 236
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 510
   - uid: 237
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 510
   - uid: 238
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 239
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,-0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 240
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 241
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 242
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 243
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 509
   - uid: 244
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-4.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 510
   - uid: 245
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-5.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 510
 - proto: DrinkGinBottleFull
   entities:
   - uid: 246
@@ -3291,43 +3223,26 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 439
   - uid: 399
     components:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 439
   - uid: 400
     components:
     - type: Transform
       pos: 0.5,3.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 439
   - uid: 401
     components:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 436
-      - 438
   - uid: 402
     components:
     - type: Transform
       pos: 2.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 436
-      - 438
 - proto: ShuttleWindow
   entities:
   - uid: 403
@@ -4364,6 +4279,15 @@ entities:
     - type: Transform
       pos: 1.5,-13.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 643
+    components:
+    - type: Transform
+      pos: 0.5,-2.5
+      parent: 1
+    - type: WarpPoint
+      location: The Barge
 - proto: WaterCooler
   entities:
   - uid: 576
