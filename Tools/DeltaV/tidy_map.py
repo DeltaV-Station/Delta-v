@@ -33,7 +33,7 @@ class TidyConfig:
         "Airtight": ["airBlocked"],
         "DeepFryer": ["nextFryTime"],
         "Defibrillator": ["nextZapTime"],
-        "Door": ["state", "SecondsUntilStateChange"],
+        "Door": ["state", "secondsUntilStateChange"],
         "Gun": ["nextFire"],
         "MaterialReclaimer": ["nextSound"],
         "MeleeWeapon": ["nextAttack"],
