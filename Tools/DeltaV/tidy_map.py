@@ -32,25 +32,15 @@ class TidyConfig:
     REMOVE_COMPONENT_DATA: Dict[str, List[str]] = {
         "Airtight": ["airBlocked"],
         "DeepFryer": ["nextFryTime"],
-        "Defibrillator": ["nextZapTime"],
         "Door": ["state", "secondsUntilStateChange"],
-        "Gun": ["nextFire"],
         "MaterialReclaimer": ["nextSound"],
-        "MeleeWeapon": ["nextAttack"],
         "Occluder": ["enabled"],
         "Physics": ["canCollide"],
-        "PowerCellDraw": ["nextUpdate"],
-        "SolutionPurge": ["nextPurgeTime"],
-        "SolutionRegeneration": ["nextChargeTime"],
-        "SuitSensor": ["nextUpdate"],
-        "Thruster": ["nextFire"],
-        "VendingMachine": ["nextEmpEject"],
     }
 
     # Fields to remove from components while keeping the component itself
     ERASE_COMPONENT_DATA: Dict[str, List[str]] = {
         "GridPathfinding": ["nextUpdate"],
-        "SpreaderGrid": ["nextUpdate"],
     }
 
 
