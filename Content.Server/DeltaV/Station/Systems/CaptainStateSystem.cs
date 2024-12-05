@@ -20,8 +20,8 @@ public sealed class CaptainStateSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
-        SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
+        SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
         base.Initialize();
     }
 
@@ -40,27 +40,24 @@ public sealed class CaptainStateSystem : EntitySystem
         }
     }
 
-    private void OnPlayerJobAdded(Entity<StationJobsComponent> ent, ref PlayerJobAddedEvent args)
+    private void OnPlayerJobAdded(Entity<CaptainStateComponent> ent, ref PlayerJobAddedEvent args)
     {
         if (args.JobPrototypeId == "Captain")
-        {
-            if (TryComp<CaptainStateComponent>(ent, out var component))
-                component.HasCaptain = true;
-        }
+            ent.Comp.HasCaptain = true;
     }
 
-    private void OnPlayerJobsRemoved(Entity<StationJobsComponent> ent, ref PlayerJobsRemovedEvent args)
+    private void OnPlayerJobsRemoved(Entity<CaptainStateComponent> ent, ref PlayerJobsRemovedEvent args)
     {
+        if (!TryComp<StationJobsComponent>(ent, out var stationJobs))
+            return;
         if (args.PlayerJobs == null || !args.PlayerJobs.Contains("Captain")) // If the player that left was a captain we need to check if there are any captains left
             return;
-        if (ent.Comp.PlayerJobs.Count != 0 && ent.Comp.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // We check the PlayerJobs if there are any cpatins left
+        if (stationJobs.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // We check the PlayerJobs if there are any cpatins left
             return;
-        if (!TryComp<CaptainStateComponent>(ent, out var component)) // We update CaptainState if the station has one on the new captain status
-            return;
-        component.HasCaptain = false;
-        component.TimeSinceCaptain = _ticker.RoundDuration();
-        component.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
-        component.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
+        ent.Comp.HasCaptain = false;
+        ent.Comp.TimeSinceCaptain = _ticker.RoundDuration();
+        ent.Comp.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
+        ent.Comp.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
     }
 
     /// <summary>
