@@ -9,7 +9,7 @@ namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
 public sealed partial class NewChatPopup : DefaultWindow
 {
     private const int MaxInputLength = 16;
-    private const int MaxNumberLength = 8; // 4 is the max we can get anyways, leaving 8 for admemes
+    private const int MaxNumberLength = 4; // i hardcoded it to be 4 so suffer
 
     public event Action<uint, string, string?>? OnChatCreated;
 

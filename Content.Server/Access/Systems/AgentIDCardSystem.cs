@@ -54,6 +54,17 @@ namespace Content.Server.Access.Systems
             access.Tags.UnionWith(targetAccess.Tags);
             var addedLength = access.Tags.Count - beforeLength;
 
+            // DeltaV - Copy NanoChat data if available
+            if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
+                TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
+            {
+                agentNanoChat.Recipients = new(targetNanoChat.Recipients);
+                agentNanoChat.Messages = new(targetNanoChat.Messages);
+                agentNanoChat.Number = targetNanoChat.Number;
+                Dirty(uid, agentNanoChat);
+            }
+            // End DeltaV
+
             if (addedLength == 0)
             {
                 _popupSystem.PopupEntity(Loc.GetString("agent-id-no-new", ("card", args.Target)), args.Target.Value, args.User);

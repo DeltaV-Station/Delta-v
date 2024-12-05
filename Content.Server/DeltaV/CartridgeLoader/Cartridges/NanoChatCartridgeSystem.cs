@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
 using Content.Server.Power.Components;
@@ -226,7 +227,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!EnsureRecipientExists(card, msg.RecipientNumber.Value))
             return;
 
-        var (deliveryFailed, recipient) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
+        var (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
 
         // Create and store message for sender
         var message = new NanoChatMessage(
@@ -237,20 +238,24 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         );
 
         // Log message attempt
-        var logRecipientText = recipient != null
-            ? ToPrettyString(recipient.Value)
+        var recipientsText = recipients.Count > 0
+            ? string.Join(", ", recipients.Select(r => ToPrettyString(r)))
             : $"#{msg.RecipientNumber:D4}";
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} sent NanoChat message to {logRecipientText}: {msg.Content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
+            $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {msg.Content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
         StoreMessage(card, msg.RecipientNumber.Value, message);
         var msgEv = new NanoChatMessageReceivedEvent(card);
         RaiseLocalEvent(ref msgEv);
 
-        if (!deliveryFailed && recipient != null)
-            DeliverMessageToRecipient(card, recipient.Value, message);
+        if (deliveryFailed)
+            return;
+        foreach (var recipient in recipients)
+        {
+            DeliverMessageToRecipient(card, recipient, message);
+        }
     }
 
     /// <summary>
@@ -276,42 +281,46 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Attempts to deliver a message to a recipient.
+    ///     Attempts to deliver a message to recipients.
     /// </summary>
     /// <param name="sender">The sending cartridge entity</param>
     /// <param name="recipientNumber">The recipient's number</param>
-    /// <returns>Tuple containing delivery status and recipient information if found.</returns>
-    private (bool failed, Entity<NanoChatCardComponent>? recipient) AttemptMessageDelivery(
+    /// <returns>Tuple containing delivery status and recipients if found.</returns>
+    private (bool failed, List<Entity<NanoChatCardComponent>> recipient) AttemptMessageDelivery(
         Entity<NanoChatCartridgeComponent> sender,
         uint recipientNumber)
     {
         // First verify we can send from this device
-        // We need to check the radio channel and telecomm status
         var channel = _prototype.Index(sender.Comp.RadioChannel);
         var sendAttemptEvent = new RadioSendAttemptEvent(channel, sender);
         RaiseLocalEvent(ref sendAttemptEvent);
         if (sendAttemptEvent.Cancelled)
-            return (true, null);
+            return (true, new List<Entity<NanoChatCardComponent>>());
 
-        Entity<NanoChatCardComponent>? foundRecipient = null;
+        var foundRecipients = new List<Entity<NanoChatCardComponent>>();
 
-        // First find the recipient's card
+        // Find all cards with matching number
         var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
-
         while (cardQuery.MoveNext(out var cardUid, out var card))
         {
             if (card.Number != recipientNumber)
                 continue;
 
-            foundRecipient = (cardUid, card);
+            foundRecipients.Add((cardUid, card));
+        }
 
-            // Now find any cartridges that have this card
+        if (foundRecipients.Count == 0)
+            return (true, foundRecipients);
+
+        // Now check if any of these cards can receive
+        var deliverableRecipients = new List<Entity<NanoChatCardComponent>>();
+        foreach (var recipient in foundRecipients)
+        {
+            // Find any cartridges that have this card
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent>();
-            var foundValidCartridge = false;
-
             while (cartridgeQuery.MoveNext(out var receiverUid, out var receiverCart, out _))
             {
-                if (receiverCart.Card != cardUid)
+                if (receiverCart.Card != recipient.Owner)
                     continue;
 
                 // Check if devices are on same station/map
@@ -336,18 +345,13 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 if (receiveAttemptEv.Cancelled)
                     continue;
 
-                // Found a valid cartridge that can receive
-                foundValidCartridge = true;
-                break;
+                // Found valid cartridge that can receive
+                deliverableRecipients.Add(recipient);
+                break; // Only need one valid cartridge per card
             }
-
-            if (foundValidCartridge)
-                return (false, foundRecipient);
-
-            break; // Found card but no valid cartridge
         }
 
-        return (true, foundRecipient);
+        return (deliverableRecipients.Count == 0, deliverableRecipients);
     }
 
     /// <summary>

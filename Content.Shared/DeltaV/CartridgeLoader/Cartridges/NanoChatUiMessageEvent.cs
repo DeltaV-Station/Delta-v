@@ -161,13 +161,13 @@ public readonly struct NanoChatData
 }
 
 /// <summary>
-///     Raised on the NanoChat card whenever a recipient gets added.
+///     Raised on the NanoChat card whenever a recipient gets added
 /// </summary>
 [ByRefEvent]
 public record struct NanoChatRecipientUpdatedEvent(EntityUid CardUid);
 
 /// <summary>
-///     Raised on the NanoChat card whenever it receives or tries sending a messsage.
+///     Raised on the NanoChat card whenever it receives or tries sending a messsage
 /// </summary>
 [ByRefEvent]
 public record struct NanoChatMessageReceivedEvent(EntityUid CardUid);

@@ -91,17 +91,16 @@
   description: pda messaging real
   components:
   - type: Sprite
-    sprite: Objects/Devices/cartridge.rsi
-    state: cart-y # placeholder
+    sprite: DeltaV/Objects/Devices/cartridge.rsi
+    state: cart-chat
   - type: UIFragment
     ui: !type:NanoChatUi
   - type: NanoChatCartridge
   - type: Cartridge
     programName: nano-chat-program-name
     icon:
-      sprite: Objects/Misc/bureaucracy.rsi
-      state: paper_words
-      color: "#cccccc"
+      sprite: DeltaV/Misc/program_icons.rsi
+      state: nanochat
   - type: ActiveRadio
     channels:
     - Common

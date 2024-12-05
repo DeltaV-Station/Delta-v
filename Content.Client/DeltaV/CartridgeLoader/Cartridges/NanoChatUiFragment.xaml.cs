@@ -14,7 +14,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const int MaxMessageLength = 512;
+    private const int MaxMessageLength = 256;
 
     private readonly NewChatPopup _newChatPopup;
     private uint? _currentChat;
