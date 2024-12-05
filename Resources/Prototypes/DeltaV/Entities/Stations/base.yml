@@ -19,3 +19,10 @@
     - displayName: stock-trading-company-donk
       basePrice: 90
       currentPrice: 90
+
+- type: entity
+  id: BaseStationCaptainState
+  abstract: true
+  components:
+    - type: CaptainState
+

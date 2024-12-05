@@ -25,11 +25,11 @@
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
+    - BaseStationCaptainState # DeltaV
     - BaseStationMail # Nyano component, required for station mail to function
     - BaseStationStockMarket # DeltaV
   categories: [ HideSpawnMenu ]
   components:
-    - type: CaptainState # DeltaV
     - type: Transform
 
 - type: entity

@@ -20,9 +20,14 @@ public sealed class CaptainStateSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded); // DeltaV
-        SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved); // DeltaV
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
+        SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        SubscribeLocalEvent<CaptainStateComponent, ComponentRemove>(OnRemove);
         base.Initialize();
+    }
+
+    private void OnRemove(Entity<CaptainStateComponent> ent, ref ComponentRemove args)
+    {
     }
 
     public override void Update(float frameTime)
