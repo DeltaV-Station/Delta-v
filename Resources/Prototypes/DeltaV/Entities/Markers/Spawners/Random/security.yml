@@ -4,6 +4,11 @@
   suffix: superweapon
   parent: MarkerBase
   components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: DeltaV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+      state: base
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: RandomSuperweaponTable
