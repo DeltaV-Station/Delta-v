@@ -34,6 +34,6 @@ public sealed partial class NanoChatEntry : BoxContainer
         JobLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
         UnreadIndicator.Visible = recipient.HasUnread;
 
-        ChatButton.ModulateSelfOverride = isSelected ? Color.FromHex("#173717") : null;
+        ChatButton.ModulateSelfOverride = isSelected ? NanoChatMessageBubble.OwnMessageColor : null;
     }
 }
