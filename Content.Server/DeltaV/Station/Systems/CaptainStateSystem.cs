@@ -22,12 +22,7 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<StationJobsComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<StationJobsComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        SubscribeLocalEvent<CaptainStateComponent, ComponentRemove>(OnRemove);
         base.Initialize();
-    }
-
-    private void OnRemove(Entity<CaptainStateComponent> ent, ref ComponentRemove args)
-    {
     }
 
     public override void Update(float frameTime)
