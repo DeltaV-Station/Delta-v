@@ -27,9 +27,9 @@
     - id: ClothingMaskBreathMedical
 
 - type: entity
+  parent: SuitStorageBase
   id: SuitStorageParamedic
   suffix: Paramedic
-  parent: SuitStorageBase
   components:
   - type: EntityTableContainerFill
     containers:
