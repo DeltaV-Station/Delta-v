@@ -6,15 +6,16 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using Content.Server._NF.Administration;
 using Content.Server.Administration.Systems;
-using Content.Server.Administration.Managers;
+using Content.Server.Administration.Managers; // Frontier
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Maps;
 using Content.Server.RoundEnd;
 using Content.Shared.Administration.Managers;
-using Content.Shared.Administration;
+using Content.Shared.Administration; // Frontier
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Prototypes;
@@ -667,17 +668,6 @@ public sealed partial class ServerApi : IPostInjectInit
     private sealed class MotdActionBody
     {
         public required string Motd { get; init; }
-    }
-
-    public sealed class BwoinkActionBody
-    {
-        public required string Text { get; init; }
-        public required string Username { get; init; }
-        public required Guid Guid { get; init; }
-        public bool UserOnly { get; init; }
-        public required bool WebhookUpdate { get; init; }
-        public required string RoleName { get; init; }
-        public required string RoleColor { get; init; }
     }
 
     #endregion

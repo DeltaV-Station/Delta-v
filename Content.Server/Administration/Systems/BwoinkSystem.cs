@@ -5,20 +5,20 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Content.Server._NF.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
-using Content.Server.Preferences.Managers;
+using Content.Server.Preferences.Managers; // Frontier
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using JetBrains.Annotations;
-using Pidgin.Configuration;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -45,9 +45,9 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IAfkManager _afkManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!; // Frontier
 
-        [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
+        [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")] // Frontier: support alt discords
         private static partial Regex DiscordRegex();
 
         private string _webhookUrl = string.Empty;
@@ -145,7 +145,7 @@ namespace Content.Server.Administration.Systems
             var webhookId = match.Groups[1].Value;
             var webhookToken = match.Groups[2].Value;
 
-            _onCallData = await GetWebhookData(url);
+            _onCallData = await GetWebhookData(url); // Frontier: support other urls
         }
 
         private void PlayerRateLimitedAction(ICommonSession obj)
@@ -633,7 +633,7 @@ namespace Content.Server.Administration.Systems
         }
 
         // Frontier: webhook text messages
-        public void OnWebhookBwoinkTextMessage(BwoinkTextMessage message, ServerApi.BwoinkActionBody body)
+        public void OnWebhookBwoinkTextMessage(BwoinkTextMessage message, BwoinkActionBody body)
         {
             // Note for forks:
             AdminData webhookAdminData = new();
