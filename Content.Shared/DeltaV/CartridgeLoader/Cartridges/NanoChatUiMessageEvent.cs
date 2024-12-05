@@ -135,3 +135,39 @@ public struct NanoChatMessage
         DeliveryFailed = deliveryFailed;
     }
 }
+
+/// <summary>
+///     NanoChat log data struct
+/// </summary>
+/// <remarks>Used by the LogProbe</remarks>
+[Serializable, NetSerializable, DataRecord]
+public readonly struct NanoChatData
+{
+    public Dictionary<uint, NanoChatRecipient> Recipients { get; }
+    public Dictionary<uint, List<NanoChatMessage>> Messages { get; }
+    public uint? CardNumber { get; }
+    public NetEntity Card { get; }
+
+    public NanoChatData(Dictionary<uint, NanoChatRecipient> recipients,
+        Dictionary<uint, List<NanoChatMessage>> messages,
+        uint? cardNumber,
+        NetEntity card)
+    {
+        Recipients = recipients;
+        Messages = messages;
+        CardNumber = cardNumber;
+        Card = card;
+    }
+}
+
+/// <summary>
+///     Raised on the NanoChat card whenever a recipient gets added.
+/// </summary>
+[ByRefEvent]
+public record struct NanoChatRecipientUpdatedEvent(EntityUid CardUid);
+
+/// <summary>
+///     Raised on the NanoChat card whenever it receives or tries sending a messsage.
+/// </summary>
+[ByRefEvent]
+public record struct NanoChatMessageReceivedEvent(EntityUid CardUid);

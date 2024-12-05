@@ -13,8 +13,9 @@
                ClipText="True" />
         <Label Name="MessageLabel"
                Align="Left"
-               SetWidth="390"
-               ClipText="True" />
+               MinWidth="390"
+               HorizontalExpand="True"
+               ClipText="False" />
     </BoxContainer>
     <customControls:HSeparator Margin="0 5 0 5" />
 </BoxContainer>

@@ -190,3 +190,13 @@ nano-chat-name-placeholder = Enter a name
 nano-chat-job-placeholder = Enter a job title (optional)
 nano-chat-cancel = Cancel
 nano-chat-create = Create
+
+# LogProbe additions
+log-probe-scan-nanochat = Scanned {$card}'s NanoChat logs
+log-probe-header-access = Access Log Scanner
+log-probe-header-nanochat = NanoChat Log Scanner
+log-probe-label-message = Message
+log-probe-card-number = Card: {$number}
+log-probe-recipients = {$count} Recipients
+log-probe-recipient-list = Known Recipients:
+log-probe-message-format = {$sender} → {$recipient}: {$content}

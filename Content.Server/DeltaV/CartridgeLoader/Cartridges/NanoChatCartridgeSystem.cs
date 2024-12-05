@@ -148,6 +148,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             LogImpact.Low,
             $"{ToPrettyString(msg.Actor):user} created new NanoChat conversation with #{msg.RecipientNumber:D4} ({msg.Content})");
 
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+
         Dirty(card);
         UpdateUIForCard(card);
     }
@@ -243,6 +246,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             $"{ToPrettyString(card):user} sent NanoChat message to {logRecipientText}: {msg.Content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
         StoreMessage(card, msg.RecipientNumber.Value, message);
+        var msgEv = new NanoChatMessageReceivedEvent(card);
+        RaiseLocalEvent(ref msgEv);
 
         if (!deliveryFailed && recipient != null)
             DeliverMessageToRecipient(card, recipient.Value, message);
@@ -409,6 +414,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (recipient.Comp.CurrentChat != sender.Comp.Number)
             HandleUnreadNotification(recipient, message);
 
+        var msgEv = new NanoChatMessageReceivedEvent(recipient);
+        RaiseLocalEvent(ref msgEv);
         Dirty(recipient);
         UpdateUIForCard(recipient);
     }
