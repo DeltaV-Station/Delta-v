@@ -1,0 +1,278 @@
+- type: entity
+  parent: Pill
+  id: PillSoretizone
+  suffix: Soretizone 10u
+  components:
+  - type: Pill
+    pillType: 14
+  - type: Sprite
+    state: pill15
+  - type: Label
+    currentLabel: soretizone 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Soretizone
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterSoretizone
+  suffix: Soretizone 10u, 5
+  components:
+  - type: Label
+    currentLabel: soretizone 10u
+  - type: StorageFill
+    contents:
+    - id: PillSoretizone
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillSerenitol
+  suffix: Serenitol 10u
+  components:
+  - type: Sprite
+    state: pill10
+  - type: Pill
+    pillType: 9
+  - type: Label
+    currentLabel: serenitol 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Serenitol
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterSerenitol
+  suffix: Serenitol 10u, 5
+  components:
+  - type: Label
+    currentLabel: serenitol 10u
+  - type: StorageFill
+    contents:
+    - id: PillSerenitol
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillNeurozenium
+  suffix: Neurozenium 10u
+  components:
+  - type: Sprite
+    state: pill8
+  - type: Pill
+    pillType: 7
+  - type: Label
+    currentLabel: neurozenium 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Neurozenium
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterNeurozenium
+  suffix: Neurozenium 10u, 5
+  components:
+  - type: Label
+    currentLabel: neurozenium 10u
+  - type: StorageFill
+    contents:
+    - id: PillNeurozenium
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillEquilibrazine
+  suffix: Equilibrazine 5u
+  components:
+  - type: Sprite
+    state: pill2
+  - type: Pill
+    pillType: 1
+  - type: Label
+    currentLabel: equilibrazine 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Equilibrazine
+          Quantity: 5
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterEquilibrazine
+  suffix: Equilibrazine 5u, 5
+  components:
+  - type: Label
+    currentLabel: equilibrazine 5u
+  - type: StorageFill
+    contents:
+    - id: PillEquilibrazine
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillBlissifylovene
+  suffix: Blissifylovene 5u
+  components:
+  - type: Sprite
+    state: pill7
+  - type: Pill
+    pillType: 6
+  - type: Label
+    currentLabel: blissifylovene 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Blissifylovene
+          Quantity: 5
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterBlissifylovene
+  suffix: Blissifylovene 5u, 5
+  components:
+  - type: Label
+    currentLabel: blissifylovene 5u
+  - type: StorageFill
+    contents:
+    - id: PillBlissifylovene
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillCalmafluxine
+  suffix: Calmafluxine 10u
+  components:
+  - type: Sprite
+    state: pill15
+  - type: Pill
+    pillType: 14
+  - type: Label
+    currentLabel: calmafluxine 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Calmafluxine
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterCalmafluxine
+  suffix: Calmafluxine 10u, 5
+  components:
+  - type: Label
+    currentLabel: calmafluxine 10u
+  - type: StorageFill
+    contents:
+    - id: PillCalmafluxine
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillTranquinase
+  suffix: Tranquinase 10u
+  components:
+  - type: Sprite
+    state: pill16
+  - type: Pill
+    pillType: 15
+  - type: Label
+    currentLabel: tranquinase 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Tranquinase
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterTranquinase
+  suffix: Tranquinase 10u, 5
+  components:
+  - type: Label
+    currentLabel: tranquinase 10u
+  - type: StorageFill
+    contents:
+    - id: PillTranquinase
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillStubantazine
+  suffix: Stubantazine 10u
+  components:
+  - type: Sprite
+    state: pill3
+  - type: Pill
+    pillType: 2
+  - type: Label
+    currentLabel: stubantazine 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Stubantazine
+          Quantity: 10
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterStubantazine
+  suffix: Stubantazine 10u, 5
+  components:
+  - type: Label
+    currentLabel: stubantazine 10u
+  - type: StorageFill
+    contents:
+    - id: PillStubantazine
+      amount: 5
+
+- type: entity
+  parent: Pill
+  id: PillAgonolexyne
+  suffix: agonolexyne 5u
+  components:
+  - type: Sprite
+    state: pill20
+  - type: Pill
+    pillType: 19
+  - type: Label
+    currentLabel: agonolexyne 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Agonolexyne
+          Quantity: 5
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterAgonolexyne
+  suffix: Agonolexyne 5u, 5
+  components:
+  - type: Label
+    currentLabel: agonolexyne 5u
+  - type: StorageFill
+    contents:
+    - id: PillAgonolexyne
+      amount: 5

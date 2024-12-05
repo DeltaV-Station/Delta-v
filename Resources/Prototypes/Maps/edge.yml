@@ -17,8 +17,10 @@
             prefixCreator: 'DV'
         - type: StationJobs
           availableJobs:
-          #service
+          #command
             Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+          #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 3 ]
             Botanist: [ 2, 2 ]
@@ -47,9 +49,10 @@
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            Scientist: [ 2, 4 ]
+            Scientist: [ 2, 3 ]
             ResearchAssistant: [ 2, 4 ]
-            Borg: [ 1, 2 ]
+            Borg: [ 2, 2 ]
+            Roboticist: [ 1, 1 ]
           #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

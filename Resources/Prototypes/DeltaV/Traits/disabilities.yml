@@ -5,3 +5,20 @@
   category: Disabilities
   components:
   - type: Uncloneable
+
+- type: trait
+  id: Addicted
+  name: trait-addicted-name
+  description: trait-addicted-desc
+  category: Disabilities
+  components:
+  - type: Addicted
+
+- type: trait
+  id: InPain
+  name: trait-inpain-name
+  description: trait-inpain-desc
+  traitGear: PillCanisterSoretizone
+  category: Disabilities
+  components:
+  - type: Pain

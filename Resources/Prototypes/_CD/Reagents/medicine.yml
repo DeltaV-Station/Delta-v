@@ -118,6 +118,7 @@
     Medicine:
       metabolismRate : 0.01
       effects:
+      - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -191,17 +192,12 @@
           min: 10
         reagent: Neurozenium
         amount: -7.5
-      - !type:AdjustReagent
+      - !type:Addicted
         probability: 0.5 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 10 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           reagent: Blissifylovene
           min: 1.5
-        reagent: Addictine
-        amount: 0.1
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -210,36 +206,36 @@
         damage:
           types:
             Poison: 0.5
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Tranquinase # conflicts with many other meds
-          min: 2.0
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-        probability: 0.4
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Soretizone # conflicts with many other meds
-          min: 3.0
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-        probability: 0.3
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Agonolexyne # conflicts with many other meds
-          min: 0.25
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-        probability: 0.3
+     #- !type:GenericStatusEffect
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Tranquinase # conflicts with many other meds
+         #min: 2.0
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+       #probability: 0.4
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Soretizone # conflicts with many other meds
+         #min: 3.0
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+       #probability: 0.3
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Agonolexyne # conflicts with many other meds
+         #min: 0.25
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+       #probability: 0.3
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -348,15 +344,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 16.5
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          min: 20.0
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-        probability: 0.1
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #conditions:
+       #- !type:ReagentThreshold
+         #min: 20.0
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+       #probability: 0.1
       - !type:HealthChange # poisons you if you take way too much
         conditions:
         - !type:ReagentThreshold
@@ -451,112 +447,6 @@
             max: 0.1
 
 - type: reagent
-  id: Addictine
-  name: reagent-name-addictine
-  group: Toxins
-  desc: reagent-desc-addictine
-  flavor: savory
-  color: "#d9d9d9"
-  physicalDesc: reagent-physical-desc-refreshing
-  metabolisms:
-    Poison:
-      metabolismRate : 0.01
-      effects:
-      - !type:PopupMessage
-        type: Local
-        visualType: LargeCaution
-        messages:
-          - "reagent-effect-medaddiction-1"
-          - "reagent-effect-medaddiction-2"
-          - "reagent-effect-medaddiction-3"
-          - "reagent-effect-medaddiction-4"
-          - "reagent-effect-medaddiction-5"
-          - "reagent-effect-medaddiction-6"
-          - "reagent-effect-medaddiction-7"
-          - "reagent-effect-medaddiction-8"
-        probability: 0.08
-        conditions:
-        - !type:ReagentThreshold # the following three chemicals are addictive, and thus will counteract cravings.
-          reagent: Blissifylovene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Soretizone
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Agonolexyne
-          max: 0.01
-        - !type:ReagentThreshold # Delta-V - Following four are also addictive
-          reagent: SpaceDrugs
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: THC
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Impedrezene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Desoxyephedrine
-          max: 0.01
-      - !type:AdjustReagent
-        reagent: Charcoal # purges bloodstream cleaners
-        amount: -10.0
-      - !type:AdjustReagent
-        reagent: Ipecac # purges bloodstream cleaners
-        amount: -10.0
-      - !type:MovespeedModifier
-        walkSpeedModifier: 0.9 # Delta-V : Changes walk-speed modifier from 0.95 to 0.9
-        sprintSpeedModifier: 0.7
-        conditions:
-        - !type:ReagentThreshold
-          max: 1.0 # it gets worse before the addiction ends.
-        - !type:ReagentThreshold # the following three chemicals are addictive, and thus will counteract cravings.
-          reagent: Blissifylovene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Soretizone
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Agonolexyne
-          max: 0.01
-        - !type:ReagentThreshold # Delta-V - Following four are also addictive
-          reagent: SpaceDrugs
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: THC
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Impedrezene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Desoxyephedrine
-          max: 0.01
-      - !type:GenericStatusEffect # Delta-V - Makes you stutter
-        key: Stutter
-        component: StutteringAccent
-        conditions:
-        - !type:ReagentThreshold 
-          reagent: Blissifylovene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Soretizone
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Agonolexyne
-          max: 0.01
-        - !type:ReagentThreshold 
-          reagent: SpaceDrugs
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: THC
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Impedrezene
-          max: 0.01
-        - !type:ReagentThreshold
-          reagent: Desoxyephedrine
-          max: 0.01
-
-- type: reagent
   id: Stubantazine
   name: reagent-name-stubantazine
   group: Medicine
@@ -568,6 +458,8 @@
     Medicine:
       metabolismRate : 0.02
       effects:
+      - !type:SuppressPain
+        suppressionLevel: Mild
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -621,6 +513,9 @@
     Medicine:
       metabolismRate : 0.01
       effects:
+      - !type:SuppressPain
+        suppressionLevel: Normal
+      - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -630,25 +525,25 @@
           - "reagent-effect-painkiller-normal3"
           - "reagent-effect-painkiller-normal4"
         probability: 0.085
-      - !type:GenericStatusEffect
-        probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          min: 14.5 # overdose knocks you out
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-      - !type:GenericStatusEffect
-        probability: 0.08
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Stubantazine
-          min: 5 # taking with other painkillers will knock you out
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #probability: 0.1
+       #conditions:
+       #- !type:ReagentThreshold
+         #min: 14.5 # overdose knocks you out
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #probability: 0.08
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Stubantazine
+         #min: 5 # taking with other painkillers will knock you out
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -656,16 +551,11 @@
           min: 20
         reagent: Soretizone
         amount: 0.03
-      - !type:AdjustReagent
-        probability: 0.55 # Chance of Addiction rising per tick
+      - !type:Addicted
+        probability: 0.7 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 5 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 9
-        reagent: Addictine # add
-        amount: 0.1
       - !type:PopupMessage
         type: Local
         visualType: Medium # stronger painkiller = more noticable fading
@@ -688,6 +578,9 @@
     Medicine:
       metabolismRate : 0.01
       effects:
+      - !type:SuppressPain
+        suppressionLevel: Strong
+      - !type:SuppressAddiction
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -699,26 +592,26 @@
           - "reagent-effect-painkiller-strong5"
           - "reagent-effect-painkiller-strong6"
         probability: 0.1
-      - !type:GenericStatusEffect
-        probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Stubantazine
-          min: 4 # taking with other painkillers will knock you out
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-      - !type:GenericStatusEffect
-        probability: 0.15
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Soretizone
-          min: 2 # taking with other painkillers will knock you out
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #probability: 0.1
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Stubantazine
+         #min: 4 # taking with other painkillers will knock you out
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
+     #- !type:GenericStatusEffect # DeltaV - Removed all psych med forcesleeps
+       #probability: 0.15
+       #conditions:
+       #- !type:ReagentThreshold
+         #reagent: Soretizone
+         #min: 2 # taking with other painkillers will knock you out
+       #key: ForcedSleep
+       #component: ForcedSleeping
+       #refresh: false
+       #type: Add
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -726,16 +619,11 @@
           min: 1
         reagent: Agonolexyne
         amount: 0.04
-      - !type:AdjustReagent
+      - !type:Addicted
         probability: 0.8 # Chance of Addiction rising per tick
         conditions:
         - !type:ReagentThreshold
-          reagent: Addictine
-          max: 25 # maximum addiction severity for this reagent
-        - !type:ReagentThreshold
           min: 0.25
-        reagent: Addictine
-        amount: 0.2
       - !type:Drunk # OD causes drunkeness
         conditions:
           - !type:ReagentThreshold
