@@ -30,3 +30,64 @@
   id: PaperFugitiveReport
   name: fugitive report
   description: An arrest warrant for a space fugitive sent from GALPOL.
+
+- type: entity
+  parent: Paper
+  id: PaperCrateHydroCoConsumption
+  name: HydroCo Notice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    stampState: paper_stamp-generic
+    stampedBy:
+    - stampedColor: '#8F99D6FF'
+      stampedName: HydroCo
+    content: |2
+
+      [head=1]HydroCo - Hydrate Tastefully[/head]
+
+      [bold]Consumption Notice[/bold]
+      HydroCo reminds all customers that powdered products
+      are NOT meant for direct consumption. Attempting to eat
+      the powder directly is a choking hazard and may result
+      in severe discomfort.
+
+      Always mix with water according to package instructions
+      before consuming.
+
+      Thank you for choosing HydroCo!
+      Enjoy your drinks!
+
+- type: entity
+  parent: Paper
+  id: PaperMailHydroCoTrial
+  name: HydroCo Trial Message
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    stampState: paper_stamp-generic
+    stampedBy:
+    - stampedColor: '#8F99D6FF'
+      stampedName: HydroCo
+    content: |2
+
+      [head=1]HydroCo - Hydrate Tastefully[/head]
+
+      [bold]Dear Recipient,[/bold]
+      you have been selected among thousands of potential
+      beneficiaries to receive a full-size trial tin of HydroCo
+      powdered juice!
+
+      We think you will enjoy the flavor and hope to see you
+      as a returning customer.
+
+      [bold]Consumption Notice[/bold]
+      HydroCo reminds all customers that powdered products
+      are NOT meant for direct consumption. Attempting to eat
+      the powder directly is a choking hazard and may result in
+      severe discomfort.
+
+      Always mix with water according to package instructions
+      before consuming.
+
+      Enjoy your drinks!
