@@ -1,0 +1,21 @@
+- type: entity
+  id: LootSpawnerSecuritySuperweapon
+  name: security superweapon spawner
+  suffix: superweapon
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSuperweaponTable
+
+#Table
+- type: entityTable
+  id: RandomSuperweaponTable
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      children:
+      - id: WeaponLauncherRocket
+      - id: CartridgeRocket
+        prob: 0.2
+    - id: WeaponBeamDevastator
