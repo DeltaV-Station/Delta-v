@@ -73,7 +73,8 @@
     - Security
     - Service
     - Supply
-    - Prison #DeltaV
+    - Traffic # DeltaV
+    - Prison # DeltaV
     defaultChannel: Command
   - type: Sprite
     layers:
@@ -89,6 +90,7 @@
   - type: EncryptionKey
     channels:
     - Command
+    - Traffic # DeltaV (Debatable, discuss on PR release)
     defaultChannel: Command
   - type: Sprite
     layers:

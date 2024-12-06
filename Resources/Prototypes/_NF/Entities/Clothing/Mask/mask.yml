@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskPilot
+  name: pilot breathing mask
+  description: A close-fitting breathing mask designed for, it would seems, minimal comfort of wearer.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Mask/pilot.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Mask/pilot.rsi
+  - type: BreathMask

@@ -10,39 +10,7 @@
       - EncryptionKeyService
       - EncryptionKeyCommand
       - EncryptionKeyCommon
-
-- type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltService
-  name: head of personnel's over-ear headset
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyCommon
-  - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
     
-- type: entity
-  parent: ClothingHeadsetAltSyndicate
-  id: ClothingHeadsetAltSyndicateListening
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeySyndie
-      - EncryptionKeyStationMaster
-  - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
-  - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
-
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetJustice
@@ -58,25 +26,6 @@
   - type: Sprite
     sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
     state: icon
-  - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
-
-- type: entity
-  parent: ClothingHeadset
-  id: ClothingHeadsetAltJustice
-  name: chief justice's headset
-  description: The headset used by the chief justice.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyJustice
-      - EncryptionKeySecurity
-      - EncryptionKeyCommon
-      - EncryptionKeyCommand
-  - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
-    state: icon_alt
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
     
@@ -112,4 +61,18 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
-    
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetGreySyndicate
+  name: passenger headset
+  suffix: Recruiter
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyTraffic
+      # - EncryptionKeySyndie # Taken out until remodeling of recruiter is done. 
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/base.rsi

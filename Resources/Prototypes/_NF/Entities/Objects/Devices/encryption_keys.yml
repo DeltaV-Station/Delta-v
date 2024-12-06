@@ -1,0 +1,17 @@
+- type: entity
+  parent: EncryptionKey # DeltaV - Removed RecyclableItemDeviceTiny
+  id: EncryptionKeyTraffic
+  name: traffic control encryption key
+  description: An encryption key for the space traffic control channel.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Traffic
+    defaultChannel: Traffic
+  - type: Item
+    sprite: _NF/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _NF/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_gray
+    - state: stc_label
