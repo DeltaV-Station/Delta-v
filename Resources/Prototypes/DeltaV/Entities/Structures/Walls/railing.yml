@@ -87,9 +87,9 @@
     state: round_grey
 
 - type: entity
+  abstract: true
   id: BaseRailingWood
   suffix: Modern, Wood
-  abstract: true
   components:
   - type: Destructible
     thresholds:
