@@ -12,6 +12,7 @@ public sealed class StationPlanetSpawnerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<StationPlanetSpawnerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StationPlanetSpawnerComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnMapInit(Entity<StationPlanetSpawnerComponent> ent, ref MapInitEvent args)
@@ -20,5 +21,10 @@ public sealed class StationPlanetSpawnerSystem : EntitySystem
             return;
 
         ent.Comp.Map = _planet.LoadPlanet(ent.Comp.Planet, path.ToString());
+    }
+
+    private void OnShutdown(Entity<StationPlanetSpawnerComponent> ent, ref ComponentShutdown args)
+    {
+        QueueDel(ent.Comp.Map);
     }
 }
