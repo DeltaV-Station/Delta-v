@@ -1,3 +1,4 @@
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared.DeltaV.Planet;
 using Content.Shared.Parallax.Biomes;
@@ -37,6 +38,8 @@ public sealed class PlanetSystem : EntitySystem
 
         if (planet.AddedComponents is {} added)
             EntityManager.AddComponents(map, added);
+
+        _atmos.SetMapAtmosphere(map, false, planet.Atmosphere);
 
         _meta.SetEntityName(map, Loc.GetString(planet.MapName));
 
