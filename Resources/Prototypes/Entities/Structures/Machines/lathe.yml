@@ -439,6 +439,7 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponBeamCannon
       # End DeltaV additions
 
 - type: entity
@@ -843,7 +844,7 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
-      #- PortableRecharger # DeltaV - removed for some reason
+      - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
       - PowerCageSmall
@@ -893,6 +894,7 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
