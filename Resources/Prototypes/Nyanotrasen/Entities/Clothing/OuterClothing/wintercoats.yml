@@ -42,11 +42,11 @@
     - type: ToggleableClothing #DeltaV - fixing the fact that it has no hood
       clothingPrototype: ClothingHeadHatHoodWinterMailCarrier 
     - type: ContainerContainer
-      storagebase: !type:Container
+       storagebase: !type:Container
        showEnts: False
        occludes: True
        ents: []
-      toggleable-clothing: !type:ContainerSlot
+       toggleable-clothing: !type:ContainerSlot
        showEnts: False
        occludes: True
        ent: null
