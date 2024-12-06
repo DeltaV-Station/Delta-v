@@ -19,54 +19,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 1
-    components:
-    - type: MetaData
-      name: Glacier Surface
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: Broadphase
-    - type: OccluderTree
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: FTLDestination
-    - type: LoadedMap
-    - type: MapAtmosphere
-      space: False
-      mixture:
-        volume: 2500
-        immutable: True
-        temperature: 180
-        moles:
-        - 42
-        - 158
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: MapGrid
-    - type: Biome
-      template: Snow
-      enabled: False
-    - type: Gravity
-      inherent: True
-      enabled: True
-    - type: MapLight
-      ambientLightColor: '#2B3153FF'
   - uid: 2
     components:
     - type: MetaData
-      name: Surface Outpost
+      name: Glacier Surface Outpost
     - type: Transform
-      parent: 1
     - type: MapGrid
       chunks:
         -1,0:
