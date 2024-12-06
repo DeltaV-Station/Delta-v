@@ -24,7 +24,6 @@ entities:
     components:
     - type: MetaData
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -316,9 +315,6 @@ entities:
     - type: Transform
       pos: 9.5,0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 321
 - proto: BoxFolderBlack
   entities:
   - uid: 20
@@ -1958,9 +1954,6 @@ entities:
     - type: Transform
       pos: 8.5,0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 123
 - proto: NitrogenCanister
   entities:
   - uid: 269
@@ -2837,6 +2830,8 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
+    - type: WarpPoint
+      location: NTXR Saucer
 - proto: WindoorSecurePlasma
   entities:
   - uid: 413
@@ -2847,8 +2842,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 414
     - type: DeviceLinkSource
       linkedPorts:
         414:
@@ -2861,8 +2854,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 413
     - type: DeviceLinkSource
       linkedPorts:
         413:

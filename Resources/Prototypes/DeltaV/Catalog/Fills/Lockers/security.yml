@@ -77,3 +77,24 @@
       amount: 2
     - id: MagazineRifle
       amount: 4
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeRocketLauncher
+  name: RPG safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherRocket
+    - id: CartridgeRocket
+      prob: 0.2
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeBeamDevastator
+  name: Devastator safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponBeamDevastator
+ 
