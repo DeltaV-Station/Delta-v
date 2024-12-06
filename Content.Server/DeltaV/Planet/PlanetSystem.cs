@@ -11,6 +11,7 @@ namespace Content.Server.DeltaV.Planet;
 
 public sealed class PlanetSystem : EntitySystem
 {
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MapSystem _map = default!;
