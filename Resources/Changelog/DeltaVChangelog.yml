@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Glimmer probers now react violently to being hit by gorilla gauntlets
-      if glimmer is above 500
-    type: Tweak
-  id: 243
-  time: '2024-02-13T00:59:01.0000000+00:00'
 - author: VMSolidus
   changes:
   - message: Removed the ability of Harpies to destroy people's ears.
@@ -3801,3 +3794,14 @@
   id: 742
   time: '2024-12-06T18:15:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2288
+- author: Radezolid
+  changes:
+  - message: Added foam sabres! They may appear in maintenance lockers and mimes can
+      select to spawn with it in the loadout selection.
+    type: Add
+  - message: Added a sharp version of the foam sabre toy, purchasable from the syndicate
+      uplink at 6 TC with a possible discount to 4 TC.
+    type: Add
+  id: 743
+  time: '2024-12-06T19:33:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2310
