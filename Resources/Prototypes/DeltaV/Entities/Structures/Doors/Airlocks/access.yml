@@ -7,6 +7,28 @@
   - type: PriorityDock
     tag: DockShipyard
 
+# this goes on lavaland, unlimited
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleMining
+  suffix: External, Mining, Glass, Docking
+  components:
+  - type: PriorityDock
+    tag: DockMining
+
+# 1 per map, this spawns the mining shuttle
+- type: entity
+  parent: AirlockExternalGlassShuttleMining
+  id: AirlockExternalGlassShuttleMiningFilled
+  suffix: Mining, Filled
+  components:
+  - type: GridFill
+    path: /Maps/Shuttles/DeltaV/mining.yml
+    addComponents:
+    - type: IFF
+      flags:
+      - HideLabel
+
 # Delta V specific roles
 - type: entity
   parent: AirlockScience
