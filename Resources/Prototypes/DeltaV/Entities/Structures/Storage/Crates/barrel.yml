@@ -63,7 +63,6 @@
     solutions:
       tank:
         maxVol: 500
-        canMix: true
   - type: ExaminableSolution
     solution: tank
   - type: UserInterface
@@ -115,14 +114,14 @@
   description: A musty old wooden keg, with a tap attached to the front. Smells like root beer.
   id: WoodenKegRootBeer
   components:
-    - type: Label
-      currentLabel: reagent-name-root-beer
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: RootBeer
-              Quantity: 500
+  - type: Label
+    currentLabel: reagent-name-root-beer
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: RootBeer
+          Quantity: 500
 
 - type: entity
   parent: WoodenKeg
@@ -130,14 +129,14 @@
   description: A musty old wooden keg, with a tap attached to the front. Smells like beer.
   id: WoodenKegBeer
   components:
-    - type: Label
-      currentLabel: reagent-name-beer
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: Beer
-              Quantity: 500
+  - type: Label
+    currentLabel: reagent-name-beer
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Beer
+          Quantity: 500
 
 - type: entity
   parent: WoodenKeg
@@ -145,11 +144,11 @@
   description: A musty old wooden keg, with a tap attached to the front. Smells like wine.
   id: WoodenKegWine
   components:
-    - type: Label
-      currentLabel: reagent-name-wine
-    - type: SolutionContainerManager
-      solutions:
-        tank:
-          reagents:
-            - ReagentId: Wine
-              Quantity: 500
+  - type: Label
+    currentLabel: reagent-name-wine
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Wine
+          Quantity: 500
