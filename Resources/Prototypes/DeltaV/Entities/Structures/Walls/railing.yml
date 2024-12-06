@@ -89,6 +89,7 @@
 - type: entity
   id: BaseRailingWood
   suffix: Modern, Wood
+  abstract: true
   components:
   - type: Destructible
     thresholds:
@@ -141,7 +142,6 @@
 - type: entity
   parent: [BaseRailingWood, RailingCornerSmall]
   id: RailingCornerSmallDeltaVWood
-  suffix: Modern
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Walls/railing.rsi
@@ -153,7 +153,6 @@
 - type: entity
   parent: [BaseRailingWood, RailingRound]
   id: RailingRoundDeltaVWood
-  suffix: Modern
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Walls/railing.rsi
