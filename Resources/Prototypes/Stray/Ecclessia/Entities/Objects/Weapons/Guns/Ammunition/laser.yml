@@ -20,11 +20,11 @@
         Piercing: 20
         Heat: 2
         Shock: 13
-  - type: StaminaDamageOnCollide
-    damage: 16
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: StaminaDamageOnCollide
+    damage: 16
   - type: StunOnCollide
     stunAmount: 1
     knockdownAmount: 1
