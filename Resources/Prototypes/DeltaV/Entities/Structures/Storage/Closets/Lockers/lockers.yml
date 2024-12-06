@@ -29,10 +29,12 @@
   id: LockerPsychologist
   name: psychologist's locker
   components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: psych
-    stateDoorOpen: med_secure_open
+    stateDoorOpen: psych_open
     stateDoorClosed: psych_door
   - type: AccessReader
     access: [["Psychologist"]]
