@@ -90,10 +90,6 @@
   id: BaseRailingWood
   suffix: Modern, Wood
   components:
-  - type: Sprite
-    sprite: DeltaV/Structures/Walls/railing.rsi
-  - type: Icon
-    sprite: DeltaV/Structures/Walls/railing.rsi
   - type: Destructible
     thresholds:
     - trigger:
@@ -124,8 +120,10 @@
   id: RailingDeltaVWood
   components:
   - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: side_wood
   - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: side_wood
   
 
@@ -134,8 +132,10 @@
   id: RailingCornerDeltaVWood
   components:
   - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: corner_wood
   - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: corner_wood
 
 - type: entity
@@ -144,8 +144,10 @@
   suffix: Modern
   components:
   - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: corner_small_wood
   - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: corner_small_wood
 
 - type: entity
@@ -154,6 +156,8 @@
   suffix: Modern
   components:
   - type: Sprite
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: round_wood
   - type: Icon
+    sprite: DeltaV/Structures/Walls/railing.rsi
     state: round_wood
