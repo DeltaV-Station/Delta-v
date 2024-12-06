@@ -15,6 +15,9 @@ guide-entry-deltav-rule-c2 = C2. Prisoner Guidelines
 guide-entry-deltav-rule-c3 = C3. Follow Antagonist Guidelines
 
 guide-entry-alert-levels = Alert Levels
+guide-entry-sop = Standard Operating Procedure
+guide-entry-splaw = Space Law
+guide-entry-copo = Company Policy
 guide-entry-justice = Justice
 
 guide-entry-glimmer-creatures = Glimmer Creatures
