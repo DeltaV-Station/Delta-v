@@ -25,3 +25,15 @@
     modifiers:
       coefficients:
         Piercing: 0.95
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBestlungSpace
+  name: Форма КСБ
+  description: Стандартная форма начальных рангов Космических сил Бэстенлунга. Весьма удобна, прошу заметить
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/space.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Uniforms/Jumpsuit/space.rsi

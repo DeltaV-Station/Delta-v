@@ -1,0 +1,55 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckStrapBase
+  name: погоны
+  description: 'Синие погоны с встроенным чипом. Белые края указывают на разнороботочность. Полоска, что может значить две вещи: 1) Вы уже один раз продвинулись по карьерной лестнице, 2) Такую же полоску вы поставили на своей личной жизни'
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Structures/Misc/Posters.rsi
+    state: clothFlag
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/strap.rsi
+    equippedPrefix: base
+
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckStrapEng
+  name: погоны Бэстенлунга
+  description: Синие погоны с встроенным чипом. Жёлтые края указывает на инженерную направленность. Девственно чистые от полосок, как задница новобранца!
+  suffix: Бэстенлунг, инженер
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Structures/Misc/Posters.rsi
+    state: clothFlag
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/strap.rsi
+    equippedPrefix: eng
+
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckStrapMed
+  name: погоны
+  description: Синие погоны с встроенным чипом. Красные края указывает на медицинскую направленность. Девственно чистые от полосок, как задница новобранца!
+  suffix: Бэстенлунг, медик
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Structures/Misc/Posters.rsi
+    state: clothFlag
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/strap.rsi
+    equippedPrefix: med
+
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckStrapPilot
+  name: погоны
+  description: Синие погоны с встроенным чипом. Розовые указывает на направленность пилота. Девственно чистые от полосок, как задница новобранца!
+  suffix: Бэстенлунг, пилот
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Structures/Misc/Posters.rsi
+    state: clothFlag
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Neck/Misc/strap.rsi
+    equippedPrefix: pilot
