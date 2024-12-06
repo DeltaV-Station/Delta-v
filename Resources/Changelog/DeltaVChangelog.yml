@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Felinid's thieving gloves have been removed for Soft paws mechanic.
-    type: Tweak
-  id: 240
-  time: '2024-02-12T21:10:44.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Felinids now scream in agony from water.
-    type: Add
-  id: 241
-  time: '2024-02-12T21:11:44.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: 'Harpies have received a full visual rework. Featuring clothing sprites,
-      new markings, a complete overhaul of their layering, as well as visual systems. '
-    type: Add
-  - message: Harpies now have bird related speech verbs
-    type: Add
-  - message: 'Two new traits have been added related to birds. Harpies now start by
-      default with the new Ultraviolet Vision trait, letting them see a whole new
-      spectrum of colors. This trait can be taken by other curious people. Harpies
-      that wish to see in RGB colors can instead take the new Normal Vision trait. '
-    type: Add
-  id: 242
-  time: '2024-02-12T22:25:02.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Glimmer probers now react violently to being hit by gorilla gauntlets
-      if glimmer is above 500
-    type: Tweak
-  id: 243
-  time: '2024-02-13T00:59:01.0000000+00:00'
 - author: VMSolidus
   changes:
   - message: Removed the ability of Harpies to destroy people's ears.
@@ -3805,3 +3772,36 @@
   id: 739
   time: '2024-12-05T04:17:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2358
+- author: JustAnOrange
+  changes:
+  - message: Fixed Logi and Epi departmental sign sprites.
+    type: Fix
+  id: 740
+  time: '2024-12-05T10:29:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2366
+- author: Emily9031
+  changes:
+  - message: Cyborgs are now able to slowly fly through space.
+    type: Add
+  id: 741
+  time: '2024-12-06T01:22:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2339
+- author: Avalon-Proto
+  changes:
+  - message: Syndicate Observation Kits have been adjusted, granting it a Camera bug
+      and a better cell for the monitor!
+    type: Tweak
+  id: 742
+  time: '2024-12-06T18:15:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2288
+- author: Radezolid
+  changes:
+  - message: Added foam sabres! They may appear in maintenance lockers and mimes can
+      select to spawn with it in the loadout selection.
+    type: Add
+  - message: Added a sharp version of the foam sabre toy, purchasable from the syndicate
+      uplink at 6 TC with a possible discount to 4 TC.
+    type: Add
+  id: 743
+  time: '2024-12-06T19:33:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2310
