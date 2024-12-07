@@ -110,12 +110,12 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # begin DeltaV
+  - type: FootPrints # DeltaV
     leftBarePrint: "footprint-left-bare-diona"
     rightBarePrint: "footprint-right-bare-diona"
-  - type: MovementSpeedModifier
+  - type: MovementSpeedModifier # DeltaV
     baseWalkSpeed: 1.0
-    baseSprintSpeed: 3.0  # end DeltaV
+    baseSprintSpeed: 3.0
 
 - type: entity
   parent: BaseSpeciesDummy
