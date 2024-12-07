@@ -21,6 +21,7 @@ public sealed class DockingShuttleSystem : SharedDockingShuttleSystem
         base.Initialize();
 
         SubscribeLocalEvent<DockingShuttleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DockingShuttleComponent, FTLStartedEvent>(OnFTLStarted);
         SubscribeLocalEvent<DockingShuttleComponent, FTLCompletedEvent>(OnFTLCompleted);
 
         SubscribeLocalEvent<StationGridAddedEvent>(OnStationGridAdded);

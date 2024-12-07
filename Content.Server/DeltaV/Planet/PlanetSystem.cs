@@ -18,7 +18,7 @@ public sealed class PlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
 
-    private List<(Vector2i, Tile)> _setTiles = new();
+    private readonly List<(Vector2i, Tile)> _setTiles = new();
 
     /// <summary>
     /// Spawn a planet map from a planet prototype.

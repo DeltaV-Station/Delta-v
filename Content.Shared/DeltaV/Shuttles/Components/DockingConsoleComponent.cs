@@ -3,7 +3,6 @@ using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.Shuttles.Components;
 

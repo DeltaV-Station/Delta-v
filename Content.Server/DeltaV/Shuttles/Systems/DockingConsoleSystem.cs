@@ -1,7 +1,6 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Shared.DeltaV.Shuttles;
 using Content.Shared.DeltaV.Shuttles.Components;
 using Content.Shared.DeltaV.Shuttles.Systems;
@@ -11,7 +10,6 @@ using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using System.Linq;
 
 namespace Content.Server.DeltaV.Shuttles.Systems;
 

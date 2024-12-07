@@ -1,7 +1,6 @@
 using Content.Shared.DeltaV.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
-using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.Shuttles;

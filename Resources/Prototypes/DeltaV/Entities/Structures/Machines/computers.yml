@@ -37,13 +37,13 @@
   components:
   - type: Sprite
     layers:
-    - map: ["computerLayerBody"]
+    - map: [ "computerLayerBody" ]
       state: computer
-    - map: ["computerLayerKeyboard"]
+    - map: [ "computerLayerKeyboard" ]
       state: generic_keyboard
-    - map: ["computerLayerScreen"]
+    - map: [ "computerLayerScreen" ]
       state: shuttle
-    - map: ["computerLayerKeys"]
+    - map: ["computerLayerKeys" ]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
