@@ -173,7 +173,7 @@ uplink-antimov-law-desc = A very dangerous Lawset to use when you want to cause 
 
 # Implants
 uplink-storage-implanter-name = Storage Implanter
-uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology! Recent limitations have made it impossible to store both high risk, and storage containing items inside it.
+uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology!
 
 uplink-freedom-implanter-name = Freedom Implanter
 uplink-freedom-implanter-desc = Get away from those nasty sec officers with this three use implant!
