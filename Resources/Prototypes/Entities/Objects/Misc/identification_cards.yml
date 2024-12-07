@@ -564,18 +564,19 @@
     - type: PresetIdCard
       job: Musician
 
-- type: entity
-  parent: IDCardStandard
-  id: CentcomIDCardDeathsquad
-  name: death squad ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: centcom
-  - type: Item
-    heldPrefix: blue
-  - type: PresetIdCard
-    job: DeathSquad
+# DeltaV - 1984 Deathsquad
+#- type: entity
+  #parent: IDCardStandard
+  #id: CentcomIDCardDeathsquad
+  #name: death squad ID card
+  #components:
+  #- type: Sprite
+    #layers:
+    #- state: centcom
+  #- type: Item
+    #heldPrefix: blue
+  #- type: PresetIdCard
+    #job: DeathSquad
 
 - type: entity
   name: passenger ID card

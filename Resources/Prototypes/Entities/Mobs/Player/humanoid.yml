@@ -14,41 +14,42 @@
     - type: MindShield
     - type: AntagImmune
 
+# DeltaV - 1984 Deathsquad
 ## Death Squad
 
-- type: entity
-  id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
-  suffix: ERTRole, Death Squad
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
-      state: icon
-    - type: RandomMetadata
-      nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
-    - type: RandomHumanoidSpawner
-      settings: DeathSquad
+#- type: entity
+  #id: RandomHumanoidSpawnerDeathSquad
+  #name: Death Squad Agent
+  #suffix: ERTRole, Death Squad
+  #components:
+    #- type: Sprite
+      #sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+      #state: icon
+    #- type: RandomMetadata
+      #nameSegments:
+        #- NamesFirstMilitaryLeader
+        #- NamesLastMilitary
+    #- type: RandomHumanoidSpawner
+      #settings: DeathSquad
 
-- type: randomHumanoidSettings
-  id: DeathSquad
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-    - type: GhostRole
-      name: ghost-role-information-Death-Squad-name
-      description: ghost-role-information-Death-Squad-description
-      rules: ghost-role-information-Death-Squad-rules
-      raffle:
-        settings: short
-    - type: Loadout
-      prototypes: [ DeathSquadGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
-    - type: RandomMetadata
-      nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+#- type: randomHumanoidSettings
+  #id: DeathSquad
+  #parent: EventHumanoidMindShielded
+  #randomizeName: false
+  #components:
+    #- type: GhostRole
+      #name: ghost-role-information-Death-Squad-name
+      #description: ghost-role-information-Death-Squad-description
+      #rules: ghost-role-information-Death-Squad-rules
+      #raffle:
+        #settings: short
+    #- type: Loadout
+      #prototypes: [ DeathSquadGear ]
+      #roleLoadout: [ RoleSurvivalEVA ]
+    #- type: RandomMetadata
+      #nameSegments:
+        #- NamesFirstMilitaryLeader
+        #- NamesLastMilitary
 
 
 ## ERT Leader
