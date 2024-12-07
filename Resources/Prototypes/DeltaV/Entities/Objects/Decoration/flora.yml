@@ -1,6 +1,6 @@
 - type: entity
-  id: BushBase
-  name: Bush
+  id: BushPlain
+  name: plain bush
   description: A pretty bush.
   placement:
     mode: PlaceFree
@@ -43,58 +43,53 @@
               max: 1
 
 - type: entity
-  parent: BushBase
-  id: BushLightBase
-  name: Light Bush
+  parent: BushPlain
+  id: BushPlainLight
+  name: plain bush
   description: A pretty bush!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flora/bush.rsi
     layers:
-      - state: base_light
+    - state: base_light
 
 - type: entity
-  parent: BushBase
+  parent: BushPlain
   id: BushHibiscus
-  name: Hibiscus Bush
+  name: hibiscus bush
   description: A pretty bush, with hibiscuses!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flora/bush.rsi
     layers:
-      - state: base
-      - state: hibiscus
+    - state: base
+    - state: hibiscus
 
 - type: entity
   parent: BushHibiscus
-  id: BushLightHibiscus
-  name: Light Hibiscus Bush
+  id: BushHibiscusLight
+  name: hibiscus bush
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flora/bush.rsi
     layers:
-      - state: base_light
-      - state: hibiscus
+    - state: base_light
+    - state: hibiscus
 
 - type: entity
-  parent: BushBase
+  parent: BushPlain
   id: BushHydrangea
-  name: Hydrangea Bush
+  name: hydrangea bush
   description: A pretty bush, with hydrangeas!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flora/bush.rsi
     layers:
-      - state: base
-      - state: hydrangea
+    - state: base
+    - state: hydrangea
 
 - type: entity
   parent: BushHydrangea
-  id: BushLightHydrangea
-  name: Light Hydrangea Bush
+  id: BushHydrangeaLight
+  name: hydrangea bush
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Decoration/Flora/bush.rsi
     layers:
-      - state: base_light
-      - state: hydrangea
+    - state: base_light
+    - state: hydrangea
