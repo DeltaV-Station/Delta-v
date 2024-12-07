@@ -1,6 +1,6 @@
-book-text-mail-vaguethreat-1 = [head=1]I know what you did.[/head]
+book-text-mail-vaguethreat-1 = [head=1]I know what you did.
 
-            [head=3]You don't know what I'm going to do to you.[/head]
+      You don't know what I'm going to do to you.[/head]
 book-text-mail-vaguethreat-2 = [head=1]I'm coming for you.[/head]
 book-text-mail-vaguethreat-3 = [head=1]You're next.[/head]
 book-text-mail-vaguethreat-4 = [head=1]We see you.[/head]
