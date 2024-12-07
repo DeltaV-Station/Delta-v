@@ -107,7 +107,7 @@ book-text-mail-frontier-powertool = [head=1]Hazard Fraught Tools[/head][head=2]
                   Discount Tools at Quality Prices![/head][head=2]
 
                                 Fax us for a catalog at
-                      [color=#990000]ERROR: UNEXPECTED EOF[/color][/head]
+                      ERROR:[color=#990000] UNEXPECTED EOF[/color][/head]
 book-text-mail-frontier-spacelaw = [head=1]Space Law is your shield.[/head][head=2]
 
                   With it, you guard the Delta Sector.[/head][head=3][/head][head=1]
