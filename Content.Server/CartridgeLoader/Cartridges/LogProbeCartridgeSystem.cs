@@ -2,7 +2,6 @@ using Content.Shared.Access.Components;
 using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.DeltaV.CartridgeLoader.Cartridges; // DeltaV
 using Content.Shared.DeltaV.NanoChat; // DeltaV
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -10,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed class LogProbeCartridgeSystem : EntitySystem
+public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - Made partial
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
@@ -20,13 +19,9 @@ public sealed class LogProbeCartridgeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeNanoChat(); // DeltaV
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeAfterInteractEvent>(AfterInteract);
-
-        // DeltaV begin - Subscribe to NanoChat events
-        SubscribeLocalEvent<NanoChatRecipientUpdatedEvent>(OnRecipientUpdated);
-        SubscribeLocalEvent<NanoChatMessageReceivedEvent>(OnMessageReceived);
-        // DeltaV end
     }
 
     /// <summary>
@@ -71,68 +66,6 @@ public sealed class LogProbeCartridgeSystem : EntitySystem
 
         UpdateUiState(ent, args.Loader);
     }
-
-    // DeltaV begin - Add NanoChat support
-    private void OnRecipientUpdated(ref NanoChatRecipientUpdatedEvent args)
-    {
-        var query = EntityQueryEnumerator<LogProbeCartridgeComponent>();
-        while (query.MoveNext(out var uid, out var probe))
-        {
-            if (probe.ScannedNanoChatData == null || GetEntity(probe.ScannedNanoChatData.Value.Card) != args.CardUid)
-                continue;
-
-            if (!TryComp<NanoChatCardComponent>(args.CardUid, out var card))
-                continue;
-
-            probe.ScannedNanoChatData = new NanoChatData(
-                new Dictionary<uint, NanoChatRecipient>(card.Recipients),
-                probe.ScannedNanoChatData.Value.Messages,
-                card.Number,
-                GetNetEntity(args.CardUid));
-
-            if (TryComp<CartridgeComponent>(uid, out var cartridge) && cartridge.LoaderUid != null)
-                UpdateUiState((uid, probe), cartridge.LoaderUid.Value);
-        }
-    }
-
-    private void OnMessageReceived(ref NanoChatMessageReceivedEvent args)
-    {
-        var query = EntityQueryEnumerator<LogProbeCartridgeComponent>();
-        while (query.MoveNext(out var uid, out var probe))
-        {
-            if (probe.ScannedNanoChatData == null || GetEntity(probe.ScannedNanoChatData.Value.Card) != args.CardUid)
-                continue;
-
-            if (!TryComp<NanoChatCardComponent>(args.CardUid, out var card))
-                continue;
-
-            probe.ScannedNanoChatData = new NanoChatData(
-                probe.ScannedNanoChatData.Value.Recipients,
-                new Dictionary<uint, List<NanoChatMessage>>(card.Messages),
-                card.Number,
-                GetNetEntity(args.CardUid));
-
-            if (TryComp<CartridgeComponent>(uid, out var cartridge) && cartridge.LoaderUid != null)
-                UpdateUiState((uid, probe), cartridge.LoaderUid.Value);
-        }
-    }
-
-    private void ScanNanoChatCard(Entity<LogProbeCartridgeComponent> ent, CartridgeAfterInteractEvent args, EntityUid target, NanoChatCardComponent card)
-    {
-        _audioSystem.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target, AudioHelpers.WithVariation(0.25f, _random));
-        _popupSystem.PopupCursor(Loc.GetString("log-probe-scan-nanochat", ("card", target)), args.InteractEvent.User);
-
-        ent.Comp.PulledAccessLogs.Clear();
-        ent.Comp.ScannedNanoChatData = new NanoChatData(
-            new Dictionary<uint, NanoChatRecipient>(card.Recipients),
-            new Dictionary<uint, List<NanoChatMessage>>(card.Messages),
-            card.Number,
-            GetNetEntity(target)
-        );
-
-        UpdateUiState(ent, args.Loader);
-    }
-    // DeltaV end
 
     /// <summary>
     /// This gets called when the ui fragment needs to be updated for the first time after activating

@@ -26,8 +26,7 @@ namespace Content.Client.Access.UI
         public event Action<string>? OnNameChanged;
         public event Action<string>? OnJobChanged;
 
-        // DeltaV - Add event for number changes
-        public event Action<uint>? OnNumberChanged;
+        public event Action<uint>? OnNumberChanged; // DeltaV - Add event for number changes
 
         public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
 

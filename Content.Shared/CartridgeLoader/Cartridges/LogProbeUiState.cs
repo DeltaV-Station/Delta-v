@@ -35,6 +35,3 @@ public sealed class PulledAccessLog
         Accessor = accessor;
     }
 }
-
-// DeltaV - Add NanoChat scanning support
-

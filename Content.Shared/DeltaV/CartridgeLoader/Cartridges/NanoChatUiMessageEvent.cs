@@ -63,22 +63,22 @@ public struct NanoChatRecipient
     /// <summary>
     ///     The recipient's unique NanoChat number.
     /// </summary>
-    public uint Number { get; set; }
+    public uint Number;
 
     /// <summary>
     ///     The recipient's display name, typically from their ID card.
     /// </summary>
-    public string Name { get; set; }
+    public string Name;
 
     /// <summary>
     ///     The recipient's job title, if available.
     /// </summary>
-    public string? JobTitle { get; set; }
+    public string? JobTitle;
 
     /// <summary>
     ///     Whether this recipient has unread messages.
     /// </summary>
-    public bool HasUnread { get; set; }
+    public bool HasUnread;
 
     /// <summary>
     ///     Creates a new NanoChat recipient.
@@ -102,23 +102,23 @@ public struct NanoChatMessage
     /// <summary>
     ///     When the message was sent.
     /// </summary>
-    public TimeSpan Timestamp { get; set; }
+    public TimeSpan Timestamp;
 
     /// <summary>
     ///     The content of the message.
     /// </summary>
-    public string Content { get; set; }
+    public string Content;
 
     /// <summary>
     ///     The NanoChat number of the sender.
     /// </summary>
-    public uint SenderId { get; set; }
+    public uint SenderId;
 
     /// <summary>
     ///     Whether the message failed to deliver to the recipient.
     ///     This can happen if the recipient is out of range or if there's no active telecomms server.
     /// </summary>
-    public bool DeliveryFailed { get; set; }
+    public bool DeliveryFailed;
 
     /// <summary>
     ///     Creates a new NanoChat message.
@@ -141,33 +141,26 @@ public struct NanoChatMessage
 /// </summary>
 /// <remarks>Used by the LogProbe</remarks>
 [Serializable, NetSerializable, DataRecord]
-public readonly struct NanoChatData
+public readonly struct NanoChatData(
+    Dictionary<uint, NanoChatRecipient> recipients,
+    Dictionary<uint, List<NanoChatMessage>> messages,
+    uint? cardNumber,
+    NetEntity card)
 {
-    public Dictionary<uint, NanoChatRecipient> Recipients { get; }
-    public Dictionary<uint, List<NanoChatMessage>> Messages { get; }
-    public uint? CardNumber { get; }
-    public NetEntity Card { get; }
-
-    public NanoChatData(Dictionary<uint, NanoChatRecipient> recipients,
-        Dictionary<uint, List<NanoChatMessage>> messages,
-        uint? cardNumber,
-        NetEntity card)
-    {
-        Recipients = recipients;
-        Messages = messages;
-        CardNumber = cardNumber;
-        Card = card;
-    }
+    public Dictionary<uint, NanoChatRecipient> Recipients { get; } = recipients;
+    public Dictionary<uint, List<NanoChatMessage>> Messages { get; } = messages;
+    public uint? CardNumber { get; } = cardNumber;
+    public NetEntity Card { get; } = card;
 }
 
 /// <summary>
 ///     Raised on the NanoChat card whenever a recipient gets added
 /// </summary>
 [ByRefEvent]
-public record struct NanoChatRecipientUpdatedEvent(EntityUid CardUid);
+public readonly record struct NanoChatRecipientUpdatedEvent(EntityUid CardUid);
 
 /// <summary>
 ///     Raised on the NanoChat card whenever it receives or tries sending a messsage
 /// </summary>
 [ByRefEvent]
-public record struct NanoChatMessageReceivedEvent(EntityUid CardUid);
+public readonly record struct NanoChatMessageReceivedEvent(EntityUid CardUid);

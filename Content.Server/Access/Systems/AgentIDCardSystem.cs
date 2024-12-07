@@ -19,6 +19,7 @@ namespace Content.Server.Access.Systems
         [Dependency] private readonly IdCardSystem _cardSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!; // DeltaV
 
         public override void Initialize()
         {
@@ -38,7 +39,7 @@ namespace Content.Server.Access.Systems
             if (!TryComp<NanoChatCardComponent>(ent, out var comp))
                 return;
 
-            comp.Number = args.Number;
+            _nanoChat.SetNumber((ent, comp), args.Number);
             Dirty(ent, comp);
         }
 
@@ -58,10 +59,27 @@ namespace Content.Server.Access.Systems
             if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
                 TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
             {
-                agentNanoChat.Recipients = new(targetNanoChat.Recipients);
-                agentNanoChat.Messages = new(targetNanoChat.Messages);
-                agentNanoChat.Number = targetNanoChat.Number;
-                Dirty(uid, agentNanoChat);
+                // First clear existing data
+                _nanoChat.Clear((uid, agentNanoChat));
+
+                // Copy the number
+                if (_nanoChat.GetNumber((args.Target.Value, targetNanoChat)) is { } number)
+                    _nanoChat.SetNumber((uid, agentNanoChat), number);
+
+                // Copy all recipients and their messages
+                foreach (var (recipientNumber, recipient) in _nanoChat.GetRecipients((args.Target.Value, targetNanoChat)))
+                {
+                    _nanoChat.SetRecipient((uid, agentNanoChat), recipientNumber, recipient);
+
+                    if (_nanoChat.GetMessagesForRecipient((args.Target.Value, targetNanoChat), recipientNumber) is not
+                        { } messages)
+                        continue;
+
+                    foreach (var message in messages)
+                    {
+                        _nanoChat.AddMessage((uid, agentNanoChat), recipientNumber, message);
+                    }
+                }
             }
             // End DeltaV
 

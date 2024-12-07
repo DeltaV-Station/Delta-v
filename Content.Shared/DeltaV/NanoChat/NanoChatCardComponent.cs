@@ -12,28 +12,24 @@ public sealed partial class NanoChatCardComponent : Component
     ///     The number assigned to this card.
     /// </summary>
     [DataField, AutoNetworkedField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWrite)]
     public uint? Number;
 
     /// <summary>
     ///     All chat recipients stored on this card.
     /// </summary>
     [DataField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWriteExecute)]
     public Dictionary<uint, NanoChatRecipient> Recipients = new();
 
     /// <summary>
     ///     All messages stored on this card, keyed by recipient number.
     /// </summary>
     [DataField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWriteExecute)]
     public Dictionary<uint, List<NanoChatMessage>> Messages = new();
 
     /// <summary>
     ///     The currently selected chat recipient number.
     /// </summary>
     [DataField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWrite)]
     public uint? CurrentChat;
 
     /// <summary>
@@ -46,13 +42,11 @@ public sealed partial class NanoChatCardComponent : Component
     ///     Last time a message was sent, for rate limiting.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWrite)]
     public TimeSpan LastMessageTime; // TODO: actually use this, compare against actor and not the card
 
     /// <summary>
     ///     Whether to send notifications.
     /// </summary>
     [DataField]
-    [Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.ReadWrite)]
     public bool NotificationsMuted;
 }

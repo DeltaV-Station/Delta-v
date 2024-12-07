@@ -71,31 +71,54 @@ public sealed partial class LogProbeUiFragment : BoxContainer
         var recipientsEntry = new LogProbeUiEntry(0, "---", recipientsList);
         ProbedDeviceContainer.AddChild(recipientsEntry);
 
-        // Get all messages across all conversations with their recipient IDs
-        var allMessages = data.Messages
-            .SelectMany(kvp => kvp.Value.Select(msg => (Message: msg, RecipientId: kvp.Key)))
-            .OrderByDescending(pair => pair.Message.Timestamp);
-
         var count = 1;
-        foreach (var pair in allMessages)
+        foreach (var (partnerId, messages) in data.Messages)
         {
-            var messageText = Loc.GetString("log-probe-message-format",
-                                  ("sender", $"#{pair.Message.SenderId:D4}"),
-                                  ("recipient", $"#{pair.RecipientId:D4}"),
-                                  ("content", pair.Message.Content)) +
-                              (pair.Message.DeliveryFailed ? " [FAILED]" : "");
+            // Show only successfully delivered incoming messages
+            var incomingMessages = messages
+                .Where(msg => msg.SenderId == partnerId && !msg.DeliveryFailed)
+                .OrderByDescending(msg => msg.Timestamp);
 
-            var entry = new NanoChatLogEntry(
-                count,
-                TimeSpan.FromSeconds(Math.Truncate(pair.Message.Timestamp.TotalSeconds)).ToString(),
-                messageText);
+            foreach (var msg in incomingMessages)
+            {
+                var messageText = Loc.GetString("log-probe-message-format",
+                    ("sender", $"#{msg.SenderId:D4}"),
+                    ("recipient", $"#{data.CardNumber:D4}"),
+                    ("content", msg.Content));
 
-            ProbedDeviceContainer.AddChild(entry);
-            count++;
+                var entry = new NanoChatLogEntry(
+                    count,
+                    TimeSpan.FromSeconds(Math.Truncate(msg.Timestamp.TotalSeconds)).ToString(),
+                    messageText);
+
+                ProbedDeviceContainer.AddChild(entry);
+                count++;
+            }
+
+            // Show only successfully delivered outgoing messages
+            var outgoingMessages = messages
+                .Where(msg => msg.SenderId == data.CardNumber && !msg.DeliveryFailed)
+                .OrderByDescending(msg => msg.Timestamp);
+
+            foreach (var msg in outgoingMessages)
+            {
+                var messageText = Loc.GetString("log-probe-message-format",
+                    ("sender", $"#{msg.SenderId:D4}"),
+                    ("recipient", $"#{partnerId:D4}"),
+                    ("content", msg.Content));
+
+                var entry = new NanoChatLogEntry(
+                    count,
+                    TimeSpan.FromSeconds(Math.Truncate(msg.Timestamp.TotalSeconds)).ToString(),
+                    messageText);
+
+                ProbedDeviceContainer.AddChild(entry);
+                count++;
+            }
         }
     }
-
     // DeltaV end
+
     private void DisplayAccessLogs(List<PulledAccessLog> logs)
     {
         //Reverse the list so the oldest entries appear at the bottom

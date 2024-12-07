@@ -24,6 +24,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -139,11 +140,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             msg.RecipientJob);
 
         // Initialize or update recipient
-        card.Comp.Recipients[msg.RecipientNumber.Value] = recipient;
-
-        // Initialize empty message list if needed
-        if (!card.Comp.Messages.ContainsKey(msg.RecipientNumber.Value))
-            card.Comp.Messages[msg.RecipientNumber.Value] = new List<NanoChatMessage>();
+        _nanoChat.SetRecipient((card, card.Comp), msg.RecipientNumber.Value, recipient);
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
@@ -151,8 +148,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
-
-        Dirty(card);
         UpdateUIForCard(card);
     }
 
@@ -164,16 +159,15 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null)
             return;
 
-        card.Comp.CurrentChat = msg.RecipientNumber;
+        _nanoChat.SetCurrentChat((card, card.Comp), msg.RecipientNumber);
 
         // Clear unread flag when selecting chat
-        if (card.Comp.Recipients.TryGetValue(msg.RecipientNumber.Value, out var r))
+        if (_nanoChat.GetRecipient((card, card.Comp), msg.RecipientNumber.Value) is { } recipient)
         {
-            r.HasUnread = false;
-            card.Comp.Recipients[msg.RecipientNumber.Value] = r;
+            _nanoChat.SetRecipient((card, card.Comp),
+                msg.RecipientNumber.Value,
+                recipient with { HasUnread = false });
         }
-
-        Dirty(card);
     }
 
     /// <summary>
@@ -181,8 +175,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// </summary>
     private void HandleCloseChat(Entity<NanoChatCardComponent> card)
     {
-        card.Comp.CurrentChat = null;
-        Dirty(card);
+        _nanoChat.SetCurrentChat((card, card.Comp), null);
     }
 
     /// <summary>
@@ -193,14 +186,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null || card.Comp.Number == null)
             return;
 
-        // Remove the recipient, but keep the messages
-        card.Comp.Recipients.Remove(msg.RecipientNumber.Value);
+        // Delete chat but keep the messages
+        var deleted = _nanoChat.TryDeleteChat((card, card.Comp), msg.RecipientNumber.Value, true);
 
-        // Clear current chat if we just deleted it
-        if (card.Comp.CurrentChat == msg.RecipientNumber)
-            card.Comp.CurrentChat = null;
+        if (!deleted)
+            return;
 
-        Dirty(card);
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(msg.Actor):user} deleted NanoChat conversation with #{msg.RecipientNumber:D4}");
+
         UpdateUIForCard(card);
     }
 
@@ -209,8 +204,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// </summary>
     private void HandleToggleMute(Entity<NanoChatCardComponent> card)
     {
-        card.Comp.NotificationsMuted = !card.Comp.NotificationsMuted;
-        Dirty(card);
+        _nanoChat.SetNotificationsMuted((card, card.Comp), !_nanoChat.GetNotificationsMuted((card, card.Comp)));
         UpdateUIForCard(card);
     }
 
@@ -227,15 +221,21 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!EnsureRecipientExists(card, msg.RecipientNumber.Value))
             return;
 
-        var (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
-
         // Create and store message for sender
         var message = new NanoChatMessage(
             _timing.CurTime,
             msg.Content,
-            (uint)card.Comp.Number,
-            deliveryFailed
+            (uint)card.Comp.Number
         );
+
+        // Attempt delivery
+        var (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
+
+        // Update delivery status
+        message = message with { DeliveryFailed = deliveryFailed };
+
+        // Store message in sender's outbox under recipient's number
+        _nanoChat.AddMessage((card, card.Comp), msg.RecipientNumber.Value, message);
 
         // Log message attempt
         var recipientsText = recipients.Count > 0
@@ -246,12 +246,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             LogImpact.Low,
             $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {msg.Content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
-        StoreMessage(card, msg.RecipientNumber.Value, message);
         var msgEv = new NanoChatMessageReceivedEvent(card);
         RaiseLocalEvent(ref msgEv);
 
         if (deliveryFailed)
             return;
+
         foreach (var recipient in recipients)
         {
             DeliverMessageToRecipient(card, recipient, message);
@@ -264,20 +264,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <param name="card">The card to check contacts for</param>
     /// <param name="recipientNumber">The recipient's number to check</param>
     /// <returns>True if the recipient exists or was created successfully</returns>
-    private bool EnsureRecipientExists(NanoChatCardComponent card, uint recipientNumber)
+    private bool EnsureRecipientExists(Entity<NanoChatCardComponent> card, uint recipientNumber)
     {
-        if (!card.Recipients.ContainsKey(recipientNumber))
-        {
-            var recipientInfo = GetCardInfo(recipientNumber);
-            if (recipientInfo == null)
-                return false;
-
-            card.Recipients[recipientNumber] = recipientInfo.Value;
-            if (!card.Messages.ContainsKey(recipientNumber))
-                card.Messages[recipientNumber] = new List<NanoChatMessage>();
-        }
-
-        return true;
+        return _nanoChat.EnsureRecipientExists((card, card.Comp), recipientNumber, GetCardInfo(recipientNumber));
     }
 
     /// <summary>
@@ -373,23 +362,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Stores a message in the sender's message history.
-    /// </summary>
-    /// <param name="card">The sender's card</param>
-    /// <param name="recipientNumber">The recipient's number</param>
-    /// <param name="message">The message to store</param>
-    private void StoreMessage(Entity<NanoChatCardComponent> card, uint recipientNumber, NanoChatMessage message)
-    {
-        // Make sure we have a message list for this conversation
-        if (!card.Comp.Messages.ContainsKey(recipientNumber))
-            card.Comp.Messages[recipientNumber] = new List<NanoChatMessage>();
-
-        card.Comp.Messages[recipientNumber].Add(message);
-        card.Comp.LastMessageTime = _timing.CurTime;
-        Dirty(card);
-    }
-
-    /// <summary>
     ///     Delivers a message to the recipient and handles associated notifications.
     /// </summary>
     /// <param name="sender">The sender's card entity</param>
@@ -399,28 +371,22 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         Entity<NanoChatCardComponent> recipient,
         NanoChatMessage message)
     {
-        // Add sender as contact if needed
-        if (!recipient.Comp.Recipients.ContainsKey((uint)sender.Comp.Number!))
-        {
-            var senderInfo = GetCardInfo((uint)sender.Comp.Number!);
-            if (senderInfo != null)
-            {
-                recipient.Comp.Recipients[(uint)sender.Comp.Number!] = senderInfo.Value;
-                if (!recipient.Comp.Messages.ContainsKey((uint)sender.Comp.Number!))
-                    recipient.Comp.Messages[(uint)sender.Comp.Number!] = new List<NanoChatMessage>();
-            }
-        }
+        var senderNumber = sender.Comp.Number;
+        if (senderNumber == null)
+            return;
 
-        // Store message in recipient's inbox
-        recipient.Comp.Messages[(uint)sender.Comp.Number!].Add(message with { DeliveryFailed = false });
+        // Always try to get and add sender info to recipient's contacts
+        if (!EnsureRecipientExists(recipient, senderNumber.Value))
+            return;
 
-        // Mark as unread if recipient isn't viewing this chat
-        if (recipient.Comp.CurrentChat != sender.Comp.Number)
+        _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber.Value, message with { DeliveryFailed = false });
+
+
+        if (_nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber)
             HandleUnreadNotification(recipient, message);
 
         var msgEv = new NanoChatMessageReceivedEvent(recipient);
         RaiseLocalEvent(ref msgEv);
-        Dirty(recipient);
         UpdateUIForCard(recipient);
     }
 
@@ -430,7 +396,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     private void HandleUnreadNotification(Entity<NanoChatCardComponent> recipient, NanoChatMessage message)
     {
         // Get sender name from contacts or fall back to number
-        var senderName = recipient.Comp.Recipients.TryGetValue(message.SenderId, out var existingRecipient)
+        var recipients = _nanoChat.GetRecipients((recipient, recipient.Comp));
+        var senderName = recipients.TryGetValue(message.SenderId, out var existingRecipient)
             ? existingRecipient.Name
             : $"#{message.SenderId:D4}";
 
@@ -450,8 +417,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         }
 
         // Update unread status
-        recipient.Comp.Recipients[message.SenderId] =
-            recipient.Comp.Recipients[message.SenderId] with { HasUnread = true };
+        _nanoChat.SetRecipient((recipient, recipient.Comp),
+            message.SenderId,
+            existingRecipient with { HasUnread = true });
     }
 
     /// <summary>
