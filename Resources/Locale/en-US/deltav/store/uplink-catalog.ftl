@@ -16,3 +16,5 @@ uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to
 
 uplink-home-run-bat-name = Home Run Bat
 uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball practice. Launch your foes!
+
+uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Recent limitations have made it impossible to store both high risk, and storage containing items inside it.
