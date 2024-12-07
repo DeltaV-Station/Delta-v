@@ -428,24 +428,24 @@
         Piercing: 0.95
         Heat: 0.95
 
-# DeltaV - 1984 Deathsquad
-#- type: entity
-  #parent: ClothingMaskGasERT
-  #id: ClothingMaskGasDeathSquad
-  #name: death squad gas mask
-  #description: A unique gas mask for the NT's most elite squad.
-  #components:
-  #- type: Sprite
-    #sprite: Clothing/Mask/squadron.rsi
-  #- type: Clothing
-    #sprite: Clothing/Mask/squadron.rsi
-  #- type: Armor
-    #modifiers:
-      #coefficients:
-        #Blunt: 0.80
-        #Slash: 0.80
-        #Piercing: 0.90
-        #Heat: 0.90
+- type: entity
+  parent: ClothingMaskGasERT
+  id: ClothingMaskGasDeathSquad
+  categories: [ HideSpawnMenu ] # DeltaV - 1984 Deathsquad
+  name: death squad gas mask
+  description: A unique gas mask for the NT's most elite squad.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/squadron.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/squadron.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.90
+        Heat: 0.90
 
 - type: entity
   parent: ClothingMaskBase

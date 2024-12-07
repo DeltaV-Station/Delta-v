@@ -1,14 +1,14 @@
-# DeltaV - 1984 Deathsquad
-#- type: entity
-  #parent: ClothingUniformBase
-  #id: ClothingUniformJumpsuitDeathSquad
-  #name: death squad uniform
-  #description: Advanced armored jumpsuit used by special forces in special operations.
-  #components:
-  #- type: Sprite
-    #sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
-  #- type: Clothing
-    #sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDeathSquad
+  categories: [ HideSpawnMenu ] # DeltaV - 1984 Deathsquad
+  name: death squad uniform
+  description: Advanced armored jumpsuit used by special forces in special operations.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
 
 - type: entity
   parent: ClothingUniformBase

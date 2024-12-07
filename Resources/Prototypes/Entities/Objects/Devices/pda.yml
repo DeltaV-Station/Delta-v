@@ -822,14 +822,14 @@
       - AstroNavCartridge
       - StockTradingCartridge # Delta-V
 
-# DeltaV - 1984 Deathsquad
-#- type: entity
-  #parent: CentcomPDA
-  #id: DeathsquadPDA
-  #suffix: Death Squad
-  #components:
-  #- type: Pda
-    #id: CentcomIDCardDeathsquad
+- type: entity
+  parent: CentcomPDA
+  id: DeathsquadPDA
+  categories: [ HideSpawnMenu ] # DeltaV - 1984 Deathsquad
+  suffix: Death Squad
+  components:
+  - type: Pda
+    id: CentcomIDCardDeathsquad
 
 - type: entity
   parent: BasePDA
