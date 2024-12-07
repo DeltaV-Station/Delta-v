@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterTechArmoredRobeAdMechEcclesia
-  name: бронежилет с священными покровами
+  name: бронерованная тёмная роба
   description: Бронежилет, покрытый тяжёлой тканью.
   suffix: Эцессия
   components:
@@ -20,7 +20,7 @@
         Blunt: 0.75
         Slash: 0.65
         Piercing: 0.7
-        Heat: 0.8
+        Heat: 0.7
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.5
@@ -31,8 +31,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterTechRobeAdMechEcclesia
-  name: коричневая роба
-  description: Роба, исполненная из тяжёлой ткани.
+  name: тёмная роба
+  description: Роба, исполненная из тяжёлой ткани. Имеет внутренние слои, дающие малую защиту. Её носят почти все члены Эцессии, что достигли хоть каких-либо успехов.
   suffix: Эцессия
   components:
   - type: Sprite
@@ -61,7 +61,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterTechHardRobeEcclesian
-  name: роба
+  name: тёмная боевая роба
   description: Защитная роба с защитными пластинами.
   suffix: Эцессия, егерь
   components:
