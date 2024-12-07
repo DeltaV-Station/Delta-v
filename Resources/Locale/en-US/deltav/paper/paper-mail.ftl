@@ -129,9 +129,9 @@ book-text-mail-frontier-build-a-buddy = [head=1]Note of Adoption[/head]
 
       You're now the proud owner of your very own Build-a-Buddy!
 
-      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
+      We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.[bold]
 
-      [bold]Collect the whole set![/bold][bold]
+      Collect the whole set![/bold][bold]
       -[/bold] Henry the Human [bold]
       -[/bold] Randy the Reptilian [bold]
       -[/bold] Steven the Slime [bold]
