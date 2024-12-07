@@ -1,47 +1,30 @@
-book-text-mail-vaguethreat-1 = 
-                     [head=1]I know what you did.[/head]
+book-text-mail-vaguethreat-1 = [head=1]I know what you did.[/head]
 
             [head=3]You don't know what I'm going to do to you.[/head]
-book-text-mail-vaguethreat-2 =
-                        [head=1]I'm coming for you.[/head]
-book-text-mail-vaguethreat-3 =
-                                      [head=1]You're next.[/head]
-book-text-mail-vaguethreat-4 =
-                                       [head=1]We see you.[/head]
-book-text-mail-vaguethreat-5 =
-                   [head=2]I hope your affairs are in order.[/head]
-book-text-mail-vaguethreat-6 =
-              [head=1]It's only a matter of time.[/head]
-
+book-text-mail-vaguethreat-2 = [head=1]I'm coming for you.[/head]
+book-text-mail-vaguethreat-3 = [head=1]You're next.[/head]
+book-text-mail-vaguethreat-4 = [head=1]We see you.[/head]
+book-text-mail-vaguethreat-5 = [head=2]I hope your affairs are in order.[/head]
+book-text-mail-vaguethreat-6 = [head=1]It's only a matter of time.[/head]
 
                       [head=1]Enjoy it while it lasts.[/head]
-book-text-mail-vaguethreat-7 =
-               [head=2]Who should we mail your pieces to?[/head]
-book-text-mail-vaguethreat-8 =
-      [head=2]Would you prefer to die slowly or quickly?
-      [/head]
+book-text-mail-vaguethreat-7 = [head=2]Who should we mail your pieces to?[/head]
+book-text-mail-vaguethreat-8 = [head=2]Would you prefer to die slowly or quickly?[/head]
                                       [head=1]Just kidding.[/head]
 
                      [head=2]We don't care what you think.[/head]
-book-text-mail-vaguethreat-9 =
-          [head=3]I think your head would look nice on my mantel.[/head]
-book-text-mail-vaguethreat-10 =
-               [head=1]You should have paid up.[/head]
-
+book-text-mail-vaguethreat-9 = [head=3]I think your head would look nice on my mantel.[/head]
+book-text-mail-vaguethreat-10 =[head=1]You should have paid up.[/head]
 
                               [head=1]It's too late now.[/head]
-book-text-mail-vaguethreat-11 =
-                [head=3]Your family will miss you, but don't worry.[/head]
+book-text-mail-vaguethreat-11 = [head=3]Your family will miss you, but don't worry.[/head]
 
-
-         [head=1]We'll take care of them too.[/head]
-book-text-mail-vaguethreat-12 =
-               [head=3]I have a bet that you're going to die today.[/head]
+       [head=1]We'll take care of them too.[/head]
+book-text-mail-vaguethreat-12 = [head=3]I have a bet that you're going to die today.[/head]
 
 
                   [head=1]I'm not afraid to cheat.[/head]
-book-text-mail-frontierpaperpusher =
-          [head=2]Here is a pen for any letters you write.
+book-text-mail-frontierpaperpusher = [head=2]Here is a pen for any letters you write.
       [/head]
             [head=1]Keep it close, use it often.[/head]
 
@@ -49,13 +32,12 @@ book-text-mail-frontierpaperpusher =
 
             [head=3]Sincerely,
                [italic]The Frontier Paper Pusher's Club[/italic][/head]
-book-text-mail-frontiercraigpipebomb =      [bold]hey uh, they told me to send you a pipebomb i guess?
+book-text-mail-frontiercraigpipebomb = [bold]hey uh, they told me to send you a pipebomb i guess?
 
       this is all i could find around here, hope that works
 
       thanks[/bold]
-book-text-mail-frontierantivirusad =
-          [head=1]Invoice[/head][head=3]
+book-text-mail-frontierantivirusad = [head=1]Invoice[/head][head=3]
           Snortin Antivirus Software[/head]
 
       [head=3]Order #41003
@@ -66,7 +48,7 @@ book-text-mail-frontierantivirusad =
       Thank you for making purchase from Snortin Antivirus Software.
       We assuring you that our product is greatest.
       Please sending payment at earliest convenience.
-book-text-mail-frontierntsoapad-1 =       [head=3]Hello Valued Customer,[/head]
+book-text-mail-frontierntsoapad-1 = [head=3]Hello Valued Customer,[/head]
       You have been selected to receive a complimentary sampler of scented soaps that Nanotrasen has to offer.
 
       Why not enjoy a nice warm shower with our scented soaps?  Tested and effective vs. vent crud and mold.
@@ -75,7 +57,7 @@ book-text-mail-frontierntsoapad-1 =       [head=3]Hello Valued Customer,[/head]
 
       Sincerely,
             Christopher Cleanman, Vice President, NT Habs - Toiletries Dept.
-book-text-mail-frontierntsoapad-2 =       [head=2]GREETINGS DELTA SECTOR CITIZEN[/head]
+book-text-mail-frontierntsoapad-2 = [head=2]GREETINGS DELTA SECTOR CITIZEN[/head]
 
       OUR REPORTS INDICATE THAT:
       1. YOU HAVE FAILED YOUR QUARTERLY HYGIENE INSPECTION.
@@ -85,34 +67,28 @@ book-text-mail-frontierntsoapad-2 =       [head=2]GREETINGS DELTA SECTOR CITIZEN
 
       [italic]THIS IS AN AUTOMATED MESSAGE. DO NOT REPLY.[/italic]
 
-book-text-mail-frontiersoda-cola =
-            [head=2]The classic taste you love, Space Cola.[/head]
+book-text-mail-frontiersoda-cola = [head=2]The classic taste you love, Space Cola.[/head]
 
                              [head=2]Now certified lead-free.[/head]
-book-text-mail-frontiersoda-redbool =
-                 [head=2]Try NEW Reformulated Red Bool![/head]
+book-text-mail-frontiersoda-redbool = [head=2]Try NEW Reformulated Red Bool![/head]
 
                       [head=2]Over [color=#dd0000]1.5g[/color] of caffeine per can![/head]
 
                  [head=2]Punch your heart into overdrive![/head]
-book-text-mail-frontiersoda-pwrgame =
-                            [head=1]Drink Pwr Game![/head]
+book-text-mail-frontiersoda-pwrgame = [head=1]Drink Pwr Game![/head]
 
       [head=3]Proud sponsor of the NT Block Game Championship.[/head]
-book-text-mail-frontiersoda-spaceup =
-            [head=3]The crisp, refreshing taste of lemon and lime.[/head]
+book-text-mail-frontiersoda-spaceup = [head=3]The crisp, refreshing taste of lemon and lime.[/head]
 
 
                                         [head=1]Space Up![/head]
 
 
         [head=2]Ask your barkeep for a Sui Dream today![/head]
-book-text-mail-frontiersoda-spacemountain =
-               [head=3]When it's time to game, there's one choice:[/head]
+book-text-mail-frontiersoda-spacemountain = [head=3]When it's time to game, there's one choice:[/head]
 
                      [head=1]Space Mountain Wind.[/head]
-book-text-mail-frontieremp =
-        [head=1]EMP Preparedness Response[/head]
+book-text-mail-frontieremp = [head=1]EMP Preparedness Response[/head]
 
       You have been selected to receive a NT EMP Preparedness kit as a test. Note that this is only a test. In a real emergency, follow the instructions of your vessel's command staff.
 
@@ -122,23 +98,20 @@ book-text-mail-frontieremp =
       [bold]Number of affected items:[/bold]
       [bold]Perceived severity of incident:[/bold]
       [bold]Suggested improvements:[/bold]
-book-text-mail-frontierntboxer =          [head=2]You've gotta defend your belt, champ.
+book-text-mail-frontierntboxer = [head=2]You've gotta defend your belt, champ.
       [/head]
                 [head=1]They're coming for you.[/head]
 
                   [head=2]This should help. Knock 'em out.[/head]
-book-text-mail-frontierntmusket = 
-                  [head=2]Use a musket for sector defense,
+book-text-mail-frontierntmusket = [head=2]Use a musket for sector defense,
              like the founding fathers intended.[/head]
-book-text-mail-frontier-powertool = 
-                    [head=1]Hazard Fraught Tools[/head]
+book-text-mail-frontier-powertool = [head=1]Hazard Fraught Tools[/head]
 
                   [head=2]Discount Tools at Quality Prices![/head]
 
                                 [head=2]Fax us for a catalog at
                       [color=#990000]ERROR: UNEXPECTED EOF[/color][/head]
-book-text-mail-frontier-spacelaw = 
-            [head=1]Space Law is your shield.[/head]
+book-text-mail-frontier-spacelaw = [head=1]Space Law is your shield.[/head]
 
                   [head=2]With it, you guard the Delta Sector.[/head][head=3]
       [/head]
@@ -156,8 +129,7 @@ book-text-mail-frontier-spacelaw =
 
 
                               [head=3][italic]Internal Bureau of Propaganda[/italic][/head]
-book-text-mail-frontier-build-a-buddy = 
-      [head=1]Note of Adoption[/head]
+book-text-mail-frontier-build-a-buddy = [head=1]Note of Adoption[/head]
 
       You're now the proud owner of your very own Build-a-Buddy!
 
@@ -168,13 +140,11 @@ book-text-mail-frontier-build-a-buddy =
       [bold][bullet/][/bold] Randy the Reptilian
       [bold][bullet/][/bold] Steven the Slime
       [bold][bullet/][/bold] Valerie the Vulpkanin
-book-text-mail-frontier-conscript = 
-                     [head=1]NOT ONE STEP BACK.[/head]
+book-text-mail-frontier-conscript = [head=1]NOT ONE STEP BACK.[/head]
 
 
                        [head=1]FOR THE FRONTIER.[/head]
-book-text-mail-frontier-hoganas =       
-      [head=1]HÖGANÄS[/head]
+book-text-mail-frontier-hoganas = [head=1]HÖGANÄS[/head]
 
       [italic](There is a black and white picture of a pet bed on the first page.)[/italic]
 
