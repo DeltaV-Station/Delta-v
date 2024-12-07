@@ -38,8 +38,8 @@ book-text-mail-frontiercraigpipebomb = [bold]hey uh, they told me to send you a 
 book-text-mail-frontierantivirusad = [head=1]Invoice[/head][head=3]
           Snortin Antivirus Software[/head][bold]
 
-      Order #41003[/bold]
-      [bold][bullet/][/bold] 1x Snortin Total-275 Antivirus Install Disk[/head][head=3]
+      Order #41003[/bold][bold]
+      -[/bold] 1x Snortin Total-275 Antivirus Install Disk[/head][head=3]
 
       Total: 947381 Spesos[/head]
 
@@ -65,9 +65,9 @@ book-text-mail-frontierntsoapad-2 = [head=2]GREETINGS DELTA SECTOR CITIZEN[/head
 
       THIS IS AN AUTOMATED MESSAGE. DO NOT REPLY.[/italic]
 
-book-text-mail-frontiersoda-cola = [head=2]The classic taste you love, Space Cola.[/head]
+book-text-mail-frontiersoda-cola = [head=2]The classic taste you love, Space Cola.[/head][head=2]
 
-                             [head=2]Now certified lead-free.[/head]
+                             Now certified lead-free.[/head]
 book-text-mail-frontiersoda-redbool = [head=2]Try NEW Reformulated Red Bool![/head][head=2]
 
                       Over [color=#dd0000]1.5g[/color] of caffeine per can![/head][head=2]
@@ -79,10 +79,10 @@ book-text-mail-frontiersoda-pwrgame = [head=1]Drink Pwr Game![/head][head=3]
 book-text-mail-frontiersoda-spaceup = [head=3]The crisp, refreshing taste of lemon and lime.[/head][head=1]
 
 
-                                        Space Up![/head]
+                                        Space Up![/head][head=2]
 
 
-        [head=2]Ask your barkeep for a Sui Dream today![/head]
+        Ask your barkeep for a Sui Dream today![/head]
 book-text-mail-frontiersoda-spacemountain = [head=3]When it's time to game, there's one choice:[/head][head=1]
 
                      Space Mountain Wind.[/head]
@@ -92,13 +92,12 @@ book-text-mail-frontieremp = [head=1]EMP Preparedness Response[/head]
 
       As the recipient of this, please note [bold]any improvements[/bold] that could be made towards the EMP preparedness of the vessel you were aboard when opening and submit this form to your serving Captain or Head of Security.
 
-      [bold]Date of test:[/bold]
-      [bold]Number of affected items:[/bold]
-      [bold]Perceived severity of incident:[/bold]
-      [bold]Suggested improvements:[/bold]
-book-text-mail-frontierntboxer = [head=2]You've gotta defend your belt, champ.
-      [/head]
-                [head=1]They're coming for you.[/head][head=2]
+      [bold]Date of test:[/bold][bold]
+      Number of affected items:[/bold][bold]
+      Perceived severity of incident:[/bold][bold]
+      Suggested improvements:[/bold]
+book-text-mail-frontierntboxer = [head=2]You've gotta defend your belt, champ.[/head][head=1]
+                They're coming for you.[/head][head=2]
 
                   This should help. Knock 'em out.[/head]
 book-text-mail-frontierntmusket = [head=2]Use a musket for sector defense,
@@ -111,14 +110,12 @@ book-text-mail-frontier-powertool = [head=1]Hazard Fraught Tools[/head][head=2]
                       [color=#990000]ERROR: UNEXPECTED EOF[/color][/head]
 book-text-mail-frontier-spacelaw = [head=1]Space Law is your shield.[/head][head=2]
 
-                  With it, you guard the Delta Sector.[/head][head=3]
-      [/head]
-        [head=1]Memorize it. Grasp it firmly.[/head]
+                  With it, you guard the Delta Sector.[/head][head=3][/head][head=1]
+        Memorize it. Grasp it firmly.[/head][head=2]
 
-          [head=2]The SOP is your sword, don't get rusty.[/head]
+          The SOP is your sword, don't get rusty.[/head][head=2]
 
-        [head=2]Maintain your balance, and wield it well.[/head]
-
+        Maintain your balance, and wield it well.[/head][head=3][italic]
 
 
 
@@ -126,27 +123,28 @@ book-text-mail-frontier-spacelaw = [head=1]Space Law is your shield.[/head][head
 
 
 
-                              [head=3][italic]Internal Bureau of Propaganda[/italic][/head]
+
+                              Internal Bureau of Propaganda[/italic][/head]
 book-text-mail-frontier-build-a-buddy = [head=1]Note of Adoption[/head]
 
       You're now the proud owner of your very own Build-a-Buddy!
 
       We hope that your new friend can serve as a shoulder to lean on in the depths of space, and hopefully you won't be quite as lonely out there. Personally, I find putting them together to be rather therapeutic.
 
-      [bold]Collect the whole set![/bold]
-      [bold][bullet/][/bold] Henry the Human
-      [bold][bullet/][/bold] Randy the Reptilian
-      [bold][bullet/][/bold] Steven the Slime
-      [bold][bullet/][/bold] Valerie the Vulpkanin
-book-text-mail-frontier-conscript = [head=1]NOT ONE STEP BACK.[/head]
+      [bold]Collect the whole set![/bold][bold]
+      -[/bold] Henry the Human [bold]
+      -[/bold] Randy the Reptilian [bold]
+      -[/bold] Steven the Slime [bold]
+      -[/bold] Valerie the Vulpkanin [bold]
+book-text-mail-frontier-conscript = [head=1]NOT ONE STEP BACK.[/head][head=1]
 
 
-                       [head=1]FOR THE FRONTIER.[/head]
-book-text-mail-frontier-hoganas = [head=1]HÖGANÄS[/head]
+                       FOR THE FRONTIER.[/head]
+book-text-mail-frontier-hoganas = [head=1]HÖGANÄS[/head][italic]
 
-      [italic](There is a black and white picture of a pet bed on the first page.)[/italic]
+      (There is a black and white picture of a pet bed on the first page.)[/italic][italic]
 
-      [italic](On the next few pages, you see a list of materials and a happy stick figure assembling furniture.)[/italic]
+      (On the next few pages, you see a list of materials and a happy stick figure assembling furniture.)[/italic][italic]
 
-      [italic](On the pages after that, you see a set of instructions to assemble a pet bed. You're sure you don't need them, how hard could it be?)[/italic]
+      (On the pages after that, you see a set of instructions to assemble a pet bed. You're sure you don't need them, how hard could it be?)[/italic]
 
