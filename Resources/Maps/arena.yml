@@ -62552,6 +62552,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: CrateFreezer
+  entities:
+  - uid: 29444
+    components:
+    - type: Transform
+      pos: 11.5,-34.5
+      parent: 6747
 - proto: CrateFunBoardGames
   entities:
   - uid: 12164
@@ -126199,7 +126206,6 @@ entities:
   - uid: 1840
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -75.5,-69.5
       parent: 6747
 - proto: IntercomCommand
@@ -126226,7 +126232,6 @@ entities:
   - uid: 29206
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -74.5,-70.5
       parent: 6747
 - proto: IntercomSecurity
@@ -126244,7 +126249,6 @@ entities:
   - uid: 27081
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -14.5,3.5
       parent: 6747
   - uid: 27082
@@ -126255,7 +126259,6 @@ entities:
   - uid: 27083
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -41.5,-2.5
       parent: 6747
 - proto: JanitorialTrolley
@@ -127673,6 +127676,13 @@ entities:
     components:
     - type: Transform
       pos: -61.5,-68.5
+      parent: 6747
+- proto: LootSpawnerSecuritySuperweapon
+  entities:
+  - uid: 3469
+    components:
+    - type: Transform
+      pos: -31.5,10.5
       parent: 6747
 - proto: Machete
   entities:
@@ -184543,13 +184553,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.606861,-9.540937
-      parent: 6747
-- proto: WeaponLauncherRocket
-  entities:
-  - uid: 3469
-    components:
-    - type: Transform
-      pos: -31.493519,10.543685
       parent: 6747
 - proto: WeaponRifleM90GrenadeLauncher
   entities:
