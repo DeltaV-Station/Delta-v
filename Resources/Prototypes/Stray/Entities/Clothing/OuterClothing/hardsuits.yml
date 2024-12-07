@@ -30,3 +30,41 @@
     damageCoefficient: 0.6
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
+
+#Научный скафандр
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterScienceHardsuit
+  name: научный скафандр #science hardsuit
+  description: Специальный скафандр для работы в опасной среде. #A special hardsuit for work in a hazardous environment. Designed specifically for the station's scientific department.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/OuterClothing/Hardsuits/science.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/OuterClothing/Hardsuits/science.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.4
+        Radiation: 0.2
+        Caustic: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,4
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadScienceHardsuit
+  - type: StaticPrice
+    price: 750

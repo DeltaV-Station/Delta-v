@@ -23,3 +23,20 @@
         Heat: 0.9
         Radiation: 0.8
         Caustic: 0.85
+
+#Шлем научного скафандра
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadScienceHardsuit
+  name: шлем научного скафандра #science hardsuit helmet
+  description: Легкий жесткий шлем, не ограничивающий движения головы. #Lightweight hardsuit helmet that doesn't restrict your head movements.
+  components:
+  - type: Sprite
+    sprite: Stray/Clothing/Head/Hardsuits/sciencehead.rsi
+  - type: Clothing
+    sprite: Stray/Clothing/Head/Hardsuits/sciencehead.rsi
+  - type: PointLight
+    color: "#a4fef4"
+  - type: PressureProtection
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
