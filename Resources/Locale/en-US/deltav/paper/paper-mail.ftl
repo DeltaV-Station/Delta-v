@@ -90,9 +90,9 @@ book-text-mail-frontieremp = [head=1]EMP Preparedness Response[/head]
 
       You have been selected to receive a NT EMP Preparedness kit as a test. Note that this is only a test. In a real emergency, follow the instructions of your vessel's command staff.
 
-      As the recipient of this, please note [bold]any improvements[/bold] that could be made towards the EMP preparedness of the vessel you were aboard when opening and submit this form to your serving Captain or Head of Security.
+      As the recipient of this, please note [bold]any improvements[/bold] that could be made towards the EMP preparedness of the vessel you were aboard when opening and submit this form to your serving Captain or Head of Security.[bold]
 
-      [bold]Date of test:[/bold][bold]
+      Date of test:[/bold][bold]
       Number of affected items:[/bold][bold]
       Perceived severity of incident:[/bold][bold]
       Suggested improvements:[/bold]
