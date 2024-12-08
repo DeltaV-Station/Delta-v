@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  parent: [BaseNinjaObjective, BaseTeachLessonObjective]
+  parent: [ BaseNinjaObjective, BaseTeachLessonObjective ]
   id: BaseNinjaTeachLessonObjective
   description: This fool has spoken out against the Spider Clan. Teach them the error of their ways.
   components:
@@ -27,7 +27,7 @@
   - type: PickRandomPerson
 
 - type: entity
-  parent: [BaseNinjaObjective, BaseKillObjective]
+  parent: [ BaseNinjaObjective, BaseKillObjective ]
   id: NinjaKillRandomHeadObjective
   description: The Spider Clan is in need of more saboteur cyborgs. This head's brain will be perfect.
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   abstract: true
-  parent: [BaseNinjaObjective, BaseStealObjective]
+  parent: [ BaseNinjaObjective, BaseStealObjective ]
   id: BaseNinjaStealObjective
   components:
   - type: StealCondition
