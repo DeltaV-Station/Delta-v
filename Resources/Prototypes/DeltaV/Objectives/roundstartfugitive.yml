@@ -1,0 +1,26 @@
+#copy of fugitive objectives
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseRoundstartFugitiveObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-self
+    difficulty: 1
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - RoundstartFugitiveRole #Should this be Roundstart Fugitive or can it stay like that?
+
+- type: entity
+  parent: [BaseRoundstartFugitiveObjective, BaseLivingObjective]
+  id: RoundstartFugitiveEscapeObjective
+  name: Evade law enforcement
+  description: You will never atone for your crimes, make sure of it by blending into the crowd.
+  components:
+  - type: Objective
+    icon:
+      sprite: Markers/jobs.rsi #Objective sprite here, dunno if that needs changing
+      state: prisoner
+  - type: EscapeShuttleCondition
