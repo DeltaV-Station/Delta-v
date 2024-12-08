@@ -13,3 +13,20 @@
     modifiers:
       coefficients:
         Caustic: 0.25
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterInterdyneChemistrySuit
+  name: interdyne chemistry suit
+  description: A spotless suit and durable, designed to protect you from chemical spills.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Misc/interdynechemsuit.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Misc/interdynechemsuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.40
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatInterdyneChemistryHood
