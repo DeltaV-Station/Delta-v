@@ -171,3 +171,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPsychologist ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecurePharmacistLocked
+  suffix: Pharmacist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPharmacist ]

@@ -5,6 +5,8 @@ job-name-prosecutor = Prosecutor
 job-name-lawyer = Attorney
 job-name-courier = Courier
 job-name-security-borg = Security Cyborg
+job-name-pharmacist = Pharmacist
+
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
 job-name-senior-researcher = Senior Researcher
@@ -60,4 +62,5 @@ JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
+JobPharmacist = Pharmacist
 JobRoboticist = Roboticist

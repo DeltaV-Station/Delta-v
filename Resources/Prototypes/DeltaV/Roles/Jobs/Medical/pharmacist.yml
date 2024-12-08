@@ -1,0 +1,32 @@
+- type: job
+  id: Pharmacist
+  name: job-name-pharmacist
+  description: job-description-pharmacist
+  playTimeTracker: JobPharmacist
+  antagAdvantage: 4
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 28800 # 8 hours as Chemist
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 43200 # 12 hours in Medical
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24 hours in Delta-V
+  startingGear: PharmacistGear
+  icon: "JobIconPharmacist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Chemistry
+  - Pharmacist
+  - Psychologist
+  - Maintenance
+
+- type: startingGear
+  id: PharmacistGear
+  equipment:
+    id: PharmacistPDA
+    ears: ClothingHeadsetMedical
+    belt: ChemBagPharmacist
+    pocket1: HandLabeler

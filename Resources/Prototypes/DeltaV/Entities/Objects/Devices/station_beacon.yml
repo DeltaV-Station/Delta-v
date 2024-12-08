@@ -48,6 +48,14 @@
   - type: NavMapBeacon
     defaultText: station-beacon-psych
 
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconPharmacist
+  suffix: Pharmacist
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-pharmacy
+
 #Epistemics
 - type: entity
   parent: DefaultStationBeaconScience

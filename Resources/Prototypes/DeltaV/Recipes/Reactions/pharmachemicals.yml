@@ -1,0 +1,372 @@
+- type: reaction
+  id: HydrogenIodide
+  minTemp: 310
+  reactants:
+    Hydrogen:
+      amount: 2
+    Iodine:
+      amount: 2
+  products:
+    HydrogenIodide: 1
+
+- type: reaction
+  id: SodiumAmalgam
+  impact: Medium
+  minTemp: 370
+  reactants:
+    Sodium:
+      amount: 1
+    Mercury:
+      amount: 1
+  effects:
+  - !type:PopupMessage
+    messages: [ "The sodium melts with the mercury!" ]
+    type: Pvs
+    visualType: LargeCaution
+  products:
+    SodiumAmalgam: 2
+  sound:
+    collection: SodiumSpark
+
+- type: reaction
+  id: BarbituricAcid
+  minTemp: 370
+  reactants:
+    HydrogenIodide:
+      amount: 1
+    SodiumAmalgam:
+      amount: 1
+  products:
+    BarbituricAcid: 2
+
+# Asparatine involved reagents
+
+- type: reaction
+  id: BenzenesulfonicAcid
+  minTemp: 370
+  reactants: 
+    Benzene:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    BenzenesulfonicAcid: 2
+
+- type: reaction
+  id: SodiumPhenolate
+  minTemp: 430
+  reactants:
+    BenzenesulfonicAcid:
+      amount: 1
+  products:
+    SodiumPhenolate: 1
+
+- type: reaction
+  id: SalicylicAcid
+  reactants: 
+    SodiumPhenolate:
+      amount: 1
+    CarbonDioxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    SalicylicAcid: 2
+
+- type: reaction
+  id: Methanol
+  reactants:
+    Hydrogen:
+      amount: 2
+    Carbon:
+      amount: 1
+    Copper:
+      amount: 1
+      catalyst: true
+  products:
+    Methanol: 3
+
+- type: reaction
+  id: MethylSalicylate
+  reactants:
+    SalicylicAcid:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+  products:
+    MethylSalicylate: 2
+
+- type: reaction
+  id: HydrogenChloride
+  reactants:
+    Hydrogen:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Water:
+      catalyst: true
+      amount: 1
+  products:
+    HydrogenChloride: 2
+
+- type: reaction
+  id: HydrochloricAcid
+  minTemp: 370
+  reactants:
+    Water: 
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+  products:
+    HydrochloricAcid: 2
+
+- type: reaction
+  id: AceticAnhydride
+  reactants:
+    Methanol:
+      amount: 1
+    CarbonDioxide:
+      amount: 1
+  products:
+    AceticAnhydride: 2
+
+- type: reaction
+  id: AceticMethanol
+  reactants:
+    AceticAcid:
+      amount: 1
+    Methanol:
+      amount: 1
+    SulfuricAcid:
+      catalyst: true
+      amount: 1
+  products:
+    AceticAnhydride: 2
+
+- type: reaction
+  id: AcetylChloride
+  reactants:
+    AceticAnhydride:
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+  products:
+    AcetylChloride: 1.5
+    AceticAcid: 0.5
+
+# Naguuprofen involved reactions
+
+- type: reaction
+  id: Propene
+  minTemp: 370
+  reactants:
+    Acetone:
+      amount: 1
+    Charcoal:
+      amount: 1
+  products:
+    Propene: 2
+
+- type: reaction
+  id: Toluene
+  reactants:
+    Benzene:
+      amount: 1
+    Methanol:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    Toluene: 2
+
+- type: reaction
+  id: HydrogenFluoride
+  minTemp: 370
+  reactants:
+    Hydrogen:
+      amount: 1
+    Fluorine:
+      amount: 1
+  products:
+    HydrogenFluoride: 1
+
+- type: reaction
+  id: Isobutylbenzene
+  reactants:
+    Toluene:
+      amount: 1
+    Propene:
+      amount: 1
+    Sodium:
+      amount: 1
+      catalyst: true
+    Potassium:
+      amount: 1
+      catalyst: true
+  products:
+    Isobutylbenzene: 2
+
+- type: reaction
+  id: Isobutylacetophenone
+  reactants:
+    Isobutylbenzene:
+      amount: 1
+    HydrogenFluoride:
+      amount: 1
+  products:
+    Isobutylacetophenone: 2
+
+- type: reaction
+  id: Isobutylphenylethanol
+  minTemp: 370
+  reactants:
+    Isobutylacetophenone:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Isobutylphenylethanol: 3
+
+
+# β-blocker reactions
+
+- type: reaction
+  id: PhenolBreakdown
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    Phenol:
+      amount: 1
+  products:
+    HydrogenPeroxide: 2
+
+- type: reaction
+  id: Catechol
+  reactants:
+    Phenol:
+      amount: 1
+    HydrogenPeroxide:
+      amount: 1
+  products:
+    Catechol: 2
+
+- type: reaction
+  id: AllylChloride
+  minTemp: 473.15
+  reactants:
+    Propene: 
+      amount: 1
+    Chlorine:
+      amount: 1
+  products:
+    AllylChloride: 2
+
+- type: reaction
+  id: Epichlorohydrin
+  reactants:
+    AllylChloride:
+      amount: 1
+    HydrogenChloride: # Could have made HCl but that would mean I'd need to rewrite how water works and its whole acidity.
+      amount: 1
+  products:
+    Epichlorohydrin: 2
+
+- type: reaction
+  id: Aryloxypropanolamine # Used for α and β1 antagonist
+  reactants:
+    Catechol:
+      amount: 1
+    Epichlorohydrin:
+      amount: 1
+    SodiumPhenolate: # Alkali metal phenolate (a phenoxide or phenolate)
+      amount: 1
+  products:
+    Aryloxypropanolamine: 1
+
+## Cordivol
+
+- type: reaction
+  id: PropeneOxide
+  reactants: 
+    Propene:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    PropeneOxide: 1
+
+- type: reaction
+  id: PropeneGlycol
+  reactants:
+    PropeneOxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true 
+  products:
+    PropeneGlycol: 1
+
+## X-Devivolol
+
+- type: reaction
+  id: SulfurTrioxide
+  minTemp: 370
+  reactants:
+    Sulfur:
+      amount: 1
+    Oxygen:
+      amount: 3
+  products:
+    SulfurTrioxide: 2
+
+- type: reaction # Sulfur Trioxide becomes sulfuric acid in contact with water.
+  id: SulfuricAcidTrioxide
+  reactants:
+    SulfurTrioxide:
+      amount: 1
+    Water: 
+      amount: 1
+  products:
+    SulfuricAcid: 2
+
+- type: reaction
+  id: ChlorosulfuricAcid
+  reactants: 
+    HydrogenChloride:
+      amount: 1
+    SulfurTrioxide:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    ChlorosulfuricAcid: 2
+
+- type: reaction
+  id: Dodecanol
+  reactants:
+    Ethanol:
+      amount: 1
+    Sodium:
+      amount: 1
+    Carbon: 
+      amount: 1
+  products:
+    Dodecanol: 3
+
+- type: reaction
+  id: SodiumLauryl
+  reactants:
+    ChlorosulfuricAcid: 
+      amount: 1
+    Dodecanol:
+      amount: 1
+  products:
+    SodiumLauryl: 4
