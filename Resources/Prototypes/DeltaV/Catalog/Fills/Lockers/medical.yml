@@ -1,0 +1,23 @@
+- type: entityTable
+  id: PsychologistLockerFill
+  table: !type:AllSelector
+    children:
+    - id: BoxFolderWhite
+    - id: PillCanisterBlissifylovene
+    - id: PillCanisterEquilibrazine
+    - id: PillCanisterNeurozenium
+    - id: PillCanisterSerenitol
+    - id: ClothingUniformJumpsuitPsychologist
+    - id: ClothingUniformJumpskirtPsychologist
+    - id: DrinkWhiskeyBottleFull
+    - id: ClothingHeadsetMedical
+
+- type: entity
+  parent: LockerPsychologist
+  id: LockerPsychologistFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: PsychologistLockerFill
