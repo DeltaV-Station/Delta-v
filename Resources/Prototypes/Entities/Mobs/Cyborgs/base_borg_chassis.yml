@@ -248,6 +248,7 @@
     visMask:
     - PsionicInvisibility
     - Normal
+  - type: JetpackUser # DeltaV: Lets cyborgs fly in space
 
 - type: entity
   abstract: true
@@ -292,6 +293,8 @@
     - AllAccessBorg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+  - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
+    law: ObeyAI
   - type: ShowJobIcons
   - type: InteractionPopup
     interactSuccessSound:
