@@ -4,36 +4,36 @@
   iconPriority: 200 # higher priority for spray painter
   stylePaths:
     atmospherics: NES/Structures/Doors/Airlocks/Standard/atmospherics.rsi #NES14-Changes
-    basic:       Structures/Doors/Airlocks/Standard/basic.rsi
-    cargo:       Structures/Doors/Airlocks/Standard/cargo.rsi
+    basic:       NES/Structures/Doors/Airlocks/Standard/basic.rsi #NES14-Changes
+    cargo:       NES/Structures/Doors/Airlocks/Standard/cargo.rsi #NES14-Changes
     chemistry:   NES/Structures/Doors/Airlocks/Standard/chemistry.rsi #NES14-Changes
-    command:     Structures/Doors/Airlocks/Standard/command.rsi
-    engineering: Structures/Doors/Airlocks/Standard/engineering.rsi
+    command:     NES/Structures/Doors/Airlocks/Standard/command.rsi #NES14-Changes
+    engineering: NES/Structures/Doors/Airlocks/Standard/engineering.rsi #NES14-Changes
     freezer:     NES/Structures/Doors/Airlocks/Standard/freezer.rsi #NES14-Changes
-    hydroponics: NES/Structures/Doors/Airlocks/Standard/hydroponics.rsi #NES14-Changes # TODO: resprite hydroponics
-    maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
-    science:     DeltaV/Structures/Doors/Airlocks/Standard/science.rsi
-    security:    Structures/Doors/Airlocks/Standard/security.rsi
+    hydroponics: NES/Structures/Doors/Airlocks/Standard/hydroponics.rsi #NES14-Changes
+    maintenance: NES/Structures/Doors/Airlocks/Standard/maint.rsi #NES14-Changes
+    science:     NES/Structures/Doors/Airlocks/Standard/science.rsi #NES14-Changes
+    security:    NES/Structures/Doors/Airlocks/Standard/security.rsi #NES14-Changes
     virology:    NES/Structures/Doors/Airlocks/Standard/virology.rsi #NES14-Changes
-    justice:     DeltaV/Structures/Doors/Airlocks/Standard/justice.rsi # Add Justice Dept
-    roboticist: DeltaV/Structures/Doors/Airlocks/Standard/roboticist.rsi #Added Roboticist Role
+    justice:     NES/Structures/Doors/Airlocks/Standard/justice.rsi # Add Justice Dept #NES14-Changes
+    roboticist: NES/Structures/Doors/Airlocks/Standard/roboticist.rsi #Added Roboticist Role #NES14-Changes
 
 - type: AirlockGroup
   id: GlassDeltaV
   iconPriority: 190
   stylePaths:
     atmospherics: NES/Structures/Doors/Airlocks/Glass/atmospherics.rsi #NES14-Changes
-    basic:       Structures/Doors/Airlocks/Glass/basic.rsi
+    basic:       NES/Structures/Doors/Airlocks/Glass/basic.rsi #NES14-Changes
     chemistry:   NES/Structures/Doors/Airlocks/Glass/chemistry.rsi #NES14-Changes
-    command:     Structures/Doors/Airlocks/Glass/command.rsi
-    science:     DeltaV/Structures/Doors/Airlocks/Glass/science.rsi
-    cargo:       Structures/Doors/Airlocks/Glass/cargo.rsi
-    engineering: Structures/Doors/Airlocks/Glass/engineering.rsi
-    glass:       Structures/Doors/Airlocks/Glass/glass.rsi
+    command:     NES/Structures/Doors/Airlocks/Glass/command.rsi #NES14-Changes
+    science:     NES/Structures/Doors/Airlocks/Glass/science.rsi #NES14-Changes
+    cargo:       NES/Structures/Doors/Airlocks/Glass/cargo.rsi #NES14-Changes
+    engineering: NES/Structures/Doors/Airlocks/Glass/engineering.rsi #NES14-Changes
+    glass:       NES/Structures/Doors/Airlocks/Glass/glass.rsi #NES14-Changes
     hydroponics: NES/Structures/Doors/Airlocks/Glass/hydroponics.rsi #NES14-Changes
-    maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
-    medical:     Structures/Doors/Airlocks/Glass/medical.rsi
-    security:    Structures/Doors/Airlocks/Glass/security.rsi
+    maintenance: NES/Structures/Doors/Airlocks/Glass/maint.rsi #NES14-Changes
+    medical:     NES/Structures/Doors/Airlocks/Glass/medical.rsi #NES14-Changes
+    security:    NES/Structures/Doors/Airlocks/Glass/security.rsi #NES14-Changes
     virology:    NES/Structures/Doors/Airlocks/Glass/virology.rsi #NES14-Changes
-    justice:     DeltaV/Structures/Doors/Airlocks/Glass/justice.rsi # Add Justice Dept
-    roboticist: DeltaV/Structures/Doors/Airlocks/Glass/roboticist.rsi #Added Roboticist Role
+    justice:     NES/Structures/Doors/Airlocks/Glass/justice.rsi # Add Justice Dept #NES14-Changes
+    roboticist:  NES/Structures/Doors/Airlocks/Glass/roboticist.rsi #Added Roboticist Role #NES14-Changes
