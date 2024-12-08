@@ -403,7 +403,8 @@
   description: A sign indicating the logistics area. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    state: cargo
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV - Logistics Department replacing Cargo
+    state: logistics # DeltaV - Logistics Department replacing Cargo
 
 - type: entity
   parent: BaseSign
@@ -740,7 +741,8 @@
   description: A sign indicating the epistemics area. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    state: sci
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV - Epistemics Department replacing Science
+    state: epistemics # DeltaV - Epistemics Department replacing Science
 
 - type: entity
   parent: BaseSign
