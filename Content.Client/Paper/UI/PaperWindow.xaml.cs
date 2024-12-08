@@ -47,6 +47,7 @@ namespace Content.Client.Paper.UI
             typeof(ItalicTag),
             typeof(LogoTag)
             typeof(MonoTag)
+            typeof(SyndieLogoTag)
         };
 
         public event Action<string>? OnSaved;
