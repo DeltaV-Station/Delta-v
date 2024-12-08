@@ -1,5 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
+using Content.Server.Traits.Assorted;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Mind;
@@ -32,6 +33,9 @@ namespace Content.Server.Body.Systems
             var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
             if (HasComp<BodyComponent>(newEntity))
                 ghostOnMove.MustBeDead = true;
+
+            if (HasComp<UnborgableComponent>(oldEntity))
+                EnsureComp<UnborgableComponent>(newEntity);
 
             if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
                 return;
