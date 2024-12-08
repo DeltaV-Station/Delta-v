@@ -55,12 +55,13 @@ namespace Content.IntegrationTests.Tests
             "Tortuga", //DeltaV
             "Arena", //DeltaV
             "Asterisk", //DeltaV
+            "Chibi", //DeltaV
             "Glacier", //DeltaV
             "TheHive", //DeltaV
             "Hammurabi", //DeltaV
             "Lighthouse", //DeltaV
             "Micro", //DeltaV
-            "Chibi" //DeltaV
+            "Ovni" //DeltaV
         };
 
         /// <summary>
