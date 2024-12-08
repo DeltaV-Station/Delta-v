@@ -1,6 +1,4 @@
 namespace Content.Server.DeltaV.Cabinet;
 
 [RegisterComponent]
-public sealed partial class SpareIDSafeComponent : Component
-{
-}
+public sealed partial class SpareIDSafeComponent : Component;
