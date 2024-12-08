@@ -24,6 +24,7 @@
       - NewsReaderCartridge
       - CrimeAssistCartridge
       - SecWatchCartridge
+      - NanoChatCartridge
   - type: Pda
     id: BrigmedicIDCard
     state: pda-corpsman
@@ -58,6 +59,7 @@
     - NewsReaderCartridge
     - CrimeAssistCartridge
     - SecWatchCartridge
+    - NanoChatCartridge
 
 - type: entity
   parent: BaseJusticePDA
@@ -186,6 +188,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MailMetricsCartridge
+      - NanoChatCartridge
 
 ## Alternate Job Titles
 
