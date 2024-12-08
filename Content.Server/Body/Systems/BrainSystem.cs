@@ -3,9 +3,11 @@ using Content.Server.Ghost.Components;
 using Content.Server.Traits.Assorted;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
+using Content.Shared.Examine;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Body.Systems
 {
@@ -20,6 +22,7 @@ namespace Content.Server.Body.Systems
             SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>((uid, _, args) => HandleMind(args.Body, uid));
             SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>((uid, _, args) => HandleMind(uid, args.OldBody));
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
+            SubscribeLocalEvent<UnborgableComponent, ExaminedEvent>(OnExamined);
         }
 
         private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
@@ -41,6 +44,14 @@ namespace Content.Server.Body.Systems
                 return;
 
             _mindSystem.TransferTo(mindId, newEntity, mind: mind);
+        }
+
+        private void OnExamined(Entity<UnborgableComponent> ent, ref ExaminedEvent args)
+        {
+            var msg = new FormattedMessage();
+            msg.AddMarkupPermissive("[color=red]This brain is damaged beyond use.[/color]");
+
+            args.PushMessage(msg, 1);
         }
 
         private void OnPointAttempt(Entity<BrainComponent> ent, ref PointAttemptEvent args)
