@@ -133,6 +133,7 @@
   components:
   - type: AccessReader
     access: [["Research"]] # Uses research access until the job is added
+    access: [["Robotics"]]
 
 - type: entity
   parent: DoorElectronics
@@ -141,4 +142,4 @@
   components:
   - type: AccessReader
     access: [["Pharmacist"]]
-    access: [["Robotics"]]
+
