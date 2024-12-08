@@ -9,7 +9,7 @@ namespace Content.Server.DeltaV.Station.Components;
 /// <summary>
 /// Denotes a station has no captain and holds data for automatic ACO systems
 /// </summary>
-[RegisterComponent, Access(typeof(CaptainStateSystem), typeof(StationSystem)), AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(CaptainStateSystem), typeof(StationSystem))]
 public sealed partial class CaptainStateComponent : Component
 {
     /// <summary>
@@ -20,18 +20,6 @@ public sealed partial class CaptainStateComponent : Component
     /// </remarks>
     [DataField]
     public bool HasCaptain;
-
-    /// <summary>
-    /// Holds the round time of the last time a captain was present if one is not present currently
-    /// </summary>
-    [DataField("TimeSinceCaptain", customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan TimeSinceCaptain = TimeSpan.Zero;
-
-    /// <summary>
-    /// How long with no captain before an ACO is requested
-    /// </summary>
-    [DataField]
-    public TimeSpan ACORequestDelay = TimeSpan.FromMinutes(15);
 
     /// <summary>
     /// The localization ID used for announcing the cancellation of ACO requests
@@ -58,16 +46,10 @@ public sealed partial class CaptainStateComponent : Component
     public bool IsACORequestActive;
 
     /// <summary>
-    /// Used to denote that AA should be unlocked after the delay
+    /// Used to denote that AA has been brought into the round either from captain or safe.
     /// </summary>
     [DataField]
-    public bool UnlockAA = true;
-
-    /// <summary>
-    /// How long after ACO is requested the spare id cabinet will be unlocked if applicable
-    /// </summary>
-    [DataField]
-    public TimeSpan UnlockAADelay = TimeSpan.FromMinutes(5);
+    public bool IsAAInPlay;
 
     /// <summary>
     /// The localization ID for announcing that AA has been unlocked for ACO

@@ -9,6 +9,9 @@ using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Robust.Shared.Configuration;
+using Content.Shared.DeltaV.CCVars;
+using static Content.Shared.Administration.Notes.AdminMessageEuiState;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -17,11 +20,21 @@ public sealed class CaptainStateSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private bool _aaEnabled;
+    private TimeSpan _aaDelay;
+    private TimeSpan _acoDelay;
+    private bool _acoOnDeparture;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
         base.Initialize();
     }
 
@@ -43,7 +56,10 @@ public sealed class CaptainStateSystem : EntitySystem
     private void OnPlayerJobAdded(Entity<CaptainStateComponent> ent, ref PlayerJobAddedEvent args)
     {
         if (args.JobPrototypeId == "Captain")
+        {
+            ent.Comp.IsAAInPlay = true;
             ent.Comp.HasCaptain = true;
+        }
     }
 
     private void OnPlayerJobsRemoved(Entity<CaptainStateComponent> ent, ref PlayerJobsRemovedEvent args)
@@ -55,9 +71,11 @@ public sealed class CaptainStateSystem : EntitySystem
         if (stationJobs.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // We check the PlayerJobs if there are any cpatins left
             return;
         ent.Comp.HasCaptain = false;
-        ent.Comp.TimeSinceCaptain = _ticker.RoundDuration();
-        ent.Comp.UnlockAA = false; // Captain has already brought AA in the round and should have resolved staffing issues already.
-        ent.Comp.ACORequestDelay = TimeSpan.Zero; // Expedite the voting process due to midround and captain equipment being in play.
+        if (_acoOnDeparture)
+        {
+            _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)), colorOverride: Color.Gold);
+            ent.Comp.IsACORequestActive = true;
+        }
     }
 
     /// <summary>
@@ -83,13 +101,13 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         if (CheckACORequest(captainState, currentTime))
         {
-            var message = captainState.UnlockAA ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
-            _chat.DispatchStationAnnouncement(station, Loc.GetString(message, ("minutes", captainState.UnlockAADelay.TotalMinutes)), colorOverride: Color.Gold);
+            var message = CheckUnlockAA(captainState, null) ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
+            _chat.DispatchStationAnnouncement(station, Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)), colorOverride: Color.Gold);
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
         {
-            captainState.UnlockAA = false; // Once unlocked don't unlock again
+            captainState.IsAAInPlay = true;
             _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.AAUnlockedMessage), colorOverride: Color.Red);
 
             // Extend access of spare id lockers to command so they can access emergency AA
@@ -116,16 +134,19 @@ public sealed class CaptainStateSystem : EntitySystem
     /// <returns>True if conditions are met for an ACO to be requested, False otherwise</returns>
     private bool CheckACORequest(CaptainStateComponent captainState, TimeSpan currentTime)
     {
-        return !captainState.IsACORequestActive && currentTime > captainState.TimeSinceCaptain + captainState.ACORequestDelay;
+        return !captainState.IsACORequestActive && currentTime > _acoDelay;
     }
 
     /// <summary>
     /// Checks the conditions for if AA should be unlocked
+    /// If time is null its condition is ignored
     /// </summary>
     /// <param name="captainState"></param>
     /// <returns>True if conditions are met for AA to be unlocked, False otherwise</returns>
-    private bool CheckUnlockAA(CaptainStateComponent captainState, TimeSpan currentTime)
+    private bool CheckUnlockAA(CaptainStateComponent captainState, TimeSpan? currentTime)
     {
-        return captainState.UnlockAA && currentTime > captainState.TimeSinceCaptain + captainState.ACORequestDelay + captainState.UnlockAADelay;
+        if (captainState.IsAAInPlay || !_aaEnabled)
+            return false;
+        return currentTime == null || currentTime > _acoDelay + _aaDelay;
     }
 }
