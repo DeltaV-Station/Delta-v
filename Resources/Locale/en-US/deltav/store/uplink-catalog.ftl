@@ -23,3 +23,5 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-foam-sabre-name = Sharp Foam Sabre
 uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assassins that pretend playing around.
+
+uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Budget cuts have resulted in it NOT STORING High Value or storage items.
