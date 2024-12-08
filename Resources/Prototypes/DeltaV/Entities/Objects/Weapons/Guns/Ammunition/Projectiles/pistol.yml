@@ -9,3 +9,8 @@
       types:
         Blunt: 3
 
+- type: entity
+  parent: [ BaseBulletTracerYellow, BulletPistol ]
+  id: BulletPistolTracer
+  name: bullet (.35 auto tracer)
+  categories: [ HideSpawnMenu ]
