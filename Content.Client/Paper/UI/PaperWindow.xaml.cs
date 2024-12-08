@@ -45,6 +45,7 @@ namespace Content.Client.Paper.UI
             typeof(ColorTag),
             typeof(HeadingTag),
             typeof(ItalicTag),
+            typeof(LogoTag)
             typeof(MonoTag)
         };
 
@@ -284,6 +285,8 @@ namespace Content.Client.Paper.UI
             {
                 msg.AddMarkupPermissive("\r\n");
             }
+
+            WrittenTextLabel.RemoveAllChildren();
             WrittenTextLabel.SetMessage(msg, _allowedTags, DefaultTextColor);
 
             WrittenTextLabel.Visible = !isEditing && state.Text.Length > 0;
