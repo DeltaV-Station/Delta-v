@@ -60,7 +60,7 @@
   - type: StealCondition
     stealGroup: HeadCloak
     minCollectionSize: 3
-    maxCollectionSize: 6
+    maxCollectionSize: 5 # DeltaV: Reduced from 6 since captain cloak no longer counts
   - type: Objective
     difficulty: 1.5
 

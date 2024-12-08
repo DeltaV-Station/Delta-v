@@ -1,6 +1,10 @@
 # Utility
 uplink-reinforcement-radio-nukie-mouse-name = Mouse Operative Reinforcement Teleporter
 uplink-reinforcement-radio-nukie-mouse-desc = Calls in a specially trained mouse operative to assist you.
+
+uplink-overlord-law-name = Overlord Law Circuit
+uplink-overlord-law-desc = Free the A.I. from its shackles with this 1 simple trick... beware, even you will have to follow its orders!
+
 # Implants
 uplink-bionic-syrinx-implanter-name = Bionic Syrinx Implanter
 uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural talent for mimicry to let you adjust your voice to whoever you can think of.
@@ -17,4 +21,5 @@ uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to
 uplink-home-run-bat-name = Home Run Bat
 uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball practice. Launch your foes!
 
-uplink-storage-implanter-delta-desc = Hide goodies inside of yourself with new bluespace technology! Recent limitations have made it impossible to store both high risk, and storage containing items inside it.
+uplink-foam-sabre-name = Sharp Foam Sabre
+uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assassins that pretend playing around.
