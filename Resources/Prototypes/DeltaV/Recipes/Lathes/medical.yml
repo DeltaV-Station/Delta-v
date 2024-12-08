@@ -22,3 +22,13 @@
   materials:
     Plastic: 150
     Steel: 50
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponHealGun
+  result: WeaponHealGun
+  materials:
+    Plastic: 1000
+    Glass: 500
+    Steel: 750
+    Gold: 100
