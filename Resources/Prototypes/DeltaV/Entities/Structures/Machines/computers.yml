@@ -29,3 +29,8 @@
       state: request
     - map: ["computerLayerKeys"]
       state: tech_key
+
+- type: entity
+  parent: BaseComputer
+  id: ComputerShuttleMining
+  name: mining shuttle console
