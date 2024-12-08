@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/97ec5ed1a0fc8263df5df5a5afbb653d4684992e & icon made by github:Morb0, reptilian made by kuro(388673708753027083). Vox state made by Flareguy for SS14",
+  "copyright": "NES-Station : Aserovich",
   "size": {
     "x": 32,
     "y": 32
@@ -11,11 +11,14 @@
       "name": "icon"
     },
     {
+      "name": "icon-open"
+    },
+    {
       "name": "equipped-OUTERCLOTHING",
       "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING-vox",
+      "name": "open-equipped-OUTERCLOTHING",
       "directions": 4
     },
     {
@@ -24,6 +27,14 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-right",
       "directions": 4
     }
   ]

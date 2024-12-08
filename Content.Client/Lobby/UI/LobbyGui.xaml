@@ -21,31 +21,6 @@
 
                 <Control Name="DefaultState" VerticalExpand="True">
                     <BoxContainer Name="TopLeft" Orientation="Vertical">
-                        <!-- Left Top Panel -->
-                        <!-- <PanelContainer StyleClasses="AngleRect" HorizontalAlignment="Left" Name="LeftSideTop" -->
-                        <!--                 VerticalAlignment="Top"> -->
-                        <!--     <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800"> -->
-                        <!--         <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center" -->
-                        <!--                          Margin="3 3 3 3" /> -->
-                        <!--         <controls:StripeBack> -->
-                        <!--             <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="3 3 3 3"> -->
-                        <!--                 <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public" -->
-                        <!--                                     Text="{Loc 'ui-lobby-observe-button'}" -->
-                        <!--                                     StyleClasses="ButtonBig" -->
-                        <!--                                     WindowType="{x:Type lobbyUi:ObserveWarningWindow}" /> -->
-                        <!--                 <Label Name="StartTime" -->
-                        <!--                        Access="Public" -->
-                        <!--                        Align="Left" -->
-                        <!--                        FontColorOverride="{x:Static maths:Color.DarkGray}" -->
-                        <!--                        StyleClasses="LabelBig" HorizontalExpand="True" /> -->
-                        <!--                 <Button Name="ReadyButton" Access="Public" ToggleMode="True" -->
-                        <!--                         Text="{Loc 'ui-lobby-ready-up-button'}" -->
-                        <!--                         StyleClasses="ButtonBig" MinWidth="137" /> -->
-                        <!--             </BoxContainer> -->
-                        <!--         </controls:StripeBack> -->
-                        <!--     </BoxContainer> -->
-                        <!-- </PanelContainer> -->
-                        <!-- Voting Popups -->
                         <BoxContainer Orientation="Vertical" SeparationOverride="4" Name="VoteContainer"
                                       Access="Public" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 8" />
                     </BoxContainer>
@@ -54,23 +29,12 @@
                     <!-- Center (уже левая) Panel -->
                     <PanelContainer StyleClasses="AngleRect" Name="CenterPanel" HorizontalAlignment="Left" VerticalExpand="True"
                                     VerticalAlignment="Center" Access="Public">
-                        <!-- цвет бекраунда -->
-                        <PanelContainer.PanelOverride>
-                            <graphics:StyleBoxFlat BackgroundColor="#76428A88" />
-                        </PanelContainer.PanelOverride>
                         <GridContainer Rows="4" Columns="1">
 
                             <!-- Gold line -->
                             <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="10" />
 
-                            <!-- Game Title -->
-                            <PanelContainer Margin="12 12 12 12">
-                                <PanelContainer.PanelOverride>
-                                    <graphics:StyleBoxFlat BackgroundColor="#76428ADD" />
-                                </PanelContainer.PanelOverride>
-                            </PanelContainer>
-
-                            <!-- Buttons -->
+                            <!-- кнопочки -->
                             <GridContainer Columns="1">
                                 <Button Name="ReadyButton" Access="Public" ToggleMode="True"
                                         Text="{Loc 'ui-lobby-ready-up-button'}"
@@ -115,9 +79,6 @@
             <!-- Right Panel -->
             <PanelContainer Name="RightSide" StyleClasses="AngleRect" HorizontalAlignment="Right" VerticalExpand="True"
                             VerticalAlignment="Stretch" Access="Public">
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat BackgroundColor="#76428A88" />
-                </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
                     <!-- Gold line -->
@@ -136,7 +97,7 @@
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
                     <!-- Gold line -->
-                    <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
+                    <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="10" Access="Public" />
                     <controls:HSpacer Spacing="10" />
                     <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
                 </BoxContainer>

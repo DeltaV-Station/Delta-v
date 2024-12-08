@@ -151,9 +151,9 @@
   description: A suit that protects against minor chemical spills.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -253,9 +253,9 @@
   description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat_rnd.rsi # NES14-Changes, fuck DV
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+    sprite: NES/Clothing/OuterClothing/Coats/labcoat_rnd.rsi # NES14-Changes, fuck DV
   - type: Armor
     modifiers:
       coefficients:

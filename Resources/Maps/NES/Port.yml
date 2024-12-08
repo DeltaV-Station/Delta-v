@@ -11151,53 +11151,6 @@ entities:
     - type: Transform
       pos: 4.5,-9.5
       parent: 2
-- proto: Nes14BenchSofaCorner
-  entities:
-  - uid: 385
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,6.5
-      parent: 2
-- proto: Nes14BenchSofaLeft
-  entities:
-  - uid: 1177
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,6.5
-      parent: 2
-- proto: Nes14BenchSofaMiddle
-  entities:
-  - uid: 389
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 9.5,6.5
-      parent: 2
-- proto: Nes14BenchSofaRight
-  entities:
-  - uid: 1178
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,7.5
-      parent: 2
-- proto: Nes14Bonfire
-  entities:
-  - uid: 844
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 14.5,5.5
-      parent: 2
-- proto: Nes14ClotchingTailbag
-  entities:
-  - uid: 589
-    components:
-    - type: Transform
-      pos: -14.477283,4.5816727
-      parent: 2
 - proto: Nes14ClothingSwimsuit
   entities:
   - uid: 353
@@ -11552,18 +11505,6 @@ entities:
     components:
     - type: Transform
       pos: -10.534906,-11.245188
-      parent: 2
-- proto: Nes14WeaponPistolGH70
-  entities:
-  - uid: 538
-    components:
-    - type: Transform
-      pos: -11.386576,-11.588938
-      parent: 2
-  - uid: 810
-    components:
-    - type: Transform
-      pos: -11.589701,-11.292063
       parent: 2
 - proto: Nes14WeldingFuelBarrel
   entities:

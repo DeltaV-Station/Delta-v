@@ -1,0 +1,39 @@
+- type: gameMap
+  id: Nes14Port
+  mapName: 'Port'
+  mapPath: /Maps/NES/Port.yml
+  minPlayers: 1
+  maxPlayers: 10
+  stations:
+    Port:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Port {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'FD'
+        - type: StationJobs
+          availableJobs:
+            Captain: [ 1, 1 ]
+          #service
+            Janitor: [ 1, 1 ]
+            ServiceWorker: [ 1, 1 ]
+          #engineering
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 1 ]
+          #medical
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 1, 1 ]
+          #science
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+          #security
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
+          #supply
+            CargoTechnician: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+          #civilian
+            Passenger: [ -1, -1 ]
