@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasEmpire
+  name: Имперский Противогаз
+  description: Противогаз, странно напоминает стандартный аварийный противогаз, красные линзы не имеют никакого смысла кроме устрашения, странно, почему он до сих пор герметичен?
+  suffix: Империя
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Stray/Empire/Clothing/Mask/gas.rsi
+  - type: Clothing
+    sprite: Stray/Empire/Clothing/Mask/gas.rsi
+  - type: HideLayerClothing
+    slots:
+    - Snout

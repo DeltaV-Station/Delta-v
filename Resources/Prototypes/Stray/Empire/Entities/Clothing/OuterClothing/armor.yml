@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingOuterBaseMedium
+  id: ClothingOuterHeavyArmorvestEmpire
+  name: Тяжёлый имперский бронежилет
+  description: Сделан из качественной многослойной стали с слоями свинца, защищает всё тело до паха, наколенники входят в комплект, с внутренней стороны бронежилета можно заметить небольшую надпись "снято с трупо"
+  suffix: Империя
+  components:
+  - type: Sprite
+    sprite: Stray/Empire/Clothing/OuterClothing/Armor/heavy.rsi
+  - type: Clothing
+    sprite: Stray/Empire/Clothing/OuterClothing/Armor/heavy.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.5
+        Heat: 0.75
+        Caustic: 0.95
+        Radiation: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHoodEcclesia
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.9

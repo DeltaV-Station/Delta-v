@@ -12,3 +12,15 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.9
     coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretBestlung
+  name: берет капитана
+  description: С ним вы чувствуете желание направить шаттл в астероид и умереть геройской смертью. Но это просто желание, да?.. 
+  suffix: Бэстенлунг
+  components:
+  - type: Sprite
+    sprite: Stray/Bestlung/Clothing/Head/Hats/beret.rsi
+  - type: Clothing
+    sprite: Stray/Bestlung/Clothing/Head/Hats/beret.rsi

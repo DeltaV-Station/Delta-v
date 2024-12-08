@@ -1,0 +1,30 @@
+- type: entity
+  name : энергетический заряд
+  id: ElectricArcBulletLaser
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Weapons/Laser/projectiles.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: PointLight
+    radius: 1.4
+    energy: 4
+    color: "#49b5d8"
+  - type: Projectile
+    impactEffect: Nes14BulletImpactEffectLaser
+    damage:
+      types:
+        Piercing: 20
+        Heat: 2
+        Shock: 13
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+  - type: StaminaDamageOnCollide
+    damage: 16
+  - type: StunOnCollide
+    stunAmount: 1
+    knockdownAmount: 1

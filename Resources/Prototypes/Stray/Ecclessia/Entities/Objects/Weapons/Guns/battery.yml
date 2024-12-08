@@ -1,0 +1,33 @@
+- type: entity
+  name: электродуговой пистолет
+  parent: BaseWeaponBatterySmall
+  id: WeaponGunElectricArcPistol
+  description: На вид может напомнить старомодое ружьё средневековья, но части выдают в нём современное оружие.
+  suffix: Эцессия
+  components:
+  - type: Sprite
+    sprite: Stray/Ecclessia/Objects/Weapons/Guns/Battery/energy_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ElectricArcBulletLaser
+    fireCost: 50
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 400

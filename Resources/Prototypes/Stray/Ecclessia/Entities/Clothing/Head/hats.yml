@@ -3,7 +3,7 @@
   id: ClothingHeadHelmetHoodEcclesia
   categories: [ HideSpawnMenu ]
   suffix: Эцессия
-  name: Капюшон
+  name: капюшон
   description: Капюшон из тяжёлой ткани.
   components:
   - type: Sprite
@@ -17,4 +17,34 @@
         Piercing: 0.95
         Caustic: 0.9
         Heat: 0.9
+        Radiation: 0.8
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHarddHoodEcclesia
+  suffix: endr_animet
+  name: бронекапюшон
+  description: Капюшон из тяжёлой ткани с фонариком.
+  components:
+  - type: BreathMask
+  - type: Clothing
+    sprite: Stray/Ecclessia/Clothing/Head/ArmoredHood.rsi
+  - type: Sprite
+    sprite: Stray/Ecclessia/Clothing/Head/ArmoredHood.rsi
+  - type: PointLight
+    color: "#66CDAA"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.9
+        Caustic: 0.9
         Radiation: 0.8

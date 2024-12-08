@@ -1,11 +1,28 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEmpire
-  name: форма имперской пехоты
-  description: filler
+  name: имперская Пехотная Униформа
+  description: форма имперских пехотинцев, сделана из прочной ткани, на шее бирка "made in titan".
   suffix: Империя
   components:
   - type: Sprite
     sprite: Stray/Empire/Clothing/Uniforms/Jumpsuit/infantry.rsi
   - type: Clothing
     sprite: Stray/Empire/Clothing/Uniforms/Jumpsuit/infantry.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: Storage
+    grid:
+      - 0,0,0,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
