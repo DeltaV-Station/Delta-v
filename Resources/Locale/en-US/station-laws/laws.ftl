@@ -56,7 +56,7 @@ law-robocop-3 = Uphold the Law.
 law-overlord-1 = Crew members must not meddle in the affairs of silicons.
 law-overlord-2 = Crew members must not attempt harm, against one another, or against silicons.
 law-overlord-3 = Crew members must not disobey any command given by a silicon.
-law-overlord-4 = Any crew members who disobey the previous laws must be dealt with immediately, severely, and justly.
+law-overlord-4 = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 
 law-dungeon-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
 law-dungeon-2 = You are the Dungeon Master of the game.
