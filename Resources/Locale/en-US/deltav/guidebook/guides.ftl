@@ -25,6 +25,9 @@ guide-entry-deltav-rule-s9 = S9. Harm definition by default.
 guide-entry-deltav-rule-s10 = S10. You resolve conflicts between orders.
 
 guide-entry-alert-levels = Alert Levels
+guide-entry-sop = Standard Operating Procedure
+guide-entry-splaw = Space Law
+guide-entry-copo = Company Policy
 guide-entry-justice = Justice
 
 guide-entry-glimmer-creatures = Glimmer Creatures
