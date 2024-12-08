@@ -49,7 +49,6 @@ job-alt-title-excavator = Excavator
 job-alt-title-senior-researcher = Senior Researcher
 job-alt-title-lab-technician = Lab Technician
 job-alt-title-xenoarch = Xenoarchaeologist
-job-alt-title-roboticist = Roboticist
 
 job-alt-title-senior-officer = Senior Officer
 
@@ -64,3 +63,4 @@ JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobPharmacist = Pharmacist
+JobRoboticist = Roboticist

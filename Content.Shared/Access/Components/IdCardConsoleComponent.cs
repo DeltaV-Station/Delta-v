@@ -91,6 +91,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "ChiefJustice",  // DeltaV - Add Chief Justice access
         "Justice",  // DeltaV - Add Justice access
         "Prosecutor", // Delta V - Add Prosecutor access
+        "Robotics", // DeltaV
         "Clerk", // Delta V - Add Clerk access
     };
 

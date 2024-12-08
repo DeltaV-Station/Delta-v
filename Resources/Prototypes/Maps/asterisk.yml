@@ -18,6 +18,7 @@
         - type: StationJobs
           availableJobs:
             Captain: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
@@ -49,8 +50,9 @@
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            Scientist: [ 2, 3 ]
-            ResearchAssistant: [ 2, 4 ]
+            Roboticist: [ 2, 2 ]
+            Scientist: [ 2, 2 ]
+            ResearchAssistant: [ 2, 3 ]
             Borg: [ 1, 2 ]
           #security
             HeadOfSecurity: [ 1, 1 ]
