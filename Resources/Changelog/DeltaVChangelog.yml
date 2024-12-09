@@ -1,57 +1,4 @@
 ﻿Entries:
-- author: FluffiestFloof
-  changes:
-  - message: Added Deuteranopia trait.
-    type: Add
-  - message: Vulpkanin now start with Deuteranopia by default which can be removed
-      using the Normal Vision trait.
-    type: Tweak
-  id: 246
-  time: '2024-02-15T17:27:24.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Glimmer Drain now requires 5 Normality Crystals to craft.
-    type: Tweak
-  id: 247
-  time: '2024-02-17T03:38:14.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: 'Metempsychosis machines have been added to the game. '
-    type: Add
-  id: 248
-  time: '2024-02-18T02:36:16.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Merged upstream
-    type: Add
-  - message: Fixed the upstream changelog not rendering
-    type: Fix
-  id: 249
-  time: '2024-02-18T23:05:48.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Whitelist to join now works based on slots instead of player count
-    type: Tweak
-  - message: Periapsis now has only 10 non-whitelisted slots
-    type: Tweak
-  id: 250
-  time: '2024-02-20T19:46:17.0000000+00:00'
-- author: rosieposieeee
-  changes:
-  - message: Submarine Station has been temporarily removed from rotation for routine
-      maintenance.
-    type: Remove
-  id: 251
-  time: '2024-02-21T01:15:08.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Added a new accessibility setting to globally disable species vision
-      filters
-    type: Add
-  - message: The DefaultVision trait has been removed
-    type: Remove
-  id: 252
-  time: '2024-02-23T18:36:18.0000000+00:00'
 - author: Velcroboy
   changes:
   - message: 'Rekajiggered The Hive''s medical. '
@@ -3806,3 +3753,60 @@
   id: 745
   time: '2024-12-07T18:10:41.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2377
+- author: rosieposieeee
+  changes:
+  - message: Added wooden and grey modern railings.
+    type: Add
+  id: 746
+  time: '2024-12-07T23:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2379
+- author: rosieposieeee
+  changes:
+  - message: Added reinforced directional tinted walls.
+    type: Add
+  id: 747
+  time: '2024-12-07T23:35:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2376
+- author: deltanedas
+  changes:
+  - message: Ninja objectives are now more random and they can be asked to steal things
+      or kill people!
+    type: Tweak
+  id: 748
+  time: '2024-12-08T15:11:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2359
+- author: Monotheonist
+  changes:
+  - message: Fugitives are no longer clones of people on station.
+    type: Tweak
+  id: 749
+  time: '2024-12-09T01:02:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2383
+- author: Lyndomen
+  changes:
+  - message: Diona are substantially more tanky to physical damage, and ignite less
+      frequently.
+    type: Tweak
+  - message: Diona are much slower, but cannot slip while walking.
+    type: Tweak
+  id: 750
+  time: '2024-12-09T05:44:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2204
+- author: Colin-Tel
+  changes:
+  - message: Micro Station has been removed from the regular map rotation.
+    type: Remove
+  id: 751
+  time: '2024-12-09T15:26:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2402
+- author: SolStar
+  changes:
+  - message: Command will now be automatically notified to elect an ACO when no captain
+      is present.
+    type: Tweak
+  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
+      an ACO vote is requested.'
+    type: Tweak
+  id: 752
+  time: '2024-12-09T17:05:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2351

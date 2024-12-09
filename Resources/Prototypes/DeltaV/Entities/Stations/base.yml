@@ -22,3 +22,9 @@
     - displayName: stock-trading-company-hydroco
       basePrice: 30
       currentPrice: 30
+
+- type: entity
+  id: BaseStationCaptainState
+  abstract: true
+  components:
+  - type: CaptainState
