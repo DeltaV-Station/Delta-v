@@ -6,7 +6,6 @@ using Content.Shared.DeltaV.CCVars;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Shipyard;
 
