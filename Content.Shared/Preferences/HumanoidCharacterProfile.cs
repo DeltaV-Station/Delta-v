@@ -15,6 +15,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared._CD.Records; // CD
+
 
 namespace Content.Shared.Preferences
 {
@@ -38,7 +40,7 @@ namespace Content.Shared.Preferences
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 32;
-        public const int MaxDescLength = 512;
+        public const int MaxDescLength = 1024; // CD was 512
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -134,10 +136,16 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
+        [DataField("cosmaticDriftCharacterHeight")]
+        public float Height = 1f;
+
+        [DataField("cosmaticDriftCharacterRecords")]  // CD
+        public PlayerProvidedCharacterRecords? CDCharacterRecords; // CD
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
             string species,
+            float height,
             int age,
             Sex sex,
             Gender gender,
@@ -147,11 +155,13 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,   //CD
+            PlayerProvidedCharacterRecords? cdCharacterRecords) // CD
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            Height = height;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -162,6 +172,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            CDCharacterRecords = cdCharacterRecords; // CD
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -183,6 +194,7 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
+                other.Height,
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -192,7 +204,8 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.CDCharacterRecords) // CD
         {
         }
 
@@ -237,13 +250,14 @@ namespace Content.Shared.Preferences
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
-
+            var height = 1f;
             var sex = Sex.Unsexed;
             var age = 18;
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                height = MathF.Round(random.NextFloat(speciesPrototype.MinHeight, speciesPrototype.MaxHeight), 2);
             }
 
             var gender = Gender.Epicene;
@@ -300,6 +314,11 @@ namespace Content.Shared.Preferences
         {
             return new(this) { Species = species };
         }
+
+        public HumanoidCharacterProfile WithHeight(float height) // begin CD
+        {
+            return new(this) { Height = height };
+        } // end CD
 
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
@@ -454,7 +473,10 @@ namespace Content.Shared.Preferences
                 _traitPreferences = list,
             };
         }
-
+        public HumanoidCharacterProfile WithCDCharacterRecords(PlayerProvidedCharacterRecords records) // begin CD Changes
+        {
+            return new HumanoidCharacterProfile(this) { CDCharacterRecords = records };
+        }  //end CD Changes
         public string Summary =>
             Loc.GetString(
                 "humanoid-character-profile-summary",
@@ -468,6 +490,7 @@ namespace Content.Shared.Preferences
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
+            if (Height != other.Height) return false; // CD
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
@@ -478,6 +501,8 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
+               !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -557,6 +582,10 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
+            var height = Height; // begin CD
+            if (speciesPrototype != null)
+                height = Math.Clamp(MathF.Round(Height, 2), speciesPrototype.MinHeight, speciesPrototype.MaxHeight); // end CD
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -606,6 +635,7 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Age = age;
+            Height = height; // CD
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
@@ -625,6 +655,15 @@ namespace Content.Shared.Preferences
 
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+
+            if (CDCharacterRecords == null) // begin CD changes
+            {
+                CDCharacterRecords = PlayerProvidedCharacterRecords.DefaultRecords();
+            }
+            else
+            {
+                CDCharacterRecords!.EnsureValid();
+            } // end CD changes
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -721,6 +760,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
             hashCode.Add((int)PreferenceUnavailable);
+            hashCode.Add(Height);
             return hashCode.ToHashCode();
         }
 
