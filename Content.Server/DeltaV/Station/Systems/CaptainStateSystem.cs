@@ -5,25 +5,23 @@ using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
-using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Content.Shared.Access;
+using Content.Shared.DeltaV.CCVars;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Robust.Shared.Configuration;
-using Content.Shared.DeltaV.CCVars;
-using static Content.Shared.Administration.Notes.AdminMessageEuiState;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
 public sealed class CaptainStateSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _reader = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private bool _aaEnabled;
     private TimeSpan _aaDelay;
+    private bool _aaEnabled;
     private TimeSpan _acoDelay;
     private bool _acoOnDeparture;
 
@@ -31,8 +29,8 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
         base.Initialize();
@@ -66,14 +64,18 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         if (!TryComp<StationJobsComponent>(ent, out var stationJobs))
             return;
-        if (args.PlayerJobs == null || !args.PlayerJobs.Contains("Captain")) // If the player that left was a captain we need to check if there are any captains left
+        if (!args.PlayerJobs.Contains("Captain")) // If the player that left was a captain we need to check if there are any captains left
             return;
         if (stationJobs.PlayerJobs.Any(playerJobs => playerJobs.Value.Contains("Captain"))) // We check the PlayerJobs if there are any cpatins left
             return;
         ent.Comp.HasCaptain = false;
         if (_acoOnDeparture)
         {
-            _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)), colorOverride: Color.Gold);
+            _chat.DispatchStationAnnouncement(
+                ent,
+                Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)),
+                colorOverride: Color.Gold);
+
             ent.Comp.IsACORequestActive = true;
         }
     }
@@ -88,7 +90,11 @@ public sealed class CaptainStateSystem : EntitySystem
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (!captainState.IsACORequestActive)
             return;
-        _chat.DispatchStationAnnouncement(station, Loc.GetString(captainState.RevokeACOMessage), colorOverride: Color.Gold);
+
+        _chat.DispatchStationAnnouncement(station,
+            Loc.GetString(captainState.RevokeACOMessage),
+            colorOverride: Color.Gold);
+
         captainState.IsACORequestActive = false;
     }
 
@@ -101,8 +107,16 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         if (CheckACORequest(captainState, currentTime))
         {
-            var message = CheckUnlockAA(captainState, null) ? captainState.ACORequestWithAAMessage : captainState.ACORequestNoAAMessage;
-            _chat.DispatchStationAnnouncement(station, Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)), colorOverride: Color.Gold);
+            var message =
+                CheckUnlockAA(captainState, null)
+                ? captainState.ACORequestWithAAMessage
+                : captainState.ACORequestNoAAMessage;
+
+            _chat.DispatchStationAnnouncement(
+                station,
+                Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)),
+                colorOverride: Color.Gold);
+
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
@@ -112,15 +126,15 @@ public sealed class CaptainStateSystem : EntitySystem
 
             // Extend access of spare id lockers to command so they can access emergency AA
             var query = EntityQueryEnumerator<SpareIDSafeComponent>();
-            while (query.MoveNext(out var spareIDSafe, out var _))
+            while (query.MoveNext(out var spareIDSafe, out _))
             {
                 if (!TryComp<AccessReaderComponent>(spareIDSafe, out var accessReader))
                     continue;
-                var acceses = accessReader.AccessLists;
-                if (acceses.Count <= 0) // Avoid restricting access for readers with no accesses
+                var accesses = accessReader.AccessLists;
+                if (accesses.Count <= 0) // Avoid restricting access for readers with no accesses
                     continue;
                 // Awful and disgusting but the accessReader has no proper api for adding acceses to readers without awful type casting. See AccessOverriderSystem
-                acceses.Add(new HashSet<ProtoId<AccessLevelPrototype>> { captainState.ACOAccess });
+                accesses.Add(new HashSet<ProtoId<AccessLevelPrototype>> { captainState.ACOAccess });
                 Dirty(spareIDSafe, accessReader);
                 RaiseLocalEvent(spareIDSafe, new AccessReaderConfigurationChangedEvent());
             }
