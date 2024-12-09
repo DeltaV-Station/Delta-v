@@ -13,3 +13,16 @@
   id: FoolPDA
   equipment:
     id: FoolPDA
+
+# Trinket
+- type: loadout
+  id: CrayonMagic
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 300
+  storage:
+    back:
+    - CrayonMagic
