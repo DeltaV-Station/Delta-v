@@ -230,8 +230,8 @@ namespace Content.Server.Lathe
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
-                    _stack.TryMergeToContacts(result);
                     EnsureComp<PriceModifierComponent>(result).Modifier = comp.PriceModifier; // DeltaV
+                    _stack.TryMergeToContacts(result);
                 }
 
                 if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&
