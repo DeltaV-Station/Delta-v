@@ -65,6 +65,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             {
                 case AsteroidOffering asteroid:
                     option.Title = Loc.GetString($"dungeon-config-proto-{asteroid.Id}");
+                    break; // DeltaV: Skip ores since they aren't used with custom generation
                     var layerKeys = asteroid.MarkerLayers.Keys.ToList();
                     layerKeys.Sort();
 
