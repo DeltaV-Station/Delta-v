@@ -47,6 +47,7 @@
       quickEquip: false
       slots:
         - Back
+        - suitStorage # DeltaV - Allow all jetpacks to fit in the suit storage slot
     - type: GasTank
       outputPressure: 21.3
       air:
@@ -156,7 +157,7 @@
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     slots:
       - Back
-      - SuitStorage
+      #- SuitStorage # DeltaV - Covered by parent.
   - type: Item
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     size: Normal
@@ -199,7 +200,7 @@
       sprite: Objects/Tanks/Jetpacks/mini.rsi
       slots:
         - Back
-        - suitStorage
+        #- suitStorage  # DeltaV - Covered by parent.
         - Belt
     - type: GasTank
       outputPressure: 42.6
@@ -271,7 +272,7 @@
     sprite: Objects/Tanks/Jetpacks/void.rsi
     slots:
       - Back
-      - suitStorage
+      #- suitStorage  # DeltaV - Covered by parent.
       - Belt
 
 # Filled void
