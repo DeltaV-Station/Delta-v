@@ -4,6 +4,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stunnable;
+using Content.Server.Temperature.Systems; // DeltaV Heat Change system
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -43,6 +44,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!; // DeltaV Heat change system
 
     private const float DamagePitchVariation = 0.05f;
     public const float GunClumsyChance = 0.5f;
@@ -234,6 +236,10 @@ public sealed partial class GunSystem : SharedGunSystem
                         var hitEntity = lastHit.Value;
                         if (hitscan.StaminaDamage > 0f)
                             _stamina.TakeProjectileStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
+
+                        // DeltaV: Changes the target's temperature by this amount when hit
+                        if (hitscan.HeatChange != 0f)
+                             _temperature.ChangeHeat(hitEntity, hitscan.HeatChange, true);
 
                         var dmg = hitscan.Damage;
 
