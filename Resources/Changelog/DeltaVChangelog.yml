@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Whitelist to join now works based on slots instead of player count
-    type: Tweak
-  - message: Periapsis now has only 10 non-whitelisted slots
-    type: Tweak
-  id: 250
-  time: '2024-02-20T19:46:17.0000000+00:00'
 - author: rosieposieeee
   changes:
   - message: Submarine Station has been temporarily removed from rotation for routine
@@ -3806,3 +3798,13 @@
   id: 749
   time: '2024-12-09T01:02:50.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2383
+- author: Lyndomen
+  changes:
+  - message: Diona are substantially more tanky to physical damage, and ignite less
+      frequently.
+    type: Tweak
+  - message: Diona are much slower, but cannot slip while walking.
+    type: Tweak
+  id: 750
+  time: '2024-12-09T05:44:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2204
