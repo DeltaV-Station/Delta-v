@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Added a new accessibility setting to globally disable species vision
-      filters
-    type: Add
-  - message: The DefaultVision trait has been removed
-    type: Remove
-  id: 252
-  time: '2024-02-23T18:36:18.0000000+00:00'
 - author: Velcroboy
   changes:
   - message: 'Rekajiggered The Hive''s medical. '
@@ -3808,3 +3799,14 @@
   id: 751
   time: '2024-12-09T15:26:52.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2402
+- author: SolStar
+  changes:
+  - message: Command will now be automatically notified to elect an ACO when no captain
+      is present.
+    type: Tweak
+  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
+      an ACO vote is requested.'
+    type: Tweak
+  id: 752
+  time: '2024-12-09T17:05:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2351
