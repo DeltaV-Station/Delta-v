@@ -1,0 +1,59 @@
+﻿- type: species
+  id: Arachne
+  name: species-name-arachne
+  roundStart: true
+  prototype: MobArachne
+  sprites: MobArachneSprites
+  markingLimits: MobArachneMarkingLimits
+  dollPrototype: MobArachneDummy
+  skinColoration: HumanToned
+  sexes:
+  - Female
+  minAge: 60
+  youngAge: 150
+  oldAge: 400
+  maxAge: 666
+
+- type: markingPoints
+  id: MobArachneMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+      required: false
+
+
+- type: speciesBaseSprites
+  id: MobArachneSprites
+  sprites:
+    Head: MobHumanHead
+    Hair: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
+    Eyes: MobArachneEyes
+    LArm: MobHumanLArm
+    RArm: MobHumanRArm
+    LHand: MobHumanLHand
+    RHand: MobHumanRHand
+
+- type: humanoidBaseSprite
+  id: MobArachneEyes
+  baseSprite:
+    sprite: Mobs/Species/eyes.rsi
+    state: eyes
