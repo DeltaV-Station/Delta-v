@@ -20,19 +20,19 @@ public sealed class CaptainStateSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private TimeSpan _aaDelay;
     private bool _aaEnabled;
-    private TimeSpan _acoDelay;
     private bool _acoOnDeparture;
+    private TimeSpan _aaDelay;
+    private TimeSpan _acoDelay;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
-        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
         base.Initialize();
     }
 
