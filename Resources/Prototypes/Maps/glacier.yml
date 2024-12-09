@@ -15,10 +15,9 @@
           prefixCreator: 'NY'
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
-      # uncomment when planets arent fucked sideways
-      #- type: StationSurface
-      #  mapPath: /Maps/Nonstations/glacier_surface.yml
-      #  biome: Snow
+      - type: StationPlanetSpawner
+        planet: GlacierSurface
+        gridPath: /Maps/Nonstations/DeltaV/glacier_surface_outpost.yml
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]
