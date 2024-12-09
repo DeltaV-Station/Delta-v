@@ -209,9 +209,8 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!Resolve(station, ref jobsComponent, false))
             return false;
         // DeltaV added RemovedPlayerJobsEvent for CaptainStateSystem
-        if (jobsComponent.PlayerJobs.TryGetValue(userId, out var playerJobsEntry))
+        if (jobsComponent.PlayerJobs.Remove(userId, out var playerJobsEntry))
         {
-            jobsComponent.PlayerJobs.Remove(userId);
             var playerJobRemovedEvent = new PlayerJobsRemovedEvent(userId, playerJobsEntry);
             RaiseLocalEvent(station, ref playerJobRemovedEvent, false);
             return true;
