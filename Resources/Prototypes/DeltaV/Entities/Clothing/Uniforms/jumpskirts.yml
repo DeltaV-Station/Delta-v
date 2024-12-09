@@ -212,3 +212,13 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/prosecutorred.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtPharmacist
+  name: pharmacist jumpskirt
+  description: There's still some odd stains on this jumpskirt. Hm.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/pharmacist.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/pharmacist.rsi

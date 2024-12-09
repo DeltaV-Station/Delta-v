@@ -1,0 +1,48 @@
+# Jumpsuit
+- type: loadout
+  id: PharmacistJumpsuit
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitPharmacist
+
+- type: loadout
+  id: PharmacistJumpskirt
+  equipment:
+      jumpsuit: ClothingUniformJumpskirtPharmacist
+
+- type: loadout
+  id: PharmacistJumpsuitFormal
+  equipment:
+      jumpsuit: ClothingUniformJumpsuitPharmacistShirt
+
+# Back
+- type: loadout
+  id: PharmacistBackpack
+  equipment:
+    back: ClothingBackpackChemistry
+
+- type: loadout
+  id: PharmacistSatchel
+  equipment:
+    back: ClothingBackpackSatchelChemistry
+
+- type: loadout
+  id: PharmacistDuffel
+  equipment:
+    back: ClothingBackpackDuffelChemistry
+
+# Outer clothing
+- type: loadout
+  id: PharmacistLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabPharma
+
+- type: loadout
+  id: PharmacistGlasses
+  equipment:
+    glasses: ClothingEyesGlassesChemical
+
+# Shoes
+- type: loadout
+  id: PharmacistShoes
+  equipment:
+    shoes: ClothingShoesEnclosedChem

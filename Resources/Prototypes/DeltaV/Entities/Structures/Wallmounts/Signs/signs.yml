@@ -47,3 +47,13 @@
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/signs.rsi
     state: direction_aicore
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalPharmacy
+  name: pharmaceutic lab sign
+  description:  A direction sign, pointing out which way the Pharmacy is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_pharmacy

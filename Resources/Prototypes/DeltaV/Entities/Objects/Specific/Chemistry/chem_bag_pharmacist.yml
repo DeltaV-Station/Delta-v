@@ -1,0 +1,33 @@
+- type: entity
+  name: pharmacist bag
+  id: ChemBagPharmacist
+  parent: ChemBag
+  description: A bag for storing pharmacy products, such as pills, pill canisters, bottles, and syringes.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Chemistry/chem_bag_pharmacist.rsi
+    state: icon
+  - type: Clothing
+    sprite: DeltaV/Objects/Specific/Chemistry/chem_bag_pharmacist.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
+    grid:
+    - 0,0,4,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+        - FitsInDispenser
+        - Pill
+      tags:
+        - Document
+        - PillCanister
+        - Bottle
+        - Syringe
+        - HandLabeler
+  - type: Dumpable

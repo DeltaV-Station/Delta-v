@@ -119,3 +119,17 @@
   - type: TemperatureProtection
     coolingCoefficient: 0.1
 
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabPharma
+  name: pharmacist lab coat
+  description: A suit that protects against minor chemical spills. Has an orange and blue stripe on the shoulder and arm.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75

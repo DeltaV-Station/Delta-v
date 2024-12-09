@@ -59,6 +59,15 @@ loadout-group-chemist-neck = Chemist neck
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
+loadout-group-pharmacist-jumpsuit = Pharmacist jumpsuit
+loadout-group-pharmacist-back = Pharmacist back
+loadout-group-pharmacist-outerclothing = Pharmacist outer clothing
+loadout-group-pharmacist-neck = Neck
+loadout-group-pharmacist-gloves = Pharmacist gloves
+loadout-group-pharmacist-glasses = Pharmacist glasses
+loadout-group-pharmacist-belt = Pharmacist belt
+loadout-group-pharmacist-shoes = Pharmacist shoes
+
 loadout-group-medical-intern-id-delta = Medical Intern PDA
 
 # Miscellaneous
