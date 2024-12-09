@@ -13,20 +13,20 @@ namespace Content.Client.DeltaV.AACTablet.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AACWindow : FancyWindow
 {
-    private IPrototypeManager _prototypeManager;
-    public event Action<string>? PhraseButtonPressed;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    public event Action<ProtoId<QuickPhrasePrototype>>? PhraseButtonPressed;
 
-    public AACWindow(AACBoundUserInterface ui, IPrototypeManager prototypeManager)
+    public AACWindow()
     {
         RobustXamlLoader.Load(this);
-        _prototypeManager = prototypeManager;
-        PopulateGui(ui);
+        IoCManager.InjectDependencies(this);
+        PopulateGui();
     }
 
-    private void PopulateGui(AACBoundUserInterface ui)
+    private void PopulateGui()
     {
         var loc = IoCManager.Resolve<ILocalizationManager>();
-        var phrases = _prototypeManager.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
+        var phrases = _prototype.EnumeratePrototypes<QuickPhrasePrototype>().ToList();
 
         // take ALL phrases and turn them into tabs and groups, so the buttons are sorted and tabbed
         var sortedTabs = phrases
@@ -64,7 +64,7 @@ public sealed partial class AACWindow : FancyWindow
 
     private BoxContainer CreateBoxContainerForTab(Dictionary<string, List<QuickPhrasePrototype>> groups)
     {
-        var boxContainer = new BoxContainer()
+        var boxContainer = new BoxContainer
         {
             HorizontalExpand = true,
             Orientation = BoxContainer.LayoutOrientation.Vertical
@@ -81,7 +81,7 @@ public sealed partial class AACWindow : FancyWindow
         return boxContainer;
     }
 
-    private Label CreateHeaderForGroup(string groupName)
+    private static Label CreateHeaderForGroup(string groupName)
     {
         var header = new Label
         {
@@ -102,7 +102,7 @@ public sealed partial class AACWindow : FancyWindow
         {
             var text = loc.GetString(phrase.Text);
             var button = CreatePhraseButton(text, phrase.StyleClass);
-            button.OnPressed += _ => OnPhraseButtonPressed(phrase.ID);
+            button.OnPressed += _ => OnPhraseButtonPressed(new ProtoId<QuickPhrasePrototype>(phrase.ID));
             buttonContainer.AddChild(button);
         }
         return buttonContainer;
@@ -144,18 +144,18 @@ public sealed partial class AACWindow : FancyWindow
 
     private static int GetButtonWidth()
     {
-        var spaceWidth = 10;
-        var parentWidth = 540;
-        var columnCount = 4;
+        var spaceWidth = 10f;
+        var parentWidth = 540f;
+        var columnCount = 4f;
 
         var paddingSize = spaceWidth * 2;
         var gutterScale = (columnCount - 1) / columnCount;
         var columnWidth = (parentWidth - paddingSize) / columnCount;
         var buttonWidth = columnWidth - spaceWidth * gutterScale;
-        return buttonWidth;
+        return (int)buttonWidth;
     }
 
-    private void OnPhraseButtonPressed(string phraseId)
+    private void OnPhraseButtonPressed(ProtoId<QuickPhrasePrototype> phraseId)
     {
         PhraseButtonPressed?.Invoke(phraseId);
     }
