@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Space mobs no longer have ghost roles
-    type: Fix
-  id: 255
-  time: '2024-02-26T20:20:53.0000000+00:00'
 - author: Velcroboy
   changes:
   - message: Overhauled the bar on The Hive
@@ -3812,3 +3806,14 @@
   id: 754
   time: '2024-12-10T17:47:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2413
+- author: deltanedas
+  changes:
+  - message: Added Lavaland, coming soon to a station near you!
+    type: Add
+  - message: Removed the random reclaimer wrecks.
+    type: Remove
+  - message: Fixed not being able to build catwalks over lava.
+    type: Fix
+  id: 755
+  time: '2024-12-10T18:37:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
