@@ -4,15 +4,15 @@
   equipment:
     belt: ClothingBeltFoamSheathFilled
 
-# Trinket
+# Trinkets
 - type: loadout
   id: CrayonMagic
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobMime
-      time: 300
+      role: JobClown
+      time: 36000
   storage:
     back:
     - CrayonMagic
