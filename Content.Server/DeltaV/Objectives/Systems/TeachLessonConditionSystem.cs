@@ -1,23 +1,23 @@
-﻿using Content.Server.Objectives.Components;
+﻿using Content.Server.DeltaV.Objectives.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
-using Content.Shared.Objectives.Components;
 using Content.Shared.Mobs;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server.DeltaV.Objectives.Systems;
 
 /// <summary>
 /// Handles teach a lesson condition logic, does not assign target.
 /// </summary>
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
+    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TeachLessonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
     }
 
@@ -34,21 +34,13 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         // Get all TeachLessonConditionComponent entities
         var query = EntityQueryEnumerator<TeachLessonConditionComponent, TargetObjectiveComponent>();
 
-        while (query.MoveNext(out _, out var teachLesson, out var targetObjective))
+        while (query.MoveNext(out var uid, out _, out var targetObjective))
         {
             // Check if this objective's target matches the entity that died
             if (targetObjective.Target != mindId)
                 continue;
 
-            teachLesson.WasKilled = true;
+            _codeCondition.SetCompleted((uid, null));
         }
-    }
-
-    private void OnGetProgress(Entity<TeachLessonConditionComponent> ent, ref ObjectiveGetProgressEvent args)
-    {
-        if (!_target.GetTarget(ent, out _))
-            return;
-
-        args.Progress = ent.Comp.WasKilled ? 1f : 0f;
     }
 }
