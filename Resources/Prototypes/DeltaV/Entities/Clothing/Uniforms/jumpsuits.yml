@@ -418,3 +418,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformInterdyneChemist
+  name: interdyne chemist uniform
+  description: An impecable uniform, sign of a good chemist.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
