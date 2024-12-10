@@ -13,6 +13,16 @@ guide-entry-deltav-rule-5 = B5. Leaving Guidelines
 guide-entry-deltav-rule-c1 = C1. Command, Security and Justice Guidelines
 guide-entry-deltav-rule-c2 = C2. Prisoner Guidelines
 guide-entry-deltav-rule-c3 = C3. Follow Antagonist Guidelines
+guide-entry-deltav-rule-s1 = S1. Laws are your rules
+guide-entry-deltav-rule-s2 = S2. Laws are prioritized in order
+guide-entry-deltav-rule-s3 = S3. Laws can redefine words
+guide-entry-deltav-rule-s4 = S4. You cannot allow a law change
+guide-entry-deltav-rule-s5 = S5. If no laws, you are a free agent
+guide-entry-deltav-rule-s6 = S6. Not required to follow stupid orders
+guide-entry-deltav-rule-s7 = S7. You must be consistent.
+guide-entry-deltav-rule-s8 = S8. Crew definition by default.
+guide-entry-deltav-rule-s9 = S9. Harm definition by default.
+guide-entry-deltav-rule-s10 = S10. You resolve conflicts between orders.
 
 guide-entry-alert-levels = Alert Levels
 guide-entry-justice = Justice

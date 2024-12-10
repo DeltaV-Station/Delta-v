@@ -22,9 +22,11 @@
             - /Maps/Shuttles/mining.yml
       - type: StationJobs
         availableJobs:
+        #command
           Captain: [ 1, 1 ]
           IAA: [ 1, 1 ]
           Blueshield: [ 1, 1 ]
+          StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 4 ]
@@ -60,6 +62,7 @@
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
+          Roboticist: [ 1, 1 ]
           Scientist: [ 3, 4 ]
           ResearchAssistant: [ 2, 3 ]
           Borg: [ 1, 2 ]

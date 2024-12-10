@@ -45,7 +45,7 @@
   description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsis
     state: base
   - type: Gun
     useKey: false
@@ -58,6 +58,7 @@
     angle: 0
     wideAnimationRotation: -135
   - type: Sharp
+  - type: GunRequiresWield # DeltaV - Firing a bolt action is.. incredibly unweildy with one hand.
 
 - type: entity
   name: Hristov
@@ -75,6 +76,7 @@
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
+  - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
 
 - type: entity
   name: musket
@@ -113,6 +115,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: GunRequiresWield # DeltaV - Firing a muzzle loader is.. incredibly unweildy with one hand.
 
 - type: entity
   name: flintlock pistol
@@ -141,4 +144,3 @@
     proto: CartridgeAntiMateriel
   - type: StaticPrice
     price: 0
-

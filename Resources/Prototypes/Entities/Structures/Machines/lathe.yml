@@ -455,6 +455,7 @@
       - MagazineBoxLightRifleTracer
       - MagazineBoxPistolTracer
       - MagazineBoxRifleTracer
+      - WeaponBeamCannon
       # End DeltaV additions
 
 - type: entity
@@ -917,6 +918,7 @@
       - MagazineBoxLightRifleTracer
       - MagazineBoxPistolTracer
       - MagazineBoxRifleTracer
+      - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -1373,6 +1375,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      priceModifier: 1 # DeltaV
       staticRecipes:
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
