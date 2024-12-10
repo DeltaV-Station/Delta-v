@@ -1,6 +1,7 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // DeltaV Narcolepsy
 
 namespace Content.Shared.Bed.Sleep;
 
@@ -30,6 +31,13 @@ public sealed partial class SleepingComponent : Component
     [DataField]
     [AutoNetworkedField]
     public EntityUid? WakeAction;
+
+    /// <summary>                     // DeltaV begin port Narcolepsy from EE
+    ///     The moment this entity went to sleep. Initialized on MapInit.
+    /// </summary>
+    [DataField("SleepingSince", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)] // # DeltaV begin Narcolepsy port from EE
+    [AutoPausedField]
+    public TimeSpan SleepingSince;   // DeltaV end port Narcolepsy from EE
 
     /// <summary>
     /// Sound to play when another player attempts to wake this entity.
