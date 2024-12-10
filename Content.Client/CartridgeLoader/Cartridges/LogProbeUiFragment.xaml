@@ -26,12 +26,13 @@
                    Visible="False"/>
             <!-- DeltaV end -->
 
-            <!-- Column headers -->
+            <!-- DeltaV begin - Adjust column headers -->
             <BoxContainer Orientation="Horizontal">
                 <Label Align="Right" SetWidth="26" ClipText="True" Text="{Loc 'log-probe-label-number'}"/>
                 <Label Align="Center" SetWidth="100" ClipText="True" Text="{Loc 'log-probe-label-time'}"/>
                 <Label Name="ContentLabel" Align="Left" SetWidth="390" ClipText="True" Text="{Loc 'log-probe-label-accessor'}"/>
             </BoxContainer>
+            <!-- DeltaV end -->
         </BoxContainer>
     </PanelContainer>
     <ScrollContainer VerticalExpand="True" HScrollEnabled="True">

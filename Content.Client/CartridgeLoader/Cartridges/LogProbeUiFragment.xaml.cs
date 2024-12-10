@@ -119,6 +119,7 @@ public sealed partial class LogProbeUiFragment : BoxContainer
     }
     // DeltaV end
 
+    // DeltaV - Handle this in a separate method
     private void DisplayAccessLogs(List<PulledAccessLog> logs)
     {
         //Reverse the list so the oldest entries appear at the bottom
