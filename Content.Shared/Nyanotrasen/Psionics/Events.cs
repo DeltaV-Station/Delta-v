@@ -22,6 +22,24 @@ namespace Content.Shared.Psionics.Events
     }
 
     [Serializable, NetSerializable]
+    public sealed partial class PrecognitionDoAfterEvent : DoAfterEvent
+    {
+        [DataField("startedAt", required: true)]
+        public TimeSpan StartedAt;
+
+        private PrecognitionDoAfterEvent()
+        {
+        }
+
+        public PrecognitionDoAfterEvent(TimeSpan startedAt)
+        {
+            StartedAt = startedAt;
+        }
+
+        public override DoAfterEvent Clone() => this;
+    }
+
+    [Serializable, NetSerializable]
     public sealed partial class GlimmerWispDrainDoAfterEvent : SimpleDoAfterEvent
     {
     }
