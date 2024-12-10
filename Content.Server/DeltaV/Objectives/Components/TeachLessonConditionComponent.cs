@@ -7,4 +7,11 @@ namespace Content.Server.Objectives.Components;
 /// Depends on <see cref="TargetObjectiveComponent"/> to function.
 /// </summary>
 [RegisterComponent, Access(typeof(TeachLessonConditionSystem))]
-public sealed partial class TeachLessonConditionComponent : Component;
+public sealed partial class TeachLessonConditionComponent : Component
+{
+    /// <summary>
+    /// Whether the target has been killed
+    /// </summary>
+    [DataField]
+    public bool WasKilled;
+}
