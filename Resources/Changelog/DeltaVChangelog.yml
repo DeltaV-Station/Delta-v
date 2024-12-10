@@ -1,28 +1,4 @@
 ﻿Entries:
-- author: Velcroboy
-  changes:
-  - message: 'Rekajiggered The Hive''s medical. '
-    type: Tweak
-  id: 253
-  time: '2024-02-24T00:34:16.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: 'The Hive Rekajiggering part 2 of 3: Perma addition'
-    type: Tweak
-  id: 254
-  time: '2024-02-24T06:38:02.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Space mobs no longer have ghost roles
-    type: Fix
-  id: 255
-  time: '2024-02-26T20:20:53.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Overhauled the bar on The Hive
-    type: Tweak
-  id: 256
-  time: '2024-02-26T21:53:05.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Psionic invisibility has been disabled until the issues with it can be
@@ -3810,3 +3786,35 @@
   id: 752
   time: '2024-12-09T17:05:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2351
+- author: MilonPL
+  changes:
+  - message: Reduced the price of all items printed from the lathes by 60%
+    type: Tweak
+  id: 753
+  time: '2024-12-10T04:16:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2406
+- author: MilonPL
+  changes:
+  - message: Fixed diona's movement speed being default
+    type: Fix
+  id: 754
+  time: '2024-12-10T17:47:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2413
+- author: deltanedas
+  changes:
+  - message: Added Lavaland, coming soon to a station near you!
+    type: Add
+  - message: Removed the random reclaimer wrecks.
+    type: Remove
+  - message: Fixed not being able to build catwalks over lava.
+    type: Fix
+  id: 755
+  time: '2024-12-10T18:37:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
+- author: MilonPL
+  changes:
+  - message: Added PDA messaging!
+    type: Add
+  id: 756
+  time: '2024-12-10T20:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2362
