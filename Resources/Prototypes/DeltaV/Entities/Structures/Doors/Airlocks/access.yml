@@ -11,16 +11,19 @@
 - type: entity
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleMining
-  suffix: External, Mining, Glass, Docking
+  suffix: External, Mining, Glass, Docking, Locked
   components:
   - type: PriorityDock
     tag: DockMining
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
 
 # 1 per map, this spawns the mining shuttle
 - type: entity
   parent: AirlockExternalGlassShuttleMining
   id: AirlockExternalGlassShuttleMiningFilled
-  suffix: Mining, Filled
+  suffix: Mining, Filled, Locked
   components:
   - type: GridFill
     path: /Maps/Shuttles/DeltaV/mining.yml
