@@ -439,6 +439,7 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponBeamCannon
       # End DeltaV additions
 
 - type: entity
@@ -893,6 +894,7 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -1349,6 +1351,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      priceModifier: 1 # DeltaV
       staticRecipes:
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
