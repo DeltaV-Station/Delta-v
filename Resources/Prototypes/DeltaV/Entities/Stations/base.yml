@@ -24,6 +24,12 @@
       currentPrice: 30
 
 - type: entity
+  id: BaseStationCaptainState
+  abstract: true
+  components:
+  - type: CaptainState
+
+- type: entity
   abstract: true
   id: BaseStationLavaland
   components:

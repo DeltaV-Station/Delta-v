@@ -6,3 +6,4 @@ steal-target-groups-notary-stamp = notary stamp
 steal-target-groups-silvia = silvia
 
 steal-target-groups-recruiter-pen = recruiter's pen
+steal-target-groups-captains-cloak = captain's cloak
