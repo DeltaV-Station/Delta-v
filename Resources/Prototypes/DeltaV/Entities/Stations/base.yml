@@ -19,3 +19,12 @@
     - displayName: stock-trading-company-donk
       basePrice: 90
       currentPrice: 90
+    - displayName: stock-trading-company-hydroco
+      basePrice: 30
+      currentPrice: 30
+
+- type: entity
+  id: BaseStationCaptainState
+  abstract: true
+  components:
+  - type: CaptainState
