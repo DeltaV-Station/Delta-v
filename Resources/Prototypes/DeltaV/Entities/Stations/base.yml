@@ -28,3 +28,11 @@
   abstract: true
   components:
   - type: CaptainState
+
+- type: entity
+  abstract: true
+  id: BaseStationLavaland
+  components:
+  - type: StationPlanetSpawner
+    planet: Lavaland
+    gridPath: /Maps/Nonstations/DeltaV/lavaland_mining_base.yml
