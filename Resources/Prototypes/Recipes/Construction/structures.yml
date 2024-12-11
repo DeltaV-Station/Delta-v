@@ -882,13 +882,14 @@
   targetNode: Catwalk
   category: construction-category-structures
   description: Just like a lattice. Except it looks better.
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-    - !type:TileType
-      targets:
-        - Lattice
-        - Plating
+  # DeltaV - This prevented building catwalk over lava
+  #conditions:
+  #- !type:TileNotBlocked
+  #  failIfSpace: false
+  #- !type:TileType
+  #  targets:
+  #    - Lattice
+  #    - Plating
   icon:
     sprite: Structures/catwalk.rsi
     state: catwalk_preview
@@ -1454,6 +1455,24 @@
   canBuildInImpassable: false
   conditions:
   # Same here. - 20kdc
+    - !type:TileNotBlocked
+
+- type: construction
+  name: emergency light
+  id: EmergencyLightFixture
+  graph: LightFixture
+  startNode: start
+  targetNode: emergencyLight
+  category: construction-category-structures
+  description: An emergency light.
+  icon:
+    sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
     - !type:TileNotBlocked
 
 - type: construction

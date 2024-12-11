@@ -183,16 +183,17 @@
 - type: damageModifierSet
   id: Diona
   coefficients:
-    Blunt: 0.7
-    Slash: 0.8
+    Piercing: 0.6 # start Delta V Diona difference
+    Blunt: 0.6
+    Slash: 0.7
     Heat: 1.5
-    Shock: 1.2
+    Shock: 1.2 # end Delta V Diona difference
 
 - type: damageModifierSet
   id: Moth # Slightly worse at everything but cold
   coefficients:
     Cold: 0.7
-    Heat: 1.3
+    Heat: 1.1 # DeltaV: was 1.3, too extreme
 
 - type: damageModifierSet
   id: Vox

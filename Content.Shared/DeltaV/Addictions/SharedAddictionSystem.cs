@@ -27,4 +27,17 @@ public abstract class SharedAddictionSystem : EntitySystem
             _statusEffects.TryAddTime(uid, StatusEffectKey, TimeSpan.FromSeconds(addictionTime), status);
         }
     }
+
+    public virtual void TrySuppressAddiction(EntityUid uid, float duration)
+    {
+        if (!TryComp<AddictedComponent>(uid, out var comp))
+            return;
+
+        var ent = new Entity<AddictedComponent>(uid, comp);
+        UpdateAddictionSuppression(ent, duration);
+    }
+
+    protected virtual void UpdateAddictionSuppression(Entity<AddictedComponent> ent, float duration)
+    {
+    }
 }
