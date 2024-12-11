@@ -40,7 +40,7 @@ public sealed class TeachLessonConditionSystem : EntitySystem
             if (targetObjective.Target != mindId)
                 continue;
 
-            _codeCondition.SetCompleted((uid, null));
+            _codeCondition.SetCompleted(uid);
         }
     }
 }
