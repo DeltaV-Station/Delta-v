@@ -37,7 +37,7 @@ namespace Content.Server.StationEvents
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
 
             // DeltaV - end init NextEventComp
-            if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)
+            if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
                 && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
                 && firstEvent != null)
             {
@@ -74,7 +74,7 @@ namespace Content.Server.StationEvents
                 }
 
                 // DeltaV events using NextEventComponent
-                if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
+                if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
                     ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
                     var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);

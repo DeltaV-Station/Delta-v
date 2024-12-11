@@ -44,7 +44,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         PickNextEventTime(uid, component);
 
         // DeltaV - end init NextEventComp
-        if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)
+        if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
             && firstEvent != null)
         {
@@ -74,7 +74,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
             }
 
             // DeltaV events using NextEventComponent
-            if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
+            if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
             {
                 PickNextEventTime(uid, scheduler);
                 var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
