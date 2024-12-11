@@ -1156,6 +1156,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-7.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 162
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 1
+    - type: WarpPoint
+      location: Private Transport Shuttle
 - proto: Window
   entities:
   - uid: 160
