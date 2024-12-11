@@ -33,7 +33,6 @@ entities:
     - type: MetaData
       name: Glacier Surface Outpost
     - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -292,8 +291,6 @@ entities:
       pos: 22.5,-6.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 31
       - 32
@@ -315,8 +312,6 @@ entities:
       pos: 9.5,3.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 1036
       - 422
@@ -334,8 +329,6 @@ entities:
       pos: 10.5,1.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 27
       - 28
@@ -372,8 +365,6 @@ entities:
       pos: 16.5,5.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 1038
       - 1035
@@ -385,8 +376,6 @@ entities:
       pos: 25.5,3.5
       parent: 1
     - type: DeviceList
-      configurators:
-      - invalid
       devices:
       - 34
       - 35
