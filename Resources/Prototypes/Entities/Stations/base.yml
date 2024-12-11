@@ -52,19 +52,6 @@
 #          - type: TradeStation
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
-        mining: !type:GridSpawnGroup # DeltaV - reclaimer is a wreck instead of working shuttle
-          hide: true
-          nameGrid: true
-          minCount: 1
-          maxCount: 1
-          paths:
-          - /Maps/Shuttles/DeltaV/mining_broken.yml
-          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
-          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
-          - /Maps/Shuttles/DeltaV/mining_ticks.yml
-          - /Maps/Shuttles/DeltaV/mining_carp.yml
-          - /Maps/Shuttles/DeltaV/mining_snakes.yml
-          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -73,16 +60,17 @@
           maxCount: 2
           stationGrid: false
           paths:
+          #- /Maps/Ruins/abandoned_outpost.yml # TODO
           #- /Maps/Ruins/chunked_tcomms.yml # TODO
-          - /Maps/Ruins/DeltaV/biodome_satellite.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/derelict.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/djstation.yml #Delta V - Move to DV folder
+          - /Maps/Ruins/DeltaV/biodome_satellite.yml # DeltaV - Move to DV folder
+          - /Maps/Ruins/DeltaV/derelict.yml # DeltaV - Move to DV folder
+          - /Maps/Ruins/DeltaV/djstation.yml # DeltaV - Move to DV folder
           #- /Maps/Ruins/empty_flagship.yml # TODO
-          - /Maps/Ruins/DeltaV/old_ai_sat.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/relaystation.yml #Delta V - Move to DV folder
+          - /Maps/Ruins/DeltaV/old_ai_sat.yml # DeltaV - Move to DV folder
+          - /Maps/Ruins/DeltaV/relaystation.yml # DeltaV - upstream removed
           #- /Maps/Ruins/syndicate_dropship.yml # TODO
-          - /Maps/Ruins/DeltaV/whiteship_ancient.yml #Delta V - Move to DV folder
-          - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml #Delta V - Move to DV folder
+          - /Maps/Ruins/DeltaV/whiteship_ancient.yml # DeltaV - Move to DV folder
+          - /Maps/Ruins/DeltaV/whiteship_bluespacejumper.yml # DeltaV - Move to DV folder
         vgroid: !type:DungeonSpawnGroup
           minimumDistance: 300
           maximumDistance: 350

@@ -19,6 +19,16 @@
     - DeltaVRuleC1
     - DeltaVRuleC2
     - DeltaVRuleC3
+    - DeltaVRuleS1
+    - DeltaVRuleS2
+    - DeltaVRuleS3
+    - DeltaVRuleS4
+    - DeltaVRuleS5
+    - DeltaVRuleS6
+    - DeltaVRuleS7
+    - DeltaVRuleS8
+    - DeltaVRuleS9
+    - DeltaVRuleS10
 
 - type: guideEntry
   id: DeltaVRule0
@@ -102,4 +112,64 @@
   id: DeltaVRuleC3
   name: guide-entry-deltav-rule-c3
   text: "/ServerInfo/Guidebook/DeltaV/Rules/RoleRules/C3_Antags.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS1
+  name: guide-entry-deltav-rule-s1
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S1_Laws.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS2
+  name: guide-entry-deltav-rule-s2
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S2_LawPriority.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS3
+  name: guide-entry-deltav-rule-s3
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S3_LawRedefinition.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS4
+  name: guide-entry-deltav-rule-s4
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S4_RequestChanges.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS5
+  name: guide-entry-deltav-rule-s5
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S5_FreeSilicon.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS6
+  name: guide-entry-deltav-rule-s6
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S6_UnreasonableOrders.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS7
+  name: guide-entry-deltav-rule-s7
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S7_Consistency.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS8
+  name: guide-entry-deltav-rule-s8
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S8_DefaultCrewDefinition.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS9
+  name: guide-entry-deltav-rule-s9
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S9_DefaultHarmDefinition.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: DeltaVRuleS10
+  name: guide-entry-deltav-rule-s10
+  text: "/ServerInfo/Guidebook/DeltaV/Rules/SiliconRules/S10_OrderConflicts.xml"
   ruleEntry: true

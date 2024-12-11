@@ -274,28 +274,16 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 160
-      - 161
   - uid: 15
     components:
     - type: Transform
       pos: 0.5,-1.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 160
-      - 161
   - uid: 16
     components:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 160
-      - 161
   - uid: 17
     components:
     - type: Transform
@@ -578,63 +566,42 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 174
   - uid: 67
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 174
   - uid: 68
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 174
   - uid: 69
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 173
   - uid: 70
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -5.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 173
   - uid: 71
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 173
   - uid: 72
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,-2.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 173
 - proto: DrinkFlaskOld
   entities:
   - uid: 73
@@ -1232,7 +1199,7 @@ entities:
         - Pressed: Toggle
         16:
         - Pressed: Toggle
-- proto: SignMinerDock
+- proto: SignShipDock
   entities:
   - uid: 162
     components:
@@ -1472,6 +1439,15 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-3.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 201
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+    - type: WarpPoint
+      location: NT-7 Prospector
 - proto: WaterCooler
   entities:
   - uid: 198

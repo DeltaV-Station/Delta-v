@@ -59,8 +59,8 @@
   cost: 5000
   recipeUnlocks:
   - MagazineShotgunBeanbag
-  - BoxShellTranquilizer 
-  - BoxBeanbag 
+  - BoxShellTranquilizer
+  - BoxBeanbag
   - WeaponDisabler
   # DeltaV - rubber ammo which upstream removed
   - MagazineRifleRubber
@@ -113,9 +113,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
-  - BorgModuleSecurityDeescalate # Delta-V : SecBorg Research
   - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
- 
 
 - type: technology
   id: ExplosiveTechnology
@@ -161,6 +159,7 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponXrayCannon
+  - WeaponBeamCannon # DeltaV - Adds Beam cannon
 
 # DeltaV: merged with concentrated laser weaponry
 #- type: technology
@@ -211,6 +210,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
+  - PortableRecharger
 
 - type: technology
   id: ExperimentalBatteryAmmo
