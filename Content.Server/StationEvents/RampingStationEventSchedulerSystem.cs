@@ -1,8 +1,8 @@
 using Content.Server.Chat.Managers; // DeltaV
+using Content.Server.DeltaV.StationEvents.NextEvent; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.NextEvent; // DeltaV
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing; // DeltaV
@@ -44,8 +44,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         PickNextEventTime(uid, component);
 
         // DeltaV - end init NextEventComp
-        NextEventComponent? nextEventComponent = null;
-        if (Resolve(uid, ref nextEventComponent, false)
+        if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
             && firstEvent != null)
         {
@@ -75,9 +74,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
             }
 
             // DeltaV events using NextEventComponent
-            NextEventComponent? nextEventComponent = null;
-
-            if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
+            if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
             {
                 PickNextEventTime(uid, scheduler);
                 var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);

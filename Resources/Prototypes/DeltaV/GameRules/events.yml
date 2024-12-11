@@ -32,7 +32,6 @@
     duration: null #ending is handled by MeteorSwarmRule
   - type: PrecognitionResult
     message: psionic-power-precognition-meteor-swarm-result-message
-    randomResultWeight: 1
   - type: MeteorSwarmRule
 
 - type: entity
@@ -49,7 +48,6 @@
     duration: 60
   - type: PrecognitionResult
     message: psionic-power-precognition-xeno-vents-result-message
-    randomResultWeight: 1
   - type: VentCrittersRule
     entries:
     - id: MobXeno
@@ -80,7 +78,6 @@
     duration: 60
   - type: PrecognitionResult
     message: psionic-power-precognition-mothroach-spawn-result-message
-    randomResultWeight: 1
   - type: VentCrittersRule
     entries:
     - id: MobMothroach
@@ -98,7 +95,6 @@
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-listening-post-result-message
-    randomResultWeight: 1
   - type: RuleGrids
   - type: LoadFarGridRule
     path: /Maps/Shuttles/DeltaV/listening_post.yml
@@ -160,7 +156,6 @@
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-paradox-anomaly-result-message
-    randomResultWeight: 1
   - type: ParadoxClonerRule
   - type: AntagObjectives
     objectives:
@@ -186,7 +181,6 @@
     duration: null
   - type: PrecognitionResult
     message: psionic-power-precognition-fugitive-result-message
-    randomResultWeight: 1
   - type: FugitiveRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives

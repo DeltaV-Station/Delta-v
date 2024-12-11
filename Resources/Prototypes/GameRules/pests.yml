@@ -28,9 +28,8 @@
     earliestStart: 15
     weight: 6
     duration: 50
-  - type: PrecognitionResult
-    message: psionic-power-precognition-mouse-migration-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-mouse-migration-result-message
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -55,9 +54,8 @@
     weight: 6
     duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-  - type: PrecognitionResult
-    message: psionic-power-precognition-king-rat-migration-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-king-rat-migration-result-message
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -82,9 +80,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 50
-  - type: PrecognitionResult
-    message: psionic-power-precognition-cockroach-migration-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-cockroach-migration-result-message
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
@@ -102,9 +99,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 50
-  - type: PrecognitionResult
-    message: psionic-power-precognition-snail-migration-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -126,9 +122,8 @@
     weight: 6
     duration: 50
     minimumPlayers: 30
-  - type: PrecognitionResult
-    message: psionic-power-precognition-snail-migration-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
     entries:
     - id: MobSnail

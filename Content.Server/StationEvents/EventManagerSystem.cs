@@ -10,7 +10,8 @@ using Robust.Shared.Random;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.EntityTable;
 using Content.Server.Psionics.Glimmer; // DeltaV
-using Content.Shared.Psionics.Glimmer; // DeltaV
+using Content.Shared.Psionics.Glimmer;
+using System.Diagnostics.CodeAnalysis; // DeltaV
 
 namespace Content.Server.StationEvents;
 
@@ -58,20 +59,26 @@ public sealed class EventManagerSystem : EntitySystem
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
-        if(TryGenerateRandomEvent(limitedEventsTable, out string? randomLimitedEvent) && randomLimitedEvent != null) // DeltaV - seperated into own method
+        if (TryGenerateRandomEvent(limitedEventsTable, out string? randomLimitedEvent)) // DeltaV - seperated into own method
             GameTicker.AddGameRule(randomLimitedEvent);
     }
 
     // DeltaV - overloaded for backwards compatiblity
-    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent)
+    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, [NotNullWhen(true)] out string? randomLimitedEvent)
     {
         return TryGenerateRandomEvent(limitedEventsTable, out randomLimitedEvent, null);
     }
     // DeltaV - end overloaded for backwards compatiblity
 
     // DeltaV - separate event generation method
-    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, out string? randomLimitedEvent, TimeSpan? eventRunTime) // Event time checks compared to eventRunTime
-                                                                                                                                       // unless its null in which case current time is used
+    /// <summary>
+    /// Returns a random event from the list of events given that can be run at a given time.
+    /// </summary>
+    /// <param name="limitedEventsTable">The list of events that can be chosen.</param>
+    /// <param name="randomLimitedEvent">Generated event</param>
+    /// <param name="eventRunTime">The time to use for checking time restrictions. Uses current time if null.</param>
+    /// <returns></returns>
+    public bool TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, [NotNullWhen(true)] out string? randomLimitedEvent, TimeSpan? eventRunTime) 
     {
         randomLimitedEvent = null;
         if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, eventRunTime))
@@ -111,9 +118,8 @@ public sealed class EventManagerSystem : EntitySystem
     public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents, TimeSpan? eventRunTime) // DeltaV - Add a time overide
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
-
+        // DeltaV - Overide time for stashing events
         var availableEvents = AvailableEvents(eventRunTime); // handles the player counts and individual event restrictions
-                                                             // DeltaV - Overide time for stashing events
         if (availableEvents.Count == 0)
         {
             Log.Warning("No events were available to run!");

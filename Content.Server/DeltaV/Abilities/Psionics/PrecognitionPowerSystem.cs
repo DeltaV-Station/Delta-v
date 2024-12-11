@@ -1,8 +1,8 @@
 using Content.Server.Chat.Managers;
 using Content.Server.DoAfter;
+using Content.Server.DeltaV.StationEvents.NextEvent;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
-using Content.Server.StationEvents.NextEvent;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.Events;
 using Content.Shared.Actions;
@@ -39,22 +39,21 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PrecognitionPowerComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<PrecognitionPowerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PrecognitionPowerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PrecognitionPowerComponent, PrecognitionPowerActionEvent>(OnPowerUsed);
         SubscribeLocalEvent<PrecognitionPowerComponent, PrecognitionDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnInit(EntityUid uid, PrecognitionPowerComponent component, ComponentInit args)
+    private void OnMapInit(Entity<PrecognitionPowerComponent> ent, ref MapInitEvent args)
     {
-        _actions.AddAction(uid, ref component.PrecognitionActionEntity, component.PrecognitionActionId);
-        _actions.TryGetActionData(component.PrecognitionActionEntity, out var actionData);
-        if (actionData is { UseDelay: not null })
-            _actions.StartUseDelay(component.PrecognitionActionEntity);
-        if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+        ent.Comp.AllResults = GetAllPrecognitionResults();
+        _actions.AddAction(ent, ref ent.Comp.PrecognitionActionEntity, ent.Comp.PrecognitionActionId);
+        _actions.StartUseDelay(ent.Comp.PrecognitionActionEntity);
+        if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
         {
-            psionic.PsionicAbility = component.PrecognitionActionEntity;
-            psionic.ActivePowers.Add(component);
+            psionic.PsionicAbility = ent.Comp.PrecognitionActionEntity;
+            psionic.ActivePowers.Add(ent.Comp);
         }
     }
 
@@ -104,7 +103,18 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             component.SoundStream = _audio.Stop(component.SoundStream);
             _statusEffects.TryRemoveStatusEffect(uid, "TemporaryBlindness");
             _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
-            _popups.PopupEntity(Loc.GetString("psionic-power-precognition-failure-by-damage"), uid, uid, PopupType.SmallCaution);
+
+            _popups.PopupEntity(
+                Loc.GetString("psionic-power-precognition-failure-by-damage"),
+                uid,
+                uid,
+                PopupType.SmallCaution);
+
+            if (_actions.TryGetActionData(component.PrecognitionActionEntity, out var actionData))
+                // If canceled give a short delay before being able to try again
+                actionData.Cooldown =
+                    (_gameTicker.RoundDuration(),
+                    _gameTicker.RoundDuration() + TimeSpan.FromSeconds(15));
             return;
         }
 
@@ -116,11 +126,12 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         if (!_mind.TryGetMind(uid, out _, out var mindComponent) || mindComponent.Session == null)
             return;
 
-        if (!TryFindEarliestNextEvent(minDetectWindow, maxDetectWindow, out var nextEvent)) // A special message given if there is no event within the time window.
+        var nextEvent = (FindEarliestNextEvent(minDetectWindow, maxDetectWindow));
+        if (nextEvent == null) // A special message given if there is no event within the time window.
             message = "psionic-power-precognition-no-event-result-message";
 
         if (nextEvent != null && nextEvent.NextEventId != null)
-            message = GetResultMessage(nextEvent.NextEventId);
+            message = GetResultMessage(nextEvent.NextEventId, component);
 
         if (_random.Prob(component.RandomResultChance)) // This will replace the proper result message with a random one occasionaly to simulate some unreliablity.
             message = GetRandomResult();
@@ -145,12 +156,14 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// Gets the precognition result message corosponding to the passed event id.
     /// </summary>
     /// <returns>message string corosponding to the event id passed</returns>
-    private string GetResultMessage(EntProtoId? eventId)
+    private string GetResultMessage(EntProtoId? eventId, PrecognitionPowerComponent component)
     {
-        foreach(var (eventProto, precognitionResult) in AllPrecognitionResults())
+        foreach (var (eventProto, precognitionResult) in component.AllResults)
+        {
             if (eventProto.ID == eventId && precognitionResult != null)
                 return precognitionResult.Message;
-        Log.Warning("Prototype " + eventId + "does not have an associated precognitionResult!");
+        }
+        Log.Error($"Prototype {eventId} does not have an associated precognitionResult!");
         return string.Empty;
     }
 
@@ -159,7 +172,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// <returns>The localized string of a weighted randomly chosen precognition result</returns>
     public string? GetRandomResult()
     {
-        var precognitionResults = AllPrecognitionResults();
+        var precognitionResults = GetAllPrecognitionResults();
         var sumOfWeights = 0;
         foreach (var precognitionResult in precognitionResults.Values)
             sumOfWeights += (int)precognitionResult.Weight;
@@ -182,14 +195,13 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// </summary>
     /// <param name="minDetectWindow"></param> The earliest reletive time that will be return a nextEvent
     /// <param name="maxDetectWindow"></param> The latest reletive latest time that will be return a nextEvent
-    /// <param name="earliestNextEvent"></param> The next nextEvent to occur within the window
-    /// <returns>True if event was found in timeframe false otherwise.</returns>
-    private bool TryFindEarliestNextEvent(TimeSpan minDetectWindow, TimeSpan maxDetectWindow, out NextEventComponent? earliestNextEvent)
+    /// <returns>Component for the next event to occour if one exists in the window.</returns>
+    private NextEventComponent? FindEarliestNextEvent(TimeSpan minDetectWindow, TimeSpan maxDetectWindow)
     {
         TimeSpan? earliestNextEventTime = null;
-        earliestNextEvent = null;
+        NextEventComponent? earliestNextEvent = null;
         var query = EntityQueryEnumerator<NextEventComponent>();
-        while (query.MoveNext(out _, out var nextEventComponent))
+        while (query.MoveNext(out var nextEventComponent))
         {
             // Update if the event is the most recent event that isnt too close or too far from happening to be of use
             if (nextEventComponent.NextEventTime > _gameTicker.RoundDuration() + minDetectWindow
@@ -198,12 +210,10 @@ public sealed class PrecognitionPowerSystem : EntitySystem
                 || nextEventComponent.NextEventTime < earliestNextEventTime)
                 earliestNextEvent ??= nextEventComponent;
         }
-        if (earliestNextEvent == null)
-            return false;
-        return true;
+        return earliestNextEvent;
     }
 
-    public Dictionary<EntityPrototype, PrecognitionResultComponent> AllPrecognitionResults()
+    public Dictionary<EntityPrototype, PrecognitionResultComponent> GetAllPrecognitionResults()
     {
         var allEvents = new Dictionary<EntityPrototype, PrecognitionResultComponent>();
         foreach (var prototype in _prototype.EnumeratePrototypes<EntityPrototype>())

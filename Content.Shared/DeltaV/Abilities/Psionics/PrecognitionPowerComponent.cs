@@ -1,15 +1,17 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Abilities.Psionics;
 
 [RegisterComponent]
 public sealed partial class PrecognitionPowerComponent : Component
 {
-    [DataField("randomResultChance")]
+    [DataField]
     public float RandomResultChance = 0.2F;
+
+    [DataField]
+    public Dictionary<EntityPrototype, PrecognitionResultComponent> AllResults;
 
     [DataField]
     public SoundSpecifier VisionSound = new SoundPathSpecifier("/Audio/DeltaV/Effects/clang2.ogg");
@@ -17,16 +19,15 @@ public sealed partial class PrecognitionPowerComponent : Component
     [DataField]
     public EntityUid? SoundStream;
 
-    [DataField("doAfter")]
+    [DataField]
     public DoAfterId? DoAfter;
 
-    [DataField("useDelay")]
-    public TimeSpan UseDelay = TimeSpan.FromSeconds(8.35);
+    [DataField]
+    public TimeSpan UseDelay = TimeSpan.FromSeconds(8.35); // The length of the sound effect
 
-    [DataField("PrecognitionActionId",
-    customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? PrecognitionActionId = "ActionPrecognition";
+    [DataField]
+    public EntProtoId PrecognitionActionId = "ActionPrecognition";
 
-    [DataField("PrecognitionActionEntity")]
+    [DataField]
     public EntityUid? PrecognitionActionEntity;
 }

@@ -1,8 +1,9 @@
+using Content.Server.DeltaV.StationEvents.NextEvent;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.StationEvents.NextEvent;
+namespace Content.Server.DeltaV.StationEvents.NextEvent;
 
-public sealed partial class NextEventSystem : EntitySystem
+public sealed class NextEventSystem : EntitySystem
 {
     /// <summary>
     ///     Updates the NextEventComponent with the provided id and time and returns the previously stored id.

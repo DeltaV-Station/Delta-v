@@ -1,10 +1,10 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers; // DeltaV
+using Content.Server.DeltaV.StationEvents.NextEvent; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.NextEvent; // DeltaV
 using Content.Shared.Administration;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
@@ -37,8 +37,7 @@ namespace Content.Server.StationEvents
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
 
             // DeltaV - end init NextEventComp
-            NextEventComponent? nextEventComponent = null;
-            if (Resolve(uid, ref nextEventComponent, false)
+            if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)
                 && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
                 && firstEvent != null)
             {
@@ -75,12 +74,11 @@ namespace Content.Server.StationEvents
                 }
 
                 // DeltaV events using NextEventComponent
-                NextEventComponent? nextEventComponent = null;
-                if (Resolve(uid, ref nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
+                if (TryComp<NextEventComponent>(uid, out var nextEventComponent, false)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
                     ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
                     var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
-                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
+                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime))
                         continue;
                     _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)eventScheduler.TimeUntilNextEvent)));
                     // Cycle the stashed event with the new generated event and time.

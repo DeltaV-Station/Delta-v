@@ -102,9 +102,8 @@
     reoccurrenceDelay: 1
     earliestStart: 12
     minimumPlayers: 25
-  - type: PrecognitionResult
-    message: psionic-power-precognition-meteor-swarm-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarm
 
 - type: entity
@@ -190,9 +189,8 @@
   components:
   - type: StationEvent
     weight: 0.05
-  - type: PrecognitionResult
-    message: psionic-power-precognition-game-rule-urist-swarm-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-game-rule-urist-swarm-result-message
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
@@ -218,9 +216,8 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 25
-  - type: PrecognitionResult
-    message: psionic-power-precognition-immovable-rod-spawn-result-message # DeltaV - Precogniton
-    randomResultWeight: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-immovable-rod-spawn-result-message
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill
