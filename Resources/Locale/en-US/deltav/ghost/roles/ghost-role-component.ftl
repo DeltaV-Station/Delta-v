@@ -46,3 +46,6 @@ ghost-role-information-syndicate-refugee-rules = You're a regular crewmember fro
                                                     You are a [color=green][bold]Non-antagonist[/bold][/color].
                                                     You're allowed to commit crimes, don't be a threat to the station, don't assist Syndicate agents, metashield rules applies.
                                                     All normal rules apply unless an administrator tells you otherwise.
+
+ghost-role-information-shadow-cat-name = Shadow Cat
+ghost-role-information-shadow-cat-description = A cute cat made of... shadows? How?!
