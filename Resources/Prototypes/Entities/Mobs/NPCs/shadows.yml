@@ -39,7 +39,7 @@
       
 - type: entity
   name: shadow cat
-  parent: BaseShadowMob
+  parent: [ BaseShadowMob, MobCombat ] # DeltaV - Add MobCombat as a parent
   id: MobCatShadow
   description: A lovely piece of darkness. Hope he doesn't bring you a curse.
   components:
@@ -74,7 +74,6 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
-  - type: CombatMode
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
