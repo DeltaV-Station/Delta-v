@@ -95,7 +95,9 @@ public sealed partial class LatheMenu : DefaultWindow
     /// </summary>
     private void UpdateMiningPoints(uint points)
     {
-        MiningPointsClaimButton.Disabled = points == 0 || _player.LocalSession?.AttachedEntity is not {} player || _miningPoints.TryFindIdCard(player) == null;
+        MiningPointsClaimButton.Disabled = points == 0 ||
+            _player.LocalSession?.AttachedEntity is not {} player ||
+            _miningPoints.TryFindIdCard(player) == null;
         if (points == _lastMiningPoints)
             return;
 

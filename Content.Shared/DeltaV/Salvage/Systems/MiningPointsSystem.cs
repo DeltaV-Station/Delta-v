@@ -48,7 +48,7 @@ public sealed class MiningPointsSystem : EntitySystem
     /// Tries to find the user's id card and gets its <see cref="MiningPointsComponent"/>.
     /// </summary>
     /// <remarks>
-    /// Component is nullable for easy usage with the API due to Entity<T> not being usable for Entity<T?> arguments.
+    /// Component is nullable for easy usage with the API due to Entity&lt;T&gt; not being usable for Entity&lt;T?&gt; arguments.
     /// </remarks>
     public Entity<MiningPointsComponent?>? TryFindIdCard(EntityUid user)
     {
@@ -75,7 +75,7 @@ public sealed class MiningPointsSystem : EntitySystem
     }
 
     /// <summary>
-    /// Add points to a holder, inflating the economy.
+    /// Add points to a holder.
     /// <summary>
     public bool AddPoints(Entity<MiningPointsComponent?> ent, uint amount)
     {
