@@ -32,6 +32,15 @@
       flags:
       - HideLabel
 
+# Glacier only
+- type: entity
+  parent: AirlockExternalGlassShuttleMining
+  id: AirlockExternalGlassShuttleGlacierFilled
+  suffix: Glacier, Filled, Locked
+  components:
+  - type: GridFill
+    path: /Maps/Shuttles/DeltaV/glacier_surface_shuttle.yml
+
 # Delta V specific roles
 - type: entity
   parent: AirlockScience
