@@ -1,0 +1,29 @@
+ - type: entity
+   parent: BaseBullet
+   id: BulletHealLaser
+   name: heal bolt
+   categories: [ HideSpawnMenu ]
+   components:
+   - type: Reflective
+     reflective:
+     - Energy
+   - type: FlyBySound
+     sound:
+       collection: EnergyMiss
+       params:
+         volume: 5
+   - type: Sprite
+     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+     layers:
+     - state: omnilaser_greyscale
+       shader: unshaded
+       color: mediumseagreen
+   - type: Ammo
+   - type: Physics
+   - type: Projectile
+     damage:
+       groups:
+         Brute: -15
+         Burn: -10
+         Airloss: -15
+     ignoreResistances: true
