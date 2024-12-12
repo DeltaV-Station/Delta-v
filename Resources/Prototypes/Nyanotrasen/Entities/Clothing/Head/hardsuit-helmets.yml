@@ -21,11 +21,13 @@
   categories: [ HideSpawnMenu ]
   name: SA-123 combat hardsuit helmet
   description: An advanced hardsuit helmet designed for work in special operations.
-  components:
+  components: # DeltaV - Updated sprite
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
+    sprite: DeltaV/Clothing/Head/ReverseEngineering/syndicate.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
+    sprite: DeltaV/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: PointLight # DeltaV - Changes light color
+    color: aquamarine
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitCybersun
@@ -33,11 +35,11 @@
   categories: [ HideSpawnMenu ]
   name: SA-127 combat hardsuit helmet
   description: An assault hardsuit helmet featuring a top-secret translucent polymer.
-  components:
+  components: # DeltaV - Updated Sprite
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+    sprite: DeltaV/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+    sprite: DeltaV/Clothing/Head/ReverseEngineering/juggernaut.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitERTLeader
