@@ -3,6 +3,7 @@ using Content.Server.DeltaV.Cabinet;
 using Content.Server.DeltaV.Station.Components;
 using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Events;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access;
@@ -10,7 +11,6 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Server.GameTicking.Events;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
