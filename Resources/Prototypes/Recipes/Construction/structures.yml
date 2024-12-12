@@ -882,13 +882,14 @@
   targetNode: Catwalk
   category: construction-category-structures
   description: Just like a lattice. Except it looks better.
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-    - !type:TileType
-      targets:
-        - Lattice
-        - Plating
+  # DeltaV - This prevented building catwalk over lava
+  #conditions:
+  #- !type:TileNotBlocked
+  #  failIfSpace: false
+  #- !type:TileType
+  #  targets:
+  #    - Lattice
+  #    - Plating
   icon:
     sprite: Structures/catwalk.rsi
     state: catwalk_preview

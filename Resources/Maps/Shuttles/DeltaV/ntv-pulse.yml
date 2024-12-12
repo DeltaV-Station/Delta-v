@@ -198,7 +198,6 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
 - proto: AirAlarm
   entities:
@@ -321,8 +320,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 538
     - type: DeviceLinkSource
       linkedPorts:
         537:
@@ -334,8 +331,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 537
     - type: DeviceLinkSource
       linkedPorts:
         538:
@@ -347,8 +342,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 538
     - type: DeviceLinkSource
       linkedPorts:
         537:
@@ -360,8 +353,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-      links:
-      - 537
     - type: DeviceLinkSource
       linkedPorts:
         538:
@@ -509,9 +500,6 @@ entities:
     - type: Transform
       pos: -7.5,6.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 398
 - proto: BoxFolderGrey
   entities:
   - uid: 40
@@ -1449,18 +1437,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,6.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 440
   - uid: 212
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -7.5,6.5
       parent: 1
-    - type: DeviceLinkSink
-      links:
-      - 440
 - proto: Dresser
   entities:
   - uid: 213
@@ -2457,7 +2439,7 @@ entities:
     - type: Transform
       pos: -4.5,10.5
       parent: 1
-- proto: LogicGate
+- proto: LogicGateOr
   entities:
   - uid: 537
     components:
@@ -2468,9 +2450,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 2
-      links:
-      - 13
-      - 15
     - type: DeviceLinkSource
       linkedPorts:
         14:
@@ -2489,9 +2468,6 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 2
-      links:
-      - 14
-      - 16
     - type: DeviceLinkSource
       linkedPorts:
         13:
@@ -2968,7 +2944,7 @@ entities:
     - type: Transform
       pos: 3.5,-7.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 418
     components:
@@ -3679,6 +3655,15 @@ entities:
     - type: Transform
       pos: 2.5,2.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 547
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+    - type: WarpPoint
+      location: NTV Pulse
 - proto: Windoor
   entities:
   - uid: 532

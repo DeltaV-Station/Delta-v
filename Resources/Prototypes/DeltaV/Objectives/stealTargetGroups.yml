@@ -32,3 +32,12 @@
   sprite:
     sprite: DeltaV/Mobs/Pets/silvia.rsi
     state: silvia
+
+# Ninja
+
+- type: stealTargetGroup
+  id: CaptainsCloak
+  name: steal-target-groups-captains-cloak
+  sprite:
+    sprite: Clothing/Neck/Cloaks/cap.rsi
+    state: icon
