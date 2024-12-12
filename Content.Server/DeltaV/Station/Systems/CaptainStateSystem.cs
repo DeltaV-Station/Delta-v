@@ -4,12 +4,14 @@ using Content.Server.DeltaV.Station.Components;
 using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access;
 using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using JetBrains.FormatRipper.Elf;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -17,6 +19,7 @@ public sealed class CaptainStateSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private bool _aaEnabled;
@@ -30,8 +33,8 @@ public sealed class CaptainStateSystem : EntitySystem
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
-        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
-        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = TimeSpan.FromMinutes(a), true);
         base.Initialize();
     }
 
@@ -70,11 +73,7 @@ public sealed class CaptainStateSystem : EntitySystem
         ent.Comp.HasCaptain = false;
         if (_acoOnDeparture)
         {
-            _chat.DispatchStationAnnouncement(
-                ent,
-                Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)),
-                colorOverride: Color.Gold);
-
+            SendAnnouncement(ent, Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)));
             ent.Comp.IsACORequestActive = true;
         }
     }
@@ -89,11 +88,7 @@ public sealed class CaptainStateSystem : EntitySystem
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (!captainState.IsACORequestActive)
             return;
-
-        _chat.DispatchStationAnnouncement(station,
-            Loc.GetString(captainState.RevokeACOMessage),
-            colorOverride: Color.Gold);
-
+        SendAnnouncement(station, Loc.GetString(captainState.RevokeACOMessage));
         captainState.IsACORequestActive = false;
     }
 
@@ -110,12 +105,7 @@ public sealed class CaptainStateSystem : EntitySystem
                 CheckUnlockAA(captainState, null)
                 ? captainState.ACORequestWithAAMessage
                 : captainState.ACORequestNoAAMessage;
-
-            _chat.DispatchStationAnnouncement(
-                station,
-                Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)),
-                colorOverride: Color.Gold);
-
+            SendAnnouncement(station, Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)));
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
@@ -137,6 +127,25 @@ public sealed class CaptainStateSystem : EntitySystem
                 Dirty(spareIDSafe, accessReader);
                 RaiseLocalEvent(spareIDSafe, new AccessReaderConfigurationChangedEvent());
             }
+        }
+    }
+
+    /// <summary>
+    /// Tries to send a station announcement if entity belongs to a station. If entity does not have a station throw an error and send global anouncement as backup.
+    /// </summary>
+    private void SendAnnouncement(EntityUid ent, string message)
+    {
+        if (_station.GetOwningStation(ent) != null)
+            _chat.DispatchStationAnnouncement(
+                ent,
+                message,
+                colorOverride: Color.Gold);
+        else
+        {
+            Log.Error($"{ent} does not belong to a station.");
+            _chat.DispatchGlobalAnnouncement(
+                message,
+                colorOverride: Color.Gold);
         }
     }
 
