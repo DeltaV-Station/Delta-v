@@ -90,7 +90,6 @@
   - type: EncryptionKey
     channels:
     - Command
-    - Traffic # DeltaV (Debatable, discuss on PR release)
     defaultChannel: Command
   - type: Sprite
     layers:
