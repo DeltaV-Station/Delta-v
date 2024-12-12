@@ -4,7 +4,6 @@ using Content.Server.DeltaV.Station.Components;
 using Content.Server.DeltaV.Station.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access;
 using Content.Shared.DeltaV.CCVars;
@@ -18,7 +17,6 @@ public sealed class CaptainStateSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private bool _aaEnabled;
