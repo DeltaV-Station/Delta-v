@@ -29,7 +29,10 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeat:
-            min: 1
+            min: 0
+            max: 1
+          MaterialBones1:
+            min: 0
             max: 1
 
 - type: entity
@@ -85,7 +88,7 @@
     snapCardinals: false
     sprite: DeltaV/Objects/Decoration/Flesh/bigmeat.rsi
     state: whisperers
-        
+
 - type: entity
   parent: MeatDecorBase
   id: MeatFloorMouth
