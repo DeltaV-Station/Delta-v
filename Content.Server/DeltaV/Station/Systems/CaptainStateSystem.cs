@@ -11,6 +11,7 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using JetBrains.FormatRipper.Elf;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -81,7 +82,11 @@ public sealed class CaptainStateSystem : EntitySystem
         ent.Comp.HasCaptain = false;
         if (_acoOnDeparture)
         {
-            SendAnnouncement(ent, Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)));
+            _chat.DispatchStationAnnouncement(
+                ent,
+                Loc.GetString(ent.Comp.ACORequestNoAAMessage),
+                colorOverride: Color.Gold);
+
             ent.Comp.IsACORequestActive = true;
         }
     }
@@ -96,7 +101,12 @@ public sealed class CaptainStateSystem : EntitySystem
         // If ACO vote has been called we need to cancel and alert to return to normal chain of command
         if (!captainState.IsACORequestActive)
             return;
-        SendAnnouncement(station, Loc.GetString(captainState.RevokeACOMessage));
+
+        _chat.DispatchStationAnnouncement(
+            station,
+            Loc.GetString(captainState.RevokeACOMessage),
+            colorOverride: Color.Gold);
+
         captainState.IsACORequestActive = false;
     }
 
@@ -113,7 +123,12 @@ public sealed class CaptainStateSystem : EntitySystem
                 CheckUnlockAA(captainState, null)
                 ? captainState.ACORequestWithAAMessage
                 : captainState.ACORequestNoAAMessage;
-            SendAnnouncement(station, Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)));
+
+            _chat.DispatchStationAnnouncement(
+                station,
+                Loc.GetString(message, ("minutes", _aaDelay.TotalMinutes)),
+                colorOverride: Color.Gold);
+
             captainState.IsACORequestActive = true;
         }
         if (CheckUnlockAA(captainState, currentTime))
@@ -135,25 +150,6 @@ public sealed class CaptainStateSystem : EntitySystem
                 Dirty(spareIDSafe, accessReader);
                 RaiseLocalEvent(spareIDSafe, new AccessReaderConfigurationChangedEvent());
             }
-        }
-    }
-
-    /// <summary>
-    /// Tries to send a station announcement if entity belongs to a station. If entity does not have a station throw an error and send global anouncement as backup.
-    /// </summary>
-    private void SendAnnouncement(EntityUid ent, string message)
-    {
-        if (_station.GetOwningStation(ent) != null)
-            _chat.DispatchStationAnnouncement(
-                ent,
-                message,
-                colorOverride: Color.Gold);
-        else
-        {
-            Log.Error($"{ent} does not belong to a station.");
-            _chat.DispatchGlobalAnnouncement(
-                message,
-                colorOverride: Color.Gold);
         }
     }
 
