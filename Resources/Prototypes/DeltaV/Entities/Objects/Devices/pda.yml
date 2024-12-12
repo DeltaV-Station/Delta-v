@@ -41,6 +41,40 @@
 
 - type: entity
   parent: BasePDA
+  id: PharmacistPDA
+  name: pharmacist PDA
+  description: Blue, Orange, and odd stains... Oddly smells like those bottles under the sink.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader
+    diskSpace: 5
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+  - type: Pda
+    id: PharmacistIDCard
+    state: pda-pharmacist
+  - type: PdaBorderColor
+    borderColor: "#EA6400"
+    accentVColor: "#5D99BE"
+  - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    state: pda-pharmacist
+
+- type: entity
+  parent: BasePDA
   id: BaseJusticePDA
   abstract: true
   components:

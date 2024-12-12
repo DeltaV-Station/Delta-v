@@ -132,4 +132,14 @@
   suffix: Robotics, Locked
   components:
   - type: AccessReader
+    access: [["Research"]] # Uses research access until the job is added
     access: [["Robotics"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPharmacist
+  suffix: Pharmacist, Locked
+  components:
+  - type: AccessReader
+    access: [["Pharmacist"]]
+

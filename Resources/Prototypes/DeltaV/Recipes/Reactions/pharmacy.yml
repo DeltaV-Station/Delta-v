@@ -122,3 +122,89 @@
       catalyst: true
   products:
     Agonolexyne: 3
+
+- type: reaction
+  id: Vicodilicaine
+  reactants:
+    Mannitol:
+      amount: 1
+    Soretizone:
+      amount: 1
+    Lipozine:
+      amount: 1
+    SodiumCarbonate:
+      amount: 1
+  products:
+    Vicodilicaine: 4
+    
+- type: reaction
+  id: Zepprocane
+  reactants:
+    BarbituricAcid:
+     amount: 1
+    Desoxyephedrine:
+      amount: 1
+  products:
+    Zepprocane: 2
+
+- type: reaction
+  id: SodiumSalicylate
+  reactants:
+    MethylSalicylate:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+  products:
+    SodiumSalicylate: 2
+
+- type: reaction
+  id: Asparatine
+  reactants:
+    SodiumSalicylate:
+      amount: 1
+    AcetylChloride:
+      amount: 1
+  products:
+    Asparatine: 2
+
+- type: reaction
+  id: Naguuprofen
+  minTemp: 370
+  reactants:
+    Isobutylphenylethanol:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 1
+    HydrogenChloride:
+      amount: 1
+    Iron:
+      amount: 1
+      catalyst: true
+  products:
+    Naguuprofen: 4
+
+- type: reaction
+  id: Cordivol
+  minTemp: 370
+  reactants:
+    PropeneOxide:
+      amount: 1
+    PropeneGlycol:
+      amount: 1
+    Aryloxypropanolamine:
+      amount: 1
+  products:
+    Cordivol: 1
+
+- type: reaction
+  id: Debivolol
+  minTemp: 370
+  reactants:
+    SodiumLauryl:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    Debivolol: 2

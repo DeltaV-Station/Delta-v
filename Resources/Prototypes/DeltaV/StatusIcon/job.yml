@@ -45,3 +45,11 @@
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
     state: SecurityBorg
   jobName: job-name-security-borg
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPharmacist
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: Pharmacist
+  jobName: job-name-pharmacist

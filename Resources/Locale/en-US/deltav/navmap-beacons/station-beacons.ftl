@@ -12,6 +12,7 @@ station-beacon-metempsychosis = Metempsychosis
 station-beacon-exam = Exam
 station-beacon-med-outpost = Med Outpost
 station-beacon-psych = Psych
+station-beacon-pharmacy = Pharmacy
 
 station-beacon-glimmer-prober = Prober
 station-beacon-forensic-mantis = Mantis

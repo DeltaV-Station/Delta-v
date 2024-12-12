@@ -32,6 +32,31 @@
   description: An arrest warrant for a space fugitive sent from GALPOL.
 
 - type: entity
+  name: pharmacy prescription
+  parent: Paper
+  id: PaperPrescription
+  description: 'A piece of paper to justify the reagents you carry on your person. Issued by the pharmacist.'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#ead9cc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#ead9cc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/DeltaV/Interface/Paper/paper_heading_prescription.svg.200dpi.png"
+    headerMargin: 0.0, 0.0, 10.0, 16.0
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundModulate: "#ead9cc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 32.0, 16.0, 32.0, 0.0
+
   parent: Paper
   id: PaperCrateHydroCoConsumption
   name: HydroCo Notice
