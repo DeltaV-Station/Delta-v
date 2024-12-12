@@ -25,8 +25,8 @@
         Heat: 0.75
     staminaDamageCoefficient: 0.3 # It's a hardsuit, duh
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
@@ -71,8 +71,8 @@
         Heat: 0.80
     staminaDamageCoefficient: 0.3 # still a hardsuit
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
