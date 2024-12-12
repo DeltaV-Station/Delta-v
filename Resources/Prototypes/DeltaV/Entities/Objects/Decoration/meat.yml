@@ -33,11 +33,11 @@
             max: 1
 
 - type: entity
+  id: FleshTeethBase
   name: flesh teeth
   description: Tooth-like protrusions.
   parent: [MeatDecorBase, BaseRock]
   abstract: true
-  id: FleshTeethBase
 
 - type: entity
   parent: FleshTeethBase
@@ -85,7 +85,7 @@
     snapCardinals: false
     sprite: DeltaV/Objects/Decoration/Flesh/bigmeat.rsi
     state: whisperers
-        
+
 - type: entity
   parent: MeatDecorBase
   id: MeatFloorMouth
