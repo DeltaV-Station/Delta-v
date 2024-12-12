@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: TadJohnson00
-  changes:
-  - message: Warden requirements now include mandatory officer time and whitelist.
-    type: Tweak
-  id: 261
-  time: '2024-03-02T23:00:08.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: The salvage shuttle has been completely removed
-    type: Remove
-  - message: Salvage specialists now start with a mini jetpack in their locker
-    type: Tweak
-  id: 262
-  time: '2024-03-06T23:27:01.0000000+00:00'
 - author: DangerRevolution
   changes:
   - message: Added several new potential Lawsets for Cyborgs.
@@ -3823,3 +3809,18 @@
   id: 760
   time: '2024-12-12T02:41:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2357
+- author: Radezolid
+  changes:
+  - message: The blushing mime mask and the purple clown mask can now be obtained
+      at an autodrobe.
+    type: Tweak
+  id: 761
+  time: '2024-12-12T15:57:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2346
+- author: Radezolid
+  changes:
+  - message: LO now also requires time as a cargo technician.
+    type: Tweak
+  id: 762
+  time: '2024-12-12T16:30:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2399
