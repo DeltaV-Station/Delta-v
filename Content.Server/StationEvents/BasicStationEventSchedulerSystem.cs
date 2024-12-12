@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Chat.Managers; // DeltaV
+using Content.Server.DeltaV.StationEvents.NextEvent; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
@@ -9,6 +11,7 @@ using Content.Shared.GameTicking.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing; // DeltaV
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 
@@ -21,14 +24,27 @@ namespace Content.Server.StationEvents
     [UsedImplicitly]
     public sealed class BasicStationEventSchedulerSystem : GameRuleSystem<BasicStationEventSchedulerComponent>
     {
+        [Dependency] private readonly IChatManager _chatManager = default!; // DeltaV
+        [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EventManagerSystem _event = default!;
+        [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
 
         protected override void Started(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
             GameRuleStartedEvent args)
         {
             // A little starting variance so schedulers dont all proc at once.
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
+
+            // DeltaV - end init NextEventComp
+            if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
+                && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
+                && firstEvent != null)
+            {
+                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
+                _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+            }
+            // DeltaV - end init NextEventComp
         }
 
         protected override void Ended(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
@@ -56,6 +72,23 @@ namespace Content.Server.StationEvents
                     eventScheduler.TimeUntilNextEvent -= frameTime;
                     continue;
                 }
+
+                // DeltaV events using NextEventComponent
+                if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
+                {
+                    ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
+                    var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
+                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime))
+                        continue;
+                    _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)eventScheduler.TimeUntilNextEvent)));
+                    // Cycle the stashed event with the new generated event and time.
+                    string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
+                    if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
+                        continue;
+                    GameTicker.AddGameRule(storedEvent);
+                    continue;
+                }
+                // DeltaV end events using NextEventComponent
 
                 _event.RunRandomEvent(eventScheduler.ScheduledGameRules);
                 ResetTimer(eventScheduler);

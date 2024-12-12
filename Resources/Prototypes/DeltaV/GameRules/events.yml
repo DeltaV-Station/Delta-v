@@ -30,6 +30,8 @@
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
+  - type: PrecognitionResult
+    message: psionic-power-precognition-meteor-swarm-result-message
   - type: MeteorSwarmRule
 
 - type: entity
@@ -44,6 +46,8 @@
     minimumPlayers: 20
     weight: 1
     duration: 60
+  - type: PrecognitionResult
+    message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
     entries:
     - id: MobXeno
@@ -72,6 +76,8 @@
     minimumPlayers: 15
     weight: 4
     duration: 60
+  - type: PrecognitionResult
+    message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule
     entries:
     - id: MobMothroach
@@ -87,6 +93,8 @@
     minimumPlayers: 25
     maxOccurrences: 1
     duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-listening-post-result-message
   - type: RuleGrids
   - type: LoadFarGridRule
     path: /Maps/Shuttles/DeltaV/listening_post.yml
@@ -146,6 +154,8 @@
   components:
   - type: StationEvent
     duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-paradox-anomaly-result-message
   - type: ParadoxClonerRule
   - type: AntagObjectives
     objectives:
@@ -169,6 +179,8 @@
   - type: StationEvent
     minimumPlayers: 40 # it's really easy to find fugitives on lowpop
     duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-fugitive-result-message
   - type: FugitiveRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives

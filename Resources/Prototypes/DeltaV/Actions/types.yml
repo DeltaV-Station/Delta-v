@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ActionOpenRadioImplant
   name: Open Radio Implant
   description: Opens the bluespace key compartment of the radio implant embedded in your skull.
@@ -34,3 +34,17 @@
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
     event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  id: ActionPrecognition
+  name: Precognition
+  description: See into the future to get a hint about the next random event.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: DeltaV/Interface/Actions/actions_psionics.rsi
+      state: precognition
+    useDelay: 240
+    checkCanInteract: false
+    checkConsciousness: false
+    event: !type:PrecognitionPowerActionEvent
