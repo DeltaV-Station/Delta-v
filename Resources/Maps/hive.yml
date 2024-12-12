@@ -54334,13 +54334,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.46467,30.534334
       parent: 1
-- proto: CartridgeRocket
-  entities:
-  - uid: 6529
-    components:
-    - type: Transform
-      pos: 82.51179,10.456494
-      parent: 1
 - proto: Catwalk
   entities:
   - uid: 620
@@ -63343,6 +63336,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -48.5,-36.5
+      parent: 1
+  - uid: 28856
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,1.5
       parent: 1
 - proto: ComputerCargoShuttle
   entities:
@@ -132527,13 +132526,13 @@ entities:
     - type: Transform
       pos: 105.50964,-13.364047
       parent: 1
-- proto: Intellicard
+- proto: IntercomAll
   entities:
-  - uid: 28856
+  - uid: 21481
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 161.52783,-4.444462
+      pos: 167.5,1.5
       parent: 1
 - proto: IntercomCommand
   entities:
@@ -144497,12 +144496,6 @@ entities:
     - type: Transform
       pos: 105.5,-13.5
       parent: 1
-  - uid: 16981
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 82.5,10.5
-      parent: 1
   - uid: 19419
     components:
     - type: Transform
@@ -145622,6 +145615,14 @@ entities:
     components:
     - type: Transform
       pos: 5.5,39.5
+      parent: 1
+- proto: RandomBoard
+  entities:
+  - uid: 6529
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 161.5,-4.5
       parent: 1
 - proto: RandomBoards
   entities:
@@ -159953,6 +159954,13 @@ entities:
     components:
     - type: Transform
       pos: 72.5,10.5
+      parent: 1
+- proto: SuperweaponSafeSpawner
+  entities:
+  - uid: 16981
+    components:
+    - type: Transform
+      pos: 82.5,10.5
       parent: 1
 - proto: SurveillanceCameraAssembly
   entities:
@@ -187322,13 +187330,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 127.280754,-6.3698344
       parent: 1
-- proto: WeaponLauncherRocket
-  entities:
-  - uid: 21481
-    components:
-    - type: Transform
-      pos: 82.52527,10.611163
-      parent: 1
 - proto: WeaponShotgunBulldog
   entities:
   - uid: 22088
@@ -188183,7 +188184,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -109918.484
+      secondsUntilStateChange: -110816.48
       state: Opening
   - uid: 5096
     components:
@@ -188205,7 +188206,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -109918.484
+      secondsUntilStateChange: -110816.48
       state: Opening
   - uid: 5498
     components:
@@ -188221,7 +188222,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -109642.1
+      secondsUntilStateChange: -110540.09
       state: Opening
   - uid: 8696
     components:
@@ -188254,7 +188255,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -109640.22
+      secondsUntilStateChange: -110538.21
       state: Opening
   - uid: 18835
     components:
@@ -188266,7 +188267,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -109637.22
+      secondsUntilStateChange: -110535.21
       state: Opening
   - uid: 23917
     components:
