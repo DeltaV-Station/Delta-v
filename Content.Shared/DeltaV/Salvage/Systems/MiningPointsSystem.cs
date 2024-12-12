@@ -76,7 +76,7 @@ public sealed class MiningPointsSystem : EntitySystem
 
     /// <summary>
     /// Add points to a holder.
-    /// <summary>
+    /// </summary>
     public bool AddPoints(Entity<MiningPointsComponent?> ent, uint amount)
     {
         if (!_query.Resolve(ent, ref ent.Comp))
