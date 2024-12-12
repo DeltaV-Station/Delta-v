@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Added prescription medical hud and security hud.
-    type: Add
-  id: 258
-  time: '2024-03-01T23:41:11.0000000+00:00'
 - author: deltanedas
   changes:
   - message: Fixed midround antags sometimes spawning on CentComm.
@@ -3819,3 +3813,11 @@
   id: 757
   time: '2024-12-11T13:09:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2417
+- author: MilonPL
+  changes:
+  - message: The Teach Person a Lesson objective will now register properly when your
+      target dies.
+    type: Fix
+  id: 758
+  time: '2024-12-12T00:18:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2412
