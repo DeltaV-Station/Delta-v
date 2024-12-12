@@ -47842,6 +47842,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 31.5,49.5
       parent: 2
+  - uid: 18026
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,13.5
+      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 6298
@@ -76346,6 +76352,46 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 27.5,-32.5
+      parent: 2
+  - uid: 18012
+    components:
+    - type: Transform
+      pos: 3.5,0.5
+      parent: 2
+  - uid: 18013
+    components:
+    - type: Transform
+      pos: 5.5,0.5
+      parent: 2
+  - uid: 18014
+    components:
+    - type: Transform
+      pos: 4.5,3.5
+      parent: 2
+  - uid: 18015
+    components:
+    - type: Transform
+      pos: 2.5,3.5
+      parent: 2
+  - uid: 18016
+    components:
+    - type: Transform
+      pos: 6.5,3.5
+      parent: 2
+  - uid: 18017
+    components:
+    - type: Transform
+      pos: 8.5,3.5
+      parent: 2
+  - uid: 18018
+    components:
+    - type: Transform
+      pos: 9.5,0.5
+      parent: 2
+  - uid: 18019
+    components:
+    - type: Transform
+      pos: 7.5,0.5
       parent: 2
 - proto: HotplateMachineCircuitboard
   entities:
@@ -114670,7 +114716,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5758.152
+      secondsUntilStateChange: -5859.476
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114686,7 +114732,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5757.5854
+      secondsUntilStateChange: -5858.9097
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114708,7 +114754,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5757.1187
+      secondsUntilStateChange: -5858.443
       state: Opening
     - type: Airlock
       autoClose: False
@@ -114724,7 +114770,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5758.652
+      secondsUntilStateChange: -5859.976
       state: Opening
     - type: Airlock
       autoClose: False
@@ -115191,6 +115237,44 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.5,34.5
+      parent: 2
+- proto: WindowFrostedDirectional
+  entities:
+  - uid: 18020
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,0.5
+      parent: 2
+  - uid: 18021
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,0.5
+      parent: 2
+  - uid: 18022
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,0.5
+      parent: 2
+  - uid: 18023
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,3.5
+      parent: 2
+  - uid: 18024
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,3.5
+      parent: 2
+  - uid: 18025
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,3.5
       parent: 2
 - proto: WindowReinforcedDirectional
   entities:
