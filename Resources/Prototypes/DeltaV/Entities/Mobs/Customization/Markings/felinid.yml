@@ -1,11 +1,12 @@
+#Other Tails
 - type: marking
   id: FelinidFluffyTailRings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Vulpkanin] #Delta-V - Vulp Cat Tail :troll:
   sprites:
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
-    state: Felinid_fluffy_tail_full
+    state: felinid_fluffy_tail_base
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: felinid_fluffy_tail_rings
 
@@ -13,16 +14,16 @@
   id: FelinidFluffyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Vulpkanin] #Delta-V - Vulp Cat Tail :troll:
   sprites:
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
-    state: Felinid_fluffy_tail_full
+    state: felinid_fluffy_tail_base
 
 - type: marking
   id: FelinidAlternativeTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Vulpkanin] #Delta-V - Vulp Cat Tail :troll:
   sprites:
     - sprite: DeltaV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT
@@ -31,7 +32,7 @@
   id: FelinidTiger
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Vulpkanin] #Delta-V - Vulp Cat Tail :troll:
   sprites:
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_primary
@@ -39,3 +40,24 @@
       state: m_tail_tiger_secondary
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_tertiary
+
+# Animated Tails
+- type: marking
+  id: FelinidFluffyTailRingsAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_base_wag
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings_wag
+
+- type: marking
+  id: FelinidFluffyTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_base_wag
