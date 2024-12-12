@@ -134,6 +134,8 @@
     children:
     - id: StrangePill
       prob: 0.20
+    - id: CrayonMagic # Delta V - Just another way to get it
+      prob: .01
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
