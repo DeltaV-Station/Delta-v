@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Added prescription medical hud and security hud.
-    type: Add
-  id: 258
-  time: '2024-03-01T23:41:11.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Fixed midround antags sometimes spawning on CentComm.
-    type: Fix
-  id: 259
-  time: '2024-03-02T22:27:13.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Rat kings have been removed after a unanimous admin vote
-    type: Remove
-  id: 260
-  time: '2024-03-02T22:41:12.0000000+00:00'
 - author: TadJohnson00
   changes:
   - message: Warden requirements now include mandatory officer time and whitelist.
@@ -3819,3 +3801,25 @@
   id: 757
   time: '2024-12-11T13:09:02.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2417
+- author: MilonPL
+  changes:
+  - message: The Teach Person a Lesson objective will now register properly when your
+      target dies.
+    type: Fix
+  id: 758
+  time: '2024-12-12T00:18:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2412
+- author: Radezolid
+  changes:
+  - message: Now all jetpacks fit in the suit storage slot, salvage rejoice!
+    type: Tweak
+  id: 759
+  time: '2024-12-12T00:22:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2400
+- author: Velcroboy
+  changes:
+  - message: Hammurabi medical also has a rapid transit tube now!
+    type: Add
+  id: 760
+  time: '2024-12-12T02:41:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2357

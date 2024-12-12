@@ -28,11 +28,20 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        SubscribeLocalEvent<CaptainStateComponent, ComponentInit>(OnInit);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
-        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
-        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = TimeSpan.FromMinutes(a), true);
         base.Initialize();
+    }
+
+    private void OnInit(Entity<CaptainStateComponent> ent, ref ComponentInit args)
+    {
+        // There is some weird persistince issues this will hopefully fix
+        ent.Comp.IsACORequestActive = false;
+        ent.Comp.IsAAInPlay = false;
+        ent.Comp.HasCaptain = false;
     }
 
     public override void Update(float frameTime)
@@ -72,7 +81,7 @@ public sealed class CaptainStateSystem : EntitySystem
         {
             _chat.DispatchStationAnnouncement(
                 ent,
-                Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)),
+                Loc.GetString(ent.Comp.ACORequestNoAAMessage),
                 colorOverride: Color.Gold);
 
             ent.Comp.IsACORequestActive = true;
@@ -90,7 +99,8 @@ public sealed class CaptainStateSystem : EntitySystem
         if (!captainState.IsACORequestActive)
             return;
 
-        _chat.DispatchStationAnnouncement(station,
+        _chat.DispatchStationAnnouncement(
+            station,
             Loc.GetString(captainState.RevokeACOMessage),
             colorOverride: Color.Gold);
 
