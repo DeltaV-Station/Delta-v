@@ -30,11 +30,20 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
+        SubscribeLocalEvent<CaptainStateComponent, ComponentInit>(OnInit);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
         Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = TimeSpan.FromMinutes(a), true);
         base.Initialize();
+    }
+
+    private void OnInit(Entity<CaptainStateComponent> ent, ref ComponentInit args)
+    {
+        // There is some weird persistince issues this will hopefully fix
+        ent.Comp.IsACORequestActive = false;
+        ent.Comp.IsAAInPlay = false;
+        ent.Comp.HasCaptain = false;
     }
 
     public override void Update(float frameTime)
