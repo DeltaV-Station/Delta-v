@@ -33,7 +33,10 @@
     - id: Flare
     - id: FoodPSB # DeltaV - replace nutribrick with PSB
     - id: DrinkWaterBottleFull
-  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -72,7 +75,10 @@
     - id: Flare
     - id: FoodPSB # DeltaV - replace nutribrick with PSB
     - id: DrinkWaterBottleFull
-  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -111,7 +117,10 @@
     - id: Flare
     - id: FoodPSB # DeltaV - replace nutribrick with PSB
     - id: DrinkWaterBottleFull
-  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -150,7 +159,10 @@
     - id: Flare
     - id: FoodPSB # DeltaV - replace nutribrick with PSB
     - id: DrinkWaterBottleFull
-  # Intentionally wrong picture on the box. NT did not care enough to change it.
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -224,6 +236,10 @@
     - id: Flare
     - id: FoodBreadBaguette
     - id: DrinkWaterBottleFull
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
 
@@ -260,6 +276,9 @@
     - id: SpaceMedipen # DeltaV - keep spacepen, replaces flare for space
     - id: FoodPSB # DeltaV - replace nutribrick with PSB
     - id: DrinkWaterBottleFull # DeltaV - why didnt they get water???
-    # Intentionally wrong picture on the box to mimic the NT one
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
   - type: Label
     currentLabel: reagent-name-nitrogen
