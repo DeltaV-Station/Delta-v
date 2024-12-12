@@ -10,6 +10,7 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Server.GameTicking.Events;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -28,7 +29,7 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        SubscribeLocalEvent<CaptainStateComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
@@ -36,12 +37,17 @@ public sealed class CaptainStateSystem : EntitySystem
         base.Initialize();
     }
 
-    private void OnInit(Entity<CaptainStateComponent> ent, ref ComponentInit args)
+    private void OnRoundStarting(RoundStartingEvent ev)
     {
-        // There is some weird persistince issues this will hopefully fix
-        ent.Comp.IsACORequestActive = false;
-        ent.Comp.IsAAInPlay = false;
-        ent.Comp.HasCaptain = false;
+        var query = EntityQueryEnumerator<CaptainStateComponent>();
+        while (query.MoveNext(out var captainState))
+        {
+            // Component not being reset between rounds so will reset is manualy here
+            captainState.IsACORequestActive = false;
+            captainState.IsAAInPlay = false;
+            captainState.HasCaptain = false;
+            Log.Info($"{captainState} reset to defaults");
+        }
     }
 
     public override void Update(float frameTime)
