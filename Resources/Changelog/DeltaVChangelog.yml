@@ -1,140 +1,4 @@
 ﻿Entries:
-- author: VMSolidus
-  changes:
-  - message: 'Harpies have received a full visual rework. Featuring clothing sprites,
-      new markings, a complete overhaul of their layering, as well as visual systems. '
-    type: Add
-  - message: Harpies now have bird related speech verbs
-    type: Add
-  - message: 'Two new traits have been added related to birds. Harpies now start by
-      default with the new Ultraviolet Vision trait, letting them see a whole new
-      spectrum of colors. This trait can be taken by other curious people. Harpies
-      that wish to see in RGB colors can instead take the new Normal Vision trait. '
-    type: Add
-  id: 242
-  time: '2024-02-12T22:25:02.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Glimmer probers now react violently to being hit by gorilla gauntlets
-      if glimmer is above 500
-    type: Tweak
-  id: 243
-  time: '2024-02-13T00:59:01.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: Removed the ability of Harpies to destroy people's ears.
-    type: Fix
-  id: 244
-  time: '2024-02-13T13:29:37.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Brought back paradox anomalies. Beware anyone that looks *just* like
-      you!
-    type: Add
-  id: 245
-  time: '2024-02-13T15:55:35.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Added Deuteranopia trait.
-    type: Add
-  - message: Vulpkanin now start with Deuteranopia by default which can be removed
-      using the Normal Vision trait.
-    type: Tweak
-  id: 246
-  time: '2024-02-15T17:27:24.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Glimmer Drain now requires 5 Normality Crystals to craft.
-    type: Tweak
-  id: 247
-  time: '2024-02-17T03:38:14.0000000+00:00'
-- author: VMSolidus
-  changes:
-  - message: 'Metempsychosis machines have been added to the game. '
-    type: Add
-  id: 248
-  time: '2024-02-18T02:36:16.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Merged upstream
-    type: Add
-  - message: Fixed the upstream changelog not rendering
-    type: Fix
-  id: 249
-  time: '2024-02-18T23:05:48.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Whitelist to join now works based on slots instead of player count
-    type: Tweak
-  - message: Periapsis now has only 10 non-whitelisted slots
-    type: Tweak
-  id: 250
-  time: '2024-02-20T19:46:17.0000000+00:00'
-- author: rosieposieeee
-  changes:
-  - message: Submarine Station has been temporarily removed from rotation for routine
-      maintenance.
-    type: Remove
-  id: 251
-  time: '2024-02-21T01:15:08.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Added a new accessibility setting to globally disable species vision
-      filters
-    type: Add
-  - message: The DefaultVision trait has been removed
-    type: Remove
-  id: 252
-  time: '2024-02-23T18:36:18.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: 'Rekajiggered The Hive''s medical. '
-    type: Tweak
-  id: 253
-  time: '2024-02-24T00:34:16.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: 'The Hive Rekajiggering part 2 of 3: Perma addition'
-    type: Tweak
-  id: 254
-  time: '2024-02-24T06:38:02.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Space mobs no longer have ghost roles
-    type: Fix
-  id: 255
-  time: '2024-02-26T20:20:53.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Overhauled the bar on The Hive
-    type: Tweak
-  id: 256
-  time: '2024-02-26T21:53:05.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Psionic invisibility has been disabled until the issues with it can be
-      properly fixed
-    type: Remove
-  id: 257
-  time: '2024-02-28T16:54:47.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added prescription medical hud and security hud.
-    type: Add
-  id: 258
-  time: '2024-03-01T23:41:11.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Fixed midround antags sometimes spawning on CentComm.
-    type: Fix
-  id: 259
-  time: '2024-03-02T22:27:13.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Rat kings have been removed after a unanimous admin vote
-    type: Remove
-  id: 260
-  time: '2024-03-02T22:41:12.0000000+00:00'
 - author: TadJohnson00
   changes:
   - message: Warden requirements now include mandatory officer time and whitelist.
@@ -3807,3 +3671,155 @@
   id: 741
   time: '2024-12-06T01:22:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2339
+- author: Avalon-Proto
+  changes:
+  - message: Syndicate Observation Kits have been adjusted, granting it a Camera bug
+      and a better cell for the monitor!
+    type: Tweak
+  id: 742
+  time: '2024-12-06T18:15:22.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2288
+- author: Radezolid
+  changes:
+  - message: Added foam sabres! They may appear in maintenance lockers and mimes can
+      select to spawn with it in the loadout selection.
+    type: Add
+  - message: Added a sharp version of the foam sabre toy, purchasable from the syndicate
+      uplink at 6 TC with a possible discount to 4 TC.
+    type: Add
+  id: 743
+  time: '2024-12-06T19:33:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2310
+- author: Lyndomen
+  changes:
+  - message: Central Command got a tiny renovation
+    type: Tweak
+  id: 744
+  time: '2024-12-07T17:17:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2174
+- author: Colin-Tel
+  changes:
+  - message: Asterisk Station has had additional meteor shielding constructed.
+    type: Tweak
+  id: 745
+  time: '2024-12-07T18:10:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2377
+- author: rosieposieeee
+  changes:
+  - message: Added wooden and grey modern railings.
+    type: Add
+  id: 746
+  time: '2024-12-07T23:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2379
+- author: rosieposieeee
+  changes:
+  - message: Added reinforced directional tinted walls.
+    type: Add
+  id: 747
+  time: '2024-12-07T23:35:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2376
+- author: deltanedas
+  changes:
+  - message: Ninja objectives are now more random and they can be asked to steal things
+      or kill people!
+    type: Tweak
+  id: 748
+  time: '2024-12-08T15:11:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2359
+- author: Monotheonist
+  changes:
+  - message: Fugitives are no longer clones of people on station.
+    type: Tweak
+  id: 749
+  time: '2024-12-09T01:02:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2383
+- author: Lyndomen
+  changes:
+  - message: Diona are substantially more tanky to physical damage, and ignite less
+      frequently.
+    type: Tweak
+  - message: Diona are much slower, but cannot slip while walking.
+    type: Tweak
+  id: 750
+  time: '2024-12-09T05:44:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2204
+- author: Colin-Tel
+  changes:
+  - message: Micro Station has been removed from the regular map rotation.
+    type: Remove
+  id: 751
+  time: '2024-12-09T15:26:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2402
+- author: SolStar
+  changes:
+  - message: Command will now be automatically notified to elect an ACO when no captain
+      is present.
+    type: Tweak
+  - message: 'Periapsis and Horizon only: AA will be command locked 5 minutes after
+      an ACO vote is requested.'
+    type: Tweak
+  id: 752
+  time: '2024-12-09T17:05:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2351
+- author: MilonPL
+  changes:
+  - message: Reduced the price of all items printed from the lathes by 60%
+    type: Tweak
+  id: 753
+  time: '2024-12-10T04:16:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2406
+- author: MilonPL
+  changes:
+  - message: Fixed diona's movement speed being default
+    type: Fix
+  id: 754
+  time: '2024-12-10T17:47:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2413
+- author: deltanedas
+  changes:
+  - message: Added Lavaland, coming soon to a station near you!
+    type: Add
+  - message: Removed the random reclaimer wrecks.
+    type: Remove
+  - message: Fixed not being able to build catwalks over lava.
+    type: Fix
+  id: 755
+  time: '2024-12-10T18:37:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
+- author: MilonPL
+  changes:
+  - message: Added PDA messaging!
+    type: Add
+  id: 756
+  time: '2024-12-10T20:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2362
+- author: Radezolid
+  changes:
+  - message: Shadow cats are now ghost roles, go pet your local shadow cat whenever
+      EPI is working a shadow anomaly!
+    type: Tweak
+  id: 757
+  time: '2024-12-11T13:09:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2417
+- author: MilonPL
+  changes:
+  - message: The Teach Person a Lesson objective will now register properly when your
+      target dies.
+    type: Fix
+  id: 758
+  time: '2024-12-12T00:18:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2412
+- author: Radezolid
+  changes:
+  - message: Now all jetpacks fit in the suit storage slot, salvage rejoice!
+    type: Tweak
+  id: 759
+  time: '2024-12-12T00:22:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2400
+- author: Velcroboy
+  changes:
+  - message: Hammurabi medical also has a rapid transit tube now!
+    type: Add
+  id: 760
+  time: '2024-12-12T02:41:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2357

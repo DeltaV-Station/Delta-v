@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.DeltaV.Station.Events; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
@@ -108,7 +109,8 @@ public sealed partial class StationJobsSystem : EntitySystem
 
         if (!TryAdjustJobSlot(station, jobPrototypeId, -1, false, false, stationJobs))
             return false;
-
+        var playerJobAdded = new PlayerJobAddedEvent(netUserId, jobPrototypeId);
+        RaiseLocalEvent(station, ref playerJobAdded, false); // DeltaV added AddedPlayerJobsEvent for CaptainStateSystem
         stationJobs.PlayerJobs.TryAdd(netUserId, new());
         stationJobs.PlayerJobs[netUserId].Add(jobPrototypeId);
         return true;
@@ -206,8 +208,15 @@ public sealed partial class StationJobsSystem : EntitySystem
     {
         if (!Resolve(station, ref jobsComponent, false))
             return false;
-
-        return jobsComponent.PlayerJobs.Remove(userId);
+        // DeltaV added RemovedPlayerJobsEvent for CaptainStateSystem
+        if (jobsComponent.PlayerJobs.Remove(userId, out var playerJobsEntry))
+        {
+            var playerJobRemovedEvent = new PlayerJobsRemovedEvent(userId, playerJobsEntry);
+            RaiseLocalEvent(station, ref playerJobRemovedEvent, false);
+            return true;
+        }
+        return false;
+        // DeltaV end added RemovedPlayerJobsEvent for CaptainStateSystem
     }
 
     /// <inheritdoc cref="TrySetJobSlot(Robust.Shared.GameObjects.EntityUid,string,int,bool,Content.Server.Station.Components.StationJobsComponent?)"/>
