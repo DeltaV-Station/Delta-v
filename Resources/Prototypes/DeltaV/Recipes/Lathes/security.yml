@@ -290,3 +290,14 @@
   materials:
     Steel: 900
     Plastic: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponBeamCannon
+  result: WeaponBeamCannon
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 500
+    Gold: 250
+    Plasma: 500

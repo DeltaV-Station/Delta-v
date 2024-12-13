@@ -667,6 +667,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -1058,6 +1059,8 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
+  #- RoboticistCap # DeltaV: Moved to RoboticistHead
+  #- SkullBandana
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1074,6 +1077,8 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+  #- RoboticistJumpsuit # DeltaV: Moved to RoboticistJumpsuit
+  #- RoboticistJumpskirt # DeltaV: Moved to RoboticistJumpsuit
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -1092,7 +1097,6 @@
   loadouts:
   - RegularLabCoat
   - ScienceLabCoat
-  - RoboticistLabCoat # DeltaV
   - ScienceWintercoat
   - SeniorResearcherLabCoat
 
@@ -1103,6 +1107,7 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
+  #- RobohandsGloves # DeltaV: Moved to RoboticistGloves
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1117,8 +1122,8 @@
   loadouts:
   - ScientistPDA
   - SeniorResearcherPDA
-  # - LabTechPDA # DeltaV
-  # - XenoarchPDA # DeltaV
+  - LabTechPDA # DeltaV
+  - XenoarchPDA # DeltaV
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit

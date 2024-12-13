@@ -1698,3 +1698,46 @@
       orGroup: Coat
     - id: ClothingOuterWinterCoatPlaid
       orGroup: Coat
+
+- type: entity
+  parent: BaseMail
+  id: MailHydroCoPowderJuice
+  suffix: HydroCo powder juice
+  components:
+  - type: Mail
+    contents:
+    - id: ReagentTinPowderedJuiceLemon
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceLime
+      orGroup: Juice
+    - id: ReagentTinPowderedJuicePineapple
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceBanana
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceBerry
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceWatermelon
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceGrape
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceApple
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceCherry
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceCarrot
+      orGroup: Juice
+    - id: ReagentTinPowderedJuiceTomato
+      orGroup: Juice
+    - id: SpoonPlastic
+      amount: 1
+    - id: PaperMailHydroCoTrial
+      amount: 1
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamSabre
+  suffix: Foam sabre
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltFoamSheathFilled

@@ -200,12 +200,19 @@
   - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
-    - StealResearchObjective
+    #- StealResearchObjective # DeltaV: Moved to random objectives
     - DoorjackObjective
     - SpiderChargeObjective
-    - TerrorObjective
-    - MassArrestObjective
+    #- TerrorObjective # DeltaV: Moved to random objectives
+    #- MassArrestObjective # DeltaV: Moved to random objectives
     - NinjaSurviveObjective
+  - type: AntagRandomObjectives # DeltaV: Random objectives for hacking and killing
+    sets:
+    - groups: NinjaHackingObjectiveGroups
+      maxPicks: 2 # only pick 2 of 3 of them to reduce metagaming
+    - groups: NinjaBonusObjectiveGroups
+      maxPicks: 2 # 2 kill or steal objectives max
+    maxDifficulty: 100 # ignore difficulty, use maxPicks instead
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:

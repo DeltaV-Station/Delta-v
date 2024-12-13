@@ -13,7 +13,7 @@
           steps:
             - material: Steel
               amount: 15
-              doAfter: 2
+              doAfter: 30 # DeltaV - Was 2
     - node: MeatSpike
       entity: KitchenSpike
       edges:

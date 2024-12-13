@@ -3,7 +3,7 @@
   mapName: 'The Hive'
   mapPath: /Maps/hive.yml
   minPlayers: 15
-  maxPlayers: 75 
+  maxPlayers: 75
   stations:
     TheHive:
       stationProto: StandardNanotrasenStation
@@ -29,6 +29,7 @@
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Blueshield: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
           #engineering
             AtmosphericTechnician: [ 1, 2 ]
             ChiefEngineer: [ 1, 1 ]

@@ -998,14 +998,14 @@
 
 - type: listing
   id: UplinkAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  name: uplink-overlord-law-name # DeltaV: Changed antimov to overlord, for traitors only
+  description: uplink-overlord-law-desc # DeltaV: Changed antimov to overlord
+  productEntity: OverlordCircuitBoard # DeltaV: replaced antimov with overlord
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 16 # DeltaV: was 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 20 # DeltaV: was 14
   categories:
   - UplinkDisruption
   conditions:
