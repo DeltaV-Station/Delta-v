@@ -7,7 +7,7 @@
   components:
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/NES/Effects/LightMasks/cone.png #NES14-Changes
     autoRot: true
     radius: 4
     netsync: false
@@ -74,7 +74,7 @@
     templateId: combat_droid
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    mask: /Textures/NES/Effects/LightMasks/cone.png #NES14-Changes
     autoRot: true
     radius: 4
     netsync: false

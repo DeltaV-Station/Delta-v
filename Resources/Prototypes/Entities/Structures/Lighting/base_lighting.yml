@@ -154,7 +154,7 @@
   - type: PoweredLight
     hasLampOnSpawn: LedLightTube
   - type: PointLight
-    radius: 15
+    radius: 7
     energy: 1
     softness: 0.9
     color: "#EEEEFF"
@@ -170,8 +170,8 @@
   suffix: Always Powered, LED
   components:
   - type: PointLight
-    radius: 10
-    energy: 2.5
+    radius: 7
+    energy: 1
     softness: 0.9
     color: "#EEEEFF"
 
@@ -335,7 +335,7 @@
     state: base
   - type: PointLight
     enabled: true
-    radius: 8
+    radius: 7
     energy: 1
     softness: 1
     color: "#EEEEFF"
@@ -381,7 +381,7 @@
     energy: 1
     offset: "0, 0.4"
     color: "#7CFC00"
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    mask: /Textures/NES/Effects/LightMasks/double_cone.png #NES14-Changes
   - type: ApcPowerReceiver
   - type: AmbientSound
     enabled: false
@@ -456,8 +456,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalCyan
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#47f8ff"
   - type: DamageOnInteract
@@ -472,8 +472,8 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#47f8ff"
 
@@ -485,8 +485,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlue
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#39a1ff"
   - type: DamageOnInteract
@@ -501,8 +501,8 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#39a1ff"
 
@@ -514,8 +514,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalPink
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#ff66cc"
   - type: DamageOnInteract
@@ -530,8 +530,8 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#ff66cc"
 
@@ -543,8 +543,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalOrange
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#ff8227"
   - type: DamageOnInteract
@@ -559,8 +559,8 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#ff8227"
 
@@ -572,8 +572,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalRed
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#fb4747"
   - type: DamageOnInteract
@@ -588,8 +588,8 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#fb4747"
 
@@ -601,8 +601,8 @@
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalGreen
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#52ff39"
   - type: DamageOnInteract
@@ -617,7 +617,7 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: PointLight
-    radius: 8
-    energy: 3
+    radius: 7
+    energy: 0.8
     softness: 0.5
     color: "#52ff39"
