@@ -10,6 +10,7 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -30,8 +31,8 @@ public sealed class CaptainStateSystem : EntitySystem
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
-        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = a, true);
-        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = a, true);
+        Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
+        Subs.CVar(_cfg, DCCVars.RequestAcoDelay, a => _acoDelay = TimeSpan.FromMinutes(a), true);
         base.Initialize();
     }
 
@@ -40,6 +41,8 @@ public sealed class CaptainStateSystem : EntitySystem
         base.Update(frameTime);
 
         var currentTime = _ticker.RoundDuration(); // Caching to reduce redundant calls
+        if (currentTime < _acoDelay) // Avoid timing issues. No need to run before _acoDelay is reached anyways.
+            return;
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var station, out var captainState))
         {
@@ -72,7 +75,7 @@ public sealed class CaptainStateSystem : EntitySystem
         {
             _chat.DispatchStationAnnouncement(
                 ent,
-                Loc.GetString(ent.Comp.ACORequestNoAAMessage, ("minutes", _aaDelay.TotalMinutes)),
+                Loc.GetString(ent.Comp.ACORequestNoAAMessage),
                 colorOverride: Color.Gold);
 
             ent.Comp.IsACORequestActive = true;
@@ -90,7 +93,8 @@ public sealed class CaptainStateSystem : EntitySystem
         if (!captainState.IsACORequestActive)
             return;
 
-        _chat.DispatchStationAnnouncement(station,
+        _chat.DispatchStationAnnouncement(
+            station,
             Loc.GetString(captainState.RevokeACOMessage),
             colorOverride: Color.Gold);
 
