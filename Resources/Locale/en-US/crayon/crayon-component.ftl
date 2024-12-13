@@ -5,7 +5,6 @@ crayon-drawing-label = Drawing: [color={$color}]{$state}[/color] ({$charges}/{$c
 crayon-interact-not-enough-left-text = Not enough left.
 crayon-interact-used-up-text = The {$owner} got used up.
 crayon-interact-invalid-location = Can't reach there!
-crayon-drawing-label-unlimited = Drawing: [color={$color}]{$state}[/color]
 
 ## UI
 crayon-window-title = Crayon
