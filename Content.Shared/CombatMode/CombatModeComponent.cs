@@ -48,5 +48,7 @@ namespace Content.Shared.CombatMode
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool ToggleMouseRotator = true;
+        [DataField, AutoNetworkedField]
+        public bool SmoothRotation = true; // NES14-Changes, фонарик на 360
     }
 }

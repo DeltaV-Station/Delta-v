@@ -14,7 +14,7 @@ public sealed partial class HandheldLightComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("wattage")]
-    public float Wattage { get; set; } = .2f; // NES14-Changes, жрите меньше энергии
+    public float Wattage { get; set; } = .4f; // NES14-Changes, жрите меньше энергии
 
     [DataField("turnOnSound")]
     public SoundSpecifier TurnOnSound = new SoundPathSpecifier("/Audio/Items/flashlight_on.ogg");

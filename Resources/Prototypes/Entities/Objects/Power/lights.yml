@@ -140,8 +140,8 @@
   - type: LightBulb
     bulb: Bulb
     color: "#EEEEFF"
-    lightEnergy: 1
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 1
     BurningTemperature: 350 #LEDs are colder than incandescent bulbs
     PowerUse: 6 #LEDs are more power efficient than incandescent bulbs
@@ -159,7 +159,7 @@
   - type: LightBulb
     bulb: Bulb
     color: "#FFD1A3" # 4000K color temp
-    lightEnergy: 0.3 # old incandescents just arent as bright
+    lightEnergy: 2 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
 
@@ -200,7 +200,7 @@
   - type: LightBulb
     color: "#bac9d6" # NES14-Changes
     lightEnergy: 0.6
-    lightRadius: 7
+    lightRadius: 6
     lightSoftness: 1
     PowerUse: 25
 
@@ -213,7 +213,7 @@
   - type: LightBulb
     color: "#FFDABB" # old fluorescents are yellower-4500K temp
     lightEnergy: 0.5
-    lightRadius: 10
+    lightRadius: 6
     lightSoftness: 1
     PowerUse: 10
 
@@ -235,8 +235,8 @@
   components:
   - type: LightBulb
     color: "#EEEEFF"
-    lightEnergy: 1
-    lightRadius: 15
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.9
     BurningTemperature: 350
     PowerUse: 12
@@ -250,8 +250,8 @@
   components:
   - type: LightBulb
     color: "#B4FCF0"
-    lightEnergy: 4.5
-    lightRadius: 12
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 100
@@ -264,8 +264,8 @@
   components:
   - type: LightBulb
     color: "#FFAF38"
-    lightEnergy: 4
-    lightRadius: 10
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 100
@@ -278,8 +278,8 @@
   components:
   - type: LightBulb
     color: "#47f8ff"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
@@ -298,8 +298,8 @@
   components:
   - type: LightBulb
     color: "#39a1ff"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
@@ -318,8 +318,8 @@
   components:
   - type: LightBulb
     color: "#ff66cc"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
@@ -338,8 +338,8 @@
   components:
   - type: LightBulb
     color: "#ff8227"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
@@ -358,8 +358,8 @@
   components:
   - type: LightBulb
     color: "#fb4747"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
@@ -378,8 +378,8 @@
   components:
   - type: LightBulb
     color: "#52ff39"
-    lightEnergy: 3
-    lightRadius: 8
+    lightEnergy: 2
+    lightRadius: 6
     lightSoftness: 0.5
     BurningTemperature: 350
     PowerUse: 60
