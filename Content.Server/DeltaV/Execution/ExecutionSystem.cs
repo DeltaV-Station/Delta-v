@@ -2,6 +2,7 @@ using Content.Server.Interaction;
 using Content.Server.Kitchen.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Clumsy;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -20,12 +21,16 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Execution;
 
 /// <summary>
-///     Verb for violently murdering cuffed creatures.
+/// Verb for violently murdering cuffed creatures using guns.
 /// </summary>
+/// <remarks>
+/// Upstream won't have this for years so it goes in the DeltaV folder.
+/// </remarks>
 public sealed class ExecutionSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -35,6 +40,7 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -256,18 +262,17 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
         // Clumsy people have a chance to shoot themselves
-        if (TryComp<ClumsyComponent>(attacker, out var clumsy) && component.ClumsyProof == false)
+        if (!component.ClumsyProof &&
+            TryComp<ClumsyComponent>(attacker, out var clumsy) &&
+            _random.Prob(1f/3f))
         {
-            if (_interactionSystem.TryRollClumsy(attacker, 0.33333333f, clumsy))
-            {
-                ShowExecutionPopup("execution-popup-gun-clumsy-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-                ShowExecutionPopup("execution-popup-gun-clumsy-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
+            ShowExecutionPopup("execution-popup-gun-clumsy-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
+            ShowExecutionPopup("execution-popup-gun-clumsy-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
 
-                // You shoot yourself with the gun (no damage multiplier)
-                _damageableSystem.TryChangeDamage(attacker, damage, origin: attacker);
-                _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
-                return;
-            }
+            // You shoot yourself with the gun (no damage multiplier)
+            _damageableSystem.TryChangeDamage(attacker, damage, origin: attacker);
+            _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
+            return;
         }
 
         // Gun successfully fired, deal damage
