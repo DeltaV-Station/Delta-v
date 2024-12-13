@@ -1,48 +1,46 @@
-﻿using Content.Server.Objectives.Components;
-using Content.Shared.GameTicking;
+﻿using Content.Server.DeltaV.Objectives.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
-using Content.Shared.Objectives.Components;
+using Content.Shared.Mobs;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server.DeltaV.Objectives.Systems;
 
 /// <summary>
 /// Handles teach a lesson condition logic, does not assign target.
 /// </summary>
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
+    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-
-    private readonly List<EntityUid> _wasKilled = [];
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TeachLessonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd);
+        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnGetProgress(Entity<TeachLessonConditionComponent> ent, ref ObjectiveGetProgressEvent args)
+    // TODO: subscribe by ref at some point in the future
+    private void OnMobStateChanged(MobStateChangedEvent args)
     {
-        if (!_target.GetTarget(ent, out var target))
+        if (args.NewMobState != MobState.Dead)
             return;
 
-        args.Progress = GetProgress(target.Value);
-    }
+        // Get the mind of the entity that just died (if it has one)
+        if (!_mind.TryGetMind(args.Target, out var mindId, out _))
+            return;
 
-    private float GetProgress(EntityUid target)
-    {
-        if (TryComp<MindComponent>(target, out var mind) && mind.OwnedEntity != null && !_mind.IsCharacterDeadIc(mind))
-            return _wasKilled.Contains(target) ? 1f : 0f;
+        // Get all TeachLessonConditionComponent entities
+        var query = EntityQueryEnumerator<TeachLessonConditionComponent, TargetObjectiveComponent>();
 
-        _wasKilled.Add(target);
-        return 1f;
-    }
+        while (query.MoveNext(out var uid, out _, out var targetObjective))
+        {
+            // Check if this objective's target matches the entity that died
+            if (targetObjective.Target != mindId)
+                continue;
 
-    // Clear the wasKilled list on round end
-    private void OnRoundEnd(RoundRestartCleanupEvent  ev)
-    {
-        _wasKilled.Clear();
+            _codeCondition.SetCompleted(uid);
+        }
     }
 }
