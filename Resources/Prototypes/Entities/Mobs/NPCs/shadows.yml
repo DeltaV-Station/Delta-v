@@ -39,7 +39,7 @@
       
 - type: entity
   name: shadow cat
-  parent: BaseShadowMob
+  parent: [ BaseShadowMob, MobCombat ] # DeltaV - Add MobCombat as a parent
   id: MobCatShadow
   description: A lovely piece of darkness. Hope he doesn't bring you a curse.
   components:
@@ -65,3 +65,25 @@
   - type: Tag
     tags:
     - VimPilot
+  # Begin DeltaV additions - Make shadow cat a ghost role
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-shadow-cat-name
+    description: ghost-role-information-shadow-cat-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+  - type: Speech
+    speechSounds: Cat
+    speechVerb: SmallMob
+  # End DeltaV additions

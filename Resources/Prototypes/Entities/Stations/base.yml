@@ -52,19 +52,6 @@
 #          - type: TradeStation
 #          paths:
 #          - /Maps/Shuttles/trading_outpost.yml
-        mining: !type:GridSpawnGroup # DeltaV - reclaimer is a wreck instead of working shuttle
-          hide: true
-          nameGrid: true
-          minCount: 1
-          maxCount: 1
-          paths:
-          - /Maps/Shuttles/DeltaV/mining_broken.yml
-          - /Maps/Shuttles/DeltaV/mining_morebroken.yml
-          - /Maps/Shuttles/DeltaV/mining_mostdestroyed.yml
-          - /Maps/Shuttles/DeltaV/mining_ticks.yml
-          - /Maps/Shuttles/DeltaV/mining_carp.yml
-          - /Maps/Shuttles/DeltaV/mining_snakes.yml
-          - /Maps/Shuttles/DeltaV/mining_watcher.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
