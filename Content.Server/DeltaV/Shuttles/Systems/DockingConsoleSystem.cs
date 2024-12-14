@@ -128,10 +128,10 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         EntityUid? largestGrid = null;
         var largestSize = 0f;
 
-        if (TryComp<StationDataComponent>(_map.GetMap(map), out var station))
+        if (_station.GetStationInMap(map) is {} station)
         {
             // prevent picking vgroid and stuff
-            return _station.GetLargestGrid(station);
+            return _station.GetLargestGrid(Comp<StationDataComponent>(station));
         }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();

@@ -80,3 +80,16 @@
   - type: AccessReader
     access:
     - [ Salvage ]
+
+- type: entity
+  parent: ComputerShuttleMining
+  id: ComputerShuttleMiningGlacier
+  name: surface shuttle console
+  description: Used to fly passengers to and from the surface.
+  components:
+  - type: DockingConsole
+    windowTitle: surface-console-window-title
+  - type: AccessReader
+    access:
+    - [ Cargo ]
+  # lets hope nobody deconstructs it to reset the name + access...
