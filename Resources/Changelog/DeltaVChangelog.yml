@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: DangerRevolution and VMSolidus
-  changes:
-  - message: Adds pAI, one-way handheld radio, instrument and new fax machine to the
-      Listening Post
-    type: Add
-  - message: All Syndicate Operatives now spawn with a Cybersun Pen
-    type: Add
-  - message: Syndicate Listening Post Operative no longer requires whitelist
-    type: Remove
-  - message: Listening Post now spawns visible on IFF.
-    type: Add
-  - message: The Listening Outpost has received significant improvements to its interiors.
-      It's now a place I personally would feel comfortable working in-VMSolidus
-    type: Add
-  id: 269
-  time: '2024-03-08T03:35:45.0000000+00:00'
 - author: dge21
   changes:
   - message: Added a new crate to delight all the clowns and mimes.
@@ -3827,3 +3811,10 @@
   id: 768
   time: '2024-12-14T00:09:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2437
+- author: Radezolid
+  changes:
+  - message: Now cargo technicians can approve orders.
+    type: Tweak
+  id: 769
+  time: '2024-12-14T02:01:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2356
