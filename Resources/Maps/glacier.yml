@@ -49286,6 +49286,11 @@ entities:
     - type: Transform
       pos: -62.5,-9.5
       parent: 2
+  - uid: 7485
+    components:
+    - type: Transform
+      pos: 5.5,9.5
+      parent: 2
   - uid: 11132
     components:
     - type: Transform
@@ -56126,6 +56131,13 @@ entities:
     - type: Transform
       pos: -14.876214,-37.84526
       parent: 2
+- proto: FloraTreeChristmas02
+  entities:
+  - uid: 18143
+    components:
+    - type: Transform
+      pos: 5.430056,9.193438
+      parent: 2
 - proto: FloraTreeConifer01
   entities:
   - uid: 7320
@@ -56972,11 +56984,6 @@ entities:
     components:
     - type: Transform
       pos: -16.32563,27.480412
-      parent: 2
-  - uid: 7485
-    components:
-    - type: Transform
-      pos: 5.660138,10.122326
       parent: 2
   - uid: 7486
     components:
@@ -90888,8 +90895,6 @@ entities:
     - type: Transform
       pos: 1.5,9.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerLoad: 0
   - uid: 12562
     components:
     - type: Transform
@@ -115612,7 +115617,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6385.174
+      secondsUntilStateChange: -6621.204
       state: Opening
     - type: Airlock
       autoClose: False
@@ -115628,7 +115633,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6384.6074
+      secondsUntilStateChange: -6620.6377
       state: Opening
     - type: Airlock
       autoClose: False
@@ -115650,7 +115655,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6384.1406
+      secondsUntilStateChange: -6620.171
       state: Opening
     - type: Airlock
       autoClose: False
@@ -115666,7 +115671,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6385.674
+      secondsUntilStateChange: -6621.704
       state: Opening
     - type: Airlock
       autoClose: False
