@@ -25,7 +25,7 @@ public sealed class ArtifactMetapsionicTriggerSystem : EntitySystem
 
     private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
     {
-        var query = EntityQueryEnumerator<ArtifactMetaspionicTriggerComponent>();
+        var query = EntityQueryEnumerator<ArtifactMetapsionicTriggerComponent>();
         while (query.MoveNext(out var uid, out _))
         {
             _artifact.TryActivateArtifact(uid);
