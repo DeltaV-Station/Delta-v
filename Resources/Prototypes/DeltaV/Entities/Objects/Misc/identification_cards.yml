@@ -50,6 +50,19 @@
   - type: PresetIdCard
     job: Courier
 
+- type: entity
+  parent: IDCardStandard
+  id: CargoAssistantIDCard
+  name: cargo assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idcargoassistant
+  - type: PresetIdCard
+    job: CargoAssistant
+
 ## Alternate Job Titles
 
 # Passenger
