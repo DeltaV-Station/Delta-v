@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: Adrian16199
-  changes:
-  - message: Ifrits can no longer be zombified
-    type: Fix
-  id: 274
-  time: '2024-03-10T23:44:04.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Added the trading post, cargo technicians will now have to travel on
@@ -3822,3 +3816,11 @@
   id: 773
   time: '2024-12-15T10:57:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2449
+- author: Radezolid
+  changes:
+  - message: Clowns and Mimes now also have basic service access, no more broken windows
+      to get to the lathe!
+    type: Tweak
+  id: 774
+  time: '2024-12-15T10:58:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2388
