@@ -24,6 +24,8 @@
     - WhitelistChameleon
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # DeltaV
+  - type: MiningPoints # DeltaV
 
 #IDs with layers
 
@@ -851,3 +853,5 @@
     - NuclearOperative
     - SyndicateAgent
     - DV-SpareSafe # DeltaV
+  - type: NanoChatCard # DeltaV
+    notificationsMuted: true

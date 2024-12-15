@@ -1,145 +1,6 @@
 ﻿Entries:
 - author: DebugOk
   changes:
-  - message: Space mobs no longer have ghost roles
-    type: Fix
-  id: 255
-  time: '2024-02-26T20:20:53.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Overhauled the bar on The Hive
-    type: Tweak
-  id: 256
-  time: '2024-02-26T21:53:05.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Psionic invisibility has been disabled until the issues with it can be
-      properly fixed
-    type: Remove
-  id: 257
-  time: '2024-02-28T16:54:47.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Added prescription medical hud and security hud.
-    type: Add
-  id: 258
-  time: '2024-03-01T23:41:11.0000000+00:00'
-- author: deltanedas
-  changes:
-  - message: Fixed midround antags sometimes spawning on CentComm.
-    type: Fix
-  id: 259
-  time: '2024-03-02T22:27:13.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: Rat kings have been removed after a unanimous admin vote
-    type: Remove
-  id: 260
-  time: '2024-03-02T22:41:12.0000000+00:00'
-- author: TadJohnson00
-  changes:
-  - message: Warden requirements now include mandatory officer time and whitelist.
-    type: Tweak
-  id: 261
-  time: '2024-03-02T23:00:08.0000000+00:00'
-- author: DebugOk
-  changes:
-  - message: The salvage shuttle has been completely removed
-    type: Remove
-  - message: Salvage specialists now start with a mini jetpack in their locker
-    type: Tweak
-  id: 262
-  time: '2024-03-06T23:27:01.0000000+00:00'
-- author: DangerRevolution
-  changes:
-  - message: Added several new potential Lawsets for Cyborgs.
-    type: Add
-  - message: Janitor/Engineer/Medical Borgs spawn with their own lawsets.
-    type: Tweak
-  id: 263
-  time: '2024-03-07T22:22:42.0000000+00:00'
-- author: FluffiestFloof
-  changes:
-  - message: Pumpkin Pies can now be baked by professional Chefs.
-    type: Tweak
-  id: 264
-  time: '2024-03-07T22:49:22.0000000+00:00'
-- author: Velcroboy
-  changes:
-  - message: Reverted AME buff.
-    type: Tweak
-  id: 265
-  time: '2024-03-08T03:13:49.0000000+00:00'
-- author: JoeHammad
-  changes:
-  - message: Nuclear operative combat medics now have combination syndicate/medical
-      hud
-    type: Add
-  id: 266
-  time: '2024-03-08T03:18:03.0000000+00:00'
-- author: '- BonkTrauma and DangerRevolution'
-  changes:
-  - message: Added Prisoner communication channel and updated a few headsets to include
-      it
-    type: Add
-  id: 267
-  time: '2024-03-08T03:22:48.0000000+00:00'
-- author: Tryded
-  changes:
-  - message: Changed Energy Guns' charging time to half of what it originally was
-      to be similar to normal laser guns.
-    type: Tweak
-  id: 268
-  time: '2024-03-08T03:28:44.0000000+00:00'
-- author: DangerRevolution and VMSolidus
-  changes:
-  - message: Adds pAI, one-way handheld radio, instrument and new fax machine to the
-      Listening Post
-    type: Add
-  - message: All Syndicate Operatives now spawn with a Cybersun Pen
-    type: Add
-  - message: Syndicate Listening Post Operative no longer requires whitelist
-    type: Remove
-  - message: Listening Post now spawns visible on IFF.
-    type: Add
-  - message: The Listening Outpost has received significant improvements to its interiors.
-      It's now a place I personally would feel comfortable working in-VMSolidus
-    type: Add
-  id: 269
-  time: '2024-03-08T03:35:45.0000000+00:00'
-- author: dge21
-  changes:
-  - message: Added a new crate to delight all the clowns and mimes.
-    type: Add
-  id: 270
-  time: '2024-03-08T03:46:37.0000000+00:00'
-- author: adeinitas
-  changes:
-  - message: Vulpkanin can howl now. They also have deeper growling noises, and Harpies
-      have learned to mimic these growls.
-    type: Add
-  id: 271
-  time: '2024-03-08T03:49:28.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Changed shoukou's security.
-    type: Tweak
-  id: 272
-  time: '2024-03-08T19:57:01.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Implements ifriit
-    type: Fix
-  id: 273
-  time: '2024-03-09T22:45:42.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Ifrits can no longer be zombified
-    type: Fix
-  id: 274
-  time: '2024-03-10T23:44:04.0000000+00:00'
-- author: DebugOk
-  changes:
   - message: Added the trading post, cargo technicians will now have to travel on
       the shuttle to collect their goodies
     type: Add
@@ -3812,3 +3673,154 @@
   id: 754
   time: '2024-12-10T17:47:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2413
+- author: deltanedas
+  changes:
+  - message: Added Lavaland, coming soon to a station near you!
+    type: Add
+  - message: Removed the random reclaimer wrecks.
+    type: Remove
+  - message: Fixed not being able to build catwalks over lava.
+    type: Fix
+  id: 755
+  time: '2024-12-10T18:37:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2380
+- author: MilonPL
+  changes:
+  - message: Added PDA messaging!
+    type: Add
+  id: 756
+  time: '2024-12-10T20:33:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2362
+- author: Radezolid
+  changes:
+  - message: Shadow cats are now ghost roles, go pet your local shadow cat whenever
+      EPI is working a shadow anomaly!
+    type: Tweak
+  id: 757
+  time: '2024-12-11T13:09:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2417
+- author: MilonPL
+  changes:
+  - message: The Teach Person a Lesson objective will now register properly when your
+      target dies.
+    type: Fix
+  id: 758
+  time: '2024-12-12T00:18:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2412
+- author: Radezolid
+  changes:
+  - message: Now all jetpacks fit in the suit storage slot, salvage rejoice!
+    type: Tweak
+  id: 759
+  time: '2024-12-12T00:22:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2400
+- author: Velcroboy
+  changes:
+  - message: Hammurabi medical also has a rapid transit tube now!
+    type: Add
+  id: 760
+  time: '2024-12-12T02:41:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2357
+- author: Radezolid
+  changes:
+  - message: The blushing mime mask and the purple clown mask can now be obtained
+      at an autodrobe.
+    type: Tweak
+  id: 761
+  time: '2024-12-12T15:57:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2346
+- author: Radezolid
+  changes:
+  - message: LO now also requires time as a cargo technician.
+    type: Tweak
+  id: 762
+  time: '2024-12-12T16:30:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2399
+- author: Stop-Signs
+  changes:
+  - message: Reverse engineering machines now function much faster!
+    type: Tweak
+  id: 763
+  time: '2024-12-13T09:11:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2394
+- author: deltanedas
+  changes:
+  - message: Fixed lavaland for real this time.
+    type: Fix
+  id: 764
+  time: '2024-12-13T13:32:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2434
+- author: deltanedas
+  changes:
+  - message: You can now visit the surface of Glacier's planet, get a cargo tech to
+      fly you down at arrivals!
+    type: Add
+  id: 765
+  time: '2024-12-13T18:38:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2414
+- author: Radezolid
+  changes:
+  - message: Now ruins are a dirtier and a bit more broken.
+    type: Tweak
+  id: 766
+  time: '2024-12-13T20:06:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2423
+- author: Delta V Mapping Team
+  changes:
+  - message: Happy Holidays!
+    type: Add
+  id: 767
+  time: '2024-12-13T20:47:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2433
+- author: deltanedas
+  changes:
+  - message: Panic bunker is now automatically turned on for new players when there
+      are no admins.
+    type: Remove
+  id: 768
+  time: '2024-12-14T00:09:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2437
+- author: Radezolid
+  changes:
+  - message: Now cargo technicians can approve orders.
+    type: Tweak
+  id: 769
+  time: '2024-12-14T02:01:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2356
+- author: Lyndomen
+  changes:
+  - message: Clarifies that Sec/Command/Justice are required to follow IC documents
+      in good faith
+    type: Tweak
+  id: 770
+  time: '2024-12-14T21:18:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2442
+- author: deltanedas
+  changes:
+  - message: Fixed Vox gladiators not spawning with nitrogen tanks.
+    type: Fix
+  id: 771
+  time: '2024-12-15T03:03:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2446
+- author: Radezolid
+  changes:
+  - message: Added a new janitorial job title, select it from your loadout.!
+    type: Add
+  id: 772
+  time: '2024-12-15T10:51:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2448
+- author: Eternally-Confused
+  changes:
+  - message: Security jetpacks no longer start empty
+    type: Tweak
+  id: 773
+  time: '2024-12-15T10:57:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2449
+- author: Radezolid
+  changes:
+  - message: Clowns and Mimes now also have basic service access, no more broken windows
+      to get to the lathe!
+    type: Tweak
+  id: 774
+  time: '2024-12-15T10:58:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2388
