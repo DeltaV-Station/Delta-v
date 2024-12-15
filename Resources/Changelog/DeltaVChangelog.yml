@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: adeinitas
-  changes:
-  - message: Vulpkanin can howl now. They also have deeper growling noises, and Harpies
-      have learned to mimic these growls.
-    type: Add
-  id: 271
-  time: '2024-03-08T03:49:28.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Changed shoukou's security.
-    type: Tweak
-  id: 272
-  time: '2024-03-08T19:57:01.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Implements ifriit
-    type: Fix
-  id: 273
-  time: '2024-03-09T22:45:42.0000000+00:00'
-- author: Adrian16199
-  changes:
-  - message: Ifrits can no longer be zombified
-    type: Fix
-  id: 274
-  time: '2024-03-10T23:44:04.0000000+00:00'
 - author: DebugOk
   changes:
   - message: Added the trading post, cargo technicians will now have to travel on
@@ -3820,3 +3795,32 @@
   id: 770
   time: '2024-12-14T21:18:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2442
+- author: deltanedas
+  changes:
+  - message: Fixed Vox gladiators not spawning with nitrogen tanks.
+    type: Fix
+  id: 771
+  time: '2024-12-15T03:03:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2446
+- author: Radezolid
+  changes:
+  - message: Added a new janitorial job title, select it from your loadout.!
+    type: Add
+  id: 772
+  time: '2024-12-15T10:51:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2448
+- author: Eternally-Confused
+  changes:
+  - message: Security jetpacks no longer start empty
+    type: Tweak
+  id: 773
+  time: '2024-12-15T10:57:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2449
+- author: Radezolid
+  changes:
+  - message: Clowns and Mimes now also have basic service access, no more broken windows
+      to get to the lathe!
+    type: Tweak
+  id: 774
+  time: '2024-12-15T10:58:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2388
