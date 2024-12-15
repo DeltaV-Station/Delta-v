@@ -35,7 +35,7 @@ ghost-role-information-synthesis-rules =
 
     Brew deadly poisons, marvelous medicines, and anything in between.
     Sell your concoctions to [color=red]local agents[/color], crew, and anyone with supplies.
-    Stay on your ship; it is your job, home, and lifeblood.
+    Keep your ship operational; it is your job, home, and lifeblood.
 
 ghost-role-information-closet-skeleton-rules = You are a old member of the station, try to get your previous job back or dwell in the maintenance tunnels!.
                                                     You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
