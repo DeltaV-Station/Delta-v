@@ -871,7 +871,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Orders"]] # DeltaV - Let cargo techs skip them. Was Quartermaster
   - type: GuideHelp
     guides:
     - CargoBounties
