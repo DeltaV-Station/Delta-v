@@ -4,10 +4,11 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   # Begin DeltaV modifications - Add time requirement to cargo tech
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Logistics # DeltaV - Logistics Department replacing Cargo
-    time: 21600 # 6 hrs ~3 shifts.
+  # Uncomment once ready to deploy Cargo Assistant
+  #requirements:
+  #- !type:DepartmentTimeRequirement
+  #  department: Logistics # DeltaV - Logistics Department replacing Cargo
+  #  time: 21600 # 6 hrs ~3 shifts.
   # End DeltaV modifications
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
