@@ -103,3 +103,5 @@ laws-owner-people = people
 laws-owner-centralcommand = Central Command officials
 laws-owner-nanotrasen = Nanotrasen officials
 laws-owner-royalty = your kingdom and your subjects
+
+law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
