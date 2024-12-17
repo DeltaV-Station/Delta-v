@@ -439,6 +439,13 @@
   loadouts:
   - RoboticistPDA
 
+- type: loadoutGroup
+  id: JanitorPDADelta
+  name: loadout-group-janitor-id-delta
+  loadouts:
+  - JanitorPDA
+  - HygieneTechnicianPDA
+
 # Misc
 - type: loadoutGroup
   id: Scarfs
