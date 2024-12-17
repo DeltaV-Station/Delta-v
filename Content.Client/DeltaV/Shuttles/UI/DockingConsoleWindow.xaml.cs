@@ -50,7 +50,6 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         {
             MapFTLState.Text = Loc.GetString("docking-console-no-shuttle");
             _ftlStyle.BackgroundColor = Color.FromHex("#B02E26");
-            return;
         }
 
         Destinations.OnItemSelected += args => _selected = args.ItemIndex;
