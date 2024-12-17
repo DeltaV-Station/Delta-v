@@ -269,3 +269,13 @@
   components:
   - type: IdCard
     jobTitle: job-alt-title-fool
+
+# Janitor
+
+- type: entity
+  parent: JanitorIDCard
+  id: HygieneTechnicianIDCard
+  name: hygiene technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-hygiene-technician
