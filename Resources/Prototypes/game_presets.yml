@@ -80,6 +80,7 @@
   - shittersafari
   name: extended-title
   showInVote: false #2boring2vote # DeltaV - I'd like to disagree, used for periapsis.
+  maxPlayers: 3 # Stray
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -95,7 +96,7 @@
   - shittersafarideluxeedition
   name: greenshift-title
   showInVote: false #4boring4vote
-  maxPlayers: 10 # Stray
+  maxPlayers: 3 # Stray
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler

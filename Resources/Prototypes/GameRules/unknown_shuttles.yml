@@ -58,7 +58,7 @@
   id: UnknownShuttleCargoLost
   components:
   - type: StationEvent
-    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
 
@@ -68,7 +68,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
-    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
 
@@ -78,7 +78,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
-    maxOccurrences: 3 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
@@ -98,7 +98,7 @@
   - type: StationEvent
     startAnnouncement: null # It should be silent.
     weight: 5 # lower because weird freelance roles
-    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod
 
@@ -217,7 +217,7 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 11 # this is higher because its just a little generic personal shuttle
-    maxOccurrences: 4
+    maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: Microshuttle
 
