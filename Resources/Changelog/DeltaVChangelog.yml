@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: DebugOk
-  changes:
-  - message: Added the trading post, cargo technicians will now have to travel on
-      the shuttle to collect their goodies
-    type: Add
-  - message: Merged the shuttle console refactor. This may bring some bugs
-    type: Add
-  - message: The trading post will give you cash instead of directly adding funds
-      to the stations account. To turn this into money you can spend, click the cargo
-      requests computer while holding the spesos
-    type: Tweak
-  id: 275
-  time: '2024-03-11T15:56:45.0000000+00:00'
-- author: DangerRevolution
-  changes:
-  - message: minor wording changes in cyborg lawsets
-    type: Tweak
-  id: 276
-  time: '2024-03-11T17:56:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/953
-- author: GreggTheFather
-  changes:
-  - message: The server rules have been modified, be sure to read them!
-    type: Tweak
-  id: 277
-  time: '2024-03-12T00:31:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/952
-- author: DebugOk
-  changes:
-  - message: New replays should properly work again
-    type: Fix
-  - message: Old replays will remain unviewable until there's an engine fix for it
-    type: Remove
-  id: 278
-  time: '2024-03-12T15:54:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/959
-- author: UnicornOnLSD
-  changes:
-  - message: Pebble minor patch number two.
-    type: Tweak
-  id: 279
-  time: '2024-03-13T22:27:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/943
 - author: Velcroboy
   changes:
   - message: Added magnet pickup to Ore Processors and Material Reclaimer
@@ -3824,3 +3781,39 @@
   id: 774
   time: '2024-12-15T10:58:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2388
+- author: Radezolid
+  changes:
+  - message: Bounty skipping is now tied to the Order access.
+    type: Tweak
+  id: 775
+  time: '2024-12-16T00:48:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2454
+- author: Emily9031
+  changes:
+  - message: Centcom now has an empty AI core that you can upload the station's AI
+      to!
+    type: Add
+  id: 776
+  time: '2024-12-17T02:56:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2428
+- author: Radezolid
+  changes:
+  - message: The stocks cartridge now requires Logistic Officer access.
+    type: Tweak
+  id: 777
+  time: '2024-12-17T03:52:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2456
+- author: deltanedas
+  changes:
+  - message: Merged mid november-december changes from upstream.
+    type: Add
+  id: 778
+  time: '2024-12-17T04:45:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2389
+- author: BarryNorfolk
+  changes:
+  - message: Added atmospherics computer board to t1 research and enabled fabrication
+    type: Tweak
+  id: 779
+  time: '2024-12-17T08:49:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2452
