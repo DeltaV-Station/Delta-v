@@ -41,9 +41,9 @@
         whitelist:
           components:
           - Brain
-        blacklist:
+        blacklist: # DeltaV
           components:
-          - Unborgable # DeltaV
+          - Unborgable
   - type: ContainerContainer
     containers:
       brain_slot: !type:ContainerSlot

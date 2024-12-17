@@ -50,10 +50,7 @@ namespace Content.Server.Body.Systems
 
         private void OnExamined(Entity<UnborgableComponent> ent, ref ExaminedEvent args) //DeltaV
         {
-            var msg = new FormattedMessage();
-            msg.AddMarkupPermissive("[color=red]This brain is damaged beyond use.[/color]");
-
-            args.PushMessage(msg, 1);
+            args.PushMarkup($"[color=red]{Loc.GetString("brain-cannot-be-borged-message")}[/color]");
         }
 
         private void OnPointAttempt(Entity<BrainComponent> ent, ref PointAttemptEvent args)

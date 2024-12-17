@@ -4,7 +4,4 @@ namespace Content.Server.Traits.Assorted;
 /// This is used for the unborgable trait.
 /// </summary>
 [RegisterComponent]
-public sealed partial class UnborgableComponent : Component
-{
-
-}
+public sealed partial class UnborgableComponent : Component;
