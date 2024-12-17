@@ -445,3 +445,15 @@
   - type: Pda
     id: FoolIDCard
     state: pda-fool # - aPDA Sprite Rework
+
+# Janitor
+
+- type: entity
+  parent: JanitorPDA
+  id: HygieneTechnicianPDA
+  name: hygiene technician PDA
+  description: It sounded better than it is or so Jeffrey said.
+  components:
+  - type: Pda
+    id: HygieneTechnicianIDCard
+    state: pda-hygienetechnician
