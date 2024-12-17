@@ -1073,3 +1073,73 @@
     proto: BulletDisablerSmg
     count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
     spread: 9
+
+- type: entity
+  name: energy bolt
+  id: BulletEnergyGunLaser
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: red
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
+    soundHit:
+      collection: MeatLaserImpact
+
+- type: entity
+  abstract: true
+  id: BaseBulletTracer
+  components:
+  - type: Tracer
+  - type: PointLight
+    radius: 1.3
+    energy: 2
+    color: "#ff0000"
+
+- type: entity
+  abstract: true
+  parent: BaseBulletTracer
+  id: BaseBulletTracerYellow
+  components:
+  - type: Tracer
+    color: "#ffff00"
+  - type: PointLight
+    color: "#ffff00"
+
+- type: entity
+  abstract: true
+  parent: BaseBulletTracer
+  id: BaseBulletTracerGreen
+  components:
+  - type: Tracer
+    color: "#008000"
+  - type: PointLight
+    color: "#008000"
