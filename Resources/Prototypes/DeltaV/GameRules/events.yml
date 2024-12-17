@@ -189,6 +189,8 @@
         nameSegments:
         - fake_human_first
         - fake_human_last
+      - type: RandomHumanoidAppearance
+        randomizeName: false
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
