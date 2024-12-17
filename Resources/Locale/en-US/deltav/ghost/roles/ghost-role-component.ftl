@@ -35,7 +35,7 @@ ghost-role-information-synthesis-rules =
 
     Brew deadly poisons, marvelous medicines, and anything in between.
     Sell your concoctions to [color=red]local agents[/color], crew, and anyone with supplies.
-    Stay on your ship; it is your job, home, and lifeblood.
+    Keep your ship operational; it is your job, home, and lifeblood.
 
 ghost-role-information-closet-skeleton-rules = You are a old member of the station, try to get your previous job back or dwell in the maintenance tunnels!.
                                                     You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
@@ -46,3 +46,6 @@ ghost-role-information-syndicate-refugee-rules = You're a regular crewmember fro
                                                     You are a [color=green][bold]Non-antagonist[/bold][/color].
                                                     You're allowed to commit crimes, don't be a threat to the station, don't assist Syndicate agents, metashield rules applies.
                                                     All normal rules apply unless an administrator tells you otherwise.
+
+ghost-role-information-shadow-cat-name = Shadow Cat
+ghost-role-information-shadow-cat-description = A cute cat made of... shadows? How?!
