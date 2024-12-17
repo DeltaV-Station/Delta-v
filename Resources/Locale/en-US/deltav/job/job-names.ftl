@@ -47,11 +47,14 @@ job-alt-title-excavator = Excavator
 job-alt-title-senior-researcher = Senior Researcher
 job-alt-title-lab-technician = Lab Technician
 job-alt-title-xenoarch = Xenoarchaeologist
+job-alt-title-roboticist = Roboticist
 
 job-alt-title-senior-officer = Senior Officer
 
 job-alt-title-jester = Jester
 job-alt-title-fool = Fool
+
+job-alt-title-hygiene-technician = Hygiene Technician
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
@@ -60,4 +63,3 @@ JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
-JobRoboticist = Roboticist

@@ -69,8 +69,8 @@ public sealed class DCCVars
     /// <summary>
     /// How long with no captain before requesting an ACO be elected.
     /// </summary>
-    public static readonly CVarDef<TimeSpan> RequestAcoDelay =
-        CVarDef.Create("game.request_aco_delay", TimeSpan.FromMinutes(15), CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<float> RequestAcoDelay =
+        CVarDef.Create("game.request_aco_delay_minutes", 15f, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Determines whether an ACO should be requested when the captain leaves during the round,
@@ -88,8 +88,8 @@ public sealed class DCCVars
     /// <summary>
     /// How long after an ACO request announcement is made before All Access (AA) should be unlocked.
     /// </summary>
-    public static readonly CVarDef<TimeSpan> AutoUnlockAllAccessDelay =
-        CVarDef.Create("game.auto_unlock_aa_delay", TimeSpan.FromMinutes(5), CVar.SERVERONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<float> AutoUnlockAllAccessDelay =
+        CVarDef.Create("game.auto_unlock_aa_delay_minutes", 5f, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /*
      * Misc.

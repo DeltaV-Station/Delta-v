@@ -27,6 +27,7 @@ loadout-group-passenger-id-delta = Passenger PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
 loadout-group-clown-id-delta = Clown PDA
+loadout-group-janitor-id-delta = Janitor PDA
 
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
@@ -70,13 +71,6 @@ loadout-group-mantis-jumpsuit = Mantis jumpsuit
 loadout-group-mantis-outerclothing = Mantis outer clothing
 loadout-group-mantis-shoes = Mantis shoes
 loadout-group-mantis-gloves = Mantis gloves
-
-loadout-group-roboticist-head = Roboticist head
-loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
-loadout-group-roboticist-gloves = Roboticist gloves
-loadout-group-roboticist-shoes = Roboticist shoes
-loadout-group-roboticist-outerclothing = Roboticist outer clothing
-loadout-group-roboticist-id = Roboticist PDA
 
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
