@@ -44733,22 +44733,6 @@ entities:
           - 4648
           - 4646
           - 4649
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
-          priority: 0
-          component: Armor
-        title: null
   - uid: 19023
     components:
     - type: Transform
@@ -44771,25 +44755,6 @@ entities:
     - type: Transform
       pos: 47.68264,37.256897
       parent: 100
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
-          priority: 0
-          component: Armor
-        - message: This decreases your running speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        title: null
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
   - uid: 20547
@@ -45627,35 +45592,6 @@ entities:
     - type: Transform
       pos: 46.185028,37.329365
       parent: 100
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: This decreases your speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            It provides the following protection:
-
-            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]15%[/color].
-
-            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]10%[/color].
-
-            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]15%[/color].
-
-            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]20%[/color].
-
-            - [color=yellow]Stamina melee[/color] damage reduced by [color=lightblue]15%[/color].
-
-            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]15%[/color].
-          priority: 0
-          component: Armor
-        title: null
 - proto: ClothingOuterRobeBrown
   entities:
   - uid: 16749
