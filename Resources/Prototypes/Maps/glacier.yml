@@ -2,6 +2,8 @@
   id: Glacier
   mapName: Glacier
   mapPath: /Maps/glacier.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 15
   maxPlayers: 60
   stations:
@@ -15,13 +17,13 @@
           prefixCreator: 'NY'
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
-      # uncomment when planets arent fucked sideways
-      #- type: StationSurface
-      #  mapPath: /Maps/Nonstations/glacier_surface.yml
-      #  biome: Snow
+      - type: StationPlanetSpawner
+        planet: GlacierSurface
+        gridPath: /Maps/Nonstations/DeltaV/glacier_surface_outpost.yml
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]
+          StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
@@ -57,6 +59,7 @@
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
+          Roboticist: [ 1, 2 ]
           Scientist: [ 2, 3 ]
           ResearchAssistant: [ 2, 2 ]
           Borg: [ 2, 3 ]

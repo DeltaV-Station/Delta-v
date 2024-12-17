@@ -3,14 +3,41 @@
 on:
   pull_request_target:
     types: [review_requested]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  pull-requests: write
+  contents: write
 
 jobs:
   add_label:
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request_target'
     steps:
     - uses: actions-ecosystem/action-add-labels@v1
       with:
-        labels: "Status: Needs Review"
+        labels: "S: Needs Review"
     - uses: actions-ecosystem/action-remove-labels@v1
       with:
-        labels: "Status: Awaiting Changes"
+        labels: "S: Awaiting Changes"
+
+  handle_review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request_review'
+    steps:
+    - uses: actions-ecosystem/action-add-labels@v1
+      if: |
+        github.event.review.state == 'changes_requested' &&
+        (github.event.review.author_association == 'OWNER' ||
+         github.event.review.author_association == 'MEMBER')
+      with:
+        labels: "S: Awaiting Changes"
+
+    - uses: actions-ecosystem/action-remove-labels@v1
+      if: |
+        github.event.review.state == 'changes_requested' &&
+        (github.event.review.author_association == 'OWNER' ||
+         github.event.review.author_association == 'MEMBER')
+      with:
+        labels: "S: Needs Review"

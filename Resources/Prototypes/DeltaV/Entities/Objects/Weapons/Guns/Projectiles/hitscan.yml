@@ -13,3 +13,34 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_omni
+
+- type: hitscan
+  id: BeamLaser
+  damage:
+    types:
+      Heat: 2
+  muzzleFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+- type: hitscan
+  id: BeamDev
+  damage:
+    types:
+      Heat: 5
+      Structural: 20
+  muzzleFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: DeltaV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser

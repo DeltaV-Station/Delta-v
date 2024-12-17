@@ -27,6 +27,7 @@ loadout-group-passenger-id-delta = Passenger PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
 loadout-group-clown-id-delta = Clown PDA
+loadout-group-janitor-id-delta = Janitor PDA
 
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
@@ -74,6 +75,14 @@ loadout-group-mantis-gloves = Mantis gloves
 loadout-group-chaplain-shoes = Chaplain shoes
 loadout-group-bibles = Bibles
 
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-id = Roboticist PDA
+
+
 # Engineering
 loadout-group-station-engineer-neck = Station Engineer neck
 
@@ -95,6 +104,13 @@ loadout-group-brig-medic-outerclothing = Corpsman outer clothing
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
+
+loadout-group-security-gun = Security Sidearm
+loadout-group-revolver-gun = Security Revolver
+loadout-group-all-gun = Security Sidearm
+loadout-group-security-gun-ammo = Ammunition
+loadout-group-revolver-ammo = Ammunition
+loadout-group-all-ammo = Ammunition
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head

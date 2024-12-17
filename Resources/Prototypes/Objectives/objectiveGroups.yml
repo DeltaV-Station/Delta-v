@@ -22,7 +22,7 @@
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
-    SecretDocumentsStealObjective: 0.5
+    ClerkNotaryStealObjective: 0.5 # DeltaV
     LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
@@ -32,7 +32,8 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    KillRandomPersonObjective: 1
+    # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
+    TeachLessonRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
 
 - type: weightedRandom

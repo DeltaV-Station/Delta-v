@@ -9,7 +9,6 @@
     role: JobBorg
     time: 54000  # 15 hrs
   canBeAntag: false
-  setPreference: false # DeltaV - disable AI until its fleshed out
   whitelisted: true # DeltaV - ai must be whitelisted
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
@@ -27,5 +26,5 @@
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgGeneric
+  jobEntity: PlayerBorgBattery
   applyTraits: false

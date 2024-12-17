@@ -41,9 +41,9 @@
   productEntity: Observationskit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3
   cost:
-    Telecrystal: 4
+    Telecrystal: 6 # DeltaV - Price Goes up, but the goods are better!
   categories:
   - UplinkDeception
 
@@ -75,21 +75,6 @@
   categories:
   - UplinkImplants
 
-
-- type: listing
-  id: UplinkGenericRadioImplanter
-  name: uplink-generic-radio-implanter-name
-  description: uplink-generic-radio-implanter-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: crypt_rusted }
-  productEntity: GenericRadioImplanter
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkImplants
-
 - type: listing
   id: UplinkDoorjack
   name: uplink-doorjack-name
@@ -110,9 +95,25 @@
   productEntity: BaseBallBatHomeRun
   icon:
     entity: BaseBallBatHomeRun
+  discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 6
   cost:
     Telecrystal: 16
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkRealFoamSabre
+  name: uplink-foam-sabre-name
+  description: uplink-foam-sabre-desc
+  productEntity: ClothingBeltRealFoamSheathFilled
+  icon:
+    entity: RealFoamSabre
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 6
   categories:
   - UplinkWeaponry
