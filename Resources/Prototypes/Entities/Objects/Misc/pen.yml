@@ -1,8 +1,9 @@
 - type: entity
   name: pen
   parent: BaseItem
-  id: Pen
+  id: BasePen #NES14-Changes
   description: A dark ink pen.
+  abstract: true
   components:
   - type: Sprite
     sprite: Objects/Misc/pens.rsi
@@ -28,7 +29,28 @@
     delay: 1.5
 
 - type: entity
-  parent: Pen
+  name: ручка
+  parent: BasePen
+  id: Pen
+  components:
+  - type: Sprite
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+    state: 1
+  - type: RandomSprite
+    available:
+      - 0:
+          1: ""
+          2: ""
+          3: ""
+          4: ""
+          5: ""
+          6: ""
+          7: ""
+  - type: Item
+    sprite: NES/Objects/Misc/bureaucracy.rsi
+
+- type: entity
+  parent: BasePen
   id: PenEmbeddable
   abstract: true
   components:
@@ -47,7 +69,7 @@
 
 - type: entity
   name: luxury pen
-  parent: Pen
+  parent: BasePen
   id: LuxuryPen
   description: A fancy and expensive pen that you only deserve to own if you're qualified to handle vast amounts of paperwork.
   components:
