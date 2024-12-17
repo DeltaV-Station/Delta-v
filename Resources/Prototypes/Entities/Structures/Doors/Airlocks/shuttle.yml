@@ -31,6 +31,22 @@
   - type: Sprite
     sprite: NES/Structures/Doors/Airlocks/Standard/shuttle.rsi #NES14-Changes
     snapCardinals: false
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Wires
     layoutId: Docking
   - type: Door
@@ -99,7 +115,6 @@
   - type: Sprite
     sprite: NES/Structures/Doors/Airlocks/Glass/shuttle.rsi #NES14-Changes
     state: closed
-    snapCardinals: false
   - type: Construction
     graph: AirlockShuttle
     node: assembly

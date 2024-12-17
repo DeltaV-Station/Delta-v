@@ -17,11 +17,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: Bloodpack
-      - id: SyringeEphedrine
-      - id: EmergencyMedipen
+      - id: MedkitFirstCombatAidFilled
+      - id: InjectorCaseBlueShield
+      - id: MagazineUniversalMagnum
+        amount: 2
+      - id: MagazineUniversalMagnumRubber
 
 - type: entity
   id: ClothingBeltFoamSheathFilled

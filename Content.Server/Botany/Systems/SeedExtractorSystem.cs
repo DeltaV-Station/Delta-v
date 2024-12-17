@@ -38,7 +38,6 @@ public sealed class SeedExtractorSystem : EntitySystem
             args.User, PopupType.Medium);
 
         QueueDel(args.Used);
-        args.Handled = true;
 
         var amount = _random.Next(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1);
         var coords = Transform(uid).Coordinates;

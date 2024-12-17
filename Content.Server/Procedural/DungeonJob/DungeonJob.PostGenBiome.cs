@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Content.Server.Parallax;
-using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
@@ -16,35 +15,27 @@ public sealed partial class DungeonJob
     /// </summary>
     private async Task PostGen(BiomeDunGen dunGen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        if (!_prototype.TryIndex(dunGen.BiomeTemplate, out var indexedBiome))
+        if (_entManager.TryGetComponent(_gridUid, out BiomeComponent? biomeComp))
             return;
 
+        biomeComp = _entManager.AddComponent<BiomeComponent>(_gridUid);
         var biomeSystem = _entManager.System<BiomeSystem>();
-
+        biomeSystem.SetTemplate(_gridUid, biomeComp, _prototype.Index(dunGen.BiomeTemplate));
         var seed = random.Next();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
 
-        var tiles = _maps.GetAllTilesEnumerator(_gridUid, _grid);
-        while (tiles.MoveNext(out var tileRef))
+        foreach (var node in dungeon.RoomTiles)
         {
-            var node = tileRef.Value.GridIndices;
-
             if (reservedTiles.Contains(node))
                 continue;
-            
-            if (dunGen.TileMask is not null)
-            {
-                if (!dunGen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))
-                    continue;
-            }
 
             // Need to set per-tile to override data.
-            if (biomeSystem.TryGetTile(node, indexedBiome.Layers, seed, _grid, out var tile))
+            if (biomeSystem.TryGetTile(node, biomeComp.Layers, seed, _grid, out var tile))
             {
                 _maps.SetTile(_gridUid, _grid, node, tile.Value);
             }
 
-            if (biomeSystem.TryGetDecals(node, indexedBiome.Layers, seed, _grid, out var decals))
+            if (biomeSystem.TryGetDecals(node, biomeComp.Layers, seed, _grid, out var decals))
             {
                 foreach (var decal in decals)
                 {
@@ -52,7 +43,7 @@ public sealed partial class DungeonJob
                 }
             }
 
-            if (biomeSystem.TryGetEntity(node, indexedBiome.Layers, tile ?? tileRef.Value.Tile, seed, _grid, out var entityProto))
+            if (biomeSystem.TryGetEntity(node, biomeComp, _grid, out var entityProto))
             {
                 var ent = _entManager.SpawnEntity(entityProto, new EntityCoordinates(_gridUid, node + _grid.TileSizeHalfVector));
                 var xform = xformQuery.Get(ent);
@@ -70,5 +61,7 @@ public sealed partial class DungeonJob
             if (!ValidateResume())
                 return;
         }
+
+        biomeComp.Enabled = false;
     }
 }

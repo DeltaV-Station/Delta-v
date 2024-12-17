@@ -2,14 +2,13 @@ using Content.Shared.Access.Components;
 using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.DeltaV.NanoChat; // DeltaV
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - Made partial
+public sealed class LogProbeCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
@@ -19,7 +18,6 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
     public override void Initialize()
     {
         base.Initialize();
-        InitializeNanoChat(); // DeltaV
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeAfterInteractEvent>(AfterInteract);
     }
@@ -35,15 +33,6 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
         if (args.InteractEvent.Handled || !args.InteractEvent.CanReach || args.InteractEvent.Target is not { } target)
             return;
 
-        // DeltaV begin - Add NanoChat card scanning
-        if (TryComp<NanoChatCardComponent>(target, out var nanoChatCard))
-        {
-            ScanNanoChatCard(ent, args, target, nanoChatCard);
-            args.InteractEvent.Handled = true;
-            return;
-        }
-        // DeltaV end
-
         if (!TryComp(target, out AccessReaderComponent? accessReaderComponent))
             return;
 
@@ -52,7 +41,6 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
         _popupSystem.PopupCursor(Loc.GetString("log-probe-scan", ("device", target)), args.InteractEvent.User);
 
         ent.Comp.PulledAccessLogs.Clear();
-        ent.Comp.ScannedNanoChatData = null; // DeltaV - Clear any previous NanoChat data
 
         foreach (var accessRecord in accessReaderComponent.AccessLog)
         {
@@ -77,7 +65,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
 
     private void UpdateUiState(Entity<LogProbeCartridgeComponent> ent, EntityUid loaderUid)
     {
-        var state = new LogProbeUiState(ent.Comp.PulledAccessLogs, ent.Comp.ScannedNanoChatData); // DeltaV - NanoChat support
+        var state = new LogProbeUiState(ent.Comp.PulledAccessLogs);
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 }

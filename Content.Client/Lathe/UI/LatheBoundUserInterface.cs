@@ -1,4 +1,3 @@
-using Content.Shared.DeltaV.Salvage; // DeltaV
 using Content.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
@@ -32,8 +31,6 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new LatheQueueRecipeMessage(recipe, amount));
             };
-
-            _menu.OnClaimMiningPoints += () => SendMessage(new LatheClaimMiningPointsMessage()); // DeltaV
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

@@ -197,6 +197,17 @@ namespace Content.Server.Connection
                 hwId = null;
             }
 
+            if (_cfg.GetCVar(DCCVars.BlockProxyConnections))
+            {
+                var flags = await _db.GetBanExemption(e.UserId);
+                if (flags == ServerBanExemptFlags.None)
+                {
+                    var result = await _detectionManager.ShouldDeny(e); // This is ran before the ban check because it'll insert a ban
+                    if (result.Item1)
+                        return (ConnectionDenyReason.Ban, result.Item2, null);
+                }
+            }
+
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, includeUnbanned: false);
             if (bans.Count > 0)
             {

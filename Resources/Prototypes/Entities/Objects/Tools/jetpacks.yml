@@ -33,21 +33,20 @@
       weightlessModifier: 1.2
     - type: CanMoveInAir
     - type: Sprite
-      sprite: DeltaV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+      sprite: Objects/Tanks/Jetpacks/blue.rsi
       state: icon
     - type: Item
-      sprite: DeltaV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+      sprite: Objects/Tanks/Jetpacks/blue.rsi
       size: Huge
     - type: UserInterface
       interfaces:
         enum.SharedGasTankUiKey.Key:
           type: GasTankBoundUserInterface
     - type: Clothing
-      sprite: DeltaV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+      sprite: Objects/Tanks/Jetpacks/blue.rsi
       quickEquip: false
       slots:
         - Back
-        - SuitStorage # DeltaV - Allow all jetpacks to fit in the suit storage slot
     - type: GasTank
       outputPressure: 21.3
       air:
@@ -88,13 +87,11 @@
   suffix: Empty
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    sprite: Objects/Tanks/Jetpacks/blue.rsi
   - type: Clothing
-    sprite: DeltaV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-    # DeltaV modifications - Covered by modifications on parent
-    #slots:
-    #  - Back
-    # End DeltaV modifications
+    sprite: Objects/Tanks/Jetpacks/blue.rsi
+    slots:
+      - Back
 
 # Filled blue
 - type: entity
@@ -121,15 +118,13 @@
   suffix: Empty
   components:
   - type: Item
-    sprite: DeltaV/Objects/Tanks/Jetpacks/black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    sprite: Objects/Tanks/Jetpacks/black.rsi
   - type: Sprite
-    sprite: DeltaV/Objects/Tanks/Jetpacks/black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    sprite: Objects/Tanks/Jetpacks/black.rsi
   - type: Clothing
-    sprite: DeltaV/Objects/Tanks/Jetpacks/black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-    # DeltaV modifications - Covered by modifications on parent
-    #slots:
-    #  - Back
-    # End DeltaV modifications
+    sprite: Objects/Tanks/Jetpacks/black.rsi
+    slots:
+      - Back
 
 # Filled black
 - type: entity
@@ -159,10 +154,9 @@
     sprite: Objects/Tanks/Jetpacks/captain.rsi
   - type: Clothing
     sprite: Objects/Tanks/Jetpacks/captain.rsi
-    # DeltaV modifications - Covered by modifications on parent
-    #slots:
-    #  - Back
-    # End DeltaV modifications
+    slots:
+      - Back
+      - SuitStorage
   - type: Item
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     size: Normal

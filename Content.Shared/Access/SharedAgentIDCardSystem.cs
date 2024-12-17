@@ -28,26 +28,12 @@ namespace Content.Shared.Access.Systems
         public string CurrentName { get; }
         public string CurrentJob { get; }
         public string CurrentJobIconId { get; }
-        public uint? CurrentNumber { get; } // DeltaV
 
-        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId, uint? currentNumber = null) // DeltaV - Added currentNumber
+        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId)
         {
             CurrentName = currentName;
             CurrentJob = currentJob;
             CurrentJobIconId = currentJobIconId;
-            CurrentNumber = currentNumber; // DeltaV
-        }
-    }
-
-    // DeltaV - Add number change message
-    [Serializable, NetSerializable]
-    public sealed class AgentIDCardNumberChangedMessage : BoundUserInterfaceMessage
-    {
-        public uint Number { get; }
-
-        public AgentIDCardNumberChangedMessage(uint number)
-        {
-            Number = number;
         }
     }
 

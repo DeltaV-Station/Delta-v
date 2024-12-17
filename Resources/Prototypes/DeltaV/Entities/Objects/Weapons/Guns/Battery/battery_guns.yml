@@ -265,6 +265,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]

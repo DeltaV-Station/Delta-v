@@ -119,14 +119,8 @@
   - type: ContainerContainer
     containers:
       Nuke: !type:ContainerSlot
-  - type: Construction # DeltaV: Plutonium core extraction
+  - type: Construction
     node: nuke
-  - type: StealTarget
-    stealGroup: NuclearBomb
-  - type: WarpPoint
-    follow: true
-    location: nuclear bomb
-  - type: FTLSmashImmune
 
 - type: entity
   parent: NuclearBomb
