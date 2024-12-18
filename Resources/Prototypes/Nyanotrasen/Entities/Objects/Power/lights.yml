@@ -14,7 +14,7 @@
     PowerUse: 75
   - type: Sprite
     sprite:  Objects/Power/light_tube.rsi
-    state: normal 
+    state: normal
 
 - type: entity
   parent: BaseLightbulb
@@ -26,9 +26,13 @@
   - type: LightBulb
     bulb: Bulb
     color: "#FFD1A3" # 4000K color temp
-    lightEnergy: 0.7
-    lightRadius: 1.5
-    lightSoftness: 1.1 
+    lightEnergy: 0.05
+    lightRadius: 5
+    lightSoftness: 7
+  - type: Tag
+    tags:
+    - LightBulb
+    - Trash
 
 # Colored
 
@@ -47,7 +51,7 @@
     PowerUse: 25
   - type: Sprite
     sprite:  Objects/Power/light_tube.rsi
-    state: normal 
+    state: normal
 
 - type: entity
   parent: BaseLightbulb
@@ -64,8 +68,8 @@
     PowerUse: 25
   - type: Sprite
     sprite:  Objects/Power/light_tube.rsi
-    state: normal 
-    
+    state: normal
+
 - type: entity
   parent: BaseLightbulb
   name: black light tube
@@ -82,17 +86,3 @@
   - type: Sprite
     sprite:  Objects/Power/light_tube.rsi
     state: normal
-
-- type: entity
-  parent: BaseLightbulb
-  name: incandescent light bulb
-  suffix: Maintenance, Red
-  id: LightBulbMaintenanceRed
-  description: A dim light bulb. These emit a red hue.
-  components:
-  - type: LightBulb
-    bulb: Bulb
-    color: "#FF6666" # 4000K color temp
-    lightEnergy: 1.1
-    lightRadius: 1.5
-    lightSoftness: 1.1

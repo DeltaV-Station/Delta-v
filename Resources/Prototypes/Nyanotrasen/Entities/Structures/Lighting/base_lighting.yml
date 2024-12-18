@@ -6,10 +6,16 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: BlueLightTube
+  - type: PointLight
+    radius: 12
+    energy: 3
+    softness: 0.5
+    color: "#B4FCF0"
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 0.2
+        Heat: 2
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   parent: AlwaysPoweredWallLight
@@ -31,10 +37,16 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightBulbMaintenance
+  - type: PointLight
+    radius: 5
+    energy: 0.05
+    softness: 7
+    color: "#FFD1A3"
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 0.2
+        Heat: 2
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   parent: SmallLight
@@ -43,9 +55,9 @@
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   components:
   - type: PointLight
-    radius: 1.5
-    energy: 0.7
-    softness: 1.1
+    radius: 5
+    energy: 0.05
+    softness: 7
     color: "#FFD1A3"
 
 #Colored lights
@@ -58,10 +70,16 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeRed
+  - type: PointLight
+    radius: 10
+    energy: 0.9
+    softness: 0.5
+    color: "#FF6666"
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 0.2
+        Heat: 2
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   id: AlwaysPoweredLightColoredRed
@@ -83,10 +101,16 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeFrostyBlue
+  - type: PointLight
+    radius: 10
+    energy: 0.8
+    softness: 1
+    color: "#00FFFF"
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 0.2
+        Heat: 2
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   id: AlwaysPoweredLightColoredFrostyBlue
@@ -108,10 +132,16 @@
   components:
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeBlackLight
+  - type: PointLight
+    radius: 10
+    energy: 1.1
+    softness: 1
+    color: "#5D0CED"
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 0.2
+        Heat: 2
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   id: AlwaysPoweredLightColoredBlack
@@ -136,10 +166,18 @@
     state: base
   - type: PoweredLight
     hasLampOnSpawn: ColoredLightTubeRed
+  - type: PointLight
+    enabled: true
+    radius: 10
+    energy: 0.9
+    softness: 1
+    offset: "0, -0.5"
+    color: "#FF6666"
   - type: DamageOnInteract
     damage:
       types:
         Heat: 2
+    popupText: powered-light-component-burn-hand
   - type: StaticPrice
     price: 75
 
@@ -157,29 +195,4 @@
     energy: 0.9
     softness: 1
     offset: "0, -0.5"
-    color: "#FF6666"
-
-- type: entity
-  parent: PoweredSmallLight
-  id: PoweredSmallLightMaintenanceRed
-  suffix: Maintenance, Red
-  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
-  components:
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbMaintenanceRed
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 0.2
-
-- type: entity
-  parent: SmallLight
-  id: AlwaysPoweredSmallLightMaintenanceRed
-  suffix: Always Powered, Maintenance, Red
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  components:
-  - type: PointLight
-    radius: 1.5
-    energy: 1.1
-    softness: 1.1
     color: "#FF6666"

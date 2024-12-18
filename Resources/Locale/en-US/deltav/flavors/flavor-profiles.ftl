@@ -29,6 +29,7 @@ flavor-complex-blellow = like an impossible color
 flavor-complex-candy-strawberry = like strawberries
 flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
+flavor-complex-drgibbbloodred = like severe malpractice
 
 ## Delta-V additional drink flavors
 flavor-complex-absinthe = like green death
