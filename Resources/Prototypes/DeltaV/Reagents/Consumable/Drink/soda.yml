@@ -20,3 +20,28 @@
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
           amount: 0.05
+
+- type: reagent
+  id: Tarragon
+  name: reagent-name-tarragon
+  parent: Cola
+  desc: reagent-desc-cola
+  physicalDesc: reagent-physical-desc-tarragon
+  flavor: flavor-tarragon
+  color: "#99bb43"
+  recognizable: true
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/colaglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 1.0
+        type: Remove
