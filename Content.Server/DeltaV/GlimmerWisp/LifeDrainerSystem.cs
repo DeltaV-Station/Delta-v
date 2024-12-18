@@ -1,5 +1,6 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
+using Content.Shared.DeltaV.Carrying;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -11,7 +12,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Content.Server.NPC.Components;
-using Content.Server.Carrying;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
