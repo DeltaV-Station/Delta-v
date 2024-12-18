@@ -43,6 +43,17 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -50,6 +61,7 @@
     bodyType: KinematicController
   - type: Hands
     showInHands: false
+  - type: ComplexInteraction
   - type: Body
     prototype: Drone
   - type: IntrinsicRadioReceiver
@@ -67,6 +79,8 @@
   - type: StandingState
   - type: Alerts
   - type: ProtectedFromStepTriggers
+  - type: InputMover
+  - type: MobMover
 
 - type: entity
   name: drone
