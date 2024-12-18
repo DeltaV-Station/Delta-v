@@ -64,13 +64,6 @@
     capacity: 1 # Delta V - Reduced ammo count due to increased power
     proto: CartridgeAntiMateriel
   - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
-  - type: Gun
-    fireRate: 0.4
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
 
 - type: entity
   name: musket
