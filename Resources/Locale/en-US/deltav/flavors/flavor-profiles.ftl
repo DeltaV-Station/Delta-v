@@ -74,7 +74,6 @@ flavor-complex-syndicate-bomb = like it will blow your mind
 flavor-complex-toxins-special = like a plasma fire
 flavor-complex-vodka-martini = shaken, not stirred
 flavor-complex-vodka-tonic = like depression in denial
-flavor-complex-xeno-basher = like you can't bash them all
 flavor-complex-kvass = like bread tossed into a blender
 flavor-complex-mothamphetamine = like there are buzzing wings in your mouth
 
