@@ -22,3 +22,9 @@ fugitive-set-infiltrator-name = infiltrator's kit
 fugitive-set-infiltrator-description =
     Use an Agent ID to steal access from others and go anywhere.
     Your freedom implanter can be used as a plan B if all else fails.
+
+fugitive-set-disruptor-name = disruptor's kit
+fugitive-set-disruptor-description =
+    Hack the stations various systems and use them to your advantage.
+    Comes with a cryptographic sequencer and camera bug.
+
