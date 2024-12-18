@@ -100,3 +100,17 @@
       amount: 1
   products:
     DoubleIceCream: 3
+
+- type: reaction
+  id: LemonLimeBitters
+  reactants:
+    Lemonade:
+      amount: 5
+    JuiceLime:
+      amount: 2
+    Sugar:
+      amount: 2
+    Angobitters:
+      amount: 1
+  products:
+    LemonLimeBitters: 10

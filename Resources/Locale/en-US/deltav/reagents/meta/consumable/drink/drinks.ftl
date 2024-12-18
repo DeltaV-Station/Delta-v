@@ -24,3 +24,6 @@ reagent-desc-mothamphetamine = A strangely... fuzzy drink. It has a chaotic aura
 
 reagent-name-double-ice-cream = Double Ice Cream
 reagent-desc-double-ice-cream = Ice cream, but now with even more ice cream on top. It doesn't get any sweeter than this!
+
+reagent-name-lemon-lime-bitters = lemon lime bitters
+reagent-desc-lemon-lime-bitters = Western Australians love this shit.
