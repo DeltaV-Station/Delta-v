@@ -27,4 +27,3 @@ fugitive-set-disruptor-name = disruptor's kit
 fugitive-set-disruptor-description =
     Hack the stations various systems and use them to your advantage.
     Comes with a cryptographic sequencer and camera bug.
-
