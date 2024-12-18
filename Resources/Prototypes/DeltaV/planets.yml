@@ -8,6 +8,26 @@
     whitelist:
       components:
       - MiningShuttle
+  - type: WeatherScheduler # Regular ash storms
+    stages:
+    - duration: # 5-10 minutes of calm
+        min: 300
+        max: 600
+    - weather: AshfallLight # ash starts to fall, 30 second warning
+      message: ash-storm-telegraph
+      duration:
+        min: 30
+        max: 30
+    - weather: Ashfall # 1-2 minutes of damaging storm
+      message: ash-storm-alert
+      duration:
+        min: 60
+        max: 120
+    - weather: AshfallLight # ash clears away for 30 seconds
+      message: ash-storm-clearing
+      duration:
+        min: 30
+        max: 30
   atmosphere:
     volume: 2500
     temperature: 353.15 # 80C
@@ -20,9 +40,9 @@
   - OreCoal
   - OreGold
   - OreSilver
-  - OrePlasma
+  - OrePlasma3
   - OreUranium
-  - OreDiamond
+  - OreDiamond2
   - OreArtifactFragment
 
 - type: planet
@@ -47,7 +67,7 @@
   - OreCoal
   - OreGold
   - OreSilver
-  - OrePlasma
-  - OreUranium
+  - OrePlasma3
+  - OreUranium2
   - OreDiamond
   - OreArtifactFragment
