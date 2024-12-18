@@ -17,7 +17,7 @@
   parent: [ClothingEyesBase, ShowMedicalIcons, BaseRestrictedContraband]
   id: ClothingEyesGlassesCorpsman
   name: corpsman glasses
-  description: Security glasses designed for the Corpsman for medical needs. Now with a cool blue hue*
+  description: Security glasses designed for the Corpsman for medical and security needs. Now with a cool blue hue*
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi
@@ -34,7 +34,7 @@
     - GlassesCorpsman # Added for prescription glasses.
     - HamsterWearable
     - WhitelistChameleon
-    - SecDogWearable 
+    - SecDogWearable
   - type: GuideHelp
     guides:
     - Security
@@ -42,6 +42,16 @@
     - Medical
   - type: IdentityBlocker
     coverage: EYES
+  - type: MedSecHud # we have ComponentToggler at home
+    addComponents:
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    removeComponents:
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+  - type: ToggleClothing
+    action: ActionToggleMedSecHud
 
 - type: entity
   parent: ClothingEyesBase
