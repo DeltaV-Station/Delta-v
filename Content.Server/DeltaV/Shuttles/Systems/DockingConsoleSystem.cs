@@ -1,6 +1,8 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.DeltaV.Shuttles;
 using Content.Shared.DeltaV.Shuttles.Components;
 using Content.Shared.DeltaV.Shuttles.Systems;
@@ -16,8 +18,10 @@ namespace Content.Server.DeltaV.Shuttles.Systems;
 public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -114,6 +118,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (FindLargestGrid(map) is not {} grid)
             return;
 
+        Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
+
         _shuttle.FTLToDock(shuttle, Comp<ShuttleComponent>(shuttle), grid, priorityTag: ent.Comp.DockTag);
     }
 
@@ -121,6 +127,12 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     {
         EntityUid? largestGrid = null;
         var largestSize = 0f;
+
+        if (_station.GetStationInMap(map) is {} station)
+        {
+            // prevent picking vgroid and stuff
+            return _station.GetLargestGrid(Comp<StationDataComponent>(station));
+        }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();
         while (query.MoveNext(out var gridUid, out var grid, out var xform))

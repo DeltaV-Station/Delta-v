@@ -10,6 +10,7 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server.DeltaV.Station.Systems;
 
@@ -28,7 +29,6 @@ public sealed class CaptainStateSystem : EntitySystem
     {
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobAddedEvent>(OnPlayerJobAdded);
         SubscribeLocalEvent<CaptainStateComponent, PlayerJobsRemovedEvent>(OnPlayerJobsRemoved);
-        SubscribeLocalEvent<CaptainStateComponent, ComponentInit>(OnInit);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessEnabled, a => _aaEnabled = a, true);
         Subs.CVar(_cfg, DCCVars.RequestAcoOnCaptainDeparture, a => _acoOnDeparture = a, true);
         Subs.CVar(_cfg, DCCVars.AutoUnlockAllAccessDelay, a => _aaDelay = TimeSpan.FromMinutes(a), true);
@@ -36,19 +36,13 @@ public sealed class CaptainStateSystem : EntitySystem
         base.Initialize();
     }
 
-    private void OnInit(Entity<CaptainStateComponent> ent, ref ComponentInit args)
-    {
-        // There is some weird persistince issues this will hopefully fix
-        ent.Comp.IsACORequestActive = false;
-        ent.Comp.IsAAInPlay = false;
-        ent.Comp.HasCaptain = false;
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         var currentTime = _ticker.RoundDuration(); // Caching to reduce redundant calls
+        if (currentTime < _acoDelay) // Avoid timing issues. No need to run before _acoDelay is reached anyways.
+            return;
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var station, out var captainState))
         {

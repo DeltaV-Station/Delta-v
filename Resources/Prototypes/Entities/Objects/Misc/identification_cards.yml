@@ -25,6 +25,7 @@
   - type: StealTarget
     stealGroup: IDCard
   - type: NanoChatCard # DeltaV
+  - type: MiningPoints # DeltaV
 
 #IDs with layers
 
@@ -827,6 +828,7 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
     - DV-SpareSafe # DeltaV
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
