@@ -21,6 +21,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._CD.Records; // CD
+using Content.Shared._CD.Records; // CD
 
 namespace Content.Server.Database
 {
@@ -48,6 +50,9 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles)                               // CD: Store CD info
+                    .ThenInclude(h => h.CDProfile)
+                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)               // END CD
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -95,6 +100,8 @@ namespace Content.Server.Database
             }
 
             var oldProfile = db.DbContext.Profile
+                .Include(p => p.CDProfile) // CD
+                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null) // CD
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -216,7 +223,10 @@ namespace Content.Server.Database
                 }
             }
 
-            var loadouts = new Dictionary<string, RoleLoadout>();
+            var cdRecords = profile.CDProfile?.CharacterRecords != null   // begin CD
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords, profile.CDProfile.CharacterRecordEntries)
+                : PlayerProvidedCharacterRecords.DefaultRecords();
+            var loadouts = new Dictionary<string, RoleLoadout>(); // end CD
 
             foreach (var role in profile.Loadouts)
             {
@@ -243,6 +253,7 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
+                profile.CDProfile?.Height ?? 1.0f, // CD
                 profile.Age,
                 sex,
                 gender,
@@ -261,7 +272,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                cdRecords // CD
             );
         }
 
@@ -311,6 +323,17 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
             );
+
+
+            profile.CDProfile ??= new CDModel.CDProfile(); // begin CD
+            profile.CDProfile.Height = humanoid.Height;
+            // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
+            profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
+            if (humanoid.CDCharacterRecords != null)
+            {
+                profile.CDProfile.CharacterRecordEntries.Clear();
+                profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
+            }  // end CD
 
             profile.Loadouts.Clear();
 
