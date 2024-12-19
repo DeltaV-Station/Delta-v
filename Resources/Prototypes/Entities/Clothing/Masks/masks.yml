@@ -591,8 +591,8 @@
 - type: entity
   parent: ClothingMaskClownBase
   id: ClothingMaskSexyClown
-  name: sexy clown mask
-  description: Some naughty clowns think this is what the Honkmother looks like.
+  name: purple clown mask # DeltaV - Modified name, was "sexy clown mask".
+  description: Some clowns think this is what the Honkmother looks like. # DeltaV - Modified description, removed "naughty" from "Some naughty clowns [...]".
   components:
   - type: Sprite
     sprite: Clothing/Mask/sexyclown.rsi
@@ -602,7 +602,7 @@
 - type: entity
   parent: ClothingMaskMime
   id: ClothingMaskSexyMime
-  name: sexy mime mask
+  name: blushing mime mask # DeltaV - Modified name was "sexy mime mask".
   description: Those ruddy cheeks just want to be rubbed.
   components:
   - type: Sprite

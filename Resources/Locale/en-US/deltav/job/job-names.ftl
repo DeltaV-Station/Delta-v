@@ -53,6 +53,8 @@ job-alt-title-senior-officer = Senior Officer
 job-alt-title-jester = Jester
 job-alt-title-fool = Fool
 
+job-alt-title-hygiene-technician = Hygiene Technician
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
