@@ -150,6 +150,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -439,7 +440,9 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponColdCannon
       - WeaponBeamCannon
+
       # End DeltaV additions
 
 - type: entity
@@ -578,6 +581,7 @@
     # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
+      - AlertsComputerCircuitboard
     # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -894,6 +898,7 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
