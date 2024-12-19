@@ -1,0 +1,907 @@
+<Document>
+  # Space Law: Crime Listing
+  Crime codes are colored by linked crime groups, which are collections of non-stackable crimes. Suffixes are also
+  included in the Quick Crime Guide to identify linked crimes.
+
+  ## Quick Crime Guide
+  <Table Columns="4">
+    <ColorBox>
+      <Box>
+        Code
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        1XX - Misdemeanours
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        2XX - Felony
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        3XX - Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        01
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Animal Cruelty
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Manslaughter
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Murder
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        02
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Theft
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Grand Theft
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        03
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Black Marketeering
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Terrorism
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        04
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sabotage
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Grand Sabotage
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        05
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Mindbreaking
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Decorporealisation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        06
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Assault
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        07
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Abuse of Power
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        08
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Possession
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        09
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Endangerment
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Kidnapping
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        10
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Trespass
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Breaking and Entering
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        11
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Vandalism
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Rioting
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sedition
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        12
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Hooliganism
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Contempt of Court
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        13
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Perjury or False Report
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        14
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#999933">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2"> </Box>
+    </ColorBox>
+    <ColorBox Color="#996633">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Obstruction of Justice
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#993333">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sexual Harassment
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## Capital Crimes
+  <Table Columns="4">
+    <ColorBox>
+      <Box>
+        Code
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Name
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Time
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Description
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        301
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Murder
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To kill a sophont with malicious intent and premeditation.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        303
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Terrorism
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To commit an act with the intent to cause injury or death, or to take hostages, in order to provoke a state of
+        terror in, intimidate, or compel a group of sophonts to do or to abstain from doing any act.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        304
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Grand Sabotage
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To engage in malicious actions that directly or indirectly make uninhabitable or inoperable a vessel or its
+        part, or irreversibly modify and/or damage technology one is not authorised to access, causing severe bodily
+        harm or death to multiple sophonts.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        305
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Decorporealisation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To unlawfully, maliciously, and permanently strip a sophont’s mind from their body.
+
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        309
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Kidnapping
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To unlawfully confine or restrict the free movement of a sophont against their will.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        311
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sedition
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        314
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sexual Harassment
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Capital
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To sexually harass, attempt to coerce into sexual relations, or effect unwanted sexual contact with an unwilling sophont.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## Felonies
+  <Table Columns="4">
+    <ColorBox>
+      <Box>
+        Code
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Name
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Time
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Description
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        201
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Manslaughter
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        8:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To effect violence upon a sophont, resulting in their death, without the apparent intent to kill them.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        202
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Grand Theft
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        8:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To unlawfully take highly restricted, dangerous, valuable, or highly sensitive property or items without consent.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        203
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Black Marketeering
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To sell, distribute, or otherwise circulate restricted items or substances to unauthorised sophonts or entities.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        204
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Sabotage
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To engage in malicious actions that directly or indirectly hinder the operation of a vessel or its part, modify and/or damage technology one is not authorised to access, or endanger multiple sophonts.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        205
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Mindbreaking
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To unlawfully and maliciously rid a psionic sophont of their powers.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        206
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Assault
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To cause physical harm or to effect unwanted physical contact on a sophont, without the apparent intent to kill them, or to threaten such actions with both capability and intent to do so.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        207
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Abuse of Power
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To cause physical harm or to effect unwanted physical contact on a sophont, without the apparent intent to kill them, or to threaten such actions with both capability and intent to do so.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        208
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Possession
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Up to 5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To be in unauthorised possession of restricted items or items of particular danger.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        209
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Endangerment
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To recklessly abandon obligations involving the continued wellbeing and/or protection of life and property, through malpractice, action, or inaction.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        210
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Breaking and Entering
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To break and enter into a high security area where one is not authorised nor invited, with intent to commit a crime within.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        211
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Rioting
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To partake in an unauthorised riotous, tumultuous, and disruptive public assembly that refuses to disperse after warning.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        212
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Contempt of Court
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To conduct oneself disruptively and disrespectfully before the court.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        213
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Perjury or False Report
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        3:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To wilfully and maliciously tell an untruth either in court or in the process of making an actionable report to law enforcement.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        214
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Obstruction of Justice
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To wilfully disobey, interfere with, or refuse a decree of the court, warrant, or arrest.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## Misdemeanours
+  <Table Columns="4">
+  <ColorBox>
+    <Box>
+      Code
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box>
+      Name
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box>
+      Time
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box>
+      Description
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+      101
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+      Animal Cruelty
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+      3:00
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+      To inflict unnecessary suffering on a sapient being with malicious intent.
+    </Box>
+  </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        102
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Theft
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To unlawfully take property or items without consent.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        110
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Trespass
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To enter into an area where one is not authorised nor invited.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        111
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Vandalism
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To deface or superficially damage public property, or property belonging to another person.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        112
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        Hooliganism
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        As necessary
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        To intentionally and maliciously engage in disruptive conduct, where one refuses to cease.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  # Sentences
+  ## Capital
+  - Execution: Termination of the convict’s life.
+  - Exfiltration: Immediate retrieval of the convict via a CentComm, or GALPOL, dispatched transport.
+  - Preservative Stasis: Relocation of the convict into a morgue or similar controlled and regulated environment until one’s sentence is concluded or the legal system can accommodate the convict.
+  - Decorporealisation: Stripping the convict’s mind from their body into a more restricting form.
+  - Permanent Brig, Permabrig, or Extended Confinement: Placing the convict into the permanent brig until the end of the shift, where they are to be transported to Central Command for processing.
+
+  ## Standard
+  - Brigging: Placing the convict into a temporary holding cell.
+  - Catch and Release: Taking the convict to Security, processing them, searching them, and then releasing them. See Jurisdiction (SOP).
+  - Demotion: Downgrading the convict’s employment contract and revoking their access accordingly, with permission from or when ordered by the convict’s head of department. May be applied when the convict has committed a crime relating to their employment within their department or with NanoTrasen as a whole
+  - Licence restriction: Downgrading or suspending the convict’s armament licence and confiscating possessions accordingly. May be applied when the convict is guilty of possession or a crime involving a weapon they were lawfully permitted to carry.
+  - Mindbreaking: Removal of the convict’s psionic power by use of mindbreaker toxin or any other means. May be applied when the convict is guilty of a crime in which they use psionics.
+
+  # Crime modifiers
+  Sentencing modifiers are to be applied by the sentencing officer, judge, or arbiter. Aggravating modifiers may not extend a sentence beyond the specified limit, while extenuating modifiers may not reduce a sentence below the specified limit.
+
+  ## Aggravating
+  - Solicitation - Any sophont found guilty of encouraging, bribing, requesting, or instructing someone to commit a crime, with the intent that the sophont being solicited commit the crime, will receive for the crimes they solicited in full.
+  - Accessory - Any sophont found guilty of assisting in the commission of a crime, without participating in the crime itself, knowing that a crime will be, has been, or is being committed, will receive the sentence for the crimes in which they took part in full.
+  - Attempts - Any sophont found guilty of attempting to commit a crime, with the intent to carry out that crime, will receive the sentence for the crimes they attempted in full.
+  - Conspiracy - Any sophont found guilty of planning to commit a crime, with the intent to carry out that crime eventually, and having committed an overt act pursuant to that end, will receive the sentence for the crimes they conspired towards in full.
+  - Deadly weapon - Any sophont found guilty of committing a crime, utilising any object used offensively for the purpose of inflicting mortal or great bodily harm, will receive an additional modifier of, at most, 150% of the original sentence.
+  - Aggravation - Any sophont found guilty of committing a crime with reckless abandon, evident signs of lack of regret or remorse, or blatant disregard for potential collateral damage, will receive an additional modifier of, at most, 150% of the original sentence.
+  - Discriminatory intent - Any sophont found guilty of committing a crime based fully or in part based on the victim or affected party’s appearance, gender, psionics, religion, ability/disability, place of origin or habitation, culture, or other immutable feature or quality, will receive an additional modifier of, at most, 150% of the original sentence.
+  - Recidivism - Any sophont convicted of the same criminal charge multiple times within one shift will receive an additional modifier of, at most, 200% of the original sentence.
+
+  ## Extenuating
+  - Cooperation - Any sophont who shares actionable intelligence with the authorities, turns oneself in, testifies against accomplices, confesses to their crime, or otherwise aids the prosecution, may have their sentence reduced to no less than 50% of the original sentence.
+  - Dire Emergency - Any sophont found to have committed a crime in the process of absolutely necessary and reasonable actions, taken with the intent to resolve or mitigate the effects of a dire emergency on one’s vessel or habitat, may have their sentence reduced by any amount, or completely waived.
+  - Self-Defence - Any sophont found to have committed a crime or crimes in protection of oneself or another, and only to the necessary extent to avert a direct and imminent threat to the health and life of innocent persons, may have their sentence reduced by any amount, or completely waived.
+  - Good Behaviour - Any convict who peacefully complies with the authorities, displays clear signs of remorse concerning the committed crime, and/or conducts themselves peacefully while imprisoned, may be paroled as outlined in the Standard Operating Procedures.
+</Document>
