@@ -310,6 +310,38 @@
     id: ClinicianIDCard
     state: pda-phys # - aPDA Sprite Rework
 
+# Psychologist
+
+- type: entity
+  parent: PsychologistPDA
+  id: PsychiatristPDA
+  name: psychiatrist PDA
+  description: Sterile-smelling and neutrally colored.
+  components:
+  - type: Pda
+    id: PsychiatristIDCard
+    state: pda-psychiatrist
+
+- type: entity
+  parent: PsychologistPDA
+  id: TherapistPDA
+  name: therapist PDA
+  description: Covered in a rubberized case in a reassuring shade of brown.
+  components:
+  - type: Pda
+    id: TherapistIDCard
+    state: pda-therapist
+
+- type: entity
+  parent: PsychologistPDA
+  id: SocialWorkerPDA
+  name: social worker PDA
+  description: Dented and scratched. It's been well-used.
+  components:
+  - type: Pda
+    id: SocialWorkerIDCard
+    state: pda-socialworker
+
 # Atmospherics Technician
 
 - type: entity

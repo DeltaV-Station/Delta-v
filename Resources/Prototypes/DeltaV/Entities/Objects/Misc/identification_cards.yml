@@ -150,6 +150,32 @@
   - type: IdCard
     jobTitle: job-alt-title-clinician
 
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: PsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-psychiatrist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: TherapistIDCard
+  name: therapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-therapist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: SocialWorkerIDCard
+  name: social worker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-social-worker
+
 # Atmospheric Technician
 
 - type: entity
