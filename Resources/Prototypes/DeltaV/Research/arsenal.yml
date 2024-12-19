@@ -52,3 +52,15 @@
   cost: 12500
   recipeUnlocks:
   - AdvancedTruncheon
+
+- type: technology
+  id: IonizedCryogenicEmissionEquiplment
+  name: research-technology-ionized-cryogenic-emission-equipment
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/cold_cannon.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - WeaponColdCannon
