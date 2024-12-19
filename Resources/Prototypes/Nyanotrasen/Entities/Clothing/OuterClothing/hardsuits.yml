@@ -12,11 +12,11 @@
   id: ClothingOuterHardsuitSyndieReverseEngineered
   suffix: reverse-engineered
   name: SA-122 combat hardsuit
-  components:
+  components: # DeltaV - Updated Sprites
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+    sprite: DeltaV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
   - type: Clothing
-    sprite:  Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+    sprite:  DeltaV/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieReverseEngineered
   - type: ReverseEngineering
@@ -28,11 +28,11 @@
   suffix: reverse-engineered
   name: SA-126 assault hardsuit
   description: A suit made by the special acquisitions department of Nanotrasen to be hyper resilient.
-  components:
+  components: # DeltaV - Updated Sprites
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
+    sprite: DeltaV/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
   - type: Clothing
-    sprite:  Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
+    sprite:  DeltaV/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
   - type: ReverseEngineering
