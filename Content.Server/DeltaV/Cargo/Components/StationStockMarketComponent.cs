@@ -16,7 +16,7 @@ public sealed partial class StationStockMarketComponent : Component
     /// The list of companies you can invest in
     /// </summary>
     [DataField]
-    public List<StockCompanyStruct> Companies = [];
+    public List<StockCompany> Companies = [];
 
     /// <summary>
     /// The list of shares owned by the station
@@ -53,19 +53,12 @@ public sealed partial class StationStockMarketComponent : Component
     [DataField]
     public List<MarketChange> MarketChanges =
     [
-        new() { Chance = 0.86f, Range = new Vector2(-0.05f, 0.05f) }, // Minor
-        new() { Chance = 0.10f, Range = new Vector2(-0.3f, 0.2f) }, // Moderate
-        new() { Chance = 0.03f, Range = new Vector2(-0.5f, 1.5f) }, // Major
-        new() { Chance = 0.01f, Range = new Vector2(-0.9f, 4.0f) }, // Catastrophic
+        new(0.86f, new Vector2(-0.05f, 0.05f)), // Minor
+        new(0.10f, new Vector2(-0.3f, 0.2f)), // Moderate
+        new(0.03f, new Vector2(-0.5f, 1.5f)), // Major
+        new(0.01f, new Vector2(-0.9f, 4.0f)), // Catastrophic
     ];
 }
 
-[DataDefinition]
-public sealed partial class MarketChange
-{
-    [DataField(required: true)]
-    public float Chance;
-
-    [DataField(required: true)]
-    public Vector2 Range;
-}
+[DataRecord]
+public record struct MarketChange(float Chance, Vector2 Range);
