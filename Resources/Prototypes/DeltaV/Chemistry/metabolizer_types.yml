@@ -1,0 +1,10 @@
+# If your species wants to metabolize stuff differently,
+# you'll likely have to tag its metabolizers with something other than Human.
+
+- type: metabolizerType
+  id: Aquatic
+  name: metabolizer-type-aquatic
+
+- type: metabolizerType
+  id: AquaticDehydrated
+  name: metabolizer-type-aquatic-dehydrated
