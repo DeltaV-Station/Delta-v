@@ -150,6 +150,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -443,6 +444,9 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponColdCannon
+      - WeaponBeamCannon
+
       # End DeltaV additions
 
 - type: entity
@@ -581,6 +585,7 @@
     # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
+      - AlertsComputerCircuitboard
     # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -849,7 +854,7 @@
       - MagazineRifleUranium
       - MagazineShotgunBeanbag
       - MagazineShotgunIncendiary
-      #- PortableRecharger # DeltaV - removed for some reason
+      - PortableRecharger
       - PowerCageHigh
       - PowerCageMedium
       - PowerCageSmall
@@ -902,6 +907,8 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponColdCannon
+      - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
     whitelist:
@@ -1358,6 +1365,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      priceModifier: 1 # DeltaV
       staticRecipes:
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
@@ -1374,6 +1382,10 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
+    - type: MiningPoints # DeltaV - Source of mining points for miners
+      transferSound:
+        path: /Audio/Effects/Cargo/ping.ogg
+    - type: MiningPointsLathe # DeltaV
 
 - type: entity
   parent: OreProcessor
@@ -1389,6 +1401,7 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
+      - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
       - SheetRGlass

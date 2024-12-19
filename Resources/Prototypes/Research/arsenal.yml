@@ -45,8 +45,8 @@
   cost: 5000
   recipeUnlocks:
   - MagazineShotgunBeanbag
-  - BoxShellTranquilizer 
-  - BoxBeanbag 
+  - BoxShellTranquilizer
+  - BoxBeanbag
   - WeaponDisabler
   # DeltaV - rubber ammo which upstream removed
   - MagazineRifleRubber
@@ -145,6 +145,7 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponXrayCannon
+  - WeaponBeamCannon # DeltaV - Adds Beam cannon
 
 # DeltaV: merged with concentrated laser weaponry
 #- type: technology
@@ -210,6 +211,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
+  - PortableRecharger
 
 - type: technology
   id: ExperimentalBatteryAmmo

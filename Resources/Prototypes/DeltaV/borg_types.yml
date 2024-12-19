@@ -18,9 +18,9 @@
   - BorgModuleSecurityPatrol
   - BorgModuleSecurityBastion
 
+  lawset: SiliconPolice
+
   addComponents:
-  - type: SiliconLawProvider
-    laws: SiliconPolice
   - type: FlashImmunity
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
@@ -37,6 +37,8 @@
   # Visual
   clientComponents:
   - type: Sprite
+    noRot: true
+    drawdepth: Mobs
     sprite: DeltaV/Mobs/Silicon/chassis.rsi
     layers:
     - state: security
