@@ -45,7 +45,7 @@
 - type: entity
   id: ActionOpenStorageImplant
   name: Toggle Storage Implant
-  description: Opens or closes the storage implant embedded under your skin
+  description: Opens or closes the storage implant embedded under your skin, note that it cannot store high value or storage based items # DeltaV
   components:
   - type: InstantAction
     itemIconStyle: BigAction
