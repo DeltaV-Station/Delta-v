@@ -3240,12 +3240,6 @@ entities:
     - type: Transform
       pos: 33.5,-5.5
       parent: 1668
-    - type: Door
-      secondsUntilStateChange: -3769.445
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockEngineeringGlassLocked
   entities:
   - uid: 5175
@@ -28750,6 +28744,8 @@ entities:
     - type: Transform
       pos: 21.5,8.5
       parent: 1668
+    missingComponents:
+    - WarpPoint
 - proto: PlushieAtmosian
   entities:
   - uid: 6890
