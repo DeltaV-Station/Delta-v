@@ -27,10 +27,11 @@
 - type: startingGear
   id: ChaplainGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    belt: ClothingBeltChaplainSash # DeltaV - Frontier Belt
+    # shoes: ClothingShoesBootsLaceup # DeltaV - Chaplain Shoes Loadout
     id: ChaplainPDA
     ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
   storage:
     back:
-    - Bible
+    # - Bible #DeltaV - Custom Bibles Loadout
     - RubberStampChaplain
