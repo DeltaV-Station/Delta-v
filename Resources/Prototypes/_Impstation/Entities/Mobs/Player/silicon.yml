@@ -3,7 +3,17 @@
   id: Drone
   parent: PlayerSiliconBase
   components:
-  - type: Drone # this system still sucks but its not as stupid anymore
+  - type: Drone # this system has too much going on, it should really be like three different components
+    whitelist:
+      tags:
+      - DroneUsable
+      - Trash
+    blacklist:
+      tags:
+      - Syringe
+      - HighRiskItem
+      components:
+      - Contraband
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
       - StartingGearDroneTools
