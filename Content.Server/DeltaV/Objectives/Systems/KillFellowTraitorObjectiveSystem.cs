@@ -46,16 +46,19 @@ public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
         // Going through each OTHER traitor
         foreach (var traitor in traitors)
         {
-            // Assume it will be a valid traitor.
-            validTraitorMinds.Add(traitor.Id);
-
+            var valid = true;
             // Going through each of OUR objectives.
             foreach (var objective in args.Mind.Objectives)
             {
-                // If one of OUR objectives already targets a traitor, remove them from the vaild list.
+                // If one of OUR objectives already targets a traitor, don't add it to the list.
                 if (TryComp<TargetObjectiveComponent>(objective, out var targetComp) && targetComp.Target == traitor.Id)
-                    validTraitorMinds.RemoveAt(validTraitorMinds.Count - 1);
+                {
+                    valid = false;
+                    break;
+                }
             }
+            if (valid)
+                validTraitorMinds.Add(traitor.Id);
         }
 
         // No other traitors
