@@ -233,6 +233,7 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - WeaponProtoKineticAccelerator
       # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
       - SpeedLoaderSpecial
       - SpeedLoaderSpecialEmpty
@@ -351,7 +352,6 @@
       - SyringeBluespace
       #- WeaponForceGun # DeltaV
       - WeaponLaserSvalinn
-      - WeaponProtoKineticAccelerator
       - WeaponGrapplingGun
       #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
@@ -386,6 +386,7 @@
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -425,6 +426,9 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - WeaponEnergyGun       # Energy Gun
@@ -456,7 +460,9 @@
       - MagazineBoxLightRifleTracer
       - MagazineBoxPistolTracer
       - MagazineBoxRifleTracer
+      - WeaponColdCannon
       - WeaponBeamCannon
+
       # End DeltaV additions
 
 - type: entity
@@ -822,6 +828,7 @@
       - WeaponDisablerPractice
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
+      - WeaponProtoKineticAccelerator
       - Zipties
       # Begin DeltaV additions
       - ClothingNeckShockCollar # Nyanotrasen - Shock Collar recipe
@@ -836,6 +843,7 @@
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -886,6 +894,9 @@
       - WeaponLaserCarbine
       - WeaponXrayCannon
       - ClothingBackpackElectropack
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
@@ -920,6 +931,7 @@
       - MagazineBoxLightRifleTracer
       - MagazineBoxPistolTracer
       - MagazineBoxRifleTracer
+      - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
