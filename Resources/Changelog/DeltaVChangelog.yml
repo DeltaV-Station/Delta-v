@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: rosieposieeee
-  changes:
-  - message: Submarine has, once again, had some minor issues quashed, and small improvements
-      made. Go check out the park!
-    type: Tweak
-  id: 301
-  time: '2024-04-03T19:44:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1053
 - author: NullWanderer
   changes:
   - message: Merged master, please report bugs or regressions
@@ -3819,3 +3811,15 @@
   id: 800
   time: '2024-12-20T05:34:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2474
+- author: deltanedas
+  changes:
+  - message: Changed Salvage Weapons to be a tier 2 tech, Experimental Salvage Weaponry.
+    type: Tweak
+  - message: Crusher weapons are researchable again, PKA is roundstart.
+    type: Tweak
+  - message: Added the Fauna Protection Module for borgs, it has a PKA and crusher
+      dagger.
+    type: Add
+  id: 801
+  time: '2024-12-20T05:38:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2077
