@@ -269,8 +269,8 @@
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponColdCannon
-  name: I.C.E.E.
-  description: It's cooler than a normal gun.
+  name: weapon-ice-name
+  description: weapon-ice-desc
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/cold_cannon.rsi
@@ -289,7 +289,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
-    
+
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon

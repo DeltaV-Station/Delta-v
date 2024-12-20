@@ -6,7 +6,7 @@
   components:
   - type: Paper
     content: book-text-lunchbox-generic
-    
+
 - type: entity
   parent: PaperWrittenNoteFromMumGeneric
   id: PaperWrittenNoteFromMumHealthy
@@ -15,7 +15,7 @@
   components:
   - type: Paper
     content: book-text-lunchbox-healthy
-    
+
 - type: entity
   parent: PaperWrittenNoteFromMumGeneric
   id: PaperWrittenNoteFromMumUnhealthy
@@ -28,8 +28,8 @@
 - type: entity
   parent: Paper
   id: PaperWrittenSubscriptionNotice
-  name: "subscription notice"
-  description: "Thank you for your purchase"
+  name: gorlax-girlfriend-name
+  description: gorlax-girlfriend-desc
   components:
   - type: Paper
     content: book-text-subscription-notice
