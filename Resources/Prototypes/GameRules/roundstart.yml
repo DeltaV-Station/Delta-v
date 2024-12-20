@@ -107,6 +107,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-commander
@@ -124,6 +125,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-agent
@@ -143,6 +145,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
