@@ -57,6 +57,15 @@
   - MailCarrierWintercoat
 
 - type: loadoutGroup
+  id: CourierBackpack
+  name: loadout-group-courier-backpack
+  loadouts:
+  - CargoTechnicianBackpack
+  - CargoTechnicianSatchel
+  - CargoTechnicianDuffel
+  - ClothingBackpackClippy
+
+- type: loadoutGroup
   id: CourierShoes
   name: loadout-group-courier-shoes
   loadouts:
