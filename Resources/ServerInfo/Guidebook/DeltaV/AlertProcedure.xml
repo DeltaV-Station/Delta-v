@@ -1,90 +1,129 @@
 <Document>
-# Alert Procedure
-Alert levels exist on the station to advise the crew at-large of the state of the station's overall security or well-being. Setting an alert level via the communications computer is an immediate action, so it is often done after sending a message to the crew.
+# Действия экипажа при различных кодах
+Уровни угроз существуют на станции для информирования экипажа о состоянии общей безопасности или благополучия станции. Установка уровня оповещения через консоль связи.
 <Box>
-<GuideEntityEmbed Entity="ComputerComms" Caption="This sets the alert level."/>
-<GuideEntityEmbed Entity="EmergencyLight" Caption="This displays the alert level."/>
+<GuideEntityEmbed Entity="ComputerComms" Caption="Установка уровня угрозы"/>
+<GuideEntityEmbed Entity="EmergencyLight" Caption="Отображение уровня угроза"/>
 </Box>
-On Delta-V, there are some restrictions on when certain alert levels can be used. They should be somewhat intuitive, but they are elaborated on as follows:
+Существуют некоторые ограничения относительно того, когда могут использоваться определенные уровни оповещения. Они должны быть интуитивно понятны, но они подробно описаны следующим образом:
 
-## Code Green
-[color=#7cfc00]Regular operating conditions, absent or manageable station threat(s) present.[/color]
-- [color=#a4885c]Chain of Command (COC)[/color]: Commanding Officer (CO), Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying of long arms disallowed. Standard soft or hard ballistic armor recommended for all security personnel.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for general orders.
-- [color=#a4885c]Secure Areas[/color]: Secure areas unlocked and accessible to all authorized personnel. High Security Areas and areas with an expectation of privacy, such as bedrooms, dorms, or medical treatment facilities, may be locked as needed.
-- [color=#a4885c]Medical[/color]: Standard practice.
-- [color=#a4885c]Engineering[/color]: Standard practice.
-- [color=#a4885c]Rules of Engagement (ROE)[/color]: Engage with minimal force; prioritize de-escalation whenever possible.
+## Зелёный код
+  Устанавливается: Капитаном.
+# Условия
+  Начальный уровень тревоги на станции.
+# Нормы экипажа
+  - Экипаж может свободно передвигаться по станции в зависимости от доступа.
+# Хранилище может быть открыто если:
+  - Требуется его ремонт.
+  - Требуется золото для Научного Отдела.
+  - Чрезвычайно важный предмет должен быть спрятан в сейфе.
+  - Бюрократия должна иметь приоритет при работе отделов.
 
-## Code Blue
-[color=#0000FF]Elevated alert status. There is an ongoing, known, or suspected security threat to the NanoTrasen vessel or its crew.[/color]
-- [color=#a4885c]COC[/color]: CO, Head of Security, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying weaponry permitted for all security personnel. Standard ballistic armor mandatory for security personnel, soft armor authorized for all other personnel.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for general orders. Random searches may be performed at the discretion of security personnel and without a warrant.
-- [color=#a4885c]Secure Areas[/color]: Secure areas unlocked unless affected by known threats. Access to HSAs locked.
-- [color=#a4885c]Medical[/color]: Binary suit sensors recommended at a minimum. EVA suits recommended for emergency responders, functioning internals and PPE heavily advised.
-- [color=#a4885c]Engineering[/color]: EVA suits recommended for engineers. Make emergency internals easily accessible.
-- [color=#a4885c]ROE[/color]: Engage with minimal force; non-lethal weapons may be used freely based on threat and compliance.
+## Синий код
+  Устанавливается: Капитаном или Главой Службы Безопасности.
+# Условия
+  - Есть подозрение на угрозу на борту станции, или в ближнем космосе. Это включает в себя любые признаки враждебной деятельности, которые не причинили никакого ущерба станции или экипажу, но, тем не менее, кажутся действительной угрозой.
+# Нормы экипажа
+  - Экипаж может свободно передвигаться по станции в зависимости от доступа.
+  - Весь персонал обязан носить свои ID-карты в своих КПК.
+  - Экипаж должен докладывать о любой подозрительной активности Службе Безопасности лично, или, в крайнем случае, в общий голосовой канал.
+  - Бюрократия должна иметь приоритет при работе отделов.
 
-## Code Red
-[color=#ff0000]Emergency alert status. There is a major security emergency affecting the station.[/color]
-- [color=#a4885c]COC[/color]: CO, Head of Security, Security Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying weaponry permitted for all security personnel. Standard ballistic armor mandatory, EVA suits heavily advised.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for general orders. Searches and departmental raids may be performed at the discretion of security personnel and without a warrant. Open carry disallowed for non-security personnel.
-- [color=#a4885c]Secure Areas[/color]: All HSAs should remain locked and under guard. Secure areas unlocked unless affected by known threats.
-- [color=#a4885c]Medical[/color]: Full suit sensors mandatory for observation and safety. EVA suits and functioning internals heavily advised for emergency responders.
-- [color=#a4885c]Engineering[/color]: EVA suits heavily advised for engineers. Distribute emergency internals to crew.
-- [color=#a4885c]ROE[/color]: Engage with necessary force; lethal force is permitted in self-defense, or to effect an arrest; non-lethal methods must be attempted first.
+## Красный код
+  Устанавливается: Капитаном или Главой Службы Безопасности.
+# Условия
+  - На станции или поблизости от станции существует подтвержденная открыто враждебная угроза. Эта угроза представляет очевидную опасность для станции и/или экипажа в целом.
+# Нормы экипажа
+  - Весь экипаж, за исключением должностных лиц, обязан находиться в своих отделах на протяжении действия Красного кода, если не получены иные указания от Службы Безопасности и/или Командования.
+  - Посетители и гости станции обязаны находиться в баре, библиотеке или жилых отсеках.
+  - Экипаж обязан подчиняться правомерным приказам сотрудников Службы Безопасности.
+  - Весь экипаж обязан переключить датчики костюмов в режим координат.
+  - Весь экипаж обязан носить свои ID-карты в своих КПК.
+  - Скорость работы должна иметь приоритет над бюрократией.
 
-## Code Violet
-[color=#7f00ff]Elevated alert status. There is a serious viral outbreak, ongoing major death event, or there is another significant medical emergency.[/color]
-- [color=#a4885c]COC[/color]: CO, Chief Medical Officer, Medical Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying of long arms disallowed. Standard soft or hard ballistic armor recommended for all security personnel. Basic PPE mandatory for all personnel, level 3 biohazard gear heavily advised.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for orders. Non-medical personnel should ensure they do not interfere with medical staff, may assist where applicable, obey all applicable orders from medical personnel. Security should seek to aid medical staff in enforcement of quarantine procedures or medical treatment as necessary.
-- [color=#a4885c]Secure Areas[/color]: Secure areas unlocked and accessible to all authorized personnel. High Security Areas and areas with an expectation of privacy, such as bedrooms, dorms, or medical treatment facilities, may be locked as needed.
-- [color=#a4885c]Medical[/color]: Report to supervisor for orders. Full suit sensors heavily advised. EVA suits recommended for emergency responders, functioning internals and PPE heavily advised.
-- [color=#a4885c]Engineering[/color]: Standard practice.
-- [color=#a4885c]ROE[/color]: Engage with minimal force; prioritize de-escalation whenever possible.
+## Фиолетовый код
+  Устанавливается: Капитаном или Главным Врачом.
+# Условия
+  - На станции существует подтвержденная опасная вспышка вируса, которая требует введения карантинных мер.
+# Нормы работы Медицинского Отдела
+  - Сотрудникам Медицинского отдела следует незамедлительно обратиться к Главврачу за получением приказов.
+  - Весь медицинский персонал обязан работать над устранением вспышки вируса, если нет пациентов в критическом состоянии, нуждающихся в помощи.
+  - Экипаж станции должен быть проинформирован об известных симптомах.
+  - Весь инфицированный экипаж должен быть помещен в изолятор.
+# Нормы экипажа
+  - Весь экипаж обязан переключить датчики костюмов в режим координат.
+  - При возникновении симптомов вируса, персонал обязан незамедлительно пройти в медицинский отдел.
+  - Немедицинский персонал обязан подчиняться инструкциям медицинского персонала, в том числе просьбам покинуть зону, оставаться в карантине, или оказать помощь в спасении больных/раненых.
+  - Стыковка всех кораблей и шаттлов должна быть приостановлена.
 
-## Code Yellow
-[color=#ffff00]Elevated alert status. There is a major issue with the atmospheric system, the station has suffered/is about to suffer significant damage, or there is another significant engineering emergency.[/color]
-- [color=#a4885c]COC[/color]: CO, Chief Engineer, Engineering Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying of long arms disallowed. Standard soft or hard ballistic armor recommended for all security personnel. EVA suits heavily advised.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for orders. Non-engineering personnel advised to evacuate affected areas and obey any relevant instructions from engineering personnel. Security should seek to aid engineering staff where possible.
-- [color=#a4885c]Secure Areas[/color]: Secure areas unlocked and accessible to all authorized personnel. High Security Areas and areas with an expectation of privacy, such as bedrooms, dorms, or medical treatment facilities, may be locked as needed.
-- [color=#a4885c]Medical[/color]: Full suit sensors heavily advised. EVA suits and functioning internals recommended for emergency responders.
-- [color=#a4885c]Engineering[/color]: EVA suits heavily advised for engineers. Distribute emergency internals to crew. Propose evacuation if damage is irreparable or sufficiently hazardous.
-- [color=#a4885c]ROE[/color]: Engage with minimal force; prioritize de-escalation whenever possible.
+За Сотрудниками Службы Безопасности закреплены все привилегии предыдущего кода.
 
-## Code White
-[color=#f6ccf6]Elevated alert status. The station is suffering dangerously high levels of glimmer, there are several active psionic threats, or there is another significant epistemic emergency.[/color]
-- [color=#a4885c]COC[/color]: CO, Mystagogue, Epistemics Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying weaponry permitted for all security personnel. Standard ballistic armor mandatory for security personnel, soft armor authorized for all other personnel. Psionic insulation recommended.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for orders. Security and engineering should seek to aid epistemics staff in shutting off glimmer probers, and propose evacuation if glimmer spiral is unrecoverable.
-- [color=#a4885c]Secure Areas[/color]: Secure areas unlocked and accessible to all authorized personnel, unless affected by a known threat. High Security Areas and areas with an expectation of privacy, such as bedrooms, dorms, or medical treatment facilities, may be locked as needed.
-- [color=#a4885c]Medical[/color]: Full suit sensors heavily advised. Prepare for increased incidents of burn and brain damage.
-- [color=#a4885c]Engineering[/color]: EVA suits heavily advised for engineers. Distribute emergency internals to crew.
-- [color=#a4885c]ROE[/color]: Engage with minimal force; RoE on minbreaking is lifted.
+## Жёлтый код
+  Устанавливается: Капитаном или Старшим Инженером
+# Условия
+  - На станции присутствуют серьезные структурные или атмосферные повреждения.
+# Нормы работы Инженерного Отдела
+  - Сотрудникам инженерного отдела следует незамедлительно обратиться к Старшему Инженеру за получением приказов.
+  - Инженеры и Атмосферные Техники должны проследовать к зоне и вернуть её в рабочее и безопасное для здоровья экипажа состояние.
+  - Экипаж должен быть проинформирован о местонахождении структурных и/или атмосферных повреждений в отсеках станции.
+# Нормы экипажа
+  - Всему экипажу следует подчиняться правомерным требованиям сотрудников инженерного отдела.
+  - Экипажу запрещено находиться в местах, где ведутся технические работы по восстановлению станции.
 
-## Code Gamma
-[color=#db7093]Emergency alert status. Central Command has called the Gamma Alert; the Station is on its last legs, almost everyone is dead, or there is another existential crisis affecting the station.[/color]
-- [color=#a4885c]COC[/color]: CO, Head of Security, Security Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying weaponry permitted for all security personnel. Standard ballistic armor mandatory, EVA suits heavily advised.
-- [color=#a4885c]Discipline[/color]: Report to supervisor for general orders. Martial law is in effect. Open carry disallowed for non-security personnel. Searches and departmental raids may be performed at the discretion of security personnel and without a warrant. Arrests of officers permitted at discretion of security personnel. Threats that have been incapacitated by lethal force may be kept in Preservative Stasis until Code Gamma has been rescinded. Security is fully authorized to take whatever actions deemed necessary to neutralize or repel station threats. Propose evacuation or scuttling if station cannot be retaken.
-- [color=#a4885c]Secure Areas[/color]: All HSAs should remain locked and under guard. Secure areas unlocked unless affected by known threats.
-- [color=#a4885c]Medical[/color]: Full suit sensors mandatory for observation and safety. EVA suits and functioning internals heavily advised for emergency responders.
-- [color=#a4885c]Engineering[/color]: EVA suits heavily advised for engineers. Distribute emergency internals to crew.
-- [color=#a4885c]ROE[/color]: Engage with necessary force; lethal force is permitted in self-defense, or to effect an arrest.
+За Сотрудниками Службы Безопасности закреплены все привилегии предыдущего кода.
 
-## Code Delta
-[color=#8b0000]Emergency alert status. The nuclear destruction mechanism has been engaged and station destruction is imminent. All crew aboard the station must attempt to reverse the self-destruct mechanism, if engaged in error. Should reversal prove impossible, evacuate as applicable.[/color]
-- [color=#a4885c]COC[/color]: CO, Head of Security, Security Personnel, Department Heads, Supervisory Roles
-- [color=#a4885c]Armory Policy[/color]: Open carrying weaponry permitted for all security personnel. Standard ballistic armor mandatory, EVA suits heavily advised.
-- [color=#a4885c]Discipline[/color]: All personnel must expend all efforts to prevent station destruction. Martial law is in effect. Searches and departmental raids may be performed at the discretion of security personnel and without a warrant. Arrests of officers permitted at discretion of security personnel. Threats that have been incapacitated by lethal force may be kept in Preservative Stasis until Code Delta has been rescinded. Security is fully authorized to take whatever actions deemed necessary to neutralize or repel station threats.
-- [color=#a4885c]Secure Areas[/color]: All secure areas and HSAs should remain unlocked.
-- [color=#a4885c]Medical[/color]: Full suit sensors heavily advised. EVA suits and functioning internals heavily advised for emergency responders.
-- [color=#a4885c]Engineering[/color]: EVA suits heavily advised for engineers. Distribute emergency internals to crew.
-- [color=#a4885c]ROE[/color]: Engage with necessary force; lethal force is permitted in self-defense, or to effect an arrest.
+## Белый код
+  Устанавливается Капитаном или мистагогом (научный руководитель)
+# Условия
+  - Значение мерцания близится к 500 или выше
+# Нормы экипажа:
+  -  Все известные псионики должны быть избавлены от псионических способностей (Персоналу эпистемики разрешено иметь псионические способности)
+  - Сотрудники Службы Безопасности продолжают выполнение своих обязанностей по предыдущему коду
+  - Каталигер или мантис должен передать список псиоников службе безопасности, а те в свою очередь принести их к мантису, для избавления от пси-сил
+  - Персонал не РнД обязан подчинятся инструкциям кафедры эпистемики
+  - Членам экипажа рекомендуется воспользоваться средствами псионической изоляции.
+  - Псионики должны сообщать о принятии токсина "майндблейкер" или големизации.
+# Нормы кафедры эпистемики:
+  - РнД должны отключить все наполнители мерцания (glimmer prober)
+  - При белом коде скорость работы превыше бюрократии
+  - Если персонал не успел отключить ноосферные зонды (glimmer prober), то они должны предупредить инженерный отдел, убрать оборудование и уничтожить остатки наполнителей для предотвращения проблем во всём секторе. Если мерцание слишком высокое и было замечено снижение эвакуация скорее всего будет разрешена, для уменьшения потерь экипажа
+
+## Гамма-код
+  Устанавливается: Центральным Командованием.
+# Условия
+  - Существует огромная угроза для станции и экипажа, под угрозой само существование станции.
+# Нормы экипажа
+  - Установлено военное положение. Служба Безопасности уполномочена принудить сотрудника к соблюдению закона и норм экипажа Гамма Кода любыми способами, вплоть до применения летального оружия.
+  - Весь экипаж, за исключением должностных лиц, обязан находиться в своих отделах на протяжении действия Гамма Кода, если не получены иные указания от Службы Безопасности и/или Командования.
+  - Посетители и гости станции (любой с гражданским уровнем доступа) обязаны находиться в баре, библиотеке или жилом отсеке.
+  - Экипаж обязан подчиняться правомерным приказам сотрудников Службы Безопасности.
+  - Весь экипаж обязан переключить датчики костюмов в режим координат.
+  - Весь экипаж обязан носить свои ID-карты в своих КПК.
+  - Скорость работы должна иметь приоритет над бюрократией.
+
+## Код Дельта
+  Устанавливается: Центральным Командованием.
+# Условия
+  - Механизм Самоуничтожения Станции был запущен Центральным Командованием, либо саботирован врагами NanoTrasen.
+  - Существует подтвержденная неминуемая ситуация полного уничтожения станции.
+# Нормы работы Отдела Службы Безопасности
+  - Процедуры не имеют значения.
+  - В случае, если МСС не был запущен Центральным Командованием:
+  - - Обезвреживание бомбы не рекомендуется. Служба Безопасности должна обеспечить эвакуацию экипажа.
+  - - При невозможности эвакуации, всеми силами обезвредить ядерную боеголовку.
+  - В случае запуска МСС Центральным Командованием:
+  - - Служба Безопасности обязана сохранять порядок и не допускать распространение угрозы со станции.
+  - - Служба Безопасности имеет право применить летальное оружие в отношении любого, кто попытается обезвредить ядерную боеголовку.
+  - В случае иных ситуаций неминуемого уничтожения станции:
+  - - Служба Безопасности обязана обеспечить эвакуацию экипажа.
+# Нормы экипажа
+  - В случае, если МСС не был запущен Центральным Командованием:
+  - - Обезвреживание бомбы не рекомендуется. Первоочередной задачей стоит эвакуация с объекта.
+  - - При невозможности эвакуации, рекомендуется всеми силами обезвредить ядерную боеголовку.
+  - В случае запуска МСС Центральным Командованием:
+  - - Экипаж должен сохранять спокойствие и следовать указаниям Центрального Командования.
+  - - В случае иных ситуаций неминуемого уничтожения станции:
+  - - Первоочередной задачей стоит эвакуация с объекта.
+  - - Командованию разрешается запустить досрочную эвакуацию шаттла с объекта.
 
 </Document>

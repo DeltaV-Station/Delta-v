@@ -1,6 +1,6 @@
 <Document>
-# Justice
-The primary goal of the [color=#a4885c]Justice[/color] department is to uphold space law and process trials in a timely manner.
+# Юридический отдел
+Основная цель [color=#a4885c]Юридического[/color] отдела заключается в контроле соблюдения корпоративного закона и проведении судебных разбирательств.
 <Box>
 <GuideEntityEmbed Entity="BoxFolderYellow"/>
 <GuideEntityEmbed Entity="BriefcaseBrown"/>
@@ -8,53 +8,49 @@ The primary goal of the [color=#a4885c]Justice[/color] department is to uphold s
 <GuideEntityEmbed Entity="ClothingHeadHatPwig"/>
 </Box>
 
-## Roles
-- The [color=#a4885c]Chief Justice[/color] should act as a judge during trials, and coordinating with Security to prepare upcoming trials or to review previous ones.
-- [color=#a4885c]Attorneys[/color] should represent the defense during trials, and should be contacting prisoners in need of defense or legal assistance. They also play a role as the public defender of the crew, also performing the function of [color=#a4885c]suing[/color] on behalf of the crew when needed.
-- [color=#a4885c]Prosecutors[/color] should represent (what else) the prosecution during trials, and should work with the Security department to prepare trials for court. In the case of an arrest, the Prosecutor should get a statement from the arresting officer about the matter, and is, in the case of felonies, [color=#a4885c]responsible for sentencing[/color]. If available, the prosecutor should work with [color=#a4885c]detectives[/color] to request evidence.
-- [color=#a4885c]Clerks[/color] should prepare witnesses and evidence to be presented and assist trial proceedings during an ongoing trial, and otherwise should assist all clerical facets of the Justice department and all crew. They are also the de facto manager of the [color=#a4885c]courtroom timer[/color], and should ensure pending cases be addressed in order of urgency.
-- Security roles, if present during a trial, should act as the bailiff and ensure the defendant is present. Security, while not required to be present during the entirety of the trial, should be present to enact the Judge's ruling once it is given. Outside of trials, the department of Security should communicate with the Justice Department to ensure current prisoners are handled as needed.
+## Должности
+- [color=#a4885c]Магистр[/color] должен выступать в качестве судьи во время судебных процессов и координировать работу со Службой Безопасности для подготовки предстоящих судебных процессов или пересмотра предыдущих..
+- [color=#a4885c]Адвокаты[/color] должны предоставлять защиту во время судебных процессов и должны связываться с заключенными, нуждающимися в защите или юридической помощи. Они также играют роль государственного защитника экипажа, также выполняя функцию [color=#a4885c]предъявления иска[/color] от имени экипажа, когда это необходимо.
+- [color=#a4885c]Прокуроры[/color] должны представлять обвинение во время судебных процессов и должны работать со Службой Безопасности для подготовки судебных процессов к суду. В случае ареста прокурор должен получить заявление от арестовавшего офицера по этому вопросу и, в случае тяжких преступлений, [color=#a4885c]отвечает за вынесение приговора[/color]. Если возможно, прокурор должен работать с [color=#a4885c]детективами[/color] для запроса доказательств.
+- [color=#a4885c]Секретари[/color] должны готовить свидетелей и доказательства для представления и помогать в судебных разбирательствах во время текущего судебного разбирательства, а в противном случае должны помогать всем канцелярским аспектам Министерства юстиции и всему экипажу.
 
-In the event of a trial being needed when [color=#a4885c]one of these roles is unavailable[/color]:
-- A substitute judge should be a member of the Justice department, or less preferably a member of Command or Security.
-- A substitute prosecutor should be either an attorney or clerk.
-- A substitute defense should be either a prosecutor or clerk, however the defendant has the right to represent themselves if they choose.
+В случае необходимости проведения судебного разбирательства, когда [color=#a4885c]одна из этих ролей недоступна[/color]:
+- Замещающий судью должен быть членом Юридического отдела или, что менее предпочтительно, членом отдела Командования или службы Безопасности.
+- Замещающий прокурора должен быть либо адвокатом, либо секретарем.
+- Замещающий защиту должен быть либо прокурором, либо секретарем, однако обвиняемый имеет право представлять себя сам, если он этого захочет.
 
-## Trial Procedure
-A criminal case should take [color=#a4885c]no longer than 25 minutes[/color] in trial, while a civil case would be [color=#a4885c]no longer than 15 minutes[/color]. The Chief Justice is in-charge of ensuring the trial is completed in a timely manner, but has [color=#a4885c]the ability to extend a trial[/color] if needed. 
+## Судебная процедура
+Уголовное дело должно длиться [color=#a4885c]не более 25 минут[/color] в суде, в то время как гражданское дело будет [color=#a4885c]не более 15 минут[/color]. Главный судья отвечает за обеспечение своевременного завершения судебного разбирательства, но имеет [color=#a4885c]возможность продлить судебное разбирательство[/color] при необходимости.
 <Box>
 <GuideEntityEmbed Entity="Gavel"/>
 <GuideEntityEmbed Entity="TrialTimer"/>
 </Box>
-The Chief Justice also has the power to charge someone with contempt of court, [color=#FF0000]a felony[/color], if they disrupt the case.
+Магистр также имеет право предъявить обвинение в неуважении к суду, [color=#FF0000]тяжком преступлении[/color], если он мешает рассмотрению дела.
 
 <Box>
-[color=#FFFF00]CRIMINAL TRIALS[/color]
+[color=#FFFF00]УГОЛОВНЫЕ РАЗБИРАТЕЛЬСТВА[/color]
 </Box>
 
-Criminal cases should either [color=#a4885c]have[/color] security personnel present, or [color=#a4885c]plan to have[/color] them present by the end of the trial.
+В уголовных делах должны либо [color=#a4885c]присутствовать[/color] сотрудники службы безопасности, либо [color=#a4885c]планировать их присутствие[/color] к концу судебного разбирательства.
 
-- The chosen judge begins the trial once both the defense and prosecution are ready.
-- The prosecution reads the charges applied to the defendant by security.
-- The prosecution provides evidence/witnesses and the arguments for these charges. They have, at most, [color=#a4885c]10 minutes[/color] to present their arguments before being required to request the judge for additional time, if needed.
-- The defense responds to these charges individually, [color=#a4885c]pleading guilty or not-guilty[/color]. If plead not-guilty, the defense then provides their counter-argument, along with evidence and/or witnesses to support their case. They also have [color=#a4885c]10 minutes[/color] to present their arguments before being required to request the judge for additional time, if needed.
-- After both the defense and prosecution have made their cases, they are given the opportunity to [color=#a4885c]cross-examine[/color] present witnesses and evidence. This step should take no longer than [color=#a4885c]5 minutes[/color], and it is at the judge's discretion if additional time is needed.
-- The judge considers both arguments and makes their ruling, which must then be notarized and stamped.
-- Any present or soon-to-be-present Security personnel will then enact the ruling.
-
+- Выбранный судья начинает судебное разбирательство, как только будут готовы и защита, и обвинение.
+- Обвинение зачитывает обвинения, предъявленные подсудимому службой безопасности.
+- Обвинение предоставляет доказательства/свидетелей и аргументы в пользу этих обвинений. У них есть максимум [color=#a4885c]10 минут[/color] для представления своих аргументов, прежде чем им потребуется запросить у судьи дополнительное время, если это необходимо.
+- Защита отвечает на эти обвинения индивидуально, [color=#a4885c]признавая себя виновным или невиновным[/color]. Если обвиняемый не признает себя виновным, защита затем представляет свои контраргументы вместе с доказательствами и/или свидетелями в поддержку своей версии. У них также есть [color=#a4885c]10 минут[/color] для представления своих аргументов, прежде чем им придется запросить у судьи дополнительное время, если это необходимо.
+- После того, как и защита, и обвинение изложили свои доводы, им предоставляется возможность [color=#a4885c]перекрестного допроса[/color] представленных свидетелей и доказательств. Этот шаг не должен длиться дольше [color=#a4885c]5 минут[/color], и судья по своему усмотрению может решить, потребуется ли дополнительное время.
+- Судья рассматривает оба аргумента и выносит решение, которое затем должно быть нотариально заверено и проштамповано.
+- Любой присутствующий или будущий сотрудник службы безопасности затем вынесет решение.
 <Box>
-[color=#00FF00]CIVIL TRIALS[/color]
+[color=#00FF00]ГРАЖДАНСКИЕ РАЗБИРАТЕЛЬСТВА[/color]
 </Box>
 
-Civil cases do not require attorneys or prosecutors, but they may receive assistance from either both before and during the case. [color=#a4885c]Both the defendant and plaintiff must be made to summon at the court[/color], if a party [color=#a4885c]does not appear[/color] out of either refusal or negligence, or [color=#a4885c]fails to comply with a court order[/color] from a civil trial, that party may be charged with contempt of court, [color=#FF0000]a felony[/color].
-A civil case involves [color=#a4885c]seeking damages[/color] from a defendant, which could be monetary, an item, or otherwise.
+Гражданские дела не требуют адвокатов или прокуроров, но они могут получать помощь от любого из них как до, так и во время дела. [color=#a4885c]И ответчик, и истец должны быть вызваны в суд[/color], если сторона [color=#a4885c]не присутствует[/color] из-за отказа или халатности, или [color=#a4885c]не выполняет постановление суда[/color] гражданского процесса, эта сторона может быть обвинена в неуважении к суду, [color=#FF0000]тяжком преступлении[/color]. Гражданское дело включает [color=#a4885c]требование возмещения ущерба[/color] от ответчика, которое может быть денежным, предметным или иным.
 
-- The chosen judge begins the trial once both the defense and plaintiff are ready.
-- The plaintiff themselves reads the complaint issued against the defendant.
-- The plaintiff provides any needed evidence/witnesses and the argument for this complaint. They have [color=#a4885c]5 minutes[/color], at most, to plead their case before being required to request additional time from the judge.
-- The defense responds to these charges individually, [color=#a4885c]pleading guilty or not-guilty[/color]. If plead not-guilty, the defense then provides their counter-argument, along with any evidence/witnesses they choose to present. They also have [color=#a4885c]5 minutes[/color] to plead their case before being required to request additional time from the judge.
-- The defense and plaintiff are afforded the opportunity to [color=#a4885c]cross-examine[/color] witnesses and evidence. This step should take no longer than [color=#a4885c]5 minutes[/color], and it is at the judge's discretion if additional time is needed.
-- The judge considers both arguments and makes their ruling, which must then be notarized and stamped.
-- The ruling should then be enacted if possible by the appropriate personnel, if needed Security and Justice Department staff can ensure the ruling is fulfilled completely and in a timely manner.
-
+- Выбранный судья начинает судебное разбирательство, как только и защита, и истец будут готовы.
+- Истец сам зачитывает иск против ответчика.
+- Истец предоставляет все необходимые доказательства/свидетелей и аргументы в пользу этой жалобы. У них есть [color=#a4885c]5 минут[/color], максимум, чтобы отстаивать свою позицию, прежде чем им потребуется запросить дополнительное время у судьи.
+- Защита отвечает на эти обвинения индивидуально, [color=#a4885c]признавая себя виновным или невиновным[/color]. Если они не признают себя виновными, защита затем представляет свои контраргументы вместе с любыми доказательствами/свидетелями, которых они выберут представить. У них также есть [color=#a4885c]5 минут[/color] для отстаивания своей позиции, прежде чем им потребуется запросить дополнительное время у судьи.
+- Защита и истец имеют возможность [color=#a4885c]перекрестно допросить[/color] свидетелей и доказательства. Этот шаг не должен длиться дольше [color=#a4885c]5 минут[/color], и судья по своему усмотрению может предоставить дополнительное время.
+- Судья рассматривает оба аргумента и выносит решение, которое затем должно быть нотариально заверено и скреплено печатью.
+- Затем решение должно быть принято, если это возможно, соответствующим персоналом, при необходимости сотрудники Департамента безопасности и юстиции могут обеспечить полное и своевременное исполнение решения.
 </Document>
