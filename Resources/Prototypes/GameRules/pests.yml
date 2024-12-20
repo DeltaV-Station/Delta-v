@@ -53,7 +53,7 @@
     earliestStart: 15
     weight: 6
     duration: 50
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+    minimumPlayers: 10 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-king-rat-migration-result-message
   - type: VentCrittersRule
@@ -121,7 +121,7 @@
     earliestStart: 15
     weight: 6
     duration: 50
-    minimumPlayers: 30
+    minimumPlayers: 7
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
@@ -132,5 +132,5 @@
       prob: 0.002
     - id: MobSnailMoth
       prob: 0.002
-    #- id: MobSnailInstantDeath # DeltaV - no
-      #prob: 0.00001 #  ~ 1:2000 snails
+    - id: MobSnailInstantDeath # DeltaV - no
+      prob: 0.00001 #  ~ 1:2000 snails

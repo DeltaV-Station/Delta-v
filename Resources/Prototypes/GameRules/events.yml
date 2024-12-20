@@ -138,7 +138,7 @@
     startAnnouncement: station-event-bureaucratic-error-announcement
     startAudio: #Delta-V: Previously unheard announcer line for DeltaV's custom announcer
       path: /Audio/Announcements/bureaucratic_error.ogg
-    minimumPlayers: 25
+    minimumPlayers: 6
     weight: 5
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -153,7 +153,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-clerical-error-announcement
-    minimumPlayers: 15
+    minimumPlayers: 6
     weight: 5
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -181,7 +181,7 @@
     weight: 1 # DeltaV - was 6.5
     earliestStart: 60 # DeltaV - was 40
     reoccurrenceDelay: 20
-    minimumPlayers: 45 # DeltaV - was 20
+    minimumPlayers: 10 # DeltaV - was 20
     duration: null
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-dragon-spawn-result-message
@@ -213,7 +213,7 @@
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
-    minimumPlayers: 40 # DeltaV - was 30
+    minimumPlayers: 10 # DeltaV - was 30
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ninja-spawn-result-message
   - type: SpaceSpawnRule
@@ -270,7 +270,7 @@
     weight: 1 # DeltaV - was 7.5, lowered because of GlimmerRevenantSpawn event
     duration: 1
     earliestStart: 45
-    minimumPlayers: 20
+    minimumPlayers: 10
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-revenant-spawn-result-message
   - type: RandomSpawnRule
@@ -283,7 +283,7 @@
 #  parent: BaseGameRule
 #  components:
 #  - type: StationEvent
-#    weight: 15
+#    weight: 10
 #    duration: 1
 #  - type: FalseAlarmRule
 
@@ -306,8 +306,8 @@
   parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
-    earliestStart: 15
-    minimumPlayers: 10 # DeltaV - Was 15
+    earliestStart: 10
+    minimumPlayers: 6 # DeltaV - Was 10
     weight: 5 # DeltaV - was 7
     duration: 240
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -370,8 +370,8 @@
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
       path: /Audio/Announcements/ventclog.ogg # DeltaV - custom announcer
-    earliestStart: 20 # DeltaV - was 15
-    minimumPlayers: 15
+    earliestStart: 20 # DeltaV - was 10
+    minimumPlayers: 3
     weight: 7.5 # DeltaV - was 5
     duration: 60
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -387,7 +387,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 6
     weight: 5
     duration: 60
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -410,7 +410,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 10
     weight: 5
     duration: 60
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -433,7 +433,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 6
     weight: 5
     duration: 60
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -452,7 +452,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 45 # DeltaV - was 20
-    minimumPlayers: 30 # DeltaV - was 20
+    minimumPlayers: 10 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 60
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -468,7 +468,7 @@
   components:
   - type: StationEvent
     earliestStart: 90 # DeltaV - was 50
-    minimumPlayers: 40
+    minimumPlayers: 20
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -504,7 +504,7 @@
   - type: StationEvent
     earliestStart: 60 # DeltaV - was 45
     weight: 3.5 # DeltaV - was 5
-    minimumPlayers: 30 # DeltaV - was 20
+    minimumPlayers: 10 # DeltaV - was 20
     reoccurrenceDelay: 30
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -542,7 +542,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 5 # DeltaV - Was 8 now 5
-    minimumPlayers: 15
+    minimumPlayers: 10
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -571,7 +571,7 @@
   components:
   - type: StationEvent
     weight: 10
-    duration: 150
+    duration: 100
     maxDuration: 300
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-mass-hallucinations-result-message
@@ -614,7 +614,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    minimumPlayers: 25
+    minimumPlayers: 10
     reoccurrenceDelay: 20
   - type: GreytideVirusRule
     accessGroups:
@@ -633,9 +633,9 @@
   components:
   - type: StationEvent
     weight: 5
-    earliestStart: 15
+    earliestStart: 10
     reoccurrenceDelay: 20
-    minimumPlayers: 4
+    minimumPlayers: 3
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0

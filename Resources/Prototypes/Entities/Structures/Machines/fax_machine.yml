@@ -5,13 +5,13 @@
   description: Bluespace technologies on the application of bureaucracy.
   components:
   - type: Sprite
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: NES/Structures/Machines/fax_machine.rsi #NES14-Changes
     drawdepth: SmallObjects
     layers:
     - state: icon
       map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: Icon
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: NES/Structures/Machines/fax_machine.rsi #NES14-Changes
     state: icon
   - type: Appearance
   - type: Physics

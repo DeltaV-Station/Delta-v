@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Aserovich",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fab-active",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.2,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+        "name": "unlit-building",
+        "delays": [
+          [
+            0.15,
+            0.15,
+            0.15,
+            0.2,
+            0.15,
+            0.15
+          ]
+        ]
+      },
+    {
+      "name": "fab-idle"
+    },
+    {
+        "name": "unlit"
+      },
+    {
+      "name": "fab-o"
+    },
+    {
+      "name": "fab-load",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

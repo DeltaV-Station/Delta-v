@@ -158,7 +158,7 @@
     - tator
   name: traitor-title
   description: traitor-description
-  showInVote: false # Stray
+  showInVote: true # Stray
   rules:
     - Traitor
     - SubGamemodesRule
@@ -187,7 +187,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: false # Stray
+  showInVote: true # Stray
   minPlayers: 10
   rules:
     - Nukeops
