@@ -63,3 +63,5 @@ ent-AllTraitorCodesPaper = реестр кодовых слов Синдикат
     .suffix = Адмемы
 ent-Envelope = конверт
     .desc = Небольшой конверт для защиты от посторонних глаз ваших конфиденциальных документов.
+gorlax-girlfriend-name = Рассылка подписчику
+gorlax-girlfriend-desc = Спасибо за покупку!

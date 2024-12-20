@@ -5,3 +5,5 @@ research-technology-energy-gun = Энергетическое оружие
 research-technology-energy-gun-advance = Усовершенствованная манипуляция энергией
 
 research-technology-advance-laser = Продвинутая манипуляция лазерами
+
+research-technology-ionized-cryogenic-emission-equipment = Оборудование ионной заморозки
