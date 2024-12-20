@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Reworked Shoukou's atmospherics setup. The Gas Recycler is now usable
-      among other things.
-    type: Tweak
-  id: 300
-  time: '2024-04-03T02:10:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1049
 - author: rosieposieeee
   changes:
   - message: Submarine has, once again, had some minor issues quashed, and small improvements
@@ -3820,3 +3812,10 @@
   id: 799
   time: '2024-12-20T05:31:37.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2229
+- author: deltanedas
+  changes:
+  - message: Removed vent fauna (spiders, slimes, snakes) events pending rework.
+    type: Remove
+  id: 800
+  time: '2024-12-20T05:34:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2474
