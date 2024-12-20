@@ -211,6 +211,38 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+# Medical
+## Psychologist
+- type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - PsychologistFrenchBeret
+  - PsychologistGreyFlatcap
+  - PsychologistBrownFlatcap
+
+- type: loadoutGroup
+  id: PsychologistOuterClothing
+  name: loadout-group-psychologist-outerclothing
+  minLimit: 0
+  loadouts:
+  - PsychologistMedicalWinterCoat
+  - PsychologistWinterCoat
+  - PsychologistWinterCoatPlaid
+  - PsychologistCoatBomber
+  - PsychologistSweater
+
+- type: loadoutGroup
+  id: PsychologistShoes
+  name: loadout-group-psychologist-shoes
+  loadouts:
+  - LeatherShoes
+  - LaceupShoes
+  - MedicalWinterBoots
+  - WinterBoots
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
@@ -445,6 +477,15 @@
   loadouts:
   - JanitorPDA
   - HygieneTechnicianPDA
+
+- type: loadoutGroup
+  id: PsychologistPDADelta
+  name: loadout-group-psychologist-id-delta
+  loadouts:
+  - PsychologistPDA
+  - PsychiatristPDA
+  - TherapistPDA
+  - SocialWorkerPDA
 
 # Misc
 - type: loadoutGroup
