@@ -88,7 +88,7 @@
   description: We have reason to believe that they have begun to question the syndicate and need to be eliminated.
   components:
   - type: Objective
-    difficulty: 4 # They can easily buy weapons to defend themselves if they think something is up.
+    difficulty: 2 # They can easily buy weapons to defend themselves if they think something is up.
   - type: TargetObjective
     title: objective-condition-traitor-kill-title
   - type: PickRandomTraitor
