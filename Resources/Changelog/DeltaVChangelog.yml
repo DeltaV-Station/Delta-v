@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: NullWanderer
-  changes:
-  - message: Merged master, please report bugs or regressions
-    type: Add
-  - message: Mail containing books has been temporarily removed
-    type: Remove
-  id: 302
-  time: '2024-04-09T07:49:38.080075+00:00'
-  url: null
-- author: deltanedas
-  changes:
-  - message: Lighthouse is BACK!
-    type: Add
-  id: 303
-  time: '2024-04-09T07:49:38.080495+00:00'
-  url: null
 - author: Adrian16199
   changes:
   - message: Added new horn designs for onis.
@@ -3823,3 +3807,21 @@
   id: 801
   time: '2024-12-20T05:38:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2077
+- author: Stop-Signs
+  changes:
+  - message: sleepers will no longer receive nukies as kill targets
+    type: Fix
+  id: 802
+  time: '2024-12-20T17:22:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2483
+- author: alterae
+  changes:
+  - message: Added coats, hats, scarves, and shoes to the Psychologist's loadout options.
+    type: Add
+  - message: Added three new Psychologist job titles.
+    type: Add
+  - message: Psychologist now spawns with a folder.
+    type: Tweak
+  id: 803
+  time: '2024-12-20T18:49:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2459

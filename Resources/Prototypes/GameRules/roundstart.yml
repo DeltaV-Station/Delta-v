@@ -110,6 +110,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-commander
@@ -127,6 +128,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-agent
@@ -146,6 +148,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
