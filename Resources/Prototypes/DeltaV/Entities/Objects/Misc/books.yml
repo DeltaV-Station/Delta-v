@@ -44,3 +44,43 @@
       color: "#2c5491"
   - type: Paper
     content: book-text-vulpkanin
+
+- type: entity
+  parent: BaseItem
+  id: BookGorlexGirlfriends
+  name: Gorlex Girlfriends
+  description: Issue 197 - Starring Operative November
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/gorlex_magazine.rsi
+    state: icon
+  - type: Paper
+    contentSize: 12000
+    content: book-text-gorlexgirlfriend
+    stampedBy:
+    - stampedColor: "#850000"
+      stampedName: stamp-component-stamped-name-syndicate
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: MeleeWeapon 
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1

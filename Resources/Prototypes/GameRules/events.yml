@@ -20,11 +20,11 @@
     - id: MouseMigration
     - id: PowerGridCheck
     #- id: RandomSentience # DeltaV - replaced with RandomSentienceGlimmer
-    - id: SlimesSpawn
+    #- id: SlimesSpawn # DeltaV - disabled hostile fauna events
     - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    #- id: SnakeSpawn # DeltaV
+    #- id: SpiderClownSpawn # DeltaV
+    #- id: SpiderSpawn # DeltaV
     - id: VentClog
 
 - type: entityTable
@@ -83,6 +83,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 12 # DeltaV - was 8
     duration: 35
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-anomoly-spawn-result-message
   - type: AnomalySpawnRule
 
 - type: entity
@@ -99,6 +101,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bluespace-artifact-result-message
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -110,6 +114,8 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bluespace-locker-result-message
   - type: BluespaceLockerRule
 
 - type: entity
@@ -120,6 +126,8 @@
     weight: 10
     duration: 1
     minimumPlayers: 15
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-breaker-flip-result-message
   - type: BreakerFlipRule
 
 - type: entity
@@ -133,6 +141,8 @@
     minimumPlayers: 25
     weight: 5
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-bureaucratic-error-result-message
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
@@ -146,6 +156,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-clerical-error-result-message
   - type: ClericalErrorRule
 
 - type: entity
@@ -156,6 +168,8 @@
     weight: 8 # DeltaV - was 10
     duration: 1
     minimumPlayers: 10
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-closet-skeleton-result-message
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -169,6 +183,8 @@
     reoccurrenceDelay: 20
     minimumPlayers: 45 # DeltaV - was 20
     duration: null
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-dragon-spawn-result-message
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -198,6 +214,8 @@
     earliestStart: 30
     reoccurrenceDelay: 60 # DeltaV - was 20
     minimumPlayers: 40 # DeltaV - was 30
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-ninja-spawn-result-message
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -253,6 +271,8 @@
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-revenant-spawn-result-message
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -277,6 +297,8 @@
       path: /Audio/Announcements/gas_leak.ogg # DeltaV - custom announcer
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 10 # DeltaV - was 8
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-gas-leak-result-message
   - type: GasLeakRule
 
 - type: entity
@@ -288,6 +310,8 @@
     minimumPlayers: 10 # DeltaV - Was 15
     weight: 5 # DeltaV - was 7
     duration: 240
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-kudzu-growth-result-message
   - type: KudzuGrowthRule
 
 - type: entity
@@ -304,6 +328,8 @@
         volume: -4
     duration: 60
     maxDuration: 120
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-power-grid-check-result-message
   - type: PowerGridCheckRule
 
 - type: entity
@@ -318,6 +344,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-solar-flare-result-message
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -346,6 +374,8 @@
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-vent-clog-result-message
   - type: VentClogRule
 
 - type: entity
@@ -360,6 +390,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-slimes-spawn-result-message
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -381,6 +413,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snake-spawn-result-message
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -402,6 +436,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-spider-spawn-result-message
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -419,6 +455,8 @@
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 60
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-spider-clown-spawn-result-message
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider
@@ -433,6 +471,8 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -467,6 +507,8 @@
     minimumPlayers: 30 # DeltaV - was 20
     reoccurrenceDelay: 30
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-lone-ops-spawn-result-message
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -507,6 +549,8 @@
       path: /Audio/Announcements/attention.ogg # DeltaV - Use the generic announcement sound
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-sleeper-agents-result-message
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -529,6 +573,8 @@
     weight: 10
     duration: 150
     maxDuration: 300
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-mass-hallucinations-result-message
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 30 # DeltaV - was 0.1
     maxTimeBetweenIncidents: 300
@@ -544,6 +590,8 @@
     weight: 10
     reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-ion-storm-result-message
   - type: IonStormRule
 
 # DeltaV - Disable Mimic event. It causes a ton of heisentests, and does practially nothing in game
