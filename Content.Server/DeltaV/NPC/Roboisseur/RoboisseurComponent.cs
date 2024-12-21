@@ -104,7 +104,6 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodCheeseCurds",
             "FoodBurgerSuper",
             "FoodNoodlesCopy",
-            "FoodMothMallow",
             "FoodSoupMonkey",
             "FoodCakeCarrot",
             "FoodBreadBaguette",
