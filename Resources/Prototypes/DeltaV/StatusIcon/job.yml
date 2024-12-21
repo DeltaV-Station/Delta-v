@@ -45,3 +45,11 @@
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
     state: SecurityBorg
   jobName: job-name-security-borg
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCargoAssistant
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: CargoAssistant
+  jobName: job-name-cargo-assistant

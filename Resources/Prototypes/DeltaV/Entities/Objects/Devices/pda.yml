@@ -190,6 +190,16 @@
       - MailMetricsCartridge
       - NanoChatCartridge
 
+- type: entity
+  parent: CargoPDA
+  id: CargoAssistantPDA
+  name: cargo assistant PDA
+  description: It smells like cardboard.
+  components:
+  - type: Pda
+    id: CargoAssistantIDCard
+    state: pda-cargo-assistant
+
 ## Alternate Job Titles
 
 # Passenger
