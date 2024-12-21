@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Database;
+using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Timing;
 
@@ -20,6 +21,7 @@ public sealed class SignallerSystem : EntitySystem
         SubscribeLocalEvent<SignallerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SignallerComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<SignallerComponent, TriggerEvent>(OnTrigger);
+        SubscribeLocalEvent<SignallerComponent, GotUnequippedHandEvent>(DeadMans);
     }
 
     private void OnInit(EntityUid uid, SignallerComponent component, ComponentInit args)
@@ -47,5 +49,11 @@ public sealed class SignallerSystem : EntitySystem
 
         _link.InvokePort(uid, component.Port);
         args.Handled = true;
+    }
+
+    private void DeadMans(EntityUid uid, SignallerComponent component, GotUnequippedHandEvent args)
+    {
+        if (HasComp<DeadMansSignallerComponent>(args.Unequipped))
+            _link.InvokePort(uid, component.Port);
     }
 }

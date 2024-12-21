@@ -43,3 +43,19 @@
     range: 50
   - type: StaticPrice
     price: 30
+
+- type: entity
+  parent: RemoteSignaller
+  id: DeadMansSignaler
+  name: dead man's signaler
+  description: A handheld device used for remotely sending signals to objects within a small radius of about 50 meters.
+  components:
+  - type: DeadMansSignaller
+  - type: Sprite
+    state: advanced
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: advanced-inhand-left
+      right:
+      - state: advanced-inhand-right
