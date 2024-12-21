@@ -58,7 +58,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when play mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier PlaySound = new SoundPathSpecifier("/Audio/DeltaV/Items/Taperecorder/play.ogg")
+    public SoundSpecifier PlaySound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/play.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };
@@ -67,7 +67,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when stop mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier StopSound = new SoundPathSpecifier("/Audio/DeltaV/Items/Taperecorder/stop.ogg")
+    public SoundSpecifier StopSound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/stop.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };
@@ -76,7 +76,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when rewind mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier RewindSound = new SoundPathSpecifier("/Audio/DeltaV/Items/Taperecorder/rewind.ogg")
+    public SoundSpecifier RewindSound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/rewind.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };
