@@ -20,11 +20,11 @@
     - id: MouseMigration
     - id: PowerGridCheck
     #- id: RandomSentience # DeltaV - replaced with RandomSentienceGlimmer
-    #- id: SlimesSpawn # DeltaV - disabled hostile fauna events
+    - id: SlimesSpawn
     - id: SolarFlare
-    #- id: SnakeSpawn # DeltaV
-    #- id: SpiderClownSpawn # DeltaV
-    #- id: SpiderSpawn # DeltaV
+    - id: SnakeSpawn
+    - id: SpiderClownSpawn
+    - id: SpiderSpawn
     - id: VentClog
 
 - type: entityTable
