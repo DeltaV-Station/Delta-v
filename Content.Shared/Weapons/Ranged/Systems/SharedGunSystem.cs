@@ -129,10 +129,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         var user = args.SenderSession.AttachedEntity;
 
-        if (user == null ||
-            !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var ent, out var gun) ||
-            HasComp<ItemComponent>(user)) // Delta-V: Felinids in duffelbags can't shoot.
         if (user == null || !_combatMode.IsInCombatMode(user))
             return;
 
@@ -140,7 +136,6 @@ public abstract partial class SharedGunSystem : EntitySystem
             user = mechPilot.Mech;
 
         if (!TryGetGun(user.Value, out var ent, out var gun))
-        {
             return;
 
         if (ent != GetEntity(msg.Gun))
