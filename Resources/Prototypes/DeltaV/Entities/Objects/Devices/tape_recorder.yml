@@ -52,6 +52,16 @@
         type: TapeRecorderBoundUserInterface
 
 - type: entity
+  parent: TapeRecorder
+  id: TapeRecorderFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      cassette_tape:
+      - CassetteTape
+
+- type: entity
   parent: BaseItem
   id: CassetteTape
   name: cassette tape
