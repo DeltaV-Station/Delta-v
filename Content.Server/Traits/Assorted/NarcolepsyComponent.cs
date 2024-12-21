@@ -1,4 +1,7 @@
-﻿using System.Numerics;
+﻿using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // DeltaV Narcolepsy
+using System.Numerics;
+using Content.Shared.Dataset;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -20,5 +23,26 @@ public sealed partial class NarcolepsyComponent : Component
     [DataField("durationOfIncident", required: true)]
     public Vector2 DurationOfIncident { get; private set; }
 
-    public float NextIncidentTime;
+    [DataField] // # DeltaV begin Narcolepsy port from EE
+    public float  NextIncidentTime;
+
+    /// <summary>
+    /// Dataset to pick warning strings from.
+    /// </summary>
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype> NarcolepsyWarningDataset = "NarcolepsyWarning";
+
+    /// <summary>
+    /// Dataset to pick wakeup strings from.
+    /// </summary>
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype> NarcolepsyWakeupDataset = "NarcolepsyWakeup";
+
+    [DataField]
+    public int WarningLocaleCount = 5, WakeupLocaleCount = 3;
+
+    [DataField]
+    public float TimeBeforeWarning = 20f, WarningChancePerSecond = 0.25f;
+
+    public float LastWarningRollTime = float.MaxValue; // DeltaV end Narcolepsy port from EE
 }
