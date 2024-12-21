@@ -337,10 +337,15 @@ public sealed class AdminSystem : EntitySystem
 
     private void UpdatePanicBunker()
     {
-        var admins = PanicBunker.CountDeadminnedAdmins
-            ? _adminManager.AllAdmins
-            : _adminManager.ActiveAdmins;
-        var hasAdmins = admins.Any(p => _adminManager.HasAdminFlag(p, AdminFlags.Ban)); // DeltaV: Add predicate to require someone that can handle ahelps, not just curators
+        var hasAdmins = false;
+        foreach (var admin in _adminManager.AllAdmins)
+        {
+            if (_adminManager.HasAdminFlag(admin, AdminFlags.Ban, includeDeAdmin: PanicBunker.CountDeadminnedAdmins)) // DeltaV: Check Ban instead of Admin
+            {
+                hasAdmins = true;
+                break;
+            }
+        }
 
         // TODO Fix order dependent Cvars
         // Please for the sake of my sanity don't make cvars & order dependent.

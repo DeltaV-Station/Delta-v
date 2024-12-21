@@ -1,16 +1,14 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Abilities.Psionics
+namespace Content.Shared.Abilities.Psionics;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class MindSwapPowerComponent : Component
 {
-    [RegisterComponent]
-    public sealed partial class MindSwapPowerComponent : Component
-    {
-        [DataField("mindSwapActionId",
-        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? MindSwapActionId = "ActionMindSwap";
+    [DataField]
+    public EntProtoId? MindSwapActionId = "ActionMindSwap";
 
-        [DataField("mindSwapActionEntity")]
-        public EntityUid? MindSwapActionEntity;
-    }
+    [DataField]
+    public EntityUid? MindSwapActionEntity;
 }

@@ -17,7 +17,7 @@ public sealed class HologramSystem : SharedHologramSystem
     {
         base.Initialize();
 
-        _shader = _protoMan.Index<ShaderPrototype>("Hologram").InstanceUnique();
+        _shader = _protoMan.Index<ShaderPrototype>("HologramDeltaV").InstanceUnique();
         SubscribeLocalEvent<HologramComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HologramComponent, ComponentStartup>(OnStartup);
     }
