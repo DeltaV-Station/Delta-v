@@ -385,78 +385,96 @@ public sealed class AdminSystem : EntitySystem
         }
     }
 
-        /// <summary>
-        ///     Erases a player from the round.
-        ///     This removes them and any trace of them from the round, deleting their
-        ///     chat messages and showing a popup to other players.
-        ///     Their items are dropped on the ground.
-        /// </summary>
-        public void Erase(NetUserId uid)
+    // DeltaV - Slight refactor as a part of #2032, licensed under MIT
+
+    /// <summary>
+    ///     Erases an entity from the round.
+    ///     This removes them and any trace of them from the round.
+    ///     Their items are dropped on the ground.
+    /// </summary>
+    public void Erase(EntityUid entity)
+    {
+        if (TerminatingOrDeleted(entity))
+            return;
+
+        if (TryComp(entity, out TransformComponent? transform))
         {
-            _chat.DeleteMessagesBy(uid);
-
-            if (!_minds.TryGetMind(uid, out var mindId, out var mind) || mind.OwnedEntity == null || TerminatingOrDeleted(mind.OwnedEntity.Value))
-                return;
-
-            var entity = mind.OwnedEntity.Value;
-
-            if (TryComp(entity, out TransformComponent? transform))
-            {
-                var coordinates = _transform.GetMoverCoordinates(entity, transform);
-                var name = Identity.Entity(entity, EntityManager);
-                _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)), coordinates, PopupType.LargeCaution);
-                var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
-                var audioParams = new AudioParams().WithVolume(3);
-                _audio.PlayStatic("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams); // DeltaV
-            }
-
-            foreach (var item in _inventory.GetHandOrInventoryEntities(entity))
-            {
-                if (TryComp(item, out PdaComponent? pda) &&
-                    TryComp(pda.ContainedId, out StationRecordKeyStorageComponent? keyStorage) &&
-                    keyStorage.Key is { } key &&
-                    _stationRecords.TryGetRecord(key, out GeneralStationRecord? record))
-                {
-                    if (TryComp(entity, out DnaComponent? dna) &&
-                        dna.DNA != record.DNA)
-                    {
-                        continue;
-                    }
-
-                    if (TryComp(entity, out FingerprintComponent? fingerPrint) &&
-                        fingerPrint.Fingerprint != record.Fingerprint)
-                    {
-                        continue;
-                    }
-
-                    _stationRecords.RemoveRecord(key);
-                    Del(item);
-                }
-            }
-
-            if (_inventory.TryGetContainerSlotEnumerator(entity, out var enumerator))
-            {
-                while (enumerator.NextItem(out var item, out var slot))
-                {
-                    if (_inventory.TryUnequip(entity, entity, slot.Name, true, true))
-                        _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
-                }
-            }
-
-            if (TryComp(entity, out HandsComponent? hands))
-            {
-                foreach (var hand in _hands.EnumerateHands(entity, hands))
-                {
-                    _hands.TryDrop(entity, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
-                }
-            }
-
-            _minds.WipeMind(mindId, mind);
-            QueueDel(entity);
-
-            if (_playerManager.TryGetSessionById(uid, out var session))
-                _gameTicker.SpawnObserver(session);
+            var coordinates = _transform.GetMoverCoordinates(entity, transform);
+            var name = Identity.Entity(entity, EntityManager);
+            _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)),
+                coordinates,
+                PopupType.LargeCaution);
+            var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
+            var audioParams = new AudioParams().WithVolume(3);
+            _audio.PlayStatic("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams); // DeltaV
         }
+
+        foreach (var item in _inventory.GetHandOrInventoryEntities(entity))
+        {
+            if (TryComp(item, out PdaComponent? pda) &&
+                TryComp(pda.ContainedId, out StationRecordKeyStorageComponent? keyStorage) &&
+                keyStorage.Key is { } key && _stationRecords.TryGetRecord(key, out GeneralStationRecord? record))
+            {
+                if (TryComp(entity, out DnaComponent? dna) && dna.DNA != record.DNA)
+                {
+                    continue;
+                }
+
+                if (TryComp(entity, out FingerprintComponent? fingerPrint) &&
+                    fingerPrint.Fingerprint != record.Fingerprint)
+                {
+                    continue;
+                }
+
+                _stationRecords.RemoveRecord(key);
+                Del(item);
+            }
+        }
+
+        if (_inventory.TryGetContainerSlotEnumerator(entity, out var enumerator))
+        {
+            while (enumerator.NextItem(out var item, out var slot))
+            {
+                if (_inventory.TryUnequip(entity, entity, slot.Name, true, true))
+                    _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
+            }
+        }
+
+        if (TryComp(entity, out HandsComponent? hands))
+        {
+            foreach (var hand in _hands.EnumerateHands(entity, hands))
+            {
+                _hands.TryDrop(entity, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
+            }
+        }
+
+        QueueDel(entity);
+    }
+
+    /// <summary>
+    ///     Erases a player from the round.
+    ///     This removes them and any trace of them from the round, deleting their
+    ///     chat messages and showing a popup to other players.
+    ///     Their items are dropped on the ground.
+    /// </summary>
+    public void Erase(NetUserId uid)
+    {
+        _chat.DeleteMessagesBy(uid);
+
+        if (!_minds.TryGetMind(uid, out var mindId, out var mind) || mind.OwnedEntity == null ||
+            TerminatingOrDeleted(mind.OwnedEntity.Value))
+            return;
+
+        var entity = mind.OwnedEntity.Value;
+
+        Erase(entity);
+
+        _minds.WipeMind(mindId, mind);
+
+        if (_playerManager.TryGetSessionById(uid, out var session))
+            _gameTicker.SpawnObserver(session);
+    }
+    // End DeltaV Changes
 
     private void OnSessionPlayTimeUpdated(ICommonSession session)
     {
