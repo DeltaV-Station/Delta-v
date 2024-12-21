@@ -1142,8 +1142,8 @@
       - ClothingUniformJumpskirtCMO
       - ClothingUniformJumpsuitCMOTurtle
       - ClothingUniformJumpskirtCMOTurtle
-      - ClothingUniformJumpsuitDetective
-      - ClothingUniformJumpskirtDetective
+     # - ClothingUniformJumpsuitDetective # DeltaV - removed from detdrobe for incongruence
+     # - ClothingUniformJumpskirtDetective # DeltaV - removed from detdrobe for incongruence
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitSeniorEngineer
@@ -1225,6 +1225,9 @@
       - ClothingHeadHatBeretBrigmedic
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
+      - ClothingHeadHatBeretDet # DeltaV - added detective beret to lathe
+      - ClothingUniformJumpsuitForensicSpec # DeltaV - added detective uniform to lathe
+      - ClothingUniformJumpskirtForensicSpec # DeltaV - added detective uniform to lathe
       - ClothingHeadHatBeretWarden
       - ClothingHeadHatWarden
       - ClothingUniformJumpsuitWarden
@@ -1240,12 +1243,16 @@
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
-      - ClothingOuterWinterHoSUnarmored
-      - ClothingOuterWinterWardenUnarmored
+      # - ClothingOuterWinterHoSUnarmored # DeltaV - seems to be replaced by stasec version
+      # - ClothingOuterWinterWardenUnarmored # DeltaV - seems to be replaced by stasec version
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterChiefJustice # DeltaV - Chief Justice
+      - ClothingOuterCoatStasec # DeltaV - added stasec coat to uniform printer.
       - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
+      - ClothingOuterCoatStasecDet # DeltaV - added stasec detective coat to uniform printer.
+      - ClothingOuterCoatStasecWarden # DeltaV - added stasec warden coat to uniform printer.
+      - ClothingOuterCoatStasecHoS # DeltaV - added stasec HoS coat to uniform printer.
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -1265,7 +1272,7 @@
       - ClothingOuterWinterViro
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
-      - ClothingOuterWinterSec
+      # ClothingOuterWinterSec # DeltaV - seems to be replaced by stasec version.
       # Ties
       - ClothingNeckTieRed
       - ClothingNeckTieDet

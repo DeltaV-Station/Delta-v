@@ -225,15 +225,25 @@
 
 ## Detective
 
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitDetective
-  result: ClothingUniformJumpsuitDetective
+# - type: latheRecipe # DeltaV - removed from detdrobe for incongruence
+#   parent: BaseJumpsuitRecipe
+#   id: ClothingUniformJumpsuitDetective
+#   result: ClothingUniformJumpsuitDetective
 
-- type: latheRecipe
+# - type: latheRecipe # DeltaV - removed from detdrobe for incongruence
+#   parent: BaseJumpsuitRecipe
+#   id: ClothingUniformJumpskirtDetective
+#   result: ClothingUniformJumpskirtDetective
+
+- type: latheRecipe # DeltaV - adds jumpsuit to lathe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtDetective
-  result: ClothingUniformJumpskirtDetective
+  id: ClothingUniformJumpsuitForensicSpec
+  result: ClothingUniformJumpsuitForensicSpec
+
+- type: latheRecipe # DeltaV - adds jumpskirt to lathe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtForensicSpec
+  result: ClothingUniformJumpskirtForensicSpec
 
 ## Engineer
 
@@ -599,15 +609,25 @@
   id: ClothingOuterWinterHoP
   result: ClothingOuterWinterHoP
 
-- type: latheRecipe
-  parent: BaseCommandCoatRecipe
-  id: ClothingOuterWinterHoSUnarmored
-  result: ClothingOuterWinterHoSUnarmored
+# - type: latheRecipe
+#   parent: BaseCommandCoatRecipe
+#   id: ClothingOuterWinterHoSUnarmored
+#   result: ClothingOuterWinterHoSUnarmored
 
-- type: latheRecipe
+# - type: latheRecipe
+#   parent: BaseCommandCoatRecipe
+#   id: ClothingOuterWinterWardenUnarmored
+#   result: ClothingOuterWinterWardenUnarmored
+
+- type: latheRecipe # DeltaV - replaces ClothingOuterWinterHoSUnarmored
   parent: BaseCommandCoatRecipe
-  id: ClothingOuterWinterWardenUnarmored
-  result: ClothingOuterWinterWardenUnarmored
+  id: ClothingOuterCoatStasecHoS
+  result: ClothingOuterCoatStasecHoS
+
+- type: latheRecipe # DeltaV - replaces ClothingOuterWinterWardenUnarmored
+  parent: BaseCommandCoatRecipe
+  id: ClothingOuterCoatStasecWarden
+  result: ClothingOuterCoatStasecWarden
 
 - type: latheRecipe
   parent: BaseCommandCoatRecipe
@@ -715,10 +735,20 @@
   id: ClothingOuterWinterRobo
   result: ClothingOuterWinterRobo
 
-- type: latheRecipe
+# - type: latheRecipe
+#   parent: BaseCoatRecipe
+#   id: ClothingOuterWinterSec
+#   result: ClothingOuterWinterSec
+
+- type: latheRecipe # DeltaV - replaces ClothingOuterWinterSec
   parent: BaseCoatRecipe
-  id: ClothingOuterWinterSec
-  result: ClothingOuterWinterSec
+  id: ClothingOuterCoatStasec
+  result: ClothingOuterCoatStasec
+
+- type: latheRecipe # DeltaV - added to lathe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatStasecDet
+  result: ClothingOuterCoatStasecDet
 
 - type: latheRecipe
   parent: BaseCoatRecipe
@@ -817,6 +847,11 @@
   parent: BaseHatRecipe
   id: ClothingHeadHatBeretSecurity
   result: ClothingHeadHatBeretSecurity
+
+- type: latheRecipe # DeltaV - added to printer
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBeretDet
+  result: ClothingHeadHatBeretDet
 
 - type: latheRecipe
   parent: BaseHatRecipe
