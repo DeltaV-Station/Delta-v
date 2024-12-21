@@ -32,10 +32,10 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
 
     private List<EntityCoordinates> _locations = new();
 
-    protected override void Added(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, VentCrittersRuleComponent comp, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        PickLocation(component);
-        if (component.Location is not {} coords)
+        PickLocation((uid, comp));
+        if (comp.Location is not {} coords)
         {
             ForceEndSelf(uid, gameRule);
             return;
@@ -48,7 +48,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         var nearest = beacon?.Comp?.Text!;
         Comp<StationEventComponent>(uid).StartAnnouncement = Loc.GetString("station-event-vent-creatures-start-announcement-deltav", ("location", nearest));
 
-        base.Added(uid, component, gameRule, args);
+        base.Added(uid, comp, gameRule, args);
     }
 
     protected override void Ended(EntityUid uid, VentCrittersRuleComponent comp, GameRuleComponent gameRule, GameRuleEndedEvent args)
@@ -78,22 +78,26 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         Spawn(specialEntry.PrototypeId, coords);
     }
 
-    private void PickLocation(VentCrittersRuleComponent component)
+    private void PickLocation(Entity<VentCrittersRuleComponent> ent)
     {
         if (!TryGetRandomStation(out var station))
+        {
+            Log.Warning($"{ToPrettyString(ent):rule} failed to get a station!");
             return;
+        }
 
         var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
         _locations.Clear();
-        while (locations.MoveNext(out _, out _, out var transform))
+        while (locations.MoveNext(out var uid, out _, out var transform))
         {
-            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
+            if (transform.MapID != MapId.Nullspace && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
             {
+                Log.Debug($"Picking {ToPrettyString(uid)}");
                 _locations.Add(transform.Coordinates);
             }
         }
 
         if (_locations.Count > 0)
-            component.Location = RobustRandom.Pick(_locations);
+            ent.Comp.Location = RobustRandom.Pick(_locations);
     }
 }
