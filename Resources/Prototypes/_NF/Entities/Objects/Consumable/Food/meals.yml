@@ -1,0 +1,144 @@
+﻿- type: entity
+  name: poached pears
+  parent: FoodBowlBase
+  id: FoodMealPoachedPears
+  description: The classiest use for a can of wine.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - fruity
+    - alcohol
+    - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: poachedpear
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Wine # DeltaV we dont have Flavorol, changed to wine
+          Quantity: 8
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: pears belle helene
+  parent: FoodBowlBase
+  id: FoodMealPearsBelleHelene
+  description: The delicate flavor of the immaculate pear drenched in chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chocolate
+    - pear
+    - creamy
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: bellepear
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16 # DeltaV increase for lack of flavorol
+        - ReagentId: Vitamin
+          Quantity: 12 # DeltaV increase for lack of flavorol
+        - ReagentId: Theobromine
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: pear muffin
+  parent: FoodMealBase
+  id: FoodBakedMuffinPear
+  description: I won't tell if you just try to pick out the chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chocolate
+    - muffin
+    - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: pearmuffin
+    scale: .75, .75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7 # DeltaV increase for lack of flavorol
+        - ReagentId: Vitamin
+          Quantity: 5 # DeltaV increase for lack of flavorol
+        - ReagentId: Theobromine
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: pear and cheese tart
+  parent: FoodPieBase
+  id: FoodTartPearCheese
+  description: The most sublime pair.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - cheesy
+    - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: tin
+    - state: pearandcheese
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: coffee berries
+  parent: FoodProduceBase
+  id: FoodCoffee
+  description: Red berries encasing coffee beans.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - bitter
+    - type: Food
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 12
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 2
+            - ReagentId: Theobromine
+              Quantity: 1
+    - type: Sprite
+      sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
+    - type: Produce
+      seedId: coffee
+    - type: Tag
+      tags:
+        - Fruit
+    - type: SpawnItemsOnUse
+      items:
+        - id: FoodCoffeeBeansRaw
+      sound:
+        path: /Audio/Effects/packetrip.ogg
