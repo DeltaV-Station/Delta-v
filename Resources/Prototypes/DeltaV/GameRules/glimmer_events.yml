@@ -17,6 +17,7 @@
   parent: BaseGameRule
   id: GlimmerEventScheduler
   components:
+  - type: NextEvent
   - type: BasicStationEventScheduler
     minMaxEventTiming:
       min: 300

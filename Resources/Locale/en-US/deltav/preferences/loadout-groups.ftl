@@ -27,6 +27,7 @@ loadout-group-passenger-id-delta = Passenger PDA
 loadout-group-bartender-id-delta = Bartender PDA
 loadout-group-chef-id-delta = Chef PDA
 loadout-group-clown-id-delta = Clown PDA
+loadout-group-janitor-id-delta = Janitor PDA
 
 loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
@@ -60,6 +61,11 @@ loadout-group-chemist-neck = Chemist neck
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
 loadout-group-medical-intern-id-delta = Medical Intern PDA
+
+loadout-group-psychologist-head = Psychologist head
+loadout-group-psychologist-outerclothing = Psychologist outer clothing
+loadout-group-psychologist-shoes = Psychologist shoes
+loadout-group-psychologist-id-delta = Psychologist PDA
 
 # Miscellaneous
 loadout-group-scarfs = Scarf

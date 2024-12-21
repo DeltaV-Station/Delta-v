@@ -3084,6 +3084,15 @@ entities:
     - type: Transform
       pos: 9.5,8.5
       parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 483
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 1
+    - type: WarpPoint
+      location: NTMC Helix
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 438

@@ -24,3 +24,15 @@
   components:
   - type: Paper
     content: book-text-lunchbox-unhealthy
+
+- type: entity
+  parent: Paper
+  id: PaperWrittenSubscriptionNotice
+  name: "subscription notice"
+  description: "Thank you for your purchase"
+  components:
+  - type: Paper
+    content: book-text-subscription-notice
+    stampedBy:
+    - stampedColor: "#850000"
+      stampedName: stamp-component-stamped-name-syndicate

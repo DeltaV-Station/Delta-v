@@ -73,3 +73,14 @@
         ents: []
       medkit: !type:ContainerSlot {}
   - type: Appearance
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltFoamSheath
+  name: foam sheath
+  description: A foam sheath to cosplay as the captain! It seems to be able to fit a real sabre in it.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Belt/foamsheath.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Belt/foamsheath.rsi
