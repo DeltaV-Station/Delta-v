@@ -35,6 +35,7 @@
     # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
     TeachLessonRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
+    KillRandomTraitorObjective: 0.2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
