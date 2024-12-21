@@ -1,0 +1,179 @@
+# Bibles
+- type: loadout
+  id: Bible
+  equipment:
+    pocket1: Bible
+
+- type: loadout
+  id: Quran
+  equipment:
+    pocket1: Quran
+
+- type: loadout
+  id: Torah
+  equipment:
+    pocket1: Torah
+
+- type: loadout
+  id: Bibble
+  equipment:
+    pocket1: Bibble
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 36000 # 10 hours - Only cool Chaplains get the Bibble
+
+- type: loadout
+  id: BibleSatanic
+  equipment:
+    pocket1: BibleSatanic
+
+- type: loadout
+  id: BiblePride
+  equipment:
+    pocket1: BiblePride
+
+- type: loadout
+  id: BibleReddit
+  equipment:
+    pocket1: BibleReddit
+
+- type: loadout
+  id: BibleNanotrasen
+  equipment:
+    pocket1: BibleNanotrasen
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 72000 # 20 hours - Nanotrasen Lovers get the Nanotrasen Manual
+
+- type: loadout
+  id: BibleGilded
+  equipment:
+    pocket1: BibleGilded
+
+- type: loadout
+  id: BibleNecronomiconDiscount # Add Antag Role Time Requirement when it gets added
+  equipment:
+    pocket1: BibleNecronomiconDiscount
+
+- type: loadout
+  id: BibleHymnsHonkmother
+  equipment:
+    pocket1: BibleHymnsHonkmother
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 18000 # 5 hours to prove themselves to the Honkmother
+
+- type: loadout
+  id: BibleVowsSilentfather
+  equipment:
+    pocket1: BibleVowsSilentfather
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 18000 # 5 hours to prove themselves to the Silentfather
+
+#Head
+- type: loadout
+  id: ChaplainTechPriestHood
+  equipment:
+    outerClothing: ClothingHeadTechPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRoboticist 
+      time: 36000 # 10 hours
+
+#Mask
+- type: loadout
+  id: ChaplainMaskClown
+  equipment:
+    mask: ClothingMaskClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 36000 # 10 hours
+
+- type: loadout
+  id: ChaplainMaskMime
+  equipment:
+    mask: ClothingMaskMime
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 36000 # 10 hours
+
+#Neck
+- type: loadout
+  id: ChaplainRosary
+  equipment:
+    neck: ClothingRosary
+
+#Outer Clothing
+- type: loadout
+  id: ChaplainClownRobes
+  equipment:
+    outerClothing: ClothingOuterClownPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 36000 # 10 hours
+
+- type: loadout
+  id: ChaplainTechPriestRobe
+  equipment:
+    outerClothing: ClothingOuterRobeTechPriest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobRoboticist
+      time: 36000 # 10 hours
+
+# Shoes
+- type: loadout
+  id: ShoesBlackSneaker
+  equipment:
+      shoes: ClothingShoesColorBlack
+
+- type: loadout
+  id: ShoesBlack
+  equipment:
+      shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: ShoesLeather
+  equipment:
+      shoes: ClothingShoesLeather
+
+- type: loadout
+  id: SandalsJapanese
+  equipment:
+      shoes: ClothingShoesGeta
+
+- type: loadout
+  id: SandalsWizard
+  equipment:
+      shoes: ClothingShoesWizardFake
+
+- type: loadout
+  id: SandalsTourist
+  equipment:
+      shoes: ClothingShoesTourist
