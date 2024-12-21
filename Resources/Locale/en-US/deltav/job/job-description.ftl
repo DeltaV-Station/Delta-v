@@ -5,3 +5,4 @@ job-description-prosecutor = Take statements from security and prepare cases aga
 job-description-courier = Deliver mail and other packages from and to logistics. Avoid dogs.
 job-description-security-borg = Purpose-built to ensure the right of every crew member to liberty, justice and freedom, ensure the peace aboard the space station by following your laws and patrolling the halls.
 job-description-roboticist = Fabricate borgs and other robots, repair and upgrade the station's silicon life, and scream "State Laws" when the AI takes too long to open a door.
+job-description-cargo-assistant = Learn the basics of the logistics department, deliver crates and take buy orders from the rest of the station.
