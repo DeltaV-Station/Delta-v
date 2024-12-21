@@ -49,3 +49,5 @@ ghost-role-information-syndicate-refugee-rules = You're a regular crewmember fro
 
 ghost-role-information-shadow-cat-name = Shadow Cat
 ghost-role-information-shadow-cat-description = A cute cat made of... shadows? How?!
+
+ghost-role-information-deltav-clippy-description = The courier's loyal pet, smells like cardboard and papers.
