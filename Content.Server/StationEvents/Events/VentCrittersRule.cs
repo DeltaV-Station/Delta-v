@@ -34,7 +34,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
 
     protected override void Added(EntityUid uid, VentCrittersRuleComponent comp, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        PickLocation((uid, comp));
+        PickLocation(comp);
         if (comp.Location is not {} coords)
         {
             ForceEndSelf(uid, gameRule);
@@ -78,26 +78,22 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         Spawn(specialEntry.PrototypeId, coords);
     }
 
-    private void PickLocation(Entity<VentCrittersRuleComponent> ent)
+    private void PickLocation(VentCrittersRuleComponent comp)
     {
         if (!TryGetRandomStation(out var station))
-        {
-            Log.Warning($"{ToPrettyString(ent):rule} failed to get a station!");
             return;
-        }
 
         var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
         _locations.Clear();
         while (locations.MoveNext(out var uid, out _, out var transform))
         {
-            if (transform.MapID != MapId.Nullspace && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
+            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
             {
-                Log.Debug($"Picking {ToPrettyString(uid)}");
                 _locations.Add(transform.Coordinates);
             }
         }
 
         if (_locations.Count > 0)
-            ent.Comp.Location = RobustRandom.Pick(_locations);
+            comp.Location = RobustRandom.Pick(_locations);
     }
 }

@@ -20,7 +20,7 @@ public sealed partial class VentCrittersRuleComponent : Component
     /// DeltaV: The location of the vent that got picked.
     /// </summary>
     [ViewVariables]
-    public EntityCoordinates? Location = new();
+    public EntityCoordinates? Location;
 
     /// <summary>
     /// DeltaV: Base minimum number of critters to spawn.
