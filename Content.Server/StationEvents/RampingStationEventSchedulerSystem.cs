@@ -43,15 +43,14 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
 
         PickNextEventTime(uid, component);
 
-        // DeltaV - end init NextEventComp
+        // Begin DeltaV Additions: init NextEventComp
         if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
-            && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
-            && firstEvent != null)
+            && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
         {
             _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
             _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
         }
-        // DeltaV - end init NextEventComp
+        // End DeltaV Additions: init NextEventComp
     }
 
     public override void Update(float frameTime)
@@ -73,22 +72,24 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 continue;
             }
 
-            // DeltaV events using NextEventComponent
+            // Begin DeltaV Additions: events using NextEventComponent
             if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
             {
                 PickNextEventTime(uid, scheduler);
                 var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(scheduler.TimeUntilNextEvent);
-                if (!_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime) || generatedEvent == null)
+                if (_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                     continue;
+
                 _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)scheduler.TimeUntilNextEvent)));
                 // Cycle the stashed event with the new generated event and time.
                 string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                 if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
                     continue;
+
                 GameTicker.AddGameRule(storedEvent);
                 continue;
             }
-            // DeltaV end events using NextEventComponent
+            // End DeltaV Additions: events using NextEventComponent
 
             PickNextEventTime(uid, scheduler);
             _event.RunRandomEvent(scheduler.ScheduledGameRules);
