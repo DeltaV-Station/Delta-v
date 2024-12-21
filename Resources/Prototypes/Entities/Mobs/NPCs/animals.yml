@@ -1908,7 +1908,7 @@
       state: slug
       sprite: Mobs/Animals/slug.rsi
   - type: Carriable #DeltaV
-    freeHandsRequired: 1 
+    freeHandsRequired: 1
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2396,7 +2396,6 @@
   - MobGiantSpider
   - MobSpiderAngryBase
   id: MobGiantSpiderAngry
->>>>>>> 18fe8b9df0 (Sprite Movement working with AI movement (#33494))
 
 - type: entity
   name: clown spider

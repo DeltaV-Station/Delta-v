@@ -3,7 +3,6 @@ flavor-base-acidic = acidic
 flavor-complex-nuggie = like "chicken"
 flavor-complex-enthralling = enthralling
 flavor-complex-sublime = sublime
-flavor-complex-holy = heavenly
 flavor-base-seeds = seeds
 flavor-complex-vanilla = like vanilla
 flavor-complex-soju = like bold, alcoholic rice
