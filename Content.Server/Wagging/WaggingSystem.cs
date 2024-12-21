@@ -1,4 +1,4 @@
-﻿using Content.Server.Actions;
+using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -64,6 +64,8 @@ public sealed class WaggingSystem : EntitySystem
             return false;
 
         wagging.Wagging = !wagging.Wagging;
+
+        _actions.SetToggled(wagging.ActionEntity, wagging.Wagging); // Einstein-Engines
 
         for (var idx = 0; idx < markings.Count; idx++) // Animate all possible tails
         {
