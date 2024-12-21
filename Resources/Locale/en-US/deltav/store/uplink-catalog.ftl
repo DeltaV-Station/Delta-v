@@ -23,3 +23,6 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-foam-sabre-name = Sharp Foam Sabre
 uplink-foam-sabre-desc = A blade disguised as a toy foam sabre. Perfect for assassins that pretend playing around.
+
+uplink-explosive-foam-grenade-name = Explosive Foam Grenade
+uplink-explosive-foam-grenade-desc = An explosive grenade disguised as a regular foam toy grenade.
