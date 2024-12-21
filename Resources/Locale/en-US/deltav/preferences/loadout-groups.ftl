@@ -62,6 +62,11 @@ loadout-group-medical-doctor-neck = Medical Doctor neck
 
 loadout-group-medical-intern-id-delta = Medical Intern PDA
 
+loadout-group-psychologist-head = Psychologist head
+loadout-group-psychologist-outerclothing = Psychologist outer clothing
+loadout-group-psychologist-shoes = Psychologist shoes
+loadout-group-psychologist-id-delta = Psychologist PDA
+
 # Miscellaneous
 loadout-group-scarfs = Scarf
 

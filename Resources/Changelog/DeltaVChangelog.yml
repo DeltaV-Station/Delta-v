@@ -1,58 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Reworked Submarine's atmos, notably the TEG is now good, easy to set
-      up and has a guide next to it.
-    type: Tweak
-  id: 298
-  time: '2024-03-28T15:27:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1022
-- author: FluffiestFloof
-  changes:
-  - message: Felinids, Harpies and Vulpkanin should now Weh accordingly.
-    type: Fix
-  id: 299
-  time: '2024-03-28T18:27:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/992
-- author: deltanedas
-  changes:
-  - message: Reworked Shoukou's atmospherics setup. The Gas Recycler is now usable
-      among other things.
-    type: Tweak
-  id: 300
-  time: '2024-04-03T02:10:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1049
-- author: rosieposieeee
-  changes:
-  - message: Submarine has, once again, had some minor issues quashed, and small improvements
-      made. Go check out the park!
-    type: Tweak
-  id: 301
-  time: '2024-04-03T19:44:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1053
-- author: NullWanderer
-  changes:
-  - message: Merged master, please report bugs or regressions
-    type: Add
-  - message: Mail containing books has been temporarily removed
-    type: Remove
-  id: 302
-  time: '2024-04-09T07:49:38.080075+00:00'
-  url: null
-- author: deltanedas
-  changes:
-  - message: Lighthouse is BACK!
-    type: Add
-  id: 303
-  time: '2024-04-09T07:49:38.080495+00:00'
-  url: null
-- author: Adrian16199
-  changes:
-  - message: Added new horn designs for onis.
-    type: Add
-  id: 304
-  time: '2024-04-09T07:49:38.080864+00:00'
-  url: null
 - author: FluffiestFloof
   changes:
   - message: Fixed our custom drinks not having different fill levels.
@@ -3821,3 +3767,61 @@
   id: 797
   time: '2024-12-19T04:55:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2304
+- author: deltanedas
+  changes:
+  - message: Pulling wrecks on the salvage magnet now costs mining points. GO MINE!!!
+    type: Tweak
+  id: 798
+  time: '2024-12-20T05:28:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2457
+- author: makyo
+  changes:
+  - message: round restart time
+    type: Tweak
+  id: 799
+  time: '2024-12-20T05:31:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2229
+- author: deltanedas
+  changes:
+  - message: Removed vent fauna (spiders, slimes, snakes) events pending rework.
+    type: Remove
+  id: 800
+  time: '2024-12-20T05:34:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2474
+- author: deltanedas
+  changes:
+  - message: Changed Salvage Weapons to be a tier 2 tech, Experimental Salvage Weaponry.
+    type: Tweak
+  - message: Crusher weapons are researchable again, PKA is roundstart.
+    type: Tweak
+  - message: Added the Fauna Protection Module for borgs, it has a PKA and crusher
+      dagger.
+    type: Add
+  id: 801
+  time: '2024-12-20T05:38:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2077
+- author: Stop-Signs
+  changes:
+  - message: sleepers will no longer receive nukies as kill targets
+    type: Fix
+  id: 802
+  time: '2024-12-20T17:22:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2483
+- author: alterae
+  changes:
+  - message: Added coats, hats, scarves, and shoes to the Psychologist's loadout options.
+    type: Add
+  - message: Added three new Psychologist job titles.
+    type: Add
+  - message: Psychologist now spawns with a folder.
+    type: Tweak
+  id: 803
+  time: '2024-12-20T18:49:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2459
+- author: Lyndomen
+  changes:
+  - message: Vent critters are back, thanks for your feedback!
+    type: Tweak
+  id: 804
+  time: '2024-12-21T06:29:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2491
