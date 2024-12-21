@@ -299,6 +299,8 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodSoupMiso",
             "FoodSoupTomatoBlue",
             "FoodBoritoPie",
+            "LeavesCannabisRainbowDried",
+            "LeavesCannabisDried",
             "FoodCakeBrain",
             "FoodBurgerBrain"
         };
