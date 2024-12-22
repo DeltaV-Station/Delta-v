@@ -12,6 +12,7 @@ using Content.Shared.Mind; // DeltaV
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Roles;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -22,6 +23,7 @@ public sealed class MentorManager : IPostInjectInit
 {
     [Dependency] private readonly IAdminManager _admin = default!; // DeltaV
     [Dependency] private readonly IEntityManager _entity = default!; // DeltaV
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -211,17 +213,23 @@ public sealed class MentorManager : IPostInjectInit
         _net.RegisterNetMessage<MentorMessagesReceivedMsg>();
         //_net.RegisterNetMessage<DeMentorMsg>(OnDeMentor); DeltaV Update mentor on perm updates
         //_net.RegisterNetMessage<ReMentorMsg>(OnReMentor); DeltaV Update mentor on perm updates
+
         //_userDb.AddOnLoadPlayer(LoadData); DeltaV Update mentor on perm updates
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
-        _rateLimit.Register(
-            RateLimitKey,
-            new RateLimitRegistration(
-                RMCCVars.RMCMentorHelpRateLimitPeriod,
-                RMCCVars.RMCMentorHelpRateLimitCount,
-                _ => { }
-            )
-        );
-        _admin.OnPermsChanged += OnAdminPermsChanged; // DeltaV - Update mentor on perm updates
+
+        if (_config.IsCVarRegistered(RMCCVars.RMCMentorHelpRateLimitPeriod.Name) &&
+            _config.IsCVarRegistered(RMCCVars.RMCMentorHelpRateLimitCount.Name))
+        {
+            _rateLimit.Register(
+                RateLimitKey,
+                new RateLimitRegistration(
+                    RMCCVars.RMCMentorHelpRateLimitPeriod,
+                    RMCCVars.RMCMentorHelpRateLimitCount,
+                    _ => { }
+                )
+            );
+        }
+        _admin.OnPermsChanged += OnAdminPermsChanged; // DeltaV
     }
 }
