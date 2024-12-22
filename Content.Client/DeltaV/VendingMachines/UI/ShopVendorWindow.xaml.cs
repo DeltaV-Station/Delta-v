@@ -104,7 +104,8 @@ public sealed partial class ShopVendorWindow : FancyWindow
         button.AddChild(new ShopVendorItem(cast.ItemId, cast.Text, cast.Cost));
 
         button.ToolTip = cast.Text;
-        button.StyleBoxOverride = _style;
+        button.Disabled = cast.Cost > _balance;
+        button.StyleBoxOverride = button.Disabled ? _styleBroke : _style;
     }
 
     public void Populate(List<ShopListing> listings)

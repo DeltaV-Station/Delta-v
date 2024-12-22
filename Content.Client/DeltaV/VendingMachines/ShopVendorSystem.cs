@@ -38,24 +38,28 @@ public sealed class ShopVendorSystem : SharedShopVendorSystem
             state = VendingMachineVisualState.Normal;
 
         var sprite = ent.Comp2;
-        SetLayerState(VendingMachineVisualLayers.Screen, "screen", sprite);
+        SetLayerState(VendingMachineVisualLayers.Base, ent.Comp1.OffState, sprite);
+        SetLayerState(VendingMachineVisualLayers.Screen, ent.Comp1.ScreenState, sprite);
         switch (state)
         {
             case VendingMachineVisualState.Normal:
-                SetLayerState(VendingMachineVisualLayers.BaseUnshaded, "normal", sprite);
+                SetLayerState(VendingMachineVisualLayers.BaseUnshaded, ent.Comp1.NormalState, sprite);
                 break;
 
             case VendingMachineVisualState.Deny:
-                PlayAnimation(ent, VendingMachineVisualLayers.BaseUnshaded, "deny", ent.Comp1.DenyDelay, sprite);
+                if (ent.Comp1.LoopDenyAnimation)
+                    SetLayerState(VendingMachineVisualLayers.BaseUnshaded, ent.Comp1.DenyState, sprite);
+                else
+                    PlayAnimation(ent, VendingMachineVisualLayers.BaseUnshaded, ent.Comp1.DenyState, ent.Comp1.DenyDelay, sprite);
                 break;
 
             case VendingMachineVisualState.Eject:
-                PlayAnimation(ent, VendingMachineVisualLayers.BaseUnshaded, "eject", ent.Comp1.EjectDelay, sprite);
+                PlayAnimation(ent, VendingMachineVisualLayers.BaseUnshaded, ent.Comp1.EjectState, ent.Comp1.EjectDelay, sprite);
                 break;
 
             case VendingMachineVisualState.Broken:
                 HideLayers(sprite);
-                SetLayerState(VendingMachineVisualLayers.Base, "broken", sprite);
+                SetLayerState(VendingMachineVisualLayers.Base, ent.Comp1.BrokenState, sprite);
                 break;
 
             case VendingMachineVisualState.Off:
@@ -64,16 +68,19 @@ public sealed class ShopVendorSystem : SharedShopVendorSystem
         }
     }
 
-    private static void SetLayerState(VendingMachineVisualLayers layer, string state, SpriteComponent sprite)
+    private static void SetLayerState(VendingMachineVisualLayers layer, string? state, SpriteComponent sprite)
     {
+        if (state == null)
+            return;
+
         sprite.LayerSetVisible(layer, true);
         sprite.LayerSetAutoAnimated(layer, true);
         sprite.LayerSetState(layer, state);
     }
 
-    private void PlayAnimation(EntityUid uid, VendingMachineVisualLayers layer, string state, TimeSpan time, SpriteComponent sprite)
+    private void PlayAnimation(EntityUid uid, VendingMachineVisualLayers layer, string? state, TimeSpan time, SpriteComponent sprite)
     {
-        if (_animationPlayer.HasRunningAnimation(uid, state))
+        if (state == null || _animationPlayer.HasRunningAnimation(uid, state))
             return;
 
         var animation = GetAnimation(layer, state, time);

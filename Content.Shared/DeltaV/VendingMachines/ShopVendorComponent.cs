@@ -68,4 +68,29 @@ public sealed partial class ShopVendorComponent : Component
             Volume = -2f
         }
     };
+
+    #region Visuals
+
+    [DataField]
+    public bool LoopDenyAnimation = true;
+
+    [DataField]
+    public string? OffState;
+
+    [DataField]
+    public string? ScreenState;
+
+    [DataField]
+    public string? NormalState;
+
+    [DataField]
+    public string? DenyState;
+
+    [DataField]
+    public string? EjectState;
+
+    [DataField]
+    public string? BrokenState;
+
+    #endregion
 }

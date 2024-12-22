@@ -95,8 +95,7 @@ public abstract class SharedShopVendorSystem : EntitySystem
         var user = args.Actor;
         if (!_access.IsAllowed(user, ent))
         {
-            _popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), ent);
-            Deny(ent, user);
+            Deny(ent);
             return;
         }
 
@@ -105,7 +104,7 @@ public abstract class SharedShopVendorSystem : EntitySystem
         RaiseLocalEvent(ent, ref ev);
         if (!ev.Paid)
         {
-            Deny(ent, user);
+            Deny(ent);
             return;
         }
 
@@ -125,8 +124,9 @@ public abstract class SharedShopVendorSystem : EntitySystem
     {
     }
 
-    private void Deny(Entity<ShopVendorComponent> ent, EntityUid user)
+    private void Deny(Entity<ShopVendorComponent> ent)
     {
+        _popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-denied"), ent);
         if (ent.Comp.Denying)
             return;
 
@@ -134,7 +134,7 @@ public abstract class SharedShopVendorSystem : EntitySystem
         ent.Comp.NextDeny = Timing.CurTime + ent.Comp.DenyDelay;
         Dirty(ent);
 
-        _audio.PlayPredicted(ent.Comp.DenySound, ent, user);
+        _audio.PlayPvs(ent.Comp.DenySound, ent);
         UpdateVisuals(ent);
     }
 

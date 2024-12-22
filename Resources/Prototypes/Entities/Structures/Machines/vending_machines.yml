@@ -1378,6 +1378,10 @@
     color: "#b89f25"
   - type: ShopVendor # DeltaV
     pack: SalvageVendorInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
   - type: PointsVendor # DeltaV
   - type: UserInterface # DeltaV: Replace vending machine BUI with shop vendor
     interfaces:
