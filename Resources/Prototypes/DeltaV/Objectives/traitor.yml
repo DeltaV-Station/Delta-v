@@ -50,6 +50,17 @@
   - type: StealCondition
     stealGroup: AnimalSilvia
     owner: job-name-cmo
+    
+# Mystagogue steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: RdClipboardStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: BoxFolderRdClipboard
+    owner: job-name-rd
 
 # teach lesson
 - type: entity

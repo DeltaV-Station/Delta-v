@@ -195,16 +195,6 @@
   components:
   - type: StealCondition
     stealGroup: HandTeleporter
-    
-- type: entity
-  parent: BaseRDStealObjective
-  id: RdClipboardStealObjective
-  components:
-  - type: NotJobRequirement
-    job: ResearchDirector
-  - type: StealCondition
-    stealGroup: BoxFolderRdClipboard
-    owner: job-name-rd
 
 ## hos
 
