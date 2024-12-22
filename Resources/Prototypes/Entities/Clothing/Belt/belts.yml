@@ -521,9 +521,7 @@
         ents: []
       holster: !type:ContainerSlot {}
   - type: Appearance
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
-
+ 
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltSheath
