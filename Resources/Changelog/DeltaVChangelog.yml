@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: deltanedas
   changes:
-  - message: Fixed some doors being AA.
-    type: Fix
-  id: 310
-  time: '2024-04-11T18:26:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1071
-- author: deltanedas
-  changes:
   - message: Fixed cargo being able to metagame the nukie outpost existing.
     type: Fix
   id: 311
@@ -3828,3 +3821,15 @@
   id: 809
   time: '2024-12-22T16:14:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2486
+- author: BombasterDS, deltanedas
+  changes:
+  - message: Tape recorders and cassettes can now be crafted in autolathes for recording
+      crew speech.
+    type: Add
+  - message: Reporters, detectives start with a tape recorder and cassettes.
+    type: Add
+  - message: Added tape recorders to loadout trinkets.
+    type: Add
+  id: 810
+  time: '2024-12-22T20:04:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2498
