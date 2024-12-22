@@ -8,15 +8,15 @@
   products:
     Protein: 0.5
 
-- type: reaction
-  id: EggCooking
-  impact: Low
-  minTemp: 344
-  reactants:
-    Egg:
-      amount: 0.5
-  products:
-    EggCooked: 0.5
+#- type: reaction # Delta V - Removed this reaction due to lack of function besides punishing chefs
+#  id: EggCooking
+#  impact: Low
+#  minTemp: 344
+#  reactants:
+#    Egg:
+#      amount: 0.5
+#  products:
+#    EggCooked: 0.5
 
 - type: reaction
   id: SapBoiling
