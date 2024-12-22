@@ -697,10 +697,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # Delta-V - Split Inventory, but same total size
     grid:
-    - 0,0,2,1
-    - 4,0,7,1
+    - 0,0,3,1
+    - 5,0,8,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
