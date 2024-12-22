@@ -120,6 +120,12 @@
     - type: Storage
       grid:
       - 0,0,2,2
+      blacklist: # DeltaV
+        components:
+        - Storage
+        - SecretStash
+        tags:
+        - HighRiskItem
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
