@@ -4,13 +4,17 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.DeltaV.Salvage.Systems;
 
 public sealed class MiningVoucherSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -50,7 +54,10 @@ public sealed class MiningVoucherSystem : EntitySystem
             return;
         }
 
-        _audio.PlayPvs(ent.Comp.RedeemSound, target);
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        _audio.PlayPredicted(ent.Comp.RedeemSound, target, user);
         Redeem(ent, index, user);
     }
 
@@ -71,6 +78,9 @@ public sealed class MiningVoucherSystem : EntitySystem
 
     public void Redeem(Entity<MiningVoucherComponent> ent, int index, EntityUid user)
     {
+        if (_net.IsClient)
+            return;
+
         var kit = _proto.Index(ent.Comp.Kits[index]);
         var xform = Transform(ent);
         foreach (var id in kit.Content)
