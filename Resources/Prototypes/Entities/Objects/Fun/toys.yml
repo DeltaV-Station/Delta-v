@@ -1663,13 +1663,3 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieMort
-  name: Morty plushie
-  description: A plushie of the lovely Morty. It's a resilient, yet sensitive type of plush.
-  components:
-    - type: Sprite
-      sprite: Objects/Fun/toys.rsi
-      state: mortplush
