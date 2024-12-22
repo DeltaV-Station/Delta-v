@@ -32,7 +32,7 @@
   description: A bulky electric clipboard, filled with research notes and artifact sketches. With so many compromising documents, you ought to keep this safe.
   components:
   - type: Sprite
-    sprite: /Textures/DeltaV/Objects/Misc/rd_clipboard.rsi
+    sprite: DeltaV/Objects/Misc/rd_clipboard.rsi
     layers:
     - state: rd_clipboard
     - state: rd_clipboard_paper
@@ -51,10 +51,10 @@
             - Write
         insertOnInteract: true
   - type: Item
-    sprite: /Textures/DeltaV/Objects/Misc/rd_clipboard.rsi
+    sprite: DeltaV/Objects/Misc/rd_clipboard.rsi
     size: Normal
   - type: Clothing
-    sprite: /Textures/DeltaV/Objects/Misc/rd_clipboard.rsi
+    sprite: DeltaV/Objects/Misc/rd_clipboard.rsi
   - type: Storage
     grid:
     - 0,0,4,3
@@ -95,7 +95,6 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: BoxFolderRdClipboard
-
 
 # contents set by FugitiveRule or a creative admeme
 - type: entity
