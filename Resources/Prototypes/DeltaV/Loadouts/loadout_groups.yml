@@ -71,6 +71,43 @@
   - CourierPDA
   - MailCarrierPDA
 
+## Cargo Assistant
+- type: loadoutGroup
+  id: CargoAssistantHead
+  name: loadout-group-cargo-assistant-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHead
+
+- type: loadoutGroup
+  id: CargoAssistantJumpsuit
+  name: loadout-group-cargo-assistant-jumpsuit
+  loadouts:
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianJumpskirt
+
+- type: loadoutGroup
+  id: CargoAssistantBackpack
+  name: loadout-group-cargo-assistant-backpack
+  loadouts:
+  - CargoTechnicianBackpack
+  - CargoTechnicianSatchel
+  - CargoTechnicianDuffel
+
+- type: loadoutGroup
+  id: CargoAssistantOuterClothing
+  name: loadout-group-cargo-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianWintercoat
+
+- type: loadoutGroup
+  id: CargoAssistantShoes
+  name: loadout-group-cargo-assistant-shoes
+  loadouts:
+  - BlackShoes
+  - CargoWinterBoots
+
 # Security
 ## Brig Medic
 - type: loadoutGroup
@@ -211,6 +248,38 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+# Medical
+## Psychologist
+- type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - PsychologistFrenchBeret
+  - PsychologistGreyFlatcap
+  - PsychologistBrownFlatcap
+
+- type: loadoutGroup
+  id: PsychologistOuterClothing
+  name: loadout-group-psychologist-outerclothing
+  minLimit: 0
+  loadouts:
+  - PsychologistMedicalWinterCoat
+  - PsychologistWinterCoat
+  - PsychologistWinterCoatPlaid
+  - PsychologistCoatBomber
+  - PsychologistSweater
+
+- type: loadoutGroup
+  id: PsychologistShoes
+  name: loadout-group-psychologist-shoes
+  loadouts:
+  - LeatherShoes
+  - LaceupShoes
+  - MedicalWinterBoots
+  - WinterBoots
+
 # Justice
 ## Chief Justice
 - type: loadoutGroup
@@ -228,7 +297,7 @@
   - ChiefJusticeJumpskirt
   - ChiefJusticeFormalJumpsuit
   - ChiefJusticeWhiteJumpsuit
-  
+
 - type: loadoutGroup
   id: ChiefJusticeNeck
   name: loadout-group-chiefjustice-neck
@@ -257,7 +326,7 @@
   loadouts:
   - ClerkJumpsuit
   - ClerkJumpskirt
-  
+
 - type: loadoutGroup
   id: ClerkNeck
   name: loadout-group-clerk-neck
@@ -445,6 +514,15 @@
   loadouts:
   - JanitorPDA
   - HygieneTechnicianPDA
+
+- type: loadoutGroup
+  id: PsychologistPDADelta
+  name: loadout-group-psychologist-id-delta
+  loadouts:
+  - PsychologistPDA
+  - PsychiatristPDA
+  - TherapistPDA
+  - SocialWorkerPDA
 
 # Misc
 - type: loadoutGroup
