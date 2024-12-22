@@ -29,7 +29,7 @@ public sealed partial class ShopVendorWindow : FancyWindow
 
     private EntityUid _owner;
     private readonly StyleBoxFlat _style = new() { BackgroundColor = new Color(70, 73, 102) };
-    private readonly StyleBoxFlat _styleBroke = new() { BackgroundColor = new Color(30, 43, 52) };
+    private readonly StyleBoxFlat _styleBroke = new() { BackgroundColor = Color.FromHex("#303133") };
     private readonly List<ListContainerButton> _buttons = new();
     private uint _balance = 1;
 
