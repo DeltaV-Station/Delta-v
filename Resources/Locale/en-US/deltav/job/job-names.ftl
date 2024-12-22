@@ -4,6 +4,7 @@ job-name-clerk = Clerk
 job-name-prosecutor = Prosecutor
 job-name-lawyer = Attorney
 job-name-courier = Courier
+job-name-cargo-assistant = Cargo Assistant
 job-name-security-borg = Security Cyborg
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
@@ -55,6 +56,10 @@ job-alt-title-fool = Fool
 
 job-alt-title-hygiene-technician = Hygiene Technician
 
+job-alt-title-psychiatrist = Psychiatrist
+job-alt-title-social-worker = Social Worker
+job-alt-title-therapist = Therapist
+
 # Role timers
 JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
@@ -63,3 +68,4 @@ JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
+JobCargoAssistant = Cargo Assistant

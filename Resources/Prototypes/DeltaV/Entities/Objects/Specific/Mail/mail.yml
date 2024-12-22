@@ -1741,3 +1741,13 @@
   - type: Mail
     contents:
     - id: ClothingBeltFoamSheathFilled
+
+- type: entity
+  parent: BaseMail
+  id: MailGorlexGirlfriends
+  suffix: Gorlex Girlfriends
+  components:
+  - type: Mail
+    contents:
+    - id: PaperWrittenSubscriptionNotice
+    - id: BookGorlexGirlfriends

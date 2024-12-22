@@ -17,6 +17,12 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     [ViewVariables(VVAccess.ReadWrite), DataField("staminaDamage")]
     public float StaminaDamage;
 
+    /// <summary>
+    /// DeltaV: Changes the target's temperature by this amount when hit.
+    /// </summary>
+    [DataField]
+    public float HeatChange;
+
     [ViewVariables(VVAccess.ReadWrite), DataField("damage")]
     public DamageSpecifier? Damage;
 
