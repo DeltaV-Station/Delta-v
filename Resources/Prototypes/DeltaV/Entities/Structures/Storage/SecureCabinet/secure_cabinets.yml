@@ -1,0 +1,324 @@
+#Parent
+- type: entity
+  parent: [ BaseStructureDynamic, BaseBagOpenClose ]
+  id: BaseSecureCabinet
+  description: A secure cabinet to keep all your confidential files or items away from prying hands.
+  suffix: Empty
+  abstract: true
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 0,3,2,4
+    - 0,6,2,7
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: DeltaV/Structures/Storage/secure_cabinet.rsi
+    noRot: true
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.22,-0.40,0.22,0.40"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: StaticPrice
+    price: 80
+  - type: Construction
+    graph: SecureCabinet
+  
+#Empty Secure Cabinet
+- type: entity
+  name: Secure Cabinet
+  parent: BaseSecureCabinet
+  id: SecureCabinet
+  suffix: Empty
+  components:
+  - type: Lock
+  - type: LockVisuals
+  - type: AccessReader
+  - type: Weldable
+    fuel: 5
+    time: 3
+  - type: ResistLocker
+  - type: Sprite
+    state: secure-cabinet
+    layers:
+    - state: secure-cabinet
+    - state: secure-cabinet-open
+      map: ["openLayer"]
+    - state: unlocked
+      shader: unshaded
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Construction
+    node: SecureCabinet
+
+#Empty Secure Cabinet
+- type: entity
+  parent: SecureCabinet
+  id: FilledSecureCabinet
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Pen
+        prob: 0.5
+      - id: PaperOffice
+        amount: 1
+        maxAmount: 2
+      - id: Paper
+        amount: 1
+        maxAmount: 2
+      - id: BoxFolderBlue
+        orGroup: Folder
+      - id: BoxFolderRed
+        orGroup: Folder
+      - id: BoxFolderYellow
+        orGroup: Folder
+      - id: BoxFolderWhite
+        orGroup: Folder
+      - id: BoxFolderGrey
+        orGroup: Folder
+      - id: BoxFolderBlack
+        orGroup: Folder
+
+
+#Role Secure Cabinets
+#Captain
+- type: entity
+  id: CaptainSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Captain
+  components:
+  - type: AccessReader
+    access: [["Captain"]]
+    
+#HeadOfSecurity
+- type: entity
+  id: HoSSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Head Of Security
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+    
+#HeadOfPersonnel
+- type: entity
+  id: HoPSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Head Of Personnel
+  components:
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+
+#Logistics Officer (Quartermaster)
+- type: entity
+  id: LOSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Logistics Officer
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]
+
+#ChiefMedicalOfficer
+- type: entity
+  id: CMOSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Chief Medical Officer
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+#ChiefJustice
+- type: entity
+  id: CJSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Chief Justice
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+#Mystagogue (ResearchDirector)
+- type: entity
+  id: MGSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Mystagogue
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+#ChiefEngineer
+- type: entity
+  id: CESecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Chief Engineer
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+#Warden (Armory)
+- type: entity
+  id: WardenSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Warden
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+#Detective
+- type: entity
+  id: DetectiveSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Detective
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
+
+#Reporter
+- type: entity
+  id: ReporterSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Reporter
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+#Clerk
+- type: entity
+  id: ClerkSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Clerk
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
+
+#Prosecutor
+- type: entity
+  id: ProsecutorSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Prosecutor
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+#Attorney (Lawyer)
+- type: entity
+  id: AttorneySecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Attorney
+  components:
+  - type: AccessReader
+    access: [["Lawyer"]]
+
+
+#Department Secure Cabinets
+#Command
+- type: entity
+  id: CommandSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Command
+  components:
+  - type: AccessReader
+    access: [["Command"]]
+
+#Security
+- type: entity
+  id: SecuritySecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Security
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+
+#Engineering
+- type: entity
+  id: EngineeringSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Engineering
+  components:
+  - type: AccessReader
+    access: [["Engineering"]]
+
+#Medical
+- type: entity
+  id: MedicalSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Medical
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+#Service
+- type: entity
+  id: ServiceSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Service
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+#Logistics (Cargo)
+- type: entity
+  id: LogisticsSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Logistics
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]
+
+#Epistemics (Research)
+- type: entity
+  id: EpistemicsSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Epistemics
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+
+#Justice
+- type: entity
+  id: JusticeSecureCabinet
+  parent: FilledSecureCabinet
+  suffix: Dept Justice
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
