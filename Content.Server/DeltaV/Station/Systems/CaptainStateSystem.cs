@@ -46,6 +46,12 @@ public sealed class CaptainStateSystem : EntitySystem
         var query = EntityQueryEnumerator<CaptainStateComponent>();
         while (query.MoveNext(out var station, out var captainState))
         {
+            if (currentTime < _acoDelay && captainState.IsACORequestActive == true) // Avoid timing issues. No need to run before _acoDelay is reached anyways.
+            {
+                Log.Error($"{captainState} IsACORequestActive true before ACO request time.");
+                captainState.IsACORequestActive = false;
+            }
+
             if (captainState.HasCaptain)
                 HandleHasCaptain(station, captainState);
             else

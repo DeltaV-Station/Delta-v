@@ -226,6 +226,16 @@
     
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
+  id: WeaponColdCannon
+  result: WeaponColdCannon
+  materials:
+    Steel: 1500
+    Glass: 600
+    Plastic: 400
+    Silver: 300
+    
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
   id: WeaponBeamCannon
   result: WeaponBeamCannon
   materials:

@@ -418,7 +418,7 @@
       color: blue
     - type: ItemTogglePointLight
     - type: Reflect
-      reflectProb: 0.95
+      reflectProb: 0.5 # DeltaV - Was 0.95
       reflects:
         - Energy
     - type: Blocking
@@ -426,8 +426,8 @@
         coefficients:
           Blunt: 1.0
           Slash: 0.9
-          Piercing: 0.85
-          Heat: 0.6
+          Piercing: 0.7 # DeltaV - Was 0.85
+          Heat: 0.5 # DeltaV - Was 0.6
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
@@ -444,13 +444,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 180
+            damage: 380 # DeltaV - Was 180
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 100
+            damage: 300 # DeltaV - Was 100
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
