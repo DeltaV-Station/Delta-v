@@ -75,3 +75,13 @@
     damage: 5
   - type: Execution
     doAfterDuration: 3.0
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMort
+  name: morty plushie
+  description: A plushie of the lovely Morty. It's a resilient, yet sensitive type of plush.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Fun/Toys/mortyplush.rsi
+    state: icon
