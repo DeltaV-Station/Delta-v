@@ -27,7 +27,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-mouse-migration-result-message
   - type: VentCrittersRule
@@ -52,7 +52,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 10 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-king-rat-migration-result-message
@@ -79,7 +79,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-cockroach-migration-result-message
   - type: VentCrittersRule
@@ -98,7 +98,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
@@ -120,7 +120,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 7
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snail-migration-result-message
