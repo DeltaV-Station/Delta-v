@@ -45,6 +45,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        CachePrecognitionResults();
 
         SubscribeLocalEvent<PrecognitionPowerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PrecognitionPowerComponent, ComponentShutdown>(OnShutdown);
@@ -161,12 +162,12 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// Gets the precognition result message corosponding to the passed event id.
     /// </summary>
     /// <returns>message string corosponding to the event id passed</returns>
-    private LocId GetResultMessage(EntProtoId eventId)
+    private LocId? GetResultMessage(EntProtoId eventId)
     {
         if (!Results.TryGetValue(eventId, out var result))
         {
             Log.Error($"Prototype {eventId} does not have an associated precognitionResult!");
-            return string.Empty;
+            return null;
         }
 
         return result.Message;
