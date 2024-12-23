@@ -31,6 +31,9 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-mouse-migration-result-message
   - type: VentCrittersRule
+    min: 3 # DeltaV
+    max: 4 # DeltaV
+    playerRatio: 8 # DeltaV: Mice aren't dangerous
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobMouse
@@ -54,6 +57,9 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-king-rat-migration-result-message
   - type: VentCrittersRule
+    min: 3 # DeltaV
+    max: 4 # DeltaV
+    playerRatio: 8 # DeltaV: Mice aren't dangerous
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobMouse
@@ -77,6 +83,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-cockroach-migration-result-message
   - type: VentCrittersRule
+    playerRatio: 8 # DeltaV: Cockroaches aren't dangerous
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobCockroach
@@ -97,6 +104,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
+    playerRatio: 20 # DeltaV: Snails aren't dangerous, but they should be more special
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobSnail
@@ -118,6 +126,7 @@
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
+    playerRatio: 20 # DeltaV: Snails aren't dangerous, but they should be more special
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobSnail
