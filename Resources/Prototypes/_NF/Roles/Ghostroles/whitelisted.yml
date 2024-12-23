@@ -1,3 +1,12 @@
+# Pets
+- type: ghostRole
+  id: EmotionalSupportPet
+  name: ghost-role-information-emotional-support-name
+  description: ghost-role-information-emotional-support-description
+  rules: ghost-role-information-emotional-support-rules
+  entityPrototype: MobCatGhost # TODO: replace this with a random emotional support pet entity
+#  whitelisted: true # DeltaV - Comment Out
+
 - type: ghostRole
   id: CatClippy
   name: ghost-role-information-clippy-name
