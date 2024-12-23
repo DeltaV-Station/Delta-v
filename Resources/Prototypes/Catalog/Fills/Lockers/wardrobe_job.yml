@@ -13,7 +13,10 @@
        - id: ClothingShoesColorBlack
          amount: 2
        - id: ClothingMaskMuzzle
-       - id: ClothingHeadsetPrison #DV - Added prisoner headsets
+       # Begin DeltaV modifications
+       - id: ClothingHeadsetPrison # Added prisoner headsets
+       - id: PrisonKnife # Bread cutting knife, does 4 damage total.
+       # End DeltaV modifications
 
 #- type: entity
 #  id: WardrobePajamaFilled

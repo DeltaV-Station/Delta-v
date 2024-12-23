@@ -1,19 +1,30 @@
 - type: entity
+  parent: LockerBase
+  id: LockerBaseDeltaV
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Storage/closet.rsi
+
+- type: entity
+  parent: [ LockerBaseDeltaV, LockerBaseSecure ]
+  id: LockerBaseSecureDeltaV
+
+- type: entity
   id: LockerChiefJustice
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV
   name: chief justice's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: cj 
+    stateBaseClosed: cj
     stateDoorOpen: cj_open
     stateDoorClosed: cj_door
   - type: AccessReader
     access: [["ChiefJustice"]]
-    
+
 - type: entity
   id: LockerClerk
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV
   name: clerk's locker
   components:
   - type: Appearance
@@ -25,12 +36,10 @@
     access: [["Clerk"]]
 
 - type: entity
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV
   id: LockerPsychologist
   name: psychologist's locker
   components:
-  - type: Sprite
-    sprite: DeltaV/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: psych
     stateDoorOpen: psych_open

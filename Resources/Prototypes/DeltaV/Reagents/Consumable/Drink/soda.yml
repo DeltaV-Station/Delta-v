@@ -1,0 +1,22 @@
+- type: reagent
+  id: DrGibbBloodRed
+  name: reagent-name-dr-gibb-blood-red
+  parent: BaseSoda
+  desc: reagent-desc-dr-gibb-blood-red
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: drgibbbloodred
+  color: "#570303"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2.0
+        conditions:
+        - !type:OrganType
+          type: Human
+          shouldHave: false
+    Food:
+      effects:
+        - !type:AdjustReagent
+          reagent: UncookedAnimalProteins
+          amount: 0.05

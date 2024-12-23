@@ -107,6 +107,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-commander
@@ -124,6 +125,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-agent
@@ -143,6 +145,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
@@ -313,6 +316,7 @@
   id: BasicStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minMaxEventTiming: # DeltaV
       min: 300 # DeltaV - 5 mins, was 3
@@ -324,6 +328,7 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     averageChaos: 4.5 # DeltaV
     averageEndTime: 180 # DeltaV
@@ -334,6 +339,7 @@
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,
   parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 2700 # 45 mins #shows up like half way through shift.
     minMaxEventTiming:
@@ -346,6 +352,7 @@
   id: SpaceTrafficControlFriendlyEventScheduler
   parent: BaseGameRule
   components:
+  - type: NextEvent # DeltaV: Queue Event for precognition
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 1200 # 20 mins
     minMaxEventTiming:
