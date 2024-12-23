@@ -77,14 +77,8 @@
       allowedTiles:
         - FloorCaveDrought
       entities:
-        - FloraStalagmite1
-        - FloraStalagmite2
-        - FloraStalagmite3
-        - FloraStalagmite4
-        - FloraStalagmite5
-        - FloraRockSolid01
-        - FloraRockSolid02
-        - FloraRockSolid03
+        - FloraStalagmite
+        - FloraRockSolid
         - CrystalOrange
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -106,9 +100,7 @@
       allowedTiles:
         - FloorAsteroidSand
       entities:
-        - FloraRockSolid01
-        - FloraRockSolid02
-        - FloraRockSolid03
+        - FloraRockSolid
         - CrystalOrange
         - CrystalGrey
     - !type:BiomeEntityLayer
