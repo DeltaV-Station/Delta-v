@@ -148,7 +148,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         var msg = Loc.GetString(locId);
         _chat.ChatMessageToOne(ChatChannel.Server,
             msg,
-            Loc.GetString("chat-manager-server-wrap-message", ("message", message)),
+            Loc.GetString("chat-manager-server-wrap-message", ("message", msg)),
             uid,
             false,
             mindComponent.Session.Channel,
