@@ -389,7 +389,7 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 15 # DeltaV: was 60, used as a delay now
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-slimes-spawn-result-message
   - type: VentCrittersRule
@@ -412,7 +412,7 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 15 # DeltaV: was 60, used as a delay now
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snake-spawn-result-message
   - type: VentCrittersRule
@@ -435,7 +435,7 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 15 # DeltaV: was 60, used as a delay now
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-spawn-result-message
   - type: VentCrittersRule
@@ -454,7 +454,7 @@
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
-    duration: 15 # DeltaV: was 60, used as a delay now
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-clown-spawn-result-message
   - type: VentCrittersRule
