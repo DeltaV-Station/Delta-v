@@ -1,0 +1,13 @@
+- type: entity
+  parent: [ ClothingBackpack,] # DeltaV - Comment out NFBackpackHiddenStash
+  id: NFClothingBackpack
+  components:
+  - type: Storage
+    maxItemSize: Large
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,6,3
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,6,3

@@ -1,0 +1,12 @@
+- type: inventoryTemplate
+  id: nfpet
+  slots:
+  - name: mask
+    slotTexture: mask
+    slotFlags: MASK
+    uiWindowPos: 1,1
+    strippingWindowPos: 1,1
+    displayName: Mask
+    whitelist:
+      tags:
+        - PetWearable
