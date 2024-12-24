@@ -81,7 +81,14 @@ namespace Content.Server.Database
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);
+
+            modelBuilder.Entity<CDModel.CDProfile>()  // begin CD
+                .Property(log => log.CharacterRecords)
+                .HasConversion(jsonByteArrayConverter); // end CD
         }
+
+
+
 
         public override int CountAdminLogs()
         {
