@@ -111,14 +111,14 @@
       coefficients:
         Blunt: 0.50
         Slash: 0.50
-        Piercing: 0.50
+        Piercing: 0.40
         Radiation: 0.70
         Caustic: 0.70
-        Heat: 0.70
+        Heat: 0.40
     staminaDamageCoefficient: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
+    walkModifier: 0.60
+    sprintModifier: 0.60
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
