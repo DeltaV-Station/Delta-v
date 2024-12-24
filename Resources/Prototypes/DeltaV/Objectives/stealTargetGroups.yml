@@ -18,6 +18,13 @@
   sprite:
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
+    
+- type: stealTargetGroup
+  id: BoxFolderRdClipboard
+  name: steal-target-groups-box-folder-rd-clipboard
+  sprite:
+    sprite: DeltaV/Objects/Misc/rd_clipboard.rsi
+    state: rd_clipboard
 
 - type: stealTargetGroup
   id: RubberStampNotary
