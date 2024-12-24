@@ -1,0 +1,53 @@
+- type: entity
+  parent: ReagentPacketBase
+  id: ReagentContainerSalt
+  name: salt container
+  description: A big container of salt. Good for cooking!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    state: salt-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 50
+  - type: Drink
+    solution: food
+    useSound:
+      path: /Audio/Items/eating_1.ogg
+
+- type: entity
+  parent: ReagentPacketBase
+  id: ReagentContainerPepper
+  name: pepper container
+  description: A big container of pepper. Good for cooking!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    state: pepper-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Blackpepper
+          Quantity: 50
+
+- type: entity
+  parent: ReagentPacketBase
+  id: ReagentContainerChocolate
+  name: cocoa powder bag
+  description: A big bag of cocoa powder. Good for cooking!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    state: cocoa-chip-big
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: CocoaPowder
+          Quantity: 50
