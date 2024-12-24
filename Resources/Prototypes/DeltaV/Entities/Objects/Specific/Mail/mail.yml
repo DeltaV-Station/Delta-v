@@ -193,7 +193,62 @@
       orGroup: FakeWizard
       prob: 0.1
 
+- type: entity
+  parent: BaseMailLarge
+  id: MailDVBoxes
+  suffix: boxes
+  components:
+  - type: Mail
+    contents:
+    - id: BoxEnvelope
+      orGroup: Box
+    - id: BoxCardboard
+      orGroup: Box
+    - id: BoxMRE
+      orGroup: Box
+    - id: BoxPerformer
+      orGroup: Box
+    - id: BoxFlare
+      orGroup: Box
+    - id: BoxDarts
+      orGroup: Box
+    - id: BoxMousetrap
+      orGroup: Box
 
+- type: entity
+  parent: BaseMail
+  id: MailDVScarves
+  suffix: scarves
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingNeckScarfStripedRed
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBlue
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedGreen
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBlack
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedBrown
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedLightBlue
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedOrange
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedPurple
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedZebra
+      orGroup: Scarf
+    - id: ClothingNeckScarfStripedSyndieGreen
+      orGroup: Scarf
+      prob: 0.25
+    - id: ClothingNeckScarfStripedSyndieRed
+      orGroup: Scarf
+      prob: 0.25
+    - id: ClothingNeckScarfStripedCentcom
+      orGroup: Scarf
+      prob: 0.001
 
 # Frontier Mail, including Extended Nyano Mail. (Pony Express?)
 - type: entity
@@ -550,6 +605,9 @@
     - id: FoamCutlass
       orGroup: Sword
       prob: 0.95
+    - id: ClothingBeltFoamSheathFilled
+      orGroup: Sword
+      prob: 0.95
     - id: Katana
       orGroup: Sword
       prob: 0.5
@@ -657,19 +715,19 @@
       orGroup: Plushie
     - id: PlushieNuke
       orGroup: Plushie
-    - id: PlushieArachind #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieArachind #DeltaV - Begin adding missing plushies from Frontier Mail
       orGroup: Plushie
-    - id: PlushieAtmosian #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieAtmosian
       orGroup: Plushie
-    - id: PlushieXeno #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieXeno 
       orGroup: Plushie
-    - id: PlushiePenguin #DeltaV - Adds MORE PLUSHIE
+    - id: PlushiePenguin 
       orGroup: Plushie
-    - id: PlushieGhost #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieGhost 
       orGroup: Plushie
-    - id: PlushieDiona #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieDiona 
       orGroup: Plushie
-    - id: ToyMouse #DeltaV - Adds MORE PLUSHIE
+    - id: ToyMouse #DeltaV - End Delta-V additions
       orGroup: Plushie
     - id: PlushieRouny
       orGroup: Plushie
@@ -683,9 +741,9 @@
       orGroup: Plushie
     - id: PlushieCarp
       orGroup: Plushie
-    - id: PlushieHolocarp #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieHolocarp #DeltaV - Add holocarp and rainbowcarp to this
       orGroup: Plushie
-    - id: PlushieRainbowCarp #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieRainbowCarp #DeltaV - End carp additions
       orGroup: Plushie
     - id: PlushieSlime
       orGroup: Plushie
