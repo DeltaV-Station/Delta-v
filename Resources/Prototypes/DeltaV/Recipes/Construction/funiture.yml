@@ -1,0 +1,51 @@
+#Prayer Mats
+- type: construction
+  id: BlackPrayerMat
+  name: black prayer mat
+  description: Made of fine black silks making it perfect for religious practice!
+  graph: PrayerMat
+  startNode: start
+  targetNode: BlackPrayerMat
+  category: construction-category-furniture
+  icon:
+    sprite: DeltaV/Structures/Furniture/Carpets/prayermat.rsi
+    state: BlackPrayerMat
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BluePrayerMat
+  name: blue prayer mat
+  description: Made of fine blue velvet fabric making it perfect for religious practice!
+  graph: PrayerMat
+  startNode: start
+  targetNode: BluePrayerMat
+  category: construction-category-furniture
+  icon:
+    sprite: DeltaV/Structures/Furniture/prayermat.rsi
+    state: BluePrayerMat
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: RedPrayerMat
+  name: red prayer mat
+  description: Made of hand-crafted red silk encrusted in gold making it perfect for religious practice!
+  graph: PrayerMat
+  startNode: start
+  targetNode: RedPrayerMat
+  category: construction-category-furniture
+  icon:
+    sprite: DeltaV/Structures/Furniture/prayermat.rsi
+    state: RedPrayerMat
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

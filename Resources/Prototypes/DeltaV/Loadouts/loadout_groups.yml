@@ -386,6 +386,36 @@
   - ProsecutorOvercoat
 
 # Epistemics
+##Chaplain
+- type: loadoutGroup
+  id: Bibles
+  name: loadout-group-bibles
+  minLimit: 1
+  loadouts:
+  - Bible
+  - Quran
+  - Torah
+  - Bibble
+  - BibleSatanic
+  - BiblePride
+  - BibleHymnsHonkmother
+  - BibleVowsSilentfather
+  - BibleReddit
+  - BibleNanotrasen
+  - BibleNecronomiconDiscount
+  - BibleGilded
+
+- type: loadoutGroup
+  id: ChaplainShoes
+  name: loadout-group-chaplain-shoes
+  loadouts:
+  - ShoesBlackSneaker
+  - ShoesBlack
+  - ShoesLeather
+  - SandalsJapanese
+  - SandalsWizard
+  - SandalsTourist
+
 ## Roboticist
 - type: loadoutGroup
   id: RoboticistHead
@@ -434,6 +464,7 @@
   - RoboticsWinterBoots
   - WhiteShoes
   - ScienceWinterBoots
+
 
 # PDAs
 - type: loadoutGroup

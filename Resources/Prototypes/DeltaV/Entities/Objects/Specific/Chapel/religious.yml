@@ -1,0 +1,29 @@
+- type: entity
+  parent: [ ClothingNeckBase, ClothingBeltBase, ClothingHandsBase ]
+  id: ClothingRosary
+  name: rosary
+  description: "Set of beads and a cross commonly used by Space Catholics to resite prayers"
+  components:
+  - type: Sprite
+    state: icon
+    sprite: DeltaV/Objects/Specific/Chapel/rosary.rsi
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: DeltaV/Objects/Specific/Chapel/rosary.rsi
+    quickEquip: true
+    slots:
+    - neck
+    - belt
+    - gloves
+    equipSound:
+    path: "/Audio/Items/belt_equip.ogg"
+  - type: Prayable
+    bibleUserOnly: true
+  - type: Armor # Only slight protection
+    modifiers:
+      coefficients:
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
