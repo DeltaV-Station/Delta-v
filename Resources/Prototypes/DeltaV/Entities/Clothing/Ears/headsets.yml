@@ -115,7 +115,7 @@
     
 - type: entity
   parent: ClothingHeadset
-  id: ClothingHeadsetAdminAssist
+  id: ClothingHeadsetAdminAssistant
   name: adminstrative assistant headset
   description: A headset used by the administrative assistant.
   components:
@@ -130,8 +130,8 @@
     sprite: DeltaV/Clothing/Ears/Headsets/adminassistant.rsi
 
 - type: entity
-  parent: ClothingHeadsetAdminAssist
-  id: ClothingHeadsetAltAdminAssist
+  parent: ClothingHeadsetAdminAssistant
+  id: ClothingHeadsetAltAdminAssistant
   name: adminstrative assistant over-ear headset
   components:
   - type: Sprite
