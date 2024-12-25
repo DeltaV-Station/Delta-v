@@ -262,8 +262,8 @@
     zeroVisible: true
   - type: Appearance
 
-  -type: entity
-    parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
+  - type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponColdCannon
   name: I.C.E.E.
   description: It's cooler than a normal gun.
@@ -285,6 +285,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
+    
     
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
