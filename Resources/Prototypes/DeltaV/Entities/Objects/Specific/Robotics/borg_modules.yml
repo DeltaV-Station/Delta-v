@@ -11,21 +11,6 @@
 
 # Security Modules
 
-- type: entity
-  id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
-  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: peacekeeper cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icon-peacekeeper
-  - type: ItemBorgModule
-    items:
-    - WoodBaton
-    - SecurityWhistle
-    - FlashlightSecliteRecharging
-
 # - type: entity
 #  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
 #  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
@@ -52,6 +37,7 @@
     items:
     - StunbatonSelfCharging
     - FlashRecharging
+-   - FlashlightSecliteRecharging
     - SecurityWhistle
     - HoloprojectorSecurityRecharging
     - WeaponLauncherFlashbangBorg
