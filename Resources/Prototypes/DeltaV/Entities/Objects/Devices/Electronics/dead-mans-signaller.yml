@@ -1,0 +1,18 @@
+#This signaller device will send a signal if it is dropped while activated
+
+- type: entity
+  parent: RemoteSignaller
+  id: DeadMansSignaler
+  name: dead man's signaler
+  description: A handheld device used for remotely sending signals to objects within a small radius of about 50 meters.
+  components:
+  - type: DeadMansSignaller
+  - type: ItemToggle
+  - type: Sprite
+    state: advanced
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: advanced-inhand-left
+      right:
+      - state: advanced-inhand-right
