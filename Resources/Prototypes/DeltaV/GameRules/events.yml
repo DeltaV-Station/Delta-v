@@ -80,7 +80,9 @@
   - type: PrecognitionResult
     message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule
-    playerRatio: 15 # mothroaches aren't dangerous, but don't need as many as mice
+    min: 5
+    max: 10
+    playerRatio: 65 # mothroaches aren't dangerous, but don't need as many as mice
     table:
       id: MobMothroach
 
