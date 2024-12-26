@@ -349,7 +349,7 @@
 
 - type: entity
   id: PoweredDimSmallLight
-  suffix: Dim
+  suffix: Dim, Maintenance, Red # DeltaV - Clarity for mappers
   parent: PoweredSmallLightEmpty
   components:
   - type: Sprite
