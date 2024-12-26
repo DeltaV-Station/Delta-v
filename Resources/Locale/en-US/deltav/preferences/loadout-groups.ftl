@@ -8,10 +8,12 @@ loadout-group-captain-gloves = Captain gloves
 loadout-group-captain-shoes = Captain shoes
 loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-shoes = Head of Personnel shoes
+
 loadout-group-admin-assistant-head = Administrative Assistant head
 loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
 loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
 loadout-group-admin-assistant-headset = Administrative Assistant headset
+loadout-group-admin-assistant-shoes = Administrative Assistant shoes
 
 # Civilian
 loadout-group-librarian-neck = Librarian neck
