@@ -8355,6 +8355,13 @@ entities:
     - type: Transform
       pos: -10.5,-27.5
       parent: 2
+- proto: HolopadCentCommEvacShuttle
+  entities:
+  - uid: 1717
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 2
 - proto: KitchenMicrowave
   entities:
   - uid: 700
