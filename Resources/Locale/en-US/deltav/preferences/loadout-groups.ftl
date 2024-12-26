@@ -14,6 +14,7 @@ loadout-group-admin-assistant-jumpsuit = Administrative Assistant jumpsuit
 loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clothing
 loadout-group-admin-assistant-headset = Administrative Assistant headset
 loadout-group-admin-assistant-shoes = Administrative Assistant shoes
+loadout-group-admin-assistant-gloves = Administrative Assistant gloves
 
 # Civilian
 loadout-group-librarian-neck = Librarian neck
@@ -81,7 +82,6 @@ loadout-group-psychologist-id-delta = Psychologist PDA
 
 # Miscellaneous
 loadout-group-scarfs = Scarf
-loadout-group-formal-shoes = Shoes
 
 # Epistemics
 loadout-group-mantis-head = Mantis head

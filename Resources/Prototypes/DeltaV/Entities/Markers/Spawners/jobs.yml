@@ -107,8 +107,8 @@
       state: cargoassistant
 
 - type: entity
-  id: SpawnPointAdminAssistant
   parent: SpawnPointJobBase
+  id: SpawnPointAdminAssistant
   name: administrative assistant
   components:
   - type: SpawnPoint
