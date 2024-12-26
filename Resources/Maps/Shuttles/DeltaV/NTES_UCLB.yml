@@ -935,12 +935,16 @@ entities:
   entities:
   - uid: 527
     components:
+    - type: MetaData
+      name: Uncle Charlie's Luxury Boat Embarkment
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-0.5
       parent: 1
   - uid: 528
     components:
+    - type: MetaData
+      name: Uncle Charlie's Luxury Boat Embarkment
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,1.5
