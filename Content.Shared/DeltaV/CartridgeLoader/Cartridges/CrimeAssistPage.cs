@@ -37,7 +37,7 @@ public sealed partial class CrimeAssistPage : IPrototype
 /// <summary>
 /// The severity a crime is in, used for page results.
 /// </summary>
-public enum CrimeSeverity : u8
+public enum CrimeSeverity : byte
 {
     Innocent,
     Misdemenour,
