@@ -12,6 +12,18 @@
       state: icon
     - type: TemperatureProtection
       coolingCoefficient: 0.80
+    - type: Food
+      requiresSpecialDigestion: true
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 30
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 30      
+    - type: Tag
+      tags:
+      - ClothMade
 
 - type: entity
   parent: ClothingUnderPantsBase
