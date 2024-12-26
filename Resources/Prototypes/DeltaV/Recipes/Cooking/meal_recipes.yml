@@ -42,3 +42,15 @@
     FoodBowlBig: 1
     FoodBlueTomato: 1
     FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeChickenNuggetBox
+  name: chicken nugget box recipe
+  result: FoodBoxNugget
+  time: 10
+  reagents:
+    Protein: 20
+    Egg: 4
+    Flour: 6
+  solids:
+    MaterialCardboard1: 1
