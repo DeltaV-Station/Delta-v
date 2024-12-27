@@ -4,40 +4,40 @@
   description: job-description-admin-assistant
   playTimeTracker: JobAdminAssistant
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Logistics
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Epistemics
-      time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Logistics
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Civilian
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Justice
+    time: 10800 # 3 hours
+  - !type:DepartmentTimeRequirement
+    department: Epistemics
+    time: 10800 # 3 hours
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command
   canBeAntag: false
   access:
-    - Command
-    - Maintenance
+  - Command
+  - Maintenance
   special:
-    - !type:AddImplantSpecial
-      implants: [MindShieldImplant]
-    - !type:AddComponentSpecial
-      components:
-      - type: CommandStaff
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
 
 - type: startingGear
   id: AdminAssistantGear
