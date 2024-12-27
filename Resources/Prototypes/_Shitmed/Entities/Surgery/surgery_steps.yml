@@ -523,7 +523,7 @@
     - type: Drill
     addOrganOnAdd:
       brain:
-        - type: OhioAccent
+        #- type: OhioAccent # DeltaV
         - type: RatvarianLanguage
         - type: Clumsy
           clumsyDamage:
@@ -554,7 +554,7 @@
     duration: 4
     removeOrganOnAdd:
       brain:
-        - type: OhioAccent
+        #- type: OhioAccent # DeltaV
         - type: RatvarianLanguage
         - type: Clumsy
           clumsyDamage:
