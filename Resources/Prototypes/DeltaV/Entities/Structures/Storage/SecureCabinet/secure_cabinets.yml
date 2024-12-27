@@ -4,6 +4,7 @@
   id: BaseSecureCabinet
   description: A secure cabinet to keep all your confidential files or items away from prying hands.
   suffix: Empty
+  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: Storage
@@ -71,10 +72,6 @@
   - type: Lock
   - type: LockVisuals
   - type: AccessReader
-  - type: Weldable
-    fuel: 5
-    time: 3
-  - type: ResistLocker
   - type: Sprite
     state: secure-cabinet
     layers:
@@ -86,17 +83,15 @@
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
   - type: Construction
     node: SecureCabinet
 
-#Empty Secure Cabinet
+#Filled Secure Cabinet
 - type: entity
   parent: SecureCabinet
   id: FilledSecureCabinet
   suffix: Filled
+  categories: [ HideSpawnMenu ]
   components:
   - type: StorageFill
     contents:
