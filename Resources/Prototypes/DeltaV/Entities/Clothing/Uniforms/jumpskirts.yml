@@ -33,6 +33,17 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/secformalskirt.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtQMFormalDress
+  name: logistics officer's formal dress
+  description: A dress for special occasions.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+
 # Security alt uniforms
 
 - type: entity
