@@ -49,6 +49,12 @@ loadout-group-mail-carrier-head = Mail Carrier head
 loadout-group-mail-carrier-jumpsuit = Mail Carrier jumpsuit
 loadout-group-mail-carrier-outerclothing = Mail Carrier outer clothing
 
+loadout-group-cargo-assistant-head = Cargo Assistant head
+loadout-group-cargo-assistant-jumpsuit = Cargo Assistant jumpsuit
+loadout-group-cargo-assistant-backpack = Cargo Assistant backpack
+loadout-group-cargo-assistant-outerclothing = Cargo Assistant outer clothing
+loadout-group-cargo-assistant-shoes = Cargo Assistant shoes
+
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
 
 loadout-group-salvage-id-delta = Salvage Specialist PDA
