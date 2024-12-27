@@ -99,7 +99,7 @@
   name: cargo assistant
   components:
   - type: SpawnPoint
-    job_id: CargoTechnician # Change to CargoAssistant once it's mapped on every map
+    job_id: CargoAssistant
   - type: Sprite
     layers:
     - state: green
