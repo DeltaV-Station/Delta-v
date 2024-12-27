@@ -318,10 +318,10 @@
 - type: entity
   parent: Holopad
   id: HolopadCommandQm
-  suffix: QM
+  suffix: LO # DeltaV - QM > LO
   components:
   - type: Label
-    currentLabel: holopad-command-qm
+    currentLabel: holopad-command-lo # DeltaV - QM > LO
 
 - type: entity
   parent: Holopad
@@ -334,10 +334,10 @@
 - type: entity
   parent: Holopad
   id: HolopadCommandRd
-  suffix: RD
+  suffix: Mysta # DeltaV - RD > Mysta
   components:
   - type: Label
-    currentLabel: holopad-command-rd
+    currentLabel: holopad-command-mysta # DeltaV - RD > Mysta
 
 - type: entity
   parent: Holopad
@@ -354,7 +354,7 @@
   suffix: Anomaly
   components:
   - type: Label
-    currentLabel: holopad-science-anomaly
+    currentLabel: holopad-epistemics-anomaly # DeltaV - Science > Epistemics
 
 - type: entity
   parent: Holopad
@@ -362,7 +362,7 @@
   suffix: Artifact
   components:
   - type: Label
-    currentLabel: holopad-science-artifact
+    currentLabel: holopad-epistemics-artifact # DeltaV - Science > Epistemics
 
 - type: entity
   parent: Holopad
@@ -370,7 +370,7 @@
   suffix: Robotics
   components:
   - type: Label
-    currentLabel: holopad-science-robotics
+    currentLabel: holopad-epistemics-robotics # DeltaV - Science > Epistemics
 
 - type: entity
   parent: Holopad
@@ -378,23 +378,23 @@
   suffix: R&D
   components:
   - type: Label
-    currentLabel: holopad-science-rnd
+    currentLabel: holopad-epistemics-rnd # DeltaV - Science > Epistemics
 
 - type: entity
   parent: Holopad
   id: HolopadScienceFront
-  suffix: Sci Front
+  suffix: Epi Front # DeltaV - Science > Epistemics
   components:
   - type: Label
-    currentLabel: holopad-science-front
+    currentLabel: holopad-epistemics-front # DeltaV - Science > Epistemics
 
 - type: entity
   parent: Holopad
   id: HolopadScienceBreakroom
-  suffix: Sci Breakroom
+  suffix: Epi Breakroom # DeltaV - Science > Epistemics
   components:
   - type: Label
-    currentLabel: holopad-science-breakroom
+    currentLabel: holopad-epistemics-breakroom # DeltaV - Science > Epistemics
 
 # Medical
 - type: entity
@@ -473,10 +473,10 @@
 - type: entity
   parent: Holopad
   id: HolopadCargoFront
-  suffix: Cargo Front
+  suffix: Logistics Front # DeltaV - Cargo > Logistics
   components:
   - type: Label
-    currentLabel: holopad-cargo-front
+    currentLabel: holopad-logistics-front # DeltaV - Cargo > Logistics
 
 - type: entity
   parent: Holopad
@@ -484,7 +484,7 @@
   suffix: Cargo Bay
   components:
   - type: Label
-    currentLabel: holopad-cargo-bay
+    currentLabel: holopad-logistics-cargo-bay # DeltaV - Cargo > Logistics
 
 - type: entity
   parent: Holopad
@@ -492,15 +492,15 @@
   suffix: Salvage Bay
   components:
   - type: Label
-    currentLabel: holopad-cargo-salvage-bay
+    currentLabel: holopad-logistics-salvage-bay # DeltaV - Cargo > Logistics
 
 - type: entity
   parent: Holopad
   id: HolopadCargoBreakroom
-  suffix: Cargo Breakroom
+  suffix: Logistics Breakroom
   components:
   - type: Label
-    currentLabel: holopad-cargo-breakroom
+    currentLabel: holopad-logistics-breakroom # DeltaV - Cargo > Logistics
 
 # Engineering
 - type: entity
@@ -635,10 +635,10 @@
 - type: entity
   parent: Holopad
   id: HolopadSecurityLawyer
-  suffix: Lawyer
+  suffix: Attorney # DeltaV - Lawyer > Attorney
   components:
   - type: Label
-    currentLabel: holopad-security-lawyer
+    currentLabel: holopad-justice-attorney # DeltaV - Lawyer > Attorney
 
 - type: entity
   parent: Holopad

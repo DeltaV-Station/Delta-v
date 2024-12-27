@@ -84,7 +84,7 @@
     weight: 12 # DeltaV - was 8
     duration: 35
   - type: PrecognitionResult # DeltaV - Precogniton
-    message: psionic-power-precognition-anomoly-spawn-result-message
+    message: psionic-power-precognition-anomaly-spawn-result-message
   - type: AnomalySpawnRule
 
 - type: entity
@@ -389,17 +389,15 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-slimes-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
 
 - type: entity
   id: SnakeSpawn
@@ -412,17 +410,15 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-snake-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -435,13 +431,12 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -454,13 +449,13 @@
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-spider-clown-spawn-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobClownSpider
-      prob: 0.03 # DeltaV - was 0.05
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak
