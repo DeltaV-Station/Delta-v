@@ -80,7 +80,7 @@
   - ERTEngineer
   - DeathSquad
   - StationAi # DeltaV - added for playtime trackers
-  #- AdministrativeAssistant # Delta V - Uncomment once ready to deploy. Administrative Assistant, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Command/admin_assistant.yml
+  #- AdministrativeAssistant # Delta V - Uncomment once ready to deploy. Administrative Assistant, see Resources/Prototypes/DeltaV/Roles/Jobs/Command/administrative_assistant.yml
   primary: false
   weight: 100
 
@@ -107,7 +107,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  - MedicalBorg # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
   id: Security
