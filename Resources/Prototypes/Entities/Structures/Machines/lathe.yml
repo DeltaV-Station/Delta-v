@@ -206,6 +206,8 @@
       - SilverRing
       - GoldRingDiamond
       - SilverRingDiamond
+      - CassetteTape
+      - TapeRecorder
       # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -446,7 +448,6 @@
       - MiniSyringe
       - WeaponColdCannon
       - WeaponBeamCannon
-
       # End DeltaV additions
 
 - type: entity
@@ -577,16 +578,17 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
-    # Begin Nyano additions
+      - SMESAdvancedMachineCircuitboard
+      # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - MetempsychoticMachineCircuitboard
-    # End Nyano additions
-    # Begin DeltaV additions
+      # End Nyano additions
+      # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
       - AlertsComputerCircuitboard
-    # End DeltaV additions
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -1370,7 +1372,7 @@
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1406,7 +1408,7 @@
       - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

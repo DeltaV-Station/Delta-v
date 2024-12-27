@@ -6,6 +6,7 @@ using Content.Server.Mind;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.Events;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Popups;
@@ -22,32 +23,39 @@ namespace Content.Server.Abilities.Psionics;
 
 public sealed class PrecognitionPowerSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    /// <summary>
+    /// A map between game rule prototypes and their results to give.
+    /// </summary>
+    public Dictionary<EntProtoId, PrecognitionResultComponent> Results = new();
 
     public override void Initialize()
     {
         base.Initialize();
+        CachePrecognitionResults();
+
         SubscribeLocalEvent<PrecognitionPowerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PrecognitionPowerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PrecognitionPowerComponent, PrecognitionPowerActionEvent>(OnPowerUsed);
         SubscribeLocalEvent<PrecognitionPowerComponent, PrecognitionDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
     }
 
     private void OnMapInit(Entity<PrecognitionPowerComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.AllResults = GetAllPrecognitionResults();
         _actions.AddAction(ent, ref ent.Comp.PrecognitionActionEntity, ent.Comp.PrecognitionActionId);
         _actions.StartUseDelay(ent.Comp.PrecognitionActionEntity);
         if (TryComp<PsionicComponent>(ent, out var psionic) && psionic.PsionicAbility == null)
@@ -66,7 +74,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
 
     private void OnPowerUsed(EntityUid uid, PrecognitionPowerComponent component, PrecognitionPowerActionEvent args)
     {
-        var ev = new PrecognitionDoAfterEvent(_gameTiming.CurTime);
+        var ev = new PrecognitionDoAfterEvent();
         var doAfterArgs = new DoAfterArgs(EntityManager, uid, component.UseDelay, ev, uid)
         {
             BreakOnDamage = true
@@ -76,7 +84,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, "TemporaryBlindness", component.UseDelay, true);
         _statusEffects.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", component.UseDelay, true);
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
+        _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
         component.DoAfter = doAfterId;
 
         var player = _audio.PlayGlobal(component.VisionSound, Filter.Entities(uid), true);
@@ -104,7 +112,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             _statusEffects.TryRemoveStatusEffect(uid, "TemporaryBlindness");
             _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
 
-            _popups.PopupEntity(
+            _popup.PopupEntity(
                 Loc.GetString("psionic-power-precognition-failure-by-damage"),
                 uid,
                 uid,
@@ -121,33 +129,31 @@ public sealed class PrecognitionPowerSystem : EntitySystem
         // Determines the window that will be looked at for events, avoiding events that are too close or too far to be useful.
         var minDetectWindow = TimeSpan.FromSeconds(30);
         var maxDetectWindow = TimeSpan.FromMinutes(10);
-        string? message = null;
 
         if (!_mind.TryGetMind(uid, out _, out var mindComponent) || mindComponent.Session == null)
             return;
 
-        var nextEvent = (FindEarliestNextEvent(minDetectWindow, maxDetectWindow));
-        if (nextEvent == null) // A special message given if there is no event within the time window.
-            message = "psionic-power-precognition-no-event-result-message";
-
-        if (nextEvent != null && nextEvent.NextEventId != null)
-            message = GetResultMessage(nextEvent.NextEventId, component);
+        var nextEvent = FindEarliestNextEvent(minDetectWindow, maxDetectWindow);
+        LocId? message = nextEvent?.NextEventId is {} nextEventId
+            ? GetResultMessage(nextEventId)
+            // A special message given if there is no event within the time window.
+            : "psionic-power-precognition-no-event-result-message";
 
         if (_random.Prob(component.RandomResultChance)) // This will replace the proper result message with a random one occasionaly to simulate some unreliablity.
             message = GetRandomResult();
 
-        if (string.IsNullOrEmpty(message)) // If there is no message to send don't bother trying to send it.
+        if (message is not {} locId) // If there is no message to send don't bother trying to send it.
             return;
 
         // Send a message describing the vision they see
-        message = Loc.GetString(message);
-        _chat.ChatMessageToOne(Shared.Chat.ChatChannel.Server,
-                message,
-                Loc.GetString("chat-manager-server-wrap-message", ("message", message)),
-                uid,
-                false,
-                mindComponent.Session.Channel,
-                Color.PaleVioletRed);
+        var msg = Loc.GetString(locId);
+        _chat.ChatMessageToOne(ChatChannel.Server,
+            msg,
+            Loc.GetString("chat-manager-server-wrap-message", ("message", msg)),
+            uid,
+            false,
+            mindComponent.Session.Channel,
+            Color.PaleVioletRed);
 
         component.DoAfter = null;
     }
@@ -156,37 +162,37 @@ public sealed class PrecognitionPowerSystem : EntitySystem
     /// Gets the precognition result message corosponding to the passed event id.
     /// </summary>
     /// <returns>message string corosponding to the event id passed</returns>
-    private string GetResultMessage(EntProtoId? eventId, PrecognitionPowerComponent component)
+    private LocId? GetResultMessage(EntProtoId eventId)
     {
-        foreach (var (eventProto, precognitionResult) in component.AllResults)
+        if (!Results.TryGetValue(eventId, out var result))
         {
-            if (eventProto.ID == eventId && precognitionResult != null)
-                return precognitionResult.Message;
+            Log.Error($"Prototype {eventId} does not have an associated precognitionResult!");
+            return null;
         }
-        Log.Error($"Prototype {eventId} does not have an associated precognitionResult!");
-        return string.Empty;
+
+        return result.Message;
     }
 
     /// <summary>
     /// </summary>
-    /// <returns>The localized string of a weighted randomly chosen precognition result</returns>
-    public string? GetRandomResult()
+    /// <returns>The locale message id of a weighted randomly chosen precognition result</returns>
+    public LocId? GetRandomResult()
     {
-        var precognitionResults = GetAllPrecognitionResults();
-        var sumOfWeights = 0;
-        foreach (var precognitionResult in precognitionResults.Values)
-            sumOfWeights += (int)precognitionResult.Weight;
+        // funny weighted random
+        var sumOfWeights = 0f;
+        foreach (var precognitionResult in Results.Values)
+            sumOfWeights += precognitionResult.Weight;
 
-        sumOfWeights = _random.Next(sumOfWeights);
-        foreach (var precognitionResult in precognitionResults.Values)
+        sumOfWeights = (float) _random.Next((double) sumOfWeights);
+        foreach (var precognitionResult in Results.Values)
         {
-            sumOfWeights -= (int)precognitionResult.Weight;
+            sumOfWeights -= precognitionResult.Weight;
 
-            if (sumOfWeights <= 0)
+            if (sumOfWeights <= 0f)
                 return precognitionResult.Message;
         }
 
-        Log.Error("Result was not found after weighted pick process!");
+        Log.Error("Precognition result was not found after weighted pick process!");
         return null;
     }
 
@@ -208,15 +214,25 @@ public sealed class PrecognitionPowerSystem : EntitySystem
                 && nextEventComponent.NextEventTime < _gameTicker.RoundDuration() + maxDetectWindow
                 && earliestNextEvent == null
                 || nextEventComponent.NextEventTime < earliestNextEventTime)
+            {
                 earliestNextEvent ??= nextEventComponent;
+            }
         }
         return earliestNextEvent;
     }
 
-    public Dictionary<EntityPrototype, PrecognitionResultComponent> GetAllPrecognitionResults()
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
     {
-        var allEvents = new Dictionary<EntityPrototype, PrecognitionResultComponent>();
-        foreach (var prototype in _prototype.EnumeratePrototypes<EntityPrototype>())
+        if (!args.WasModified<EntityPrototype>())
+            return;
+
+        CachePrecognitionResults();
+    }
+
+    private void CachePrecognitionResults()
+    {
+        Results.Clear();
+        foreach (var prototype in _proto.EnumeratePrototypes<EntityPrototype>())
         {
             if (prototype.Abstract)
                 continue;
@@ -224,9 +240,7 @@ public sealed class PrecognitionPowerSystem : EntitySystem
             if (!prototype.TryGetComponent<PrecognitionResultComponent>(out var precognitionResult, _factory))
                 continue;
 
-            allEvents.Add(prototype, precognitionResult);
+            Results.Add(prototype.ID, precognitionResult);
         }
-
-        return allEvents;
     }
 }
