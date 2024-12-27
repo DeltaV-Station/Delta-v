@@ -32,12 +32,13 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-content-brain
-      taco:
-        name: food-sequence-content-brain
+  # DeltaV
+  #- type: FoodSequenceElement
+  #  entries:
+  #    burger:
+  #      name: food-sequence-content-brain
+  #    taco:
+  #      name: food-sequence-content-brain
   - type: Item
     size: Small
     heldPrefix: brain
