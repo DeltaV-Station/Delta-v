@@ -9838,7 +9838,7 @@ entities:
       pos: -12.5,-46.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -204.9555
+      secondsUntilStateChange: -465.08417
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -61864,28 +61864,52 @@ entities:
   entities:
   - uid: 4736
     components:
+    - type: MetaData
+      name: gas pipe sensor (plasma storage)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-57.5
       parent: 100
+    - type: Label
+      currentLabel: plasma storage
+    - type: NameModifier
+      baseName: gas pipe sensor
   - uid: 5212
     components:
+    - type: MetaData
+      name: gas pipe sensor (oxygen miner)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-55.5
       parent: 100
+    - type: Label
+      currentLabel: oxygen miner
+    - type: NameModifier
+      baseName: gas pipe sensor
   - uid: 5259
     components:
+    - type: MetaData
+      name: gas pipe sensor (nitrogen miner)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-53.5
       parent: 100
+    - type: Label
+      currentLabel: nitrogen miner
+    - type: NameModifier
+      baseName: gas pipe sensor
   - uid: 13958
     components:
+    - type: MetaData
+      name: gas pipe sensor (waste storage)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-59.5
       parent: 100
+    - type: Label
+      currentLabel: waste storage
+    - type: NameModifier
+      baseName: gas pipe sensor
 - proto: GasPipeSensorDistribution
   entities:
   - uid: 8972
@@ -93469,6 +93493,20 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 100
+- proto: HolopadGeneralArcade
+  entities:
+  - uid: 21748
+    components:
+    - type: Transform
+      pos: 10.5,13.5
+      parent: 100
+- proto: HolopadGeneralArrivals
+  entities:
+  - uid: 21749
+    components:
+    - type: Transform
+      pos: 30.5,-30.5
+      parent: 100
 - proto: HolopadGeneralCryosleep
   entities:
   - uid: 21682
@@ -93595,6 +93633,20 @@ entities:
     - type: Transform
       pos: -14.5,48.5
       parent: 100
+- proto: HolopadScienceAnomaly
+  entities:
+  - uid: 21747
+    components:
+    - type: Transform
+      pos: -17.5,-18.5
+      parent: 100
+- proto: HolopadScienceArtifact
+  entities:
+  - uid: 21746
+    components:
+    - type: Transform
+      pos: -9.5,-10.5
+      parent: 100
 - proto: HolopadScienceBreakroom
   entities:
   - uid: 21687
@@ -93615,6 +93667,13 @@ entities:
     components:
     - type: Transform
       pos: -15.5,-2.5
+      parent: 100
+- proto: HolopadSecurityArmory
+  entities:
+  - uid: 21750
+    components:
+    - type: Transform
+      pos: 16.5,52.5
       parent: 100
 - proto: HolopadSecurityBrig
   entities:
@@ -114734,6 +114793,16 @@ entities:
     components:
     - type: Transform
       pos: 15.5,51.5
+      parent: 100
+  - uid: 21751
+    components:
+    - type: Transform
+      pos: 13.5,40.5
+      parent: 100
+  - uid: 21752
+    components:
+    - type: Transform
+      pos: 15.5,40.5
       parent: 100
 - proto: SurveillanceCameraCommand
   entities:
