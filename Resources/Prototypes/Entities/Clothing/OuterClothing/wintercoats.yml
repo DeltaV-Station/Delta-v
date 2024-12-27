@@ -56,20 +56,10 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -79,20 +69,10 @@
   name: bartender winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
@@ -102,20 +82,10 @@
   name: captain's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
   - type: Armor # DeltaV - adds resists to coat, same as HoS coat. Still better than nothing, but nowhere as good as a carapace
@@ -132,20 +102,10 @@
   name: logistics winter coat # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
@@ -155,20 +115,10 @@
   name: chief engineer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCE
 
@@ -178,20 +128,10 @@
   name: CentComm winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCentcom
 
@@ -202,20 +142,10 @@
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -223,20 +153,10 @@
   name: chemistry winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -253,20 +173,10 @@
   name: chief medical officer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -283,9 +193,9 @@
   name: clown winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -293,20 +203,10 @@
   name: engineering winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -317,19 +217,9 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
   - type: Armor
     modifiers:
       coefficients:
@@ -346,20 +236,10 @@
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOP
 
@@ -386,20 +266,10 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
   - type: Armor # DeltaV - adds resists to coat. As good as Cap's, but I don't know why you'd wear this over a trench coat
@@ -416,20 +286,10 @@
   name: hydroponics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHydro
 
@@ -439,20 +299,9 @@
   name: janitorial winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -469,20 +318,10 @@
   name: medical winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -499,20 +338,10 @@
   name: mime winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMime
 
@@ -522,20 +351,10 @@
   name: mining winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMiner
 
@@ -545,20 +364,10 @@
   name: paramedic winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -575,20 +384,10 @@
   name: logistics officer's winter coat # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 
@@ -599,20 +398,10 @@
   name: mystagogue's winter coat # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -629,20 +418,10 @@
   name: robotics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRobo
 
@@ -654,19 +433,9 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
   - type: Armor
     modifiers:
       coefficients:
@@ -684,19 +453,9 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
   - type: Armor # DeltaV - adds resists to coat
@@ -714,19 +473,9 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
   - type: Armor
     modifiers:
       coefficients:
@@ -759,20 +508,10 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
@@ -783,20 +522,10 @@
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left # Goobstation - winter coats are their own .rsi now
-      right:
-      - state: inhand-right # Goobstation - winter coats are their own .rsi now
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -808,9 +537,9 @@
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 ##############################################################
@@ -822,20 +551,10 @@
   description: Insulated winter coat, looks like a merch from "Syndieland".
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
 
@@ -846,9 +565,9 @@
   description: An oversized, plasticine space tuxedo that'll have people asking "do you know me?"
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -857,22 +576,12 @@
   description: Feels like the inside of a cocoon, not that this would make you less afraid of being in one.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi # Goobstation - winter coats are their own .rsi now
-    layers:
-    - state: icon # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi # Goobstation - winter coats are their own .rsi now
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING # Goobstation - winter coats are their own .rsi now
+    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
   - type: Construction
-    graph: WebObjects # Goobstation - winter coats are their own .rsi now
+    graph: WebObjects
     node: coat
   - type: Butcherable
     spawned:
