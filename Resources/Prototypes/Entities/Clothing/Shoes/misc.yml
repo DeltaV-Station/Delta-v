@@ -91,7 +91,7 @@
   parent: [ClothingShoesBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ClothingShoesBootsSpeed
   name: speed boots
-  description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
+  description: High-tech boots with interwoven bluespace fibers, able to convert electricity into pure speed! # DeltaV illegal ops
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/speedboots.rsi
@@ -115,7 +115,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 15 # DeltaV 10>15, you have to turn off micro reactor at somepoint
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:
