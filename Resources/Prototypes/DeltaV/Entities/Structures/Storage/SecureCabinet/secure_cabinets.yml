@@ -5,7 +5,6 @@
   id: BaseSecureCabinet
   suffix: Empty
   description: A secure cabinet to keep all your confidential files or items away from prying hands.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Storage
     grid:
@@ -74,7 +73,6 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Sprite
-    state: secure-cabinet
     layers:
     - state: secure-cabinet
     - state: secure-cabinet-open
@@ -92,35 +90,32 @@
   suffix: Filled
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents:
-      - id: Pen
-        prob: 0.5
-      - id: PaperOffice
-        amount: 1
-        maxAmount: 2
-      - id: Paper
-        amount: 1
-        maxAmount: 2
-      - id: BoxFolderBlue
-        orGroup: Folder
-      - id: BoxFolderRed
-        orGroup: Folder
-      - id: BoxFolderYellow
-        orGroup: Folder
-      - id: BoxFolderWhite
-        orGroup: Folder
-      - id: BoxFolderGrey
-        orGroup: Folder
-      - id: BoxFolderBlack
-        orGroup: Folder
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Pen
+          prob: 0.5
+        - id: PaperOffice
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: Paper
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - !type:GroupSelector
+          children:
+          - id: BoxFolderBlue
+          - id: BoxFolderRed
+          - id: BoxFolderYellow
+          - id: BoxFolderWhite
+          - id: BoxFolderGrey
+          - id: BoxFolderBlack
 
 #Role Secure Cabinets
 #Captain
 - type: entity
   parent: FilledSecureCabinet
-  id: CaptainSecureCabinet
+  id: SecureCabinetCaptain
   suffix: Captain
   components:
   - type: AccessReader
@@ -129,7 +124,7 @@
 #HeadOfSecurity
 - type: entity
   parent: FilledSecureCabinet
-  id: HoSSecureCabinet
+  id: SecureCabinetHoS
   suffix: Head Of Security
   components:
   - type: AccessReader
@@ -138,7 +133,7 @@
 #HeadOfPersonnel
 - type: entity
   parent: FilledSecureCabinet
-  id: HoPSecureCabinet
+  id: SecureCabinetHoP
   suffix: Head Of Personnel
   components:
   - type: AccessReader
@@ -147,7 +142,7 @@
 #Logistics Officer (Quartermaster)
 - type: entity
   parent: FilledSecureCabinet
-  id: LOSecureCabinet
+  id: SecureCabinetLO
   suffix: Logistics Officer
   components:
   - type: AccessReader
@@ -156,7 +151,7 @@
 #ChiefMedicalOfficer
 - type: entity
   parent: FilledSecureCabinet
-  id: CMOSecureCabinet
+  id: SecureCabinetCMO
   suffix: Chief Medical Officer
   components:
   - type: AccessReader
@@ -165,7 +160,7 @@
 #ChiefJustice
 - type: entity
   parent: FilledSecureCabinet
-  id: CJSecureCabinet
+  id: SecureCabinetCJ
   suffix: Chief Justice
   components:
   - type: AccessReader
@@ -174,7 +169,7 @@
 #Mystagogue (ResearchDirector)
 - type: entity
   parent: FilledSecureCabinet
-  id: MGSecureCabinet
+  id: SecureCabinetMG
   suffix: Mystagogue
   components:
   - type: AccessReader
@@ -183,7 +178,7 @@
 #ChiefEngineer
 - type: entity
   parent: FilledSecureCabinet
-  id: CESecureCabinet
+  id: SecureCabinetCE
   suffix: Chief Engineer
   components:
   - type: AccessReader
@@ -192,7 +187,7 @@
 #Warden (Armory)
 - type: entity
   parent: FilledSecureCabinet
-  id: WardenSecureCabinet
+  id: SecureCabinetWarden
   suffix: Warden
   components:
   - type: AccessReader
@@ -201,7 +196,7 @@
 #Detective
 - type: entity
   parent: FilledSecureCabinet
-  id: DetectiveSecureCabinet
+  id: SecureCabinetDetective
   suffix: Detective
   components:
   - type: AccessReader
@@ -210,7 +205,7 @@
 #Reporter
 - type: entity
   parent: FilledSecureCabinet
-  id: ReporterSecureCabinet
+  id: SecureCabinetReporter
   suffix: Reporter
   components:
   - type: AccessReader
@@ -219,7 +214,7 @@
 #Clerk
 - type: entity
   parent: FilledSecureCabinet
-  id: ClerkSecureCabinet
+  id: SecureCabinetClerk
   suffix: Clerk
   components:
   - type: AccessReader
@@ -228,7 +223,7 @@
 #Prosecutor
 - type: entity
   parent: FilledSecureCabinet
-  id: ProsecutorSecureCabinet
+  id: SecureCabinetProsecutor
   suffix: Prosecutor
   components:
   - type: AccessReader
@@ -237,7 +232,7 @@
 #Attorney (Lawyer)
 - type: entity
   parent: FilledSecureCabinet
-  id: AttorneySecureCabinet
+  id: SecureCabinetAttorney
   suffix: Attorney
   components:
   - type: AccessReader
@@ -248,7 +243,7 @@
 #Command
 - type: entity
   parent: FilledSecureCabinet
-  id: CommandSecureCabinet
+  id: SecureCabinetCommand
   suffix: Dept Command
   components:
   - type: AccessReader
@@ -257,7 +252,7 @@
 #Security
 - type: entity
   parent: FilledSecureCabinet
-  id: SecuritySecureCabinet
+  id: SecureCabinetSecurity
   suffix: Dept Security
   components:
   - type: AccessReader
@@ -266,7 +261,7 @@
 #Engineering
 - type: entity
   parent: FilledSecureCabinet
-  id: EngineeringSecureCabinet
+  id: SecureCabinetEngineering
   suffix: Dept Engineering
   components:
   - type: AccessReader
@@ -275,7 +270,7 @@
 #Medical
 - type: entity
   parent: FilledSecureCabinet
-  id: MedicalSecureCabinet
+  id: SecureCabinetMedical
   suffix: Dept Medical
   components:
   - type: AccessReader
@@ -284,7 +279,7 @@
 #Service
 - type: entity
   parent: FilledSecureCabinet
-  id: ServiceSecureCabinet
+  id: SecureCabinetService
   suffix: Dept Service
   components:
   - type: AccessReader
@@ -293,7 +288,7 @@
 #Logistics (Cargo)
 - type: entity
   parent: FilledSecureCabinet
-  id: LogisticsSecureCabinet
+  id: SecureCabinetLogistics
   suffix: Dept Logistics
   components:
   - type: AccessReader
@@ -302,7 +297,7 @@
 #Epistemics (Research)
 - type: entity
   parent: FilledSecureCabinet
-  id: EpistemicsSecureCabinet
+  id: SecureCabinetEpistemics
   suffix: Dept Epistemics
   components:
   - type: AccessReader
@@ -311,7 +306,7 @@
 #Justice
 - type: entity
   parent: FilledSecureCabinet
-  id: JusticeSecureCabinet
+  id: SecureCabinetJustice
   suffix: Dept Justice
   components:
   - type: AccessReader
