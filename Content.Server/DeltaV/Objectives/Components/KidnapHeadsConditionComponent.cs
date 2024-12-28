@@ -2,12 +2,10 @@
 
 namespace Content.Server.DeltaV.Objectives.Components;
 
+/// <summary>
+///     Kidnap some number of heads. Use the NumberObjective to set the exact number
+/// </summary>
 [RegisterComponent, Access(typeof(KidnapHeadsConditionSystem))]
 public sealed partial class KidnapHeadsConditionComponent: Component
 {
-    /// <summary>
-    ///     To count as kidnapped they must be handcuffed.
-    /// </summary>
-    [DataField(required: true)]
-    public uint NumberOfHeadsToKidnap;
 }

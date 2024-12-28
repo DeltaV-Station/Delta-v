@@ -15,14 +15,14 @@ public sealed class PacifismImplantSystem : EntitySystem
 
     private void OnImplantImplantedEvent(Entity<PacifismImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted == null)
+        if (args.Implanted is not {} target)
             return;
 
-        EnsureComp<PacifiedComponent>(args.Implanted.Value, out var pacifiedComponent);
+        EnsureComp<PacifiedComponent>(target, out var pacifiedComponent);
         pacifiedComponent.DisallowAllCombat = ent.Comp.DisallowAllCombat;
         pacifiedComponent.DisallowDisarm = ent.Comp.DisallowDisarm;
 
-        Dirty(args.Implanted.Value, pacifiedComponent);
+        Dirty(target, pacifiedComponent);
     }
 
     // TODO: Update this function to actually remove pacification when removal of the implant is supported.

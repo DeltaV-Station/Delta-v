@@ -16,10 +16,10 @@ public sealed class AddFactionsImplantSystem : EntitySystem
 
     private void OnImplantImplantedEvent(Entity<AddFactionsImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted == null)
+        if (args.Implanted is not {} target)
             return;
 
-        _npc.AddFactions(args.Implanted.Value, ent.Comp.Factions);
+        _npc.AddFactions(target, ent.Comp.Factions);
     }
 
     // TODO: Update this function to actually remove the factions correctly when removal of the implant is supported.

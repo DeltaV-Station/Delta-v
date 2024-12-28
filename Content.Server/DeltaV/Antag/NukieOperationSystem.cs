@@ -12,7 +12,7 @@ public sealed class NukieOperationSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -24,10 +24,10 @@ public sealed class NukieOperationSystem : EntitySystem
 
     private void OnAntagSelected(Entity<NukieOperationComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        // Yes this is bad, but I didn't easily find an event that would work.
+        // Yes this is bad, but I couldn't easily find an event that would work.
         if (ent.Comp.ChosenOperation == null)
         {
-            if (!_prototypeManager.TryIndex(ent.Comp.Operations, out var opProto))
+            if (!_proto.TryIndex(ent.Comp.Operations, out var opProto))
                 return;
 
             ent.Comp.ChosenOperation = _random.Pick(opProto.Weights);
@@ -36,7 +36,7 @@ public sealed class NukieOperationSystem : EntitySystem
         if (!_mind.TryGetMind(args.Session, out var mindId, out var mind))
             return;
 
-        if (!_prototypeManager.TryIndex(ent.Comp.ChosenOperation, out var chosenOp))
+        if (!_proto.TryIndex(ent.Comp.ChosenOperation, out var chosenOp))
             return;
 
         foreach (var objectiveProto in chosenOp.OperationObjectives)
@@ -51,15 +51,15 @@ public sealed class NukieOperationSystem : EntitySystem
         }
     }
 
-    private void OnNukeCodePaperWritingEvent(GetNukeCodePaperWriting ev)
+    private void OnNukeCodePaperWritingEvent(ref GetNukeCodePaperWriting ev)
     {
         // This is suspect AT BEST
         var query = EntityQueryEnumerator<NukieOperationComponent>();
         while (query.MoveNext(out _, out var nukieOperation)) // this should only loop once.
         {
-            if (!_prototypeManager.TryIndex(nukieOperation.ChosenOperation, out var opProto))
+            if (!_proto.TryIndex(nukieOperation.ChosenOperation, out var opProto) || opProto.NukeCodePaperOverride == null)
                 continue;
-            ev.ToWrite = opProto.NukeCodePaperOverride;
+            ev.ToWrite = Loc.GetString(opProto.NukeCodePaperOverride);
         }
     }
 }

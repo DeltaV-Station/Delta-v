@@ -13,8 +13,8 @@ public sealed partial class NukieOperationPrototype : IPrototype
     public string ID { get; } = default!;
 
     [DataField(required: true)]
-    public List<EntProtoId> OperationObjectives = default!;
+    public List<EntProtoId> OperationObjectives = new();
 
     [DataField]
-    public string? NukeCodePaperOverride;
+    public LocId? NukeCodePaperOverride;
 }

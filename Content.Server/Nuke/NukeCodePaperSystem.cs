@@ -38,7 +38,7 @@ namespace Content.Server.Nuke
 
             // DeltaV - Not the best way of doing this
             var evnt = new GetNukeCodePaperWriting();
-            RaiseLocalEvent(evnt);
+            RaiseLocalEvent(ref evnt);
             if (evnt.ToWrite != null)
             {
                 if (TryComp<PaperComponent>(uid, out var deltavpaperComp))

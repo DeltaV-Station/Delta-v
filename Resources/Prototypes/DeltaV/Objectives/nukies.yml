@@ -16,7 +16,7 @@
   operationObjectives:
   - KidnapHeadsObjective
   - NukieStealDiskObjective
-  nukeCodePaperOverride: "Hostage op. Look at your objectives for more information. It is recommended to buy hostage implants from your uplink."
+  nukeCodePaperOverride: nukie-operations-kidnap-heads-nuke-codes-override
 
 - type: entity
   parent: BaseObjective
@@ -31,6 +31,7 @@
       sprite: Objects/Devices/nuke.rsi
       state: nuclearbomb_base
   - type: NukeStationCondition
+  - type: CodeCondition
 
 - type: entity
   parent: BaseObjective
@@ -45,13 +46,13 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: handcuff
   - type: KidnapHeadsCondition
-    numberOfHeadsToKidnap: 3
+  - type: NumberObjective
+    min: 3 # Min and max have to be the same. Otherwise, each operative will have a different number.
+    max: 3
 
 - type: entity
   parent: BaseStealObjective
   id: NukieStealDiskObjective
-  name: Steal the disk. # Gets overriden for now
-  description: Its a good bargaining chip. We need it! # Gets overriden for now
   components:
   - type: Objective
     difficulty: 4.0

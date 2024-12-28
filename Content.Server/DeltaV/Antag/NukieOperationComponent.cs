@@ -26,7 +26,5 @@ public sealed partial class NukieOperationComponent : Component
 /// <summary>
 ///     Event to get update the nuke code paper to not actually have the code anymore.
 /// </summary>
-public sealed class GetNukeCodePaperWriting : EntityEventArgs
-{
-    public string? ToWrite;
-}
+[ByRefEvent]
+public record struct GetNukeCodePaperWriting(string? ToWrite);
