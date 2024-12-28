@@ -103,8 +103,8 @@
   - type: ToggleClothing
     action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
-    walkModifier: 1.5
-    sprintModifier: 1.5
+    walkModifier: 1.8
+    sprintModifier: 1.8
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -115,7 +115,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 15 # DeltaV 10>15, you have to turn off micro reactor at somepoint
+    drawRate: 30 # DeltaV 10>30, you have to turn off micro reactor at somepoint
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:
