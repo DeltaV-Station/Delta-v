@@ -18209,12 +18209,6 @@ entities:
     - type: Transform
       pos: 59.5,15.5
       parent: 1
-  - uid: 10605
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,18.5
-      parent: 1
   - uid: 14617
     components:
     - type: MetaData
@@ -18490,8 +18484,18 @@ entities:
       parent: 1
   - uid: 29643
     components:
+    - type: MetaData
+      name: APC (Arcade)
     - type: Transform
       pos: -3.5,19.5
+      parent: 1
+  - uid: 29758
+    components:
+    - type: MetaData
+      name: APC (Library)
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,18.5
       parent: 1
 - proto: APCConstructed
   entities:
@@ -23035,6 +23039,11 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-39.5
+      parent: 1
+  - uid: 10605
+    components:
+    - type: Transform
+      pos: 7.5,18.5
       parent: 1
   - uid: 10720
     components:
@@ -39431,15 +39440,10 @@ entities:
     - type: Transform
       pos: 29.5,15.5
       parent: 1
-  - uid: 29660
+  - uid: 29656
     components:
     - type: Transform
-      pos: 5.5,18.5
-      parent: 1
-  - uid: 29661
-    components:
-    - type: Transform
-      pos: 5.5,19.5
+      pos: 7.5,19.5
       parent: 1
   - uid: 29662
     components:
@@ -45795,6 +45799,11 @@ entities:
     components:
     - type: Transform
       pos: 24.5,25.5
+      parent: 1
+  - uid: 3216
+    components:
+    - type: Transform
+      pos: 7.5,19.5
       parent: 1
   - uid: 3226
     components:
@@ -52386,25 +52395,10 @@ entities:
     - type: Transform
       pos: 7.5,20.5
       parent: 1
-  - uid: 29656
-    components:
-    - type: Transform
-      pos: 6.5,20.5
-      parent: 1
   - uid: 29657
     components:
     - type: Transform
-      pos: 5.5,20.5
-      parent: 1
-  - uid: 29658
-    components:
-    - type: Transform
-      pos: 5.5,19.5
-      parent: 1
-  - uid: 29659
-    components:
-    - type: Transform
-      pos: 5.5,18.5
+      pos: 7.5,18.5
       parent: 1
   - uid: 29671
     components:
@@ -78472,6 +78466,34 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 58.5,-8.5
+      parent: 1
+  - uid: 29659
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,14.5
+      parent: 1
+  - uid: 29660
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,19.5
+      parent: 1
+  - uid: 29661
+    components:
+    - type: Transform
+      pos: -1.5,18.5
+      parent: 1
+  - uid: 29751
+    components:
+    - type: Transform
+      pos: -13.5,17.5
+      parent: 1
+  - uid: 29752
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,23.5
       parent: 1
 - proto: EmergencyNitrogenTankFilled
   entities:
@@ -137485,12 +137507,6 @@ entities:
     - type: Transform
       pos: 15.5,6.5
       parent: 1
-  - uid: 3216
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 17.5,-9.5
-      parent: 1
   - uid: 5258
     components:
     - type: Transform
@@ -137527,6 +137543,34 @@ entities:
     components:
     - type: Transform
       pos: 121.5,-6.5
+      parent: 1
+  - uid: 29658
+    components:
+    - type: Transform
+      pos: 17.5,-9.5
+      parent: 1
+  - uid: 29754
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,16.5
+      parent: 1
+  - uid: 29755
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,15.5
+      parent: 1
+  - uid: 29756
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,13.5
+      parent: 1
+  - uid: 29757
+    components:
+    - type: Transform
+      pos: 5.5,18.5
       parent: 1
 - proto: MonkeyCubeWrapped
   entities:
@@ -140290,6 +140334,11 @@ entities:
     components:
     - type: Transform
       pos: 99.5,-10.5
+      parent: 1
+  - uid: 29753
+    components:
+    - type: Transform
+      pos: -27.5,-41.5
       parent: 1
 - proto: PortableGeneratorPacman
   entities:
@@ -190782,7 +190831,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -165839.25
+      secondsUntilStateChange: -166318.45
       state: Opening
   - uid: 5096
     components:
@@ -190804,7 +190853,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -165839.25
+      secondsUntilStateChange: -166318.45
       state: Opening
   - uid: 5498
     components:
@@ -190820,7 +190869,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -165562.88
+      secondsUntilStateChange: -166042.08
       state: Opening
   - uid: 8696
     components:
@@ -190853,7 +190902,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -165560.98
+      secondsUntilStateChange: -166040.19
       state: Opening
   - uid: 18835
     components:
@@ -190865,7 +190914,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -165557.98
+      secondsUntilStateChange: -166037.19
       state: Opening
   - uid: 23917
     components:
