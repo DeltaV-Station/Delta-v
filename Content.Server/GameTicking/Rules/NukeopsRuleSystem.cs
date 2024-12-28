@@ -24,6 +24,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server.DeltaV.Objectives.Components;
+using Content.Server.DeltaV.Objectives.Systems;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Store.Components;
 
 namespace Content.Server.GameTicking.Rules;
@@ -37,6 +40,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly KidnapHeadsConditionSystem _kidnapSystem = default!; // DeltaV
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -49,6 +53,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
+        SubscribeLocalEvent<NukeOpsShuttleComponent, FTLCompletedEvent>(OnFTLCompleted); // DeltaV - Kidnap heads objective
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         SubscribeLocalEvent<NukeDisarmSuccessEvent>(OnNukeDisarm);
 
@@ -153,6 +158,31 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             }
 
             _roundEndSystem.EndRound();
+        }
+    }
+
+    // DeltaV - Kidnap heads nukie objective
+    private void OnFTLCompleted(Entity<NukeOpsShuttleComponent> ent, ref FTLCompletedEvent args)
+    {
+        // Be careful especially with the GetOutpost function. This entire thing is built on a wobbly house of cards.
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var uid, out _, out var nukeops, out _))
+        {
+            var outpost = GetOutpost(uid);
+            if (outpost != null && int.Parse(args.MapUid.ToString())-1 == int.Parse(outpost.Value.ToString()))
+            {
+                // Now check of the kidnap heads objective is complete... (Yes this is suspect)
+                var objectives = EntityQueryEnumerator<KidnapHeadsConditionComponent>();
+                if (!objectives.MoveNext(out var objUid, out var kidnapHeads)) // No kidnap head objectives
+                    return;
+
+                if (!_kidnapSystem.IsCompleted((objUid, kidnapHeads)))
+                    return;
+
+                nukeops.WinConditions.Add(WinCondition.NukiesKidnappedHeads);
+                SetWinType((uid, nukeops), WinType.OpsMajor);
+                _roundEndSystem.EndRound();
+            }
         }
     }
 

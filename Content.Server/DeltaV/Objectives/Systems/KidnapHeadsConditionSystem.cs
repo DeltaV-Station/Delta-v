@@ -21,9 +21,33 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
 
     private void OnGetProgress(Entity<KidnapHeadsConditionComponent> condition, ref ObjectiveGetProgressEvent args)
     {
+        args.Progress = GetProgress(condition);
+    }
+
+    public float GetProgress(Entity<KidnapHeadsConditionComponent> condition)
+    {
+        GetTotalAndCuffedHeads(out var totalHeads, out var cuffedHeads);
+
+        if (totalHeads == 0)
+            return 1.0f;
+
+        return (float) cuffedHeads / Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
+    }
+
+    public bool IsCompleted(Entity<KidnapHeadsConditionComponent> condition)
+    {
+        GetTotalAndCuffedHeads(out var totalHeads, out var cuffedHeads);
+        if (totalHeads == 0)
+            return true;
+
+        return cuffedHeads == Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
+    }
+
+    private void GetTotalAndCuffedHeads(out int totalHeads, out int cuffedHeads)
+    {
         var allHumans = _mind.GetAliveHumans();
-        var totalHeads = 0;
-        var cuffedHeads = 0;
+        totalHeads = 0;
+        cuffedHeads = 0;
         foreach (var human in allHumans)
         {
             if (!HasComp<CommandStaffComponent>(human.Comp.OwnedEntity))
@@ -34,11 +58,6 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
                 continue;
             cuffedHeads++;
         }
-
-        if (totalHeads == 0)
-            args.Progress = 1.0f;
-        else
-            args.Progress = cuffedHeads / Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
     }
 }
 

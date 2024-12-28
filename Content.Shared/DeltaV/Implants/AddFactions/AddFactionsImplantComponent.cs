@@ -9,9 +9,15 @@ namespace Content.Shared.DeltaV.Implants.AddFactions;
 [RegisterComponent]
 public sealed partial class AddFactionsImplantComponent : Component
 {
+    /// <summary>
+    ///     These factions will be added when implanted.
+    /// </summary>
     [DataField(required: true)]
     public HashSet<ProtoId<NpcFactionPrototype>> Factions;
 
+    /// <summary>
+    ///     These are the factions that were actually added. Used know what factions to remove when the implant is removed.
+    /// </summary>
     [DataField]
     public HashSet<ProtoId<NpcFactionPrototype>> AddedFactions = new();
 }

@@ -4,7 +4,7 @@
   id: NukieOperations
   weights:
     NukieOperationDestroyStation: 1
-    NukieOperationKidnapHeads: 1
+    NukieOperationKidnapHeads: 100
 
 - type: nukieOperation
   id: NukieOperationDestroyStation
@@ -36,8 +36,6 @@
 - type: entity
   parent: BaseObjective
   id: KidnapHeadsObjective
-  name: Kidnap the stations heads.
-  description: We need them for questioning and they need to be alive. We don't care what happens to the rest of the crew.
   components:
   - type: Objective
     difficulty: 4.0
@@ -49,6 +47,8 @@
   - type: NumberObjective
     min: 3 # Min and max have to be the same. Otherwise, each operative will have a different number.
     max: 3
+    title: nukie-operations-kidnap-heads-objective-title
+    description: nukie-operations-kidnap-heads-objective-descript
 
 - type: entity
   parent: BaseStealObjective
