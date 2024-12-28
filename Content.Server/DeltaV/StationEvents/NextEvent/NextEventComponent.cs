@@ -1,8 +1,10 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.DeltaV.StationEvents.NextEvent;
 
 [RegisterComponent, Access(typeof(NextEventSystem))]
+[AutoGenerateComponentPause]
 public sealed partial class NextEventComponent : Component
 {
     /// <summary>
@@ -14,6 +16,6 @@ public sealed partial class NextEventComponent : Component
     /// <summary>
     /// Round time of the scheduler's next station event.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextEventTime;
 }
