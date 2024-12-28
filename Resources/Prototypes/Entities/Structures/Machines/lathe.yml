@@ -1269,18 +1269,20 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
-      - ClothingUniformInterdyneChemist #Delta-V Interdyne Chemist Jumpsuit
-      - UniformScrubsColorCybersun #Delta-V Cybersun Surgeon Jumpsuit
-      - ClothingUniformCybersunAttorney #Delta-V Cybersun Lawyer Jumpsuit
-      - ClothingHeadHatSurgcapCybersun #Delta-V Cybersun Surgeon Cap
-      - ClothingOuterInterdyneChemistrySuit #Delta-V Interdyne Outerwear
-      - ClothingOuterCoatCybersunWindbreaker #Delta-V Cybersun Surgeon Outerwear
-      - ClothingMaskInterdyneChemistry #Delta-V Interdyne Gasmask
-      - ClothingHeadHatSurgcapCybersun #Delta-V Cybersun Surgeon Cap
-      #- ClothingUniformCybersunHazard #Delta-V Cybersun Engineering Jumpsuit
-      #- ClothingUniformCybersunCasual #Delta-V Cybersun Casual Jumpsuit
-      #- ClothingUniformCybersunRND #Delta-V Cybersun Researcher Jumpsuit
-      #- ClothingOuterCybersunOvercoat #Delta-V Cybersun Lawyer Overcoat
+      #Start DeltaV
+      - ClothingUniformInterdyneChemist
+      - UniformScrubsColorCybersun
+      - ClothingUniformCybersunAttorney
+      - ClothingHeadHatSurgcapCybersun
+      - ClothingOuterInterdyneChemistrySuit
+      - ClothingOuterCoatCybersunWindbreaker
+      - ClothingMaskInterdyneChemistry
+      - ClothingHeadHatSurgcapCybersun
+      #- ClothingUniformCybersunHazard
+      #- ClothingUniformCybersunCasual
+      #- ClothingUniformCybersunRND
+      #- ClothingOuterCybersunOvercoat
+      #End DeltaV
   - type: MaterialStorage
     whitelist:
       tags:
