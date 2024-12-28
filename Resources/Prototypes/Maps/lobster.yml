@@ -24,7 +24,7 @@
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
           #engineering
-            AtmosphericTechnician: [ 2, 3 ]
+            AtmosphericTechnician: [ 2, 2 ]
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 6, 8 ]
             TechnicalAssistant: [ 3, 5 ]
@@ -46,8 +46,8 @@
             Detective: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 4 ]
-            SecurityOfficer: [ 4, 5 ]
-            SecurityCadet: [ 4, 5 ]
+            SecurityOfficer: [ 4, 7 ]
+            SecurityCadet: [ 4, 7 ]
             Warden: [ 1, 1 ]
             SecurityBorg: [ 2, 2 ]
           #service
@@ -68,10 +68,11 @@
             ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 3, 4 ]
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 5 ]
+            Scientist: [ 3, 6 ]
             Roboticist: [ 2, 2 ]
           #supply
-            CargoTechnician: [ 3, 6 ]
+            CargoTechnician: [ 4, 5 ]
             Courier: [ 2, 2 ]
             SalvageSpecialist: [ 3, 3 ]
             Quartermaster: [ 1, 1 ]
+            CargoAssistant: [ 4, 5 ]
