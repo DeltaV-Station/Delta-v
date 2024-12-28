@@ -11,4 +11,7 @@ public sealed partial class AddFactionsImplantComponent : Component
 {
     [DataField(required: true)]
     public HashSet<ProtoId<NpcFactionPrototype>> Factions;
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> AddedFactions = new();
 }

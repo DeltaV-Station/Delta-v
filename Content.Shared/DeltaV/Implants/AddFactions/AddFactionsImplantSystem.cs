@@ -19,12 +19,19 @@ public sealed class AddFactionsImplantSystem : EntitySystem
         if (args.Implanted is not {} target)
             return;
 
-        _npc.AddFactions(target, ent.Comp.Factions);
+        foreach (var faction in ent.Comp.Factions)
+        {
+            if (_npc.IsMember(target, faction)) // If it's already in that faction, skip this.
+                continue;
+
+            _npc.AddFaction(target, faction);
+            ent.Comp.AddedFactions.Add(faction);
+        }
     }
 
-    // TODO: Update this function to actually remove the factions correctly when removal of the implant is supported.
     private void OnRemove(Entity<AddFactionsImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-
+        foreach (var faction in ent.Comp.AddedFactions)
+            _npc.RemoveFaction(args.Container.Owner, faction);
     }
 }

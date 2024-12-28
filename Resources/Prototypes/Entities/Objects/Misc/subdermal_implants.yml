@@ -335,7 +335,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    permanent: true # TODO: change this so its not permanent and can deal with someone already being peaceful.
   - type: PacifismImplant
     disallowDisarm: true
     disallowAllCombat: true

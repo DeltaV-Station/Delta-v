@@ -11,4 +11,10 @@ public sealed partial class PacifismImplantComponent : Component
 
     [DataField(required: true)]
     public bool DisallowAllCombat;
+
+    [DataField]
+    public bool? StoredDisallowDisarm;
+
+    [DataField]
+    public bool? StoredDisallowAllCombat;
 }
