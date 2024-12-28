@@ -190,6 +190,8 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
 
+# Justice
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChiefJustice
@@ -200,6 +202,17 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cj.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cj.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCJFormalDress
+  name: chief justice's formal dress
+  description: A dress for special occasions.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
     
 - type: entity
   parent: ClothingUniformSkirtBase

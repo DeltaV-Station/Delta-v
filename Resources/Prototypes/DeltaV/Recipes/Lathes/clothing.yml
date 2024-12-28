@@ -117,6 +117,14 @@
     Durathread: 100
 
 - type: latheRecipe
+  id: ClothingUniformJumpskirtCJFormalDress
+  result: ClothingUniformJumpskirtCJFormalDress
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
   id: ClothingUniformJumpsuitChiefJusticeWhite
   result: ClothingUniformJumpsuitChiefJusticeWhite
   completetime: 5
@@ -143,6 +151,9 @@
 # QM
 
 - type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtQMFormalDress
   result: ClothingUniformJumpskirtQMFormalDress
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
