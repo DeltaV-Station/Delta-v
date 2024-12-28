@@ -119,6 +119,19 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkExGrenadeFoam
+  name: uplink-explosive-foam-grenade-name
+  description: uplink-explosive-foam-grenade-desc
+  productEntity: ExGrenadeFoam
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4 # 1 TC more expensive than regular due to disguise.
+  categories:
+  - UplinkExplosives
+
+- type: listing
   id: UplinkHostageImplanter
   name: uplink-syndicate-hostage-implanter-bundle-name
   description: uplink-syndicate-hostage-implanter-bundle-desc
