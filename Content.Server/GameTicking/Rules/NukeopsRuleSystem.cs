@@ -487,7 +487,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
     {
         // TODO Different character screen briefing for the 3 nukie types
-        args.Append(Loc.GetString("nukeops-briefing"));
+        // args.Append(Loc.GetString("nukeops-briefing")); Delta-V - Nukie operations take care of this.
     }
 
     /// <remarks>

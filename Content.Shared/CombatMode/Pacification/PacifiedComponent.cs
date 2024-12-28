@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.DeltaV.Implants.Pacifism;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -14,7 +15,7 @@ namespace Content.Shared.CombatMode.Pacification;
 /// If you want full-pacifism (no combat mode at all), you can simply set <see cref="DisallowAllCombat"/> before adding.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
-[Access(typeof(PacificationSystem))]
+[Access(typeof(PacificationSystem), typeof(PacifismImplantSystem))] // DeltaV add friend PacifismImplantSystem
 public sealed partial class PacifiedComponent : Component
 {
     [DataField]

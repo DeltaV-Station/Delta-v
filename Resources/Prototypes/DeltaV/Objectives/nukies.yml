@@ -1,0 +1,65 @@
+﻿# Nukies operations
+
+- type: weightedRandom
+  id: NukieOperations
+  weights:
+    NukieOperationDestroyStation: 1
+    NukieOperationKidnapHeads: 1
+
+- type: nukieOperation
+  id: NukieOperationDestroyStation
+  operationObjectives:
+  - NukeStationObjective
+
+- type: nukieOperation
+  id: NukieOperationKidnapHeads
+  operationObjectives:
+  - KidnapHeadsObjective
+  - NukieStealDiskObjective
+  nukeCodePaperOverride: "Hostage op. Look at your objectives for more information. It is recommended to buy hostage implants from your uplink."
+
+- type: entity
+  parent: BaseObjective
+  id: NukeStationObjective
+  name: Nuke the station.
+  description: Its your job. Get going!
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Devices/nuke.rsi
+      state: nuclearbomb_base
+  - type: NukeStationCondition
+
+- type: entity
+  parent: BaseObjective
+  id: KidnapHeadsObjective
+  name: Kidnap the stations heads.
+  description: We need them for questioning and they need to be alive. We don't care what happens to the rest of the crew.
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+  - type: KidnapHeadsCondition
+    numberOfHeadsToKidnap: 3
+
+- type: entity
+  parent: BaseStealObjective
+  id: NukieStealDiskObjective
+  name: Steal the disk. # Gets overriden for now
+  description: Its a good bargaining chip. We need it! # Gets overriden for now
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-syndicate
+    icon:
+      sprite: Objects/Misc/nukedisk.rsi
+      state: icon
+  - type: StealCondition
+    stealGroup: NukeDisk
+    owner: objective-condition-steal-station
+    verifyMapExistence: false

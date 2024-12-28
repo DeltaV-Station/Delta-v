@@ -15,6 +15,9 @@ uplink-syndicate-radio-implanter-desc = A cranial implant that lets you talk on 
 uplink-syndicate-radio-implanter-bundle-name = Syndicate Radio Implanter Bundle
 uplink-syndicate-radio-implanter-bundle-desc = Two implanters for the price of one and a half! Share one with your Syndicate friend.
 
+uplink-syndicate-hostage-implanter-bundle-name = Hostage implant bundle
+uplink-syndicate-hostage-implanter-bundle-desc = These implants pacify when injected and also allow the hostages to enter your shuttle without being shot by turrets!
+
 uplink-doorjack-name = Airlock Access Override
 uplink-doorjack-desc = A specialized cryptographic sequencer, designed solely to doorjack NanoTrasen's updated airlocks. Does not tamper with anything else.
 
