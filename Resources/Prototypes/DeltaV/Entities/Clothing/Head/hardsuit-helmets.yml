@@ -194,6 +194,15 @@
     sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: [ MetapsionicPower, DispelPower ]
+  - type: GuideHelp
+    guides:
+    - Psionics
 
 #ERT Engineer Hardsuit
 - type: entity
