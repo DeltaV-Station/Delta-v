@@ -224,9 +224,6 @@
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: base-unshaded
-        map: ["enum.GunVisualLayers.BaseUnshaded"]
-        shader: unshaded
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
       - state: mag-unshaded-0
@@ -280,8 +277,6 @@
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: base-unshaded
-        map: ["enum.GunVisualLayers.BaseUnshaded"]
         shader: unshaded
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
