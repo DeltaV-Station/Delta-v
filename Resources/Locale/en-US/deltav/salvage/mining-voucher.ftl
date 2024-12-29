@@ -33,4 +33,4 @@ mining-voucher-minebot-description =
 mining-voucher-conscription-name = Mining Conscription Kit
 mining-voucher-conscription-description =
     Contains a whole new mining starter kit for one crewmember, including
-    a proto-kinetic accelerator, mineral scanner, ID card and other useful gear.
+    a proto-kinetic accelerator, mineral scanner and other useful gear.
