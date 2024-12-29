@@ -23,7 +23,7 @@ public sealed class NukeStationConditionSystem : EntitySystem
         var nukeOpsQuery = EntityQueryEnumerator<NukeopsRuleComponent>();
         while (nukeOpsQuery.MoveNext(out _, out var nukeopsRule)) // this should only loop once.
         {
-            if (!TryComp(nukeopsRule.TargetStation, out StationDataComponent? data))
+            if (!TryComp<StationDataComponent>(nukeopsRule.TargetStation, out var data))
                 return;
 
             foreach (var grid in data.Grids)
@@ -33,9 +33,9 @@ public sealed class NukeStationConditionSystem : EntitySystem
 
                 // Set all the objectives to true.
                 var nukeStationQuery = EntityQueryEnumerator<NukeStationConditionComponent>();
-                while (nukeStationQuery.MoveNext(out var entityUid, out _))
+                while (nukeStationQuery.MoveNext(out var uid, out _))
                 {
-                    _codeCondition.SetCompleted(entityUid);
+                    _codeCondition.SetCompleted(uid);
                 }
             }
         }

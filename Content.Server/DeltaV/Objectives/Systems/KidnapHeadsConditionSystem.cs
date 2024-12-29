@@ -1,6 +1,7 @@
 ﻿using Content.Server.DeltaV.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Revolutionary.Components;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -10,7 +11,8 @@ namespace Content.Server.DeltaV.Objectives.Systems;
 public sealed class KidnapHeadsConditionSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly NumberObjectiveSystem _numberObjectiveSystem = default!;
+    [Dependency] private readonly NumberObjectiveSystem _number = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
 
     public override void Initialize()
     {
@@ -31,7 +33,7 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
         if (totalHeads == 0)
             return 1.0f;
 
-        return (float) cuffedHeads / Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
+        return (float) cuffedHeads / Math.Min(totalHeads, _number.GetTarget(condition));
     }
 
     public bool IsCompleted(Entity<KidnapHeadsConditionComponent> condition)
@@ -40,21 +42,24 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
         if (totalHeads == 0)
             return false;
 
-        return cuffedHeads == Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
+        return cuffedHeads == Math.Min(totalHeads, _number.GetTarget(condition));
     }
 
     private void GetTotalAndCuffedHeads(out int totalHeads, out int cuffedHeads)
     {
-        var allHumans = _mind.GetAliveHumans();
+        var allHumanMinds = _mind.GetAliveHumans();
         totalHeads = 0;
         cuffedHeads = 0;
-        foreach (var human in allHumans)
+        foreach (var mind in allHumanMinds)
         {
-            if (!HasComp<CommandStaffComponent>(human.Comp.OwnedEntity))
+            if (mind.Comp.OwnedEntity is not { } mob)
+                continue;
+
+            if (!HasComp<CommandStaffComponent>(mob))
                 continue;
             totalHeads++;
 
-            if (!(TryComp<CuffableComponent>(human.Comp.OwnedEntity, out var cuffableComp) && cuffableComp.CuffedHandCount > 0))
+            if (!TryComp<CuffableComponent>(mob, out var cuffable) || !_cuffable.IsCuffed((mob, cuffable)))
                 continue;
             cuffedHeads++;
         }

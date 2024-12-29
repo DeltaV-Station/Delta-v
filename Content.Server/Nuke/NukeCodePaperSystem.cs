@@ -45,6 +45,7 @@ namespace Content.Server.Nuke
                     _paper.SetContent((uid, deltavpaperComp), evnt.ToWrite);
                 return;
             }
+            // DeltaV - End
             if (TryGetRelativeNukeCode(uid, out var paperContent, station, onlyCurrentStation: component.AllNukesAvailable))
             {
                 if (TryComp<PaperComponent>(uid, out var paperComp))
