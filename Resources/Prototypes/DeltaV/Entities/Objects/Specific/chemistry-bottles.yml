@@ -29,3 +29,99 @@
     - type: Tag
       tags:
         - Bottle
+
+- type: entity
+  id: BruizineChemistryBottle
+  name: bruizine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Bruizine
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
+
+- type: entity
+  id: LacerinolChemistryBottle
+  name: lacerinol bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Lacerinol
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
+
+- type: entity
+  id: PuncturaseChemistryBottle
+  name: puncturase bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Puncturase
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
+
+- type: entity
+  id: DermalineChemistryBottle
+  name: dermaline bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Dermaline
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
+
+- type: entity
+  id: PyrazineChemistryBottle
+  name: pyrazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Pyrazine
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
+
+- type: entity
+  id: DiphenhydramineChemistryBottle
+  name: diphenhydramine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Diphenhydramine
+              Quantity: 30
+    - type: Tag
+      tags:
+        - Bottle
