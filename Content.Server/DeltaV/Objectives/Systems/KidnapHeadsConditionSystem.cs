@@ -38,7 +38,7 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
     {
         GetTotalAndCuffedHeads(out var totalHeads, out var cuffedHeads);
         if (totalHeads == 0)
-            return true;
+            return false;
 
         return cuffedHeads == Math.Min(totalHeads, _numberObjectiveSystem.GetTarget(condition));
     }

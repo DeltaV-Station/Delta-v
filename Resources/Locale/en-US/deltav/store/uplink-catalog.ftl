@@ -32,3 +32,7 @@ uplink-explosive-foam-grenade-desc = An explosive grenade disguised as a regular
 
 uplink-appraisal-tool-gun-name = Appraisal Tool Gun
 uplink-appraisal-tool-gun-desc = A modified Viper to appear as an appraisal tool, at the cost of slightly slower firerate
+
+# Objectives
+uplink-syndicate-handcuff-bundle-name = Handcuff implant bundle
+uplink-syndicate-handcuff-bundle-desc = Includes 10 metal handcuffs. We recommended you share with your friends!
