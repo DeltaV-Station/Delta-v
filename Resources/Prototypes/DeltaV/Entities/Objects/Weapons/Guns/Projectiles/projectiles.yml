@@ -48,7 +48,7 @@
 
 - type: entity
   parent: BulletEnergyGunLaser
-  id: BulletEnergygunMediumImmolator
+  id: BulletEnergyGunMediumImmolator
   name: Medium Immolator Bolt
   components:
     - type: IgniteOnCollide
@@ -56,7 +56,7 @@
 
 - type: entity
   parent: BulletEnergyGunLaser
-  id: BulletEnergygunHeavyImmolator
+  id: BulletEnergyGunHeavyImmolator
   name: Heavy Immolator Bolt
   components:
     - type: IgniteOnCollide
@@ -71,7 +71,7 @@
 
 - type: entity
   parent: BulletEnergyGunLaser
-  id: BulletEnergygunLightImmolator
+  id: BulletEnergyGunLightImmolator
   name: Light Immolator Bolt
   components:
     - type: IgniteOnCollide

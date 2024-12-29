@@ -343,7 +343,7 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletEnergyLaser
+    proto: BulletEnergyGunLaser
     fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
@@ -379,7 +379,7 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletEnergygunMediumImmolator
+    proto: BulletEnergyGunMediumImmolator
     fireCost: 100
   - type: Battery
     maxCharge: 800
@@ -407,11 +407,11 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletEnergygunHeavyImmolator
+    proto: BulletEnergyGunHeavyImmolator
     fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: BulletEnergygunHeavyImmolator
+    - proto: BulletEnergyGunHeavyImmolator
       fireCost: 100
     - proto: BulletEnergyGunLightImmolatorSpread
       fireCost: 100
