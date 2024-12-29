@@ -1,0 +1,11 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'feedbackpopup-window-name'}"
+                      MinSize="300 250"
+                      SetSize="600 250">
+    <BoxContainer Orientation="Vertical" Margin="10 0 10 0">
+        <RichTextLabel HorizontalAlignment="Center" Name="TitleLabel" Margin="0 0 0 20"></RichTextLabel>
+        <BoxContainer Name="SectionContainer" Orientation="Vertical"></BoxContainer>
+        <BoxContainer Name="FeedbackLocationContainer" Orientation="Vertical" Margin="0 10 0 0"></BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
