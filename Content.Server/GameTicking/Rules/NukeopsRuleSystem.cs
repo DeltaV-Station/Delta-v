@@ -40,7 +40,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly KidnapHeadsConditionSystem _kidnapSystem = default!; // DeltaV
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!; // DeltaV
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -164,12 +164,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     // DeltaV - Kidnap heads nukie objective
     private void OnFTLCompleted(Entity<NukeOpsShuttleComponent> ent, ref FTLCompletedEvent args)
     {
-
-
-        // Be careful especially with the GetOutpost function. This entire thing is built on a wobbly house of cards.
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
+            // Get the nukie outpost map.
             if (!TryComp<RuleGridsComponent>(uid, out var ruleGridsComp) || ruleGridsComp.Map == null)
                 return;
 
