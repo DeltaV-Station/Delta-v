@@ -10,6 +10,9 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
   - type: TemperatureProtection
     coolingCoefficient: 0.2
+  - type: HideLayerClothing
+    slots:
+    - Tail
 
 - type: entity
   parent: ClothingOuterBase
@@ -33,3 +36,6 @@
         Heat: 0.9
         Caustic: 0.5
         Radiation: 0.8
+  - type: HideLayerClothing
+    slots:
+    - Tail

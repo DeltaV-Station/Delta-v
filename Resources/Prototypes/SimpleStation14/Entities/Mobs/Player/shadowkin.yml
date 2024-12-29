@@ -6,6 +6,9 @@
   components:
   - type: HumanoidAppearance
     species: Shadowkin
+    hideLayersOnEquip:
+    - Snout
+    - Tail
   - type: Hunger
   - type: Thirst
   - type: Icon
