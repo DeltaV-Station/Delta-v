@@ -49,8 +49,6 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
-
   radioChannels:
   - Engineering
   - Science
@@ -121,8 +119,6 @@
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
-  lawset: Janitor # DeltaV: Custom lawset
-
   radioChannels:
   - Science
   - Service
@@ -160,8 +156,6 @@
   radioChannels:
   - Science
   - Medical
-
-  lawset: Medical # DeltaV: Custom lawset
 
   addComponents:
   - type: SolutionScanner
