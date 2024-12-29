@@ -1,0 +1,609 @@
+# Leader
+- type: job
+  id: ERTLeader
+  name: job-name-ertleader
+  description: job-description-ertleader
+  playTimeTracker: JobERTLeader
+  setPreference: false
+  startingGear: ERTLeaderGearEVA
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ERTLeaderGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeaderDeltaV
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTLeader
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: WeaponEnergyGun
+    pocket1: CrowbarRed
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - BoxZiptie
+    - BoxSurvivalSecurity
+    - PinpointerNuclear
+    - BoxMindshield
+    - StunBaton
+
+- type: startingGear
+  id: ERTLeaderGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeader
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTLeaderBase
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponEnergyGunPistol
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - BoxZiptie
+    - CrowbarRed
+    - DoorRemoteOmni
+    - BoxSurvivalSecurity
+    - PinpointerNuclear
+    - BoxMindshield
+    - StunBaton
+
+- type: startingGear
+  id: ERTLeaderGearGamma
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeader
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTLeaderElite
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponEnergyGunPistol
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponPistolUniversal
+  storage:
+    back:
+    - StunBaton
+    - BaseMagazineUniversalMagnum
+    - BaseMagazineUniversalMagnum
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - BoxMindshield
+    - DoorRemoteOmni
+    - BoxSurvivalSecurity
+
+# Chaplain
+- type: job
+  id: ERTChaplain
+  name: job-name-ertchaplain
+  description: job-description-ertchaplain
+  playTimeTracker: JobERTChaplain
+  setPreference: false
+  startingGear: ERTChaplainGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser #Lets them heal with bibles
+    - type: Psionic
+    - type: MetapsionicPower
+
+- type: startingGear
+  id: ERTChaplainGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplainDeltaV
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatFez
+    eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckStoleChaplain
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: FlashlightSeclite
+    pocket2: DrinkWaterBottleFull
+  storage:
+    back:
+    - BoxCandle
+    - BoxBodyBag
+    - DrinkWaterMelonJuiceJug
+    - Lantern
+    - Lantern
+    - Bible
+    - CrowbarRed
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - Lighter
+    - WeaponDisabler
+    - BoxZiptie
+    - BoxSurvivalSecurity
+
+- type: startingGear
+  id: ERTChaplainGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplainDeltaV
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckStoleChaplain
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTChaplainBase
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: FlashlightSeclite
+    pocket2: DrinkWaterBottleFull
+  inhand:
+  - WeaponEnergyGun
+  storage:
+    back:
+    - BoxCandle
+    - BoxBodyBag
+    - DrinkWaterMelonJuiceJug
+    - Lantern
+    - Lantern
+    - Bible
+    - CrowbarRed
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - Lighter
+    - BoxZiptie
+    - BoxSurvivalSecurity
+
+- type: startingGear
+  id: ERTChaplainGearGamma
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplainDeltaV
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    neck: ClothingNeckStoleChaplain
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTChaplainBase
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: FlashlightSeclite
+    pocket2: DrinkWaterBottleFull
+  inhand:
+  - WeaponEnergyGunAdvanced
+  storage:
+    back:
+    - BoxCandle
+    - BoxBodyBag
+    - DrinkWaterMelonJuiceJug
+    - Lantern
+    - Lantern
+    - Bible
+    - CrowbarRed
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - Lighter
+    - BoxZiptie
+    - BoxSurvivalSecurity
+
+# Engineer
+- type: job
+  id: ERTEngineer
+  name: job-name-ertengineer
+  description: job-description-ertengineer
+  playTimeTracker: JobERTEngineer
+  setPreference: false
+  startingGear: ERTEngineerGearEVA
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ERTEngineerGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingBackpackERTEngineerDeltaV
+    shoes: ClothingShoesBootsMag
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTEngineerBase
+    id: ERTEngineerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: WeaponEnergyGunMini
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
+    - BoxSurvivalSecurity
+    - StunBaton
+
+- type: startingGear
+  id: ERTEngineerGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingBackpackERTEngineerDeltaV
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTEngineerBase
+    id: ERTEngineerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: Flare
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponEnergyGun
+  storage:
+    back:
+    - RCD
+    - RCDAmmo
+    - RCDAmmo
+    - RCDAmmo
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
+    - BoxSurvivalSecurity
+    - StunBaton
+
+- type: startingGear
+  id: ERTEngineerGearGamma
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingBackpackERTEngineerDeltaV
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTEngineerElite
+    id: ERTEngineerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: Flare
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponEnergyGunPistol
+  storage:
+    back:
+    - RCDCombat
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
+    - BoxSurvivalSecurity
+    - StunBaton
+
+# Security
+- type: job
+  id: ERTSecurity
+  name: job-name-ertsecurity
+  description: job-description-ertsecurity
+  playTimeTracker: JobERTSecurity
+  setPreference: false
+  startingGear: ERTEngineerGearEVA
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ERTSecurityGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurityDeltaV
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponDisabler
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponLaserRifle
+  storage:
+    back:
+    - BoxZiptie
+    - CrowbarRed
+    - BoxFlashbang
+    - BoxSurvivalSecurity
+
+- type: startingGear
+  id: ERTSecurityGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurityDeltaV
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTSecurityBase
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponEnergyGunPistol
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponRifleLaserERT
+  storage:
+    back:
+    - BoxZiptie
+    - CrowbarRed
+    - BoxFlashbang
+    - BoxSurvivalSecurity
+    - BaseMagazineLaser
+    - BaseMagazineLaser
+
+- type: startingGear
+  id: ERTSecurityGearGamma
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurityDeltaV
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTSecurityElite
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: CrowbarRed
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponImmolatorMulti
+  storage:
+    back:
+    - BoxZiptie
+    - BoxFlashbang
+    - BoxSurvivalSecurity
+    - WeaponEnergyGunAdvanced
+    - Bola
+    - FireExtinguisherMini
+    - BoxC4
+
+# Medical
+- type: job
+  id: ERTMedical
+  name: job-name-ertmedic
+  description: job-description-ertmedic
+  playTimeTracker: JobERTMedical
+  setPreference: false
+  startingGear: ERTMedicalGearEVA
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ERTMedicalGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedicalDeltaV
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTMedic
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMedicalFilled
+    pocket1: FlashlightSeclite
+    pocket2: WeaponEnergyGunMini
+  storage:
+    back:
+    - Hypospray
+    - MedkitAdvancedFilled
+    - MedkitToxinFilled
+    - CrowbarRed
+    - EpinephrineChemistryBottle
+    - EpinephrineChemistryBottle
+    - Portafib
+    - BoxSurvivalMedical
+
+- type: startingGear
+  id: ERTMedicalGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedicalDeltaV
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCorpsman
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ClothingOuterHardsuitERTMedicalBase
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMedicalFilled
+    pocket1: FlashlightSeclite
+  storage:
+    back:
+    - Hypospray
+    - MedkitAdvancedFilled
+    - BoxMedicineBasic
+    - BoxMedicineBasic
+    - CrowbarRed
+    - EpinephrineChemistryBottle
+    - EpinephrineChemistryBottle
+    - DefibrillatorCompactAdvanced
+    - BoxSurvivalMedical
+    - RollerBedHoloSpawnFolded
+
+- type: startingGear
+  id: ERTMedicalGearGamma
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedicalDeltaV
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCorpsman
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ClothingOuterHardsuitERTMedicalElite
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMedicalFilled
+    pocket1: FlashlightSeclite
+  storage:
+    back:
+    - Hypospray
+    - MedkitAdvancedFilled
+    - BoxMedicineBasic
+    - BoxMedicineBasic
+    - BoxMedicineAdvanced
+    - CrowbarRed
+    - EpinephrineChemistryBottle
+    - EpinephrineChemistryBottle
+    - DefibrillatorCompactAdvanced
+    - BoxSurvivalMedical
+    - RollerBedHoloSpawnFolded
+    - FireExtinguisherMini
+
+# Janitor
+- type: job
+  id: ERTJanitor
+  name: job-name-ertjanitor
+  description: job-description-ertjanitor
+  playTimeTracker: JobERTJanitor
+  setPreference: false
+  startingGear: ERTJanitorGearEVA
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: ERTJanitorGearAmber
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    back: ClothingBackpackERTJanitorDeltaV
+    shoes: ClothingShoesGaloshes
+    head: ClothingHeadHelmetERTJanitor
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTJanitorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltJanitorFilled
+    pocket1: WeaponDisabler
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - LightReplacer
+    - BoxLightMixed
+    - BoxLightMixed
+    - Soap
+    - CrowbarRed
+    - AdvMopItem
+    - StunBaton
+    - TrashBag
+    - BoxCleanerGrenades
+
+- type: startingGear
+  id: ERTJanitorGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    back: ClothingBackpackERTJanitorDeltaV
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTJanitorBase
+    id: ERTJanitorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltJanitorFilled
+    pocket1: WeaponEnergyGunMini
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - LightReplacer
+    - BoxLightMixed
+    - BoxLightMixed
+    - Soap
+    - CrowbarRed
+    - AdvMopItem
+    - StunBaton
+    - TrashBag
+    - BoxCleanerGrenades
+    - HydroponicsToolScythe
+
+- type: startingGear
+  id: ERTJanitorGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    back: ClothingBackpackERTJanitorDeltaV
+    shoes: ClothingShoesBootsMag
+    mask: ClothingMaskGasERT
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTJanitorElite
+    id: ERTJanitorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltJanitorFilled
+    pocket1: CrowbarRed
+    pocket2: FlashlightSeclite
+  inhand:
+  - WeaponEnergyGun
+  storage:
+    back:
+    - LightReplacer
+    - BoxLightMixed
+    - BoxLightMixed
+    - Soap
+    - AdvMopItem
+    - StunBaton
+    - BagOfSummoningGarbage
+    - BoxCleanerGrenades
+    - HydroponicsToolScythe

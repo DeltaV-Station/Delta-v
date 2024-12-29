@@ -1,0 +1,78 @@
+#ERT
+- type: entity
+  parent: [ ClothingBackpack, BaseCentcommContraband ]
+  id: ClothingBackpackERTLeaderDeltaV
+  name: ERT leader backpack
+  description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTSecurityDeltaV
+  name: ERT security backpack
+  description: A spacious backpack with lots of pockets, worn by Security Officers of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTMedicalDeltaV
+  name: ERT medical backpack
+  description: A spacious backpack with lots of pockets, worn by Medical Officers of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertmed.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTEngineerDeltaV
+  name: ERT engineer backpack
+  description: A spacious backpack with lots of pockets, worn by Engineers of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/erteng.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTJanitorDeltaV
+  name: ERT janitor backpack
+  description: A spacious backpack with lots of pockets, worn by Janitors of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTClownDeltaV
+  name: ERT clown backpack
+  description: A spacious backpack with lots of pockets, worn by Clowns of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertclown.rsi
+
+- type: entity
+  parent: ClothingBackpackERTLeaderDeltaV
+  id: ClothingBackpackERTChaplainDeltaV
+  name: ERT chaplain backpack
+  description: A spacious backpack with lots of pockets, worn by Chaplains of an Emergency Response Team.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertchaplain.rsi
+
+- type: entity
+  parent: ClothingBackpackERTSecurityDeltaV
+  id: ClothingBackpackDeathSquadDeltaV
+  name: death squad backpack
+  description: Holds the kit of CentComm's most feared agents.
+  components:
+    - type: Storage
+      grid:
+      - 0,0,7,6
