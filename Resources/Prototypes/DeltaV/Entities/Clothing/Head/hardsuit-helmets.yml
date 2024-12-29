@@ -180,6 +180,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -203,6 +205,8 @@
   - type: GuideHelp
     guides:
     - Psionics
+  - type: FireProtection
+    reduction: 0.2
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -224,6 +228,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
 
 #ERT Medical Hardsuit
 - type: entity
@@ -238,6 +244,8 @@
     sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: FireProtection
+    reduction: 0.2
 
 #ERT Security Hardsuit
 - type: entity
@@ -259,6 +267,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection
+    reduction: 0.2
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -273,3 +283,5 @@
     sprite: DeltaV/Clothing/Head/Hardsuits/ERThelmets/eliteertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: FireProtection
+    reduction: 0.2
