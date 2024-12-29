@@ -41,6 +41,18 @@
   - AdvancedTruncheon
 
 - type: technology
+  id: IncendiaryLaserWeapons
+  name: research-technology-incendiary-laser-weapons
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/immolator.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponImmolator
+
+- type: technology
   id: IonizedCryogenicEmissionEquiplment
   name: research-technology-ionized-cryogenic-emission-equipment
   icon:

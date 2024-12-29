@@ -7,3 +7,4 @@ research-technology-advance-laser = Advanced Laser Manipulation
 research-technology-robust-melee = Robust Melee
 research-technology-syringe-gun = Syringe Gun
 research-technology-ionized-cryogenic-emission-equipment = Ionized Cryogenic Emission Equipment
+research-technology-incendiary-laser-weapons = Incendiary Laser Weapons
