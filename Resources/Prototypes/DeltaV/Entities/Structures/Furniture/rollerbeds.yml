@@ -58,3 +58,14 @@
             False: {visible: true}
     - type: StaticPrice
       price: 200
+
+
+- type: entity
+  parent: RollerBedHolo
+  id: RollerBedHoloSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
