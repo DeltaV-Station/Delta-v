@@ -148,7 +148,7 @@
     Cloth: 500
     Durathread: 300
 
-# QM
+# Formal Outfits
 
 - type: latheRecipe
   id: ClothingUniformJumpskirtQMFormalDress
@@ -156,4 +156,20 @@
   completetime: 4
   materials:
     Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitHoPFormal
+  result: ClothingUniformJumpsuitHoPFormal
+  completetime: 4
+  materials:
+    Cloth: 400
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtHoPFormalDress
+  result: ClothingUniformJumpskirtHoPFormalDress
+  completetime: 4
+  materials:
+    Cloth: 400
     Durathread: 100

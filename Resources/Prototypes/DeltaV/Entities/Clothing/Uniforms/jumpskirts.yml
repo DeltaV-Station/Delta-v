@@ -37,12 +37,23 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQMFormalDress
   name: logistics officer's formal dress
-  description: A dress for special occasions.
+  description: Inspired by the logistics officers of military's past, the perfect outfit for supplying a formal occasion.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoPFormalDress
+  name: head of personnel's formal dress
+  description: A well-made dress with gold buttons and a red trim. Might as well look sharp when you blow up.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
 
 # Security alt uniforms
 
@@ -207,7 +218,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCJFormalDress
   name: chief justice's formal dress
-  description: A dress for special occasions.
+  description: A fancy double-breasted dress with golden accoutrements. Sharp and authoritative.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
