@@ -12,21 +12,17 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: ClothingHeadsetHoP
   id: ClothingHeadsetAltService
   name: head of personnel's over-ear headset
   components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyCommon
   - type: Sprite
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
+    state: icon_alt
   - type: Clothing
     sprite: DeltaV/Clothing/Ears/Headsets/service.rsi
-    
+    equippedPrefix: alt
+
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListening
@@ -62,10 +58,9 @@
     sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetJustice
   id: ClothingHeadsetAltJustice
-  name: chief justice's headset
-  description: The headset used by the chief justice.
+  name: chief justice's over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -75,11 +70,10 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
   - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
     state: icon_alt
   - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
-    
+    equippedPrefix: alt
+
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetPrison
@@ -97,19 +91,7 @@
     sprite: DeltaV/Clothing/Ears/Headsets/prisoner.rsi
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetSecurity
   id: ClothingHeadsetPrisonGuard
   name: guard headset
   description: Headset used by prison guards.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyPrison
-      - EncryptionKeyCommon
-      - EncryptionKeySecurity
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
-  - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
-    
