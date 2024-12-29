@@ -17,6 +17,10 @@
       shader: unshaded
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
   - type: Gun
     soundGunshot:
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
@@ -50,12 +54,6 @@
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
           Special: { state: mode-stun } # Unused
-  - type: Clothing
-    sprite: DeltaV/objects/Weapons/Guns/Battery/energygun.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
 
 - type: entity
   name: x-01 multiphase energy gun
