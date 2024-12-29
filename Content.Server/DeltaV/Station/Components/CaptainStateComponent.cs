@@ -18,7 +18,7 @@ public sealed partial class CaptainStateComponent : Component
     /// Assume no captain unless specified
     /// </remarks>
     [DataField]
-    public bool HasCaptain;
+    public bool HasCaptain = false;
 
     /// <summary>
     /// The localization ID used for announcing the cancellation of ACO requests
@@ -42,13 +42,13 @@ public sealed partial class CaptainStateComponent : Component
     /// Set after ACO has been requested to avoid duplicate calls
     /// </summary>
     [DataField]
-    public bool IsACORequestActive;
+    public bool IsACORequestActive = false;
 
     /// <summary>
     /// Used to denote that AA has been brought into the round either from captain or safe.
     /// </summary>
     [DataField]
-    public bool IsAAInPlay;
+    public bool IsAAInPlay = false;
 
     /// <summary>
     /// The localization ID for announcing that AA has been unlocked for ACO
