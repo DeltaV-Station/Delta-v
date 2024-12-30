@@ -355,29 +355,11 @@
     - PowerCage
 -
 - type: entity
-  name: disabler
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
-  suffix: Robot, Self-Charging
+  parent: WeaponDisabler
   id: WeaponDisablerSelfCharge
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This One Recharges
+  name: disabler
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-0
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
