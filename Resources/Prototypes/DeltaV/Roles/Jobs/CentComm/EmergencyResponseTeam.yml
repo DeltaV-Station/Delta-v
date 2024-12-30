@@ -16,10 +16,10 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxZiptie
     - PinpointerNuclear
     - BoxMindshield
-    - Stunbaton
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTLeaderGearRed
@@ -38,12 +38,12 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxZiptie
+    - BoxMindshield
     - CrowbarRed
     - DoorRemoteOmni
     - PinpointerNuclear
-    - BoxMindshield
-    - Stunbaton
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTLeaderGearGamma
@@ -64,14 +64,14 @@
   - WeaponPistolUniversal
   storage:
     back:
-    - Stunbaton
-    - BaseMagazineUniversalMagnum
-    - BaseMagazineUniversalMagnum
-    - BoxZiptie
+    - BoxMindshield
+    - MagazineUniversalMagnum
+    - MagazineUniversalMagnum
     - CrowbarRed
     - PinpointerNuclear
-    - BoxMindshield
     - DoorRemoteOmni
+    - Ziptie
+    - Ziptie
 
 # Chaplain
 
@@ -97,16 +97,12 @@
     - BoxBodyBag
     - DrinkWaterMelonJuiceJug
     - Lantern
-    - Lantern
     - Bible
     - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
     - Lighter
     - WeaponDisabler
-    - BoxZiptie
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTChaplainGearRed
@@ -132,15 +128,11 @@
     - BoxBodyBag
     - DrinkWaterMelonJuiceJug
     - Lantern
-    - Lantern
     - Bible
     - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
     - Lighter
-    - BoxZiptie
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTChaplainGearGamma
@@ -152,7 +144,7 @@
     eyes: ClothingEyesGlassesSecurity
     neck: ClothingNeckStoleChaplain
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTChaplainBase
+    outerClothing: ClothingOuterHardsuitERTChaplainElite
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
@@ -166,15 +158,11 @@
     - BoxBodyBag
     - DrinkWaterMelonJuiceJug
     - Lantern
-    - Lantern
     - Bible
     - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
     - Lighter
-    - BoxZiptie
+    - Ziptie
+    - Ziptie
 
 # Engineer
 
@@ -200,7 +188,6 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - Stunbaton
 
 - type: startingGear
   id: ERTEngineerGearRed
@@ -231,7 +218,6 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - Stunbaton
 
 - type: startingGear
   id: ERTEngineerGearGamma
@@ -259,7 +245,6 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - Stunbaton
 
 # Security
 
@@ -282,9 +267,10 @@
   - WeaponLaserCarbine
   storage:
     back:
-    - BoxZiptie
     - CrowbarRed
     - BoxFlashbang
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTSecurityGearRed
@@ -305,11 +291,12 @@
   - WeaponRifleLaserERT
   storage:
     back:
-    - BoxZiptie
     - CrowbarRed
     - BoxFlashbang
     - MagazineLaser
     - MagazineLaser
+    - Ziptie
+    - Ziptie
 
 - type: startingGear
   id: ERTSecurityGearGamma
@@ -330,12 +317,13 @@
   - WeaponImmolatorMulti
   storage:
     back:
-    - BoxZiptie
     - BoxFlashbang
     - WeaponEnergyGunAdvanced
     - Bola
     - FireExtinguisherMini
     - BoxC4
+    - Ziptie
+    - Ziptie
 
 # Medical
 
@@ -378,11 +366,13 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: FlashlightSeclite
+    pocket2: Hypospray
+  inhand:
+  - WeaponEnergyGun
   storage:
     back:
     - Hypospray
     - MedkitAdvancedFilled
-    - BoxBottleMedicineBasic
     - BoxBottleMedicineBasic
     - CrowbarRed
     - EpinephrineChemistryBottle
@@ -404,11 +394,12 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
     pocket1: FlashlightSeclite
+    pocket2: Hypospray
+  inhand:
+  - WeaponEnergyGunPistol
   storage:
     back:
-    - Hypospray
     - MedkitAdvancedFilled
-    - BoxBottleMedicineBasic
     - BoxBottleMedicineBasic
     - BoxBottleMedicineAdvanced
     - CrowbarRed
@@ -443,7 +434,6 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
-    - Stunbaton
     - TrashBag
     - BoxCleanerGrenades
 
@@ -469,7 +459,6 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
-    - Stunbaton
     - TrashBag
     - BoxCleanerGrenades
     - HydroponicsToolScythe
@@ -497,7 +486,6 @@
     - BoxLightMixed
     - Soap
     - AdvMopItem
-    - Stunbaton
     - BagOfSummoningGarbage
     - BoxCleanerGrenades
     - HydroponicsToolScythe
