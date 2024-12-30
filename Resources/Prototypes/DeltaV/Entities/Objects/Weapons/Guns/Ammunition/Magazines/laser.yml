@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseMagazineLaser
+  id: MagazineLaser
   name: laser magazine
   parent: BaseItem
   abstract: true
@@ -9,6 +9,7 @@
       - MagazineLaser
   - type: BallisticAmmoProvider
     mayTransfer: true
+    proto: BaseCartridgeLaser
     whitelist:
       tags:
         - CartridgeLaser

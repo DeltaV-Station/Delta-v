@@ -323,7 +323,7 @@
       settings: ERTEngineerRed
 
 - type: randomHumanoidSettings
-  id: ERTEngineerEVARed
+  id: ERTEngineerRed
   parent: ERTEngineerAmber
   components:
     - type: GhostRole
@@ -350,7 +350,7 @@
       settings: ERTEngineerGamma
 
 - type: randomHumanoidSettings
-  id: ERTEngineerEVAGamma
+  id: ERTEngineerGamma
   parent: ERTEngineerAmber
   components:
     - type: GhostRole
@@ -437,7 +437,7 @@
       sprite: DeltaV/Markers/jobs.rsi
       state: ertsecuritygamma
     - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVAGamma
+      settings: ERTSecurityGamma
 
 - type: randomHumanoidSettings
   id: ERTSecurityGamma

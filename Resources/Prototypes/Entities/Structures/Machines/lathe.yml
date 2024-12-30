@@ -241,6 +241,7 @@
       - SpeedLoaderSpecialPractice
       - MagazineBoxSpecial
       - MagazinePistolSpecial
+      - MagazineLaser
       # End of modified code
   - type: BlueprintReceiver
     whitelist:
@@ -427,7 +428,8 @@
       - WeaponEnergyGun       # Energy Gun
       - WeaponEnergyGunMini   # Miniature Energy Gun
       - WeaponEnergyGunPistol # PDW-9 Energy Pistol
-      - WeaponGunLaserCarbineAutomatic # IK-60 Laser Carbine
+      - WeaponImmolator
+      - WeaponEnergyGunAdvanced
       - MagazinePistolRubber
       - SpeedLoaderMagnumRubber
       - SpeedLoaderSpecialRubber

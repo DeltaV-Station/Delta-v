@@ -1,19 +1,4 @@
 # Leader
-- type: job
-  id: ERTLeaderAmber
-  name: job-name-ertleader
-  description: job-description-ertleader
-  playTimeTracker: JobERTLeader
-  setPreference: false
-  startingGear: ERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ERTLeaderGearAmber
   equipment:
@@ -34,7 +19,7 @@
     - BoxZiptie
     - PinpointerNuclear
     - BoxMindshield
-    - StunBaton
+    - Stunbaton
 
 - type: startingGear
   id: ERTLeaderGearRed
@@ -58,7 +43,7 @@
     - DoorRemoteOmni
     - PinpointerNuclear
     - BoxMindshield
-    - StunBaton
+    - Stunbaton
 
 - type: startingGear
   id: ERTLeaderGearGamma
@@ -89,26 +74,6 @@
     - DoorRemoteOmni
 
 # Chaplain
-- type: job
-  id: ERTChaplainAmber
-  name: job-name-ertchaplain
-  description: job-description-ertchaplain
-  playTimeTracker: JobERTChaplain
-  setPreference: false
-  startingGear: ERTChaplainGearAmber
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: BibleUser #Lets them heal with bibles
-    - type: Psionic
-    - type: MetapsionicPower
 
 - type: startingGear
   id: ERTChaplainGearAmber
@@ -212,20 +177,6 @@
     - BoxZiptie
 
 # Engineer
-- type: job
-  id: ERTEngineerAmber
-  name: job-name-ertengineer
-  description: job-description-ertengineer
-  playTimeTracker: JobERTEngineer
-  setPreference: false
-  startingGear: ERTEngineerGearAmber
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ERTEngineerGearAmber
@@ -249,7 +200,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - StunBaton
+    - Stunbaton
 
 - type: startingGear
   id: ERTEngineerGearRed
@@ -280,7 +231,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - StunBaton
+    - Stunbaton
 
 - type: startingGear
   id: ERTEngineerGearGamma
@@ -308,23 +259,9 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-    - StunBaton
+    - Stunbaton
 
 # Security
-- type: job
-  id: ERTSecurityAmber
-  name: job-name-ertsecurity
-  description: job-description-ertsecurity
-  playTimeTracker: JobERTSecurity
-  setPreference: false
-  startingGear: ERTEngineerGearAmber
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ERTSecurityGearAmber
@@ -342,7 +279,7 @@
     pocket1: WeaponDisabler
     pocket2: FlashlightSeclite
   inhand:
-  - WeaponLaserRifle
+  - WeaponLaserCarbine
   storage:
     back:
     - BoxZiptie
@@ -371,8 +308,8 @@
     - BoxZiptie
     - CrowbarRed
     - BoxFlashbang
-    - BaseMagazineLaser
-    - BaseMagazineLaser
+    - MagazineLaser
+    - MagazineLaser
 
 - type: startingGear
   id: ERTSecurityGearGamma
@@ -401,20 +338,6 @@
     - BoxC4
 
 # Medical
-- type: job
-  id: ERTMedicalAmber
-  name: job-name-ertmedic
-  description: job-description-ertmedic
-  playTimeTracker: JobERTMedical
-  setPreference: false
-  startingGear: ERTMedicalGearAmber
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ERTMedicalGearAmber
@@ -459,8 +382,8 @@
     back:
     - Hypospray
     - MedkitAdvancedFilled
-    - BoxMedicineBasic
-    - BoxMedicineBasic
+    - BoxBottleMedicineBasic
+    - BoxBottleMedicineBasic
     - CrowbarRed
     - EpinephrineChemistryBottle
     - EpinephrineChemistryBottle
@@ -485,9 +408,9 @@
     back:
     - Hypospray
     - MedkitAdvancedFilled
-    - BoxMedicineBasic
-    - BoxMedicineBasic
-    - BoxMedicineAdvanced
+    - BoxBottleMedicineBasic
+    - BoxBottleMedicineBasic
+    - BoxBottleMedicineAdvanced
     - CrowbarRed
     - EpinephrineChemistryBottle
     - EpinephrineChemistryBottle
@@ -496,20 +419,6 @@
     - FireExtinguisherMini
 
 # Janitor
-- type: job
-  id: ERTJanitorAmber
-  name: job-name-ertjanitor
-  description: job-description-ertjanitor
-  playTimeTracker: JobERTJanitor
-  setPreference: false
-  startingGear: ERTJanitorGearAmber
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ERTJanitorGearAmber
@@ -534,7 +443,7 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
-    - StunBaton
+    - Stunbaton
     - TrashBag
     - BoxCleanerGrenades
 
@@ -560,7 +469,7 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
-    - StunBaton
+    - Stunbaton
     - TrashBag
     - BoxCleanerGrenades
     - HydroponicsToolScythe
@@ -588,7 +497,7 @@
     - BoxLightMixed
     - Soap
     - AdvMopItem
-    - StunBaton
+    - Stunbaton
     - BagOfSummoningGarbage
     - BoxCleanerGrenades
     - HydroponicsToolScythe
