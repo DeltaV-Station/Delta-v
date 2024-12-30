@@ -11,18 +11,32 @@
 
 # Security Modules
 
-# - type: entity
-#  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
-#  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-#  name: bastion cyborg module
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: security
-#    - state: icon-hold
-#  - type: ItemBorgModule
-#    items:
-#    - HoloprojectorSecurityRecharging
+- type: entity
+  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: patrol cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-patrol
+  - type: ItemBorgModule
+    items:
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+
+- type: entity
+  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: bastion cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-hold
+  - type: ItemBorgModule
+    items:
+    - HoloprojectorSecurityRecharging
 
 - type: entity
   id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
@@ -39,7 +53,6 @@
     - FlashRecharging
 -   - FlashlightSecliteRecharging
     - SecurityWhistle
-    - HoloprojectorSecurityRecharging
     - WeaponLauncherFlashbangBorg
 
 - type: entity
@@ -60,7 +73,7 @@
     - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
   components:
