@@ -33,5 +33,7 @@ public sealed class AddFactionsImplantSystem : EntitySystem
     {
         foreach (var faction in ent.Comp.AddedFactions)
             _npc.RemoveFaction(args.Container.Owner, faction);
+
+        ent.Comp.AddedFactions.Clear();
     }
 }

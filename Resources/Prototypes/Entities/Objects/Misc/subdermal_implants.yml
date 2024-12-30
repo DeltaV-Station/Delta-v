@@ -335,9 +335,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-  - type: PacifismImplant
-    disallowDisarm: true
-    disallowAllCombat: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Pacified
+      disallowDisarm: true
+      disallowAllCombat: true
   - type: AddFactionsImplant
     factions:
     - Hostage
