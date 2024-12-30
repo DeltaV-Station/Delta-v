@@ -31,7 +31,7 @@
 
 - type: entity
   name: Flashbang Launcher
-  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  parent: BaseWeaponLauncher
   suffix: Robot, energy based
   id: WeaponLauncherFlashbangBorg
   description: A Cyborg Mounted Grenade Launcher, designed to fire flashbangs. Refills its own ammo
@@ -44,6 +44,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
   - type: Gun
+    minAngle: 1
+    maxAngle: 2
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
@@ -63,19 +65,23 @@
     wieldBonusExamineMessage: null
     minAngle: 0
     maxAngle: 0
-  - type: Gun
-    minAngle: 1
-    maxAngle: 2
   - type: UseDelay
     delay: 0 # You can't dual wield this as a borg so no need for a delay
 
 - type: entity
   name: Crowd Control Launcher
-  parent: WeaponLauncherChinaLakeBorg
+  parent: BaseWeaponLauncher
   suffix: Robot, energy based
   id: WeaponLauncherCrowdControlBorg
   description: A hybrid stinger and teargas grenade launcher
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: TearGasGrenade
