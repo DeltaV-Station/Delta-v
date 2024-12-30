@@ -308,6 +308,21 @@
           tags:
           - Wrench
     sprite: Clothing/Belt/belt_overlay.rsi
+  # DeltaV - Add medkit slot to medical belts
+  - type: ItemSlots
+    slots:
+      medkit:
+        name: clothing-belt-medkit
+        whitelist:
+          tags:
+          - Medkit
+        insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
+  # End of DeltaV - Add medkit slot to medical belts.
   - type: Appearance
 
 - type: entity
@@ -456,7 +471,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseRestrictedContraband, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseRestrictedContraband, ClothingSlotBase] # DeltaV - add parent ClothingSlotBase
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
@@ -473,6 +488,8 @@
           tags:
           - Sidearm
         insertOnInteract: false
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
   - type: Storage
     whitelist:
       tags:
@@ -682,10 +699,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # Delta-V - Split Inventory, but same total size
     grid:
-    - 0,0,2,1
-    - 4,0,7,1
+    - 0,0,3,1
+    - 5,0,8,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]

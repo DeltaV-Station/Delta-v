@@ -1,0 +1,13 @@
+#Be sure to link back to the appropriate winter coats here (mostly in the nyanotrasen folder.) If this is a non-winter coat hood, then do whatever.
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterMailCarrier
+  categories: [ HideSpawnMenu ]
+  name: mail carrier's winter coat hood
+  description: A hood for keeping the humble mailman's head warm while making all those deliveries.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hoods/Coat/hoodmail.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hoods/Coat/hoodmail.rsi

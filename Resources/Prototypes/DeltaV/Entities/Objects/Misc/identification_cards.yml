@@ -50,6 +50,19 @@
   - type: PresetIdCard
     job: Courier
 
+- type: entity
+  parent: IDCardStandard
+  id: CargoAssistantIDCard
+  name: cargo assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+      state: idcargoassistant
+  - type: PresetIdCard
+    job: CargoAssistant
+
 ## Alternate Job Titles
 
 # Passenger
@@ -150,6 +163,32 @@
   - type: IdCard
     jobTitle: job-alt-title-clinician
 
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: PsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-psychiatrist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: TherapistIDCard
+  name: therapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-therapist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: SocialWorkerIDCard
+  name: social worker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-social-worker
+
 # Atmospheric Technician
 
 - type: entity
@@ -245,8 +284,12 @@
   id: RoboticistIDCard
   name: roboticist ID card
   components:
-  - type: IdCard
-    jobTitle: job-alt-title-roboticist
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: Roboticist
 
 # Clown
 
@@ -265,3 +308,13 @@
   components:
   - type: IdCard
     jobTitle: job-alt-title-fool
+
+# Janitor
+
+- type: entity
+  parent: JanitorIDCard
+  id: HygieneTechnicianIDCard
+  name: hygiene technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-alt-title-hygiene-technician

@@ -6,7 +6,7 @@
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
-    FoodButter: 1
+    FoodButterSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeScrambledEggs
@@ -17,8 +17,8 @@
     TableSalt: 5
   solids:
     FoodBowlBig: 1
-    FoodEgg: 3
-    FoodButter: 1
+    FoodEgg: 2
+    FoodButterSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeBlueTomatoSoup
@@ -42,3 +42,15 @@
     FoodBowlBig: 1
     FoodBlueTomato: 1
     FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeChickenNuggetBox
+  name: chicken nugget box recipe
+  result: FoodBoxNugget
+  time: 10
+  reagents:
+    Protein: 20
+    Egg: 4
+    Flour: 6
+  solids:
+    MaterialCardboard1: 1

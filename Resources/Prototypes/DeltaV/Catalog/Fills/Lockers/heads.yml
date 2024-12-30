@@ -9,6 +9,7 @@
     - id: BoxPDACargo
     - id: QuartermasterIDCard
     - id: ClothingShoesBootsWinterLogisticsOfficer
+    - id: MiningShuttleConsoleCircuitboard
     - id: StockTradingCartridge
     - id: LunchboxCommandFilledRandom
       prob: 0.3
@@ -71,8 +72,8 @@
     children:
     - id: BoxPDAScience
     - id: RDIDCard
+    - id: BoxFolderRdClipboard
     - id: ClothingShoesBootsWinterMystagogue
-    - id: EncryptionKeyBinary # mysta keeps the key until ai is rolled out
     - id: LunchboxCommandFilledRandom
       prob: 0.3
 

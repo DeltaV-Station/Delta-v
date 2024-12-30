@@ -86,9 +86,22 @@
   name: roboticist
   components:
   - type: SpawnPoint
-    job_id: Scientist # TODO: change to Roboticist after merged
+    job_id: Roboticist
   - type: Sprite
     layers:
     - state: green
     - sprite: DeltaV/Markers/jobs.rsi
       state: roboticist
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointCargoAssistant
+  name: cargo assistant
+  components:
+  - type: SpawnPoint
+    job_id: CargoAssistant
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: cargoassistant

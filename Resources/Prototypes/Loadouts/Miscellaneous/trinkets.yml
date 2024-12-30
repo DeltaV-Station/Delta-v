@@ -322,8 +322,8 @@
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
-      !type:RoleTimeRequirement
-      role: JobLawyer
+      !type:DepartmentTimeRequirement # DeltaV - Use Justice department time instead of Lawyer job time
+      department: Justice
       time: 360000 # 100hr
   storage:
     back:

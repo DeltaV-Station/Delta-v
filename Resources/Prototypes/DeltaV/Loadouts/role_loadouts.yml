@@ -14,6 +14,20 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+- type: roleLoadout
+  id: JobCargoAssistant
+  groups:
+  - GroupTankHarness
+  - CargoAssistantHead
+  - CargoAssistantJumpsuit
+  - CargoAssistantBackpack
+  - CargoAssistantOuterClothing
+  - CargoAssistantShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
 # Security
 - type: roleLoadout
   id: JobBrigmedic
@@ -28,6 +42,8 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolCorpsman
+  - SecurityFirearm
+  - SecurityFirearmAmmo
 
 # Justice
 - type: roleLoadout
@@ -67,6 +83,24 @@
   - ProsecutorNeck
   - ProsecutorOuterClothing
   - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Epistemics
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - RoboticistHead
+  - ScientistNeck
+  - RoboticistJumpsuit
+  - ScientistBackpack
+  - RoboticistOuterClothing
+  - RoboticistGloves
+  - RoboticistShoes
+  - RoboticistPDA
   - Glasses
   - Survival
   - Trinkets

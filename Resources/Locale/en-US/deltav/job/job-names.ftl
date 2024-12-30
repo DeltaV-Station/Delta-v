@@ -4,6 +4,7 @@ job-name-clerk = Clerk
 job-name-prosecutor = Prosecutor
 job-name-lawyer = Attorney
 job-name-courier = Courier
+job-name-cargo-assistant = Cargo Assistant
 job-name-security-borg = Security Cyborg
 # Used by the Agent ID
 job-name-senior-physician = Senior Physician
@@ -47,12 +48,17 @@ job-alt-title-excavator = Excavator
 job-alt-title-senior-researcher = Senior Researcher
 job-alt-title-lab-technician = Lab Technician
 job-alt-title-xenoarch = Xenoarchaeologist
-job-alt-title-roboticist = Roboticist
 
 job-alt-title-senior-officer = Senior Officer
 
 job-alt-title-jester = Jester
 job-alt-title-fool = Fool
+
+job-alt-title-hygiene-technician = Hygiene Technician
+
+job-alt-title-psychiatrist = Psychiatrist
+job-alt-title-social-worker = Social Worker
+job-alt-title-therapist = Therapist
 
 # Role timers
 JobMedicalBorg = Medical Cyborg
@@ -61,3 +67,5 @@ JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
 JobSecurityBorg = Security Cyborg
+JobRoboticist = Roboticist
+JobCargoAssistant = Cargo Assistant
