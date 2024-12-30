@@ -4,27 +4,8 @@
   description: job-description-admin-assistant
   playTimeTracker: JobAdminAssistant
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Engineering
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Logistics
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Medical
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Civilian
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Justice
-    time: 10800 # 3 hours
-  - !type:DepartmentTimeRequirement
-    department: Epistemics
-    time: 10800 # 3 hours
+  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+    time: 90000 # 25 hours
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command
