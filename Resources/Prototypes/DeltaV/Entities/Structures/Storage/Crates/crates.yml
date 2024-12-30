@@ -1,7 +1,7 @@
 - type: entity
   parent: CrateLivestock
   id: CrateLivestockSteel
-  name: steel livestock crate
+  name: plasteel livestock crate
   components:
   - type: Weldable
   - type: ResistLocker
@@ -56,7 +56,7 @@
 - type: entity
   parent: CrateLivestockSteel
   id: CrateLivestockSecure
-  name: secure livestock crate
+  name: secure plasteel livestock crate
   components:
   - type: Lock
   - type: LockVisuals
@@ -91,7 +91,7 @@
 - type: entity
   parent: CrateLivestockSecure
   id: CrateLivestockSecureReinforced
-  name: reinforced livestock crate
+  name: reinforced secure plasteel livestock crate
   components:
   - type: Icon
     sprite: DeltaV/Structures/Storage/Crates/livestock_reinforced.rsi
