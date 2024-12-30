@@ -81,18 +81,15 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-  - type: BatteryWeapon
+  - type: ProjectileBatteryAmmoProvider
     maxCharge: 600
     startingCharge: 300
-  - type: ProjectileBatteryAmmoProvider
-    proto: TearGasGrenade
-    fireCost: 300
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: TearGasGrenade
       firecost: 300
     - proto: GrenadeStinger
       firecost: 300
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 3
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3
