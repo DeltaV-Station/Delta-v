@@ -9838,7 +9838,7 @@ entities:
       pos: -12.5,-46.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -465.08417
+      secondsUntilStateChange: -493.43484
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -29483,6 +29483,16 @@ entities:
     components:
     - type: Transform
       pos: -7.5,57.5
+      parent: 100
+  - uid: 21753
+    components:
+    - type: Transform
+      pos: -41.5,36.5
+      parent: 100
+  - uid: 21754
+    components:
+    - type: Transform
+      pos: -41.5,35.5
       parent: 100
 - proto: CableApcStack
   entities:
