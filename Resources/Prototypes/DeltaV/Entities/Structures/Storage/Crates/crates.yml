@@ -51,7 +51,7 @@
     reflectProb: 0.2
     spread: 90
   - type: StaticPrice
-    price: 175 #here
+    price: 250
 
 - type: entity
   parent: CrateLivestockSteel
@@ -86,7 +86,7 @@
     containers:
     - entity_storage
   - type: StaticPrice
-    price: 175
+    price: 305
 
 - type: entity
   parent: CrateLivestockSecure
@@ -145,4 +145,4 @@
     containers:
       - entity_storage
   - type: StaticPrice
-    price: 275
+    price: 605
