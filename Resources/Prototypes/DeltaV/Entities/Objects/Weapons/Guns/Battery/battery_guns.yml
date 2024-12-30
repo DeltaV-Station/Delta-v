@@ -364,7 +364,7 @@
 
 - type: entity
   name: immolator cannon
-  parent: BaseWeaponBattery
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
   id: WeaponImmolator
   description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
   components:
@@ -392,12 +392,12 @@
 
 - type: entity
   name: multi lens immolator cannon
-  parent: BaseWeaponBattery
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
   id: WeaponImmolatorMulti
   description: A large laser cannon, similar to the Immolator Laser, with toggleable firemodes. It is frequently used by military-like forces through Nanotrasen.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygunadvanced.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multi_lens_immolator.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
