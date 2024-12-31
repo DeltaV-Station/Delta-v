@@ -212,3 +212,13 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpskirt/prosecutorred.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtAdminAssistant
+  name: administrative assistant's jumpskirt
+  description: A suit worn by the Administrative Assistant. Smells of burnt coffee.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
