@@ -32,6 +32,7 @@ public abstract class SharedShelterCapsuleSystem : EntitySystem
             if (comp.NextSpawn is not {} nextSpawn || now < nextSpawn)
                 continue;
 
+            comp.User = null;
             comp.NextSpawn = null;
             if (TrySpawnRoom((uid, comp)) is {} id)
             {
@@ -59,6 +60,7 @@ public abstract class SharedShelterCapsuleSystem : EntitySystem
         var msg = Loc.GetString("shelter-capsule-warning", ("capsule", ent));
         _popup.PopupPredicted(msg, ent, args.User, PopupType.LargeCaution);
 
+        ent.Comp.User = args.User;
         ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.Delay;
     }
 }

@@ -30,4 +30,10 @@ public sealed partial class ShelterCapsuleComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? NextSpawn;
+
+    /// <summary>
+    /// The user of the capsule, used for logging.
+    /// </summary>
+    [DataField]
+    public EntityUid? User;
 }

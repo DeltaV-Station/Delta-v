@@ -1,4 +1,6 @@
 using Content.Server.Procedural;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.DeltaV.Salvage.Components;
 using Content.Shared.DeltaV.Salvage.Systems;
 using Content.Shared.Maps;
@@ -15,6 +17,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
     [Dependency] private readonly DungeonSystem _dungeon = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
@@ -39,17 +42,24 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             {
                 var pos = origin + new Vector2i(x, y);
                 var tile = _map.GetTileRef((gridUid, grid), pos);
-                if (tile.Tile.IsEmpty || _turf.IsTileBlocked(gridUid, pos, mask, grid, gridXform))
+                if (tile.Tile.IsEmpty)
+                    return "shelter-capsule-error-space";
+
+                if (_turf.IsTileBlocked(gridUid, pos, mask, grid, gridXform))
                     return "shelter-capsule-error-obstructed";
             }
         }
+
+        var user = ent.Comp.User;
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(user):user} expanded {ToPrettyString(ent):capsule} at {center} on {ToPrettyString(gridUid):grid}");
 
         _dungeon.SpawnRoom(gridUid,
             grid,
             origin,
             room,
             new Random(),
-            null);
+            null,
+            clearExisting: true); // already checked for mobs and structures here
 
         QueueDel(ent);
         return null;
