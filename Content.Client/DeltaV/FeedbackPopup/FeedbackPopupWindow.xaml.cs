@@ -14,7 +14,7 @@ namespace Content.Client.DeltaV.FeedbackPopup;
 public sealed partial class FeedbackPopupWindow : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IClientNetManager _netManager = default!;
+    [Dependency] private readonly IClientNetManager _net = default!;
 
     private readonly FeedbackPopupPrototype _feedbackpopup;
     public FeedbackPopupWindow(ProtoId<FeedbackPopupPrototype> popupProto)
@@ -30,13 +30,13 @@ public sealed partial class FeedbackPopupWindow : FancyWindow
     private void PopulateWindow()
     {
         // Title
-        TitleLabel.Text = _feedbackpopup.Title;
+        TitleLabel.Text = Loc.GetString(_feedbackpopup.Title);
 
         // Description
         foreach (var section in _feedbackpopup.Description)
-            CreateSection(section);
+            CreateSection(Loc.GetString(section));
 
-        // Set the feedback submission to the correct visability
+        // Set the feedback submission to the correct visibility
         FeedbackReplyContainer.Visible = _feedbackpopup.FeedbackField;
 
         SubmitButton.OnPressed += OnButtonPressed;
@@ -54,7 +54,7 @@ public sealed partial class FeedbackPopupWindow : FancyWindow
 
     private void OnButtonPressed(BaseButton.ButtonEventArgs args)
     {
-        _netManager.ClientSendMessage(new FeedbackResponseMessage{ FeedbackName = _feedbackpopup.PopupName, FeedbackMessage = Rope.Collapse(FeedbackReply.TextRope) });
+        _net.ClientSendMessage(new FeedbackResponseMessage{ FeedbackName = Loc.GetString(_feedbackpopup.PopupName), FeedbackMessage = Rope.Collapse(FeedbackReply.TextRope) });
         Close(); // adios
     }
 }

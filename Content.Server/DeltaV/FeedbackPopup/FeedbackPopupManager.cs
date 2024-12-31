@@ -28,7 +28,7 @@ public sealed class FeedbackPopupManager
 
     public void Initialize()
     {
-        _sawmill = Logger.GetSawmill("discord");
+        _sawmill = Logger.GetSawmill("feedback");
 
         _netManager.RegisterNetMessage<FeedbackResponseMessage>(RecieveFeedbackResponse);
         _cfg.OnValueChanged(DCCVars.DiscordPlayerFeedbackWebhook, SetWebhookUrl, true);
@@ -44,7 +44,6 @@ public sealed class FeedbackPopupManager
         // Post inject doesn't work for the entity manager (Entity manager is only initialized after this system is initialized)
         _ticker ??= _entity.System<SharedGameTicker>();
 
-        var t = _ticker.RoundId;
         if (string.IsNullOrWhiteSpace(_webhookUrl))
             return;
 
@@ -53,7 +52,7 @@ public sealed class FeedbackPopupManager
 
     private string CreateMessage(string feedbackName, string feedback, int roundNumber, string username)
     {
-        var header = Loc.GetString("feedbackpopup-discord-format-header", ("$roundNumber", roundNumber), ("playerName", username));
+        var header = Loc.GetString("feedbackpopup-discord-format-header", ("roundNumber", roundNumber), ("playerName", username));
         var info = Loc.GetString("feedbackpopup-discord-format-info", ("feedbackName", feedbackName));
         var spacer = Loc.GetString("feedbackpopup-discord-format-spacer");
         var feedbackbody = Loc.GetString("feedbackpopup-discord-format-feedbackbody", ("feedback", feedback));

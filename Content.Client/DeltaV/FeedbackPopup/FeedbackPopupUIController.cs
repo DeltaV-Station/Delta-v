@@ -1,5 +1,5 @@
 ﻿using Content.Shared.DeltaV.FeedbackOverwatch;
-using Robust.Shared.Configuration;
+using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client.DeltaV.FeedbackPopup;
 
@@ -7,7 +7,7 @@ namespace Content.Client.DeltaV.FeedbackPopup;
 ///     This handles getting feedback popup messages from the server and making a popup in the client.
 ///     Currently, this system can only support one window at a time.
 /// </summary>
-public sealed class FeedbackPopupSystem : EntitySystem
+public sealed class FeedbackPopupUIController : UIController
 {
     private FeedbackPopupWindow? _window;
 
@@ -17,7 +17,7 @@ public sealed class FeedbackPopupSystem : EntitySystem
         SubscribeNetworkEvent<FeedbackPopupMessage>(OnFeedbackPopup);
     }
 
-    private void OnFeedbackPopup(FeedbackPopupMessage msg)
+    private void OnFeedbackPopup(FeedbackPopupMessage msg, EntitySessionEventArgs args)
     {
         // If a window is already open, close it
         _window?.Close();
