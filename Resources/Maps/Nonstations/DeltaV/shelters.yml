@@ -19,6 +19,9 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
     - type: MapGrid
       chunks:
         0,0:
@@ -51,6 +54,7 @@ entities:
       angularDamping: 0.05
       linearDamping: 0.05
       fixedRotation: False
+      canCollide: False
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
@@ -136,6 +140,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: LoadedMap
 - proto: AirlockMining
   entities:
   - uid: 2
@@ -512,6 +517,11 @@ entities:
       parent: 1
 - proto: CableMV
   entities:
+  - uid: 3
+    components:
+    - type: Transform
+      pos: 16.5,8.5
+      parent: 1
   - uid: 73
     components:
     - type: Transform
