@@ -21,6 +21,7 @@
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  whitelisted: true # DeltaV: Bad CEs ruin shifts...
   access:
   - Maintenance
   - Engineering
