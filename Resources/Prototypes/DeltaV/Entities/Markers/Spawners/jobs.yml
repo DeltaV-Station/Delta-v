@@ -105,3 +105,16 @@
     - state: green
     - sprite: DeltaV/Markers/jobs.rsi
       state: cargoassistant
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointAdminAssistant
+  name: administrative assistant
+  components:
+  - type: SpawnPoint
+    job_id: AdministrativeAssistant
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: DeltaV/Markers/jobs.rsi
+      state: adminassistant
