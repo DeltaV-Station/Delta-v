@@ -23,7 +23,7 @@ public sealed class CargoTest
     [
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
         // new("FunCrateGambling") // DeltaV - no gambling
-        new("LivestockArenaMobLarge")
+        new("LivestockArenaMobLarge") // Deltav - add crate to exceptions
     ];
 
     [Test]
