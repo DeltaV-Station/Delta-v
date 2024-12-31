@@ -167,21 +167,21 @@
         - id: MobIronCrab
         - id: MobUraniumCrab
         - id: MobSilverCrab
-      - !type:GroupSelector
-        weight: 0.5
-        children:
-        - id: MobQuartzCrab
-          amount: !type:ConstantNumberSelector
-            value: 2
-        - id: MobIronCrab
-          amount: !type:ConstantNumberSelector
-            value: 2
-        - id: MobUraniumCrab
-          amount: !type:ConstantNumberSelector
-            value: 2
-        - id: MobSilverCrab
-          amount: !type:ConstantNumberSelector
-            value: 2
+        - !type:GroupSelector
+          weight: 0.5
+          children:
+          - id: MobQuartzCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobIronCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobUraniumCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobSilverCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
       - !type:GroupSelector
         children:
         - id: ReagentSlimeBeer
