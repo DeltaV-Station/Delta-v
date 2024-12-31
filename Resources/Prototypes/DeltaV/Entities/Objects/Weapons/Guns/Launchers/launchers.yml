@@ -67,6 +67,7 @@
     maxAngle: 0
   - type: UseDelay
     delay: 0 # You can't dual wield this as a borg so no need for a delay
+  - type: AmmoCounter
 
 - type: entity
   name: Crowd Control Launcher
@@ -82,6 +83,12 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+  - type: ProjectileBatteryAmmoProvider
+    proto: TearGasGrenade
+    cost: 300
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 300
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: TearGasGrenade
@@ -100,3 +107,4 @@
     maxAngle: 2
   - type: UseDelay
     delay: 0 # You can't dual wield this as a borg so no need for a delay
+  - type: AmmoCounter
