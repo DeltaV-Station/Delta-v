@@ -8961,6 +8961,8 @@ entities:
       - 3422
   - uid: 20868
     components:
+    - type: MetaData
+      name: surgery air alarm
     - type: Transform
       pos: -14.5,51.5
       parent: 100
@@ -9838,7 +9840,7 @@ entities:
       pos: -12.5,-46.5
       parent: 100
     - type: Door
-      secondsUntilStateChange: -493.43484
+      secondsUntilStateChange: -751.62256
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14239,12 +14241,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -39.5,48.5
-      parent: 100
-  - uid: 21503
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,49.5
       parent: 100
 - proto: BarSign
   entities:
@@ -45554,6 +45550,11 @@ entities:
     components:
     - type: Transform
       pos: -29.49446,45.694763
+      parent: 100
+  - uid: 21503
+    components:
+    - type: Transform
+      pos: -12.462943,50.684372
       parent: 100
 - proto: ClothingBeltBandolier
   entities:
@@ -96932,18 +96933,6 @@ entities:
     - type: Transform
       pos: -7.643395,38.619415
       parent: 100
-  - uid: 21501
-    components:
-    - type: Transform
-      pos: -14.014751,49.48851
-      parent: 100
-    - type: Paper
-      content: >2-
-
-        [head=1]NOTICE[/head]
-
-
-        Surgery closed for renovation, until next week
   - uid: 21509
     components:
     - type: Transform
@@ -99817,6 +99806,12 @@ entities:
     - type: Transform
       pos: -9.5,-60.5
       parent: 100
+  - uid: 20366
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -15.5,48.5
+      parent: 100
   - uid: 20415
     components:
     - type: Transform
@@ -99844,6 +99839,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -67.5,80.5
+      parent: 100
+  - uid: 20520
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,48.5
       parent: 100
   - uid: 21207
     components:
@@ -99945,18 +99946,6 @@ entities:
       parent: 100
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 20366
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -15.5,48.5
-      parent: 100
-  - uid: 20520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,48.5
-      parent: 100
 - proto: PoweredlightLED
   entities:
   - uid: 2829
@@ -113137,6 +113126,13 @@ entities:
     components:
     - type: Transform
       pos: -13.5,33.5
+      parent: 100
+- proto: SpawnPointAdminAssistant
+  entities:
+  - uid: 21501
+    components:
+    - type: Transform
+      pos: -12.5,57.5
       parent: 100
 - proto: SpawnPointAtmos
   entities:
