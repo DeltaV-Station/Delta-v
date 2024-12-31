@@ -6,6 +6,10 @@ namespace Content.Shared.DeltaV.FeedbackOverwatch;
 public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    public override void Initialize()
+    {
+        InitializeEvents();
+    }
 
     /// <summary>
     ///     Send a popup to the given client controlling the given UID.

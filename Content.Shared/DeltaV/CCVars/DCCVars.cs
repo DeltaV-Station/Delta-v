@@ -106,4 +106,14 @@ public sealed class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> Shipyard =
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
+
+    /*
+     * Feedback webhook
+     */
+
+    /// <summary>
+    ///     Discord webhook URL for getting feedback from players. If empty, will not relay the feedback.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordPlayerFeedbackWebhook =
+        CVarDef.Create("discord.player_feedback_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }

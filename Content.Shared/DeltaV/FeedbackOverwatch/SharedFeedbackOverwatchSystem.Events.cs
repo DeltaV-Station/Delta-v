@@ -2,8 +2,9 @@
 
 public sealed partial class SharedFeedbackOverwatchSystem
 {
-    public override void Initialize()
+    private void InitializeEvents()
     {
-        // Subscribe to events that would be good for popups here.
+        // Subscribe to events that would be good for popups here. If possible, do this in the new systems themselves
+        // to reduce merge conflicts!
     }
 }

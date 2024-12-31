@@ -1,4 +1,6 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Lidgren.Network;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.FeedbackOverwatch;
@@ -16,3 +18,35 @@ public sealed class FeedbackPopupMessage : EntityEventArgs
         FeedbackPrototype = feedbackPrototype;
     }
 };
+
+/// <summary>
+///     Stores a users response to feedback.
+/// </summary>
+public sealed class FeedbackResponseMessage : NetMessage
+{
+    public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
+
+    /// <summary>
+    ///     The feedback that the user is sending.
+    /// </summary>
+    public string FeedbackName = string.Empty;
+
+    /// <summary>
+    ///     The feedback that the user is sending.
+    /// </summary>
+    public string FeedbackMessage = string.Empty;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+        FeedbackName = buffer.ReadString();
+        FeedbackMessage = buffer.ReadString();
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+        buffer.Write(FeedbackName);
+        buffer.Write(FeedbackMessage);
+    }
+
+    public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableUnordered;
+}

@@ -1,11 +1,12 @@
-﻿# Example
+﻿# Example popup
+
 - type: feedbackPopup
   id: ExampleFeedbackPopup
+  popupName: "FeedbackPopupCampaign"
   title: "[color=red]FEEDBACK[/color] on new popup system."
   description:
-  - "This is a new system to get feedback on features. It will give popups!"
+  - "This is a [bold]new system[/bold] to get feedback on features. It will give popups!"
   - "It also supports multiple sections if it looks better."
-  feedbackLocation: "Please go to the [color=red]#general[/color] channel to give your feedback!"
-  discordLink: "https://discord.com/channels/968983104247185448/968983104662409244"
+  feedbackField: true # Defaults to true but can be set to false
 
-# Popups
+# Please make a new file in this folder for each popup. This will greatly reduce the number of merge conflicts that will occur!

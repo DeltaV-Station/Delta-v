@@ -13,30 +13,29 @@ public sealed partial class FeedbackPopupPrototype : IPrototype
     public string ID { get; } = default!;
 
     /// <summary>
+    ///     Name of the popup. This is relayed in the discord webhook.
+    /// </summary>
+    /// <remarks>
+    ///     Recommended to keep this one word to make searching easier.
+    /// </remarks>
+    [DataField(required: true)]
+    public string PopupName = "";
+
+    /// <summary>
     ///     Title of the popup. This supports rich text so you can use colors and stuff.
     /// </summary>
     [DataField(required: true)]
     public string Title = "";
 
     /// <summary>
-    ///     List of "paragraphs" that are placed in the middle of the popup. Put the any relavent information about
-    ///     what to give feedback on here!
+    ///     List of "paragraphs" that are placed in the middle of the popup. Put any relevant information about what to give feedback on here!
     /// </summary>
     [DataField(required: true)]
     public List<string> Description = new();
 
     /// <summary>
-    ///     Describe where you want to put the feedback here.
+    ///     If true, will show a text field that players can fill out and will be piped through the discord webhook if enabled.
     /// </summary>
     [DataField]
-    public string? FeedbackLocation;
-
-    /// <summary>
-    ///     Link to the discord channel that will be linked when the button is clicked.
-    /// </summary>
-    /// <remarks>
-    ///     Must start with "https://discord.com/".
-    /// </remarks>
-    [DataField]
-    public string? DiscordLink;
+    public bool FeedbackField = true;
 }
