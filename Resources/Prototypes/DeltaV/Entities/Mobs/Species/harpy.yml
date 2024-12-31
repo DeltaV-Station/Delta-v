@@ -77,7 +77,7 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-      - map: [ "singingLayer" ]
+      - map: [ enum.InstrumentVisuals.Layer ]
         sprite: DeltaV/Effects/harpysinger.rsi
         state: singing_music_notes
         visible: false
@@ -115,12 +115,13 @@
       Male: SoundsHarpy
       Female: SoundsHarpy
       Unsexed: SoundsHarpy
+  - type: InstrumentVisuals
   - type: GenericVisualizer
     visuals:
-      enum.HarpyVisualLayers.Singing:
-        singingLayer:
-          False:  {visible: false}
-          True:  {visible: true}
+      enum.InstrumentVisuals.Playing:
+        enum.InstrumentVisuals.Layer:
+          False: {visible: false}
+          True: {visible: true}
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0

@@ -20,7 +20,6 @@ using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.DeltaV.Harpy.Components;
 
 namespace Content.Server.DeltaV.Harpy
 {
@@ -31,7 +30,6 @@ namespace Content.Server.DeltaV.Harpy
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -45,8 +43,6 @@ namespace Content.Server.DeltaV.Harpy
             SubscribeLocalEvent<InstrumentComponent, SleepStateChangedEvent>(OnSleep);
             SubscribeLocalEvent<InstrumentComponent, StatusEffectAddedEvent>(OnStatusEffect);
             SubscribeLocalEvent<InstrumentComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<HarpySingerComponent, BoundUIClosedEvent>(OnBoundUIClosed);
-            SubscribeLocalEvent<HarpySingerComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
 
             // This is intended to intercept the UI event and stop the MIDI UI from opening if the
             // singer is unable to sing. Thus it needs to run before the ActivatableUISystem.
@@ -159,25 +155,6 @@ namespace Content.Server.DeltaV.Harpy
             // Tell the user that they can not sing.
             if (args.Handled)
                 _popupSystem.PopupEntity(Loc.GetString("no-sing-while-no-speak"), uid, uid, PopupType.Medium);
-        }
-
-        private void OnBoundUIClosed(EntityUid uid, HarpySingerComponent component, BoundUIClosedEvent args)
-        {
-            if (args.UiKey is not InstrumentUiKey)
-                return;
-
-            TryComp(uid, out AppearanceComponent? appearance);
-            _appearance.SetData(uid, HarpyVisualLayers.Singing, SingingVisualLayer.False, appearance);
-        }
-
-        private void OnBoundUIOpened(EntityUid uid, HarpySingerComponent component, BoundUIOpenedEvent args)
-        {
-            if (args.UiKey is not InstrumentUiKey)
-                return;
-
-            TryComp(uid, out AppearanceComponent? appearance);
-            _appearance.SetData(uid, HarpyVisualLayers.Singing, SingingVisualLayer.True, appearance);
-
         }
     }
 }
