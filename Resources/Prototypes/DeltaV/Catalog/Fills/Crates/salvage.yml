@@ -1,0 +1,23 @@
+# This is meant to be a smart fridge, but thats useless so
+- type: entity
+  parent: CratePlastic
+  id: CrateSurvivalPodStorage
+  name: survival pod storage
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: SurvivalPod
+
+- type: entityTable
+  id: SurvivalPod
+  table: !type:AllSelector
+    children:
+    - id: FoodDonkpocketWarm
+      amount: !type:ConstantNumberSelector
+        value: 5
+    - !type:GroupSelector
+      children:
+      - id: d6Dice
+      - id: AcousticGuitarInstrument
