@@ -20,6 +20,7 @@
           #command
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ]
           #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 3 ]
@@ -29,21 +30,21 @@
             Clown: [ 1, 1 ]
             Reporter: [ 1, 2 ]
             Musician: [ 1, 2 ]
-            Janitor: [ 1, 3 ]
+            Janitor: [ 2, 3 ]
             Mime: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 4 ]
           #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 1, 2 ]
-            StationEngineer: [ 3, 5 ]
+            StationEngineer: [ 3, 4 ]
             TechnicalAssistant: [ 2, 4 ]
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
             Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
-            MedicalDoctor: [ 3, 4 ]
+            MedicalDoctor: [ 2, 3 ]
             MedicalIntern: [ 2, 3 ]
           #science
             ResearchDirector: [ 1, 1 ]
@@ -66,7 +67,8 @@
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 2 ]
             SalvageSpecialist: [ 2, 3 ]
-            CargoTechnician: [ 2, 4 ]
+            CargoTechnician: [ 2, 3 ]
+            CargoAssistant: [ 1, 2 ]
           #civilian
             Passenger: [ -1, -1 ]
           #justice
