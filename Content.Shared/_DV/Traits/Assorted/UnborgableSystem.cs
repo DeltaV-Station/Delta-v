@@ -39,7 +39,7 @@ public sealed class UnborgableSystem : EntitySystem
         var brains = _body.GetBodyOrganEntityComps<InputMoverComponent>((ent.Owner, body));
         foreach (var brain in brains)
         {
-            EnsureComp<UnborgableComponent>(ent);
+            EnsureComp<UnborgableComponent>(brain);
         }
     }
 
