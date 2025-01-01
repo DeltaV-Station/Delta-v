@@ -1,0 +1,77 @@
+- type: construction
+  name: musket
+  id: WeaponRifleMusket
+  graph: WeaponRifleMusketGraph
+  startNode: start
+  targetNode: musket
+  category: construction-category-weapons
+  objectType: Item
+  description: An old flintlock musket. Uses musket cartidges.
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+    state: base
+
+- type: construction
+  name: modular breech
+  id: ModularBreech
+  graph: ModularBreechGraph
+  startNode: start
+  targetNode: modularbreech
+  category: construction-category-weapons
+  objectType: Item
+  description: Loads the projectile and propellent into the chamber of the gun. Used in the creation of flintlock muskets.
+  icon:
+    sprite: _DV/Objects/Misc/modular_breech.rsi
+    state: base
+
+- type: construction
+  name: modular trigger
+  id: ModularTrigger
+  graph: ModularTriggerGraph
+  startNode: start
+  targetNode: modulartrigger
+  category: construction-category-weapons
+  objectType: Item
+  description: Makes gun go pew when activated. Used in the creation of guns.
+  icon:
+    sprite: _DV/Objects/Misc/modular_trigger.rsi
+    state: base
+
+- type: construction
+  name: bayonet
+  id: Bayonet
+  graph: BayonetGraph
+  startNode: start
+  targetNode: bayonet
+  category: construction-category-weapons
+  objectType: Item
+  description: Often placed on guns to go stabby stabby.
+  icon:
+    sprite: _DV/Objects/Misc/bayonet.rsi
+    state: base
+    
+- type: construction
+  name: cartridge (musket)
+  id: CartridgeMusket
+  graph: CartridgeMusketGraph
+  startNode: start
+  targetNode: musketcartridge
+  category: construction-category-weapons
+  objectType: Item
+  description: A paper musket cartridge used to load a musket.
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/musket_casing.rsi
+    state: base
+
+- type: construction
+  name: flintlock
+  id: WeaponPistolFlintlockCrafted
+  graph: WeaponPistolFlintlockCraftedGraph
+  startNode: start
+  targetNode: flintlock
+  category: construction-category-weapons
+  objectType: Item
+  description: An old flintlock, feels like 1800s gang warfare. Uses musket cartidges.
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+    state: base

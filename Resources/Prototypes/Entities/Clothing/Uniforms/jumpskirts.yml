@@ -170,9 +170,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hop.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformSkirtFoldableBase, BaseCommandContraband] # DeltaV - add foldable jumpsuits
@@ -181,9 +181,9 @@
   description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -269,9 +269,9 @@
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase # Delta-V - Make this parent to ClothingUniformSkirtBase from ClothingUniformBase
@@ -376,9 +376,9 @@
   description: A charcoal skirt and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformSkirtFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
@@ -387,9 +387,9 @@
   description: Red shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/armourer.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/armourer.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/armourer.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -655,9 +655,9 @@
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
