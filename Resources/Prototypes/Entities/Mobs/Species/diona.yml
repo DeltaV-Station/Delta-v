@@ -8,7 +8,7 @@
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
-    baseDecayRate: 0.015 #DeltaV
+    baseDecayRate: 0.015 # DeltaV
   - type: Thirst
     baseDecayRate: 0.15 # DeltaV
   - type: Carriable # Carrying system from nyanotrasen.
@@ -87,6 +87,7 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
+    allowedEmotes: ['Chirp']
   - type: Vocal
     sounds:
       Male: UnisexDiona
@@ -116,6 +117,7 @@
   - type: MovementSpeedModifier # DeltaV
     baseWalkSpeed: 1.0
     baseSprintSpeed: 3.0
+  - type: FTLKnockdownImmune # Frontier
 
 - type: entity
   parent: BaseSpeciesDummy

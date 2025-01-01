@@ -253,7 +253,7 @@
     stampedBy:
     - stampedColor: '#333333FF'
       stampedName: Christopher Cleanman
-#      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+#      stampType: Signature # DeltaV - Not compatible with our signatures code stuff apparently
     content: |2
       [head=3]Hello Valued Customer,[/head]
       You have been selected to receive a complimentary sampler of scented soaps that Nanotrasen has to offer.
@@ -268,7 +268,7 @@
 - type: entity
   id: PaperMailNTSoapAd2
   categories: [ HideSpawnMenu ] 
-  suffix: "soap ad 2" #DeltaV - Edited to not be addressed to Frontier Citizens, localized
+  suffix: "soap ad 2" # DeltaV - Edited to not be addressed to Frontier Citizens, localized
   parent: Paper
   components:
   - type: Paper
@@ -370,7 +370,7 @@
     stampedBy:
     - stampedColor: '#333333FF'
       stampedName: craig
-#      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+#      stampType: Signature # DeltaV - Not compatible with our signatures code stuff apparently
     content: |2
       [bold]hey uh, they told me to send you a pipebomb i guess?
 
@@ -404,7 +404,7 @@
   id: PaperMailNFEMPPreparedness
   categories: [ HideSpawnMenu ]
   name: EMP preparedness response form
-  suffix: "emp preparedness" #DeltaV - Replaces mention of SR with HoS
+  suffix: "emp preparedness" # DeltaV - Replaces mention of SR with HoS
   parent: Paper
   components:
   - type: Paper
@@ -425,7 +425,7 @@
   id: PaperMailNFBuildABuddy
   categories: [ HideSpawnMenu ]
   name: Build-a-Buddy adoption letter
-  suffix: "build-a-buddy" #DeltaV- Body text changed, because Goblins Aren't Real
+  suffix: "build-a-buddy" # DeltaV- Body text changed, because Goblins Aren't Real
   parent: Paper
   components:
   - type: Paper
@@ -435,7 +435,7 @@
       stampedName: Chief Friendship Officer
     - stampedColor: '#333333FF'
       stampedName: Cuts-With-Scalpel
-#      stampType: Signature  #DeltaV - Not compatible with our signatures code stuff apparently. 
+#      stampType: Signature  # DeltaV - Not compatible with our signatures code stuff apparently. 
     content: |2
 
       [head=1]Note of Adoption[/head]
@@ -453,7 +453,7 @@
 - type: entity
   id: PaperMailNFSpaceLaw
   categories: [ HideSpawnMenu ]
-  suffix: "space-law" #DeltaV- edited contents to be from the Delta Sector instead of the Frontier
+  suffix: "space-law" # DeltaV- edited contents to be from the Delta Sector instead of the Frontier
   parent: Paper
   components:
   - type: Paper

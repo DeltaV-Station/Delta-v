@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Fishbowl.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Fishbowl.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -53,7 +53,7 @@
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Boxer: [ 2, 2 ]
-            Chef: [ 2, 3 ]
+            Chef: [ 1, 2 ]
             Clown: [ 1, 2 ]
             HeadOfPersonnel: [ 1, 1 ]
             Janitor: [ 2, 3 ]

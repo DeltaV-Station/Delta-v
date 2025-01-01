@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionMedHud
+  name: prescription medical hud
+  description: A poorly done and rushed mix between half of a pair of prescription glasses and a medical HUD allowing you to see clearly out of one eye and view the health of people out of the other!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Construction
+    graph: PrescriptionMedHud
+    node: prescmedhud
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Tag
+    tags:
+    - HudMedical
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesPrescriptionHudSecurity
+  name: prescription security hud
+  description: A poorly done and rushed mix between half of a pair of prescription glasses and a security HUD allowing you to see clearly out of one eye and inspect the employee's ID and warning status in the other!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: Construction
+    graph: PrescriptionSecHud
+    node: prescsechud
+  - type: Tag
+    tags:
+    - HudSecurity
+  - type: VisionCorrection
+    correctionPower: 1.75 # The hud part decreases efficiency
