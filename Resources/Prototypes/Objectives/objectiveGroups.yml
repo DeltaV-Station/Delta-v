@@ -18,13 +18,14 @@
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
     MantisKnifeStealObjective: 1 # Nyanotrasen - ForensicMantis steal objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
     ClipboardStealObjective: 1
+    RdClipboardStealObjective: 1 # DeltaV - Mysta steal Objective see Resources/Prototypes/_DV/Objectives/traitor.yml
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     ClerkNotaryStealObjective: 0.5 # DeltaV
-    LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
-    HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
+    LOLuckyBillStealObjective: 0.5 # DeltaV - LO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
+    HoPBookIanDossierStealObjective: 1 # DeltaV - HoP steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
     HoSGunStealObjective: 0.5 # DeltaV
     PlutoniumCoreStealObjective: 0.5 # DeltaV, was reverted upstream
     NukeDiskStealObjective: 0.25
@@ -35,6 +36,7 @@
     # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
     TeachLessonRandomPersonObjective: 1
     KillRandomHeadObjective: 0.25
+    KillRandomTraitorObjective: 0.2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -120,7 +122,7 @@
     RenaultStealObjective: 1
     ShivaStealObjective: 1
     TropicoStealObjective: 1
-    SilviaStealObjective: 1 #DeltaV - CMO steal objective, see Resources/Prototypes/DeltaV/Objectives/traitor.yml
+    SilviaStealObjective: 1 # DeltaV - CMO steal objective, see Resources/Prototypes/_DV/Objectives/traitor.yml
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape

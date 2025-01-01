@@ -73,7 +73,7 @@
     sprite: Clothing/Shoes/Boots/highheelboots.rsi
 
 - type: entity
-  parent: [ ClothingShoesMilitaryBase, BaseRestrictedContraband ]
+  parent: [ ClothingShoesMilitaryBase ]
   id: ClothingShoesBootsMerc
   name: mercenary boots
   description: Boots that have gone through many conflicts and that have proven their combat reliability.
@@ -150,9 +150,9 @@
   name: security winter boots
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
+    sprite: _DV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
   - type: Clothing
-    sprite: DeltaV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
+    sprite: _DV/Clothing/Shoes/Boots/winterbootssec.rsi # DeltaV - resprite boots to meet standards
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]

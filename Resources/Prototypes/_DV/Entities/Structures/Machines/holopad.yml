@@ -1,0 +1,69 @@
+## Mapping prototypes
+#Command
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeCJ
+  suffix: Chief Justice
+  components:
+  - type: Label
+    currentLabel: holopad-command-cj
+
+#Justice
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeProsecutor
+  suffix: Prosecutor
+  components:
+  - type: Label
+    currentLabel: holopad-justice-prosecutor
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeClerk
+  suffix: Clerk
+  components:
+  - type: Label
+    currentLabel: holopad-justice-clerk
+
+#Logistics
+- type: entity
+  parent: Holopad
+  id: HolopadCargoMail
+  suffix: Mailroom
+  components:
+  - type: Label
+    currentLabel: holodpad-logistics-mailroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadCargoMailFront
+  suffix: Mail Front
+  components:
+  - type: Label
+    currentLabel: holodpad-logistics-mailfront
+
+#Epistemics
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsMantis
+  suffix: Mantis
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-mantis
+
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsOracle
+  suffix: Oracle
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-oracle
+
+#Security
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityCorpsman
+  suffix: Corpsman
+  components:
+  - type: Label
+    currentLabel: holopad-security-corpsman

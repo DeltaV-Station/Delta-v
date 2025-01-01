@@ -53,7 +53,7 @@
     Plastic: 200
     Plasma: 50
     Silver: 50
-    Bluespace: 100 #DeltaV: Bluespace
+    Bluespace: 100 # DeltaV: Bluespace
 
 - type: latheRecipe
   id: SyringeBluespace
@@ -64,7 +64,7 @@
     Plastic: 100
     Glass: 200
     Plasma: 50
-    Bluespace: 100 #DeltaV: Bluespace
+    Bluespace: 100 # DeltaV: Bluespace
    #Silver: 50
 
 - type: latheRecipe
@@ -83,10 +83,10 @@
 
 # - type: latheRecipe # DeltaV - Disable the Vape
 #   id: Vape
+#   result: Vape
 #   icon:
 #     sprite: Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
 #     state: icon
-#   result: Vape
 #   completetime: 2
 #   materials:
 #     Plastic: 100

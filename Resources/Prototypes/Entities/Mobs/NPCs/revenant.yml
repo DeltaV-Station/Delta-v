@@ -13,19 +13,16 @@
     baseWalkSpeed: 6
     baseSprintSpeed: 6
   - type: Sprite
-    sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+    sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
     layers:
     - state: active
-  - type: Reactive # Nyanotrasen - Holy Water affects Revenants
-    groups:
-      Acidic: [Touch]
   - type: StatusEffects
     allowed:
     - Stun
     - Corporeal
-  - type: Damageable # Nyanotrasen - Corporeal Spirit allows Holy water to do damage
-    damageContainer: CorporealSpirit
-    damageModifierSet: CorporealSpirit
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: Spirit # DeltaV: Keep revenant extreme weakness to heat and bible
   - type: NoSlip
   - type: Eye
     drawFov: false
@@ -45,7 +42,7 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Revenant
-    spawnOnDeathPrototype: EctoplasmRevenant #DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
+    spawnOnDeathPrototype: EctoplasmRevenant # DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
     malfunctionWhitelist:
       components:
       # emag lockers open
@@ -81,3 +78,6 @@
     - RevenantTheme
   - type: Speech
     speechVerb: Ghost
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
