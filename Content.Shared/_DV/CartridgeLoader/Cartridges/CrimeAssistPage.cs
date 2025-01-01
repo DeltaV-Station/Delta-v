@@ -40,7 +40,7 @@ public sealed partial class CrimeAssistPage : IPrototype
 public enum CrimeSeverity : byte
 {
     Innocent,
-    Misdemenour,
+    Misdemeanour,
     Felony,
     Capital
 }
