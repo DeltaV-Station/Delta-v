@@ -1,0 +1,133 @@
+- type: entity
+  id: BaseSpeedLoaderSpecial
+  name: "speed loader (.38 special)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoaderSpecial
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeSpecial
+    capacity: 6
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: MagazineVisuals
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoaderSpecial
+  name: "speed loader (.38 special)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecial
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: base-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+
+- type: entity
+  id: SpeedLoaderSpecialEmpty
+  name: "speed loader (.38 special any)"
+  parent: SpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+
+- type: entity
+  id: SpeedLoaderSpecialPractice
+  name: "speed loader (.38 special practice)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: practice-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: practice
+
+- type: entity
+  id: SpeedLoaderSpecialRubber
+  name: "speed loader (.38 special rubber)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: rubber-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: rubber
+
+- type: entity
+  id: SpeedLoaderSpecialUranium
+  name: "speed loader (.38 special uranium)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: uranium-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: uranium
+
+- type: entity
+  id: SpeedLoaderSpecialMindbreaker
+  name: "speed loader (.38 special mindbreaker)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialMindbreaker
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mindbreaker-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mindbreaker
+
+- type: entity
+  id: SpeedLoaderSpecialHoly
+  name: "speed loader (.38 special holy)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialHoly
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: holy-6
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: holy

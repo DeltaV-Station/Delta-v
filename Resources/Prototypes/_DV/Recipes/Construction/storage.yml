@@ -1,0 +1,17 @@
+#bureaucracy
+- type: construction
+  id: SecureCabinet
+  name: secure cabinet
+  description: A secure cabinet to keep all your confidential files.
+  graph: SecureCabinet
+  startNode: start
+  targetNode: securecabinet
+  category: construction-category-storage
+  icon:
+    sprite: _DV/Structures/Storage/secure_cabinet.rsi
+    state: secure-cabinet
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
