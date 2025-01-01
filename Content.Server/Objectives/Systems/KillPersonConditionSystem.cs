@@ -65,7 +65,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // Get all alive humans, filter out any with TargetObjectiveImmuneComponent
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId)
+        var allHumans = _mind.GetAliveHumans(args.MindId)
             .Where(mindId =>
             {
                 if (!TryComp<MindComponent>(mindId, out var mindComp) || mindComp.OwnedEntity == null)

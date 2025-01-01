@@ -1,0 +1,63 @@
+#Other Tails
+- type: marking
+  id: FelinidFluffyTailRings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Vulpkanin]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_full
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings
+
+- type: marking
+  id: FelinidFluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Vulpkanin]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_full
+
+- type: marking
+  id: FelinidAlternativeTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Vulpkanin]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/alternative_tail.rsi
+    state: m_waggingtail_cat_FRONT
+
+- type: marking
+  id: FelinidTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Vulpkanin]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_primary
+  - sprite: _DV/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_secondary
+  - sprite: _DV/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_tertiary
+
+# Animated Tails
+- type: marking
+  id: FelinidFluffyTailRingsAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_base_wag
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings_wag
+
+- type: marking
+  id: FelinidFluffyTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_base_wag

@@ -43,7 +43,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _DV/Structures/Wallmounts/intercom.rsi # DeltaV - Add sprite rotation
     layers:
     - state: base
     - state: unshaded
@@ -135,7 +135,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _DV/Structures/Wallmounts/intercom.rsi # DeltaV - Add sprite rotation
     layers:
     - state: build
     - state: panel

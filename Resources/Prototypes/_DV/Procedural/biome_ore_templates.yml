@@ -1,0 +1,46 @@
+# these have higher group size so more ores spawns
+
+# Plasma
+- type: biomeMarkerLayer
+  id: OrePlasma3
+  entityMask:
+    AsteroidRock: AsteroidRockPlasma
+    WallRock: WallRockPlasma
+    WallRockBasalt: WallRockBasaltPlasma
+    WallRockChromite: WallRockChromitePlasma
+    WallRockSand: WallRockSandPlasma
+    WallRockSnow: WallRockSnowPlasma
+  maxCount: 12
+  minGroupSize: 12
+  maxGroupSize: 24
+  radius: 4
+
+# Uranium
+- type: biomeMarkerLayer
+  id: OreUranium2
+  entityMask:
+    AsteroidRock: AsteroidRockUranium
+    WallRock: WallRockUranium
+    WallRockBasalt: WallRockBasaltUranium
+    WallRockChromite: WallRockChromiteUranium
+    WallRockSand: WallRockSandUranium
+    WallRockSnow: WallRockSnowUranium
+  maxCount: 15
+  minGroupSize: 8
+  maxGroupSize: 16
+  radius: 4
+
+# Diamond
+- type: biomeMarkerLayer
+  id: OreDiamond2
+  entityMask:
+    AsteroidRock: AsteroidRockDiamond
+    WallRock: WallRockDiamond
+    WallRockBasalt: WallRockBasaltDiamond
+    WallRockChromite: WallRockChromiteDiamond
+    WallRockSand: WallRockSandDiamond
+    WallRockSnow: WallRockSnowDiamond
+  maxCount: 6
+  minGroupSize: 2
+  maxGroupSize: 4
+  radius: 4

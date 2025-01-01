@@ -87,7 +87,7 @@ public sealed partial class GhostRoleSystem : EntitySystem // Converted to parti
         SubscribeLocalEvent<GhostRoleRaffleComponent, ComponentShutdown>(OnRaffleShutdown);
 
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeRole);
-        SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter); // DeltaV - Character ghost roles, see Content.Server/DeltaV/Ghost/Roles/GhostRoleSystem.Character.cs
+        SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter); // DeltaV - Character ghost roles, see Content.Server/_DV/Ghost/Roles/GhostRoleSystem.Character.cs
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GhostRoleRadioMessage>(OnGhostRoleRadioMessage);
         _playerManager.PlayerStatusChanged += PlayerStatusChanged;
