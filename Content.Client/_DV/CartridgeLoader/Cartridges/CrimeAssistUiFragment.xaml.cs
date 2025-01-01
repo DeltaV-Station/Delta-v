@@ -72,7 +72,7 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
         }
         else
         {
-            var severity = page.CrimeSeverity!;
+            var severity = page.CrimeSeverity!.Value;
             var color = severity switch
             {
                 CrimeSeverity.Innocent => "#39a300",
