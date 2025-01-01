@@ -255,7 +255,7 @@
             Heat: 12
     deactivatedSecret: true
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
+    sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
       - state: e_cutlass
       - state: e_cutlass_blade
@@ -272,7 +272,7 @@
         Blunt: 6
   - type: Item
     size: Small
-    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
+    sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
 
 - type: entity
   name: double-bladed energy sword
