@@ -584,9 +584,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
+    sprite: _DV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
+    sprite: _DV/Structures/Walls/solid.rsi #Delta V - Resprite walls
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -647,9 +647,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: _DV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: _DV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -989,13 +989,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
+    sprite: _DV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid.rsi #Delta V - Resprite walls
+    sprite: _DV/Structures/Walls/solid.rsi #Delta V - Resprite walls
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1055,9 +1055,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: _DV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
   - type: Icon
-    sprite: DeltaV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
+    sprite: _DV/Structures/Walls/solid_rust.rsi # Delta V - Resprite Walls
     state: full
   - type: Construction
     graph: Girder
@@ -1110,13 +1110,14 @@
   parent: BaseWall
   id: WallWood
   name: wood wall
+  description: The traditional greytide defense.
   components:
   - type: Sprite
     sprite: Structures/Walls/wood.rsi
   - type: Icon
     sprite: Structures/Walls/wood.rsi
   - type: Construction
-    graph: Girder
+    graph: Barricade
     node: woodWall
   - type: Destructible
     thresholds:
@@ -1137,7 +1138,7 @@
         sound:
           collection: WoodDestroyHeavy
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: Barricade
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth

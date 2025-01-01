@@ -1,27 +1,13 @@
 # Tier 1
 
 - type: technology
-  id: SalvageWeapons
-  name: research-technology-salvage-weapons
-  icon:
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - WeaponProtoKineticAccelerator
-  - ShuttleGunKineticCircuitboard
-  # These are roundstart but not replenishable for salvage
-
-- type: technology
   id: DraconicMunitions
   name: research-technology-draconic-munitions
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     state: incendiarydisplay
   discipline: Arsenal
-  tier: 1
+  tier: 2 # DeltaV moved to t2 from t1
   cost: 10000
   recipeUnlocks:
   - BoxShotgunIncendiary
@@ -59,8 +45,8 @@
   cost: 5000
   recipeUnlocks:
   - MagazineShotgunBeanbag
-  - BoxShellTranquilizer 
-  - BoxBeanbag 
+  - BoxShellTranquilizer
+  - BoxBeanbag
   - WeaponDisabler
   # DeltaV - rubber ammo which upstream removed
   - MagazineRifleRubber
@@ -82,7 +68,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: uranium
   discipline: Arsenal
-  tier: 1
+  tier: 2 # DeltaV moved to t2 from t1
   cost: 7500
   recipeUnlocks:
   - MagazineRifleUranium
@@ -113,9 +99,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
-  - BorgModuleSecurityDeescalate # Delta-V : SecBorg Research
   - BorgModuleSecurityEscalate # Delta-V : SecBorg Research
- 
 
 - type: technology
   id: ExplosiveTechnology
@@ -157,21 +141,40 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 12500 # DeltaV: increased from 10000
   recipeUnlocks:
   - WeaponLaserCannon
+  - WeaponXrayCannon
+  - WeaponBeamCannon # DeltaV - Adds Beam cannon
+
+# DeltaV: merged with concentrated laser weaponry
+#- type: technology
+#  id: WaveParticleHarnessing
+#  name: research-technology-wave-particle-harnessing
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+#    state: icon
+#  discipline: Arsenal
+#  tier: 2
+#  cost: 10000
+#  recipeUnlocks:
+#  - WeaponXrayCannon
 
 - type: technology
-  id: WaveParticleHarnessing
-  name: research-technology-wave-particle-harnessing
+  id: ExperimentalSalvageWeaponry
+  name: research-technology-experimental-salvage-weaponry
   icon:
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
     state: icon
   discipline: Arsenal
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - WeaponXrayCannon
+  - WeaponCrusher
+  - WeaponCrusherDagger
+  - WeaponCrusherGlaive
+  - BorgModuleFauna
+  - ShuttleGunKineticCircuitboard
 
 - type: technology
   id: BasicShuttleArmament
@@ -180,7 +183,7 @@
     sprite: Structures/Power/cage_recharger.rsi
     state: full
   discipline: Arsenal
-  tier: 2
+  tier: 1 # DeltaV: moved to T1 from t2
   cost: 10500
   recipeUnlocks:
   - PowerCageRechargerCircuitboard
@@ -192,8 +195,8 @@
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
-  technologyPrerequisites:
-  - SalvageWeapons
+  technologyPrerequisites: # DeltaV: added prerequesite
+  - ExplosiveTechnology
 
 # Tier 3
 
@@ -208,6 +211,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
+  - PortableRecharger
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -216,7 +220,7 @@
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
     state: icon
   discipline: Arsenal
-  tier: 3
+  tier: 2 # DeltaV: moved to t2 from t3
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
@@ -228,7 +232,7 @@
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
   discipline: Arsenal
-  tier: 3
+  tier: 2 # DeltaV: moved to t2 from t3
   cost: 15000
   recipeUnlocks:
   - GrenadeEMP

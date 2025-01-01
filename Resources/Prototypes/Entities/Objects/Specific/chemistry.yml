@@ -288,6 +288,7 @@
   - type: Injector
     injectOnly: false
     ignoreMobs: true
+    ignoreClosed: false
     minTransferAmount: 1
     maxTransferAmount: 5
     transferAmount: 1
@@ -414,6 +415,10 @@
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: false
+  - type: SolutionContainerManager # DeltaV - Nerfs the max volume to 5 (was 15)
+    solutions:
+      injector:
+        maxVol: 5 
   - type: SolutionInjectWhileEmbedded
     transferAmount: 1
     solution: injector
@@ -550,12 +555,8 @@
     solutions:
       food:
         maxVol: 20
-  - type: SolutionSpiker
-    sourceSolution: food
-  - type: Extractable
-    grindableSolutionName: food
-  - type: StaticPrice
-    price: 0
+  - type: ExplosionResistance
+    damageCoefficient: 0.025 # survives conventional explosives but not minibombs and nukes
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -568,6 +569,12 @@
         solution: food
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: SolutionSpiker
+    sourceSolution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: StaticPrice
+    price: 0
   - type: Tag
     tags:
     - Pill
@@ -588,9 +595,6 @@
     tags:
       - PillCanister
   - type: Storage
-    whitelist: # DeltaV - Remove the ability to store anything other than pills in pill canisters
-      tags:
-      - Pill
     grid:
     - 0,0,4,1
     quickInsert: true
@@ -598,4 +602,7 @@
     areaInsertRadius: 1
     storageInsertSound: /Audio/Effects/pill_insert.ogg
     storageRemoveSound: /Audio/Effects/pill_remove.ogg
+    whitelist: 
+      tags:
+      - Pill
   - type: Dumpable
