@@ -28,7 +28,7 @@ public sealed class UnborgableSystem : EntitySystem
     public bool IsUnborgable(Entity<BodyComponent?> ent)
     {
         // technically this will apply for any organ not just brain, but assume nobody will be evil and do that
-        return _body.GetBodyOrganEntityComps<UnborgableComponent>().Count > 0;
+        return _body.GetBodyOrganEntityComps<UnborgableComponent>(ent).Count > 0;
     }
 
     private void OnMapInit(Entity<UnborgableComponent> ent, ref MapInitEvent args)
