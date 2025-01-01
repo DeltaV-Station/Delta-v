@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._DV.Antag; // DeltaV
 using Content.Server.Chat.Systems;
-using Content.Server.DeltaV.Antag; // DeltaV
 using Content.Server.Fax;
 using Content.Shared.Fax.Components;
 using Content.Server.Station.Components;

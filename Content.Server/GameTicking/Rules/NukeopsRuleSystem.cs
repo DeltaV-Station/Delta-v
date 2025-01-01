@@ -1,3 +1,5 @@
+using Content.Server._DV.Objectives.Components; // DeltaV
+using Content.Server._DV.Objectives.Systems; // DeltaV
 using Content.Server.Antag;
 using Content.Server.Communications;
 using Content.Server.GameTicking.Rules.Components;
@@ -24,8 +26,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server.DeltaV.Objectives.Components; // DeltaV
-using Content.Server.DeltaV.Objectives.Systems; // DeltaV
 using Content.Shared.Store.Components;
 
 namespace Content.Server.GameTicking.Rules;

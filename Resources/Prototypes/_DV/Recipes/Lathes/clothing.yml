@@ -1,0 +1,159 @@
+# Jumpsuits - Security
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecBlue
+  result: ClothingUniformJumpsuitSecBlue
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecGrey
+  result: ClothingUniformJumpsuitSecGrey
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitWardenBlue
+  result: ClothingUniformJumpsuitWardenBlue
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitWardenGrey
+  result: ClothingUniformJumpsuitWardenGrey
+
+# Jumpskirts - Security
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecBlue
+  result: ClothingUniformJumpskirtSecBlue
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSecGrey
+  result: ClothingUniformJumpskirtSecGrey
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSBlue
+  result: ClothingUniformJumpskirtHoSBlue
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSGrey
+  result: ClothingUniformJumpskirtHoSGrey
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtWardenBlue
+  result: ClothingUniformJumpskirtWardenBlue
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtWardenGrey
+  result: ClothingUniformJumpskirtWardenGrey
+
+# Security Sweater
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterStasecSweater
+  result: ClothingOuterStasecSweater
+  completetime: 4
+
+# Chief Justice Wardrobe
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatCJToque
+  result: ClothingHeadHatCJToque
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitChiefJustice
+  result: ClothingUniformJumpsuitChiefJustice
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtChiefJustice
+  result: ClothingUniformJumpskirtChiefJustice
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitChiefJusticeFormal
+  result: ClothingUniformJumpsuitChiefJusticeFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitChiefJusticeWhite
+  result: ClothingUniformJumpsuitChiefJusticeWhite
+  completetime: 5
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: ClothingOuterChiefJustice
+  result: ClothingOuterChiefJustice
+
+#Syndicate Clothing
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCybersunAttorney
+  result: ClothingUniformCybersunAttorney
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: UniformScrubsColorCybersun
+  result: UniformScrubsColorCybersun
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformInterdyneChemist
+  result: ClothingUniformInterdyneChemist
+
+#- type: latheRecipe
+#  parent: BaseJumpsuitRecipe
+#  id: ClothingUniformCybersunHazard
+#  result: ClothingUniformCybersunHazard
+
+#- type: latheRecipe
+#  parent: BaseJumpsuitRecipe
+#  id: ClothingUniformCybersunCasual
+#  result: ClothingUniformCybersunCasual
+
+#- type: latheRecipe
+#  parent: BaseJumpsuitRecipe
+#  id: ClothingUniformCybersunRND
+#  result: ClothingUniformCybersunRND
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatCybersunWindbreaker #unsure because its armored, but with an EMAG you can get far better things than it from machines that you DONT have to steal/make.
+  result: ClothingOuterCoatCybersunWindbreaker
+  materials:
+    Cloth: 100
+    Durathread: 200 #increased durathread cost since it has armor
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterInterdyneChemistrySuit
+  result: ClothingOuterInterdyneChemistrySuit
+  materials:
+    Cloth: 100
+    Durathread: 200 #increased durathread cost since it has "armor" (Caustic is such a real damage type)
+
+#- type: latheRecipe #Commented out for now until added
+#  parent: BaseCoatRecipe
+#  id: ClothingOuterCybersunOvercoat
+#  result: ClothingOuterCybersunOvercoat
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatSurgcapCybersun
+  result: ClothingHeadHatSurgcapCybersun
+
+- type: latheRecipe #unsure about letting people craft a gasmask at the uniform printer, but also dont want to split up the uniform into different machines or leave it half-finished, added higher cloth cost because this is the only way to lathe gasmasks at all, apparently.
+  parent: BaseHatRecipe
+  id: ClothingMaskInterdyneChemistry
+  result: ClothingMaskInterdyneChemistry
+  materials:
+    Cloth: 400
