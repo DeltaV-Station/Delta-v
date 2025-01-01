@@ -1,0 +1,532 @@
+- type: entity
+  parent: BasePDA
+  id: CorpsmanPDA
+  name: corpsman PDA
+  description: Red and Sterile. Has a built-in health analyzer.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi # - aPDA Sprite Rework
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
+    diskSpace: 7
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
+      - NanoChatCartridge
+  - type: Pda
+    id: BrigmedicIDCard
+    state: pda-corpsman
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#447987"
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-corpsman
+  - type: HealthAnalyzer
+    scanDelay: 1
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: BasePDA
+  id: BaseJusticePDA
+  abstract: true
+  components:
+  - type: Pda
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: CartridgeLoader
+    diskSpace: 7
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+    - NanoChatCartridge
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ChiefJusticePDA
+  name: chief justice PDA
+  description: Whosoever bears this PDA is the law.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: ChiefJusticeIDCard
+    state: pda-chiefjustice
+  - type: PdaBorderColor
+    borderColor: "#470823"
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-chiefjustice
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ClerkPDA
+  name: clerk PDA
+  description: It has the stamp to prove it's been officially notarized!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: ClerkIDCard
+    state: pda-clerk
+  - type: PdaBorderColor
+    borderColor: "#611528"
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-clerk
+
+- type: entity
+  parent: BaseJusticePDA
+  id: ProsecutorPDA
+  name: prosecutor PDA
+  description: Sharp. Looks like it could prosecute you all on its own.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: ProsecutorIDCard
+    state: pda-prosecutor
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-prosecutor
+
+- type: entity
+  parent: SyndiPDA
+  id: SyndiListeningPostPDA
+  components:
+  - type: Pda
+    id: SyndicateIDCard
+    state: pda-syndi-agent
+    penSlot:
+      startingItem: CyberPen
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: BasePDA
+  id: CourierPDA
+  name: courier PDA
+  description: Smells like unopened letters.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: CourierIDCard
+    state: pda-mailcarrier
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#050c4d"
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-mailcarrier
+  - type: CartridgeLoader # DeltaV - Courier Performance
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MailMetricsCartridge
+      - NanoChatCartridge
+
+- type: entity
+  parent: CargoPDA
+  id: CargoAssistantPDA
+  name: cargo assistant PDA
+  description: It smells like cardboard.
+  components:
+  - type: Pda
+    id: CargoAssistantIDCard
+    state: pda-cargo-assistant
+
+- type: entity
+  parent: BasePDA
+  id: AdminAssistantPDA
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: AdminAssistantIDCard
+    state: pda-admin-assistant
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _DV/Objects/Devices/pda.rsi
+    state: pda-admin-assistant
+
+## Alternate Job Titles
+
+# Passenger
+
+# event visitors get externals emergency access, not a good thing for powergaming tiders
+- type: entity
+  parent: VisitorPDA
+  id: VisitorPDALoadout
+  components:
+  - type: Pda
+    id: VisitorIDCardLoadout
+
+- type: entity
+  parent: PassengerPDA
+  id: TouristPDA
+  name: tourist PDA
+  description: You came to the station for a relaxing vacation. Bon voyage!
+  components:
+  - type: Pda
+    id: TouristIDCard
+    state: pda-tourist # - aPDA Sprite Rework
+
+- type: entity
+  parent: PassengerPDA
+  id: OffDutyCrewPDA
+  name: off-duty crew PDA
+  description: You saved your PTO to come here with zero responsibility. Surely they won't need your help while you're here?
+  components:
+  - type: Pda
+    id: OffDutyCrewIDCard
+    state: pda-offduty # - aPDA Sprite Rework
+
+- type: entity
+  parent: PassengerPDA
+  id: StudentPDA
+  name: student PDA
+  description: Whether you came here to study various aspects of space architecture, unfathomably hot burn chambers, psionic activity, or are just on spring break, you're a real space student now.
+  components:
+  - type: Pda
+    id: StudentIDCard
+    state: pda-student # - aPDA Sprite Rework
+
+# Bartender
+
+- type: entity
+  parent: BartenderPDA
+  id: MixologistPDA
+  name: mixologist PDA
+  description: There are those who tend the bar, and then there are those who synthesize intoxicating art.
+  components:
+  - type: Pda
+    id: MixologistIDCard
+    state: pda-mixologist # - aPDA Sprite Rework
+
+# Chef
+
+- type: entity
+  parent: ChefPDA
+  id: BakerPDA
+  name: baker PDA
+  description: For those about to loaf, we salute you.
+  components:
+  - type: Pda
+    id: BakerIDCard
+    state: pda-baker # - aPDA Sprite Rework
+
+- type: entity
+  parent: ChefPDA
+  id: ButcherPDA
+  name: butcher PDA
+  description: It's as fearsome of a job title as you want it to be.
+  components:
+  - type: Pda
+    id: ButcherIDCard
+    state: pda-butcher # - aPDA Sprite Rework
+
+- type: entity
+  parent: ChefPDA
+  id: PizzaioloPDA
+  name: pizzaiolo PDA
+  description: Hey paesanos! It's a-time to cook-a-da-pizza!
+  components:
+  - type: Pda
+    id: PizzaioloIDCard
+    state: pda-pizzaiolo # - aPDA Sprite Rework
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternPDA
+  id: PracticalNursePDA
+  name: practical nurse PDA
+  description: For those who practically nurse people to good health.
+  components:
+  - type: Pda
+    id: PracticalNurseIDCard
+    state: pda-practicingnurse # - aPDA Sprite Rework
+
+- type: entity
+  parent: MedicalInternPDA
+  id: ResidentPDA
+  name: resident PDA
+  description: No, it's for training your way up the medical ladder. Not evil.
+  components:
+  - type: Pda
+    id: ResidentIDCard
+    state: pda-resident # - aPDA Sprite Rework
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalPDA
+  id: ClinicianPDA
+  name: clinician PDA
+  description: Why do you have to be so clinical about everything!?
+  components:
+  - type: Pda
+    id: ClinicianIDCard
+    state: pda-phys # - aPDA Sprite Rework
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistPDA
+  id: PsychiatristPDA
+  name: psychiatrist PDA
+  description: Sterile-smelling and neutrally colored.
+  components:
+  - type: Pda
+    id: PsychiatristIDCard
+    state: pda-psychiatrist
+
+- type: entity
+  parent: PsychologistPDA
+  id: TherapistPDA
+  name: therapist PDA
+  description: Covered in a rubberized case in a reassuring shade of brown.
+  components:
+  - type: Pda
+    id: TherapistIDCard
+    state: pda-therapist
+
+- type: entity
+  parent: PsychologistPDA
+  id: SocialWorkerPDA
+  name: social worker PDA
+  description: Dented and scratched. It's been well-used.
+  components:
+  - type: Pda
+    id: SocialWorkerIDCard
+    state: pda-socialworker
+
+# Atmospherics Technician
+
+- type: entity
+  parent: AtmosPDA
+  id: LifeSupportTechPDA
+  name: life support technician PDA
+  components:
+  - type: Pda
+    id: LifeSupportTechIDCard
+    state: pda-lifesupporttech # - aPDA Sprite Rework
+
+- type: entity
+  parent: AtmosPDA
+  id: PlasmaScientistPDA
+  name: plasma scientist PDA
+  components:
+  - type: Pda
+    id: PlasmaScientistIDCard
+    state: pda-plasmatech # - aPDA Sprite Rework
+
+# Station Engineer
+
+- type: entity
+  parent: EngineerPDA
+  id: ElectricianPDA
+  name: electrician PDA
+  description: Where do they get the batteries for these things?
+  components:
+  - type: Pda
+    id: ElectricianIDCard
+    state: pda-electrician # - aPDA Sprite Rework
+
+- type: entity
+  parent: EngineerPDA
+  id: MechanicPDA
+  name: mechanic PDA
+  description: We love wrenches!
+  components:
+  - type: Pda
+    id: MechanicIDCard
+    state: pda-mechanic # - aPDA Sprite Rework
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoPDA
+  id: DeckWorkerPDA
+  name: deck worker PDA
+  description: Ideally you're not just swabbing it.
+  components:
+  - type: Pda
+    id: DeckWorkerIDCard
+    state: pda-deckworker # - aPDA Sprite Rework
+
+- type: entity
+  parent: CargoPDA
+  id: InventoryAssociatePDA
+  name: inventory associate PDA
+  components:
+  - type: Pda
+    id: InventoryAssociateIDCard
+    state: pda-inventoryassociate # - aPDA Sprite Rework
+
+# Salvage Technician
+
+- type: entity
+  parent: SalvagePDA
+  id: ProspectorPDA
+  name: prospector PDA
+  components:
+  - type: Pda
+    id: ProspectorIDCard
+    state: pda-prospector # - aPDA Sprite Rework
+
+- type: entity
+  parent: SalvagePDA
+  id: ExcavatorPDA
+  name: excavator PDA
+  components:
+  - type: Pda
+    id: ExcavatorIDCard
+    state: pda-excavator # - aPDA Sprite Rework
+
+# Scientist
+
+- type: entity
+  parent: SciencePDA
+  id: LabTechPDA
+  name: lab technician PDA
+  description: Part of it is melted after a close interaction with a hotplate.
+  components:
+  - type: Pda
+    id: LabTechIDCard
+    state: pda-labsci # - aPDA Sprite Rework
+
+- type: entity
+  parent: SciencePDA
+  id: XenoarchPDA
+  name: xenoarchaeologist PDA
+  components:
+  - type: Pda
+    id: XenoarchIDCard
+    state: pda-xenobio # - aPDA Sprite Rework
+
+- type: entity
+  parent: SciencePDA
+  id: RoboticistPDA
+  name: roboticist PDA
+  description: Surprisingly, it doesn't talk to you.
+  components:
+  - type: Pda
+    id: RoboticistIDCard
+    state: pda-roboticist # - aPDA Sprite Rework
+
+# Clown
+
+- type: entity
+  parent: ClownPDA
+  id: JesterPDA
+  name: jester PDA
+  description: Doesn't actually jingle when you move.
+  components:
+  - type: Pda
+    id: JesterIDCard
+    state: pda-jester # - aPDA Sprite Rework
+
+- type: entity
+  parent: ClownPDA
+  id: FoolPDA
+  name: fool PDA
+  description: Found alone on a hill.
+  components:
+  - type: Pda
+    id: FoolIDCard
+    state: pda-fool # - aPDA Sprite Rework
+
+# Janitor
+
+- type: entity
+  parent: JanitorPDA
+  id: HygieneTechnicianPDA
+  name: hygiene technician PDA
+  description: It sounded better than it is or so Jeffrey said.
+  components:
+  - type: Pda
+    id: HygieneTechnicianIDCard
+    state: pda-hygienetechnician

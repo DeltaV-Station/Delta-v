@@ -1,0 +1,26 @@
+- type: entity
+  id: LootSpawnerSecuritySuperweapon
+  name: security superweapon spawner
+  suffix: superweapon
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _DV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSuperweaponTable
+
+#Table
+- type: entityTable
+  id: RandomSuperweaponTable
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      children:
+      - id: WeaponLauncherRocket
+      - id: CartridgeRocket
+        prob: 0.2
+    - id: WeaponBeamDevastator

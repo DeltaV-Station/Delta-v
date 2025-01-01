@@ -49,7 +49,7 @@
   description: Smells like unopened letters.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: _DV/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -67,7 +67,7 @@
     borderColor: "#e39751"
     accentVColor: "#050c4d"
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
 
 - type: entity
@@ -77,7 +77,7 @@
   description: Smells like straw.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: _DV/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -95,7 +95,7 @@
     borderColor: "#d7d7d0"
     accentHColor: "#232323"
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pda.rsi
+    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-martialartist
 
 - type: entity
