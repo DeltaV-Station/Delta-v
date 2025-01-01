@@ -114,14 +114,3 @@
   - type: GlimmerMobRule
     mobPrototype: MobGlimmerMite
     glimmerTier: Low # get more mites earlier on
-
-- type: entity
-  parent: BaseGlimmerSignaturesEvent
-  id: GlimmerScorpionSpawn
-  components:
-  - type: GlimmerEvent
-    minimumGlimmer: 200
-    maximumGlimmer: 900
-  - type: GlimmerMobRule
-    mobPrototype: MobGlimmerScorpion
-    glimmerTier: Moderate
