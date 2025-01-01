@@ -247,8 +247,8 @@
   - type: Mail
     contents:
     - id: Bible
-    - id: ClothingHeadHatWitch1 #DeltaV - Compensates for items that don't exist here
-    - id: ClothingOuterCoatMNKBlackTopCoat #DeltaV - Compensates for items that don't exist here
+    - id: ClothingHeadHatWitch1 # DeltaV - Compensates for items that don't exist here
+    - id: ClothingOuterCoatMNKBlackTopCoat # DeltaV - Compensates for items that don't exist here
 
 - type: entity
   parent: BaseMail
@@ -657,19 +657,19 @@
       orGroup: Plushie
     - id: PlushieNuke
       orGroup: Plushie
-    - id: PlushieArachind #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieArachind # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushieAtmosian #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieAtmosian # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushieXeno #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieXeno # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushiePenguin #DeltaV - Adds MORE PLUSHIE
+    - id: PlushiePenguin # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushieGhost #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieGhost # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushieDiona #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieDiona # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: ToyMouse #DeltaV - Adds MORE PLUSHIE
+    - id: ToyMouse # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
     - id: PlushieRouny
       orGroup: Plushie
@@ -683,9 +683,9 @@
       orGroup: Plushie
     - id: PlushieCarp
       orGroup: Plushie
-    - id: PlushieHolocarp #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieHolocarp # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
-    - id: PlushieRainbowCarp #DeltaV - Adds MORE PLUSHIE
+    - id: PlushieRainbowCarp # DeltaV - Adds MORE PLUSHIE
       orGroup: Plushie
     - id: PlushieSlime
       orGroup: Plushie
@@ -1242,13 +1242,13 @@
     - id: FoodKoibean
       orGroup: Produce
       amount: 5
-    - id: FoodGhostPepper #DeltaV
+    - id: FoodGhostPepper # DeltaV
       orGroup: Produce
       amount: 5
-    - id: FoodCosmicRevenant #DeltaV
+    - id: FoodCosmicRevenant # DeltaV
       orGroup: Produce
       amount: 5
-    - id: FoodCrystalThistle #DeltaV
+    - id: FoodCrystalThistle # DeltaV
       orGroup: Produce
       amount: 5
     - id: FoodLily
@@ -1294,7 +1294,7 @@
 - type: entity
   parent: BaseMail
   id: MailNFFigurineBulk # DeltaV - No longer Bulk
-  suffix: figurine, bulk #DeltaV - Spams 3 boxes instead of using the bulk figurine prototype that Frontier uses
+  suffix: figurine, bulk # DeltaV - Spams 3 boxes instead of using the bulk figurine prototype that Frontier uses
   components:
   - type: Mail
     contents:
@@ -1336,7 +1336,7 @@
   components:
   - type: Mail
     contents:
-    - id: PlushieThrongler #DeltaV: ThronglerToy -> PlushieThrongler
+    - id: PlushieThrongler # DeltaV: ThronglerToy -> PlushieThrongler
 
 - type: entity
   parent: BaseMail
