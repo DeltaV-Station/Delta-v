@@ -206,6 +206,8 @@
       - SilverRing
       - GoldRingDiamond
       - SilverRingDiamond
+      - CassetteTape
+      - TapeRecorder
       # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -232,6 +234,7 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - WeaponProtoKineticAccelerator
       # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
       - SpeedLoaderSpecial
       - SpeedLoaderSpecialEmpty
@@ -350,7 +353,6 @@
       - SyringeBluespace
       #- WeaponForceGun # DeltaV
       - WeaponLaserSvalinn
-      - WeaponProtoKineticAccelerator
       - WeaponGrapplingGun
       #- WeaponTetherGun # DeltaV
       - ClothingBackpackHolding
@@ -377,6 +379,7 @@
       # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -416,6 +419,9 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - WeaponEnergyGun       # Energy Gun
@@ -440,6 +446,7 @@
       - AdvancedTruncheon
       - LauncherSyringe
       - MiniSyringe
+      - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
 
@@ -571,16 +578,17 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
-    # Begin Nyano additions
+      - SMESAdvancedMachineCircuitboard
+      # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - MetempsychoticMachineCircuitboard
-    # End Nyano additions
-    # Begin DeltaV additions
+      # End Nyano additions
+      # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
       - AlertsComputerCircuitboard
-    # End DeltaV additions
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -805,6 +813,7 @@
       - WeaponDisablerPractice
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
+      - WeaponProtoKineticAccelerator
       - Zipties
       # Begin DeltaV additions
       - ClothingNeckShockCollar # Nyanotrasen - Shock Collar recipe
@@ -819,6 +828,7 @@
       # End DeltaV additions
     dynamicRecipes:
       - EncryptionKeySyndie # Nyano
+      - BorgModuleFauna
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
@@ -869,6 +879,9 @@
       - WeaponLaserCarbine
       - WeaponXrayCannon
       - ClothingBackpackElectropack
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponCrusherGlaive
       # Begin DeltaV additions
       - BoxShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
@@ -896,6 +909,7 @@
       - ClothingOuterHardsuitSyndieReverseEngineered
       - ClothingShoesBootsSecurityMagboots
       - AdvancedTruncheon
+      - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
   - type: MaterialStorage
@@ -1255,6 +1269,20 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Begin DeltaV Additions
+      - ClothingUniformInterdyneChemist
+      - UniformScrubsColorCybersun
+      - ClothingUniformCybersunAttorney
+      - ClothingHeadHatSurgcapCybersun
+      - ClothingOuterInterdyneChemistrySuit
+      - ClothingOuterCoatCybersunWindbreaker
+      - ClothingMaskInterdyneChemistry
+      - ClothingHeadHatSurgcapCybersun
+      #- ClothingUniformCybersunHazard
+      #- ClothingUniformCybersunCasual
+      #- ClothingUniformCybersunRND
+      #- ClothingOuterCybersunOvercoat
+      # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1358,7 +1386,7 @@
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1374,6 +1402,8 @@
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe # DeltaV
+    - type: PlaceableSurface # DeltaV: Allow ore bags to dump into it directly
+      isPlaceable: false # but not place on it if you just click it with a random item
 
 - type: entity
   parent: OreProcessor
@@ -1392,7 +1422,7 @@
       - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

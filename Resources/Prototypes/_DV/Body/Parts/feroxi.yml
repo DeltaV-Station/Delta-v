@@ -1,0 +1,119 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  parent: [ BasePart ]
+  id: PartFeroxi
+  name: feroxi body part
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [ PartFeroxi, BaseTorso ]
+  id: TorsoFeroxi
+  name: feroxi torso
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [ PartFeroxi, BaseHead ]
+  id: HeadFeroxi
+  name: feroxi head
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [ PartFeroxi, BaseLeftArm ]
+  id: LeftArmFeroxi
+  name: left feroxi arm
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  parent: [ PartFeroxi, BaseRightArm ]
+  id: RightArmFeroxi
+  name: right feroxi arm
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  parent: [ PartFeroxi, BaseLeftHand ]
+  id: LeftHandFeroxi
+  name: left feroxi hand
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  parent: [ PartFeroxi, BaseRightHand ]
+  id: RightHandFeroxi
+  name: right feroxi hand
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  parent: [ PartFeroxi, BaseLeftLeg ]
+  id: LeftLegFeroxi
+  name: left feroxi leg
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  parent: [ PartFeroxi, BaseRightLeg ]
+  id: RightLegFeroxi
+  name: right feroxi leg
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  parent: [ PartFeroxi, BaseLeftFoot ]
+  id: LeftFootFeroxi
+  name: left feroxi foot
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  parent: [ PartFeroxi, BaseRightFoot ]
+  id: RightFootFeroxi
+  name: right feroxi foot
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: "r_foot"
