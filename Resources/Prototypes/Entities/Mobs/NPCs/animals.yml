@@ -13,7 +13,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: bat
       sprite: Mobs/Animals/bat.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob
@@ -639,7 +639,7 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Tag
     tags:
@@ -901,7 +901,7 @@
     noMovementLayers:
       movement:
         state: crab
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Physics
   - type: Fixtures
@@ -969,7 +969,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goat
       sprite: Mobs/Animals/goat.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -1069,7 +1069,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goose
       sprite: Mobs/Animals/goose.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -1339,7 +1339,7 @@
       state: "creampie_human"
       visible: false
   # Shitmed Change End
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Hands
   - type: ComplexInteraction
   - type: GenericVisualizer
@@ -1911,7 +1911,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: lizard
       sprite: Mobs/Animals/lizard.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -1968,7 +1968,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: slug
       sprite: Mobs/Animals/slug.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Physics
   - type: Fixtures
@@ -2024,7 +2024,7 @@
     noMovementLayers:
       movement:
         state: frog
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2078,7 +2078,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: parrot
       sprite: Mobs/Animals/parrot.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Fixtures
     fixtures:
@@ -2132,7 +2132,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: penguin
       sprite: Mobs/Animals/penguin.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2266,7 +2266,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: snake
       sprite: Mobs/Animals/snake.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2309,7 +2309,7 @@
   id: MobSpiderBase
   abstract: true
   components:
-  - type: Carriable #DeltaV ##shiva deserves to be held
+  - type: Carriable # DeltaV ##shiva deserves to be held
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2369,7 +2369,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter', 'Hiss'] #DeltaV added Hiss
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # DeltaV added Hiss
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -2415,7 +2415,7 @@
     makeSentient: true
     name: ghost-role-information-giant-spider-name
     description: ghost-role-information-giant-spider-description
-    rules: deltav-ghost-role-information-softantag-rules #DeltaV
+    rules: deltav-ghost-role-information-softantag-rules # DeltaV
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
@@ -2535,7 +2535,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: possum
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2609,7 +2609,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: raccoon
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2670,7 +2670,7 @@
     noMovementLayers:
       movement:
         state: fox
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2742,7 +2742,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: corgi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Speech
     speechVerb: Canine
@@ -2892,7 +2892,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cat
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3098,7 +3098,7 @@
         Base: kitten_dead
       Dead:
         Base: kitten_dead
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: Butcherable
     spawned:
@@ -3130,7 +3130,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: sloth
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3184,7 +3184,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ferret
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3382,7 +3382,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pig
       sprite: Mobs/Animals/pig.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -3454,7 +3454,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
   - type: Physics
   - type: Fixtures
     fixtures:

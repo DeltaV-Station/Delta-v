@@ -1,0 +1,23 @@
+- type: entity
+  parent: LockerChiefJustice
+  id: LockerChiefJusticeFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadsetAltJustice
+    - id: ClothingNeckCloakCJ
+    - id: ClothingNeckMantleCJ
+    - id: ClothingOuterChiefJustice
+    - id: ClothingUniformJumpsuitChiefJusticeFormal
+    - id: ClothingUniformJumpsuitChiefJusticeWhite
+    - id: PaperStationWarrant
+      amount: 10
+    - id: BoxPDAJustice
+    - id: BoxEncryptionKeyJustice
+    - id: ChiefJusticeIDCard
+    - id: DoorRemoteJustice
+    - id: Gavel
+    - id: RubberStampChiefJustice
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3

@@ -4,7 +4,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
-using Content.Shared.DeltaV.CCVars;
+using Content.Shared._DV.CCVars;
 using Content.Shared.IdentityManagement;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;

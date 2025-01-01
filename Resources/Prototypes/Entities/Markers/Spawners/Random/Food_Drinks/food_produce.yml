@@ -174,3 +174,8 @@
         amount: !type:RangeNumberSelector
           range: 1, 5
       # End DeltaV additions
+      # Begin Frontier additions
+      - id: FoodCoffee # Frontier
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      # End Frontier additions
