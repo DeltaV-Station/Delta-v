@@ -5,6 +5,14 @@ lobbyduration      = 240
 round_end_pacifist = true
 contraband_examine = false # Doubtful that it's desired at all, and would require going over every item in accordance with SOP
 
+# New players can't join a server without admins
+[game.panic_bunker]
+enabled = true
+disable_with_admins = true
+enable_without_admins = true
+show_reason = true
+custom_reason = "You have not played on Delta-V long enough to connect to this server. Due to administrative reasons, new accounts cannot join a server with no game admins."
+
 [infolinks]
 discord    = "https://discord.gg/deltav"
 github     = "https://github.com/DeltaV-Station/Delta-v"
@@ -21,6 +29,7 @@ tickrate = 30
 
 [vote]
 restart_required_ratio = 0.7
+preset_enabled = false
 
 [netres]
 limit    = 10.0
@@ -38,11 +47,17 @@ uptime_restart_minutes = 2880 # 48h
 [discord]
 rich_main_icon_id = "deltav"
 
+# general mrp stuff
 [ic]
 flavor_text = true
+punctuation = true
 
+# Disabled because it causes giga lag
 #[worldgen]
 #enabled = true
+
+[rules]
+time = 60
 
 [ahelp]
 admin_prefix = false
@@ -53,3 +68,16 @@ enabled = false # only enabled on periapsis
 eligible_number = 5
 initiator_ghost_requirement = false
 voter_ghost_requirement = false
+
+[atmos]
+space_wind = true
+
+[shuttle]
+arrivals = false
+emergency_dock_time = 240 # an extra minute over the default
+emergency_transit_time_min = 90
+auto_call_time = 120 # rounds are longer
+auto_call_extension_time = 30 # next auto call at 2h30
+
+[biomass]
+easy_mode = false # reclaimer can work on soul-ful bodies, mrp server

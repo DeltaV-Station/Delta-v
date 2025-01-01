@@ -13,11 +13,12 @@
   - Theatre
   - Maintenance
   - Clown # DeltaV - Add Clown access
+  - Service # DeltaV - They work in service don't they?
   special:
   - !type:AddComponentSpecial
     components:
     - type: Clumsy
-      clumsyDamage:
+      gunShootFailDamage:
         types: #literally just picked semi random valus. i tested this once and tweaked it.
           Blunt: 5
           Piercing: 4
