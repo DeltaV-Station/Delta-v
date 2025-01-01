@@ -6,7 +6,7 @@
   targetNode: cratelivestocksteel
   category: construction-category-storage
   description: A plasteel crate for holding livestock.
-  icon: { sprite: DeltaV/Structures/Storage/Crates/livestock_steel.rsi, state: icon }
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_steel.rsi, state: icon }
   objectType: Structure
 
 - type: construction
@@ -17,7 +17,7 @@
   targetNode: cratelivestocksteelsecure
   category: construction-category-storage
   description: A lockable plasteel crate for holding livestock.
-  icon: { sprite: DeltaV/Structures/Storage/Crates/livestock_secure.rsi, state: icon }
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_secure.rsi, state: icon }
   objectType: Structure
 
 - type: construction
@@ -28,5 +28,5 @@
   targetNode: cratelivestocksecurereinforced
   category: construction-category-storage
   description: A reinforced and lockable plasteel crate for holding livestock.
-  icon: { sprite: DeltaV/Structures/Storage/Crates/livestock_reinforced.rsi, state: icon }
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_reinforced.rsi, state: icon }
   objectType: Structure
