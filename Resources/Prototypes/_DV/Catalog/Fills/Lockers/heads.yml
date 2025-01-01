@@ -1,0 +1,89 @@
+# These get added to upstream files with NestedSelector to keep changes to them minimal
+# TODO: move clothes to dressers when they get changed to entityTables
+
+- type: entityTable
+  id: LockerFillQuarterMasterDeltaV
+  table: !type:AllSelector
+    children:
+    - id: SpaceCashLuckyBill # LO steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/first_bill.yml
+    - id: BoxPDACargo
+    - id: QuartermasterIDCard
+    - id: ClothingShoesBootsWinterLogisticsOfficer
+    - id: MiningShuttleConsoleCircuitboard
+    - id: StockTradingCartridge
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillCaptainDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadHatBeretCap
+    - id: ClothingShoesLeather # fancy shoes for HoP and cap TODO: move to dresser
+    - id: ClothingShoesMiscWhite
+    - id: ClothingShoesBootsWinterCap
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillHeadOfPersonnelDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterCoatHoPArmored
+    - id: ClothingOuterArmorDuraVest # replaced(???) HoP's armoured coat with a standard stabproof, pending HoPcoat resprite
+    - id: ClothingOuterCoatHoPFormal
+    - id: BookIanDossier # HoP steal objective, see Resources/Prototypes/_DV/Entities/Objects/Misc/ian_dossier.yml
+    - id: ClothingHandsGlovesInspection
+    - id: ClothingUniformJumpsuitHoPMess
+    - id: ClothingUniformJumpskirtHoPMess
+    - id: ClothingUniformJumpsuitBoatswain
+    - id: ClothingUniformJumpsuitHoPFormal
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingShoesMiscWhite
+    - id: ClothingShoesBootsWinterHeadOfPersonel
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillChiefEngineerDeltaV
+  table: !type:AllSelector
+    children:
+    - id: BoxPDAEngineering
+    - id: CEIDCard
+    - id: ClothingShoesBootsWinterChiefEngineer
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillChiefMedicalOfficerDeltaV
+  table: !type:AllSelector
+    children:
+    - id: RubberStampPsychologist # TODO: make a psych locker and move this to it, or just remove this since psych spawns with it.
+    - id: BoxPDAMedical
+    - id: ClothingBeltMilitaryWebbingCMO # add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
+    - id: CMOIDCard
+    - id: ClothingShoesBootsWinterChiefMedicalOfficer
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillResearchDirectorDeltaV
+  table: !type:AllSelector
+    children:
+    - id: BoxPDAScience
+    - id: RDIDCard
+    - id: BoxFolderRdClipboard
+    - id: ClothingShoesBootsWinterMystagogue
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: LockerFillHeadOfSecurityDeltaV
+  table: !type:AllSelector
+    children:
+    - id: BoxPDASecurity
+    - id: WeaponEnergyGunMultiphase
+    - id: HoSIDCard
+    - id: ClothingOuterVestPlateCarrierAdv
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3

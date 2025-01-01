@@ -5,7 +5,7 @@
   description: If all else fails, BONK!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Melee/advanced_truncheon.rsi
+    sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     state: icon
   - type: Item
     size: Normal
@@ -27,7 +27,7 @@
       types:
         Blunt: 14
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Melee/advanced_truncheon.rsi
+    sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
     quickEquip: false
     slots:
     - back

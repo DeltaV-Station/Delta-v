@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleRyuzo
+  name: ornate mantle
+  description: In days of old, giving one's life was considered the ultimate sacrifice. The owner of this mantle, however, has dedicated their life twice over.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/ryuzo.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/ryuzo.rsi    
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleCJ
+  name: chief justice's mantle
+  description: A fancy velvet mantle with fur trim, fitting for a judge.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/cjmantle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/cjmantle.rsi
+    
