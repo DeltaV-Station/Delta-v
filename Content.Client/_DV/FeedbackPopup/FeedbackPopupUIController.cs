@@ -1,8 +1,8 @@
-﻿using Content.Shared.DeltaV.FeedbackOverwatch;
+﻿using Content.Shared._DV.FeedbackOverwatch;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Network;
 
-namespace Content.Client.DeltaV.FeedbackPopup;
+namespace Content.Client._DV.FeedbackPopup;
 
 /// <summary>
 ///     This handles getting feedback popup messages from the server and making a popup in the client.

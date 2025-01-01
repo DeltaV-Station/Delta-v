@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.FeedbackOverwatch;
+namespace Content.Shared._DV.FeedbackOverwatch;
 
 /// <summary>
 ///     Prototype that describes the contents of a feedback popup.

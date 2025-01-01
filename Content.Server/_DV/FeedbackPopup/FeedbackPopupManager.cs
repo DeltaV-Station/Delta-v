@@ -1,11 +1,11 @@
 ﻿using Content.Server.Discord;
+using Content.Shared._DV.CCVars;
+using Content.Shared._DV.FeedbackOverwatch;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
-using Content.Shared.DeltaV.CCVars;
-using Content.Shared.DeltaV.FeedbackOverwatch;
 using Content.Shared.GameTicking;
 
-namespace Content.Server.DeltaV.FeedbackPopup;
+namespace Content.Server._DV.FeedbackPopup;
 
 /// <summary>
 ///     This manager sends feedback from players to the discord through a webhook.

@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.FeedbackOverwatch;
+namespace Content.Shared._DV.FeedbackOverwatch;
 
 public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
 {

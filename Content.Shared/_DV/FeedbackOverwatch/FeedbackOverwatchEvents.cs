@@ -3,7 +3,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.DeltaV.FeedbackOverwatch;
+namespace Content.Shared._DV.FeedbackOverwatch;
 
 /// <summary>
 ///     When clients recieve this message a popup will appear on their screen with the contents from the given prototype.
