@@ -477,9 +477,9 @@
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Belt/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/security.rsi # DeltaV - resprite
   - type: ItemSlots # DeltaV - add sidearm slot
     slots:
       holster:
@@ -527,7 +527,7 @@
         whitelist:
           tags:
           - Sidearm
-    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -645,9 +645,9 @@
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/securitywebbing.rsi # DeltaV - resprite
   - type: ItemSlots # DeltaV - add sidearm slot
     slots:
       holster:
@@ -666,7 +666,7 @@
         whitelist:
           tags:
           - Sidearm
-    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -699,10 +699,10 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage # Delta-V - Split Inventory
+  - type: Storage # Delta-V - Split Inventory, but same total size
     grid:
-    - 0,0,2,1
-    - 4,0,7,1
+    - 0,0,3,1
+    - 5,0,8,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]

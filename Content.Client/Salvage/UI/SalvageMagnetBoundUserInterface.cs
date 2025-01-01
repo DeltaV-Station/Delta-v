@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Client.Message;
-using Content.Shared.DeltaV.Salvage.Systems; // DeltaV
+using Content.Shared._DV.Salvage.Systems; // DeltaV
 using Content.Shared.Salvage;
 using Content.Shared.Salvage.Magnet;
 using Robust.Client.Player; // DeltaV
@@ -86,6 +86,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             {
                 case AsteroidOffering asteroid:
                     option.Title = Loc.GetString($"dungeon-config-proto-{asteroid.Id}");
+                    break; // DeltaV: Skip ores since they aren't used with custom generation
                     var layerKeys = asteroid.MarkerLayers.Keys.ToList();
                     layerKeys.Sort();
 

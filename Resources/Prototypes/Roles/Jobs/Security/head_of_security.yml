@@ -9,7 +9,7 @@
       time: 72000 # DeltaV - 20 hours
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 36000 #DeltaV 10 hrs
+      time: 36000 # DeltaV 10 hrs
     - !type:DepartmentTimeRequirement # DeltaV - Command dept time requirement
       department: Command
       time: 36000 # 10 hours
