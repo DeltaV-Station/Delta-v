@@ -85,10 +85,10 @@ entities:
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
     - type: DeviceNetwork
+      deviceNetId: Wireless
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
-      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -5357,6 +5357,13 @@ entities:
     components:
     - type: Transform
       pos: -14.386516,-29.520695
+      parent: 1
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 1509
+    components:
+    - type: Transform
+      pos: -8.5,-1.5
       parent: 1
 - proto: DisposalBend
   entities:
@@ -10758,6 +10765,13 @@ entities:
     components:
     - type: Transform
       pos: -10.532349,-3.2752516
+      parent: 1
+- proto: HolopadCentCommEvacShuttle
+  entities:
+  - uid: 1510
+    components:
+    - type: Transform
+      pos: -10.5,16.5
       parent: 1
 - proto: HospitalCurtainsOpen
   entities:
