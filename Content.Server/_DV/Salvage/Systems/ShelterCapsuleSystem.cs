@@ -1,8 +1,8 @@
 using Content.Server.Procedural;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.DeltaV.Salvage.Components;
-using Content.Shared.DeltaV.Salvage.Systems;
+using Content.Shared._DV.Salvage.Components;
+using Content.Shared._DV.Salvage.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Robust.Shared.Map.Components;
@@ -10,7 +10,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
-namespace Content.Server.DeltaV.Salvage.Systems;
+namespace Content.Server._DV.Salvage.Systems;
 
 public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
 {

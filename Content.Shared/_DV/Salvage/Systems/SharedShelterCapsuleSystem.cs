@@ -1,9 +1,9 @@
-using Content.Shared.DeltaV.Salvage.Components;
+using Content.Shared._DV.Salvage.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.DeltaV.Salvage.Systems;
+namespace Content.Shared._DV.Salvage.Systems;
 
 /// <summary>
 /// Handles interaction for shelter capsules.

@@ -1,10 +1,10 @@
-using Content.Shared.DeltaV.Salvage.Systems;
+using Content.Shared._DV.Salvage.Systems;
 using Content.Shared.Procedural;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.DeltaV.Salvage.Components;
+namespace Content.Shared._DV.Salvage.Components;
 
 /// <summary>
 /// Spawns a dungeon room after a delay when used and deletes itself.

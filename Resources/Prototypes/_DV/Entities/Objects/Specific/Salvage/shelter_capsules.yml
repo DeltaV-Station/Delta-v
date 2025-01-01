@@ -4,7 +4,7 @@
   id: BaseShelterCapsule
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Specific/Salvage/shelter_capsule.rsi
+    sprite: _DV/Objects/Specific/Salvage/shelter_capsule.rsi
     state: capsule
   - type: Item
     size: Tiny
@@ -44,20 +44,20 @@
 - type: dungeonRoom
   id: EmergencyShelter
   size: 5,5
-  atlas: /Maps/Nonstations/DeltaV/shelters.yml
+  atlas: /Maps/_DV/Nonstations/shelters.yml
   offset: -2,-2 # grid is offset badly cba to fix it
   ignoreTile: FloorShuttleOrange
 
 - type: dungeonRoom
   id: LuxuryShelter
   size: 7,7
-  atlas: /Maps/Nonstations/DeltaV/shelters.yml
+  atlas: /Maps/_DV/Nonstations/shelters.yml
   offset: 4,-2
   ignoreTile: FloorShuttleOrange
 
 - type: dungeonRoom
   id: EliteBarShelter
   size: 11,11
-  atlas: /Maps/Nonstations/DeltaV/shelters.yml
+  atlas: /Maps/_DV/Nonstations/shelters.yml
   offset: 12,-2
   ignoreTile: FloorShuttleOrange
