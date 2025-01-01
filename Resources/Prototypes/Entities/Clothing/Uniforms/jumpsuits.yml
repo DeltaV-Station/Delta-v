@@ -86,9 +86,9 @@
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -325,9 +325,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hop.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hop.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hop.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hop.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformFoldableBase, BaseCommandContraband] # DeltaV - add foldable jumpsuits
@@ -336,9 +336,9 @@
   description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -358,9 +358,9 @@
   description: A blue Station Security shirt with charcoal trousers. Features gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformFoldableBase, BaseCommandContraband] # DeltaV - add foldable jumpsuits
@@ -369,9 +369,9 @@
   description: A grey Station Security shirt with charcoal trousers. Stands out with red highlights, gold emblems, and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -457,9 +457,9 @@
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -586,9 +586,9 @@
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformFoldableBase # DeltaV - add foldable jumpsuits
@@ -597,9 +597,9 @@
   description: A cool blue shirt over charcoal trousers, for the calm and collected security officer. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
@@ -608,9 +608,9 @@
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: [ClothingUniformFoldableBase, BaseRestrictedContraband] # DeltaV - add foldable jumpsuits
@@ -619,9 +619,9 @@
   description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/armourer.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -815,7 +815,7 @@
       mode: SensorOff
 
 - type: entity
-  parent: [ ClothingUniformBase, BaseRestrictedContraband ]
+  parent: [ ClothingUniformBase ]
   id: ClothingUniformJumpsuitMercenary
   name: mercenary jumpsuit
   description: Clothing for real mercenaries who have gone through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned.

@@ -49,9 +49,7 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  addComponents: # DeltaV: Custom lawset
-  - type: SiliconLawProvider
-    laws: Engineer
+  lawset: Engineer # DeltaV: Custom lawset
 
   radioChannels:
   - Engineering
@@ -123,9 +121,7 @@
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
-  addComponents: # DeltaV: Custom lawset
-  - type: SiliconLawProvider
-    laws: Janitor
+  lawset: Janitor # DeltaV: Custom lawset
 
   radioChannels:
   - Science
@@ -165,6 +161,8 @@
   - Science
   - Medical
 
+  lawset: Medical # DeltaV: Custom lawset
+
   addComponents:
   - type: SolutionScanner
   - type: ShowHealthBars
@@ -174,8 +172,6 @@
     damageContainers:
     - Biological
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
-  - type: SiliconLawProvider # DeltaV: Custom lawset
-    laws: Medical
 
   # Visual
   inventoryTemplateId: borgDutch
