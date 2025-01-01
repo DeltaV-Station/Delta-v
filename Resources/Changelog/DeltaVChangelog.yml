@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: NullWanderer
-  changes:
-  - message: The color mixing applied to moths has been increased in strength by 25%.
-    type: Tweak
-  id: 333
-  time: '2024-05-06T15:27:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1015
 - author: Mnemotechnician
   changes:
   - message: Carrying is less likely to behave erratically or suddenly interrupt now.
@@ -3837,3 +3830,12 @@
   id: 832
   time: '2025-01-01T13:21:24.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2572
+- author: Kr8art
+  changes:
+  - message: The foxear sprite available to Vulpkanin and Felinids now has a separate
+      inner layer. If you use this option, make sure to revisit your character customization,
+      as this change will **likely reset your current tint colour!**
+    type: Tweak
+  id: 833
+  time: '2025-01-01T14:32:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2539
