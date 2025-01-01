@@ -66,19 +66,19 @@
     sprite: Objects/Devices/flatpack.rsi
     state: solar-assembly-part
   product: CrateEngineeringSolar
-  cost: 525
+  cost: 1250
   category: cargoproduct-category-name-engineering
   group: market
 
-#- type: cargoProduct
-#  id: EngineTeslaGenerator
-#  icon:
-#    sprite: Structures/Power/Generation/Tesla/generator.rsi
-#    state: icon
-#  product: CrateEngineeringTeslaGenerator
-#  cost: 4000
-#  category: cargoproduct-category-name-engineering
-#  group: market
+- type: cargoProduct
+  id: EngineTeslaGenerator
+  icon:
+    sprite: Structures/Power/Generation/Tesla/generator.rsi
+    state: icon
+  product: CrateEngineeringTeslaGenerator
+  cost: 4000
+  category: cargoproduct-category-name-engineering
+  group: market
 
 - type: cargoProduct
   id: EngineTeslaCoil

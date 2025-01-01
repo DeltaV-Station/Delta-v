@@ -7,7 +7,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-absinthe
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: absinthe
   color: "#33EE00"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/absintheglass.rsi
@@ -63,8 +63,8 @@
   name: reagent-name-blue-curacao
   parent: BaseAlcohol
   desc: reagent-desc-blue-curacao
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: bluecuracao
   color: "#0099FF"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/thin_glass.rsi
@@ -131,7 +131,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-dead-rum
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: rum
+  flavor: deadrum #Delta-V Flavor additions
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rumglass.rsi
@@ -210,7 +210,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-gin
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: gin
   color: "#664300"
   recognizable: true
   metamorphicSprite:
@@ -248,7 +248,7 @@
   name: reagent-name-melon-liquor
   parent: BaseAlcohol
   desc: reagent-desc-melon-liquor
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-sweet
   flavor: watermelon
   color: "#00FF33"
   metamorphicSprite:
@@ -264,7 +264,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-n-t-cahors
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: bitter
+  flavor: n-t-cahors #Delta-V Flavor additions
   color: "#7E4043"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/wineglass.rsi
@@ -279,7 +279,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-poison-wine
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: bitter
+  flavor: poison-wine #Delta-V Flavor additions
   color: "#990066"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/pwineglass.rsi
@@ -364,7 +364,7 @@
   name: reagent-name-vermouth
   parent: BaseAlcohol
   desc: reagent-desc-vermouth
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-aromatic
   flavor: vermouth
   color: "#91FF91"
   metamorphicSprite:
@@ -471,7 +471,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-acid-spit
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: acidspit
   color: "#365000"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/acidspitglass.rsi
@@ -486,7 +486,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-allies-cocktail
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: alliescocktail
   color: "#00664d"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/alliescocktail.rsi
@@ -500,8 +500,8 @@
   name: reagent-name-aloe
   parent: BaseAlcohol
   desc: reagent-desc-aloe
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: aloe
   color: "#192c00"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/aloe.rsi
@@ -516,7 +516,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-amasec
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: amasec
   color: "#124da7"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/amasecglass.rsi
@@ -531,7 +531,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-andalusia
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: andalusia
   color: "#665700"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/andalusia.rsi
@@ -595,7 +595,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-b52
   physicalDesc: reagent-physical-desc-bubbly
-  flavor: alcohol
+  flavor: b52
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/b52glass.rsi
@@ -617,8 +617,8 @@
   name: reagent-name-bahama-mama
   parent: BaseAlcohol
   desc: reagent-desc-bahama-mama
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: bahamamama
   color: "#FF7F3B"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/bahama_mama.rsi
@@ -632,7 +632,7 @@
   name: reagent-name-banana-honk
   parent: BaseAlcohol
   desc: reagent-desc-banana-honk
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-creamy
   flavor: bananahonk
   color: "#ffff91"
   metamorphicSprite:
@@ -647,8 +647,8 @@
   name: reagent-name-barefoot
   parent: BaseAlcohol
   desc: reagent-desc-barefoot
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: barefoot
   color: "#ff66cc"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/b&p.rsi
@@ -724,8 +724,8 @@
   name: reagent-name-booger
   parent: BaseAlcohol
   desc: reagent-desc-booger
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-slimy
+  flavor: booger
   color: "#99ff00"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/booger.rsi
@@ -740,7 +740,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-brave-bull
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: bravebull
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/bravebullglass.rsi
@@ -762,8 +762,8 @@
   name: reagent-name-coconut-rum
   parent: BaseAlcohol
   desc: reagent-desc-coconut-rum
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: rum
+  physicalDesc: reagent-physical-desc-milky
+  flavor: coconutrum
   color: "#cccbc8"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coconutrum.rsi
@@ -826,8 +826,8 @@
   name: reagent-name-demons-blood
   parent: BaseAlcohol
   desc: reagent-desc-demons-blood
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: demonsblood
   color: "#a70000"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/demonsblood.rsi
@@ -842,8 +842,8 @@
   name: reagent-name-devils-kiss
   parent: BaseAlcohol
   desc: reagent-desc-devils-kiss
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: devilskiss
   color: "#ff0033"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/devilskiss.rsi
@@ -857,8 +857,8 @@
   name: reagent-name-doctors-delight
   parent: BaseDrink
   desc: reagent-desc-doctors-delight
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: medicine
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: doctors-delight # DeltaV
   color: "#FF8CFF"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/doctorsdelightglass.rsi
@@ -890,7 +890,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-driest-martini
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: driestmartini
   color: "#2E6671"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/driestmartiniglass.rsi
@@ -912,8 +912,8 @@
   name: reagent-name-erika-surprise
   parent: BaseAlcohol
   desc: reagent-desc-erika-surprise
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: erikasurprise
   color: "#67bc50"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerstein.rsi
@@ -951,8 +951,8 @@
   name: reagent-name-gin-fizz
   parent: BaseAlcohol
   desc: reagent-desc-gin-fizz
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: ginfizz
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginfizzglass.rsi
@@ -975,7 +975,7 @@
   name: reagent-name-gin-tonic
   parent: BaseAlcohol
   desc: reagent-desc-gin-tonic
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-fizzy
   flavor: gintonic
   color: "#004166"
   metamorphicSprite:
@@ -1000,7 +1000,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-gildlager
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: gildlager
   color: "#FFFF91"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/gildlagerglass.rsi
@@ -1023,7 +1023,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-grog
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: grog
   color: "#e3e77b"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerstein.rsi
@@ -1038,7 +1038,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-hippies-delight
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: hippiesdelight
   color: "#6eaa0c"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/hippiesdelightglass.rsi
@@ -1053,7 +1053,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-hooch
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: hooch
   color: "#664e00"
 
 - type: reagent
@@ -1101,7 +1101,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-irish-cream
   physicalDesc: reagent-physical-desc-creamy
-  flavor: creamy
+  flavor: irish-cream #Delta-V Flavor additions
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/irishcreamglass.rsi
@@ -1170,7 +1170,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-manhattan
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: manhattan
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/manhattanglass.rsi
@@ -1184,8 +1184,8 @@
   name: reagent-name-manhattan-project
   parent: BaseAlcohol
   desc: reagent-desc-manhattan-project
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: manhattanproject
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/proj_manhattanglass.rsi
@@ -1216,7 +1216,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-margarita
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: margarita
   color: "#8CFF8C"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/margaritaglass.rsi
@@ -1231,7 +1231,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-martini
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: martini
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/martiniglass.rsi
@@ -1269,8 +1269,8 @@
   name: reagent-name-mojito
   parent: BaseAlcohol
   desc: reagent-desc-mojito
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: mojito
   color: "#3ea99888"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/mojito.rsi
@@ -1285,7 +1285,7 @@
   name: reagent-name-moonshine
   parent: BaseAlcohol
   desc: reagent-desc-moonshine
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-pungent
   flavor: moonshine
   color: "#d1d7d155"
   metamorphicSprite:
@@ -1308,8 +1308,8 @@
   name: reagent-name-neurotoxin
   parent: BaseAlcohol
   desc: reagent-desc-neurotoxin
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: neurotoxin
   color: "#2E2E61"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/neurotoxinglass.rsi
@@ -1358,7 +1358,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-patron
   physicalDesc: reagent-physical-desc-metallic
-  flavor: alcohol
+  flavor: patron
   color: "#585840"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/patronglass.rsi
@@ -1380,8 +1380,8 @@
   name: reagent-name-red-mead
   parent: BaseAlcohol
   desc: reagent-desc-red-mead
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: redmead
   color: "#bc5550"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerstein.rsi
@@ -1397,7 +1397,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-pina-colada
   physicalDesc: reagent-physical-desc-tropical
-  flavor: alcohol
+  flavor: pinacolada
   color: "#e8dba4"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/pinacolada.rsi
@@ -1409,7 +1409,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-sbiten
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: sbiten
   color: "#004166"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sbitenglass.rsi
@@ -1423,7 +1423,7 @@
   name: reagent-name-screwdriver-cocktail
   parent: BaseAlcohol
   desc: reagent-desc-screwdriver-cocktail
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-citric
   flavor: screwdriver
   color: "#A68310"
   metamorphicSprite:
@@ -1473,7 +1473,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-silencer
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: nothing
+  flavor: silencer #Delta-V Flavor additions
   color: "#878787"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/silencerglass.rsi
@@ -1511,7 +1511,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-snow-white
   physicalDesc: reagent-physical-desc-bubbly
-  flavor: alcohol
+  flavor: snowwhite
   color: "#FFFFFF"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/snowwhite.rsi
@@ -1526,8 +1526,8 @@
   name: reagent-name-sui-dream
   parent: BaseAlcohol
   desc: reagent-desc-sui-dream
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: suidream
   color: "#00A86B"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sdreamglass.rsi
@@ -1543,7 +1543,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-syndicate-bomb
   physicalDesc: reagent-physical-desc-opaque
-  flavor: syndiebomb
+  flavor: syndicate-bomb #Delta-V Flavor additions
   color: "#e3e77b"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/syndicatebomb.rsi
@@ -1558,7 +1558,7 @@
   name: reagent-name-tequila-sunrise
   parent: BaseAlcohol
   desc: reagent-desc-tequila-sunrise
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-citric
   flavor: tequilasunrise
   color: "#FFE48C"
   metamorphicSprite:
@@ -1623,8 +1623,8 @@
   name: reagent-name-toxins-special
   parent: BaseAlcohol
   desc: reagent-desc-toxins-special
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: toxinsspecial
   color: "#665c00"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/toxinsspecialglass.rsi
@@ -1639,7 +1639,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-vodka-martini
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: vodkamartini
   color: "#004666"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/martiniglass.rsi
@@ -1662,7 +1662,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-vodka-tonic
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: alcohol
+  flavor: vodkatonic
   color: "#0064C8"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/gintonicglass.rsi # they look the same
@@ -1709,7 +1709,7 @@
   name: reagent-name-whiskey-soda
   parent: BaseAlcohol
   desc: reagent-desc-whiskey-soda
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-fizzy
   flavor: whiskeycola
   color: "#533600"
   metamorphicSprite:
@@ -1774,7 +1774,7 @@
   name: reagent-name-vodka-red-bool
   parent: BaseAlcohol
   desc: reagent-desc-vodka-red-bool
-  physicalDesc: reagent-physical-desc-strong-smelling
+  physicalDesc: reagent-physical-desc-bubbly
   flavor: vodkaredbool
   color: "#c4c27655"
   metamorphicSprite:
@@ -1954,3 +1954,26 @@
           time: 1.0
           type: Remove
   fizziness: 0.25
+
+- type: reagent
+  id: ZombieCocktail
+  name: reagent-name-zombiecocktail
+  parent: BaseAlcohol
+  desc: reagent-desc-zombiecocktail
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: zombiecocktail
+  color: "#d17844"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/zombiecocktail.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+        - !type:SatiateThirst
+          factor: 1
+        - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 0.25

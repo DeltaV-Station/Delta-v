@@ -134,7 +134,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: DeltaV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
     state: "disposal"
 
 - type: construction
@@ -148,7 +148,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: DeltaV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # Delta-V: Use old sprites
     state: "mailing"
 
 - type: construction
@@ -362,6 +362,21 @@
   icon:
     sprite: Structures/Specific/Atmospherics/sensor.rsi
     state: gsensor1
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canRotate: true
+
+- type: construction
+  name: gas pipe sensor
+  id: GasPipeSensor
+  graph: GasPipeSensor
+  startNode: start
+  targetNode: sensor
+  category: construction-category-structures
+  description: Reports on the status of the gas within the attached pipe network. 
+  icon:
+    sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
+    state: icon
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
