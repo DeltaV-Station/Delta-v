@@ -1,0 +1,62 @@
+- type: hitscan
+  id: WispLash
+  damage:
+    types:
+      Cold: 8
+      Shock: 8
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_omni
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_omni
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_omni
+
+- type: hitscan
+  id: ColdLaser
+  damage:
+    types:
+      Cold: 20
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_omni
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_omni
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_omni
+  heatChange: -50000
+- type: hitscan
+  id: BeamLaser
+  damage:
+    types:
+      Heat: 2
+  muzzleFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+- type: hitscan
+  id: BeamDev
+  damage:
+    types:
+      Heat: 5
+      Structural: 20
+  muzzleFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+    

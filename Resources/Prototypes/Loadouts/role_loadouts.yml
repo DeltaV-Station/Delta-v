@@ -412,7 +412,6 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
@@ -547,6 +546,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
+  - PsychologistPDADelta # DeltaV
+  - PsychologistHead # DeltaV
+  - Scarfs # DeltaV
+  - PsychologistOuterClothing # DeltaV
+  - PsychologistShoes # DeltaV
   - Trinkets
   - GroupSpeciesBreathTool
 
