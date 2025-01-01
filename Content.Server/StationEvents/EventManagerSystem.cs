@@ -3,7 +3,7 @@ using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
-using Content.Shared.DeltaV.CCVars; // DeltaV
+using Content.Shared._DV.CCVars; // DeltaV
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
