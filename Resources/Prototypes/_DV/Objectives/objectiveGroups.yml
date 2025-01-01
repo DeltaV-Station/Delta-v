@@ -1,0 +1,35 @@
+## Ninja
+# Hacking things
+- type: weightedRandom
+  id: NinjaHackingObjectiveGroups
+  weights:
+    NinjaObjectiveGroupHacking: 1
+
+- type: weightedRandom
+  id: NinjaObjectiveGroupHacking
+  weights:
+    StealResearchObjective: 1
+    TerrorObjective: 1
+    MassArrestObjective: 1
+
+# Extra objectives besides hacking things
+- type: weightedRandom
+  id: NinjaBonusObjectiveGroups
+  weights:
+    NinjaObjectiveGroupKill: 1
+    NinjaObjectiveGroupSteal: 1
+
+- type: weightedRandom
+  id: NinjaObjectiveGroupKill
+  weights:
+    NinjaTeachLessonRandomHeadObjective: 1
+    NinjaTeachLessonRandomPersonObjective: 0.5
+    NinjaKillRandomHeadObjective: 0.25 # rarely have to gib, but it'll be towards the end of the round anyway
+
+# Steal random sentimental things, hopefully a traitor didn't do it first...
+- type: weightedRandom
+  id: NinjaObjectiveGroupSteal
+  weights:
+    NinjaIanDossierStealObjective: 1
+    NinjaLuckyBillStealObjective: 1
+    NinjaCaptainsCloakStealObjective: 0.75

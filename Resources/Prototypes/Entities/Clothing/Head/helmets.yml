@@ -29,9 +29,9 @@
   description: Standard security gear. Protects the head from impacts.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -39,7 +39,7 @@
 
 #Mercenary Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
   id: ClothingHeadHelmetMerc
   name: mercenary helmet
   description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the jungle.
@@ -93,9 +93,9 @@
   description: It's a helmet specifically designed to protect against close range attacks.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
   - type: IngestionBlocker
   - type: Armor
     modifiers:
@@ -452,6 +452,7 @@
     delay: 1.0
   - type: ToggleClothing
     action: ActionToggleJusticeHelm
+    mustEquip: false
   - type: ItemTogglePointLight
   - type: ToggleableLightVisuals
     clothingVisuals:

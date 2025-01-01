@@ -19,6 +19,7 @@
         Slash: 0.70
         Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
         Heat: 0.80
+    staminaDamageCoefficient: 0.75 # DeltaV - Decent at stopping disablers
   - type: ExplosionResistance
     damageCoefficient: 0.90
 
@@ -122,6 +123,7 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.5
+    staminaDamageCoefficient: 0.35 # DeltaV
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: ClothingSpeedModifier
@@ -209,6 +211,7 @@
         Heat: 0.5
         Radiation: 0
         Caustic: 0.75
+    staminaDamageCoefficient: 0.1 # DeltaV
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
@@ -275,6 +278,7 @@
         Piercing: 0.6
         Heat: 0.5
         Caustic: 0.9
+    staminaDamageCoefficient: 0.7 # DeltaV - Some protection against disablers, but you're better off with a vest
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

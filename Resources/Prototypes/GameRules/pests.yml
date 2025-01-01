@@ -27,17 +27,16 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-mouse-migration-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    #- id: MobMouseCancer # DeltaV - no
-      #prob: 0.001
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      #- id: MobMouseCancer # DeltaV - no
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
 - type: entity
@@ -50,18 +49,17 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-king-rat-migration-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    #- id: MobMouseCancer # DeltaV - no
-      #prob: 0.001
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      #- id: MobMouseCancer # DeltaV - no
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
@@ -75,13 +73,16 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-cockroach-migration-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobCockroach
+        weight: 0.79
+      - id: MobMothroach
+        weight: 0.21
 
 - type: entity
   id: SnailMigrationLowPop
@@ -92,15 +93,15 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobSnail
-      prob: 0.02
-    - id: MobSnailSpeed
-      prob: 0.002
-    - id: MobSnailMoth
-      prob: 0.002
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+      - id: MobSnailSpeed
+      - id: MobSnailMoth
 
 - type: entity
   id: SnailMigration
@@ -112,15 +113,17 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
-    duration: 50
+    duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-snail-migration-result-message
   - type: VentCrittersRule
-    entries:
-    - id: MobSnail
-      prob: 0.02
-    - id: MobSnailSpeed
-      prob: 0.002
-    - id: MobSnailMoth
-      prob: 0.002
-    #- id: MobSnailInstantDeath # DeltaV - no
-      #prob: 0.00001 #  ~ 1:2000 snails
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+        weight: 0.84
+      - id: MobSnailSpeed
+        weight: 0.08
+      - id: MobSnailMoth
+        weight: 0.08
+      #- id: MobSnailInstantDeath # DeltaV - no

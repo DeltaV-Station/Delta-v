@@ -1,0 +1,33 @@
+- type: entity
+  id: WindowTintedDirectional
+  parent: WindowDirectional
+  name: directional tinted window
+  description: Don't smudge up the glass down there.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    state: tinted_window
+  - type: Tag
+    tags:
+      - ForceNoFixRotations
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    state: tinted_window
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,0.5,-0.3"
+
+- type: entity
+  id: WindowTintedReinforcedDirectional
+  parent: [WindowReinforcedDirectional, WindowTintedDirectional]
+  name: directional reinforced tinted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    state: tinted_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    state: tinted_reinforced_window
