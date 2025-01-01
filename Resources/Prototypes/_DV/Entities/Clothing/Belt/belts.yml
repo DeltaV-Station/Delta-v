@@ -1,0 +1,86 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltCeremonial
+  name: ceremonial belt
+  description: A blue-and-white belt with assorted pockets and pouches.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/ceremonial.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/ceremonial.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+        - SecBeltEquip
+        - Radio
+        - Flashlight
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
+        - PowerCell
+        - OnUseTimerTrigger
+  - type: ItemMapper
+    mapLayers:
+      flashbang:
+        whitelist:
+          components:
+          - FlashOnTrigger
+      stunbaton:
+        whitelist:
+          components:
+          - Stunbaton
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ClothingSlotBase]
+  id: ClothingBeltCorpsmanWebbing
+  name: corpsman webbing
+  description: A set of security webbing with blue corpsman highlights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/corpsman.rsi
+  - type: ItemSlots # add medkit slot
+    slots:
+      medkit:
+        name: clothing-belt-medkit
+        whitelist:
+          tags:
+          - Medkit
+        insertOnInteract: false # or you can't easily stow medkits in your rig.
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 4,0,7,1
+  - type: ItemMapper # add stowed medkit sprite
+    mapLayers:
+      medkit:
+        whitelist:
+          tags:
+          - Medkit
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      medkit: !type:ContainerSlot {}
+  - type: Appearance
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltFoamSheath
+  name: foam sheath
+  description: A foam sheath to cosplay as the captain! It seems to be able to fit a real sabre in it.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/foamsheath.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/foamsheath.rsi
