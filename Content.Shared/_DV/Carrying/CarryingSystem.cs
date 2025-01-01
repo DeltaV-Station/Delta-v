@@ -57,6 +57,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CarryingComponent, DownedEvent>(OnDowned);
         SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -154,6 +155,11 @@ public sealed class CarryingSystem : EntitySystem
     }
 
     private void OnMobStateChanged(Entity<CarryingComponent> ent, ref MobStateChangedEvent args)
+    {
+        DropCarried(ent, ent.Comp.Carried);
+    }
+
+    private void OnDowned(Entity<CarryingComponent> ent, ref DownedEvent args)
     {
         DropCarried(ent, ent.Comp.Carried);
     }
