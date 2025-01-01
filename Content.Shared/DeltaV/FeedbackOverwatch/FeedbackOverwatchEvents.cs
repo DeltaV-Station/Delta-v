@@ -17,7 +17,7 @@ public sealed class FeedbackPopupMessage : EntityEventArgs
     {
         FeedbackPrototype = feedbackPrototype;
     }
-};
+}
 
 /// <summary>
 ///     Stores a users response to feedback.
