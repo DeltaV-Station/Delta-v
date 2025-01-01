@@ -1,7 +1,7 @@
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor
-  sprite: /Textures/DeltaV/Tiles/steel.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/steel.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -19,7 +19,7 @@
 - type: tile
   id: FloorSteelCheckerLight
   name: tiles-steel-floor-checker-light
-  sprite: /Textures/DeltaV/Tiles/cafeteria.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/cafeteria.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -37,7 +37,7 @@
 - type: tile
   id: FloorSteelCheckerDark
   name: tiles-steel-floor-checker-dark
-  sprite: /Textures/DeltaV/Tiles/checker_dark.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/checker_dark.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -55,7 +55,7 @@
 - type: tile
   id: FloorSteelMini
   name: tiles-steel-floor-mini
-  sprite: /Textures/DeltaV/Tiles/steel_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -73,7 +73,7 @@
 - type: tile
   id: FloorSteelPavement
   name: tiles-steel-floor-pavement
-  sprite: /Textures/DeltaV/Tiles/steel_pavement.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -91,7 +91,7 @@
 - type: tile
   id: FloorSteelDiagonal
   name: tiles-steel-floor-diagonal
-  sprite: /Textures/DeltaV/Tiles/steel_diagonal.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -109,7 +109,7 @@
 - type: tile
   id: FloorSteelOffset
   name: tiles-steel-floor-offset
-  sprite: /Textures/DeltaV/Tiles/steel_offset.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -121,7 +121,7 @@
 - type: tile
   id: FloorSteelMono
   name: tiles-steel-floor-mono
-  sprite: /Textures/DeltaV/Tiles/steel_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -139,7 +139,7 @@
 - type: tile
   id: FloorSteelPavementVertical
   name: tiles-steel-floor-pavement-vertical
-  sprite: /Textures/DeltaV/Tiles/steel_pavement_vertical.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -157,7 +157,7 @@
 - type: tile
   id: FloorSteelHerringbone
   name: tiles-steel-floor-herringbone
-  sprite: /Textures/DeltaV/Tiles/steel_herringbone.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -175,7 +175,7 @@
 - type: tile
   id: FloorSteelDiagonalMini
   name: tiles-steel-floor-diagonal-mini
-  sprite: /Textures/DeltaV/Tiles/steel_diagonal_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -217,7 +217,7 @@
 - type: tile
   id: FloorPlastic
   name: tiles-plastic-floor
-  sprite: /Textures/DeltaV/Tiles/plastic.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/plastic.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -235,7 +235,7 @@
 - type: tile
   id: FloorWood
   name: tiles-wood
-  sprite: /Textures/DeltaV/Tiles/wood.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/wood.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -255,7 +255,7 @@
 - type: tile
   id: FloorWhite
   name: tiles-white-floor
-  sprite: /Textures/DeltaV/Tiles/white.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -273,7 +273,7 @@
 - type: tile
   id: FloorWhiteMini
   name: tiles-white-floor-mini
-  sprite: /Textures/DeltaV/Tiles/white_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -291,7 +291,7 @@
 - type: tile
   id: FloorWhitePavement
   name: tiles-white-floor-pavement
-  sprite: /Textures/DeltaV/Tiles/white_pavement.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -309,7 +309,7 @@
 - type: tile
   id: FloorWhiteDiagonal
   name: tiles-white-floor-diagonal
-  sprite: /Textures/DeltaV/Tiles/white_diagonal.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -327,7 +327,7 @@
 - type: tile
   id: FloorWhiteOffset
   name: tiles-white-floor-offset
-  sprite: /Textures/DeltaV/Tiles/white_offset.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -339,7 +339,7 @@
 - type: tile
   id: FloorWhiteMono
   name: tiles-white-floor-mono
-  sprite: /Textures/DeltaV/Tiles/white_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -357,7 +357,7 @@
 - type: tile
   id: FloorWhitePavementVertical
   name: tiles-white-floor-pavement-vertical
-  sprite: /Textures/DeltaV/Tiles/white_pavement_vertical.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -375,7 +375,7 @@
 - type: tile
   id: FloorWhiteHerringbone
   name: tiles-white-floor-herringbone
-  sprite: /Textures/DeltaV/Tiles/white_herringbone.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -393,7 +393,7 @@
 - type: tile
   id: FloorWhiteDiagonalMini
   name: tiles-white-floor-diagonal-mini
-  sprite: /Textures/DeltaV/Tiles/white_diagonal_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -411,7 +411,7 @@
 - type: tile
   id: FloorWhitePlastic
   name: tiles-plastic-white-floor
-  sprite: /Textures/DeltaV/Tiles/white_plastic.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/white_plastic.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -429,7 +429,7 @@
 - type: tile
   id: FloorDark
   name: tiles-dark-floor
-  sprite: /Textures/DeltaV/Tiles/dark.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -447,7 +447,7 @@
 - type: tile
   id: FloorDarkMini
   name: tiles-dark-floor-mini
-  sprite: /Textures/DeltaV/Tiles/dark_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -465,7 +465,7 @@
 - type: tile
   id: FloorDarkPavement
   name: tiles-dark-floor-pavement
-  sprite: /Textures/DeltaV/Tiles/dark_pavement.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_pavement.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -483,7 +483,7 @@
 - type: tile
   id: FloorDarkDiagonal
   name: tiles-dark-floor-diagonal
-  sprite: /Textures/DeltaV/Tiles/dark_diagonal.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_diagonal.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -501,7 +501,7 @@
 - type: tile
   id: FloorDarkOffset
   name: tiles-dark-floor-offset
-  sprite: /Textures/DeltaV/Tiles/dark_offset.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_offset.png  #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -513,7 +513,7 @@
 - type: tile
   id: FloorDarkMono
   name: tiles-dark-floor-mono
-  sprite: /Textures/DeltaV/Tiles/dark_mono.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_mono.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -531,7 +531,7 @@
 - type: tile
   id: FloorDarkPavementVertical
   name: tiles-dark-floor-pavement-vertical
-  sprite: /Textures/DeltaV/Tiles/dark_pavement_vertical.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_pavement_vertical.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -549,7 +549,7 @@
 - type: tile
   id: FloorDarkHerringbone
   name: tiles-dark-floor-herringbone
-  sprite: /Textures/DeltaV/Tiles/dark_herringbone.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_herringbone.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -567,7 +567,7 @@
 - type: tile
   id: FloorDarkDiagonalMini
   name: tiles-dark-floor-diagonal-mini
-  sprite: /Textures/DeltaV/Tiles/dark_diagonal_mini.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_diagonal_mini.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -585,7 +585,7 @@
 - type: tile
   id: FloorDarkPlastic
   name: tiles-plastic-dark-floor
-  sprite: /Textures/DeltaV/Tiles/dark_plastic.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/dark_plastic.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -651,7 +651,7 @@
 - type: tile
   id: FloorSteelDirty
   name: tiles-dirty-steel-floor
-  sprite: /Textures/DeltaV/Tiles/steel_dirty.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/steel_dirty.png #Delta V - Resprite Tile
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -699,7 +699,7 @@
 - type: tile
   id: FloorBlue
   name: tiles-blue-tile
-  sprite: /Textures/DeltaV/Tiles/blue.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/blue.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -711,7 +711,7 @@
 - type: tile
   id: FloorSteelLime
   name: tiles-lime-floor
-  sprite: /Textures/DeltaV/Tiles/lime.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/lime.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -766,7 +766,7 @@
 - type: tile
   id: FloorFreezer
   name: tiles-freezer
-  sprite: /Textures/DeltaV/Tiles/freezer.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/freezer.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -778,7 +778,7 @@
 - type: tile
   id: FloorShowroom
   name: tiles-showroom-floor
-  sprite: /Textures/DeltaV/Tiles/showroom.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/showroom.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -790,7 +790,7 @@
 - type: tile
   id: FloorHydro
   name: tiles-hydro-floor
-  sprite: /Textures/DeltaV/Tiles/hydro.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/hydro.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -802,7 +802,7 @@
 - type: tile
   id: FloorBar
   name: tiles-bar-floor
-  sprite: /Textures/DeltaV/Tiles/bar.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/bar.png #Delta V - Resprite Tiles
   variants: 4
   placementVariants:
   - 1.0
@@ -820,7 +820,7 @@
 - type: tile
   id: FloorClown
   name: tiles-clown-floor
-  sprite: /Textures/DeltaV/Tiles/clown.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/clown.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -832,7 +832,7 @@
 - type: tile
   id: FloorMime
   name: tiles-mime-floor
-  sprite: /Textures/DeltaV/Tiles/mime.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/mime.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -844,7 +844,7 @@
 - type: tile
   id: FloorKitchen
   name: tiles-kitchen-floor
-  sprite: /Textures/DeltaV/Tiles/kitchen.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/kitchen.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -856,7 +856,7 @@
 - type: tile
   id: FloorLaundry
   name: tiles-laundry-floor
-  sprite: /Textures/DeltaV/Tiles/laundry.png #Delta V - Resprite Tiles
+  sprite: /Textures/_DV/Tiles/laundry.png #Delta V - Resprite Tiles
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1349,7 +1349,7 @@
 - type: tile
   id: FloorGlass
   name: tiles-glass-floor
-  sprite: /Textures/DeltaV/Tiles/glass.png  #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/glass.png  #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1367,7 +1367,7 @@
 - type: tile
   id: FloorRGlass
   name: tiles-reinforced-glass-floor
-  sprite: /Textures/DeltaV/Tiles/rglass.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/rglass.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1752,7 +1752,7 @@
 - type: tile
   id: FloorWoodTile
   name: tiles-wood2
-  sprite: /Textures/DeltaV/Tiles/wood_tile.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/wood_tile.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0
@@ -1772,7 +1772,7 @@
 - type: tile
   id: FloorBrokenWood
   name: tiles-wood3
-  sprite: /Textures/DeltaV/Tiles/wood_broken.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/wood_broken.png #Delta V - Resprite Tile
   variants: 7
   placementVariants:
   - 1.0
@@ -1935,7 +1935,7 @@
 - type: tile
   id: FloorWoodLarge
   name: tiles-wood-large
-  sprite: /Textures/DeltaV/Tiles/wood_large.png #Delta V - Resprite Tile
+  sprite: /Textures/_DV/Tiles/wood_large.png #Delta V - Resprite Tile
   variants: 4
   placementVariants:
   - 1.0

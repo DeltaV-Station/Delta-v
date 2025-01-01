@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Vertex.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Vertex.yml
         - type: StationNameSetup
           mapNameTemplate: '{0} Edge Station {1}'
           nameGenerator:
