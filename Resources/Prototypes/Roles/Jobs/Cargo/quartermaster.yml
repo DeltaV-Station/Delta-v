@@ -16,7 +16,7 @@
       time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Logistics # DeltaV - Logistics Department replacing Cargo
-      time: 43200 #DeltaV 12 hours
+      time: 43200 # DeltaV 12 hours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10
@@ -33,7 +33,7 @@
   - Maintenance
   - External
   - Command
-  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  - Orders # DeltaV - Orders, see Resources/Prototypes/_DV/Access/cargo.yml
   - Cryogenics
   special:
   - !type:AddImplantSpecial

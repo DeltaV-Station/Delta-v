@@ -3,7 +3,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
-  sexRestriction: [Male] #DeltaV: Splitting the scars and tattoos
+  sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
@@ -18,14 +18,14 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
-  sexRestriction: [Male] #DeltaV: Splitting the scars and tattoos
+  sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
       type:
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: DeltaV/Mobs/Customization/tattoos.rsi #DeltaV: Splitting the scars and tattoos
+  - sprite: _DV/Mobs/Customization/tattoos.rsi # DeltaV: Splitting the scars and tattoos
     state: tattoo_nightling
 
 - type: marking
