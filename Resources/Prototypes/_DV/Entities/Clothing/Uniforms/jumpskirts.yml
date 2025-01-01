@@ -40,9 +40,9 @@
   description: Inspired by the logistics officers of military's past, the perfect outfit for supplying a formal occasion.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -51,9 +51,9 @@
   description: A well-made dress with gold buttons and a red trim. Might as well look sharp when botany goes up in flames.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
 
 # Security alt uniforms
 
@@ -212,8 +212,7 @@
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/cj.rsi
   - type: Clothing
-<<<<<<< HEAD:Resources/Prototypes/DeltaV/Entities/Clothing/Uniforms/jumpskirts.yml
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cj.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cj.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -222,13 +221,10 @@
   description: A fancy double-breasted dress with golden accoutrements. Sharp and authoritative.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
-=======
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/cj.rsi
->>>>>>> f3b11ebc8aa4c282ba849c8c73a886486eb9c0a3:Resources/Prototypes/_DV/Entities/Clothing/Uniforms/jumpskirts.yml
-    
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtClerk
