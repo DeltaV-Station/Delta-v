@@ -1,0 +1,74 @@
+# PDA
+- type: loadout
+  id: PsychologistPDA
+  equipment:
+    id: PsychologistPDA
+
+- type: loadout
+  id: PsychiatristPDA
+  equipment:
+    id: PsychiatristPDA
+
+- type: loadout
+  id: TherapistPDA
+  equipment:
+    id: TherapistPDA
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPsychologist
+      time: 14400 # 4 hours psychologist
+
+- type: loadout
+  id: SocialWorkerPDA
+  equipment:
+    id: SocialWorkerPDA
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 14400 # 4 hours service
+
+# Head
+- type: loadout
+  id: PsychologistFrenchBeret
+  equipment:
+    head: ClothingHeadHatBeretFrench
+
+- type: loadout
+  id: PsychologistGreyFlatcap
+  equipment:
+    head: ClothingHeadHatGreyFlatcap
+
+- type: loadout
+  id: PsychologistBrownFlatcap
+  equipment:
+    head: ClothingHeadHatBrownFlatcap
+
+# OuterClothing
+- type: loadout
+  id: PsychologistMedicalWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterMed
+
+- type: loadout
+  id: PsychologistWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterCoat
+
+- type: loadout
+  id: PsychologistWinterCoatPlaid
+  equipment:
+    outerClothing: ClothingOuterWinterCoatPlaid
+
+- type: loadout
+  id: PsychologistCoatBomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
+
+- type: loadout
+  id: PsychologistSweater
+  equipment:
+    outerClothing: ClothingOuterCoatHyenhSweater

@@ -59,7 +59,7 @@
     tags:
     - Katana
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+    sprite: _DV/Objects/Weapons/Melee/katana.rsi # DeltaV
   - type: MeleeWeapon
     damage:
       types:
@@ -67,7 +67,7 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+    sprite: _DV/Objects/Weapons/Melee/katana.rsi # DeltaV
   - type: DisarmMalus
 
 - type: entity
