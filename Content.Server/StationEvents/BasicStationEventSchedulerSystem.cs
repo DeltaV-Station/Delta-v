@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers; // DeltaV
-using Content.Server.DeltaV.StationEvents.NextEvent; // DeltaV
+using Content.Server._DV.StationEvents.NextEvent; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
