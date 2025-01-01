@@ -2,7 +2,7 @@ using Content.Server._DV.Cloning;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.DeltaV;
+namespace Content.IntegrationTests.Tests._DV;
 
 [TestFixture]
 public sealed class MetempsychosisTest
