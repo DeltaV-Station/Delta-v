@@ -6,7 +6,7 @@
   - type: Sprite
     layers:
     - state: orange
-    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+    - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanoprisoner
   - type: PresetIdCard
     job: Prisoner
@@ -19,7 +19,7 @@
   - type: Sprite
     layers:
     - state: orange
-    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+    - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanogladiator
   - type: PresetIdCard
     job: Gladiator
@@ -32,7 +32,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+    - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanoprisonguard
   - type: PresetIdCard
     job: PrisonGuard
@@ -45,7 +45,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+    - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanomailcarrier
   - type: IdCard
     jobTitle: job-alt-title-mail-carrier
@@ -58,7 +58,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: DeltaV/Objects/Misc/id_cards.rsi
+    - sprite: _DV/Objects/Misc/id_cards.rsi
       state: nyanomartialartist
   - type: PresetIdCard
     job: MartialArtist
@@ -71,7 +71,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi
+        - sprite: _DV/Objects/Misc/id_cards.rsi
           state: nyanomantis
     - type: PresetIdCard
       job: ForensicMantis
