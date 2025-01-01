@@ -1,89 +1,4 @@
 ﻿Entries:
-- author: adeinitas
-  changes:
-  - message: Added a new piece of lobby art and 2 new tracks.
-    type: Add
-  id: 325
-  time: '2024-04-28T16:15:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1143
-- author: TadJohnson00
-  changes:
-  - message: Vulcans now receive a fire selector and vastly improved ergonomics. Ask
-      your warden for some .30 practice and try it out!
-    type: Tweak
-  id: 326
-  time: '2024-04-28T20:37:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1139
-- author: pissdemon
-  changes:
-  - message: Vulpkanins or harpies getting gibbed/meatspiked no longer cures the colorblindness
-      of vulpkanins/harpies nearby.
-    type: Fix
-  - message: Species vision filters no longer break the construction overlay. Vulp
-      and harpy engineers rejoice!
-    type: Fix
-  id: 327
-  time: '2024-04-28T22:09:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1150
-- author: '- Mike and Still-Icarus'
-  changes:
-  - message: Added the Decimator Railgun, a thunderous new weapon for both syndicate
-      and nuclear operatives.
-    type: Add
-  id: 328
-  time: '2024-04-29T10:16:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/718
-- author: pissdemon
-  changes:
-  - message: Voice changer mask now lists vulpkanin, felinid and harpy accents correctly.
-    type: Fix
-  id: 329
-  time: '2024-05-03T21:49:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1162
-- author: DangerRevolution
-  changes:
-  - message: Chameleon clothing can now be set to skirts again
-    type: Fix
-  - message: Harpies can now wear chameleon clothing
-    type: Fix
-  id: 330
-  time: '2024-05-03T23:49:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1110
-- author: NullWanderer
-  changes:
-  - message: Fixed server performance issues
-    type: Fix
-  id: 331
-  time: '2024-05-04T16:26:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1163
-- author: Colin-Tel
-  changes:
-  - message: Added a number of new tracks to the Jukebox.
-    type: Add
-  id: 332
-  time: '2024-05-04T16:59:28.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1130
-- author: NullWanderer
-  changes:
-  - message: The color mixing applied to moths has been increased in strength by 25%.
-    type: Tweak
-  id: 333
-  time: '2024-05-06T15:27:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1015
-- author: Mnemotechnician
-  changes:
-  - message: Carrying is less likely to behave erratically or suddenly interrupt now.
-    type: Fix
-  - message: You can now see when someone is trying to pick you up, and also you can
-      interrupt your attempt at escaping from their hands or inventory.
-    type: Add
-  - message: You can now properly take Felinids out of bags and place them inside.
-    type: Add
-  - message: Scientists have discovered that Felinids can sleep in bags.
-    type: Add
-  id: 334
-  time: '2024-05-06T18:21:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1118
 - author: Lyndomen
   changes:
   - message: Syndicate Agents will no longer receive the "Become Psionic" objective.
@@ -3841,3 +3756,80 @@
   id: 824
   time: '2024-12-28T14:36:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2538
+- author: FieldCommand
+  changes:
+  - message: Secure Cabinets
+    type: Add
+  id: 825
+  time: '2024-12-28T23:32:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2544
+- author: Lyndomen
+  changes:
+  - message: Warden requires whitelist again
+    type: Tweak
+  id: 826
+  time: '2024-12-29T01:26:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2482
+- author: deltanedas
+  changes:
+  - message: Added mining vouchers for salvage to get a loadout that can be redeemed
+      at the salvage vendor.
+    type: Add
+  id: 827
+  time: '2024-12-29T03:38:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2512
+- author: Lyndomen
+  changes:
+  - message: Speedboots consume more energy, are faster, and are powered by bluespace
+    type: Tweak
+  id: 828
+  time: '2024-12-29T07:31:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2550
+- author: leonardo-dabepis
+  changes:
+  - message: made the rest of the CJ clothes usable/visible in game (this means more
+      CJ drip)
+    type: Fix
+  id: 829
+  time: '2024-12-31T07:19:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2558
+- author: Lyndomen
+  changes:
+  - message: Ports pears from Frontier, and pear related recipes
+    type: Add
+  - message: Ports coffee from Frontier, as well as bean roasting and brewing
+    type: Add
+  id: 830
+  time: '2024-12-31T18:15:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2232
+- author: JustAnOrange
+  changes:
+  - message: intercoms rotate according to direction they are facing now.
+    type: Tweak
+  id: 831
+  time: '2025-01-01T13:46:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2367
+- author: Radezolid
+  changes:
+  - message: Wardens got their HOS headset back into their locker.
+    type: Tweak
+  id: 832
+  time: '2025-01-01T13:21:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2572
+- author: Kr8art
+  changes:
+  - message: The foxear sprite available to Vulpkanin and Felinids now has a separate
+      inner layer. If you use this option, make sure to revisit your character customization,
+      as this change will **likely reset your current tint colour!**
+    type: Tweak
+  id: 833
+  time: '2025-01-01T14:32:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2539
+- author: Stop-Signs
+  changes:
+  - message: Security warden suit has been made tankier but slower to differentiate
+      it from the HOS
+    type: Tweak
+  id: 834
+  time: '2025-01-01T14:36:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2397

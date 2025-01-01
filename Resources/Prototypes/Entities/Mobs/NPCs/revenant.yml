@@ -13,7 +13,7 @@
     baseWalkSpeed: 6
     baseSprintSpeed: 6
   - type: Sprite
-    sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+    sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
     layers:
     - state: active
   - type: StatusEffects
@@ -42,7 +42,7 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Revenant
-    spawnOnDeathPrototype: EctoplasmRevenant #DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
+    spawnOnDeathPrototype: EctoplasmRevenant # DeltaV - different prototype that contains more ectoplasm reagent for normality crystals
     malfunctionWhitelist:
       components:
       # emag lockers open

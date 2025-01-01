@@ -1,0 +1,130 @@
+- type: entity
+  name: CrystalThistle
+  parent: FoodProduceBase
+  id: FoodCrystalThistle
+  description: A variant of galaxythistle that has sprouted sharp quartz shards.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - sharp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Quartzite
+          Quantity: 10
+        - ReagentId: Ethyloxyephedrine
+          Quantity: 15
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+  - type: Produce
+    seedId: CrystalThistle
+  - type: Extractable
+    grindableSolutionName: food
+  - type: FoodSequenceElement
+    entries:
+      Burger: CrystalThistle
+      Taco: CrystalThistle
+      Skewer: CrystalThistle
+
+- type: foodSequenceElement
+  id: CrystalThistle
+  name: food-sequence-content-crystal-thistle
+  sprites:
+  - sprite: _DV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+    state: produce
+
+- type: entity
+  name: Ghost Pepper
+  parent: FoodProduceBase
+  id: FoodGhostPepper
+  description: So hot, you'll have one foot in the grave.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spicy
+    - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 39
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: CapsaicinOil
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: Thermite
+          Quantity: 10
+  - type: TileFrictionModifier
+    modifier: 0.05
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+  - type: Produce
+    seedId: GhostPepper
+  - type: Tag
+    tags:
+    - Vegetable
+  - type: FoodSequenceElement
+    entries:
+      Burger: GhostPepper
+      Taco: GhostPepper
+      Skewer: GhostPepper
+
+- type: foodSequenceElement
+  id: GhostPepper
+  name: food-sequence-content-ghost-pepper
+  sprites:
+  - sprite: _DV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+    state: produce
+  tags:
+  - Vegetable
+
+- type: entity
+  name: Cosmic Revenant
+  parent: FoodProduceBase
+  id: FoodCosmicRevenant
+  description: Is this even a pepper? Looks... Haunted.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spicy
+    - spooky
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 41
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: CapsaicinOil
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Ectoplasm
+          Quantity: 5
+  - type: TileFrictionModifier
+    modifier: 0.0001
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+  - type: Produce
+    seedId: CosmicRevenant
+  - type: Tag
+    tags:
+    - Vegetable
+  - type: FoodSequenceElement
+    entries:
+      Burger: CosmicRevenant
+      Taco: CosmicRevenant
+      Skewer: CosmicRevenant
+
+- type: foodSequenceElement
+  id: CosmicRevenant
+  name: food-sequence-content-revenant
+  sprites:
+  - sprite: _DV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+    state: produce
+  tags:
+  - Vegetable
