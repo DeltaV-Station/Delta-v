@@ -2,6 +2,8 @@
   id: Lighthouse
   mapName: Lighthouse
   mapPath: /Maps/lighthouse.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 20
   maxPlayers: 65
   stations:
@@ -9,7 +11,7 @@
       stationProto: StandardNanotrasenStation
       components:
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_BC20.yml
+        emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_BC20.yml
       - type: StationNameSetup
         mapNameTemplate: '{0} Lighthouse {1}'
         nameGenerator:

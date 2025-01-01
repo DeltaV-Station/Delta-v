@@ -706,6 +706,8 @@
         orGroup: DrinkPool
       - id: DrinkLemonLimeCan
         orGroup: DrinkPool
+      - id: DrinkLemonLimeCranberryCan
+        orGroup: DrinkPool
       - id: DrinkIcedTeaCan
         orGroup: DrinkPool
       - id: ToyMouse
@@ -768,7 +770,7 @@
       - id: GoldenBikeHorn
         prob: 0.1
         orGroup: GiftPool
-      - id: ToyRenault # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
+      - id: ToyRenault # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
-      - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
+      - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
