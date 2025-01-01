@@ -5,11 +5,6 @@ using Content.Shared.Body.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
-// DeltaV Start
-using Content.Shared.Examine;
-using Content.Server.Traits.Assorted;
-using Robust.Shared.Utility;
-// DeltaV End
 
 namespace Content.Server.Body.Systems
 {
@@ -24,7 +19,6 @@ namespace Content.Server.Body.Systems
             SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>((uid, _, args) => HandleMind(args.Body, uid));
             SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>((uid, _, args) => HandleMind(uid, args.OldBody));
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
-            SubscribeLocalEvent<UnborgableComponent, ExaminedEvent>(OnExamined); // DeltaV
         }
 
         private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
@@ -39,18 +33,10 @@ namespace Content.Server.Body.Systems
             if (HasComp<BodyComponent>(newEntity))
                 ghostOnMove.MustBeDead = true;
 
-            if (HasComp<UnborgableComponent>(oldEntity)) // DeltaV
-                EnsureComp<UnborgableComponent>(newEntity);
-
             if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
                 return;
 
             _mindSystem.TransferTo(mindId, newEntity, mind: mind);
-        }
-
-        private void OnExamined(Entity<UnborgableComponent> ent, ref ExaminedEvent args) //DeltaV
-        {
-            args.PushMarkup($"[color=red]{Loc.GetString("brain-cannot-be-borged-message")}[/color]");
         }
 
         private void OnPointAttempt(Entity<BrainComponent> ent, ref PointAttemptEvent args)
