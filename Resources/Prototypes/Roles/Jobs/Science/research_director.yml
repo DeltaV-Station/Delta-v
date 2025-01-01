@@ -10,8 +10,6 @@
       time: 54000 # DeltaV - 15 hours
     - !type:OverallPlaytimeRequirement
       time: 72000 # DeltaV - 20 hours, was 40
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -23,8 +21,10 @@
   - Command
   - Maintenance
   - ResearchDirector
-  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+  - Mantis # DeltaV - Psionic Mantis, see Resources/Prototypes/_DV/Access/epistemics.yml
   - Chapel # DeltaV - Chaplain is in Epistemics
+  - Robotics # DeltaV - Robotics access
+  - External # DeltaV - AI satellite access
   - Cryogenics
   special: # Nyanotrasen - Mystagogue can use the Bible
   - !type:AddComponentSpecial

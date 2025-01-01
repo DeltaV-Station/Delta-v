@@ -398,10 +398,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         QueueWindowUpdate();
 
-        // TODO ACTIONS allow buttons to persist across state applications
-        // Then we don't have to interrupt drags any time the buttons get rebuilt.
-        _menuDragHelper.EndDrag();
-
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
@@ -774,7 +770,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void LoadGui()
     {
-        DebugTools.Assert(_window == null);
+        UnloadGui();
         _window = UIManager.CreateWindow<ActionsWindow>();
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
 

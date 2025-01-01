@@ -1,0 +1,12 @@
+- type: technology
+  id: AerialExtraction
+  name: research-technology-aerial-extraction
+  icon:
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - Fulton
+  - FultonBeacon

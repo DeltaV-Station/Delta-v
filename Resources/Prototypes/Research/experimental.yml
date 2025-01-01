@@ -56,8 +56,8 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
-  - ReverseEngineeringMachineCircuitboard #delta change
-  
+  - ReverseEngineeringMachineCircuitboard # DeltaV
+
 - type: technology
   id: MagnetsTech
   name: research-technology-magnets-tech
@@ -70,6 +70,7 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
+  - ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
 
 - type: technology
   id: AnomalyCoreHarnessing

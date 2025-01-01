@@ -15,7 +15,7 @@ public sealed partial class PlayTimeTrackingManager
             Whitelisted = whitelist
         };
 
-        _net.ServerSendMessage(msg, playerSession.ConnectedClient);
+        _net.ServerSendMessage(msg, playerSession.Channel);
     }
 
     /// <summary>

@@ -98,6 +98,7 @@ public sealed class AdminSystem : EntitySystem
         SubscribeLocalEvent<RoleAddedEvent>(OnRoleEvent);
         SubscribeLocalEvent<RoleRemovedEvent>(OnRoleEvent);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+        SubscribeLocalEvent<ActorComponent, EntityRenamedEvent>(OnPlayerRenamed);
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
@@ -122,6 +123,11 @@ public sealed class AdminSystem : EntitySystem
         {
             RaiseNetworkEvent(updateEv, admin.Channel);
         }
+    }
+
+    private void OnPlayerRenamed(Entity<ActorComponent> ent, ref EntityRenamedEvent args)
+    {
+        UpdatePlayerList(ent.Comp.PlayerSession);
     }
 
     public void UpdatePlayerList(ICommonSession player)
@@ -331,10 +337,15 @@ public sealed class AdminSystem : EntitySystem
 
     private void UpdatePanicBunker()
     {
-        var admins = PanicBunker.CountDeadminnedAdmins
-            ? _adminManager.AllAdmins
-            : _adminManager.ActiveAdmins;
-        var hasAdmins = admins.Any();
+        var hasAdmins = false;
+        foreach (var admin in _adminManager.AllAdmins)
+        {
+            if (_adminManager.HasAdminFlag(admin, AdminFlags.Ban, includeDeAdmin: PanicBunker.CountDeadminnedAdmins)) // DeltaV: Check Ban instead of Admin
+            {
+                hasAdmins = true;
+                break;
+            }
+        }
 
         // TODO Fix order dependent Cvars
         // Please for the sake of my sanity don't make cvars & order dependent.
@@ -401,7 +412,7 @@ public sealed class AdminSystem : EntitySystem
                 _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)), coordinates, PopupType.LargeCaution);
                 var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
                 var audioParams = new AudioParams().WithVolume(3);
-                _audio.PlayStatic("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams); // DeltaV
+                _audio.PlayStatic("/Audio/_DV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams); // DeltaV
             }
 
             foreach (var item in _inventory.GetHandOrInventoryEntities(entity))

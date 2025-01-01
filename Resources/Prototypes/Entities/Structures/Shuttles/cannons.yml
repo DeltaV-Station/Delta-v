@@ -30,7 +30,7 @@
         layer:
         - MachineLayer
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Electronic
   - type: Transform
     anchored: true
@@ -285,7 +285,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -363,3 +363,6 @@
     count: 5
   - type: Machine
     board: ShuttleGunKineticCircuitboard
+  - type: ExtensionCableReceiver # Frontier
+  - type: ApcPowerReceiver # Frontier
+    powerLoad: 1500 # Frontier

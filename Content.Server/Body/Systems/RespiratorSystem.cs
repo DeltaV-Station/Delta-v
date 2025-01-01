@@ -2,9 +2,9 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
@@ -33,7 +33,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly LungSystem _lungSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
@@ -74,7 +74,15 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid))
                 continue;
 
-            UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
+            // Begin DeltaV Code: Addition: 
+            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+            var multiplier = -1f;
+            foreach (var (_, lung, _) in organs)
+            {
+                multiplier *= lung.SaturationLoss;
+            }
+            // End DeltaV Code
+            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
             {

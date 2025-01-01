@@ -1,0 +1,19 @@
+- type: entity
+  abstract: true
+  parent: ClothingUniformBase
+  id: ClothingUniformFoldableBase
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: rolled
+
+- type: entity
+  abstract: true
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtFoldableBase
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: rolled

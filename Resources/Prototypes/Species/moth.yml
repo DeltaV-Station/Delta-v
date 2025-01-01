@@ -7,7 +7,7 @@
   defaultSkinTone: "#ffda93"
   markingLimits: MobMothMarkingLimits
   dollPrototype: MobMothDummy
-  skinColoration: TintedHuesSkin # DeltaV - No rgb moths, literally 1849
+  skinColoration: Hues
   maleFirstNames: names_moth_first_male
   femaleFirstNames: names_moth_first_female
   lastNames: names_moth_last
@@ -68,10 +68,10 @@
       points: 1
       required: false
     Legs:
-      points: 2
+      points: 6
       required: false
     Arms:
-      points: 2
+      points: 6
       required: false
 
 - type: humanoidBaseSprite

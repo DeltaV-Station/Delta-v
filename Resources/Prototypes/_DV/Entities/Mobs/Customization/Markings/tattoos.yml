@@ -1,0 +1,29 @@
+- type: marking
+  id: TattooHiveChestFemale # DeltaV: Splitting the scars and tattoos
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Female] # DeltaV: Splitting the scars and tattoos
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _DV/Mobs/Customization/tattoos.rsi
+    state: tattoo_hive_chest_female
+
+- type: marking
+  id: TattooNightlingChestFemale # DeltaV: Splitting the scars and tattoos
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  sexRestriction: [Female] # DeltaV: Splitting the scars and tattoos
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _DV/Mobs/Customization/tattoos.rsi
+    state: tattoo_nightling_female

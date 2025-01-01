@@ -1,0 +1,120 @@
+- type: entity
+  id: SpawnPointMedicalBorg
+  parent: SpawnPointJobBase
+  name: medical cyborg
+  components:
+  - type: SpawnPoint
+    job_id: MedicalBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical_e
+
+- type: entity
+  id: SpawnPointChiefJustice
+  parent: SpawnPointJobBase
+  name: chiefjustice
+  components:
+  - type: SpawnPoint
+    job_id: ChiefJustice
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: chiefjustice
+
+- type: entity
+  id: SpawnPointClerk
+  parent: SpawnPointJobBase
+  name: clerk
+  components:
+  - type: SpawnPoint
+    job_id: Clerk
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: clerk
+
+- type: entity
+  id: SpawnPointProsecutor
+  parent: SpawnPointJobBase
+  name: prosecutor
+  components:
+  - type: SpawnPoint
+    job_id: Prosecutor
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: prosecutor
+
+- type: entity
+  id: SpawnPointCourier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: Courier
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: courier
+
+- type: entity
+  id: SpawnPointSecurityBorg
+  parent: SpawnPointJobBase
+  name: security cyborg
+  components:
+  - type: SpawnPoint
+    job_id: SecurityBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Mobs/Silicon/chassis.rsi
+      state: security
+    - sprite: _DV/Mobs/Silicon/chassis.rsi
+      state: security_e
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointRoboticist
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: Roboticist
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: roboticist
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointCargoAssistant
+  name: cargo assistant
+  components:
+  - type: SpawnPoint
+    job_id: CargoAssistant
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: cargoassistant
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointAdminAssistant
+  name: administrative assistant
+  components:
+  - type: SpawnPoint
+    job_id: AdministrativeAssistant
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _DV/Markers/jobs.rsi
+      state: adminassistant

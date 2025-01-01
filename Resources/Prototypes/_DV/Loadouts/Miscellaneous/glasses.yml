@@ -1,0 +1,17 @@
+- type: loadoutEffectGroup
+  id: CheapSunglassesTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 7200 # 2 hours of being a rockstar
+
+# Cheap Sunglasses
+- type: loadout
+  id: GlassesCheapSunglasses
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CheapSunglassesTimer
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses

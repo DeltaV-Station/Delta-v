@@ -105,11 +105,11 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
-# here
+
 - type: construction
   name: wood wall
   id: WoodWall
-  graph: Girder
+  graph: Barricade
   startNode: start
   targetNode: woodWall
   category: construction-category-structures
@@ -455,7 +455,7 @@
   startNode: start
   targetNode: tintedWindow
   category: construction-category-structures
-  description: Not clear but tough.
+  description: Not clear, but lasers still pass through.
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -512,7 +512,7 @@
   targetNode: plasmaWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and even tougher, with a purple tint.
+  description: Clear, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -531,7 +531,7 @@
   targetNode: reinforcedPlasmaWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Fire resistant and even tougher, with a purple tint.
+  description: Clear and even tougher, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -569,7 +569,7 @@
   targetNode: plasmaWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and even tougher, with a purple tint.
+  description: Clear, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -587,7 +587,7 @@
   targetNode: reinforcedPlasmaWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Fire resistant and even tougher, with a purple tint.
+  description: Clear and even tougher, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -610,7 +610,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -628,7 +628,7 @@
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: reinforced_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -659,12 +659,12 @@
   targetNode: plasmaWindowDirectional
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and even tougher, with a purple tint.
+  description: Clear, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -677,12 +677,12 @@
   targetNode: plasmaReinforcedWindowDirectional
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Fire resistant and even tougher, with a purple tint.
+  description: Clear and even tougher, with a purple tint.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
   icon:
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: plasma_reinforced_window
   objectType: Structure
   placementMode: SnapgridCenter
@@ -695,7 +695,7 @@
   targetNode: uraniumWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and much tougher than regular glass, with added RadAbsorb to protect you from deadly radiation.
+  description: Clear, with added RadAbsorb to protect you from deadly radiation.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -714,7 +714,7 @@
   targetNode: reinforcedUraniumWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and much tougher than regular glass, with added RadAbsorb to protect you from deadly radiation.
+  description: Clear and even tougher, with added RadAbsorb to protect you from deadly radiation.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -733,7 +733,7 @@
   targetNode: uraniumWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and much tougher than regular glass, with added RadAbsorb to protect you from deadly radiation.
+  description: Clear, with added RadAbsorb to protect you from deadly radiation.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -751,7 +751,7 @@
   targetNode: reinforcedUraniumWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: Clear and much tougher than regular glass, with added RadAbsorb to protect you from deadly radiation.
+  description: Clear and even tougher, with added RadAbsorb to protect you from deadly radiation.
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -882,13 +882,14 @@
   targetNode: Catwalk
   category: construction-category-structures
   description: Just like a lattice. Except it looks better.
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-    - !type:TileType
-      targets:
-        - Lattice
-        - Plating
+  # DeltaV - This prevented building catwalk over lava
+  #conditions:
+  #- !type:TileNotBlocked
+  #  failIfSpace: false
+  #- !type:TileType
+  #  targets:
+  #    - Lattice
+  #    - Plating
   icon:
     sprite: Structures/catwalk.rsi
     state: catwalk_preview
@@ -1457,13 +1458,31 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: emergency light
+  id: EmergencyLightFixture
+  graph: LightFixture
+  startNode: start
+  targetNode: emergencyLight
+  category: construction-category-structures
+  description: An emergency light.
+  icon:
+    sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: ground light post
   id: LightGroundFixture
   graph: LightFixture
   startNode: start
   targetNode: groundLight
   category: construction-category-structures
-  description: A ground light fixture. Use light bulbs.
+  description: A ground light fixture. Use light tubes.
   icon:
     sprite: Structures/Lighting/LightPosts/small_light_post.rsi
     state: base

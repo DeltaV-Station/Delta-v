@@ -11,9 +11,7 @@
   cost: 7500
   recipeUnlocks:
   - MiningDrill
-  - WeaponGrapplingGun
-  - BorgModuleMining
-  - BorgModuleGrapplingGun
+  - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - SalvageExpeditionsComputerCircuitboard # DeltaV
   - ClothingMaskWeldingGas
@@ -44,6 +42,7 @@
   recipeUnlocks:
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
+  - SMESAdvancedMachineCircuitboard
 
 - type: technology
   id: MechanicalCompression
@@ -102,6 +101,7 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  - AlertsComputerCircuitboard # DeltaV - Allows atmos computers to be researched
 
 - type: technology
   id: RipleyAPLU
@@ -152,6 +152,9 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - FireExtinguisherBluespace # DeltaV
+  technologyPrerequisites:
+  - AtmosphericTech
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -167,7 +170,6 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - BorgModuleRCD
 
 - type: technology
   id: MassExcavation
@@ -181,6 +183,7 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
 
 # Tier 3
 

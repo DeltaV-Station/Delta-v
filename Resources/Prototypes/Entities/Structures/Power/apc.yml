@@ -27,7 +27,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: _DV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
     layers:
     - state: base
     - state: panel
@@ -91,7 +91,6 @@
         type: ApcBoundUserInterface
   - type: ActivatableUI
     inHandsOnly: false
-    singleUser: true
     key: enum.ApcUiKey.Key
   - type: Construction
     graph: APC
@@ -105,8 +104,8 @@
   - type: WiresPanel
   - type: WiresVisuals
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -160,15 +159,15 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    sprite: _DV/Structures/Power/apc.rsi # DeltaV - Add sprite rotations
     state: frame
   - type: Construction
     graph: APC
     node: apcFrame
   - type: WallMount
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:

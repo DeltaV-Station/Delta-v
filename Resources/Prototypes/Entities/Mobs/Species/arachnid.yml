@@ -25,6 +25,7 @@
     - FootstepSound
     - DoorBumpOpener
     - SpiderCraft
+    - AnomalyHost
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -64,7 +65,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # DeltaV: Added Hiss
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -114,6 +115,9 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
+  - type: FootPrints # DeltaV port from EE, blood splatter
+    leftBarePrint: "footprint-left-bare-spider"
+    rightBarePrint: "footprint-right-bare-spider"
   - type: Inventory
     templateId: arachnid
     speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
@@ -125,8 +129,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
-  - type: Inventory
-    speciesId: arachnid #DeltaV - Allows the "dummy" in the lobby menu to wear the arachnid sprites
+  - type: Inventory # DeltaV - Allows the "dummy" in the lobby menu to wear the arachnid sprites
+    speciesId: arachnid
 
 
 #>88w88<

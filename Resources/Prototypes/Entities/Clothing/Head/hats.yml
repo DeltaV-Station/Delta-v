@@ -35,8 +35,8 @@
     sprite: Clothing/Head/Hats/beret_french.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_french.rsi
-  - type: AddAccentClothing
-    accent: FrenchAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: FrenchAccent
   - type: Tag
     tags:
     - ClothMade
@@ -49,9 +49,9 @@
   description: A stylish clothing option for security officers.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -126,9 +126,9 @@
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -142,9 +142,9 @@
   description: A black beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -169,7 +169,7 @@
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase ]
   id: ClothingHeadHatBeretMerc
   name: mercenary beret
   description: Olive beret, the badge depicts a jackal on a rock.
@@ -222,7 +222,7 @@
   - type: IngestionBlocker
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcom
   name: CentComm brand hat
   description: "It's good to be the emperor."
@@ -307,9 +307,9 @@
   description: A grand, stylish head of personnel's cap.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hopcap.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -323,9 +323,9 @@
   description: "There's a new sheriff in station."
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -406,11 +406,6 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -433,8 +428,8 @@
     sprite: Clothing/Head/Hats/sombrero.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/sombrero.rsi
-  - type: AddAccentClothing
-    accent: SpanishAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: SpanishAccent
 
 - type: entity
   parent: ClothingHeadBase
@@ -499,8 +494,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Appearance
-  - type: AddAccentClothing
-    accent: RussianAccent
+#  - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#    accent: RussianAccent
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing
@@ -526,11 +521,6 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -539,9 +529,9 @@
   description: The responsibility weighs heavy, like a barbed crown. # DeltaV - changed description to remove THE LAW
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
 
@@ -581,6 +571,11 @@
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection # DeltaV
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -597,11 +592,6 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -794,6 +784,21 @@
         Blunt: 0.95
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHolyWatermelon
+  name: watermelon halo
+  description: Holy moly.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+
+- type: entity
   parent: [ClothingHeadBase, BaseSyndicateContraband]
   id: ClothingHeadHatSyndie
   name: syndicate hat
@@ -892,7 +897,7 @@
   - type: BlockMovement
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcomcap
   name: CentComm cap
   description: An extravagant, fancy Central Commander cap.
@@ -1012,9 +1017,9 @@
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
-    - type: AddAccentClothing
-      accent: ReplacementAccent
-      replacement: cowboy
+#    - type: AddAccentClothing # DeltaV - remove clothing-forced accents
+#      accent: ReplacementAccent
+#      replacement: cowboy
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown

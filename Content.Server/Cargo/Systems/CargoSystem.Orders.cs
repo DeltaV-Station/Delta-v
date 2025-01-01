@@ -8,6 +8,8 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Emag.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
 using Robust.Shared.Map;
@@ -83,9 +85,11 @@ namespace Content.Server.Cargo.Systems
             {
                 _timer -= Delay;
 
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
+                var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
+                while (stationQuery.MoveNext(out var uid, out var bank))
                 {
-                    account.Balance += account.IncreasePerSecond * Delay;
+                    var balanceToAdd = bank.IncreasePerSecond * Delay;
+                    UpdateBankAccount(uid, bank, balanceToAdd);
                 }
 
                 var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
@@ -175,10 +179,6 @@ namespace Content.Server.Cargo.Systems
             RaiseLocalEvent(ref ev);
             ev.FulfillmentEntity ??= station.Value;
 
-            _idCardSystem.TryFindIdCard(player, out var idCard);
-            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            order.SetApproverData(idCard.Comp?.FullName, idCard.Comp?.JobTitle);
-
             if (!ev.Handled)
             {
                 ev.FulfillmentEntity = TryFulfillOrder((station.Value, stationData), order, orderDatabase);
@@ -194,12 +194,20 @@ namespace Content.Server.Cargo.Systems
             order.Approved = true;
             _audio.PlayPvs(component.ConfirmSound, uid);
 
-            var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
-                ("productName", Loc.GetString(order.ProductName)),
-                ("orderAmount", order.OrderQuantity),
-                ("approver", order.Approver ?? string.Empty),
-                ("cost", cost));
-            _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            if (!HasComp<EmaggedComponent>(uid))
+            {
+                var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, player);
+                RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+                order.SetApproverData(tryGetIdentityShortInfoEvent.Title);
+
+                var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
+                    ("productName", Loc.GetString(order.ProductName)),
+                    ("orderAmount", order.OrderQuantity),
+                    ("approver", order.Approver ?? string.Empty),
+                    ("cost", cost));
+                _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            }
+
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(ev.FulfillmentEntity.Value).EntityName)));
 
             // Log order approval
@@ -207,7 +215,7 @@ namespace Content.Server.Cargo.Systems
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
 
             orderDatabase.Orders.Remove(order);
-            DeductFunds(bank, cost);
+            UpdateBankAccount(station.Value, bank, -cost);
             UpdateOrders(station.Value);
         }
 
@@ -530,11 +538,6 @@ namespace Content.Server.Cargo.Systems
 
             return true;
 
-        }
-
-        private void DeductFunds(StationBankAccountComponent component, int amount)
-        {
-            component.Balance = Math.Max(0, component.Balance - amount);
         }
 
         #region Station

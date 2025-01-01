@@ -4,7 +4,7 @@
   description: job-description-librarian
   playTimeTracker: JobLibrarian
   requirements:
-    - !type:OverallPlaytimeRequirement #DeltaV
+    - !type:OverallPlaytimeRequirement # DeltaV
       time: 3600 # 1 hr
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
@@ -20,7 +20,7 @@
     shoes: ClothingShoesBootsLaceup
     id: LibrarianPDA
     ears: ClothingHeadsetService
-    pocket1: d10Dice
+    pocket1: d20Dice
     pocket2: HandLabeler # for making named bestsellers
   storage:
     back:

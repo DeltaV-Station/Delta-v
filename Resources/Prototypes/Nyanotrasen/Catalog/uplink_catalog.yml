@@ -3,6 +3,9 @@
   name: uplink-kanabou-name
   description: uplink-kanabou-desc
   productEntity: Kanabou
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     Telecrystal: 10
   categories:
@@ -17,6 +20,9 @@
   name: uplink-rickenbacker4001-name
   description: uplink-rickenbacker4001-desc
   productEntity: Rickenbacker4001Instrument
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     Telecrystal: 10
   categories:
@@ -31,6 +37,9 @@
   name: uplink-samurai-crate-name
   description: uplink-samurai-crate-desc
   productEntity: CrateSyndicateSamurai
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
     Telecrystal: 6
   categories:

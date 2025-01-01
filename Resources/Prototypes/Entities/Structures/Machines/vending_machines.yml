@@ -5,6 +5,10 @@
   description: Just add capitalism!
   abstract: true
   components:
+  - type: ActionGrant
+    actions:
+    - ActionVendingThrow
+  - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -9
@@ -75,12 +79,8 @@
     speechVerb: Robotic
     speechSounds: Vending
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
   - type: DoAfter
   - type: Electrified
@@ -197,6 +197,41 @@
     guides:
     - Bartender
     #- Drinks # DeltaV - doesn't exist
+
+- type: entity
+  parent: VendingMachineBooze
+  id: VendingMachineBoozeSyndicate # syndie booze-o-mat for nukie outpost
+  name: Bruise-O-Mat
+  description: A refurbished Booze-O-Mat for boosting operative morale. An imprint of a blood-red hardsuit is visible on one side, and the paint seems ashed off on the other side.
+  components:
+  - type: VendingMachine
+    pack: BoozeOMatInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    loopDeny: false
+  - type: Advertise
+    pack: BruiseOMatAds
+  - type: SpeakOnUIClosed
+    pack: BruiseOMatGoodbyes
+  - type: Speech
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/bruiseomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
 
 - type: entity
   parent: VendingMachine
@@ -1212,7 +1247,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Robotics"]] # DeltaV: Robotics access instead of Research
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -1321,12 +1356,12 @@
   name: Salvage Vendor
   description: A dwarf's best friend!
   components:
-  - type: VendingMachine
-    pack: SalvageEquipmentInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
+  #- type: VendingMachine # DeltaV: Use mining points instead of limited stock
+  #  pack: SalvageEquipmentInventory
+  #  offState: off
+  #  brokenState: broken
+  #  normalState: normal-unshaded
+  #  denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/mining.rsi
     layers:
@@ -1341,6 +1376,21 @@
     radius: 1.5
     energy: 1.6
     color: "#b89f25"
+  - type: ShopVendor # DeltaV
+    pack: SalvageVendorInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: PointsVendor # DeltaV
+  - type: UserInterface # DeltaV: Replace vending machine BUI with shop vendor
+    interfaces:
+      enum.VendingMachineUiKey.Key:
+        type: ShopVendorBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Wires # DeltaV: Use shop vendor wires layout
+    layoutId: ShopVendor
   - type: AccessReader
     access: [["Salvage"]]
   - type: GuideHelp
@@ -1938,7 +1988,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Robotics"]] # DeltaV: Robotics access instead of Research
 
 - type: entity
   parent: VendingMachine
@@ -2125,7 +2175,7 @@
   parent: VendingMachineChemicals
   id: VendingMachineChemicalsSyndicate
   name: SyndieJuice
-  description: Not made with freshly squeezed syndies I hope.
+  description: Not made with freshly squeezed syndies I hope. Backwards compatible with standard ChemVend restocks. # DeltaV: Add chemvend part
   components:
   - type: VendingMachine
     pack: ChemVendInventorySyndicate
