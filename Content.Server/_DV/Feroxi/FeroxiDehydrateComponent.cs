@@ -1,7 +1,7 @@
 using Content.Shared.Body.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.DeltaV.Feroxi;
+namespace Content.Server._DV.Feroxi;
 
 [RegisterComponent, Access(typeof(FeroxiDehydrateSystem))]
 public sealed partial class FeroxiDehydrateComponent : Component

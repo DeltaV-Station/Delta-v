@@ -2,7 +2,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Nutrition.Components;
 
-namespace Content.Server.DeltaV.Feroxi;
+namespace Content.Server._DV.Feroxi;
 
 public sealed class FeroxiDehydrateSystem : EntitySystem
 {
