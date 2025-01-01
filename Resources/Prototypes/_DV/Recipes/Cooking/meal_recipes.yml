@@ -1,0 +1,56 @@
+- type: microwaveMealRecipe
+  id: RecipeGrilledCheese
+  name: grilled cheese
+  result: FoodMealGrilledCheese
+  time: 10
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodCheeseSlice: 1
+    FoodButterSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeScrambledEggs
+  name: scrambled eggs recipe
+  result: FoodMealScrambledEggs
+  time: 5
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodBowlBig: 1
+    FoodEgg: 2
+    FoodButterSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBlueTomatoSoup
+  name: blue tomato soup recipe
+  result: FoodSoupTomatoBlue
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodBlueTomato: 2
+
+- type: microwaveMealRecipe
+  id: RecipePurpleTomatoSoup
+  name: purple tomato soup recipe
+  result: FoodSoupTomatoPurple
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodBlueTomato: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeChickenNuggetBox
+  name: chicken nugget box recipe
+  result: FoodBoxNugget
+  time: 10
+  reagents:
+    Protein: 20
+    Egg: 4
+    Flour: 6
+  solids:
+    MaterialCardboard1: 1

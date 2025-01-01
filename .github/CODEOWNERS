@@ -3,18 +3,36 @@
 # C# code
 /Content.*/ @DeltaV-Station/maintainers
 
+# Any assets
+/Resources/ @DeltaV-Station/maintainers
+
+# Server config files
+/Resources/ConfigPresets/ @MilonPL
+
 # YML files
 /Resources/*.yml @DeltaV-Station/yaml-maintainers
 /Resources/**/*.yml @DeltaV-Station/yaml-maintainers
 
 # Sprites
-/Resources/Textures/ @IamVelcroboy
+/Resources/Textures/ @DeltaV-Station/direction
 
 # Lobby art and music - automatically direction issues since its immediately visible to players
-/Resources/Audio/Lobby/ @DeltaV-Station/game-directors
-/Resources/Textures/LobbyScreens/ @DeltaV-Station/game-directors
+/Resources/Audio/Lobby/ @DeltaV-Station/direction
+/Resources/Textures/LobbyScreens/ @DeltaV-Station/direction
 
 # Maps
 /Resources/Maps/ @DeltaV-Station/maptainers
 /Resources/Prototypes/Maps/ @DeltaV-Station/maptainers
 /Content.IntegrationTests/Tests/PostMapInitTest.cs @DeltaV-Station/maptainers
+
+# Server rules
+/Resources/ServerInfo/Guidebook/DeltaV/Rules/ @DeltaV-Station/head-administrators
+
+# Tools and scripts
+/Tools/ @deltanedas @MilonPL
+
+# Workflows, codeowners, templates, etc.
+/.github/ @deltanedas @MilonPL
+
+# Standalone files in the root repo
+/* @deltanedas

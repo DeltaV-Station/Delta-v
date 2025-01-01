@@ -15,6 +15,7 @@
   requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
+  whitelisted: true # DeltaV
   access:
   - Security
   #- Brig # Delta V: Removed
