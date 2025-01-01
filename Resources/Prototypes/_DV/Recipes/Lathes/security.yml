@@ -1,0 +1,246 @@
+# .38 special
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumEmpty
+  id: SpeedLoaderSpecialEmpty
+  result: SpeedLoaderSpecialEmpty
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnum
+  id: SpeedLoaderSpecial
+  result: SpeedLoaderSpecial
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumPractice
+  id: SpeedLoaderSpecialPractice
+  result: SpeedLoaderSpecialPractice
+
+- type: latheRecipe
+  parent: SpeedLoaderMagnumUranium
+  id: SpeedLoaderSpecialUranium
+  result: SpeedLoaderSpecialUranium
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderSpecialRubber
+  result: SpeedLoaderSpecialRubber
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSpecial
+  result: MagazinePistolSpecial
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecial
+  result: MagazineBoxSpecial
+  materials:
+    Steel: 1250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialPractice
+  result: MagazineBoxSpecialPractice
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialRubber
+  result: MagazineBoxSpecialRubber
+  materials:
+    Steel: 350
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialIncendiary
+  result: MagazineBoxSpecialIncendiary
+  materials:
+    Plastic: 1250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialUranium
+  result: MagazineBoxSpecialUranium
+  materials:
+    Plastic: 1250
+    Uranium: 125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialHoly
+  result: MagazineBoxSpecialHoly
+  materials:
+    Plastic: 1250
+    Steel: 75
+    Silver: 75
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSpecialMindbreaker
+  result: MagazineBoxSpecialMindbreaker
+  materials:
+    Plastic: 1250
+    Steel: 75
+    Bluespace: 75
+
+# Rubber ammo, removed from upstream
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolRubber
+  result: MagazinePistolRubber
+  materials:
+    Steel: 25
+    Plastic: 120
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineRifleRubber
+  result: MagazineRifleRubber
+  materials:
+    Steel: 25
+    Plastic: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleRubber
+  result: MagazineLightRifleRubber
+  materials:
+    Steel: 25
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderMagnumRubber
+  result: SpeedLoaderMagnumRubber
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolRubber
+  result: MagazineBoxPistolRubber
+  materials:
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnumRubber
+  result: MagazineBoxMagnumRubber
+  materials:
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLightRifleRubber
+  result: MagazineBoxLightRifleRubber
+  materials:
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxRifleRubber
+  result: MagazineBoxRifleRubber
+  materials:
+    Plastic: 750
+
+# Armour vests
+
+- type: latheRecipe
+  id: ClothingOuterArmorPlateCarrier
+  result: ClothingOuterArmorPlateCarrier
+  completetime: 10
+  materials:
+    Steel: 1500
+    Plastic: 1500
+
+- type: latheRecipe
+  id: ClothingOuterArmorDuraVest
+  result: ClothingOuterArmorDuraVest
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGun
+  result: WeaponEnergyGun
+  materials:
+    Steel: 2000
+    Glass: 800
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGunMini
+  result: WeaponEnergyGunMini
+  materials:   #Half of Energy Gun Recipe
+    Steel: 1000
+    Glass: 400
+    Plastic: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGunPistol
+  result: WeaponEnergyGunPistol
+  materials:
+    Steel: 1500
+    Glass: 600
+    Plastic: 400
+    Gold: 150
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponGunLaserCarbineAutomatic
+  result: WeaponGunLaserCarbineAutomatic
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 500
+    Gold: 250
+    Silver: 100
+    Plasma: 500
+
+- type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsSecurityMagboots
+  result: ClothingShoesBootsSecurityMagboots
+  
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: AdvancedTruncheon
+  result: AdvancedTruncheon
+  completetime: 5
+  materials:
+    Steel: 1000
+    Plastic: 800
+    
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponColdCannon
+  result: WeaponColdCannon
+  materials:
+    Steel: 1500
+    Glass: 600
+    Plastic: 400
+    Silver: 300
+    
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponBeamCannon
+  result: WeaponBeamCannon
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 500
+    Gold: 250
+    Plasma: 500

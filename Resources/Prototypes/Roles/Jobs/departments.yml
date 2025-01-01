@@ -7,7 +7,8 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
-  - Courier # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
+  - Courier # DeltaV - Courier, see Resources/Prototypes/_DV/Roles/Jobs/Cargo/courier.yml
+  #- CargoAssistant # DeltaV - Uncomment once ready to deploy.
 
 - type: department
   id: Civilian
@@ -79,6 +80,7 @@
   - ERTEngineer
   - DeathSquad
   - StationAi # DeltaV - added for playtime trackers
+  #- AdministrativeAssistant # Delta V - Uncomment once ready to deploy. Administrative Assistant, see Resources/Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
   primary: false
   weight: 100
 
@@ -105,7 +107,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  - MedicalBorg # Delta V - Medical Borg, see Resources/Prototypes/_DV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
   id: Security
@@ -120,7 +122,7 @@
   - Detective
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
-  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
   - SecurityBorg # Delta-V : Security Borg
 
 - type: department
@@ -162,5 +164,5 @@
   - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
   - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
   - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
   primary: false
