@@ -79,7 +79,7 @@
         whitelist:
           tags:
           - Wakizashi
-    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -98,9 +98,9 @@
   description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Belt/cmowebbing.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/cmowebbing.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: DeltaV/Clothing/Belt/cmowebbing.rsi # DeltaV - resprite
+    sprite: _DV/Clothing/Belt/cmowebbing.rsi # DeltaV - resprite
   - type: Item
     size: Large
   - type: ItemSlots # DeltaV - add medkit slot
@@ -122,7 +122,7 @@
         whitelist:
           tags:
           - Medkit
-    sprite: DeltaV/Clothing/Belt/belt_overlay.rsi
+    sprite: _DV/Clothing/Belt/belt_overlay.rsi
   - type: Tag
     tags:
       - BeltSlotNotBelt

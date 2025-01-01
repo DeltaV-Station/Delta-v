@@ -1,0 +1,50 @@
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesInspection
+  name: inspection gloves
+  description: A fancy pair of white gloves, both durable and delicate.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Hands/Gloves/inspection.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Hands/Gloves/inspection.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsGlovesInspection
+  id: ClothingHandsGlovesRyuzoGauntlets
+  name: golden gauntlets
+  description: Because sometimes, things just need to be based on your fists.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Hands/Gloves/ryuzogauntlets.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Hands/Gloves/ryuzogauntlets.rsi
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 9.5
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesChemist
+  name: heavy nitrile gloves
+  description: A pair of thick gloves that provide some protection from caustic chemicals.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Hands/Gloves/hvchemresgloves.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Hands/Gloves/hvchemresgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-black
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95

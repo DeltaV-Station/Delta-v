@@ -32,7 +32,7 @@
 # Silicons
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai_deltav # DeltaV
+  nameDataset: NamesAIDeltaV # DeltaV
 
 # Civilian
 - type: roleLoadout
@@ -143,6 +143,7 @@
   - JanitorNeck # DeltaV
   - JanitorJumpsuit
   - JanitorGloves
+  - JanitorPDADelta # DeltaV
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
@@ -411,7 +412,6 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
   - DetectiveJumpsuit
@@ -546,6 +546,11 @@
   - MedicalBackpack
   - Glasses
   - SurvivalMedical # DeltaV, replaces Survival
+  - PsychologistPDADelta # DeltaV
+  - PsychologistHead # DeltaV
+  - Scarfs # DeltaV
+  - PsychologistOuterClothing # DeltaV
+  - PsychologistShoes # DeltaV
   - Trinkets
   - GroupSpeciesBreathTool
 
