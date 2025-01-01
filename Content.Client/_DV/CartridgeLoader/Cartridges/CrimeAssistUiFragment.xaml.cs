@@ -76,17 +76,17 @@ public sealed partial class CrimeAssistUiFragment : BoxContainer
             var color = severity switch
             {
                 CrimeSeverity.Innocent => "#39a300",
-                CrimeSeverity.Misdemeanour => "#7b7b30",
+                CrimeSeverity.Misdemenour => "#7b7b30",
                 CrimeSeverity.Felony => "#7b5430",
                 CrimeSeverity.Capital => "#7b2e30",
                 _ => "#ff00ff"
             };
 
             var severityName = Loc.GetString("crime-assist-crimetype-" + severity.ToString().ToLower());
-            Title.SetMarkup("\n[bold][font size=23][color=#a4885c]" + Loc.GetString(page.LocKeyTitle!) + "[/color][/font][/bold]");
-            Subtitle.SetMarkup($"\n[font size=19][color={color}]" + Loc.GetString(page.LocKeySeverity!) + "[/color][/font]");
-            Explanation.SetMarkup("\n[title]" + Loc.GetString(page.LocKeyDescription!) + "[/title]\n");
-            Punishment.SetMarkup("[bold][font size=15]" + Loc.GetString(page.LocKeyPunishment!) + "[/font][/bold]");
+            Title.SetMarkup($"\n[bold][font size=23][color=#a4885c]{Loc.GetString(page.LocKeyTitle!)}[/color][/font][/bold]");
+            Subtitle.SetMarkup($"\n[font size=19][color={color}]{severityName}[/color][/font]");
+            Explanation.SetMarkup($"\n[title]{Loc.GetString(page.LocKeyDescription!)}[/title]\n");
+            Punishment.SetMarkup($"[bold][font size=15]{Loc.GetString(page.LocKeyPunishment!)}[/font][/bold]");
         }
     }
 
