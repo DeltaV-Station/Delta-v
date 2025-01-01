@@ -583,7 +583,7 @@
   components:
   - type: StationEvent
     weight: 10
-    reoccurrenceDelay: 30 #DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
+    reoccurrenceDelay: 30 # DeltaV - Was 20 #20 mins feels too short, and can scramble borgs way too much
     duration: 1
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-ion-storm-result-message
