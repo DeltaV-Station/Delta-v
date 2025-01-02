@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 150 #DeltaV- Damage Bumps ahoy!
-        Structural: 50
+        Piercing: 150 # DeltaV - Damage Bumped, was 40
+        Structural: 50 # DeltaV - was 30
   - type: StaminaDamageOnCollide
-    damage: 50
+    damage: 50 # DeltaV - was 35

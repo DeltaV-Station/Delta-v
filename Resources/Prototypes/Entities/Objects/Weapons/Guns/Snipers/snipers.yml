@@ -92,9 +92,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - CartridgeMusket
+      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
-    proto: CartridgeMusket
+    proto: CartridgeMusket # DeltaV
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -129,9 +129,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeMusket
+      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
-    proto: CartridgeMusket
+    proto: CartridgeMusket # DeltaV
   - type: StaticPrice
     price: 0
 
