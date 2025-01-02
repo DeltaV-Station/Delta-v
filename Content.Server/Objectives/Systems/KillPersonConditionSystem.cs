@@ -80,7 +80,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         {
             if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
             {
-                allHumans.RemoveWhere(x => x.Owner == kill.Target);
+                allHumans.RemoveAll(x => x.Owner == kill.Target);
             }
         }
 
