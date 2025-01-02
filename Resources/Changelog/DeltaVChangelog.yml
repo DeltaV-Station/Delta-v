@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: NullWanderer
   changes:
-  - message: Merged upstream
-    type: Add
-  id: 338
-  time: '2024-05-07T20:50:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1170
-- author: NullWanderer
-  changes:
   - message: Fixed some of the harpies emotes that had previously broken with merges
     type: Fix
   - message: Futureproofed harpy emotes by allowing conflicting chat triggers to exist.
@@ -3836,3 +3829,10 @@
   id: 837
   time: '2025-01-01T20:31:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2580
+- author: Velcroboy
+  changes:
+  - message: The Hive kitchen and botany has flipped locations with arcade and library.
+    type: Tweak
+  id: 838
+  time: '2025-01-02T05:03:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2551
