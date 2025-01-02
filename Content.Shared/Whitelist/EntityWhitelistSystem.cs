@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; // DeltaV
 using Content.Shared.Item;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
@@ -49,10 +50,12 @@ public sealed class EntityWhitelistSystem : EntitySystem
     {
         if (list.Components != null)
         {
-            var regs = StringsToRegs(list.Components);
-
-            list.Registrations ??= new List<ComponentRegistration>();
-            list.Registrations.AddRange(regs);
+            if (list.Registrations == null)
+            {
+                var regs = StringsToRegs(list.Components);
+                list.Registrations = new List<ComponentRegistration>();
+                list.Registrations.AddRange(regs);
+            }
         }
 
         if (list.MindRoles != null)
@@ -112,6 +115,19 @@ public sealed class EntityWhitelistSystem : EntitySystem
     {
         if (whitelist == null)
             return false;
+
+        // Begin DeltaV
+        var isValid = IsValid(whitelist, uid);
+        Log.Debug($"Whitelist validation result for entity {ToPrettyString(uid)}: {isValid}");
+
+        if (whitelist.RequireAll)
+        {
+            Log.Debug($"Whitelist requires all conditions - Components: {string.Join(", ", whitelist.Components ?? Array.Empty<string>())}, " +
+                           $"Tags: {(whitelist.Tags != null ? string.Join(", ", whitelist.Tags.Select(t => t.ToString())) : "none")}");
+        }
+
+        return isValid;
+        // EndDeltaV
 
         return IsValid(whitelist, uid);
     }

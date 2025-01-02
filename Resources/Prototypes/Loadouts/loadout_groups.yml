@@ -43,14 +43,17 @@
   - TowelColorPurple
   - TowelColorRed
   - TowelColorSilver
-  - TowelColorLightBlue
   - TowelColorWhite
   - TowelColorYellow
-  - AACTablet # DeltaV
-  - GoldRing # DeltaV
-  - SilverRing # DeltaV
-  - Cane # DeltaV
-  - WhiteCane #DeltaV
+  # Begin DeltaV Additions
+  - AACTablet
+  - GoldRing
+  - SilverRing
+  - Cane
+  - WhiteCane
+  - CDDogtags # taken from Cosmatic Drift
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -178,6 +181,7 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPFormal # DeltaV
+  - HoPFormalDress # DeltaV
   - HoPMessSkirt # DeltaV
   - HoPMessSuit # DeltaV
   - HoPBoatswain # DeltaV
@@ -634,6 +638,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -713,6 +718,7 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - QuartermasterFormalDress # DeltaV
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -1001,7 +1007,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorLabCoat
-  - MystaLabCoat #DeltaV
+  - MystaLabCoat # DeltaV
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -1017,7 +1023,7 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
+  #- RoboticistCap # DeltaV: Moved to RoboticistHead
   - SkullBandana
   - ScientificBeret
 
@@ -1035,8 +1041,8 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
+  #- RoboticistJumpsuit # DeltaV: Moved to RoboticistJumpsuit
+  #- RoboticistJumpskirt # DeltaV: Moved to RoboticistJumpsuit
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
 
@@ -1055,7 +1061,6 @@
   loadouts:
   - RegularLabCoat
   - ScienceLabCoat
-  - RoboticistLabCoat # DeltaV
   - ScienceWintercoat
   - SeniorResearcherLabCoat
 
@@ -1066,7 +1071,7 @@
   loadouts:
   - LatexGloves
   - PurpleGloves
-  - RobohandsGloves
+  #- RobohandsGloves # DeltaV: Moved to RoboticistGloves
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1083,7 +1088,6 @@
   - SeniorResearcherPDA
   - LabTechPDA # DeltaV
   - XenoarchPDA # DeltaV
-  - RoboticistPDA # DeltaV
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1283,7 +1287,6 @@
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
-  minLimit: 0
   loadouts:
 #  - DetectiveArmorVest # DeltaV - removed for incongruence
 #  - DetectiveCoat # DeltaV - removed for incongruence

@@ -46,6 +46,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: GunRequiresWield # DeltaV - Firing a bolt action is.. incredibly unweildy with one hand.
 
 - type: entity
   name: Hristov
@@ -61,16 +62,11 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 1 # Delta V - Reduced ammo count due to increased power
+    capacity: 1 # DeltaV - Reduced ammo count due to increased power
     proto: CartridgeAntiMateriel
   - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
-  - type: Gun
+  - type: Gun # DeltaV
     fireRate: 0.4
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
 
 - type: entity
   name: musket
@@ -109,6 +105,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: GunRequiresWield # DeltaV - Firing a muzzle loader is.. incredibly unweildy with one hand.
 
 - type: entity
   name: flintlock pistol

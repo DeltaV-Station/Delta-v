@@ -246,7 +246,7 @@
   name: energy cutlass
   parent: [BaseMeleeWeaponEnergy, BaseMajorContraband]
   id: EnergyCutlass
-  description: An exotic energy weapon, brutal blade crackling with crudely harnessed plasma. #DeltaV - nicer description.
+  description: An exotic energy weapon, brutal blade crackling with crudely harnessed plasma. # DeltaV - nicer description.
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
@@ -255,7 +255,7 @@
             Heat: 12
     deactivatedSecret: true
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
+    sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
       - state: e_cutlass
       - state: e_cutlass_blade
@@ -272,7 +272,7 @@
         Blunt: 6
   - type: Item
     size: Small
-    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
+    sprite: _DV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
 
 - type: entity
   name: double-bladed energy sword
@@ -282,6 +282,7 @@
   components:
   - type: ItemToggle
     onUse: false # wielding events control it instead
+    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
@@ -338,7 +339,7 @@
     reflectProb: .75
     spread: 75
     reflects:
-    - Energy #DeltaV: 80% Energy Reflection but no ballistics.
+    - Energy # DeltaV: 80% Energy Reflection but no ballistics.
   - type: UseDelay
     delay: 1
 
