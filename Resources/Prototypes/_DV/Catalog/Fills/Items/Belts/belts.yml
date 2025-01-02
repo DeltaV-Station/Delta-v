@@ -42,3 +42,14 @@
     containers:
       item:
       - RealFoamSabre
+
+- type: entity
+  parent: ClothingBeltSecretary
+  id: ClothingBeltSecretaryFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxFolderBase
+      - id: BoxFolderBlack
+      - id: DrinkVacuumFlask
