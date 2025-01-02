@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: WarMechanic
-  changes:
-  - message: Added the IgnoreStripHidden variable to ThievingComponent, which allows
-      entities to look into the pockets of mobs it strips.
-    type: Tweak
-  - message: Added the StripTimeMultiplier variable to ThievingComponent, which multiplies
-      strip time.
-    type: Tweak
-  - message: Felinids and Admin Observers are now able to identify items in pockets
-      of other players. Felinids also gain a faster strip speed.
-    type: Add
-  id: 340
-  time: '2024-05-09T04:40:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1102
 - author: Remuchi
   changes:
   - message: Security dogs (such as Laika) now have vulpkanin vocal emotes. Howl!
@@ -3834,3 +3820,11 @@
   id: 839
   time: '2025-01-02T06:09:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2530
+- author: Colin-Tel
+  changes:
+  - message: Added current Patreon supporters to the credits. Check them out in the
+      lower-left corner of the lobby!
+    type: Add
+  id: 840
+  time: '2025-01-02T16:07:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2582
