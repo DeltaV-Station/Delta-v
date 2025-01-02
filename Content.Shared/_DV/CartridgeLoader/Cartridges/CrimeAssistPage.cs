@@ -9,27 +9,38 @@ public sealed partial class CrimeAssistPage : IPrototype
     [IdDataField]
     public string ID { get; private set; } = "";
 
-    [DataField("onStart")]
-    public string? OnStart { get; private set; }
+    [DataField]
+    public ProtoId<CrimeAssistPage>? OnStart;
 
-    [DataField("locKey")]
-    public string? LocKey { get; private set; }
+    [DataField]
+    public LocId? LocKey;
 
-    [DataField("onYes")]
-    public string? OnYes { get; private set; }
+    [DataField]
+    public ProtoId<CrimeAssistPage>? OnYes;
 
-    [DataField("onNo")]
-    public string? OnNo { get; private set; }
+    [DataField]
+    public ProtoId<CrimeAssistPage>? OnNo;
 
-    [DataField("locKeyTitle")]
-    public string? LocKeyTitle { get; private set; }
+    [DataField]
+    public LocId? LocKeyTitle;
 
-    [DataField("locKeyDescription")]
-    public string? LocKeyDescription { get; private set; }
+    [DataField]
+    public LocId? LocKeyDescription;
 
-    [DataField("locKeySeverity")]
-    public string? LocKeySeverity { get; private set; }
+    [DataField]
+    public CrimeSeverity? CrimeSeverity;
 
-    [DataField("locKeyPunishment")]
-    public string? LocKeyPunishment { get; private set; }
+    [DataField]
+    public LocId? LocKeyPunishment;
+}
+
+/// <summary>
+/// The severity a crime is in, used for page results.
+/// </summary>
+public enum CrimeSeverity : byte
+{
+    Innocent,
+    Misdemeanour,
+    Felony,
+    Capital
 }
