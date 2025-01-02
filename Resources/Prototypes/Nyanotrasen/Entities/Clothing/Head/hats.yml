@@ -103,6 +103,11 @@
     equipDelay: 5
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: SelfUnremovableClothing
+  # Begin DeltaV additions
+  - type: Tag
+    tags:
+    - ForensicBeltEquip
+  # End DeltaV additions
 
 - type: entity
   parent: ClothingHeadTinfoil
