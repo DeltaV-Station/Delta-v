@@ -33,6 +33,28 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/secformalskirt.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtQMFormal
+  name: logistics officer's formal dress
+  description: Inspired by the logistics officers of military's past, the perfect outfit for supplying a formal occasion.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/qmformaldress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoPFormal
+  name: head of personnel's formal dress
+  description: A well-made dress with gold buttons and a red trim. Might as well look sharp when botany goes up in flames.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hopformaldress.rsi
+
 # Security alt uniforms
 
 - type: entity
@@ -179,6 +201,8 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
 
+# Justice
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChiefJustice
@@ -189,7 +213,18 @@
     sprite: _DV/Clothing/Uniforms/Jumpskirt/cj.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/cj.rsi
-    
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCJFormal
+  name: chief justice's formal dress
+  description: A fancy double-breasted dress with golden accoutrements. Sharp and authoritative.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cjformaldress.rsi
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtClerk
