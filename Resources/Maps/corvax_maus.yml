@@ -146,6 +146,12 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - AsteroidsFallback
+        - Failsafe
+        - AsteroidsStandard
     - type: Parallax
       parallax: BagelStation
   - uid: 2

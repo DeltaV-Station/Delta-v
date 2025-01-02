@@ -55,6 +55,12 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - AsteroidsFallback
+        - Failsafe
+        - AsteroidsStandard
   - uid: 2
     components:
     - type: MetaData

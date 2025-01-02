@@ -76,6 +76,12 @@ entities:
     - type: PhysicsMap
     - type: GridTree
     - type: MovedGrids
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - AsteroidsFallback
+        - Failsafe
+        - AsteroidsStandard
     - type: Parallax
       parallax: Sky
     - type: MapAtmosphere
