@@ -138,7 +138,7 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 3
   - type: Occluder
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -230,7 +230,7 @@
   - type: Paintable
     group: AirlockGlass
   - type: RadiationBlocker
-    resistance: 1
+    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock
