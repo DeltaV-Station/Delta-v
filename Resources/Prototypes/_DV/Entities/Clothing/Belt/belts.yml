@@ -84,3 +84,23 @@
     sprite: _DV/Clothing/Belt/foamsheath.rsi
   - type: Clothing
     sprite: _DV/Clothing/Belt/foamsheath.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSecretary
+  name: secretary belt
+  description: For all your tactical paperwork or drinks needs.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/secretary.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/secretary.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Folder
+        - Document
+        - Flashlight
+        - Radio
+      components:
+        - FitsInDispenser
