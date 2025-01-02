@@ -1,16 +1,5 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadMailCarrier
-  name: mail carrier's hat
-  description: Smells like a good pension.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
-
-- type: entity
-  parent: ClothingHeadBase
   id: ClothingHeadHoodMysta
   name: mystagogue's muffin cap # Delta V - Mystagogue new hat
   description: Contrary to its silly name, it's actually a symbol of great academic achievement.
