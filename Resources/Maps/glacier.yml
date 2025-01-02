@@ -46443,25 +46443,6 @@ entities:
     - type: Transform
       pos: -8.378984,-7.391136
       parent: 2
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            It provides the following protection:
-
-            - [color=orange]Explosion[/color] damage [color=white]to contents[/color] reduced by [color=lightblue]10%[/color].
-          priority: 0
-          component: Armor
-        - message: This decreases your running speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        title: null
 - proto: ClothingBackpackMerc
   entities:
   - uid: 6050
@@ -59398,7 +59379,7 @@ entities:
       pos: -13.5,43.5
       parent: 2
     - type: Label
-      currentLabel: oxygen storage
+      currentLabel: Oxygen Storage
     - type: NameModifier
       baseName: gas pipe sensor
   - uid: 8281
@@ -59410,7 +59391,7 @@ entities:
       pos: -11.5,40.5
       parent: 2
     - type: Label
-      currentLabel: nitrogen miner
+      currentLabel: Nitrogen Miner
     - type: NameModifier
       baseName: gas pipe sensor
 - proto: GasPipeSensorDistribution
@@ -77337,9 +77318,9 @@ entities:
     - type: Transform
       pos: 43.5,64.5
       parent: 2
-- proto: HolopadCargoBayLongRange
+- proto: HolopadCargoBay
   entities:
-  - uid: 18212
+  - uid: 18166
     components:
     - type: Transform
       pos: 48.5,6.5
@@ -77365,12 +77346,12 @@ entities:
     - type: Transform
       pos: 88.5,4.5
       parent: 2
-- proto: HolopadCommandBridgeLongRange
+- proto: HolopadCommandBridge
   entities:
-  - uid: 18166
+  - uid: 18212
     components:
     - type: Transform
-      pos: 32.5,41.5
+      pos: 34.5,48.5
       parent: 2
 - proto: HolopadCommandCaptain
   entities:
@@ -77406,6 +77387,13 @@ entities:
     components:
     - type: Transform
       pos: -13.5,37.5
+      parent: 2
+- proto: HolopadCommandMeetingRoom
+  entities:
+  - uid: 18220
+    components:
+    - type: Transform
+      pos: 34.5,41.5
       parent: 2
 - proto: HolopadCommandQm
   entities:
@@ -116162,7 +116150,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8186.3013
+      secondsUntilStateChange: -8493.267
       state: Opening
     - type: Airlock
       autoClose: False
@@ -116178,7 +116166,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8185.735
+      secondsUntilStateChange: -8492.7
       state: Opening
     - type: Airlock
       autoClose: False
@@ -116200,7 +116188,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8185.268
+      secondsUntilStateChange: -8492.233
       state: Opening
     - type: Airlock
       autoClose: False
@@ -116216,7 +116204,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8186.8013
+      secondsUntilStateChange: -8493.767
       state: Opening
     - type: Airlock
       autoClose: False
