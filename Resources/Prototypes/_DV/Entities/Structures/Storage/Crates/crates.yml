@@ -6,10 +6,10 @@
   - type: Weldable
   - type: ResistLocker
   - type: Icon
-    sprite: DeltaV/Structures/Storage/Crates/livestock_steel.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_steel.rsi
     state: icon
   - type: Sprite
-    sprite: DeltaV/Structures/Storage/Crates/livestock_steel.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_steel.rsi
     layers:
     - state: base
     - state: closed
@@ -62,10 +62,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: DeltaV/Structures/Storage/Crates/livestock_secure.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_secure.rsi
     state: icon
   - type: Sprite
-    sprite: DeltaV/Structures/Storage/Crates/livestock_secure.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_secure.rsi
     layers:
     - state: base
     - state: closed
@@ -94,10 +94,10 @@
   name: reinforced secure plasteel livestock crate
   components:
   - type: Icon
-    sprite: DeltaV/Structures/Storage/Crates/livestock_reinforced.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_reinforced.rsi
     state: icon
   - type: Sprite
-    sprite: DeltaV/Structures/Storage/Crates/livestock_reinforced.rsi
+    sprite: _DV/Structures/Storage/Crates/livestock_reinforced.rsi
     layers:
     - state: base
     - state: closed
@@ -138,7 +138,7 @@
     thresholds: [75]
     trackAllDamage: true
     damageOverlay:
-      sprite: DeltaV/Structures/Storage/Crates/livestock_reinforced.rsi
+      sprite: _DV/Structures/Storage/Crates/livestock_reinforced.rsi
   - type: Construction
     graph: CrateLivestockSecure
     node: cratelivestocksecurereinforced
