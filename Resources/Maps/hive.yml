@@ -9427,21 +9427,25 @@ entities:
           5,-5:
             0: 61166
           6,-4:
-            0: 12030
+            0: 8208
+            2: 3822
           6,-3:
             0: 65535
           6,-2:
             0: 62399
           6,-5:
-            0: 60943
+            2: 60928
+            0: 15
           7,-4:
-            0: 35825
+            2: 817
+            0: 35008
           7,-3:
             0: 64507
           7,-2:
             0: 61695
           7,-5:
-            0: 57281
+            2: 4352
+            0: 52929
           8,-4:
             0: 65522
           8,-3:
@@ -9611,7 +9615,7 @@ entities:
             0: 79
             1: 28928
           0,5:
-            0: 63344
+            0: 32624
           -1,5:
             0: 48051
           0,6:
@@ -9629,7 +9633,7 @@ entities:
           1,5:
             0: 65535
           1,6:
-            0: 61695
+            0: 63743
           1,7:
             0: 53007
           1,8:
@@ -19406,6 +19410,116 @@ entities:
     components:
     - type: Transform
       pos: 140.5,-1.5
+      parent: 1
+  - uid: 29759
+    components:
+    - type: Transform
+      pos: 25.5,-13.5
+      parent: 1
+  - uid: 29760
+    components:
+    - type: Transform
+      pos: 25.5,-14.5
+      parent: 1
+  - uid: 29761
+    components:
+    - type: Transform
+      pos: 25.5,-15.5
+      parent: 1
+  - uid: 29762
+    components:
+    - type: Transform
+      pos: 25.5,-16.5
+      parent: 1
+  - uid: 29763
+    components:
+    - type: Transform
+      pos: 25.5,-17.5
+      parent: 1
+  - uid: 29764
+    components:
+    - type: Transform
+      pos: 26.5,-13.5
+      parent: 1
+  - uid: 29765
+    components:
+    - type: Transform
+      pos: 26.5,-15.5
+      parent: 1
+  - uid: 29766
+    components:
+    - type: Transform
+      pos: 26.5,-14.5
+      parent: 1
+  - uid: 29767
+    components:
+    - type: Transform
+      pos: 26.5,-16.5
+      parent: 1
+  - uid: 29768
+    components:
+    - type: Transform
+      pos: 26.5,-17.5
+      parent: 1
+  - uid: 29769
+    components:
+    - type: Transform
+      pos: 27.5,-13.5
+      parent: 1
+  - uid: 29770
+    components:
+    - type: Transform
+      pos: 27.5,-14.5
+      parent: 1
+  - uid: 29771
+    components:
+    - type: Transform
+      pos: 27.5,-15.5
+      parent: 1
+  - uid: 29772
+    components:
+    - type: Transform
+      pos: 27.5,-16.5
+      parent: 1
+  - uid: 29773
+    components:
+    - type: Transform
+      pos: 27.5,-17.5
+      parent: 1
+  - uid: 29774
+    components:
+    - type: Transform
+      pos: 28.5,-13.5
+      parent: 1
+  - uid: 29775
+    components:
+    - type: Transform
+      pos: 28.5,-14.5
+      parent: 1
+  - uid: 29776
+    components:
+    - type: Transform
+      pos: 28.5,-15.5
+      parent: 1
+  - uid: 29777
+    components:
+    - type: Transform
+      pos: 28.5,-16.5
+      parent: 1
+  - uid: 29778
+    components:
+    - type: Transform
+      pos: 28.5,-17.5
+      parent: 1
+  - uid: 29779
+    components:
+    - type: Transform
+      pos: 29.5,-14.5
+      parent: 1
+  - uid: 29780
+    components:
+    - type: Transform
+      pos: 29.5,-13.5
       parent: 1
 - proto: AtmosFixNitrogenMarker
   entities:
@@ -61394,10 +61508,10 @@ entities:
     - type: Transform
       pos: 33.5,-0.5
       parent: 1
-  - uid: 19641
+  - uid: 29781
     components:
     - type: Transform
-      pos: 29.5,-11.5
+      pos: 25.270061,-15.553209
       parent: 1
 - proto: ClosetEmergencyFilledRandom
   entities:
@@ -133371,11 +133485,6 @@ entities:
     - type: Transform
       pos: -41.5,4.5
       parent: 1
-  - uid: 29490
-    components:
-    - type: Transform
-      pos: 5.5,44.5
-      parent: 1
 - proto: HolopadEpistemicsMantis
   entities:
   - uid: 29500
@@ -134750,6 +134859,11 @@ entities:
     components:
     - type: Transform
       pos: 31.5,24.5
+      parent: 1
+  - uid: 3923
+    components:
+    - type: Transform
+      pos: 26.5,-7.5
       parent: 1
   - uid: 4113
     components:
@@ -163359,8 +163473,6 @@ entities:
   entities:
   - uid: 28069
     components:
-    - type: MetaData
-      name: command camera router
     - type: Transform
       pos: 140.5,4.5
       parent: 1
@@ -163368,8 +163480,6 @@ entities:
   entities:
   - uid: 28070
     components:
-    - type: MetaData
-      name: engineering camera router
     - type: Transform
       pos: 140.5,3.5
       parent: 1
@@ -163377,8 +163487,6 @@ entities:
   entities:
   - uid: 28072
     components:
-    - type: MetaData
-      name: general camera router
     - type: Transform
       pos: 140.5,-2.5
       parent: 1
@@ -163386,8 +163494,6 @@ entities:
   entities:
   - uid: 28073
     components:
-    - type: MetaData
-      name: medical camera router
     - type: Transform
       pos: 144.5,3.5
       parent: 1
@@ -163395,8 +163501,6 @@ entities:
   entities:
   - uid: 28071
     components:
-    - type: MetaData
-      name: epistemics camera router
     - type: Transform
       pos: 140.5,-1.5
       parent: 1
@@ -163404,8 +163508,6 @@ entities:
   entities:
   - uid: 28074
     components:
-    - type: MetaData
-      name: security camera router
     - type: Transform
       pos: 144.5,-1.5
       parent: 1
@@ -163413,8 +163515,6 @@ entities:
   entities:
   - uid: 28075
     components:
-    - type: MetaData
-      name: logistics camera router
     - type: Transform
       pos: 144.5,-2.5
       parent: 1
@@ -164018,8 +164118,6 @@ entities:
   entities:
   - uid: 2729
     components:
-    - type: MetaData
-      name: news and entertainment camera router
     - type: Transform
       pos: 40.5,-14.5
       parent: 1
@@ -164564,6 +164662,11 @@ entities:
     components:
     - type: Transform
       pos: 23.5,-11.5
+      parent: 1
+  - uid: 19641
+    components:
+    - type: Transform
+      pos: 26.5,-7.5
       parent: 1
   - uid: 20312
     components:
@@ -168606,7 +168709,7 @@ entities:
   - uid: 19640
     components:
     - type: Transform
-      pos: 26.5,-7.5
+      pos: 29.5,-11.5
       parent: 1
 - proto: VendingMachineHydrobe
   entities:
@@ -190224,14 +190327,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 78.5,32.5
       parent: 1
-- proto: WindoorBarKitchenLocked
-  entities:
-  - uid: 3923
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 32.5,-8.5
-      parent: 1
 - proto: WindoorBarLocked
   entities:
   - uid: 3363
@@ -190264,6 +190359,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 30.5,-10.5
+      parent: 1
+  - uid: 29490
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,-8.5
       parent: 1
 - proto: WindoorKitchenLocked
   entities:
@@ -190831,7 +190932,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166318.45
+      secondsUntilStateChange: -166932.84
       state: Opening
   - uid: 5096
     components:
@@ -190853,7 +190954,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166318.45
+      secondsUntilStateChange: -166932.84
       state: Opening
   - uid: 5498
     components:
@@ -190869,7 +190970,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166042.08
+      secondsUntilStateChange: -166656.47
       state: Opening
   - uid: 8696
     components:
@@ -190902,7 +191003,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166040.19
+      secondsUntilStateChange: -166654.58
       state: Opening
   - uid: 18835
     components:
@@ -190914,7 +191015,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166037.19
+      secondsUntilStateChange: -166651.58
       state: Opening
   - uid: 23917
     components:
