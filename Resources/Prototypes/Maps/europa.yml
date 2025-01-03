@@ -17,11 +17,6 @@
             prefixCreator: '14'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_transit.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/NES/Shuttles/Mining_mini.yml
         - type: StationJobs
           availableJobs:
             #service

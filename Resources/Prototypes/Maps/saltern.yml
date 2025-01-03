@@ -16,11 +16,6 @@
             prefixCreator: '14'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/corvax_emergency.yml # Corvax-EmergencyShuttle
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/NES/Shuttles/Mining_mini.yml
         - type: StationJobs
           availableJobs:
             #service

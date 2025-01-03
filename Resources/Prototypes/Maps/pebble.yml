@@ -13,11 +13,6 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/NES/Shuttles/Mining_mini.yml
         - type: StationJobs
           availableJobs:
           #service

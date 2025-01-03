@@ -15,11 +15,6 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/Shuttles/mining.yml
         - type: StationJobs
           availableJobs:
             #service

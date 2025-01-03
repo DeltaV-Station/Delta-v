@@ -20,11 +20,6 @@
       - type: StationPlanetSpawner
         planet: GlacierSurface
         gridPath: /Maps/Nonstations/DeltaV/glacier_surface_outpost.yml
-      - type: GridSpawn
-        groups:
-          mining: !type:GridSpawnGroup
-            paths:
-            - /Maps/NES/Shuttles/Mining_mini.yml
       - type: StationJobs
         availableJobs:
           Captain: [ 1, 1 ]

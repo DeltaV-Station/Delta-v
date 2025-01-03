@@ -17,11 +17,6 @@
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
-      - type: GridSpawn
-        groups:
-          mining: !type:GridSpawnGroup
-            paths:
-            - /Maps/NES/Shuttles/Mining_mini.yml
       - type: StationJobs
         availableJobs:
         #command

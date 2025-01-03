@@ -14,11 +14,6 @@
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Centipede.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/NES/Shuttles/Mining_mini.yml
         - type: StationJobs
           availableJobs:
           #civilian

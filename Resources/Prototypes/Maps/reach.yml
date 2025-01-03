@@ -15,11 +15,6 @@
             prefixCreator: 'SC'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
-        - type: GridSpawn
-          groups:
-            mining: !type:GridSpawnGroup
-              paths:
-              - /Maps/NES/Shuttles/Mining_mini.yml
         - type: StationJobs
           availableJobs:
             Captain: [ 1, 1 ]
