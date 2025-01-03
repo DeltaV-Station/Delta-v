@@ -9,7 +9,7 @@
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
+    #- id: CargoShuttleComputerCircuitboard # DeltaV: hasn't been used in years
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
@@ -118,7 +118,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    - id: AccessConfigurator
+    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset

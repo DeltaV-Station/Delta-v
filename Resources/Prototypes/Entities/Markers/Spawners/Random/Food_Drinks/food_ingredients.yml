@@ -36,8 +36,8 @@
       - id: FoodContainerEgg
       - id: FoodCondimentBottleEnzyme
       - id: DrinkSodaWaterBottleFull
-      - id: FoodShakerSalt
-      - id: FoodShakerPepper
+      - id: ReagentContainerSalt # DeltaV - Replaced salt and pepper shakers with bulk versions
+      - id: ReagentContainerPepper # DeltaV - Replaced salt and pepper shakers with bulk versions
       - !type:GroupSelector
         children:
         - id: ReagentContainerFlour
@@ -50,6 +50,7 @@
           - id: ReagentContainerCornmealSmall
           - id: ReagentContainerRiceSmall
           - id: ReagentContainerSugarSmall
+          - id: ReagentContainerChocolate # DeltaV - Adds bulk chocolate container
       - !type:GroupSelector
         children:
         - id: DrinkMilkCarton

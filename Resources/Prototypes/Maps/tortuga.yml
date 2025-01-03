@@ -13,7 +13,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Seal.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -45,8 +45,8 @@
             HeadOfSecurity: [ 1, 1 ]
             Prisoner: [ 2, 3 ]
             PrisonGuard: [ 1, 1 ]
-            SecurityOfficer: [ 6, 9 ]
-            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 6, 8 ]
+            SecurityCadet: [ 2, 4 ]
             Warden: [ 1, 1 ]
           #service
             Bartender: [ 2, 2 ]
@@ -59,7 +59,7 @@
             Mime: [ 1, 2 ]
             Musician: [ 2, 3 ]
             Reporter: [ 2, 2 ]
-            ServiceWorker: [ 3, 6 ]
+            ServiceWorker: [ 1, 3 ]
           #science
             Chaplain: [ 1, 1 ]
             Borg: [ 2, 3 ]
@@ -69,7 +69,8 @@
             Roboticist: [ 1, 2 ]
             Scientist: [ 4, 5 ]
           #supply
-            CargoTechnician: [ 2, 4 ]
+            CargoAssistant: [ 1, 2 ]
+            CargoTechnician: [ 1, 3 ]
             Courier: [ 2, 2 ]
-            SalvageSpecialist: [ 3, 4 ]
+            SalvageSpecialist: [ 2, 4 ]
             Quartermaster: [ 1, 1 ]

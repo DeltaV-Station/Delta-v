@@ -22,6 +22,7 @@ public abstract class SharedAirlockSystem : EntitySystem
 
         SubscribeLocalEvent<AirlockComponent, BeforeDoorClosedEvent>(OnBeforeDoorClosed);
         SubscribeLocalEvent<AirlockComponent, DoorStateChangedEvent>(OnStateChanged);
+        SubscribeLocalEvent<AirlockComponent, DoorBoltsChangedEvent>(OnBoltsChanged);
         SubscribeLocalEvent<AirlockComponent, BeforeDoorOpenedEvent>(OnBeforeDoorOpened);
         SubscribeLocalEvent<AirlockComponent, BeforeDoorDeniedEvent>(OnBeforeDoorDenied);
         SubscribeLocalEvent<AirlockComponent, GetPryTimeModifierEvent>(OnGetPryMod);
@@ -39,10 +40,9 @@ public abstract class SharedAirlockSystem : EntitySystem
         // only block based on bolts / power status when initially closing the door, not when its already
         // mid-transition. Particularly relevant for when the door was pried-closed with a crowbar, which bypasses
         // the initial power-check.
-
         if (TryComp(uid, out DoorComponent? door)
             && !door.Partial
-            && !CanChangeState(uid, airlock))
+            && !CanChangeState(uid, airlock, door.IsBeingPried))
         {
             args.Cancel();
         }
@@ -68,6 +68,13 @@ public abstract class SharedAirlockSystem : EntitySystem
             component.AutoClose = true;
             Dirty(uid, component);
         }
+    }
+
+    private void OnBoltsChanged(EntityUid uid, AirlockComponent component, DoorBoltsChangedEvent args)
+    {
+        // If unbolted, reset the auto close timer
+        if (!args.BoltsDown)
+            UpdateAutoClose(uid, component);
     }
 
     private void OnBeforeDoorOpened(EntityUid uid, AirlockComponent component, BeforeDoorOpenedEvent args)
@@ -145,7 +152,7 @@ public abstract class SharedAirlockSystem : EntitySystem
         ent.Comp.EmergencyAccess = value;
         Dirty(ent, ent.Comp); // This only runs on the server apparently so we need this.
         UpdateEmergencyLightStatus(ent, ent.Comp);
-		
+
         var sound = ent.Comp.EmergencyAccess ? ent.Comp.EmergencyOnSound : ent.Comp.EmergencyOffSound;
         if (predicted)
             Audio.PlayPredicted(sound, ent, user: user);
@@ -166,8 +173,8 @@ public abstract class SharedAirlockSystem : EntitySystem
         component.Safety = value;
     }
 
-    public bool CanChangeState(EntityUid uid, AirlockComponent component)
+    public bool CanChangeState(EntityUid uid, AirlockComponent component, bool isBeingPried = false)
     {
-        return component.Powered && !DoorSystem.IsBolted(uid);
+        return component.Powered && !DoorSystem.IsBolted(uid) || !component.Powered && isBeingPried ;
     }
 }

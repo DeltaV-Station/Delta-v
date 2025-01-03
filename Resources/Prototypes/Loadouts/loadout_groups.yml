@@ -45,12 +45,15 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - AACTablet # DeltaV
-  - GoldRing # DeltaV
-  - SilverRing # DeltaV
-  - Cane # DeltaV
-  - WhiteCane #DeltaV
-  - CDDogtags # _CD
+  # Begin DeltaV Additions
+  - AACTablet
+  - GoldRing
+  - SilverRing
+  - Cane
+  - WhiteCane
+  - CDDogtags # taken from Cosmatic Drift
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -178,6 +181,7 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPFormal # DeltaV
+  - HoPFormalDress # DeltaV
   - HoPMessSkirt # DeltaV
   - HoPMessSuit # DeltaV
   - HoPBoatswain # DeltaV
@@ -634,6 +638,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -713,6 +718,7 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - QuartermasterFormalDress # DeltaV
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -1001,7 +1007,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorLabCoat
-  - MystaLabCoat #DeltaV
+  - MystaLabCoat # DeltaV
   - ResearchDirectorWintercoat
 
 - type: loadoutGroup
@@ -1281,7 +1287,6 @@
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
-  minLimit: 0
   loadouts:
 #  - DetectiveArmorVest # DeltaV - removed for incongruence
 #  - DetectiveCoat # DeltaV - removed for incongruence
