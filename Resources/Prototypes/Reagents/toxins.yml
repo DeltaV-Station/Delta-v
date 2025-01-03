@@ -417,7 +417,7 @@
         conditions:
           - !type:OrganType
             type: Animal
-          - !type:ReagentThreshold #DeltaV - Readded this. No longer causes vomitting at the lightest whiff of coffee
+          - !type:ReagentThreshold # DeltaV - Readded this. No longer causes vomitting at the lightest whiff of coffee
             reagent: Theobromine
             min: 0.5
 

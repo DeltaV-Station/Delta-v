@@ -14,13 +14,14 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_UCLB.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_UCLB.yml
         - type: StationJobs
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
             Librarian: [ 1, 1 ]
           #command
+            AdministrativeAssistant: [ 1, 1 ]
             Captain: [ 1, 1 ]
             StationAi: [ 1, 1 ]
           #engineering
@@ -70,6 +71,7 @@
             Scientist: [ 3, 5 ]
             Roboticist: [ 1, 1 ]
           #supply
+            CargoAssistant: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
             Courier: [ 1, 2 ]
             SalvageSpecialist: [ 2, 3 ]

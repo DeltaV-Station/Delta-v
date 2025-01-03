@@ -1,0 +1,63 @@
+- type: constructionGraph
+  id: PrescriptionSecGlasses
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: prescsecglasses
+          steps:
+            - tag: GlassesSecurity
+              name: security glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/secglasses.rsi
+                state: icon
+              doAfter: 5
+            - component: VisionCorrection
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: DrinkSpaceGlue
+              name: space glue
+              icon:
+                sprite: Objects/Consumable/Drinks/glue-tube.rsi
+                state: icon
+              doAfter: 5
+    - node: prescsecglasses
+      entity: ClothingEyesPrescriptionSecurityGlasses
+
+- type: constructionGraph
+  id: PrescriptionCorpsmanGlasses
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: presccorpsglasses
+          steps:
+            - tag: GlassesCorpsman
+              name: corpsman glasses
+              icon:
+                sprite: _DV/Clothing/Eyes/Glasses/corpsglasses.rsi
+                state: icon
+              doAfter: 5
+            - component: VisionCorrection
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: DrinkSpaceGlue
+              name: space glue
+              icon:
+                sprite: Objects/Consumable/Drinks/glue-tube.rsi
+                state: icon
+              doAfter: 5
+    - node: presccorpsglasses
+      entity: ClothingEyesPrescriptionCorpsmanGlasses
