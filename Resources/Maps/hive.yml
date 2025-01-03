@@ -9437,7 +9437,8 @@ entities:
           7,-4:
             0: 35825
           7,-3:
-            0: 64507
+            0: 64505
+            3: 2
           7,-2:
             0: 61695
           7,-5:
@@ -11200,7 +11201,7 @@ entities:
             0: 140
           -15,5:
             0: 4369
-            3: 2048
+            4: 2048
           -15,6:
             0: 64735
           -15,7:
@@ -11208,27 +11209,27 @@ entities:
           -15,8:
             0: 65535
           -14,5:
-            3: 1792
+            4: 1792
             0: 8
           -14,6:
             0: 65535
           -14,7:
             0: 4383
-            4: 17408
+            5: 17408
           -14,8:
             0: 65297
-            4: 4
+            5: 4
           -13,5:
             0: 65311
           -13,6:
             0: 65535
           -13,7:
             0: 15
-            5: 4352
-            3: 17408
+            6: 4352
+            4: 17408
           -13,8:
-            5: 1
-            3: 4
+            6: 1
+            4: 4
             0: 65280
           -12,5:
             0: 65280
@@ -11237,11 +11238,11 @@ entities:
             0: 65535
           -12,7:
             0: 15
-            6: 4352
-            3: 17408
+            7: 4352
+            4: 17408
           -12,8:
-            6: 1
-            3: 4
+            7: 1
+            4: 4
             0: 65280
           -11,5:
             1: 3
@@ -11250,9 +11251,9 @@ entities:
             0: 65535
           -11,7:
             0: 52431
-            3: 4352
+            4: 4352
           -11,8:
-            3: 1
+            4: 1
             0: 65484
           -10,5:
             0: 65283
@@ -12171,11 +12172,11 @@ entities:
             1: 8192
           37,-2:
             1: 80
-            4: 57344
+            5: 57344
           37,-3:
             1: 32768
           38,-2:
-            5: 28672
+            6: 28672
           38,-3:
             1: 16384
           39,-2:
@@ -12261,6 +12262,21 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -19406,6 +19422,116 @@ entities:
     components:
     - type: Transform
       pos: 140.5,-1.5
+      parent: 1
+  - uid: 29759
+    components:
+    - type: Transform
+      pos: 25.5,-13.5
+      parent: 1
+  - uid: 29760
+    components:
+    - type: Transform
+      pos: 25.5,-14.5
+      parent: 1
+  - uid: 29761
+    components:
+    - type: Transform
+      pos: 25.5,-15.5
+      parent: 1
+  - uid: 29762
+    components:
+    - type: Transform
+      pos: 25.5,-16.5
+      parent: 1
+  - uid: 29763
+    components:
+    - type: Transform
+      pos: 25.5,-17.5
+      parent: 1
+  - uid: 29764
+    components:
+    - type: Transform
+      pos: 26.5,-13.5
+      parent: 1
+  - uid: 29765
+    components:
+    - type: Transform
+      pos: 26.5,-15.5
+      parent: 1
+  - uid: 29766
+    components:
+    - type: Transform
+      pos: 26.5,-14.5
+      parent: 1
+  - uid: 29767
+    components:
+    - type: Transform
+      pos: 26.5,-16.5
+      parent: 1
+  - uid: 29768
+    components:
+    - type: Transform
+      pos: 26.5,-17.5
+      parent: 1
+  - uid: 29769
+    components:
+    - type: Transform
+      pos: 27.5,-13.5
+      parent: 1
+  - uid: 29770
+    components:
+    - type: Transform
+      pos: 27.5,-14.5
+      parent: 1
+  - uid: 29771
+    components:
+    - type: Transform
+      pos: 27.5,-15.5
+      parent: 1
+  - uid: 29772
+    components:
+    - type: Transform
+      pos: 27.5,-16.5
+      parent: 1
+  - uid: 29773
+    components:
+    - type: Transform
+      pos: 27.5,-17.5
+      parent: 1
+  - uid: 29774
+    components:
+    - type: Transform
+      pos: 28.5,-13.5
+      parent: 1
+  - uid: 29775
+    components:
+    - type: Transform
+      pos: 28.5,-14.5
+      parent: 1
+  - uid: 29776
+    components:
+    - type: Transform
+      pos: 28.5,-15.5
+      parent: 1
+  - uid: 29777
+    components:
+    - type: Transform
+      pos: 28.5,-16.5
+      parent: 1
+  - uid: 29778
+    components:
+    - type: Transform
+      pos: 28.5,-17.5
+      parent: 1
+  - uid: 29779
+    components:
+    - type: Transform
+      pos: 29.5,-14.5
+      parent: 1
+  - uid: 29780
+    components:
+    - type: Transform
+      pos: 29.5,-13.5
       parent: 1
 - proto: AtmosFixNitrogenMarker
   entities:
@@ -61394,10 +61520,10 @@ entities:
     - type: Transform
       pos: 33.5,-0.5
       parent: 1
-  - uid: 19641
+  - uid: 29781
     components:
     - type: Transform
-      pos: 29.5,-11.5
+      pos: 25.270061,-15.553209
       parent: 1
 - proto: ClosetEmergencyFilledRandom
   entities:
@@ -133371,11 +133497,6 @@ entities:
     - type: Transform
       pos: -41.5,4.5
       parent: 1
-  - uid: 29490
-    components:
-    - type: Transform
-      pos: 5.5,44.5
-      parent: 1
 - proto: HolopadEpistemicsMantis
   entities:
   - uid: 29500
@@ -134750,6 +134871,11 @@ entities:
     components:
     - type: Transform
       pos: 31.5,24.5
+      parent: 1
+  - uid: 3923
+    components:
+    - type: Transform
+      pos: 26.5,-7.5
       parent: 1
   - uid: 4113
     components:
@@ -163359,8 +163485,6 @@ entities:
   entities:
   - uid: 28069
     components:
-    - type: MetaData
-      name: command camera router
     - type: Transform
       pos: 140.5,4.5
       parent: 1
@@ -163368,8 +163492,6 @@ entities:
   entities:
   - uid: 28070
     components:
-    - type: MetaData
-      name: engineering camera router
     - type: Transform
       pos: 140.5,3.5
       parent: 1
@@ -163377,8 +163499,6 @@ entities:
   entities:
   - uid: 28072
     components:
-    - type: MetaData
-      name: general camera router
     - type: Transform
       pos: 140.5,-2.5
       parent: 1
@@ -163386,8 +163506,6 @@ entities:
   entities:
   - uid: 28073
     components:
-    - type: MetaData
-      name: medical camera router
     - type: Transform
       pos: 144.5,3.5
       parent: 1
@@ -163395,8 +163513,6 @@ entities:
   entities:
   - uid: 28071
     components:
-    - type: MetaData
-      name: epistemics camera router
     - type: Transform
       pos: 140.5,-1.5
       parent: 1
@@ -163404,8 +163520,6 @@ entities:
   entities:
   - uid: 28074
     components:
-    - type: MetaData
-      name: security camera router
     - type: Transform
       pos: 144.5,-1.5
       parent: 1
@@ -163413,8 +163527,6 @@ entities:
   entities:
   - uid: 28075
     components:
-    - type: MetaData
-      name: logistics camera router
     - type: Transform
       pos: 144.5,-2.5
       parent: 1
@@ -164018,8 +164130,6 @@ entities:
   entities:
   - uid: 2729
     components:
-    - type: MetaData
-      name: news and entertainment camera router
     - type: Transform
       pos: 40.5,-14.5
       parent: 1
@@ -164564,6 +164674,11 @@ entities:
     components:
     - type: Transform
       pos: 23.5,-11.5
+      parent: 1
+  - uid: 19641
+    components:
+    - type: Transform
+      pos: 26.5,-7.5
       parent: 1
   - uid: 20312
     components:
@@ -168606,7 +168721,7 @@ entities:
   - uid: 19640
     components:
     - type: Transform
-      pos: 26.5,-7.5
+      pos: 29.5,-11.5
       parent: 1
 - proto: VendingMachineHydrobe
   entities:
@@ -190224,14 +190339,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 78.5,32.5
       parent: 1
-- proto: WindoorBarKitchenLocked
-  entities:
-  - uid: 3923
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 32.5,-8.5
-      parent: 1
 - proto: WindoorBarLocked
   entities:
   - uid: 3363
@@ -190264,6 +190371,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 30.5,-10.5
+      parent: 1
+  - uid: 29490
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,-8.5
       parent: 1
 - proto: WindoorKitchenLocked
   entities:
@@ -190831,7 +190944,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166318.45
+      secondsUntilStateChange: -166914.02
       state: Opening
   - uid: 5096
     components:
@@ -190853,7 +190966,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166318.45
+      secondsUntilStateChange: -166914.02
       state: Opening
   - uid: 5498
     components:
@@ -190869,7 +190982,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166042.08
+      secondsUntilStateChange: -166637.64
       state: Opening
   - uid: 8696
     components:
@@ -190902,7 +191015,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166040.19
+      secondsUntilStateChange: -166635.75
       state: Opening
   - uid: 18835
     components:
@@ -190914,7 +191027,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -166037.19
+      secondsUntilStateChange: -166632.75
       state: Opening
   - uid: 23917
     components:
