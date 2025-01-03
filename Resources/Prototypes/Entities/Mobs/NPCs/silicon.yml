@@ -260,7 +260,19 @@
   name: cleanbot
   description: The creep of automation now threatening space janitors.
   components:
+  - type: Fixtures # DeltaV - cleanbots can go beneath tables
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: Sprite
+    drawdepth: SmallMobs # DeltaV - cleanbots can go beneath tables
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
     state: cleanbot
   - type: Construction

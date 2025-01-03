@@ -215,3 +215,14 @@
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/cj_toque.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadMailCarrier
+  name: mail carrier's hat
+  description: Smells like a good pension.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/mailman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/mailman.rsi
+  - type: CatWearable # Frontier/Delta V

@@ -14,8 +14,8 @@ public sealed partial class StockTradingUiFragment : BoxContainer
     private readonly Dictionary<int, CompanyEntry> _companyEntries = new();
 
     // Event handlers for the parent UI
-    public event Action<int, float>? OnBuyButtonPressed;
-    public event Action<int, float>? OnSellButtonPressed;
+    public event Action<int, int>? OnBuyButtonPressed;
+    public event Action<int, int>? OnSellButtonPressed;
 
     // Define colors
     public static readonly Color PositiveColor = Color.FromHex("#00ff00"); // Green
@@ -70,8 +70,8 @@ public sealed partial class StockTradingUiFragment : BoxContainer
 
         public CompanyEntry(int companyIndex,
             string displayName,
-            Action<int, float>? onBuyPressed,
-            Action<int, float>? onSellPressed)
+            Action<int, int>? onBuyPressed,
+            Action<int, int>? onSellPressed)
         {
             Container = new BoxContainer
             {
@@ -216,13 +216,13 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             // Button click events
             _buyButton.OnPressed += _ =>
             {
-                if (float.TryParse(_amountEdit.Text, out var amount) && amount > 0)
+                if (int.TryParse(_amountEdit.Text, out var amount) && amount > 0)
                     onBuyPressed?.Invoke(companyIndex, amount);
             };
 
             _sellButton.OnPressed += _ =>
             {
-                if (float.TryParse(_amountEdit.Text, out var amount) && amount > 0)
+                if (int.TryParse(_amountEdit.Text, out var amount) && amount > 0)
                     onSellPressed?.Invoke(companyIndex, amount);
             };
 
@@ -235,7 +235,7 @@ public sealed partial class StockTradingUiFragment : BoxContainer
             };
         }
 
-        public void Update(StockCompanyStruct company, int ownedStocks)
+        public void Update(StockCompany company, int ownedStocks)
         {
             _nameLabel.Text = company.LocalizedDisplayName;
             _priceLabel.Text = $"${company.CurrentPrice:F2}";
