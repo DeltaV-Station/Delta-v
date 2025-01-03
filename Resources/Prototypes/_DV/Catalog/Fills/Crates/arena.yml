@@ -7,6 +7,17 @@
   components:
   - type: AccessReader
     access: [["Armory"]]
+  - type: DoorSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - Open
+      - Close
+      - Toggle
 
 - type: entity
   id: CrateArenaMobSmall
@@ -209,6 +220,24 @@
       - id: MobFleshGolem
       - id: MobFleshLover
       - id: MobAbomination
+    - !type:GroupSelector
+      weight: 0.5
+      children:
+      - id: MobCarp
+        amount: !type:RangeNumberSelector
+          value: 6
+      - id: MobCobraSpace
+        amount: !type:RangeNumberSelector
+          value: 6
+      - id: MobArgocytePouncer
+        amount: !type:RangeNumberSelector
+          value: 6
+      - id: MobWatcherPride
+        amount: !type:RangeNumberSelector
+          value: 6
+      - id: MobAdultSlimesGreenAngry
+        amount: !type:RangeNumberSelector
+          value: 6
     #Nanotrasen has not yet developed the technology to hold these creatures
     #Rare
     #- !type:GroupSelector
