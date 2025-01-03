@@ -206,6 +206,8 @@
       - SilverRing
       - GoldRingDiamond
       - SilverRingDiamond
+      - CassetteTape
+      - TapeRecorder
       # End Delta-V additions
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -446,7 +448,6 @@
       - MiniSyringe
       - WeaponColdCannon
       - WeaponBeamCannon
-
       # End DeltaV additions
 
 - type: entity
@@ -577,16 +578,17 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
-    # Begin Nyano additions
+      - SMESAdvancedMachineCircuitboard
+      # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - MetempsychoticMachineCircuitboard
-    # End Nyano additions
-    # Begin DeltaV additions
+      # End Nyano additions
+      # Begin DeltaV additions
       - SalvageExpeditionsComputerCircuitboard
       - ComputerMassMediaCircuitboard
       - AlertsComputerCircuitboard
-    # End DeltaV additions
+      # End DeltaV additions
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -1110,6 +1112,8 @@
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
+      - ClothingUniformJumpsuitHoPFormal # DeltaV - Was never added, appearently?
+      - ClothingUniformJumpskirtHoPFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretHoS
       - ClothingHeadHatHoshat
       - ClothingUniformJumpsuitHoS
@@ -1158,11 +1162,13 @@
       - ClothingUniformJumpsuitQMTurtleneck
       - ClothingUniformJumpskirtQMTurtleneck
       - ClothingUniformJumpsuitQMFormal
+      - ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretRND
       - ClothingHeadHatCJToque # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpskirtChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJusticeFormal # DeltaV - Chief Justice
+      - ClothingUniformJumpskirtCJFormal # DeltaV - Formal dresses
       - ClothingUniformJumpsuitChiefJusticeWhite # DeltaV - Chief Justice
       - ClothingUniformJumpsuitResearchDirector
       - ClothingUniformJumpskirtResearchDirector
@@ -1274,6 +1280,20 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Begin DeltaV Additions
+      - ClothingUniformInterdyneChemist
+      - UniformScrubsColorCybersun
+      - ClothingUniformCybersunAttorney
+      - ClothingHeadHatSurgcapCybersun
+      - ClothingOuterInterdyneChemistrySuit
+      - ClothingOuterCoatCybersunWindbreaker
+      - ClothingMaskInterdyneChemistry
+      - ClothingHeadHatSurgcapCybersun
+      #- ClothingUniformCybersunHazard
+      #- ClothingUniformCybersunCasual
+      #- ClothingUniformCybersunRND
+      #- ClothingOuterCybersunOvercoat
+      # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1377,7 +1397,7 @@
         - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1393,6 +1413,8 @@
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
     - type: MiningPointsLathe # DeltaV
+    - type: PlaceableSurface # DeltaV: Allow ore bags to dump into it directly
+      isPlaceable: false # but not place on it if you just click it with a random item
 
 - type: entity
   parent: OreProcessor
@@ -1411,7 +1433,7 @@
       - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

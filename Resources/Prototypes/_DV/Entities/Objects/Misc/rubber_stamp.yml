@@ -1,0 +1,59 @@
+- type: entity
+  name: notary stamp
+  parent: RubberStampBase
+  id: RubberStampNotary
+  suffix: DO NOT MAP
+  description: An old-fashioned seal for marking important documents, made of polished bronze.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-notary
+    stampedColor: "#a81f3d"
+    stampState: "paper_stamp-notary"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-notary
+  - type: StealTarget
+    stealGroup: RubberStampNotary
+
+- type: entity
+  name: chief justice stamp
+  parent: RubberStampBase
+  id: RubberStampChiefJustice
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-chiefjustice
+    stampedColor: "#6b2833"
+    stampState: "paper_stamp-notary"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-cj
+
+- type: entity
+  name: prosecutor's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampProsec
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-prosec
+    stampedColor: "#562D3D"
+    stampState: "paper_stamp-prosec"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-prosec
+
+- type: entity
+  parent: RubberStampBase
+  id: RubberStampAdminAssistant
+  name: administrative assistant rubber stamp
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-admin-assistant
+    stampedColor: "#4191f2"
+    stampState: "paper_stamp-admin-assistant"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-admin-assistant

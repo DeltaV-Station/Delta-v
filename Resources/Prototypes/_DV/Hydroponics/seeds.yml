@@ -1,0 +1,97 @@
+- type: seed
+  id: CrystalThistle
+  name: seeds-CrystalThistle-name
+  noun: seeds-noun-seeds
+  displayName: seeds-CrystalThistle-display-name
+  plantRsi: _DV/Objects/Specific/Hydroponics/Crystal_Thistle.rsi
+  packetPrototype: CrystalThistleSeeds
+  productPrototypes:
+    - FoodCrystalThistle
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.60
+  chemicals:
+    Ethyloxyephedrine:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 4
+    Quartzite:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 4
+
+- type: seed
+  id: GhostPepper
+  name: seeds-GhostPepper-name
+  noun: seeds-noun-seeds
+  displayName: seeds-GhostPepper-display-name
+  plantRsi: _DV/Objects/Specific/Hydroponics/Ghost_Pepper.rsi
+  packetPrototype: GhostPepperSeeds
+  productPrototypes:
+    - FoodGhostPepper
+  mutationPrototypes:
+    - CosmicRevenant
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 20
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    CapsaicinOil:
+      Min: 2
+      Max: 20
+      PotencyDivisor: 10
+    Nutriment:
+      Min: 2
+      Max: 8
+      PotencyDivisor: 25
+    Vitamin:
+      Min: 2
+      Max: 8
+      PotencyDivisor: 25
+    Thermite:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 10
+
+- type: seed
+  id: CosmicRevenant
+  name: seeds-CosmicRevenant-name
+  noun: seeds-noun-seeds
+  displayName: seeds-CosmicRevenant-display-name
+  plantRsi: _DV/Objects/Specific/Hydroponics/Cosmic_Revenant.rsi
+  packetPrototype: CosmicRevenantSeeds
+  productPrototypes:
+    - FoodCosmicRevenant
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 20
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    CapsaicinOil:
+      Min: 3
+      Max: 30
+      PotencyDivisor: 10
+    Nutriment:
+      Min: 4
+      Max: 10
+      PotencyDivisor: 25
+    Vitamin:
+      Min: 4
+      Max: 10
+      PotencyDivisor: 25
+    Ectoplasm:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 10
