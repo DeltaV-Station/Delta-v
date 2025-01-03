@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Mnemotechnician
-  changes:
-  - message: You can now sign paper by alt-clicking it while holding a pen.
-    type: Add
-  id: 346
-  time: '2024-05-14T19:49:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1172
 - author: Space Station 14 contributors
   changes:
   - message: Refactored antag system, please report any bugs or regressions
@@ -3826,3 +3819,10 @@
   id: 845
   time: '2025-01-02T22:27:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2202
+- author: zHonys
+  changes:
+  - message: Fixed Airlocks and Firelocks not being able to be closed when de powered.
+    type: Fix
+  id: 846
+  time: '2025-01-03T07:35:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2591
