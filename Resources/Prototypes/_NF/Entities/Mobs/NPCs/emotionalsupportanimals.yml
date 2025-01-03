@@ -56,8 +56,8 @@
   parent: [BaseEmotionalGhostCat, MobCat]
   id: MobCatGhost
   components:
-  - type: RandomMetadata
-    nameSegments: [names_cat]
+  #- type: RandomMetadata # DeltaV
+  #  nameSegments: [names_cat]
   - type: DamageStateVisuals
     states:
       Alive:
@@ -68,8 +68,8 @@
   parent: [BaseEmotionalGhostCat, MobCatCalico]
   id: MobCatCalicoGhost
   components:
-  - type: RandomMetadata
-    nameSegments: [names_cat_calico]
+  #- type: RandomMetadata # DeltaV
+  #  nameSegments: [names_cat_calico]
   - type: DamageStateVisuals
     states:
       Alive:
@@ -80,8 +80,8 @@
   parent: [BaseEmotionalGhostCat, MobBingus]
   id: MobBingusGhost
   components:
-  - type: RandomMetadata
-    nameSegments: [names_cat_bingus]
+  #- type: RandomMetadata # DeltaV
+  #  nameSegments: [names_cat_bingus]
   - type: DamageStateVisuals
     states:
       Alive:
@@ -92,8 +92,8 @@
   parent: [BaseEmotionalGhostCat, MobCatCaracal]
   id: MobCatCaracalGhost
   components:
-  - type: RandomMetadata
-    nameSegments: [names_cat_caracal]
+  #- type: RandomMetadata
+  #  nameSegments: [names_cat_caracal]
   - type: DamageStateVisuals
     states:
       Alive:
@@ -106,8 +106,8 @@
   parent: [BaseEmotionalGhostCat, MobCatSpace]
   id: MobCatSpaceGhost
   components:
-  - type: RandomMetadata
-    nameSegments: [names_cat_space]
+  #- type: RandomMetadata
+  #  nameSegments: [names_cat_space]
   - type: DamageStateVisuals
     states:
       Alive:
