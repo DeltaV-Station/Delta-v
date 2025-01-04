@@ -1,0 +1,12 @@
+﻿# Example popup
+
+- type: feedbackPopup
+  id: ExampleFeedbackPopup
+  popupName: example-feedback-popup-name
+  title: example-feedback-popup-title
+  description:
+  - example-feedback-popup-description-0
+  - example-feedback-popup-description-1
+  feedbackField: true # Defaults to true but can be set to false
+
+# Please make a new file in this folder for each popup. This will greatly reduce the number of merge conflicts that will occur!

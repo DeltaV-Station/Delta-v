@@ -29,9 +29,10 @@ namespace Content.Client.Credits
 
         private static readonly Dictionary<string, int> PatronTierPriority = new()
         {
-            ["Central Commander"] = 1,
-            ["Captain"] = 2,
-            ["Assistant"] = 3
+            ["Fund our stations"] = 1,
+            ["$5 dollar tier"] = 2,
+            ["Tip Jar"] = 3,
+            ["Previous Donors"] = 4
         };
 
         public CreditsWindow()
