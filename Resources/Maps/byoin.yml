@@ -3683,7 +3683,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 4513
+      - 7425
   - uid: 3475
     components:
     - type: MetaData
@@ -5046,10 +5046,12 @@ entities:
       pos: -17.5,19.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
     - type: DeviceLinkSource
       linkedPorts:
         3497:
+        - DoorStatus: DoorBolt
+        6028:
         - DoorStatus: DoorBolt
   - uid: 6028
     components:
@@ -5059,10 +5061,12 @@ entities:
       pos: -21.5,20.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
     - type: DeviceLinkSource
       linkedPorts:
         3497:
+        - DoorStatus: DoorBolt
+        4538:
         - DoorStatus: DoorBolt
 - proto: AirlockExternalGlassLocked
   entities:
@@ -5958,14 +5962,6 @@ entities:
       deviceLists:
       - 8630
       - 8726
-  - uid: 4513
-    components:
-    - type: Transform
-      pos: -13.5,19.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 2223
   - uid: 4521
     components:
     - type: Transform
@@ -5994,6 +5990,14 @@ entities:
     - type: Transform
       pos: 3.5,-11.5
       parent: 2
+  - uid: 7425
+    components:
+    - type: Transform
+      pos: -12.5,19.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 2223
   - uid: 8256
     components:
     - type: Transform
@@ -23015,9 +23019,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -20.5,-13.5
       parent: 2
-- proto: ComputerShuttleMiningGlacier
+- proto: ComputerShuttleMining
   entities:
-  - uid: 3486
+  - uid: 3413
     components:
     - type: Transform
       pos: -39.5,1.5
@@ -45731,10 +45735,10 @@ entities:
       parent: 2
 - proto: OreProcessor
   entities:
-  - uid: 7425
+  - uid: 9062
     components:
     - type: Transform
-      pos: -19.5,-3.5
+      pos: -21.5,-3.5
       parent: 2
 - proto: OreProcessorMachineCircuitboard
   entities:
@@ -48155,12 +48159,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.5,-10.5
-      parent: 2
-  - uid: 7227
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-3.5
       parent: 2
   - uid: 8953
     components:
@@ -52991,6 +52989,17 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Command Evac Room
+  - uid: 7227
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,24.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Administrative Office
   - uid: 7441
     components:
     - type: Transform
@@ -53056,17 +53065,6 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Bridge 2
-  - uid: 9251
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,24.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraCommand
-      nameSet: True
-      id: Administrative office
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 25
@@ -54220,11 +54218,10 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.5,-3.5
       parent: 2
-  - uid: 3413
+  - uid: 3486
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-3.5
+      pos: -19.5,-3.5
       parent: 2
   - uid: 3681
     components:
@@ -54913,6 +54910,11 @@ entities:
       parent: 2
 - proto: ToolboxMechanicalFilled
   entities:
+  - uid: 4513
+    components:
+    - type: Transform
+      pos: -19.59947,-3.409611
+      parent: 2
   - uid: 6493
     components:
     - type: Transform
@@ -54927,11 +54929,6 @@ entities:
     components:
     - type: Transform
       pos: -9.5993395,9.73131
-      parent: 2
-  - uid: 9062
-    components:
-    - type: Transform
-      pos: -21.351238,-3.4585643
       parent: 2
   - uid: 9174
     components:
