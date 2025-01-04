@@ -92,6 +92,9 @@
     equipDelay: 5
     sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
   - type: SelfUnremovableClothing
+  - type: Tag
+    tags:
+    - ForensicBeltEquip
 
 - type: entity
   parent: ClothingHeadTinfoil
