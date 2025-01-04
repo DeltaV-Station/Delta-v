@@ -411,27 +411,25 @@ public sealed partial class ServerApi : IPostInjectInit
             return;
 
         await RunOnMainThread(async () =>
-    {
-        // Player not online or wrong Guid
-        if (!_playerManager.TryGetSessionById(new NetUserId(body.Guid), out var player))
-        {
-            await RespondError(
-                context,
-                ErrorCode.PlayerNotFound,
-                HttpStatusCode.UnprocessableContent,
-                "Player not found");
-            return;
-        }
+            {
+                // Player not online or wrong Guid
+                if (!_playerManager.TryGetSessionById(new NetUserId(body.Guid), out var player))
+                {
+                    await RespondError(
+                        context,
+                        ErrorCode.PlayerNotFound,
+                        HttpStatusCode.UnprocessableContent,
+                        "Player not found");
+                    return;
+                }
 
-        var serverBwoinkSystem = _entitySystemManager.GetEntitySystem<BwoinkSystem>();
-        var message = new SharedBwoinkSystem.BwoinkTextMessage(player.UserId, SharedBwoinkSystem.SystemUserId, body.Text);
-        serverBwoinkSystem.OnWebhookBwoinkTextMessage(message, body);
+                var serverBwoinkSystem = _entitySystemManager.GetEntitySystem<BwoinkSystem>();
+                var message = new SharedBwoinkSystem.BwoinkTextMessage(player.UserId, SharedBwoinkSystem.SystemUserId, body.Text);
+                serverBwoinkSystem.OnWebhookBwoinkTextMessage(message, body);
 
-        // Respond with OK
-        await RespondOk(context);
-    });
-
-
+                // Respond with OK
+                await RespondOk(context);
+            });
     }
 
     #endregion
