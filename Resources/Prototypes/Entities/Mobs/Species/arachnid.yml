@@ -120,7 +120,7 @@
     rightBarePrint: "footprint-right-bare-spider"
   - type: Inventory
     templateId: arachnid
-
+    speciesId: arachnid # DeltaV - allow arachnid clothing sprite variants
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -129,6 +129,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory # DeltaV - Allows the "dummy" in the lobby menu to wear the arachnid sprites
+    speciesId: arachnid
 
 
 #>88w88<
