@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClosetWallBlack #Important: Change texture when syndicate wall lockers get merged upsteam - Unkn0wnGhost333
+  id: LockerLPOFilled
+  suffix: Filled
+  name: lpo stamp locker
+  description: "A wall locker filled with stamps stolen by our finest agents!"
+  components:
+  - type: StorageFill
+    contents:
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: RubberStampSyndicate
+    - id: RubberStampCaptain
+    - id: RubberStampChiefJustice
+    - id: RubberStampCE
+    - id: RubberStampCMO
+    - id: RubberStampQm
+    - id: RubberStampRd
+    - id: RubberStampHop
+    - id: RubberStampHos
+    - id: RubberStampWarden
+    - id: RubberStampDetective
+    - id: RubberStampLawyer
+    - id: RubberStampProsec
+    - id: RubberStampNotary
+    - id: RubberStampChaplain
+    - id: RubberStampClown
+    - id: RubberStampMime
+    - id: RubberStampTrader
+    - id: RubberStampGreytide
+    - id: RubberStampPsychologist
+    - id: CyberPen
+      prob: 0.7
+    - id: LuxuryPen
+      prob: 0.4
+    - id: Hypopen
+      prob: 0.2
+    - id: EnergyDagger
+      prob: 0.05
+    - id: PenExplodingBox #Note: Box variant so they don't "*click* oh sh-"
+      prob: 0.005
+    - id: PenCentcom
+      prob: 0.005
