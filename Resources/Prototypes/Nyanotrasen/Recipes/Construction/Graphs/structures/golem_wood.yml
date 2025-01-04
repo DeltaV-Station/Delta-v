@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: GolemWood
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: golem
+          steps:
+            - material: WoodPlank
+              amount: 20
+            - material: Bluespace
+              amount: 5
+              doAfter: 10
+
+    - node: golem
+      entity: MobGolemWood
