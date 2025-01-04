@@ -7,6 +7,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -73,6 +74,15 @@ public sealed class KillPersonConditionSystem : EntitySystem
                 return !HasComp<TargetObjectiveImmuneComponent>(mindComp.OwnedEntity.Value);
             })
             .ToList();
+
+        // Can't have multiple objectives to kill the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
+            {
+                allHumans.RemoveAll(x => x.Owner == kill.Target);
+            }
+        }
 
         // Filter out targets based on the filter
         var filteredHumans = allHumans.Where(mind => filter(mind)).ToList();
