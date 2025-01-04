@@ -16,7 +16,8 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
     /// </summary>
     /// <param name="uid">UID of the entity the player is controlling.</param>
     /// <param name="popupPrototype">Popup to send them.</param>
-    public void SendPopup(EntityUid? uid, ProtoId<FeedbackPopupPrototype> popupPrototype)
+    /// <param name="sendOnlyOnce">If true, if the popup is sent to the same mind again, it will not be displayed.</param>
+    public void SendPopup(EntityUid? uid, ProtoId<FeedbackPopupPrototype> popupPrototype, bool sendOnlyOnce = true)
     {
         if (uid == null)
             return;
@@ -24,7 +25,7 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
         if (!_mind.TryGetMind(uid.Value, out var mindUid, out _))
             return;
 
-        SendPopupMind(mindUid, popupPrototype);
+        SendPopupMind(mindUid, popupPrototype, sendOnlyOnce);
     }
 
     /// <summary>
@@ -32,10 +33,22 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
     /// </summary>
     /// <param name="uid">UID of the players mind.</param>
     /// <param name="popupPrototype">Popup to send them.</param>
-    public void SendPopupMind(EntityUid? uid, ProtoId<FeedbackPopupPrototype> popupPrototype)
+    /// <param name="sendOnlyOnce">If true, if the popup is sent to the same mind again, it will not be displayed.</param>
+    public void SendPopupMind(EntityUid? uid, ProtoId<FeedbackPopupPrototype> popupPrototype, bool sendOnlyOnce = true)
     {
         if (uid == null)
             return;
+
+        if (sendOnlyOnce)
+        {
+            EnsureComp<FeedbackPopupInformationComponent>(uid.Value, out var feedbackInfoComp);
+
+            // If it's already been seen, don't resend it.
+            if (!feedbackInfoComp.SeenPopups.Add(popupPrototype))
+                return;
+
+            Dirty(uid.Value, feedbackInfoComp);
+        }
 
         if (!_mind.TryGetSession(uid, out var session))
             return;
