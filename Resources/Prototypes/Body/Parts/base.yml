@@ -39,6 +39,12 @@
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 200
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
         damageType: Heat
         damage: 200
       behaviors:
