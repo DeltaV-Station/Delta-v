@@ -6970,7 +6970,7 @@ entities:
       pos: 18.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -220889.22
+      secondsUntilStateChange: -220923.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -37274,7 +37274,7 @@ entities:
       pos: 31.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55080.676
+      secondsUntilStateChange: -55115.11
       state: Closing
   - uid: 5409
     components:
@@ -44475,6 +44475,20 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -12.5,-3.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16018
+    components:
+    - type: Transform
+      pos: 8.5,-28.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16019
+    components:
+    - type: Transform
+      pos: 11.5,-28.5
       parent: 2
     - type: Fixtures
       fixtures: {}
