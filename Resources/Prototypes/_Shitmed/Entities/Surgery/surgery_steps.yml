@@ -1,6 +1,6 @@
 - type: entity
   id: SurgeryStepBase
-  categories: [ HideSpawnMenu ]
+  abstract: true
   components:
   - type: SurgeryStep
 
@@ -23,6 +23,7 @@
     damage:
       types:
         Bloodloss: 10
+        Slash: 3 # DeltaV
     sleepModifier: 0.5
   - type: SurgeryStepEmoteEffect
 
@@ -62,6 +63,10 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -79,6 +84,11 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
+    damage:
+      types:
+        Slash: 20
 
 - type: entity
   parent: SurgeryStepBase
@@ -95,6 +105,10 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Blunt: 10
 
 #- type: entity
 #  parent: SurgeryStepBase
@@ -146,6 +160,11 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV: Reverse damage from SurgeryStepOpenBones
+    damage:
+      types:
+        Blunt: -5
+    sleepModifier: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -162,6 +181,11 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
+  - type: SurgeryDamageChangeEffect # DeltaV: Reverse damage from SurgeryStepSawBones
+    damage:
+      types:
+        Slash: -5
+    sleepModifier: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -187,7 +211,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -5 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
   - type: SurgeryStepEmoteEffect
 
@@ -231,7 +255,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -5 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
 
 # Feature Removal
@@ -252,6 +276,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 5
 
 - type: entity
   parent: SurgeryStepBase
@@ -295,6 +323,11 @@
     state: circular-saw
   - type: SurgeryRemovePartStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV: Traumatic amputation is traumatic
+    sleepModifier: 0.25
+    damage:
+      types:
+        Slash: 30
 
 # Tend Wounds
 
@@ -314,6 +347,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -372,7 +409,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -1 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
   - type: SurgeryStepEmoteEffect
 
@@ -392,6 +429,11 @@
   - type: SurgeryStepCavityEffect
     action: Insert
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, huge damage if the patient is wriggling around
+    damage:
+      types:
+        Blunt: 40
 
 - type: entity
   parent: SurgeryStepBase
@@ -425,6 +467,11 @@
     state: hemostat
   - type: SurgeryRemoveOrganStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.1 # Maints organ transplants are BAD
+    damage:
+      types:
+        Slash: 50
 
 - type: entity
   parent: SurgeryStepBase
@@ -447,13 +494,13 @@
   id: SurgeryStepInsertLungs
   name: Add lungs
   categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgeryDamageChangeEffect
-    damage:
-      types:
-        Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
-    sleepModifier: 1
-    isConsumable: true
+  #components: # DeltaV: This works regardless of origin body and is useless anyway.
+  #- type: SurgeryDamageChangeEffect
+  #  damage:
+  #    types:
+  #      Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
+  #  sleepModifier: 1
+  #  isConsumable: true
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -467,13 +514,13 @@
   id: SurgeryStepInsertLiver
   name: Add liver
   categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgeryDamageChangeEffect
-    damage:
-      types:
-        Poison: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
-    sleepModifier: 1
-    isConsumable: true
+  #components: # DeltaV: This works regardless of origin body and needs rework, nor does it make any sense.
+  #- type: SurgeryDamageChangeEffect
+  #  damage:
+  #    types:
+  #      Poison: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
+  #  sleepModifier: 1
+  #  isConsumable: true
 
 - type: entity
   parent: SurgeryStepInsertOrgan
