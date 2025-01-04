@@ -156,6 +156,7 @@
 
   defaultModules:
   - BorgModuleTreatment
+  - BorgModuleSurgery # DeltaV
 
   radioChannels:
   - Science
@@ -172,6 +173,8 @@
     damageContainers:
     - Biological
   - type: FabricateCandy # Nyanotrasen - The medical cyborg can generate candies filled with medicine.
+  - type: SurgeryTarget # Shitmed
+  - type: Sanitized # Shitmed
 
   # Visual
   inventoryTemplateId: borgDutch

@@ -93,6 +93,11 @@
   - type: Body
     prototype: Slimes
     requiredLegs: 1
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

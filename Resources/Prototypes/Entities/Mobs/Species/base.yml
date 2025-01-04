@@ -193,6 +193,9 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -220,6 +223,9 @@
     - AnomalyHost
   - type: PotentialPsionic # DeltaV - organic species can all be psionic
   - type: FootPrints # DeltaV port from EE, blood splatter
+  - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false
@@ -288,6 +294,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
