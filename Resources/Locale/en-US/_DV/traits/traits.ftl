@@ -32,3 +32,6 @@ trait-inpain-desc = You’re constantly in discomfort. You need painkillers to f
 
 trait-addicted-name = Addicted
 trait-addicted-desc = You crave the substance, and your thoughts keep drifting back to it. Without it, you feel incomplete, anxious, and on edge.
+
+trait-unborgable-name = Machine Incompatible
+trait-unborgable-desc = Your brain cannot be put into a man-machine interface.
