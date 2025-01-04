@@ -55,6 +55,7 @@ namespace Content.IntegrationTests.Tests
             "Tortuga", // DeltaV
             "Arena", // DeltaV
             "Asterisk", // DeltaV
+            "Byoin", // DeltaV
             "Glacier", // DeltaV
             "TheHive", // DeltaV
             "Hammurabi", // DeltaV
