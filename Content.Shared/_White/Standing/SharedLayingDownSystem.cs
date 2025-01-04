@@ -89,6 +89,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         }
 
         component.CurrentState = StandingState.Standing;
+        Dirty(uid, component);
     }
 
     private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -135,6 +136,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
 
         standingState.CurrentState = StandingState.GettingUp;
+        Dirty(uid, standingState);
         return true;
     }
 
