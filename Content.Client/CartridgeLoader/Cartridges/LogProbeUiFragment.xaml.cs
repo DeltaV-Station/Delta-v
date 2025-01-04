@@ -36,7 +36,7 @@ public sealed partial class LogProbeUiFragment : BoxContainer
         else
         {
             SetupAccessLogView();
-            DisplayAccessLogs(state.Name, state.PulledLogs);
+            DisplayAccessLogs(state.EntityName, state.PulledLogs);
         }
     }
 
