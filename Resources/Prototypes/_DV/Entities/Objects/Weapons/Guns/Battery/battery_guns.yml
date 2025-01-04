@@ -285,7 +285,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: ColdLaser
     fireCost: 100
-    
+
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon
@@ -353,3 +353,13 @@
   - type: Tag
     tags:
     - PowerCage
+
+- type: entity
+  parent: WeaponDisabler
+  id: WeaponDisablerSelfCharge
+  name: disabler
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50

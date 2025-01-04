@@ -51,7 +51,9 @@
     items:
     - StunbatonSelfCharging
     - FlashRecharging
-    - BorgHypoPax
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+    - WeaponLauncherFlashbangBorg
 
 - type: entity
   id: BorgModuleSecurityEscalate
@@ -67,9 +69,11 @@
     items:
     - Truncheon # Anti-Fauna option to stop them being relied on the Seclite (which will be removed when the Laws menu is fixed)
     - FlashRecharging
+    - WeaponLauncherCrowdControlBorg
+    - SecurityWhistle
 
 - type: entity
-  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  id: BorgModuleSecurityChase # Research Locked - NonLethalAmmunition
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: chase cyborg module
   components:
@@ -79,7 +83,9 @@
     - state: icon-chase
   - type: ItemBorgModule
     items:
-    - WeaponEnergyGunMiniRecharging
+    - WeaponDisablerSelfCharge
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
 
 # Syndicate modules
 - type: entity
