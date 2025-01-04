@@ -215,3 +215,29 @@
     - awoos
     - awooing
     - awooed
+
+# Feroxi
+- type: emote
+  id: Gnash
+  name: delta-chat-emote-name-gnash
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [gnashes.]
+  chatTriggers:
+    - gnash
+    - gnashes
+    - gnashing
+    - gnashed
+    - gnash teeth
+    - gnashes teeth
+    - gnashes their teeth
+    - gnashing teeth
+    - gnashing their teeth
+    - gnashed teeth
+    - gnashed their teeth
