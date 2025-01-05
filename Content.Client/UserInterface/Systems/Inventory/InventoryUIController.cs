@@ -43,25 +43,26 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
     private StrippingWindow? _strippingWindow;
     private ItemSlotButtonContainer? _inventoryHotbar;
     private SlotButton? _inventoryButton;
+    private MenuButton? InventoryButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.InventoryButton; // Emberfall
 
     private SlotControl? _lastHovered;
 
-    public override void Initialize()
-    {
-        base.Initialize();
+    // public override void Initialize()
+    // {
+    //     base.Initialize();
+    //
+    //     var gameplayStateLoad = UIManager.GetUIController<GameplayStateLoadController>();
+    //     gameplayStateLoad.OnScreenLoad += OnScreenLoad;
+    // }
 
-        var gameplayStateLoad = UIManager.GetUIController<GameplayStateLoadController>();
-        gameplayStateLoad.OnScreenLoad += OnScreenLoad;
-    }
-
-    private void OnScreenLoad()
-    {
-        if (UIManager.ActiveScreen == null)
-            return;
-
-        if (UIManager.GetActiveUIWidgetOrNull<InventoryGui>() is { } inventoryGui)
-            RegisterInventoryButton(inventoryGui.InventoryButton);
-    }
+    // private void OnScreenLoad()
+    // {
+    //     if (UIManager.ActiveScreen == null)
+    //         return;
+    //
+    //     if (UIManager.GetActiveUIWidgetOrNull<InventoryGui>() is { } inventoryGui)
+    //         RegisterInventoryButton(inventoryGui.InventoryButton);
+    // }
 
     public void OnStateEntered(GameplayState state)
     {
@@ -74,6 +75,29 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             .Bind(ContentKeyFunctions.OpenInventoryMenu, InputCmdHandler.FromDelegate(_ => ToggleInventoryBar()))
             .Register<ClientInventorySystem>();
     }
+
+    // Begin Emberfall changes
+    public void UnloadButton()
+    {
+        if (InventoryButton == null)
+            return;
+
+        InventoryButton.OnPressed -= ActionButtonPressed;
+    }
+
+    public void LoadButton()
+    {
+        if (InventoryButton == null)
+            return;
+
+        InventoryButton.OnPressed += ActionButtonPressed;
+    }
+
+    private void ActionButtonPressed(BaseButton.ButtonEventArgs args)
+    {
+        ToggleInventoryBar();
+    }
+    // End Emberfall
 
     public void OnStateExited(GameplayState state)
     {
@@ -171,35 +195,20 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
                 _inventoryHotbar.RemoveChild(child);
         }
 
-        var maxWidth = clothing.Max(p => p.Value.ButtonOffset.X) + 1;
-        var maxIndex = clothing.Select(p => GetIndex(p.Value.ButtonOffset)).Max();
-
-        _inventoryHotbar.MaxColumns = maxWidth;
-        _inventoryHotbar.Columns = maxWidth;
-
-        for (var i = 0; i <= maxIndex; i++)
+        foreach (var (key, data) in clothing) // Begin Emberfall
         {
-            var index = i;
-            if (clothing.FirstOrNull(p => GetIndex(p.Value.ButtonOffset) == index) is { } pair)
+            if (!_inventoryHotbar.TryGetButton(key, out var slot))
             {
-                if (_inventoryHotbar.TryGetButton(pair.Key, out var slot))
-                    slot.SetPositionLast();
+                slot = CreateSlotButton(data);
+                _inventoryHotbar.AddButton(slot);
             }
-            else
-            {
-                _inventoryHotbar.AddChild(new Control
-                {
-                    MinSize = new Vector2(64, 64)
-                });
-            }
+
+            var showStorage = _entities.HasComponent<StorageComponent>(data.HeldEntity);
+            var update = new SlotSpriteUpdate(data.HeldEntity, data.SlotGroup, data.SlotName, showStorage);
+            SpriteUpdated(update);
         }
 
-        return;
-
-        int GetIndex(Vector2i position)
-        {
-            return position.Y * maxWidth + position.X;
-        }
+        _inventoryHotbar.Columns = clothing.Count; // end Emberfall
     }
 
     private void UpdateStrippingWindow(InventorySlotsComponent? clientInv)
@@ -251,6 +260,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         var shouldBeVisible = !_inventoryHotbar.Visible;
         _inventoryHotbar.Visible = shouldBeVisible;
 
+        InventoryButton?.SetClickPressed(shouldBeVisible); // Emberfall
     }
 
     // Neuron Activation

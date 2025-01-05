@@ -43,6 +43,16 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!-- Emberfall - Bring back the old UI -->
+    <ui:MenuButton
+        Name="InventoryButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/Interface/inventory.svg.192dpi.png'}"
+        ToolTip="{Loc 'game-hud-open-inventory-menu-button-tooltip'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenInventoryMenu}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"/>
     <ui:MenuButton
         Name="EmotesButton"
         Access="Internal"

@@ -18,7 +18,7 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorPreset(ScreenContainer, LayoutPreset.Wide);
         SetAnchorPreset(ViewportContainer, LayoutPreset.Wide);
         SetAnchorPreset(MainViewport, LayoutPreset.Wide);
-        SetAnchorAndMarginPreset(Inventory, LayoutPreset.BottomLeft, margin: 5);
+        SetAnchorAndMarginPreset(Inventory, LayoutPreset.BottomWide, margin: 75); // Emberfall
         SetAnchorAndMarginPreset(TopLeftContainer, LayoutPreset.TopLeft, margin: 10);
         SetAnchorAndMarginPreset(Ghost, LayoutPreset.BottomWide, margin: 80);
         SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
