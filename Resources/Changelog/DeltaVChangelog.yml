@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Added new anxiety meds, antidepressants and painkillers. Psychologists
-      rejoice!
-    type: Add
-  - message: THC, Space Drugs, Desoxyephedrine and Impedrezene are now addictive.
-    type: Add
-  id: 358
-  time: '2024-05-23T18:29:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1243
 - author: Colin-Tel
   changes:
   - message: Asterisk's cargo dock, atmos, and power generation have received tweaks.
@@ -3830,3 +3820,34 @@
   id: 857
   time: '2025-01-05T02:56:21.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2615
+- author: yuitop, TheBean, pontaoski, BIGZi0348, deltanedas, ArZarLordOfMango, themias,
+    Blackern5000
+  changes:
+  - message: Fingerless gloves no longer block taking fingerprints.
+    type: Tweak
+  - message: Animal cubes can now be examined to determine if they are soaked in the
+      wrong reagent.
+    type: Add
+  - message: Animal cubes can now be dried in a microwave to remove reagents.
+    type: Add
+  - message: Removed Discard mode from ChemMaster
+    type: Remove
+  - message: Reflective vest now reflects lasers only while equipped.
+    type: Tweak
+  - message: Energy katana now reflects lasers and projectiles only while in hands.
+    type: Tweak
+  - message: Dragons and Carp can no longer hurt eachother.
+    type: Tweak
+  - message: LogProbe's access logs can now be printed out.
+    type: Tweak
+  - message: Added camera mod to diagnostic hud. Allows displays camera view ranges.
+    type: Add
+  - message: Forensics are now applied to bullets when loading using an ammo box.
+    type: Fix
+  - message: Inaprovaline now heals slower, but lingers in the bloodstream for much
+      longer, making it much more useful for stabilizing critical patients for an
+      extended duration rather than outright treating damage.
+    type: Tweak
+  id: 858
+  time: '2025-01-05T03:55:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2614
