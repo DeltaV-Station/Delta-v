@@ -65,6 +65,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, AttemptMeleeThrowOnHitEvent>(OnMeleeThrowOnHitAttempt);
         }
 
@@ -227,6 +228,14 @@ namespace Content.Server.Psionics.Glimmer
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
                 _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
                 args.Cancel();
+            }
+        }
+
+        private void OnAnchorStateChanged(EntityUid uid, SharedGlimmerReactiveComponent component, AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored && _glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            {
+                AnchorOrExplode(uid);
             }
         }
 
@@ -425,4 +434,3 @@ namespace Content.Server.Psionics.Glimmer
         }
     }
 }
-

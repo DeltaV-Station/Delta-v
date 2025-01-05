@@ -1383,10 +1383,10 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 5 #DeltaV- Was 4, now 5
+    Telecrystal: 5 # DeltaV- Was 4, now 5
   categories:
     - UplinkImplants
- # conditions: #DeltaV- Allows Death Acidifer for our Syndibros
+ # conditions: # DeltaV- Allows Death Acidifer for our Syndibros
  #   - !type:StoreWhitelistCondition
  #     whitelist:
  #       tags:

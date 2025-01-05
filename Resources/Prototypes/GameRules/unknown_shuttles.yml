@@ -7,7 +7,7 @@
     - id: UnknownShuttleCargoLost
     - id: UnknownShuttleTravelingCuisine
     - id: UnknownShuttleDisasterEvacPod
-    #- id: UnknownShuttleHonki #DeltaV - Removes the Clown Shuttle
+    #- id: UnknownShuttleHonki # DeltaV - Removes the Clown Shuttle
     #- id: UnknownShuttleNTQuark # DeltaV - removed until theyre individually looked at
     #- id: UnknownShuttleCruiser
     #- id: UnknownShuttleCryptid
@@ -32,7 +32,9 @@
 - type: entityTable
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children: [] # DeltaV: empty list to remove instigator
+    children:
+    #- id: LoneOpsSpawn # DeltaV: This is already in antag events table
+    - id: UnknownShuttleManOWar
     #- id: UnknownShuttleInstigator # DeltaV: remove random ops
 
 # Shuttle Game Rules
@@ -59,6 +61,8 @@
   components:
   - type: StationEvent
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-unknown-shuttle-cargo-lost-result-message
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
 
@@ -69,6 +73,8 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-unknown-shuttle-traveling-cuisine-result-message
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
 
@@ -79,10 +85,12 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     maxOccurrences: 3 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: PrecognitionResult # DeltaV - Precogniton
+    message: psionic-power-precognition-unknown-shuttle-disaster-evac-pod-result-message
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
 
-# - type: entity #DeltaV - Remove Clown Shuttle
+# - type: entity # DeltaV - Remove Clown Shuttle
 #  parent: BaseUnknownShuttleRule
 #  id: UnknownShuttleHonki
 #  components:
@@ -200,6 +208,17 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
   - type: LoadMapRule
     preloadedGrid: Lambordeere
+
+- type: entity
+  id: UnknownShuttleManOWar
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
+    weight: 1 # lower because antags
+    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
+  - type: LoadMapRule
+    preloadedGrid: ManOWar
 
 - type: entity
   id: UnknownShuttleMeatZone
