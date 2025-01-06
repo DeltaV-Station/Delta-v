@@ -28,9 +28,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # DeltaV - 30 hours
-  - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems 
+  - !type:RoleTimeRequirement #Delta V - they should be able to make basic chems
     role: JobChemist
-    time: 14400 # DeltaV- 4 hours 
+    time: 14400 # DeltaV- 4 hours
 
 - type: antag
   id: NukeopsCommander
@@ -70,6 +70,7 @@
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
+    - BionicVoiceMaskImplanter # Delta-V - Voice masking implant
 
 #Nuclear Operative Gear
 - type: startingGear
