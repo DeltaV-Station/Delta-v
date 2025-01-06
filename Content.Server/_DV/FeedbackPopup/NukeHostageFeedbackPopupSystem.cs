@@ -42,7 +42,7 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
         if (args.NewMobState != MobState.Dead || !_mind.TryGetMind(args.Target, out var mindUid, out _))
             return;
 
-        if (_role.MindHasRole<NukeopsRoleComponent>(mindUid))`
+        if (_role.MindHasRole<NukeopsRoleComponent>(mindUid))
             _feedback.SendPopup(args.Target, "NukieHostageRoundEndPopup");
     }
 }
