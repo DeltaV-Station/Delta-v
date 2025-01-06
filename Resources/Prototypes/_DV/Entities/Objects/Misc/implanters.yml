@@ -1,5 +1,13 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
+  id: BionicVoiceMaskImplanter
+  suffix: bionic voice mask
+  components:
+  - type: Implanter
+    implant: BionicVoiceMaskImplant
+
+- type: entity
+  parent: BionicVoiceMaskImplanter
   id: BionicSyrinxImplanter
   suffix: bionic syrinx
   components:
