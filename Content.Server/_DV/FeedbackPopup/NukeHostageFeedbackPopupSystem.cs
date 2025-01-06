@@ -3,6 +3,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.NukeOps;
+using Content.Shared.Roles;
+using Content.Server.Roles;
 
 namespace Content.Server._DV.FeedbackPopup;
 
@@ -13,6 +15,7 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
     public override void Initialize()
     {
@@ -27,7 +30,7 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
 
         foreach (var mind in allMinds)
         {
-            if (mind.Comp.OwnedEntity != null && HasComp<NukeOperativeComponent>(mind.Comp.OwnedEntity))
+            if (mind.Comp.OwnedEntity != null && _role.MindHasRole<NukeopsRoleComponent>(mind))
                 _feedback.SendPopupMind(mind, "NukieHostageRoundEndPopup");
             else
                 _feedback.SendPopupMind(mind, "NukieHostageRoundEndCrewPopup");
@@ -36,10 +39,11 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
 
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Dead || !_mind.TryGetMind(args.Target, out var mindUid, out _))
             return;
 
-        if (HasComp<NukeOperativeComponent>(args.Target))
+        // couldn't get mind role thing working this is good enough probably
+        if (_role.MindHasRole<NukeopsRoleComponent>(mindUid))`
             _feedback.SendPopup(args.Target, "NukieHostageRoundEndPopup");
     }
 }
