@@ -675,7 +675,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
         var callOptions = new TelephoneCallOptions()
         {
-            ForceConnect = true
+            ForceConnect = true,
+            MuteReceiver = false // DeltaV - Set to false, allowing AI to hear speech when connecting to a holopad.
         };
 
         _telephoneSystem.CallTelephone(source, receiver, user, callOptions);
