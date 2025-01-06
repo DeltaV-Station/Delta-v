@@ -1,8 +1,8 @@
-﻿using Content.Shared._DV.FeedbackOverwatch;
+﻿using Content.Server._DV.Objectives.Components;
+using Content.Shared._DV.FeedbackOverwatch;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
-using Content.Shared.NukeOps;
 using Content.Shared.Roles;
 using Content.Server.Roles;
 
@@ -26,6 +26,9 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
 
     private void OnRoundEnd(RoundEndMessageEvent ev)
     {
+        if (!IsHostageOps())
+            return;
+
         var allMinds = _mind.GetAliveHumans();
 
         foreach (var mind in allMinds)
@@ -39,10 +42,19 @@ public sealed class NukeHostageFeedbackPopupSystem : EntitySystem
 
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead || !_mind.TryGetMind(args.Target, out var mindUid, out _))
+        if (args.NewMobState != MobState.Dead || !_mind.TryGetMind(args.Target, out var mindUid, out _) || !IsHostageOps())
             return;
 
         if (_role.MindHasRole<NukeopsRoleComponent>(mindUid))
             _feedback.SendPopup(args.Target, "NukieHostageRoundEndPopup");
+    }
+
+
+    /// <remarks>
+    ///     If even one person has the kidnap heads objective this will return true.
+    /// </remarks>
+    private bool IsHostageOps()
+    {
+        return EntityQueryEnumerator<KidnapHeadsConditionComponent>().MoveNext(out _);
     }
 }

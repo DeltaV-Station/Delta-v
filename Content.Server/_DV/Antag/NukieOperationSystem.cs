@@ -49,7 +49,10 @@ public sealed class NukieOperationSystem : EntitySystem
             }
 
             _mind.AddObjective(mindId, mind, objective.Value);
-            _feedback.SendPopupMind(mindId, "NukieHostageRoundStartPopup");
+
+            // TODO: Remove once enough feedback has been received!
+            if (objectiveProto.Id == "KidnapHeadsObjective")
+                _feedback.SendPopupMind(mindId, "NukieHostageRoundStartPopup");
         }
     }
 
