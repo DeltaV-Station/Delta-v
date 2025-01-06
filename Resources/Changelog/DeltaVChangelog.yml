@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: leonardo-dabepis
-  changes:
-  - message: Shrimp morphotype*
-    type: Add
-  id: 364
-  time: '2024-05-26T14:45:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/862
 - author: Tryded
   changes:
   - message: Added a way for muskets and musket cartridges (NOT .60) to be crafted.
@@ -3848,3 +3841,11 @@
   id: 863
   time: '2025-01-05T19:14:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2625
+- author: Radezolid
+  changes:
+  - message: Removed the station AI overlay from the diagnostic HUD as it gave you
+      infinite reach.
+    type: Fix
+  id: 864
+  time: '2025-01-06T01:34:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2627
