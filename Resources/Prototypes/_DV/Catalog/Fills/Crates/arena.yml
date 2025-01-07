@@ -224,19 +224,19 @@
       weight: 0.5
       children:
       - id: MobCarp
-        amount: !type:RangeNumberSelector
+        amount: !type:ConstantNumberSelector
           value: 6
       - id: MobCobraSpace
-        amount: !type:RangeNumberSelector
+        amount: !type:ConstantNumberSelector
           value: 6
       - id: MobArgocytePouncer
-        amount: !type:RangeNumberSelector
+        amount: !type:ConstantNumberSelector
           value: 6
       - id: MobWatcherPride
-        amount: !type:RangeNumberSelector
+        amount: !type:ConstantNumberSelector
           value: 6
       - id: MobAdultSlimesGreenAngry
-        amount: !type:RangeNumberSelector
+        amount: !type:ConstantNumberSelector
           value: 6
     #Nanotrasen has not yet developed the technology to hold these creatures
     #Rare
