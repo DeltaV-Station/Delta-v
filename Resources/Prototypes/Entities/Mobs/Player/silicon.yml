@@ -433,6 +433,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false
   - type: ComplexInteraction
   - type: Actions
   - type: Access
