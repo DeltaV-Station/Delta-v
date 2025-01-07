@@ -147,3 +147,22 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Logistics
+
+- type: listing
+  id: UplinkAntimovObjectiveBoard
+  name: uplink-objective-atmov-board-name
+  description: uplink-objective-atmov-board-desc
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: generic
+  productEntity: AntimovCircuitBoard
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

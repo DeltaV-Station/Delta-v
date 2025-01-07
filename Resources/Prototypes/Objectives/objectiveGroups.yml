@@ -6,6 +6,7 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupSpecial: .2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -52,6 +53,11 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
+
+- type: weightedRandom # DeltaV
+  id: TraitorObjectiveGroupSpecial
+  weights:
+    UploadAILawObjective: 1
 
 #Thief groups
 - type: weightedRandom
