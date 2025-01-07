@@ -147,3 +147,20 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Logistics
+
+- type: listing
+  id: UplinkOdachi
+  name: uplink-odachi-name
+  description: uplink-odachi-description
+  productEntity: Odachi
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Oni

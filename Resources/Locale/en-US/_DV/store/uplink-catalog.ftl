@@ -29,3 +29,6 @@ uplink-explosive-foam-grenade-desc = An explosive grenade disguised as a regular
 
 uplink-appraisal-tool-gun-name = Appraisal Tool Gun
 uplink-appraisal-tool-gun-desc = A modified Viper to appear as an appraisal tool, at the cost of slightly slower firerate
+
+uplink-odachi-name = Odachi
+uplink-odachi-description = A heavy plastitanium blade, with a knack for knocking heads off

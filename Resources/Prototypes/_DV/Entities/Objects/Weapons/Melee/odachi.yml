@@ -1,0 +1,23 @@
+- type: entity
+  id: Odachi
+  name: odachi
+  parent: [BaseSword, BaseMajorContraband]
+  description: A long, curved blade made of dark plastitanium.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    wideanimationrotation: -180
+    damage:
+      types:
+        Slash: 15
+    soundHit: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 25
+        Structural: 25
+  - type: Item
+    size: Ginormous
