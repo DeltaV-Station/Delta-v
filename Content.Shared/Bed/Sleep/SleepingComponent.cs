@@ -35,9 +35,11 @@ public sealed partial class SleepingComponent : Component
     /// <summary>                     // DeltaV begin port Narcolepsy from EE
     ///     The moment this entity went to sleep. Initialized on MapInit.
     /// </summary>
-    [DataField("SleepingSince", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)] // # DeltaV begin Narcolepsy port from EE
-    [AutoPausedField]
-    public TimeSpan SleepingSince;   // DeltaV end port Narcolepsy from EE
+    ///
+    /// DeltaV: The moment this entity went to sleep. Initialized on MapInit.
+    ///
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan SleepingSince;
 
     /// <summary>
     /// Sound to play when another player attempts to wake this entity.

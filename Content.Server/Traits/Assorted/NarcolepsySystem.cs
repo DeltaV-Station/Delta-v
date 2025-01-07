@@ -18,7 +18,7 @@ public sealed class NarcolepsySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popups = default!;  // DeltaV Narcolepsy port from EE
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -32,7 +32,7 @@ public sealed class NarcolepsySystem : EntitySystem
         PrepareNextIncident((uid, component));
     }
 
-    private void OnSleepChanged(Entity<NarcolepsyComponent> ent, ref SleepStateChangedEvent args)
+    private void OnSleepChanged(Entity<NarcolepsyComponent> ent, ref SleepStateChangedEvent args) // DeltaV
     {
         // When falling asleep while an incident is nigh, force it to happen immediately.
         if (args.FellAsleep)
@@ -47,7 +47,7 @@ public sealed class NarcolepsySystem : EntitySystem
         }
     }
 
-    public void AdjustNarcolepsyTimer(EntityUid uid, float setTime, NarcolepsyComponent? narcolepsy = null)
+    public void AdjustNarcolepsyTimer(EntityUid uid, float setTime, NarcolepsyComponent? narcolepsy = null) // DeltaV changed int to float
     {
         if (!Resolve(uid, ref narcolepsy, false) || narcolepsy.NextIncidentTime > setTime)
             return;
@@ -55,7 +55,7 @@ public sealed class NarcolepsySystem : EntitySystem
         narcolepsy.NextIncidentTime = setTime;
     }
 
-    public override void Update(float frameTime)
+    public override void Update(float frameTime)  // Begin DeltaV
     {
         base.Update(frameTime);
 
@@ -120,6 +120,6 @@ public sealed class NarcolepsySystem : EntitySystem
     private void DoWarningPopup(EntityUid ent)
     {
         _popups.PopupEntity(GetRandomWarning(),ent,ent);
-    }
+    } // End DeltaV
 
 }
