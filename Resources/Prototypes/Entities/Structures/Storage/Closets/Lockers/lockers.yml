@@ -291,10 +291,12 @@
   name: scientist's locker
   components:
   - type: Appearance
+  - type: Sprite
+    sprite: _DV/Structures/Storage/closet.rsi # DeltaV - label locker with "E" for epi
   - type: EntityStorageVisuals
-    stateBaseClosed: science
-    stateDoorOpen: science_open
-    stateDoorClosed: science_door
+    stateBaseClosed: epi # DeltaV
+    stateDoorOpen: epi_open # DeltaV
+    stateDoorClosed: epi_door # DeltaV
   - type: AccessReader
     access: [ [ "Research" ] ]
 
