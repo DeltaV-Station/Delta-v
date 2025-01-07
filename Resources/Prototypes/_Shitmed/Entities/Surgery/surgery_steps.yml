@@ -101,7 +101,7 @@
     - type: Retractor
     add:
     - type: RibcageOpen
-    duration: 2
+    duration: 4 # DeltaV: was 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
@@ -156,7 +156,7 @@
     - type: Retractor
     remove:
     - type: RibcageOpen
-    duration: 2
+    duration: 4 # DeltaV: was 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
@@ -361,7 +361,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 1
+    duration: 3 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -380,7 +380,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 1
+    duration: 3 # DeltaV: was 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
