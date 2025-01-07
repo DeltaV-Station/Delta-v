@@ -64,7 +64,6 @@
   id: LockerKitchen
   name: kitchen locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: chef
     stateDoorOpen: chef_open
@@ -77,7 +76,6 @@
   id: LockerJanitor
   name: janitor's locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: jani
     stateDoorOpen: jani_open
@@ -90,7 +88,6 @@
   id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
   name: logistics locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: cargo
     stateDoorOpen: cargo_open
