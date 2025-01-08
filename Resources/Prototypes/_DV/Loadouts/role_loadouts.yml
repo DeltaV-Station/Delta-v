@@ -1,0 +1,115 @@
+# Logistics
+- type: roleLoadout
+  id: JobCourier
+  groups:
+  - GroupTankHarness
+  - CourierHead
+  - CourierNeck
+  - MailMask
+  - CourierJumpsuit
+  - CourierOuterClothing
+  - CourierPDA
+  - CourierBackpack
+  - CourierShoes
+  - Survival
+  - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
+
+- type: roleLoadout
+  id: JobCargoAssistant
+  groups:
+  - GroupTankHarness
+  - CargoAssistantHead
+  - CargoAssistantJumpsuit
+  - CargoAssistantBackpack
+  - CargoAssistantOuterClothing
+  - CargoAssistantShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Security
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - BrigMedicHead
+  - BrigMedicEyes
+  - BrigMedicNeck
+  - BrigMedicJumpsuit
+  - BrigMedicBack
+  - SecurityShoes
+  - BrigMedicOuterClothing
+  - MedicalGloves
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolCorpsman
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
+  - SecurityFirearm
+  - SecurityFirearmAmmo
+
+# Justice
+- type: roleLoadout
+  id: JobChiefJustice
+  groups:
+  - GroupTankHarness
+  - ChiefJusticeHead
+  - ChiefJusticeJumpsuit
+  - ChiefJusticeNeck
+  - ChiefJusticeOuterClothing
+  - CommonBackpack
+  - ChiefJusticeShoes
+  - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
+  - Trinkets
+
+- type: roleLoadout
+  id: JobClerk
+  groups:
+  - GroupTankHarness
+  - ClerkJumpsuit
+  - ClerkNeck
+  - ClerkOuterClothing
+  - CommonBackpack
+  - ClerkShoes
+  - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
+  - Trinkets
+  - Undershirt
+  - Underpants
+  - Socks
+
+- type: roleLoadout
+  id: JobProsecutor
+  groups:
+  - GroupTankHarness
+  - ProsecutorJumpsuit
+  - ProsecutorNeck
+  - ProsecutorOuterClothing
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - GroupSpeciesBreathTool
+
+# Command
+- type: roleLoadout
+  id: JobAdministrativeAssistant
+  groups:
+  - AdminAssistantJumpsuit
+  - AdminAssistantOuter
+  - AdminAssistantShoes
+  - AdminAssistantEar
+  - AdminAssistantGloves
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

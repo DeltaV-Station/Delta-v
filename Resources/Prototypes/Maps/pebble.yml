@@ -15,12 +15,15 @@
             prefixCreator: 'NY'
         - type: StationJobs
           availableJobs:
-          #service
+          #command
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Blueshield: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             StationAi: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ]
+          #service
+            HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 2 ]
             Boxer: [ 2, 2 ]
@@ -48,7 +51,7 @@
             ResearchDirector: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            Scientist: [ 2, 3 ]
+            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 1, 1 ]
             Roboticist: [ 1, 1 ]
@@ -63,7 +66,8 @@
             Quartermaster: [ 1, 1 ]
             Courier: [ 1, 2 ]
             SalvageSpecialist: [ 2, 2 ]
-            CargoTechnician: [ 2, 3 ]
+            CargoTechnician: [ 2, 2 ]
+            CargoAssistant: [ 1, 2 ]
           #civilian
             Passenger: [ -1, -1 ]
           #justice

@@ -380,7 +380,7 @@ public abstract partial class SharedBuckleSystem
             //     _standing.Stand(buckle, force: true);
             //     break; //NES14-Changes, crawling я не ебу каким хуем именна эта строчка починила баг с лежанием на стульях, но это работает и адекватно
             case StrapPosition.Down:
-                _standing.Down(buckle, false, false, force: true);
+                _standing.Down(buckle, false, false);
                 break;
         }
 

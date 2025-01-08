@@ -260,6 +260,17 @@
   name: cleanbot
   description: The creep of automation now threatening space janitors.
   components:
+  - type: Fixtures # DeltaV - cleanbots can go beneath tables
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: Sprite
     sprite: NES/Mobs/Bots/smoll.rsi #NES14-Changes
     state: cleanbot
@@ -331,7 +342,11 @@
         reagent: SpaceDrugs
         quantity: 25
   - type: Sprite
+<<<<<<< HEAD
     sprite: NES/Mobs/Bots/smoll.rsi #NES14-Changes
+=======
+    sprite: _DV/Mobs/Silicon/Bots/medibot.rsi # DeltaV - Changed for a sprite with a smiley face.
+>>>>>>> 4fdafdc1b8ab67bc9e9873db5889c5af2b677d49
     state: medibot
   - type: HTN
     rootTask:

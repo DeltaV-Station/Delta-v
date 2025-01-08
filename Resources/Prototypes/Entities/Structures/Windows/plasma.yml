@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass

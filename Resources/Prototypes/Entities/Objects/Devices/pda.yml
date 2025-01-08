@@ -347,7 +347,7 @@
   description: God's chosen PDA.
   components:
   - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi
+    sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -365,7 +365,7 @@
     borderColor: "#333333"
     accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
-    sprite: DeltaV/Objects/Devices/pdaOld.rsi # DeltaV aPDA Resprite File Path
+    sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
     state: pda-chaplain
 
 - type: entity

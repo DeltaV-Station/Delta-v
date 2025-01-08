@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'NY'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Fishbowl.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Fishbowl.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -50,11 +50,11 @@
             Prisoner: [ 2, 3 ]
             PrisonGuard: [ 1, 1 ]
             SecurityOfficer: [ 4, 6 ]
-            SecurityCadet: [ 1, 2 ]
+            SecurityCadet: [ 2, 2 ]
             Warden: [ 1, 1 ]
           #service
-            Bartender: [ 2, 2 ]
-            Botanist: [ 2, 3 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 2, 2 ]
             Boxer: [ 2, 2 ]
             Chef: [ 1, 2 ]
             Clown: [ 1, 2 ]
@@ -63,7 +63,7 @@
             Mime: [ 1, 2 ]
             Musician: [ 1, 3 ]
             Reporter: [ 1, 2 ]
-            ServiceWorker: [ 2, 4 ]
+            ServiceWorker: [ 2, 3 ]
           #science
             Borg: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
@@ -73,6 +73,7 @@
             Scientist: [ 3, 5 ]
             Roboticist: [ 1, 1 ]
           #supply
+            CargoAssistant: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
             Courier: [ 2, 2 ]
             SalvageSpecialist: [ 2, 3 ]

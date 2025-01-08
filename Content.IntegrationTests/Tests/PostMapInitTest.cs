@@ -49,18 +49,19 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentComm",
             "MeteorArena",
-            "Pebble", //DeltaV
-            "Edge", //DeltaV
-            "Shoukou", //DeltaV
-            "Tortuga", //DeltaV
-            "Arena", //DeltaV
-            "Asterisk", //DeltaV
-            "Glacier", //DeltaV
-            "TheHive", //DeltaV
-            "Hammurabi", //DeltaV
-            "Lighthouse", //DeltaV
-            "Micro", //DeltaV
-            "Chibi" //DeltaV
+            "Pebble", // DeltaV
+            "Edge", // DeltaV
+            "Shoukou", // DeltaV
+            "Tortuga", // DeltaV
+            "Arena", // DeltaV
+            "Asterisk", // DeltaV
+            "Byoin", // DeltaV
+            "Glacier", // DeltaV
+            "TheHive", // DeltaV
+            "Hammurabi", // DeltaV
+            "Lighthouse", // DeltaV
+            "Micro", // DeltaV
+            "Chibi" // DeltaV
         };
 
         /// <summary>

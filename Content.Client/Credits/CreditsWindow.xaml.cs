@@ -28,7 +28,13 @@ namespace Content.Client.Credits
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-        private PatronManager _patronManager = new PatronManager(); // Delta-V
+        private static readonly Dictionary<string, int> PatronTierPriority = new()
+        {
+            ["Fund our stations"] = 1,
+            ["$5 dollar tier"] = 2,
+            ["Tip Jar"] = 3,
+            ["Previous Donors"] = 4
+        };
 
         public CreditsWindow()
         {

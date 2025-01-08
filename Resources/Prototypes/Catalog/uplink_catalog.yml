@@ -1296,14 +1296,14 @@
 - type: listing
   id: UplinkStorageImplanter
   name: uplink-storage-implanter-name
-  description: uplink-storage-implanter-desc
+  description: uplink-storage-implanter-delta-desc # DeltaV
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5 # DeltaV
+    Telecrystal: 2 # DeltaV
   cost:
-    Telecrystal: 10 # DeltaV - Was 8
+    Telecrystal: 4 # DeltaV
   categories:
     - UplinkImplants
   conditions:
@@ -1415,10 +1415,10 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 5 #DeltaV- Was 4, now 5
+    Telecrystal: 5 # DeltaV- Was 4, now 5
   categories:
     - UplinkImplants
- # conditions: #DeltaV- Allows Death Acidifer for our Syndibros
+ # conditions: # DeltaV- Allows Death Acidifer for our Syndibros
  #   - !type:StoreWhitelistCondition
  #     whitelist:
  #       tags:

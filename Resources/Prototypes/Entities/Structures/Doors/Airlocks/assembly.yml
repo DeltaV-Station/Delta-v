@@ -164,7 +164,7 @@
   suffix: Maintenance
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi #Delta V - Resprite Doors
     state: "assembly"
 
 - type: entity
@@ -173,7 +173,7 @@
   suffix: Maintenance, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/maint.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Glass/maint.rsi #Delta V - Resprite Doors
     state: "assembly"
 
 #Medical
@@ -316,7 +316,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/syndicate.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Standard/syndicate.rsi #Delta V - Resprite Doors
     state: "assembly"
 
 - type: entity
@@ -325,7 +325,7 @@
   suffix: Syndicate, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/syndicate.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/Glass/syndicate.rsi #Delta V - Resprite Doors
     state: "assembly"
 
 #ShuttleSyndicate
@@ -354,5 +354,5 @@
   suffix: HighSec
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/highsec/highsec.rsi #Delta V - Resprite Doors
+    sprite: _DV/Structures/Doors/Airlocks/highsec/highsec.rsi #Delta V - Resprite Doors
     state: "assembly"

@@ -6,7 +6,7 @@ using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.Database;
-using Content.Server.DeltaV.ProxyDetection;
+using Content.Server._DV.FeedbackPopup; // DeltaV
 using Content.Server.Discord;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.EUI;
@@ -75,6 +75,7 @@ namespace Content.Server.IoC
             IoCManager.Register<ProxyDetectionManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
+            IoCManager.Register<FeedbackPopupManager>(); // DeltaV
         }
     }
 }

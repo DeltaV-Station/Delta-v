@@ -94,6 +94,7 @@
   - ERTEngineer
   - DeathSquad
   - StationAi # DeltaV - added for playtime trackers
+  #- AdministrativeAssistant # Delta V - Uncomment once ready to deploy. Administrative Assistant, see Resources/Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
   primary: false
   weight: 100
 
@@ -122,7 +123,7 @@
   - Psychologist
   - Paramedic
   - Slugcat
-  - Borgmed
+  - MedicalBorg # Delta V - Medical Borg, see Resources/Prototypes/_DV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
   id: Security
@@ -137,9 +138,14 @@
   - Detective
   - Warden
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+<<<<<<< HEAD
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
   - Pilot # Corvax
   - Borgsec
+=======
+  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
+  - SecurityBorg # Delta-V : Security Borg
+>>>>>>> 4fdafdc1b8ab67bc9e9873db5889c5af2b677d49
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
@@ -185,6 +191,6 @@
   - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
   - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
   - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
   primary: false
   editorHidden: true
