@@ -25,12 +25,13 @@ public sealed class CrewManifestSection : BoxContainer
             Text = Loc.GetString($"department-{section.ID}")
         });
 
-        var departmentContainer = new BoxContainer()
+        var departmentContainer = new BoxContainer() // Delta-V - changed type from GridContainer to BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
         };
 
+        // Delta-V - Start of column BoxContainers.
         var namesContainer = new BoxContainer()
         {
             Orientation = LayoutOrientation.Vertical,
@@ -47,11 +48,13 @@ public sealed class CrewManifestSection : BoxContainer
 
         departmentContainer.AddChild(namesContainer);
         departmentContainer.AddChild(titlesContainer);
+        // Delta-V - end of column BoxContainers.
 
         AddChild(departmentContainer);
 
         foreach (var entry in entries)
         {
+            // Delta-V - start of name and pronoun container
             var nameContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
@@ -70,12 +73,13 @@ public sealed class CrewManifestSection : BoxContainer
 
             nameContainer.AddChild(name);
             nameContainer.AddChild(gender);
+            // Delta-V - end of name and pronoun container
 
             var titleContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
-                SizeFlagsStretchRatio = 1,
+                SizeFlagsStretchRatio = 1, // Delta-V
             };
 
             var title = new RichTextLabel();
