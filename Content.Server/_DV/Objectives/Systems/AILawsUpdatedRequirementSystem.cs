@@ -39,6 +39,10 @@ public sealed class AILawsUpdatedRequirementSystem : EntitySystem
 
     private void OnLawInserted(AILawUpdatedEvent args)
     {
+        // We only want the station AI
+        if (!_mind.TryGetMind(args.Target, out var mindUid, out _) || ! _job.MindHasJobWithId(mindUid, "StationAi"))
+            return;
+
         var query = EntityQueryEnumerator<AILawsUpdatedRequirementComponent>();
 
         while (query.MoveNext(out var uid, out var aiLawsObj))
