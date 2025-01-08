@@ -186,7 +186,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
-        //Manifest
+        //Delta-V - Manifest pronouns
         public const string StyleClassCrewManifestGender = "CrewManifestGender";
 
 
@@ -1293,7 +1293,8 @@ namespace Content.Client.Stylesheets
                     .Class(StyleClassItemStatusNotHeld)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
-                
+
+                // Delta-V add style for pronouns on the crew manifest
                 Element<RichTextLabel>()
                     .Class(StyleClassCrewManifestGender)
                     .Prop("font", notoSansItalic10)
