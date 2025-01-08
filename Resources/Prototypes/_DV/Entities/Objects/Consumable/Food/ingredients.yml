@@ -5,7 +5,7 @@
   description: A big container of salt. Good for cooking!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    sprite: _DV/Objects/Consumable/Food/ingredients.rsi
     state: salt-big
   - type: SolutionContainerManager
     solutions:
@@ -26,7 +26,7 @@
   description: A big container of pepper. Good for cooking!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    sprite: _DV/Objects/Consumable/Food/ingredients.rsi
     state: pepper-big
   - type: SolutionContainerManager
     solutions:
@@ -43,7 +43,7 @@
   description: A big bag of cocoa powder. Good for cooking!
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Consumable/Food/ingredients.rsi
+    sprite: _DV/Objects/Consumable/Food/ingredients.rsi
     state: cocoa-chip-big
   - type: SolutionContainerManager
     solutions:
