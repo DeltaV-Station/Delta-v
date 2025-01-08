@@ -23,6 +23,8 @@ public sealed class CargoTest
     [
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
         // new("FunCrateGambling") // DeltaV - no gambling
+        new("LivestockArenaMobLarge"), // Deltav - add crate to exceptions
+        new("LivestockArenaMobSmall") // Deltav - add crate to exceptions
     ];
 
     [Test]
@@ -71,6 +73,7 @@ public sealed class CargoTest
         var cargo = entManager.System<CargoSystem>();
 
         var bounties = protoManager.EnumeratePrototypes<CargoBountyPrototype>().ToList();
+        bounties.RemoveAll(bounty => bounty.SkipArbitrage); // DeltaV
 
         await server.WaitAssertion(() =>
         {

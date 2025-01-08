@@ -21,6 +21,7 @@
         availableJobs:
         #command
           Captain: [ 1, 1 ]
+          AdministrativeAssistant: [ 1, 1 ]
           StationAi: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
@@ -72,7 +73,8 @@
           Quartermaster: [ 1, 1 ]
           Courier: [ 2, 2 ]
           SalvageSpecialist: [ 4, 4 ]
-          CargoTechnician: [ 2, 4 ]
+          CargoTechnician: [ 2, 3 ]
+          CargoAssistant: [ 2, 2 ]
         #civilian
           Passenger: [ -1, -1 ]
 
