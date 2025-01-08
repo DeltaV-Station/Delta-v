@@ -128,10 +128,7 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         ent.Comp.SleepingSince = _gameTiming.CurTime; // DeltaV Port Narcolepsy from EE
 
-        var ev = new SleepStateChangedEvent(true)
-        {
-            TimeSlept = _gameTiming.CurTime - ent.Comp.SleepingSince // DeltaV Port Narcolepsy from EE
-        };
+        var ev = new SleepStateChangedEvent(fellAsleep: false, timeSlept:  _gameTiming.CurTime - ent.Comp.SleepingSince); // DeltaV
 
         RaiseLocalEvent(ent, ref ev);
         _blindableSystem.UpdateIsBlind(ent.Owner);
@@ -345,8 +342,9 @@ public sealed class SleepStateChangedEvent : EntityEventArgs
     /// </summary>
     public TimeSpan? TimeSlept;
 
-    public SleepStateChangedEvent(bool fellAsleep)
+    public SleepStateChangedEvent(bool fellAsleep, TimeSpan? timeSlept = null)
     {
         FellAsleep = fellAsleep;
+        TimeSlept = timeSlept;
     }
 }

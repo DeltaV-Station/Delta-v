@@ -105,11 +105,11 @@ public sealed class NarcolepsySystem : EntitySystem
 
     private string GetRandomWakeup()
     {
-        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWakeupDataset").Values));
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWakeup").Values)); // DeltaV
     }
     private string GetRandomWarning()
     {
-        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWarningDataset").Values));
+        return Loc.GetString(_random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>("NarcolepsyWarning").Values)); // DeltaV
     }
 
     private void DoWakeupPopup(EntityUid ent)
