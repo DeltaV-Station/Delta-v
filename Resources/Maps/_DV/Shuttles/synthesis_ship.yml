@@ -375,13 +375,20 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,2.5
       parent: 1
-- proto: AirlockHatchSyndicate
+- proto: AirlockGlass
   entities:
   - uid: 4
     components:
     - type: Transform
+      pos: -1.5,4.5
+      parent: 1
+  - uid: 9
+    components:
+    - type: Transform
       pos: -1.5,2.5
       parent: 1
+- proto: AirlockHatchSyndicate
+  entities:
   - uid: 5
     components:
     - type: Transform
@@ -401,11 +408,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,1.5
-      parent: 1
-  - uid: 9
-    components:
-    - type: Transform
-      pos: -1.5,4.5
       parent: 1
   - uid: 308
     components:
