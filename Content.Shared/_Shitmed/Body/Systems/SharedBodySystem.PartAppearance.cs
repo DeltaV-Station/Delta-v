@@ -32,26 +32,20 @@ public partial class SharedBodySystem
             || part.ToHumanoidLayers() is not { } relevantLayer)
             return;
 
-        component.Type = relevantLayer;
-
         if (part.BaseLayerId != null)
         {
             component.ID = part.BaseLayerId;
+            component.Type = relevantLayer;
             return;
         }
 
         if (part.Body is not { Valid: true } body
             || !TryComp(body, out HumanoidAppearanceComponent? bodyAppearance))
-        {
-            // not part of a body, try to use the default sprite for the species
-            if (part.Species != "")
-                component.ID = GetSpeciesSprite(part.Species, relevantLayer);
-
             return;
-        }
 
         var customLayers = bodyAppearance.CustomBaseLayers;
         var spriteLayers = bodyAppearance.BaseLayers;
+        component.Type = relevantLayer;
 
         part.Species = bodyAppearance.Species;
 
@@ -85,6 +79,24 @@ public partial class SharedBodySystem
         }
 
         component.Markings = markingsByLayer;
+    }
+
+    /// <summary>
+    /// Makes sure the body part has an appearance, using the default for its species if it doesn't.
+    /// </summary>
+    public BodyPartAppearanceComponent EnsureAppearance(EntityUid uid)
+    {
+        if (EnsureComp<BodyPartAppearanceComponent>(uid, out var comp))
+            return comp;
+
+        if (!TryComp(uid, out BodyPartComponent? part)
+            || part.ToHumanoidLayers() is not {} relevantLayer
+            || part.Species == "")
+            return comp;
+
+        comp.ID = GetSpeciesSprite(part.Species, relevantLayer);
+        comp.Type = relevantLayer;
+        return comp;
     }
 
     private string? CreateIdFromPart(HumanoidAppearanceComponent bodyAppearance, HumanoidVisualLayers part)
@@ -148,10 +160,10 @@ public partial class SharedBodySystem
 
     private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAddedEvent args)
     {
-        if (!TryComp(args.Part, out BodyPartAppearanceComponent? partAppearance)
-            || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
+        if (!TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
+        var partAppearance = EnsureAppearance(args.Part);
         if (partAppearance.ID != null)
             _humanoid.SetBaseLayerId(uid, partAppearance.Type, partAppearance.ID, sync: true, bodyAppearance);
 
@@ -165,13 +177,10 @@ public partial class SharedBodySystem
             || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
-        // We check for this conditional here since some entities may not have a profile... If they dont
-        // have one, and their part is gibbed, the markings will not be removed or applied properly.
-        if (!HasComp<BodyPartAppearanceComponent>(args.Part))
-            EnsureComp<BodyPartAppearanceComponent>(args.Part);
-
-        if (TryComp<BodyPartAppearanceComponent>(args.Part, out var partAppearance))
-            RemoveAppearance(uid, partAppearance, args.Part);
+        // When this component gets added it copies data from the body.
+        // This makes sure the markings are removed in RemoveAppearance, and layers hidden.
+        var partAppearance = EnsureComp<BodyPartAppearanceComponent>(args.Part);
+        RemoveAppearance(uid, partAppearance, args.Part);
     }
 
     protected void UpdateAppearance(EntityUid target,
