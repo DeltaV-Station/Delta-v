@@ -26,7 +26,7 @@ public sealed class CrewManifestSection : BoxContainer
         });
 
         // Delta-V - changed type from GridContainer to BoxContainer to better handle long names and titles.
-        var departmentContainer = new BoxContainer()
+        var gridContainer = new BoxContainer()
         {
             Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
@@ -47,11 +47,11 @@ public sealed class CrewManifestSection : BoxContainer
             SizeFlagsStretchRatio = 2,
         };
 
-        departmentContainer.AddChild(namesContainer);
-        departmentContainer.AddChild(titlesContainer);
+        gridContainer.AddChild(namesContainer);
+        gridContainer.AddChild(titlesContainer);
         // Delta-V - end of column BoxContainers.
 
-        AddChild(departmentContainer); // Delta-V - replaced gridContainer with departmentContainer
+        AddChild(gridContainer);
 
         foreach (var entry in entries)
         {
@@ -105,7 +105,7 @@ public sealed class CrewManifestSection : BoxContainer
                 titleContainer.AddChild(title);
             }
 
-            // Delta-V - grid container was replaced with two BoxContainer columns
+            // Delta-V - grid was replaced with two BoxContainer columns
             namesContainer.AddChild(nameContainer);
             titlesContainer.AddChild(titleContainer);
             // Delta-V - end of grid container change
