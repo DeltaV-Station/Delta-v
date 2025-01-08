@@ -33,16 +33,6 @@ public sealed class DCCVars
     public static readonly CVarDef<bool> PsionicRollsEnabled =
         CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
 
-    /*
-     * No EORG
-     */
-
-    /// <summary>
-    /// Whether the no EORG popup is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> RoundEndNoEorgPopup =
-        CVarDef.Create("game.round_end_eorg_popup_enabled", true, CVar.SERVER | CVar.REPLICATED);
-
     /// <summary>
     /// Skip the no EORG popup.
     /// </summary>
