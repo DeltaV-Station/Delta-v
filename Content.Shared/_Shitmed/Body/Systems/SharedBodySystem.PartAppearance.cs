@@ -32,20 +32,26 @@ public partial class SharedBodySystem
             || part.ToHumanoidLayers() is not { } relevantLayer)
             return;
 
+        component.Type = relevantLayer;
+
         if (part.BaseLayerId != null)
         {
             component.ID = part.BaseLayerId;
-            component.Type = relevantLayer;
             return;
         }
 
         if (part.Body is not { Valid: true } body
             || !TryComp(body, out HumanoidAppearanceComponent? bodyAppearance))
+        {
+            // not part of a body, try to use the default sprite for the species
+            if (part.Species != "")
+                component.ID = GetSpeciesSprite(part.Species, relevantLayer);
+
             return;
+        }
 
         var customLayers = bodyAppearance.CustomBaseLayers;
         var spriteLayers = bodyAppearance.BaseLayers;
-        component.Type = relevantLayer;
 
         part.Species = bodyAppearance.Species;
 
@@ -83,13 +89,21 @@ public partial class SharedBodySystem
 
     private string? CreateIdFromPart(HumanoidAppearanceComponent bodyAppearance, HumanoidVisualLayers part)
     {
-        var speciesProto = _prototypeManager.Index(bodyAppearance.Species);
-        var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
-
-        if (!baseSprites.Sprites.ContainsKey(part))
+        if (GetSpeciesSprite(bodyAppearance.Species, part) is not {} sprite)
             return null;
 
-        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, baseSprites.Sprites[part]);
+        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, sprite);
+    }
+
+    private string? GetSpeciesSprite(ProtoId<SpeciesPrototype> species, HumanoidVisualLayers part)
+    {
+        var speciesProto = _prototypeManager.Index(species);
+        var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
+
+        if (!baseSprites.Sprites.TryGetValue(part, out var sprite))
+            return null;
+
+        return sprite;
     }
 
     public void ModifyMarkings(EntityUid uid,
