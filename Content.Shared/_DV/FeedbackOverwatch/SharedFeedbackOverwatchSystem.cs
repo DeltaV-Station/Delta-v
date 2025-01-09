@@ -73,6 +73,4 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
         RaiseNetworkEvent(msg, session);
         return true;
     }
-
-
 }
