@@ -204,6 +204,22 @@
   - type: IdCard
     jobTitle: job-alt-title-social-worker
 
+# Surgeon
+
+- type: entity
+  parent: MedicalIDCard
+  id: SurgeonIDCard
+  name: Surgeon ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _DV/Objects/Misc/id_cards.rsi
+      state: idsurgeon
+  - type: IdCard
+    jobTitle: job-name-surgeon
+    jobIcon: JobIconSurgeon
+
 # Atmospheric Technician
 
 - type: entity
