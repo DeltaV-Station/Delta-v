@@ -150,8 +150,7 @@ namespace Content.Server.Cloning
                 return false;
 
             var mind = mindEnt.Comp;
-            // GoobStation: Remove this logic entirely, infinite clone army
-            /*if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
+            if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
             {
                 if (EntityManager.EntityExists(clone) &&
                     !_mobStateSystem.IsDead(clone) &&
@@ -160,11 +159,10 @@ namespace Content.Server.Cloning
                     return false; // Mind already has clone
 
                 ClonesWaitingForMind.Remove(mind);
-            }*/
+            }
 
-            // GoobStation: Lets you clone living people
-            //if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
-            //    return false; // Body controlled by mind is not dead
+            if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
+                return false; // Body controlled by mind is not dead
 
             // Yes, we still need to track down the client because we need to open the Eui
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
@@ -253,7 +251,7 @@ namespace Content.Server.Cloning
             cloneMindReturn.Mind = mind;
             cloneMindReturn.Parent = uid;
             _containerSystem.Insert(mob, clonePod.BodyContainer);
-            //ClonesWaitingForMind.Add(mind, mob); // GoobStation
+            ClonesWaitingForMind.Add(mind, mob);
             UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
             _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
 
