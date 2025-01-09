@@ -1,5 +1,15 @@
 - type: entity
+  abstract: true
   parent: FoodBase
+  id: FoodCandyBase
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
+  - type: Appearance
+  - type: RandomizedCandy
+
+- type: entity
+  parent: FoodCandyBase
   id: FoodLollipop
   name: lollipop
   description: For being such a good sport! It's enriched with potent yet mostly safe-to-eat medicine.
@@ -7,7 +17,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 17 # 2 extra
         reagents:
         - ReagentId: Sugar
           Quantity: 3
@@ -20,29 +30,26 @@
         - ReagentId: Vitamin
           Quantity: 3
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     layers:
     - state: lollipop-ball
       map: [ "enum.CandyVisualLayers.Ball" ]
     - state: lollipop-stickandshine
   - type: Clothing
-    sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
     slots: [ mask ]
     equippedPrefix: lollipop
-    quickEquip: false   # would block eating otherwise
-  - type: Appearance
-  - type: RandomizedCandy
+    quickEquip: false # would block eating otherwise
 
 - type: entity
-  parent: FoodBase
+  parent: FoodCandyBase
   id: FoodGumball
   name: gumball
-  description: Try as you might, you can't blow bubbles with it... it's enriched with medicine for minor ailments.
+  description: "Try as you might, you can't blow bubbles with it... it's enriched with medicine for minor ailments."
   components:
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 15 # 1 extra
         reagents:
         - ReagentId: Sugar
           Quantity: 5
@@ -53,10 +60,7 @@
         - ReagentId: Dylovene
           Quantity: 3
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi
     layers:
     - state: gumball
       map: [ "enum.CandyVisualLayers.Ball" ]
     - state: gumball-shine
-  - type: Appearance
-  - type: RandomizedCandy
