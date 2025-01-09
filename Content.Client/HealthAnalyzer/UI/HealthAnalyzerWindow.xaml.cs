@@ -187,7 +187,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
-            var unborgable = _unborgable.IsUnborgable(target.Value); // DeltaV
+            var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
             var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable;
 
             AlertsDivider.Visible = showAlerts;
