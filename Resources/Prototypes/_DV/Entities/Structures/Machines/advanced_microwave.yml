@@ -2,18 +2,25 @@
   id: AdvancedMicrowave
   parent: KitchenMicrowave
   name: Advanced Microwave
-  description: Bigger capacity and double cooking speed!
+  description: Don't stand too close to this thing, definitely dont put anything metal in.
   components:
   - type: Microwave
     cookTimeMultiplier: 0.25 # director requested due to addition of rads
     capacity: 30
-    canMicrowaveIdsSafely: true
+    canMicrowaveIdsSafely: false # No AA farm
   - type: Sprite
     sprite: _DV/Structures/Machines/advanced_microwave.rsi
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Machine
     board: AdvancedMicrowaveMachineCircuitBoard
+  - type: Explosive
+    explosionType: Radioactive
+    maxIntensity: 60
+    totalIntensity: 50
+    intensitySlope: 10
+    canCreateVacuum: false
+    deleteAfterExplosion: false
   - type: FoodRecipeProvider
     providedRecipes: # Leaving these in because why not, would be cool if we could add more unique foods
     - RecipeBaguetteSword
