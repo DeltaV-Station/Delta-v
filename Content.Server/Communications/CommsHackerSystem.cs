@@ -9,7 +9,7 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.Communications;

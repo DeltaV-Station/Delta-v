@@ -1,5 +1,5 @@
 using Content.Server.Chat;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.Chat.Systems;

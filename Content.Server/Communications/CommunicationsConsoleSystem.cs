@@ -21,7 +21,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 using Content.Server.Station.Components;
 

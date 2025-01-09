@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Shared.GameTicking;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Announcements.Systems;
+namespace Content.Server._EE.Announcements.Systems;
 
 public sealed partial class AnnouncerSystem
 {

@@ -10,7 +10,7 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.NukeOps;

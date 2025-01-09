@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Content.Server.StationEvents;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.Announcers;
+namespace Content.IntegrationTests.Tests._EE.Announcers;
 
 /// <summary>
 ///     Checks if every station event wanting the announcerSystem to send messages has a localization string

@@ -22,7 +22,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.Nuke;
 

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.Announcers;
+namespace Content.IntegrationTests.Tests._EE.Announcers;
 
 /// <summary>
 ///     Checks if every announcer has a fallback announcement

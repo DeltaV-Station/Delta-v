@@ -1,12 +1,12 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.GameTicking;
-using Content.Shared.Announcements.Prototypes;
-using Content.Shared.Announcements.Systems;
+using Content.Shared._EE.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Systems;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Announcements.Systems;
+namespace Content.Server._EE.Announcements.Systems;
 
 public sealed partial class AnnouncerSystem : SharedAnnouncerSystem
 {

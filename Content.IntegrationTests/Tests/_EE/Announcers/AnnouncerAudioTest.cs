@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Content.Server.StationEvents;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC.Exceptions;
@@ -10,7 +10,7 @@ using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 using Serilog;
 
-namespace Content.IntegrationTests.Tests.Announcers;
+namespace Content.IntegrationTests.Tests._EE.Announcers;
 
 /// <summary>
 ///     Checks if every station event using the announcerSystem has a valid audio file associated with it

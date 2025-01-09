@@ -12,7 +12,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.StationEvents.Events;
 

@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Announcements.Systems;
+namespace Content.Shared._EE.Announcements.Systems;
 
 public abstract class SharedAnnouncerSystem : EntitySystem
 {

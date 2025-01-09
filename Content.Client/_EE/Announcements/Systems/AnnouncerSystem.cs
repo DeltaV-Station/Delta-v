@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Client.Audio;
-using Content.Shared.Announcements.Events;
-using Content.Shared.Announcements.Systems;
+using Content.Shared._EE.Announcements.Events;
+using Content.Shared._EE.Announcements.Systems;
 using Content.Shared.CCVar;
 using Robust.Client.Audio;
 using Robust.Client.Player;
@@ -10,7 +10,7 @@ using Robust.Shared.Audio.Sources;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 
-namespace Content.Client.Announcements.Systems;
+namespace Content.Client._EE.Announcements.Systems;
 
 public sealed class AnnouncerSystem : SharedAnnouncerSystem
 {

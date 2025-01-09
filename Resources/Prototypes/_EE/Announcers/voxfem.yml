@@ -1,16 +1,14 @@
 - type: announcer
-  id: Intern
-  basePath: /Audio/Announcers/Intern
-  baseAudioParams:
-    volume: -7
+  id: VoxFem
+  basePath: /Audio/_EE/Announcers/VoxFem
   announcements:
     # Communications
     - id: announce # Communications console
       path: comms/announce.ogg
-    # - id: attention # Generic alert sound # Should be different from fallback but it's very similar
-    #   path: comms/attention.ogg
+    - id: attention # Generic alert sound # Should be different from fallback but it's very similar
+      path: comms/attention.ogg
     - id: commandReport # Station goal, Central Command messages, etc
-      collection: InternCommandReportAnnouncements
+      path: comms/command_report.ogg
     # - id: spawnAnnounceCaptain # Captain arrives on the station # TODO That system is annoyingly not modular
     #   path: comms/spawn_announce.ogg
     # - id: war # Nuclear Operative declaration of war
@@ -22,7 +20,7 @@
     # - id: nukeDisarm # The nuke has been disarmed
     #   path: comms/nuke_disarm.ogg
     - id: welcome # The shift has started
-      collection: InternWelcomeAnnouncements
+      path: comms/welcome.ogg
 
     # Alert levels
     # - id: alertGreen # Everything is fine
@@ -131,4 +129,4 @@
 
     # Fallback # REQUIRED
     - id: fallback # Any announcement sent without a valid announcement on this announcer will use this
-      collection: InternAnnouncements
+      path: fallback.ogg

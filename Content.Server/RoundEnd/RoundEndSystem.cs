@@ -22,7 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.RoundEnd
 {

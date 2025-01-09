@@ -4,7 +4,7 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;

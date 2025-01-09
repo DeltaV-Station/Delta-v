@@ -1,7 +1,7 @@
 using Content.Server.StationEvents.Components;
 ﻿using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;

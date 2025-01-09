@@ -7,7 +7,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.Nuke

@@ -1,10 +1,10 @@
 using System.Linq;
-using Content.Shared.Announcements.Events;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Events;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-namespace Content.Server.Announcements.Systems;
+namespace Content.Server._EE.Announcements.Systems;
 
 public sealed partial class AnnouncerSystem
 {

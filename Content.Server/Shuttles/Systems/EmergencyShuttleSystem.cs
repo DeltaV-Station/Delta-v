@@ -38,7 +38,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.Shuttles.Systems;
 

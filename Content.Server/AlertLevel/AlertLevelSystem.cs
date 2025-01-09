@@ -6,7 +6,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.AlertLevel;
 
@@ -17,7 +17,7 @@ public sealed class AlertLevelSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     // Until stations are a prototype, this is how it's going to have to be.
     public const string DefaultAlertLevelSet = "stationAlerts";
@@ -179,4 +179,4 @@ public sealed class AlertLevelChangedEvent(EntityUid station, string alertLevel)
 {
     public EntityUid Station { get; } = station;
     public string AlertLevel { get; } = alertLevel;
-}
+} // Impstation Random Announcer System Port end

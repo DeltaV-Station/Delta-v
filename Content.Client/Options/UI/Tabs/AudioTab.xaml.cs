@@ -51,10 +51,10 @@ public sealed partial class AudioTab : Control
             SliderVolumeInterface,
             scale: ContentAudioSystem.InterfaceMultiplier);
 
-        Control.AddOptionPercentSlider(
+        Control.AddOptionPercentSlider( //Impstation Random Announcer System port start
             CCVars.AnnouncerVolume,
             SliderVolumeAnnouncer,
-            scale: ContentAudioSystem.AnnouncerMultiplier);
+            scale: ContentAudioSystem.AnnouncerMultiplier); //Impstation Random Announcer System port end
 
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,
@@ -65,7 +65,7 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
-        Control.AddOptionCheckBox(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox);
+        Control.AddOptionCheckBox(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox); //Impstation Random Announcer System
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
 
         Control.Initialize();

@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Server.Administration;
-using Content.Server.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;

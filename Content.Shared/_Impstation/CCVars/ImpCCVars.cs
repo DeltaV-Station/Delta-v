@@ -1,7 +1,7 @@
 using Robust.Shared;
 using Robust.Shared.Configuration;
 
-namespace Content.Shared.CCVar;
+namespace Content.Shared._Impstation.CCVar;
 
 /// <summary>
 /// Contains all the CVars used by the random announcer system. From Impstation. 
