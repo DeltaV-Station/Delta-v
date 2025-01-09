@@ -61,14 +61,8 @@ public sealed class FeedbackPopupCommand : LocalizedEntityCommands
 
         if (args.Length == 2)
         {
-            var options = _proto
-                .EnumeratePrototypes<FeedbackPopupPrototype>()
-                .OrderBy(p => p.ID)
-                .Select(p => p.ID);
-
-            return CompletionResult.FromHintOptions(options, Loc.GetString("feedbackpopup-command-hint-protoId"));
+            return CompletionResult.FromHintOptions(_feedback.FeedbackPopupProtoIds, Loc.GetString("feedbackpopup-command-hint-protoId"));
         }
-
         return CompletionResult.Empty;
     }
 }

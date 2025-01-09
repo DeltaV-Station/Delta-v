@@ -6,9 +6,36 @@ namespace Content.Shared._DV.FeedbackOverwatch;
 public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    public List<string> FeedbackPopupProtoIds { get; } = new();
+
     public override void Initialize()
     {
         InitializeEvents();
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+
+        LoadPrototypes();
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (!args.WasModified<FeedbackPopupPrototype>())
+            return;
+
+        LoadPrototypes();
+    }
+
+    /// <summary>
+    ///     Load all the prototype IDs into FeedbackPopupProtoIds.
+    /// </summary>
+    private void LoadPrototypes()
+    {
+        FeedbackPopupProtoIds.Clear();
+        var protos = _proto.EnumeratePrototypes<FeedbackPopupPrototype>();
+        foreach (var proto in protos)
+            FeedbackPopupProtoIds.Add(proto.ID);
+        FeedbackPopupProtoIds.Sort();
     }
 
     /// <summary>
@@ -46,4 +73,6 @@ public sealed partial class SharedFeedbackOverwatchSystem : EntitySystem
         RaiseNetworkEvent(msg, session);
         return true;
     }
+
+
 }
