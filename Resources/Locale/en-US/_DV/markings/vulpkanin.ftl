@@ -26,7 +26,8 @@ marking-VulpEarFennec-fennec = Fennec ears (base)
 marking-VulpEarFennec-fennec-inner = Fennec ears (inner)
 marking-VulpEarFennec = Vulpkanin Fennec
 
-marking-VulpEarFox-fox = Fox ears
+marking-VulpEarFox-fox = Fox ears (base)
+marking-VulpEarFox-fox-inner = Fox ears (inner)
 marking-VulpEarFox = Vulpkanin Fox
 
 marking-VulpEarOtie-otie = Otie ears (base)

@@ -46,3 +46,27 @@
     stateDoorClosed: psych_door
   - type: AccessReader
     access: [["Psychologist"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerSurgeon
+  name: surgeon's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: surgeon
+    stateDoorOpen: surgeon_open
+    stateDoorClosed: surgeon_door
+  - type: AccessReader
+    access: [ [ "Surgery" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerAdministrativeAssistant
+  name: administrative assistant's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: admin_assist
+    stateDoorOpen: admin_assist_open
+    stateDoorClosed: admin_assist_door
+  - type: AccessReader
+    access: [["Command"]]

@@ -1,4 +1,16 @@
 - type: reaction
+  id: DeadRum
+  reactants:
+    Saline:
+      amount: 1
+    Rum:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    DeadRum: 3
+
+- type: reaction
   id: HealthViolation
   reactants:
     GargleBlaster:

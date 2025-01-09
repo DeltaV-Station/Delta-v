@@ -50,6 +50,7 @@ loadout-group-courier-neck = Courier neck
 loadout-group-courier-jumpsuit = Courier jumpsuit
 loadout-group-courier-shoes = Courier shoes
 loadout-group-courier-outerclothing = Courier outer clothing
+loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-id = Courier ID
 
 loadout-group-mail-carrier-head = Mail Carrier head
@@ -79,6 +80,12 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
+
+loadout-group-surgeon-head = Surgeon head
+loadout-group-surgeon-mask = Surgeon mask
+loadout-group-surgeon-scrubs = Surgeon scrubs
+loadout-group-surgeon-gloves = Surgeon gloves
+loadout-group-surgeon-id = Surgeon PDA
 
 # Miscellaneous
 loadout-group-scarfs = Scarf

@@ -84,6 +84,11 @@
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCJFormal
+  result: ClothingUniformJumpskirtCJFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpsuitChiefJusticeWhite
   result: ClothingUniformJumpsuitChiefJusticeWhite
   completetime: 5
@@ -155,5 +160,29 @@
   parent: BaseHatRecipe
   id: ClothingMaskInterdyneChemistry
   result: ClothingMaskInterdyneChemistry
+
+# Formal Outfits
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtQMFormal
+  result: ClothingUniformJumpskirtQMFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoPFormal
+  result: ClothingUniformJumpsuitHoPFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoPFormal
+  result: ClothingUniformJumpskirtHoPFormal
+
+# Utilty
+
+- type: latheRecipe
+  id: ClothingBeltPaperwork
+  result: ClothingBeltPaperwork
   materials:
-    Cloth: 400
+    Cloth: 200
+    Durathread: 100
