@@ -21,3 +21,100 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: PsychologistLockerFill
+
+- type: entityTable
+  id: SurgeonOutfit
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: ClothingHeadHatSurgcapPurple
+      - id: UniformScrubsColorPurple
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: ClothingHeadHatSurgcapGreen
+      - id: UniformScrubsColorGreen
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: ClothingHeadHatSurgcapBlue
+      - id: UniformScrubsColorBlue
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: ClothingHeadHatSurgcapCyan
+      - id: UniformScrubsColorCyan
+    - !type:AllSelector
+      weight: 5
+      children:
+      - id: ClothingHeadHatSurgcapBlack
+      - id: UniformScrubsColorBlack
+    - !type:AllSelector
+      weight: 5
+      children:
+      - id: ClothingHeadHatSurgcapPink
+      - id: UniformScrubsColorPink
+    - !type:AllSelector
+      weight: 5
+      children:
+      - id: ClothingHeadHatSurgcapRainbow
+      - id: UniformScrubsColorRainbow
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: ClothingHeadHatSurgcapWhite
+      - id: UniformScrubsColorWhite
+    - !type:AllSelector
+      weight: 1
+      children:
+      - id: ClothingHeadHatSurgcapCybersun
+      - id: UniformScrubsColorCybersun
+
+- type: entityTable
+  id: SurgeonSanitzation
+  table: !type:GroupSelector
+    children:
+    - id: BoxNitrileGloves
+    - id: BoxSterileMask
+
+- type: entityTable
+  id: SurgeonGloves
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHandsGlovesNitrile
+    - id: ClothingHandsGlovesLatex
+
+- type: entityTable
+  id: SurgeonLockerFill
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: SurgeonOutfit
+    - !type:NestedSelector
+      tableId: SurgeonSanitzation
+    - !type:NestedSelector
+      tableId: SurgeonGloves
+    - id: ClothingHeadsetMedical
+    - id: ClothingEyesHudMedical
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: ClothingOuterVestTank
+    - id: LunchboxMedicalFilledRandom
+      prob: 0.3
+    - id: BoxSyringe
+      prob: 0.3
+    - id: HandheldHealthAnalyzer
+      prob: 0.6
+    - id: ClothingHeadMirror
+      prob: 0.4
+
+- type: entity
+  parent: LockerSurgeon
+  id: LockerSurgeonFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: SurgeonLockerFill
