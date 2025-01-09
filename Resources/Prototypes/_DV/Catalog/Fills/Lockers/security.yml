@@ -1,5 +1,5 @@
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafePistolUniversal
   name: mk32 safe
   components:
@@ -11,7 +11,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeSniperGrand
   name: mark 1 rifle safe
   components:
@@ -23,7 +23,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeVulcanRifle
   name: vulcan safe
   components:
@@ -33,9 +33,9 @@
       amount: 2
     - id: MagazineLightRifle
       amount: 4
-      
+
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeAdjutantShotgun
   name: adjutant safe
   components:
@@ -45,9 +45,9 @@
       amount: 2
     - id: MagazineShotgun
       amount: 4
-      
+
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeEnergyGun
   name: energy gun safe
   components:
@@ -55,9 +55,9 @@
     contents:
     - id: WeaponEnergyGun
       amount: 3
-      
+
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeEnergyGunMini
   name: miniature energy gun safe
   components:
@@ -67,7 +67,7 @@
       amount: 3
 
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeM90Rifle
   name: M-90 rifle safe
   components:
@@ -79,7 +79,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeRocketLauncher
   name: RPG safe
   components:
@@ -90,11 +90,10 @@
       prob: 0.2
 
 - type: entity
-  parent: GunSafe
+  parent: GunSafeBaseSecure
   id: GunSafeBeamDevastator
   name: Devastator safe
   components:
   - type: StorageFill
     contents:
     - id: WeaponBeamDevastator
- 

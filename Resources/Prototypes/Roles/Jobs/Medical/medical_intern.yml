@@ -17,6 +17,11 @@
   access:
   - Medical
   - Maintenance
+  special: # Shitmed change
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.5
 
 - type: startingGear
   id: MedicalInternGear
