@@ -8,18 +8,14 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._DV.FeedbackPopup;
 
 [AdminCommand(AdminFlags.Server)]
-public sealed class FeedbackPopupCommand : IConsoleCommand
+public sealed class FeedbackPopupCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly SharedFeedbackOverwatchSystem _feedback = default!;
 
-    private SharedFeedbackOverwatchSystem? _feedback;
+    public override string Command => Loc.GetString("feedbackpopup-command-name");
 
-    public string Command => Loc.GetString("feedbackpopup-command-name");
-    public string Description => Loc.GetString("feedbackpopup-command-description");
-    public string Help => Loc.GetString("feedbackpopup-command-help", ("command", Command));
-
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 2)
         {
@@ -35,7 +31,7 @@ public sealed class FeedbackPopupCommand : IConsoleCommand
 
         var netEnt = new NetEntity(entityUidInt);
 
-        if (!_entities.TryGetEntity(netEnt, out var target))
+        if (!EntityManager.TryGetEntity(netEnt, out var target))
         {
             shell.WriteLine(Loc.GetString("feedbackpopup-command-error-entity-not-found"));
             return;
@@ -47,8 +43,6 @@ public sealed class FeedbackPopupCommand : IConsoleCommand
             return;
         }
 
-        _feedback ??= _entities.System<SharedFeedbackOverwatchSystem>();
-
         if (!_feedback.SendPopup(target, args[1]))
         {
             shell.WriteError(Loc.GetString("feedbackpopup-command-error-popup-send-fail"));
@@ -58,7 +52,7 @@ public sealed class FeedbackPopupCommand : IConsoleCommand
         shell.WriteLine(Loc.GetString("feedbackpopup-command-success"));
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
         {

@@ -10,8 +10,8 @@ feedbackpopup-discord-format-feedbackbody = {$feedback}
 
 # Command strings
 feedbackpopup-command-name = givefeedbackpopup
-feedbackpopup-command-description = Gives the targeted player a feedback popup.
-feedbackpopup-command-help = Usage: {$command} <playerUid> <prototypeId>
+cmd-givefeedbackpopup-desc = Gives the targeted player a feedback popup.
+cmd-givefeedbackpopup-help = Usage: givefeedbackpopup <playerUid> <prototypeId>
 
 feedbackpopup-command-error-wrong-arguments = Wrong number of arguments.
 feedbackpopup-command-error-invalid-uid = Invalid entity uid.
