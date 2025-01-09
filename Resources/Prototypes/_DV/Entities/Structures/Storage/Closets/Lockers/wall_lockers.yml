@@ -77,7 +77,6 @@
   id: WallLockerAtmos
   name: atmospherics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: atmos
     stateDoorClosed: atmos_door
@@ -90,7 +89,6 @@
   id: WallLockerEngi
   name: engineering wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi
     stateDoorClosed: engi_door
@@ -103,7 +101,6 @@
   id: WallLockerElectrical
   name: electrical wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_electrical_door
@@ -116,7 +113,6 @@
   id: WallLockerWelding
   name: welding tools wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: engi_generic
     stateDoorClosed: engi_welding_door
@@ -130,7 +126,6 @@
   id: WallLockerBotany
   name: botanist wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: botany
     stateDoorClosed: botany_door
@@ -143,7 +138,6 @@
   id: WallLockerSalvage
   name: salvage wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: salv
     stateDoorClosed: salv_door
@@ -156,7 +150,6 @@
   id: WallLockerLogistics
   name: logistics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: logi
     stateDoorClosed: logi_door
@@ -169,7 +162,6 @@
   id: WallLockerJanitor
   name: janitor wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: jani
     stateDoorClosed: jani_door
@@ -182,7 +174,6 @@
   id: WallLockerEpistemics
   name: epistemics wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: epi
     stateDoorClosed: epi_door
@@ -195,7 +186,6 @@
   id: WallLockerSecurity
   name: security wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: sec
     stateDoorClosed: sec_door
@@ -208,7 +198,6 @@
   id: WallLockerKitchen
   name: kitchen wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: chef
     stateDoorClosed: chef_door
@@ -221,7 +210,6 @@
   id: WallLockerJustice
   name: justice wall locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: justice
     stateDoorClosed: justice_door
