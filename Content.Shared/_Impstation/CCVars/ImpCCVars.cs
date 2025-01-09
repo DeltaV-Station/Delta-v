@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.CCVar;
 
 // ReSharper disable once InconsistentNaming - Shush you!!
 [CVarDefs]
-public sealed class CCVars : CVars
+public sealed class ImpCCVars
 {
         /*
         * Announcers

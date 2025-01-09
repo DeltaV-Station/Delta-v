@@ -26,7 +26,7 @@ public sealed partial class AnnouncerSystem : SharedAnnouncerSystem
         base.Initialize();
         NewAnnouncer();
 
-        _config.OnValueChanged(CCVars.Announcer, _ => NewAnnouncer());
+        _config.OnValueChanged(ImpCCVars.Announcer, _ => NewAnnouncer());
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestarting);
     }
