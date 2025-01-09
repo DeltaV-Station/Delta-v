@@ -3,14 +3,13 @@
   parent: WeaponTurretAllHostile
   id: WeaponTurretAI
   name: AI defense turret
-  component: A ballistic turret that retracts into the floor. Deployable by the station AI to defend its core against urgent threats.
+  description: A ballistic turret that retracts into the floor. Deployable by the station AI to defend its core against urgent threats.
   components:
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+        shape: !type:PhysShapeCircle
+          radius: 0.45
         density: 60
         mask:
         - SmallMobMask # same as mouse, lets it go under doors but not phase through walls
