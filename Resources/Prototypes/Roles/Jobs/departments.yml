@@ -8,7 +8,7 @@
   - Quartermaster
   - SalvageSpecialist
   - Courier # DeltaV - Courier, see Resources/Prototypes/_DV/Roles/Jobs/Cargo/courier.yml
-  #- CargoAssistant # DeltaV - Uncomment once ready to deploy.
+  - CargoAssistant # DeltaV
 
 - type: department
   id: Civilian
@@ -80,7 +80,7 @@
   - ERTEngineer
   - DeathSquad
   - StationAi # DeltaV - added for playtime trackers
-  #- AdministrativeAssistant # Delta V - Uncomment once ready to deploy. Administrative Assistant, see Resources/Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
+  - AdministrativeAssistant # Delta V - Administrative Assistant, see Resources/Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
   primary: false
   weight: 100
 
@@ -108,6 +108,7 @@
   - Psychologist
   - Paramedic
   - MedicalBorg # Delta V - Medical Borg, see Resources/Prototypes/_DV/Roles/Jobs/Medical/medicalborg.yml
+  - Surgeon # Delta V - Surgeon, see Resources/Prototypes/_DV/Roles/Jobs/Medical/surgeon.yml
 
 - type: department
   id: Security

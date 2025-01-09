@@ -156,6 +156,7 @@
 
   defaultModules:
   - BorgModuleTreatment
+  - BorgModuleSurgery # DeltaV
 
   radioChannels:
   - Science
@@ -175,6 +176,8 @@
     actions:
     - ActionFabricateLollipop
     - ActionFabricateGumball
+  - type: SurgeryTarget # Shitmed
+  - type: Sanitized # Shitmed
 
   # Visual
   inventoryTemplateId: borgDutch

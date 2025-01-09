@@ -158,7 +158,10 @@ namespace Content.Server.Roboisseur.Roboisseur
             "FoodMothHeartburnSoup",
             "FoodSoupBisque",
             "FoodCakeSlime",
-            "FoodBurgerCrazy"
+            "FoodBurgerCrazy",
+            "FoodMealPoachedPears",
+            "FoodMealPearsBelleHelene",
+            "FoodTartPearCheese",
         };
 
         [DataField("robossuierRewards")]
@@ -302,7 +305,8 @@ namespace Content.Server.Roboisseur.Roboisseur
             "LeavesCannabisRainbowDried",
             "LeavesCannabisDried",
             "FoodCakeBrain",
-            "FoodBurgerBrain"
+            "FoodBurgerBrain",
+            "FoodMeatAnomaly",
         };
     }
 }
