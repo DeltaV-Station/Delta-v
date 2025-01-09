@@ -1,0 +1,16 @@
+- type: entity
+  id: AdvancedMicrowaveMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: microwave machine board
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: AdvancedMicrowave
+      stackRequirements:
+        Capacitor: 2
+        Glass: 4
+        Cable: 5
+    - type: Tag
+      tags:
+      - MicrowaveMachineBoard

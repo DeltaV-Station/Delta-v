@@ -1,0 +1,20 @@
+- type: entity
+  id: AdvancedMicrowave
+  parent: KitchenMicrowave
+  name: Advanced Microwave
+  description: Bigger capacity and double cooking speed!
+  components:
+  - type: Microwave
+    cookTimeMultiplier: 0.5
+    capacity: 20
+    canMicrowaveIdsSafely: true
+  - type: Sprite
+    sprite: _DV/Structures/Machines/microwave_syndie.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+  - type: Machine
+    board: AdvancedMicrowaveMachineCircuitBoard
+  - type: FoodRecipeProvider
+    providedRecipes: # Leaving these in because why not, would be cool if we could add more unique foods
+    - RecipeBaguetteSword
+    - RecipeThrowingCroissant
