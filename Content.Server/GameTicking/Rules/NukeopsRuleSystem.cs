@@ -39,7 +39,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly KidnapHeadsConditionSystem _kidnapSystem = default!; // DeltaV
+    [Dependency] private readonly KidnapHeadsConditionSystem _kidnap = default!; // DeltaV
     [Dependency] private readonly SharedMapSystem _map = default!; // DeltaV
 
     [ValidatePrototypeId<CurrencyPrototype>]
@@ -179,7 +179,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (!objectives.MoveNext(out var objUid, out var kidnapHeads)) // No kidnap head objectives
                     return;
 
-                if (!_kidnapSystem.IsCompleted((objUid, kidnapHeads)))
+                if (!_kidnap.IsCompleted((objUid, kidnapHeads)))
                     return;
 
                 nukeops.WinConditions.Add(WinCondition.NukiesKidnappedHeads);
