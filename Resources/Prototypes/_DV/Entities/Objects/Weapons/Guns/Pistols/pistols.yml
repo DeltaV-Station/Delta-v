@@ -214,8 +214,8 @@
     - Cargo
 
 - type: entity
-  id: WeaponPistolPollockNonlethal
   parent: WeaponPistolPollock
+  id: WeaponPistolPollockNonlethal
   suffix: Non-lethal
   components:
   - type: ItemSlots
@@ -238,8 +238,8 @@
             - CartridgePistol
 
 - type: entity
-  id: WeaponPistolSLP57Nonlethal
   parent: WeaponPistolSLP57
+  id: WeaponPistolSLP57Nonlethal
   suffix: Non-lethal
   components:
   - type: ItemSlots
