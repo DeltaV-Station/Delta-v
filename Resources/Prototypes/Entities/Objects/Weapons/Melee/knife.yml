@@ -27,6 +27,8 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: Scalpel # Shitmed
+    speed: 0.65
 
 - type: entity
   name: kitchen knife
@@ -74,6 +76,10 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: Scalpel # Shitmed
+    speed: 0.3
+  - type: BoneSaw # Shitmed: Better than tg 25% because its a cleaver its meant to hack off limbs
+    speed: 0.5
 
 - type: entity
   name: combat knife

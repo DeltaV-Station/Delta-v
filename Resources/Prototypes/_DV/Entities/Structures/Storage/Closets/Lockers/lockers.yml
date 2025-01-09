@@ -49,6 +49,18 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
+  id: LockerSurgeon
+  name: surgeon's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: surgeon
+    stateDoorOpen: surgeon_open
+    stateDoorClosed: surgeon_door
+  - type: AccessReader
+    access: [ [ "Surgery" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
   id: LockerAdministrativeAssistant
   name: administrative assistant's locker
   components:

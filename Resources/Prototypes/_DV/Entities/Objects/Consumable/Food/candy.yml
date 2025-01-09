@@ -1,0 +1,66 @@
+- type: entity
+  abstract: true
+  parent: FoodBase
+  id: FoodCandyBase
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
+  - type: Appearance
+  - type: RandomizedCandy
+
+- type: entity
+  parent: FoodCandyBase
+  id: FoodLollipop
+  name: lollipop
+  description: For being such a good sport! It's enriched with potent yet mostly safe-to-eat medicine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17 # 2 extra
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 3
+        - ReagentId: Iron
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Sprite
+    layers:
+    - state: lollipop-ball
+      map: [ "enum.CandyVisualLayers.Ball" ]
+    - state: lollipop-stickandshine
+  - type: Clothing
+    sprite: _DV/Objects/Consumable/Food/candy.rsi
+    slots: [ mask ]
+    equippedPrefix: lollipop
+    quickEquip: false # would block eating otherwise
+
+- type: entity
+  parent: FoodCandyBase
+  id: FoodGumball
+  name: gumball
+  description: "Try as you might, you can't blow bubbles with it... it's enriched with medicine for minor ailments."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15 # 1 extra
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Kelotane
+          Quantity: 3
+        - ReagentId: Tricordrazine
+          Quantity: 3
+        - ReagentId: Dylovene
+          Quantity: 3
+  - type: Sprite
+    layers:
+    - state: gumball
+      map: [ "enum.CandyVisualLayers.Ball" ]
+    - state: gumball-shine
