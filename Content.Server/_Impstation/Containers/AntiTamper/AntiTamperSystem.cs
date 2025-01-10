@@ -47,7 +47,7 @@ public sealed partial class AntiTamperSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
 
-        if (_random.Prob(0.15f))
+        if (_random.Prob(0.25f))
         {
             _popupSystem.PopupCoordinates(Loc.GetString(comp.FailureMessage, ("container", uid)), coords, PopupType.Small);
             return;
