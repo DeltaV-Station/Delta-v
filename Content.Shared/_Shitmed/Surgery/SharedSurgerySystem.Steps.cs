@@ -283,6 +283,9 @@ public abstract partial class SharedSurgerySystem
                 if (!containerSlot.ContainedEntity.HasValue)
                     continue;
 
+                if (_tagSystem.HasTag(containerSlot.ContainedEntity.Value, "PermissibleForSurgery")) // DeltaV: allow some clothing items to be operated through
+                    continue;
+
                 args.Invalid = StepInvalidReason.Armor;
                 args.Popup = Loc.GetString("surgery-ui-window-steps-error-armor");
                 return;
