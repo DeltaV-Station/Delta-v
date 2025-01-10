@@ -142,6 +142,11 @@
     allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Impstation
   - type: TypingIndicator
     proto: slime
+  - type: Vocal # Impstation starts here
+    sounds:
+      Male: AnimalSlime
+      Female: AnimalSlime
+      Unsexed: AnimalSlime # Impstation ends here
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
