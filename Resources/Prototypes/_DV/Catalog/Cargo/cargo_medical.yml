@@ -12,8 +12,18 @@
   id: RadioImplantCrate
   icon:
     sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
+    state: implanter
   product: CrateGenericRadioImplants
   cost: 1500
+  category: Medical
+  group: market
+
+- type: cargoProduct
+  id: PainkillerCrate
+  icon:
+    sprite: Objects/Specific/Chemistry/pills_canister.rsi
+    state: pill_canister
+  product: CratePainkillerBottles
+  cost: 1000
   category: Medical
   group: market
