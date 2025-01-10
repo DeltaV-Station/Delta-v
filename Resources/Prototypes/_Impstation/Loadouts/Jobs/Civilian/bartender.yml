@@ -1,3 +1,12 @@
+- type: loadoutEffectGroup
+  id: SeniorBartender
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBartender
+      time: 187200 # 52 hrs (1 hour per week for 1 year)
+
 - type: loadout
   id: ClothingUniformNightclubSuit
   equipment:
