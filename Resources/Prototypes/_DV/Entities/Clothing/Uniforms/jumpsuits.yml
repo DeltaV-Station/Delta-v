@@ -259,6 +259,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/seniorofficer.rsi
 
+- type: entity
+  parent: ClothingUniformFoldableBase
+  id: ClothingUniformJumpsuitSecTurtle
+  name: senior officer's turtleneck
+  description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Senior Officer.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_alt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_alt.rsi
+
 # Warden alt uniforms
 
 - type: entity

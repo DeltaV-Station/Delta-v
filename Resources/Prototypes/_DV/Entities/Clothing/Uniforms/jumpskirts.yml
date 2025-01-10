@@ -111,12 +111,23 @@
   parent: ClothingUniformFoldableBase
   id: ClothingUniformJumpskirtSecSenior
   name: senior officer's jumpskirt
-  description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. This one seems to have a skirt stitched to the waist. Curious.
+  description: A tight-fitting tactical jumpsuit, made of light and breathable yet durable material. Can be worn all year round.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Uniforms/Jumpskirt/seniorofficer.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpskirt/seniorofficer.rsi
+
+- type: entity
+  parent: ClothingUniformFoldableBase
+  id: ClothingUniformJumpskirtSecTurtle
+  name: senior officer's turtleneck
+  description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of Senior Officer.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_alt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/security_alt.rsi
 
 # Warden alt uniforms
 
