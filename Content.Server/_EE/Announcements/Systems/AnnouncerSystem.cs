@@ -3,6 +3,7 @@ using Content.Shared.GameTicking;
 using Content.Shared._EE.Announcements.Prototypes;
 using Content.Shared._EE.Announcements.Systems;
 using Content.Shared.CCVar;
+using Content.Shared._Impstation.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.GameTicking;
 using Content.Shared._EE.Announcements.Prototypes;
 using Content.Shared.CCVar;
+using Content.Shared._Impstation.CCVar;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Utility;
