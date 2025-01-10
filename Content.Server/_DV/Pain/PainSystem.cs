@@ -19,7 +19,7 @@ public sealed class PainSystem : SharedPainSystem
     {
         base.Initialize();
         SubscribeLocalEvent<PainComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<PainComponent, MobStateChangedEvent>(HandlePainDeath);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandlePainDeath);
     }
 
     private void OnMapInit(Entity<PainComponent> ent, ref MapInitEvent args)
@@ -91,11 +91,9 @@ public sealed class PainSystem : SharedPainSystem
         }
     }
 
-    private void HandlePainDeath(EntityUid ent, PainComponent component, ref MobStateChangedEvent args)
+    private void HandlePainDeath(Entity<HumanoidAppearanceComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead && args.OldMobState != MobState.Dead && HasComp<HumanoidAppearanceComponent>(ent))
-        {
-            EnsureComp<PainComponent>(ent);
-        }
+        if (args.NewMobState == MobState.Dead)
+            EnsureComp<PainComponent>(args.Target);
     }
 }
