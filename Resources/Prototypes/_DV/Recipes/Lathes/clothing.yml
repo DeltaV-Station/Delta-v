@@ -63,22 +63,14 @@
 # Ponchos
 
 - type: latheRecipe
-  parent: BaseCoatRecipe
+  parent: BaseCommandCoatRecipe
   id: ClothingNeckCWPArctic
   result: ClothingNeckCWPArctic
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
 
 - type: latheRecipe
-  parent: BaseCoatRecipe
+  parent: BaseCommandCoatRecipe
   id: ClothingNeckCWPSec
   result: ClothingNeckCWPSec
-  completetime: 4
-  materials:
-    Cloth: 500
-    Durathread: 300
 
 # Chief Justice Wardrobe
 
