@@ -88,6 +88,30 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsSurgery
+  suffix: Surgery, Locked
+  components:
+  - type: AccessReader
+    access: [["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSurgeryResearch
+  suffix: Surgery/Epistemics, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"], ["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSurgeryRobotics
+  suffix: Surgery/Robotics, Locked
+  components:
+  - type: AccessReader
+    access: [["Robotics"], ["Surgery"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsMail
   suffix: Mail, Locked
   components:

@@ -22,3 +22,19 @@
   category: Disabilities
   components:
   - type: Pain
+
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  category: Disabilities
+  components:
+  - type: Unborgable # Automatically gets moved to the brain
+
+- type: trait
+  id: Depression
+  name: trait-depression-name
+  description: trait-depression-desc
+  traitGear: PillCanisterNeurozenium
+  category: Disabilities
+  components: []

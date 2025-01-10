@@ -36257,8 +36257,8 @@ entities:
   - uid: 3844
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,15.5
+      rot: 1.5707963267948966 rad
+      pos: 20.5,12.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
@@ -36267,8 +36267,7 @@ entities:
   - uid: 3260
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,15.5
+      pos: 26.5,16.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
@@ -36386,16 +36385,14 @@ entities:
   - uid: 1971
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 20.5,12.5
+      pos: 23.5,15.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
   - uid: 2031
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,16.5
+      pos: 28.5,15.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF6600FF'
@@ -54348,9 +54345,9 @@ entities:
     - type: Transform
       pos: 62.5,-18.5
       parent: 2
-- proto: HolopadCargoBay
+- proto: HolopadCargoBayLongRange
   entities:
-  - uid: 12713
+  - uid: 12674
     components:
     - type: Transform
       pos: 5.5,25.5
@@ -54383,19 +54380,19 @@ entities:
     - type: Transform
       pos: 14.5,25.5
       parent: 2
-- proto: HolopadCommandBridge
-  entities:
-  - uid: 12674
-    components:
-    - type: Transform
-      pos: 51.5,-5.5
-      parent: 2
 - proto: HolopadCommandBridgeHallway
   entities:
   - uid: 1368
     components:
     - type: Transform
       pos: 38.5,-5.5
+      parent: 2
+- proto: HolopadCommandBridgeLongRange
+  entities:
+  - uid: 12713
+    components:
+    - type: Transform
+      pos: 51.5,-5.5
       parent: 2
 - proto: HolopadCommandCaptain
   entities:
