@@ -10,8 +10,6 @@
     canMicrowaveIdsSafely: false # No AA farm
   - type: Sprite
     sprite: _DV/Structures/Machines/advanced_microwave.rsi
-    drawdepth: SmallObjects
-    snapCardinals: true
   - type: Machine
     board: AdvancedMicrowaveMachineCircuitBoard
   - type: Explosive
@@ -21,7 +19,3 @@
     intensitySlope: 10
     canCreateVacuum: false
     deleteAfterExplosion: false
-  - type: RadiationSource
-    intensity: 0.25
-    slope: 0.1
-    enabled: false
