@@ -28,6 +28,13 @@ public sealed partial class AntiTamperComponent : Component
     public LocId Message = "anti-tamper-contents-destroyed";
 
     /// <summary>
+    /// The popup message to display when the anti-tamper module
+    /// fails to trigger.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public LocId FailureMessage = "anti-tamper-random-failure";
+
+    /// <summary>
     /// The sound to play when the anti-tamper module is triggered.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]

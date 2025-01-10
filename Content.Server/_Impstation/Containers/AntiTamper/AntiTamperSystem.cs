@@ -12,6 +12,7 @@ using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Server.Containers.AntiTamper;
 
@@ -25,6 +26,7 @@ public sealed partial class AntiTamperSystem : EntitySystem
     [Dependency] private readonly SharedEntityStorageSystem _entityStorageSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -43,6 +45,14 @@ public sealed partial class AntiTamperSystem : EntitySystem
         if (!_lockSystem.IsLocked(uid))
             return;
 
+        var coords = Transform(uid).Coordinates;
+
+        if (_random.Prob(0.15f))
+        {
+            _popupSystem.PopupCoordinates(Loc.GetString(comp.FailureMessage, ("container", uid)), coords, PopupType.Small);
+            return;
+        }
+
         foreach (var container in _containerSystem.GetAllContainers(uid, containerManager))
         {
             if (comp.Containers != null && !comp.Containers.Contains(container.ID))
@@ -60,8 +70,6 @@ public sealed partial class AntiTamperSystem : EntitySystem
                 }
             }
         }
-
-        var coords = Transform(uid).Coordinates;
 
         _popupSystem.PopupCoordinates(Loc.GetString(comp.Message, ("container", uid)), coords, PopupType.SmallCaution);
         _audioSystem.PlayPvs(comp.Sound, coords);
