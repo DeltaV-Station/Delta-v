@@ -146,7 +146,8 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
         }
 
-        _audio.PlayPvs(component.ChargeSound, uid);
+        if (component.PlayChargeSound)
+            _audio.PlayPvs(component.ChargeSound, uid);
         return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.DoAfterDuration), new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
         {
@@ -190,7 +191,8 @@ public sealed class DefibrillatorSystem : EntitySystem
             !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
-        _audio.PlayPvs(component.ZapSound, uid);
+        if (component.PlayZapSound)
+            _audio.PlayPvs(component.ZapSound, uid);
         _electrocution.TryDoElectrocution(target,
             null,
             component.ZapDamage,
@@ -227,8 +229,16 @@ public sealed class DefibrillatorSystem : EntitySystem
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
                 damageableComponent.TotalDamage < threshold)
             {
-            _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
-                dead = false;
+                if (component.AllowSkipCrit &&
+                (!_mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold) ||
+                damageableComponent.TotalDamage < critThreshold))
+                {
+                    _mobState.ChangeMobState(target, MobState.Alive, mob, uid);
+                    dead = false;
+                } else {
+                    _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
+                    dead = false;
+                }
             }
 
             if (_mind.TryGetMind(target, out _, out var mind) &&
@@ -246,13 +256,16 @@ public sealed class DefibrillatorSystem : EntitySystem
                 if (component.ShowMessages)
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
                         InGameICChatType.Speak, true);
-            }
-        }
 
-        var sound = dead || session == null
-            ? component.FailureSound
-            : component.SuccessSound;
-        _audio.PlayPvs(sound, uid);
+                if (dead || session == null)
+                {
+                    if (component.PlayFailureSound)
+                        _audio.PlayPvs(component.FailureSound, uid);
+                } else {
+                    if (component.PlaySuccessSound)
+                        _audio.PlayPvs(component.SuccessSound, uid);
+                }
+            }
 
             // if we don't have enough power left for another shot, turn it off
             if (!component.IgnorePowerCell)
@@ -261,8 +274,26 @@ public sealed class DefibrillatorSystem : EntitySystem
                     _toggle.TryDeactivate(uid);
             }
 
-        // TODO clean up this clown show above
-        var ev = new TargetDefibrillatedEvent(user, (uid, component));
-        RaiseLocalEvent(target, ref ev);
+                // TODO clean up this clown show above
+                var ev = new TargetDefibrillatedEvent(user, (uid, component));
+                RaiseLocalEvent(target, ref ev);
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<DefibrillatorComponent>();
+        while (query.MoveNext(out var uid, out var defib))
+        {
+            if (defib.NextZapTime == null || _timing.CurTime < defib.NextZapTime)
+                continue;
+
+            if(defib.PlayReadySound)
+                _audio.PlayPvs(defib.ReadySound, uid);
+            _appearance.SetData(uid, DefibrillatorVisuals.Ready, true);
+            defib.NextZapTime = null;
+        }
     }
 }
