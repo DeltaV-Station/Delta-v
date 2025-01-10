@@ -66,9 +66,13 @@
   parent: BaseCommandCoatRecipe
   id: ClothingNeckCWPArctic
   result: ClothingNeckCWPArctic
+  completetime: 4
+  materials:
+    Cloth: 500
+    Durathread: 300
 
 - type: latheRecipe
-  parent: BaseCommandCoatRecipe
+  parent: ClothingNeckCWPArctic
   id: ClothingNeckCWPSec
   result: ClothingNeckCWPSec
 
