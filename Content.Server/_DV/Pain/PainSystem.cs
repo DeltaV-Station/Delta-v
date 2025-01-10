@@ -1,8 +1,12 @@
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared._DV.Pain;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server._DV.Pain;
 
@@ -13,10 +17,13 @@ public sealed class PainSystem : SharedPainSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<PainComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PainComponent, TriggerEvent>(HandlePainTrigger);
     }
 
     private void OnMapInit(Entity<PainComponent> ent, ref MapInitEvent args)
@@ -86,5 +93,14 @@ public sealed class PainSystem : SharedPainSystem
             }
             component.NextUpdateTime = curTime + TimeSpan.FromSeconds(1);
         }
+    }
+
+    private void HandlePainTrigger(EntityUid uid, PainComponent component, TriggerEvent args)
+    {
+        if (!TryComp<MobStateComponent>(uid, out var mobstate))
+            return;
+
+        if (mobstate.CurrentState == MobState.Dead)
+            EnsureComp<PainComponent>(uid);
     }
 }
