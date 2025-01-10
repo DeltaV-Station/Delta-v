@@ -2762,7 +2762,8 @@ entities:
           5,-7:
             0: 30475
           5,-6:
-            0: 30591
+            0: 26495
+            5: 4096
           6,-8:
             0: 46015
           6,-7:
@@ -3605,6 +3606,21 @@ entities:
           moles:
           - 6666.982
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -55707,6 +55723,35 @@ entities:
     - type: Transform
       pos: 20.5,-20.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 12774
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerChiefEngineerFilled
   entities:
   - uid: 1921
@@ -62730,6 +62775,15 @@ entities:
     - type: Transform
       pos: 33.5,9.5
       parent: 2
+- proto: SheetPlasma1
+  entities:
+  - uid: 12774
+    components:
+    - type: Transform
+      parent: 9411
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SheetPlasteel
   entities:
   - uid: 630
