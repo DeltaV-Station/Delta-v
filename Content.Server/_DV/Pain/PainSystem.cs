@@ -5,7 +5,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Mobs.Components;
 
 namespace Content.Server._DV.Pain;
 
@@ -94,7 +93,7 @@ public sealed class PainSystem : SharedPainSystem
 
     private void HandlePainTrigger(EntityUid uid, PainComponent component, ref MobStateChangedEvent  args)
     {
-        if (args.NewMobState != MobState.Dead && HasComp<HumanoidAppearanceComponent>(uid))
+        if (args.NewMobState == MobState.Dead && HasComp<HumanoidAppearanceComponent>(uid))
             EnsureComp<PainComponent>(uid);
     }
 }
