@@ -82,6 +82,7 @@
   The tesla coils connect to HV cables and provide a stream of power after being zapped by the ball lightning.
   However, tesla coils usually do not fully absorb the lightning strike, and the grounding rods are required to prevent lighting from arcing to and obliterating nearby machines.
   Do note that one grounding rod is not a foolproof solution; get [color=#a4885c]at least 4 rods[/color] around the containment field to make it mathematically unlikely for the tesla to escape.
+  Grounding rods should be placed near devices such as emitters to prevent the tesla exploding them via lightning arcs.
   As the ball lightning zaps tesla coils, they will degrade from wear; make sure to [color=#a4885c]weld them[/color] every now and then to keep generating power.
 
   ## Turning on the Engines
@@ -89,8 +90,6 @@
   [color=red]Do not[/color] turn the PA on unless all the other subsystems are working properly and there is enough power to start the engine.
 
   Turn power on using the PA control computer. Set the strength to an appropriate level. The higher the output stength is set on PA control computer, the bigger the singularity will be.
-
-  Currently, the output power does not affect the ball lightning, beyond giving the ball lightning extra orbs around it.
 
   The PA will now draw power from the power net and start firing particles at the generators.
 
@@ -108,7 +107,7 @@
   </Box>
 
   If no particles are hitting the singularity, the singularity will start to slowly decay until it disappears.
-  This is not the case for the tesla; feel free to disconnect the PA after the tesla has been set up.
+  [color=red]On Delta-V, teslas require constant PA input to not decay. Keep it on at least strength 2 at all times.[/color]
 
   ## Safety
   The singularity emits a large amount of radiation around it, so always keep a distance from it. Consider getting [color=yellow]radiation shielding gear[/color] beforehand. Seek medical attention if you are experiencing health issues.
@@ -136,5 +135,5 @@
     <GuideEntityEmbed Entity="WeaponParticleDecelerator"/>
   </Box>
   However, if science has happened to research [color=#D381C9]Portable Particle Decelerators[/color], or if cargo can order them in time, you may be able to stop the singularity from eating the whole station.
-  Good luck on the tesla, though; it is merely too powerful to recontain after breaching.
+  Teslas will run out of energy and decay on Delta-V, so it's not a guaranteed round ender!
 </Document>

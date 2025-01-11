@@ -1,6 +1,21 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseSubdermalImplant
+  id: BionicVoiceMaskImplant
+  name: bionic voice mask implant
+  description: This implant lets its user adjust their voice to whoever they can think of.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionChangeVoiceMask
+  - type: VoiceMask
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BionicVoiceMaskImplant
   id: BionicSyrinxImplant
   name: bionic syrinx implant
   description: This implant lets a harpy adjust their voice to whoever they can think of.
@@ -10,11 +25,6 @@
     whitelist:
       components:
       - HarpySinger # Ensure this is only for harpies and if this component gets renamed, CHANGE IT TO THE NEW VALUE!!!
-  - type: VoiceMask
-  - type: UserInterface
-    interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
