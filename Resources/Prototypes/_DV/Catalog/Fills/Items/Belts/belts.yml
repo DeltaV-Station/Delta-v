@@ -54,3 +54,18 @@
     - id: BoxFolderBlack
     - id: BoxFolderClipboard
     - id: DrinkVacuumFlask
+
+- type: entity
+  parent: ClothingBeltMedical
+  id: ClothingBeltSurgeonFilled
+  suffix: Filled, Surgical
+  components:
+  - type: StorageFill
+    contents:
+    - id: Cautery
+    - id: Scalpel
+    - id: Retractor
+    - id: Hemostat
+    - id: Bonesetter
+    - id: BoneGel
+    - id: SawElectric

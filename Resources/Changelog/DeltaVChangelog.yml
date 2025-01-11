@@ -1,137 +1,4 @@
 ﻿Entries:
-- author: Colin-Tel
-  changes:
-  - message: The vents contain more scary xenos!
-    type: Tweak
-  id: 381
-  time: '2024-06-04T07:00:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1296
-- author: Colin-Tel
-  changes:
-  - message: Security personnel no longer have service access by default.
-    type: Remove
-  id: 382
-  time: '2024-06-04T07:02:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1287
-- author: dge21
-  changes:
-  - message: the mime suit is craftable now!
-    type: Add
-  id: 383
-  time: '2024-06-04T15:49:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1286
-- author: Leo, Velcroboy, and Timemaster
-  changes:
-  - message: Added The Justice Department >:)
-    type: Add
-  id: 384
-  time: '2024-06-07T13:22:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/660
-- author: rosieposieeee
-  changes:
-  - message: Submarine Station has been removed from rotation.
-    type: Remove
-  id: 385
-  time: '2024-06-07T14:37:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1307
-- author: Lyndomen
-  changes:
-  - message: Burning bodies no longer ash
-    type: Tweak
-  id: 386
-  time: '2024-06-08T00:20:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1324
-- author: Colin_Tel, Space Law Rewrite Team
-  changes:
-  - message: Added a guidebook entry for Justice under "Jobs"
-    type: Add
-  id: 387
-  time: '2024-06-08T11:40:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1327
-- author: adeinitas
-  changes:
-  - message: Justice has been brought to Shoukou Station.
-    type: Add
-  id: 388
-  time: '2024-06-08T19:39:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1321
-- author: Timemaster99
-  changes:
-  - message: Added a Clerk access level.
-    type: Add
-  - message: Added a 6 hour security playtime requirement for Prosecutor.
-    type: Add
-  - message: Fixed accesses for multiple Justice roles (and the LawDrobe).
-    type: Fix
-  id: 389
-  time: '2024-06-10T10:17:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1340
-- author: DLondon
-  changes:
-  - message: Added Reporter, Librarian, and Perma slots to Pebble!
-    type: Add
-  - message: Adjusts various elements of Pebble Station
-    type: Tweak
-  id: 390
-  time: '2024-06-11T02:22:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1342
-- author: deltanedas
-  changes:
-  - message: Fixed ninja requirements not working.
-    type: Fix
-  id: 391
-  time: '2024-06-12T16:12:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1358
-- author: Lyndomen
-  changes:
-  - message: Space Dragons are once again roaming free
-    type: Tweak
-  id: 392
-  time: '2024-06-12T16:17:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1329
-- author: Colin_Tel, Lyndomen
-  changes:
-  - message: Added DeltaV alert procedure to the guidebook under the "Survival" tab.
-    type: Add
-  id: 393
-  time: '2024-06-12T16:17:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1311
-- author: Colin-Tel
-  changes:
-  - message: The rate at which non-Diona species become hungry has slightly increased,
-      while Diona get thirsty more often.
-    type: Tweak
-  id: 394
-  time: '2024-06-12T16:30:02.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1302
-- author: NullWanderer
-  changes:
-  - message: Fixed the shipyard console not opening
-    type: Fix
-  id: 395
-  time: '2024-06-12T16:46:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1364
-- author: deltanedas
-  changes:
-  - message: Fixed listening post ops having TC and being counted as traitors.
-    type: Fix
-  id: 396
-  time: '2024-06-13T16:40:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1369
-- author: Timemaster99
-  changes:
-  - message: Prosecutor can no longer be an antagonist.
-    type: Tweak
-  id: 397
-  time: '2024-06-13T16:42:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1360
-- author: deltanedas
-  changes:
-  - message: Fixed reverse engineered items not resetting progress when done.
-    type: Fix
-  id: 398
-  time: '2024-06-13T20:32:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1376
 - author: Timemaster99
   changes:
   - message: Fixed prescription hud crafting
@@ -3843,3 +3710,139 @@
   id: 880
   time: '2025-01-08T11:39:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2647
+- author: Radezolid, noctyrn
+  changes:
+  - message: Added the Cargo Assistant and Administrative Assistant to support logistics
+      and command respectively.
+    type: Add
+  id: 881
+  time: '2025-01-09T03:19:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2597
+- author: pontaoski
+  changes:
+  - message: Added a Surgeon job & Surgery access
+    type: Add
+  id: 882
+  time: '2025-01-09T06:34:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2645
+- author: Velcroboy
+  changes:
+  - message: Hospital curtains now take up less space when open and have interaction
+      outlines. This should make treating patients under them a little better.
+    type: Tweak
+  id: 883
+  time: '2025-01-09T09:13:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2657
+- author: deltanedas
+  changes:
+  - message: Fixed cloning not working.
+    type: Fix
+  id: 884
+  time: '2025-01-09T12:39:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2667
+- author: deltanedas
+  changes:
+  - message: AI cores will soon have defense turrets that the AI can deploy to shoot
+      intruders.
+    type: Add
+  id: 885
+  time: '2025-01-09T17:06:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2665
+- author: deltanedas
+  changes:
+  - message: Losing a limb makes you bleed profusely instead of dealing bloodloss
+      damage.
+    type: Tweak
+  id: 886
+  time: '2025-01-09T18:02:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2668
+- author: Lyndomen
+  changes:
+  - message: Buy painkillers at logistics! They are not the good stuff however, and
+      might cause small amounts of nausea.
+    type: Add
+  id: 887
+  time: '2025-01-10T03:34:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2674
+- author: Emily9031
+  changes:
+  - message: New Machine Incompatible trait, makes characters unable to have their
+      brain put into a man-machine interface.
+    type: Add
+  id: 888
+  time: '2025-01-10T04:45:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2395
+- author: Field Command
+  changes:
+  - message: Surgery room extension and adding missing equipment.
+    type: Tweak
+  id: 889
+  time: '2025-01-10T06:34:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2648
+- author: pontaoski
+  changes:
+  - message: Tank harnesses can be now fabricated from the medical techfab
+    type: Add
+  id: 890
+  time: '2025-01-10T06:36:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2679
+- author: LioValkyria
+  changes:
+  - message: RP Depression trait
+    type: Add
+  id: 891
+  time: '2025-01-10T19:47:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2676
+- author: Radezolid
+  changes:
+  - message: Removed the medical cybernetic eyes from the security techfab
+    type: Tweak
+  id: 892
+  time: '2025-01-10T19:48:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2682
+- author: pontaoski
+  changes:
+  - message: Tank harnesses and hospital gowns don't block surgery steps
+    type: Tweak
+  id: 893
+  time: '2025-01-10T19:51:41.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2678
+- author: Tomce795
+  changes:
+  - message: Ported a Lizard hissing emote from Imp. Added it for Reptilians, Kobolds
+      and Lizards. Lizards now have a kobold accent.
+    type: Add
+  id: 894
+  time: '2025-01-10T19:57:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2689
+- author: MintyTheBinty, Radezolid
+  changes:
+  - message: Added suits from imp-station, check your loadouts and your local BarDrobe,
+      CuraDrobe, DetDrobe, LawDrobe and AutoDrobe!
+    type: Add
+  id: 895
+  time: '2025-01-10T19:58:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2675
+- author: pontaoski
+  changes:
+  - message: Chloral hydrate is cheaper and lasts longer
+    type: Tweak
+  id: 896
+  time: '2025-01-11T06:23:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2685
+- author: Radezolid
+  changes:
+  - message: Paperwork belts are now capable of holding hand labelers and stamps.
+    type: Tweak
+  id: 897
+  time: '2025-01-11T06:24:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2690
+- author: pontaoski
+  changes:
+  - message: Surgery now requires anesthesia rather than forced sleep
+    type: Tweak
+  - message: Chloral hydrate, nitrous oxide, and nocturine now serve as anesthesia
+    type: Tweak
+  id: 898
+  time: '2025-01-11T06:44:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2684

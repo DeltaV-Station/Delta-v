@@ -265,6 +265,10 @@
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterBase
