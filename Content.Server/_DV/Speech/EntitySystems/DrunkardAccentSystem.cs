@@ -8,10 +8,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Speech.EntitySystems;
 
-
 public sealed class DrunkardAccentSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -64,17 +63,17 @@ public sealed class DrunkardAccentSystem : EntitySystem
         return sb.ToString();
     }
 
-    private void OnAccent(EntityUid uid, DrunkardAccentComponent component, AccentGetEvent args)
+    private void OnAccent( Entity<DrunkardAccentComponent> ent, ref AccentGetEvent args)
     {
         // Drunk status effect calculations, ripped directly from SlurredSystem B)
-        if (!_statusEffectsSystem.TryGetTime(uid, SharedDrunkSystem.DrunkKey, out var time))
+        if (!_statusEffects.TryGetTime(ent.Owner, SharedDrunkSystem.DrunkKey, out var time))
         {
             args.Message = Accentuate(args.Message, 0.25f);
         }
         else
         {
             var curTime = _timing.CurTime;
-            var timeLeft = (float) (time.Value.Item2 - curTime).TotalSeconds;
+            var timeLeft = (float)(time.Value.Item2 - curTime).TotalSeconds;
             var drunkScale = Math.Clamp((timeLeft - 80) / 1100, 0f, 1f);
 
             args.Message = Accentuate(args.Message, Math.Max(0.25f, drunkScale));
