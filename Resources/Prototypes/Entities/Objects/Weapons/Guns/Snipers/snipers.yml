@@ -62,11 +62,11 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 1 # DeltaV - Reduced ammo count due to increased power
+    capacity: 5
     proto: CartridgeAntiMateriel
   - type: GunRequiresWield # DeltaV - Firing an antimateriel rifle is.. incredibly unweildy with one hand.
   - type: Gun # DeltaV
-    fireRate: 0.4
+    fireRate: 0.5
 
 - type: entity
   name: musket
