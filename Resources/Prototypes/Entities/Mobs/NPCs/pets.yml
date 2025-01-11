@@ -777,8 +777,8 @@
       Dead:
         Base: rainbow_baby_slime_dead
   - type: Body  # DeltaV - Changes to add brain
-    prototype: Smiles  # DeltaV - Changes to add brain
-    requiredLegs: 1  # DeltaV - Changes to add brain
+    prototype: Smiles
+    requiredLegs: 1
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime

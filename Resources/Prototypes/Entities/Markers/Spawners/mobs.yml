@@ -552,7 +552,7 @@
       - MobAdultSlimesYellowAngry
 
 - type: entity
-  name: Smile Brain Spawner # DeltaV - Changes to brain
+  name: Smile Spawner
   id: SpawnMobSmile
   parent: MarkerBase
   components:
@@ -562,7 +562,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - SentientSmileCore # DeltaV - Changes to brain
+      - MobSlimesPet
 
 - type: entity
   name: Pun Pun Spawner
