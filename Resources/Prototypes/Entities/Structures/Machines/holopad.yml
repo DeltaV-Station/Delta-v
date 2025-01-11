@@ -104,7 +104,7 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
- 
+
 - type: entity
   name: long-range holopad
   description: "A floor-mounted device for projecting holographic images to similar devices that are far away."
@@ -117,7 +117,7 @@
     - Map
     - Unlimited
     ignoreTelephonesOnSameGrid: true
-    
+
 - type: entity
   name: quantum entangling holopad
   description: "An floor-mounted device for projecting holographic images to similar devices at extreme distances."
@@ -490,7 +490,7 @@
   - type: Label
     currentLabel: holopad-medical-breakroom
 
-# Delta - Skipped med clinic(redundant)
+# DeltaV - Skipped med clinic(redundant)
 
 # Cargo
 - type: entity
@@ -525,7 +525,7 @@
   - type: Label
     currentLabel: holopad-logistics-breakroom # DeltaV - Cargo > Logistics
 
-# Delta - Skipped mailroom(redundant)
+# DeltaV - Skipped mailroom(redundant)
 
 # Engineering
 - type: entity
@@ -697,8 +697,8 @@
   - type: Label
     currentLabel: holopad-security-armory
 
-# Delta - Skipped sec breakroom(against SoP)
-# Delta - Skipped brig med(redundant)
+# DeltaV - Skipped sec locker room(against SoP)
+# DeltaV - Skipped brig med(redundant)
 
 - type: entity
   parent: Holopad
@@ -768,7 +768,7 @@
 - type: entity
   parent: Holopad
   id: HolopadServiceGameRoom
-  suffix: Service Game Room # Delta V - Clarification
+  suffix: Service Game Room # DeltaV - Clarification
   components:
   - type: Label
     currentLabel: holopad-service-gameroom
