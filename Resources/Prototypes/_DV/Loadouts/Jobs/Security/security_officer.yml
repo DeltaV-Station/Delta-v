@@ -36,17 +36,17 @@
 
 # Jumpsuit
 
-- type: loadout # DeltaV
+- type: loadout
   id: SecurityJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
 
-- type: loadout # DeltaV
+- type: loadout
   id: SecurityJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecBlue
 
-- type: loadout # DeltaV
+- type: loadout
   id: SeniorSecOfficerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
@@ -54,7 +54,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecSenior
 
-- type: loadout # DeltaV
+- type: loadout
   id: SeniorSecOfficerJumpskirt
   effects:
   - !type:GroupLoadoutEffect
@@ -62,7 +62,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecSenior
 
-- type: loadout # DeltaV
+- type: loadout
   id: SeniorSecOfficerTurtlesuit
   effects:
   - !type:GroupLoadoutEffect
@@ -70,7 +70,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecTurtle
 
-- type: loadout # DeltaV
+- type: loadout
   id: SeniorSecOfficerTurtleskirt
   effects:
   - !type:GroupLoadoutEffect
@@ -80,12 +80,12 @@
 
 # OuterClothing
 
-- type: loadout # DeltaV
+- type: loadout
   id: PlateCarrier
   equipment:
     outerClothing: ClothingOuterArmorPlateCarrier
 
-- type: loadout # DeltaV
+- type: loadout
   id: DuraVest
   equipment:
     outerClothing: ClothingOuterArmorDuraVest
@@ -95,7 +95,7 @@
   equipment:
     outerClothing: ClothingOuterStasecSweater
 
-- type: loadout # DeltaV - security winter coat
+- type: loadout
   id: StasecWinterCoat
   equipment:
     outerClothing: ClothingOuterCoatStasec
