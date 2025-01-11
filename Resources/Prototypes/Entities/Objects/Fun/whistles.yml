@@ -35,9 +35,9 @@
   description: Sound of it make you feel fear.
   components:
   - type: Sprite
-#    state: sec # DeltaV
+    state: whistle # DeltaV - replace sec with whistle
   - type: Clothing
-#    equippedPrefix: sec # DeltaV
+    state: whistle # DeltaV - replace sec with whistle
   - type: Whistle
     distance: 5
 
