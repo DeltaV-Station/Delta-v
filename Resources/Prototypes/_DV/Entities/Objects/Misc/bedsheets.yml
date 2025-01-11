@@ -1,6 +1,6 @@
 - type: entity
-  id: BedsheetWarden
   parent: BedsheetBase
+  id: BedsheetWarden
   name: warden's bedsheet
   description: A soft, slate-coloured quilt, adorned with silver trim. Cool to the touch and practically unused.
   components:
@@ -11,8 +11,8 @@
     sprite: Clothing/Neck/Bedsheets/grey.rsi
 
 - type: entity
-  id: BedsheetDetective
   parent: BedsheetBase
+  id: BedsheetDetective
   name: detective's bedsheet
   description: A soft, slate-coloured quilt, adorned with pale plum trim. Rumpled and a little stained.
   components:

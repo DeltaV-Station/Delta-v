@@ -387,8 +387,7 @@
   parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: detective's locker # DeltaV - rename from detective's cabinet
   components:
-  - type: Appearance # DeltaV - set appearance of det's locker
-  - type: EntityStorageVisuals
+  - type: EntityStorageVisuals # DeltaV - set appearance of det's locker
     stateBaseClosed: det
     stateDoorOpen: det_open
     stateDoorClosed: det_door
@@ -401,8 +400,7 @@
   name: evidence locker
   description: To store bags of bullet casings and detainee belongings.
   components:
-  - type: Appearance # DeltaV - set appearance of evidence locker
-  - type: EntityStorageVisuals
+  - type: EntityStorageVisuals # DeltaV - set appearance of evidence locker
     stateBaseClosed: evidence
     stateDoorOpen: evidence_open
     stateDoorClosed: evidence_door
