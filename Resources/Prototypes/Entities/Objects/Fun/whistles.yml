@@ -34,10 +34,10 @@
   id: SecurityWhistle
   description: Sound of it make you feel fear.
   components:
-  - type: Sprite
-    state: sec
-  - type: Clothing
-    equippedPrefix: sec
+#  - type: Sprite # DeltaV
+#    state: sec
+#  - type: Clothing
+#    equippedPrefix: sec
   - type: Whistle
     distance: 5
 
