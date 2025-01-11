@@ -905,7 +905,7 @@
   - type: SpeakOnUIClosed
     pack: SecTechGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/sec.rsi
+    sprite: _DV/Structures/Machines/VendingMachines/sec.rsi # DeltaV - resprite security vendors
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1562,7 +1562,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/secdrobe.rsi
+    sprite: _DV/Structures/Machines/VendingMachines/secdrobe.rsi # DeltaV - resprite security vendors
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1858,7 +1858,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/detdrobe.rsi
+    sprite: _DV/Structures/Machines/VendingMachines/detdrobe.rsi # DeltaV - resprite security vendors
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

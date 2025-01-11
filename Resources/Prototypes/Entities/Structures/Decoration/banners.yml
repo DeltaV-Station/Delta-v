@@ -114,7 +114,7 @@
   description: A banner displaying the colors of the security department. You're surprised it's not vandalised.
   components:
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
+    sprite: _DV/Structures/Decoration/banner.rsi # DeltaV - resprite sec banner
     state: banner_security
 
 - type: entity

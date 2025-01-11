@@ -70,3 +70,15 @@
     stateDoorClosed: admin_assist_door
   - type: AccessReader
     access: [["Command"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmoryStorage
+  name: armory storage locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: armory
+    stateDoorOpen: armory_open
+    stateDoorClosed: armory_door
+  - type: AccessReader
+    access: [["Armory"]]
