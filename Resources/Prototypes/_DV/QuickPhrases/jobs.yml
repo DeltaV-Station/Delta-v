@@ -72,6 +72,11 @@
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
 
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: AdminAssistantPhrase
+  text: job-name-admin-assistant
+
 # Engineering
 
 - type: quickPhrase
@@ -115,7 +120,12 @@
   parent: BaseEpistemicsJobPhrase
   id: ResearchAssistantPhrase
   text: job-name-research-assistant
-
+  
+- type: quickPhrase
+  parent: BaseEpistemicsJobPhrase
+  id: RoboticistPhrase
+  text: job-name-roboticist
+  
 - type: quickPhrase
   parent: BaseEpistemicsJobPhrase
   id: BorgPhrase
@@ -142,6 +152,11 @@
   parent: BaseLogisticsJobPhrase
   id: CourierPhrase
   text: job-name-courier
+  
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: CargoAssistantPhrase
+  text: job-name-cargo-assistant
 
 # Justice
 
@@ -191,6 +206,11 @@
   parent: BaseMedicalJobPhrase
   id: MedicalInternPhrase
   text: job-name-intern
+  
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: SurgeonPhrase
+  text: job-name-surgeon
 
 # Security
 

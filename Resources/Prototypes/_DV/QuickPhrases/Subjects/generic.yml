@@ -247,6 +247,11 @@
   text: phrase-gold
 
 - type: quickPhrase
+  id: GlassPhrase
+  parent: BaseMaterialPhrase
+  text: phrase-glass
+  
+- type: quickPhrase
   id: SilverPhrase
   parent: BaseMaterialPhrase
   text: phrase-silver
