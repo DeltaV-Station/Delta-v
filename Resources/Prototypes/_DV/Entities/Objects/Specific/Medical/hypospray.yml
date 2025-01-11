@@ -46,6 +46,9 @@
     - type: Tag
       tags:
         - HyposprayCartridge
+    - type: Drink # So we can view how much is IN the cartridge
+      solution: cartridge
+    - type: BlockDrinking # So we can stop people drinking the cartridge
     - type: Sprite
       sprite: Objects/Specific/Chemistry/bottle.rsi
       layers:
