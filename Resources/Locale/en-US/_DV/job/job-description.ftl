@@ -1,4 +1,5 @@
 job-description-medical-borg = Half-human, Half-machine. Follow your laws, serve the crew, and assist the medical department.
+job-description-surgeon = Fix missing limbs, tend to emergency patients, try not to play god and get fired.
 job-description-chief-justice = Manage the justice department, act as a judge, and ensure everyone recieves fair and just treatment.
 job-description-clerk = Organize trials, notarize documents, review charges, and act as a judge if needed.
 job-description-prosecutor = Take statements from security and prepare cases against those accused of commiting crimes.
