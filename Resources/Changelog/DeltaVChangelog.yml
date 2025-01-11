@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Fixed reverse engineered items not resetting progress when done.
-    type: Fix
-  id: 398
-  time: '2024-06-13T20:32:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1376
 - author: Timemaster99
   changes:
   - message: Fixed prescription hud crafting
@@ -3844,3 +3837,12 @@
   id: 897
   time: '2025-01-11T06:24:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2690
+- author: pontaoski
+  changes:
+  - message: Surgery now requires anesthesia rather than forced sleep
+    type: Tweak
+  - message: Chloral hydrate, nitrous oxide, and nocturine now serve as anesthesia
+    type: Tweak
+  id: 898
+  time: '2025-01-11T06:44:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2684
