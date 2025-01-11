@@ -34,6 +34,23 @@ public sealed class DCCVars
         CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
 
     /// <summary>
+    /// Anti-EORG measure. Will add pacified to all players upon round end.
+    /// Its not perfect, but gets the job done.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundEndPacifist =
+        CVarDef.Create("game.round_end_pacifist", false, CVar.SERVERONLY);
+
+    /*
+     * No EORG
+     */
+
+    /// <summary>
+    /// Whether the no EORG popup is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundEndNoEorgPopup =
+        CVarDef.Create("game.round_end_eorg_popup_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Skip the no EORG popup.
     /// </summary>
     public static readonly CVarDef<bool> SkipRoundEndNoEorgPopup =
