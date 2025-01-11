@@ -63,7 +63,7 @@ public sealed class DrunkardAccentSystem : EntitySystem
         return sb.ToString();
     }
 
-    private void OnAccent( Entity<DrunkardAccentComponent> ent, ref AccentGetEvent args)
+    private void OnAccent(Entity<DrunkardAccentComponent> ent, ref AccentGetEvent args)
     {
         // Drunk status effect calculations, ripped directly from SlurredSystem B)
         if (!_statusEffects.TryGetTime(ent.Owner, SharedDrunkSystem.DrunkKey, out var time))
