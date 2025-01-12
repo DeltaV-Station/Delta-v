@@ -76,6 +76,9 @@
       ignoreWhitelist:
         components:
             - IgnoreSpiderWeb
+    - type: Tag # DeltaV begin port Arachne from EE
+      tags:
+      - ArachneWeb  # DeltaV end port Arachne from EE
 
 - type: entity
   id: SpiderWebClown
