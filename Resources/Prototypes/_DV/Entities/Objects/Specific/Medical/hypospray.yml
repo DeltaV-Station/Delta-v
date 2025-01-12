@@ -1,0 +1,82 @@
+- type: entity
+  id: CombatHypospray
+  name: combat hypospray
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: A small hypospray intended for combat and rapid response teams, uses pre-built cartridges
+  components:
+    - type: Sprite
+      sprite: _DV/Objects/Specific/Medical/combathypo.rsi
+      state: hypo
+    - type: Item
+      sprite: _DV/Objects/Specific/Medical/combathypo.rsi
+    - type: SolutionContainerManager
+      solutions:
+        hypospray:
+          maxVol: 30 # Keep in sync with BaseEmptyHypoCartridge
+          reagents: []
+    - type: ExaminableSolution
+      solution: hypospray
+    - type: Hypospray
+      solutionName: hypospray
+      transferAmount: 5
+      onlyAffectsMobs: false
+      injectOnly: true
+    - type: HyposprayBlockNonMobInjection
+    - type: UseDelay
+      delay: 0.5
+    - type: SolutionCartridgeReceiver
+      cartridgeSlot:
+        whitelist:
+          tags:
+            - HyposprayCartridge
+    - type: ContainerContainer
+      containers:
+        cartridge-slot: !type:ContainerSlot {}
+
+- type: entity
+  id: BaseEmptyHypoCartridge
+  name: hypo cartridge
+  parent: [BaseItem, BaseRestrictedContraband]
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        cartridge:
+          maxVol: 30 # Keep in sync with the CombatHypospray
+          reagents: []
+    - type: Tag
+      tags:
+        - HyposprayCartridge
+    - type: Drink # So we can view how much is IN the cartridge
+      solution: cartridge
+    - type: BlockDrinking # So we can stop people drinking the cartridge
+    - type: Sprite
+      sprite: Objects/Specific/Chemistry/bottle.rsi
+      layers:
+        - state: bottle-1
+        - state: bottle-1-1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: ExaminableSolution
+      solution: cartridge
+    - type: SolutionItemStatus
+      solution: cartridge
+    - type: SolutionContainerVisuals
+      maxFillLevels: 6
+      fillBaseName: bottle-1-
+    - type: Item
+      size: Tiny
+      sprite: Objects/Specific/Chemistry/bottle.rsi
+
+- type: entity
+  id: BicaridineHypoCartridge
+  name: Bicaridine hypo cartridge
+  parent: BaseEmptyHypoCartridge
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        cartridge:
+          maxVol: 30
+          reagents:
+            - ReagentId: Bicaridine
+              Quantity: 30
+
