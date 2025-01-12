@@ -330,3 +330,22 @@
      permanent: false # DeltaV - let peaceful revs etc remove mindshields
      addedComponents: # DeltaV - replaces mindshield tag logic
      - type: MindShield
+
+# Nukie implants
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: HostageImplant
+  name: hostage implant
+  description: Perfect for all your hostage ops needs! Allows the implanted entity to be ignored by syndicate turrets.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Pacified
+      disallowDisarm: true
+      disallowAllCombat: true
+  - type: AddFactionsImplant
+    factions:
+    - Hostage
