@@ -151,15 +151,7 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
-
-  - type: Inventory
-    Displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
-      
+    
   - type: Oni # Thank you Oni for so much :3
     modifiers:
       coefficients:
@@ -173,11 +165,3 @@
   components:
   - type: HumanoidAppearance
     species: Chitinid
-  - type: Inventory
-    Displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
-
