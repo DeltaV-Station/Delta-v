@@ -1,11 +1,13 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartChitinid
+  id: PartChitinidBase
   parent: [BaseItem, BasePart]
   name: "Chitinid body part"
   abstract: true
   components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
   - type: Extractable
     juiceSolution:
       reagents:
@@ -17,10 +19,9 @@
 - type: entity
   id: TorsoChitinid
   name: "chitinid torso"
-  parent: [PartChitinid, BaseTorso]
+  parent: [PartChitinidBase, BaseTorso]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "torso_m"
   - type: Extractable
     juiceSolution:
@@ -34,10 +35,9 @@
 - type: entity
   id: HeadChitinid
   name: "chitinid head"
-  parent: [PartChitinid, BaseHead]
+  parent: [PartChitinidBase, BaseHead]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "head_m"
   - type: Extractable
     juiceSolution:
@@ -50,71 +50,63 @@
 - type: entity
   id: LeftArmChitinid
   name: "left chitinid arm"
-  parent: [PartChitinid, BaseLeftArm]
+  parent: [PartChitinidBase, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "l_arm"
 
 - type: entity
   id: RightArmChitinid
   name: "right chitinid arm"
-  parent: [PartChitinid, BaseRightArm]
+  parent: [PartChitinidBase, BaseRightArm]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "r_arm"
 
 - type: entity
   id: LeftHandChitinid
   name: "left chitinid hand"
-  parent: [PartChitinid, BaseLeftHand]
+  parent: [PartChitinidBase, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "l_hand"
 
 - type: entity
   id: RightHandChitinid
   name: "right chitinid hand"
-  parent: [PartChitinid, BaseRightHand]
+  parent: [PartChitinidBase, BaseRightHand]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "r_hand"
 
 - type: entity
   id: LeftLegChitinid
   name: "left chitinid leg"
-  parent: [PartChitinid, BaseLeftLeg]
+  parent: [PartChitinidBase, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "l_leg"
 
 - type: entity
   id: RightLegChitinid
   name: "right chitinid leg"
-  parent: [PartChitinid, BaseRightLeg]
+  parent: [PartChitinidBase, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "r_leg"
 
 - type: entity
   id: LeftFootChitinid
   name: "left chitinid foot"
-  parent: [PartChitinid, BaseLeftFoot]
+  parent: [PartChitinidBase, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "l_foot"
 
 - type: entity
   id: RightFootChitinid
   name: "right chitinid foot"
-  parent: [PartChitinid, BaseRightFoot]
+  parent: [PartChitinidBase, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: "r_foot"

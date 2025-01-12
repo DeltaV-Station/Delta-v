@@ -22,7 +22,7 @@
     color: "#ff7a00"
     autoRot: true
 
-  - type: Carriable # Carrying system from nyanotrasen.
+  - type: Carriable
 
   - type: Icon
     sprite: Mobs/Species/Chitinid/parts.rsi
@@ -35,9 +35,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Chitinid
-
-  - type: ZombieAccentOverride
-    accent: zombie
 
   - type: Speech
     speechVerb: Chitinid
@@ -100,7 +97,7 @@
         Cold : 1.25 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 1.0 #per second, scales with temperature & other constants # DeltaV: changed to normal heat damage
+        Heat : 1.0 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       289: 0.6
@@ -151,12 +148,6 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
-    
-  - type: Oni # Thank you Oni for so much :3
-    modifiers:
-      coefficients:
-        Blunt: 1.1
-        Slash: 1.1
 
 - type: entity
   parent: BaseSpeciesDummy
