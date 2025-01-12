@@ -3,16 +3,15 @@ using Content.Shared.Dataset;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Random.Helpers;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Server._EE.Announcements.Systems; // Impstation: RandomAnnouncerSystem Port from EE 
+using Content.Server.Station.Components; // Impstation: RandomAnnouncerSystem Port from EE 
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation: RandomAnnouncerSystem Port from EE 
+
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         if (!TryGetRandomStation(out var station))
@@ -68,15 +67,26 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var kind2 = groupList.Count > 1 ? groupList[1] : "???";
         var kind3 = groupList.Count > 2 ? groupList[2] : "???";
 
-        ChatSystem.DispatchStationAnnouncement(
-            station.Value,
-            Loc.GetString("station-event-random-sentience-announcement",
+        foreach (var target in targetList) //Impstation: Start RandomAnnouncerSystem Port from EE related code
+        {
+            var station = StationSystem.GetOwningStation(target);
+            if(station == null)
+                continue;
+            stationsToNotify.Add((EntityUid) station);
+        }
+        foreach (var station in stationsToNotify)
+        {
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId(args.RuleId),
+                StationSystem.GetInStation(EntityManager.GetComponent<StationDataComponent>(station)),
+                "station-event-random-sentience-announcement",
+                null,
+                Color.Gold,
+                null, null,
                 ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
-                ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
-                ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
-            ),
-            playDefaultSound: false,
-            colorOverride: Color.Gold
-        );
+                    ("data", Loc.GetString($"random-sentience-event-data-{RobustRandom.Next(1, 6)}")),
+                    ("strength", Loc.GetString($"random-sentience-event-strength-{RobustRandom.Next(1, 8)}"))
+            );
+        } // Impstation: End RandomAnnouncerSystem Port from EE related code
     }
 }

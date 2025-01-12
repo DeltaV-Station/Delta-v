@@ -20,6 +20,7 @@ using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
+using Content.Shared._Impstation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
@@ -38,6 +39,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._EE.Announcements.Systems;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -69,6 +71,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
     private const float ShuttleSpawnBuffer = 1f;
 
@@ -275,68 +278,11 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
         // UHH GOOD LUCK
         if (targetGrid == null)
+        //Impstation: RandomAnnouncerSystem port from EE, do post-shuttle-dock setup. Announce to the crew and set up shuttle timers.
         {
-            _logger.Add(
-                LogType.EmergencyShuttle,
-                LogImpact.High,
-                $"Emergency shuttle {ToPrettyString(stationUid)} unable to dock with station {ToPrettyString(stationUid)}");
-
-            return new ShuttleDockResult
-            {
-                Station = (stationUid, stationShuttle),
-                ResultType = ShuttleDockResultType.GoodLuck,
-            };
-        }
-
-        ShuttleDockResultType resultType;
-        if (_shuttle.TryFTLDock(stationShuttle.EmergencyShuttle.Value, shuttle, targetGrid.Value, out var config, DockTag))
-        {
-            _logger.Add(
-                LogType.EmergencyShuttle,
-                LogImpact.High,
-                $"Emergency shuttle {ToPrettyString(stationUid)} docked with stations");
-
-            resultType = _dock.IsConfigPriority(config, DockTag)
-                ? ShuttleDockResultType.PriorityDock
-                : ShuttleDockResultType.OtherDock;
-        }
-        else
-        {
-            _logger.Add(
-                LogType.EmergencyShuttle,
-                LogImpact.High,
-                $"Emergency shuttle {ToPrettyString(stationUid)} unable to find a valid docking port for {ToPrettyString(stationUid)}");
-
-            resultType = ShuttleDockResultType.NoDock;
-        }
-
-        return new ShuttleDockResult
-        {
-            Station = (stationUid, stationShuttle),
-            DockingConfig = config,
-            ResultType = resultType,
-            TargetGrid = targetGrid,
-        };
-    }
-
-    /// <summary>
-    /// Do post-shuttle-dock setup. Announce to the crew and set up shuttle timers.
-    /// </summary>
-    public void AnnounceShuttleDock(ShuttleDockResult result, bool extended)
-    {
-        var shuttle = result.Station.Comp.EmergencyShuttle;
-
-        DebugTools.Assert(shuttle != null);
-
-        if (result.ResultType == ShuttleDockResultType.GoodLuck)
-        {
-            _chatSystem.DispatchStationAnnouncement(
-                result.Station,
-                Loc.GetString("emergency-shuttle-good-luck"),
-                playDefaultSound: false);
-
-            // TODO: Need filter extensions or something don't blame me.
-            _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} unable to dock with station {ToPrettyString(stationUid)}");
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleGoodLuck"), Filter.Broadcast(),
+                "emergency-shuttle-good-luck", colorOverride: DangerColor);
             return;
         }
 
@@ -377,25 +323,58 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         {
             var payload = new NetworkPayload
             {
-                [ShuttleTimerMasks.ShuttleMap] = shuttle,
-                [ShuttleTimerMasks.SourceMap] = targetXform.MapUid,
-                [ShuttleTimerMasks.DestMap] = _roundEnd.GetCentcomm(),
-                [ShuttleTimerMasks.ShuttleTime] = time,
-                [ShuttleTimerMasks.SourceTime] = time,
-                [ShuttleTimerMasks.DestTime] = time + TimeSpan.FromSeconds(TransitTime),
-                [ShuttleTimerMasks.Docked] = true,
-            };
-            _deviceNetworkSystem.QueuePacket(shuttle.Value, null, payload, netComp.TransmitFrequency);
+                var angle = _dock.GetAngle(stationShuttle.EmergencyShuttle.Value, xform, targetGrid.Value, targetXform, xformQuery); //Impstation: RandomAnnouncerSys port from EE begins
+                var direction = ContentLocalizationManager.FormatDirection(angle.GetDir());
+                var location = FormattedMessage.RemoveMarkup(_navMap.GetNearestBeaconString((stationShuttle.EmergencyShuttle.Value, xform)));
+                _announcer.SendAnnouncementMessage(
+                    _announcer.GetAnnouncementId("ShuttleDock"),
+                    "emergency-shuttle-docked",
+                    null, null, null, null,
+                    ("time", $"{_consoleAccumulator:0}"),
+                       ("direction", direction),
+                       ("location", location)
+                );
+            }
+
+            // shuttle timers
+            var time = TimeSpan.FromSeconds(_consoleAccumulator);
+            if (TryComp<DeviceNetworkComponent>(stationShuttle.EmergencyShuttle.Value, out var netComp))
+            {
+                var payload = new NetworkPayload
+                {
+                    [ShuttleTimerMasks.ShuttleMap] = stationShuttle.EmergencyShuttle.Value,
+                    [ShuttleTimerMasks.SourceMap] = targetXform?.MapUid,
+                    [ShuttleTimerMasks.DestMap] = _roundEnd.GetCentcomm(),
+                    [ShuttleTimerMasks.ShuttleTime] = time,
+                    [ShuttleTimerMasks.SourceTime] = time,
+                    [ShuttleTimerMasks.DestTime] = time + TimeSpan.FromSeconds(TransitTime),
+                    [ShuttleTimerMasks.Docked] = true
+                };
+                _deviceNetworkSystem.QueuePacket(stationShuttle.EmergencyShuttle.Value, null, payload, netComp.TransmitFrequency);
+            }
+
+            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} docked with stations");
+            _announcer.SendAnnouncementAudio(_announcer.GetAnnouncementId("ShuttleDock"), Filter.Broadcast());
         }
+        else
+        {
+            if (TryComp<TransformComponent>(targetGrid.Value, out var targetXform))
+            {
+                var angle = _dock.GetAngle(stationShuttle.EmergencyShuttle.Value, xform, targetGrid.Value, targetXform, xformQuery);
+                var direction = ContentLocalizationManager.FormatDirection(angle.GetDir());
+                var location = FormattedMessage.RemoveMarkup(_navMap.GetNearestBeaconString((stationShuttle.EmergencyShuttle.Value, xform)));
+                _announcer.SendAnnouncementMessage(
+                    _announcer.GetAnnouncementId("ShuttleNearby"),
+                    "emergency-shuttle-nearby",
+                    null, null, null, null,
+                    ("direction", direction),
+                        ("location", location)
+                );
+            }
 
-        // Play announcement audio.
-
-        var audioFile = result.ResultType == ShuttleDockResultType.NoDock
-            ? "/Audio/Misc/notice1.ogg"
-            : "/Audio/Announcements/shuttle_dock.ogg";
-
-        // TODO: Need filter extensions or something don't blame me.
-        _audio.PlayGlobal(audioFile, Filter.Broadcast(), true);
+            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid)} unable to find a valid docking port for {ToPrettyString(stationUid)}");
+            _announcer.SendAnnouncementAudio(_announcer.GetAnnouncementId("ShuttleNearby"), Filter.Broadcast());
+        } // Impstation: Random Announcer Sys port ends
     }
 
     private void OnStationInit(EntityUid uid, StationCentcommComponent component, MapInitEvent args)
