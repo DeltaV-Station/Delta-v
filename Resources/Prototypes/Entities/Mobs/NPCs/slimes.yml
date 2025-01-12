@@ -11,7 +11,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
-  - type: Carriable # DeltaV 
+  - type: Carriable # DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -139,9 +139,14 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Impstation
   - type: TypingIndicator
     proto: slime
+  - type: Vocal # Impstation starts here
+    sounds:
+      Male: AnimalSlime
+      Female: AnimalSlime
+      Unsexed: AnimalSlime # Impstation ends here
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
