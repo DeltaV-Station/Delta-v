@@ -1,4 +1,6 @@
-﻿- type: loadout
+﻿# Sidearm
+
+- type: loadout
   id: SecurityFirearmWeaponPistolPollock
   equipment:
     pocket1: WeaponPistolPollock
@@ -18,6 +20,8 @@
   equipment:
     pocket1: WeaponDisabler
 
+# Ammo
+
 - type: loadout
   id: SecurityFirearmMagazinePistolRubber
   storage:
@@ -29,3 +33,69 @@
   storage:
     back:
     - MagazinePistol
+
+# Jumpsuit
+
+- type: loadout
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+
+- type: loadout
+  id: SecurityJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecBlue
+
+- type: loadout
+  id: SeniorSecOfficerJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecSenior
+
+- type: loadout
+  id: SeniorSecOfficerJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecSenior
+
+- type: loadout
+  id: SeniorSecOfficerTurtlesuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecTurtle
+
+- type: loadout
+  id: SeniorSecOfficerTurtleskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecTurtle
+
+# OuterClothing
+
+- type: loadout
+  id: PlateCarrier
+  equipment:
+    outerClothing: ClothingOuterArmorPlateCarrier
+
+- type: loadout
+  id: DuraVest
+  equipment:
+    outerClothing: ClothingOuterArmorDuraVest
+
+- type: loadout
+  id: StasecSweater
+  equipment:
+    outerClothing: ClothingOuterStasecSweater
+
+- type: loadout
+  id: StasecWinterCoat
+  equipment:
+    outerClothing: ClothingOuterCoatStasec
