@@ -54,11 +54,6 @@
     # RandomTraitorAliveObjective: 1 DeltaV removed for being a less fun version of progress objective.
     RandomTraitorProgressObjective: 1
 
-- type: weightedRandom # DeltaV
-  id: TraitorObjectiveGroupSpecial
-  weights:
-    UploadAILawObjective: 1
-
 #Thief groups
 - type: weightedRandom
   id: ThiefObjectiveGroups
