@@ -1,4 +1,6 @@
 using Content.Shared._DV.Pain;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -17,6 +19,7 @@ public sealed class PainSystem : SharedPainSystem
     {
         base.Initialize();
         SubscribeLocalEvent<PainComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(HandlePainDeath);
     }
 
     private void OnMapInit(Entity<PainComponent> ent, ref MapInitEvent args)
@@ -86,5 +89,11 @@ public sealed class PainSystem : SharedPainSystem
             }
             component.NextUpdateTime = curTime + TimeSpan.FromSeconds(1);
         }
+    }
+
+    private void HandlePainDeath(Entity<HumanoidAppearanceComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            EnsureComp<PainComponent>(args.Target);
     }
 }
