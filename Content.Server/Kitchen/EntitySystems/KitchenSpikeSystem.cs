@@ -169,7 +169,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 // End DeltaV changes
             }
 
-            _audio.PlayEntity(component.SpikeSound, Filter.Pvs(uid), uid, true);
+            _audio.PlayPvs(component.SpikeSound, uid);
         }
 
         private bool TryGetPiece(EntityUid uid, EntityUid user, EntityUid used,

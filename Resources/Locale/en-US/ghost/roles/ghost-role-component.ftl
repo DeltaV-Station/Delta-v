@@ -29,17 +29,6 @@ ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/b
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
-# Delta V soft antag rule
-deltav-ghost-role-information-softantag-rules = You are allowed to attack the crew without provocation.
-                                                You are allowed to coexist with the crew.
-                                                The crew is allowed to kill you without warning.
-
-# Delta V salvage antag rule
-deltav-ghost-role-information-salvageantag-rules =  You are a salvage mob.
-                                                    You are allowed to attack salvagers without provocation. DO NOT GIB THEIR CORPSES!
-                                                    You are allowed to attack the salvage shuttle.
-                                                    You are NOT allowed to go to the station. If the salvagers go to the station, you can't follow them.
-
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
@@ -55,7 +44,7 @@ ghost-role-information-snailspeed-description = A little snail with snailborn th
 ghost-role-information-snoth-name = Snoth
 ghost-role-information-snoth-description = A little snoth who doesn't mind a bit of space. Just stay on grid!
 
-ghost-role-information-giant-spider-name = Giant spider
+ghost-role-information-giant-spider-name = Giant Spider
 ghost-role-information-giant-spider-description = This station's inhabitants look mighty tasty, and your sticky web is perfect to catch them!
 ghost-role-information-giant-spider-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other giant spiders.
 
@@ -64,7 +53,7 @@ ghost-role-information-cognizine-description = Made conscious with the magic of 
 ghost-role-information-hamster-name = Hamster
 ghost-role-information-hamster-description = A grumpy little ball of fluff.
 
-ghost-role-information-hamlet-name = Hamlet the hamster.
+ghost-role-information-hamlet-name = Hamlet the Hamster
 ghost-role-information-hamlet-description = Lives in the station bridge, has a bit of a temper and is always hungry.
 
 ghost-role-information-slimes-name = Slime
@@ -75,8 +64,7 @@ ghost-role-information-angry-slimes-description = Everyone around you irritates 
 ghost-role-information-angry-slimes-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other angry slimes.
 
 ghost-role-information-smile-name = Smile the Slime
-ghost-role-information-smile-description = The sweetest creature in the world. Smile Slime!
-ghost-role-information-smile-rules = You are a crew-aligned pet. You can defend yourself and even attack threats to the station, but you generally should not attack the station's crew nor destroy their property.
+ghost-role-information-smile-description = The sweetest creature in the world. Smile slime!
 
 ghost-role-information-punpun-name = Pun Pun
 ghost-role-information-punpun-description = An honorable member of the monkey society in charge of the bar and helping the bartenders in any way he can.
@@ -104,14 +92,14 @@ ghost-role-information-rat-king-description = You are the Rat King, your interes
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.
 
-ghost-role-information-salvage-carp-name = Space carp on salvage wreck
+ghost-role-information-salvage-carp-name = Space Carp on Salvage Wreck
 ghost-role-information-salvage-carp-description = Defend the loot inside the salvage wreck!
 
 ghost-role-information-sentient-carp-name = Sentient Carp
 ghost-role-information-sentient-carp-description = Help the dragon flood the station with carps!
 
-ghost-role-information-willow-name = Willow the kangaroo
-ghost-role-information-willow-description = You're a kangaroo named willow! Willow likes to box.
+ghost-role-information-willow-name = Willow the Kangaroo
+ghost-role-information-willow-description = You're a kangaroo named Willow! Willow likes to box.
 
 ghost-role-information-honkbot-name = Honkbot
 ghost-role-information-honkbot-description = An artificial being of pure evil.
@@ -125,7 +113,7 @@ ghost-role-information-mimebot-description = A Mimebot, act like a mime but don'
 ghost-role-information-supplybot-name = SupplyBot
 ghost-role-information-supplybot-description = Deliver goods around the station.
 
-ghost-role-information-space-bear-name = Space bear
+ghost-role-information-space-bear-name = Space Bear
 ghost-role-information-space-bear-description = Your tummy rumbles, and these people look really yummy... What a feast!
 
 # Still exists as a commented out reference for Tropico. Keeping it around. -TsjipTsjip, 2024-06-20
@@ -144,7 +132,7 @@ ghost-role-information-holoclown-description = Listen to your owner. Utilize you
 ghost-role-information-ifrit-name = Ifrit
 ghost-role-information-ifrit-description = Listen to your owner. Don't tank damage. Punch people hard.
 
-ghost-role-information-space-dragon-name = Space dragon
+ghost-role-information-space-dragon-name = Space Dragon
 ghost-role-information-space-dragon-description = Call in 3 carp rifts and take over this quadrant! You have only 5 minutes in between each rift before you will disappear.
 ghost-role-information-space-dragon-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all your summoned carp.
 ghost-role-information-space-dragon-summoned-carp-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with your dragon and its allies.
@@ -165,7 +153,7 @@ ghost-role-information-closet-skeleton-name = Closet Skeleton
 # Delta V removed mention of "cause chaos" to avoid confusion.
 ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or dwell maintenance! The world is yours to shape.
 
-ghost-role-information-remilia-name = Remilia, the chaplain's familiar
+ghost-role-information-remilia-name = Remilia, the Chaplain's Familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
 
 ghost-role-information-cerberus-name = Cerberus, Evil Familiar
@@ -192,7 +180,7 @@ ghost-role-information-ert-medical-description = Assist with medical efforts to 
 ghost-role-information-cburn-agent-name = CBURN Agent
 ghost-role-information-cburn-agent-description = A highly trained CentComm agent, capable of dealing with various threats.
 
-ghost-role-information-centcom-official-name = CentComm official
+ghost-role-information-centcom-official-name = CentComm Official
 ghost-role-information-centcom-official-description = Perform CentComm related duties such as inspect the station, jotting down performance reviews for heads of staff, and managing the fax machine.
 
 ghost-role-information-nukeop-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other nuclear operatives. Covert syndicate agents are not guaranteed to help you.
@@ -317,7 +305,7 @@ ghost-role-information-syndie-soldier-teamlead-description = You are the fire te
 ghost-role-information-blackmarketeer-name = Black Market Trader
 ghost-role-information-blackmarketeer-description = Make trades or take odd jobs to collect the most interesting items by the end of the shift.
 
-ghost-role-information-cossack-name = Ancient traveler
+ghost-role-information-cossack-name = Ancient Traveler
 ghost-role-information-cossack-description = From a history lost to time, you find yourself cast into this day and age.
 
 ghost-role-information-pirate-name = Space Pirate
@@ -329,6 +317,6 @@ ghost-role-information-pirate-captain-description = Argh matey! You are in charg
 ghost-role-information-artifact-name = Sentient Artifact
 ghost-role-information-artifact-description = Enact your eldritch whims. Forcibly activate your nodes for good or for evil.
 
-ghost-role-information-tomatokiller-name = Tomato killer
-ghost-role-information-tomatokiller-description = This little tomato will serve the botanist for the rest of his life... that is, a couple of minutes
+ghost-role-information-tomatokiller-name = Tomato Killer
+ghost-role-information-tomatokiller-description = This little tomato will serve the botanist for the rest of his life... that is, a couple of minutes.
 
