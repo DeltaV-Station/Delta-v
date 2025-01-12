@@ -75,6 +75,7 @@ namespace Content.Server.IoC
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
             IoCManager.Register<FeedbackPopupManager>(); // DeltaV
+            IoCManager.Register<ConnectionManager>();
         }
     }
 }
