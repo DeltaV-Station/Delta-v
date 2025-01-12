@@ -84,3 +84,23 @@
     sprite: _DV/Clothing/Belt/foamsheath.rsi
   - type: Clothing
     sprite: _DV/Clothing/Belt/foamsheath.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltPaperwork
+  name: paperwork belt
+  description: For all your tactical paperwork needs on the field.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/paperwork.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/paperwork.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - Folder
+      - Document
+      - Flashlight
+      - Radio
+      components:
+      - FitsInDispenser
