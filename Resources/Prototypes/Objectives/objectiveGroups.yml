@@ -129,3 +129,24 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
+
+#psi cultist deltav
+- type: weightedRandom
+  id: PsiCultistObjectiveGroups
+  weights:
+    PsiCultistObjectiveGroupPsionic: 1
+    PsiCultistObjectiveGroupSteal: 0.5
+    #TODO PsiCultistObjectiveGroupSocial: 1
+    #TODO PsiCultistObjectiveGroupKill: 0.5
+
+- type: weightedRandom
+  id: PsiCultistObjectiveGroupPsionic
+  weights:
+    BecomePsionicObjective: 1
+    RaiseGlimmerObjective: 1
+
+- type: weightedRandom
+  id: PsiCultistObjectiveGroupSteal
+  weights:
+    MantisKnifeStealObjective: 1
+    
