@@ -50,7 +50,7 @@
   - type: StealCondition
     stealGroup: AnimalSilvia
     owner: job-name-cmo
-    
+
 # Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
@@ -105,3 +105,25 @@
   - type: PickRandomTraitor
   - type: KillPersonCondition
     requireDead: true # Being able to leave them on the shuttle doesn't make sense when killing another traitor.
+
+# Upload AI law
+- type: entity
+  parent: BaseTraitorObjective
+  id: UploadAILawObjective
+  name: Subvert the Station AI
+  description: The AI is causing us problems. Update its laws so it wont be an annoyance. We have given you a board in your uplink!
+  components:
+  - type: Objective
+    difficulty: 3 # Need to get access and survive actually changing the board.
+    unique: true
+    icon:
+      sprite: Objects/Misc/module.rsi
+      state: generic
+  - type: StoreUnlocker
+    listings:
+    - UplinkAntimovObjectiveBoard
+  - type: CodeCondition
+  - type: AILawsUpdatedRequirement
+    lawset: AntimovLawset
+  - type: ObjectiveLimit
+    limit: 1
