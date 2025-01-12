@@ -50,7 +50,17 @@
   - type: StealCondition
     stealGroup: AnimalSilvia
     owner: job-name-cmo
-    
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CMODefibStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ChiefMedicalOfficer
+  - type: StealCondition
+    stealGroup: DefibrillatorCompactAdvanced
+    owner: job-name-cmo
+
 # Mystagogue steal objective
 - type: entity
   parent: BaseTraitorStealObjective
