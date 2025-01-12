@@ -1,0 +1,33 @@
+- type: entity
+  id: DefibrillatorCompactAdvanced
+  parent: BaseDefibrillator
+  name: advanced compact defibrillator
+  description: A belt-equipped state-of-the-art defibrillator that can be rapidly deployed in all enviroments. Uses an experimental self-charging cell, meaning that it will (probably) never stop working.
+  components:
+    - type: Sprite
+      sprite: _DV/Objects/Medical/advancedcompactdefib.rsi
+      layers:
+        - state: icon
+        - state: screen
+          map: [ "enum.ToggleVisuals.Layer" ]
+          visible: false
+          shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleVisuals.Toggled:
+          enum.ToggleVisuals.Layer:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Clothing
+      slots: [belt]
+    - type: Item
+      size: Normal
+    - type: MultiHandedItem
+    - type: StaticPrice
+      price: 500
+    - type: Tag
+      tags:
+      - HighRiskItem
+    - type: StealTarget
+      stealGroup: DefibrillatorCompactAdvanced
