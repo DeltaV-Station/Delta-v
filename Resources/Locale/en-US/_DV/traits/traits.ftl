@@ -38,3 +38,6 @@ trait-unborgable-desc = Your brain cannot be put into a man-machine interface.
 
 trait-depression-name = Depression
 trait-depression-desc = No mechanical effect. The world is dark but there is a light somewhere, calling to you.
+
+trait-drunkard-accent-name = Drunkard accent
+trait-drunkard-accent-desc = You always sound like you're drunk.

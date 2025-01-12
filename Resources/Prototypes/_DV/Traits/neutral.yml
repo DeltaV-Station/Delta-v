@@ -45,3 +45,12 @@
   cost: 2 # Changed weight to 2 in accordance with other accents
   components:
     - type: IrishAccent
+
+- type: trait
+  id: DrunkardAccent
+  name: trait-drunkard-accent-name
+  description: trait-drunkard-accent-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: DrunkardAccent
