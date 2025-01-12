@@ -63,7 +63,7 @@
   description: It's a very robust backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/security.rsi
+    sprite: _DV/Clothing/Back/Backpacks/security.rsi # DeltaV - resprite security backpacks
 
 - type: entity
   parent: [ClothingBackpack, BaseRestrictedContraband]
