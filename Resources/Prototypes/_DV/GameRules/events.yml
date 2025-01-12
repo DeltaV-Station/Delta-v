@@ -210,3 +210,30 @@
         sound: /Audio/Effects/clang.ogg
       mindRoles:
       - MindRoleFugitive
+
+- type: entity
+  parent: BaseGameRule
+  id: RoundstartFugitive #Roundstart Fugi here
+  components:
+  - type: StationEvent
+    minimumPlayers: 1 # TESTING NUMBER
+    duration: null
+  - type: RoundstartFugitiveRule #EVENT THAT SHOULD SPAWN THE WARRANT BUT IT DOESN'T
+  - type: AntagLoadProfileRule #What does this even do
+  - type: AntagObjectives
+    objectives:
+    - RoundstartFugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: roundstartfugitive-round-end-agent-name
+    definitions:
+    - prefRoles: [ RoundstartFugitive ] # What does this in the brackets do? Who knows? Not me.
+      max: 1
+      playerRatio: 15
+      lateJoinAdditional: true
+      allowNonHumans: false
+      multiAntagSetting: NotExclusive # What is this?
+      startingGear: RoundstartFugitiveGear
+      mindRoles:
+      - MindRoleRoundstartFugitive
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg" # Change the sound

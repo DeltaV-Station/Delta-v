@@ -32,6 +32,16 @@
 
 - type: entity
   parent: BaseMindRoleAntag
+  id: MindRoleRoundstartFugitive
+  name: Roundstart Fugitive Role
+  components:
+  - type: MindRole
+    antagPrototype: RoundstartFugitive #RoundstartFugitive here
+    exclusiveAntag: true
+  - type: RoundstartFugitiveRole
+
+- type: entity
+  parent: BaseMindRoleAntag
   id: MindRoleRecruiter
   name: Recruiter Role
   components:
