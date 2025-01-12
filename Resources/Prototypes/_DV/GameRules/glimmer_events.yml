@@ -12,6 +12,7 @@
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
+    - id: GlimmerScorpionSpawn
 
 - type: entity
   parent: BaseGameRule
@@ -42,3 +43,14 @@
     glimmerBurnLower: 20
     glimmerBurnUpper: 60
   - type: RandomSentienceRule
+
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerScorpionSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 200
+    maximumGlimmer: 900
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerScorpion
+    glimmerTier: Moderate
