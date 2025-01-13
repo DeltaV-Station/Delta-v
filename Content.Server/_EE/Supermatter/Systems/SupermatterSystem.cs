@@ -12,6 +12,7 @@ using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Station.Systems;
+using Content.Shared._EE.CCVars;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._EE.Supermatter.Monitor;
 using Content.Shared.Atmos;
@@ -85,7 +86,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
         // Set the yell timer
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(CCVars.SupermatterYellTimer));
+        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ECCVars.SupermatterYellTimer));
 
         // Set the Sound
         _ambient.SetAmbience(uid, true);
