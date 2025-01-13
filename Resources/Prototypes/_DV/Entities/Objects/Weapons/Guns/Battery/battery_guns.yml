@@ -23,8 +23,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 1500
+    startingCharge: 1500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
@@ -192,8 +192,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 1000
+    startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
@@ -229,7 +229,7 @@
   name: IK-60 energy carbine
   parent: BaseWeaponBattery
   id: WeaponGunLaserCarbineAutomatic
-  description: "A 20 round semi-automatic energy carbine."
+  description: "A 20 round hybrid-fire energy carbine."
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
@@ -250,9 +250,10 @@
     fireRate: 3
     availableModes:
       - SemiAuto
+      - FullAuto
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 3000
+    startingCharge: 3000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
