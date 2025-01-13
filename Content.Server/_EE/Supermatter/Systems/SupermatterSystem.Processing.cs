@@ -320,7 +320,7 @@ public sealed partial class SupermatterSystem
         {
             message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
             sm.DelamAnnounced = false;
-            sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(CCVars.SupermatterYellTimer));
+            sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ECCVars.SupermatterYellTimer));
             global = true;
 
             SendSupermatterAnnouncement(uid, sm, message, global);
@@ -347,7 +347,7 @@ public sealed partial class SupermatterSystem
                 > 30 => TimeSpan.FromSeconds(10),
                 >  5 => TimeSpan.FromSeconds(5),
                 <= 5 => TimeSpan.FromSeconds(1),
-                _ => TimeSpan.FromSeconds(_config.GetCVar(CCVars.SupermatterYellTimer))
+                _ => TimeSpan.FromSeconds(_config.GetCVar(ECCVars.SupermatterYellTimer))
             };
 
             message = Loc.GetString(loc, ("seconds", seconds));
@@ -426,8 +426,8 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(CCVars.SupermatterDoForceDelam))
-            return _config.GetCVar(CCVars.SupermatterForcedDelamType);
+        if (_config.GetCVar(ECCVars.SupermatterDoForceDelam))
+            return _config.GetCVar(ECCVars.SupermatterForcedDelamType);
 
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
@@ -436,13 +436,13 @@ public sealed partial class SupermatterSystem
             var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
             var moles = absorbedGas.TotalMoles;
 
-            if (_config.GetCVar(CCVars.SupermatterDoSingulooseDelam)
-                && moles >= sm.MolePenaltyThreshold * _config.GetCVar(CCVars.SupermatterSingulooseMolesModifier))
+            if (_config.GetCVar(ECCVars.SupermatterDoSingulooseDelam)
+                && moles >= sm.MolePenaltyThreshold * _config.GetCVar(ECCVars.SupermatterSingulooseMolesModifier))
                 return DelamType.Singulo;
         }
 
-        if (_config.GetCVar(CCVars.SupermatterDoTeslooseDelam)
-            && sm.Power >= sm.PowerPenaltyThreshold * _config.GetCVar(CCVars.SupermatterTesloosePowerModifier))
+        if (_config.GetCVar(ECCVars.SupermatterDoTeslooseDelam)
+            && sm.Power >= sm.PowerPenaltyThreshold * _config.GetCVar(ECCVars.SupermatterTesloosePowerModifier))
             return DelamType.Tesla;
 
         //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
