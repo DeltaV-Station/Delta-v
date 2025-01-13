@@ -19,3 +19,7 @@
     intensitySlope: 10
     canCreateVacuum: false
     deleteAfterExplosion: false
+  - type: FoodRecipeProvider
+    providedRecipes: # if any new unique foods get added this will need updating
+    - RecipeBaguetteSword
+    - RecipeThrowingCroissant
