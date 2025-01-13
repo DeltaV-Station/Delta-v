@@ -3,9 +3,9 @@
   id: AdvancedMicrowaveMachineCircuitBoard
   name: advanced microwave machine board
   components:
-    - type: MachineBoard
-      prototype: AdvancedMicrowave
-      stackRequirements:
-        Capacitor: 2
-        Glass: 4
-        Cable: 5
+  - type: MachineBoard
+    prototype: AdvancedMicrowave
+    stackRequirements:
+      Capacitor: 2
+      Glass: 4
+      Cable: 5
