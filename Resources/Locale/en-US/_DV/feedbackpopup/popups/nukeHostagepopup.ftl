@@ -9,7 +9,6 @@ feedbackpopup-hostage-nukie-start-description-2 = At the [bold]end of the round[
 feedbackpopup-hostage-nukie-end-name = Nukie-Hostage-NUKIE
 feedbackpopup-hostage-nukie-end-title = [bold]Hostage objective feedback![/bold]
 feedbackpopup-hostage-nukie-end-description-0 = Thanks for play testing our new nuke ops objective! If you would like to share any feedback about this feature, please comment it below. We would like to hear what you liked or didn't like, and how you think this feature could be improved.
-feedbackpopup-hostage-nukie-end-description-1 = Suggestions will be relayed to the DISCORD-CHANNEL-NAME-HERE channel.
 
 # Crew popup on round end.
 feedbackpopup-hostage-crew-end-name = Nukie-Hostage-CREW
