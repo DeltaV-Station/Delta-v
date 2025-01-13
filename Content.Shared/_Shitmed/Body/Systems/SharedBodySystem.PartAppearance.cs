@@ -8,15 +8,14 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Body.Systems;
-
 public partial class SharedBodySystem
 {
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private void InitializePartAppearances()
     {
         base.Initialize();
@@ -29,7 +28,6 @@ public partial class SharedBodySystem
 
     private void OnPartAppearanceStartup(EntityUid uid, BodyPartAppearanceComponent component, ComponentStartup args)
     {
-        Log.Debug($"BPA added to {ToPrettyString(uid)}");
         if (!TryComp(uid, out BodyPartComponent? part)
             || part.ToHumanoidLayers() is not { } relevantLayer)
             return;
@@ -38,11 +36,8 @@ public partial class SharedBodySystem
         {
             component.ID = part.BaseLayerId;
             component.Type = relevantLayer;
-            Dirty(uid, component);
             return;
         }
-
-        Log.Debug($"Checking {ToPrettyString(uid)} and {part.Body}");
 
         if (part.Body is not { Valid: true } body
             || !TryComp(body, out HumanoidAppearanceComponent? bodyAppearance))
@@ -53,8 +48,6 @@ public partial class SharedBodySystem
         component.Type = relevantLayer;
 
         part.Species = bodyAppearance.Species;
-
-        Log.Debug($"Updating to {part.Species}, {bodyAppearance.SkinColor}");
 
         if (customLayers.ContainsKey(component.Type))
         {
@@ -74,7 +67,7 @@ public partial class SharedBodySystem
 
         // I HATE HARDCODED CHECKS I HATE HARDCODED CHECKS I HATE HARDCODED CHECKS
         if (part.PartType == BodyPartType.Head)
-            component.EyeColor = bodyAppearance.EyeColor; // TODO: move this to the eyes...
+            component.EyeColor = bodyAppearance.EyeColor;
 
         var markingsByLayer = new Dictionary<HumanoidVisualLayers, List<Marking>>();
 
@@ -86,48 +79,17 @@ public partial class SharedBodySystem
         }
 
         component.Markings = markingsByLayer;
-        Dirty(uid, component);
-    }
-
-    /// <summary>
-    /// Makes sure the body part has an appearance, using the default for its species if it doesn't have one from a body.
-    /// If this part is in a body nothing is done.
-    /// </summary>
-    public bool EnsurePartAppearance(EntityUid uid, out BodyPartAppearanceComponent comp)
-    {
-        var had = EnsureComp<BodyPartAppearanceComponent>(uid, out comp);
-        if (!TryComp<BodyPartComponent>(uid, out var part)
-            || comp.ID != null // already assigned from a body
-            || string.IsNullOrEmpty(part.Species) // bad part prototype
-            || part.Body != null // let the body assign correct appearance when detaching this part, don't touch
-            || part.ToHumanoidLayers() is not {} relevantLayer) // not something that can have appearance
-            return had;
-
-        var species = _proto.Index<SpeciesPrototype>(part.Species);
-        comp.ID = GetSpeciesSprite(species, relevantLayer);
-        comp.Type = relevantLayer;
-        var skinColor = new Color(_random.NextFloat(1), _random.NextFloat(1), _random.NextFloat(1), 1);
-        comp.Color = SkinColor.ValidSkinTone(species.SkinColoration, skinColor);
-        Dirty(uid, comp);
-        return had;
     }
 
     private string? CreateIdFromPart(HumanoidAppearanceComponent bodyAppearance, HumanoidVisualLayers part)
     {
-        if (GetSpeciesSprite(_proto.Index(bodyAppearance.Species), part) is not {} sprite)
+        var speciesProto = _prototypeManager.Index(bodyAppearance.Species);
+        var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
+
+        if (!baseSprites.Sprites.ContainsKey(part))
             return null;
 
-        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, sprite);
-    }
-
-    private string? GetSpeciesSprite(SpeciesPrototype species, HumanoidVisualLayers part)
-    {
-        var baseSprites = _proto.Index<HumanoidSpeciesBaseSpritesPrototype>(species.SpriteSet);
-
-        if (!baseSprites.Sprites.TryGetValue(part, out var sprite))
-            return null;
-
-        return sprite;
+        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, baseSprites.Sprites[part]);
     }
 
     public void ModifyMarkings(EntityUid uid,
@@ -172,10 +134,8 @@ public partial class SharedBodySystem
 
     private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAddedEvent args)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
-            return;
-
-        if (EnsurePartAppearance(args.Part, out var partAppearance))
+        if (!TryComp(args.Part, out BodyPartAppearanceComponent? partAppearance)
+            || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
         if (partAppearance.ID != null)
@@ -191,10 +151,13 @@ public partial class SharedBodySystem
             || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
-        // When this component gets added it copies data from the body.
-        // This makes sure the markings are removed in RemoveAppearance, and layers hidden.
-        var partAppearance = EnsureComp<BodyPartAppearanceComponent>(args.Part);
-        RemoveAppearance(uid, partAppearance, args.Part);
+        // We check for this conditional here since some entities may not have a profile... If they dont
+        // have one, and their part is gibbed, the markings will not be removed or applied properly.
+        if (!HasComp<BodyPartAppearanceComponent>(args.Part))
+            EnsureComp<BodyPartAppearanceComponent>(args.Part);
+
+        if (TryComp<BodyPartAppearanceComponent>(args.Part, out var partAppearance))
+            RemoveAppearance(uid, partAppearance, args.Part);
     }
 
     protected void UpdateAppearance(EntityUid target,
