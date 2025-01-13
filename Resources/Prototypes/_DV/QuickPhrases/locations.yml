@@ -139,6 +139,11 @@
   id: LocationConferenceRoomPhrase
   text: station-beacon-conference-room
 
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationAICorePhrase
+  text: station-beacon-ai-core
+  
 # Engineering
 
 - type: quickPhrase

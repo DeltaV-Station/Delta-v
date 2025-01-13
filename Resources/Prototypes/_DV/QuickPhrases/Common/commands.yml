@@ -80,9 +80,9 @@
   text: phrase-come-here
 
 - type: quickPhrase
-  id: TakeThisPhrase
+  id: TakePhrase
   parent: BaseImperativePhrase
-  text: phrase-take-this
+  text: phrase-take
 
 - type: quickPhrase
   id: GoToPhrase
@@ -123,3 +123,4 @@
   id: WillPhrase
   parent: BaseImperativePhrase
   text: phrase-will
+  

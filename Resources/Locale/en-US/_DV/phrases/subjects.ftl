@@ -86,7 +86,7 @@ phrase-research-console = R&D computer
 phrase-oracle = Oracle
 phrase-sophie = Sophie
 phrase-glimmer = glimmer
-phrase-psionics = psionics
+phrase-psionic = psionic
 phrase-lotophagol-oil = lotophagol oil
 phrase-mindbreak-phase = mindbreak
 phrase-protolathe = protolathe
@@ -200,7 +200,14 @@ phrase-box = box
 phrase-locker = locker
 phrase-machine = machine
 phrase-blood = blood
-
+phrase-nukedisk = nuclear disk
+phrase-pinpointer = pinpointer
+phrase-law = law
+phrase-chassis = chassis
+phrase-upgrade = upgrade
+phrase-engi-on = on
+phrase-engi-off = off
+phrase-gas-analyzer = gas analyzer
 # colors
 phrase-color-red = red
 phrase-color-orange = orange

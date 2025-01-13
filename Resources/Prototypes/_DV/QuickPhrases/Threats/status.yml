@@ -79,24 +79,6 @@
   text: phrase-safety-hazardous
 
 - type: quickPhrase
-  id: SafetyHereToHelpPhrase
-  parent: BaseSafetyStatusPhrase
-  text: phrase-safety-here-to-help
-  styleClass: ServiceButton
-
-- type: quickPhrase
-  id: SafetyHowToHelpPhrase
-  parent: BaseSafetyStatusPhrase
-  text: phrase-safety-how-to-help
-  styleClass: ServiceButton
-
-- type: quickPhrase
-  id: SafetyEvacPhrase
-  parent: BaseSafetyStatusPhrase
-  text: phrase-safety-evac
-  styleClass: ServiceButton
-
-- type: quickPhrase
   id: SafetyNotPhrase
   parent: BaseSafetyStatusPhrase
   text: phrase-safety-not

@@ -76,7 +76,12 @@
   parent: BaseCommandJobPhrase
   id: AdminAssistantPhrase
   text: job-name-admin-assistant
-
+  
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: StationAIPhrase 
+  text: job-name-station-ai
+  
 # Engineering
 
 - type: quickPhrase
@@ -276,6 +281,11 @@
   id: MusicianPhrase
   text: job-name-musician
 
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ServiceWorkerPhrase
+  text: job-name-serviceworker
+  
 - type: quickPhrase
   parent: BaseServiceJobPhrase
   id: ClownPhrase
