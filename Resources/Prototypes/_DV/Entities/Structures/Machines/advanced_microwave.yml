@@ -19,3 +19,14 @@
     intensitySlope: 10
     canCreateVacuum: false
     deleteAfterExplosion: false
+<<<<<<< HEAD
+=======
+  - type: FoodRecipeProvider
+    providedRecipes: # if any new unique foods get added this will need updating
+    - RecipeBaguetteSword
+    - RecipeThrowingCroissant
+  - type: RadiationSource
+    intensity: 0.25
+    slope: 0.1
+    enabled: false
+>>>>>>> parent of 73b3d2809b (Merge branch 'microwave-ops' of https://github.com/Stop-Signs/Delta-v into microwave-ops)
