@@ -1,4 +1,4 @@
-using Content.Shared._EinsteinEngines.Supermatter.Components;
+using Content.Shared._EE.Supermatter.Components;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 
