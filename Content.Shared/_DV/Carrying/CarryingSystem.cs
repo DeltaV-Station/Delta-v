@@ -69,6 +69,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
+        SubscribeLocalEvent<BeingCarriedComponent, ComponentRemove>(OnRemoved);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
     }
 
@@ -205,6 +206,19 @@ public sealed class CarryingSystem : EntitySystem
         DropCarried(ent.Comp.Carrier, ent);
     }
 
+    private void OnRemoved(Entity<BeingCarriedComponent> ent, ref ComponentRemove args)
+    {
+        /*
+            This component has been removed for whatever reason, so just make sure that the
+            carrier is cleaned up.
+        */
+        if (!TryComp<CarryingComponent>(ent.Comp.Carrier, out var carryingComponent))
+            // This carrier has probably already been cleaned, no reason to try again
+            return;
+
+        CleanupCarrier(ent.Comp.Carrier, ent);
+    }
+
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
@@ -295,6 +309,11 @@ public sealed class CarryingSystem : EntitySystem
     public void DropCarried(EntityUid carrier, EntityUid carried)
     {
         Drop(carried);
+        CleanupCarrier(carrier, carried);
+    }
+
+    private void CleanupCarrier(EntityUid carrier, EntityUid carried)
+    {
         RemComp<CarryingComponent>(carrier); // get rid of this first so we don't recursively fire that event
         RemComp<CarryingSlowdownComponent>(carrier);
         _virtualItem.DeleteInHandsMatching(carrier, carried);
