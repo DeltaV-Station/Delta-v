@@ -131,11 +131,6 @@
 
 - type: quickPhrase
   parent: BaseCommandLocationPhrase
-  id: LocationHopPhrase
-  text: station-beacon-hop
-
-- type: quickPhrase
-  parent: BaseCommandLocationPhrase
   id: LocationConferenceRoomPhrase
   text: station-beacon-conference-room
 
@@ -420,16 +415,6 @@
 
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
-  id: LocationJaniOfficePhrase
-  text: station-beacon-janitor-office
-
-- type: quickPhrase
-  parent: BaseServiceLocationPhrase
-  id: LocationJaniClosetPhrase
-  text: station-beacon-janitor-closet
-
-- type: quickPhrase
-  parent: BaseServiceLocationPhrase
   id: LocationReporterPhrase
   text: station-beacon-reporter
 
@@ -437,6 +422,11 @@
   parent: BaseServiceLocationPhrase
   id: LocationTheaterPhrase
   text: station-beacon-theater
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationHopPhrase
+  text: station-beacon-hop
 
 # Civilian
 

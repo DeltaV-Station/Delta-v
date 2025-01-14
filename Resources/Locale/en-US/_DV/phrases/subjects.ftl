@@ -208,6 +208,9 @@ phrase-upgrade = upgrade
 phrase-engi-on = on
 phrase-engi-off = off
 phrase-gas-analyzer = gas analyzer
+phrase-planetside = planetside
+phrase-holopad = holopad
+
 # colors
 phrase-color-red = red
 phrase-color-orange = orange

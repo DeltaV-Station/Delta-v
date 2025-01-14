@@ -8,7 +8,6 @@ phrase-species-mouse = mouse
 phrase-species-mothroach = mothroach
 phrase-species-cockroach = cockroach
 phrase-species-spider = spider
-phrase-species-tarantula = tarantula
 phrase-species-bird = bird
 phrase-species-parrot = parrot
 phrase-species-snake = snake

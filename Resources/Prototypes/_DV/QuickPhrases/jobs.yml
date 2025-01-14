@@ -64,11 +64,6 @@
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
-  id: HeadOfPersonnelPhrase
-  text: job-name-hop
-
-- type: quickPhrase
-  parent: BaseCommandJobPhrase
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
 
@@ -295,6 +290,11 @@
   parent: BaseServiceJobPhrase
   id: MimePhrase
   text: job-name-mime
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: HeadOfPersonnelPhrase
+  text: job-name-hop
 
 # Wildcard
 
