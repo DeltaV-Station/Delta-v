@@ -50,11 +50,6 @@
   text: phrase-stop
 
 - type: quickPhrase
-  id: TakePhrase
-  parent: BaseActionPhrase
-  text: phrase-take
-  
-- type: quickPhrase
   id: RunPhrase
   parent: BaseActionPhrase
   text: phrase-run
