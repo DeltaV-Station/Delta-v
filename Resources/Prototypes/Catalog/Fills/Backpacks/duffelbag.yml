@@ -257,8 +257,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite hardsuit bundle
-  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  name: syndicate thermal hardsuit bundle # DeltaV change elite to thermal
+  description: "Contains the Syndicate's thermal hardsuit, which comes with some more stuff in it." # DeltaV change elite to thermal
   components:
   - type: StorageFill
     contents:
