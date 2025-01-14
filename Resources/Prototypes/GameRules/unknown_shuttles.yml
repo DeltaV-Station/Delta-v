@@ -104,7 +104,7 @@
   id: UnknownShuttleSyndieEvacPod
   components:
   - type: StationEvent
-    startAnnouncement: null # It should be silent.
+    startAnnouncement: false # It should be silent. # Impstation: Announcer boolean is not nullable
     weight: 5 # lower because weird freelance roles
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
@@ -115,7 +115,7 @@
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
-    startAnnouncement: null # It should be silent.
+    startAnnouncement: false # It should be silent. # Impstation: Announcer boolean is not nullable
     weight: .5 # Hopefully this is uncommon enough, it needs to be uncommon enough that people wont waste time metaknowledging it.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly.
     minimumPlayers: 25
@@ -185,7 +185,7 @@
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
-    startAnnouncement: null #dont nark on antags
+    startAnnouncement: false #dont nark on antags # Impstation: Announcer boolean is not nullable
     weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
   - type: LoadMapRule
