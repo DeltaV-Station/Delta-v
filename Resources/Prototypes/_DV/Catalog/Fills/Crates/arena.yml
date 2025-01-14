@@ -1,0 +1,235 @@
+- type: entity
+  id: CrateArenaMob
+  parent: CrateLivestockSecureReinforced
+  abstract: true
+  name: arena dangerous creature crate
+  description: A reinforced crate containing a dangerous creature for sanctioned gladiators to fight in the arena. Warning-Do not open without proper security protocols in place.
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  id: CrateArenaMobSmall
+  parent: CrateArenaMob
+  name: arena dangerous creature(small) crate
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: SmallArenaMobTable
+
+- type: entity
+  id: CrateArenaMobLarge
+  parent: CrateArenaMob
+  name: arena dangerous creature(large) crate
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LargeArenaMobTable
+
+#Tables
+- type: entityTable
+  id: SmallArenaMobTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - !type:GroupSelector
+        children:
+        - id: MobCarp
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: MobCarpMagic
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: MobCarpHolo
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: MobCarpRainbow
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: MobShark
+          weight: 0.2
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+      - !type:GroupSelector
+        children:
+        - id: MobPurpleSnake
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobCobraSpace
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobSmallPurpleSnake
+          amount: !type:RangeNumberSelector
+            range: 1, 6
+          weight: 0.4
+      - !type:GroupSelector
+        children:
+        - id: MobArgocyteSkitter
+          amount: !type:RangeNumberSelector
+            range: 1, 4
+        - id: MobArgocyteSwiper
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobArgocyteMolder
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobArgocytePouncer
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobArgocyteGlider
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobArgocyteHarvester
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        #Nanotrasen has not yet developed the technology to hold these creatures
+        #- id: MobArgocyteCrawler
+        #  amount: !type:RangeNumberSelector
+        #    range: 1, 2
+      - !type:GroupSelector
+        children:
+        - id: MobWatcherLavaland
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobWatcherIcewing
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobWatcherMagmawing
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobWatcherPride
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+          weight: 0.1
+      - !type:GroupSelector
+        children:
+        - id: MobAdultSlimesBlueAngry
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobAdultSlimesGreenAngry
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: MobAdultSlimesYellowAngry
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+      - id: MobTomatoKiller
+        amount: !type:RangeNumberSelector
+          range: 4, 8
+    #Uncommon
+    - !type:GroupSelector
+      weight: 0.5
+      children:
+      - id: MobLaserRaptor
+        weight: 10
+      - id: MobLaserRaptor
+        amount: !type:ConstantNumberSelector
+          value: 2
+      - id: MobFleshClamp
+        amount: !type:ConstantNumberSelector
+          value: 3
+
+- type: entityTable
+  id: LargeArenaMobTable
+  table: !type:GroupSelector
+    children:
+    #Common
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - !type:GroupSelector
+        children:
+        - id: MobBearSpace
+        - id: MobKangarooSpace
+        - id: MobKangarooSpace
+      #Nanotrasen has not yet developed the technology to hold these creatures
+      #- !type:GroupSelector
+        #children:
+        #- id: MobArgocyteEnforcer
+        #- id: MobArgocyteFounder
+      - !type:GroupSelector
+        children:
+        - id: MobXeno
+        - id: MobXenoPraetorianNPC
+        - id: MobXenoDroneNPC
+        - id: MobXenoRavagerNPC
+        - id: MobXenoRunnerNPC
+        - id: MobXenoRounyNPC
+        - id: MobXenoSpitterNPC
+        - id: MobXenoQueenNPC
+      - !type:GroupSelector
+        children:
+        - id: MobQuartzCrab
+        - id: MobIronCrab
+        - id: MobUraniumCrab
+        - id: MobSilverCrab
+        - !type:GroupSelector
+          weight: 0.5
+          children:
+          - id: MobQuartzCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobIronCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobUraniumCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+          - id: MobSilverCrab
+            amount: !type:ConstantNumberSelector
+              value: 2
+      - !type:GroupSelector
+        children:
+        - id: ReagentSlimeBeer
+          weight: 1.5
+        - id: ReagentSlimePax
+        - id: ReagentSlimeNocturine
+          weight: 1.5
+        - id: ReagentSlimeTHC
+          weight: 1.5
+        - id: ReagentSlimeBicaridine
+        - id: ReagentSlimeToxin
+          weight: 1.5
+        - id: ReagentSlimeNapalm
+        - id: ReagentSlimeMuteToxin
+        - id: ReagentSlimeNorepinephricAcid
+        - id: ReagentSlimeEphedrine
+        - id: ReagentSlimeRobustHarvest
+        - id: ReagentSlimeOmnizine
+          weight: 0.5
+    #Uncommon
+    - !type:GroupSelector
+      weight: 0.5
+      children:
+      - id: MobFleshJared
+      - id: MobFleshGolem
+      - id: MobFleshLover
+      - id: MobAbomination
+    - !type:GroupSelector
+      weight: 0.5
+      children:
+      - id: MobCarp
+        amount: !type:ConstantNumberSelector
+          value: 6
+      - id: MobCobraSpace
+        amount: !type:ConstantNumberSelector
+          value: 6
+      - id: MobArgocytePouncer
+        amount: !type:ConstantNumberSelector
+          value: 6
+      - id: MobWatcherPride
+        amount: !type:ConstantNumberSelector
+          value: 6
+      - id: MobAdultSlimesGreenAngry
+        amount: !type:ConstantNumberSelector
+          value: 6
+    #Nanotrasen has not yet developed the technology to hold these creatures
+    #Rare
+    #- !type:GroupSelector
+    #  weight: 0.1
+    #  children:
+    #  - id: MobArgocyteLeviathing

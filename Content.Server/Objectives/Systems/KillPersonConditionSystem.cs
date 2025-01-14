@@ -7,6 +7,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -38,14 +39,17 @@ public sealed class KillPersonConditionSystem : EntitySystem
         args.Progress = GetProgress(target.Value, comp.RequireDead);
     }
 
-    private void OnPersonAssigned(EntityUid uid, PickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(uid, args, _ => true);
+        AssignRandomTarget(ent, args, _ => true);
     }
 
-    private void OnHeadAssigned(EntityUid uid, PickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
+    private void OnHeadAssigned(Entity<PickRandomHeadComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(uid, args, mind => HasComp<CommandStaffComponent>(uid));
+        AssignRandomTarget(ent, args, mindId =>
+            TryComp<MindComponent>(mindId, out var mind) &&
+            mind.OwnedEntity is { } ownedEnt &&
+            HasComp<CommandStaffComponent>(ownedEnt));
     }
 
     private void AssignRandomTarget(EntityUid uid, ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
@@ -62,7 +66,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // Get all alive humans, filter out any with TargetObjectiveImmuneComponent
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId)
+        var allHumans = _mind.GetAliveHumans(args.MindId)
             .Where(mindId =>
             {
                 if (!TryComp<MindComponent>(mindId, out var mindComp) || mindComp.OwnedEntity == null)
@@ -70,6 +74,15 @@ public sealed class KillPersonConditionSystem : EntitySystem
                 return !HasComp<TargetObjectiveImmuneComponent>(mindComp.OwnedEntity.Value);
             })
             .ToList();
+
+        // Can't have multiple objectives to kill the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
+            {
+                allHumans.RemoveAll(x => x.Owner == kill.Target);
+            }
+        }
 
         // Filter out targets based on the filter
         var filteredHumans = allHumans.Where(mind => filter(mind)).ToList();

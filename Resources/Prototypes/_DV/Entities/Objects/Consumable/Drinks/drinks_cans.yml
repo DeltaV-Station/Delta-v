@@ -1,0 +1,15 @@
+- type: entity
+  parent: DrinkCanBaseFull
+  id: DrinkDrGibbBloodRedCan
+  name: Dr. Gibb Blood Red can
+  description:  A drink to quench YOUR bloodthirst.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DrGibbBloodRed
+          Quantity: 30
+  - type: Sprite
+    sprite: _DV/Objects/Consumable/Drinks/drgibbbloodred.rsi

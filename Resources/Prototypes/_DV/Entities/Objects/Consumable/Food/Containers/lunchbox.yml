@@ -1,0 +1,438 @@
+- type: entity
+  id: LunchboxGeneric
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  name: lunchbox
+  description: For on-the-go meal carrying needs.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Storage/lunchbox.rsi
+    layers:
+    - state: generic
+    - state: generic-open
+      map: ["openLayer"]
+  - type: Item
+    size: Large
+    shape: null
+    sprite: _DV/Objects/Storage/lunchbox.rsi
+    heldPrefix: generic
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+    - 3,0,1,1
+    - 4,0,4,1
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+    soundHit:
+      path: "/Audio/Weapons/click.ogg"
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledRandom
+  suffix: Filled, Random
+  name: pre-packed lunchbox
+  description: Packed with love.
+  components:
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodPizzaArnoldSlice
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+      amount: 2
+    - id: FoodBurgerCheese
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    - id: FoodCarrot
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    - id: FoodMothCapreseSalad
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    - id: FoodEggBoiled
+      orGroup: HealthyOrUnhealthyMain
+      prob: 0.2
+    #Drink
+    - id: DrinkJuiceOrangeJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuicePineappleJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuiceAppleJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkJuiceGrapeJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkChocolateJuicebox
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    - id: DrinkWaterBottleFull
+      orGroup: HealthyOrUnhealthyDrink
+      prob: 0.15
+    #Snack
+    - id: FoodSnackCheesie
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackBoritos
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChips
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackPistachios
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChocolate
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodSnackSus
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodMothMoffin
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.05
+    - id: FoodMothMothmallowSlice
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.05
+    - id: FoodApple
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    - id: FoodBanana
+      orGroup: HealthyOrUnhealthySnack
+      prob: 0.15
+    #Note
+    - id: PaperWrittenNoteFromMumGeneric
+      prob: 0.1
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledHealthy
+  suffix: Filled, Healthy
+  name: pre-packed lunchbox
+  description: Packed with healthy love.
+  components:
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodCarrot
+      orGroup: HealthyMain
+      prob: 0.5
+    - id: FoodMothCapreseSalad
+      orGroup: HealthyMain
+      prob: 0.5
+    - id: FoodEggBoiled
+      orGroup: HealthyMain
+      prob: 0.25
+    #Drink
+    - id: DrinkWaterBottleFull
+    #Snack
+    - id: FoodApple
+      orGroup: HealthySnack
+      prob: 0.5
+    - id: FoodBanana
+      orGroup: HealthySnack
+      prob: 0.5
+    #Note
+    - id: PaperWrittenNoteFromMumHealthy
+      prob: 0.1
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxGenericFilledUnhealthy
+  suffix: Filled, Unhealthy
+  name: pre-packed lunchbox
+  description: Packed with love.
+  components:
+  - type: StorageFill
+    contents:
+    #Main
+    - id: FoodPizzaArnoldSlice
+      amount: 2
+    #Drink
+    - id: DrinkJuiceOrangeJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuicePineappleJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuiceAppleJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkJuiceGrapeJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    - id: DrinkChocolateJuicebox
+      orGroup: UnhealthyDrink
+      prob: 0.2
+    #Snack
+    - id: FoodSnackCheesie
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackBoritos
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChips
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackPistachios
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackChocolate
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodSnackSus
+      orGroup: UnhealthySnack
+      prob: 0.15
+    - id: FoodMothMoffin
+      orGroup: UnhealthySnack
+      prob: 0.05
+    - id: FoodMothMothmallowSlice
+      orGroup: UnhealthySnack
+      prob: 0.05
+    #Note
+    - id: PaperWrittenNoteFromMumUnhealthy
+      prob: 0.1
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxCommand
+  suffix: Command
+  components:
+  - type: Sprite
+    layers:
+    - state: command
+    - state: command-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: command
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxCommandFilledRandom
+  suffix: Command, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: command
+    - state: command-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: command
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxSecurity
+  suffix: Security
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: security-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: security
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxSecurityFilledRandom
+  suffix: Security, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: security-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: security
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxMedical
+  suffix: Medical
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: medical-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: medical
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxMedicalFilledRandom
+  suffix: Medical, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: medical-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: medical
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxLogistics
+  suffix: Logistics
+  components:
+  - type: Sprite
+    layers:
+    - state: logistics
+    - state: logistics-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: logistics
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxLogisticsFilledRandom
+  suffix: Logistics, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: logistics
+    - state: logistics-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: logistics
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxEngineering
+  suffix: Engineering
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: engineering-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: engineering
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxEngineeringFilledRandom
+  suffix: Engineering, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: engineering-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: engineering
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxEpistemics
+  suffix: Epistemics
+  components:
+  - type: Sprite
+    layers:
+    - state: epistemics
+    - state: epistemics-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: epistemics
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxEpistemicsFilledRandom
+  suffix: Epistemics, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: epistemics
+    - state: epistemics-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: epistemics
+
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxService
+  suffix: Service
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: service-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: service
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxServiceFilledRandom
+  suffix: Service, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: service-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: service
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: syndicate-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: syndicate
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxSyndicateFilledRandom
+  suffix: Syndicate, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: syndicate-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: syndicate
+
+- type: entity
+  parent: LunchboxGeneric
+  id: LunchboxJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice
+
+- type: entity
+  parent: LunchboxGenericFilledRandom
+  id: LunchboxJusticeFilledRandom
+  suffix: Justice, Filled, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: justice
+    - state: justice-open
+      map: [ "openLayer" ]
+  - type: Item
+    heldPrefix: justice

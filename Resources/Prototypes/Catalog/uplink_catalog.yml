@@ -133,9 +133,9 @@
   productEntity: EnergyShield
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5 # DeltaV - was 4
+    Telecrystal: 12 # DeltaV - was 4
   cost:
-    Telecrystal: 10 # DeltaV - Was 8
+    Telecrystal: 16 # DeltaV - Was 8
   categories:
   - UplinkWeaponry
   conditions:
@@ -194,9 +194,9 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 20
+    Telecrystal: 35 # DeltaV - Was 20
   cost:
-    Telecrystal: 25
+    Telecrystal: 40 # DeltaV - Was 25
   categories:
   - UplinkWeaponry
 
@@ -208,9 +208,9 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 24
+    Telecrystal: 20 # DeltaV - Was 8
   cost:
-    Telecrystal: 30
+    Telecrystal: 24 # DeltaV - Was 12
   categories:
   - UplinkWeaponry
 
@@ -998,14 +998,14 @@
 
 - type: listing
   id: UplinkAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  name: uplink-overlord-law-name # DeltaV: Changed antimov to overlord, for traitors only
+  description: uplink-overlord-law-desc # DeltaV: Changed antimov to overlord
+  productEntity: OverlordCircuitBoard # DeltaV: replaced antimov with overlord
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 16 # DeltaV: was 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 20 # DeltaV: was 14
   categories:
   - UplinkDisruption
   conditions:
@@ -1264,14 +1264,14 @@
 - type: listing
   id: UplinkStorageImplanter
   name: uplink-storage-implanter-name
-  description: uplink-storage-implanter-desc
+  description: uplink-storage-implanter-delta-desc # DeltaV
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5 # DeltaV
+    Telecrystal: 2 # DeltaV
   cost:
-    Telecrystal: 10 # DeltaV - Was 8
+    Telecrystal: 4 # DeltaV
   categories:
     - UplinkImplants
   conditions:
@@ -1383,10 +1383,10 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 5 #DeltaV- Was 4, now 5
+    Telecrystal: 5 # DeltaV- Was 4, now 5
   categories:
     - UplinkImplants
- # conditions: #DeltaV- Allows Death Acidifer for our Syndibros
+ # conditions: # DeltaV- Allows Death Acidifer for our Syndibros
  #   - !type:StoreWhitelistCondition
  #     whitelist:
  #       tags:
@@ -1604,7 +1604,7 @@
 
 - type: listing
   id: UplinkHardsuitSyndieElite
-  name: uplink-hardsuit-syndieelite-name
+  name: uplink-hardsuit-syndieelite-delta-name # DeltaV change elite to thermal
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
@@ -1624,9 +1624,9 @@
   productEntity: CrateCybersunJuggernautBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 8
-  cost:
     Telecrystal: 12
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkWearables
 

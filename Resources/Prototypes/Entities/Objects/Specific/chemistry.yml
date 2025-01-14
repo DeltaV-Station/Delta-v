@@ -288,6 +288,7 @@
   - type: Injector
     injectOnly: false
     ignoreMobs: true
+    ignoreClosed: false
     minTransferAmount: 1
     maxTransferAmount: 5
     transferAmount: 1
@@ -414,6 +415,10 @@
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: false
+  - type: SolutionContainerManager # DeltaV - Nerfs the max volume to 5 (was 15)
+    solutions:
+      injector:
+        maxVol: 5 
   - type: SolutionInjectWhileEmbedded
     transferAmount: 1
     solution: injector

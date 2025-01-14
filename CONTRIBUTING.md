@@ -9,17 +9,16 @@ Upstream is the [space-wizards/space-station-14](https://github.com/space-wizard
 
 # Content specific to Delta-V
 
-In general anything you create from scratch (not modifying something that exists from upstream) should go in a DeltaV subfolder.
+In general anything you create from scratch (not modifying something that exists from upstream) should go in a DeltaV subfolder, `_DV`.
 
 Examples:
-- `Content.Server/DeltaV/Chapel/SacrificialAltarSystem.cs`
-- `Resources/Prototypes/DeltaV/ai_factions.yml`
-- `Resources/Audio/DeltaV/Items/gavel.ogg`
-- `Resources/Textures/DeltaV/Icons/cri.rsi`
-- `Resources/Locale/en-US/deltav/shipyard/shipyard-console.ftl`
-  The locale subfolder is lowercase `deltav` instead of `DeltaV`.
-- `Resources/ServerInfo/Guidebook/DeltaV/AlertProcedure.xml`
-  Note that guidebooks go in `ServerInfo/Guidebook/DeltaV` and not `ServerInfo/DeltaV`!
+- `Content.Server/_DV/Chapel/SacrificialAltarSystem.cs`
+- `Resources/Prototypes/_DV/ai_factions.yml`
+- `Resources/Audio/_DV/Items/gavel.ogg`
+- `Resources/Textures/_DV/Icons/cri.rsi`
+- `Resources/Locale/en-US/_DV/shipyard/shipyard-console.ftl`
+- `Resources/ServerInfo/Guidebook/_DV/AlertProcedure.xml`
+  Note that guidebooks go in `ServerInfo/Guidebook/_DV` and not `ServerInfo/_DV`!
 
 # Changes to upstream files
 

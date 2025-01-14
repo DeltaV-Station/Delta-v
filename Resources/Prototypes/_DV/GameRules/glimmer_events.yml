@@ -1,0 +1,44 @@
+- type: entityTable
+  id: GlimmerEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp and GlimmerEventComp
+    children:
+    - id: MundaneDischarge
+    - id: NoosphericZap
+    - id: NoosphericFry
+    - id: PsionicCatGotYourTongue
+    - id: MassMindSwap
+    - id: GlimmerWispSpawn
+    - id: FreeProber
+    - id: GlimmerRevenantSpawn
+    - id: GlimmerMiteSpawn
+    - id: GlimmerRandomSentience
+
+- type: entity
+  parent: BaseGameRule
+  id: GlimmerEventScheduler
+  components:
+  - type: NextEvent
+  - type: BasicStationEventScheduler
+    minMaxEventTiming:
+      min: 300
+      max: 1500
+    scheduledGameRules: !type:NestedSelector
+      tableId: GlimmerEventsTable
+
+# Like upstream's event but can reoccur and tied to glimmer.
+- type: entity
+  parent: [RandomSentience, BaseGlimmerEvent]
+  id: GlimmerRandomSentience
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    reoccurrenceDelay: 20
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 600
+    glimmerBurnLower: 20
+    glimmerBurnUpper: 60
+  - type: RandomSentienceRule

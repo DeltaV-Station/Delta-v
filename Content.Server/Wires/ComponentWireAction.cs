@@ -21,14 +21,15 @@ public abstract partial class ComponentWireAction<TComponent> : BaseWireAction w
 
     public override bool Cut(EntityUid user, Wire wire)
     {
-        return base.Cut(user, wire) &&
-            EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Cut(user, wire, component); // Nyanotrasen - Tactical hacking
+        base.Cut(user, wire);
+        // if the entity doesn't exist, we need to return true otherwise the wire sprite is never updated
+        return EntityManager.TryGetComponent(wire.Owner, out TComponent? component) ? Cut(user, wire, component) : true;
     }
 
     public override bool Mend(EntityUid user, Wire wire)
     {
-        return base.Mend(user, wire) &&
-            EntityManager.TryGetComponent(wire.Owner, out TComponent? component) && Mend(user, wire, component); // Nyanotrasen - Tactical hacking
+        base.Mend(user, wire);
+        return EntityManager.TryGetComponent(wire.Owner, out TComponent? component) ? Mend(user, wire, component) : true;
     }
 
     public override void Pulse(EntityUid user, Wire wire)

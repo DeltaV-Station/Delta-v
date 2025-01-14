@@ -1,0 +1,27 @@
+- type: job
+  id: Surgeon
+  name: job-name-surgeon
+  description: job-description-surgeon
+  playTimeTracker: JobSurgeon
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 28800
+  startingGear: SurgeonGear
+  icon: JobIconSurgeon
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Surgery
+  - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 2.0
+
+- type: startingGear
+  id: SurgeonGear
+  equipment:
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltSurgeonFilled

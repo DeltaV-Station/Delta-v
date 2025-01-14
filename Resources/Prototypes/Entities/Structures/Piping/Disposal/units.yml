@@ -9,7 +9,7 @@
     - Disposal
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
@@ -71,7 +71,7 @@
   name: disposal unit
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
     snapCardinals: true
   - type: Construction
     graph: DisposalMachine
@@ -93,7 +93,7 @@
   description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
+    sprite: _DV/Structures/Piping/disposal.rsi # DeltaV - Use old sprites
     snapCardinals: true
     layers:
       - state: conmailing

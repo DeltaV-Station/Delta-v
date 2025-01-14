@@ -1,0 +1,50 @@
+﻿- type: stealTargetGroup
+  id: SpaceCashLuckyBill
+  name: steal-target-groups-lucky-bill
+  sprite:
+    sprite: _DV/Objects/Misc/first_bill.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: BookIanDossier
+  name: steal-target-groups-ian-dossier
+  sprite:
+    sprite: _DV/Objects/Misc/bureaucracy.rsi
+    state: folder-hop-ian
+
+- type: stealTargetGroup
+  id: WeaponEnergyGunMultiphase
+  name: steal-target-groups-x01
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    state: base
+    
+- type: stealTargetGroup
+  id: BoxFolderRdClipboard
+  name: steal-target-groups-box-folder-rd-clipboard
+  sprite:
+    sprite: _DV/Objects/Misc/rd_clipboard.rsi
+    state: rd_clipboard
+
+- type: stealTargetGroup
+  id: RubberStampNotary
+  name: steal-target-groups-notary-stamp
+  sprite:
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-notary
+
+- type: stealTargetGroup
+  id: AnimalSilvia
+  name: steal-target-groups-silvia
+  sprite:
+    sprite: _DV/Mobs/Pets/silvia.rsi
+    state: silvia
+
+# Ninja
+
+- type: stealTargetGroup
+  id: CaptainsCloak
+  name: steal-target-groups-captains-cloak
+  sprite:
+    sprite: Clothing/Neck/Cloaks/cap.rsi
+    state: icon

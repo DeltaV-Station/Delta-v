@@ -1,0 +1,37 @@
+- type: entity
+  parent: Airlock
+  id: AirlockJustice
+  suffix: Justice
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Standard/justice.rsi
+  - type: PaintableAirlock
+    department: Justice
+
+- type: entity
+  parent: AirlockScience
+  id: AirlockRobotics
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Standard/roboticist.rsi
+
+# Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockJusticeGlass
+  suffix: Justice
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Glass/justice.rsi
+  - type: PaintableAirlock
+    department: Justice
+
+- type: entity
+  parent: AirlockScienceGlass
+  id: AirlockRoboticsGlass
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Glass/roboticist.rsi

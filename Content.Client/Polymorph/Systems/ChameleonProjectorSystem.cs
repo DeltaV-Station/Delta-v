@@ -1,8 +1,10 @@
+using Content.Client.Effects;
 using Content.Client.Smoking;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Polymorph.Systems;
 using Robust.Client.GameObjects;
+using Robust.Shared.Player;
 
 namespace Content.Client.Polymorph.Systems;
 
@@ -24,6 +26,7 @@ public sealed class ChameleonProjectorSystem : SharedChameleonProjectorSystem
 
         SubscribeLocalEvent<ChameleonDisguisedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChameleonDisguisedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChameleonDisguisedComponent, GetFlashEffectTargetEvent>(OnGetFlashEffectTargetEvent);
     }
 
     private void OnHandleState(Entity<ChameleonDisguiseComponent> ent, ref AfterAutoHandleStateEvent args)
@@ -51,5 +54,10 @@ public sealed class ChameleonProjectorSystem : SharedChameleonProjectorSystem
     {
         if (_spriteQuery.TryComp(ent, out var sprite))
             sprite.Visible = ent.Comp.WasVisible;
+    }
+
+    private void OnGetFlashEffectTargetEvent(Entity<ChameleonDisguisedComponent> ent, ref GetFlashEffectTargetEvent args)
+    {
+        args.Target = ent.Comp.Disguise;
     }
 }

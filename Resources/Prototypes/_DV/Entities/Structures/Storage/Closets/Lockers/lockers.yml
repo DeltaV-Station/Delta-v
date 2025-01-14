@@ -1,0 +1,72 @@
+- type: entity
+  parent: LockerBase
+  id: LockerBaseDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Storage/closet.rsi
+
+- type: entity
+  parent: [ LockerBaseDeltaV, LockerBaseSecure ]
+  id: LockerBaseSecureDeltaV
+
+- type: entity
+  id: LockerChiefJustice
+  parent: LockerBaseSecureDeltaV
+  name: chief justice's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: cj
+    stateDoorOpen: cj_open
+    stateDoorClosed: cj_door
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  id: LockerClerk
+  parent: LockerBaseSecureDeltaV
+  name: clerk's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerPsychologist
+  name: psychologist's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: psych
+    stateDoorOpen: psych_open
+    stateDoorClosed: psych_door
+  - type: AccessReader
+    access: [["Psychologist"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerSurgeon
+  name: surgeon's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: surgeon
+    stateDoorOpen: surgeon_open
+    stateDoorClosed: surgeon_door
+  - type: AccessReader
+    access: [ [ "Surgery" ] ]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerAdministrativeAssistant
+  name: administrative assistant's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: admin_assist
+    stateDoorOpen: admin_assist_open
+    stateDoorClosed: admin_assist_door
+  - type: AccessReader
+    access: [["Command"]]

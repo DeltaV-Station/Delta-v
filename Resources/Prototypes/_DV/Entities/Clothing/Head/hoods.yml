@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ClothingHeadHatInterdyneChemistryHood
+  categories: [ HideSpawnMenu ]
+  name: interdyne chemistry hood
+  description: A hood to complete the professional chemist look.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hoods/interdynechemhood.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hoods/interdynechemhood.rsi
