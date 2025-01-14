@@ -4,7 +4,7 @@
   parent: BaseGameRule
   components:
     - type: StationEvent
-      startAnnouncement: station-event-noospheric-storm-announcement
+      startAnnouncement: true
       startAudio:
         path: /Audio/Announcements/noosphericstorm.ogg
       weight: 5
