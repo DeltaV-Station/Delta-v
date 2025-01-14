@@ -285,7 +285,7 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation Random Announcer Port
-    endAnnouncement: station-event-gas-leak-end-announcement
+    endAnnouncement: true # Impstation Random Announcer Port
     weight: 10 # DeltaV - was 8
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-gas-leak-result-message
