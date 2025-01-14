@@ -3,7 +3,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
 
-namespace Content.Shared.SimpleStation14.Clothing;
+namespace Content.Shared._Goobstation.Clothing;
 
 public sealed class ClothingGrantingSystem : EntitySystem
 {

@@ -1,4 +1,4 @@
-namespace Content.Shared.SimpleStation14.Clothing;
+namespace Content.Shared._Goobstation.Clothing;
 
 [RegisterComponent]
 public sealed partial class ClothingGrantTagComponent : Component
@@ -7,5 +7,5 @@ public sealed partial class ClothingGrantTagComponent : Component
     public string Tag = "";
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool IsActive = false;
+    public bool IsActive;
 }

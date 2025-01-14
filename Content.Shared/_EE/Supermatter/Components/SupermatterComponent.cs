@@ -35,7 +35,7 @@ public sealed partial class SupermatterComponent : Component
     ///     If removed - delamination timer is divided by 2.
     /// </summary>
     [DataField]
-    public bool SliverRemoved = false;
+    public bool SliverRemoved;
 
     public string[] LightningPrototypes =
     {
@@ -97,7 +97,7 @@ public sealed partial class SupermatterComponent : Component
     public string StatusDelamSound = "SupermatterDelaminating";
 
     [DataField]
-    public string? StatusCurrentSound = null;
+    public string? StatusCurrentSound;
 
     #endregion
 
@@ -300,14 +300,14 @@ public sealed partial class SupermatterComponent : Component
     ///     The amount of damage taken
     /// </summary>
     [DataField]
-    public float Damage = 0f;
+    public float Damage;
 
     /// <summary>
     ///     The damage from before this cycle.
     ///     Used to limit the damage we can take each cycle, and for safe alert.
     /// </summary>
     [DataField]
-    public float DamageArchived = 0f;
+    public float DamageArchived;
 
     /// <summary>
     ///     Is multiplied by ExplosionPoint to cap evironmental damage per cycle
@@ -358,7 +358,7 @@ public sealed partial class SupermatterComponent : Component
     public int DamageDelamAlertPoint = 300;
 
     [DataField]
-    public bool Delamming = false;
+    public bool Delamming;
 
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
@@ -368,7 +368,7 @@ public sealed partial class SupermatterComponent : Component
     #region Announcements
 
     [DataField]
-    public bool DelamAnnounced = false;
+    public bool DelamAnnounced;
 
     [DataField]
     public ProtoId<RadioChannelPrototype> Channel = "Engineering";

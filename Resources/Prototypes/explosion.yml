@@ -134,6 +134,7 @@
 # BEFORE YOU ADD MORE EXPLOSION TYPES CONSIDER IF AN EXISTING ONE IS SUITABLE
 # ADDING NEW ONES IS PROHIBITIVELY EXPENSIVE
 
+# imp - Begin Supermatter explosion type
 - type: explosion
   id: Supermatter
   damagePerIntensity:
@@ -149,3 +150,4 @@
   fireColor: Green
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+# imp - End Supermatter explosion type

@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Beam;
 using Content.Server.Beam.Components;
 using Content.Server.Lightning.Components;
@@ -64,6 +63,9 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <summary>
     /// Fires lightning from user to coordinates
     /// </summary>
+    /// <remarks>
+    ///     Ported from imp
+    /// </remarks>
     /// <param name="user">Where the lightning fires from</param>
     /// <param name="targetCoordinates">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
@@ -77,6 +79,9 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <summary>
     /// Fires lightning from coordinates to target
     /// </summary>
+    /// <remarks>
+    ///     Ported from imp
+    /// </remarks>
     /// <param name="coordinates">Where the lightning fires from</param>
     /// <param name="target">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
@@ -96,6 +101,9 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <summary>
     /// Fires lightning from coordinates to other coordinates
     /// </summary>
+    /// <remarks>
+    ///     Ported from imp
+    /// </remarks>
     /// <param name="coordinates">Where the lightning fires from</param>
     /// <param name="targetCoordinates">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
@@ -110,6 +118,9 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <summary>
     /// Looks for objects with a LightningTarget component in the radius, prioritizes them, and hits the highest priority targets with lightning.
     /// </summary>
+    /// <remarks>
+    ///     Ported from imp.
+    /// </remarks>
     /// <param name="coordinates">Where the lightning fires from</param>
     /// <param name="range">Targets selection radius</param>
     /// <param name="boltCount">Number of lightning bolts</param>
@@ -130,14 +141,16 @@ public sealed class LightningSystem : SharedLightningSystem
 
         int shootedCount = 0;
         int count = -1;
-        int mobLightningResistance = 2;
+        int mobLightningResistance = 2; // imp - If the target has a lightning resistance less than or equal to this, the lightning can hit random coordinates instead.
         while (shootedCount < boltCount)
         {
             count++;
-            var outOfRange = count >= targets.Count ? true : false;
+
+            // imp - random coordinate lightning start
+            var outOfRange = count >= targets.Count;
             var targetLightningResistance = outOfRange ? 0 : targets[count].Comp.LightningResistance;
 
-            if (_random.Prob(hitCoordsChance) && targetLightningResistance <= mobLightningResistance)
+            if (hitCoordsChance > 0 && targetLightningResistance <= mobLightningResistance && _random.Prob(hitCoordsChance))
             {
                 var targetCoordinate = coordinates.Offset(_random.NextVector2(range, range));
 
@@ -156,11 +169,13 @@ public sealed class LightningSystem : SharedLightningSystem
             }
 
             if (outOfRange) { break; }
+            // imp - random coordinate lightning end
 
             var curTarget = targets[count];
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
                 continue;
 
+            // imp - use correct shoot lightning method based on whether this is coordinates-based or entity-based
             if (user != null)
                 ShootLightning(user.Value, targets[count].Owner, lightningPrototype, triggerLightningEvents);
             else
@@ -186,6 +201,7 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="hitCoordsChance">Chance for lightning to strike random coordinates instead of an entity.</param>
     public void ShootRandomLightnings(EntityUid user, float range, int boltCount, string lightningPrototype = "Lightning", int arcDepth = 0, bool triggerLightningEvents = true, float hitCoordsChance = 0f)
     {
+        // imp - Redirect to the other function for compatibility
         ShootRandomLightnings(_transform.GetMapCoordinates(user), range, boltCount, lightningPrototype, arcDepth, triggerLightningEvents, hitCoordsChance, user);
     }
 }
@@ -193,7 +209,7 @@ public sealed class LightningSystem : SharedLightningSystem
 /// <summary>
 /// Raised directed on the target when an entity becomes the target of a lightning strike (not when touched)
 /// </summary>
-/// <param name="Source">The entity that created the lightning</param>
+/// <param name="Source">The entity that created the lightning. May be null if the lightning came from coordinates rather than an entity.</param>
 /// <param name="Target">The entity that was struck by lightning.</param>
 [ByRefEvent]
-public readonly record struct HitByLightningEvent(EntityUid? Source, EntityUid Target);
+public readonly record struct HitByLightningEvent(EntityUid? Source, EntityUid Target); // imp - Lightning might come from coordinates instead of an entity, so Source can be null

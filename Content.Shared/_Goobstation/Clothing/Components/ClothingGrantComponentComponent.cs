@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.SimpleStation14.Clothing
+namespace Content.Shared._Goobstation.Clothing
 {
     [RegisterComponent]
     public sealed partial class ClothingGrantComponentComponent : Component
@@ -10,6 +10,6 @@ namespace Content.Shared.SimpleStation14.Clothing
         public ComponentRegistry Components { get; private set; } = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public bool IsActive = false;
+        public bool IsActive;
     }
 }
