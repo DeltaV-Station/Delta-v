@@ -33,7 +33,8 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-	[Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation: Random announcer system port from EE
+    [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
     public override void Initialize()
     {
