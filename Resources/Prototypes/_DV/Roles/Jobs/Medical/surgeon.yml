@@ -14,12 +14,11 @@
   - Medical
   - Surgery
   - Maintenance
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
-
+ # special: Shitmed, DeltaV role modifiers bad
+ # - !type:AddComponentSpecial
+ #   components:
+ #   - type: SurgerySpeedModifier
+ #     speedModifier: 1.5
 - type: startingGear
   id: SurgeonGear
   equipment:
