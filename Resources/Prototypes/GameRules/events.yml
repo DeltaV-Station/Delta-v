@@ -1,4 +1,4 @@
-- type: entityTable
+﻿- type: entityTable
   id: BasicCalmEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
@@ -520,6 +520,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - SyndicateNamesPrefix
