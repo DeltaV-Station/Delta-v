@@ -393,18 +393,6 @@
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
-  - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
-    sprite: _DV/Objects/Devices/pda.rsi # DeltaV aPDA Resprite File Path
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: ChaplainIDCard
   - type: Appearance
@@ -1073,7 +1061,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
-    - ChameleonWhitelist # DeltaV - it has a unique sprite
+    - WhitelistChameleon # DeltaV - it has a unique sprite
 
 - type: entity
   parent: BasePDA

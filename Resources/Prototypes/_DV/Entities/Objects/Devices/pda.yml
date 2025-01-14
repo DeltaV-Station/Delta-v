@@ -481,7 +481,10 @@
   components:
   - type: Pda
     id: LifeSupportTechIDCard
-    state: pda-lifesupporttech # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-lifesupporttech
 
 - type: entity
   parent: AtmosPDA
@@ -490,7 +493,10 @@
   components:
   - type: Pda
     id: PlasmaScientistIDCard
-    state: pda-plasmatech # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-plasmatech
 
 # Station Engineer
 
@@ -502,7 +508,10 @@
   components:
   - type: Pda
     id: ElectricianIDCard
-    state: pda-electrician # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-electrician
 
 - type: entity
   parent: EngineerPDA
@@ -512,7 +521,10 @@
   components:
   - type: Pda
     id: MechanicIDCard
-    state: pda-mechanic # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mechanic
 
 # Cargo Technician
 
@@ -524,7 +536,10 @@
   components:
   - type: Pda
     id: DeckWorkerIDCard
-    state: pda-deckworker # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-deckworker
 
 - type: entity
   parent: CargoPDA
@@ -533,7 +548,10 @@
   components:
   - type: Pda
     id: InventoryAssociateIDCard
-    state: pda-inventoryassociate # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-inventoryassociate
 
 # Salvage Technician
 
@@ -544,7 +562,10 @@
   components:
   - type: Pda
     id: ProspectorIDCard
-    state: pda-prospector # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prospector
 
 - type: entity
   parent: SalvagePDA
@@ -553,7 +574,10 @@
   components:
   - type: Pda
     id: ExcavatorIDCard
-    state: pda-excavator # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-excavator
 
 # Scientist
 
@@ -565,7 +589,10 @@
   components:
   - type: Pda
     id: LabTechIDCard
-    state: pda-labsci # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-labsci
 
 - type: entity
   parent: SciencePDA
@@ -574,7 +601,10 @@
   components:
   - type: Pda
     id: XenoarchIDCard
-    state: pda-xenobio # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-xenobio
 
 - type: entity
   parent: SciencePDA
@@ -584,7 +614,10 @@
   components:
   - type: Pda
     id: RoboticistIDCard
-    state: pda-roboticist # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-roboticist
 
 # Clown
 
@@ -596,7 +629,10 @@
   components:
   - type: Pda
     id: JesterIDCard
-    state: pda-jester # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-jester
 
 - type: entity
   parent: ClownPDA
@@ -606,7 +642,10 @@
   components:
   - type: Pda
     id: FoolIDCard
-    state: pda-fool # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-fool
 
 # Janitor
 
@@ -618,4 +657,7 @@
   components:
   - type: Pda
     id: HygieneTechnicianIDCard
-    state: pda-hygienetechnician
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-hygienetechnician
