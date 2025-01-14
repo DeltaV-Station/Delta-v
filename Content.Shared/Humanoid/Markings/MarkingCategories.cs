@@ -13,6 +13,8 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Snout,
         Chest,
+        Underwear, // DeltaV
+        Undershirt, // DeltaV
         Arms,
         Legs,
         Tail,
@@ -32,6 +34,8 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
+                HumanoidVisualLayers.Undershirt => MarkingCategories.Undershirt, // DeltaV
+                HumanoidVisualLayers.Underwear => MarkingCategories.Underwear, // DeltaV
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.LArm => MarkingCategories.Arms,
