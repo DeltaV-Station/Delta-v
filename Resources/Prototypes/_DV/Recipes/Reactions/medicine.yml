@@ -1,0 +1,25 @@
+- type: reaction
+  id: Hemoxadone
+  reactants:
+    Iron:
+      amount: 2
+    Traumoxadone:
+      amount: 1
+    Blood:
+      amount: 1
+      catalyst: true
+  products:
+    Hemoxadone: 2
+
+- type: reaction
+  id: Cyanoxadone
+  reactants:
+    Copper:
+      amount: 2
+    Traumoxadone:
+      amount: 1
+    CopperBlood:
+      amount: 1
+      catalyst: true
+  products:
+    Cyanoxadone: 2
