@@ -22,7 +22,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
@@ -47,7 +47,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
@@ -75,7 +75,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
@@ -98,7 +98,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
@@ -120,7 +120,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
