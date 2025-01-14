@@ -1,5 +1,6 @@
 - type: reaction
   id: Hemoxadone
+  minTemp: 370
   reactants:
     Iron:
       amount: 2
@@ -13,6 +14,7 @@
 
 - type: reaction
   id: Cyanoxadone
+  minTemp: 370
   reactants:
     Copper:
       amount: 2
