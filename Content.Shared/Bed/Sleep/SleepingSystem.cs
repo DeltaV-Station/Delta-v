@@ -333,23 +333,18 @@ public sealed partial class WakeActionEvent : InstantActionEvent;
 /// Raised on an entity when they fall asleep or wake up.
 /// </summary>
 [ByRefEvent]
-public sealed class SleepStateChangedEvent : EntityEventArgs
+public record struct SleepStateChangedEvent
 {
-    public bool FellAsleep;
+    public bool FellAsleep = false;
 
     /// <summary>
-    /// The amount of time this entity slept for. Null if <see cref="FellAsleep"/> is true.
+    ///     The amount of time this entity slept for. Null if <see cref="FellAsleep"/> is true.
     /// </summary>
     public TimeSpan? TimeSlept;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SleepStateChangedEvent"/> class.
-    /// </summary>
-    /// <param name="fellAsleep">True if the entity fell asleep, false if it woke up.</param>
-    /// <param name="timeSlept">The duration of sleep, or null if the entity just fell asleep.</param>
-    public SleepStateChangedEvent(bool fellAsleep, TimeSpan? timeSlept = null) // DeltaV
+    public SleepStateChangedEvent(bool fellAsleep, TimeSpan? timeSlept = null)
     {
         FellAsleep = fellAsleep;
-        TimeSlept = timeSlept;
+        TimeSlept = timeSlept; // DeltaV
     }
 }

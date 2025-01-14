@@ -32,11 +32,9 @@ public sealed partial class SleepingComponent : Component
     [AutoNetworkedField]
     public EntityUid? WakeAction;
 
-    /// <summary>                     // DeltaV begin port Narcolepsy from EE
-    ///     The moment this entity went to sleep. Initialized on MapInit.
+    /// <summary>
+    /// DeltaV:  The moment this entity went to sleep. Initialized on MapInit.
     /// </summary>
-    ///
-    /// DeltaV: The moment this entity went to sleep. Initialized on MapInit.
     ///
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan SleepingSince;
