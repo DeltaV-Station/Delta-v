@@ -129,7 +129,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true #Impstation Random Announcer System
+    startAnnouncement: true # Impstation: Random Announcer System
     minimumPlayers: 25
     weight: 5
     duration: 1
@@ -144,7 +144,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     minimumPlayers: 15
     weight: 5
     duration: 1
@@ -351,7 +351,7 @@
   parent: BaseStationEventLongDelay
   components:
   - type: StationEvent
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 20 #DeltaV - was 15
     minimumPlayers: 15
     weight: 7.5 # DeltaV - was 5
@@ -365,7 +365,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -384,7 +384,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: true # Impstation Random Announcer Port
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
@@ -405,7 +405,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -421,7 +421,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -515,7 +515,7 @@
     weight: 5 # DeltaV - Was 8 now 5
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: true
+    startAnnouncement: true # Impstation: Random Announcer System
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
