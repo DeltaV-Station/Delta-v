@@ -32,6 +32,8 @@
             Bloodloss: -6
       - !type:ModifyBloodLevel
         conditions:
+        - !type:Temperature
+          max: 213.0
         - !type:OrganType
           type: Arachnid
           shouldHave: false
