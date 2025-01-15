@@ -208,8 +208,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1

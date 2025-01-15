@@ -23,8 +23,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -48,8 +46,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
@@ -76,8 +72,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -99,8 +93,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
   - type: PrecognitionResult # DeltaV - Precogniton
@@ -121,8 +113,6 @@
   components:
   - type: StationEvent
     startAnnouncement: true # Impstation: Random Announcer System
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
