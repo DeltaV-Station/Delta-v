@@ -111,6 +111,7 @@
   - type: Sprite
     state: pen_cap2
 
+#new delta v pens
 - type: entity
   name: chief medical officer's pen
   parent: PenEmbeddable
@@ -194,3 +195,5 @@
   components:
   - type: Sprite
     state: pen_cj
+    
+    # end new delta v pens. hop pen and captain pens are changed from upstream.
