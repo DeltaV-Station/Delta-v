@@ -1,0 +1,103 @@
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenCMO
+  name: chief medical officer's pen
+  description: A fancy ballpoint pen belonging to the chief medical officer. Comes with enhanced surgical grip!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_cmo
+  
+- type: entity
+  parent: PenEmbeddable
+  id: PenPsych
+  name: psychologist's pen
+  description: A cheap ballpoint pen belonging to the Psychologist. Understands you better than anyone.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_psych2
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenMystagogue
+  name: mystagogue's pen
+  description: An anomalous pen that may or may not have 0.001% chance of exploding when clicked.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_mystagogue
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenHos
+  name: head of security's pen
+  description: A robust pen, your strongest tool for keeping the peace.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_hos
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenWarden
+  name: warden's pen
+  description: An orderly pen that is chewed at the top from long hours in the office.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_warden
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenCE
+  name: chief engineer's pen
+  description: Once belonging to an egghead, it now belongs to you. Solves practical problems.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_ce
+
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenLO
+  name: logistics officer's pen
+  description: An efficient pen. Vital for writing strongly worded letters to Epistemics.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_lo
+    
+
+- type: entity
+  parent: PenEmbeddable
+  id: PenCJ
+  name: chief justice's pen
+  description: A lawful pen adorned with a gold fountain tip.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_cj
+    
+- type: entity
+  parent: PenEmbeddable
+  id: PenCapNew
+  name: captain's fountain pen
+  description: A luxurious fountain pen for the captain of the station.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_cap2
+    
+- type: entity
+  parent: PenEmbeddable
+  id: PenHopNew
+  name: head of personnel's pen
+  description: Looks oddly familiar...
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/pens.rsi
+    state: pen_hop2
+    

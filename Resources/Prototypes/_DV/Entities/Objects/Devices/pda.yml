@@ -66,7 +66,7 @@
   id: ChiefJusticePDA
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
-  components: 
+  components:
   - type: Sprite
     sprite: _DV/Objects/Devices/pda.rsi
     layers:
@@ -82,14 +82,12 @@
   - type: Pda
     id: ChiefJusticeIDCard
     state: pda-chiefjustice
-    #new cj pen
     penSlot:
       startingItem: PenCJ
       priority: -1
       whitelist:
         tags:
         - Write
-    #end cj pen
   - type: PdaBorderColor
     borderColor: "#470823"
   - type: Icon

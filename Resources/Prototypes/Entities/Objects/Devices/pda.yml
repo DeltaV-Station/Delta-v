@@ -389,7 +389,7 @@
   - type: Pda
     id: QuartermasterIDCard
     state: pda-qm
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenLO
       priority: -1
@@ -552,7 +552,9 @@
     id: CaptainIDCard
     state: pda-captain
     penSlot:
-      startingItem: PenCap
+    # Begin DeltaV changes
+      startingItem: PenCapNew
+    # End DeltaV changes  
       priority: -1
       whitelist:
         tags:
@@ -572,7 +574,9 @@
     id: HoPIDCard
     state: pda-hop
     penSlot:
-      startingItem: PenHop
+    # Begin DeltaV changes
+      startingItem: PenHopNew
+    # End DeltaV changes
       priority: -1
       whitelist:
         tags:
@@ -592,14 +596,14 @@
   - type: Pda
     id: CEIDCard
     state: pda-ce
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenCE
       priority: -1
       whitelist:
         tags:
         - Write
-     #end delta v content
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
@@ -630,14 +634,14 @@
   - type: Pda
     id: CMOIDCard
     state: pda-cmo
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenCMO
       priority: -1
       whitelist:
         tags:
         - Write
-    #end delta v content
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -702,7 +706,7 @@
   - type: Icon
     state: pda-chemistry
 
-- type: entity 
+- type: entity
   parent: BasePDA
   id: RnDPDA
   name: mystagogue PDA # DeltaV - Epistemics Department replacing Science
@@ -711,14 +715,14 @@
   - type: Pda
     id: RDIDCard
     state: pda-rd
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenMystagogue
       priority: -1
       whitelist:
         tags:
         - Write
-    #end delta v content
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -764,14 +768,14 @@
   - type: Pda
     id: HoSIDCard
     state: pda-hos
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenHos
       priority: -1
       whitelist:
         tags:
         - Write
-    #end delta v content
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
@@ -796,14 +800,14 @@
   - type: Pda
     id: WardenIDCard
     state: pda-warden
-   #new delta v content
+   # Begin DeltaV changes
     penSlot:
       startingItem: PenWarden
       priority: -1
       whitelist:
         tags:
         - Write
-    #end delta v content
+    # Begin DeltaV changes
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#949137"
