@@ -5,11 +5,17 @@
   playTimeTracker: JobResearchDirector
   antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
+    - !type:RoleTimeRequirement # DeltaV - server specific role
+      role: JobForensicMantis # DeltaV - server specific role
+      time: 7200 # DeltaV - 2 hrs
+    - !type:RoleTimeRequirement # DeltaV - server specific role
+      role: JobChaplain # DeltaV - server specific role
+      time: 7200 # DeltaV - 2 hrs
     - !type:DepartmentTimeRequirement
       department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 54000 # DeltaV - 15 hours
+      time: 90000 # DeltaV - 25 hours
     - !type:OverallPlaytimeRequirement
-      time: 72000 # DeltaV - 20 hours, was 40
+      time: 90000 # DeltaV - 25 hours, was 40
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
