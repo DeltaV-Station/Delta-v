@@ -17,11 +17,11 @@
   access:
   - Medical
   - Maintenance
-  special: # Shitmed change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
+  #special: # Shitmed change  - begin DeltaV
+  #- !type:AddComponentSpecial
+  #  components:
+  #  - type: SurgerySpeedModifier
+  #    speedModifier: 1.5 - end DeltaV
 
 - type: startingGear
   id: MedicalInternGear
