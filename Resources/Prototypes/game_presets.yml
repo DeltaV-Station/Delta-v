@@ -5,6 +5,7 @@
   name: survival-title
   showInVote: true # secret # DeltaV - Me when the survival. Used for periapsis.
   description: survival-description
+  cooldown: 2 # Imp - Can't occur thrice
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
@@ -96,7 +97,7 @@
   showInVote: true #4boring4vote # DeltaV - Enable greenshift in gamemode vote
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler 
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -133,7 +134,7 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler 
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -185,6 +186,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
+  cooldown: 1 # Imp - Can't occur back to back
   rules:
     - Nukeops
     - SubGamemodesRule
