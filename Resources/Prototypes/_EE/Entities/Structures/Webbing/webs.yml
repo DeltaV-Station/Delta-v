@@ -1,0 +1,93 @@
+- type: entity
+  id: CocoonedHumanoid
+  name: cocooned humanoid
+  description: Unlucky.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Nyanotrasen/Structures/cocoon.rsi
+        state: cocoon_large1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cocoon_large1: ""
+      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+          cocoon_large2: ""
+      - enum.DamageStateVisualLayers.Base:
+          cocoon_large3: ""
+  - type: Cocoon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Damageable
+    damageModifierSet: Web
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.1"
+        density: 20
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Physics
+    bodyType: Dynamic
+  - type: Pullable
+  - type: AntiRottingContainer
+  - type: ItemSlots
+    slots:
+      body_slot:
+        name: Body
+        locked: true
+        ejectOnBreak: true
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 12
+    spawned:
+    - id: MaterialWebSilk1
+      amount: 1
+      prob: 0.5 #This doesn't cost hunger so should at least make it not worth it time-wise
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      body_slot: !type:ContainerSlot
+
+- type: entity
+  id: CocoonSmall
+  parent: CocoonedHumanoid
+  name: cocoon
+  description: What could be inside...?
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Nyanotrasen/Structures/cocoon.rsi
+        state: cocoon1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cocoon1: ""
+      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+          cocoon2: ""
+      - enum.DamageStateVisualLayers.Base:
+          cocoon3: ""

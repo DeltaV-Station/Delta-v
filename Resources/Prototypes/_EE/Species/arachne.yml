@@ -30,25 +30,17 @@
     Chest:
       points: 1
       required: false
-    RightArm:
+    Arms:
       points: 2
       required: false
-    RightHand:
-      points: 3
+    Undershirt: # DeltaV
+      points: 1
       required: false
-    LeftArm:
-      points: 2
-      required: false
-    LeftHand:
-      points: 3
-      required: false
-
 
 - type: speciesBaseSprites
   id: MobArachneSprites
   sprites:
     Head: MobHumanHead
-    Face: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
@@ -63,5 +55,5 @@
 - type: humanoidBaseSprite
   id: MobArachneEyes
   baseSprite:
-    sprite: Mobs/Species/eyes.rsi
+    sprite: _EE/Mobs/Species/eyes.rsi
     state: eyes

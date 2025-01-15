@@ -13,14 +13,14 @@
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       sprite: _EE/Mobs/Species/arachne.rsi
       state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
@@ -28,14 +28,14 @@
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: r_arm
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: l_arm
     - shader: StencilClear
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
@@ -45,11 +45,11 @@
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: l_hand
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: r_hand
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
@@ -73,7 +73,7 @@
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      sprite: _EEMobs/Customization/masking_helpers.rsi
+      sprite: _EE/Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
     - map: [ "clownedon" ] # Dynamically generated
@@ -134,9 +134,9 @@
     fireStackAlternateState: 3
   - type: Spider
   - type: IgnoreSpiderWeb
-#  - type: FootPrints
-#    leftBarePrint: "footprint-left-bare-spider"
-#    rightBarePrint: "footprint-right-bare-spider"
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-spider"
+    rightBarePrint: "footprint-right-bare-spider"
 
 - type: entity
   save: false
@@ -153,14 +153,14 @@
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       sprite: _EE/Mobs/Species/arachne.rsi
       state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
@@ -168,14 +168,14 @@
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: r_arm
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
       color: "#e8b59b"
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: l_arm
     - shader: StencilClear
-      sprite: /Mobs/Species/Human/parts.rsi
+      sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
@@ -213,7 +213,7 @@
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      sprite: Mobs/Customization/masking_helpers.rsi
+      sprite: _EE/Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
   - type: Inventory

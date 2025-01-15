@@ -54,8 +54,7 @@ namespace Content.Server.Vampiric
             {
                 victim = cocoon.Victim ?? args.Target;
                 ignoreClothes = cocoon.Victim != null;
-            }
-            else if (component.WebRequired)
+            } else if (component.WebRequired)
                 return;
 
             if (!TryComp<BloodstreamComponent>(victim, out var bloodstream) || args.User == victim || !args.CanAccess)
@@ -135,7 +134,7 @@ namespace Content.Server.Vampiric
 
             var args = new DoAfterArgs(EntityManager, bloodsucker, bloodSuckerComponent.Delay, new BloodSuckDoAfterEvent(), bloodsucker, target: victim)
             {
-                BreakOnMove = true,
+                BreakOnMove = false,
                 DistanceThreshold = 2f,
                 NeedHand = false
             };
@@ -158,8 +157,11 @@ namespace Content.Server.Vampiric
                 return false;
 
             // Does bloodsucker have a stomach?
-            var stomachList = _bodySystem.GetBodyOrganEntityComps<StomachComponent>((bloodsucker));
+            var stomachList = _bodySystem.GetBodyOrganComponents<StomachComponent>(bloodsucker);
             if (stomachList.Count == 0)
+                return false;
+
+            if (!_solutionSystem.TryGetSolution(stomachList[0].Comp.Owner, StomachSystem.DefaultSolutionName, out var stomachSolution))
                 return false;
 
             // Are we too full?
@@ -183,7 +185,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
-            _stomachSystem.TryTransferSolution(stomachList[0].Owner, temp, stomachList[0]);
+            _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
 
             // Add a little pierce
             DamageSpecifier damage = new();
