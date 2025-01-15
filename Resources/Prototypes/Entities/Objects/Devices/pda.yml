@@ -396,7 +396,7 @@
       whitelist:
         tags:
         - Write
-    #end delta v content
+    #End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
@@ -552,9 +552,7 @@
     id: CaptainIDCard
     state: pda-captain
     penSlot:
-    # Begin DeltaV changes
-      startingItem: PenCapNew
-    # End DeltaV changes  
+      startingItem: PenCapNew #DeltaV
       priority: -1
       whitelist:
         tags:
@@ -574,9 +572,7 @@
     id: HoPIDCard
     state: pda-hop
     penSlot:
-    # Begin DeltaV changes
-      startingItem: PenHopNew
-    # End DeltaV changes
+      startingItem: PenHopNew #DeltaV
       priority: -1
       whitelist:
         tags:

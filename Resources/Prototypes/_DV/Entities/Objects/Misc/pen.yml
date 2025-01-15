@@ -8,7 +8,7 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/pens.rsi
     state: pen_cmo
-  
+
 - type: entity
   parent: PenEmbeddable
   id: PenPsych
@@ -59,7 +59,6 @@
     sprite: _DV/Objects/Misc/pens.rsi
     state: pen_ce
 
-
 - type: entity
   parent: PenEmbeddable
   id: PenLO
@@ -69,7 +68,6 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/pens.rsi
     state: pen_lo
-    
 
 - type: entity
   parent: PenEmbeddable
@@ -80,7 +78,7 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/pens.rsi
     state: pen_cj
-    
+
 - type: entity
   parent: PenEmbeddable
   id: PenCapNew
@@ -90,7 +88,7 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/pens.rsi
     state: pen_cap2
-    
+
 - type: entity
   parent: PenEmbeddable
   id: PenHopNew
