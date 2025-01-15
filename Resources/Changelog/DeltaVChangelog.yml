@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Artifacts can no longer create singularities or tesla balls.
-    type: Remove
-  id: 416
-  time: '2024-07-01T20:10:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1441
 - author: Timemaster99
   changes:
   - message: Gave prosecutors access to brig timers
@@ -3860,3 +3853,11 @@
   id: 915
   time: '2025-01-15T20:47:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2741
+- author: BarryNorfolk
+  changes:
+  - message: Fixed virtual items persisting after inserting carried organics into
+      biomass reclaimers
+    type: Fix
+  id: 916
+  time: '2025-01-15T22:35:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2729
