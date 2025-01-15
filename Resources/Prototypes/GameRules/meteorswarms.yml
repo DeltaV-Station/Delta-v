@@ -207,7 +207,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-immovable-rod-start-announcement
+    startAnnouncement: true # Impstation: Random Announcer System
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 3.5
