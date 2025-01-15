@@ -133,20 +133,12 @@
   parent: BaseCommandLocationPhrase
   id: LocationConferenceRoomPhrase
   text: station-beacon-conference-room
-<<<<<<< HEAD
 
 - type: quickPhrase
   parent: BaseCommandLocationPhrase
   id: LocationAICorePhrase
   text: station-beacon-ai-core
-=======
->>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 
-- type: quickPhrase
-  parent: BaseCommandLocationPhrase
-  id: LocationAICorePhrase
-  text: station-beacon-ai-core
-  
 # Engineering
 
 - type: quickPhrase
@@ -420,6 +412,16 @@
   parent: BaseServiceLocationPhrase
   id: LocationJanitorPhrase
   text: station-beacon-janitor
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationJaniOfficePhrase
+  text: station-beacon-janitor-office
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationJaniClosetPhrase
+  text: station-beacon-janitor-closet
 
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
