@@ -60,6 +60,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -169,7 +174,7 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
-  - type: Carriable #DeltaV
+  - type: Carriable # DeltaV
     freeHandsRequired: 1
   - type: CombatMode
   - type: MovementSpeedModifier
@@ -244,6 +249,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200

@@ -186,6 +186,9 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
+        //Delta-V - Manifest pronouns
+        public const string StyleClassCrewManifestGender = "CrewManifestGender";
+
 
         public override Stylesheet Stylesheet { get; }
 
@@ -1291,6 +1294,12 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
+                // Delta-V add style for pronouns on the crew manifest
+                Element<RichTextLabel>()
+                    .Class(StyleClassCrewManifestGender)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-style", "italic"),
+
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)
                     .Prop(nameof(RichTextLabel.LineHeightScale), 0.7f)
@@ -1752,6 +1761,60 @@ namespace Content.Client.Stylesheets
                     .Pseudo(ContainerButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, JusticeColorHovered),
                 // End DeltaV
+
+                // Shitmed Change Start
+                Element<TextureButton>().Class("TargetDollButtonHead")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/head_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonChest")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/torso_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonGroin")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/groin_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonLeftArm")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftarm_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonLeftHand")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/lefthand_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonRightArm")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightarm_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonRightHand")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/righthand_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonLeftLeg")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftleg_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonLeftFoot")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftfoot_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonRightLeg")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightleg_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonRightFoot")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightfoot_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonEyes")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/eyes_hover.png")),
+
+                Element<TextureButton>().Class("TargetDollButtonMouth")
+                    .Pseudo(TextureButton.StylePseudoClassHover)
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/mouth_hover.png")),
+                // Shitmed Change End
 
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)

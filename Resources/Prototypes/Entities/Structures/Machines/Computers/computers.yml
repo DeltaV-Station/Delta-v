@@ -358,7 +358,7 @@
   parent: BaseComputerAiAccess
   id: ComputerCriminalRecords
   name: criminal records computer
-  description: This can be used to check criminal records. Only security and justice can modify them. #DeltaV Justice can access too 
+  description: This can be used to check criminal records. Only security and justice can modify them. # DeltaV Justice can access too 
   components:
   - type: CriminalRecordsConsole
   - type: UserInterface
@@ -388,7 +388,7 @@
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
-    access: [["Security"], ["Justice"]] #DeltaV Justice can access too 
+    access: [["Security"], ["Justice"]] # DeltaV Justice can access too 
   - type: GuideHelp
     guides:
     - CriminalRecords
@@ -856,7 +856,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Orders"]] # DeltaV - see Resources/Prototypes/DeltaV/Access/cargo.yml
+    access: [["Orders"]] # DeltaV - see Resources/Prototypes/_DV/Access/cargo.yml
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

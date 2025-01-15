@@ -377,6 +377,9 @@
       - PowerCellHyper
       - FireExtinguisherBluespace
       # End DeltaV additions
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BorgModuleFauna
@@ -510,6 +513,7 @@
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -532,7 +536,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -545,6 +548,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
@@ -579,6 +583,7 @@
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
       - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
       # Begin Nyano additions
       - ReverseEngineeringMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
@@ -649,8 +654,10 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
+    - ClothingEyesHudDiagnostic
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleGPS
@@ -687,6 +694,14 @@
     - BorgModuleSecurityChase
     - BorgModuleSecurityEscalate
     - JetpackVoid
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
+    # Shitmed End
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ClothingOuterHardsuitJuggernautReverseEngineered
@@ -912,6 +927,7 @@
       - WeaponColdCannon
       - WeaponBeamCannon
       # End DeltaV additions
+      - SecurityCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1035,6 +1051,8 @@
       - ClothingEyesGlassesChemical
       - WhiteCane
       - AACTablet # DeltaV
+      - BoneGel # Shitmed Change
+      - TankHarness # DeltaV
     dynamicRecipes:
       # Begin DeltaV additions
       - LauncherSyringe
@@ -1047,6 +1065,12 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1112,6 +1136,8 @@
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
+      - ClothingUniformJumpsuitHoPFormal # DeltaV - Was never added, appearently?
+      - ClothingUniformJumpskirtHoPFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretHoS
       - ClothingHeadHatHoshat
       - ClothingUniformJumpsuitHoS
@@ -1160,11 +1186,13 @@
       - ClothingUniformJumpsuitQMTurtleneck
       - ClothingUniformJumpskirtQMTurtleneck
       - ClothingUniformJumpsuitQMFormal
+      - ClothingUniformJumpskirtQMFormal # DeltaV - Formal dresses
       - ClothingHeadHatBeretRND
       - ClothingHeadHatCJToque # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpskirtChiefJustice # DeltaV - Chief Justice
       - ClothingUniformJumpsuitChiefJusticeFormal # DeltaV - Chief Justice
+      - ClothingUniformJumpskirtCJFormal # DeltaV - Formal dresses
       - ClothingUniformJumpsuitChiefJusticeWhite # DeltaV - Chief Justice
       - ClothingUniformJumpsuitResearchDirector
       - ClothingUniformJumpskirtResearchDirector
@@ -1190,6 +1218,7 @@
       - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
       - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
       - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
+      - ClothingBeltPaperwork # DeltaV - Added the paperwork belt
       - ClothingHeadHatParamedicsoft
       # Winter outfits
       - ClothingOuterWinterCap
@@ -1235,6 +1264,9 @@
       - ClothingNeckScarfStripedOrange
       - ClothingNeckScarfStripedBlack
       - ClothingNeckScarfStripedPurple
+      # DeltaV Ponchos
+      - ClothingNeckCWPSec
+      - ClothingNeckCWPArctic
       # Carpets
       - Carpet
       - CarpetBlack
@@ -1562,3 +1594,52 @@
         - Wooden
         - RawMaterial
         - Plastic
+
+# Shitmed Change Start
+- type: entity
+  id: MedicalBiofabricator
+  parent: BaseLathe
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
+    snapCardinals: true
+    layers:
+    - state: limbgrower_idleoff
+      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: limbgrower_idleoff
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MedicalBiofabMachineBoard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+  - type: Lathe
+    idleState: limbgrower_idleoff
+    runningState: limbgrower_idleon
+    staticRecipes:
+    - SynthLiver
+    - SynthHeart
+    - SynthLungs
+    - SynthEyes
+    - SynthLeftLeg
+    - SynthRightLeg
+    - SynthLeftFoot
+    - SynthRightFoot
+    - SynthLeftArm
+    - SynthRightArm
+    - SynthLeftHand
+    - SynthRightHand
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - PizzaLeftArm
+      - PizzaRightArm
+# Shitmed Change End

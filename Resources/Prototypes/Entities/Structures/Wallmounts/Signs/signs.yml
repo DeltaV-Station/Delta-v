@@ -403,7 +403,7 @@
   description: A sign indicating the logistics area. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV - Logistics Department replacing Cargo
+    sprite: _DV/Structures/Wallmounts/signs.rsi # DeltaV - Logistics Department replacing Cargo
     state: logistics # DeltaV - Logistics Department replacing Cargo
 
 - type: entity
@@ -422,7 +422,7 @@
   description: A sign indicating the chapel.
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV: Epi-themed chapel sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi # DeltaV: Epi-themed chapel sprite
     state: chapel
 
 - type: entity
@@ -741,7 +741,7 @@
   description: A sign indicating the epistemics area. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV - Epistemics Department replacing Science
+    sprite: _DV/Structures/Wallmounts/signs.rsi # DeltaV - Epistemics Department replacing Science
     state: epistemics # DeltaV - Epistemics Department replacing Science
 
 - type: entity

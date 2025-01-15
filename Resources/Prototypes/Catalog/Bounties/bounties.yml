@@ -25,6 +25,7 @@
   id: BountyBrain
   reward: 12500
   description: bounty-description-brain
+  skipArbitrage: true # DeltaV - arena mob crate has mobs with brain
   entries:
   - name: bounty-item-brain
     amount: 1
@@ -74,6 +75,7 @@
   reward: 12500
   description: bounty-description-carp
   idPrefix: CC
+  skipArbitrage: true # DeltaV - arena mob crate has mobs with brain
   entries:
   - name: bounty-item-carp
     amount: 1

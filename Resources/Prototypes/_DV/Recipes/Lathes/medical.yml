@@ -1,0 +1,32 @@
+- type: latheRecipe
+  id: AACTablet
+  result: AACTablet
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 100
+
+- type: latheRecipe
+  id: LauncherSyringe
+  result: LauncherSyringe
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: MiniSyringe
+  result: MiniSyringe
+  completetime: 1
+  materials:
+    Plastic: 150
+    Steel: 50
+
+- type: latheRecipe
+  id: TankHarness
+  result: ClothingOuterVestTank
+  completetime: 2
+  materials:
+    Plastic: 300
+    Steel: 100

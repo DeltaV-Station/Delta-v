@@ -276,7 +276,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Chaplain ID Epistemics colors
           state: idchaplain
     - type: PresetIdCard
       job: Chaplain
@@ -362,7 +362,7 @@
     - type: Sprite
       layers:
         - state: default
-        - sprite: DeltaV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
+        - sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - Give Lawyer ID Justice colors
           state: idlawyer
     - type: PresetIdCard
       job: Lawyer
@@ -461,7 +461,7 @@
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard # Delta V - Brigmedic, see Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+  - type: PresetIdCard # DeltaV - Brigmedic, see Prototypes/_DV/Roles/Jobs/Security/brigmedic.yml
     job: Brigmedic
 
 - type: entity

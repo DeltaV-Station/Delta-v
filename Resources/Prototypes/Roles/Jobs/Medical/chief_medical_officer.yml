@@ -9,7 +9,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 14400 #DeltaV 4 hrs
+      time: 14400 # DeltaV 4 hrs
 #    - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
 #      role: JobMedicalDoctor
 #      time: 21600 #6 hrs
@@ -34,6 +34,7 @@
   - External # DeltaV - Paramedics need this access
   - Psychologist # DeltaV - Add Psychologist access
   - Cryogenics
+  - Surgery # DeltaV - Add surgery access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -44,6 +45,11 @@
     components:
     - type: PsionicBonusChance #Nyano - Summary: makes it more likely to become psionic.
       flatBonus: 0.025
+  # Shitmed Change
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 2.5
 
 - type: startingGear
   id: CMOGear
