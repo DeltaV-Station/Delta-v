@@ -19,7 +19,7 @@
     enabled: false
     radius: 3
     softness: 5
-    color: "#ff7a00"
+    color: "#2CFA1F"
     autoRot: true
 
   - type: Carriable
@@ -47,6 +47,7 @@
     damage:
       types:
         Piercing: 5
+
 
   - type: TypingIndicator
     proto: Chitinid
@@ -148,6 +149,7 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
+  - type: Chitinid
 
 - type: entity
   parent: BaseSpeciesDummy
