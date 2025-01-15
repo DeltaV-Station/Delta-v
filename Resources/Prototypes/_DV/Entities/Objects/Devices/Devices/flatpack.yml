@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ChemMasterFlatpack
+  name: chemmaster 4000 flatpack
+  description: A flatpack used for constructing a ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMaster
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedBioFabricatorFlatpack
+  name: medical biofabricator flatpack
+  description: A flatpack used for constructing a medical biofabricator.
+  components:
+  - type: Flatpack
+    entity: MedicalBiofabricator
