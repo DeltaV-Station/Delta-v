@@ -66,6 +66,7 @@
   parent: BaseCommandJobPhrase
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
+<<<<<<< HEAD
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
@@ -76,7 +77,19 @@
   parent: BaseCommandJobPhrase
   id: StationAIPhrase 
   text: job-name-station-ai
+=======
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: AdminAssistantPhrase
+  text: job-name-admin-assistant
+  
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: StationAIPhrase 
+  text: job-name-station-ai
+  
 # Engineering
 
 - type: quickPhrase
@@ -125,7 +138,11 @@
   parent: BaseEpistemicsJobPhrase
   id: RoboticistPhrase
   text: job-name-roboticist
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 - type: quickPhrase
   parent: BaseEpistemicsJobPhrase
   id: BorgPhrase
@@ -152,6 +169,11 @@
   parent: BaseLogisticsJobPhrase
   id: CourierPhrase
   text: job-name-courier
+  
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: CargoAssistantPhrase
+  text: job-name-cargo-assistant
 
 - type: quickPhrase
   parent: BaseLogisticsJobPhrase
@@ -206,6 +228,11 @@
   parent: BaseMedicalJobPhrase
   id: MedicalInternPhrase
   text: job-name-intern
+  
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: SurgeonPhrase
+  text: job-name-surgeon
 
 - type: quickPhrase
   parent: BaseMedicalJobPhrase
@@ -280,7 +307,11 @@
   parent: BaseServiceJobPhrase
   id: ServiceWorkerPhrase
   text: job-name-serviceworker
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 - type: quickPhrase
   parent: BaseServiceJobPhrase
   id: ClownPhrase

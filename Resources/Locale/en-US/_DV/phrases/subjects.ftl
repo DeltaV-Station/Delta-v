@@ -204,6 +204,10 @@ phrase-nukedisk = nuclear disk
 phrase-pinpointer = pinpointer
 phrase-law = law
 phrase-chassis = chassis
+<<<<<<< HEAD
+=======
+phrase-upgrade = upgrade
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 phrase-engi-on = on
 phrase-engi-off = off
 phrase-gas-analyzer = gas analyzer

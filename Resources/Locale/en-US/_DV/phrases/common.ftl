@@ -101,4 +101,8 @@ phrase-which = Which
 phrase-not = Not
 phrase-call = Call
 phrase-this = This
+<<<<<<< HEAD
 phrase-actiondrink = Drink
+=======
+phrase-actiondrink = Drink
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18

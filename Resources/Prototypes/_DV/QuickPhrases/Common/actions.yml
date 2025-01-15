@@ -3,7 +3,11 @@
   parent: BaseCommonPhrase
   group: Actions
   abstract: true
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 - type: quickPhrase
   id: CallPhrase
   parent: BaseActionPhrase
@@ -45,6 +49,14 @@
   text: phrase-heal
 
 - type: quickPhrase
+<<<<<<< HEAD
+=======
+  id: StopPhrase
+  parent: BaseActionPhrase
+  text: phrase-stop
+
+- type: quickPhrase
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
   id: RunPhrase
   parent: BaseActionPhrase
   text: phrase-run
@@ -55,10 +67,27 @@
   text: phrase-go
 
 - type: quickPhrase
+<<<<<<< HEAD
   id: FixPhrase
   parent: BaseActionPhrase
   text: phrase-fix
 
+=======
+  id: LeavePhrase
+  parent: BaseActionPhrase
+  text: phrase-leave
+
+- type: quickPhrase
+  id: StayPhrase
+  parent: BaseActionPhrase
+  text: phrase-stay
+
+- type: quickPhrase
+  id: FixPhrase
+  parent: BaseActionPhrase
+  text: phrase-fix
+  
+>>>>>>> 1885a2c4979d207f364aa2b98adb0dd4c1610e18
 - type: quickPhrase
   id: SwitchPhrase
   parent: BaseActionPhrase
