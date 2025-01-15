@@ -771,7 +771,7 @@
   description: Prints equipment for use by security crew.
   components:
   - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
+    sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -942,7 +942,7 @@
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
     - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
+      sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]
