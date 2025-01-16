@@ -35,3 +35,6 @@ trait-addicted-desc = You crave the substance, and your thoughts keep drifting b
 
 trait-unborgable-name = Machine Incompatible
 trait-unborgable-desc = Your brain cannot be put into a man-machine interface.
+
+trait-depression-name = Depression
+trait-depression-desc = No mechanical effect. The world is dark but there is a light somewhere, calling to you.
