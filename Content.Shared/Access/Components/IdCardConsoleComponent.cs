@@ -92,6 +92,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Prosecutor", // Delta V - Add Prosecutor access
         "Robotics", // DeltaV
         "Clerk", // Delta V - Add Clerk access
+        "Surgery", // Delta V - Add Surgery access
     };
 
     [Serializable, NetSerializable]

@@ -19,6 +19,8 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking # DeltaV
+    Undershirt: MobHumanoidAnyMarking # DeltaV
     Chest: MobDionaTorso
     Eyes: MobDionaEyes
     LArm: MobDionaLArm
@@ -49,6 +51,14 @@
     Legs:
       points: 2
       required: false
+    # Begin DeltaV changes.
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    # End DeltaV changes.
     Arms:
       points: 2
       required: false
