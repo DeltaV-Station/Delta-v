@@ -21,6 +21,19 @@
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   - MagazineBoxSpecialIncendiary # DeltaV
+  # DeltaV - Merges uranium and incend ammo techs, adds 38 special uranium rounds
+  - MagazineRifleUranium
+  - MagazinePistolUranium
+  - MagazineLightRifleUranium
+  - SpeedLoaderMagnumUranium
+  - MagazineBoxPistolUranium
+  - MagazineBoxMagnumUranium
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxRifleUranium
+  - BoxShotgunUranium
+  - SpeedLoaderSpecialUranium
+  - MagazineBoxSpecialUranium
+  # End of modified code
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -61,28 +74,28 @@
   - MagazineBoxSpecialRubber
   # End of modified code
 
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 2 # DeltaV moved to t2 from t1
-  cost: 7500
-  recipeUnlocks:
-  - MagazineRifleUranium
-  - MagazinePistolUranium
-  - MagazineLightRifleUranium
-  - SpeedLoaderMagnumUranium
-  - MagazineBoxPistolUranium
-  - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxRifleUranium
-  - BoxShotgunUranium
+#- type: technology
+#  id: UraniumMunitions
+#  name: research-technology-uranium-munitions
+#  icon:
+#    sprite: Objects/Materials/Sheets/other.rsi
+#    state: uranium
+#  discipline: Arsenal
+#  tier: 2 # DeltaV moved to t2 from t1
+#  cost: 7500
+#  recipeUnlocks:
+#  - MagazineRifleUranium
+#  - MagazinePistolUranium
+#  - MagazineLightRifleUranium
+#  - SpeedLoaderMagnumUranium
+#  - MagazineBoxPistolUranium
+#  - MagazineBoxMagnumUranium
+#  - MagazineBoxLightRifleUranium
+#  - MagazineBoxRifleUranium
+#  - BoxShotgunUranium
   # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
-  - SpeedLoaderSpecialUranium
-  - MagazineBoxSpecialUranium
+#  - SpeedLoaderSpecialUranium
+#  - MagazineBoxSpecialUranium
   # End of modified code
 
 - type: technology
