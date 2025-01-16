@@ -21,6 +21,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
 using Content.Shared.Standing;
+using Content.Shared.Tag; // DeltaV: surgery can operate through some clothing
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -47,6 +48,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // DeltaV: surgery can operate through some clothing
 
     /// <summary>
     /// Cache of all surgery prototypes' singleton entities.

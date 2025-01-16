@@ -1,43 +1,68 @@
+# Security
+
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: CorpsmanPDA
   name: corpsman PDA
   description: Red and Sterile. Has a built-in health analyzer.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi # - aPDA Sprite Rework
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch, increased diskSpace by 2 to fit them
-    diskSpace: 7
+  - type: CartridgeLoader
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
-      - NanoChatCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - CrimeAssistCartridge
+    - SecWatchCartridge
+    - NanoChatCartridge
+    - MedTekCartridge
   - type: Pda
     id: BrigmedicIDCard
-    state: pda-corpsman
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-corpsman
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#447987"
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-corpsman
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: ClearPDA
+  id: PrisonerPDA
+  name: prisoner PDA
+  description: Clear, so you can make sure there's nothing being smuggled inside.
+  components:
+  - type: Pda
+    id: PrisonerIDCard
+
+- type: entity
+  parent: PrisonerPDA
+  id: GladiatorPDA
+  name: gladiator PDA
+  components:
+  - type: Pda
+    id: GladiatorIDCard
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: PrisonGuardPDA
+  name: prison guard PDA
+  description: Red to hide the stains of prisoner blood.
+  components:
+  - type: Pda
+    id: PrisonGuardIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prisonguard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-prisonguard
+
+# Justice
 
 - type: entity
   parent: BasePDA
@@ -52,7 +77,6 @@
         tags:
         - Write
   - type: CartridgeLoader
-    diskSpace: 7
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
@@ -67,25 +91,15 @@
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: ChiefJusticeIDCard
-    state: pda-chiefjustice
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-chiefjustice
   - type: PdaBorderColor
     borderColor: "#470823"
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-chiefjustice
 
 - type: entity
@@ -94,25 +108,15 @@
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: ClerkIDCard
-    state: pda-clerk
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-clerk
   - type: PdaBorderColor
     borderColor: "#611528"
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-clerk
 
 - type: entity
@@ -121,26 +125,18 @@
   name: prosecutor PDA
   description: Sharp. Looks like it could prosecute you all on its own.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: ProsecutorIDCard
-    state: pda-prosecutor
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prosecutor
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-prosecutor
+
+# Misc
 
 - type: entity
   parent: SyndiPDA
@@ -148,12 +144,35 @@
   components:
   - type: Pda
     id: SyndicateIDCard
-    state: pda-syndi-agent
     penSlot:
       startingItem: CyberPen
       whitelist:
         tags:
         - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-syndi-agent
+
+- type: entity
+  parent: BasePDA
+  id: MartialArtistPDA
+  name: martial artist PDA
+  description: Smells like straw.
+  components:
+  - type: Pda
+    id: MartialArtistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-martialartist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#232323"
+  - type: Icon
+    state: pda-martialartist
+
+# Logistics
 
 - type: entity
   parent: BasePDA
@@ -161,34 +180,38 @@
   name: courier PDA
   description: Smells like unopened letters.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: CourierIDCard
-    state: pda-mailcarrier
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mailcarrier
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#050c4d"
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-mailcarrier
   - type: CartridgeLoader # DeltaV - Courier Performance
     preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MailMetricsCartridge
-      - NanoChatCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - MailMetricsCartridge
+    - NanoChatCartridge
+
+- type: entity
+  parent: CourierPDA
+  id: MailCarrierPDA
+  name: mail carrier PDA
+  description: Smells like unopened letters.
+  components:
+  - type: Pda
+    id: MailCarrierIDCard
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#050c4d"
+  - type: Icon
+    state: pda-mailcarrier
 
 - type: entity
   parent: CargoPDA
@@ -198,7 +221,23 @@
   components:
   - type: Pda
     id: CargoAssistantIDCard
-    state: pda-cargo-assistant
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-cargo-assistant
+
+# Epistemics
+
+- type: entity
+  parent: SciencePDA
+  id: PsionicMantisPDA
+  name: psionic mantis PDA
+  description: Smells like illegal substances.
+  components:
+  - type: Pda
+    id: ForensicMantisIDCard
+
+# Command
 
 - type: entity
   parent: BasePDA
@@ -206,29 +245,19 @@
   name: administrative assistant PDA
   description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: AdminAssistantIDCard
-    state: pda-admin-assistant
     penSlot:
       startingItem: LuxuryPen
       priority: -1
       whitelist:
         tags:
         - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-admin-assistant
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
     state: pda-admin-assistant
 
 ## Alternate Job Titles
@@ -251,7 +280,10 @@
   components:
   - type: Pda
     id: TouristIDCard
-    state: pda-tourist # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-tourist
 
 - type: entity
   parent: PassengerPDA
@@ -261,7 +293,10 @@
   components:
   - type: Pda
     id: OffDutyCrewIDCard
-    state: pda-offduty # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-offduty
 
 - type: entity
   parent: PassengerPDA
@@ -271,7 +306,10 @@
   components:
   - type: Pda
     id: StudentIDCard
-    state: pda-student # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-student
 
 # Bartender
 
@@ -283,7 +321,10 @@
   components:
   - type: Pda
     id: MixologistIDCard
-    state: pda-mixologist # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mixologist
 
 # Chef
 
@@ -295,7 +336,10 @@
   components:
   - type: Pda
     id: BakerIDCard
-    state: pda-baker # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-baker
 
 - type: entity
   parent: ChefPDA
@@ -305,7 +349,10 @@
   components:
   - type: Pda
     id: ButcherIDCard
-    state: pda-butcher # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-butcher
 
 - type: entity
   parent: ChefPDA
@@ -315,7 +362,10 @@
   components:
   - type: Pda
     id: PizzaioloIDCard
-    state: pda-pizzaiolo # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-pizzaiolo
 
 # Medical Intern
 
@@ -327,7 +377,10 @@
   components:
   - type: Pda
     id: PracticalNurseIDCard
-    state: pda-practicingnurse # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-practicingnurse
 
 - type: entity
   parent: MedicalInternPDA
@@ -337,7 +390,10 @@
   components:
   - type: Pda
     id: ResidentIDCard
-    state: pda-resident # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-resident
 
 # Medical Doctor
 
@@ -349,7 +405,10 @@
   components:
   - type: Pda
     id: ClinicianIDCard
-    state: pda-phys # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-phys
 
 # Psychologist
 
@@ -361,7 +420,10 @@
   components:
   - type: Pda
     id: PsychiatristIDCard
-    state: pda-psychiatrist
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-psychiatrist
 
 - type: entity
   parent: PsychologistPDA
@@ -371,7 +433,10 @@
   components:
   - type: Pda
     id: TherapistIDCard
-    state: pda-therapist
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-therapist
 
 - type: entity
   parent: PsychologistPDA
@@ -381,7 +446,10 @@
   components:
   - type: Pda
     id: SocialWorkerIDCard
-    state: pda-socialworker
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-socialworker
 
 # Surgeon
 
@@ -391,21 +459,12 @@
   name: surgeon PDA
   description: Smells faintly like burnt flesh and anesthesia.
   components:
-  - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
   - type: Pda
     id: SurgeonIDCard
-    state: pda-surgeon
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-surgeon
   - type: PdaBorderColor
     borderColor: "#5b97bc"
     accentHColor: "#ffffff"
@@ -422,7 +481,10 @@
   components:
   - type: Pda
     id: LifeSupportTechIDCard
-    state: pda-lifesupporttech # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-lifesupporttech
 
 - type: entity
   parent: AtmosPDA
@@ -431,7 +493,10 @@
   components:
   - type: Pda
     id: PlasmaScientistIDCard
-    state: pda-plasmatech # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-plasmatech
 
 # Station Engineer
 
@@ -443,7 +508,10 @@
   components:
   - type: Pda
     id: ElectricianIDCard
-    state: pda-electrician # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-electrician
 
 - type: entity
   parent: EngineerPDA
@@ -453,7 +521,10 @@
   components:
   - type: Pda
     id: MechanicIDCard
-    state: pda-mechanic # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-mechanic
 
 # Cargo Technician
 
@@ -465,7 +536,10 @@
   components:
   - type: Pda
     id: DeckWorkerIDCard
-    state: pda-deckworker # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-deckworker
 
 - type: entity
   parent: CargoPDA
@@ -474,7 +548,10 @@
   components:
   - type: Pda
     id: InventoryAssociateIDCard
-    state: pda-inventoryassociate # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-inventoryassociate
 
 # Salvage Technician
 
@@ -485,7 +562,10 @@
   components:
   - type: Pda
     id: ProspectorIDCard
-    state: pda-prospector # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prospector
 
 - type: entity
   parent: SalvagePDA
@@ -494,7 +574,10 @@
   components:
   - type: Pda
     id: ExcavatorIDCard
-    state: pda-excavator # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-excavator
 
 # Scientist
 
@@ -506,7 +589,10 @@
   components:
   - type: Pda
     id: LabTechIDCard
-    state: pda-labsci # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-labsci
 
 - type: entity
   parent: SciencePDA
@@ -515,7 +601,10 @@
   components:
   - type: Pda
     id: XenoarchIDCard
-    state: pda-xenobio # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-xenobio
 
 - type: entity
   parent: SciencePDA
@@ -525,7 +614,10 @@
   components:
   - type: Pda
     id: RoboticistIDCard
-    state: pda-roboticist # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-roboticist
 
 # Clown
 
@@ -537,7 +629,10 @@
   components:
   - type: Pda
     id: JesterIDCard
-    state: pda-jester # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-jester
 
 - type: entity
   parent: ClownPDA
@@ -547,7 +642,10 @@
   components:
   - type: Pda
     id: FoolIDCard
-    state: pda-fool # - aPDA Sprite Rework
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-fool
 
 # Janitor
 
@@ -559,4 +657,7 @@
   components:
   - type: Pda
     id: HygieneTechnicianIDCard
-    state: pda-hygienetechnician
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-hygienetechnician
