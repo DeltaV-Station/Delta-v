@@ -1,16 +1,16 @@
-namespace Content.Server.Vampiric
+namespace Content.Server.Vampire
 {
     [RegisterComponent]
     public sealed partial class BloodSuckerComponent : Component
     {
         /// <summary>
-        /// How much to succ each time we succ.
+        /// How much to suck each time we suck.
         /// </summary>
         [DataField("unitsToSucc")]
         public float UnitsToSucc = 20f;
 
         /// <summary>
-        /// The time (in seconds) that it takes to succ an entity.
+        /// The time (in seconds) that it takes to suck an entity.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan Delay = TimeSpan.FromSeconds(4);

@@ -1,7 +1,8 @@
 using Content.Server.Popups;
+using Content.Server.Vampiric;
 using Content.Shared.Interaction;
 
-namespace Content.Server.Vampiric
+namespace Content.Server.Vampire
 {
     public sealed class BloodSuckerGlandInjectorSystem : EntitySystem
     {

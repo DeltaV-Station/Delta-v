@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -19,7 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Vampiric
+namespace Content.Server.Vampire
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {
@@ -157,11 +158,13 @@ namespace Content.Server.Vampiric
                 return false;
 
             // Does bloodsucker have a stomach?
-            var stomachList = _bodySystem.GetBodyOrganComponents<StomachComponent>(bloodsucker);
+            var stomachList = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker);
             if (stomachList.Count == 0)
                 return false;
 
-            if (!_solutionSystem.TryGetSolution(stomachList[0].Comp.Owner, StomachSystem.DefaultSolutionName, out var stomachSolution))
+            var stomach = stomachList.FirstOrDefault(); // DeltaV
+
+            if (!_solutionSystem.TryGetSolution(bloodsucker, StomachSystem.DefaultSolutionName, out var stomachSolution))
                 return false;
 
             // Are we too full?
@@ -185,7 +188,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
-            _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
+            _stomachSystem.TryTransferSolution(bloodsucker, temp, stomach); // DeltaV
 
             // Add a little pierce
             DamageSpecifier damage = new();

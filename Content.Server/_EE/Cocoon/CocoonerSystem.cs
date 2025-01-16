@@ -1,4 +1,4 @@
-using Content.Shared.Cocoon;
+﻿using Content.Shared.Cocoon;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.DoAfter;
