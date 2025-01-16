@@ -1,7 +1,7 @@
 ﻿using Content.Server._DV.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
-using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 
 namespace Content.Server._DV.Objectives.Systems;
@@ -12,7 +12,6 @@ namespace Content.Server._DV.Objectives.Systems;
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -27,8 +26,9 @@ public sealed class TeachLessonConditionSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        // Get the mind of the entity that just died (if it has one)
-        if (!_mind.TryGetMind(args.Target, out var mindId, out _))
+        // Get the mind of the entity that just died (if it had one)
+        // Uses OriginalMind so if someone ghosts or otherwise loses control of a mob, you can still greentext
+        if (!TryComp<MindContainerComponent>(args.Target, out var mc) || mc.OriginalMind is not {} mindId)
             return;
 
         // Get all TeachLessonConditionComponent entities
