@@ -13262,8 +13262,8 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 30129
       - 30130
+      - 30131
       - 14165
       - 12638
       - 14170
@@ -13288,8 +13288,8 @@ entities:
       - 14228
       - 1871
       - 22156
-      - 30128
-      - 30131
+      - 30129
+      - 30132
   - uid: 22187
     components:
     - type: Transform
@@ -20381,15 +20381,15 @@ entities:
     - type: Transform
       pos: -20.5,19.5
       parent: 1
-  - uid: 25196
-    components:
-    - type: Transform
-      pos: 77.5,7.5
-      parent: 1
   - uid: 25299
     components:
     - type: Transform
       pos: 4.5,-9.5
+      parent: 1
+  - uid: 26621
+    components:
+    - type: Transform
+      pos: 77.5,7.5
       parent: 1
   - uid: 26644
     components:
@@ -22356,7 +22356,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 68.5,-2.5
       parent: 1
-  - uid: 29070
+  - uid: 29071
     components:
     - type: Transform
       pos: 64.5,-1.5
@@ -61441,16 +61441,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 78.735176,31.755037
       parent: 1
-  - uid: 28473
-    components:
-    - type: Transform
-      pos: -20.502268,-4.4860387
-      parent: 1
   - uid: 28517
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -59.30682,22.872543
+      parent: 1
+  - uid: 29045
+    components:
+    - type: Transform
+      pos: -20.502268,-4.4860387
       parent: 1
 - proto: ChairFoldingSpawnFolded
   entities:
@@ -65697,7 +65697,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 166.5,-2.5
       parent: 1
-  - uid: 30120
+  - uid: 30121
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -67874,7 +67874,7 @@ entities:
       parent: 1
 - proto: DefaultStationBeaconCorpsman
   entities:
-  - uid: 30132
+  - uid: 30133
     components:
     - type: Transform
       pos: -22.5,-5.5
@@ -87125,7 +87125,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 152.5,-4.5
       parent: 1
-  - uid: 30112
+  - uid: 30113
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -91488,7 +91488,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 30126
+  - uid: 30127
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -118638,18 +118638,13 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 29142
+  - uid: 29448
     components:
     - type: Transform
       pos: 151.5,0.5
       parent: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 29448
-    components:
-    - type: Transform
-      pos: 154.5,-4.5
-      parent: 1
   - uid: 29556
     components:
     - type: Transform
@@ -119051,9 +119046,14 @@ entities:
   - uid: 29799
     components:
     - type: Transform
+      pos: 154.5,-4.5
+      parent: 1
+  - uid: 30112
+    components:
+    - type: Transform
       pos: 154.5,-5.5
       parent: 1
-  - uid: 30127
+  - uid: 30128
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -124985,7 +124985,7 @@ entities:
       - 1163
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 30128
+  - uid: 30129
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -124996,7 +124996,7 @@ entities:
       - 22182
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 30129
+  - uid: 30130
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -127197,7 +127197,7 @@ entities:
       - 1163
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 30130
+  - uid: 30131
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -127208,7 +127208,7 @@ entities:
       - 22182
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 30131
+  - uid: 30132
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -135175,7 +135175,7 @@ entities:
       parent: 1
 - proto: HolopadEngineeringAME
   entities:
-  - uid: 30133
+  - uid: 30134
     components:
     - type: Transform
       pos: -46.5,-17.5
@@ -135403,6 +135403,13 @@ entities:
     components:
     - type: Transform
       pos: 82.5,14.5
+      parent: 1
+- proto: HolopadSecurityArrivalsCheckpoint
+  entities:
+  - uid: 25195
+    components:
+    - type: Transform
+      pos: 12.5,-31.5
       parent: 1
 - proto: HolopadSecurityBreakroom
   entities:
@@ -137247,7 +137254,7 @@ entities:
           ent: null
 - proto: LockerBrigmedicFilledHardsuit
   entities:
-  - uid: 30125
+  - uid: 30126
     components:
     - type: Transform
       pos: -22.5,-4.5
@@ -139233,7 +139240,7 @@ entities:
       parent: 1
 - proto: MedicatedSuture
   entities:
-  - uid: 30115
+  - uid: 30116
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -143003,7 +143010,7 @@ entities:
       parent: 1
 - proto: PottedPlant8
   entities:
-  - uid: 30116
+  - uid: 30117
     components:
     - type: Transform
       pos: 60.265957,22.364315
@@ -158648,7 +158655,7 @@ entities:
       linkedPorts:
         22428:
         - Pressed: Toggle
-  - uid: 29071
+  - uid: 29142
     components:
     - type: Transform
       pos: 64.5,-1.5
@@ -162296,19 +162303,19 @@ entities:
       parent: 1
 - proto: SpawnPointBrigmedic
   entities:
-  - uid: 30118
+  - uid: 30119
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,-5.5
       parent: 1
-  - uid: 30119
+  - uid: 30120
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,-6.5
       parent: 1
-  - uid: 30134
+  - uid: 30135
     components:
     - type: Transform
       pos: 5.5,-46.5
@@ -163052,7 +163059,7 @@ entities:
     - type: Transform
       pos: -0.5,-46.5
       parent: 1
-  - uid: 30135
+  - uid: 30136
     components:
     - type: Transform
       pos: 26.5,-43.5
@@ -163848,12 +163855,12 @@ entities:
     - type: Transform
       pos: 80.5,34.5
       parent: 1
-  - uid: 26621
+  - uid: 28472
     components:
     - type: Transform
       pos: -23.5,-6.5
       parent: 1
-  - uid: 30114
+  - uid: 30115
     components:
     - type: Transform
       pos: -24.5,-6.5
@@ -167225,7 +167232,7 @@ entities:
     - type: Transform
       pos: 102.5,-19.5
       parent: 1
-  - uid: 28472
+  - uid: 28473
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -191292,7 +191299,7 @@ entities:
     - type: Transform
       pos: 0.5,-11.5
       parent: 1
-  - uid: 25195
+  - uid: 25196
     components:
     - type: Transform
       pos: 76.5,9.5
@@ -192817,7 +192824,7 @@ entities:
       parent: 1
 - proto: WindoorSecureCorpsmanLocked
   entities:
-  - uid: 30121
+  - uid: 30122
     components:
     - type: Transform
       pos: -21.5,-3.5
@@ -192999,7 +193006,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -186176.19
+      secondsUntilStateChange: -186655.08
       state: Opening
   - uid: 5096
     components:
@@ -193016,7 +193023,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -186176.19
+      secondsUntilStateChange: -186655.08
       state: Opening
   - uid: 5498
     components:
@@ -193032,7 +193039,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -185899.81
+      secondsUntilStateChange: -186378.7
       state: Opening
   - uid: 8696
     components:
@@ -193065,7 +193072,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -185897.92
+      secondsUntilStateChange: -186376.81
       state: Opening
   - uid: 18835
     components:
@@ -193077,7 +193084,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -185894.92
+      secondsUntilStateChange: -186373.81
       state: Opening
   - uid: 23917
     components:
@@ -193085,7 +193092,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 71.5,24.5
       parent: 1
-  - uid: 29045
+  - uid: 29070
     components:
     - type: Transform
       pos: -23.5,-4.5
@@ -194702,30 +194709,30 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 64.5,-4.5
       parent: 1
-  - uid: 30113
+  - uid: 30114
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,-6.5
       parent: 1
-  - uid: 30117
+  - uid: 30118
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,-5.5
       parent: 1
-  - uid: 30122
+  - uid: 30123
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,-4.5
       parent: 1
-  - uid: 30123
+  - uid: 30124
     components:
     - type: Transform
       pos: -20.5,-3.5
       parent: 1
-  - uid: 30124
+  - uid: 30125
     components:
     - type: Transform
       pos: -22.5,-3.5
