@@ -1,19 +1,4 @@
 - type: emote
-  id: Flip
-  name: chat-emote-name-flip
-  chatMessages: ["chat-emote-msg-flip"]
-  icon: _Impstation/Interface/Emotes/backflip.png #imp
-  chatTriggers:
-  - flip
-  - flips
-  - flips.
-  - flips!
-  - does a flip
-  - does a flip.
-  - does a flip!
-  event: !type:AnimationFlipEmoteEvent
-
-- type: emote
   id: Spin
   name: chat-emote-name-spin
   chatMessages: ["chat-emote-msg-spin"]
