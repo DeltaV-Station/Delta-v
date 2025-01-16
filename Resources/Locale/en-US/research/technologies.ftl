@@ -22,7 +22,7 @@ research-technology-portable-fission = Portable Fission
 research-technology-space-scanning = Space Scanning
 research-technology-excavation = Mass Excavation
 
-research-technology-draconic-munitions = Exotic Munitions
+research-technology-draconic-munitions = Draonic Munitions
 research-technology-uranium-munitions = Uranium Munitions
 research-technology-explosive-technology = Explosive Technology
 research-technology-special-means = Special Means
