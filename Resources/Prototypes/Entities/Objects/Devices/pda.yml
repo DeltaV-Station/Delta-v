@@ -396,7 +396,7 @@
       whitelist:
         tags:
         - Write
-    #End DeltaV changes
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
@@ -803,7 +803,7 @@
       whitelist:
         tags:
         - Write
-    # Begin DeltaV changes
+    # End DeltaV changes
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#949137"
@@ -1075,14 +1075,14 @@
   - type: Pda
     id: PsychologistIDCard
     state: pda-medical
-    #new delta v content
+    # Begin DeltaV changes
     penSlot:
       startingItem: PenPsych
       priority: -1
       whitelist:
         tags:
         - Write
-     #end delta v content 
+     # End DeltaV Changes
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
