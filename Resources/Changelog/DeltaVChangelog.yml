@@ -1,76 +1,4 @@
 ﻿Entries:
-- author: Timemaster99
-  changes:
-  - message: Gave prosecutors access to brig timers
-    type: Tweak
-  id: 417
-  time: '2024-07-01T20:11:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1430
-- author: Bellwether
-  changes:
-  - message: Sechuds can now be used to mark subpoenaed crew members who are needed
-      in court.
-    type: Add
-  id: 418
-  time: '2024-07-01T21:50:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1405
-- author: deltanedas
-  changes:
-  - message: Fixed shipyard.
-    type: Fix
-  id: 419
-  time: '2024-07-03T15:34:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1458
-- author: Batuh1n
-  changes:
-  - message: 3 additions to the jukebox from SS13 musics
-    type: Add
-  id: 420
-  time: '2024-07-05T21:42:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1361
-- author: DLondon
-  changes:
-  - message: Removed "Steal The Clown Medal" thief objective
-    type: Remove
-  id: 421
-  time: '2024-07-06T13:42:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1463
-- author: DangerRevolution
-  changes:
-  - message: Nanotrasen reports new Cyborg lawsets present from IonStorms.
-    type: Add
-  id: 422
-  time: '2024-07-07T10:13:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1464
-- author: deltanedas
-  changes:
-  - message: Epistemics can no longer unlock canisters.
-    type: Tweak
-  id: 423
-  time: '2024-07-07T10:23:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1468
-- author: MilonPL
-  changes:
-  - message: Added randomized handgun, rifle and shotgun safe spawners for mapping.
-    type: Add
-  id: 424
-  time: '2024-07-07T19:58:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1466
-- author: Timemaster99
-  changes:
-  - message: Tweaked security playtime requirements.
-    type: Tweak
-  id: 425
-  time: '2024-07-08T20:40:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1471
-- author: WarMechanic
-  changes:
-  - message: Split the Emag into the Cryptographic Sequencer and the Airlock Access
-      Override.
-    type: Add
-  id: 426
-  time: '2024-07-09T10:47:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1426
 - author: deltanedas
   changes:
   - message: There are now reports of a syndicate recruitment drive in NT sectors.
@@ -3861,3 +3789,76 @@
   id: 916
   time: '2025-01-15T22:35:49.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2729
+- author: Stop-Signs
+  changes:
+  - message: Epistemics can now research an advanced microwave for the kitchen
+    type: Add
+  id: 917
+  time: '2025-01-16T12:36:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2670
+- author: rosieposieeee, TGRCdev, kipdotnet
+  changes:
+  - message: High security crates now acidify when destroyed whilst locked.
+    type: Tweak
+  - message: Added Emergency Laser Rifles, for when the station is in truly dire straits.
+    type: Add
+  id: 918
+  time: '2025-01-16T12:37:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2672
+- author: deltanedas
+  changes:
+  - message: Merged last week's changes from upstream.
+    type: Add
+  id: 919
+  time: '2025-01-16T12:43:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2709
+- author: BlitzTheSquishy
+  changes:
+  - message: Security's autoloading sidearms are once again loaded with rubber bullets
+    type: Tweak
+  id: 920
+  time: '2025-01-16T12:49:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2659
+- author: beck-thompson
+  changes:
+  - message: New subvert AI objective.
+    type: Add
+  id: 921
+  time: '2025-01-16T12:52:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2643
+- author: deltanedas
+  changes:
+  - message: Fixed not being able to teach a lesson to someone by beheading them.
+    type: Fix
+  id: 922
+  time: '2025-01-16T13:58:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2753
+- author: deltanedas
+  changes:
+  - message: Missing a heart or brain no longer deals bloodloss damage, but prevents
+      defibbing.
+    type: Tweak
+  id: 923
+  time: '2025-01-16T15:04:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2739
+- author: deltanedas
+  changes:
+  - message: Rodentia crawling is now fully predicted and less buggy.
+    type: Tweak
+  id: 924
+  time: '2025-01-16T15:28:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2754
+- author: rosieposieeee
+  changes:
+  - message: Detective now starts with forensic gloves.
+    type: Tweak
+  id: 925
+  time: '2025-01-16T17:55:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2749
+- author: BarryNorfolk
+  changes:
+  - message: Improved bounty history console screen
+    type: Tweak
+  id: 926
+  time: '2025-01-16T20:21:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2743
