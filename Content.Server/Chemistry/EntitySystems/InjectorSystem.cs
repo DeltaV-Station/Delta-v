@@ -110,7 +110,10 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
         if (HasComp<BlockInjectionComponent>(target))
+        {
+            Popup.PopupEntity(Loc.GetString("injector-component-deny-user"), target, user);
             return;
+        }
 
         // Create a pop-up for the user
         if (injector.Comp.ToggleState == InjectorToggleMode.Draw)
