@@ -21,6 +21,68 @@
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
 
+## Bartender
+- type: loadoutGroup
+  id: BartenderGlasses
+  name: loadout-group-bartender-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - BartenderGlasses
+  - GlassesCheapSunglasses
+
+- type: loadoutGroup
+  id: BartenderNeck
+  name: loadout-group-bartender-neck
+  minLimit: 0
+  loadouts:
+  - ScarfBlack
+  - ScarfPurple
+
+## Librarian
+- type: loadoutGroup
+  id: LibrarianNeck
+  name: loadout-group-librarian-neck
+  loadouts:
+  - ScarfGreen
+  - ScarfRed
+
+## Janitor
+- type: loadoutGroup
+  id: JanitorNeck
+  name: loadout-group-janitor-neck
+  minLimit: 0
+  loadouts:
+  - ScarfPurple
+
+## Botanist
+- type: loadoutGroup
+  id: BotanistNeck
+  name: loadout-group-botanist-neck
+  minLimit: 0
+  loadouts:
+  - ScarfGreen
+  - ScarfBrown
+
+## Mime
+- type: loadoutGroup
+  id: MimeNeck
+  name: loadout-group-mime-neck
+  minLimit: 0
+  loadouts:
+  - ScarfBlack
+  - ScarfZebra
+
+## Musician
+- type: loadoutGroup
+  id: MusicianNeck
+  name: loadout-group-musician-neck
+  minLimit: 0
+  loadouts:
+  - ScarfBlack
+  - ScarfPurple
+  - ScarfZebra
+
 # Logistics
 ## Courier
 - type: loadoutGroup
@@ -116,6 +178,23 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+
+## Cargo Technician
+- type: loadoutGroup
+  id: CargoTechnicianNeck
+  name: loadout-group-cargo-technician-neck
+  minLimit: 0
+  loadouts:
+  - ScarfBrown
+
+## Salvage Specialist
+- type: loadoutGroup
+  id: SalvageSpecialistNeck
+  name: loadout-group-salvage-specialist-neck
+  minLimit: 0
+  loadouts:
+  - SalvageCloak
+  - ScarfBrown
 
 # Security
 ## Brig Medic
@@ -257,6 +336,63 @@
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
 
+## Security Officer
+- type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - ScarfRed
+
+- type: loadoutGroup
+  id: SecurityOuterClothingDeltaV
+  name: loadout-group-security-outerclothing
+  loadouts:
+  - PlateCarrier
+  - DuraVest
+  - StasecSweater
+  - StasecWinterCoat
+
+## Warden
+- type: loadoutGroup
+  id: WardenOuterClothingDeltaV
+  name: loadout-group-warden-outerclothing
+  loadouts:
+  - PlateCarrier
+  - DuraVest
+  - StasecWinterCoatWarden
+
+## Head of Security
+- type: loadoutGroup
+  id: HeadofSecurityOuterClothingDeltaV
+  name: loadout-group-head-of-security-outerclothing
+  loadouts:
+  - PlateCarrier
+  - DuraVest
+  - StasecWinterCoatHoS
+
+## Detective
+- type: loadoutGroup
+  id: DetectiveJumpsuitDeltaV
+  name: loadout-group-detective-jumpsuit
+  loadouts:
+  - ForensicSpecJumpsuit
+  - ForensicSpecJumpskirt
+  - ForensicSpecTurtlesuit
+  - ForensicSpecTurtleskirt
+  - ClothingUniformMiamiVice #imp
+  - ClothingUniformMiamiViceSkirt #imp
+  - ClothingUniformDetectiveSuit #imp
+  - ClothingUniformDetectiveSuitSkirt #imp
+
+- type: loadoutGroup
+  id: DetectiveOuterClothingDeltaV
+  name: loadout-group-detective-outerclothing
+  loadouts:
+  - StasecWinterCoatDet
+  - PlateCarrier
+  - DuraVest
+
 # Medical
 ## Psychologist
 - type: loadoutGroup
@@ -265,7 +401,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
-  - PsychologistFrenchBeret
+  - MimeFrenchBeret
   - PsychologistGreyFlatcap
   - PsychologistBrownFlatcap
 
@@ -274,9 +410,9 @@
   name: loadout-group-psychologist-outerclothing
   minLimit: 0
   loadouts:
-  - PsychologistMedicalWinterCoat
+  - MedicalDoctorWintercoat
   - PsychologistWinterCoat
-  - PsychologistWinterCoatPlaid
+  - WinterCoatPlaid
   - PsychologistCoatBomber
   - PsychologistSweater
 
@@ -288,6 +424,42 @@
   - LaceupShoes
   - MedicalWinterBoots
   - WinterBoots
+
+## Medical Doctor
+- type: loadoutGroup
+  id: MedicalDoctorNeck
+  name: loadout-group-medical-doctor-neck
+  minLimit: 0
+  loadouts:
+  - Stethoscope
+  - ScarfBlue
+
+## Chemist
+- type: loadoutGroup
+  id: ChemistNeck
+  name: loadout-group-chemist-neck
+  minLimit: 0
+  loadouts:
+  - ChemistTie
+  - ScarfOrange
+  - ScarfBlue
+
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - ChemistGloves
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - WhiteShoes
+  - ChemistWinterBoots
+  - ChemistShoes
 
 # Justice
 ## Chief Justice
@@ -329,6 +501,24 @@
   loadouts:
   - LeatherShoes
   - LaceupShoes
+
+# Engineering
+## Station Engineer
+- type: loadoutGroup
+  id: StationEngineerNeck
+  name: loadout-group-station-engineer-neck
+  minLimit: 0
+  loadouts:
+  - ScarfOrange
+
+## Atmospheric Technician
+- type: loadoutGroup
+  id: AtmosphericTechnicianNeck
+  name: loadout-group-atmospheric-technician-neck
+  minLimit: 0
+  loadouts:
+  - ScarfLightBlue
+  - ScarfOrange
 
 ## Clerk
 - type: loadoutGroup
@@ -486,6 +676,42 @@
   loadouts:
   - HoPGloves
   - InspectionGloves
+
+## Captain
+- type: loadoutGroup
+  id: CaptainGloves
+  name: loadout-group-captain-gloves
+  minLimit: 0
+  loadouts:
+  - CaptainGloves
+  - InspectionGloves
+
+- type: loadoutGroup
+  id: CaptainShoes
+  name: loadout-group-captain-shoes
+  loadouts:
+  - BrownLeatherShoes
+  - WhiteLeatherShoes
+  - LaceupShoes
+  - CaptainWinterBoots
+
+## Head of Personnel
+- type: loadoutGroup
+  id: HoPGloves
+  name: loadout-group-hop-gloves
+  minLimit: 0
+  loadouts:
+  - HoPGloves
+  - InspectionGloves
+
+- type: loadoutGroup
+  id: HoPShoes
+  name: loadout-group-hop-shoes
+  loadouts:
+  - BrownLeatherShoes
+  - WhiteLeatherShoes
+  - LaceupShoes
+  - HoPWinterBoots
 
 # PDAs
 - type: loadoutGroup

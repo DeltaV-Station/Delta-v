@@ -301,7 +301,7 @@
 # HoS
 - type: entity
   id: LockerHeadOfSecurity
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: head of security's locker
   components:
   - type: Appearance
@@ -315,7 +315,7 @@
 # Warden
 - type: entity
   id: LockerWarden
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: warden's locker
   components:
   - type: Appearance
@@ -329,7 +329,7 @@
 # Brigmedic
 - type: entity
   id: LockerBrigmedic
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: corpsman locker # DeltaV - rename brigmedic to corpsman
   components:
   - type: Appearance
@@ -343,7 +343,7 @@
 # Security Officer
 - type: entity
   id: LockerSecurity
-  parent: LockerBaseSecure
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: security officer's locker
   components:
   - type: Appearance
@@ -384,19 +384,26 @@
 # Detective
 - type: entity
   id: LockerDetective
-  parent: LockerBooze
-  name: detective's cabinet
-  description: Usually cold and empty... like your heart.
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
+  name: detective's locker # DeltaV - rename from detective's cabinet
   components:
+  - type: EntityStorageVisuals # DeltaV - set appearance of det's locker
+    stateBaseClosed: det
+    stateDoorOpen: det_open
+    stateDoorClosed: det_door
   - type: AccessReader
     access: [["Detective"]]
 
 - type: entity
   id: LockerEvidence
-  parent: LockerSecurity
+  parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: evidence locker
   description: To store bags of bullet casings and detainee belongings.
   components:
+  - type: EntityStorageVisuals # DeltaV - set appearance of evidence locker
+    stateBaseClosed: evidence
+    stateDoorOpen: evidence_open
+    stateDoorClosed: evidence_door
   - type: AccessReader
     access: [["Security"], ["Prosecutor"], ["Clerk"]] # DeltaV - allow Pros and Clerk access to Evidence
 

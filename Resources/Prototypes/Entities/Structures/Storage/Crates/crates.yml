@@ -181,9 +181,9 @@
   name: secgear crate
   components:
   - type: Icon
-    sprite: Structures/Storage/Crates/sec_gear.rsi
+    sprite: _DV/Structures/Storage/Crates/sec_gear.rsi # DeltaV - resprite security crates
   - type: Sprite
-    sprite: Structures/Storage/Crates/sec_gear.rsi
+    sprite: _DV/Structures/Storage/Crates/sec_gear.rsi # DeltaV - resprite security crates
   - type: AccessReader
     access: [["Security"]]
 
@@ -299,7 +299,7 @@
   description: An armory access locked crate for storing contraband confiscated from suspects or prisoners.
   components:
   - type: Sprite
-    sprite: Structures/Storage/Crates/sec_gear.rsi
+    sprite: _DV/Structures/Storage/Crates/sec_gear.rsi # DeltaV - resprite security crates
   - type: AccessReader
     access: [["Armory"]]
 

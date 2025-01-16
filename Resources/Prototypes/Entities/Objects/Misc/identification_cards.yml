@@ -85,6 +85,7 @@
   - type: PresetIdCard
     job: SecurityCadet
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idintern-cadet
@@ -128,6 +129,7 @@
   name: security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idsecurityofficer
@@ -140,6 +142,7 @@
   name: warden ID card
   components:
     - type: Sprite
+      sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
       layers:
         - state: default
         - state: idwarden
@@ -429,6 +432,7 @@
   name: head of security ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: silver
     - state: idheadofsecurity
@@ -458,6 +462,7 @@
   name: corpsman ID card # DeltaV - rename brigmedic to corpsman
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idbrigmedic
@@ -716,6 +721,7 @@
   name: detective ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: iddetective
@@ -795,6 +801,7 @@
   name: senior officer ID card
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/id_cards.rsi # DeltaV - resprite security IDs
     layers:
     - state: default
     - state: idseniorofficer

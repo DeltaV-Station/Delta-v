@@ -383,6 +383,36 @@
     id: SocialWorkerIDCard
     state: pda-socialworker
 
+# Surgeon
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: SurgeonPDA
+  name: surgeon PDA
+  description: Smells faintly like burnt flesh and anesthesia.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: SurgeonIDCard
+    state: pda-surgeon
+  - type: PdaBorderColor
+    borderColor: "#5b97bc"
+    accentHColor: "#ffffff"
+    accentVColor: "#ffffff"
+  - type: Icon
+    state: pda-surgeon
+
 # Atmospherics Technician
 
 - type: entity
