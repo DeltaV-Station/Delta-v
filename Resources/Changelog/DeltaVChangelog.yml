@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: TadJohnson00
-  changes:
-  - message: New security outer clothing for all security roles, as well as proper
-      senior security officers' and cadets' jumpsuits.
-    type: Add
-  - message: Jetpacks are now available in all security suit storage. Thank goodness
-      for increased funding.
-    type: Add
-  - message: Revamped security's clothing and equipment options; all gear is now up
-      to code, and no further outdated equipment will be issued. This includes, most
-      notably, the detective's uniform, which has received a whole makeover.
-    type: Tweak
-  - message: Fixed security hardsuits not allowing you to turn on internals without
-      a mask.
-    type: Fix
-  - message: Head of security's winter coat, warden's winter coat, security winter
-      coat, security departmental winter boots, WizDen-pattern body armour, and some
-      other minor changes necessary for respriting.
-    type: Remove
-  id: 429
-  time: '2024-07-15T06:45:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1273
 - author: Bellwether
   changes:
   - message: Prosecutors can now lock and unlock Security evidence lockers.
@@ -3869,3 +3847,10 @@
   id: 928
   time: '2025-01-16T23:47:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2636
+- author: HTMLSystem
+  changes:
+  - message: Added the DeltaV scrubs to the surgeon loadout, hooray!
+    type: Add
+  id: 929
+  time: '2025-01-16T23:48:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2756
