@@ -1,6 +1,7 @@
 using Content.Server.Interaction;
 using Content.Server.Kitchen.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clumsy;
 using Content.Shared.Damage;
@@ -261,7 +262,7 @@ public sealed class ExecutionSystem : EntitySystem
                 throw new ArgumentOutOfRangeException();
         }
 
-        // Clumsy people have a chance to shoot themselves
+        // Clumsy people have a chance to shoot themselves (not in the head)
         if (!component.ClumsyProof &&
             TryComp<ClumsyComponent>(attacker, out var clumsy) &&
             _random.Prob(1f/3f))
@@ -276,7 +277,7 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
         // Gun successfully fired, deal damage
-        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true);
+        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true, targetPart: TargetBodyPart.Head);
         _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
 
         // Popups

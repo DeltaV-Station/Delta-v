@@ -17,6 +17,12 @@ public sealed partial class MindContainerComponent : Component
     public EntityUid? Mind { get; set; }
 
     /// <summary>
+    /// DeltaV: The first mind to control this mob. Will only be null if the mob never had a mind at all.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? OriginalMind;
+
+    /// <summary>
     ///     True if we have a mind, false otherwise.
     /// </summary>
     [MemberNotNullWhen(true, nameof(Mind))]

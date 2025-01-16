@@ -1,0 +1,63 @@
+# PDA
+
+- type: loadout
+  id: SurgeonPDA
+  equipment:
+    id: SurgeonPDA
+
+# Clothing
+
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-surgeon-head
+  loadouts:
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonScrubs
+  name: loadout-group-surgeon-scrubs
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: SurgeonPDA
+  name: loadout-group-surgeon-id
+  loadouts:
+  - SurgeonPDA
+
+- type: loadoutGroup
+  id: SurgeonGloves
+  name: loadout-group-surgeon-gloves
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: SurgeonMask
+  name: loadout-group-surgeon-mask
+  loadouts:
+  - SterileMask
+
+# Loadout
+
+- type: roleLoadout
+  id: JobSurgeon
+  groups:
+  - GroupTankHarness
+  - SurgeonHead
+  - MedicalDoctorNeck
+  - SurgeonMask
+  - SurgeonScrubs
+  - SurgeonGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - SurgeonPDA
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical

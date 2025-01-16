@@ -286,6 +286,17 @@
     - id: FoodPizzaCorncob # Nyanotrasen - Corncob Pizza
       prob: 0.01
       orGroup: Pizza
+  
+- type: entity
+  name: pizza box
+  parent: FoodBoxPizzaFilled
+  id: FoodBoxPizzaCotton
+  suffix: Cotton Pizza
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodPizzaCotton
+    - id: KnifePlastic
 
 # Nugget
 

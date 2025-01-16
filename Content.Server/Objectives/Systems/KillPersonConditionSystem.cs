@@ -7,6 +7,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -40,18 +41,18 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
     private void OnPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(ent, args, _ => true);
+        AssignRandomTarget(ent, ref args, _ => true);
     }
 
     private void OnHeadAssigned(Entity<PickRandomHeadComponent> ent, ref ObjectiveAssignedEvent args)
     {
-        AssignRandomTarget(ent, args, mindId =>
+        AssignRandomTarget(ent, ref args, mindId =>
             TryComp<MindComponent>(mindId, out var mind) &&
             mind.OwnedEntity is { } ownedEnt &&
             HasComp<CommandStaffComponent>(ownedEnt));
     }
 
-    private void AssignRandomTarget(EntityUid uid, ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
+    private void AssignRandomTarget(EntityUid uid, ref ObjectiveAssignedEvent args, Predicate<EntityUid> filter, bool fallbackToAny = true)
     {
         // invalid prototype
         if (!TryComp<TargetObjectiveComponent>(uid, out var target))
@@ -74,6 +75,15 @@ public sealed class KillPersonConditionSystem : EntitySystem
             })
             .ToList();
 
+        // Can't have multiple objectives to kill the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
+            {
+                allHumans.RemoveAll(x => x.Owner == kill.Target);
+            }
+        }
+
         // Filter out targets based on the filter
         var filteredHumans = allHumans.Where(mind => filter(mind)).ToList();
 
@@ -86,6 +96,13 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
         // Pick between humans matching our filter or fall back to all humans alive
         var selectedHumans = filteredHumans.Count > 0 ? filteredHumans : allHumans;
+
+        // Still no valid targets even after the fallback
+        if (selectedHumans.Count == 0)
+        {
+            args.Cancelled = true;
+            return;
+        }
 
         _target.SetTarget(uid, _random.Pick(selectedHumans), target);
     }

@@ -118,7 +118,7 @@
     children:
     - !type:NestedSelector # DeltaV
       tableId: LockerFillHeadOfPersonnelDeltaV
-    - id: AccessConfigurator
+    #- id: AccessConfigurator # DeltaV - They don't really need it, moved to the administrative assistant starting gear.
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
@@ -230,6 +230,8 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
+    # Shitmed
+    #- id: MedicalBiofabMachineBoard #DeltaV - Replaced with a flatpack at Prototypes/_DV/Catalog/Fills/Lockers/heads.yml
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

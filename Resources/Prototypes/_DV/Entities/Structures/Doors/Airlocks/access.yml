@@ -282,6 +282,52 @@
       board: [ DoorElectronicsPsychologist ]
 
 - type: entity
+  parent: AirlockMaintRnDLocked
+  id: AirlockMaintRnDSurgeryLocked
+  suffix: Surgery/Epistemics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgeryResearch ]
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockSurgeryLocked
+  suffix: Surgery, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgery ]
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockSurgeryGlassLocked
+  suffix: Surgery, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgery ]
+
+- type: entity
+  parent: AirlockScienceGlass
+  id: AirlockSurgeryScienceGlassLocked
+  suffix: Surgery/Epistemics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgeryResearch ]
+
+
+- type: entity
+  parent: AirlockMaintMedLocked
+  id: AirlockMaintSurgeryLocked
+  suffix: Surgery, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSurgery ]
+
+- type: entity
   parent: AirlockFreezer
   id: AirlockFreezerServiceLocked
   suffix: Service, Locked

@@ -60,6 +60,22 @@
   result: ClothingOuterStasecSweater
   completetime: 4
 
+# Ponchos
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: ClothingNeckCWPArctic
+  result: ClothingNeckCWPArctic
+  completetime: 4
+  materials:
+    Cloth: 500
+    Durathread: 300
+
+- type: latheRecipe
+  parent: ClothingNeckCWPArctic
+  id: ClothingNeckCWPSec
+  result: ClothingNeckCWPSec
+
 # Chief Justice Wardrobe
 
 - type: latheRecipe
@@ -81,6 +97,11 @@
   parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpsuitChiefJusticeFormal
   result: ClothingUniformJumpsuitChiefJusticeFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCJFormal
+  result: ClothingUniformJumpskirtCJFormal
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
@@ -155,5 +176,29 @@
   parent: BaseHatRecipe
   id: ClothingMaskInterdyneChemistry
   result: ClothingMaskInterdyneChemistry
+
+# Formal Outfits
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtQMFormal
+  result: ClothingUniformJumpskirtQMFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoPFormal
+  result: ClothingUniformJumpsuitHoPFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoPFormal
+  result: ClothingUniformJumpskirtHoPFormal
+
+# Utilty
+
+- type: latheRecipe
+  id: ClothingBeltPaperwork
+  result: ClothingBeltPaperwork
   materials:
-    Cloth: 400
+    Cloth: 200
+    Durathread: 100

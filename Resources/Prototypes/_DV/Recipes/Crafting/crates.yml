@@ -1,0 +1,32 @@
+- type: construction
+  name: steel livestock crate
+  id: CrateLivestockSteel
+  graph: CrateLivestockSecure
+  startNode: start
+  targetNode: cratelivestocksteel
+  category: construction-category-storage
+  description: A plasteel crate for holding livestock.
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_steel.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: secure steel livestock crate
+  id: CrateLivestockSecure
+  graph: CrateLivestockSecure
+  startNode: cratelivestocksteel
+  targetNode: cratelivestocksteelsecure
+  category: construction-category-storage
+  description: A lockable plasteel crate for holding livestock.
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_secure.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: reinforced secured steel livestock crate
+  id: CrateLivestockReinforced
+  graph: CrateLivestockSecure
+  startNode: cratelivestocksteelsecure
+  targetNode: cratelivestocksecurereinforced
+  category: construction-category-storage
+  description: A reinforced and lockable plasteel crate for holding livestock.
+  icon: { sprite: _DV/Structures/Storage/Crates/livestock_reinforced.rsi, state: icon }
+  objectType: Structure

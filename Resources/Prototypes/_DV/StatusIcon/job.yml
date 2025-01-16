@@ -60,3 +60,10 @@
   icon:
     sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
     state: AdminAssistant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSurgeon
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: Surgeon

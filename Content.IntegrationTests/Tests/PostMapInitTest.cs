@@ -17,7 +17,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
-using FastAccessors;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -55,6 +54,7 @@ namespace Content.IntegrationTests.Tests
             "Tortuga", // DeltaV
             "Arena", // DeltaV
             "Asterisk", // DeltaV
+            "Byoin", // DeltaV
             "Glacier", // DeltaV
             "TheHive", // DeltaV
             "Hammurabi", // DeltaV

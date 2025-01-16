@@ -26,6 +26,14 @@
     guides:
     - Cyborgs
     - Robotics
+  # Shitmed Change Start
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Gibbable
+  # Shitmed Change End
 
 - type: entity
   id: LeftArmBorg
@@ -33,8 +41,13 @@
   name: cyborg left arm
   components:
   - type: BodyPart
-    partType: Hand
+    partType: Arm # Shitmed Change
     symmetry: Left
+    toolName: "a left arm" # Shitmed Change
+    children: # Shitmed Change
+      left hand:
+        id: "left hand"
+        type: Hand
   - type: Sprite
     state: borg_l_arm
   - type: Icon
@@ -51,8 +64,13 @@
   name: cyborg right arm
   components:
   - type: BodyPart
-    partType: Hand
+    partType: Arm # Shitmed Change
     symmetry: Right
+    toolName: "a right arm" # Shitmed Change
+    children: # Shitmed Change
+      right hand:
+        id: "right hand"
+        type: Hand
   - type: Sprite
     state: borg_r_arm
   - type: Icon
@@ -71,6 +89,12 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
+    toolName: "a left leg" # Shitmed Change
+    children: # Shitmed Change
+      left foot:
+        id: "left foot"
+        type: Foot
+  - type: MovementBodyPart
   - type: Sprite
     state: borg_l_leg
   - type: Icon
@@ -89,6 +113,12 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+    toolName: "a right leg" # Shitmed Change
+    children: # Shitmed Change
+      right foot:
+        id: "right foot"
+        type: Foot
+  - type: MovementBodyPart
   - type: Sprite
     state: borg_r_leg
   - type: Icon
@@ -106,6 +136,7 @@
   components:
   - type: BodyPart
     partType: Head
+    toolName: "a head" # Shitmed Change
   - type: Sprite
     state: borg_head
   - type: Icon
@@ -122,6 +153,7 @@
   components:
   - type: BodyPart
     partType: Torso
+    toolName: "a torso" # Shitmed Change
   - type: Sprite
     state: borg_chest
   - type: Icon
