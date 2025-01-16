@@ -1,0 +1,123 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBoxSpecial
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSpecial
+    proto: CartridgeSpecial
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Boxes/special.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecial
+  name: ammunition box (.38 special)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecial
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecialPractice
+  name: ammunition box (.38 special practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecialRubber
+  name: ammunition box (.38 special rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber
+
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecialIncendiary
+  name: ammunition box (.38 special incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecialUranium
+  name: ammunition box (.38 special uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  parent: BaseMagazineBoxSpecial
+  id: MagazineBoxSpecialMindbreaker
+  name: ammunition box (.38 special mindbreaker)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialMindbreaker
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mindbreaker
+
+- type: entity
+  parent: MagazineBoxSpecialMindbreaker
+  id: MagazineBoxSpecialHoly
+  name: ammunition box (.38 special holy)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialHoly
+  # TODO: distinct sprite for holy rounds

@@ -107,6 +107,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-commander
@@ -124,6 +125,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-agent
@@ -137,12 +139,13 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
-      playerRatio: 10
+      playerRatio: 12 # DeltaV
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
       - type: RandomMetadata
         nameSegments:
         - nukeops-role-operator
@@ -201,7 +204,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary

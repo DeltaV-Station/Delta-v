@@ -16,6 +16,8 @@
         weight: 9
       - id: PlushieSpaceLizard
         weight: 1
+      - id: PlushieLizardInversed
+        weight: 0.5
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -41,6 +43,7 @@
     - id: PlushieMothRandom # Nyano - random moth plushies
     - id: PlushieArachind
     - id: PlushiePenguin
+    - id: PlushieMort # DeltaV Toy, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
 
 - type: entity
   id: CrateFunPlushie

@@ -1,0 +1,43 @@
+- type: entity
+  id: NFMobPet
+  abstract: true
+  components:
+  - type: GhostRole
+#  - type: IntrinsicRadioReceiver # DeltaV - comment out
+  - type: CargoSellBlacklist
+
+- type: entity
+  name: Clippy
+  parent: [NFMobPet, MobCatGhost]
+  id: MobCatClippy
+  description: It looks like you’re writing a letter, would you like help?
+  components:
+  - type: GhostRole
+    name: ghost-role-information-clippy-name
+    description: ghost-role-information-deltav-clippy-description # DeltaV - Alternate Description
+    rules: ghost-role-information-nonantagonist-rules
+#    prototype: CatClippy # DeltaV - Comment out
+  - type: Loadout
+    prototypes: [ MobClippyGear ]
+  - type: RandomMetadata
+    nameSegments: [names_cat_clippy]
+#  - type: AutoImplant # DeltaV - Comment out Implants
+#    implants:
+#    - MindShieldImplant
+#    - MedicalTrackingImplant
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCat
+      amount: 1
+#    - id: MaterialHideClippy
+#  - type: IntrinsicRadioTransmitter # DeltaV - Comment out Radio Channels
+#    channels:
+#    - Service
+#  - type: ActiveRadio
+#    channels:
+#    - Service 
+  - type: NpcFactionMember
+    factions:
+      - Cat
+      - PetsNT
+#  - type: ShowJobIcons # DeltaV - Comment out

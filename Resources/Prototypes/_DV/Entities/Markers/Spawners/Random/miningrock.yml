@@ -1,0 +1,102 @@
+- type: entity
+  name: Mining Rock Spawner
+  id: RandomRockSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _DV/Structures/Walls/asteroid_rock.rsi
+        state: full
+  - type: RandomSpawner
+    prototypes:
+      - AsteroidAltRock
+    chance: .90
+    rarePrototypes:
+      - AsteroidAltRockMining
+      - Barricade
+      - MountainRockMining
+      - MountainRock
+      - RandomStalagmiteOrCrystal
+      - RandomWallRockSpawner
+      - RandomBasaltRockSpawner
+      - AsteroidRockOreCrab
+      - RandomWoodenStructure
+    rareChance: 0.15
+
+- type: entity
+  name: Crystal Spawner
+  id: RandomCrystalSpawner
+  suffix: 100%
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/crystal.rsi
+        state: crystal_grey
+  - type: RandomSpawner
+    prototypes:
+      - CrystalGreen
+      - CrystalPink
+      - CrystalGrey
+      - CrystalOrange
+      - CrystalBlue
+      - CrystalCyan
+
+- type: entity
+  name: Wall Rock Spawner
+  id: RandomWallRockSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Walls/rock.rsi
+        state: rock
+  - type: RandomSpawner
+    prototypes:
+      - WallRockGold
+      - WallRockPlasma
+      - WallRockQuartz
+      - WallRockSilver
+      - WallRockTin
+      - WallRockUranium
+      - WallRockBananium
+      - WallRockArtifactFragment
+
+- type: entity
+  name: Basalt Rock Spawner
+  id: RandomBasaltRockSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Walls/rock.rsi
+        state: rock_wall
+  - type: RandomSpawner
+    prototypes:
+      - WallRockBasaltGold
+      - WallRockBasaltPlasma
+      - WallRockBasaltQuartz
+      - WallRockBasaltSilver
+      - WallRockBasaltTin
+      - WallRockBasaltUranium
+      - WallRockBasaltArtifactFragment
+
+- type: entity
+  id: RandomWoodenStructure
+  name: wooden wall or support spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Decoration/mines.rsi
+        state: support_wall_broken
+  - type: RandomSpawner
+    prototypes:
+      - RandomWoodenWall
+      - RandomWoodenSupport
+    chance: 0.9

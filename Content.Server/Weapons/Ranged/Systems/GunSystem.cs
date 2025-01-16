@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Stunnable;
+using Content.Server.Stunnable; // DeltaV
 using Content.Server.Temperature.Systems; // DeltaV Heat Change system
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Damage;
@@ -220,9 +220,10 @@ public sealed partial class GunSystem : SharedGunSystem
                         if (hitscan.StaminaDamage > 0f)
                             _stamina.TakeProjectileStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user); // DeltaV - Cope with hitscan not being an entity
 
-                        // DeltaV: Changes the target's temperature by this amount when hit
+                        // Begin DeltaV Additions: Changes the target's temperature by this amount when hit
                         if (hitscan.HeatChange != 0f)
-                             _temperature.ChangeHeat(hitEntity, hitscan.HeatChange, true);
+                            _temperature.ChangeHeat(hitEntity, hitscan.HeatChange, true);
+                        // End DeltaV Additions
 
                         var dmg = hitscan.Damage;
 

@@ -55,6 +55,15 @@
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 200
+    Plastic: 100
+    Glass: 300
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
   id: CyborgEndoskeleton
   result: CyborgEndoskeleton
   completetime: 3
@@ -145,6 +154,13 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleTool
   result: BorgModuleTool
+
+# Mining Modules
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleFauna
+  result: BorgModuleFauna
 
 # Engineering Modules
 

@@ -48,6 +48,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterEngineering
+  name: engineering camera router
   suffix: Engineering
   components:
     - type: SurveillanceCameraRouter
@@ -56,6 +57,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterSecurity
+  name: security camera router
   suffix: Security
   components:
     - type: SurveillanceCameraRouter
@@ -64,6 +66,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterScience
+  name: epistemics camera router # DeltaV
   suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
     - type: SurveillanceCameraRouter
@@ -72,7 +75,8 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterSupply
-  suffix: Supply
+  name: logistics camera router # DeltaV
+  suffix: Logistics # DeltaV
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraSupply
@@ -80,6 +84,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterCommand
+  name: command camera router
   suffix: Command
   components:
     - type: SurveillanceCameraRouter
@@ -88,6 +93,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterService
+  name: service camera router
   suffix: Service
   components:
     - type: SurveillanceCameraRouter
@@ -96,6 +102,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterMedical
+  name: medical camera router
   suffix: Medical
   components:
     - type: SurveillanceCameraRouter
@@ -104,6 +111,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterGeneral
+  name: general camera router
   suffix: General
   components:
     - type: SurveillanceCameraRouter
@@ -152,6 +160,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraWirelessRouterEntertainment
+  name: entertainment camera router
   suffix: Entertainment
   components:
     - type: SurveillanceCameraRouter

@@ -1,48 +1,21 @@
-using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Psionics.Events
+namespace Content.Shared.Psionics.Events;
+
+[Serializable, NetSerializable]
+public sealed partial class PsionicRegenerationDoAfterEvent : SimpleDoAfterEvent
 {
-    [Serializable, NetSerializable]
-    public sealed partial class PsionicRegenerationDoAfterEvent : DoAfterEvent
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan StartedAt;
+
+    private PsionicRegenerationDoAfterEvent()
     {
-        [DataField("startedAt", required: true)]
-        public TimeSpan StartedAt;
-
-        private PsionicRegenerationDoAfterEvent()
-        {
-        }
-
-        public PsionicRegenerationDoAfterEvent(TimeSpan startedAt)
-        {
-            StartedAt = startedAt;
-        }
-
-        public override DoAfterEvent Clone() => this;
     }
 
-    // DeltaV Precognition
-    [Serializable, NetSerializable]
-    public sealed partial class PrecognitionDoAfterEvent : SimpleDoAfterEvent
+    public PsionicRegenerationDoAfterEvent(TimeSpan startedAt)
     {
-        [DataField("startedAt", required: true)]
-        public TimeSpan StartedAt;
-
-        private PrecognitionDoAfterEvent()
-        {
-        }
-
-        public PrecognitionDoAfterEvent(TimeSpan startedAt)
-        {
-            StartedAt = startedAt;
-        }
-
-        public override DoAfterEvent Clone() => this;
-    }
-    // DeltaV End Precognition
-
-    [Serializable, NetSerializable]
-    public sealed partial class GlimmerWispDrainDoAfterEvent : SimpleDoAfterEvent
-    {
+        StartedAt = startedAt;
     }
 }

@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers; // DeltaV
-using Content.Server.DeltaV.StationEvents.NextEvent; // DeltaV
+using Content.Server._DV.StationEvents.NextEvent; // DeltaV
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Components;
@@ -36,15 +36,14 @@ namespace Content.Server.StationEvents
             // A little starting variance so schedulers dont all proc at once.
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
 
-            // DeltaV - end init NextEventComp
+            // Begin DeltaV Additions: init NextEventComp
             if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
-                && _event.TryGenerateRandomEvent(component.ScheduledGameRules, out string? firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent))
-                && firstEvent != null)
+                && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
             {
                 _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
-                _next.UpdateNextEvent(nextEventComponent, firstEvent, TimeSpan.FromSeconds(component.TimeUntilNextEvent));
+                _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
             }
-            // DeltaV - end init NextEventComp
+            // End DeltaV Additions
         }
 
         protected override void Ended(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
@@ -73,22 +72,24 @@ namespace Content.Server.StationEvents
                     continue;
                 }
 
-                // DeltaV events using NextEventComponent
+                // Begin DeltaV Additions: events using NextEventComponent
                 if (TryComp<NextEventComponent>(uid, out var nextEventComponent)) // If there is a nextEventComponent use the stashed event instead of running it directly.
                 {
                     ResetTimer(eventScheduler); // Time needs to be reset ahead of time since we need to chose events based on the next time it will run.
-                    var nextEventTime = _timing.CurTime + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
-                    if (!_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, out string? generatedEvent, nextEventTime))
+                    var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(eventScheduler.TimeUntilNextEvent);
+                    if (_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                         continue;
+
                     _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)eventScheduler.TimeUntilNextEvent)));
                     // Cycle the stashed event with the new generated event and time.
-                    string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
+                    var storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                     if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
                         continue;
+
                     GameTicker.AddGameRule(storedEvent);
                     continue;
                 }
-                // DeltaV end events using NextEventComponent
+                // End DeltaV Additions: events using NextEventComponent
 
                 _event.RunRandomEvent(eventScheduler.ScheduledGameRules);
                 ResetTimer(eventScheduler);
@@ -127,7 +128,7 @@ namespace Content.Server.StationEvents
         ///     to even exist) so I think it's fine.
         /// </remarks>
         [CommandImplementation("simulate")]
-        public IEnumerable<(string, float)> Simulate([CommandArgument] EntityPrototype eventScheduler, [CommandArgument] int rounds, [CommandArgument] int playerCount, [CommandArgument] float roundEndMean, [CommandArgument] float roundEndStdDev)
+        public IEnumerable<(string, float)> Simulate(EntityPrototype eventScheduler, int rounds, int playerCount, float roundEndMean, float roundEndStdDev)
         {
             _stationEvent ??= GetSys<EventManagerSystem>();
             _entityTable ??= GetSys<EntityTableSystem>();
@@ -179,7 +180,7 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("lsprob")]
-        public IEnumerable<(string, float)> LsProb([CommandArgument] EntityPrototype eventScheduler)
+        public IEnumerable<(string, float)> LsProb(EntityPrototype eventScheduler)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();
@@ -199,7 +200,7 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("lsprobtime")]
-        public IEnumerable<(string, float)> LsProbTime([CommandArgument] EntityPrototype eventScheduler, [CommandArgument] float time)
+        public IEnumerable<(string, float)> LsProbTime(EntityPrototype eventScheduler, float time)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();
@@ -221,7 +222,7 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("prob")]
-        public float Prob([CommandArgument] EntityPrototype eventScheduler, [CommandArgument] string eventId)
+        public float Prob(EntityPrototype eventScheduler, string eventId)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();

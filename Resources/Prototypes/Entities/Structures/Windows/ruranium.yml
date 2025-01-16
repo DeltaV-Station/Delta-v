@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_window.rsi #Delta V - Resprite windows
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -64,10 +64,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_reinforced_window
   - type: Icon
-    sprite: DeltaV/Structures/Windows/directional.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/directional.rsi #Delta V - Resprite windows
     state: uranium_reinforced_window
   - type: Construction
     graph: WindowDirectional
@@ -120,14 +120,14 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: windows
     base: state
   - type: Icon
-    sprite: DeltaV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
+    sprite: _DV/Structures/Windows/reinforced_uranium_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:

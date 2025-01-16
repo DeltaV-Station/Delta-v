@@ -1,0 +1,18 @@
+- type: entity
+  parent: KitchenKnife
+  id: PrisonKnife
+  name: prisoner's knife
+  description: A slightly dulled bread knife
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 3
+        Blunt: 1
+  - type: Execution
+    doAfterDuration: 10.0 # Duller knife.

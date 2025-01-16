@@ -1,9 +1,0 @@
-# if you try to use an unfinished martyr module it does next to no damage, but still has a good scare
-- type: entity
-  parent: SelfDestructSeq
-  id: SelfDestructSeqDud
-  components:
-  - type: Explosive
-    totalIntensity: 1
-    canCreateVacuum: false
-    deleteAfterExplosion: false # prevent borg having an empty hand

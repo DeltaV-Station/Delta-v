@@ -176,12 +176,13 @@
   id: BedsheetHOS
   parent: BedsheetBase
   name: HOS's bedsheet
-  description: It's decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!
+  description: A soft, slate-coloured quilt, adorned with gold trim. Not quite cozy enough to warm a cold heart. # DeltaV - change from "It's decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!"
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/bedsheets.rsi # DeltaV - resprite sec bedsheets
     state: sheethos
   - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/hos.rsi
+    sprite: Clothing/Neck/Bedsheets/grey.rsi # DeltaV - resprite sec bedsheets
   - type: StealTarget
     stealGroup: HeadBedsheet
 
@@ -287,12 +288,13 @@
   id: BedsheetBrigmedic
   parent: BedsheetBase
   name: corpsman's bedsheet # DeltaV - rename brigmedic to corpsman
-  description: Not worse than cotton.
+  description: A soft, slate-coloured quilt, adorned with white crosses. Unfortunately not sterile. # DeltaV - change from "Not worse than cotton."
   components:
   - type: Sprite
+    sprite: _DV/Objects/Misc/bedsheets.rsi # DeltaV - resprite sec bedsheets
     state: sheetbrigmedic
   - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/brigmedic.rsi
+    sprite: Clothing/Neck/Bedsheets/grey.rsi # DeltaV - resprite sec bedsheets
 
 - type: entity
   id: BedsheetRed
