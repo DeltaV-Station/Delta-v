@@ -28,7 +28,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 150 # DeltaV
+        damage: 110
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
