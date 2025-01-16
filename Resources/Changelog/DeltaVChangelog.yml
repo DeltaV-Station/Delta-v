@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Epistemics can no longer unlock canisters.
-    type: Tweak
-  id: 423
-  time: '2024-07-07T10:23:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1468
 - author: MilonPL
   changes:
   - message: Added randomized handgun, rifle and shotgun safe spawners for mapping.
@@ -3862,3 +3855,11 @@
   id: 922
   time: '2025-01-16T13:58:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2753
+- author: deltanedas
+  changes:
+  - message: Missing a heart or brain no longer deals bloodloss damage, but prevents
+      defibbing.
+    type: Tweak
+  id: 923
+  time: '2025-01-16T15:04:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2739
