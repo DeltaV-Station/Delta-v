@@ -45,7 +45,17 @@
   - type: Pullable
   - type: InteractionOutline
   - type: Clickable
-# No fixture on this base, inherit from further down for fixture
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.30,0.40,0.45"
+        density: 80
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
 
 - type: entity
   parent: N14JunkWoodBase
