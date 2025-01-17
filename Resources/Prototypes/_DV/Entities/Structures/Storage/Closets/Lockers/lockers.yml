@@ -73,6 +73,42 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
+  id: LockerKitchen
+  name: kitchen locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: chef
+    stateDoorOpen: chef_open
+    stateDoorClosed: chef_door
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJanitor
+  name: janitor's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: jani
+    stateDoorOpen: jani_open
+    stateDoorClosed: jani_door
+  - type: AccessReader
+    access: [["Janitor"]]
+
+- type: entity
+  parent: LockerBaseSecure
+  id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
+  name: logistics locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: cargo
+    stateDoorOpen: cargo_open
+    stateDoorClosed: cargo_door
+  - type: AccessReader
+    access: [["Cargo"]]
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
   id: LockerArmoryStorage
   name: armory storage locker
   components:

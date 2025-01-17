@@ -28,19 +28,19 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 110
+        damage: 150 # DeltaV
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 150
+        damage: 100 # DeltaV
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 200
+        damage: 2000 # DeltaV
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -90,7 +90,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 400
+        damage: 4000 # DeltaV
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true

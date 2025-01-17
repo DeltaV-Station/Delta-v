@@ -1,40 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: There are now reports of a syndicate recruitment drive in NT sectors.
-    type: Add
-  id: 427
-  time: '2024-07-09T10:48:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1345
-- author: Velcroboy
-  changes:
-  - message: Added clipboards to the Law Drobe
-    type: Add
-  id: 428
-  time: '2024-07-10T15:55:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1479
-- author: TadJohnson00
-  changes:
-  - message: New security outer clothing for all security roles, as well as proper
-      senior security officers' and cadets' jumpsuits.
-    type: Add
-  - message: Jetpacks are now available in all security suit storage. Thank goodness
-      for increased funding.
-    type: Add
-  - message: Revamped security's clothing and equipment options; all gear is now up
-      to code, and no further outdated equipment will be issued. This includes, most
-      notably, the detective's uniform, which has received a whole makeover.
-    type: Tweak
-  - message: Fixed security hardsuits not allowing you to turn on internals without
-      a mask.
-    type: Fix
-  - message: Head of security's winter coat, warden's winter coat, security winter
-      coat, security departmental winter boots, WizDen-pattern body armour, and some
-      other minor changes necessary for respriting.
-    type: Remove
-  id: 429
-  time: '2024-07-15T06:45:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/1273
 - author: Bellwether
   changes:
   - message: Prosecutors can now lock and unlock Security evidence lockers.
@@ -3862,3 +3826,31 @@
   id: 926
   time: '2025-01-16T20:21:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/2743
+- author: Lyndomen
+  changes:
+  - message: Surgery now does a lil more damage! Keep your patients asleep!
+    type: Tweak
+  - message: Limbs have a lot more burn resist, and a lil less slash resist. Be careful!
+    type: Tweak
+  - message: Role based speed modifications have been removed, Medical is no longer
+      intrinsically faster at surgery.
+    type: Tweak
+  id: 927
+  time: '2025-01-16T23:36:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2721
+- author: boogiebogus
+  changes:
+  - message: Added several new lockers and wall lockers for mapping usage
+    type: Add
+  - message: replaced sci/research markings on the epistemics crate and locker, respectively
+    type: Tweak
+  id: 928
+  time: '2025-01-16T23:47:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2636
+- author: HTMLSystem
+  changes:
+  - message: Added the DeltaV scrubs to the surgeon loadout, hooray!
+    type: Add
+  id: 929
+  time: '2025-01-16T23:48:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/2756
