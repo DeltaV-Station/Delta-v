@@ -13,7 +13,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Transport.yml
+          emergencyShuttlePath: /Maps/_DV/Shuttles/NTES_Transport.yml
         - type: StationJobs
           availableJobs:
           #civilian
@@ -45,6 +45,7 @@
             MedicalDoctor: [ 4, 6 ]
             MedicalIntern: [ 4, 4 ]
             Psychologist: [ 1, 1 ]
+            Surgeon: [ 1, 1]
           #security
             Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
