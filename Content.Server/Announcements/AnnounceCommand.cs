@@ -1,11 +1,11 @@
-using System.Linq;
+using System.Linq; // Impstation Random Announcer System
 using Content.Server.Administration;
-using Content.Server._EE.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
 using Content.Shared.Administration;
-using Content.Shared._EE.Announcements.Prototypes;
+using Content.Shared._EE.Announcements.Prototypes; // Impstation Random Announcer System
 using Robust.Shared.Console;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Player; // Impstation Random Announcer System
+using Robust.Shared.Prototypes; // Impstation Random Announcer System
 
 namespace Content.Server.Announcements
 {
@@ -14,10 +14,10 @@ namespace Content.Server.Announcements
     {
         public string Command => "announce";
         public string Description => "Send an in-game announcement.";
-        public string Help => $"{Command} <sender> <message> <sound> <announcer>";
+        public string Help => $"{Command} <sender> <message> <sound> <announcer>"; // Impstation Random Announcer System: Adds announcer
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var announcer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>();
+            var announcer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>(); // Start Impstation Random Announcer System
             var proto = IoCManager.Resolve<IPrototypeManager>();
 
             switch (args.Length)
@@ -83,7 +83,7 @@ namespace Content.Server.Announcements
                     return CompletionResult.FromHintOptions(list, Loc.GetString("admin-announce-hint-voice"));
                 }
                 default:
-                    return CompletionResult.Empty;
+                    return CompletionResult.Empty; // End Impstation Random Announcer System
             }
         }
     }

@@ -21,7 +21,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server._EE.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
 
 namespace Content.Server.GameTicking
 {
@@ -30,7 +30,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
-        [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -645,7 +645,7 @@ namespace Content.Server.GameTicking
 
             var proto = _robustRandom.Pick(options);
 
-            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(proto.ID), Filter.Broadcast(),
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(proto.ID), Filter.Broadcast(), // Impstation Random Announcer System: Integrates the announcer
                 proto.Message ?? "game-ticker-welcome-to-the-station");
         }
 

@@ -9,8 +9,8 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.Communications;
 
@@ -23,7 +23,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     // TODO: remove when generic check event is used
     [Dependency] private readonly NinjaGlovesSystem _gloves = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly AnnouncerSystem _announcer = default!;
+	[Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     public override void Initialize()
     {
@@ -82,7 +82,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     public void CallInThreat(NinjaHackingThreatPrototype ninjaHackingThreat)
     {
         _gameTicker.StartGameRule(ninjaHackingThreat.Rule, out _);
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NinjaHacking"), Filter.Broadcast(),
+        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NinjaHacking"), Filter.Broadcast(), // Impstation Random Announcer System: Adds the announcer
 		    ninjaHackingThreat.Announcement, colorOverride: Color.Red);
     }
 }

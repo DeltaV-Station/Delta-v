@@ -8,8 +8,8 @@ using Content.Shared.Station.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.StationEvents.Events;
 
@@ -27,7 +27,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
      * USE THE PROTOTYPE.
      */
 
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
@@ -36,12 +36,12 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
 
     private List<EntityCoordinates> _locations = new();
 
-    protected override void Added(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args) // Begin Impstation Random Announcer System
     {
         base.Added(uid, component, gameRule, args);
 
         PickLocation(component);
-        if (component.Location is not { } coords)
+        if (component.Location is not { } coords) // End Impstation Random Announcer System
         {
             ForceEndSelf(uid, gameRule);
             return;
@@ -53,7 +53,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
 
         var nearest = beacon?.Comp?.Text!;
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // Begin Impstation Random Announcer System: Integrates the announcer
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-vent-creatures-start-announcement-deltav",
@@ -61,7 +61,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             Color.Gold,
             null, null,
             ("location", nearest)
-        );
+        ); // End Impstation Random Announcer System
     }
 
     protected override void Ended(EntityUid uid, VentCrittersRuleComponent comp, GameRuleComponent gameRule, GameRuleEndedEvent args)

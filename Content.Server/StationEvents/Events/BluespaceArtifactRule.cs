@@ -1,14 +1,14 @@
 using Content.Server.StationEvents.Components;
 ﻿using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifactRuleComponent>
 {
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     protected override void Added(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -17,7 +17,7 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
 
         base.Added(uid, component, gameRule, args);
         
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // Start Impstation Random Announcer System: Integrates the announcer
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "bluespace-artifact-event-announcement",
@@ -25,7 +25,7 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
             Color.FromHex("#18abf5"),
             null, null,
             ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting)))
-        );
+        ); // End Impstation Random Announcer System
     }
 
     protected override void Started(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)

@@ -19,10 +19,10 @@ public sealed partial class StationEventComponent : Component
     public float Weight = WeightNormal;
 
     [DataField]
-    public bool StartAnnouncement;
+    public bool StartAnnouncement; // Impstation Random Announcer System: Converted to Bool
 
     [DataField]
-    public bool EndAnnouncement;
+    public bool EndAnnouncement; // Impstation Random Announcer System: Converted to Bool
 
     [DataField]
     public Color StartAnnouncementColor = Color.Gold;

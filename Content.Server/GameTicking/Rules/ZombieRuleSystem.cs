@@ -18,7 +18,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
-using Content.Server._EE.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -34,7 +34,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     public override void Initialize()
     {
@@ -121,9 +121,9 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         {
             foreach (var station in _station.GetStations())
             {
-                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
+                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"), // Start Impstation Random Announcer System: Integrates the announcer
                     _station.GetInOwningStation(station), "zombie-shuttle-call",
-                    colorOverride: Color.Crimson);
+                    colorOverride: Color.Crimson);  // Ends Impstation Random Announcer System: Integrates the announcer
             }
             _roundEnd.RequestRoundEnd(null, false);
         }

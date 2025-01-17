@@ -6,8 +6,8 @@ using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Prototypes;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.StationEvents.Events;
 
@@ -16,7 +16,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
     [Dependency] private readonly CargoSystem _cargoSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     protected override void Added(EntityUid uid, CargoGiftsRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -25,7 +25,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
 
         base.Added(uid, component, gameRule, args);
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // Start Impstation Random Announcer System: Integrating the announcer
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             component.Announce,
@@ -35,7 +35,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
             ("sender", Loc.GetString(component.Sender)),
                 ("description", Loc.GetString(component.Description)),
                 ("dest", Loc.GetString(component.Dest))
-        );
+        ); // End Impstation Random Announcer System
     }
 
     /// <summary>

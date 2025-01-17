@@ -21,7 +21,7 @@
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
                 <CheckBox Name="AnnouncerDisableMultipleSoundsCheckBox"
                                 Text="{Loc 'ui-options-announcer-disable-multiple-sounds'}"
-                                ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" />
+                                ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" /> <!--Impstation Random Announcer System port-->
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
             </BoxContainer>
         </BoxContainer>

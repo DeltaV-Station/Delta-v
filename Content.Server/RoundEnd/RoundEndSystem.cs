@@ -22,7 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server._EE.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
 
 namespace Content.Server.RoundEnd
 {
@@ -43,7 +43,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
-        [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -236,13 +236,13 @@ namespace Content.Server.RoundEnd
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
             }
 
-            _announcer.SendAnnouncement(
+            _announcer.SendAnnouncement( // Begin Impstation Random Announcer System: Integrates the announcer
                 _announcer.GetAnnouncementId("ShuttleRecalled"),
                 Filter.Broadcast(),
                 "round-end-system-shuttle-recalled-announcement",
                 Loc.GetString("Station"),
                 Color.Gold
-            );
+            ); // End Impstation Random Announcer System: Integrates the announcer
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
@@ -321,13 +321,13 @@ namespace Content.Server.RoundEnd
                     // Check is shuttle called or not. We should only dispatch announcement if it's already called
                     if (IsRoundEndRequested())
                     {
-                        _announcer.SendAnnouncement(
+                        _announcer.SendAnnouncement( // Start Impstation Random Announcer System: Integrates the announcer
                             _announcer.GetAnnouncementId("ShuttleCalled"),
                             Filter.Broadcast(),
                             textAnnounce,
                             Loc.GetString(sender),
                             Color.Gold
-                        );
+                        ); // End Impstation Random Announcer System: Integrates the announcer
                     }
                     else
                     {

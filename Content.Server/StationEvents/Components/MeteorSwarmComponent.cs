@@ -11,12 +11,6 @@ public sealed partial class MeteorSwarmComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan NextWaveTime;
 
-    [DataField("startAnnouncement")]
-    public bool StartAnnouncement;
-
-    [DataField("endAnnouncement")]
-    public bool EndAnnouncement;
-
     /// <summary>
     /// We'll send a specific amount of waves of meteors towards the station per ending rather than using a timer.
     /// </summary>
@@ -32,6 +26,15 @@ public sealed partial class MeteorSwarmComponent : Component
     [DataField]
     public bool NonDirectional;
 
+    /// <summary>
+    /// The announcement played when a meteor swarm starts. Changed to Boolean because of Impstation Random Announcer System.
+    /// </summary>
+        [DataField("startAnnouncement")]
+    public bool StartAnnouncement;
+
+    [DataField("endAnnouncement")]
+    public bool EndAnnouncement;
+    
     /// <summary>
     /// Each meteor entity prototype and their corresponding weight in being picked.
     /// </summary>

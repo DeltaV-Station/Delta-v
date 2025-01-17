@@ -22,7 +22,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server._EE.Announcements.Systems;
+using Content.Server._EE.Announcements.Systems;  // Impstation Random Announcer System
 
 namespace Content.Server.Nuke;
 
@@ -45,7 +45,7 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;  // Impstation Random Announcer System
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -516,12 +516,12 @@ public sealed class NukeSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
-       _announcer.SendAnnouncementMessage(
+       _announcer.SendAnnouncementMessage( // Impstation Random Announcer System: Integrates the announcer
            _announcer.GetAnnouncementId("NukeDisarm"),
            "nuke-component-announcement-unarmed",
            Loc.GetString("nuke-component-announcement-sender"),
            station: stationUid ?? uid
-       );
+       ); // End Impstation Random Announcer System: Integrates the announcer
 
         component.PlayedNukeSong = false;
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(component.DisarmSound));

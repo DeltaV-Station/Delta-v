@@ -6,8 +6,8 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
 
 namespace Content.Server.StationEvents.Events;
 
@@ -15,7 +15,7 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -72,14 +72,14 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var kind2 = groupList.Count > 1 ? groupList[1] : "???";
         var kind3 = groupList.Count > 2 ? groupList[2] : "???";
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // Begin Impstation Random Announcer System: Integrates the announcer
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-random-sentience-announcement",
             null,
             Color.Gold,
             null, null,
-            ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
+            ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count), // End Impstation Random Announcer System
                 ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
                 ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
         );

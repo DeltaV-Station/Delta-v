@@ -9,9 +9,9 @@ using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Server._EE.Announcements.Systems;
-using Robust.Shared.Player;
-using Content.Server.Station.Components;
+using Content.Server._EE.Announcements.Systems; // Impstation Random Announcer System
+using Robust.Shared.Player; // Impstation Random Announcer System
+using Content.Server.Station.Components; // Impstation Random Announcer System
 
 namespace Content.Server.StationEvents.Events;
 
@@ -26,7 +26,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly StationSystem StationSystem = default!;
     [Dependency] protected readonly GameTicker GameTicker = default!;
-	[Dependency] private readonly AnnouncerSystem _announcer = default!;
+	[Dependency] private readonly AnnouncerSystem _announcer = default!; // Impstation Random Announcer System
 
     protected ISawmill Sawmill = default!;
 
@@ -58,7 +58,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
 
         AdminLogManager.Add(LogType.EventStarted, LogImpact.High, $"Event started: {ToPrettyString(uid)}");
 
-        if (stationEvent.StartAnnouncement)
+        if (stationEvent.StartAnnouncement) // Begin Impstation Random Announcer System: Integrates the announcer
         {
             _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId(args.RuleId),
@@ -66,7 +66,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
                 _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
                 colorOverride: Color.Gold
             );
-        }
+        } // End Impstation Random Announcer System
 
         if (stationEvent.Duration != null)
         {
@@ -91,14 +91,14 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        if (stationEvent.EndAnnouncement)
+        if (stationEvent.EndAnnouncement) // Begin Impstation Random Announcer System: Integrates the announcer
         {
                 _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId(args.RuleId, true),
                 Filter.Broadcast(),
                 _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId, true)),
                 colorOverride: Color.Gold);
-        }
+        } // End Impstation Random Announcer System
     }
 
     /// <summary>
