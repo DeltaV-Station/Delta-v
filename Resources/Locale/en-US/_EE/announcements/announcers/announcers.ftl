@@ -3,6 +3,3 @@
 # EE (both were Delta / Nyano)
 announcer-Michael-name = Michael
 announcer-NEIL-name = N.E.I.L.
-
-
-
