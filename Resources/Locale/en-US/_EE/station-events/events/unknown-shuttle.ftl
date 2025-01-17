@@ -1,6 +1,5 @@
 # This is all the same words, but it has to exist to get the EE multiple announcer system to function properly. I hate it.
 # Wizard's Den
-station-event-unknown-shuttle-incoming = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-cargo-lost-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-gym-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-traveling-cuisine-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
