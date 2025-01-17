@@ -1,31 +1,40 @@
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Abilities.Chitinid;
-
 
 [RegisterComponent]
 public sealed partial class ChitinidComponent : Component
 {
-    [DataField("ChitzitePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ChitzitePrototype = "Chitzite";
+    [DataField]
+    public EntProtoId ChitzitePrototype = "Chitzite";
 
-    [DataField("ChitziteActionId",
-        customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ChitziteActionId = "ActionChitzite";
+    [DataField]
+    public EntProtoId ChitziteActionId = "ActionChitzite";
 
-    [DataField("ChitziteAction")]
+    [DataField]
     public EntityUid? ChitziteAction;
 
     [DataField]
-    public float AmountAbsorbed { get; set; } = 0f;
+    public FixedPoint2 AmountAbsorbed = 0f;
 
     [DataField]
-    public float MaximumAbsorbed = 30f;
+    public DamageSpecifier Healing = new()
+    {
+        DamageDict = new()
+        {
+            { "Radiation", -0.5 },
+        }
+    };
 
     [DataField]
-    public TimeSpan UpdateInterval { get; set; } = TimeSpan.FromSeconds(1);
+    public FixedPoint2 MaximumAbsorbed = 30f;
+
+    [DataField]
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextUpdate;

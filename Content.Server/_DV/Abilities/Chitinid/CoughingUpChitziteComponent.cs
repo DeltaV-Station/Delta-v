@@ -1,11 +1,14 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 namespace Content.Server.Abilities.Chitinid;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class CoughingUpChitziteComponent : Component
 {
-    [DataField("accumulator")]
-    public float Accumulator = 0f;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan NextCough;
 
-    [DataField("coughUpTime")]
+    [DataField]
     public TimeSpan CoughUpTime = TimeSpan.FromSeconds(2.15);
 }

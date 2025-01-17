@@ -109,7 +109,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     /// </summary>
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
-        if (HasComp<BlockInjectionComponent>(target))
+        if (HasComp<BlockInjectionComponent>(target)) // DeltaV
         {
             Popup.PopupEntity(Loc.GetString("injector-component-deny-user"), target, user);
             return;
@@ -260,7 +260,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private bool TryInject(Entity<InjectorComponent> injector, EntityUid targetEntity,
         Entity<SolutionComponent> targetSolution, EntityUid user, bool asRefill)
     {
-        if (HasComp<BlockInjectionComponent>(targetEntity))
+        if (HasComp<BlockInjectionComponent>(targetEntity))  // DeltaV
             return false;
 
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var soln,
