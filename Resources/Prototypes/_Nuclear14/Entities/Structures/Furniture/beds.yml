@@ -7,9 +7,6 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
     state: bed
-  - type: Construction
-    graph: N14Bed
-    node: bed
 
 - type: entity
   parent: N14Bed
@@ -29,9 +26,6 @@
   components:
   - type: Sprite
     state: bed_wood
-  - type: Construction
-    graph: N14Bed
-    node: bedwood
 
 - type: entity
   parent: N14Bed
